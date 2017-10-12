@@ -93,6 +93,7 @@ ignore_unused:
   - booleans.*
   - '{date,time.formats}.*'
   - decidim.admin.participatory_process_steps.default_title
+  - decidim.authorization_handlers.{direct,multistep}
   - decidim.assemblies.statistics.*
   - decidim.components.*
   - decidim.filters.linked_classes.*

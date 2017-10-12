@@ -41,8 +41,9 @@ describe "Authorizations", type: :feature do
       end
     end
 
-    context "when multiple authorizations have been configured" do
-      let(:authorizations) { ["Decidim::DummyAuthorizationHandler", "Decidim::DummyAuthorizationHandler"] }
+    context "when multiple authorizations have been configured", with_authorization_handlers: ["Decidim::DummyAuthorizationHandler"],
+                                                                 with_authorization_workflows: ["dummy_authorization_workflow"] do
+      let(:authorizations) { ["Decidim::DummyAuthorizationHandler", "dummy_authorization_workflow"] }
 
       before do
         visit decidim.root_path
@@ -123,7 +124,7 @@ describe "Authorizations", type: :feature do
       end
     end
 
-    context "when no authorizations are configured", without_authorizations: true do
+    context "when no authorizations are configured", with_authorization_handlers: [] do
       let(:authorizations) { [] }
 
       it "doesn't list authorizations" do

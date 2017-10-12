@@ -11,7 +11,7 @@
         <div class="card">
           <div class="card__content">
             <% handlers.each do |handler| %>
-              <%= link_to t("authorizations.first_login.actions.#{handler.handler_name}", scope: "decidim"), new_authorization_path(handler: handler.handler_name), class: "button expanded" %>
+              <%= link_to t("authorizations.first_login.actions.#{handler.key}", scope: "decidim"), handler.root_path, class: "button expanded" %>
             <% end %>
             <p class="text-center skip"><%= t("decidim.authorizations.skip_verification", link: link_to(t("decidim.authorizations.start_exploring"), cta_button_path).html_safe).html_safe %>.</p>
           </div>

@@ -21,7 +21,7 @@ if !Rails.env.production? || ENV["SEED"]
     default_locale: Decidim.default_locale,
     available_locales: Decidim.available_locales,
     reference_prefix: Faker::Name.suffix,
-    available_authorizations: Decidim.authorization_handlers
+    available_authorizations: Decidim.authorization_methods.map(&:name)
   )
 
   province = Decidim::ScopeType.create!(

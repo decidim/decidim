@@ -32,6 +32,13 @@ Decidim::Core::Engine.routes.draw do
         get :first_login
       end
     end
+
+    scope :authorizations do
+      Decidim::Verifications.workflows.each do |manifest|
+        mount manifest.engine, at: "/#{manifest.name}", as: "decidim_#{manifest.name}"
+      end
+    end
+
     resource :account, only: [:show, :update, :destroy], controller: "account" do
       member do
         get :delete

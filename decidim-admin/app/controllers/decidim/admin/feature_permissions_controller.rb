@@ -46,7 +46,9 @@ module Decidim
       end
 
       def authorizations
-        current_organization.available_authorizations.map(&:constantize).map(&:handler_name)
+        Verifications::Adapter.from_collection(
+          current_organization.available_authorizations
+        )
       end
 
       def feature

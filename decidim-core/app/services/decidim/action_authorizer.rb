@@ -86,12 +86,24 @@ module Decidim
     end
 
     class AuthorizationStatus
-      attr_reader :code, :handler_name, :data
+      attr_reader :code, :data
 
       def initialize(code, handler_name, data)
         @code = code.to_sym
         @handler_name = handler_name
         @data = data.symbolize_keys
+      end
+
+      def auth_method
+        return unless @handler_name
+
+        @auth_method ||= Verifications::Adapter.from_element(@handler_name)
+      end
+
+      def handler_name
+        return unless auth_method
+
+        auth_method.key
       end
 
       def ok?

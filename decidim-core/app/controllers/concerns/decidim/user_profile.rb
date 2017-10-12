@@ -27,7 +27,9 @@ module Decidim
     # Public: Available authorization handlers in order to conditionally
     # show the menu element.
     def available_authorization_handlers
-      current_organization.available_authorizations.map(&:constantize)
+      Verifications::Adapter.from_collection(
+        current_organization.available_authorizations & Decidim.authorization_methods.map(&:name)
+      )
     end
   end
 end

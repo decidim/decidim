@@ -24,7 +24,7 @@ module Decidim
       if handlers.length == 1
         redirect_to(
           action: :new,
-          handler: handlers.first.handler_name,
+          handler: handlers.first.name,
           redirect_url: account_path
         )
       end
@@ -69,7 +69,7 @@ module Decidim
 
     def handlers
       @handlers ||= available_authorization_handlers.reject do |handler|
-        authorized_handlers.include?(handler.handler_name)
+        authorized_handlers.include?(handler.key)
       end
     end
 

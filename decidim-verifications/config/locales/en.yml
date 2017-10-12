@@ -1,0 +1,6 @@
+---
+en:
+  decidim:
+    authorization_handlers:
+      direct: Direct
+      multistep: Multi-Step
