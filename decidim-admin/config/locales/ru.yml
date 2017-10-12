@@ -276,3 +276,38 @@ ru:
         report:
           reasons:
             does_not_belong: Неприемлемо
+            offensive: Оскорбительно
+            spam: Спам
+      scopes:
+        update:
+          success: Охват успешно обновлен
+      static_pages:
+        actions:
+          view: Просмотреть общедоступную страницу
+        create:
+          error: При создании новой страницы произошла ошибка.
+          success: Страница успешно создана.
+        destroy:
+          success: Страница успешно удалена
+        edit:
+          title: Отредактировать страницу
+          update: Обновить
+        new:
+          create: Новая
+          title: Новая страница
+        update:
+          error: При обновлении этой страницы произошла ошибка.
+          success: Страница успешно обновлена
+      titles:
+        dashboard: Панель мониторинга
+        impersonations: Олицетворения
+        managed_users: Управляемые пользователи
+        scope_types: Типы охвата
+        scopes: Охваты
+        static_pages: Страницы
+        user_groups: Группы участников
+        users: Участники
+      user_group:
+        reject:
+          invalid: При отказе от этой группы участников произошла ошибка.
+          success: Группа участников успешно отклонена
