@@ -15,6 +15,7 @@ module Decidim
     # The user that is trying to authorize, it's initialized with the
     # `current_user` from the controller.
     attribute :user, Decidim::User
+
     # The String name of the handler, should not be modified since it's used to
     # infer the class name of the authorization handler.
     attribute :handler_name, String
@@ -66,6 +67,13 @@ module Decidim
     # Returns a Hash.
     def verification_metadata
       {}
+    end
+
+    #
+    # An optional attachment to help out with verification.
+    #
+    def verification_attachment
+      nil
     end
 
     # A serialized version of the handler's name.

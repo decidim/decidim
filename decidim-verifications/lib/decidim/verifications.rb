@@ -3,6 +3,7 @@
 require "decidim/verifications/workflows"
 require "decidim/verifications/adapter"
 
+require "decidim/verifications/id_documents"
 require "decidim/verifications/postal_letter"
 
 module Decidim

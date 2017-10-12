@@ -36,7 +36,8 @@ module Decidim
         authorization.attributes = {
           unique_id: handler.unique_id,
           metadata: handler.metadata,
-          verification_metadata: handler.verification_metadata
+          verification_metadata: handler.verification_metadata,
+          verification_attachment: handler.verification_attachment
         }
 
         authorization.save!

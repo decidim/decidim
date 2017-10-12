@@ -103,6 +103,7 @@ ignore_unused:
   - decidim.proposals.proposals.orders.*
   - decidim.resource_links.*
   - decidim.system.default_pages.placeholders.*
+  - decidim.verifications.id_documents.{dni,nie,passport}
   - errors.messages.*
   - invisible_captcha.*
   - pages.home.statistics.*

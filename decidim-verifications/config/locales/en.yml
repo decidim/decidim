@@ -1,12 +1,35 @@
 ---
 en:
+  activemodel:
+    attributes:
+      id_document_upload:
+        document_number: Document number (with letter)
+        document_type: Type of your document
+        user: User
+        verification_attachment: Scanned copy of your document
   decidim:
     authorization_handlers:
       direct: Direct
+      id_documents:
+        name: Identity documents
       multistep: Multi-Step
       postal_letter:
         name: Code by postal letter
     verifications:
+      id_documents:
+        authorizations:
+          create:
+            error: There was a problem uploading your document
+            success: Document uploaded successfully
+          edit:
+            being_reviewed: We're reviewing your documents. You'll be verified shortly
+            title: Verification in progress
+          new:
+            send: Request verification
+            title: Upload your identity document
+        dni: DNI
+        nie: NIE
+        passport: Passport
       postal_letter:
         authorizations:
           create:
@@ -22,3 +45,6 @@ en:
           update:
             error: Your verification code doesn't match ours. Please double-check the letter we sent to you
             success: Congratulations. You've been successfully verified
+  errors:
+    messages:
+      uppercase_only_letters_numbers: must be all uppercase and contain only letters and/or numbers
