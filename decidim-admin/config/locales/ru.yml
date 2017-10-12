@@ -184,7 +184,7 @@ ru:
         impersonations:
           new:
             impersonate: Олицетворить (выступить в роли участника)
-            new_managed_user_impersonation: Олицетворить (выступить в качестве) нового управляемого участника
+            new_managed_user_impersonation: Новое олицетворение управляемого участника
         index:
           impersonate: Олицетворить (выступить в роли участника)
           needs_authoriation_warning: Для этой организации нужно обеспечить хотя бы одну авторизацию.
@@ -201,3 +201,36 @@ ru:
         promotions:
           new:
             explanation: Управляемых пользователей можно повышать в статусе до обычных пользователей. Это означает, что они будут приглашены в приложение, и вы не сможете олицетворять (выступать в их роли) их снова. Приглашенный пользователь получит электронное письмо, чтобы принять ваше приглашение.
+            new_managed_user_promotion: Новое повышение управляемого участника
+            promote: Повысить в статусе
+      menu:
+        admins: Администраторы
+        dashboard: Панель мониторинга
+        managed_users: Управляемые пользователи
+        newsletters: Рассылки новостей
+        scope_types: Типы охвата
+        scopes: Охваты
+        settings: Настройки
+        static_pages: Страницы
+        user_groups: Группы участников
+        users: Участники
+      models:
+        attachment:
+          fields:
+            content_type: Тип
+            title: Название
+          name: Вложение
+        category:
+          name: Категория
+        impersonation_log:
+          fields:
+            admin: Администратор
+            ended_at: 'Завершено:'
+            expired_at: 'Срок действия истек:'
+            started_at: 'Начато:'
+            user: Участник
+        managed_user:
+          name: Управляемый участник
+        newsletter:
+          fields:
+            created_at: 'Создано:'
