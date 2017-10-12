@@ -14,8 +14,17 @@ module Decidim
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
 
     validates :name, uniqueness: { scope: :decidim_user_id }
+    validates :verification_metadata, absence: true, if: :granted?
 
     validate :active_handler?
+
+    def grant!
+      update!(granted_at: Time.zone.now, verification_metadata: {})
+    end
+
+    def granted?
+      !granted_at.nil?
+    end
 
     private
 

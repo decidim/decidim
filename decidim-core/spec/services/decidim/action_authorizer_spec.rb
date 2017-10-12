@@ -13,10 +13,11 @@ module Decidim
     let(:name) { "foo_handler" }
 
     let!(:authorization) do
-      create(:authorization, name: name, metadata: metadata)
+      create(:authorization, :granted, name: name, metadata: metadata)
     end
 
     let(:metadata) { { postal_code: "1234", location: "Tomorrowland" } }
+
     let(:response) { subject.authorize }
 
     let(:permission) do
@@ -85,52 +86,64 @@ module Decidim
           end
         end
 
-        context "when the authorization type matches" do
+        context "when the user has a valid authorization" do
           before { authorization.update!(user: user) }
 
-          context "when it doesn't have options" do
-            let(:options) { {} }
+          context "when it's not yet granted" do
+            before { authorization.update!(granted_at: nil) }
 
-            it "returns ok" do
-              expect(response).to be_ok
-            end
-          end
-
-          context "when has options that doesn't match the authorization" do
-            let(:options) { { postal_code: "789" } }
-
-            it "returns invalid" do
+            it "returns pending" do
               expect(response).not_to be_ok
-              expect(response.code).to eq(:invalid)
+              expect(response.code).to eq(:pending)
               expect(response.handler_name).to eq("foo_handler")
-              expect(response.data).to include(fields: { "postal_code" => "789" })
             end
           end
 
-          context "when has options that exactly match the authorization" do
-            let(:options) { { postal_code: "1234", location: "Tomorrowland" } }
+          context "when the authorization type matches" do
+            context "when it doesn't have options" do
+              let(:options) { {} }
 
-            it "returns ok" do
-              expect(response).to be_ok
+              it "returns ok" do
+                expect(response).to be_ok
+              end
             end
-          end
 
-          context "when has options that partially match the authorization" do
-            let(:options) { { postal_code: "1234" } }
+            context "when has options that doesn't match the authorization" do
+              let(:options) { { postal_code: "789" } }
 
-            it "returns ok" do
-              expect(response).to be_ok
+              it "returns invalid" do
+                expect(response).not_to be_ok
+                expect(response.code).to eq(:invalid)
+                expect(response.handler_name).to eq("foo_handler")
+                expect(response.data).to include(fields: { "postal_code" => "789" })
+              end
             end
-          end
 
-          context "when has options that contains more keys than the authorization" do
-            let(:options) { { postal_code: "1234", age: 18 } }
+            context "when has options that exactly match the authorization" do
+              let(:options) { { postal_code: "1234", location: "Tomorrowland" } }
 
-            it "returns incomplete with the fields" do
-              expect(response).not_to be_ok
-              expect(response.code).to eq(:incomplete)
-              expect(response.handler_name).to eq("foo_handler")
-              expect(response.data).to include(fields: ["age"])
+              it "returns ok" do
+                expect(response).to be_ok
+              end
+            end
+
+            context "when has options that partially match the authorization" do
+              let(:options) { { postal_code: "1234" } }
+
+              it "returns ok" do
+                expect(response).to be_ok
+              end
+            end
+
+            context "when has options that contains more keys than the authorization" do
+              let(:options) { { postal_code: "1234", age: 18 } }
+
+              it "returns incomplete with the fields" do
+                expect(response).not_to be_ok
+                expect(response.code).to eq(:incomplete)
+                expect(response.handler_name).to eq("foo_handler")
+                expect(response.data).to include(fields: ["age"])
+              end
             end
           end
         end

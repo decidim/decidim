@@ -30,16 +30,35 @@ module Decidim::Abilities
 
     describe "abilities" do
       context "when own authorizations" do
-        let(:authorization) { build(:authorization, user: user) }
+        context "when not yet authorized" do
+          let!(:authorization) { build(:authorization, user: user) }
 
-        it { is_expected.to be_able_to(:manage, authorization) }
-        it { is_expected.to be_able_to(:manage, Decidim::Authorization) }
+          it { is_expected.to be_able_to(:create, authorization) }
+          it { is_expected.not_to be_able_to(:update, authorization) }
+        end
+
+        context "when authorization in process" do
+          let!(:authorization) { create(:authorization, :pending, name: "dummy", user: user) }
+          let!(:other_authorization) { build(:authorization, :pending, name: "dummy", user: user) }
+
+          it { is_expected.not_to be_able_to(:create, other_authorization) }
+          it { is_expected.to be_able_to(:update, authorization) }
+        end
+
+        context "when authorization already granted" do
+          let!(:authorization) { create(:authorization, :granted, name: "dummy", user: user) }
+          let!(:other_authorization) { build(:authorization, name: "dummy", user: user) }
+
+          it { is_expected.not_to be_able_to(:create, other_authorization) }
+          it { is_expected.not_to be_able_to(:update, authorization) }
+        end
       end
 
       context "when authorizations from others" do
         let(:authorization) { build(:authorization) }
 
-        it { is_expected.not_to be_able_to(:manage, authorization) }
+        it { is_expected.not_to be_able_to(:create, authorization) }
+        it { is_expected.not_to be_able_to(:update, authorization) }
       end
     end
   end

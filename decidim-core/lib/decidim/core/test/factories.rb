@@ -188,9 +188,18 @@ FactoryBot.define do
   end
 
   factory :authorization, class: "Decidim::Authorization" do
-    name "decidim/dummy_authorization_handler"
+    sequence(:name) { |n| "dummy_authorization_#{n}" }
     user
     metadata { {} }
+    granted
+
+    trait :granted do
+      granted_at { 1.day.ago }
+    end
+
+    trait :pending do
+      granted_at nil
+    end
   end
 
   factory :static_page, class: "Decidim::StaticPage" do

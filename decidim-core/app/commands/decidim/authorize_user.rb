@@ -38,7 +38,7 @@ module Decidim
         metadata: handler.metadata
       }
 
-      authorization.save!
+      authorization.grant!
     end
 
     def unique?

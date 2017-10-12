@@ -15,7 +15,7 @@ module Decidim
       )
     end
 
-    let(:authorizations) { Authorizations.new(user: user) }
+    let(:authorizations) { Authorizations.new(user: user, granted: true) }
 
     context "when the form is not authorized" do
       before do
@@ -36,6 +36,12 @@ module Decidim
         subject.call
 
         expect(authorizations.first.metadata["document_number"]).to eq("12345678X")
+      end
+
+      it "sets the authorization as granted" do
+        subject.call
+
+        expect(authorizations.first).to be_granted
       end
     end
 

@@ -58,6 +58,16 @@ module Decidim
       {}
     end
 
+    #
+    # Any data to be injected in the `verification_metadata` field of an
+    # authorization when it's created. This data will be used for multi-step
+    # verificaton workflows in order to confirm the authorization.
+    #
+    # Returns a Hash.
+    def verification_metadata
+      {}
+    end
+
     # A serialized version of the handler's name.
     #
     # Returns a String.
