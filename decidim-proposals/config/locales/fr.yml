@@ -143,6 +143,7 @@ fr:
           view_proposal: Voir la proposition
         show:
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
+          proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition a été refusée parce que:'
           report: Signaler
         vote_button:
