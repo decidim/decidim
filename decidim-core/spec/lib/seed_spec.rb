@@ -19,15 +19,13 @@ describe Decidim do
         double(load_seed: nil, class: double(name: "Something::EngineB"))
       ]
 
-      decidim_railties.each { |r| expect(r).to receive(:load_seed) }
-      other_railties.each { |r| expect(r).not_to receive(:load_seed) }
+      expect(decidim_railties).to all(receive(:load_seed))
+      expect(other_railties).not_to include(receive(:load_seed))
 
       manifests = [double(name: "Feature A"), double(name: "Feature B")]
       expect(described_class).to receive(:participatory_space_manifests).and_return(manifests)
 
-      manifests.each do |manifest|
-        expect(manifest).to receive(:seed!).once
-      end
+      expect(manifests).to all(receive(:seed!).once)
 
       application = double(railties: (decidim_railties + other_railties))
       expect(Rails).to receive(:application).and_return application

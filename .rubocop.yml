@@ -1288,6 +1288,9 @@ RSpec/BeforeAfterAll:
 RSpec/ExampleLength:
   Max: 49
 
+RSpec/IteratedExpectation:
+  Enabled: true
+
 RSpec/LetSetup:
   Enabled: false
 
