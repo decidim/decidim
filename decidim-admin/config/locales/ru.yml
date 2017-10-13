@@ -129,3 +129,221 @@ ru:
       dashboard:
         show:
           welcome: Добро пожаловать на новую панель администратора Десидим!
+      exports:
+        export_as: "%{name} как %{export_format}"
+        notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.
+      feature_permissions:
+        edit:
+          everyone: Все
+          submit: Сохранить разрешения
+          title: Изменить разрешения
+        update:
+          success: Разрешения успешно обновлены.
+      features:
+        create:
+          error: При создании этой составляющей произошла ошибка.
+          success: Составляющая успешно создана.
+        destroy:
+          error: При удалении этой составляющей произошла ошибка.
+          success: Составляющая успешно удалена.
+        edit:
+          title: Редактировать составляющую
+          update: Обновить
+        form:
+          default_step_settings: Настройки шага по умолчанию
+          global_settings: Глобальные настройки
+          step_settings: Настройки шага
+        index:
+          add: Добавить составляющую
+          headers:
+            actions: Действия
+            name: Название составляющей
+            type: Тип составляющей
+        new:
+          add: Добавить составляющую
+          title: 'Добавить составляющую: %{name}'
+        publish:
+          success: Эта составляющая успешно опубликована.
+        title: Составляющие
+        unpublish:
+          success: Публикация этой составляющей успешно отменена.
+        update:
+          error: При обновлении этой составляющей произошла ошибка.
+          success: Эта составляющая была успешно обновлена.
+      managed_users:
+        close_session:
+          error: При закрытии текущего сеанса олицетворения произошла ошибка.
+          success: Текущий сеанс олицетворения успешно завершен.
+        create:
+          error: При создании управляемого участника произошла ошибка.
+          success: Управляемый участник успешно создан.
+        form:
+          name: Имя
+        impersonate:
+          error: При олицетворении управляемого участника произошла ошибка.
+        impersonations:
+          new:
+            impersonate: Олицетворить (выступить в роли участника)
+            new_managed_user_impersonation: Новое олицетворение управляемого участника
+        index:
+          impersonate: Олицетворить (выступить в роли участника)
+          needs_authoriation_warning: Для этой организации нужно обеспечить хотя бы одну авторизацию.
+          promote: Повысить в статусе
+          view_logs: Просмотреть журналы
+        new:
+          create: Создать
+          new_managed_user: Новый управляемый участник
+          select_authorization_method: Выберите способ авторизации
+          step: Шаг %{current} из %{total}
+        promotion:
+          error: При повышении статуса управляемого участника произошла ошибка.
+          success: Управляемый участник успешно повышен в статусе.
+        promotions:
+          new:
+            explanation: Управляемых пользователей можно повышать в статусе до обычных пользователей. Это означает, что они будут приглашены в приложение, и вы не сможете олицетворять (выступать в их роли) их снова. Приглашенный пользователь получит электронное письмо, чтобы принять ваше приглашение.
+            new_managed_user_promotion: Новое повышение управляемого участника
+            promote: Повысить в статусе
+      menu:
+        admins: Администраторы
+        dashboard: Панель мониторинга
+        managed_users: Управляемые пользователи
+        newsletters: Рассылки новостей
+        scope_types: Типы охвата
+        scopes: Охваты
+        settings: Настройки
+        static_pages: Страницы
+        user_groups: Группы участников
+        users: Участники
+      models:
+        attachment:
+          fields:
+            content_type: Тип
+            title: Название
+          name: Вложение
+        category:
+          name: Категория
+        impersonation_log:
+          fields:
+            admin: Администратор
+            ended_at: 'Завершено:'
+            expired_at: 'Срок действия истек:'
+            started_at: 'Начато:'
+            user: Участник
+        managed_user:
+          name: Управляемый участник
+        newsletter:
+          fields:
+            created_at: 'Создано:'
+            progress: Продвижение
+            sent_at: 'Отправлено:'
+            subject: Тема
+          name: Рассылка новостей
+        scope:
+          fields:
+            name: Имя
+            scope_type: Тип охвата
+        scope_type:
+          fields:
+            name: Имя
+            plural: Множественное число
+        static_page:
+          fields:
+            created_at: 'Создано:'
+            title: Название
+        user:
+          fields:
+            created_at: Дата создания
+            email: Эл. адрес
+            last_sign_in_at: Дата последнего входа
+            name: Имя
+            role: Роль
+            roles:
+              admin: Администратор
+              user_manager: Распорядитель участников
+          name: Участник
+        user_group:
+          fields:
+            actions: Действия
+            created_at: 'Создано:'
+            document_number: Номер документа
+            name: Имя
+            phone: Телефон
+            state: Cостояние
+            users_count: Количество пользователей
+      moderations:
+        index:
+          title: Действия по модерации
+        report:
+          reasons:
+            does_not_belong: Неприемлемо
+            offensive: Оскорбительно
+            spam: Спам
+      newsletters:
+        create:
+          error: При создании этой рассылки новостей произошла ошибка.
+          success: Рассылка новостей успешно создана. Пожалуйста, просмотрите её перед отправкой.
+        deliver:
+          error: При доставке этой рассылки новостей произошла ошибка.
+          success: Рассылка новостей успешно доставлена.
+        destroy:
+          error_already_sent: 'Невозможно удалить рассылку новостей: она уже отправлена.'
+          success: Рассылка новостей успешно удалена.
+        edit:
+          save_and_preview: Сохранить и просмотреть
+          title: Редактировать рассылку новостей
+      scopes:
+        update:
+          success: Охват успешно обновлен
+      static_pages:
+        actions:
+          view: Просмотреть общедоступную страницу
+        create:
+          error: При создании новой страницы произошла ошибка.
+          success: Страница успешно создана.
+        destroy:
+          success: Страница успешно удалена
+        edit:
+          title: Отредактировать страницу
+          update: Обновить
+        new:
+          create: Новая
+          title: Новая страница
+        update:
+          error: При обновлении этой страницы произошла ошибка.
+          success: Страница успешно обновлена
+      titles:
+        dashboard: Панель мониторинга
+        impersonations: Олицетворения
+        managed_users: Управляемые пользователи
+        scope_types: Типы охвата
+        scopes: Охваты
+        static_pages: Страницы
+        user_groups: Группы участников
+        users: Участники
+      user_group:
+        reject:
+          invalid: При отказе от этой группы участников произошла ошибка.
+          success: Группа участников успешно отклонена
+        verify:
+          invalid: При проверке этой группы участников произошла ошибка.
+          success: Группа участников успешно проверена
+      user_groups:
+        index:
+          filter:
+            all: Все
+            pending: В ожидании
+            rejected: Отклонено
+            verified: Проверено
+          filter_by: 'Отобрать по признаку:'
+          search: Поиск
+          state:
+            pending: В ожидании
+            rejected: Отклонено
+            verified: Проверено
+      users:
+        create:
+          error: При приглашении этого участника произошла ошибка.
+          success: Участник успешно приглашен.
+        destroy:
+          error: При попытке удалить этого участника произошла ошибка.
+          success: Учасник уже не администратор.

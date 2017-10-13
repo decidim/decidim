@@ -68,9 +68,9 @@ uk:
         duplicate_authorization: Інший учасник вже авторизувався з такими ж даними.
       foo_authorization:
         fields:
-          bar: Статусний рядок
-          foo: Foo
-        name: Авторизація Foo
+          bar: Неробоча псевдо-змінна
+          foo: Неробоча псевдо-змінна
+        name: Неробоча псевдо-авторизація
     authorizations:
       create:
         error: При створенні авторизації сталася помилка.
@@ -141,8 +141,8 @@ uk:
     features:
       dummy:
         actions:
-          bar: Статусний рядок
-          foo: Foo
+          bar: Неробоча псевдо-змінна
+          foo: Неробоча псевдо-змінна
         name: Неробоча складова
         settings:
           global:

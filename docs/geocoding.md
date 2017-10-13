@@ -20,6 +20,7 @@ If you want to enable geocoding in your app:
 1. Uncomment or add the previous code in your `config/initializers/decidim.rb`.
 1. Make sure your `config/secrets.yml` file has the needed section (it should be added by the genertator automatically).
 1. Get your app ID and code from Here.com and set them as environment variables, as required by your `config/secrets.yml` file.
+1. If you had your Rails server running, restart it so the changes apply.
 
 ## Enabling geocoding
 

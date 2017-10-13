@@ -3,7 +3,6 @@
 module Decidim
   # The controller to handle the user's account page.
   class AccountController < Decidim::ApplicationController
-    helper_method :authorizations
     include Decidim::UserProfile
 
     def show
@@ -58,10 +57,6 @@ module Decidim
     end
 
     private
-
-    def authorizations
-      @authorizations ||= current_user.authorizations
-    end
 
     def account_params
       { avatar: current_user.avatar }.merge(params[:user].to_unsafe_h)

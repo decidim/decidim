@@ -9,13 +9,13 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
 
   context "a new user" do
     let(:organization) { create :organization, available_authorizations: authorizations }
-    let(:authorizations) { ["Decidim::DummyAuthorizationHandler"] }
 
     let(:user) { create(:user, :confirmed, organization: organization) }
 
     context "when one authorization has been configured" do
+      let(:authorizations) { ["Decidim::DummyAuthorizationHandler"] }
+
       before do
-        Decidim.authorization_handlers = [Decidim::DummyAuthorizationHandler]
         visit decidim.root_path
         find(".sign-in-link").click
 
@@ -123,12 +123,8 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
       end
     end
 
-    context "when no authorizations are configured" do
+    context "when no authorizations are configured", without_authorizations: true do
       let(:authorizations) { [] }
-
-      before do
-        Decidim.authorization_handlers = []
-      end
 
       it "doesn't list authorizations" do
         click_link user.name

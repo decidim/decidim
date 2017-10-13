@@ -10,6 +10,7 @@
 - **decidim-core**: Adds an option to configure the maximum file size for avatar images [\#1969](https://github.com/decidim/decidim/pull/1969)
 - **decidim-core**: Hides the "Mark all as read" notifications button when no notifications are found [\#1948](https://github.com/decidim/decidim/pull/1948)
 - **decidim-meetings**: Participatory admins can invite users to join a meeting. [\#1879](https://github.com/decidim/decidim/pull/1879)
+- **decidim-proposals**: Show votes in the proposals table in admin when votes are enabled [\#2011](https://github.com/decidim/decidim/pull/2011)
 
 **Changed**
 
@@ -17,11 +18,22 @@
 - **decidim**: `bin/rails generate decidim:demo` is no longer available in generated applications. Use the `--demo` flag when generating your application or do the change manually if you want to use the "demo" authorization handler. [\#1978](https://github.com/decidim/decidim/pull/1978)
 - **decidim-core**: Changes some texts in the homepage ("How do I take part in a process?" section) [\#1947](https://github.com/decidim/decidim/pull/1947)
 - **decidim-results**: This gem is no longer included inside the `decidim` gem and it has its own repository. [\#1926](https://github.com/decidim/decidim/pull/1926)
+- **decidim-core**: Authorization handlers now must be specified as strings. To migrate, change `config.authorization_handlers = [MyHandler]` to `config.authorization_handlers = ["MyHandler"]`. [\#2016](https://github.com/decidim/decidim/pull/2016)
+- **decidim-proposals**: Change proposal answer callouts so they match their real state [\#2025](https://github.com/decidim/decidim/pull/2025)
 
 **Fixed**
 
 - **decidim-core**: Handle nil resources on static maps (errors were caused by search engine spiders) [\#1936](https://github.com/decidim/decidim/pull/1936)
+- **decidim-comments**: Fix a bug sending email notifications when a comment is created [\#2036](https://github.com/decidim/decidim/pull/2036)
+- **decidim-participatory-processes**: Invited moderators couldn't access the process admin panel [\#2020](https://github.com/decidim/decidim/pull/2020)
 - **decidim-proposals**: Do not count hidden proposals on stats [\#1988](https://github.com/decidim/decidim/pull/1988)
+
+## [v0.6.7](https://github.com/decidim/decidim/tree/v0.6.7) (2017-10-09)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.6.6...v0.6.7)
+
+**Fixed**
+
+- **decidim**: A bug in the test app generator prevented installations to properly run the tests. [\#1994](https://github.com/decidim/decidim/pull/1994)
 
 ## [v0.6.6](https://github.com/decidim/decidim/tree/v0.6.6) (2017-10-05)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.5...v0.6.6)

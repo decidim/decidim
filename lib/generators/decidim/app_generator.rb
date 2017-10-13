@@ -48,6 +48,10 @@ module Decidim
       class_option :skip_bundle, type: :boolean, aliases: "-B", default: true,
                                  desc: "Don't run bundle install"
 
+      class_option :skip_gemfile, type: :boolean,
+                                  default: false,
+                                  desc: "Don't generate a Gemfile for the application"
+
       class_option :demo, type: :boolean, default: false,
                           desc: "Generate a demo authorization handler"
 
@@ -73,6 +77,8 @@ module Decidim
       end
 
       def gemfile
+        return if options[:skip_gemfile]
+
         path = File.expand_path(File.join("..", "..", "..", "Gemfile"), __dir__)
 
         template path, "Gemfile", force: true
@@ -88,6 +94,7 @@ module Decidim
                        end
 
         gsub_file "Gemfile", /gem "decidim([^"]*)".*/, "gem \"decidim\\1\", #{gem_modifier}"
+        run "bundle install"
       end
 
       def bootsnap
@@ -118,7 +125,7 @@ module Decidim
 
         gsub_file "config/initializers/decidim.rb",
                   /config\.mailer_sender = "change-me@domain\.org"/ do |match|
-          match << "\n  config.authorization_handlers = [#{auth_handler.classify}]"
+          match << "\n  config.authorization_handlers = [\"#{auth_handler.classify}\"]"
         end
       end
 

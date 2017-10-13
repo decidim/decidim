@@ -25,7 +25,13 @@
             <% if scopes_enabled?(current_participatory_space) %>
               <th><%= t("models.proposal.fields.scope", scope: "decidim.proposals") %></th>
             <% end %>
+
             <th><%= t("models.proposal.fields.state", scope: "decidim.proposals") %></th>
+
+            <% if current_settings.votes_enabled? %>
+              <th><%= t("models.proposal.fields.votes", scope: "decidim.proposals") %></th>
+            <% end %>
+
             <th class="actions"><%= t("actions.title", scope: "decidim.proposals") %></th>
           </tr>
         </thead>
@@ -57,6 +63,11 @@
                   <%= humanize_proposal_state proposal.state %>
                 </strong>
               </td>
+              <% if current_settings.votes_enabled? %>
+                <td>
+                  <%= proposal.votes.count %>
+                </td>
+              <% end %>
               <td class="table-list__actions">
                 <% if can? :update, proposal %>
                   <%= icon_link_to "chat", edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id), t("actions.answer", scope: "decidim.proposals"), class: "action-icon--edit-answer" %>

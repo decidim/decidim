@@ -87,6 +87,7 @@ fr:
             scope: Zone d'application
             state: Etat
             title: Titre
+            votes: Votes
       proposal_votes:
         create:
           error: Des erreurs se sont produites lors du vote de la proposition.
@@ -155,7 +156,7 @@ fr:
             other: VOTES
         votes_limit:
           vote_limit:
-            description: Au lieu de voter autant de propositions que vous voulez, vous ne pouvez voter que jusqu'à %{limit} propositions.
+            description: Vous pouvez voter jusqu'à %{limit} propositions.
             left: Restant
             title: Vous disposez de %{limit} votes à distribuer
             votes: Votes

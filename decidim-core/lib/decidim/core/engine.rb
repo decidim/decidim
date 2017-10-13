@@ -30,7 +30,6 @@ require "omniauth-twitter"
 require "omniauth-google-oauth2"
 require "invisible_captcha"
 require "premailer/rails"
-require "nokogiri"
 require "geocoder"
 
 require "decidim/api"

@@ -39,7 +39,7 @@ module Decidim
         @event_name = event_name
         @resource = resource
         @user = user
-        @extra = extra
+        @extra = extra.with_indifferent_access
       end
 
       # Caches the locator for the given resource, so that
