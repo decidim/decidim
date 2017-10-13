@@ -41,7 +41,7 @@ module Decidim
       private
 
       def comment
-        @comment ||= Decidim::Comments::Comment.find(extra["comment_id"])
+        @comment ||= Decidim::Comments::Comment.find(extra[:comment_id])
       end
 
       def comment_type
