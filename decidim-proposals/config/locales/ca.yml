@@ -87,6 +87,7 @@ ca:
             scope: Àmbit
             state: Estat
             title: Títol
+            votes: Vots
       proposal_votes:
         create:
           error: Hi ha hagut errors en votar la proposta.
@@ -104,7 +105,7 @@ ca:
           all: Tots
           category: Categoria
           category_prompt: Selecciona una categoria
-          citizenship: Ciutadania
+          citizens: Ciutadania
           evaluating: En avaluació
           official: Oficial
           origin: Origen
@@ -155,7 +156,7 @@ ca:
             other: SUPORTS
         votes_limit:
           vote_limit:
-            description: En lloc de donar suport a tantes propostes com es vulgui, només es pot donar suport fins a un màxim de %{limit} propostes.
+            description: Pots votar fins a %{limit} propostes.
             left: Restant
             title: Té %{limit} suports a distribuir
             votes: Suports

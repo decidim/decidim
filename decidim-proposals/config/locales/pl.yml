@@ -87,6 +87,7 @@ pl:
             scope: Zakres
             state: Stan
             title: Tytuł
+            votes: Głosowania
       proposal_votes:
         create:
           error: Podczas głosowania nad propozycją wystąpiły błędy.
@@ -105,7 +106,7 @@ pl:
           all: Wszystko
           category: Kategoria
           category_prompt: Wybierz kategorię
-          citizenship: Obywatelstwo
+          citizens: Obywatele
           evaluating: Ocena
           official: Urzędnik
           origin: Pochodzenie
@@ -158,7 +159,7 @@ pl:
             other: GŁOSOWANIA
         votes_limit:
           vote_limit:
-            description: Zamiast głosować na wiele propozycji, możesz głosować tylko na %{limit} propozycjach.
+            description: Możesz zgłosić do %{limit} propozycje.
             left: Pozostały
             title: Masz do dyspozycji %{limit} głosów
             votes: Głosowania

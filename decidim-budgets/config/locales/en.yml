@@ -33,8 +33,8 @@ en:
             title: Edit project
             update: Update
           index:
-            finished_orders: Finished orders
-            pending_orders: Pending orders
+            finished_orders: Finished votes
+            pending_orders: Pending votes
             title: Projects
           new:
             create: Create
@@ -129,5 +129,5 @@ en:
       included_proposals:
         project_proposals: 'Proposals included in this project:'
   index:
-    confirmed_orders_count: Orders count
+    confirmed_orders_count: Votes count
   total_budget: Total budget

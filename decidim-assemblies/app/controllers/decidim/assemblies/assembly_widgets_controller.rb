@@ -6,7 +6,7 @@ module Decidim
       private
 
       def model
-        @model ||= Assembly.find(params[:assembly_id])
+        @model ||= Assembly.where(slug: params[:assembly_slug]).first
       end
 
       def current_participatory_space

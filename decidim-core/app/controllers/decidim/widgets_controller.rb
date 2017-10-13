@@ -5,6 +5,7 @@ module Decidim
     skip_authorization_check only: :show
     skip_before_action :verify_authenticity_token
     after_action :allow_iframe, only: :show
+    helper ResourceHelper
 
     layout "decidim/widget"
 

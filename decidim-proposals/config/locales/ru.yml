@@ -1,0 +1,23 @@
+ru:
+  activemodel:
+    attributes:
+      proposal:
+        body: Основной текст
+        scope_id: Охват
+        title: Название
+      proposal_answer:
+        answer: Ответ
+  decidim:
+    proposals:
+      actions:
+        answer: Ответ
+        title: Действия
+      admin:
+        proposal_answers:
+          edit:
+            answer_proposal: Ответ
+      models:
+        proposal:
+          fields:
+            scope: Охват
+            title: Название

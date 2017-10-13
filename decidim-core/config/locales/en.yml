@@ -243,6 +243,8 @@ en:
         report: Report
         spam: Contains clickbait, advertising, scams or script bots.
         title: Report a problem
+      follow_button:
+        sign_in_before_follow: Please sign in before performing this action
       login_modal:
         please_sign_in: Please sign in
         sign_up: Sign up
@@ -267,9 +269,10 @@ en:
         ignore: |-
           If you don't want to accept the invitation, please ignore this email.<br />
           Your account won't be created until you access the link above and set your password.
-        invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}, you can accept it through the link below."
-        someone_invited_you: Someone has invited you to %{application}, you can accept it through the link below.
+        invited_you_as_admin: "%{invited_by} has invited you as an admin of %{application}. You can accept it through the link below."
+        someone_invited_you: Someone has invited you to %{application}. You can accept it through the link below.
         someone_invited_you_as_admin: Someone has invited you as an admin of %{application}, you can accept it through the link below.
+        you_are_now_admin: You are now an admin
       invite_admin:
         subject: You've been invited to manage %{organization}
       invite_collaborator:
@@ -339,13 +342,13 @@ en:
     home:
       extended:
         debates: Debates
-        debates_explanation: Let's meet, debate and share what we think it's important for our city.
+        debates_explanation: Debate and discuss, share your views and enrich the relevant topics.
         how_to_participate: How do I take part in a process?
         meetings: Meetings
-        meetings_explanation: Let's meet, debate and share what we think it's important for our city.
+        meetings_explanation: Find out where and when you can participate in public meetings.
         more_info: More info
         proposals: Proposals
-        proposals_explanation: Open space for citizen proposals about what kind of city we want to live in.
+        proposals_explanation: Make proposals, support existing ones and promote the changes you want to see.
       footer_sub_hero:
         footer_sub_hero_body: Let's build a more open, transparent and collaborative society.<br /> Join, participate and decide.
         footer_sub_hero_headline: Welcome to %{organization} participatory platform.
@@ -362,7 +365,7 @@ en:
         comments_count: Comments
         headline: Current state of %{organization}
         meetings_count: Meetings
-        orders_count: Orders
+        orders_count: Votes
         pages_count: Pages
         processes_count: Processes
         projects_count: Projects

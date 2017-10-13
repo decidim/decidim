@@ -40,7 +40,8 @@ module Decidim
           it "returns missing" do
             expect(response).to_not be_ok
             expect(response.code).to eq(:missing)
-            expect(response.data).to include(handler: "foo_handler")
+            expect(response.handler_name).to eq("foo_handler")
+            expect(response.data).to be_empty
           end
         end
 
@@ -75,7 +76,8 @@ module Decidim
           it "returns missing" do
             expect(response).to_not be_ok
             expect(response.code).to eq(:missing)
-            expect(response.data).to include(handler: "foo_handler")
+            expect(response.handler_name).to eq("foo_handler")
+            expect(response.data).to be_empty
           end
         end
 
@@ -94,6 +96,7 @@ module Decidim
             it "returns invalid" do
               expect(response).to_not be_ok
               expect(response.code).to eq(:invalid)
+              expect(response.handler_name).to eq("foo_handler")
               expect(response.data).to include(fields: { postal_code: "789" })
             end
           end
@@ -120,7 +123,8 @@ module Decidim
             it "returns incomplete with the fields" do
               expect(response).to_not be_ok
               expect(response.code).to eq(:incomplete)
-              expect(response.data).to include(handler: "foo_handler", fields: [:age])
+              expect(response.handler_name).to eq("foo_handler")
+              expect(response.data).to include(fields: [:age])
             end
           end
         end

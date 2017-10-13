@@ -42,16 +42,16 @@ Decidim.register_feature(:proposals) do |feature|
   end
 
   feature.register_stat :proposals_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, start_at, end_at|
-    Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).count
+    Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).not_hidden.count
   end
 
   feature.register_stat :votes_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |features, start_at, end_at|
-    proposals = Decidim::Proposals::FilteredProposals.for(features, start_at, end_at)
+    proposals = Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).not_hidden
     Decidim::Proposals::ProposalVote.where(proposal: proposals).count
   end
 
   feature.register_stat :comments_count, tag: :comments do |features, start_at, end_at|
-    proposals = Decidim::Proposals::FilteredProposals.for(features, start_at, end_at)
+    proposals = Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).not_hidden
     Decidim::Comments::Comment.where(root_commentable: proposals).count
   end
 
@@ -101,14 +101,14 @@ Decidim.register_feature(:proposals) do |feature|
       global = nil
     end
 
-    20.times do |n|
+    5.times do |n|
       author = Decidim::User.where(organization: feature.organization).all.sample
       user_group = [true, false].sample ? author.user_groups.verified.sample : nil
-      state, answer = if n > 15
+      state, answer = if n > 3
                         ["accepted", Decidim::Faker::Localized.sentence(10)]
-                      elsif n > 9
+                      elsif n > 2
                         ["rejected", nil]
-                      elsif n > 6
+                      elsif n > 1
                         ["evaluating", nil]
                       else
                         [nil, nil]
@@ -127,7 +127,7 @@ Decidim.register_feature(:proposals) do |feature|
         answered_at: Time.current
       )
 
-      rand(3).times do |m|
+      (n % 3).times do |m|
         email = "vote-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-#{m}@example.org"
         name = "#{Faker::Name.name} #{participatory_space.id} #{n} #{m}"
 

@@ -40,10 +40,9 @@ All members of the Decidim community agree with [Decidim Social Contract or Code
 
 - [Get started with Decidim](#getting-started-with-decidim)
 - [Contribute to the project](#how-to-contribute)
-- [Decidim components](#components)
-- [How to test Decidim engines](#testing)
+- [Decidim components](#officially-supported-libraries)
+- [How to test Decidim engines](docs/testing.md)
 - [Create & browse development app](#browse-decidim)
-- [Check current components](#components)
 - [Technical tradeoffs](#technical-tradeoffs)
 
 ---
@@ -56,7 +55,7 @@ We've set up a guide on how to install, set up and upgrade Decidim. See the [Get
 
 ### As a Translator
 
-Decidim is already translated on multiple languages (English, Spanish, Catalan, Basque, Italian, Finnish, Dutch and French). You can help us at [Crowdin, the translation service](https://crowdin.com/project/decidim), reviewing this translations or proposing a new language to add to the platform.
+Decidim is already translated on multiple languages (English, Spanish, Catalan, Basque, Italian, Finnish, Dutch, French and Ukrainian). You can help us at [Crowdin, the translation service](https://crowdin.com/project/decidim), reviewing this translations or proposing a new language to add to the platform.
 
 ### As a Developer
 
@@ -73,6 +72,7 @@ The easiest way to work on decidim is to clone decidim's repository and install 
 ```bash
 $ git clone git@github.com:decidim/decidim.git
 $ cd decidim
+$ gem install decidim
 $ bundle install
 $ npm install
 ```
@@ -80,7 +80,10 @@ $ npm install
 You have several rake tasks available for you:
 
 * `bundle exec rake development_app`: Creates a development app which you can use to run an application with the gems in your path.
-* `bundle exec rake test_all`: Generates a test app for every engine and runs their tests.
+* `bundle exec rake decidim:generate_test_app`: Generates a dummy application
+  to be used for testing.
+* `bundle exec rake test_all`: Runs the tests of every engine using the dummy
+  application
 
 #### Browse Decidim
 
@@ -156,3 +159,4 @@ Since Decidim is a ruby gem, you can check out the [dependent repositories](http
 * [Vilanova Participa](http://participa.vilanova.cat) - [View code](https://github.com/vilanovailageltru/decidim-vilanova)
 * [Erabaki Pamplona](https://erabaki.pamplona.es) - [View code](https://github.com/ErabakiPamplona/erabaki)
 * [Decidim Mataró](https://www.decidimmataro.cat) - [View code](https://github.com/AjuntamentDeMataro/decidim-mataro)
+* [Commission Nationale du Débat Public (France)](https://cndp.opensourcepolitics.eu/)

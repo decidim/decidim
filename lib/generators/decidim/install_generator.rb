@@ -18,18 +18,11 @@ module Decidim
                               desc: "The name of the app"
       class_option :recreate_db, type: :boolean, default: false,
                                  desc: "Recreate db after installing decidim"
-
-      def bundle_install
-        Bundler.with_clean_env { run "bundle install" }
-      end
+      class_option :seed_db, type: :boolean, default: false,
+                             desc: "Seed db after installing decidim"
 
       def install
         route "mount Decidim::Core::Engine => '/'"
-      end
-
-      def copy_migrations
-        rails_command "railties:install:migrations"
-        recreate_db if options[:recreate_db]
       end
 
       def add_seeds
@@ -40,7 +33,6 @@ module Decidim
       end
 
       def copy_initializer
-        template "initializer.rb", "config/initializers/decidim.rb"
         template "carrierwave.rb", "config/initializers/carrierwave.rb"
         template "social_share_button.rb", "config/initializers/social_share_button.rb"
       end
@@ -96,6 +88,11 @@ module Decidim
         end
       end
 
+      def copy_migrations
+        rails "railties:install:migrations"
+        recreate_db if options[:recreate_db]
+      end
+
       def letter_opener_web
         route <<~RUBY.gsub(/^ *\|/, "")
           |
@@ -116,10 +113,26 @@ module Decidim
       private
 
       def recreate_db
-        rails_command "db:environment:set db:drop" unless ENV["CI"]
-        rails_command "db:create"
-        rails_command "db:migrate"
-        rails_command "db:test:prepare"
+        soft_rails "db:environment:set", "db:drop"
+        rails "db:create"
+
+        if options[:seed_db]
+          rails "db:migrate", "db:seed"
+        else
+          rails "db:migrate"
+        end
+
+        rails "db:test:prepare"
+      end
+
+      # Runs rails commands in a subprocess, and aborts if it doesn't suceeed
+      def rails(*args)
+        abort unless system("bin/rails", *args)
+      end
+
+      # Runs rails commands in a subprocess silencing errors, and ignores status
+      def soft_rails(*args)
+        system("bin/rails", *args, err: File::NULL)
       end
 
       def scss_variables

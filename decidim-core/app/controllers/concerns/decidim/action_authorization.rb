@@ -59,7 +59,7 @@ module Decidim
     # Returns a String.
     def authorize_action_path_from_status(status, redirect_url: nil)
       decidim.new_authorization_path(
-        handler: status.data[:handler],
+        handler: status.handler_name,
         redirect_url: redirect_url
       )
     end

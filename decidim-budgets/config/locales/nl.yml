@@ -32,8 +32,8 @@ nl:
             title: Bewerk project
             update: Bijwerken
           index:
-            finished_orders: Afgewerkte bestellingen
-            pending_orders: Openstaande bestellingen
+            finished_orders: Voltooide stemmen
+            pending_orders: Afwachtende stemmen
             title: Projecten
           new:
             create: Creëren
@@ -128,5 +128,5 @@ nl:
       included_proposals:
         project_proposals: 'Voorstellen opgenomen in dit project:'
   index:
-    confirmed_orders_count: Bestellingen tellen
+    confirmed_orders_count: Aantal stemmen
   total_budget: Totale budget

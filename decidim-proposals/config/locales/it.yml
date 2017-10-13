@@ -87,6 +87,7 @@ it:
             scope: Visibilità
             state: Stato
             title: Titolo
+            votes: Voti
       proposal_votes:
         create:
           error: Ci sono stati errori durante la votazione della proposta.
@@ -104,7 +105,7 @@ it:
           all: Tutto
           category: Categoria
           category_prompt: Scegli una categoria
-          citizenship: Cittadinanza
+          citizens: cittadini
           evaluating: Valutare
           official: Ufficiale
           origin: Origine
@@ -155,7 +156,7 @@ it:
             other: VOTI
         votes_limit:
           vote_limit:
-            description: Invece di votare tutte le proposte possibili puoi soltanto votare fino a %{limit} proposte.
+            description: Puoi votare fino a %{limit} proposte.
             left: Restano
             title: Hai ancora %{limit} voti
             votes: Voti

@@ -37,7 +37,7 @@ fr:
     proposals:
       actions:
         answer: Répondre
-        new: Nouveau
+        new: Nouvelle
         title: Actions
       admin:
         actions:
@@ -87,9 +87,10 @@ fr:
             scope: Zone d'application
             state: Etat
             title: Titre
+            votes: Votes
       proposal_votes:
         create:
-          error: Il y a eu des erreurs lors du vote de la proposition.
+          error: Des erreurs se sont produites lors du vote de la proposition.
       proposals:
         author:
           deleted: Utilisateur supprimé
@@ -104,13 +105,13 @@ fr:
           all: Toutes
           category: Catégorie
           category_prompt: Sélectionner une catégorie
-          citizenship: Citoyens
+          citizens: Citoyens
           evaluating: En cours d'évaluation
           official: Elu-e-s
           origin: Auteurs
           rejected: Refusée
           related_to: Liée à
-          scope_prompt: Sélectionnez une portée
+          scope_prompt: Sélectionnez un périmètre d'application
           scopes: Zones d'application
           search: Rechercher
           state: État
@@ -155,7 +156,7 @@ fr:
             other: VOTES
         votes_limit:
           vote_limit:
-            description: Au lieu de voter autant de propositions que vous voulez, vous ne pouvez voter que jusqu'à %{limit} propositions.
+            description: Vous pouvez voter jusqu'à %{limit} propositions.
             left: Restant
             title: Vous disposez de %{limit} votes à distribuer
             votes: Votes

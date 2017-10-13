@@ -9,7 +9,7 @@
           <% if social_provider_enabled? provider %>
             <%= link_to decidim.send("user_#{provider}_omniauth_authorize_path"), class: "button button--social button--#{normalize_provider_name(provider)} button--social--mini" do %>
               <span class="button--social__icon">
-                <%= icon normalize_provider_name(provider) %>
+                <%= oauth_icon provider %>
               </span>
             <% end %>
           <% end %>

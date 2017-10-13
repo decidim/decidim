@@ -7,9 +7,23 @@ namespace :decidim do
   task :generate_test_app do
     dummy_app_path = File.expand_path(File.join(Dir.pwd, "spec", "decidim_dummy_app"))
 
+    Bundler.with_clean_env do
+      Decidim::Generators::DummyGenerator.start(
+        [
+          "--dummy_app_path=#{dummy_app_path}"
+        ]
+      )
+    end
+  end
+
+  desc "Generates a dummy app for testing in external installations"
+  task :generate_external_test_app do
+    dummy_app_path = File.expand_path(File.join(Dir.pwd, "spec", "decidim_dummy_app"))
+
     Decidim::Generators::DummyGenerator.start(
       [
-        "--dummy_app_path=#{dummy_app_path}"
+        "--dummy_app_path=#{dummy_app_path}",
+        "--skip_gemfile"
       ]
     )
   end

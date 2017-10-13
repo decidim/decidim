@@ -11,7 +11,7 @@ fr:
         parent_id: Parent
       feature:
         name: Nom
-        weight: Epaisseur
+        weight: Rang d'affichage
       newsletter:
         body: Corps de texte
         subject: Objet
@@ -33,7 +33,7 @@ fr:
         code: Code
         name: Nom
         organization: Organisation
-        scope_type: Type de portée
+        scope_type: Type de périmètre d'application
       scope_type:
         name: Nom
         organization: Organisation
@@ -54,7 +54,7 @@ fr:
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
         local_area: Quartier
-        meta_scope: Metadonnée de la zone d’application
+        meta_scope: Metadonnée du périmètre d'application
         participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
         promoted: Mis en avant
@@ -79,7 +79,7 @@ fr:
         title: Titre
   date:
     formats:
-      datepicker: "%m / %j / %A"
+      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -318,7 +318,7 @@ fr:
           header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises <head> </head> HTML. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
           instagram: Instagram
           social_handlers: Social
-          twitter: Gazouillement
+          twitter: Twitter
           url: Url
           youtube: YouTube
         update:
@@ -367,7 +367,7 @@ fr:
           title: Modifier la page
           update: Mettre à jour
         new:
-          create: Nouveau
+          create: Nouvelle
           title: Nouvelle page
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette page.
@@ -452,5 +452,5 @@ fr:
           title: Utilisateurs
   time:
     formats:
-      datepicker: "%m / %j / %A"
+      datepicker: "%d/%m/%Y"
       timepicker: "%d/%m/%Y %H:%M"

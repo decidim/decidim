@@ -13,14 +13,14 @@ module Decidim
   class Authorization < ApplicationRecord
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User", inverse_of: :authorizations
 
-    validates :name, :handler, presence: true
     validates :name, uniqueness: { scope: :decidim_user_id }
 
-    # The handler that created this authorization.
-    #
-    # Returns an instance that inherits from Decidim::AuthorizationHandler.
-    def handler
-      @handler ||= AuthorizationHandler.handler_for(name, metadata)
+    validate :active_handler?
+
+    private
+
+    def active_handler?
+      AuthorizationHandler.active_handler?(name)
     end
   end
 end

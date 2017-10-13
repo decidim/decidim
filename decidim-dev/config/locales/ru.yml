@@ -1,0 +1,6 @@
+ru:
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Нерабочие псевдо-части

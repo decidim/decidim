@@ -90,7 +90,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ca es eu it fi fr nl uk)
+    %w(en ca es eu it fi fr nl uk ru)
   end
 
   # Exposes a configuration option: The application default locale.
@@ -131,9 +131,19 @@ module Decidim
     10.megabytes
   end
 
+  # Exposes a configuration option: The maximum file size for user avatar images.
+  config_accessor :maximum_avatar_size do
+    5.megabytes
+  end
+
   # The number of reports which an object can receive before hiding it
   config_accessor :max_reports_before_hiding do
     3
+  end
+
+  # Allow organization's administrators to inject custom HTML into the frontend
+  config_accessor :enable_html_header_snippets do
+    true
   end
 
   # A base path for the uploads. If set, make sure it ends in a slash.

@@ -88,6 +88,7 @@ en:
             scope: Scope
             state: State
             title: Title
+            votes: Votes
       proposal_votes:
         create:
           error: There's been errors when voting the proposal.
@@ -105,7 +106,7 @@ en:
           all: All
           category: Category
           category_prompt: Select a category
-          citizenship: Citizenship
+          citizens: Citizens
           evaluating: Evaluating
           official: Official
           origin: Origin
@@ -143,6 +144,7 @@ en:
           view_proposal: View proposal
         show:
           proposal_accepted_reason: 'This proposal has been accepted because:'
+          proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: 'This proposal has been rejected because:'
           report: Report
         vote_button:
@@ -156,7 +158,7 @@ en:
             other: VOTES
         votes_limit:
           vote_limit:
-            description: Instead of voting as many proposals as you want you can only vote up to %{limit} proposals.
+            description: You can vote up to %{limit} proposals.
             left: Remaining
             title: You have %{limit} votes to distribute
             votes: Votes

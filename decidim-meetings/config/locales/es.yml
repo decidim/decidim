@@ -44,6 +44,18 @@ es:
       admin:
         exports:
           registrations: Inscripciones
+        invite_join_meeting_mailer:
+          invite:
+            invited_you_to_join_a_meeting: "%{invited_by} te ha invitado a unirte a un encuentro en %{application}. Puedes aceptarlo a través del siguiente enlace."
+            join: Únete al encuentro '%{meeting_title}'
+        invites:
+          create:
+            error: Ha habido un problema al invitar al usuario a unirse al encuentro.
+            success: El usuario ha sido invitado con éxito a unirse al encuentro.
+          new:
+            explanation: El usuario será invitado a unirse a un encuentro. Si el correo electrónico no está registrado, será invitado a la organización también.
+            invite: Invitar
+            new_invite: Invitar usuario
         meeting_closes:
           edit:
             close: Cerrar
@@ -75,6 +87,7 @@ es:
             save: Guardar
           form:
             available_slots_help: Déjalo a 0 si tiene inscripciones ilimitadas.
+            invite_user: Invitar usuario
             registrations_count:
               one: Ha habido 1 inscripción.
               other: Ha habido %{count} inscripciones.
@@ -108,6 +121,9 @@ es:
           email_subject: La reunión "%{resource_title}" ha sido actualizada
           notification_title: La reunión <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada.
       mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Asunto
         registration_mailer:
           confirmation:
             subject: La inscripción a tu encuentro ha sido confirmada
@@ -172,3 +188,7 @@ es:
       proposals_from_meeting:
         meeting_proposals: 'Propuestas relacionadas:'
         proposal_meetings: 'Encuentros relacionados:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Asunto

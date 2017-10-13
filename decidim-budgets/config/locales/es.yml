@@ -32,7 +32,7 @@ es:
             title: Editar proyecto
             update: Actualizar
           index:
-            finished_orders: Votos finalizados
+            finished_orders: Votos terminados
             pending_orders: Votos pendientes
             title: Proyectos
           new:

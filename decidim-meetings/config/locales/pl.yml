@@ -21,12 +21,12 @@ pl:
     features:
       meetings:
         actions:
-          join: Przyłączyć się
+          join: Dołącz
         name: Spotkania
         settings:
           global:
             announcement: Ogłoszenie
-            comments_enabled: Włączone komentarze
+            comments_enabled: Komentarze włączone
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
@@ -44,6 +44,18 @@ pl:
       admin:
         exports:
           registrations: Rejestracje
+        invite_join_meeting_mailer:
+          invite:
+            invited_you_to_join_a_meeting: "%{invited_by} zaprosił_a Cię do udziału w spotkaniu w %{application}. Możesz to zaakceptować za pomocą poniższego linku."
+            join: Dołącz do spotkania "%{meeting_title}"
+        invites:
+          create:
+            error: Wystąpił problem przy zapraszaniu użytkownika do uczestnictwa w spotkaniu.
+            success: Udało się zaprosić użytkownika do udziału w spotkaniu.
+          new:
+            explanation: Użytkownik zostanie zaproszony do udziału w spotkaniu. Jeśli jego adres e-mail nie jest zarejestrowany, zostanie zaproszony do organizacji.
+            invite: Zaproś
+            new_invite: Zaproś użytkownika
         meeting_closes:
           edit:
             close: Zamknij
@@ -75,6 +87,7 @@ pl:
             save: Zapisać
           form:
             available_slots_help: Zostaw ją na 0, jeśli masz nieograniczone szczeliny dostępne.
+            invite_user: Zaproś użytkownika
             registrations_count:
               one: Została 1 rejestracja.
               few: Rejestrowano %{count}.
@@ -109,6 +122,9 @@ pl:
           email_subject: Spotkanie "%{resource_title}" została zaktualizowana
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> został zaktualizowany.
       mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Przedmiot
         registration_mailer:
           confirmation:
             subject: Swoje spotkania rejestracja zostanie potwierdzona
@@ -174,3 +190,7 @@ pl:
       proposals_from_meeting:
         meeting_proposals: 'Powiązane propozycje:'
         proposal_meetings: 'Powiązane spotkania:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Przedmiot

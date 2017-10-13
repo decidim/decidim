@@ -8,6 +8,7 @@
 // = require foundation.sticky.js
 // = require foundation.tabs.js
 // = require foundation.toggler.js
+// = require foundation.tooltip.js
 // = require foundation.util.box.js
 // = require foundation.util.keyboard.js
 // = require foundation.util.mediaQuery.js

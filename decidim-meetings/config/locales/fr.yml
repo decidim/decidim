@@ -3,25 +3,25 @@ fr:
     attributes:
       close_meeting:
         attendees_count: Nombre de participants
-        attending_organizations: Liste des organisations qui ont assisté à la rencontre
+        attending_organizations: Liste des organisations qui ont participé à cette rencontre
         closing_report: Signaler
         contributions_count: Nombre de contributions
-        proposal_ids: Propositions créées lors de la rencontre
+        proposal_ids: Propositions soumises lors de la rencontre
       meeting:
         address: Adresse
         decidim_category_id: Catégorie
-        decidim_scope_id: Zone d'application
+        decidim_scope_id: Périmètre d'application
         description: Description
         end_time: Heure de fin
         location: Lieu
-        location_hints: Indicateurs d’emplacement
+        location_hints: Données de localisation
         start_time: Heure de début
         title: Titre
   decidim:
     features:
       meetings:
         actions:
-          join: Participer
+          join: Joindre
         name: Rencontres
         settings:
           global:
@@ -34,24 +34,36 @@ fr:
       actions:
         attachments: Documents liés
         close: Clore
-        confirm_destroy: Êtes-vous sûr de vouloir supprimer cette rencontre?
+        confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
         destroy: Supprimer
         edit: Modifier
-        new: Nouveau
+        new: Nouvelle
         preview: Aperçu
-        registrations: Incriptions
+        registrations: Inscriptions
         title: Actions
       admin:
         exports:
           registrations: Inscriptions
+        invite_join_meeting_mailer:
+          invite:
+            invited_you_to_join_a_meeting: "%{invited_by} vous a invité à une rencontre à %{application}. Vous pouvez confirmer votre présence par le lien ci-dessous."
+            join: Rejoignez la rencontre '%{meeting_title}'
+        invites:
+          create:
+            error: Il y a eu un problème lors de l'invitation à une rencontre.
+            success: L'utilisateur a rejoint la rencontre.
+          new:
+            explanation: L'utilisateur sera invité à se joindre à une rencontre. Si son adresse de courriel n'est pas enregistrée, il sera également invité à s'inscrire à l'organisation.
+            invite: Inviter
+            new_invite: Inviter un utilisateur
         meeting_closes:
           edit:
             close: Clore
             title: Clore la rencontre
         meetings:
           close:
-            invalid: Il y a eu un problème au moment de clore cette réunion
-            success: Rencontre cloturée avec succès
+            invalid: Il y a eu un problème au moment de clore cette rencontre
+            success: Rencontre close avec succès
           create:
             invalid: Il y a eu un problème lors de la création de cette rencontre
             success: Rencontre créée avec succès
@@ -66,7 +78,7 @@ fr:
             title: Créer une rencontre
           update:
             invalid: Il y a eu un problème lors de la mise à jour de cette rencontre
-            success: Réncontre mise à jour avec succès
+            success: Rencontre mise à jour avec succès
         models:
           meeting:
             name: Rencontre
@@ -74,40 +86,44 @@ fr:
           edit:
             save: Sauvegarder
           form:
-            available_slots_help: Laissez-le à 0 si le nombre de places disponibles n'est pas limité.
+            available_slots_help: Laisser à 0 si le nombre de places disponibles n'est pas limité.
+            invite_user: Inviter un utilisateur
             registrations_count:
-              one: Il y a eu 1 inscription.
+              one: Il y a eu 1 enregistrement.
               other: Il y a eu %{count} inscriptions.
           update:
             invalid: Il y a eu un problème lors de l'enregistrement des paramètres d'inscription.
             success: Les paramètres d'inscriptions ont été enregistrés avec succès.
       events:
         close_meeting_event:
-          email_intro: 'La rencontre « %{resource_title} » a été fermée. Vous pouvez lire les conclusions sur cette page :'
+          email_intro: 'La rencontre « %{resource_title} » a été close. Vous pouvez lire les conclusions sur cette page :'
           email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre « %{resource_title} ». Vous pouvez cesser de la suivre en cliquant sur le lien précédent.
           email_subject: La rencontre %{resource_title} est terminée
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est terminée.
         meeting_registrations_enabled:
-          email_intro: 'La rencontre « %{resource_title} » a ouvert les inscriptions. Vous pouvez vous inscrire en allant sur la page suivante :'
+          email_intro: 'La rencontre « %{resource_title} » prévoit une inscription. Vous pouvez vous inscrire en allant sur la page suivante :'
           email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre « %{resource_title} ». Vous pouvez cesser de la suivre en cliquant sur le lien précédent.
-          email_subject: La rencontre « %{resource_title} » a ouvert les inscriptions.
+          email_subject: La rencontre « %{resource_title} » demande une inscription.
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> est maintenant ouverte aux inscriptions.
         meeting_registrations_over_percentage:
-          email_intro: Les inscriptions à la rencontre %{resource_title} sont à %{percentage} % complètes%.
+          email_intro: Les inscriptions à la rencontre %{resource_title} sont complètes à %{percentage} %.
           email_outro: Vous avez reçu cette notification parce que vous êtes un administrateur du processus participatif hébergeant la rencontre.
-          email_subject: Les inscriptions à la rencontre %{resource_title} sont à %{percentage} % complètes%
-          notification_title: Les inscriptions à la rencontre <a href="%{resource_path}">%{resource_title}</a> sont à %{percentage} % complètes.
+          email_subject: Les inscriptions à la rencontre %{resource_title} sont remplies à %{percentage} %
+          notification_title: Les inscriptions à la rencontre <a href="%{resource_path}">%{resource_title}</a> sont remplies à %{percentage} %.
         upcoming_meeting_event:
           email_intro: La rencontre « %{resource_title} » va commencer dans moins de 48h.
           email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre « %{resource_title} ». Vous pouvez cesser de la suivre en cliquant sur le lien précédent.
-          email_subject: La réunion « %{resource_title} » va commencer dans moins de 48h.
-          notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> va commencer dans moins de 48h.
+          email_subject: La rencontre « %{resource_title} » va commencer dans moins de 48h.
+          notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> va commencer dans moins de 48h.
         update_meeting_event:
           email_intro: 'La rencontre « %{resource_title} » a été mise à jour. Vous pouvez consulter la nouvelle version en vous rendant sur la page suivante :'
           email_outro: Vous avez reçu cette notification parce que vous suivez la rencontre « %{resource_title} ». Vous pouvez cesser de la suivre en cliquant sur le lien précédent.
           email_subject: La rencontre « %{resource_title} » a été mise à jour
           notification_title: La rencontre <a href="%{resource_path}">%{resource_title}</a> a été mise à jour.
       mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Objet
         registration_mailer:
           confirmation:
             subject: Votre inscription a bien été enregistrée
@@ -117,8 +133,8 @@ fr:
           category_prompt: Sélectionner une catégorie
           date: Date
           past: Passées
-          scope_prompt: Sélectionnez une zone d'application
-          scopes: Zone d'application
+          scope_prompt: Sélectionnez un périmètre d'application
+          scopes: Périmètre d'application
           search: Rechercher
           upcoming: À venir
         filters_small_view:
@@ -156,19 +172,23 @@ fr:
       read_more: "(Lire la suite)"
       registration_mailer:
         confirmation:
-          confirmed_html: Votre inscription pour la réunion <a href="%{url}">%{title}</a> a été confirmée.
-          details: Vous trouverez les détails de la réunion dans la pièce jointe.
+          confirmed_html: Votre inscription pour la rencontre <a href="%{url}">%{title}</a> a été confirmée.
+          details: Vous trouverez les détails de la rencontre dans la pièce jointe.
       registrations:
         create:
-          invalid: Il y a eu un problème pour rejoindre cette réunion.
-          success: Vous avez rejoint la réunion avec succès.
+          invalid: Il y a eu un problème lors de votre inscription à cette rencontre.
+          success: Vous avez rejoint la rencontre avec succès.
         destroy:
-          invalid: Il y a eu un problème de sortir de cette réunion.
-          success: Vous avez quitté la réunion avec succès.
+          invalid: Il y a eu un problème lors de l'annulation de votre inscription.
+          success: Vous avez annulé votre inscription avec succès.
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Résultats associés :'
-        result_meetings: 'Rencontres connexes :'
+        result_meetings: 'Rencontres associées :'
       proposals_from_meeting:
-        meeting_proposals: 'Propositions créées à cette rencontre :'
-        proposal_meetings: 'Rencontre connexes :'
+        meeting_proposals: 'Propositions créées lors de cette rencontre :'
+        proposal_meetings: 'Rencontre associées :'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Objet

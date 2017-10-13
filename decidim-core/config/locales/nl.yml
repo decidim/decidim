@@ -242,6 +242,8 @@ nl:
         report: Rapporteren
         spam: Bevat clickbait, reclame, oplichting of script bots.
         title: Meld een probleem
+      follow_button:
+        sign_in_before_follow: Log alstublieft aan voordat u deze actie uitvoert
       login_modal:
         please_sign_in: Log in alstublieft
         sign_up: Registreren
@@ -265,8 +267,8 @@ nl:
         hello: Hallo %{email},
         ignore: |-
           Negeer deze email als u de uitnodiging niet wilt accepteren.<br /> Uw account wordt niet aangemaakt totdat u via de link hierboven uw wachtwoord instelt.
-        invited_you_as_admin: "%{invited_by} heeft u uitgenodigd als beheerder van %{application}, u kunt deze uitnodiging accepteren via onderstaande link."
-        someone_invited_you: Iemand heeft u uitgenodigd bij %{application}, u kunt deze uitnodiging accepteren via onderstaande link.
+        invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
+        someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
         you_are_now_admin: Je bent nu een admin
       invite_admin:
         subject: U bent uitgenodigd om %{organization} te beheren
@@ -337,13 +339,13 @@ nl:
     home:
       extended:
         debates: Debatten
-        debates_explanation: Laten we elkaar ontmoeten, in debat gaan, en ideeën uitwisselen; dat is belangrijk voor onze stad.
+        debates_explanation: Debatteer en bespreek, deel je standpunten en verrijk de relevante onderwerpen.
         how_to_participate: Hoe neem ik deel in een proces?
         meetings: Vergaderingen
-        meetings_explanation: Laten we elkaar ontmoeten, in debat gaan, en ideeën uitwisselen over wat belangrijk is voor onze stad.
+        meetings_explanation: Ontdek waar en wanneer u kunt deelnemen aan openbare vergaderingen.
         more_info: Meer informatie
         proposals: Voorstellen
-        proposals_explanation: Publieke ruimte voor voorstellen over de stad waarin we willen leven.
+        proposals_explanation: Maak voorstellen, ondersteun de bestaande en bevorder de veranderingen die u wilt zien.
       footer_sub_hero:
         footer_sub_hero_body: Laten we bouwen aan een open, transparante en collaborative maatschappij.<br /> Neem deel en beslis.
         footer_sub_hero_headline: Welkom bij %{organization} participatief platform.
@@ -360,7 +362,7 @@ nl:
         comments_count: Reacties
         headline: Huidige stand van %{organization}
         meetings_count: Vergaderingen
-        orders_count: bestellingen
+        orders_count: stemmen
         pages_count: Pages
         processes_count: Processen
         projects_count: Projecten

@@ -18,6 +18,7 @@ module Decidim
 
         validates :position, numericality: { greater_than_or_equal_to: 0 }
         validates :question_type, inclusion: { in: SurveyQuestion::TYPES }
+        validates :body, translatable_presence: true, unless: :deleted
       end
     end
   end

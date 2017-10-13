@@ -3,21 +3,21 @@ fi:
     attributes:
       participatory_process:
         banner_image: Bannerikuva
-        copy_categories: Kopioi kategoriat
+        copy_categories: Kopioi aihepiirit
         copy_features: Kopioi toiminnot
         copy_steps: Kopioi vaiheet
         description: Kuvaus
         developer_group: Kehitysryhmä
         domain: Toimintaympäristö
         end_date: Päättymisaika
-        hashtag: Hashtah
+        hashtag: Hashtag
         hero_image: Etusivun kuva
         local_area: Paikallisalue
         meta_scope: Kontekstin metadata
         participatory_process_group_id: Prosessiryhmä
-        participatory_scope: Osallistumisprosessi
+        participatory_scope: Osallistumisprosessin konteksti
         participatory_structure: Osallistumisprosessin rakenne
-        promoted: Oikeudet korotettu
+        promoted: Korostettu
         scope_id: Konteksti
         scopes_enabled: Kontekstit käytössä
         short_description: Lyhyt kuvaus
@@ -60,7 +60,7 @@ fi:
         participatory_processes: Prosessit
         participatory_processes_submenu:
           attachments: Liitteet
-          categories: Kategoriat
+          categories: Aihepiirit
           features: Ominaisuudet
           info: Tiedot
           moderations: Moderoinnit
@@ -181,7 +181,7 @@ fi:
           published: Julkaistu
         new:
           create: Luo
-          title: Uusi osallistuva prosessi
+          title: Uusi osallistumisprosessi
         update:
           error: Tämän osallistumisprosessin päivityksessä tapahtui virhe.
           success: Osallistumisprosessi päivitetty onnistuneesti.
@@ -214,10 +214,10 @@ fi:
       admin:
         participatory_process_copies:
           form:
-            slug_help: 'URL-linkkejä käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
+            slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
         participatory_processes:
           form:
-            slug_help: 'URL-linkkejä käytetään tuottamaan URL-osoitteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
+            slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
       index:
         title: Osallistumisprosessit
       order_by_processes:
@@ -241,9 +241,9 @@ fi:
       statistics:
         answers_count: Vastaukset
         comments_count: Kommentit
-        headline: Tapahtumat
+        headline: Tilastot
         meetings_count: Tapaamiset
-        orders_count: Tilaukset
+        orders_count: Äänet
         pages_count: Sivut
         processes_count: Prosessit
         projects_count: Projektit

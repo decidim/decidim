@@ -49,7 +49,6 @@ describe "Authentication", type: :feature, perform_enqueued: true do
     end
 
     context "using facebook" do
-      let(:verified) { true }
       let(:omniauth_hash) do
         OmniAuth::AuthHash.new(
           provider: "facebook",
@@ -287,6 +286,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
         end
 
         expect(page).to have_content("password has been changed successfully")
+        expect(current_path).to eq "/"
       end
     end
 

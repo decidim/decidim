@@ -45,10 +45,6 @@ module Decidim
       it "result has text" do
         expect(subject.first).to have_key("text")
       end
-
-      it "doesn't store the location for user" do
-        expect(controller.stored_location_for(user)).to be_nil
-      end
     end
 
     context "search top scopes" do

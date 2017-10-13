@@ -11,10 +11,12 @@ shared_context "feature" do
     create(:participatory_process, :with_steps, organization: organization)
   end
 
+  let(:participatory_space) { participatory_process }
+
   let!(:feature) do
     create(:feature,
            manifest: manifest,
-           participatory_space: participatory_process)
+           participatory_space: participatory_space)
   end
 
   let!(:category) { create :category, participatory_space: participatory_process }

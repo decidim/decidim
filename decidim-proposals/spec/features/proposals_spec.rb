@@ -361,39 +361,51 @@ describe "Proposals", type: :feature do
       end
     end
 
-    context "when a proposal has been accepted" do
-      let!(:proposal) { create(:proposal, :accepted, feature: feature) }
+    context "when a proposal is in evaluation" do
+      let!(:proposal) { create(:proposal, :evaluating, :with_answer, feature: feature) }
 
-      it "shows a badge" do
+      it "shows a badge and an answer" do
         visit_feature
         click_link proposal.title
 
-        expect(page).to have_content("Accepted")
-        expect(page).to have_i18n_content(proposal.answer)
+        expect(page).to have_content("Evaluating")
+
+        within ".callout.secondary" do
+          expect(page).to have_content("This proposal is being evaluated")
+          expect(page).to have_i18n_content(proposal.answer)
+        end
       end
     end
 
     context "when a proposal has been rejected" do
-      let!(:proposal) { create(:proposal, :rejected, feature: feature) }
+      let!(:proposal) { create(:proposal, :rejected, :with_answer, feature: feature) }
 
       it "shows the rejection reason" do
         visit_feature
         click_link proposal.title
 
         expect(page).to have_content("Rejected")
-        expect(page).to have_i18n_content(proposal.answer)
+
+        within ".callout.warning" do
+          expect(page).to have_content("This proposal has been rejected")
+          expect(page).to have_i18n_content(proposal.answer)
+        end
       end
     end
 
     context "when a proposal has been accepted" do
-      let!(:proposal) { create(:proposal, :accepted, feature: feature) }
+      let!(:proposal) { create(:proposal, :accepted, :with_answer, feature: feature) }
 
       it "shows the acceptance reason" do
         visit_feature
         click_link proposal.title
 
         expect(page).to have_content("Accepted")
-        expect(page).to have_i18n_content(proposal.answer)
+
+        within ".callout.success" do
+          expect(page).to have_content("This proposal has been accepted")
+          expect(page).to have_i18n_content(proposal.answer)
+        end
       end
     end
 
@@ -568,14 +580,14 @@ describe "Proposals", type: :feature do
           end
         end
 
-        context "by origin 'citizenship'" do
+        context "by origin 'citizens'" do
           it "lists the filtered proposals" do
             create_list(:proposal, 2, feature: feature, scope: scope)
             create(:proposal, :official, feature: feature, scope: scope)
             visit_feature
 
             within ".filters" do
-              choose "Citizenship"
+              choose "Citizens"
             end
 
             expect(page).to have_css(".card--proposal", count: 2)
@@ -617,7 +629,7 @@ describe "Proposals", type: :feature do
         context "selecting the global scope" do
           it "lists the filtered proposals" do
             within ".filters" do
-              select2("Global scope", xpath: '//select[@id="filter_scope_id"]/..', search: true)
+              select2("Global scope", xpath: '//select[@id="filter_scope_id"]/..', search: false)
             end
 
             expect(page).to have_css(".card--proposal", count: 1)
@@ -640,7 +652,7 @@ describe "Proposals", type: :feature do
           it "lists the filtered proposals" do
             within ".filters" do
               select2(translated(scope.name), xpath: '//select[@id="filter_scope_id"]/..', search: true)
-              select2("Global scope", xpath: '//select[@id="filter_scope_id"]/..', search: true)
+              select2("Global scope", xpath: '//select[@id="filter_scope_id"]/..', search: false)
             end
 
             expect(page).to have_css(".card--proposal", count: 3)

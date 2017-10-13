@@ -20,6 +20,7 @@ module Decidim
               description_es: "Mi descripción",
               description_ca: "La meva descripció",
               show_statistics: false,
+              header_snippets: '<script>alert("Hello");</script>',
               favicon: File.new(Decidim::Dev.asset("icon.png"))
             }
           }
@@ -79,6 +80,26 @@ module Decidim
             organization.reload
 
             expect(organization.name).to eq("My super organization")
+          end
+
+          it "does not save header snippets" do
+            expect { command.call }.to broadcast(:ok)
+            organization.reload
+
+            expect(organization.header_snippets).to_not be_present
+          end
+
+          describe "when header snippets are configured" do
+            before do
+              allow(Decidim).to receive(:enable_html_header_snippets).and_return(true)
+            end
+
+            it "saves header snippets" do
+              expect { command.call }.to broadcast(:ok)
+              organization.reload
+
+              expect(organization.header_snippets).to be_present
+            end
           end
 
           context "when no homepage image is set" do

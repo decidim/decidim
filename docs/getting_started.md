@@ -87,7 +87,7 @@ You'll need to reference it from the Decidim initializer:
 ```ruby
 # config/initializers/decidim.rb
 
-config.authorization_handlers = [<my authorization handler class>]
+config.authorization_handlers = ["<my authorization handler class>"]
 ```
 
 ## Deploy

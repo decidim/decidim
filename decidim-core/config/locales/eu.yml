@@ -129,11 +129,11 @@ eu:
     events:
       email_event:
         email_greeting: Kaixo, %{user_name},
-        email_intro: '"%{resource_title}" eguneratze bat gertatu da. Orrialde hau ikusi dezakezu:'
-        email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
+        email_intro: 'Eguneratze da "%{resource_title}". Orri honetan ikus daiteke:'
+        email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
         email_subject: '%{resource_title} eguneratzea'
       notification_event:
-        notification_title: Gertaera bat gertatu da <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
     export_mailer:
       export:
         ready: Atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
@@ -163,19 +163,19 @@ eu:
     follows:
       create:
         button: Jarraitu
-        error: Errore bat gertatu da baliabide hau jarraituz.
+        error: Errorea gertatu da baliabide hau jarraitzeari uztean.
       destroy:
-        button: Utzi hurrengo
-        error: Errore bat gertatu da baliabide hau jarraitzen.
+        button: Jarraitzeari utzi
+        error: Errorea gertatu da baliabide hau jarraitzeari uztean.
     forms:
       current_file: Oraingo fitxategia
       current_image: Oraingo irudia
       default_image: Irudi lehenetsia
       errors:
         error: Errorea bat dago eremu honetan.
-      remove_this_file: Kendu fitxategi hau
+      remove_this_file: Ezabatu artxibo hau
     managed_users:
-      expired_session: Uneko indargabetze saioa iraungi da.
+      expired_session: Ordezte-saio hau iraungi da.
     menu:
       home: Hasiera
       more_information: Argibide gehiago
@@ -184,7 +184,7 @@ eu:
         note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'
     notifications_settings:
       show:
-        email_on_notification: Jakinarazpen bat jasotzen dudan bakoitzean mezu elektroniko bat jaso nahi dut.
+        email_on_notification: Mezu elektroniko bat jaso nahi dut jakinarazpen bat jasotzen dudan bakoitzean.
         newsletter_notifications: Informazioa jaso nahi dut garrantzizko jarduerari buruz
         update_notifications_settings: Gorde aldaketak
       update:
@@ -242,13 +242,15 @@ eu:
         report: Txostena
         spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
         title: Salatu arazo bat
+      follow_button:
+        sign_in_before_follow: Hasi saioa ekintza hau burutu baino lehen
       login_modal:
         please_sign_in: Mesedez, erregistratu
         sign_up: Erregistratu
       reference:
         reference: 'Erreferentzia: %{reference}'
       results_per_page:
-        label: 'Orrialde bakoitzeko emaitzak:'
+        label: 'Emaitzak, orrialdeko:'
       share_modal:
         close_window: Itxi leihoa
         share: Partekatu
@@ -265,9 +267,9 @@ eu:
         hello: Kaixo, %{email},
         ignore: |-
           Nahi ez baduzu onartu gonbit hau, ez egin kasu mezu honi.<br />Zure kontua ez da sortuko beheko estekara jo eta zure pasahitza aukeratu arte.
-        invited_you_as_admin: "%{invited_by} izeneko batek gonbit egin dizu %{application} aplikazioaren administratzaile izateko; onartzeko, egin klik esteka honetan:"
-        someone_invited_you: 'Orbaitek gonbit egin dizu aplikazio honetara: %{application}. Onartzeko, egin klik esteka honetan:'
-        you_are_now_admin: Orain kudeatzaile zara
+        invited_you_as_admin: "%{invited_by} %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
+        someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onartu dezakezu.
+        you_are_now_admin: Orain administratzailea zara
       invite_admin:
         subject: 'Gonbita jaso duzu erakunde hau kudeatzeko: %{organization}'
       invite_collaborator:
@@ -292,7 +294,7 @@ eu:
       too_much_caps: Letra larri gehiegi erabiltzen ari zara
       too_short: Laburregia da
   forms:
-    required: Beharrezko
+    required: Nahitaezkoa da
   invisible_captcha:
     sentence_for_humans: Gizaki bat bazara, ez egin kasu eremu honi
     timestamp_error_message: Barkatu, baina azkarregi aritu zara! Mesedez, bidali.
@@ -311,11 +313,11 @@ eu:
         sign_up: Erregistratu
       impersonation_warning:
         close_session: Itxi saioa
-        description_html: Erabiltzailea <b>%{user_name}</b> ordezkatzen ari zara.
-        expire_time_html: Zure saioa <b><span class="minutes">%{minutes}</span> minutu</b> iraungiko da.
+        description_html: 'Honako erabiltzaile honen plantak egiten ari zara: <b>%{user_name}</b>.'
+        expire_time_html: Zure saioa iraungiko da <b><span class="minutes">%{minutes}</span>minutu barru</b>.
       notifications_dashboard:
-        mark_all_as_read: Markatu guztiak irakurri gisa
-        no_notifications: Ez dago jakinarazpenik oraindik.
+        mark_all_as_read: Markatu dena irakurritako gisa
+        no_notifications: Oraindik ez dago jakinarazpenik.
         title: jakinarazpenak
       user_menu:
         admin_dashboard: Administrazioko aginte-mahaia
@@ -337,13 +339,13 @@ eu:
     home:
       extended:
         debates: Eztabaidak
-        debates_explanation: Gure ustez hirirako inportanteak diren gauzak ezagutu, eztabaidatu eta partekatuko ditugu.
+        debates_explanation: Debate eta eztabaidatu, partekatu zure iritziak eta gai garrantzitsuak aberasteko.
         how_to_participate: Nola har dezaket parte prozesu batean?
         meetings: Topaketa-zerrenda
-        meetings_explanation: Gure ustez hirirako inportanteak diren gauzak ezagutu, eztabaidatu eta partekatuko ditugu.
+        meetings_explanation: Ezagutu non eta noiz bilera publikoetan parte har dezakezu.
         more_info: Argibide gehiago
         proposals: Proposamenak
-        proposals_explanation: Gune irekia herritarren proposamenetarako, adierazteko zer-nolako hiritan bizi nahi dugun.
+        proposals_explanation: Egin proposamenak, lehendik dauden laguntza eta ikusi nahi dituzun aldaketak sustatu.
       footer_sub_hero:
         footer_sub_hero_body: Bihurtu dezagun gizartea irekiago, gardenago eta kolaboratiboago <br /> Bat egin, parte hartu eta erabaki.
         footer_sub_hero_headline: Ongi etorri %{organization} erakundearen plataforma partizipatibora.
@@ -360,7 +362,7 @@ eu:
         comments_count: Iruzkinak
         headline: '%{organization} erakundearen egungo egoera'
         meetings_count: Topaketak
-        orders_count: Eskariak
+        orders_count: Euskarriak
         pages_count: Orriak
         processes_count: Prozesuak
         projects_count: Proiektuak
