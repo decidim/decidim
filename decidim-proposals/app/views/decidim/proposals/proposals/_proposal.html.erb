@@ -11,7 +11,7 @@
         <%= feature_reference(proposal, class: "reference--text-left") %>
       </div>
       <%= render partial: "proposal_badge", locals: { proposal: proposal } %>
-      <p><%= truncate(proposal.body, length: 100) %></p>
+      <p><%= sanitize html_truncate proposal.body, length: 100 %></p>
       <%= render partial: "decidim/shared/tags", locals: { resource: proposal, tags_class_extra: "tags--proposal" } %>
     </div>
     <div class="card__footer">

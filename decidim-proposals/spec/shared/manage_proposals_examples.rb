@@ -60,7 +60,7 @@ shared_examples "manage proposals" do
           it "creates a new proposal" do
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
-              fill_in :proposal_body, with: "Decidim is great but it can be better"
+              fill_in_editor :proposal_body, with: "Decidim is great but it can be better"
               select translated(category.name), from: :proposal_category_id
               select2 translated(scope.name), xpath: '//select[@id="proposal_scope_id"]/..', search: true
 
@@ -100,7 +100,7 @@ shared_examples "manage proposals" do
 
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
-              fill_in :proposal_body, with: "Decidim is great but it can be better"
+              fill_in_editor :proposal_body, with: "Decidim is great but it can be better"
               select category.name["en"], from: :proposal_category_id
               find("*[type=submit]").click
             end
@@ -129,7 +129,7 @@ shared_examples "manage proposals" do
 
               within ".new_proposal" do
                 fill_in :proposal_title, with: "Make decidim great again"
-                fill_in :proposal_body, with: "Decidim is great but it can be better"
+                fill_in_editor :proposal_body, with: "Decidim is great but it can be better"
                 fill_in :proposal_address, with: address
                 select category.name["en"], from: :proposal_category_id
                 find("*[type=submit]").click
@@ -161,7 +161,7 @@ shared_examples "manage proposals" do
 
             within ".new_proposal" do
               fill_in :proposal_title, with: "Proposal with attachments"
-              fill_in :proposal_body, with: "This is my proposal and I want to upload attachments."
+              fill_in_editor :proposal_body, with: "This is my proposal and I want to upload attachments."
               fill_in :proposal_attachment_title, with: "My attachment"
               attach_file :proposal_attachment_file, Decidim::Dev.asset("city.jpeg")
               find("*[type=submit]").click
