@@ -5,9 +5,9 @@ en:
       events:
         comment_created:
           comment:
-            email_intro: The "%{resource_title}" has been commented
+            email_intro: '"%{resource_title}" has been commented. You can read the comment in this page:'
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
-            email_subject: There is a new comment from %{author_name} in <a href="%{resource_url}">%{resource_title}</a>
+            email_subject: There is a new comment from %{author_name} in %{resource_title}
             notification_title: There is a new comment from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
           reply:
             email_intro: The "%{resource_title}" has been commented
