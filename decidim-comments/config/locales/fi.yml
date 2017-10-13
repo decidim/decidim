@@ -4,9 +4,9 @@ fi:
       events:
         comment_created:
           comment:
-            email_intro: Uusi kommentti kohteeseen "%{resource_title}"
+            email_intro: '"%{resource_title}" on kommentoinut. Voit lukea kommentin tällä sivulla:'
             email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta "%{resource_title}". Voit lopettaa seurannan edellisestä linkistä.
-            email_subject: Uusi kommentti henkilöltä %{author_name} kohteeseen <a href="%{resource_url}">%{resource_title}</a>
+            email_subject: Uusi kommentti henkilöltä %{author_name} kohteeseen %{resource_title}
             notification_title: Uusi kommentti henkilöltä %{author_name} kohteeseen <a href="%{resource_path}">%{resource_title}</a>
           reply:
             email_intro: Kohdetta "%{resource_title}" on kommentoitu
