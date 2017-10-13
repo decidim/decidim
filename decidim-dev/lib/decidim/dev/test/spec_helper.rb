@@ -2,11 +2,6 @@
 
 ENV["RAILS_ENV"] ||= "test"
 
-require "rails"
-require "active_support/core_ext/string"
-require "decidim/core"
-require "decidim/core/test"
-
 require "rails-controller-testing"
 require "rspec/rails"
 require "factory_girl_rails"
