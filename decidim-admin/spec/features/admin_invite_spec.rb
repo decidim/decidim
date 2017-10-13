@@ -45,6 +45,7 @@ describe "Admin invite", type: :feature do
       end
 
       expect(page).to have_content("DASHBOARD")
+      expect(current_path).to eq "/admin/"
     end
   end
 end

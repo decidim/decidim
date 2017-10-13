@@ -106,7 +106,7 @@ module Decidim
     end
 
     def all_roles_are_valid
-      errors.add(:roles, :invalid) unless roles.all? { |role| ROLES.include?(role) }
+      errors.add(:roles, :invalid) unless roles.compact.all? { |role| ROLES.include?(role) }
     end
 
     def available_locales

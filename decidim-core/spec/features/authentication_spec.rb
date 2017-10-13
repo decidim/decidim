@@ -286,6 +286,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
         end
 
         expect(page).to have_content("password has been changed successfully")
+        expect(current_path).to eq "/"
       end
     end
 

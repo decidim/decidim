@@ -83,7 +83,7 @@ module Decidim
                     icon_name: "target",
                     position: 2,
                     active: :inclusive,
-                    if: can?(:manage, Decidim::ParticipatoryProcess)
+                    if: can?(:read, Decidim::ParticipatoryProcess)
 
           menu.item I18n.t("menu.participatory_process_groups", scope: "decidim.admin"),
                     decidim_admin_participatory_processes.participatory_process_groups_path,
