@@ -2,7 +2,7 @@ fr:
   activemodel:
     attributes:
       account:
-        delete_reason: Pour quelle raison de supprimez-vous votre compte ?
+        delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
       report:
         details: Commentaires additionnels
       user:
