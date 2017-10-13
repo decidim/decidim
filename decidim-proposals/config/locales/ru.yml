@@ -11,6 +11,7 @@ ru:
     proposals:
       actions:
         answer: Ответ
+        title: Действия
       admin:
         proposal_answers:
           edit:

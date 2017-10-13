@@ -87,6 +87,7 @@ pl:
             scope: Zakres
             state: Stan
             title: Tytuł
+            votes: Głosowania
       proposal_votes:
         create:
           error: Podczas głosowania nad propozycją wystąpiły błędy.

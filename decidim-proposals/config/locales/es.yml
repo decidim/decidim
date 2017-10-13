@@ -87,6 +87,7 @@ es:
             scope: Ámbito
             state: Estado
             title: Título
+            votes: Soportes
       proposal_votes:
         create:
           error: Ha habido errores al votar la propuesta.
