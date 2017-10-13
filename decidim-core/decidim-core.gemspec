@@ -8,17 +8,17 @@ require "decidim/core/version"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name = "decidim-core"
-  s.version = Decidim.version
+  s.version = Decidim::Core.version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
   s.homepage = ""
   s.summary = "The core of the Decidim framework."
   s.description = "Adds core features so other engines can hook into the framework."
-  s.license = "AGPLv3"
+  s.license = "AGPL-3.0"
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
-  s.add_dependency "rails", *Decidim.rails_version
+  s.add_dependency "rails", "~> 5.1.3"
   s.add_dependency "rails-i18n"
   s.add_dependency "devise", "~> 4.3"
   s.add_dependency "devise-i18n", "~> 1.2.0"
@@ -50,11 +50,11 @@ Gem::Specification.new do |s|
   s.add_dependency "rubyzip", "1.2.1"
   s.add_dependency "select2-rails", "~> 4.0.3"
 
-  s.add_dependency "decidim-api", Decidim.version
+  s.add_dependency "decidim-api", Decidim::Core.version
 
-  s.add_development_dependency "decidim-dev", Decidim.version
-  s.add_development_dependency "decidim-participatory_processes", Decidim.version
-  s.add_development_dependency "decidim-proposals", Decidim.version
-  s.add_development_dependency "decidim-meetings", Decidim.version
-  s.add_development_dependency "decidim-results", Decidim.version
+  s.add_development_dependency "decidim-dev", Decidim::Core.version
+  s.add_development_dependency "decidim-participatory_processes", Decidim::Core.version
+  s.add_development_dependency "decidim-proposals", Decidim::Core.version
+  s.add_development_dependency "decidim-meetings", Decidim::Core.version
+  s.add_development_dependency "decidim-results", Decidim::Core.version
 end
