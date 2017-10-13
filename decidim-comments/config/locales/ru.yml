@@ -5,3 +5,6 @@ ru:
         form:
           body:
             label: Комментарий
+      comment:
+        report:
+          details: Дополнительные комментарии
