@@ -4,9 +4,9 @@ ca:
       events:
         comment_created:
           comment:
-            email_intro: S'ha comentat el "%{resource_title}"
+            email_intro: 'S''ha comentat "%{resource_title}". Podeu llegir el comentari d''aquesta pàgina:'
             email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
-            email_subject: Hi ha un nou comentari de %{author_name} a <a href="%{resource_url}">%{resource_title}</a>
+            email_subject: Hi ha un nou comentari de %{author_name} a %{resource_title}
             notification_title: Hi ha un nou comentari de %{author_name} a <a href="%{resource_path}">%{resource_title}</a>
           reply:
             email_intro: S'ha comentat "%{resource_title}"
