@@ -353,6 +353,7 @@ ru:
           title: Новый охват
         no_scopes: На этом уровне нет охватов.
         update:
+          error: При обновлении этого охвата произошла ошибка.
           success: Охват успешно обновлен
       static_pages:
         actions:
@@ -407,3 +408,15 @@ ru:
         destroy:
           error: При попытке удалить этого участника произошла ошибка.
           success: Учасник уже не администратор.
+        form:
+          email: Эл. адрес
+          name: Имя
+          role: Роль
+        new:
+          create: Пригласить
+          title: Пригласить участника в качестве администратора
+    moderations:
+      actions:
+        hidden: Скрыт
+        hide: Скрыть
+        not_hidden: Не скрыт
