@@ -145,6 +145,7 @@ pl:
           view_proposal: Wyświetl propozycję
         show:
           proposal_accepted_reason: 'Niniejszy wniosek został zaakceptowany, ponieważ:'
+          proposal_in_evaluation_reason: Niniejszy wniosek jest oceniany
           proposal_rejected_reason: 'Niniejszy wniosek został odrzucony, ponieważ:'
           report: Raport
         vote_button:
