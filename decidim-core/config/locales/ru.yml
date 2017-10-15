@@ -74,3 +74,6 @@ ru:
     authorizations:
       create:
         error: При создании этой авторизации произошла ошибка.
+    events:
+      email_event:
+        email_greeting: Здравствуйте, %{user_name}!
