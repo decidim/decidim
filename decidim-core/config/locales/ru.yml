@@ -121,3 +121,31 @@ ru:
       default_image: Изображение по умолчанию
       errors:
         error: В этом поле есть ошибка.
+      remove_this_file: Удалить этот файл
+    managed_users:
+      expired_session: Текущий сеанс олицетворения истек.
+    menu:
+      home: Главная
+      more_information: Больше сведений
+    newsletter_mailer:
+      newsletter:
+        note: Вы получили это электронное письмо, потому что подписались на новостные рассылки %{organization_name}. Вы можете изменить свои настройки на своей <a href="%{link}">странице уведомлений</a>.
+    notifications_settings:
+      show:
+        email_on_notification: Я хочу получать электронное письмо каждый раз, когда приходит уведомление.
+        newsletter_notifications: Я хочу получать информацию о связанных с этим событиях
+        update_notifications_settings: Сохранить изменения
+      update:
+        error: При обновлении настроек уведомлений произошла ошибка.
+        success: Ваши настройки уведомлений были успешно обновлены.
+    own_user_groups:
+      index:
+        pending: В ожидании
+        rejected: Отклонено
+        verified: Проверено
+    pages:
+      index:
+        title: Больше сведений
+    reported_mailer:
+      hide:
+        hello: Здравствуйте, %{name}!
