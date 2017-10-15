@@ -147,6 +147,7 @@ uk:
           view_proposal: Переглянути пропозицію
         show:
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
+          proposal_in_evaluation_reason: Ця пропозиція розглядається
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
           report: Доповісти
         vote_button:
