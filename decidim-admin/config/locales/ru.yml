@@ -342,6 +342,16 @@ ru:
       scopes:
         create:
           error: При создании нового охвата произошла ошибка.
+          success: Охват успешно создан.
+        destroy:
+          success: Охват успешно удален
+        edit:
+          title: Редактировать охват
+          update: Обновить
+        new:
+          create: Создать охват
+          title: Новый охват
+        no_scopes: На этом уровне нет охватов.
         update:
           success: Охват успешно обновлен
       static_pages:
