@@ -4,6 +4,7 @@ it:
       events:
         comment_created:
           comment:
+            email_intro: '"%{resource_title}" è stato commentato. Puoi leggere il commento in questa pagina:'
             email_outro: Hai ricevuto questa notifica perché state seguendo "%{resource_title}". Puoi disconnetterlo dal link precedente.
             email_subject: C'è un nuovo commento da parte di %{author_name} al link %{resource_title}
             notification_title: C'è un nuovo commento da %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
