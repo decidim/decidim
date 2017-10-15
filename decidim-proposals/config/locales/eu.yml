@@ -143,6 +143,7 @@ eu:
           view_proposal: Ikusi proposamena
         show:
           proposal_accepted_reason: 'Proposamen hau onartu da arrazoi hauengatik:'
+          proposal_in_evaluation_reason: Proposamen hau ebaluatzen ari da
           proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'
           report: Salatu
         vote_button:
