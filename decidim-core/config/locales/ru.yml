@@ -77,3 +77,16 @@ ru:
     events:
       email_event:
         email_greeting: Здравствуйте, %{user_name}!
+        email_intro: '«%{resource_title}» обновили. Вы можете увидеть это на странице:'
+        email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
+        email_subject: Обновление %{resource_title}
+      notification_event:
+        notification_title: С <a href="%{resource_path}">%{resource_title}</a> произошло событие.
+    export_mailer:
+      export:
+        ready: К настоящему прилагается в архивированном виде сохраненный вами файл.
+      subject: Ваш сохраненный файл «%{name}» готов
+    features:
+      dummy:
+        actions:
+          bar: Нерабочая псевдо-переменная 1
