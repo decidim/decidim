@@ -68,8 +68,8 @@ ru:
         duplicate_authorization: С теми же данными уже авторизован другой участник.
       foo_authorization:
         fields:
-          bar: Нерабочая псевдо-переменная
-          foo: Нерабочая псевдо-переменная
+          bar: Нерабочая псевдо-переменная 1
+          foo: Нерабочая псевдо-переменная 2
         name: Нерабочая псевдо-авторизация
     authorizations:
       create:
@@ -90,3 +90,30 @@ ru:
       dummy:
         actions:
           bar: Нерабочая псевдо-переменная 1
+          foo: Нерабочая псевдо-переменная 2
+        name: Нерабочая псевдо-составляющая
+        settings:
+          global:
+            comments_enabled: Комментарии включены
+            dummy_global_attribute_1: Нерабочее псевдо-свойство 1
+            dummy_global_attribute_2: Нерабочее псевдо-свойство 2
+          step:
+            comments_blocked: Комментарии заблокированы
+            dummy_step_attribute_1: Нерабочее первое псевдо-свойство шага
+            dummy_step_attribute_2: Нерабочее второе псевдо-свойство шага
+    filters:
+      linked_classes:
+        all: Все
+        meeting: Встречи
+        project: Проекты
+        proposal: Предложения
+        result: Итоги
+    follows:
+      create:
+        button: Следить
+        error: При попытке начать следить за этим ресурсом произошла ошибка.
+      destroy:
+        button: Перестать следить
+        error: При попытке перестать следить за этим ресурсом произошла ошибка.
+    forms:
+      current_file: Текущий файл
