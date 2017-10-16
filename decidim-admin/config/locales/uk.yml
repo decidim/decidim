@@ -435,9 +435,9 @@ uk:
           fields:
             hidden_at: Приховано о
             report_count: Кількість
-            reportable: Звітність
-            reported_content_url: URL-адреса звітованого вмісту
-            reports: Звіти
+            reportable: Тип скарги
+            reported_content_url: URL-адреса оскарженого вмісту
+            reports: Скарги
   errors:
     messages:
       invalid_json: Неприпустимий JSON
