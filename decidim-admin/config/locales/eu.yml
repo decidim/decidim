@@ -17,18 +17,8 @@ eu:
         subject: Gaia
       organization:
         default_locale: Eskualdeko ezarpen lehenetsiak
-        description: Descripción
-        favicon: Ikonoa
-        header_snippets: Izenburu-snippets-ak
-        homepage_image: Orri nagusiko irudia
-        logo: Logotipo
         name: Izena
-        official_img_footer: Orri-oineko logotipo ofiziala
-        official_img_header: Goiburuko logotipo ofiziala
-        official_url: Erakundearen URL ofiziala
         reference_prefix: Erreferentzia-aurrizkia
-        show_statistics: Erakutsi estatistikak
-        welcome_text: Ongietorri-testua
       scope:
         code: Kodea
         name: Izena
@@ -312,10 +302,8 @@ eu:
           title: Editatu erakundea
           update: Eguneratu
         form:
-          current_image: Oraingo irudia
           facebook: Facebook
           github: GitHub
-          header_snippets_help: Erabili eremu hau HTML goiburuari gauzak gehitzeko. Erabilerarik ohikoena da JavaScript edo CSS gehigarriak behar dituzten hirugarrenen zerbitzuak txertatzea. Gainera, HTMLari meta-etiketa gehigarriak gehitzeko erabil dezakezu. Kontuan hartu orri publikoetan baino ez dela erakutsiko, ez administrazio atalean.
           instagram: Instagram
           social_handlers: Gizarte
           twitter: Twitter
