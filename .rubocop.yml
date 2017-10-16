@@ -1294,6 +1294,9 @@ RSpec/IteratedExpectation:
 RSpec/LetSetup:
   Enabled: false
 
+RSpec/MessageSpies:
+  Enabled: false
+
 RSpec/MultipleExpectations:
   Max: 17
 
