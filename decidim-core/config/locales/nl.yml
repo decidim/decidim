@@ -269,7 +269,7 @@ nl:
           Negeer deze email als u de uitnodiging niet wilt accepteren.<br /> Uw account wordt niet aangemaakt totdat u via de link hierboven uw wachtwoord instelt.
         invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
-        you_are_now_admin: Je bent nu een admin
+        someone_invited_you_as_admin: Iemand heeft u uitgenodigd als administrator van %{application}, u kunt het accepteren via onderstaande link.
       invite_admin:
         subject: U bent uitgenodigd om %{organization} te beheren
       invite_collaborator:
