@@ -18,33 +18,10 @@ module Decidim
       attribute :youtube_handler, String
       attribute :github_handler, String
       attribute :default_locale, String
-      attribute :homepage_image
-      attribute :remove_homepage_image
-      attribute :logo
-      attribute :remove_logo
-      attribute :favicon
-      attribute :remove_favicon
-      attribute :official_url
-      attribute :official_img_header
-      attribute :remove_official_img_header
-      attribute :official_img_footer
-      attribute :remove_official_img_footer
-      attribute :show_statistics
-      attribute :header_snippets, String
-
-      translatable_attribute :description, String
-      translatable_attribute :welcome_text, String
 
       validates :name, presence: true
       validates :default_locale, presence: true
       validates :default_locale, inclusion: { in: :available_locales }
-
-      validates :official_img_header,
-                file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
-                file_content_type: { allow: ["image/jpeg", "image/png"] }
-      validates :official_img_footer,
-                file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
-                file_content_type: { allow: ["image/jpeg", "image/png"] }
 
       private
 

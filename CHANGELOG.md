@@ -16,6 +16,7 @@
 
 - **decidim**: URLs now use the participatory space slug instead of the ID, both in the public pages and in the admin. Old routes using the space IDs now redirect to the ones using the slug. [\#1842](https://github.com/decidim/decidim/pull/1842)
 - **decidim**: `bin/rails generate decidim:demo` is no longer available in generated applications. Use the `--demo` flag when generating your application or do the change manually if you want to use the "demo" authorization handler. [\#1978](https://github.com/decidim/decidim/pull/1978)
+- **decidim-admin**: Organization settings form is now split in two: connfiguration and appearance [\#2041](https://github.com/decidim/decidim/pull/2041)
 - **decidim-core**: Changes some texts in the homepage ("How do I take part in a process?" section) [\#1947](https://github.com/decidim/decidim/pull/1947)
 - **decidim-core**: Authorization handlers now must be specified as strings. To migrate, change `config.authorization_handlers = [MyHandler]` to `config.authorization_handlers = ["MyHandler"]`. [\#2016](https://github.com/decidim/decidim/pull/2016)
 - **decidim-proposals**: Change proposal answer callouts so they match their real state [\#2025](https://github.com/decidim/decidim/pull/2025)
@@ -23,6 +24,7 @@
 
 **Fixed**
 
+- **decidim-admin**: Reference prefix was not being updated in the admin form [\#2041](https://github.com/decidim/decidim/pull/2041)
 - **decidim-core**: Handle nil resources on static maps (errors were caused by search engine spiders) [\#1936](https://github.com/decidim/decidim/pull/1936)
 - **decidim-comments**: Fix a bug sending email notifications when a comment is created [\#2036](https://github.com/decidim/decidim/pull/2036)
 - **decidim-participatory-processes**: Invited moderators couldn't access the process admin panel [\#2020](https://github.com/decidim/decidim/pull/2020)

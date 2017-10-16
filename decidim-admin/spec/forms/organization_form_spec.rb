@@ -12,40 +12,14 @@ module Decidim
       let(:instagram_handler) { "My instagram awesome handler" }
       let(:youtube_handler) { "My youtube awesome handler" }
       let(:github_handler) { "My github awesome handler" }
-      let(:header_snippets) { "<my-html />" }
       let(:default_locale) { :en }
-      let(:welcome_text) do
-        {
-          en: "Welcome",
-          es: "Hola",
-          ca: "Hola"
-        }
-      end
-      let(:description) do
-        {
-          en: "Description, awesome description",
-          es: "Descripción",
-          ca: "Descripció"
-        }
-      end
       let(:organization) { create(:organization) }
-      let(:homepage_image_path) { Decidim::Dev.asset("city.jpeg") }
       let(:attributes) do
         {
           "organization" => {
             "name" => name,
             "reference_prefix" => reference_prefix,
             "default_locale" => default_locale,
-            "available_locales" => %w(en ca es),
-            "welcome_text_en" => welcome_text[:en],
-            "welcome_text_es" => welcome_text[:es],
-            "welcome_text_ca" => welcome_text[:ca],
-            "description_en" => description[:en],
-            "description_es" => description[:es],
-            "description_ca" => description[:ca],
-            "homepage_image" => Rack::Test::UploadedFile.new(homepage_image_path, "image/jpeg"),
-            "show_statics" => false,
-            "header_snippets" => header_snippets,
             "twitter_handler" => twitter_handler,
             "facebook_handler" => facebook_handler,
             "instagram_handler" => instagram_handler,
@@ -85,6 +59,7 @@ module Decidim
 
       context "when default_locale is not an available locale" do
         let(:default_locale) { :de }
+
         before do
           allow(organization).to receive(:available_locales).and_return([:en, :es, :ca])
         end
