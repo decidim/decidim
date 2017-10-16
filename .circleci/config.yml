@@ -336,7 +336,7 @@ jobs:
           command: cd /code/decidim-pages && time bundle exec rake
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
-  results:
+  accountability:
     <<: *defaults
     steps:
       - attach_workspace:
@@ -356,11 +356,11 @@ jobs:
             bundle install
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
-          name: Run results JS tests
-          command: cd /code && time npm test -- decidim-results
+          name: Run accountability JS tests
+          command: cd /code && time npm test -- decidim-accountability
       - run:
-          name: Run results RSpec
-          command: cd /code/decidim-results && time bundle exec rake
+          name: Run accountability RSpec
+          command: cd /code/decidim-accountability && time bundle exec rake
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   budgets:
@@ -456,7 +456,7 @@ workflows:
       - pages:
           requires:
             - build
-      - results:
+      - accountability:
           requires:
             - build
       - budgets:

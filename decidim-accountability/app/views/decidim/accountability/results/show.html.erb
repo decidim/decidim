@@ -1,0 +1,14 @@
+<% add_decidim_meta_tags({
+  description: translated_attribute(result.description),
+  title: translated_attribute(result.title),
+  url: result_url(result.id)
+}) %>
+
+<% if result.children.any? %>
+  <%= render partial: "show_parent", locals: { result: result } %>
+<% else %>
+  <%= render partial: "show_leaf", locals: { result: result } %>
+<% end %>
+
+<%= javascript_include_tag "decidim/proposals/social_share" %>
+<%= stylesheet_link_tag "decidim/proposals/social_share" %>

@@ -181,17 +181,17 @@ module Decidim
             end
           end
 
-          context "when filtering by related to results" do
-            let(:related_to) { "Decidim::Results::Result".underscore }
-            let(:results_feature) { create(:feature, manifest_name: "results", participatory_space: participatory_process) }
-            let(:result) { create :result, feature: results_feature }
+          context "when filtering by related to resources" do
+            let(:related_to) { "Decidim::DummyResources::DummyResource".underscore }
+            let(:dummy_feature) { create(:feature, manifest_name: "dummy", participatory_space: participatory_process) }
+            let(:dummy_resource) { create :dummy_resource, feature: dummy_feature }
 
             it "returns only proposals related to results" do
               related_proposal = create(:proposal, :accepted, feature: feature)
               related_proposal2 = create(:proposal, :accepted, feature: feature)
               create_list(:proposal, 3, feature: feature)
-              result.link_resources([related_proposal], "included_proposals")
-              related_proposal2.link_resources([result], "included_proposals")
+              dummy_resource.link_resources([related_proposal], "included_proposals")
+              related_proposal2.link_resources([dummy_resource], "included_proposals")
 
               expect(subject).to match_array([related_proposal, related_proposal2])
             end

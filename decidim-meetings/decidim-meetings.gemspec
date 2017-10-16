@@ -32,6 +32,4 @@ Gem::Specification.new do |s|
   s.add_development_dependency "decidim-admin", Decidim::Meetings.version
   s.add_development_dependency "decidim-participatory_processes", Decidim::Meetings.version
   s.add_development_dependency "decidim-assemblies", Decidim::Meetings.version
-  s.add_development_dependency "decidim-proposals", Decidim::Meetings.version
-  s.add_development_dependency "decidim-results", Decidim::Meetings.version
 end

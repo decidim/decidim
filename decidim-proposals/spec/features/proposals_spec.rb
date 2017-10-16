@@ -344,20 +344,20 @@ describe "Proposals", type: :feature do
 
     context "when a proposal has been linked in a result" do
       let(:proposal) { create(:proposal, feature: feature) }
-      let(:result_feature) do
-        create(:feature, manifest_name: :results, participatory_space: proposal.feature.participatory_space)
+      let(:dummy_feature) do
+        create(:feature, manifest_name: :dummy, participatory_space: proposal.feature.participatory_space)
       end
-      let(:result) { create(:result, feature: result_feature) }
+      let(:dummy_resource) { create(:dummy_resource, feature: dummy_feature) }
 
       before do
-        result.link_resources([proposal], "included_proposals")
+        dummy_resource.link_resources([proposal], "included_proposals")
       end
 
-      it "shows related results" do
+      it "shows related resources" do
         visit_feature
         click_link proposal.title
 
-        expect(page).to have_i18n_content(result.title)
+        expect(page).to have_i18n_content(dummy_resource.title)
       end
     end
 

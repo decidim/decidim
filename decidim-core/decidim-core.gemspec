@@ -53,8 +53,4 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-api", Decidim::Core.version
 
   s.add_development_dependency "decidim-dev", Decidim::Core.version
-  s.add_development_dependency "decidim-participatory_processes", Decidim::Core.version
-  s.add_development_dependency "decidim-proposals", Decidim::Core.version
-  s.add_development_dependency "decidim-meetings", Decidim::Core.version
-  s.add_development_dependency "decidim-results", Decidim::Core.version
 end

@@ -1,0 +1,25 @@
+<div class="row accountability">
+  <div class="small-12 columns">
+    <%= render partial: "decidim/accountability/results/nav_breadcrumb", locals: { category: result.try(:category) } %>
+  </div>
+
+  <div class="small-12 columns">
+    <h2 class="heading2"><%= translated_attribute result.title %></h2>
+
+    <div class="small-12 medium-8 column row end">
+      <div class="section">
+        <div class="description">
+          <%== translated_attribute result.description %>
+        </div>
+        <%= render partial: "decidim/shared/tags", locals: { resource: result, tags_class_extra: "tags--result" } %>
+      </div>
+    </div>
+
+    <%= render partial: "results_leaf", locals: { results: result.children.page(1).per(result.children_count), total_count: result.children_count } %>
+
+  </div>
+
+  <%= render partial: "stats" %>
+
+  <%= comments_for result %>
+</div>

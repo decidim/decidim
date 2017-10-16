@@ -1,0 +1,158 @@
+---
+en:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: status
+        decidim_category_id: Category
+        decidim_scope_id: Scope
+        description: Description
+        end_date: End date
+        progress: Progress
+        proposal_ids: Included proposals
+        start_date: Start date
+        title: Title
+      status:
+        description: Description
+        key: Key
+        name: Name
+        progress: Progress
+      timeline_entry:
+        description: Description
+        entry_date: Date
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Are you sure you want to delete this %{name}?
+        destroy: Delete
+        edit: Edit
+        new: New %{name}
+        preview: Preview
+        timeline_entries: Project evolution
+        title: Actions
+      admin:
+        exports:
+          results: Results
+        models:
+          result:
+            name: Result
+          status:
+            name: Status
+          timeline_entry:
+            name: Timeline entry
+        results:
+          create:
+            invalid: There's been a problem creating this result
+            success: Result successfully created
+          destroy:
+            success: Result successfully deleted
+          edit:
+            title: Edit result
+            update: Update result
+          index:
+            title: Results
+          new:
+            create: Create result
+            title: New result
+          update:
+            invalid: There's been a problem updating this result
+            success: Result successfully updated
+        shared:
+          subnav:
+            statuses: Statuses
+        statuses:
+          create:
+            invalid: There's been a problem creating this status
+            success: Status successfully created
+          destroy:
+            success: Status successfully deleted
+          edit:
+            title: Edit status
+            update: Update status
+          index:
+            title: Estats
+          new:
+            create: Create status
+            title: New status
+          update:
+            invalid: There's been a problem updating this status
+            success: Status successfully updated
+        timeline_entries:
+          create:
+            invalid: There's been a problem creating this entry
+            success: Entry successfully created
+          destroy:
+            success: Entry successfully deleted
+          edit:
+            title: Edit entry
+            update: Update entry
+          index:
+            title: Project timeline entries
+          new:
+            create: Create entry
+            title: New entry
+          update:
+            invalid: There's been a problem updating this entry
+            success: Entry successfully updated
+      models:
+        result:
+          fields:
+            end_date: End date
+            progress: Progress
+            start_date: Start date
+            status: Status
+            title: Title
+        status:
+          fields:
+            description: Description
+            key: Key
+            name: Name
+            progress: Progress
+        timeline_entry:
+          fields:
+            description: Description
+            entry_date: Date
+      results:
+        count:
+          results_count:
+            one: 1 result
+            other: "%{count} results"
+        filters:
+          all: All
+          global: Global
+          scopes: Scopes
+        home:
+          categories_label: Categories
+          subcategories_label: Subcategories
+        home_header:
+          global_status: Global execution status
+        nav_breadcrumb:
+          global: Global execution
+        search:
+          search: Search for actions
+        show:
+          stats:
+            attendees: Attendees
+            comments: Comments
+            contributions: Contributions
+            meetings: Meetings
+            proposals: Proposals
+            votes: Supports
+        timeline:
+          title: Project evolution
+    features:
+      accountability:
+        name: Accountability
+        settings:
+          global:
+            categories_label: Name for "Categories"
+            comments_enabled: Comments enabled
+            heading_leaf_level_results: Name for "Projects"
+            heading_parent_level_results: Name for "Results"
+            intro: Intro
+            subcategories_label: Name for "Subcategories"
+          step:
+            comments_blocked: Comments blocked
+    resource_links:
+      included_proposals:
+        result_proposals: Proposals included in this result

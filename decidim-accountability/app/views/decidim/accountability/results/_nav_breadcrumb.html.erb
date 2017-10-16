@@ -1,0 +1,29 @@
+<div class="lines-breadcrumb">
+  <%= link_to t(".global"), root_path %>
+  <span class="percentage"><%= display_percentage progress_calculator(current_scope, nil) %></span>
+
+  <% if category.present? && category.parent.present? %>
+    <span class="breadcrumb--separator">></span>
+    <div>
+      <%= link_to translated_attribute(category.parent.name), results_path(filter: { category_id: category.parent_id }) %>
+      <span class="percentage"><%= display_percentage progress_calculator(current_scope, category.parent_id) %></span>
+    </div>
+  <% end %>
+
+  <% if category.present? %>
+    <span class="breadcrumb--separator">></span>
+    <div>
+      <%= link_to translated_attribute(category.name), results_path(filter: { category_id: category.id }) %>
+      <span class="percentage"><%= display_percentage progress_calculator(current_scope, category.id) %></span>
+    </div>
+  <% end %>
+
+  <% if result && result.parent.present? %>
+    <span class="breadcrumb--separator">></span>
+    <div>
+      <%= link_to translated_attribute(result.parent.title), result_path(result.parent) %>
+      <span class="percentage"><%= display_percentage result.parent.progress %></span>
+    </div>
+  <% end %>
+
+</div>
