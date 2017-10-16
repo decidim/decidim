@@ -422,3 +422,14 @@ ru:
         not_hidden: Не скрыт
         title: Действия
         unreport: Отменить жалобу
+      admin:
+        reportable:
+          unreport:
+            invalid: При отмене жалобы на ресурс возникла проблема.
+            success: Жалоба на ресурс успешно отменена.
+      models:
+        moderation:
+          fields:
+            reportable: Тип жалобы
+            reported_content_url: URL-адрес обжалованного содержимого
+            reports: Жалобы
