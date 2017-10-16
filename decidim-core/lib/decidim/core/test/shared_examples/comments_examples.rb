@@ -29,15 +29,11 @@ shared_examples "comments" do
 
     visit resource_path
 
+    expect(page).to have_css(".comment", minimum: 1)
     page.find(".order-by .dropdown.menu .is-dropdown-submenu-parent").hover
 
     click_link "Best rated"
-
-    expect(page).to have_css(".comment", minimum: 1)
-
-    within "#comments" do
-      expect(page.find(".comment", match: :first)).to have_content "Most Rated Comment"
-    end
+    expect(page).to have_css(".comments > div:nth-child(2)", text: "Most Rated Comment")
   end
 
   context "when not authenticated" do
