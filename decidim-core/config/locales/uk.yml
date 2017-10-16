@@ -156,6 +156,7 @@ uk:
     filters:
       linked_classes:
         all: Усі
+        dummyresource: Неробочі псевдо-ресурси
         meeting: Зустрічі
         project: Проекти
         proposal: Пропозиції
