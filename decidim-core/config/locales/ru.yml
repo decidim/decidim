@@ -281,6 +281,18 @@ ru:
         greeting: Здравствуйте, %{recipient}!
         message: Мы пишем вам, чтобы уведомить вас о том, что ваш пароль был изменен.
         subject: Пароль изменен
+  errors:
+    messages:
+      content_type_whitelist_error: Тип файла не является допустимым
+      cycle_detected: родитель охвата не может быть одним из его потомков
+      file_size_is_less_than_or_equal_to: размер файла должен быть меньше или равен %{count}
+      invalid_manifest: Недопустимый манифест
+      invalid_participatory_process: Недопустимое движение соучастия
+      long_words: Содержит слишком длинные слова
+      must_start_with_caps: Должно начинаться с заглавных букв
+      nesting_too_deep: не может быть внутри подкатегории
+      too_many_marks: Содержит слишком много знаков вопроса или восклицания
+      too_much_caps: Содержит слишком много заглавных букв
   layouts:
     decidim:
       user_profile:
