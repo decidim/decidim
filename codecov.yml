@@ -9,6 +9,45 @@ coverage:
     project:
       default:
         threshold: 1%
+      core:
+        threshold: 1%
+        flags: core        
+      assemblies:
+        threshold: 1%
+        flags: assemblies
+      api:
+        threshold: 1%
+        flags: api
+      processes:
+        threshold: 1%
+        flags: processes
+      admin:
+        threshold: 1%
+        flags: admin
+      system:
+        threshold: 1%
+        flags: system
+      proposals:
+        threshold: 1%
+        flags: proposals
+      comments:
+        threshold: 1%
+        flags: comments
+      meetings:
+        threshold: 1%
+        flags: meetings
+      pages:
+        threshold: 1%
+        flags: pages
+      accountability:
+        threshold: 1%
+        flags: accountability
+      budgets:
+        threshold: 1%
+        flags: budgets
+      surveys:
+        threshold: 1%
+        flags: surveys
 
     patch:
       default:
