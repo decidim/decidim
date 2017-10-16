@@ -2,7 +2,9 @@
 
 Decidim::Admin::Engine.routes.draw do
   constraints(->(request) { Decidim::Admin::OrganizationDashboardConstraint.new(request).matches? }) do
-    resource :organization, only: [:edit, :update], controller: "organization"
+    resource :organization, only: [:edit, :update], controller: "organization" do
+      resource :appearance, only: [:edit, :update], controller: "organization_appearance"
+    end
 
     Decidim.participatory_space_manifests.each do |manifest|
       mount manifest.admin_engine, at: "/", as: "decidim_admin_#{manifest.name}"

@@ -23,15 +23,8 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        update_organization
-
-        if @organization.valid?
-          broadcast(:ok, @organization)
-        else
-          form.errors.add(:official_img_header, @organization.errors[:official_img_header]) if @organization.errors.include? :official_img_header
-          form.errors.add(:official_img_footer, @organization.errors[:official_img_footer]) if @organization.errors.include? :official_img_footer
-          broadcast(:invalid)
-        end
+        return broadcast(:ok, @organization) if update_organization
+        broadcast(:invalid)
       end
 
       private
@@ -46,31 +39,14 @@ module Decidim
       def attributes
         {
           name: form.name,
+          default_locale: form.default_locale,
+          reference_prefix: form.reference_prefix,
           twitter_handler: form.twitter_handler,
           facebook_handler: form.facebook_handler,
           instagram_handler: form.instagram_handler,
           youtube_handler: form.youtube_handler,
-          github_handler: form.github_handler,
-          description: form.description,
-          welcome_text: form.welcome_text,
-          homepage_image: form.homepage_image,
-          remove_homepage_image: form.remove_homepage_image,
-          logo: form.logo,
-          remove_logo: form.remove_logo,
-          favicon: form.favicon,
-          remove_favicon: form.remove_favicon,
-          default_locale: form.default_locale,
-          official_img_header: form.official_img_header,
-          remove_official_img_header: form.remove_official_img_header,
-          official_img_footer: form.official_img_footer,
-          remove_official_img_footer: form.remove_official_img_footer,
-          official_url: form.official_url,
-          show_statistics: form.show_statistics
-        }.tap do |attributes|
-          if Decidim.enable_html_header_snippets
-            attributes[:header_snippets] = form.header_snippets
-          end
-        end
+          github_handler: form.github_handler
+        }
       end
     end
   end

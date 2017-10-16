@@ -29,58 +29,11 @@
 </div>
 
 <div class="row column">
-  <%= form.translated :editor, :description %>
-</div>
-
-<div class="row column">
-  <%= form.translated :text_area, :welcome_text %>
-</div>
-
-<div class="row column">
   <%= form.collection_select :default_locale, localized_locales(current_organization.available_locales), :id, :name %>
-</div>
-
-<div class="row">
-  <div class="columns xlarge-4">
-    <%= form.upload :homepage_image %>
-  </div>
-
-  <div class="columns xlarge-4">
-    <%= form.upload :logo %>
-  </div>
-
-  <div class="columns xlarge-4">
-    <%= form.upload :favicon %>
-  </div>
-</div>
-
-<div class="row">
-  <div class="columns xlarge-6">
-    <%= form.upload :official_img_header %>
-  </div>
-
-  <div class="columns xlarge-6">
-    <%= form.upload :official_img_footer %>
-  </div>
 </div>
 
 <div class="row">
   <div class="columns xlarge-6">
     <%= form.text_field :reference_prefix %>
   </div>
-
-  <div class="columns xlarge-6">
-    <%= form.text_field :official_url %>
-  </div>
 </div>
-
-<div class="row column">
-  <%= form.check_box :show_statistics %>
-</div>
-
-<% if Decidim.enable_html_header_snippets %>
-  <div class="row column">
-    <%= form.text_area :header_snippets %>
-    <p class="help-text"><%= t(".header_snippets_help") %></p>
-  </div>
-<% end %>
