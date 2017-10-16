@@ -1,0 +1,93 @@
+eu:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: status
+        decidim_category_id: Kategoria
+        decidim_scope_id: Esparrua
+        description: Descripción
+        end_date: Bukaera-data
+        progress: ' Aurrerapena '
+        proposal_ids: Sartutako proposamenak
+        start_date: Hasiera-data
+        title: Titulua
+      status:
+        description: Descripción
+        key: Gakoa
+        name: Izena
+        progress: ' Aurrerapena '
+      timeline_entry:
+        description: Descripción
+        entry_date: Data
+  decidim:
+    accountability:
+      actions:
+        destroy: Ezabatu
+        edit: Editatu
+        new: '%{name} berria'
+        preview: Aurreikusi
+        title: Ekintzak
+      admin:
+        exports:
+          results: Emaitzak
+        models:
+          result:
+            name: Emaitza
+        results:
+          create:
+            invalid: Arazo bat izan da emaitza hau sortzean.
+            success: Emaitza zuzen sortu da
+          destroy:
+            success: Emaitza zuzen ezabatu da.
+          edit:
+            title: Editatu emaitza
+            update: Eguneratu emaitza
+          index:
+            title: Emaitzak
+          new:
+            create: Sortu emaitza
+            title: Emaitza berria
+          update:
+            invalid: Arazo bat izan da emaitza hau eguneratzean.
+            success: Emaitza zuzen eguneratu da.
+      models:
+        result:
+          fields:
+            end_date: Bukaera-data
+            progress: ' Aurrerapena '
+            start_date: Hasiera-data
+            title: Titulua
+        status:
+          fields:
+            description: Descripción
+            name: Izena
+            progress: ' Aurrerapena '
+        timeline_entry:
+          fields:
+            description: Descripción
+            entry_date: Data
+      results:
+        count:
+          results_count:
+            one: 1 emaitza
+            other: "%{count} emaitza"
+        filters:
+          all: Guztiak
+          scopes: Esparruak
+        home:
+          categories_label: Kategoriak
+        show:
+          stats:
+            attendees: Bertaratuak
+            comments: Iruzkinak
+            contributions: Ekarpenak
+            meetings: Topaketa-zerrenda
+            proposals: Proposamenak
+            votes: Sostenguak
+    features:
+      accountability:
+        settings:
+          global:
+            comments_enabled: Iruzkinak gaituta
+          step:
+            comments_blocked: Iruzkinak blokeatuta
