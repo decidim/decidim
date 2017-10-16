@@ -273,6 +273,14 @@ ru:
         someone_invited_you_as_admin: Кто-то пригласил вас в качестве администратора %{application}, вы можете принять это прилашение по ссылке ниже.
       invite_admin:
         subject: Вам было предложено распоряжаться %{organization}
+      invite_collaborator:
+        subject: Вы пригласили к сотрудничеству в %{organization}
+      organization_admin_invitation_instructions:
+        subject: Вам было предложено распоряжаться %{organization}
+      password_change:
+        greeting: Здравствуйте, %{recipient}!
+        message: Мы пишем вам, чтобы уведомить вас о том, что ваш пароль был изменен.
+        subject: Пароль изменен
   layouts:
     decidim:
       user_profile:
