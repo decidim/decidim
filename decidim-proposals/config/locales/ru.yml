@@ -45,3 +45,5 @@ ru:
           state: Cостояние
         filters_small_view:
           filter_by: 'Отобрать по признаку:'
+        show:
+          report: Пожаловаться
