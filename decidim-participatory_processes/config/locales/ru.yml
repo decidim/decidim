@@ -17,3 +17,5 @@ ru:
     participatory_processes:
       show:
         end_date: Дата завершения
+    scopes:
+      global: Всеобщий охват
