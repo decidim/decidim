@@ -293,8 +293,23 @@ ru:
       nesting_too_deep: не может быть внутри подкатегории
       too_many_marks: Содержит слишком много знаков вопроса или восклицания
       too_much_caps: Содержит слишком много заглавных букв
+      too_short: Слишком короткое
+  forms:
+    required: Обязательно
+  invisible_captcha:
+    sentence_for_humans: Если вы человек, не заполняйте это поле
+    timestamp_error_message: Извините, это было слишком быстро! Отправьте, пожалуйста, еще раз.
   layouts:
     decidim:
+      cookie_warning:
+        description_html: На этом сайте используются файлы "куки". Продолжая просматривать сайт, вы соглашаетесь на использование файлов "куки". Узнайте об этом больше %{link}.
+        link_label: здесь
+        ok: Я согласен
+      footer:
+        made_with_open_source: 'Сайт создан с помощью <a target="_blank" href="https://github.com/decidim/decidim"> бесплатного программного обеспечения</a>.'
+      header:
+        close_menu: Закрыть меню
+        navigation: Навигация
       user_profile:
         authorizations: Подтверждения личности
         delete_my_account: Удалить мою учетную запись
