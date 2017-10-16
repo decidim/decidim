@@ -433,7 +433,7 @@ uk:
       models:
         moderation:
           fields:
-            hidden_at: Приховано о
+            hidden_at: 'Приховано:'
             report_count: Кількість
             reportable: Тип скарги
             reported_content_url: URL-адреса оскарженого вмісту
