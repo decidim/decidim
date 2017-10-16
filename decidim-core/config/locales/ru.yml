@@ -176,7 +176,7 @@ ru:
         error: В этом поле есть ошибка.
       remove_this_file: Удалить этот файл
     managed_users:
-      expired_session: Текущий сеанс олицетворения истек.
+      expired_session: Текущий сеанс выступления в роли участника истек.
     menu:
       home: Главная
       more_information: Больше сведений
@@ -314,10 +314,28 @@ ru:
         sign_up: Зарегистрироваться
       impersonation_warning:
         close_session: Закрыть сеанс
-        description_html: Вы выдаете себя за участника <b>%{user_name}</b>.
+        description_html: Вы выступаете в роли участника <b>%{user_name}</b>.
+        expire_time_html: Срок действия вашего сеанса истекает через <b><span class="minutes">%{minutes}</span> минут</b>.
+      notifications_dashboard:
+        mark_all_as_read: Отметить все как прочитанные
+        no_notifications: Пока нет уведомлений.
+        title: Уведомления
+      user_menu:
+        admin_dashboard: Панель управления администратора
+        notifications: Уведомления
+        profile: Моя учетная запись
+        sign_out: Выйти
       user_profile:
+        account: Учетная запись
         authorizations: Подтверждения личности
         delete_my_account: Удалить мою учетную запись
+        notifications_settings: Настройки уведомлений
+        title: Пользовательские настройки
+        user_groups: Организации
+      widget:
+        see_more: Узнать больше
+  locale:
+    name: Русский
   pages:
     home:
       extended:
