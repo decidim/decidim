@@ -176,7 +176,7 @@ uk:
         error: У цьому полі є помилка.
       remove_this_file: Видалити цей файл
     managed_users:
-      expired_session: Скінчився поточний сеанс видавання себе за учасника.
+      expired_session: Скінчився поточний сеанс виступу в ролі учасника.
     menu:
       home: Головна
       more_information: Додаткові відомості
@@ -314,7 +314,7 @@ uk:
         sign_up: Зареєструватися
       impersonation_warning:
         close_session: Завершити сеанс
-        description_html: Ви видаєте себе за учасника <b>%{user_name}</b>.
+        description_html: Ви виступаєте в ролі учасника <b>%{user_name}</b>.
         expire_time_html: Термін дії вашого сеансу буде вичерпано через <b><span class="minutes">%{minutes}</span> хвилин</b>.
       notifications_dashboard:
         mark_all_as_read: Позначити все як прочитане
