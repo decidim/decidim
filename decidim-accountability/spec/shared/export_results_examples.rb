@@ -3,6 +3,12 @@
 shared_examples "export results", perform_enqueued: true do
   let!(:results) { create_list :result, 3, feature: current_feature }
 
+  around do |example|
+    perform_enqueued_jobs do
+      example.run
+    end
+  end
+
   it "exports a CSV" do
     find(".exports.dropdown").click
     click_link "Results as CSV"
