@@ -269,7 +269,6 @@ pl:
           Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ​​ten e-mail.<br /> Twoje konto nie zostanie utworzone, dopóki nie dojdziesz do powyższego linku i ustaw swojego hasła.
         invited_you_as_admin: "%{invited_by} zaprosił Cię jako administrator o numerze %{application}. Możesz to zaakceptować za pomocą poniższego linku."
         someone_invited_you: Ktoś zaprosił Cię do %{application}. Możesz to zaakceptować za pomocą poniższego linku.
-        you_are_now_admin: Jesteś teraz administratorem
       invite_admin:
         subject: Zaproszono Cię do zarządzania %{organization}
       invite_collaborator:
