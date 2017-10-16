@@ -17,18 +17,8 @@ fr:
         subject: Objet
       organization:
         default_locale: Langue par défaut
-        description: Description
-        favicon: Icône
-        header_snippets: Elements à rajouter entre les balises <head></head>
-        homepage_image: Image de la page d'accueil
-        logo: Logo
         name: Nom
-        official_img_footer: Logo officiel - pied de page
-        official_img_header: Logo officiel - barre de navigation
-        official_url: Url officielle de l'organisation
         reference_prefix: Préfixe de référence
-        show_statistics: Afficher les statistiques
-        welcome_text: Texte de bienvenue
       scope:
         code: Code
         name: Nom
@@ -312,10 +302,8 @@ fr:
           title: Modifier l'organisation
           update: Mettre à jour
         form:
-          current_image: Image actuelle
           facebook: Facebook
           github: GitHub
-          header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises <head> </head> HTML. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
           instagram: Instagram
           social_handlers: Social
           twitter: Twitter
