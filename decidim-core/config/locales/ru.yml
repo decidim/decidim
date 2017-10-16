@@ -297,13 +297,48 @@ ru:
       hero:
         participate: Принять участие
         welcome: Добро пожаловать в %{organization}!
+      highlighted_processes:
+        active_processes: Начатые движения
+        active_step: Начатый шаг
+        see_all_processes: Просмотреть все движения
       statistics:
+        answers_count: Ответы
+        comments_count: Комментарии
+        headline: Текущее состояние %{organization}
         meetings_count: Встречи
+        orders_count: Голоса
         pages_count: Страницы
+        processes_count: Движения
         projects_count: Проекты
         proposals_count: Предложения
         results_count: Итоги
+        surveys_count: Опросы
+        users_count: Участники
+        votes_count: Голоса
+      sub_hero:
+        register: Зарегистрироваться
   social_share_button:
+    delicious: Delicious
+    douban: Douban
     email: Эл. адрес
     facebook: Фейсбук
+    google_bookmark: Закладки Гугл
+    google_plus: Гугл+
+    hacker_news: Хакерские Новости
+    linkedin: ЛинкедИн
+    pinterest: Пинтерест
+    qq: Qzone
+    reddit: Реддит
+    share_to: Поделиться на %{name}
+    tumblr: Тумблр
     twitter: Твиттер
+    vkontakte: ВКонтакте
+    wechat: WeChat
+    wechat_footer: Откройте ваш WeChat, нажмите кнопку «Discover», затем выберите в меню «Scan QR Code».
+    weibo: Сина Вейбо
+    xing: Xing
+  views:
+    pagination:
+      first: "&laquo; Первая"
+      last: Последняя &raquo;
+      next: Следующая &rsaquo;
