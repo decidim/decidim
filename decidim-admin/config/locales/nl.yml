@@ -21,6 +21,15 @@ nl:
         reference_prefix: Referentievoorvoegsel
       organization_appearance:
         description: Beschrijving
+        favicon: Icoon
+        header_snippets: Koptekstjes
+        homepage_image: Homepage afbeelding
+        logo: Logo
+        official_img_footer: Officiële logo footer
+        official_img_header: Officiële logo header
+        official_url: Officiële organisatie URL
+        show_statistics: Toon statistieken
+        welcome_text: Welkom tekst
       scope:
         code: Code
         name: Naam
@@ -197,6 +206,8 @@ nl:
             promote: Promoten
       menu:
         admins: Admins
+        appearance: Uiterlijk
+        configuration: Configuratie
         dashboard: Dashboard
         managed_users: Beheerde gebruikers
         newsletters: Nieuwsbrieven
@@ -314,6 +325,13 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
           success: Organisatie is succesvol bijgewerkt.
+      organization_appearance:
+        edit:
+          update: Bijwerken
+        form:
+          header_snippets_help: Gebruik dit veld om dingen toe te voegen aan de HTML-kop. Het meest voorkomende gebruik is het integreren van diensten van derden die extra JavaScript of CSS nodig hebben. U kunt het ook gebruiken om extra metatags toe te voegen aan de HTML. Houd er rekening mee dat dit alleen op openbare pagina's wordt weergegeven, niet in de beheerdersafdeling.
+          homepage_appearance_title: Bewerk de startpagina-weergave
+          layout_appearance_title: Bewerk layoutuitstraling
       scope_types:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuw bereik type.
