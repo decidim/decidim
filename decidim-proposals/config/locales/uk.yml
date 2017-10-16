@@ -149,7 +149,7 @@ uk:
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
           proposal_in_evaluation_reason: Ця пропозиція розглядається
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
-          report: Доповісти
+          report: Поскаржитись
         vote_button:
           already_voted: Вже проголосували
           no_votes_remaining: Не залишилось голосів
