@@ -187,13 +187,13 @@ uk:
             new_managed_user_impersonation: Нове уособлення керованого учасника
         index:
           impersonate: Уособити (виступити в якості учасника)
-          needs_authoriation_warning: Для цієї організації потрібно мати принаймні одну авторизацію.
+          needs_authoriation_warning: Для цієї організації потрібно мати принаймні один спосіб підтвердження особи.
           promote: Підвищити в статусі
           view_logs: Переглянути журнали
         new:
           create: Створити
           new_managed_user: Новий керований учасник
-          select_authorization_method: Оберіть спосіб авторизації
+          select_authorization_method: Оберіть спосіб підтвердження своєї особи
           step: '%{current}-й крок з %{total} кроків'
         promotion:
           error: При підвищенні керованого учасника в статусі сталася помилка.
@@ -421,23 +421,23 @@ uk:
         hide: Приховати
         not_hidden: Не приховано
         title: Дії
-        unreport: Скасувати звіт
+        unreport: Скасувати скаргу
       admin:
         reportable:
           hide:
             invalid: При спробі приховати ресурс виникла проблема.
             success: Ресурс успішно приховано.
           unreport:
-            invalid: При спробі скасувати звіт щодо ресурсу виникла проблема.
-            success: Звіт щодо ресурсу успішно скасовано.
+            invalid: При спробі скасувати скаргу щодо ресурсу виникла проблема.
+            success: Скаргу на ресурс успішно скасовано.
       models:
         moderation:
           fields:
-            hidden_at: Приховано о
+            hidden_at: 'Приховано:'
             report_count: Кількість
-            reportable: Звітність
-            reported_content_url: URL-адреса звітованого вмісту
-            reports: Звіти
+            reportable: Тип скарги
+            reported_content_url: URL-адреса оскарженого вмісту
+            reports: Скарги
   errors:
     messages:
       invalid_json: Неприпустимий JSON

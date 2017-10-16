@@ -3,21 +3,47 @@ ru:
     attributes:
       proposal:
         body: Основной текст
+        category_id: Категория
         scope_id: Охват
         title: Название
       proposal_answer:
         answer: Ответ
   decidim:
+    features:
+      proposals:
+        actions:
+          create: Создать
     proposals:
       actions:
         answer: Ответ
+        new: Новая
         title: Действия
       admin:
         proposal_answers:
           edit:
             answer_proposal: Ответ
+            rejected: Отклонено
+        proposals:
+          new:
+            create: Создать
+      answers:
+        rejected: Отклонено
       models:
         proposal:
           fields:
+            category: Категория
             scope: Охват
+            state: Cостояние
             title: Название
+      proposals:
+        filters:
+          all: Все
+          category: Категория
+          rejected: Отклонено
+          scopes: Охваты
+          search: Поиск
+          state: Cостояние
+        filters_small_view:
+          filter_by: 'Отобрать по признаку:'
+        show:
+          report: Пожаловаться

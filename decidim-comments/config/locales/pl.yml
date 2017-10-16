@@ -4,9 +4,9 @@ pl:
       events:
         comment_created:
           comment:
-            email_intro: '"Skomentował" %{resource_title} "'
+            email_intro: '"Skomentował" %{resource_title} ". Możesz przeczytać komentarz na tej stronie:'
             email_outro: Otrzymujesz to powiadomienie, ponieważ śledzisz "%{resource_title}". Możesz cofnąć ją od poprzedniego linku.
-            email_subject: Istnieje nowy komentarz z %{author_name} w <a href="%{resource_url}">%{resource_title}</a>
+            email_subject: Istnieje nowy komentarz z %{author_name} w %{resource_title}
             notification_title: W %{author_name} w <a href="%{resource_path}">%{resource_title}</a> nowy komentarz
           reply:
             email_intro: '"Skomentował" %{resource_title} "'

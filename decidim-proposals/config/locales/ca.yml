@@ -143,6 +143,7 @@ ca:
           view_proposal: Veure proposta
         show:
           proposal_accepted_reason: 'Aquesta proposta ha estat acceptada perquè:'
+          proposal_in_evaluation_reason: S'està avaluant aquesta proposta
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
           report: Informe
         vote_button:

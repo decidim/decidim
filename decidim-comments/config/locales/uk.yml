@@ -4,9 +4,9 @@ uk:
       events:
         comment_created:
           comment:
-            email_intro: '"%{resource_title}" прокоментували'
+            email_intro: '"%{resource_title}" прокоментували. Ви можете прочитати коментар на цій сторінці:'
             email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-            email_subject: Надійшов новий коментар від %{author_name} на <a href="%{resource_url}">%{resource_title}</a>
+            email_subject: Надійшов новий коментар від %{author_name} на %{resource_title}
             notification_title: Надійшов новий коментар від %{author_name} на <a href="%{resource_path}">%{resource_title}</a>
           reply:
             email_intro: '"%{resource_title}" прокоментували'
@@ -39,8 +39,8 @@ uk:
         deleted_user: Видалений учасник
         reply: Відповісти
         report:
-          action: Доповісти
-          already_reported: Про цей вміст вже повідомлено, і його перегляне адміністратор.
+          action: Поскаржитись
+          already_reported: Про цей вміст вже передано скаргу, і її перегляне адміністратор.
           close: Закрити
           description: Чи цей вміст недоречний?
           details: Додаткові коментарі
@@ -48,7 +48,7 @@ uk:
             does_not_belong: Містить незаконну діяльність, загрози самогубства, особисту інформацію чи ще щось, чого, на вашу думку, не повинно бути в %{organization_name}.
             offensive: Містить расизм, сексизм, образи, особисті напади, загрози смерті, заяви про самогубство або будь-які ненависницькі висловлювання.
             spam: Містить клацоловки (маніпулятивно-сенсаційні заголовки), рекламу, афери або дописи ботів.
-          title: Повідомити про проблему
+          title: Поскаржитись на проблему
         verified_user_group: Перевірена організація
       comment_order_selector:
         order:

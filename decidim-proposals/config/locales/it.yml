@@ -143,6 +143,7 @@ it:
           view_proposal: Visualizza la proposta
         show:
           proposal_accepted_reason: 'Questa proposta è stata accettata perché:'
+          proposal_in_evaluation_reason: Questa proposta è in fase di valutazione
           proposal_rejected_reason: 'Questa proposta è stata rifiutata perché:'
           report: Report
         vote_button:

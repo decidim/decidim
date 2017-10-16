@@ -4,9 +4,9 @@ es:
       events:
         comment_created:
           comment:
-            email_intro: Se ha comentado en "%{resource_title}"
+            email_intro: '"%{resource_title}" ha sido comentado. Puedes leer el comentario en esta página:'
             email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-            email_subject: Hay un nuevo comentario de %{author_name} en <a href="%{resource_url}">%{resource_title}</a>
+            email_subject: Hay un nuevo comentario de %{author_name} en %{resource_title}
             notification_title: Hay un nuevo comentario de %{author_name} en <a href="%{resource_path}">%{resource_title}</a>
           reply:
             email_intro: Se ha comentado en "%{resource_title}"

@@ -143,6 +143,7 @@ fi:
           view_proposal: Näytä ehdotus
         show:
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
+          proposal_in_evaluation_reason: Tätä ehdotusta arvioidaan
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
           report: Ilmoita
         vote_button:

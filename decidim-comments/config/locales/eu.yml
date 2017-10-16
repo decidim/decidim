@@ -4,9 +4,9 @@ eu:
       events:
         comment_created:
           comment:
-            email_intro: '"%{resource_title}" iruzkindu da'
+            email_intro: '"%{resource_title}" iruzkindu da. Orri honetan iruzkina irakur dezakezu:'
             email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
-            email_subject: '%{author_name}-tik <a href="%{resource_url}">%{resource_title}</a> iruzkin berri bat dago'
+            email_subject: 'Iruzkin berri bat dago, %{author_name} iruzkingilearena, hemen: %{resource_title}'
             notification_title: '%{author_name}-en iruzkin berri bat dago <a href="%{resource_path}">%{resource_title}</a>'
           reply:
             email_intro: '"%{resource_title}" iruzkindu da'

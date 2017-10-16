@@ -143,6 +143,7 @@ nl:
           view_proposal: Bekijk voorstel
         show:
           proposal_accepted_reason: 'Dit voorstel is geaccepteerd omdat:'
+          proposal_in_evaluation_reason: Dit voorstel wordt geëvalueerd
           proposal_rejected_reason: 'Dit voorstel is afgewezen omdat:'
           report: Rapporteren
         vote_button:
