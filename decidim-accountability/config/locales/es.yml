@@ -1,0 +1,94 @@
+es:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Categoría
+        decidim_scope_id: Ámbito
+        description: Descripción
+        end_date: Fecha de finalización
+        progress: Progreso
+        proposal_ids: Propuestas incluidas
+        start_date: Fecha de inicio
+        title: Grupo de procesos participativos
+      status:
+        description: Descripción
+        name: Nombre
+        progress: Progreso
+      timeline_entry:
+        description: Descripción
+        entry_date: Fecha
+  decidim:
+    accountability:
+      actions:
+        destroy: Borrar
+        edit: Editar
+        new: Nuevo %{name}
+        preview: Previsualizar
+        title: Acciones
+      admin:
+        exports:
+          results: Resultados
+        models:
+          result:
+            name: Resultado
+        results:
+          create:
+            invalid: Ha habido un problema al crear este resultado
+            success: El resultado ha sido creado correctamente
+          destroy:
+            success: El resultado se ha eliminado correctamente
+          edit:
+            title: Editar resultado
+            update: Actualizar resultado
+          index:
+            title: Resultados
+          new:
+            create: Crear resultado
+            title: Nuevo resultado
+          update:
+            invalid: Ha habido un problema al actualizar este resultado
+            success: El resultado ha sido actualizado correctamente
+      models:
+        result:
+          fields:
+            end_date: Fecha de finalización
+            progress: Progreso
+            start_date: Fecha de inicio
+            title: Grupo de procesos participativos
+        status:
+          fields:
+            description: Descripción
+            name: Nombre
+            progress: Progreso
+        timeline_entry:
+          fields:
+            description: Descripción
+            entry_date: Fecha
+      results:
+        count:
+          results_count:
+            one: 1 resultado
+            other: "%{count} resultados"
+        filters:
+          all: Todos
+          scopes: Ámbitos
+        home:
+          categories_label: Categorías
+        show:
+          stats:
+            attendees: Los asistentes
+            comments: Comentarios
+            contributions: Aportes
+            meetings: Encuentros
+            proposals: Propuestas
+            votes: Apoyos
+    features:
+      accountability:
+        settings:
+          global:
+            comments_enabled: Comentarios habilitados
+          step:
+            comments_blocked: Comentarios bloqueados
+    resource_links:
+      included_proposals:
+        result_proposals: Propuestas incluidas en este resultado
