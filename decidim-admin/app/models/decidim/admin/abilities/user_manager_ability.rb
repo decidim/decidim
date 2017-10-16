@@ -10,19 +10,14 @@ module Decidim
           super
 
           can :manage, :managed_users
-          cannot [:new, :create], :managed_users if empty_available_authorizations?
-          can :impersonate, Decidim::User do |user_to_impersonate|
-            user_to_impersonate.managed? && Decidim::ImpersonationLog.active.empty?
-          end
-          can :promote, Decidim::User do |user_to_promote|
-            user_to_promote.managed? && Decidim::ImpersonationLog.active.empty?
-          end
-        end
 
-        private
+          can :impersonate, Decidim::User do |user|
+            user.managed?
+          end
 
-        def empty_available_authorizations?
-          @context[:current_organization] && @context[:current_organization].available_authorizations.empty?
+          can :promote, Decidim::User do |user|
+            user.managed?
+          end
         end
       end
     end
