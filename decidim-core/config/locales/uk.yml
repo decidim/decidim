@@ -83,7 +83,7 @@ uk:
         verify_with_these_options: 'Наявні такі способи підтвердити вашу особу:'
       new:
         authorize: Надіслати
-        authorize_with: Підтвердити за допомогою %{authorizer}
+        authorize_with: Підтвердити особу за допомогою %{authorizer}
       skip_verification: Ви можете поки що пропустити це і %{link}
     core:
       actions:
