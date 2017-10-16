@@ -19,6 +19,17 @@ fr:
         default_locale: Langue par défaut
         name: Nom
         reference_prefix: Préfixe de référence
+      organization_appearance:
+        description: Description
+        favicon: Icône
+        header_snippets: Elements à rajouter entre les balises <head></head>
+        homepage_image: Image de la page d'accueil
+        logo: Logo
+        official_img_footer: Logo officiel - pied de page
+        official_img_header: Logo officiel - barre de navigation
+        official_url: URL officielle de l'organisation
+        show_statistics: Afficher les statistiques
+        welcome_text: Texte de bienvenue
       scope:
         code: Code
         name: Nom
@@ -195,6 +206,8 @@ fr:
             promote: Transformer
       menu:
         admins: Administrateurs
+        appearance: Apparence
+        configuration: Configuration
         dashboard: Tableau de bord
         managed_users: Utilisateurs représentés
         newsletters: Bulletins d'information (newsletter)
@@ -312,6 +325,13 @@ fr:
         update:
           error: Erreur lors de la mise à jour de cette organisation.
           success: Organisation mise à jour avec succès.
+      organization_appearance:
+        edit:
+          update: Mettre à jour
+        form:
+          header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises <head> </head> HTML. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
+          homepage_appearance_title: Modifier l'apparence de la page d'accueil
+          layout_appearance_title: Modifier l'apparence de la disposition
       scope_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de zone d'application.
