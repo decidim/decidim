@@ -29,6 +29,8 @@ shared_examples "comments" do
 
     visit resource_path
 
+    expect(page).to have_css(".order-by .dropdown.menu .is-dropdown-submenu-parent")
+
     within ".order-by" do
       page.find(".dropdown.menu .is-dropdown-submenu-parent").hover
     end
