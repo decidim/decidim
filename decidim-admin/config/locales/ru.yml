@@ -450,3 +450,7 @@ ru:
           title: Настройки
         users:
           title: Участники
+  time:
+    formats:
+      datepicker: "%d. %m. %Y"
+      timepicker: "%H:%M %d.%m.%Y"
