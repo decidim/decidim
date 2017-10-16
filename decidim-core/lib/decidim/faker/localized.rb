@@ -1,6 +1,15 @@
 # frozen_string_literal: true
 
-require "faker"
+begin
+  require "faker"
+rescue LoadError => e
+  msg = <<~ERROR
+    You're trying to use decidim's faker-based seeds but you're not using `faker`.
+    Make sure you add the `faker` gem to your `Gemfile` and try again
+  ERROR
+
+  raise e, msg
+end
 
 module Decidim
   module Faker

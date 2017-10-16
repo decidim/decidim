@@ -361,39 +361,51 @@ describe "Proposals", type: :feature do
       end
     end
 
-    context "when a proposal has been accepted" do
-      let!(:proposal) { create(:proposal, :accepted, feature: feature) }
+    context "when a proposal is in evaluation" do
+      let!(:proposal) { create(:proposal, :evaluating, :with_answer, feature: feature) }
 
-      it "shows a badge" do
+      it "shows a badge and an answer" do
         visit_feature
         click_link proposal.title
 
-        expect(page).to have_content("Accepted")
-        expect(page).to have_i18n_content(proposal.answer)
+        expect(page).to have_content("Evaluating")
+
+        within ".callout.secondary" do
+          expect(page).to have_content("This proposal is being evaluated")
+          expect(page).to have_i18n_content(proposal.answer)
+        end
       end
     end
 
     context "when a proposal has been rejected" do
-      let!(:proposal) { create(:proposal, :rejected, feature: feature) }
+      let!(:proposal) { create(:proposal, :rejected, :with_answer, feature: feature) }
 
       it "shows the rejection reason" do
         visit_feature
         click_link proposal.title
 
         expect(page).to have_content("Rejected")
-        expect(page).to have_i18n_content(proposal.answer)
+
+        within ".callout.warning" do
+          expect(page).to have_content("This proposal has been rejected")
+          expect(page).to have_i18n_content(proposal.answer)
+        end
       end
     end
 
     context "when a proposal has been accepted" do
-      let!(:proposal) { create(:proposal, :accepted, feature: feature) }
+      let!(:proposal) { create(:proposal, :accepted, :with_answer, feature: feature) }
 
       it "shows the acceptance reason" do
         visit_feature
         click_link proposal.title
 
         expect(page).to have_content("Accepted")
-        expect(page).to have_i18n_content(proposal.answer)
+
+        within ".callout.success" do
+          expect(page).to have_content("This proposal has been accepted")
+          expect(page).to have_i18n_content(proposal.answer)
+        end
       end
     end
 

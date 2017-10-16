@@ -87,6 +87,7 @@ ca:
             scope: Àmbit
             state: Estat
             title: Títol
+            votes: Vots
       proposal_votes:
         create:
           error: Hi ha hagut errors en votar la proposta.

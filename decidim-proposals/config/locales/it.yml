@@ -87,6 +87,7 @@ it:
             scope: Visibilità
             state: Stato
             title: Titolo
+            votes: Voti
       proposal_votes:
         create:
           error: Ci sono stati errori durante la votazione della proposta.

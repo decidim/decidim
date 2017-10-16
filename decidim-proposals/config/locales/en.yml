@@ -88,6 +88,7 @@ en:
             scope: Scope
             state: State
             title: Title
+            votes: Votes
       proposal_votes:
         create:
           error: There's been errors when voting the proposal.
@@ -143,6 +144,7 @@ en:
           view_proposal: View proposal
         show:
           proposal_accepted_reason: 'This proposal has been accepted because:'
+          proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: 'This proposal has been rejected because:'
           report: Report
         vote_button:

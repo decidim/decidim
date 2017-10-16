@@ -87,6 +87,7 @@ fr:
             scope: Zone d'application
             state: Etat
             title: Titre
+            votes: Votes
       proposal_votes:
         create:
           error: Des erreurs se sont produites lors du vote de la proposition.

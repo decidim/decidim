@@ -87,6 +87,7 @@ eu:
             scope: Esparrua
             state: Egoera
             title: Titulua
+            votes: Euskarriak
       proposal_votes:
         create:
           error: Erroreak gertatu dira proposamena bozkatzean.

@@ -33,7 +33,7 @@ module Decidim
     def update_user
       user.admin = form.role == "admin"
       user.roles << form.role if form.role != "admin"
-      user.roles = user.roles.uniq
+      user.roles = user.roles.uniq.compact
       user.save!
     end
 
@@ -43,7 +43,7 @@ module Decidim
         email: form.email.downcase,
         organization: form.organization,
         admin: form.role == "admin",
-        roles: form.role == "admin" ? [] : [form.role]
+        roles: form.role == "admin" ? [] : [form.role].compact
       )
       @user.invite!(
         form.invited_by,

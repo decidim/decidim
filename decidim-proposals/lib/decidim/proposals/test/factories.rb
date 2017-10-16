@@ -82,6 +82,11 @@ FactoryGirl.define do
       author nil
     end
 
+    trait :evaluating do
+      state "evaluating"
+      answered_at { Time.current }
+    end
+
     trait :accepted do
       state "accepted"
       answered_at { Time.current }
@@ -89,8 +94,11 @@ FactoryGirl.define do
 
     trait :rejected do
       state "rejected"
-      answer { Decidim::Faker::Localized.sentence }
       answered_at { Time.current }
+    end
+
+    trait :with_answer do
+      answer { Decidim::Faker::Localized.sentence }
     end
   end
 
