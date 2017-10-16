@@ -85,6 +85,13 @@ ru:
         authorize: Отправить
         authorize_with: Подтвердить с помощью %{authorizer}
       skip_verification: Вы можете пока что пропустить это и %{link}
+    core:
+      actions:
+        unauthorized: Вы не имеете прав для выполнения этого действия
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Другая учетная запись использует тот же адрес электронной почты
     events:
       email_event:
         email_greeting: Здравствуйте, %{user_name}!
@@ -173,6 +180,11 @@ ru:
         error: При создании жалобы возникла ошибка. Повторите, пожалуйста, попытку.
         success: Жалоба была создана успешно, и она будет рассмотрена администратором.
     shared:
+      action_authorization_modal:
+        incomplete:
+          explanation: 'Несмотря на то, что вы подтвердили свою личность с помощью «%{authorization}», мы просим вас заново подтвердить свою личность, потому что нам не хватает следующих данных:'
+          reauthorize: Заново подтвердить свою личность
+          title: Пожалуйста, заново подтвердите свою личность
       embed_modal:
         close_window: Закрыть окно
       flag_modal:
