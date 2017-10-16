@@ -1,0 +1,100 @@
+uk:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: статус
+        decidim_category_id: Розділ
+        decidim_scope_id: Обсяг
+        description: Опис
+        end_date: Дата закінчення
+        progress: Перебіг
+        proposal_ids: Включені пропозиції
+        start_date: Дата початку
+        title: Назва
+      status:
+        description: Опис
+        key: Ключ
+        name: Назва
+        progress: Перебіг
+      timeline_entry:
+        description: Опис
+        entry_date: Дата
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Ви впевнені, що хочете видалити %{name}?
+        destroy: Видалити
+        edit: Редагувати
+        new: Додати %{name}
+        preview: Попередній перегляд
+        timeline_entries: Розвиток проекту
+        title: Дії
+      admin:
+        exports:
+          results: Підсумки
+        models:
+          result:
+            name: Підсумки
+          status:
+            name: Статус
+        results:
+          create:
+            invalid: При спробі створити ці підсумки виникла проблема
+            success: Підсумки успішно створено
+          destroy:
+            success: Підсумки успішно видалено
+          edit:
+            title: Редагувати підсумки
+          index:
+            title: Підсумки
+          new:
+            title: Нові підсумки
+          update:
+            invalid: При спробі оновити ці підсумки виникла проблема
+            success: Підсумки успішно оновлено
+      models:
+        result:
+          fields:
+            end_date: Дата закінчення
+            progress: Перебіг
+            start_date: Дата початку
+            title: Назва
+        status:
+          fields:
+            description: Опис
+            name: Назва
+            progress: Перебіг
+        timeline_entry:
+          fields:
+            description: Опис
+            entry_date: Дата
+      results:
+        count:
+          results_count:
+            one: 1 підсумок
+            few: "%{count} підсумків"
+            many: "%{count} підсумків"
+            other: "%{count} підсумків"
+        filters:
+          all: Усі
+          scopes: Обсяги
+        home:
+          categories_label: Розділи
+        show:
+          stats:
+            attendees: Учасники
+            comments: Коментарі
+            contributions: Внесені пропозиції
+            meetings: Зустрічі
+            proposals: Пропозиції
+            votes: Підтримує
+    features:
+      accountability:
+        settings:
+          global:
+            comments_enabled: Коментарі ввімкнено
+          step:
+            comments_blocked: Коментарі заблоковано
+    resource_links:
+      included_proposals:
+        result_proposals: Пропозиції, включені до цих підсумків
