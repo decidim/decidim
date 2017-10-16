@@ -19,6 +19,17 @@ it:
         default_locale: Lingua predefinita
         name: Nome
         reference_prefix: Prefisso
+      organization_appearance:
+        description: Descrizione
+        favicon: Icona
+        header_snippets: Cricchetti dell'intestazione
+        homepage_image: immagine per la Homepage
+        logo: Logo
+        official_img_footer: Logo ufficiale a piè pagina
+        official_img_header: Logo ufficiale per l'intestazione
+        official_url: URL dell'organizzazione ufficiale
+        show_statistics: Mostra statistiche
+        welcome_text: Testo di benvenuto
       scope:
         code: Codice
         name: Nome
@@ -195,6 +206,8 @@ it:
             promote: Promuovere
       menu:
         admins: Amministratori
+        appearance: Aspetto
+        configuration: Configurazione
         dashboard: Cruscotto (Dashboard)
         managed_users: Utenti gestiti
         newsletters: Newsletters
@@ -312,6 +325,13 @@ it:
         update:
           error: Si è verificato un errore durante la modifica di questa organizzazione.
           success: OK, l'organizzazione è stata modificata.
+      organization_appearance:
+        edit:
+          update: Modifica
+        form:
+          header_snippets_help: Utilizza questo campo per aggiungere le cose alla testa HTML. L'uso più comune è quello di integrare i servizi di terze parti che richiedono JavaScript o CSS extra. Inoltre, è possibile utilizzarlo per aggiungere meta tag extra all'HTML. Tieni presente che questo sarà reso solo nelle pagine pubbliche, non nella sezione admin.
+          homepage_appearance_title: Modifica l'aspetto della home page
+          layout_appearance_title: Modifica aspetto del layout
       scope_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di ambito.
