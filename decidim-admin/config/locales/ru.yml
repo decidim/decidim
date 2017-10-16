@@ -152,7 +152,7 @@ ru:
           update: Обновить
         form:
           default_step_settings: Настройки шага по умолчанию
-          global_settings: Глобальные настройки
+          global_settings: Всеобщие настройки
           step_settings: Настройки шага
         index:
           add: Добавить составляющую
