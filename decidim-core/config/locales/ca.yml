@@ -270,7 +270,7 @@ ca:
           El teu compte no es crearà fins que no accedeixis a l'enllaç de sota i triïs la teva contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administrador de %{application}. Pots acceptar-ho a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
-        you_are_now_admin: Ara ets administrador
+        someone_invited_you_as_admin: Algú t'ha convidat com a administrador de %{application}, pots acceptar-lo a través de l'enllaç següent.
       invite_admin:
         subject: Has estat convidat a gestionar %{organization}
       invite_collaborator:
