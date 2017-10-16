@@ -1,0 +1,96 @@
+ca:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: estat
+        decidim_category_id: Categoria
+        decidim_scope_id: Àmbit
+        description: Descripció
+        end_date: Data de finalització
+        progress: Progrés
+        proposal_ids: Propostes incloses
+        start_date: Data d'inici
+        title: Grup de processos participatius
+      status:
+        description: Descripció
+        key: Clau
+        name: Nom
+        progress: Progrés
+      timeline_entry:
+        description: Descripció
+        entry_date: Data
+  decidim:
+    accountability:
+      actions:
+        destroy: Esborrar
+        edit: Editar
+        new: Nou %{name}
+        preview: Previsualitzar
+        title: Accions
+      admin:
+        exports:
+          results: Resultats
+        models:
+          result:
+            name: Resultat
+        results:
+          create:
+            invalid: Hi ha hagut un problema en crear aquest resultat
+            success: El resultat ha creat correctament
+          destroy:
+            success: El resultat ha estat eliminat correctament
+          edit:
+            title: Editar resultat
+            update: Actualitzar resultat
+          index:
+            title: Resultats
+          new:
+            create: Crear resultat
+            title: Nou resultat
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquest resultat
+            success: El resultat ha estat actualitzat correctament
+      models:
+        result:
+          fields:
+            end_date: Data de finalització
+            progress: Progrés
+            start_date: Data d'inici
+            title: Grup de processos participatius
+        status:
+          fields:
+            description: Descripció
+            name: Nom
+            progress: Progrés
+        timeline_entry:
+          fields:
+            description: Descripció
+            entry_date: Data
+      results:
+        count:
+          results_count:
+            one: 1 resultat
+            other: "%{count} resultats"
+        filters:
+          all: Tots
+          scopes: Àmbits
+        home:
+          categories_label: Categories
+        show:
+          stats:
+            attendees: Assistents
+            comments: Comentaris
+            contributions: Aportacions
+            meetings: Trobades presencials
+            proposals: propostes
+            votes: suports
+    features:
+      accountability:
+        settings:
+          global:
+            comments_enabled: Comentaris habilitats
+          step:
+            comments_blocked: Comentaris bloquejats
+    resource_links:
+      included_proposals:
+        result_proposals: Propostes incloses en aquest resultat
