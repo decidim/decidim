@@ -19,6 +19,17 @@ pl:
         default_locale: Domena domyślna
         name: Nazwa
         reference_prefix: Prefiks referencyjny
+      organization_appearance:
+        description: Opis
+        favicon: Ikona
+        header_snippets: Fragmenty nagłówków
+        homepage_image: Obraz strony głównej
+        logo: Logo
+        official_img_footer: Oficjalny stopka logo
+        official_img_header: Oficjalny nagłówek logo
+        official_url: Oficjalna witryna organizacji
+        show_statistics: Pokaż statystyki
+        welcome_text: Tekst powitalny
       scope:
         code: Kod
         name: Nazwa
@@ -195,6 +206,8 @@ pl:
             promote: Promować
       menu:
         admins: Administratorzy
+        appearance: Wygląd
+        configuration: Konfiguracja
         dashboard: Deska rozdzielcza
         managed_users: Zarządzane użytkownicy
         newsletters: Biuletyny
@@ -312,6 +325,13 @@ pl:
         update:
           error: Podczas aktualizowania tej organizacji wystąpił błąd.
           success: Organizacja została zaktualizowana.
+      organization_appearance:
+        edit:
+          update: Aktualizuj
+        form:
+          header_snippets_help: Użyj tego pola, aby dodać elementy do głowicy HTML. Najczęstszym sposobem jest zintegrowanie usług innych firm, które wymagają dodatkowego kodu JavaScript lub CSS. Można również użyć go do dodawania dodatkowych znaczników meta do HTML. Należy zauważyć, że będzie to widoczne tylko na stronach publicznych, a nie w sekcji administracyjnej.
+          homepage_appearance_title: Edytuj wygląd strony głównej
+          layout_appearance_title: Edytuj wygląd układu
       scope_types:
         create:
           error: Podczas tworzenia nowego typu zakresu wystąpił błąd.
