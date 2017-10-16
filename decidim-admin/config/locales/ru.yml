@@ -181,13 +181,13 @@ ru:
         form:
           name: Имя
         impersonate:
-          error: При олицетворении управляемого участника произошла ошибка.
+          error: При выдавании себя за управляемого участника произошла ошибка.
         impersonations:
           new:
             impersonate: Олицетворить (выступить в роли участника)
-            new_managed_user_impersonation: Новое олицетворение управляемого участника
+            new_managed_user_impersonation: Новое выступление в роли управляемого участника
         index:
-          impersonate: Олицетворить (выступить в роли участника)
+          impersonate: Выступить в роли участника
           needs_authoriation_warning: Для этой организации нужно обеспечить хотя бы один способ подтверждение личности.
           promote: Повысить в статусе
           view_logs: Просмотреть журналы
@@ -382,7 +382,7 @@ ru:
           success: Страница успешно обновлена
       titles:
         dashboard: Панель мониторинга
-        impersonations: Олицетворения
+        impersonations: Выступления в роли участника
         managed_users: Управляемые участники
         scope_types: Типы охвата
         scopes: Охваты
