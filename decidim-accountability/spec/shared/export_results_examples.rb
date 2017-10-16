@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "export results", perform_enqueued: true do
+shared_examples "export results" do
   include_context "admin"
   include_context "feature admin"
 
