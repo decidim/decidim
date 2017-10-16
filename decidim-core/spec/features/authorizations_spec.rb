@@ -100,7 +100,7 @@ describe "Authorizations", type: :feature do
       end
     end
 
-    context "when the user has already been authorised" do
+    context "when the user has already been authorized" do
       let(:authorizations) { ["Decidim::DummyAuthorizationHandler"] }
 
       let!(:authorization) do
