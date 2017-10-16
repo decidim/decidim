@@ -383,7 +383,7 @@ ru:
       titles:
         dashboard: Панель мониторинга
         impersonations: Олицетворения
-        managed_users: Управляемые пользователи
+        managed_users: Управляемые участники
         scope_types: Типы охвата
         scopes: Охваты
         static_pages: Страницы
