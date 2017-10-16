@@ -19,6 +19,17 @@ es:
         default_locale: Idioma predeterminado
         name: Nombre
         reference_prefix: Prefijo de la referencia
+      organization_appearance:
+        description: Descripción
+        favicon: Icono
+        header_snippets: Snippets de encabezado
+        homepage_image: Imagen de portada
+        logo: Logotipo
+        official_img_footer: Logotipo oficial de pie de página
+        official_img_header: Logotipo oficial de cabecera
+        official_url: URL oficial de la organización
+        show_statistics: Mostrar estadísticas
+        welcome_text: Texto de bienvenida
       scope:
         code: Código
         name: Nombre
@@ -195,6 +206,8 @@ es:
             promote: Promocionar
       menu:
         admins: Administradores
+        appearance: Apariencia
+        configuration: Configuración
         dashboard: Panel de control
         managed_users: Usuarios gestionados
         newsletters: Boletines
@@ -312,6 +325,13 @@ es:
         update:
           error: Se produjo un error al actualizar esta organización.
           success: Organización actualizada correctamente.
+      organization_appearance:
+        edit:
+          update: Actualizar
+        form:
+          header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
+          homepage_appearance_title: Editar aspecto de página de inicio
+          layout_appearance_title: Editar apariencia de diseño
       scope_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de ámbito.
