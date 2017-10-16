@@ -296,6 +296,7 @@ ru:
         register: Зарегистрироваться
       hero:
         participate: Принять участие
+        welcome: Добро пожаловать в %{organization}!
       statistics:
         meetings_count: Встречи
         pages_count: Страницы
