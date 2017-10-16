@@ -17,18 +17,10 @@ nl:
         subject: Onderwerpen
       organization:
         default_locale: Standaard locale
-        description: Beschrijving
-        favicon: Icoon
-        header_snippets: Koptekstjes
-        homepage_image: Homepage afbeelding
-        logo: Logo
         name: Naam
-        official_img_footer: Officiële logo footer
-        official_img_header: Officiële logo header
-        official_url: Officiële organisatie url
         reference_prefix: Referentievoorvoegsel
-        show_statistics: Toon statistieken
-        welcome_text: Welkom tekst
+      organization_appearance:
+        description: Beschrijving
       scope:
         code: Code
         name: Naam
@@ -312,10 +304,8 @@ nl:
           title: Organisatie bewerken
           update: Bijwerken
         form:
-          current_image: Huidig ​​beeld
           facebook: Facebook
           github: GitHub
-          header_snippets_help: Gebruik dit veld om dingen toe te voegen aan de HTML-kop. Het meest voorkomende gebruik is het integreren van diensten van derden die extra JavaScript of CSS nodig hebben. U kunt het ook gebruiken om extra metatags toe te voegen aan de HTML. Houd er rekening mee dat dit alleen op openbare pagina's wordt weergegeven, niet in de beheerdersafdeling.
           instagram: Instagram
           social_handlers: Sociaal
           twitter: Twitter
