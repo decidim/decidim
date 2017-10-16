@@ -8,6 +8,8 @@ ru:
       meetings:
         name: Встречи
     meetings:
+      actions:
+        new: Добавить
       meetings:
         show:
           meeting_report: Отчет о встрече
