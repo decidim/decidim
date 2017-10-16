@@ -17,18 +17,8 @@ es:
         subject: Asunto
       organization:
         default_locale: Idioma predeterminado
-        description: Descripción
-        favicon: Icono
-        header_snippets: Snippets de encabezado
-        homepage_image: Imagen de portada
-        logo: Logotipo
         name: Nombre
-        official_img_footer: Logotipo oficial de pie de página
-        official_img_header: Logotipo oficial de cabecera
-        official_url: URL oficial de organización
         reference_prefix: Prefijo de la referencia
-        show_statistics: Mostrar estadísticas
-        welcome_text: Texto de bienvenida
       scope:
         code: Código
         name: Nombre
@@ -312,10 +302,8 @@ es:
           title: Editar organización
           update: Actualizar
         form:
-          current_image: Imagen actual
           facebook: Facebook
           github: GitHub
-          header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
           instagram: Instagram
           social_handlers: Social
           twitter: Twitter
