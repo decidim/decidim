@@ -1,0 +1,92 @@
+fr:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Catégorie
+        decidim_scope_id: Périmètre d'application
+        description: Description
+        end_date: Date et heure de fin
+        progress: Avancement
+        proposal_ids: Propositions incluses
+        start_date: Date de début
+        title: Titre
+      status:
+        description: Description
+        name: Nom
+        progress: Avancement
+      timeline_entry:
+        description: Description
+        entry_date: Date
+  decidim:
+    accountability:
+      actions:
+        destroy: Supprimer
+        edit: Modifier
+        new: Nouveau %{name}
+        preview: Aperçu
+        title: Actions
+      admin:
+        exports:
+          results: Résultats
+        models:
+          result:
+            name: Résultat
+        results:
+          create:
+            invalid: Il y a eu un problème pour créer ce résultat
+            success: Résultat créé avec succès
+          destroy:
+            success: Résultat supprimé avec succès
+          edit:
+            title: Modifier le résultat
+          index:
+            title: Résultats
+          new:
+            title: Nouveau résultat
+          update:
+            invalid: Il y a eu un problème pour mettre à jour ce résultat
+            success: Résultat mis à jour avec succès
+      models:
+        result:
+          fields:
+            end_date: Date et heure de fin
+            progress: Avancement
+            start_date: Date de début
+            title: Titre
+        status:
+          fields:
+            description: Description
+            name: Nom
+            progress: Avancement
+        timeline_entry:
+          fields:
+            description: Description
+            entry_date: Date
+      results:
+        count:
+          results_count:
+            one: 1 résultat
+            other: "%{count} résultats"
+        filters:
+          all: Tous
+          scopes: Périmètre d'application
+        home:
+          categories_label: Catégories
+        show:
+          stats:
+            attendees: Participants
+            comments: Commentaires
+            contributions: Contributions
+            meetings: Réunions
+            proposals: Propositions
+            votes: Soutiens
+    features:
+      accountability:
+        settings:
+          global:
+            comments_enabled: Commentaires activés
+          step:
+            comments_blocked: Commentaires bloqués
+    resource_links:
+      included_proposals:
+        result_proposals: Propositions incluses dans ce résultat
