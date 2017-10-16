@@ -96,6 +96,36 @@ ru:
           complete_profile: Заполните профиль
           sign_up: Пожалуйста, заполните свой профиль
           subtitle: Пожалуйста, заполните следующую форму, чтобы завершить регистрацию
+          username_help: Общедоступное имя, которое отображается в ваших сообщениях. В целях обеспечения анонимности оно может быть любым.
+      registrations:
+        new:
+          already_have_an_account?: У вас уже есть учетная запись?
+          newsletter_notifications: Получать информацию о связанных с этим событиях
+          sign_in: Войти
+          sign_up: Зарегистрироваться
+          sign_up_as:
+            legend: Зарегистрироваться как
+            user: Частное лицо
+            user_group: Организация/коллектив
+          subtitle: Зарегистрируйтесь, чтобы участвовать в обсуждениях и поддерживать предложения.
+          terms: условия использования
+          tos_agreement: Регистрируясь, вы принимаете %{link}.
+          username_help: Общедоступное имя, которое отображается в ваших сообщениях. В целях обеспечения анонимности оно может быть любым.
+      sessions:
+        new:
+          are_you_new?: Вы в первый раз на этой платформе?
+          register: Создать учетную запись
+      shared:
+        omniauth_buttons:
+          or: Или
+    errors:
+      internal_server_error:
+        title: Возникла проблема с нашим сервером
+        try_later: Пожалуйста, повторите попытку позже.
+      not_found:
+        back_home: Вернуться на главную
+        content_doesnt_exist: Этот адрес неверен или был удален.
+        title: Не удается найти страницу, которую вы ищете
     events:
       email_event:
         email_greeting: Здравствуйте, %{user_name}!
@@ -126,6 +156,7 @@ ru:
     filters:
       linked_classes:
         all: Все
+        dummyresource: Нерабочие псевдо-ресурсы
         meeting: Встречи
         project: Проекты
         proposal: Предложения
@@ -196,22 +227,60 @@ ru:
           title: Требуется подтверждение личности
         unauthorized:
           explanation: Извините, вы не можете выполнить это действие, поскольку некоторые данные вашего подтверждения личности не совпадают.
+          invalid: "Содержимое поля %{field} недопустимо."
+          ok: Хорошо
           title: Не подтвердили свою личность
       embed_modal:
         close_window: Закрыть окно
+        embed: Пожалуйста, вставьте этот код в свою страницу
+        embed_link: Встроить
       flag_modal:
         already_reported: На это содержимое уже пожаловались, и жалобу рассмотрит администратор.
+        close: Закрыть
+        description: Содержание этого неприемлемо?
+        does_not_belong: Содержит незаконную деятельность, угрозы самоубийства, личную информацию или что-то еще, недопустимое, на ваш взгляд, для %{organization_name}.
+        offensive: Содержит расизм, сексизм, оскорбления, личные нападки, угрозы смерти, заявления о самоубийстве, или любую форму разжигания ненависти.
         report: Пожаловаться
+        spam: Содержит кликоловки (манипулятивно-сенсационные заголовки), рекламу, мошенничество или лохотроны.
         title: Пожаловаться на проблему
+      follow_button:
+        sign_in_before_follow: Пожалуйста, войдите в учетную запись, прежде чем выполнять это действие
+      login_modal:
+        please_sign_in: Пожалуйста войдите
+        sign_up: Зарегистрироваться
+      reference:
+        reference: 'Ссылка: %{reference}'
+      results_per_page:
+        label: 'Результатов на странице:'
       share_modal:
         close_window: Закрыть окно
+        share: Поделиться
+        share_link: Поделиться ссылкой
   devise:
     invitations:
       edit:
+        header: Установите свой пароль
         submit_button: Сохранить
     mailer:
       invitation_instructions:
+        accept: Принять приглашение
+        accept_until: Срок действия этого приглашения закончится %{due_date}.
         hello: Здравствуйте, %{email}!
+        ignore: |-
+          Если вы не хотите принимать приглашение, пожалуйста, игнорируйте это письмо.<br /> Ваша учетная запись не будет создана до тех пор, пока вы не перейдете по ссылке выше и не установите свой пароль.
+        invited_you_as_admin: "%{invited_by} пригласил вас в качестве администратора %{application}. Вы можете принять это прглашение по ссылке ниже."
+        someone_invited_you: Кто-то пригласил вас в %{application}. Вы можете принять это приглашение по ссылке ниже.
+        someone_invited_you_as_admin: Кто-то пригласил вас в качестве администратора %{application}, вы можете принять это прилашение по ссылке ниже.
+      invite_admin:
+        subject: Вам было предложено распоряжаться %{organization}
+      invite_collaborator:
+        subject: Вы пригласили к сотрудничеству в %{organization}
+      organization_admin_invitation_instructions:
+        subject: Вам было предложено распоряжаться %{organization}
+      password_change:
+        greeting: Здравствуйте, %{recipient}!
+        message: Мы пишем вам, чтобы уведомить вас о том, что ваш пароль был изменен.
+        subject: Пароль изменен
   layouts:
     decidim:
       user_profile:
@@ -222,6 +291,11 @@ ru:
       extended:
         meetings: Встречи
         proposals: Предложения
+      footer_sub_hero:
+        footer_sub_hero_headline: Добро пожаловать на платформу соучастия %{organization}!
+        register: Зарегистрироваться
+      hero:
+        participate: Принять участие
       statistics:
         meetings_count: Встречи
         pages_count: Страницы
