@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 shared_examples "manage results" do
+  include_context "admin"
+  include_context "feature admin"
+
   it "updates a result" do
     within find("tr", text: translated(result.title)) do
       find("a.action-icon--edit").click

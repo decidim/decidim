@@ -1,6 +1,9 @@
 # frozen_string_literal: true
 
 shared_examples "export results", perform_enqueued: true do
+  include_context "admin"
+  include_context "feature admin"
+
   let!(:results) { create_list :result, 3, feature: current_feature }
 
   around do |example|
