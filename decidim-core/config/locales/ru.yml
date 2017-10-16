@@ -310,6 +310,11 @@ ru:
       header:
         close_menu: Закрыть меню
         navigation: Навигация
+        sign_in: Войти в систему
+        sign_up: Зарегистрироваться
+      impersonation_warning:
+        close_session: Закрыть сеанс
+        description_html: Вы выдаете себя за пользователя <b>%{user_name}</b>.
       user_profile:
         authorizations: Подтверждения личности
         delete_my_account: Удалить мою учетную запись
