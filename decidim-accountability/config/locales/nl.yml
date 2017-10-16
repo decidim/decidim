@@ -1,0 +1,48 @@
+nl:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: staat
+        decidim_category_id: Categorie
+        decidim_scope_id: Reikwijdte
+        description: Beschrijving
+        end_date: Einddatum
+        progress: Vooruitgang
+        title: Titel
+      status:
+        description: Beschrijving
+      timeline_entry:
+        description: Beschrijving
+  decidim:
+    accountability:
+      admin:
+        exports:
+          results: Resultaten
+        results:
+          index:
+            title: Resultaten
+      models:
+        result:
+          fields:
+            end_date: Einddatum
+            title: Titel
+        status:
+          fields:
+            description: Beschrijving
+        timeline_entry:
+          fields:
+            description: Beschrijving
+      results:
+        filters:
+          all: Alle
+        show:
+          stats:
+            meetings: Vergaderingen
+            proposals: Voorstellen
+    features:
+      accountability:
+        settings:
+          global:
+            comments_enabled: Reacties ingeschakeld
+          step:
+            comments_blocked: Reacties geblokkeerd
