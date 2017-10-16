@@ -19,6 +19,17 @@ eu:
         default_locale: Eskualdeko ezarpen lehenetsiak
         name: Izena
         reference_prefix: Erreferentzia-aurrizkia
+      organization_appearance:
+        description: Descripción
+        favicon: Ikonoa
+        header_snippets: Izenburu-snippets-ak
+        homepage_image: Orri nagusiko irudia
+        logo: Logotipo
+        official_img_footer: Orri-oineko logotipo ofiziala
+        official_img_header: Goiburuko logotipo ofiziala
+        official_url: Erakundearen URL ofiziala
+        show_statistics: Erakutsi estatistikak
+        welcome_text: Ongietorri-testua
       scope:
         code: Kodea
         name: Izena
@@ -195,6 +206,8 @@ eu:
             promote: Goratu
       menu:
         admins: Administratzaileak
+        appearance: Itxura
+        configuration: konfigurazioa
         dashboard: Kontrol-panela
         managed_users: Kudeatutako erabiltzaileak
         newsletters: Buletinak
@@ -312,6 +325,13 @@ eu:
         update:
           error: Errorea gertatu da erakunde hau eguneratzean.
           success: Erakundea zuzen eguneratu da.
+      organization_appearance:
+        edit:
+          update: Eguneratu
+        form:
+          header_snippets_help: Erabili eremu hau HTML goiburuari gauzak gehitzeko. Erabilerarik ohikoena da JavaScript edo CSS gehigarriak behar dituzten hirugarrenen zerbitzuak txertatzea. Gainera, HTMLari meta-etiketa gehigarriak gehitzeko erabil dezakezu. Kontuan hartu orri publikoetan baino ez dela erakutsiko, ez administrazio atalean.
+          homepage_appearance_title: Editatu orriaren itxura
+          layout_appearance_title: Editatu itxura diseinua
       scope_types:
         create:
           error: Errore bat gertatu da esparru mota berri bat sortzean.
