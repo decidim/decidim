@@ -270,7 +270,7 @@ fi:
           Sinulle ei luoda tiliä, mikäli et seuraa linkkiä ja aseta salasanaasi.
         invited_you_as_admin: "%{invited_by} on kutsunut sinut hallinnoimaan kohdetta %{application}. Voit hyväksyä sen alla olevan linkin kautta."
         someone_invited_you: Joku on kutsunut sinut kohteeseen %{application}. Voit hyväksyä sen alla olevan linkin kautta.
-        you_are_now_admin: Olet nyt hallinnointikäyttäjä
+        someone_invited_you_as_admin: Joku on kutsunut sinut ylläpitäjänä %{application}, voit hyväksyä sen alla olevan linkin kautta.
       invite_admin:
         subject: Sinut on kutsuttu hallinnoimaan organisaatiota %{organization}
       invite_collaborator:
