@@ -156,6 +156,7 @@ ca:
     filters:
       linked_classes:
         all: Tots
+        dummyresource: Recursos maniquís
         meeting: Trobades
         project: Projectes
         proposal: propostes
