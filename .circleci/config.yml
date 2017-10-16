@@ -79,6 +79,7 @@ jobs:
             mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
             ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
             rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+      - run: export CODECOV_FLAG=core
       - run:
           name: Create test DB
           command: |
@@ -106,6 +107,7 @@ jobs:
             mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
             ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
             rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+      - run: export CODECOV_FLAG=assemblies
       - run:
           name: Create test DB
           command: |
@@ -133,6 +135,7 @@ jobs:
             mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
             ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
             rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+      - run: export CODECOV_FLAG=api
       - run:
           name: Create test DB
           command: |
@@ -160,6 +163,7 @@ jobs:
             mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
             ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
             rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+      - run: export CODECOV_FLAG=processes
       - run:
           name: Create test DB
           command: |
@@ -187,6 +191,7 @@ jobs:
             mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
             ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
             rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+      - run: export CODECOV_FLAG=admin
       - run:
           name: Create test DB
           command: |
@@ -214,6 +219,7 @@ jobs:
             mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
             ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
             rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+      - run: export CODECOV_FLAG=system
       - run:
           name: Create test DB
           command: |
@@ -241,6 +247,7 @@ jobs:
             mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
             ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
             rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+      - run: export CODECOV_FLAG=proposals
       - run:
           name: Create test DB
           command: |
@@ -268,6 +275,7 @@ jobs:
             mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
             ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
             rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+      - run: export CODECOV_FLAG=comments
       - run:
           name: Create test DB
           command: |
@@ -295,6 +303,7 @@ jobs:
             mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
             ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
             rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+      - run: export CODECOV_FLAG=meetings
       - run:
           name: Create test DB
           command: |
@@ -322,6 +331,7 @@ jobs:
             mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
             ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
             rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+      - run: export CODECOV_FLAG=pages
       - run:
           name: Create test DB
           command: |
@@ -349,6 +359,7 @@ jobs:
             mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
             ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
             rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+      - run: export CODECOV_FLAG=accountability
       - run:
           name: Create test DB
           command: |
@@ -376,6 +387,7 @@ jobs:
             mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
             ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
             rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+      - run: export CODECOV_FLAG=budgets
       - run:
           name: Create test DB
           command: |
@@ -403,6 +415,7 @@ jobs:
             mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
             ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
             rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+      - run: export CODECOV_FLAG=surveys
       - run:
           name: Create test DB
           command: |
