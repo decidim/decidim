@@ -45,13 +45,27 @@ uk:
             success: Підсумки успішно видалено
           edit:
             title: Редагувати підсумки
+            update: Оновити підсумки
           index:
             title: Підсумки
           new:
+            create: Створити підсумки
             title: Нові підсумки
           update:
             invalid: При спробі оновити ці підсумки виникла проблема
             success: Підсумки успішно оновлено
+        shared:
+          subnav:
+            statuses: Статуси
+        statuses:
+          create:
+            invalid: При спробі створити цей статус виникла проблема
+            success: Статус успішно створено
+          destroy:
+            success: Статус успішно видалено
+          edit:
+            title: Редагувати статус
+            update: Оновити статус
       models:
         result:
           fields:
