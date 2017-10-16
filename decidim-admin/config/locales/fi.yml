@@ -17,18 +17,15 @@ fi:
         subject: Otsikko
       organization:
         default_locale: Oletuskieli
+        name: Nimi
+        reference_prefix: Viitteen etuliite
+      organization_appearance:
         description: Kuvaus
         favicon: Ikoni
         header_snippets: Yläosiot
         homepage_image: Kotisivun kuva
         logo: Logo
-        name: Nimi
         official_img_footer: Virallinen alapalkin logo
-        official_img_header: Virallinen yläpalkin logo
-        official_url: Virallinen organisaation URL-osoite
-        reference_prefix: Viitteen etuliite
-        show_statistics: Näytä tilastot
-        welcome_text: Tervetuloa-teksti
       scope:
         code: Koodi
         name: Nimi
@@ -312,10 +309,8 @@ fi:
           title: Muokkaa organisaatiota
           update: Päivitä
         form:
-          current_image: Nykyinen kuva
           facebook: Facebook
           github: GitHub
-          header_snippets_help: Käytä tätä kenttää lisätäksesi HTML-koodia sivun alkuun. Yleisin käyttötarve on sellaisten kolmannen osapuolen palveluiden integrointi, jotka vaativat JavaScript- tai CSS-koodin lisäystä sivun HTML-koodiin. Huomioi, että tämä lisätään ainoastaan julkisille sivuille, ei hallinnointisivuille.
           instagram: Instagram
           social_handlers: Sosiaalinen media
           twitter: Twitter
