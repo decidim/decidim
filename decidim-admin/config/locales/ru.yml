@@ -187,13 +187,13 @@ ru:
             new_managed_user_impersonation: Новое олицетворение управляемого участника
         index:
           impersonate: Олицетворить (выступить в роли участника)
-          needs_authoriation_warning: Для этой организации нужно обеспечить хотя бы одну авторизацию.
+          needs_authoriation_warning: Для этой организации нужно обеспечить хотя бы один способ подтверждение личности.
           promote: Повысить в статусе
           view_logs: Просмотреть журналы
         new:
           create: Создать
           new_managed_user: Новый управляемый участник
-          select_authorization_method: Выберите способ авторизации
+          select_authorization_method: Выберите способ подтверждения личности
           step: Шаг %{current} из %{total}
         promotion:
           error: При повышении статуса управляемого участника произошла ошибка.
