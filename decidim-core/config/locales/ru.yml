@@ -74,6 +74,17 @@ ru:
     authorizations:
       create:
         error: При создании этой авторизации произошла ошибка.
+        success: Вы успешно авторизованы.
+      current_participatory_processes: взглянуть на текущие движения
+      first_login:
+        actions:
+          decidim/dummy_authorization_handler: Проверьте, сравнив с примером авторизации
+        title: Подтвердите вашу личность
+        verify_with_these_options: 'Есть такие способы подтверждения вашей личности:'
+      new:
+        authorize: Отправить
+        authorize_with: Подтвердить с помощью %{authorizer}
+      skip_verification: Вы можете пока что пропустить это и %{link}
     events:
       email_event:
         email_greeting: Здравствуйте, %{user_name}!
