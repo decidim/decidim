@@ -253,7 +253,7 @@ uk:
         users_count: Учасники
         votes_count: Голоси
     scopes:
-      global: Всеохоплюючий терен
+      global: Загальний терен
   layouts:
     decidim:
       participatory_process_groups:
