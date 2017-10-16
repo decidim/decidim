@@ -424,12 +424,29 @@ ru:
         unreport: Отменить жалобу
       admin:
         reportable:
+          hide:
+            invalid: При попытке скрыть ресурс возникла проблема.
+            success: Ресурс успешно скрыт.
           unreport:
             invalid: При отмене жалобы на ресурс возникла проблема.
             success: Жалоба на ресурс успешно отменена.
       models:
         moderation:
           fields:
+            hidden_at: 'Скрыто:'
+            report_count: Количество
             reportable: Тип жалобы
             reported_content_url: URL-адрес обжалованного содержимого
             reports: Жалобы
+  errors:
+    messages:
+      invalid_json: Недопустимый JSON
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: Рассылки новостей
+        settings:
+          title: Настройки
+        users:
+          title: Участники
