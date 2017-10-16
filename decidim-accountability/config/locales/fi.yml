@@ -1,0 +1,94 @@
+fi:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Aihepiiri
+        decidim_scope_id: Konteksti
+        description: Kuvaus
+        end_date: Päättymisaika
+        progress: Edistyminen
+        proposal_ids: Sisällytetyt ehdotukset
+        start_date: Aloitusaika
+        title: Otsikko
+      status:
+        description: Kuvaus
+        name: Nimi
+        progress: Edistyminen
+      timeline_entry:
+        description: Kuvaus
+        entry_date: Päivämäärä
+  decidim:
+    accountability:
+      actions:
+        destroy: Poista
+        edit: Muokkaa
+        new: Uusi %{name}
+        preview: Esikatsele
+        title: Toiminnot
+      admin:
+        exports:
+          results: Tulokset
+        models:
+          result:
+            name: Tulos
+        results:
+          create:
+            invalid: Tuloksen luonnissa tapahtui virhe
+            success: Tulos luotu onnistuneesti
+          destroy:
+            success: Tulos poistettu onnistuneesti
+          edit:
+            title: Muokkaa tulosta
+            update: Päivitä tulos
+          index:
+            title: Tulokset
+          new:
+            create: Luo tulos
+            title: Uusi tulos
+          update:
+            invalid: Tuloksen päivityksessä tapahtui virhe
+            success: Tulos päivitetty onnistuneesti
+      models:
+        result:
+          fields:
+            end_date: Päättymisaika
+            progress: Edistyminen
+            start_date: Aloitusaika
+            title: Otsikko
+        status:
+          fields:
+            description: Kuvaus
+            name: Nimi
+            progress: Edistyminen
+        timeline_entry:
+          fields:
+            description: Kuvaus
+            entry_date: Päivämäärä
+      results:
+        count:
+          results_count:
+            one: 1 tulos
+            other: "%{count} tulosta"
+        filters:
+          all: Kaikki
+          scopes: Kontekstit
+        home:
+          categories_label: Aihepiirit
+        show:
+          stats:
+            attendees: Osallistujat
+            comments: Kommentit
+            contributions: Kontribuutiot
+            meetings: Tapaamiset
+            proposals: Ehdotukset
+            votes: Kannatukset
+    features:
+      accountability:
+        settings:
+          global:
+            comments_enabled: Kommentointi sallittu
+          step:
+            comments_blocked: Kommentointi kielletty
+    resource_links:
+      included_proposals:
+        result_proposals: Projektit, jotka sisältyvät tähän tulokseen
