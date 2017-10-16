@@ -17,18 +17,8 @@ pl:
         subject: Przedmiot
       organization:
         default_locale: Domena domyślna
-        description: Opis
-        favicon: Ikona
-        header_snippets: Fragmenty nagłówków
-        homepage_image: Obraz strony głównej
-        logo: Logo
         name: Nazwa
-        official_img_footer: Oficjalny stopka logo
-        official_img_header: Oficjalny nagłówek logo
-        official_url: Oficjalna organizacja url
         reference_prefix: Prefiks referencyjny
-        show_statistics: Pokaż statystyki
-        welcome_text: Tekst powitalny
       scope:
         code: Kod
         name: Nazwa
@@ -312,10 +302,8 @@ pl:
           title: Edytuj organizację
           update: Aktualizacja
         form:
-          current_image: Aktualny obraz
           facebook: Facebook
           github: GitHub
-          header_snippets_help: Użyj tego pola, aby dodać elementy do głowicy HTML. Najczęstszym sposobem jest zintegrowanie usług innych firm, które wymagają dodatkowego kodu JavaScript lub CSS. Można również użyć go do dodawania dodatkowych znaczników meta do HTML. Należy zauważyć, że będzie to widoczne tylko na stronach publicznych, a nie w sekcji administracyjnej.
           instagram: Instagram
           social_handlers: Społeczny
           twitter: Świergot
