@@ -1,0 +1,86 @@
+pl:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Kategoria
+        decidim_scope_id: Zakres
+        description: Opis
+        end_date: Data zakończenia
+        proposal_ids: Zawarte propozycje
+        start_date: Data rozpoczęcia
+        title: Tytuł
+      status:
+        description: Opis
+        name: Nazwa
+      timeline_entry:
+        description: Opis
+        entry_date: Data
+  decidim:
+    accountability:
+      actions:
+        destroy: Kasować
+        edit: Edytuj
+        preview: Podgląd
+        title: Działania
+      admin:
+        exports:
+          results: wyniki
+        models:
+          result:
+            name: Wynik
+        results:
+          create:
+            invalid: Podczas tworzenia tego wyniku wystąpił problem
+            success: Wynik został pomyślnie utworzony
+          destroy:
+            success: Wynik został pomyślnie usunięty
+          edit:
+            title: Edytuj wynik
+          index:
+            title: wyniki
+          new:
+            title: Nowy wynik
+          update:
+            invalid: Podczas aktualizowania tego wyniku wystąpił problem
+            success: Wynik został zaktualizowany
+      models:
+        result:
+          fields:
+            end_date: Data zakończenia
+            start_date: Data rozpoczęcia
+            title: Tytuł
+        status:
+          fields:
+            description: Opis
+            name: Nazwa
+        timeline_entry:
+          fields:
+            description: Opis
+            entry_date: Data
+      results:
+        count:
+          results_count:
+            one: 1 wynik
+            few: "%{count} wyników"
+            other: "%{count} wyników"
+        filters:
+          all: Wszystkie
+          scopes: Zakresy
+        show:
+          stats:
+            attendees: Uczestnicy i uczestniczki
+            comments: Komentarze
+            contributions: Wkład
+            meetings: Spotkania
+            proposals: Propozycje
+            votes: Wsparcie
+    features:
+      accountability:
+        settings:
+          global:
+            comments_enabled: Komentarze włączone
+          step:
+            comments_blocked: Komentarze zablokowane
+    resource_links:
+      included_proposals:
+        result_proposals: Propozycje zawarte w tym wyniku
