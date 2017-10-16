@@ -270,6 +270,7 @@ es:
           Tu cuenta no se creará hasta que accedas al enlance de abajo y escojas tu contraseña.
         invited_you_as_admin: "%{invited_by} te ha invitado como administrador de %{application}. Puedes aceptarlo a través del siguiente enlace."
         someone_invited_you: Alguien te ha invitado a %{application}. Puedes aceptar la invitación a través del siguiente enlace.
+        someone_invited_you_as_admin: Alguien te ha invitado como administrador de %{application}, puedes aceptarlo a través del siguiente enlace.
       invite_admin:
         subject: Has sido invitado para gestionar %{organization}
       invite_collaborator:
