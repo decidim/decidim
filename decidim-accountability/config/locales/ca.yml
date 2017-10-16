@@ -2,15 +2,15 @@ ca:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: estat
+        decidim_accountability_status_id: Estat
         decidim_category_id: Categoria
         decidim_scope_id: Àmbit
         description: Descripció
-        end_date: Data de finalització
+        end_date: Fi
         progress: Progrés
         proposal_ids: Propostes incloses
-        start_date: Data d'inici
-        title: Grup de processos participatius
+        start_date: Inici
+        title: Títol
       status:
         description: Descripció
         key: Clau
@@ -22,10 +22,12 @@ ca:
   decidim:
     accountability:
       actions:
-        destroy: Esborrar
-        edit: Editar
-        new: Nou %{name}
+        confirm_destroy: Estàs segur que vols suprimir aquest %{name}?
+        destroy: Esborra
+        edit: Edita
+        new: Nou/va %{name}
         preview: Previsualitzar
+        timeline_entries: Evolució del projecte
         title: Accions
       admin:
         exports:
@@ -33,33 +35,76 @@ ca:
         models:
           result:
             name: Resultat
+          status:
+            name: Estat
+          timeline_entry:
+            name: Element
         results:
           create:
             invalid: Hi ha hagut un problema en crear aquest resultat
-            success: El resultat ha creat correctament
+            success: El resultat ha estat creat correctament
           destroy:
             success: El resultat ha estat eliminat correctament
           edit:
-            title: Editar resultat
-            update: Actualitzar resultat
+            title: Edita resultat
+            update: Actualitza resultat
           index:
             title: Resultats
           new:
-            create: Crear resultat
+            create: Crea resultat
             title: Nou resultat
           update:
             invalid: Hi ha hagut un problema en actualitzar aquest resultat
             success: El resultat ha estat actualitzat correctament
+        shared:
+          subnav:
+            statuses: Estats
+        statuses:
+          create:
+            invalid: Hi ha hagut un problema en crear aquest estat
+            success: El estat ha estat creat correctament
+          destroy:
+            success: El estat ha estat eliminat correctament
+          edit:
+            title: Edita estat
+            update: Actualitza estat
+          index:
+            title: Estats
+          new:
+            create: Crea estat
+            title: Nou estat
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquest estat
+            success: El estat ha estat actualitzat correctament
+        timeline_entries:
+          create:
+            invalid: Hi ha hagut un problema en crear aquest element
+            success: El element ha estat creat correctament
+          destroy:
+            success: El element ha estat eliminat correctament
+          edit:
+            title: Edita element
+            update: Actualitza element
+          index:
+            title: Evolució del projecte
+          new:
+            create: Crea element
+            title: Nou element
+          update:
+            invalid: Hi ha hagut un problema en actualitzar aquest element
+            success: El element ha estat actualitzat correctament
       models:
         result:
           fields:
-            end_date: Data de finalització
+            end_date: Fi
             progress: Progrés
-            start_date: Data d'inici
-            title: Grup de processos participatius
+            start_date: Inici
+            status: Estat
+            title: Títol
         status:
           fields:
             description: Descripció
+            key: Clau
             name: Nom
             progress: Progrés
         timeline_entry:
@@ -73,22 +118,38 @@ ca:
             other: "%{count} resultats"
         filters:
           all: Tots
+          global: Global
           scopes: Àmbits
         home:
           categories_label: Categories
+          subcategories_label: Subcategories
+        home_header:
+          global_status: Estat d'execució global
+        nav_breadcrumb:
+          global: Execució global
+        search:
+          search: Cerca actuacions
         show:
           stats:
             attendees: Assistents
             comments: Comentaris
             contributions: Aportacions
-            meetings: Trobades presencials
-            proposals: propostes
-            votes: suports
+            meetings: Trobades
+            proposals: Propostes
+            votes: Suports
+        timeline:
+          title: Evolució del projecte
     features:
       accountability:
+        name: Seguiment
         settings:
           global:
+            categories_label: Nom de "Categories"
             comments_enabled: Comentaris habilitats
+            heading_leaf_level_results: Nom de "Projectes"
+            heading_parent_level_results: Nom de "Resultats"
+            intro: Introducció
+            subcategories_label: Nom per a "subcategories"
           step:
             comments_blocked: Comentaris bloquejats
     resource_links:
