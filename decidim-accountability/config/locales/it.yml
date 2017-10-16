@@ -1,0 +1,91 @@
+it:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Categoria
+        decidim_scope_id: Objetivos
+        description: Descrizione
+        end_date: Data di fine
+        progress: Avanzamento
+        proposal_ids: Proposte incluse
+        start_date: Date di inizio
+        title: Nome
+      status:
+        description: Descrizione
+        name: Nome
+        progress: Avanzamento
+      timeline_entry:
+        description: Descrizione
+        entry_date: Data
+  decidim:
+    accountability:
+      actions:
+        destroy: Cancella
+        edit: Modifica
+        preview: Anteprima
+        title: Azioni
+      admin:
+        exports:
+          results: Risultati
+        models:
+          result:
+            name: Risultato
+        results:
+          create:
+            invalid: C'è stato un problema durante la creazione di questo risultato
+            success: OK, il risultato è stato creato
+          destroy:
+            success: Il risultato è stato cancellato
+          edit:
+            title: Modifica il risultato (Ambito)
+          index:
+            title: Risultati
+          new:
+            title: Nuovo risultato
+          update:
+            invalid: C'è stato un problema durante l'aggiornamento di questo risultato
+            success: OK, il risultato è stato modificato
+      models:
+        result:
+          fields:
+            end_date: Data di fine
+            progress: Avanzamento
+            start_date: Date di inizio
+            title: Nome
+        status:
+          fields:
+            description: Descrizione
+            name: Nome
+            progress: Avanzamento
+        timeline_entry:
+          fields:
+            description: Descrizione
+            entry_date: Data
+      results:
+        count:
+          results_count:
+            one: 1 risultato
+            other: "%{count} risultati"
+        filters:
+          all: Tutto
+          scopes: Visibilità
+        home:
+          categories_label: Categorie
+        show:
+          stats:
+            attendees: Partecipanti
+            comments: Commenti
+            contributions: Contributi
+            meetings: Riunioni
+            proposals: Proposte
+            votes: Voti
+    features:
+      accountability:
+        settings:
+          global:
+            comments_enabled: Commenti abilitati
+          step:
+            comments_blocked: Commenti bloccati
+    resource_links:
+      included_proposals:
+        result_proposals: Proposte incluse in questo risultato
