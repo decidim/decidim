@@ -8,6 +8,8 @@ ru:
         end_date: Дата завершения
   decidim:
     admin:
+      actions:
+        new: Добавить
       models:
         participatory_process_step:
           fields:
