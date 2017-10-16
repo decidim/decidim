@@ -37,6 +37,8 @@ uk:
             name: Підсумки
           status:
             name: Статус
+          timeline_entry:
+            name: Запис на лінії часу
         results:
           create:
             invalid: При спробі створити ці підсумки виникла проблема
@@ -81,6 +83,8 @@ uk:
           edit:
             title: Редагувати запис
             update: Оновити запис
+          index:
+            title: Записи на лінії часу проекту
           new:
             create: Створити запис
             title: Новий запис
@@ -123,6 +127,8 @@ uk:
           global_status: Загальний статус виконання
         nav_breadcrumb:
           global: Загальне виконання
+        search:
+          search: Пошук дій
         show:
           stats:
             attendees: Учасники
@@ -131,11 +137,19 @@ uk:
             meetings: Зустрічі
             proposals: Пропозиції
             votes: Підтримує
+        timeline:
+          title: Розвиток проекту
     features:
       accountability:
+        name: Звітність
         settings:
           global:
+            categories_label: Назва для "Розділи"
             comments_enabled: Коментарі ввімкнено
+            heading_leaf_level_results: Назва для "Проекти"
+            heading_parent_level_results: Назва для "Підсумки"
+            intro: Вступ
+            subcategories_label: Назва для «Підрозділи»
           step:
             comments_blocked: Коментарі заблоковано
     resource_links:
