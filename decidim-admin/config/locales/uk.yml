@@ -152,7 +152,7 @@ uk:
           update: Оновити
         form:
           default_step_settings: Налаштування за замовчуванням для кроків
-          global_settings: Глобальні налаштування
+          global_settings: Загальні налаштування
           step_settings: Налаштування кроку
         index:
           add: Додати складову
