@@ -1,0 +1,66 @@
+ru:
+  activemodel:
+    attributes:
+      result:
+        decidim_category_id: Категория
+        decidim_scope_id: Охват
+        description: Описание
+        end_date: Дата завершения
+        progress: Продвижение
+        start_date: Дата начала
+        title: Название
+      status:
+        description: Описание
+        name: Имя
+        progress: Продвижение
+      timeline_entry:
+        description: Описание
+  decidim:
+    accountability:
+      actions:
+        edit: Редактировать
+        preview: Предварительный просмотр
+        title: Действия
+      admin:
+        exports:
+          results: Итоги
+        results:
+          index:
+            title: Итоги
+      models:
+        result:
+          fields:
+            end_date: Дата завершения
+            progress: Продвижение
+            start_date: Дата начала
+            title: Название
+        status:
+          fields:
+            description: Описание
+            name: Имя
+            progress: Продвижение
+        timeline_entry:
+          fields:
+            description: Описание
+      results:
+        filters:
+          all: Все
+          global: Всеобщий
+          scopes: Охваты
+        home:
+          categories_label: Категории
+        home_header:
+          global_status: Статус всеобщего исполнения
+        nav_breadcrumb:
+          global: Всеобщее исполнение
+        show:
+          stats:
+            meetings: Встречи
+            proposals: Предложения
+    features:
+      accountability:
+        settings:
+          global:
+            comments_enabled: Комментарии включены
+          step:
+            comments_blocked: Комментарии заблокированы
