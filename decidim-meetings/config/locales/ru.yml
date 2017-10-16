@@ -1,9 +1,16 @@
 ru:
+  activemodel:
+    attributes:
+      close_meeting:
+        closing_report: Отчет
   decidim:
     features:
       meetings:
         name: Встречи
     meetings:
+      meetings:
+        show:
+          meeting_report: Отчет о встрече
       models:
         meeting:
           fields:
