@@ -66,6 +66,7 @@ ru:
           state: Cостояние
           voted: Проголосованные
         filters_small_view:
+          close_modal: Закрыть окошко
           filter: Отобрать
           filter_by: 'Отобрать по признаку:'
           unfold: Развернуть
