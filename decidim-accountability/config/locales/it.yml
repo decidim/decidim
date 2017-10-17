@@ -1,0 +1,157 @@
+it:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: stato
+        decidim_category_id: Categoria
+        decidim_scope_id: Objetivos
+        description: Descrizione
+        end_date: Data di fine
+        progress: Avanzamento
+        proposal_ids: Proposte incluse
+        start_date: Date di inizio
+        title: Nome
+      status:
+        description: Descrizione
+        key: Chiave
+        name: Nome
+        progress: Avanzamento
+      timeline_entry:
+        description: Descrizione
+        entry_date: Data
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Sei sicuro di voler eliminare questo %{name}?
+        destroy: Cancella
+        edit: Modifica
+        new: Nuovo %{name}
+        preview: Anteprima
+        timeline_entries: Evoluzione del progetto
+        title: Azioni
+      admin:
+        exports:
+          results: Risultati
+        models:
+          result:
+            name: Risultato
+          status:
+            name: Stato
+          timeline_entry:
+            name: Inserimento della linea temporale
+        results:
+          create:
+            invalid: C'è stato un problema durante la creazione di questo risultato
+            success: OK, il risultato è stato creato
+          destroy:
+            success: Il risultato è stato cancellato
+          edit:
+            title: Modifica il risultato (Ambito)
+            update: Aggiorna il risultato
+          index:
+            title: Risultati
+          new:
+            create: Crea il risultato
+            title: Nuovo risultato
+          update:
+            invalid: C'è stato un problema durante l'aggiornamento di questo risultato
+            success: OK, il risultato è stato modificato
+        shared:
+          subnav:
+            statuses: Gli stati
+        statuses:
+          create:
+            invalid: È stato un problema che crea questo stato
+            success: Stato creato con successo
+          destroy:
+            success: Stato eliminato con successo
+          edit:
+            title: Modifica lo stato
+            update: Aggiorna stato
+          index:
+            title: Gli stati
+          new:
+            create: Crea stato
+            title: Nuovo stato
+          update:
+            invalid: È stato un problema che aggiorna questo stato
+            success: Stato aggiornato con successo
+        timeline_entries:
+          create:
+            invalid: C'è stato un problema creando questa voce
+            success: Entrata creata con successo
+          destroy:
+            success: L'iscrizione è stata eliminata correttamente
+          edit:
+            title: Modifica voce
+            update: Aggiorna la voce
+          index:
+            title: Inserimento di timeline di progetto
+          new:
+            create: Crea voce
+            title: Nuovo arrivato
+          update:
+            invalid: È stato un problema che aggiorna questa voce
+            success: Entrata aggiornata con successo
+      models:
+        result:
+          fields:
+            end_date: Data di fine
+            progress: Avanzamento
+            start_date: Date di inizio
+            status: Stato
+            title: Nome
+        status:
+          fields:
+            description: Descrizione
+            key: Chiave
+            name: Nome
+            progress: Avanzamento
+        timeline_entry:
+          fields:
+            description: Descrizione
+            entry_date: Data
+      results:
+        count:
+          results_count:
+            one: 1 risultato
+            other: "%{count} risultati"
+        filters:
+          all: Tutto
+          global: Globale
+          scopes: Visibilità
+        home:
+          categories_label: Categorie
+          subcategories_label: Sotto-categorie
+        home_header:
+          global_status: Stato di esecuzione globale
+        nav_breadcrumb:
+          global: L'esecuzione globale
+        search:
+          search: Cerca azioni
+        show:
+          stats:
+            attendees: Partecipanti
+            comments: Commenti
+            contributions: Contributi
+            meetings: Riunioni
+            proposals: Proposte
+            votes: Voti
+        timeline:
+          title: Evoluzione del progetto
+    features:
+      accountability:
+        name: Responsabilità
+        settings:
+          global:
+            categories_label: Nome per "Categorie"
+            comments_enabled: Commenti abilitati
+            heading_leaf_level_results: Nome per "Progetti"
+            heading_parent_level_results: Nome per "Risultati"
+            intro: Intro
+            subcategories_label: Nome per "Sottocategorie"
+          step:
+            comments_blocked: Commenti bloccati
+    resource_links:
+      included_proposals:
+        result_proposals: Proposte incluse in questo risultato
