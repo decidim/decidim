@@ -1,6 +1,80 @@
 ru:
+  activemodel:
+    attributes:
+      project:
+        budget: Бюджет
+        decidim_category_id: Категория
+        decidim_scope_id: Охват
+        description: Описание
+        title: Название
   decidim:
     budgets:
       actions:
+        attachments: Вложения
+        destroy: Удалить
         edit: Редактировать
         new: Добавить
+        preview: Предпросмотр
+        title: Действия
+      admin:
+        models:
+          project:
+            name: Проект
+        projects:
+          edit:
+            update: Обновить
+          index:
+            title: Проекты
+          new:
+            create: Создать
+      models:
+        project:
+          fields:
+            title: Название
+      projects:
+        budget_confirm:
+          cancel: Отменить
+          confirm: Подтвердить
+        budget_excess:
+          close: Закрыть
+          ok: Хорошо
+        budget_summary:
+          assigned: 'Выделено:'
+        count:
+          projects_count:
+            one: 1 проект
+            few: "%{count} проекта"
+            many: "%{count} проектов"
+            other: "%{count} проектов"
+        filters:
+          category: Категория
+          scopes: Охваты
+          search: Искать
+        filters_small_view:
+          close_modal: Закрыть окошко
+          filter: Отобрать
+          filter_by: 'Отобрать по признаку:'
+          unfold: Развернуть
+        order_progress:
+          vote: Голосовать
+        order_selected_projects:
+          remove: Удалить
+          view: Посмотреть
+        project:
+          add: Добавить
+          count:
+            one: 1 человек поддерживает
+            few: "%{count} поддерживают"
+            many: "%{count} поддерживает"
+            other: "%{count} поддерживает"
+          remove: Удалить
+        project_budget_button:
+          add: Добавить
+          added: Добавлено
+        show:
+          budget: Бюджет
+    features:
+      budgets:
+        actions:
+          vote: Голосовать
+        name: Бюджеты

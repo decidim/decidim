@@ -35,7 +35,7 @@ uk:
       comment:
         alignment:
           against: Проти
-          in_favor: За
+          in_favor: На підтримку
         deleted_user: Видалений учасник
         reply: Відповісти
         report:
@@ -54,7 +54,7 @@ uk:
         order:
           best_rated: З найкращим рейтингом
           most_discussed: Найбільш обговорюване
-          older: Старіше
+          older: Давніші
           recent: Нещодавнє
         title: 'Впорядкувати за:'
       comment_thread:

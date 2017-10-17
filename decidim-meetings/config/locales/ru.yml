@@ -3,17 +3,84 @@ ru:
     attributes:
       close_meeting:
         closing_report: Отчет
+      meeting:
+        address: Адрес
+        decidim_category_id: Категория
+        decidim_scope_id: Охват
+        description: Описание
+        end_time: Время завершения
+        location: Место
+        title: Название
   decidim:
     features:
       meetings:
+        actions:
+          join: Присоединиться
         name: Встречи
     meetings:
       actions:
+        attachments: Вложения
+        close: Закрыть
+        destroy: Удалить
+        edit: Редактировать
         new: Добавить
+        preview: Предпросмотр
+        title: Действия
+      admin:
+        invites:
+          new:
+            invite: Пригласить
+            new_invite: Пригласить участника
+        meeting_closes:
+          edit:
+            close: Закрыть
+        meetings:
+          edit:
+            update: Обновить
+          index:
+            title: Встречи
+          new:
+            create: Создать
+        models:
+          meeting:
+            name: Встреча
+        registrations:
+          edit:
+            save: Сохранить
+          form:
+            invite_user: Пригласить участника
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Тема
       meetings:
+        filters:
+          category: Категория
+          date: Дата
+          past: Прошедшие
+          scopes: Охваты
+          search: Искать
+          upcoming: Предстоящие
+        filters_small_view:
+          close_modal: Закрыть окошко
+          filter: Отобрать
+          filter_by: 'Отобрать по признаку:'
+          unfold: Развернуть
+        registration_confirm:
+          cancel: Отменить
+          confirm: Подтвердить
         show:
+          going: Собирается посетить
           meeting_report: Отчет о встрече
       models:
         meeting:
           fields:
+            closed: Закрыто
             end_time: Дата завершения
+            map: Карта
+            title: Название
+      read_more: "(читать подробнее)"
+  devise:
+    mailer:
+      join_meeting:
+        subject: Тема

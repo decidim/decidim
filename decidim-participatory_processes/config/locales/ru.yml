@@ -2,20 +2,126 @@ ru:
   activemodel:
     attributes:
       participatory_process:
+        description: Описание
         domain: Домен
         end_date: Дата завершения
+        hashtag: Хэштег
+        promoted: Рекламируется
+        scope_id: Охват
+        slug: Сокращенный URL-адрес
+        start_date: Дата начала
+        subtitle: Подзаголовок
+        target: Цель
+        title: Название
+      participatory_process_group:
+        description: Описание
+        hero_image: Изображение
+        name: Имя
       participatory_process_step:
+        description: Описание
         end_date: Дата завершения
+        title: Название
+      participatory_process_user_role:
+        email: Эл. адрес
+        name: Имя
+        role: Роль
   decidim:
     admin:
       actions:
+        activate: Начать
+        destroy: Удалить
+        edit: Редактировать
         new: Добавить
+        preview: Предпросмотр
+        publish: Опубликовать
+      menu:
+        participatory_processes_submenu:
+          attachments: Вложения
+          features: Составляющие
+          info: Информация
+          moderations: Действия по модерации
+          steps: Шаги
       models:
+        participatory_process:
+          fields:
+            promoted: Выделенные
+            title: Название
+        participatory_process_group:
+          fields:
+            name: Имя
         participatory_process_step:
           fields:
             end_date: Дата завершения
+            title: Название
+        participatory_process_user_role:
+          fields:
+            email: Эл. адрес
+            name: Имя
+            role: Роль
+      participatory_process_copies:
+        new:
+          copy: Копировать
+      participatory_process_groups:
+        edit:
+          update: Обновить
+        new:
+          create: Создать
+      participatory_process_steps:
+        edit:
+          update: Обновить
+        index:
+          steps_title: Шаги
+        new:
+          create: Создать
+      participatory_process_user_roles:
+        edit:
+          update: Обновить
+        new:
+          create: Создать
+      participatory_processes:
+        edit:
+          update: Обновить
+        new:
+          create: Создать
+    participatory_process_groups:
+      show:
+        title: Название
     participatory_processes:
+      order_by_processes:
+        active: Начатые
+        past: Прошедшие
+        upcoming: Предстоящие
+      participatory_process_groups:
+        none: Нет
       show:
         end_date: Дата завершения
+        local_area: Район
+        scope: Охват
+        start_date: Дата начала
+        target: Цель
+      statistics:
+        answers_count: Ответы
+        comments_count: Комментарии
+        headline: Деятельность
+        meetings_count: Встречи
+        orders_count: Голоса
+        pages_count: Страницы
+        projects_count: Проекты
+        results_count: Итоги
+        surveys_count: Опросы
+        votes_count: Голоса
     scopes:
       global: Всеобщий охват
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Просмотреть
+      participatory_process_widgets:
+        show:
+          active_step: Начатый шаг
+      process_header:
+        process_menu_item: Движение
+        unfold: Развернуть
+      process_header_steps:
+        view_steps: Просмотреть шаги

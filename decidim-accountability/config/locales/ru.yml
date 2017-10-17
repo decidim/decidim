@@ -2,6 +2,7 @@ ru:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: состояние
         decidim_category_id: Категория
         decidim_scope_id: Охват
         description: Описание
@@ -11,38 +12,68 @@ ru:
         title: Название
       status:
         description: Описание
+        key: Ключ
         name: Имя
         progress: Продвижение
       timeline_entry:
         description: Описание
+        entry_date: Дата
   decidim:
     accountability:
       actions:
+        destroy: Удалить
         edit: Редактировать
         preview: Предварительный просмотр
         title: Действия
       admin:
         exports:
           results: Итоги
+        models:
+          result:
+            name: Итог
+          status:
+            name: Состояние
         results:
           index:
             title: Итоги
+          new:
+            title: Новый итог
+        shared:
+          subnav:
+            statuses: Состояния
+        statuses:
+          index:
+            title: Состояния
+          new:
+            title: Новое состояние
+        timeline_entries:
+          edit:
+            title: Редактировать запись
       models:
         result:
           fields:
             end_date: Дата завершения
             progress: Продвижение
             start_date: Дата начала
+            status: Состояние
             title: Название
         status:
           fields:
             description: Описание
+            key: Ключ
             name: Имя
             progress: Продвижение
         timeline_entry:
           fields:
             description: Описание
+            entry_date: Дата
       results:
+        count:
+          results_count:
+            one: 1 итог
+            few: "%{count} итога"
+            many: "%{count} итогов"
+            other: "%{count} итога"
         filters:
           all: Все
           global: Всеобщий
@@ -50,7 +81,7 @@ ru:
         home:
           categories_label: Категории
         home_header:
-          global_status: Статус всеобщего исполнения
+          global_status: Состояние общего исполнения
         nav_breadcrumb:
           global: Всеобщее исполнение
         show:
@@ -58,10 +89,12 @@ ru:
             comments: Комментарии
             meetings: Встречи
             proposals: Предложения
+            votes: Поддерживает
     features:
       accountability:
         settings:
           global:
             comments_enabled: Комментарии включены
+            intro: Вступление
           step:
             comments_blocked: Комментарии заблокированы

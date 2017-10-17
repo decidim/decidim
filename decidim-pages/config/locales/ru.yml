@@ -1,7 +1,16 @@
 ru:
   decidim:
+    features:
+      pages:
+        name: Страница
     pages:
       admin:
+        models:
+          components:
+            body: Основной текст
         pages:
+          edit:
+            save: Обновить
+            title: Редактировать страницу
           update:
             success: Страница сохранена успешно.

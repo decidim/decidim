@@ -8,3 +8,39 @@ ru:
         new: Добавить
         save: Сохранить
         title: Действия
+      admins:
+        create:
+          success: Администратор успешно создан
+        destroy:
+          success: Администратор успешно удален
+        edit:
+          title: Редактировать администратора
+          update: Обновить
+        index:
+          title: Администраторы
+        new:
+          create: Создать
+          title: Новый администратор
+        update:
+          error: При обновлении этого администратора произошла ошибка.
+          success: Администратор успешно обновлен
+      default_pages:
+        placeholders:
+          title: Заголовок по умолчанию для %{page}
+      menu:
+        admins: Администраторы
+        dashboard: Панель управления
+        organizations: Организации
+      models:
+        admin:
+          fields:
+            created_at: 'Создано:'
+            email: Эл. адрес
+          name: Администратор
+        organization:
+          fields:
+            created_at: 'Создано:'
+            name: Имя
+          name: Организация
+      titles:
+        dashboard: Панель управления

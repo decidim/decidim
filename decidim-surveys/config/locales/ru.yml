@@ -2,4 +2,32 @@ ru:
   activemodel:
     attributes:
       survey_answer:
-        body: Ответ
+        body: Ответить
+      survey_question:
+        mandatory: Обязательно
+        question_type: Тип
+  decidim:
+    features:
+      surveys:
+        actions:
+          answer: Ответить
+        name: Опрос
+    surveys:
+      admin:
+        models:
+          components:
+            description: Описание
+        surveys:
+          answer_option:
+            statement: Высказывание
+          edit:
+            save: Сохранить
+            title: Название
+          question:
+            question: Вопрос
+            statement: Высказывание
+      question_types:
+        long_answer: Длинный ответ
+      surveys:
+        show:
+          submit: Отправить

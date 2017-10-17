@@ -2,7 +2,7 @@ uk:
   activemodel:
     attributes:
       survey_answer:
-        body: Відповідь
+        body: Відповісти
       survey_question:
         mandatory: Обов’язкове поле
         question_type: Різновид
@@ -10,7 +10,7 @@ uk:
     features:
       surveys:
         actions:
-          answer: Відповідь
+          answer: Відповісти
         name: Опитування
         settings:
           global:

@@ -5,9 +5,22 @@ ru:
         form:
           body:
             label: Комментарий
+          submit: Отправить
+        opinion:
+          neutral: Безучастно
       comment:
+        alignment:
+          against: Против
+          in_favor: В поддержку
+        reply: Ответить
         report:
           action: Пожаловаться
           already_reported: На это содержимое уже пожаловались, и жалобу рассмотрит администратор.
+          close: Закрыть
           details: Дополнительные комментарии
           title: Пожаловаться на проблему
+      comment_order_selector:
+        order:
+          older: Старые
+          recent: Недавние
+        title: 'Упорядочить по:'

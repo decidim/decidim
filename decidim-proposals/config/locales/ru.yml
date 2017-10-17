@@ -7,43 +7,86 @@ ru:
         scope_id: Охват
         title: Название
       proposal_answer:
-        answer: Ответ
+        answer: Ответить
   decidim:
     features:
       proposals:
         actions:
           create: Создать
+          vote: Голосовать
+        name: Предложения
     proposals:
       actions:
-        answer: Ответ
+        answer: Ответить
         new: Новая
         title: Действия
       admin:
+        actions:
+          preview: Предпросмотр
+        exports:
+          comments: Комментарии
+          proposals: Предложения
+        models:
+          proposal:
+            name: Предложение
         proposal_answers:
           edit:
-            answer_proposal: Ответ
+            accepted: Принято
+            answer_proposal: Ответить
             rejected: Отклонено
         proposals:
+          index:
+            title: Предложения
           new:
             create: Создать
       answers:
+        accepted: Принято
         rejected: Отклонено
       models:
         proposal:
           fields:
             category: Категория
+            id: Идентификатор
             scope: Охват
             state: Cостояние
             title: Название
+            votes: Голоса
       proposals:
         filters:
+          accepted: Принято
+          activity: Деятельность
           all: Все
           category: Категория
+          citizens: Граждане
+          official: Официальный
+          origin: Источник
           rejected: Отклонено
           scopes: Охваты
           search: Поиск
           state: Cостояние
+          voted: Проголосованные
         filters_small_view:
+          close_modal: Закрыть окошко
+          filter: Отобрать
           filter_by: 'Отобрать по признаку:'
+          unfold: Развернуть
+        new:
+          back: Вернуться
+          send: Отправить
+        orders:
+          random: Произвольно
+          recent: Недавние
         show:
           report: Пожаловаться
+        vote_button:
+          vote: Голосовать
+        votes_count:
+          count:
+            one: ГОЛОС
+            few: ГОЛОСА
+            many: ГОЛОСОВ
+            other: ГОЛОСА
+        votes_limit:
+          vote_limit:
+            left: Осталось
+            votes: Голоса

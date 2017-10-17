@@ -339,7 +339,10 @@ ru:
   pages:
     home:
       extended:
+        debates: Дебаты
+        how_to_participate: Как принять участие в движении?
         meetings: Встречи
+        more_info: Дополнительные сведения
         proposals: Предложения
       footer_sub_hero:
         footer_sub_hero_headline: Добро пожаловать на платформу соучастия %{organization}!
