@@ -208,7 +208,7 @@ ru:
         admins: Администраторы
         appearance: Внешний вид
         configuration: Конфигурация
-        dashboard: Панель мониторинга
+        dashboard: Панель управления
         managed_users: Управляемые участники
         newsletters: Рассылки новостей
         scope_types: Типы охвата
@@ -381,7 +381,7 @@ ru:
           error: При обновлении этой страницы произошла ошибка.
           success: Страница успешно обновлена
       titles:
-        dashboard: Панель мониторинга
+        dashboard: Панель управления
         impersonations: Выступления в роли участника
         managed_users: Управляемые участники
         scope_types: Типы охвата
