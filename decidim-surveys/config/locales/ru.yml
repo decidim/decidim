@@ -10,6 +10,7 @@ ru:
       surveys:
         actions:
           answer: Ответить
+        name: Опрос
     surveys:
       admin:
         surveys:
@@ -18,3 +19,6 @@ ru:
             title: Название
           question:
             question: Вопрос
+      surveys:
+        show:
+          submit: Отправить
