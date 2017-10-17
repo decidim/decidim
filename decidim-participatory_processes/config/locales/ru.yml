@@ -2,6 +2,7 @@ ru:
   activemodel:
     attributes:
       participatory_process:
+        description: Описание
         domain: Домен
         end_date: Дата завершения
         hashtag: Хэштег
@@ -13,9 +14,11 @@ ru:
         target: Цель
         title: Название
       participatory_process_group:
+        description: Описание
         hero_image: Изображение
         name: Имя
       participatory_process_step:
+        description: Описание
         end_date: Дата завершения
         title: Название
       participatory_process_user_role:
@@ -33,12 +36,15 @@ ru:
         publish: Опубликовать
       menu:
         participatory_processes_submenu:
+          attachments: Вложения
           features: Составляющие
           info: Информация
+          moderations: Действия по модерации
           steps: Шаги
       models:
         participatory_process:
           fields:
+            promoted: Выделенные
             title: Название
         participatory_process_group:
           fields:
@@ -111,6 +117,9 @@ ru:
       participatory_process_groups:
         participatory_process_group:
           browse: Просмотреть
+      participatory_process_widgets:
+        show:
+          active_step: Начатый шаг
       process_header:
         unfold: Развернуть
       process_header_steps:
