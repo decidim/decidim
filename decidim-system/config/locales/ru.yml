@@ -8,3 +8,11 @@ ru:
         new: Добавить
         save: Сохранить
         title: Действия
+      admins:
+        edit:
+          update: Обновить
+        index:
+          title: Администраторы
+        new:
+          create: Создать
+          title: Новый администратор
