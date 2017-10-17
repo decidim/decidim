@@ -78,6 +78,7 @@ ru:
             closed: Закрыто
             end_time: Дата завершения
             map: Карта
+            start_time: Дата начала
             title: Название
       read_more: "(читать подробнее)"
   devise:
