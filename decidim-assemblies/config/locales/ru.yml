@@ -2,6 +2,7 @@ ru:
   activemodel:
     attributes:
       assembly:
+        description: Описание
         domain: Домен
         hashtag: Хэштег
         promoted: Рекламируется
@@ -24,11 +25,14 @@ ru:
           copy: Копировать
       menu:
         assemblies_submenu:
+          attachments: Вложения
           features: Составляющие
           info: Информация
+          moderations: Действия по модерации
       models:
         assembly:
           fields:
+            promoted: Выделенные
             published: Опубликовано
             title: Название
           name: Собрание
