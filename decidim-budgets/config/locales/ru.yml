@@ -2,30 +2,50 @@ ru:
   activemodel:
     attributes:
       project:
+        budget: Бюджет
         decidim_scope_id: Охват
         title: Название
   decidim:
     budgets:
       actions:
+        destroy: Удалить
         edit: Редактировать
         new: Добавить
+      admin:
+        projects:
+          edit:
+            update: Обновить
+          new:
+            create: Создать
       models:
         project:
           fields:
             title: Название
       projects:
+        budget_confirm:
+          cancel: Отменить
         budget_excess:
           close: Закрыть
           ok: Хорошо
+        filters:
+          scopes: Охваты
+          search: Искать
+        filters_small_view:
+          filter: Отобрать
+          unfold: Развернуть
         order_progress:
           vote: Голосовать
         order_selected_projects:
+          remove: Удалить
           view: Посмотреть
         project:
           add: Добавить
+          remove: Удалить
         project_budget_button:
           add: Добавить
           added: Добавлено
+        show:
+          budget: Бюджет
     features:
       budgets:
         actions:
