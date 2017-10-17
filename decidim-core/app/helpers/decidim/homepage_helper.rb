@@ -6,7 +6,7 @@ module Decidim
     # Renders the Call To Action button. Link and text can be configured
     # per organizationn.
     def cta_button
-      button_text = translated_attribute(current_organization.cta_button_text).presence || t(".participate")
+      button_text = translated_attribute(current_organization.cta_button_text).presence || t("pages.home.hero.participate")
       button_path =
         current_organization.cta_button_path.presence || decidim_participatory_processes.participatory_processes_path
 
