@@ -8,6 +8,7 @@ ru:
         promoted: Рекламируется
         scope_id: Охват
         slug: Сокращенный URL-адрес
+        start_date: Дата начала
         subtitle: Подзаголовок
         target: Цель
         title: Название
@@ -88,7 +89,9 @@ ru:
         none: Нет
       show:
         end_date: Дата завершения
+        local_area: Район
         scope: Охват
+        start_date: Дата начала
         target: Цель
       statistics:
         answers_count: Ответы
@@ -110,3 +113,5 @@ ru:
           browse: Просмотреть
       process_header:
         unfold: Развернуть
+      process_header_steps:
+        view_steps: Просмотреть шаги
