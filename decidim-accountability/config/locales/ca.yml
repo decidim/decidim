@@ -1,4 +1,3 @@
----
 ca:
   activemodel:
     attributes:
@@ -14,20 +13,12 @@ ca:
         title: Títol
       status:
         description: Descripció
-        key: Key
+        key: Clau
         name: Nom
         progress: Progrés
       timeline_entry:
         description: Descripció
         entry_date: Data
-    errors:
-      models:
-        result:
-          attributes:
-            end_date:
-              invalid_date: no vàlida
-            start_date:
-              invalid_date: no vàlida
   decidim:
     accountability:
       actions:
@@ -39,6 +30,8 @@ ca:
         timeline_entries: Evolució del projecte
         title: Accions
       admin:
+        exports:
+          results: Resultats
         models:
           result:
             name: Resultat
@@ -111,7 +104,7 @@ ca:
         status:
           fields:
             description: Descripció
-            key: Key
+            key: Clau
             name: Nom
             progress: Progrés
         timeline_entry:
@@ -151,11 +144,14 @@ ca:
         name: Seguiment
         settings:
           global:
+            categories_label: Nom de "Categories"
             comments_enabled: Comentaris habilitats
+            heading_leaf_level_results: Nom de "Projectes"
+            heading_parent_level_results: Nom de "Resultats"
+            intro: Introducció
+            subcategories_label: Nom per a "subcategories"
           step:
             comments_blocked: Comentaris bloquejats
     resource_links:
       included_proposals:
         result_proposals: Propostes incloses en aquest resultat
-      meetings_through_proposals:
-        result_meetings: Trobades relacionades
