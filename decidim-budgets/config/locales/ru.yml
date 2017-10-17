@@ -27,6 +27,7 @@ ru:
             title: Проекты
           new:
             create: Создать
+            title: Новый итог
       models:
         project:
           fields:
