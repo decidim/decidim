@@ -70,7 +70,7 @@ en:
             title: Edit status
             update: Update status
           index:
-            title: Estats
+            title: Statuses
           new:
             create: Create status
             title: New status
