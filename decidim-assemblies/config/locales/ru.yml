@@ -3,10 +3,17 @@ ru:
     attributes:
       assembly:
         domain: Домен
+        hashtag: Хэштег
         scope_id: Охват
+        target: Цель
         title: Название
   decidim:
     admin:
+      assemblies:
+        edit:
+          update: Обновить
+        new:
+          create: Создать
       assembly_copies:
         new:
           copy: Копировать
@@ -22,9 +29,16 @@ ru:
     assemblies:
       show:
         scope: Охват
+        target: Цель
       statistics:
         answers_count: Ответы
         comments_count: Комментарии
         orders_count: Голоса
         pages_count: Страницы
+        results_count: Итоги
+        surveys_count: Опросы
         votes_count: Голоса
+  layouts:
+    decidim:
+      assembly_header:
+        unfold: Развернуть
