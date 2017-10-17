@@ -7,6 +7,14 @@ describe("<CommentOrderSelector />", () => {
   const orderBy = "older";
   const reorderComments = jasmine.createSpy("reorderComments");
 
+  beforeEach(() => {
+    window.$ = () => {
+      return {
+        foundation: jasmine.createSpy(""),
+      };
+    };
+  });
+
   it("renders a div with classes order-by__dropdown order-by__dropdown--right", () => {
     const wrapper = shallow(<CommentOrderSelector reorderComments={reorderComments} defaultOrderBy={orderBy} />);
     expect(wrapper.find("div.order-by__dropdown.order-by__dropdown--right")).toBeDefined();

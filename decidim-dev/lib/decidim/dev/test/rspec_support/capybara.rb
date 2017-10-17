@@ -25,7 +25,8 @@ capybara_options = {
   extensions: [
     File.join(__dir__, "phantomjs_polyfills", "promise.js"),
     File.join(__dir__, "phantomjs_polyfills", "phantomjs-shim.js"),
-    File.join(__dir__, "phantomjs_polyfills", "phantomjs-getOwnPropertyNames.js")
+    File.join(__dir__, "phantomjs_polyfills", "phantomjs-getOwnPropertyNames.js"),
+    File.join(__dir__, "phantomjs_polyfills", "weakmap-polyfill.js")
   ],
   js_errors: true,
   url_whitelist: ["http://*.lvh.me", "localhost", "127.0.0.1"],
