@@ -6,8 +6,11 @@ ru:
           body:
             label: Комментарий
           submit: Отправить
+        opinion:
+          neutral: Безучастно
       comment:
         alignment:
+          against: Против
           in_favor: В поддержку
         reply: Ответить
         report:
