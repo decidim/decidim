@@ -61,3 +61,44 @@ comment:
 
 ignore:
   - package-lock.json
+
+flags:
+  core:
+    paths:
+      - decidim-core/
+  assemblies:
+    paths:
+      - decidim-assemblies/
+  api:
+    paths:
+      - decidim-api/
+  processes:
+    paths:
+      - decidim-participatory_processes/
+  admin:
+    paths:
+      - decidim-admin/
+  system:
+    paths:
+      - decidim-system/
+  proposals:
+    paths:
+      - decidim-proposals/
+  comments:
+    paths:
+      - decidim-comments/
+  meetings:
+    paths:
+      - decidim-meetings/
+  pages:
+    paths:
+      - decidim-pages/
+  accountability:
+    paths:
+      - decidim-accountability/
+  budgets:
+    paths:
+      - decidim-budgets/
+  surveys:
+    paths:
+      - decidim-surveys/
