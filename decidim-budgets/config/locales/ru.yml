@@ -7,7 +7,15 @@ ru:
       projects:
         budget_excess:
           ok: Хорошо
+        order_progress:
+          vote: Голосовать
+        order_selected_projects:
+          view: Посмотреть
         project:
           add: Добавить
         project_budget_button:
           add: Добавить
+    features:
+      budgets:
+        actions:
+          vote: Голосовать
