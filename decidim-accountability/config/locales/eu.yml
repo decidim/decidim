@@ -2,25 +2,24 @@ eu:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: status
         decidim_category_id: Kategoria
         decidim_scope_id: Esparrua
         description: Deskribapena
+        end_date: Bukaera-data
+        progress: ' Aurrerapena '
         proposal_ids: Sartutako proposamenak
+        start_date: Hasiera-data
         title: Izenburua
+      status:
+        description: Descripción
+        key: Gakoa
+        name: Izena
+        progress: ' Aurrerapena '
+      timeline_entry:
+        description: Descripción
+        entry_date: Data
   decidim:
-    features:
-      accountability:
-        name: Emaitzak
-        settings:
-          global:
-            comments_enabled: Iruzkinak gaituta
-          step:
-            comments_blocked: Iruzkinak blokeatuta
-    resource_links:
-      included_proposals:
-        result_proposals: Emaitza honetan jasotako proposamenak
-      meetings_through_proposals:
-        result_meetings: Proposamenarekin lotutako topaketak
     accountability:
       actions:
         confirm_destroy: Ziur zaude emaitza hau ezabatu nahi duzula?
@@ -28,11 +27,18 @@ eu:
         edit: Editatu
         new: '%{name} berria'
         preview: Aurreikusi
+        timeline_entries: Proiektuen bilakaera
         title: Ekintzak
       admin:
+        exports:
+          results: Emaitzak
         models:
           result:
             name: Emaitza
+          status:
+            name: Egoera
+          timeline_entry:
+            name: Denbora-lerroko sarrera
         results:
           create:
             invalid: Arazo bat izan da emaitza hau sortzean.
@@ -50,25 +56,79 @@ eu:
           update:
             invalid: Arazo bat izan da emaitza hau eguneratzean.
             success: Emaitza zuzen eguneratu da.
+        shared:
+          subnav:
+            statuses: egoerak
+        statuses:
+          create:
+            invalid: Arazo bat izan da egoera hau sortzean
+            success: Egoera behar bezala sortu da
+          destroy:
+            success: Egoera behar bezala ezabatu da
+          edit:
+            title: Editatu egoera
+            update: Eguneratze egoera
+          index:
+            title: egoerak
+          new:
+            create: Sortu egoera
+            title: Egoera berria
+          update:
+            invalid: Arazo bat izan da egoera hori eguneratzean
+            success: Egoera behar bezala eguneratu da
+        timeline_entries:
+          create:
+            invalid: Arazo bat izan da sarrera hau sortzeko
+            success: Sarrera ondo sortu da
+          destroy:
+            success: Sarrera zuzen ezabatu da
+          edit:
+            title: Editatu sarrera
+            update: Eguneratu sarrera
+          index:
+            title: Proiektuen denbora-lerroko sarrerak
+          new:
+            create: Sortu sarrera
+            title: Sarrera berria
+          update:
+            invalid: Arazo bat izan da sarrera hau eguneratzean
+            success: Sarrera ondo eguneratu da
       models:
         result:
           fields:
+            end_date: Bukaera-data
+            progress: ' Aurrerapena '
+            start_date: Hasiera-data
+            status: Egoera
             title: Izenburua
+        status:
+          fields:
+            description: Descripción
+            key: Gakoa
+            name: Izena
+            progress: ' Aurrerapena '
+        timeline_entry:
+          fields:
+            description: Descripción
+            entry_date: Data
       results:
         count:
           results_count:
             one: 1 emaitza
             other: "%{count} emaitza"
         filters:
-          category: Kategoria
-          category_prompt: Aukeratu kategoria bat
+          all: Guztiak
+          global: Global
           scopes: Esparruak
-          search: Bilatu
-        filters_small_view:
-          close_modal: Itxi leihoa
-          filter: Iragazi
-          filter_by: 'Iragazi honen arabera:'
-          unfold: Zabaldu
+        home:
+          categories_label: Kategoriak
+          subcategories_label: Azpikategoriak
+        home_header:
+          global_status: Exekuzioaren egoera orokorra
+        nav_breadcrumb:
+          global: Exekuzio globala
+        search:
+          search: Ekintzak bilatu
         show:
           stats:
             attendees: Bertaratuak
@@ -77,3 +137,21 @@ eu:
             meetings: Topaketa-zerrenda
             proposals: Proposamenak
             votes: Sostenguak
+        timeline:
+          title: Proiektuen bilakaera
+    features:
+      accountability:
+        name: Emaitzak
+        settings:
+          global:
+            categories_label: '"Kategoriak" izena'
+            comments_enabled: Iruzkinak gaituta
+            heading_leaf_level_results: '"Proiektuak" izena'
+            heading_parent_level_results: '"Emaitzak" izena'
+            intro: Intro
+            subcategories_label: Izena "Azpikategoriak" izenarekin
+          step:
+            comments_blocked: Iruzkinak blokeatuta
+    resource_links:
+      included_proposals:
+        result_proposals: Emaitza honetan jasotako proposamenak
