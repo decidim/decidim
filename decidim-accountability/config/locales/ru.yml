@@ -11,6 +11,7 @@ ru:
         title: Название
       status:
         description: Описание
+        key: Ключ
         name: Имя
         progress: Продвижение
       timeline_entry:
@@ -37,6 +38,7 @@ ru:
         status:
           fields:
             description: Описание
+            key: Ключ
             name: Имя
             progress: Продвижение
         timeline_entry:
