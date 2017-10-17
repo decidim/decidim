@@ -36,6 +36,14 @@ ru:
         budget_excess:
           close: Закрыть
           ok: Хорошо
+        budget_summary:
+          assigned: 'Выделено:'
+        count:
+          projects_count:
+            one: 1 проект
+            few: "%{count} проекта"
+            many: "%{count} проектов"
+            other: "%{count} проектов"
         filters:
           category: Категория
           scopes: Охваты
