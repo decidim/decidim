@@ -54,5 +54,14 @@ ru:
         votes_count: Голоса
   layouts:
     decidim:
+      assemblies:
+        assembly:
+          take_part: Принять участие
+        promoted_assembly:
+          more_info: Дополнительные сведения
+          take_part: Принять участие
       assembly_header:
         unfold: Развернуть
+      assembly_widgets:
+        show:
+          take_part: Принять участие
