@@ -45,6 +45,7 @@ ru:
             votes: Голоса
       proposals:
         filters:
+          accepted: Принято
           activity: Деятельность
           all: Все
           category: Категория
