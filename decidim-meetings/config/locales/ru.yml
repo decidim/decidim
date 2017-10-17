@@ -9,11 +9,15 @@ ru:
         name: Встречи
     meetings:
       actions:
+        edit: Редактировать
         new: Добавить
       meetings:
+        filters:
+          date: Дата
         show:
           meeting_report: Отчет о встрече
       models:
         meeting:
           fields:
             end_time: Дата завершения
+            map: Карта
