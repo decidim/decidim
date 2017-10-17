@@ -16,6 +16,7 @@ ru:
         progress: Продвижение
       timeline_entry:
         description: Описание
+        entry_date: Дата
   decidim:
     accountability:
       actions:
@@ -44,6 +45,7 @@ ru:
         timeline_entry:
           fields:
             description: Описание
+            entry_date: Дата
       results:
         filters:
           all: Все
