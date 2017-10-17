@@ -7,7 +7,7 @@ ru:
         scope_id: Охват
         title: Название
       proposal_answer:
-        answer: Ответ
+        answer: Ответить
   decidim:
     features:
       proposals:
@@ -16,18 +16,20 @@ ru:
           vote: Голосовать
     proposals:
       actions:
-        answer: Ответ
+        answer: Ответить
         new: Новая
         title: Действия
       admin:
         proposal_answers:
           edit:
-            answer_proposal: Ответ
+            accepted: Принято
+            answer_proposal: Ответить
             rejected: Отклонено
         proposals:
           new:
             create: Создать
       answers:
+        accepted: Принято
         rejected: Отклонено
       models:
         proposal:
@@ -45,6 +47,7 @@ ru:
           scopes: Охваты
           search: Поиск
           state: Cостояние
+          voted: Проголосованные
         filters_small_view:
           filter_by: 'Отобрать по признаку:'
         new:
@@ -60,3 +63,6 @@ ru:
             few: ГОЛОСА
             many: ГОЛОСОВ
             other: ГОЛОСА
+        votes_limit:
+          vote_limit:
+            votes: Голоса
