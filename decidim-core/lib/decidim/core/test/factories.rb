@@ -290,7 +290,7 @@ FactoryGirl.define do
   factory :impersonation_log, class: Decidim::ImpersonationLog do
     admin { build(:user, :admin) }
     user { build(:user, :managed, organization: admin.organization) }
-    started_at Time.current
+    started_at { 10.minutes.ago }
   end
 
   factory :follow, class: "Decidim::Follow" do

@@ -10,20 +10,22 @@ module Decidim
           super
 
           can :manage, :managed_users
+
           cannot [:new, :create], :managed_users if empty_available_authorizations?
+
           can :impersonate, Decidim::User do |user_to_impersonate|
-            user_to_impersonate.managed? && Decidim::ImpersonationLog.active.empty?
+            user_to_impersonate.managed? && Decidim::ImpersonationLog.active.where(admin: user).empty?
           end
+
           can :promote, Decidim::User do |user_to_promote|
-            user_to_promote.managed? && Decidim::ImpersonationLog.active.empty?
+            user_to_promote.managed? && Decidim::ImpersonationLog.active.where(admin: user).empty?
           end
         end
 
         private
 
         def empty_available_authorizations?
-          return unless @context[:current_organization]
-          @context[:current_organization].available_authorizations.empty?
+          user.organization.available_authorizations.empty?
         end
       end
     end
