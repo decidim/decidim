@@ -68,6 +68,8 @@ uk:
           edit:
             title: Редагувати статус
             update: Оновити статус
+          index:
+            title: Статуси
           new:
             create: Створити статус
             title: Новий статус
