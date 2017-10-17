@@ -3,6 +3,9 @@ ru:
     attributes:
       close_meeting:
         closing_report: Отчет
+      meeting:
+        decidim_scope_id: Охват
+        title: Название
   decidim:
     features:
       meetings:
@@ -11,9 +14,18 @@ ru:
         name: Встречи
     meetings:
       actions:
+        close: Закрыть
         edit: Редактировать
         new: Добавить
       admin:
+        meeting_closes:
+          edit:
+            close: Закрыть
+        meetings:
+          edit:
+            update: Обновить
+          new:
+            create: Создать
         registrations:
           edit:
             save: Сохранить
@@ -28,3 +40,4 @@ ru:
           fields:
             end_time: Дата завершения
             map: Карта
+            title: Название
