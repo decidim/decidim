@@ -1,0 +1,157 @@
+nl:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: staat
+        decidim_category_id: Categorie
+        decidim_scope_id: Reikwijdte
+        description: Beschrijving
+        end_date: Einddatum
+        progress: Vooruitgang
+        proposal_ids: Inclusief voorstellen
+        start_date: Begin datum
+        title: Titel
+      status:
+        description: Beschrijving
+        key: sleutel
+        name: Naam
+        progress: Vooruitgang
+      timeline_entry:
+        description: Beschrijving
+        entry_date: Datum
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Weet u zeker dat u deze %{name} wilt verwijderen?
+        destroy: Verwijder
+        edit: Bewerk
+        new: Nieuw %{name}
+        preview: Voorbeeld
+        timeline_entries: Project evolutie
+        title: acties
+      admin:
+        exports:
+          results: Resultaten
+        models:
+          result:
+            name: Resultaat
+          status:
+            name: staat
+          timeline_entry:
+            name: Tijdlijn invoer
+        results:
+          create:
+            invalid: Er is een probleem opgetreden bij het maken van dit resultaat
+            success: Resultaat met succes gemaakt
+          destroy:
+            success: Resultaat met succes verwijderd
+          edit:
+            title: Bewerk resultaat
+            update: Update resultaat
+          index:
+            title: Resultaten
+          new:
+            create: Maak resultaat
+            title: Nieuw resultaat
+          update:
+            invalid: Er is een probleem opgetreden bij het bijwerken van dit resultaat
+            success: Resultaat met succes bijgewerkt
+        shared:
+          subnav:
+            statuses: statussen
+        statuses:
+          create:
+            invalid: Er is een probleem opgetreden bij het maken van deze status
+            success: Status succesvol gemaakt
+          destroy:
+            success: Status succesvol verwijderd
+          edit:
+            title: Bewerk status
+            update: Status bijwerken
+          index:
+            title: statussen
+          new:
+            create: Maak een status
+            title: Nieuwe status
+          update:
+            invalid: Er is een probleem opgedaan bij het updaten van deze status
+            success: Status succesvol bijgewerkt
+        timeline_entries:
+          create:
+            invalid: Er is een probleem opgetreden met het maken van deze invoer
+            success: Invoer succesvol gemaakt
+          destroy:
+            success: Invoer succesvol verwijderd
+          edit:
+            title: Bewerk invoer
+            update: Update invoer
+          index:
+            title: Project tijdlijn inzendingen
+          new:
+            create: Maak een entry
+            title: Nieuwe invoer
+          update:
+            invalid: Er is een probleem opgetreden met het bijwerken van dit item
+            success: Invoer succesvol bijgewerkt
+      models:
+        result:
+          fields:
+            end_date: Einddatum
+            progress: Vooruitgang
+            start_date: Begin datum
+            status: staat
+            title: Titel
+        status:
+          fields:
+            description: Beschrijving
+            key: sleutel
+            name: Naam
+            progress: Vooruitgang
+        timeline_entry:
+          fields:
+            description: Beschrijving
+            entry_date: Datum
+      results:
+        count:
+          results_count:
+            one: 1 resultaat
+            other: "%{count} resultaten"
+        filters:
+          all: Alle
+          global: Globaal
+          scopes: scopes
+        home:
+          categories_label: Categorieën
+          subcategories_label: subcategorieën
+        home_header:
+          global_status: Globale uitvoeringstatus
+        nav_breadcrumb:
+          global: Wereldwijde uitvoering
+        search:
+          search: Zoek naar acties
+        show:
+          stats:
+            attendees: Deelnemers
+            comments: Comments
+            contributions: bijdragen
+            meetings: Vergaderingen
+            proposals: Voorstellen
+            votes: steunen
+        timeline:
+          title: Project evolutie
+    features:
+      accountability:
+        name: Verantwoording
+        settings:
+          global:
+            categories_label: Naam voor "Categorieën"
+            comments_enabled: Reacties ingeschakeld
+            heading_leaf_level_results: Naam voor "Projecten"
+            heading_parent_level_results: Naam voor "Resultaten"
+            intro: Intro
+            subcategories_label: Naam voor "Subcategorieën"
+          step:
+            comments_blocked: Reacties geblokkeerd
+    resource_links:
+      included_proposals:
+        result_proposals: Voorstellen opgenomen in dit resultaat

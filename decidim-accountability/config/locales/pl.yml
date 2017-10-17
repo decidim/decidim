@@ -1,0 +1,158 @@
+pl:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: status
+        decidim_category_id: Kategoria
+        decidim_scope_id: Zakres
+        description: Opis
+        end_date: Data zakończenia
+        progress: Postęp
+        proposal_ids: Zawarte propozycje
+        start_date: Data rozpoczęcia
+        title: Tytuł
+      status:
+        description: Opis
+        key: Klawisz
+        name: Nazwa
+        progress: Postęp
+      timeline_entry:
+        description: Opis
+        entry_date: Data
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Czy na pewno chcesz usunąć to %{name}?
+        destroy: Kasować
+        edit: Edytuj
+        new: Nowe %{name}
+        preview: Podgląd
+        timeline_entries: Ewolucja projektu
+        title: Działania
+      admin:
+        exports:
+          results: wyniki
+        models:
+          result:
+            name: Wynik
+          status:
+            name: Status
+          timeline_entry:
+            name: Wprowadzenie do osi czasu
+        results:
+          create:
+            invalid: Podczas tworzenia tego wyniku wystąpił problem
+            success: Wynik został pomyślnie utworzony
+          destroy:
+            success: Wynik został pomyślnie usunięty
+          edit:
+            title: Edytuj wynik
+            update: Zaktualizuj wynik
+          index:
+            title: wyniki
+          new:
+            create: Utwórz wynik
+            title: Nowy wynik
+          update:
+            invalid: Podczas aktualizowania tego wyniku wystąpił problem
+            success: Wynik został zaktualizowany
+        shared:
+          subnav:
+            statuses: Statusy
+        statuses:
+          create:
+            invalid: Podczas tworzenia tego stanu wystąpił problem
+            success: Status został pomyślnie utworzony
+          destroy:
+            success: Status został pomyślnie usunięty
+          edit:
+            title: Edytuj status
+            update: Stan aktualizacji
+          index:
+            title: Statusy
+          new:
+            create: Utwórz stan
+            title: Nowy status
+          update:
+            invalid: Wystąpił problem z aktualizacją tego stanu
+            success: Stan został zaktualizowany
+        timeline_entries:
+          create:
+            invalid: Podczas tworzenia tego wpisu wystąpił problem
+            success: Wpis został pomyślnie utworzony
+          destroy:
+            success: Wpis został pomyślnie usunięty
+          edit:
+            title: Edytuj wpis
+            update: Aktualizuj wpis
+          index:
+            title: Projekty linii czasu
+          new:
+            create: Utwórz wpis
+            title: Nowe wejście
+          update:
+            invalid: Podczas aktualizowania tego wpisu wystąpił problem
+            success: Wprowadzono pomyślnie
+      models:
+        result:
+          fields:
+            end_date: Data zakończenia
+            progress: Postęp
+            start_date: Data rozpoczęcia
+            status: Status
+            title: Tytuł
+        status:
+          fields:
+            description: Opis
+            key: Klawisz
+            name: Nazwa
+            progress: Postęp
+        timeline_entry:
+          fields:
+            description: Opis
+            entry_date: Data
+      results:
+        count:
+          results_count:
+            one: 1 wynik
+            few: "%{count} wyników"
+            other: "%{count} wyników"
+        filters:
+          all: Wszystkie
+          global: Światowy
+          scopes: Zakresy
+        home:
+          categories_label: Kategorie
+          subcategories_label: Podkategorie
+        home_header:
+          global_status: Globalny status realizacji
+        nav_breadcrumb:
+          global: Globalna realizacja
+        search:
+          search: Szukaj działań
+        show:
+          stats:
+            attendees: Uczestnicy i uczestniczki
+            comments: Komentarze
+            contributions: Wkład
+            meetings: Spotkania
+            proposals: Propozycje
+            votes: Wsparcie
+        timeline:
+          title: Ewolucja projektu
+    features:
+      accountability:
+        name: Odpowiedzialność
+        settings:
+          global:
+            categories_label: Nazwa "Kategorie"
+            comments_enabled: Komentarze włączone
+            heading_leaf_level_results: Nazwa "Projekty"
+            heading_parent_level_results: Nazwa "Wyniki"
+            intro: Intro
+            subcategories_label: Nazwa "Podkategorie"
+          step:
+            comments_blocked: Komentarze zablokowane
+    resource_links:
+      included_proposals:
+        result_proposals: Propozycje zawarte w tym wyniku

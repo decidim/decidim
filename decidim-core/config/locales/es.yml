@@ -156,6 +156,7 @@ es:
     filters:
       linked_classes:
         all: Todas
+        dummyresource: Recursos ficticios
         meeting: Encuentros
         project: Proyectos
         proposal: Propuestas

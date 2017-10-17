@@ -156,6 +156,7 @@ fr:
     filters:
       linked_classes:
         all: Tout
+        dummyresource: Mannequins
         meeting: Rencontres
         project: Projets
         proposal: Propositions

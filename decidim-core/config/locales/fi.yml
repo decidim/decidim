@@ -156,6 +156,7 @@ fi:
     filters:
       linked_classes:
         all: Kaikki
+        dummyresource: Dummy resursseja
         meeting: Tapaamiset
         project: Projektit
         proposal: Ehdotukset

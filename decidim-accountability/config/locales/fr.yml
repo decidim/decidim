@@ -1,0 +1,157 @@
+fr:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: statut
+        decidim_category_id: Catégorie
+        decidim_scope_id: Périmètre d'application
+        description: Description
+        end_date: Date et heure de fin
+        progress: Avancement
+        proposal_ids: Propositions incluses
+        start_date: Date de début
+        title: Titre
+      status:
+        description: Description
+        key: Clé
+        name: Nom
+        progress: Avancement
+      timeline_entry:
+        description: Description
+        entry_date: Date
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Êtes-vous sûr de vouloir supprimer ce %{name}?
+        destroy: Supprimer
+        edit: Modifier
+        new: Nouveau %{name}
+        preview: Aperçu
+        timeline_entries: Evolution du projet
+        title: Actions
+      admin:
+        exports:
+          results: Résultats
+        models:
+          result:
+            name: Résultat
+          status:
+            name: Statut
+          timeline_entry:
+            name: Entrée de chronologie
+        results:
+          create:
+            invalid: Il y a eu un problème pour créer ce résultat
+            success: Résultat créé avec succès
+          destroy:
+            success: Résultat supprimé avec succès
+          edit:
+            title: Modifier le résultat
+            update: Update result
+          index:
+            title: Résultats
+          new:
+            create: Créer un résultat
+            title: Nouveau résultat
+          update:
+            invalid: Il y a eu un problème pour mettre à jour ce résultat
+            success: Résultat mis à jour avec succès
+        shared:
+          subnav:
+            statuses: Statuts
+        statuses:
+          create:
+            invalid: Un problème est survenu lors de la création de ce statut
+            success: Statut créé avec succès
+          destroy:
+            success: État supprimé avec succès
+          edit:
+            title: Modifier le statut
+            update: État de mise à jour
+          index:
+            title: Statuts
+          new:
+            create: Créer un statut
+            title: Nouveau statut
+          update:
+            invalid: Un problème est survenu lors de la mise à jour de ce statut
+            success: État mis à jour avec succès
+        timeline_entries:
+          create:
+            invalid: Un problème est survenu lors de la création de cette entrée
+            success: Entrée créée avec succès
+          destroy:
+            success: Entrée supprimée avec succès
+          edit:
+            title: Modifier l'entrée
+            update: Modifier l'entrée
+          index:
+            title: Entrées de la chronologie du projet
+          new:
+            create: Créer une entrée
+            title: Nouvelle entrée
+          update:
+            invalid: Un problème est survenu lors de la mise à jour de cette entrée
+            success: Entrée mise à jour avec succès
+      models:
+        result:
+          fields:
+            end_date: Date et heure de fin
+            progress: Avancement
+            start_date: Date de début
+            status: Statut
+            title: Titre
+        status:
+          fields:
+            description: Description
+            key: Clé
+            name: Nom
+            progress: Avancement
+        timeline_entry:
+          fields:
+            description: Description
+            entry_date: Date
+      results:
+        count:
+          results_count:
+            one: 1 résultat
+            other: "%{count} résultats"
+        filters:
+          all: Tous
+          global: Global
+          scopes: Périmètre d'application
+        home:
+          categories_label: Catégories
+          subcategories_label: Sous-catégories
+        home_header:
+          global_status: État d'exécution global
+        nav_breadcrumb:
+          global: Exécution globale
+        search:
+          search: Rechercher des actions
+        show:
+          stats:
+            attendees: Participants
+            comments: Commentaires
+            contributions: Contributions
+            meetings: Réunions
+            proposals: Propositions
+            votes: Soutiens
+        timeline:
+          title: Evolution du projet
+    features:
+      accountability:
+        name: Responsabilité
+        settings:
+          global:
+            categories_label: Nom pour "Catégories"
+            comments_enabled: Commentaires activés
+            heading_leaf_level_results: Nom pour "Projets"
+            heading_parent_level_results: Nom pour "Résultats"
+            intro: Intro
+            subcategories_label: Nom pour "Sous-catégories"
+          step:
+            comments_blocked: Commentaires bloqués
+    resource_links:
+      included_proposals:
+        result_proposals: Propositions incluses dans ce résultat

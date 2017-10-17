@@ -156,6 +156,7 @@ eu:
     filters:
       linked_classes:
         all: Guztiak
+        dummyresource: Dummy baliabideak
         meeting: Topaketa-zerrenda
         project: Proiektuak
         proposal: Proposamenak

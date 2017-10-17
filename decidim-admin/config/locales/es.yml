@@ -17,16 +17,17 @@ es:
         subject: Asunto
       organization:
         default_locale: Idioma predeterminado
+        name: Nombre
+        reference_prefix: Prefijo de la referencia
+      organization_appearance:
         description: Descripción
         favicon: Icono
         header_snippets: Snippets de encabezado
         homepage_image: Imagen de portada
         logo: Logotipo
-        name: Nombre
         official_img_footer: Logotipo oficial de pie de página
         official_img_header: Logotipo oficial de cabecera
-        official_url: URL oficial de organización
-        reference_prefix: Prefijo de la referencia
+        official_url: URL oficial de la organización
         show_statistics: Mostrar estadísticas
         welcome_text: Texto de bienvenida
       scope:
@@ -205,6 +206,8 @@ es:
             promote: Promocionar
       menu:
         admins: Administradores
+        appearance: Apariencia
+        configuration: Configuración
         dashboard: Panel de control
         managed_users: Usuarios gestionados
         newsletters: Boletines
@@ -312,10 +315,8 @@ es:
           title: Editar organización
           update: Actualizar
         form:
-          current_image: Imagen actual
           facebook: Facebook
           github: GitHub
-          header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
           instagram: Instagram
           social_handlers: Social
           twitter: Twitter
@@ -324,6 +325,13 @@ es:
         update:
           error: Se produjo un error al actualizar esta organización.
           success: Organización actualizada correctamente.
+      organization_appearance:
+        edit:
+          update: Actualizar
+        form:
+          header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
+          homepage_appearance_title: Editar aspecto de página de inicio
+          layout_appearance_title: Editar apariencia de diseño
       scope_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de ámbito.

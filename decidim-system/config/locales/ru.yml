@@ -2,4 +2,9 @@ ru:
   decidim:
     system:
       actions:
+        confirm_destroy: Вы действительно хотите удалить это?
+        destroy: Удалить
+        edit: Редактировать
+        new: Добавить
         save: Сохранить
+        title: Действия

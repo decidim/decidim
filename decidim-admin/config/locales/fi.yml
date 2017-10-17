@@ -17,16 +17,17 @@ fi:
         subject: Otsikko
       organization:
         default_locale: Oletuskieli
+        name: Nimi
+        reference_prefix: Viitteen etuliite
+      organization_appearance:
         description: Kuvaus
         favicon: Ikoni
         header_snippets: Yläosiot
         homepage_image: Kotisivun kuva
         logo: Logo
-        name: Nimi
         official_img_footer: Virallinen alapalkin logo
         official_img_header: Virallinen yläpalkin logo
         official_url: Virallinen organisaation URL-osoite
-        reference_prefix: Viitteen etuliite
         show_statistics: Näytä tilastot
         welcome_text: Tervetuloa-teksti
       scope:
@@ -205,6 +206,8 @@ fi:
             promote: Korota oikeudet
       menu:
         admins: Ylläpitäjät
+        appearance: Ulkomuoto
+        configuration: kokoonpano
         dashboard: Hallintapaneeli
         managed_users: Hallinnoitavat käyttäjät
         newsletters: Uutiskirjeet
@@ -312,10 +315,8 @@ fi:
           title: Muokkaa organisaatiota
           update: Päivitä
         form:
-          current_image: Nykyinen kuva
           facebook: Facebook
           github: GitHub
-          header_snippets_help: Käytä tätä kenttää lisätäksesi HTML-koodia sivun alkuun. Yleisin käyttötarve on sellaisten kolmannen osapuolen palveluiden integrointi, jotka vaativat JavaScript- tai CSS-koodin lisäystä sivun HTML-koodiin. Huomioi, että tämä lisätään ainoastaan julkisille sivuille, ei hallinnointisivuille.
           instagram: Instagram
           social_handlers: Sosiaalinen media
           twitter: Twitter
@@ -324,6 +325,13 @@ fi:
         update:
           error: Tämän organisaation päivityksessä tapahtui virhe.
           success: Organisaatio päivitetty onnistuneesti.
+      organization_appearance:
+        edit:
+          update: Päivitä
+        form:
+          header_snippets_help: Käytä tätä kenttää lisätäksesi HTML-koodia sivun alkuun. Yleisin käyttötarve on sellaisten kolmannen osapuolen palveluiden integrointi, jotka vaativat JavaScript- tai CSS-koodin lisäystä sivun HTML-koodiin. Huomioi, että tämä lisätään ainoastaan julkisille sivuille, ei hallinnointisivuille.
+          homepage_appearance_title: Muokkaa kotisivua
+          layout_appearance_title: Muokkaa ulkoasun ulkoasua
       scope_types:
         create:
           error: Uuden kontekstityypin luomisessa tapahtui virhe.
