@@ -1,6 +1,6 @@
 <div class="row column authorizations-list">
-  <% if @authorizations.any? %>
-    <section class="section">
+  <section class="section">
+    <% if @authorizations.any? %>
       <div class="card card--list">
         <% @authorizations.each do |authorization| %>
           <div class="card--list__item">
@@ -44,6 +44,6 @@
           </div>
         <% end %>
       </div>
-    </section>
-  <% end %>
+    <% end %>
+  </section>
 </div>
