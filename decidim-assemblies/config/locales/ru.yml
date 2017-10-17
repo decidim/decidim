@@ -12,16 +12,19 @@ ru:
           copy: Копировать
       menu:
         assemblies_submenu:
+          features: Составляющие
           info: Информация
       models:
         assembly:
           fields:
             title: Название
+          name: Собрание
     assemblies:
       show:
         scope: Охват
       statistics:
         answers_count: Ответы
+        comments_count: Комментарии
         orders_count: Голоса
         pages_count: Страницы
         votes_count: Голоса
