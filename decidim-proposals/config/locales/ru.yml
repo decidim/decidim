@@ -20,6 +20,9 @@ ru:
         new: Новая
         title: Действия
       admin:
+        models:
+          proposal:
+            name: Предложение
         proposal_answers:
           edit:
             accepted: Принято
@@ -39,20 +42,29 @@ ru:
             scope: Охват
             state: Cостояние
             title: Название
+            votes: Голоса
       proposals:
         filters:
+          activity: Деятельность
           all: Все
           category: Категория
+          official: Официальный
+          origin: Источник
           rejected: Отклонено
           scopes: Охваты
           search: Поиск
           state: Cостояние
           voted: Проголосованные
         filters_small_view:
+          filter: Отобрать
           filter_by: 'Отобрать по признаку:'
+          unfold: Развернуть
         new:
           back: Вернуться
           send: Отправить
+        orders:
+          random: Произвольно
+          recent: Недавние
         show:
           report: Пожаловаться
         vote_button:
