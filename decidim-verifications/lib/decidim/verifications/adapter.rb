@@ -22,8 +22,6 @@ module Decidim
         manifest_wrapper || handler_wrapper
       end
 
-      private
-
       def manifest_wrapper
         return unless manifest
 
@@ -36,6 +34,8 @@ module Decidim
 
         HandlerWrapper.new(handler)
       end
+
+      private
 
       def handler_for(name)
         klass = name.constantize

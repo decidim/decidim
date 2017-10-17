@@ -1,8 +1,8 @@
 <div class="row column authorizations-list">
   <section class="section">
-    <% if @authorizations.any? %>
+    <% if @granted_authorizations.any? %>
       <div class="card card--list">
-        <% @authorizations.each do |authorization| %>
+        <% @granted_authorizations.each do |authorization| %>
           <div class="card--list__item">
             <div class="card--list__text">
               <%= icon "lock-unlocked", class: "card--list__icon" %>
@@ -17,6 +17,33 @@
         <% end %>
       </div>
     <% end %>
+
+    <% if @pending_authorizations.any? %>
+      <div class="card card--list">
+        <% @pending_authorizations.each do |authorization| %>
+          <div class="card--list__item">
+            <% authorization_method = Decidim::Verifications::Adapter.new(authorization.name).manifest_wrapper %>
+            <div class="card--list__text">
+              <a href="#">
+                <%= icon "reload", class: "card--list__icon" %>
+              </a>
+              <div>
+                <h5 class="card--list__heading">
+                  <%= link_to t("#{authorization.name}.name", scope: "decidim.authorization_handlers"), authorization_method.resume_authorization_path %>
+                </h5>
+                <span class="text-small"><%= l(authorization.updated_at, format: :long) %></span>
+              </div>
+            </div>
+            <div class="card--list__data">
+              <%= link_to authorization_method.resume_authorization_path, class: "card--list__data__icon" do %>
+                <%= icon "chevron-right" %>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
     <% if unauthorized_methods.any? %>
       <div class="card card--list">
         <% unauthorized_methods.each do |unauthorized_method| %>

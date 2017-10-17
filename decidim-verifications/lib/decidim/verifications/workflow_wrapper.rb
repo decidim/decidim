@@ -12,7 +12,17 @@ module Decidim
       end
 
       def root_path(redirect_url: nil)
-        public_send(:"decidim_#{name}").send(:root_path, redirect_url: redirect_url)
+        main_engine.send(:root_path, redirect_url: redirect_url)
+      end
+
+      def resume_authorization_path(redirect_url: nil)
+        main_engine.send(:root_path, redirect_url: redirect_url)
+      end
+
+      private
+
+      def main_engine
+        public_send(:"decidim_#{name}")
       end
     end
   end
