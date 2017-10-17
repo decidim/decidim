@@ -8,7 +8,7 @@ uk:
         title: Назва
         user_group_id: Створити пропозицію як
       proposal_answer:
-        answer: Відповідь
+        answer: Відповісти
   decidim:
     features:
       proposals:
@@ -36,7 +36,7 @@ uk:
             votes_hidden: Голосування приховане (якщо голосування ввімкнене, то при галочці тут буде сховано кількість голосів)
     proposals:
       actions:
-        answer: Відповідь
+        answer: Відповісти
         new: Нова
         title: Дії
       admin:
@@ -51,7 +51,7 @@ uk:
         proposal_answers:
           edit:
             accepted: Прийнято
-            answer_proposal: Відповідь
+            answer_proposal: Відповісти
             evaluating: Розглядається
             rejected: Відхилено
             title: Відповідь на пропозицію %{title}
