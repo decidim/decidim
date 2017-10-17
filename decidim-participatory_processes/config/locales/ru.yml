@@ -121,6 +121,7 @@ ru:
         show:
           active_step: Начатый шаг
       process_header:
+        process_menu_item: Движение
         unfold: Развернуть
       process_header_steps:
         view_steps: Просмотреть шаги
