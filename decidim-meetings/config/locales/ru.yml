@@ -30,6 +30,7 @@ ru:
         invites:
           new:
             invite: Пригласить
+            new_invite: Пригласить участника
         meeting_closes:
           edit:
             close: Закрыть
@@ -46,6 +47,8 @@ ru:
         registrations:
           edit:
             save: Сохранить
+          form:
+            invite_user: Пригласить участника
       mailer:
         invite_join_meeting_mailer:
           invite:
