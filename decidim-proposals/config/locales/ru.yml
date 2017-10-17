@@ -20,6 +20,8 @@ ru:
         new: Новая
         title: Действия
       admin:
+        exports:
+          comments: Комментарии
         models:
           proposal:
             name: Предложение
