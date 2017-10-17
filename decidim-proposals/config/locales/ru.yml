@@ -25,6 +25,7 @@ ru:
           preview: Предпросмотр
         exports:
           comments: Комментарии
+          proposals: Предложения
         models:
           proposal:
             name: Предложение
