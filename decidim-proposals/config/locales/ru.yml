@@ -32,6 +32,7 @@ ru:
         proposal:
           fields:
             category: Категория
+            id: Идентификатор
             scope: Охват
             state: Cостояние
             title: Название
@@ -45,5 +46,10 @@ ru:
           state: Cостояние
         filters_small_view:
           filter_by: 'Отобрать по признаку:'
+        new:
+          back: Вернуться
+          send: Отправить
         show:
           report: Пожаловаться
+        vote_button:
+          vote: Голосовать
