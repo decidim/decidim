@@ -31,6 +31,10 @@ module Decidim
         current_user && current_settings.votes_enabled? && feature_settings.vote_limit.present? && feature_settings.vote_limit.positive?
       end
 
+      def maximum_votes_enabled?
+        current_settings.maximum_votes != 0
+      end
+
       # Return the remaining votes for a user if the current feature has a vote limit
       #
       # user - A User object

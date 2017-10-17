@@ -113,6 +113,16 @@ module Decidim
       def official?
         author.nil?
       end
+
+      def maximum_votes
+        feature.current_settings.maximum_votes || 0
+      end
+
+      def maximum_votes_reached?
+        return false if maximum_votes.zero?
+
+        votes.count >= maximum_votes
+      end
     end
   end
 end

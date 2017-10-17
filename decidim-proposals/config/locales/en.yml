@@ -26,11 +26,12 @@ en:
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
-            vote_limit: Vote limit
+            vote_limit: Vote limit per user
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled: Proposal creation enabled
+            maximum_votes: Maximum votes per proposal
             proposal_answering_enabled: Proposal answering enabled
             votes_blocked: Votes blocked
             votes_enabled: Votes enabled
@@ -149,6 +150,7 @@ en:
           report: Report
         vote_button:
           already_voted: Already voted
+          maximum_votes_reached: Vote limit reached
           no_votes_remaining: No votes remaining
           vote: Vote
           votes_blocked: Voting disabled
@@ -156,7 +158,10 @@ en:
           count:
             one: VOTE
             other: VOTES
-        votes_limit:
+        voting_rules:
+          title: "Voting is subject to the following rules:"
+          maximum_votes_per_proposal:
+            description: Proposals can receive a maximum of  %{limit} votes.
           vote_limit:
             description: You can vote up to %{limit} proposals.
             left: Remaining
