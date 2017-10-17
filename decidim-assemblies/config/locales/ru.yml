@@ -22,5 +22,6 @@ ru:
         scope: Охват
       statistics:
         answers_count: Ответы
+        orders_count: Голоса
         pages_count: Страницы
         votes_count: Голоса
