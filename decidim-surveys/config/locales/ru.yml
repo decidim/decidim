@@ -2,12 +2,17 @@ ru:
   activemodel:
     attributes:
       survey_answer:
-        body: Ответ
+        body: Ответить
       survey_question:
         question_type: Тип
   decidim:
+    features:
+      surveys:
+        actions:
+          answer: Ответить
     surveys:
       admin:
         surveys:
           edit:
             save: Сохранить
+            title: Название
