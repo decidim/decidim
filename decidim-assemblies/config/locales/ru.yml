@@ -4,7 +4,10 @@ ru:
       assembly:
         domain: Домен
         hashtag: Хэштег
+        promoted: Рекламируется
         scope_id: Охват
+        slug: Сокращенный URL-адрес
+        subtitle: Подзаголовок
         target: Цель
         title: Название
   decidim:
@@ -33,8 +36,11 @@ ru:
       statistics:
         answers_count: Ответы
         comments_count: Комментарии
+        headline: Деятельность
+        meetings_count: Встречи
         orders_count: Голоса
         pages_count: Страницы
+        projects_count: Проекты
         results_count: Итоги
         surveys_count: Опросы
         votes_count: Голоса
