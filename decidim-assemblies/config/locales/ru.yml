@@ -3,3 +3,11 @@ ru:
     attributes:
       assembly:
         domain: Домен
+  decidim:
+    admin:
+      assembly_copies:
+        new:
+          copy: Копировать
+      menu:
+        assemblies_submenu:
+          info: Информация
