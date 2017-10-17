@@ -4,6 +4,7 @@ ru:
       survey_answer:
         body: Ответить
       survey_question:
+        mandatory: Обязательно
         question_type: Тип
   decidim:
     features:
@@ -14,11 +15,14 @@ ru:
     surveys:
       admin:
         surveys:
+          answer_option:
+            statement: Высказывание
           edit:
             save: Сохранить
             title: Название
           question:
             question: Вопрос
+            statement: Высказывание
       surveys:
         show:
           submit: Отправить
