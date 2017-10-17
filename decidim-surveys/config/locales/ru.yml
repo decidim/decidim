@@ -16,3 +16,5 @@ ru:
           edit:
             save: Сохранить
             title: Название
+          question:
+            question: Вопрос
