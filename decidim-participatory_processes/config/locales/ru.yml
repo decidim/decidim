@@ -4,7 +4,9 @@ ru:
       participatory_process:
         domain: Домен
         end_date: Дата завершения
+        hashtag: Хэштег
         scope_id: Охват
+        target: Цель
         title: Название
       participatory_process_group:
         hero_image: Изображение
@@ -21,6 +23,7 @@ ru:
       actions:
         edit: Редактировать
         new: Добавить
+        preview: Предпросмотр
       menu:
         participatory_processes_submenu:
           info: Информация
@@ -44,20 +47,41 @@ ru:
       participatory_process_copies:
         new:
           copy: Копировать
+      participatory_process_groups:
+        edit:
+          update: Обновить
+        new:
+          create: Создать
       participatory_process_steps:
+        edit:
+          update: Обновить
         index:
           steps_title: Шаги
+        new:
+          create: Создать
+      participatory_process_user_roles:
+        edit:
+          update: Обновить
+        new:
+          create: Создать
+      participatory_processes:
+        edit:
+          update: Обновить
+        new:
+          create: Создать
     participatory_process_groups:
       show:
         title: Название
     participatory_processes:
       order_by_processes:
+        active: Начатые
         past: Прошедшие
       participatory_process_groups:
         none: Нет
       show:
         end_date: Дата завершения
         scope: Охват
+        target: Цель
       statistics:
         answers_count: Ответы
         orders_count: Голоса
@@ -65,3 +89,10 @@ ru:
         votes_count: Голоса
     scopes:
       global: Всеобщий охват
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Просмотреть
+      process_header:
+        unfold: Развернуть
