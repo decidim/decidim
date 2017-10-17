@@ -5,10 +5,12 @@ ru:
         budget: Бюджет
         decidim_category_id: Категория
         decidim_scope_id: Охват
+        description: Описание
         title: Название
   decidim:
     budgets:
       actions:
+        attachments: Вложения
         destroy: Удалить
         edit: Редактировать
         new: Добавить
@@ -49,6 +51,7 @@ ru:
           scopes: Охваты
           search: Искать
         filters_small_view:
+          close_modal: Закрыть окошко
           filter: Отобрать
           filter_by: 'Отобрать по признаку:'
           unfold: Развернуть
