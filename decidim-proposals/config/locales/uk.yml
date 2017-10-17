@@ -141,7 +141,7 @@ uk:
         orders:
           label: 'Впорядкувати пропозиції за:'
           most_voted: Найбільш підтримані
-          random: Випадково
+          random: Довільно
           recent: Нещодавні
         proposal:
           view_proposal: Переглянути пропозицію
