@@ -20,6 +20,8 @@ ru:
         new: Новая
         title: Действия
       admin:
+        actions:
+          preview: Предпросмотр
         exports:
           comments: Комментарии
         models:
