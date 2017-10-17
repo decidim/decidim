@@ -4,7 +4,9 @@ ru:
       close_meeting:
         closing_report: Отчет
       meeting:
+        decidim_category_id: Категория
         decidim_scope_id: Охват
+        end_time: Время завершения
         title: Название
   decidim:
     features:
@@ -39,6 +41,7 @@ ru:
           past: Прошедшие
           scopes: Охваты
           search: Искать
+          upcoming: Предстоящие
         filters_small_view:
           filter: Отобрать
           unfold: Развернуть
