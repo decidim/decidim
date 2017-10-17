@@ -1,7 +1,13 @@
 ru:
   decidim:
+    features:
+      pages:
+        name: Страница
     pages:
       admin:
+        models:
+          components:
+            body: Основной текст
         pages:
           update:
             success: Страница сохранена успешно.
