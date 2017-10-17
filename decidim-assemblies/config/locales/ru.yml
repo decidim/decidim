@@ -3,6 +3,8 @@ ru:
     attributes:
       assembly:
         domain: Домен
+        scope_id: Охват
+        title: Название
   decidim:
     admin:
       assembly_copies:
@@ -11,3 +13,14 @@ ru:
       menu:
         assemblies_submenu:
           info: Информация
+      models:
+        assembly:
+          fields:
+            title: Название
+    assemblies:
+      show:
+        scope: Охват
+      statistics:
+        answers_count: Ответы
+        pages_count: Страницы
+        votes_count: Голоса
