@@ -10,6 +10,7 @@ ru:
         description: Описание
         end_time: Время завершения
         location: Место
+        start_time: Время начала
         title: Название
   decidim:
     features:
@@ -25,8 +26,11 @@ ru:
         edit: Редактировать
         new: Добавить
         preview: Предпросмотр
+        registrations: Регистрации
         title: Действия
       admin:
+        exports:
+          registrations: Регистрации
         invites:
           new:
             invite: Пригласить
