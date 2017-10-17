@@ -156,6 +156,7 @@ nl:
     filters:
       linked_classes:
         all: Alle
+        dummyresource: Dummy middelen
         meeting: Vergaderingen
         project: Projecten
         proposal: Voorstellen
