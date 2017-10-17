@@ -20,8 +20,9 @@ module Decidim
       #
       # Returns nothing.
       def call
+        return broadcast(:invalid) if @proposal.maximum_votes_reached?
+
         build_proposal_vote
-        return broadcast(:invalid) if proposal.maximum_votes_reached?
         return broadcast(:invalid) unless vote.valid?
 
         vote.save!

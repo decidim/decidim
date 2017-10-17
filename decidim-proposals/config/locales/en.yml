@@ -23,6 +23,7 @@ en:
             attachments_allowed: Allow attachments
             comments_enabled: Comments enabled
             geocoding_enabled: Geocoding enabled
+            maximum_votes: Maximum votes per proposal
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
@@ -31,7 +32,6 @@ en:
             announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled: Proposal creation enabled
-            maximum_votes: Maximum votes per proposal
             proposal_answering_enabled: Proposal answering enabled
             votes_blocked: Votes blocked
             votes_enabled: Votes enabled

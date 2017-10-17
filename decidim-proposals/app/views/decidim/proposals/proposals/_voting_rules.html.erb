@@ -9,7 +9,7 @@
               <li><%= t('.vote_limit.description', limit: feature_settings.vote_limit) %></li>
             <% end %>
             <% if maximum_votes_enabled? %>
-              <li><%= t('.maximum_votes_per_proposal.description', limit: current_settings.maximum_votes) %></li>
+              <li><%= t('.maximum_votes_per_proposal.description', limit: maximum_votes) %></li>
             <% end %>
           </ul>
         </div>

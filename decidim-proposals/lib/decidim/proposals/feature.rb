@@ -17,6 +17,7 @@ Decidim.register_feature(:proposals) do |feature|
 
   feature.settings(:global) do |settings|
     settings.attribute :vote_limit, type: :integer, default: 0
+    settings.attribute :maximum_votes, type: :integer, default: 0
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
     settings.attribute :official_proposals_enabled, type: :boolean, default: true
     settings.attribute :comments_enabled, type: :boolean, default: true
@@ -34,7 +35,6 @@ Decidim.register_feature(:proposals) do |feature|
     settings.attribute :creation_enabled, type: :boolean
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
-    settings.attribute :maximum_votes, type: :integer, default: 0
   end
 
   feature.register_resource do |resource|

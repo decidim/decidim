@@ -32,7 +32,12 @@ module Decidim
       end
 
       def maximum_votes_enabled?
-        current_settings.maximum_votes != 0
+        !!maximum_votes
+      end
+
+      def maximum_votes
+        return nil unless feature_settings.maximum_votes.positive?
+        feature_settings.maximum_votes
       end
 
       # Return the remaining votes for a user if the current feature has a vote limit

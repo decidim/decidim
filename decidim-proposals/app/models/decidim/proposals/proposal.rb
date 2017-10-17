@@ -114,12 +114,21 @@ module Decidim
         author.nil?
       end
 
+      # Public: The maximum amount of votes allowed for this proposal. 0 means infinite.
+      #
+      # Returns an Integer with the maximum amount of votes.
       def maximum_votes
-        feature.current_settings.maximum_votes || 0
+        maximum_votes = feature.settings.maximum_votes
+        return nil if maximum_votes.zero?
+
+        maximum_votes
       end
 
+      # Public: The maximum amount of votes allowed for this proposal. 0 means infinite.
+      #
+      # Returns true if reached, false otherwise.
       def maximum_votes_reached?
-        return false if maximum_votes.zero?
+        return false unless maximum_votes
 
         votes.count >= maximum_votes
       end
