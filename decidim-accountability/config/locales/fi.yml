@@ -2,36 +2,43 @@ fi:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: status
         decidim_category_id: Aihepiiri
         decidim_scope_id: Konteksti
         description: Kuvaus
+        end_date: Päättymisaika
+        progress: Edistyminen
         proposal_ids: Sisällytetyt ehdotukset
+        start_date: Aloitusaika
         title: Otsikko
+      status:
+        description: Kuvaus
+        key: avain
+        name: Nimi
+        progress: Edistyminen
+      timeline_entry:
+        description: Kuvaus
+        entry_date: Päivämäärä
   decidim:
-    features:
-      accountability:
-        name: Tulokset
-        settings:
-          global:
-            comments_enabled: Kommentointi sallittu
-          step:
-            comments_blocked: Kommentointi estetty
-    resource_links:
-      included_proposals:
-        result_proposals: Projektit, jotka sisältyvät tähän tulokseen
-      meetings_through_proposals:
-        result_meetings: Liittyvät tapaamiset
     accountability:
       actions:
         confirm_destroy: Oletko varma, että haluat poistaa tämän tuloksen?
         destroy: Poista
         edit: Muokkaa
         new: Uusi %{name}
+        preview: Esikatsele
+        timeline_entries: Projektin kehitys
         title: Toiminnot
       admin:
+        exports:
+          results: Tulokset
         models:
           result:
             name: Tulos
+          status:
+            name: Status
+          timeline_entry:
+            name: Aikajanan merkintä
         results:
           create:
             invalid: Tuloksen luonnissa tapahtui virhe
@@ -49,26 +56,79 @@ fi:
           update:
             invalid: Tuloksen päivityksessä tapahtui virhe
             success: Tulos päivitetty onnistuneesti
+        shared:
+          subnav:
+            statuses: tilat
+        statuses:
+          create:
+            invalid: Ongelma tämän tilan luomisessa
+            success: Tila onnistuneesti luotu
+          destroy:
+            success: Tilan poistaminen onnistui
+          edit:
+            title: Muokkaa tilaa
+            update: Päivitä status
+          index:
+            title: tilat
+          new:
+            create: Luo tila
+            title: Uusi tila
+          update:
+            invalid: On ollut ongelma tämän tilan päivittämisessä
+            success: Tilan päivitys onnistui
+        timeline_entries:
+          create:
+            invalid: On tullut ongelma tämän merkinnän luomisesta
+            success: Entry onnistuneesti luotu
+          destroy:
+            success: Merkintä poistettiin onnistuneesti
+          edit:
+            title: Muokkaa merkintää
+            update: Päivitä merkintä
+          index:
+            title: Projekti aikajanalla merkinnät
+          new:
+            create: Luo merkintä
+            title: Uusi merkintä
+          update:
+            invalid: On tapahtunut ongelma, joka päivitti tämän merkinnän
+            success: Ilmoituksen päivitys onnistui
       models:
         result:
           fields:
+            end_date: Päättymisaika
+            progress: Edistyminen
+            start_date: Aloitusaika
+            status: Status
             title: Otsikko
+        status:
+          fields:
+            description: Kuvaus
+            key: avain
+            name: Nimi
+            progress: Edistyminen
+        timeline_entry:
+          fields:
+            description: Kuvaus
+            entry_date: Päivämäärä
       results:
         count:
           results_count:
             one: 1 tulos
             other: "%{count} tulosta"
         filters:
-          category: Aihepiiri
-          category_prompt: Valitse aihepiiri
-          scope_prompt: Valitse konteksti
+          all: Kaikki
+          global: maailmanlaajuinen
           scopes: Konteksti
-          search: Haku
-        filters_small_view:
-          close_modal: Sulje ikkuna
-          filter: Suodata
-          filter_by: Suodata
-          unfold: Avaa
+        home:
+          categories_label: Aihepiirit
+          subcategories_label: alaluokat
+        home_header:
+          global_status: Globaalin toteutuksen tila
+        nav_breadcrumb:
+          global: Maailmanlaajuinen toteutus
+        search:
+          search: Hae toimintoja
         show:
           stats:
             attendees: Osallistujat
@@ -77,3 +137,21 @@ fi:
             meetings: Tapaamiset
             proposals: Ehdotukset
             votes: Kannatukset
+        timeline:
+          title: Projektin kehitys
+    features:
+      accountability:
+        name: Tulokset
+        settings:
+          global:
+            categories_label: Nimi "Luokat"
+            comments_enabled: Kommentointi sallittu
+            heading_leaf_level_results: Nimi "Projektit"
+            heading_parent_level_results: Nimi "Tulokset"
+            intro: intro
+            subcategories_label: Nimi "Alaluokat"
+          step:
+            comments_blocked: Kommentointi estetty
+    resource_links:
+      included_proposals:
+        result_proposals: Projektit, jotka sisältyvät tähän tulokseen
