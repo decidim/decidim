@@ -1,11 +1,21 @@
 ru:
+  activemodel:
+    attributes:
+      project:
+        decidim_scope_id: Охват
+        title: Название
   decidim:
     budgets:
       actions:
         edit: Редактировать
         new: Добавить
+      models:
+        project:
+          fields:
+            title: Название
       projects:
         budget_excess:
+          close: Закрыть
           ok: Хорошо
         order_progress:
           vote: Голосовать
@@ -15,6 +25,7 @@ ru:
           add: Добавить
         project_budget_button:
           add: Добавить
+          added: Добавлено
     features:
       budgets:
         actions:
