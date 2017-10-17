@@ -12,7 +12,12 @@ ru:
         destroy: Удалить
         edit: Редактировать
         new: Добавить
+        preview: Предпросмотр
+        title: Действия
       admin:
+        models:
+          project:
+            name: Проект
         projects:
           edit:
             update: Обновить
@@ -27,6 +32,7 @@ ru:
       projects:
         budget_confirm:
           cancel: Отменить
+          confirm: Подтвердить
         budget_excess:
           close: Закрыть
           ok: Хорошо
@@ -54,3 +60,4 @@ ru:
       budgets:
         actions:
           vote: Голосовать
+        name: Бюджеты
