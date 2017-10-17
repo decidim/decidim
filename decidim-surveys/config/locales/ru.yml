@@ -3,3 +3,11 @@ ru:
     attributes:
       survey_answer:
         body: Ответ
+      survey_question:
+        question_type: Тип
+  decidim:
+    surveys:
+      admin:
+        surveys:
+          edit:
+            save: Сохранить
