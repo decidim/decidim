@@ -15,6 +15,9 @@ ru:
           create: Создать
           vote: Голосовать
         name: Предложения
+        settings:
+          global:
+            vote_limit: Предельное количество голосов
     proposals:
       actions:
         answer: Ответить
@@ -33,6 +36,7 @@ ru:
           edit:
             accepted: Принято
             answer_proposal: Ответить
+            evaluating: Рассматривается
             rejected: Отклонено
         proposals:
           index:
@@ -41,6 +45,7 @@ ru:
             create: Создать
       answers:
         accepted: Принято
+        evaluating: Рассматривается
         rejected: Отклонено
       models:
         proposal:
@@ -64,6 +69,7 @@ ru:
           all: Все
           category: Категория
           citizens: Граждане
+          evaluating: Рассматривается
           official: Официальный
           origin: Источник
           rejected: Отклонено
