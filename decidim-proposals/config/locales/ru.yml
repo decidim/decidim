@@ -13,6 +13,7 @@ ru:
       proposals:
         actions:
           create: Создать
+          vote: Голосовать
     proposals:
       actions:
         answer: Ответ
@@ -53,3 +54,9 @@ ru:
           report: Пожаловаться
         vote_button:
           vote: Голосовать
+        votes_count:
+          count:
+            one: ГОЛОС
+            few: ГОЛОСА
+            many: ГОЛОСОВ
+            other: ГОЛОСА
