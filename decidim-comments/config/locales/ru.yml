@@ -7,6 +7,8 @@ ru:
             label: Комментарий
           submit: Отправить
       comment:
+        alignment:
+          in_favor: В поддержку
         reply: Ответить
         report:
           action: Пожаловаться
@@ -17,3 +19,4 @@ ru:
       comment_order_selector:
         order:
           older: Старые
+          recent: Недавние
