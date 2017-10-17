@@ -2,10 +2,14 @@ ru:
   activemodel:
     attributes:
       participatory_process:
+        copy_features: Копировать составляющие
+        copy_steps: Копировать шаги
         description: Описание
         domain: Домен
         end_date: Дата завершения
         hashtag: Хэштег
+        hero_image: Изображение главной страницы
+        local_area: Район
         promoted: Рекламируется
         scope_id: Охват
         slug: Сокращенный URL-адрес
@@ -20,6 +24,7 @@ ru:
       participatory_process_step:
         description: Описание
         end_date: Дата завершения
+        start_date: Дата начала
         title: Название
       participatory_process_user_role:
         email: Эл. адрес
@@ -41,22 +46,27 @@ ru:
         participatory_processes: Движения
         participatory_processes_submenu:
           attachments: Вложения
+          categories: Категории
           features: Составляющие
           info: Информация
           moderations: Действия по модерации
+          process_admins: Участники движения
           steps: Шаги
       models:
         participatory_process:
           fields:
+            created_at: 'Создано:'
             promoted: Выделенные
             published: Опубликовано
             title: Название
         participatory_process_group:
           fields:
             name: Имя
+          name: Группа движений
         participatory_process_step:
           fields:
             end_date: Дата завершения
+            start_date: Дата начала
             title: Название
         participatory_process_user_role:
           fields:
