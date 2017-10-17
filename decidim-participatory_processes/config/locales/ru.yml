@@ -29,11 +29,14 @@ ru:
     admin:
       actions:
         activate: Начать
+        configure: Настроить
         destroy: Удалить
+        duplicate: Создать копию
         edit: Редактировать
         new: Добавить
         preview: Предпросмотр
         publish: Опубликовать
+        unpublish: Отменить публикацию
       menu:
         participatory_processes: Движения
         participatory_processes_submenu:
@@ -46,6 +49,7 @@ ru:
         participatory_process:
           fields:
             promoted: Выделенные
+            published: Опубликовано
             title: Название
         participatory_process_group:
           fields:
@@ -59,6 +63,8 @@ ru:
             email: Эл. адрес
             name: Имя
             role: Роль
+          roles:
+            moderator: Модератор
       participatory_process_copies:
         new:
           copy: Копировать
@@ -82,8 +88,12 @@ ru:
       participatory_processes:
         edit:
           update: Обновить
+        index:
+          published: Опубликовано
         new:
           create: Создать
+    menu:
+      processes: Движения
     participatory_process_groups:
       show:
         title: Название
@@ -107,7 +117,9 @@ ru:
         meetings_count: Встречи
         orders_count: Голоса
         pages_count: Страницы
+        processes_count: Движения
         projects_count: Проекты
+        proposals_count: Предложения
         results_count: Итоги
         surveys_count: Опросы
         votes_count: Голоса
@@ -121,6 +133,13 @@ ru:
       participatory_process_widgets:
         show:
           active_step: Начатый шаг
+          take_part: Принять участие
+      participatory_processes:
+        participatory_process:
+          take_part: Принять участие
+        promoted_process:
+          more_info: Дополнительные сведения
+          take_part: Принять участие
       process_header:
         process_menu_item: Движение
         unfold: Развернуть
