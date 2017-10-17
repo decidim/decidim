@@ -4,17 +4,38 @@ ru:
       participatory_process:
         domain: Домен
         end_date: Дата завершения
+      participatory_process_group:
+        name: Имя
       participatory_process_step:
         end_date: Дата завершения
+      participatory_process_user_role:
+        name: Имя
+        role: Роль
   decidim:
     admin:
       actions:
+        edit: Редактировать
         new: Добавить
+      menu:
+        participatory_processes_submenu:
+          info: Информация
       models:
+        participatory_process_group:
+          fields:
+            name: Имя
         participatory_process_step:
           fields:
             end_date: Дата завершения
+        participatory_process_user_role:
+          fields:
+            name: Имя
+            role: Роль
+      participatory_process_copies:
+        new:
+          copy: Копировать
     participatory_processes:
+      participatory_process_groups:
+        none: Нет
       show:
         end_date: Дата завершения
     scopes:
