@@ -13,11 +13,6 @@
                 <span class="text-small"><%= l(authorization.updated_at, format: :long) %></span>
               </div>
             </div>
-            <div class="card--list__data">
-              <%= link_to new_authorization_path(handler: authorization.name), class: "card--list__data__icon" do %>
-                <%= icon "reload" %>
-              <% end %>
-            </div>
           </div>
         <% end %>
       </div>
