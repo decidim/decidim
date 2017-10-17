@@ -124,7 +124,7 @@ uk:
           scopes: Обсяги
         home:
           categories_label: Розділи
-          subcategories_label: Підкатегорії
+          subcategories_label: Підрозділи
         home_header:
           global_status: Загальний статус виконання
         nav_breadcrumb:
