@@ -67,5 +67,6 @@ ru:
         settings:
           global:
             comments_enabled: Комментарии включены
+            intro: Вступление
           step:
             comments_blocked: Комментарии заблокированы
