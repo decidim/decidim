@@ -9,5 +9,7 @@ ru:
           components:
             body: Основной текст
         pages:
+          edit:
+            save: Обновить
           update:
             success: Страница сохранена успешно.
