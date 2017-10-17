@@ -22,9 +22,9 @@
         <% end %>
       </div>
     <% end %>
-    <% if handlers.any? %>
+    <% if unauthorized_methods.any? %>
       <div class="card card--list">
-        <% handlers.each do |handler| %>
+        <% unauthorized_methods.each do |unauthorized_method| %>
           <div class="card--list__item">
             <div class="card--list__text">
               <a href="#">
@@ -32,12 +32,12 @@
               </a>
               <div>
                 <h5 class="card--list__heading">
-                  <%= link_to t("#{handler.key}.name", scope: "decidim.authorization_handlers"), handler.root_path %>
+                  <%= link_to t("#{unauthorized_method.key}.name", scope: "decidim.authorization_handlers"), unauthorized_method.root_path %>
                 </h5>
               </div>
             </div>
             <div class="card--list__data">
-              <%= link_to handler.root_path, class: "card--list__data__icon" do %>
+              <%= link_to unauthorized_method.root_path, class: "card--list__data__icon" do %>
                 <%= icon "chevron-right" %>
               <% end %>
             </div>
