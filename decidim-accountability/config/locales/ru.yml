@@ -49,6 +49,8 @@ ru:
         timeline_entries:
           edit:
             title: Редактировать запись
+          new:
+            title: Новая запись
       models:
         result:
           fields:
@@ -86,6 +88,7 @@ ru:
           global: Всеобщее исполнение
         show:
           stats:
+            attendees: Участники
             comments: Комментарии
             meetings: Встречи
             proposals: Предложения
