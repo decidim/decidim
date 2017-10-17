@@ -14,6 +14,7 @@ ru:
         actions:
           create: Создать
           vote: Голосовать
+        name: Предложения
     proposals:
       actions:
         answer: Ответить
@@ -33,6 +34,8 @@ ru:
             answer_proposal: Ответить
             rejected: Отклонено
         proposals:
+          index:
+            title: Предложения
           new:
             create: Создать
       answers:
@@ -53,6 +56,7 @@ ru:
           activity: Деятельность
           all: Все
           category: Категория
+          citizens: Граждане
           official: Официальный
           origin: Источник
           rejected: Отклонено
@@ -82,4 +86,5 @@ ru:
             other: ГОЛОСА
         votes_limit:
           vote_limit:
+            left: Осталось
             votes: Голоса
