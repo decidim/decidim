@@ -45,6 +45,8 @@ module Decidim
 
       def attributes
         {
+          cta_button_path: form.cta_button_path,
+          cta_button_text: form.cta_button_text,
           description: form.description,
           welcome_text: form.welcome_text,
           homepage_image: form.homepage_image,
