@@ -34,9 +34,13 @@ ru:
         new:
           copy: Копировать
     participatory_processes:
+      order_by_processes:
+        past: Прошедшие
       participatory_process_groups:
         none: Нет
       show:
         end_date: Дата завершения
+      statistics:
+        answers_count: Ответы
     scopes:
       global: Всеобщий охват
