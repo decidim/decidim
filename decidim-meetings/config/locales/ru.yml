@@ -6,14 +6,21 @@ ru:
   decidim:
     features:
       meetings:
+        actions:
+          join: Присоединиться
         name: Встречи
     meetings:
       actions:
         edit: Редактировать
         new: Добавить
+      admin:
+        registrations:
+          edit:
+            save: Сохранить
       meetings:
         filters:
           date: Дата
+          past: Прошедшие
         show:
           meeting_report: Отчет о встрече
       models:
