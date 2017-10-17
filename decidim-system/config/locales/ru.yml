@@ -24,3 +24,21 @@ ru:
         update:
           error: При обновлении этого администратора произошла ошибка.
           success: Администратор успешно обновлен
+      default_pages:
+        placeholders:
+          title: Заголовок по умолчанию для %{page}
+      menu:
+        admins: Администраторы
+        dashboard: Панель управления
+        organizations: Организации
+      models:
+        admin:
+          fields:
+            created_at: 'Создано:'
+            email: Эл. адрес
+          name: Администратор
+        organization:
+          fields:
+            created_at: 'Создано:'
+            name: Имя
+          name: Организация
