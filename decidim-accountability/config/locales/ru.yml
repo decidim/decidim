@@ -36,12 +36,19 @@ ru:
         results:
           index:
             title: Итоги
+          new:
+            title: Новый итог
         shared:
           subnav:
             statuses: Состояния
         statuses:
           index:
             title: Состояния
+          new:
+            title: Новое состояние
+        timeline_entries:
+          edit:
+            title: Редактировать запись
       models:
         result:
           fields:
