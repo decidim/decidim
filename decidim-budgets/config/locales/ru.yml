@@ -4,3 +4,10 @@ ru:
       actions:
         edit: Редактировать
         new: Добавить
+      projects:
+        budget_excess:
+          ok: Хорошо
+        project:
+          add: Добавить
+        project_budget_button:
+          add: Добавить
