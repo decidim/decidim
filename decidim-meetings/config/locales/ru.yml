@@ -58,6 +58,7 @@ ru:
           upcoming: Предстоящие
         filters_small_view:
           filter: Отобрать
+          filter_by: 'Отобрать по признаку:'
           unfold: Развернуть
         registration_confirm:
           cancel: Отменить
