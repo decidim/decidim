@@ -55,6 +55,7 @@ ru:
           global: Всеобщее исполнение
         show:
           stats:
+            comments: Комментарии
             meetings: Встречи
             proposals: Предложения
     features:
