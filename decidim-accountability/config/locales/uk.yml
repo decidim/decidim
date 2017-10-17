@@ -2,7 +2,7 @@ uk:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: статус
+        decidim_accountability_status_id: стан
         decidim_category_id: Розділ
         decidim_scope_id: Обсяг
         description: Опис
@@ -36,7 +36,7 @@ uk:
           result:
             name: Підсумки
           status:
-            name: Статус
+            name: Стан
           timeline_entry:
             name: Запис на лінії часу
         results:
@@ -58,24 +58,24 @@ uk:
             success: Підсумки успішно оновлено
         shared:
           subnav:
-            statuses: Статуси
+            statuses: Стани
         statuses:
           create:
-            invalid: При спробі створити цей статус виникла проблема
-            success: Статус успішно створено
+            invalid: При спробі створити цей стан виникла проблема
+            success: Стан успішно створено
           destroy:
-            success: Статус успішно видалено
+            success: Стан успішно видалено
           edit:
-            title: Редагувати статус
-            update: Оновити статус
+            title: Редагувати стан
+            update: Оновити стан
           index:
-            title: Статуси
+            title: Стани
           new:
-            create: Створити статус
-            title: Новий статус
+            create: Створити стан
+            title: Новий стан
           update:
-            invalid: При спробі оновити цей статус виникла проблема
-            success: Статус успішно оновлено
+            invalid: При спробі оновити цей стан виникла проблема
+            success: Стан успішно оновлено
         timeline_entries:
           create:
             invalid: Виникла проблема зі створенням цього запису
@@ -99,7 +99,7 @@ uk:
             end_date: Дата закінчення
             progress: Перебіг
             start_date: Дата початку
-            status: Статус
+            status: Стан
             title: Назва
         status:
           fields:
@@ -126,7 +126,7 @@ uk:
           categories_label: Розділи
           subcategories_label: Підрозділи
         home_header:
-          global_status: Загальний статус виконання
+          global_status: Загальний стан виконання
         nav_breadcrumb:
           global: Загальне виконання
         search:
