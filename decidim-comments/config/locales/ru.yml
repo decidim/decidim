@@ -5,6 +5,7 @@ ru:
         form:
           body:
             label: Комментарий
+          submit: Отправить
       comment:
         report:
           action: Пожаловаться
