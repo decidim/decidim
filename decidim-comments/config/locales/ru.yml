@@ -7,8 +7,13 @@ ru:
             label: Комментарий
           submit: Отправить
       comment:
+        reply: Ответить
         report:
           action: Пожаловаться
           already_reported: На это содержимое уже пожаловались, и жалобу рассмотрит администратор.
+          close: Закрыть
           details: Дополнительные комментарии
           title: Пожаловаться на проблему
+      comment_order_selector:
+        order:
+          older: Старые
