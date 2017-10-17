@@ -4,6 +4,7 @@ ru:
       close_meeting:
         closing_report: Отчет
       meeting:
+        address: Адрес
         decidim_category_id: Категория
         decidim_scope_id: Охват
         end_time: Время завершения
@@ -21,7 +22,12 @@ ru:
         destroy: Удалить
         edit: Редактировать
         new: Добавить
+        preview: Предпросмотр
+        title: Действия
       admin:
+        invites:
+          new:
+            invite: Пригласить
         meeting_closes:
           edit:
             close: Закрыть
@@ -32,6 +38,9 @@ ru:
             title: Встречи
           new:
             create: Создать
+        models:
+          meeting:
+            name: Встреча
         registrations:
           edit:
             save: Сохранить
@@ -46,6 +55,9 @@ ru:
         filters_small_view:
           filter: Отобрать
           unfold: Развернуть
+        registration_confirm:
+          cancel: Отменить
+          confirm: Подтвердить
         show:
           going: Собирается посетить
           meeting_report: Отчет о встрече
