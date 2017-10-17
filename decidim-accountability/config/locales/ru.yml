@@ -36,6 +36,12 @@ ru:
         results:
           index:
             title: Итоги
+        shared:
+          subnav:
+            statuses: Состояния
+        statuses:
+          index:
+            title: Состояния
       models:
         result:
           fields:
@@ -55,6 +61,12 @@ ru:
             description: Описание
             entry_date: Дата
       results:
+        count:
+          results_count:
+            one: 1 итог
+            few: "%{count} итога"
+            many: "%{count} итогов"
+            other: "%{count} итога"
         filters:
           all: Все
           global: Всеобщий
@@ -70,6 +82,7 @@ ru:
             comments: Комментарии
             meetings: Встречи
             proposals: Предложения
+            votes: Поддерживает
     features:
       accountability:
         settings:
