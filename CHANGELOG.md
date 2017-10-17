@@ -1,5 +1,11 @@
 # Change Log
 
+## [v0.6.8](https://github.com/decidim/decidim/tree/v0.6.7) (2017-10-06)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.6.7...v0.6.8)
+
+**Fixed**
+- **decidim-admin**: Fix impersonation being disallowed when there's another user impersonating.
+
 ## [v0.6.7](https://github.com/decidim/decidim/tree/v0.6.7) (2017-10-06)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.6...v0.6.7)
 
