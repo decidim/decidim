@@ -4,11 +4,16 @@ ru:
       participatory_process:
         domain: Домен
         end_date: Дата завершения
+        scope_id: Охват
+        title: Название
       participatory_process_group:
+        hero_image: Изображение
         name: Имя
       participatory_process_step:
         end_date: Дата завершения
+        title: Название
       participatory_process_user_role:
+        email: Эл. адрес
         name: Имя
         role: Роль
   decidim:
@@ -19,20 +24,32 @@ ru:
       menu:
         participatory_processes_submenu:
           info: Информация
+          steps: Шаги
       models:
+        participatory_process:
+          fields:
+            title: Название
         participatory_process_group:
           fields:
             name: Имя
         participatory_process_step:
           fields:
             end_date: Дата завершения
+            title: Название
         participatory_process_user_role:
           fields:
+            email: Эл. адрес
             name: Имя
             role: Роль
       participatory_process_copies:
         new:
           copy: Копировать
+      participatory_process_steps:
+        index:
+          steps_title: Шаги
+    participatory_process_groups:
+      show:
+        title: Название
     participatory_processes:
       order_by_processes:
         past: Прошедшие
@@ -40,7 +57,11 @@ ru:
         none: Нет
       show:
         end_date: Дата завершения
+        scope: Охват
       statistics:
         answers_count: Ответы
+        orders_count: Голоса
+        pages_count: Страницы
+        votes_count: Голоса
     scopes:
       global: Всеобщий охват
