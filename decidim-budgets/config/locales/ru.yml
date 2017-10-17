@@ -3,6 +3,7 @@ ru:
     attributes:
       project:
         budget: Бюджет
+        decidim_category_id: Категория
         decidim_scope_id: Охват
         title: Название
   decidim:
@@ -15,6 +16,8 @@ ru:
         projects:
           edit:
             update: Обновить
+          index:
+            title: Проекты
           new:
             create: Создать
       models:
@@ -28,6 +31,7 @@ ru:
           close: Закрыть
           ok: Хорошо
         filters:
+          category: Категория
           scopes: Охваты
           search: Искать
         filters_small_view:
