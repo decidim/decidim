@@ -79,3 +79,6 @@ ru:
         actions:
           vote: Голосовать
         name: Бюджеты
+        settings:
+          step:
+            show_votes: Показать голоса
