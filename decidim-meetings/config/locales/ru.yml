@@ -44,6 +44,10 @@ ru:
         registrations:
           edit:
             save: Сохранить
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Тема
       meetings:
         filters:
           category: Категория
