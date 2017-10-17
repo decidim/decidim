@@ -15,6 +15,7 @@ ru:
     meetings:
       actions:
         close: Закрыть
+        destroy: Удалить
         edit: Редактировать
         new: Добавить
       admin:
@@ -24,6 +25,8 @@ ru:
         meetings:
           edit:
             update: Обновить
+          index:
+            title: Встречи
           new:
             create: Создать
         registrations:
@@ -31,13 +34,25 @@ ru:
             save: Сохранить
       meetings:
         filters:
+          category: Категория
           date: Дата
           past: Прошедшие
+          scopes: Охваты
+          search: Искать
+        filters_small_view:
+          filter: Отобрать
+          unfold: Развернуть
         show:
+          going: Собирается посетить
           meeting_report: Отчет о встрече
       models:
         meeting:
           fields:
+            closed: Закрыто
             end_time: Дата завершения
             map: Карта
             title: Название
+  devise:
+    mailer:
+      join_meeting:
+        subject: Тема
