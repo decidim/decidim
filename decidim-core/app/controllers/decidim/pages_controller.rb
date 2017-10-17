@@ -12,6 +12,7 @@ module Decidim
     authorize_resource :public_pages, class: false
     delegate :page, to: :page_finder
     helper_method :page, :promoted_participatory_processes, :highlighted_participatory_processes, :stats
+    helper HomepageHelper
 
     def index
       @pages = current_organization.static_pages.all.to_a.sort do |a, b|

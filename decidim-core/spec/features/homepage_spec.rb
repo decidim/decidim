@@ -28,6 +28,48 @@ describe "Homepage", type: :feature do
       expect(page).to have_selector("a.main-footer__badge[href='#{official_url}']")
     end
 
+    context "call to action" do
+      context "when the organization has the CTA button text customized" do
+        let(:cta_button_text) { { en: "Log in", es: "Conéctate", ca: "Connecta't" } }
+        let(:organization) { create(:organization, cta_button_text: cta_button_text) }
+
+        it "uses the custom values for the CTA button text" do
+          within ".hero" do
+            expect(page).to have_selector("a.hero-cta", text: "LOG IN")
+            click_link "Log in"
+          end
+
+          expect(current_path).to eq decidim_participatory_processes.participatory_processes_path
+        end
+      end
+
+      context "when the organization has the CTA button link customized" do
+        let(:organization) { create(:organization, cta_button_path: "users/sign_in") }
+
+        it "uses the custom values for the CTA button" do
+          within ".hero" do
+            expect(page).to have_selector("a.hero-cta", text: "PARTICIPATE")
+            click_link "Participate"
+          end
+
+          expect(current_path).to eq decidim.new_user_session_path
+          expect(page).to have_content("Sign in")
+          expect(page).to have_content("New to the platform?")
+        end
+      end
+
+      context "when the organization does not have it customized" do
+        it "uses the default values for the CTA button" do
+          within ".hero" do
+            expect(page).to have_selector("a.hero-cta", text: "PARTICIPATE")
+            click_link "Participate"
+          end
+
+          expect(current_path).to eq decidim_participatory_processes.participatory_processes_path
+        end
+      end
+    end
+
     context "with header snippets" do
       let(:snippet) { "<meta data-hello=\"This is the organization header_snippet field\">" }
       let(:organization) { create(:organization, official_url: official_url, header_snippets: snippet) }
