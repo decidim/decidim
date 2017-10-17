@@ -50,6 +50,7 @@ ru:
           search: Искать
         filters_small_view:
           filter: Отобрать
+          filter_by: 'Отобрать по признаку:'
           unfold: Развернуть
         order_progress:
           vote: Голосовать
@@ -58,6 +59,11 @@ ru:
           view: Посмотреть
         project:
           add: Добавить
+          count:
+            one: 1 человек поддерживает
+            few: "%{count} поддерживают"
+            many: "%{count} поддерживает"
+            other: "%{count} поддерживает"
           remove: Удалить
         project_budget_button:
           add: Добавить
