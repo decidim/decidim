@@ -52,6 +52,12 @@ ru:
             title: Название
             votes: Голоса
       proposals:
+        count:
+          proposals_count:
+            one: 1 предложение
+            few: "%{count} предложения"
+            many: "%{count} предложений"
+            other: "%{count} предложений"
         filters:
           accepted: Принято
           activity: Деятельность
@@ -61,6 +67,7 @@ ru:
           official: Официальный
           origin: Источник
           rejected: Отклонено
+          related_to: Связано с
           scopes: Охваты
           search: Поиск
           state: Cостояние
@@ -74,6 +81,7 @@ ru:
           back: Вернуться
           send: Отправить
         orders:
+          most_voted: С наибольшим количеством голосов
           random: Произвольно
           recent: Недавние
         show:
