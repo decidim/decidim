@@ -14,6 +14,9 @@ ru:
         name: Опрос
     surveys:
       admin:
+        models:
+          components:
+            description: Описание
         surveys:
           answer_option:
             statement: Высказывание
@@ -23,6 +26,8 @@ ru:
           question:
             question: Вопрос
             statement: Высказывание
+      question_types:
+        long_answer: Длинный ответ
       surveys:
         show:
           submit: Отправить
