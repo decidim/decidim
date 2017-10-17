@@ -11,7 +11,7 @@ coverage:
         threshold: 1%
       core:
         threshold: 1%
-        flags: core        
+        flags: core
       assemblies:
         threshold: 1%
         flags: assemblies
