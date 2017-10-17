@@ -5,7 +5,10 @@ ru:
         domain: Домен
         end_date: Дата завершения
         hashtag: Хэштег
+        promoted: Рекламируется
         scope_id: Охват
+        slug: Сокращенный URL-адрес
+        subtitle: Подзаголовок
         target: Цель
         title: Название
       participatory_process_group:
@@ -21,11 +24,15 @@ ru:
   decidim:
     admin:
       actions:
+        activate: Начать
+        destroy: Удалить
         edit: Редактировать
         new: Добавить
         preview: Предпросмотр
+        publish: Опубликовать
       menu:
         participatory_processes_submenu:
+          features: Составляющие
           info: Информация
           steps: Шаги
       models:
@@ -76,6 +83,7 @@ ru:
       order_by_processes:
         active: Начатые
         past: Прошедшие
+        upcoming: Предстоящие
       participatory_process_groups:
         none: Нет
       show:
@@ -84,8 +92,14 @@ ru:
         target: Цель
       statistics:
         answers_count: Ответы
+        comments_count: Комментарии
+        headline: Деятельность
+        meetings_count: Встречи
         orders_count: Голоса
         pages_count: Страницы
+        projects_count: Проекты
+        results_count: Итоги
+        surveys_count: Опросы
         votes_count: Голоса
     scopes:
       global: Всеобщий охват
