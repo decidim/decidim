@@ -125,23 +125,26 @@ module Decidim
       object.respond_to?(:errors) && object.errors[attribute].present?
     end
 
-    # Helper method that generates the URL of a participatory space with a
-    # span surrounding the space slug. This is only intended to be used in
-    # help text for the slug input, so that we can update the span contents
-    # via JS with the input value.
+    # Helper method to show how slugs will look like. Intended to be used in forms
+    # together with some JavaScript code. More precisely, this will most probably
+    # show in help texts in forms. The space slug is surrounded with a `span` so
+    # the slug can be updated via JavaScript with the input value.
     #
-    # space_name - the name, in plural, of the space (eg. "processes" or "assemblies")
-    # value - the initial value of the slug field, so  that edit forms have a value
+    # prepend_path - a path to prepend to the slug, without final slash
+    # value - the initial value of the slug field, so that edit forms have a value
     #
     # Returns an HTML-safe String.
-    def decidim_form_slug_url(space_name, value = "")
+    def decidim_form_slug_url(prepend_path = "", value = "")
+      prepend_slug_path = if prepend_path.present?
+                            "/#{prepend_path}/"
+                          else
+                            "/"
+                          end
       content_tag(:span, class: "slug-url") do
         [
           request.protocol,
           request.host_with_port,
-          "/",
-          space_name,
-          "/"
+          prepend_slug_path
         ].join("").html_safe +
           content_tag(:span, value, class: "slug-url-value")
       end

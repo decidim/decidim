@@ -330,6 +330,7 @@ en:
         edit:
           update: Update
         form:
+          cta_button_path_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
           header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
           homepage_appearance_title: Edit homepage appearance
           layout_appearance_title: Edit layout appearance
