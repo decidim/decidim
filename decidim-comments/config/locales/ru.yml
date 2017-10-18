@@ -10,6 +10,7 @@ ru:
             label: Комментировать как
         opinion:
           neutral: Безучастно
+        title: Добавьте свой комментарий
       comment:
         alignment:
           against: Против
@@ -29,3 +30,5 @@ ru:
           older: Старые
           recent: Недавние
         title: 'Упорядочить по:'
+      featured_comment:
+        title: Избранный комментарий
