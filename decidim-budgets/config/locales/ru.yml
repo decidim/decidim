@@ -26,6 +26,7 @@ ru:
             title: Редактировать проект
             update: Обновить
           index:
+            finished_orders: Завершенные голосования
             pending_orders: Текущие голосования
             title: Проекты
           new:
@@ -53,6 +54,7 @@ ru:
             other: "%{count} проектов"
         filters:
           category: Категория
+          scope_prompt: Выбрать охват
           scopes: Охваты
           search: Искать
         filters_small_view:
@@ -64,6 +66,11 @@ ru:
           vote: Голосовать
         order_selected_projects:
           remove: Удалить
+          selected_projects:
+            one: выбранный проект
+            few: выбранных проекта
+            many: выбранных проектов
+            other: выбранных проектов
           view: Посмотреть
         project:
           add: Добавить
@@ -87,9 +94,11 @@ ru:
         settings:
           global:
             announcement: Объявление
+            comments_enabled: Комментарии включены
             total_budget: Общий бюджет
           step:
             announcement: Объявление
+            comments_blocked: Комментарии выключены
             show_votes: Показать голоса
             votes_enabled: Голосование включено
   index:
