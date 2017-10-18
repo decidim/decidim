@@ -47,6 +47,8 @@ ru:
             evaluating: Рассматривается
             rejected: Отклонено
         proposals:
+          form:
+            select_a_category: Выберите категорию
           index:
             title: Предложения
           new:
@@ -81,6 +83,7 @@ ru:
           activity: Деятельность
           all: Все
           category: Категория
+          category_prompt: Выберите категорию
           citizens: Граждане
           evaluating: Рассматривается
           official: Официальный
