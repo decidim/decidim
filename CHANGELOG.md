@@ -30,6 +30,13 @@
 - **decidim-participatory-processes**: Invited moderators couldn't access the process admin panel [\#2020](https://github.com/decidim/decidim/pull/2020)
 - **decidim-proposals**: Do not count hidden proposals on stats [\#1988](https://github.com/decidim/decidim/pull/1988)
 
+## [v0.6.8](https://github.com/decidim/decidim/tree/v0.6.8) (2017-10-17)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.6.7...v0.6.8)
+
+**Fixed**
+
+- **decidim-admin**: Fix impersonation being disallowed when there's another user impersonating [\#2047](https://github.com/decidim/decidim/pull/2047)
+
 ## [v0.6.7](https://github.com/decidim/decidim/tree/v0.6.7) (2017-10-09)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.6...v0.6.7)
 
