@@ -103,6 +103,7 @@ ru:
         edit:
           update: Обновить
         index:
+          not_published: Не опубликовано
           published: Опубликовано
         new:
           create: Создать
@@ -111,6 +112,9 @@ ru:
     participatory_process_groups:
       show:
         title: Название
+    participatory_process_steps:
+      index:
+        process_steps: Шаги движения
     participatory_processes:
       order_by_processes:
         active: Начатые
@@ -151,8 +155,10 @@ ru:
           take_part: Принять участие
       participatory_processes:
         participatory_process:
+          active_step: 'Текущий шаг:'
           take_part: Принять участие
         promoted_process:
+          active_step: 'Текущий шаг:'
           more_info: Дополнительные сведения
           take_part: Принять участие
       process_header:
