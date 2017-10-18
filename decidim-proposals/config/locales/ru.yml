@@ -50,6 +50,8 @@ ru:
             rejected: Отклонено
             title: Ответ на предложение %{title}
         proposals:
+          answer:
+            success: Успешно дан ответ на предложение
           create:
             success: Предложение успешно создано
           form:
@@ -65,6 +67,8 @@ ru:
         evaluating: Рассматривается
         not_answered: Без ответов
         rejected: Отклонено
+      create:
+        success: Предложение успешно создано.
       models:
         proposal:
           fields:
@@ -78,6 +82,7 @@ ru:
       proposals:
         author:
           deleted: Удаленный пользователь
+          verified_user_group: Проверенная организация
         count:
           proposals_count:
             one: 1 предложение
