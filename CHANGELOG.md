@@ -32,6 +32,10 @@
 - **decidim-participatory-processes**: Invited moderators couldn't access the process admin panel [\#2020](https://github.com/decidim/decidim/pull/2020)
 - **decidim-proposals**: Do not count hidden proposals on stats [\#1988](https://github.com/decidim/decidim/pull/1988)
 
+**Removed**
+
+- **decidim-system**: Removed button to delete organizations, as this is not implemented [\#2067](https://github.com/decidim/decidim/pull/2067)
+
 ## [v0.6.8](https://github.com/decidim/decidim/tree/v0.6.8) (2017-10-17)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.7...v0.6.8)
 
