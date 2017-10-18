@@ -42,5 +42,8 @@ ru:
             created_at: 'Создано:'
             name: Имя
           name: Организация
+      organizations:
+        index:
+          title: Организации
       titles:
         dashboard: Панель управления
