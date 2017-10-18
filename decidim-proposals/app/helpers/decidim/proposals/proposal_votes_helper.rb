@@ -48,7 +48,7 @@ module Decidim
 
       # Public: Fetches the maximum amount of votes per proposal.
       #
-      # Returns an integer with the maximum amount of votes, false otherwise.
+      # Returns an Integer with the maximum amount of votes, nil otherwise.
       def maximum_votes_per_proposal
         return nil unless feature_settings.maximum_votes_per_proposal.positive?
         feature_settings.maximum_votes_per_proposal

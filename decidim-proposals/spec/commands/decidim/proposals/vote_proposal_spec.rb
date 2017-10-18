@@ -14,6 +14,12 @@ module Decidim
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
           end
+
+          it "creates a new vote for the proposal" do
+            expect do
+              command.call
+            end.to change { ProposalVote.count }.by(1)
+          end
         end
 
         context "when the vote is not valid" do
@@ -29,22 +35,6 @@ module Decidim
             expect do
               command.call
             end.to change { ProposalVote.count }.by(0)
-          end
-        end
-
-        context "when the vote is valid" do
-          before do
-            allow_any_instance_of(ProposalVote).to receive(:valid?).and_return(true)
-          end
-
-          it "broadcasts ok" do
-            expect { command.call }.to broadcast(:ok)
-          end
-
-          it "creates a new vote for the proposal" do
-            expect do
-              command.call
-            end.to change { ProposalVote.count }.by(1)
           end
         end
 
