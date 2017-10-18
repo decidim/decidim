@@ -10,6 +10,7 @@ ru:
         description: Описание
         end_time: Время завершения
         location: Место
+        location_hints: Как добраться
         start_time: Время начала
         title: Название
   decidim:
@@ -51,6 +52,7 @@ ru:
             title: Встречи
           new:
             create: Создать
+            title: Создать встречу
         models:
           meeting:
             name: Встреча
@@ -68,6 +70,7 @@ ru:
           category: Категория
           date: Дата
           past: Прошедшие
+          scope_prompt: Выбрать охват
           scopes: Охваты
           search: Искать
           upcoming: Предстоящие
@@ -82,9 +85,15 @@ ru:
           cancel: Отменить
           confirm: Подтвердить
         show:
+          attendees: Количество участников
           going: Собирается посетить
           join: Присоединиться к встрече
           meeting_report: Отчет о встрече
+          remaining_slots:
+            one: Осталось 1 место
+            few: "Осталось %{count} места"
+            many: "Осталось %{count} мест"
+            other: "Осталось %{count} мест"
       models:
         meeting:
           fields:
@@ -96,6 +105,7 @@ ru:
       read_more: "(читать подробнее)"
     resource_links:
       meetings_through_proposals:
+        meeting_results: 'Подобные итоги:'
         result_meetings: 'Подобные встречи:'
       proposals_from_meeting:
         proposal_meetings: 'Подобные встречи:'
