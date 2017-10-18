@@ -16,6 +16,7 @@ ru:
           global:
             announcement: Объявление
           step:
+            allow_answers: Разрешить ответы
             announcement: Объявление
     surveys:
       admin:
@@ -24,6 +25,7 @@ ru:
             description: Описание
         surveys:
           answer_option:
+            answer_option: Вариант ответа
             statement: Высказывание
           edit:
             save: Сохранить
@@ -36,6 +38,9 @@ ru:
       question_types:
         long_answer: Длинный ответ
         short_answer: Краткий ответ
+        single_option: Единственный вариант
       surveys:
         show:
           submit: Отправить
+          survey_closed:
+            title: Опрос закрыт
