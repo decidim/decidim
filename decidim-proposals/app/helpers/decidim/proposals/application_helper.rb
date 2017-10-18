@@ -54,6 +54,26 @@ module Decidim
           "secondary"
         end
       end
+
+      def proposal_limit_enabled?
+        !proposal_limit.blank?
+      end
+
+      def proposal_limit
+        return if feature_settings.proposal_limit.zero?
+
+        feature_settings.proposal_limit
+      end
+
+      def current_user_proposals
+        Proposal.where(feature: current_feature, author: current_user)
+      end
+
+      def proposal_limit_reached?
+        return false unless proposal_limit
+
+        current_user_proposals.count >= proposal_limit
+      end
     end
   end
 end

@@ -27,6 +27,7 @@ en:
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
+            proposal_limit: Proposal limit per user
             vote_limit: Vote limit per user
           step:
             announcement: Announcement
@@ -166,6 +167,8 @@ en:
             description: You can vote up to %{limit} proposals.
             left: Remaining
             votes: Votes
+          proposal_limit:
+            description: You can create up to %{limit} proposals.
     resource_links:
       included_proposals:
         proposal_projects: 'Proposal appearing in these projects:'
