@@ -2,6 +2,7 @@ ru:
   activemodel:
     attributes:
       close_meeting:
+        attendees_count: Количество участников
         closing_report: Отчет
       meeting:
         address: Адрес
@@ -48,6 +49,8 @@ ru:
             close: Закрыть
             title: Закрыть встречу
         meetings:
+          destroy:
+            success: Встреча успешно удалена
           edit:
             update: Обновить
           index:
@@ -55,6 +58,8 @@ ru:
           new:
             create: Создать
             title: Создать встречу
+          update:
+            success: Встреча успешно обновлена
         models:
           meeting:
             name: Встреча
@@ -89,9 +94,11 @@ ru:
           confirm: Подтвердить
         show:
           attendees: Количество участников
+          contributions: Количество внесенных предложений
           going: Собирается посетить
           join: Присоединиться к встрече
           meeting_report: Отчет о встрече
+          no_slots_available: Не осталось мест
           remaining_slots:
             one: Осталось 1 место
             few: "Осталось %{count} места"
@@ -111,6 +118,7 @@ ru:
         meeting_results: 'Подобные итоги:'
         result_meetings: 'Подобные встречи:'
       proposals_from_meeting:
+        meeting_proposals: 'Подобные предложения:'
         proposal_meetings: 'Подобные встречи:'
   devise:
     mailer:
