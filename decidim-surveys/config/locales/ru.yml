@@ -12,22 +12,48 @@ ru:
         actions:
           answer: Ответить
         name: Опрос
+        settings:
+          global:
+            announcement: Объявление
+          step:
+            allow_answers: Разрешить ответы
+            announcement: Объявление
     surveys:
       admin:
+        exports:
+          survey_user_answers: Ответы участников на опрос
         models:
           components:
             description: Описание
+            tos: Условия использования
         surveys:
           answer_option:
+            answer_option: Вариант ответа
+            remove_answer_option: Удалить вариант ответа
             statement: Высказывание
           edit:
             save: Сохранить
             title: Название
+          form:
+            add_question: Добавить вопрос
           question:
+            add_answer_option: Добавить вариант ответа
             question: Вопрос
+            remove_question: Удалить вопрос
             statement: Высказывание
       question_types:
         long_answer: Длинный ответ
+        multiple_option: Несколько вариантов
+        short_answer: Краткий ответ
+        single_option: Единственный вариант
       surveys:
+        answer:
+          success: Опрос успешно пройден.
         show:
+          answer_survey:
+            title: Пройдите опрос
           submit: Отправить
+          survey_answered:
+            title: Опрос пройден
+          survey_closed:
+            title: Опрос закрыт
