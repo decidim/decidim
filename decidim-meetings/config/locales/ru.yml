@@ -43,6 +43,7 @@ ru:
         meeting_closes:
           edit:
             close: Закрыть
+            title: Закрыть встречу
         meetings:
           edit:
             update: Обновить
