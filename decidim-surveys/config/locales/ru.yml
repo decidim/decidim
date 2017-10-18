@@ -12,6 +12,11 @@ ru:
         actions:
           answer: Ответить
         name: Опрос
+        settings:
+          global:
+            announcement: Объявление
+          step:
+            announcement: Объявление
     surveys:
       admin:
         models:
@@ -23,11 +28,14 @@ ru:
           edit:
             save: Сохранить
             title: Название
+          form:
+            add_question: Добавить вопрос
           question:
             question: Вопрос
             statement: Высказывание
       question_types:
         long_answer: Длинный ответ
+        short_answer: Краткий ответ
       surveys:
         show:
           submit: Отправить
