@@ -6,6 +6,7 @@ ru:
         decidim_category_id: Категория
         decidim_scope_id: Охват
         description: Описание
+        proposal_ids: Подобные предложения
         title: Название
   decidim:
     budgets:
@@ -25,6 +26,7 @@ ru:
             title: Редактировать проект
             update: Обновить
           index:
+            pending_orders: Текущие голосования
             title: Проекты
           new:
             create: Создать
@@ -76,6 +78,7 @@ ru:
           added: Добавлено
         show:
           budget: Бюджет
+          view_all_projects: Просмотреть все проекты
     features:
       budgets:
         actions:
