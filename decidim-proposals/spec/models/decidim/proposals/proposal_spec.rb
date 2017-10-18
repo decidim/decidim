@@ -81,22 +81,11 @@ module Decidim
       end
 
       describe "#maximum_votes" do
-        before do
-          feature[:settings]["global"] = { maximum_votes: 10 }
-          feature.save!
-        end
-
-        it "returns the maximum amount of votes for this proposal" do
-          expect(proposal.maximum_votes).to eq(10)
-        end
-      end
-
-      describe "#maximum_votes" do
         let(:maximum_votes) { 10 }
 
         context "when the feature's settings are set to an integer bigger than 0" do
           before do
-            feature[:settings]["global"] = { maximum_votes: 10 }
+            feature[:settings]["global"] = { maximum_votes_per_proposal: 10 }
             feature.save!
           end
 
@@ -107,7 +96,7 @@ module Decidim
 
         context "when the feature's settings are set to 0" do
           before do
-            feature[:settings]["global"] = { maximum_votes: 0 }
+            feature[:settings]["global"] = { maximum_votes_per_proposal: 0 }
             feature.save!
           end
 
