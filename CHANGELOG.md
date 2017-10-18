@@ -11,6 +11,7 @@
 - **decidim-core**: Hides the "Mark all as read" notifications button when no notifications are found [\#1948](https://github.com/decidim/decidim/pull/1948)
 - **decidim-meetings**: Participatory admins can invite users to join a meeting. [\#1879](https://github.com/decidim/decidim/pull/1879)
 - **decidim-proposals**: Show votes in the proposals table in admin when votes are enabled [\#2011](https://github.com/decidim/decidim/pull/2011)
+- **decidim-proposals**: Allow setting the maximum amount of votes a proposal can receive [\#2054](https://github.com/decidim/decidim/pull/2054).
 
 **Changed**
 
