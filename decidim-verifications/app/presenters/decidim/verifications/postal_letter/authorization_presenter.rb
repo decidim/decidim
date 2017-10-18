@@ -23,6 +23,18 @@ module Decidim
         def letter_sent?
           verification_metadata["verification_code"].present?
         end
+
+        def letter_sent_at
+          unless letter_sent?
+            return I18n.t("pending_authorizations.index.not_yet_sent",
+                          scope: "decidim.verifications.postal_letter.admin")
+          end
+
+          I18n.l(
+            Time.zone.parse(verification_metadata["letter_sent_at"]),
+            format: :short
+          )
+        end
       end
     end
   end

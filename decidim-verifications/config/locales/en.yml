@@ -64,9 +64,16 @@ en:
           pending_authorizations:
             index:
               address: Address
+              letter_sent_at: Letter sent at
+              mark_as_sent: Mark as sent
+              not_yet_sent: Not yet sent
               title: Pending letters to be sent
               username: Username
               verification_code: Verification code
+          postages:
+            create:
+              error: Error marking letter as sent
+              success: Letter successfully marked as sent
         authorizations:
           create:
             error: There was a problem with your request

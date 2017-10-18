@@ -9,7 +9,9 @@ module Decidim
         isolate_namespace Decidim::Verifications::PostalLetter::Admin
 
         routes do
-          resources :pending_authorizations, only: :index
+          resources :pending_authorizations, only: :index do
+            resource :postages, only: :create, as: :postage
+          end
 
           root to: "pending_authorizations#index"
         end

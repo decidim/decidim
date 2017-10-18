@@ -11,6 +11,8 @@
           <th><%= t(".username") %></th>
           <th><%= t(".address") %></th>
           <th><%= t(".verification_code") %></th>
+          <th><%= t(".letter_sent_at") %></th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -24,6 +26,21 @@
             </td>
             <td>
               <%= authorization.verification_code %>
+            </td>
+            <td>
+              <%= authorization.letter_sent_at %>
+            </td>
+            <td>
+              <% if authorization.letter_sent? %>
+                <%= icon "circle-check",
+                         class: "action-icon action-icon--disabled" %>
+              <% else %>
+                <%= icon_link_to "circle-check",
+                                 pending_authorization_postage_path(authorization.id),
+                                 t(".mark_as_sent"),
+                                 method: :post,
+                                 class: "action-icon--verify" %>
+              <% end %>
             </td>
           </tr>
         <% end %>

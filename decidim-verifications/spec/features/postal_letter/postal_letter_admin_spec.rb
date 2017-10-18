@@ -26,7 +26,10 @@ describe "Postal letter management", type: :feature do
       :authorization,
       :pending,
       name: "postal_letter",
-      verification_metadata: { verification_code: "123456" }
+      verification_metadata: {
+        verification_code: "123456",
+        letter_sent_at: 1.day.ago
+      }
     )
   end
 
@@ -49,6 +52,19 @@ describe "Postal letter management", type: :feature do
         expect(page).to have_selector("td", text: letter_sent.verification_metadata["verification_code"])
         expect(page).to have_selector("td", text: letter_sent.verification_metadata["address"])
       end
+    end
+  end
+
+  it "marks letters as sent" do
+    within "table tbody tr", text: letter_not_sent.user.name do
+      find("a.action-icon--verify").click
+    end
+
+    expect(page).to have_content("Letter successfully marked as sent")
+
+    within "table tbody tr", text: letter_not_sent.user.name do
+      expect(page).not_to have_selector("td a.action-icon--verify")
+      expect(page).to have_selector("td", text: /\d+ \w+ \d+:\d+/)
     end
   end
 end
