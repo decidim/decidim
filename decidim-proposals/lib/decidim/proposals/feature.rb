@@ -17,6 +17,7 @@ Decidim.register_feature(:proposals) do |feature|
 
   feature.settings(:global) do |settings|
     settings.attribute :vote_limit, type: :integer, default: 0
+    settings.attribute :maximum_votes_per_proposal, type: :integer, default: 0
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
     settings.attribute :official_proposals_enabled, type: :boolean, default: true
     settings.attribute :comments_enabled, type: :boolean, default: true

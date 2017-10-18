@@ -6,7 +6,7 @@ module Decidim
   module Proposals
     describe ProposalVotesHelper do
       let(:organization) { create(:organization) }
-      let(:vote_limit) { 10 }
+      let(:limit) { 10 }
       let(:votes_enabled) { true }
       let(:proposal_feature) { create(:proposal_feature, organization: organization) }
       let(:user) { create(:user, organization: organization) }
@@ -14,8 +14,8 @@ module Decidim
       before do
         allow(helper).to receive(:current_user).and_return(user)
         allow(helper).to receive(:current_feature).and_return(proposal_feature)
-        allow(helper).to receive(:feature_settings).and_return(double(vote_limit: vote_limit))
         allow(helper).to receive(:current_settings).and_return(double(votes_enabled?: votes_enabled))
+        allow(helper).to receive(:feature_settings).and_return(double(vote_limit: limit))
       end
 
       describe "#vote_button_classes" do
@@ -39,33 +39,8 @@ module Decidim
       end
 
       describe "#vote_limit_enabled?" do
-        context "when the current_user is not present" do
-          let(:user) { nil }
-
-          it "returns false" do
-            expect(helper).to receive(:current_user).and_return(nil)
-            expect(helper.vote_limit_enabled?).to be_falsy
-          end
-        end
-
-        context "when the step_settings votes_enabled is false" do
-          let(:votes_enabled) { false }
-
-          it "returns false" do
-            expect(helper.vote_limit_enabled?).to be_falsy
-          end
-        end
-
-        context "when the current_settings vote_limit is not present" do
-          let(:vote_limit) { nil }
-
-          it "returns false" do
-            expect(helper.vote_limit_enabled?).to be_falsy
-          end
-        end
-
         context "when the current_settings vote_limit is less or equal 0" do
-          let(:vote_limit) { 0 }
+          let(:limit) { 0 }
 
           it "returns false" do
             expect(helper.vote_limit_enabled?).to be_falsy

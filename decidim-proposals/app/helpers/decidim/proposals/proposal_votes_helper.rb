@@ -24,11 +24,41 @@ module Decidim
         "expanded button--sc"
       end
 
+      # Public: Gets the vote limit for each user, if set.
+      #
+      # Returns an Integer if set, nil otherwise.
+      def vote_limit
+        return nil if feature_settings.vote_limit.zero?
+        feature_settings.vote_limit
+      end
+
       # Check if the vote limit is enabled for the current feature
       #
       # Returns true if the vote limit is enabled
       def vote_limit_enabled?
-        current_user && current_settings.votes_enabled? && feature_settings.vote_limit.present? && feature_settings.vote_limit.positive?
+        vote_limit.present?
+      end
+
+      # Public: Checks if maximum votes per proposal are set.
+      #
+      # Returns true if set, false otherwise.
+      def maximum_votes_per_proposal_enabled?
+        maximum_votes_per_proposal.present?
+      end
+
+      # Public: Fetches the maximum amount of votes per proposal.
+      #
+      # Returns an Integer with the maximum amount of votes, nil otherwise.
+      def maximum_votes_per_proposal
+        return nil unless feature_settings.maximum_votes_per_proposal.positive?
+        feature_settings.maximum_votes_per_proposal
+      end
+
+      # Public: Checks if voting is enabled in this step.
+      #
+      # Returns true if enabled, false otherwise.
+      def votes_enabled?
+        current_settings.votes_enabled
       end
 
       # Return the remaining votes for a user if the current feature has a vote limit

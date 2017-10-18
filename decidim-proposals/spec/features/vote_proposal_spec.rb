@@ -245,5 +245,45 @@ describe "Vote Proposal", type: :feature do
         expect(page).not_to have_selector("#proposal-#{rejected_proposal.id}-vote-button")
       end
     end
+
+    context "when proposals have a voting limit" do
+      let!(:feature) do
+        create(:proposal_feature,
+               :with_votes_enabled,
+               :with_maximum_votes_per_proposal,
+               manifest: manifest,
+               participatory_space: participatory_process)
+      end
+
+      before do
+        login_as user, scope: :user
+      end
+
+      it "doesn't allow users to vote to a proposal that's reached the limit" do
+        create(:proposal_vote, proposal: proposal)
+        visit_feature
+
+        proposal_element = page.find("article", text: proposal.reference)
+
+        within proposal_element do
+          within ".card__support", match: :first do
+            expect(page).to have_content("Vote limit reached")
+          end
+        end
+      end
+
+      it "allows users to vote on proposals under the limit" do
+        visit_feature
+
+        proposal_element = page.find("article", text: proposal.reference)
+
+        within proposal_element do
+          within ".card__support", match: :first do
+            click_button "Vote"
+            expect(page).to have_content("Already voted")
+          end
+        end
+      end
+    end
   end
 end

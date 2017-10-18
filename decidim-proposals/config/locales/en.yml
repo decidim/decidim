@@ -23,10 +23,11 @@ en:
             attachments_allowed: Allow attachments
             comments_enabled: Comments enabled
             geocoding_enabled: Geocoding enabled
+            maximum_votes_per_proposal: Maximum votes per proposal
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
-            vote_limit: Vote limit
+            vote_limit: Vote limit per user
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
@@ -149,6 +150,7 @@ en:
           report: Report
         vote_button:
           already_voted: Already voted
+          maximum_votes_reached: Vote limit reached
           no_votes_remaining: No votes remaining
           vote: Vote
           votes_blocked: Voting disabled
@@ -156,11 +158,13 @@ en:
           count:
             one: VOTE
             other: VOTES
-        votes_limit:
+        voting_rules:
+          maximum_votes_per_proposal:
+            description: Each proposal can receive a maximum of %{limit} votes.
+          title: 'Voting is subject to the following rules:'
           vote_limit:
             description: You can vote up to %{limit} proposals.
             left: Remaining
-            title: You have %{limit} votes to distribute
             votes: Votes
     resource_links:
       included_proposals:

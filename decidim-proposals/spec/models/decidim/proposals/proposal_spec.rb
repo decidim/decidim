@@ -6,6 +6,8 @@ module Decidim
   module Proposals
     describe Proposal do
       let(:proposal) { build(:proposal) }
+      let(:feature) { proposal.feature }
+
       subject { proposal }
 
       include_examples "authorable"
@@ -74,6 +76,32 @@ module Decidim
         context "when the proposal is not official" do
           it "returns the followers" do
             expect(subject.users_to_notify_on_comment_created).to match_array(followers)
+          end
+        end
+      end
+
+      describe "#maximum_votes" do
+        let(:maximum_votes) { 10 }
+
+        context "when the feature's settings are set to an integer bigger than 0" do
+          before do
+            feature[:settings]["global"] = { maximum_votes_per_proposal: 10 }
+            feature.save!
+          end
+
+          it "returns the maximum amount of votes for this proposal" do
+            expect(proposal.maximum_votes).to eq(10)
+          end
+        end
+
+        context "when the feature's settings are set to 0" do
+          before do
+            feature[:settings]["global"] = { maximum_votes_per_proposal: 0 }
+            feature.save!
+          end
+
+          it "returns nil" do
+            expect(proposal.maximum_votes).to be_nil
           end
         end
       end

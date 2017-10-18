@@ -10,7 +10,19 @@ module Decidim
         let(:current_user) { create(:user, organization: proposal.feature.organization) }
         let(:command) { described_class.new(proposal, current_user) }
 
-        describe "when the vote is not valid" do
+        context "in normal conditions" do
+          it "broadcasts ok" do
+            expect { command.call }.to broadcast(:ok)
+          end
+
+          it "creates a new vote for the proposal" do
+            expect do
+              command.call
+            end.to change { ProposalVote.count }.by(1)
+          end
+        end
+
+        context "when the vote is not valid" do
           before do
             allow_any_instance_of(ProposalVote).to receive(:valid?).and_return(false)
           end
@@ -26,19 +38,13 @@ module Decidim
           end
         end
 
-        describe "when the vote is valid" do
+        context "when the maximum votes have been reached" do
           before do
-            allow_any_instance_of(ProposalVote).to receive(:valid?).and_return(true)
+            expect(proposal).to receive(:maximum_votes_reached?).and_return(true)
           end
 
-          it "broadcasts ok" do
-            expect { command.call }.to broadcast(:ok)
-          end
-
-          it "creates a new vote for the proposal" do
-            expect do
-              command.call
-            end.to change { ProposalVote.count }.by(1)
+          it "broadcasts invalid" do
+            expect { command.call }.to broadcast(:invalid)
           end
         end
       end
