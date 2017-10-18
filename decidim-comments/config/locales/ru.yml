@@ -5,25 +5,39 @@ ru:
         form:
           body:
             label: Комментарий
+            placeholder: Что вы думаете об этом?
           submit: Отправить
           user_group_id:
             label: Комментировать как
         opinion:
           neutral: Безучастно
+        title: Добавьте свой комментарий
       comment:
         alignment:
           against: Против
           in_favor: В поддержку
+        deleted_user: Удаленный пользователь
         reply: Ответить
         report:
           action: Пожаловаться
           already_reported: На это содержимое уже пожаловались, и жалобу рассмотрит администратор.
           close: Закрыть
+          description: Это сообщение неприемлемо?
           details: Дополнительные комментарии
           title: Пожаловаться на проблему
+        verified_user_group: Проверенная организация
       comment_order_selector:
         order:
           best_rated: С наивысшим рейтингом
+          most_discussed: Самые обсуждаемые
           older: Старые
           recent: Недавние
         title: 'Упорядочить по:'
+      comments:
+        loading: Загрузка комментариев ...
+        title: "%{count} комментариев"
+      featured_comment:
+        title: Избранный комментарий
+  errors:
+    messages:
+      cannot_have_comments: не подлежит комментированию
