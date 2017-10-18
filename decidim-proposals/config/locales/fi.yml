@@ -22,10 +22,11 @@ fi:
             attachments_allowed: Salli liitteet
             comments_enabled: Kommentointi sallittu
             geocoding_enabled: Geokoodaus päällä
+            maximum_votes_per_proposal: Suurin äänimäärä ehdotusta kohden
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
             official_proposals_enabled: Viralliset ehdotukset sallittu
             proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
-            vote_limit: Äänestysrajoite
+            vote_limit: Äänestysraja käyttäjää kohden
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
@@ -148,6 +149,7 @@ fi:
           report: Ilmoita
         vote_button:
           already_voted: Jo äänestetty
+          maximum_votes_reached: Äänestysraja saavutettu
           no_votes_remaining: Ei ääniä jäljellä
           vote: Äänestä
           votes_blocked: Äänestys estetty
@@ -155,11 +157,13 @@ fi:
           count:
             one: ÄÄNI
             other: ÄÄNTÄ
-        votes_limit:
+        voting_rules:
+          maximum_votes_per_proposal:
+            description: Jokainen ehdotus saa enintään %{limit} ääntä.
+          title: 'Äänestykseen sovelletaan seuraavia sääntöjä:'
           vote_limit:
             description: Voit äänestää enintään %{limit} ehdotusta.
             left: Jäljellä
-            title: Sinulla on %{limit} ääntä käytettävänäsi
             votes: Äänet
     resource_links:
       included_proposals:
