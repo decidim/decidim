@@ -25,7 +25,6 @@ it:
             new_proposal_help_text: Nuovo testo di aiuto per la proposta
             official_proposals_enabled: Proposte ufficiali abilitate
             proposal_answering_enabled: Risposta Proposte abilitata
-            vote_limit: Numero max di proposte votabili
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
@@ -155,12 +154,6 @@ it:
           count:
             one: VOTO
             other: VOTI
-        votes_limit:
-          vote_limit:
-            description: Puoi votare fino a %{limit} proposte.
-            left: Restano
-            title: Hai ancora %{limit} voti
-            votes: Voti
     resource_links:
       included_proposals:
         proposal_projects: 'Le proposte compaiono nei seguenti progetti:'
