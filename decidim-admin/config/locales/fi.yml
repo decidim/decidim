@@ -20,6 +20,8 @@ fi:
         name: Nimi
         reference_prefix: Viitteen etuliite
       organization_appearance:
+        cta_button_path: Call To Action -painikkeen polku
+        cta_button_text: Call To Action -painikkeen teksti
         description: Kuvaus
         favicon: Ikoni
         header_snippets: Yläosiot
@@ -329,6 +331,7 @@ fi:
         edit:
           update: Päivitä
         form:
+          cta_button_path_help: 'Voit ohittaa, missä kotisivun Call To Action -painike linkittää. Käytä osittaisia ​​polkuja, ei täysiä URL-osoitteita. Puhelutoiminto -painike näkyy kotisivulla tervetullut tekstin ja kuvauksen välillä. Esimerkki: %{url}'
           header_snippets_help: Käytä tätä kenttää lisätäksesi HTML-koodia sivun alkuun. Yleisin käyttötarve on sellaisten kolmannen osapuolen palveluiden integrointi, jotka vaativat JavaScript- tai CSS-koodin lisäystä sivun HTML-koodiin. Huomioi, että tämä lisätään ainoastaan julkisille sivuille, ei hallinnointisivuille.
           homepage_appearance_title: Muokkaa kotisivua
           layout_appearance_title: Muokkaa ulkoasun ulkoasua
