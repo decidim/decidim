@@ -23,6 +23,7 @@ ru:
         models:
           components:
             description: Описание
+            tos: Условия использования
         surveys:
           answer_option:
             answer_option: Вариант ответа
@@ -34,13 +35,17 @@ ru:
             add_question: Добавить вопрос
           question:
             question: Вопрос
+            remove_question: Удалить вопрос
             statement: Высказывание
       question_types:
         long_answer: Длинный ответ
+        multiple_option: Несколько вариантов
         short_answer: Краткий ответ
         single_option: Единственный вариант
       surveys:
         show:
           submit: Отправить
+          survey_answered:
+            title: Опрос пройден
           survey_closed:
             title: Опрос закрыт
