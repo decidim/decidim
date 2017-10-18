@@ -39,15 +39,24 @@ module Decidim
         vote_limit.present?
       end
 
+      # Public: Checks if maximum votes per proposal are set.
+      #
+      # Returns true if set, false otherwise.
       def maximum_votes_per_proposal_enabled?
         maximum_votes_per_proposal.present?
       end
 
+      # Public: Fetches the maximum amount of votes per proposal.
+      #
+      # Returns an integer with the maximum amount of votes, false otherwise.
       def maximum_votes_per_proposal
         return nil unless feature_settings.maximum_votes_per_proposal.positive?
         feature_settings.maximum_votes_per_proposal
       end
 
+      # Public: Checks if voting is enabled in this step.
+      #
+      # Returns true if enabled, false otherwise.
       def votes_enabled?
         current_settings.votes_enabled
       end
