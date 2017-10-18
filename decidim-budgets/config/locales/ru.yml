@@ -22,6 +22,7 @@ ru:
             name: Проект
         projects:
           edit:
+            title: Редактировать проект
             update: Обновить
           index:
             title: Проекты
@@ -36,6 +37,7 @@ ru:
         budget_confirm:
           cancel: Отменить
           confirm: Подтвердить
+          title: Подтвердить голос
         budget_excess:
           close: Закрыть
           ok: Хорошо
@@ -80,7 +82,12 @@ ru:
           vote: Голосовать
         name: Бюджеты
         settings:
+          global:
+            announcement: Объявление
+            total_budget: Общий бюджет
           step:
+            announcement: Объявление
             show_votes: Показать голоса
   index:
     confirmed_orders_count: Количество голосов
+  total_budget: Общий бюджет
