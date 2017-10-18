@@ -21,6 +21,8 @@ ru:
             vote_limit: Предельное количество голосов
           step:
             announcement: Объявление
+            votes_blocked: Голосование выключено
+            votes_enabled: Голосование включено
     proposals:
       actions:
         answer: Ответить
@@ -91,6 +93,7 @@ ru:
           unfold: Развернуть
         index:
           new_proposal: Новое предложение
+          view_proposal: Просмотреть предложение
         new:
           back: Вернуться
           send: Отправить
@@ -99,9 +102,12 @@ ru:
           most_voted: С наибольшим количеством голосов
           random: Произвольно
           recent: Недавние
+        proposal:
+          view_proposal: Просмотреть предложение
         show:
           report: Пожаловаться
         vote_button:
+          already_voted: Уже проголосовали
           vote: Голосовать
         votes_count:
           count:
