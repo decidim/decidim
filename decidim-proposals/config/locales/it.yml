@@ -22,9 +22,11 @@ it:
             attachments_allowed: Consenti gli allegati
             comments_enabled: Commenti abilitati
             geocoding_enabled: Geocoding abilitato
+            maximum_votes_per_proposal: Numero massimo di voti per proposta
             new_proposal_help_text: Nuovo testo di aiuto per la proposta
             official_proposals_enabled: Proposte ufficiali abilitate
             proposal_answering_enabled: Risposta Proposte abilitata
+            vote_limit: Limite di voto per utente
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
@@ -147,6 +149,7 @@ it:
           report: Report
         vote_button:
           already_voted: Già votata
+          maximum_votes_reached: Il limite di voto raggiunto
           no_votes_remaining: Sono finite le votazioni possibili
           vote: Vota
           votes_blocked: Votazioni disabilitate
@@ -154,6 +157,14 @@ it:
           count:
             one: VOTO
             other: VOTI
+        voting_rules:
+          maximum_votes_per_proposal:
+            description: Ogni proposta può ricevere un massimo di %{limit} voti.
+          title: 'Il voto è soggetto alle seguenti regole:'
+          vote_limit:
+            description: Puoi votare fino a %{limit} proposte.
+            left: Restano
+            votes: Voti
     resource_links:
       included_proposals:
         proposal_projects: 'Le proposte compaiono nei seguenti progetti:'
