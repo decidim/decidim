@@ -4,3 +4,6 @@ ru:
       admin:
         exports:
           dummies: Нерабочие псевдо-части
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Связанный нерабочий псевдо-ресурс
