@@ -158,6 +158,9 @@ es:
             one: APOYO
             other: APOYOS
         voting_rules:
+          maximum_votes_per_proposal:
+            description: Cada propuesta puede recibir un máximo de %{limit} votos.
+          title: 'La votación está sujeta a las siguientes reglas:'
           vote_limit:
             description: Puedes votar hasta %{limit} propuestas.
             left: Restante
