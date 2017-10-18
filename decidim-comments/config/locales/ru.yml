@@ -22,8 +22,10 @@ ru:
           action: Пожаловаться
           already_reported: На это содержимое уже пожаловались, и жалобу рассмотрит администратор.
           close: Закрыть
+          description: Это сообщение неприемлемо?
           details: Дополнительные комментарии
           title: Пожаловаться на проблему
+        verified_user_group: Проверенная организация
       comment_order_selector:
         order:
           best_rated: С наивысшим рейтингом
