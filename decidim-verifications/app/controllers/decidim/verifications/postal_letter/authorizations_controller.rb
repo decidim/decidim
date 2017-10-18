@@ -19,7 +19,7 @@ module Decidim
 
           @form = AddressForm.from_params(params.merge(user: current_user))
 
-          PartiallyAuthorizeUser.call(@form) do
+          PerformAuthorizationStep.call(@authorization, @form) do
             on(:ok) do
               flash[:notice] = t("authorizations.create.success", scope: "decidim.verifications.postal_letter")
               redirect_to edit_authorization_path

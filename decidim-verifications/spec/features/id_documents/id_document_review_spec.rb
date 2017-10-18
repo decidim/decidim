@@ -47,6 +47,35 @@ describe "Identity document review", type: :feature do
     expect(page).to have_content("Introduce the data in the picture")
   end
 
+  context "when rejected" do
+    before { click_link "Reject" }
+
+    it "dismisses the verification from the list" do
+      expect(page).to have_content("Verification rejected. User will be prompted to amend her documents")
+      expect(page).to have_no_content("Verification #")
+    end
+
+    context "and the user logs back in" do
+      before do
+        relogin_as user, scope: :user
+        visit decidim.authorizations_path
+        click_link "Identity documents"
+      end
+
+      it "allows the user to change the uploaded documents" do
+        expect(page).to have_selector("form", text: "Request verification again")
+        submit_reupload_form(doc_type: "NIE", doc_number: "XXXXXXXX", file_name: "id.jpg")
+        expect(page).to have_content("Document reuploaded successfully")
+      end
+
+      it "shows an informative message to the user" do
+        expect(page).to have_content("There was a problem with your verification. Please try again")
+        expect(page).to have_content("Make sure the information entered is correct")
+        expect(page).to have_content("Make sure the information is clearly visible in the uploaded image")
+      end
+    end
+  end
+
   private
 
   def submit_verification_form(doc_type:, doc_number:)
@@ -54,5 +83,13 @@ describe "Identity document review", type: :feature do
     fill_in "Document number (with letter)", with: doc_number
 
     click_button "Verify"
+  end
+
+  def submit_reupload_form(doc_type:, doc_number:, file_name:)
+    select doc_type, from: "Type of your document"
+    fill_in "Document number (with letter)", with: doc_number
+    attach_file "Scanned copy of your document", Decidim::Dev.asset(file_name)
+
+    click_button "Request verification again"
   end
 end

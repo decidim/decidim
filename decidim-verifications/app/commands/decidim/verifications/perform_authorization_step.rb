@@ -3,11 +3,13 @@
 module Decidim
   module Verifications
     # A command to create a partial authorization for a user.
-    class PartiallyAuthorizeUser < Rectify::Command
+    class PerformAuthorizationStep < Rectify::Command
       # Public: Initializes the command.
       #
+      # authorization - An Authorization object.
       # handler - An AuthorizationHandler object.
-      def initialize(handler)
+      def initialize(authorization, handler)
+        @authorization = authorization
         @handler = handler
       end
 
@@ -20,19 +22,14 @@ module Decidim
       def call
         return broadcast(:invalid) unless handler.valid?
 
-        create_partial_authorization
+        update_verification_data
 
         broadcast(:ok)
       end
 
       protected
 
-      def create_partial_authorization
-        authorization = Authorization.find_or_initialize_by(
-          user: handler.user,
-          name: handler.handler_name
-        )
-
+      def update_verification_data
         authorization.attributes = {
           unique_id: handler.unique_id,
           metadata: handler.metadata,
@@ -45,7 +42,7 @@ module Decidim
 
       private
 
-      attr_reader :handler
+      attr_reader :authorization, :handler
     end
   end
 end

@@ -1,19 +1,53 @@
 <div class="wrapper">
-  <div class="row collapse">
-    <div class="row collapse">
-      <div class="columns large-8 large-centered text-center page-title">
-        <h1><%= t(".title") %></h1>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="columns large-6 medium-centered">
-        <div class="card">
-          <div class="card__content">
-            <h1><%= t(".being_reviewed") %></h1>
-          </div>
+  <div class="row column">
+    <div class="callout announcement <%= authorization.rejected? ? 'alert' : 'secondary' %>">
+      <div class="row">
+        <div class="columns medium-8 large-9">
+          <% if authorization.rejected? %>
+            <h3 class="heading3"><%= t(".rejection_notice") %></h3>
+            <ul>
+              <li><%= t(".rejection_correctness") %></li>
+              <li><%= t(".rejection_clarity") %></li>
+            </ul>
+          <% else %>
+            <h3><%= t(".being_reviewed") %></h3>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
+
+  <% if authorization.rejected? %>
+    <div class="row">
+      <div class="columns large-6 medium-centered">
+        <div class="row column">
+          <div class="card">
+            <div class="card__content">
+              <%= decidim_form_for(@form, url: authorization_path, method: :put) do |form| %>
+              <div class="card-section">
+                <div class="field">
+                  <%= form.select :document_type, @form.document_types_for_select, prompt: true %>
+                </div>
+
+                <div class="field">
+                  <%= form.text_field :document_number %>
+                </div>
+
+                <div class="field">
+                  <%= form.upload :verification_attachment, optional: false %>
+                </div>
+              </div>
+
+              <div class="card-section">
+                <div class="actions">
+                  <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

@@ -24,6 +24,11 @@ module Decidim
           "id_documents"
         end
 
+        def map_model(model)
+          self.document_type = model.verification_metadata["document_type"]
+          self.document_number = model.verification_metadata["document_number"]
+        end
+
         def verification_metadata
           {
             "document_type" => document_type,

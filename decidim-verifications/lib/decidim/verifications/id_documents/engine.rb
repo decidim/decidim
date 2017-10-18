@@ -8,7 +8,7 @@ module Decidim
         isolate_namespace Decidim::Verifications::IdDocuments
 
         routes do
-          resource :authorizations, only: [:new, :create, :edit], as: :authorization
+          resource :authorizations, only: [:new, :create, :edit, :update], as: :authorization
 
           root to: "authorizations#new"
         end

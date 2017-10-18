@@ -10,8 +10,16 @@ module Decidim
           def index
             authorize! :index, Authorization
 
-            @pending_authorizations =
-              Authorizations.new(name: "id_documents", granted: false)
+            @pending_authorizations = pending_authorizations
+          end
+
+          private
+
+          def pending_authorizations
+            Authorizations
+              .new(name: "id_documents", granted: false)
+              .query
+              .where("verification_metadata->'rejected' IS NULL")
           end
         end
       end

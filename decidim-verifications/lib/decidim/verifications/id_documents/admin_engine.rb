@@ -10,6 +10,7 @@ module Decidim
         routes do
           resources :pending_authorizations, only: :index do
             resource :confirmations, only: [:new, :create], as: :confirmation
+            resource :rejections, only: :create, as: :rejection
           end
 
           root to: "pending_authorizations#index"

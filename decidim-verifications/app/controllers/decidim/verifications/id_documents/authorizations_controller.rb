@@ -7,6 +7,8 @@ module Decidim
       # Handles verification by identity document upload
       #
       class AuthorizationsController < Decidim::ApplicationController
+        helper_method :authorization
+
         before_action :load_authorization
 
         def new
@@ -20,7 +22,7 @@ module Decidim
 
           @form = UploadForm.from_params(params.merge(user: current_user))
 
-          PartiallyAuthorizeUser.call(@form) do
+          PerformAuthorizationStep.call(@authorization, @form) do
             on(:ok) do
               flash[:notice] = t("authorizations.create.success", scope: "decidim.verifications.id_documents")
               redirect_to decidim.authorizations_path
@@ -35,9 +37,33 @@ module Decidim
 
         def edit
           authorize! :update, @authorization
+
+          @form = UploadForm.from_model(@authorization)
+        end
+
+        def update
+          authorize! :update, @authorization
+
+          @form = UploadForm.from_model(@authorization)
+
+          PerformAuthorizationStep.call(@authorization, @form) do
+            on(:ok) do
+              flash[:notice] = t("authorizations.update.success", scope: "decidim.verifications.id_documents")
+              redirect_to decidim.authorizations_path
+            end
+
+            on(:invalid) do
+              flash[:alert] = t("authorizations.update.error", scope: "decidim.verifications.id_documents")
+              render action: :edit
+            end
+          end
         end
 
         private
+
+        def authorization
+          @authorization_presenter ||= AuthorizationPresenter.new(@authorization)
+        end
 
         def load_authorization
           @authorization = Decidim::Authorization.find_or_initialize_by(

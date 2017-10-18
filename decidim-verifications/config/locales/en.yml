@@ -31,21 +31,31 @@ en:
               success: User successfully verified
             new:
               introduce_user_data: Introduce the data in the picture
+              reject: Reject
               verify: Verify
           pending_authorizations:
             index:
               title: Pending verifications
               verification_number: 'Verification #%{n}'
+          rejections:
+            create:
+              success: Verification rejected. User will be prompted to amend her documents
         authorizations:
           create:
             error: There was a problem uploading your document
             success: Document uploaded successfully
           edit:
             being_reviewed: We're reviewing your documents. You'll be verified shortly
-            title: Verification in progress
+            rejection_clarity: Make sure the information is clearly visible in the uploaded image
+            rejection_correctness: Make sure the information entered is correct
+            rejection_notice: There was a problem with your verification. Please try again
+            send: Request verification again
           new:
             send: Request verification
             title: Upload your identity document
+          update:
+            error: There was a problem reuploading your document
+            success: Document reuploaded successfully
         dni: DNI
         nie: NIE
         passport: Passport

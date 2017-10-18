@@ -21,5 +21,6 @@
 
   <div class="button--double form-general-submit">
     <%= form.submit t(".verify"), class: "button" %>
+    <%= link_to t(".reject"), pending_authorization_rejection_path(@pending_authorization), method: :post, class: "button alert" %>
   </div>
 <% end %>
