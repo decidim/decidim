@@ -22,9 +22,11 @@ pl:
             attachments_allowed: Zezwalaj na załączniki
             comments_enabled: Włączone komentarze
             geocoding_enabled: Włączone kodowanie geograficzne
+            maximum_votes_per_proposal: Maksymalna liczba głosów na jeden wniosek
             new_proposal_help_text: Nowy tekst pomocy propozycji
             official_proposals_enabled: Oficjalne propozycje
             proposal_answering_enabled: Włączona odpowiedź na pytania
+            vote_limit: Limit głosu na użytkownika
           step:
             announcement: Ogłoszenie
             comments_blocked: Komentarze zablokowane
@@ -149,6 +151,7 @@ pl:
           report: Raport
         vote_button:
           already_voted: Już głosował
+          maximum_votes_reached: Osiągnięto limit głosu
           no_votes_remaining: Brak głosów
           vote: Głosować
           votes_blocked: Głosowanie zostało wyłączone
@@ -157,6 +160,14 @@ pl:
             one: GŁOSOWAĆ
             few: GŁOSOWANIA
             other: GŁOSOWANIA
+        voting_rules:
+          maximum_votes_per_proposal:
+            description: Każda propozycja może otrzymać maksymalnie %{limit} głosów.
+          title: 'Głosowanie podlega następującym zasadom:'
+          vote_limit:
+            description: Możesz zgłosić do %{limit} propozycje.
+            left: Pozostały
+            votes: Głosowania
     resource_links:
       included_proposals:
         proposal_projects: 'Propozycja występująca w tych projektach:'
