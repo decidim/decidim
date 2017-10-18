@@ -25,7 +25,6 @@ fr:
             new_proposal_help_text: Nouveau texte d'aide à la proposition
             official_proposals_enabled: Propositions officielles activées
             proposal_answering_enabled: '"Réponses aux propositions" activé'
-            vote_limit: Limite de vote
           step:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
@@ -155,12 +154,6 @@ fr:
           count:
             one: VOTE
             other: VOTES
-        votes_limit:
-          vote_limit:
-            description: Vous pouvez voter jusqu'à %{limit} propositions.
-            left: Restant
-            title: Vous disposez de %{limit} votes à distribuer
-            votes: Votes
     resource_links:
       included_proposals:
         proposal_projects: 'Proposition figurant dans ces projets :'
