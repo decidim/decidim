@@ -117,10 +117,10 @@ uk:
             announcement: Оголошення
             comments_enabled: Коментарі ввімкнено
             total_budget: Загальний бюджет
-            vote_threshold_percent: Поріг відсотків голосів
+            vote_threshold_percent: Мінімальний відсоток бюджету для голосування
           step:
             announcement: Оголошення
-            comments_blocked: Коментарі заблоковано
+            comments_blocked: Коментарі вимкнено
             show_votes: Показати голоси
             votes_enabled: Голосування ввімкнене
     orders:
