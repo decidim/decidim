@@ -3,14 +3,18 @@ ru:
     attributes:
       assembly:
         banner_image: Изображение баннера
+        copy_categories: Скопировать категории
         copy_features: Копировать составляющие
         description: Описание
+        developer_group: Группа разработчиков
         domain: Домен
         hashtag: Хэштег
         hero_image: Изображение главной страницы
         local_area: Район
+        meta_scope: Метаданные охвата
         promoted: Рекламируется
         scope_id: Охват
+        scopes_enabled: Охваты включены
         slug: Сокращенный URL-адрес
         subtitle: Подзаголовок
         target: Цель
@@ -51,6 +55,7 @@ ru:
       index:
         title: Собрания
       show:
+        developer_group: Группа разработчиков
         local_area: Район
         scope: Охват
         target: Цель
