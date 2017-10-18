@@ -119,6 +119,7 @@ ru:
         name: Отчетность
         settings:
           global:
+            categories_label: Название для "Категории"
             comments_enabled: Комментарии включены
             heading_leaf_level_results: Название для "Проекты"
             heading_parent_level_results: Название для "Результаты"
