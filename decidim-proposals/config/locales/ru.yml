@@ -83,9 +83,12 @@ ru:
           filter: Отобрать
           filter_by: 'Отобрать по признаку:'
           unfold: Развернуть
+        index:
+          new_proposal: Новое предложение
         new:
           back: Вернуться
           send: Отправить
+          title: Новое предложение
         orders:
           most_voted: С наибольшим количеством голосов
           random: Произвольно
