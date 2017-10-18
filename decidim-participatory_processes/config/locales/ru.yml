@@ -15,9 +15,11 @@ ru:
         local_area: Район
         meta_scope: Метаданные охвата
         participatory_process_group_id: Группа движений
+        participatory_scope: Охват соучастия
         promoted: Рекламируется
         scope_id: Охват
         scopes_enabled: Охваты включены
+        short_description: Краткое описание
         slug: Сокращенный URL-адрес
         start_date: Дата начала
         subtitle: Подзаголовок
@@ -27,9 +29,11 @@ ru:
         description: Описание
         hero_image: Изображение
         name: Имя
+        participatory_process_ids: Подобные движения
       participatory_process_step:
         description: Описание
         end_date: Дата завершения
+        short_description: Краткое описание
         start_date: Дата начала
         title: Название
       participatory_process_user_role:
@@ -48,6 +52,7 @@ ru:
         new: Добавить
         preview: Предпросмотр
         publish: Опубликовать
+        resend_invitation: Еще раз отправить приглашение
         unpublish: Отменить публикацию
       menu:
         participatory_process_groups: Группы движений
@@ -85,14 +90,19 @@ ru:
             admin: Администратор
             collaborator: Сотрудник
             moderator: Модератор
+        user:
+          fields:
+            invitation_sent_at: 'Приглашение отправлено:'
       participatory_process_copies:
         new:
           copy: Копировать
       participatory_process_groups:
         edit:
+          title: Редактировать группу процессов
           update: Обновить
         new:
           create: Создать
+          title: Новая группа движений
       participatory_process_steps:
         default_title: Введение
         edit:
@@ -109,11 +119,15 @@ ru:
       participatory_processes:
         edit:
           update: Обновить
+        form:
+          title: Общая информация
         index:
           not_published: Не опубликовано
           published: Опубликовано
         new:
           create: Создать
+      titles:
+        participatory_process_groups: Группы движений соучастия
     menu:
       processes: Движения
     participatory_process_groups:
@@ -129,10 +143,14 @@ ru:
         upcoming: Предстоящие
       participatory_process_groups:
         none: Нет
+      participatory_processes:
+        index:
+          loading: Загрузка результатов...
       show:
         developer_group: Группа разработчиков
         end_date: Дата завершения
         local_area: Район
+        participatory_scope: Охват соучастия
         scope: Охват
         start_date: Дата начала
         target: Цель
