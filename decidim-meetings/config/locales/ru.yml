@@ -94,6 +94,11 @@ ru:
             start_time: Дата начала
             title: Название
       read_more: "(читать подробнее)"
+    resource_links:
+      meetings_through_proposals:
+        result_meetings: 'Подобные встречи:'
+      proposals_from_meeting:
+        proposal_meetings: 'Подобные встречи:'
   devise:
     mailer:
       join_meeting:
