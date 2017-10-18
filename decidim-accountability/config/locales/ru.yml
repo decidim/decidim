@@ -54,7 +54,9 @@ ru:
         timeline_entries:
           edit:
             title: Редактировать запись
+            update: Обновить запись
           new:
+            create: Создать запись
             title: Новая запись
       models:
         result:
