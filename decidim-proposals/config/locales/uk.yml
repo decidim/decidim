@@ -73,7 +73,7 @@ uk:
       answers:
         accepted: Прийнято
         evaluating: Розглядається
-        not_answered: Ще не отримало відгуків
+        not_answered: Без відповідей
         rejected: Відхилено
       create:
         error: При збереженні цієї пропозиції сталися помилки.
