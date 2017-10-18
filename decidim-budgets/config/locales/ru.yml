@@ -24,6 +24,8 @@ ru:
         projects:
           create:
             success: Проект успешно создан
+          destroy:
+            success: Проект успешно удален
           edit:
             title: Редактировать проект
             update: Обновить
@@ -52,6 +54,7 @@ ru:
           assigned: 'Выделено:'
           checked_out:
             title: Голосование по бюджету завершено
+          title: Вы определяете бюджет
         count:
           projects_count:
             one: 1 проект
