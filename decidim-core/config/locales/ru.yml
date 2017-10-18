@@ -150,7 +150,7 @@ ru:
             dummy_global_attribute_1: Нерабочее псевдо-свойство 1
             dummy_global_attribute_2: Нерабочее псевдо-свойство 2
           step:
-            comments_blocked: Комментарии заблокированы
+            comments_blocked: Комментарии выключены
             dummy_step_attribute_1: Нерабочее первое псевдо-свойство шага
             dummy_step_attribute_2: Нерабочее второе псевдо-свойство шага
     filters:
