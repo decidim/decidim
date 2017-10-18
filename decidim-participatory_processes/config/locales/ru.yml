@@ -162,6 +162,12 @@ ru:
           active_step: Начатый шаг
           take_part: Принять участие
       participatory_processes:
+        order_by_processes:
+          processes:
+            one: "%{count} движение"
+            few: "%{count} движения"
+            many: "%{count} движений"
+            other: "%{count} движений"
         participatory_process:
           active_step: 'Текущий шаг:'
           take_part: Принять участие
