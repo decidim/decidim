@@ -30,5 +30,7 @@ ru:
           older: Старые
           recent: Недавние
         title: 'Упорядочить по:'
+      comments:
+        title: "%{count} комментариев"
       featured_comment:
         title: Избранный комментарий
