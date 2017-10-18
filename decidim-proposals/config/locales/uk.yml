@@ -28,7 +28,7 @@ uk:
             vote_limit: Гранична кількість голосів
           step:
             announcement: Оголошення
-            comments_blocked: Коментарі заблоковано
+            comments_blocked: Коментарі вимкнено
             creation_enabled: Ввімкнено створення пропозицій
             proposal_answering_enabled: Ввімкнуто відповіді на пропозиції
             votes_blocked: Голосування вимкнене
