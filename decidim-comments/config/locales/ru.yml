@@ -25,6 +25,7 @@ ru:
       comment_order_selector:
         order:
           best_rated: С наивысшим рейтингом
+          most_discussed: Самые обсуждаемые
           older: Старые
           recent: Недавние
         title: 'Упорядочить по:'
