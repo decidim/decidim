@@ -53,7 +53,7 @@ uk:
       surveys:
         answer:
           invalid: При відповідях на опитування сталися помилки.
-          success: На опитування успішно дано відповіді.
+          success: Опитування успішно пройдено.
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Увійдіть за допомогою свого облікового запису</a> або <a href="%{sign_up_link}">зареєструйтесь</a>, щоб відповісти на опитування.
