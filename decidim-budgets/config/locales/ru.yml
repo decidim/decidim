@@ -22,6 +22,8 @@ ru:
           project:
             name: Проект
         projects:
+          create:
+            success: Проект успешно создан
           edit:
             title: Редактировать проект
             update: Обновить
@@ -32,6 +34,8 @@ ru:
           new:
             create: Создать
             title: Новый итог
+          update:
+            success: Проект успешно обновлен
       models:
         project:
           fields:
@@ -46,6 +50,8 @@ ru:
           ok: Хорошо
         budget_summary:
           assigned: 'Выделено:'
+          checked_out:
+            title: Голосование по бюджету завершено
         count:
           projects_count:
             one: 1 проект
