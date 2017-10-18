@@ -250,7 +250,7 @@ describe "Vote Proposal", type: :feature do
       let!(:feature) do
         create(:proposal_feature,
                :with_votes_enabled,
-               :with_maximum_votes,
+               :with_maximum_votes_per_proposal,
                manifest: manifest,
                participatory_space: participatory_process)
       end

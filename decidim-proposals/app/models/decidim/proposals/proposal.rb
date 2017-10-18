@@ -118,7 +118,7 @@ module Decidim
       #
       # Returns an Integer with the maximum amount of votes.
       def maximum_votes
-        maximum_votes = feature.settings.maximum_votes
+        maximum_votes = feature.settings.maximum_votes_per_proposal
         return nil if maximum_votes.zero?
 
         maximum_votes

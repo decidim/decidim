@@ -39,13 +39,13 @@ module Decidim
         vote_limit.present?
       end
 
-      def maximum_votes_enabled?
-        maximum_votes.present?
+      def maximum_votes_per_proposal_enabled?
+        maximum_votes_per_proposal.present?
       end
 
-      def maximum_votes
-        return nil unless feature_settings.maximum_votes.positive?
-        feature_settings.maximum_votes
+      def maximum_votes_per_proposal
+        return nil unless feature_settings.maximum_votes_per_proposal.positive?
+        feature_settings.maximum_votes_per_proposal
       end
 
       def votes_enabled?

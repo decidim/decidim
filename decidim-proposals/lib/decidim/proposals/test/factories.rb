@@ -69,10 +69,10 @@ FactoryGirl.define do
       end
     end
 
-    trait :with_maximum_votes do
+    trait :with_maximum_votes_per_proposal do
       settings do
         {
-          maximum_votes: 1
+          maximum_votes_per_proposal: 1
         }
       end
     end
