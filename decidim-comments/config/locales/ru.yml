@@ -14,6 +14,7 @@ ru:
         alignment:
           against: Против
           in_favor: В поддержку
+        deleted_user: Удаленный пользователь
         reply: Ответить
         report:
           action: Пожаловаться
