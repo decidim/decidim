@@ -2,6 +2,7 @@ ru:
   activemodel:
     attributes:
       assembly:
+        banner_image: Изображение баннера
         copy_features: Копировать составляющие
         description: Описание
         domain: Домен
@@ -24,6 +25,7 @@ ru:
           published: Опубликовано
         new:
           create: Создать
+          title: Новое собрание
       assembly_copies:
         new:
           copy: Копировать
@@ -64,6 +66,7 @@ ru:
         proposals_count: Предложения
         results_count: Итоги
         surveys_count: Опросы
+        users_count: Участники
         votes_count: Голоса
     menu:
       assemblies: Собрания
@@ -76,6 +79,7 @@ ru:
           more_info: Дополнительные сведения
           take_part: Принять участие
       assembly_header:
+        assembly_menu_item: Собрание
         unfold: Развернуть
       assembly_widgets:
         show:
