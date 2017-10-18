@@ -2,14 +2,21 @@ ru:
   activemodel:
     attributes:
       assembly:
+        banner_image: Изображение баннера
+        copy_categories: Скопировать категории
         copy_features: Копировать составляющие
         description: Описание
+        developer_group: Группа разработчиков
         domain: Домен
         hashtag: Хэштег
         hero_image: Изображение главной страницы
         local_area: Район
+        meta_scope: Метаданные охвата
+        participatory_scope: Охват соучастия
         promoted: Рекламируется
         scope_id: Охват
+        scopes_enabled: Охваты включены
+        short_description: Краткое описание
         slug: Сокращенный URL-адрес
         subtitle: Подзаголовок
         target: Цель
@@ -19,14 +26,18 @@ ru:
       assemblies:
         edit:
           update: Обновить
+        form:
+          title: Общая информация
         index:
           not_published: Не опубликовано
           published: Опубликовано
         new:
           create: Создать
+          title: Новое собрание
       assembly_copies:
         new:
           copy: Копировать
+          title: Создать копию собрания
       menu:
         assemblies: Собрания
         assemblies_submenu:
@@ -49,7 +60,9 @@ ru:
       index:
         title: Собрания
       show:
+        developer_group: Группа разработчиков
         local_area: Район
+        participatory_scope: Охват соучастия
         scope: Охват
         target: Цель
       statistics:
@@ -64,6 +77,7 @@ ru:
         proposals_count: Предложения
         results_count: Итоги
         surveys_count: Опросы
+        users_count: Участники
         votes_count: Голоса
     menu:
       assemblies: Собрания
@@ -72,10 +86,19 @@ ru:
       assemblies:
         assembly:
           take_part: Принять участие
+        no_assemblies_yet:
+          no_assemblies_yet: Еще нет собраний!
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} собрание"
+            few: "%{count} собрания"
+            many: "%{count} собраний"
+            other: "%{count} собраний"
         promoted_assembly:
           more_info: Дополнительные сведения
           take_part: Принять участие
       assembly_header:
+        assembly_menu_item: Собрание
         unfold: Развернуть
       assembly_widgets:
         show:
