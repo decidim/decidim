@@ -32,7 +32,7 @@ module Decidim
       end
 
       def maximum_votes_enabled?
-        !!maximum_votes
+        maximum_votes.present?
       end
 
       def maximum_votes

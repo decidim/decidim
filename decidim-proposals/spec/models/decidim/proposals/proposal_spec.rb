@@ -2,7 +2,6 @@
 
 require "spec_helper"
 
-
 module Decidim
   module Proposals
     describe Proposal do
