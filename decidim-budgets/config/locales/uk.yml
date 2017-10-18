@@ -120,7 +120,7 @@ uk:
             vote_threshold_percent: Поріг відсотків голосів
           step:
             announcement: Оголошення
-            comments_blocked: Коментарі заблоковано
+            comments_blocked: Коментарі вимкнено
             show_votes: Показати голоси
             votes_enabled: Голосування ввімкнене
     orders:
