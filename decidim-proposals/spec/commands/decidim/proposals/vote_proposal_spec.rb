@@ -51,7 +51,6 @@ module Decidim
         context "when the maximum votes have been reached" do
           before do
             expect(proposal).to receive(:maximum_votes_reached?).and_return(true)
-
           end
 
           it "broadcasts invalid" do
