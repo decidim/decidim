@@ -18,6 +18,7 @@ ru:
         settings:
           global:
             announcement: Объявление
+            geocoding_enabled: Геокодирование включено
             vote_limit: Предельное количество голосов
           step:
             announcement: Объявление
@@ -58,6 +59,7 @@ ru:
           fields:
             category: Категория
             id: Идентификатор
+            official_proposal: Официальное предложение
             scope: Охват
             state: Cостояние
             title: Название
