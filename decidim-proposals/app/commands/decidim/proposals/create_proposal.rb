@@ -20,6 +20,7 @@ module Decidim
       #
       # Returns nothing.
       def call
+        return broadcast(:invalid) if proposal_limit_reached?
         return broadcast(:invalid) if form.invalid?
 
         if process_attachments?
@@ -84,6 +85,12 @@ module Decidim
 
       def process_attachments?
         attachments_allowed? && attachment_present?
+      end
+
+      def proposal_limit_reached?
+        proposal_limit = form.current_feature.settings.proposal_limit
+        return false if proposal_limit.zero?
+        current_user_proposals.count >= proposal_limit
       end
     end
   end

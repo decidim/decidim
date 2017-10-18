@@ -56,7 +56,7 @@ module Decidim
       end
 
       def proposal_limit_enabled?
-        !proposal_limit.blank?
+        proposal_limit.present?
       end
 
       def proposal_limit
@@ -67,12 +67,6 @@ module Decidim
 
       def current_user_proposals
         Proposal.where(feature: current_feature, author: current_user)
-      end
-
-      def proposal_limit_reached?
-        return false unless proposal_limit
-
-        current_user_proposals.count >= proposal_limit
       end
     end
   end

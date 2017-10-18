@@ -11,8 +11,8 @@ module Decidim
       include Paginable
 
       helper_method :geocoded_proposals
-
       before_action :authenticate_user!, only: [:new, :create]
+      before_action :check_proposal_limit!, only: [:new, :create]
 
       def index
         @proposals = search
@@ -86,6 +86,10 @@ module Decidim
           scope_id: nil,
           related_to: ""
         }
+      end
+
+      def check_proposal_limit!
+        raise "Proposal limit reached" if proposal_limit_reached?
       end
     end
   end

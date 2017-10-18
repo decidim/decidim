@@ -126,6 +126,7 @@ en:
           unfold: Unfold
         index:
           new_proposal: New proposal
+          proposal_limit_reached: Proposal limit reached
           view_proposal: View proposal
         linked_proposals:
           proposal_votes:
