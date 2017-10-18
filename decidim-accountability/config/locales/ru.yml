@@ -8,6 +8,7 @@ ru:
         description: Описание
         end_date: Дата завершения
         progress: Продвижение
+        proposal_ids: Включенные предложения
         start_date: Дата начала
         title: Название
       status:
@@ -23,7 +24,9 @@ ru:
       actions:
         destroy: Удалить
         edit: Редактировать
+        new: Добавить %{name}
         preview: Предварительный просмотр
+        timeline_entries: Развитие проекта
         title: Действия
       admin:
         exports:
@@ -33,23 +36,35 @@ ru:
             name: Итог
           status:
             name: Состояние
+          timeline_entry:
+            name: Запись на линии времени
         results:
+          edit:
+            title: Редактировать итог
+            update: Обновить итог
           index:
             title: Итоги
           new:
+            create: Создать итог
             title: Новый итог
         shared:
           subnav:
             statuses: Состояния
         statuses:
+          edit:
+            title: Редактировать состояние
+            update: Обновить состояние
           index:
             title: Состояния
           new:
+            create: Создать состояние
             title: Новое состояние
         timeline_entries:
           edit:
             title: Редактировать запись
+            update: Обновить запись
           new:
+            create: Создать запись
             title: Новая запись
       models:
         result:
@@ -82,22 +97,32 @@ ru:
           scopes: Охваты
         home:
           categories_label: Категории
+          subcategories_label: Подкатегории
         home_header:
           global_status: Состояние общего исполнения
         nav_breadcrumb:
           global: Всеобщее исполнение
+        search:
+          search: Поиск действий
         show:
           stats:
             attendees: Участники
             comments: Комментарии
+            contributions: Внесенные предложения
             meetings: Встречи
             proposals: Предложения
             votes: Поддерживает
+        timeline:
+          title: Развитие проекта
     features:
       accountability:
+        name: Отчетность
         settings:
           global:
+            categories_label: Название для "Категории"
             comments_enabled: Комментарии включены
+            heading_leaf_level_results: Название для "Проекты"
+            heading_parent_level_results: Название для "Результаты"
             intro: Вступление
           step:
-            comments_blocked: Комментарии заблокированы
+            comments_blocked: Комментарии выключены
