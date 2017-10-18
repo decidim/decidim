@@ -3,6 +3,11 @@ ru:
     features:
       pages:
         name: Страница
+        settings:
+          global:
+            announcement: Объявление
+          step:
+            announcement: Объявление
     pages:
       admin:
         models:
