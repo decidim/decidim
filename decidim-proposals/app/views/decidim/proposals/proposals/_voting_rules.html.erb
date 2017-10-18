@@ -1,4 +1,4 @@
-<% if vote_limit_enabled? || maximum_votes_enabled? %>
+<% if votes_enabled? && (vote_limit_enabled? || maximum_votes_enabled?) %>
   <div class="row column">
     <div class="callout secondary">
       <div class="row">
@@ -13,7 +13,7 @@
             <% end %>
           </ul>
         </div>
-        <% if vote_limit_enabled? %>
+        <% if current_user && vote_limit_enabled? %>
           <div class="columns medium-4 large-3">
             <div class="card card--nomargin text-center">
               <div class="card__content">

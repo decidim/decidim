@@ -68,6 +68,14 @@ FactoryGirl.define do
         }
       end
     end
+
+    trait :with_maximum_votes do
+      settings do
+        {
+          maximum_votes: 1
+        }
+      end
+    end
   end
 
   factory :proposal, class: Decidim::Proposals::Proposal do
