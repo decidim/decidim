@@ -75,6 +75,7 @@ ru:
             name: Имя
             role: Роль
           roles:
+            admin: Администратор
             collaborator: Сотрудник
             moderator: Модератор
       participatory_process_copies:
@@ -135,6 +136,7 @@ ru:
         proposals_count: Предложения
         results_count: Итоги
         surveys_count: Опросы
+        users_count: Участники
         votes_count: Голоса
     scopes:
       global: Всеобщий охват
