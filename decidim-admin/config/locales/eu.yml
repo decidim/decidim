@@ -20,6 +20,8 @@ eu:
         name: Izena
         reference_prefix: Erreferentzia-aurrizkia
       organization_appearance:
+        cta_button_path: Deitu ekintza botoiaren bideora
+        cta_button_text: Deitu ekintza botoiaren testura
         description: Descripción
         favicon: Ikonoa
         header_snippets: Izenburu-snippets-ak
@@ -329,6 +331,8 @@ eu:
         edit:
           update: Eguneratu
         form:
+          cta_button_path_help: 'Hasierako orrialdera deitu nahi duzun tokira botoia sakatu dezakezu. Erabili bideak partzialak, ez URL osoak hemen. The Call To Action botoian hasierako orrian erakusten da ongietorri testua eta azalpena. Adibidea: %{url}'
+          cta_button_text_help: Atzera botoia sakatu hasierako orrian, zure erakundean eskuragarri dagoen hizkuntza bakoitzarentzat. Ezartzen bada, balio lehenetsia erabiliko da. The Call To Action botoian hasierako orrian erakusten da ongietorri testua eta azalpena.
           header_snippets_help: Erabili eremu hau HTML goiburuari gauzak gehitzeko. Erabilerarik ohikoena da JavaScript edo CSS gehigarriak behar dituzten hirugarrenen zerbitzuak txertatzea. Gainera, HTMLari meta-etiketa gehigarriak gehitzeko erabil dezakezu. Kontuan hartu orri publikoetan baino ez dela erakutsiko, ez administrazio atalean.
           homepage_appearance_title: Editatu orriaren itxura
           layout_appearance_title: Editatu itxura diseinua
