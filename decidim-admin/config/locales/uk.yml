@@ -20,6 +20,8 @@ uk:
         name: Назва
         reference_prefix: Довідковий префікс
       organization_appearance:
+        cta_button_path: Шлях до кнопки "Закликати до дії"
+        cta_button_text: Текст кнопки "Закликати до дії"
         description: Опис
         favicon: Піктограма
         header_snippets: Сніпети для гіпертекстових заголовків сторінок сайту
