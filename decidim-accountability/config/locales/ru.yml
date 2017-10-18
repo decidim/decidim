@@ -34,6 +34,8 @@ ru:
             name: Итог
           status:
             name: Состояние
+          timeline_entry:
+            name: Запись на линии времени
         results:
           edit:
             title: Редактировать итог
@@ -108,9 +110,10 @@ ru:
             votes: Поддерживает
     features:
       accountability:
+        name: Отчетность
         settings:
           global:
             comments_enabled: Комментарии включены
             intro: Вступление
           step:
-            comments_blocked: Комментарии заблокированы
+            comments_blocked: Комментарии выключены
