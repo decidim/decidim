@@ -6,6 +6,7 @@ ru:
         category_id: Категория
         scope_id: Охват
         title: Название
+        user_group_id: Создайте предложение как
       proposal_answer:
         answer: Ответить
   decidim:
@@ -18,6 +19,7 @@ ru:
         settings:
           global:
             announcement: Объявление
+            attachments_allowed: Разрешить вложения
             comments_enabled: Комментарии включены
             geocoding_enabled: Геокодирование включено
             vote_limit: Предельное количество голосов
@@ -46,8 +48,12 @@ ru:
             answer_proposal: Ответить
             evaluating: Рассматривается
             rejected: Отклонено
+            title: Ответ на предложение %{title}
         proposals:
+          create:
+            success: Предложение успешно создано
           form:
+            attachment_legend: "(Необязательно) Добавить вложение"
             select_a_category: Выберите категорию
           index:
             title: Предложения
@@ -104,10 +110,12 @@ ru:
           new_proposal: Новое предложение
           view_proposal: Просмотреть предложение
         new:
+          attachment_legend: "(Необязательно) Добавить вложение"
           back: Вернуться
           send: Отправить
           title: Новое предложение
         orders:
+          label: 'Упорядочить предложения по:'
           most_voted: С наибольшим количеством голосов
           random: Произвольно
           recent: Недавние
@@ -117,6 +125,7 @@ ru:
           report: Пожаловаться
         vote_button:
           already_voted: Уже проголосовали
+          no_votes_remaining: Больше не осталось голосов
           vote: Голосовать
           votes_blocked: Голосование отключено
         votes_count:
