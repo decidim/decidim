@@ -3,16 +3,21 @@ ru:
     attributes:
       participatory_process:
         banner_image: Изображение баннера
+        copy_categories: Скопировать категории
         copy_features: Копировать составляющие
         copy_steps: Копировать шаги
         description: Описание
+        developer_group: Группа разработчиков
         domain: Домен
         end_date: Дата завершения
         hashtag: Хэштег
         hero_image: Изображение главной страницы
         local_area: Район
+        meta_scope: Метаданные охвата
+        participatory_process_group_id: Группа движений
         promoted: Рекламируется
         scope_id: Охват
+        scopes_enabled: Охваты включены
         slug: Сокращенный URL-адрес
         start_date: Дата начала
         subtitle: Подзаголовок
@@ -36,6 +41,7 @@ ru:
       actions:
         activate: Начать
         configure: Настроить
+        confirm_destroy: Подтвердить удаление
         destroy: Удалить
         duplicate: Создать копию
         edit: Редактировать
@@ -44,6 +50,7 @@ ru:
         publish: Опубликовать
         unpublish: Отменить публикацию
       menu:
+        participatory_process_groups: Группы движений
         participatory_processes: Движения
         participatory_processes_submenu:
           attachments: Вложения
@@ -123,6 +130,7 @@ ru:
       participatory_process_groups:
         none: Нет
       show:
+        developer_group: Группа разработчиков
         end_date: Дата завершения
         local_area: Район
         scope: Охват
