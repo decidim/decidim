@@ -6,6 +6,7 @@ ru:
         decidim_category_id: Категория
         decidim_scope_id: Охват
         description: Описание
+        proposal_ids: Подобные предложения
         title: Название
   decidim:
     budgets:
@@ -21,13 +22,22 @@ ru:
           project:
             name: Проект
         projects:
+          create:
+            success: Проект успешно создан
+          destroy:
+            success: Проект успешно удален
           edit:
+            title: Редактировать проект
             update: Обновить
           index:
+            finished_orders: Завершенные голосования
+            pending_orders: Текущие голосования
             title: Проекты
           new:
             create: Создать
             title: Новый итог
+          update:
+            success: Проект успешно обновлен
       models:
         project:
           fields:
@@ -36,11 +46,15 @@ ru:
         budget_confirm:
           cancel: Отменить
           confirm: Подтвердить
+          title: Подтвердить голос
         budget_excess:
           close: Закрыть
           ok: Хорошо
         budget_summary:
           assigned: 'Выделено:'
+          checked_out:
+            title: Голосование по бюджету завершено
+          title: Вы определяете бюджет
         count:
           projects_count:
             one: 1 проект
@@ -49,6 +63,8 @@ ru:
             other: "%{count} проектов"
         filters:
           category: Категория
+          category_prompt: Выберите категорию
+          scope_prompt: Выбрать охват
           scopes: Охваты
           search: Искать
         filters_small_view:
@@ -60,6 +76,11 @@ ru:
           vote: Голосовать
         order_selected_projects:
           remove: Удалить
+          selected_projects:
+            one: выбранный проект
+            few: выбранных проекта
+            many: выбранных проектов
+            other: выбранных проектов
           view: Посмотреть
         project:
           add: Добавить
@@ -74,11 +95,23 @@ ru:
           added: Добавлено
         show:
           budget: Бюджет
+          view_all_projects: Просмотреть все проекты
     features:
       budgets:
         actions:
           vote: Голосовать
         name: Бюджеты
         settings:
+          global:
+            announcement: Объявление
+            comments_enabled: Комментарии включены
+            total_budget: Общий бюджет
+            vote_threshold_percent: Мінімальний відсоток бюджету для голосування
           step:
+            announcement: Объявление
+            comments_blocked: Комментарии выключены
             show_votes: Показать голоса
+            votes_enabled: Голосование включено
+  index:
+    confirmed_orders_count: Количество голосов
+  total_budget: Общий бюджет
