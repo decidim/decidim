@@ -72,6 +72,7 @@ ru:
             promoted: Выделенные
             published: Опубликовано
             title: Название
+          name: Движение соучастия
         participatory_process_group:
           fields:
             name: Имя
@@ -105,6 +106,9 @@ ru:
           title: Новая группа движений
       participatory_process_steps:
         default_title: Введение
+        destroy:
+          error:
+            active_step: Нельзя удалять уже начатый шаг.
         edit:
           update: Обновить
         index:
@@ -180,6 +184,8 @@ ru:
           active_step: Начатый шаг
           take_part: Принять участие
       participatory_processes:
+        index:
+          promoted_processes: Выделенные движения
         order_by_processes:
           processes:
             one: "%{count} движение"
