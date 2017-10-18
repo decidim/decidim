@@ -22,8 +22,10 @@ ru:
         settings:
           global:
             announcement: Объявление
+            comments_enabled: Комментарии включены
           step:
             announcement: Объявление
+            comments_blocked: Комментарии выключены
     meetings:
       actions:
         attachments: Вложения
@@ -68,6 +70,7 @@ ru:
       meetings:
         filters:
           category: Категория
+          category_prompt: Выберите категорию
           date: Дата
           past: Прошедшие
           scope_prompt: Выбрать охват
