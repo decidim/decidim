@@ -45,5 +45,7 @@ ru:
       organizations:
         index:
           title: Организации
+        new:
+          title: Новая организация
       titles:
         dashboard: Панель управления
