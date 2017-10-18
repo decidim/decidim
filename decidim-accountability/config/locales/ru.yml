@@ -23,6 +23,7 @@ ru:
       actions:
         destroy: Удалить
         edit: Редактировать
+        new: Добавить %{name}
         preview: Предварительный просмотр
         title: Действия
       admin:
@@ -34,6 +35,8 @@ ru:
           status:
             name: Состояние
         results:
+          edit:
+            title: Редактировать итог
           index:
             title: Итоги
           new:
@@ -42,6 +45,8 @@ ru:
           subnav:
             statuses: Состояния
         statuses:
+          edit:
+            title: Редактировать состояние
           index:
             title: Состояния
           new:
