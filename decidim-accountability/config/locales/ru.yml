@@ -8,6 +8,7 @@ ru:
         description: Описание
         end_date: Дата завершения
         progress: Продвижение
+        proposal_ids: Включенные предложения
         start_date: Дата начала
         title: Название
       status:
@@ -25,6 +26,7 @@ ru:
         edit: Редактировать
         new: Добавить %{name}
         preview: Предварительный просмотр
+        timeline_entries: Развитие проекта
         title: Действия
       admin:
         exports:
@@ -100,6 +102,8 @@ ru:
           global_status: Состояние общего исполнения
         nav_breadcrumb:
           global: Всеобщее исполнение
+        search:
+          search: Поиск действий
         show:
           stats:
             attendees: Участники
@@ -108,12 +112,16 @@ ru:
             meetings: Встречи
             proposals: Предложения
             votes: Поддерживает
+        timeline:
+          title: Развитие проекта
     features:
       accountability:
         name: Отчетность
         settings:
           global:
             comments_enabled: Комментарии включены
+            heading_leaf_level_results: Название для "Проекты"
+            heading_parent_level_results: Название для "Результаты"
             intro: Вступление
           step:
             comments_blocked: Комментарии выключены
