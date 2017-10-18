@@ -34,6 +34,7 @@ ru:
           form:
             add_question: Добавить вопрос
           question:
+            add_answer_option: Добавить вариант ответа
             question: Вопрос
             remove_question: Удалить вопрос
             statement: Высказывание
@@ -44,6 +45,8 @@ ru:
         single_option: Единственный вариант
       surveys:
         show:
+          answer_survey:
+            title: Пройдите опрос
           submit: Отправить
           survey_answered:
             title: Опрос пройден
