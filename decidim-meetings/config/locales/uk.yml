@@ -29,7 +29,7 @@ uk:
             comments_enabled: Коментарі ввімкнено
           step:
             announcement: Оголошення
-            comments_blocked: Коментарі заблоковано
+            comments_blocked: Коментарі вимкнено
     meetings:
       actions:
         attachments: Вкладені файли
