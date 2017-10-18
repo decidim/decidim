@@ -18,10 +18,12 @@ ru:
         settings:
           global:
             announcement: Объявление
+            comments_enabled: Комментарии включены
             geocoding_enabled: Геокодирование включено
             vote_limit: Предельное количество голосов
           step:
             announcement: Объявление
+            comments_blocked: Комментарии выключены
             votes_blocked: Голосование выключено
             votes_enabled: Голосование включено
     proposals:
@@ -49,6 +51,7 @@ ru:
             title: Предложения
           new:
             create: Создать
+            title: Создать предложение
       answers:
         accepted: Принято
         evaluating: Рассматривается
@@ -84,6 +87,7 @@ ru:
           origin: Источник
           rejected: Отклонено
           related_to: Связано с
+          scope_prompt: Выбрать охват
           scopes: Охваты
           search: Поиск
           state: Cостояние
@@ -111,6 +115,7 @@ ru:
         vote_button:
           already_voted: Уже проголосовали
           vote: Голосовать
+          votes_blocked: Голосование отключено
         votes_count:
           count:
             one: ГОЛОС
