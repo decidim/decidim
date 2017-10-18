@@ -15,6 +15,9 @@ ru:
           create: Создать
           vote: Голосовать
         name: Предложения
+        settings:
+          global:
+            vote_limit: Предельное количество голосов
     proposals:
       actions:
         answer: Ответить
@@ -33,6 +36,7 @@ ru:
           edit:
             accepted: Принято
             answer_proposal: Ответить
+            evaluating: Рассматривается
             rejected: Отклонено
         proposals:
           index:
@@ -41,6 +45,7 @@ ru:
             create: Создать
       answers:
         accepted: Принято
+        evaluating: Рассматривается
         rejected: Отклонено
       models:
         proposal:
@@ -52,15 +57,23 @@ ru:
             title: Название
             votes: Голоса
       proposals:
+        count:
+          proposals_count:
+            one: 1 предложение
+            few: "%{count} предложения"
+            many: "%{count} предложений"
+            other: "%{count} предложений"
         filters:
           accepted: Принято
           activity: Деятельность
           all: Все
           category: Категория
           citizens: Граждане
+          evaluating: Рассматривается
           official: Официальный
           origin: Источник
           rejected: Отклонено
+          related_to: Связано с
           scopes: Охваты
           search: Поиск
           state: Cостояние
@@ -74,6 +87,7 @@ ru:
           back: Вернуться
           send: Отправить
         orders:
+          most_voted: С наибольшим количеством голосов
           random: Произвольно
           recent: Недавние
         show:

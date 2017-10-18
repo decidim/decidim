@@ -27,6 +27,7 @@ ru:
             title: Проекты
           new:
             create: Создать
+            title: Новый итог
       models:
         project:
           fields:
@@ -78,3 +79,6 @@ ru:
         actions:
           vote: Голосовать
         name: Бюджеты
+        settings:
+          step:
+            show_votes: Показать голоса

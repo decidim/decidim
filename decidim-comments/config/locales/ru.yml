@@ -6,6 +6,8 @@ ru:
           body:
             label: Комментарий
           submit: Отправить
+          user_group_id:
+            label: Комментировать как
         opinion:
           neutral: Безучастно
       comment:
@@ -21,6 +23,7 @@ ru:
           title: Пожаловаться на проблему
       comment_order_selector:
         order:
+          best_rated: С наивысшим рейтингом
           older: Старые
           recent: Недавние
         title: 'Упорядочить по:'
