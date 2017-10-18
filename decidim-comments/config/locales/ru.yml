@@ -5,6 +5,7 @@ ru:
         form:
           body:
             label: Комментарий
+            placeholder: Что вы думаете об этом?
           submit: Отправить
           user_group_id:
             label: Комментировать как
@@ -31,6 +32,10 @@ ru:
           recent: Недавние
         title: 'Упорядочить по:'
       comments:
+        loading: Загрузка комментариев ...
         title: "%{count} комментариев"
       featured_comment:
         title: Избранный комментарий
+  errors:
+    messages:
+      cannot_have_comments: не подлежит комментированию
