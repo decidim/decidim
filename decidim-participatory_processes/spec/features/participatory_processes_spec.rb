@@ -21,12 +21,9 @@ describe "Participatory Processes", type: :feature do
 
   context "when there are no processes" do
     context "direct access form URL" do
-      before do
+      it "renders an error page" do
         visit decidim_participatory_processes.participatory_processes_path
-      end
-
-      it "shows a message about the lack of processes" do
-        expect(page).to have_content("No participatory processes yet!")
+        expect(page).to have_http_status(:not_found)
       end
     end
 
@@ -51,6 +48,13 @@ describe "Participatory Processes", type: :feature do
     before do
       create(:participatory_process, :unpublished, organization: organization)
       create(:participatory_process, :published)
+    end
+
+    context "direct access from URL" do
+      it "renders an error page" do
+        visit decidim_participatory_processes.participatory_processes_path
+        expect(page).to have_http_status(:not_found)
+      end
     end
 
     context "accessing from the homepage" do

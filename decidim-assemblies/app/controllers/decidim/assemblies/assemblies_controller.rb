@@ -16,6 +16,8 @@ module Decidim
       helper_method :collection, :promoted_assemblies, :assemblies, :stats
 
       def index
+        redirect_to "/404" if published_assemblies.none?
+
         authorize! :read, Assembly
       end
 
@@ -24,6 +26,10 @@ module Decidim
       end
 
       private
+
+      def published_assemblies
+        @published_assemblies ||= OrganizationPublishedAssemblies.new(current_organization)
+      end
 
       def assemblies
         @assemblies ||= OrganizationPrioritizedAssemblies.new(current_organization)
