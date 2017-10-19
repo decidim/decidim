@@ -234,6 +234,10 @@ en:
           authorize: Authorize with "%{authorization}"
           explanation: In order to perform this action, you need to be authorized with "%{authorization}".
           title: Authorization required
+        pending:
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress
+          resume: Check your "%{authorization}" authorization progress
+          title: Authorization is still in progress
         unauthorized:
           explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
           invalid: "%{field} isn't valid."

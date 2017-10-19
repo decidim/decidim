@@ -45,9 +45,7 @@ module Decidim
     def authorize_action_path(action_name, redirect_url: nil)
       redirect_url ||= request.path
 
-      auth_method = action_authorization(action_name).auth_method
-
-      auth_method.root_path(redirect_url: redirect_url)
+      action_authorization(action_name).current_path(redirect_url: redirect_url)
     end
 
     def _action_authorizer(action_name)

@@ -11,6 +11,7 @@ module Decidim
 
         routes do
           root to: proc { [200, {}, ["DUMMY VERIFICATION ENGINE"]] }
+          get :edit_authorization, to: proc { [200, {}, ["CONTINUE YOUR VERIFICATION"]] }
         end
       end
     end

@@ -100,6 +100,16 @@ module Decidim
         @auth_method ||= Verifications::Adapter.from_element(@handler_name)
       end
 
+      def current_path(redirect_url: nil)
+        return unless auth_method
+
+        if pending?
+          auth_method.resume_authorization_path(redirect_url: redirect_url)
+        else
+          auth_method.root_path(redirect_url: redirect_url)
+        end
+      end
+
       def handler_name
         return unless auth_method
 
@@ -108,6 +118,10 @@ module Decidim
 
       def ok?
         @code == :ok
+      end
+
+      def pending?
+        @code == :pending
       end
     end
 

@@ -92,6 +92,30 @@ describe "Action Authorization", type: :feature do
       end
     end
 
+    context "and action authorized and authorization already started" do
+      let(:permissions) do
+        { create: { authorization_handler_name: "dummy_authorization_workflow" } }
+      end
+
+      before do
+        create(:authorization, :pending, name: "dummy_authorization_workflow", user: user)
+        visit main_feature_path(feature)
+        click_link "New proposal"
+      end
+
+      it "prompts user to check her authorization status" do
+        expect(page).to have_content("Authorization is still in progress")
+        expect(page)
+          .to have_content("In order to perform this action, you need to be authorized with \"Dummy authorization workflow\", but your authorization is still in progress")
+      end
+
+      it "redirects to resume authorization when modal clicked" do
+        click_link "Check your \"Dummy authorization workflow\" authorization progress"
+
+        expect(page).to have_content("CONTINUE YOUR VERIFICATION")
+      end
+    end
+
     context "when action not authorized" do
       let(:permissions) { nil }
 
