@@ -22,11 +22,11 @@ es:
             attachments_allowed: Permitir archivos adjuntos
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocodificación habilitada
-            maximum_votes_per_proposal: Máximos votos por propuesta
+            maximum_votes_per_proposal: Máximo de votos por propuesta
             new_proposal_help_text: Texto de ayuda al crear una propuesta
             official_proposals_enabled: Propuestas oficiales habilitadas
             proposal_answering_enabled: Respuesta oficial a propuestas habilitadas
-            vote_limit: Límite de voto por usuario
+            vote_limit: Límite de votos por usuario
           step:
             announcement: Aviso
             comments_blocked: Comentarios bloqueados
@@ -88,7 +88,7 @@ es:
             scope: Ámbito
             state: Estado
             title: Título
-            votes: Soportes
+            votes: Votos
       proposal_votes:
         create:
           error: Ha habido errores al votar la propuesta.
@@ -144,12 +144,12 @@ es:
           view_proposal: Ver propuesta
         show:
           proposal_accepted_reason: 'Esta propuesta ha sido aceptada porque:'
-          proposal_in_evaluation_reason: Esta propuesta se está evaluando
+          proposal_in_evaluation_reason: Esta propuesta está siendo evaluada
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
           report: Denunciar
         vote_button:
           already_voted: Ya votado
-          maximum_votes_reached: Límite de voto alcanzado
+          maximum_votes_reached: Límite de votos alcanzado
           no_votes_remaining: No hay votos restantes
           vote: Dar apoyo
           votes_blocked: Votación desactivada
@@ -164,7 +164,7 @@ es:
           vote_limit:
             description: Puedes votar hasta %{limit} propuestas.
             left: Restante
-            votes: Soportes
+            votes: Votos
     resource_links:
       included_proposals:
         proposal_projects: 'Propuesta formulada en estos proyectos:'
