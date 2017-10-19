@@ -27,7 +27,7 @@ en:
         admin:
           confirmations:
             create:
-              error: Verification doesn't match. Try again or dismiss the verification
+              error: Verification doesn't match. Try again or reject the verification so the user can amend it
               success: User successfully verified
             new:
               introduce_user_data: Introduce the data in the picture
