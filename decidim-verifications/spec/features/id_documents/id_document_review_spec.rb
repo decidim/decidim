@@ -44,7 +44,7 @@ describe "Identity document review", type: :feature do
     submit_verification_form(doc_type: "NIE", doc_number: "XXXXXXXY")
 
     expect(page).to have_content("Verification doesn't match")
-    expect(page).to have_content("Introduce the data in the picture")
+    expect(page).to have_content("INTRODUCE THE DATA IN THE PICTURE")
   end
 
   context "when rejected" do

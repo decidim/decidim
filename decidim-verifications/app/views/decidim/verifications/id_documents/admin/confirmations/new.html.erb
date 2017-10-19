@@ -2,9 +2,10 @@
                             html: { class: "form" }) do |form| %>
   <div class="card">
     <div class="card-divider">
-      <div class="row column">
-        <h4><%= t(".introduce_user_data") %></h4>
-      </div>
+      <h2 class="card-title">
+        <%= t(".introduce_user_data") %>
+        <%= link_to t(".reject"), pending_authorization_rejection_path(@pending_authorization), method: :post, class: "button alert tiny button--title destroy" %>
+      </h2>
     </div>
 
     <div class="card-section">
@@ -20,7 +21,6 @@
   </div>
 
   <div class="button--double form-general-submit">
-    <%= form.submit t(".verify"), class: "button" %>
-    <%= link_to t(".reject"), pending_authorization_rejection_path(@pending_authorization), method: :post, class: "button alert" %>
+    <%= form.submit t(".verify") %>
   </div>
 <% end %>
