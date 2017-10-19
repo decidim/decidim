@@ -20,8 +20,8 @@ ca:
         name: Nom
         reference_prefix: Prefix de referència
       organization_appearance:
-        cta_button_path: Camí del botó Truca a l'acció
-        cta_button_text: Text del botó Truca a l'acció
+        cta_button_path: Camí del botó d'acció principal
+        cta_button_text: Text del botó d'acció principal
         description: Descripció
         favicon: Icona
         header_snippets: Fragments de capçalera
@@ -334,8 +334,8 @@ ca:
           cta_button_path_help: 'Podeu anul·lar on es vincula el botó Truca a l''acció de la pàgina d''inici. Utilitzeu rutes parcials, no URL complet aquí. Accepta lletres, números, guions i barres, i ha de començar amb una lletra. El botó Truca a acció es mostra a la pàgina d''inici entre el text de benvinguda i la descripció. Exemple: %{url}'
           cta_button_text_help: Podeu anul·lar el text del botó Truca a l'acció a la pàgina d'inici de cada idioma disponible a la vostra organització. Si no s'estableix, s'utilitzarà el valor predeterminat. El botó Truca a acció es mostra a la pàgina d'inici entre el text de benvinguda i la descripció.
           header_snippets_help: Utilitza aquest camp per afegir coses al head d'HTML. L'ús més habitual és integrar serveis de tercers que requereixen codi JavaScript o CSS addicional. A més, pots utilitzar-lo per afegir etiquetes meta addicionals a l'HTML. Tingues en compte que això només es mostrarà a les pàgines públiques, no a la secció d'administració.
-          homepage_appearance_title: Edita l'aspecte de la pàgina d'inici
-          layout_appearance_title: Edita l'aspecte del disseny
+          homepage_appearance_title: Edita l'aparença de la pàgina d'inici
+          layout_appearance_title: Edita l'aparença del disseny global
       scope_types:
         create:
           error: S'ha produït un error en crear un nou tipus d'àmbit.
