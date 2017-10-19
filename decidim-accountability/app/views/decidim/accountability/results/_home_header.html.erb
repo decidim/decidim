@@ -4,9 +4,9 @@
       <%== translated_attribute feature_settings.intro %>
     </div>
 
-    <div class="small-12 medium-5 columns">
-      <div class="progress-level">
-        <% if progress_calculator(current_scope, nil).present? %>
+    <% if progress_calculator(current_scope, nil).present? %>
+      <div class="small-12 medium-5 columns">
+        <div class="progress-level">
           <p><%= t(".global_status") %></p>
 
           <div class="progress">
@@ -16,10 +16,8 @@
           <div class="progress-figure">
             <%= display_percentage progress_calculator(current_scope, nil) %>
           </div>
-        <% end %>
-
-        <%= render partial: "decidim/accountability/shared/extra" %>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
