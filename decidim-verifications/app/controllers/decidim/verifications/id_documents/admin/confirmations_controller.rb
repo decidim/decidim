@@ -26,7 +26,7 @@ module Decidim
             ConfirmUserAuthorization.call(@pending_authorization, @form) do
               on(:ok) do
                 flash[:notice] = t("confirmations.create.success", scope: "decidim.verifications.id_documents.admin")
-                redirect_to decidim.authorizations_path
+                redirect_to pending_authorizations_path
               end
 
               on(:invalid) do
