@@ -75,7 +75,7 @@ shared_examples "create a proposal" do |with_author|
 
         context "with a proposal limit" do
           let(:feature) do
-            create(:proposal_feature, settings: { global: { "proposal_limit" => 2 } })
+            create(:proposal_feature, settings: { "proposal_limit" => 2 })
           end
 
           it "checks the author doesn't exceed the amount of proposals" do

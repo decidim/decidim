@@ -89,6 +89,7 @@ module Decidim
 
       def proposal_limit_reached?
         proposal_limit = form.current_feature.settings.proposal_limit
+
         return false if proposal_limit.zero?
         current_user_proposals.count >= proposal_limit
       end
