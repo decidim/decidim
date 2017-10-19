@@ -64,8 +64,17 @@ describe "Identity document review", type: :feature do
 
       it "allows the user to change the uploaded documents" do
         expect(page).to have_selector("form", text: "Request verification again")
-        submit_reupload_form(doc_type: "NIE", doc_number: "XXXXXXXX", file_name: "id.jpg")
+      end
+
+      it "allows the verificator to review the amended request" do
+        submit_reupload_form(doc_type: "NIE", doc_number: "XXXXXXXY", file_name: "id.jpg")
         expect(page).to have_content("Document reuploaded successfully")
+
+        relogin_as admin, scope: :user
+        visit decidim_admin_id_documents.root_path
+        click_link "Verification #1"
+        submit_verification_form(doc_type: "NIE", doc_number: "XXXXXXXY")
+        expect(page).to have_content("User successfully verified")
       end
 
       it "shows an informative message to the user" do
