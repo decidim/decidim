@@ -46,7 +46,7 @@ module Decidim
           ConfirmUserAuthorization.call(@authorization, @form) do
             on(:ok) do
               flash[:notice] = t("authorizations.update.success", scope: "decidim.verifications.postal_letter")
-              redirect_to decidim.account_path
+              redirect_to decidim.authorizations_path
             end
 
             on(:invalid) do
