@@ -26,6 +26,7 @@ pl:
             new_proposal_help_text: Nowy tekst pomocy propozycji
             official_proposals_enabled: Oficjalne propozycje
             proposal_answering_enabled: Włączona odpowiedź na pytania
+            proposal_limit: Limit propozycji dla użytkownika
             vote_limit: Limit głosu na użytkownika
           step:
             announcement: Ogłoszenie
@@ -89,6 +90,8 @@ pl:
             state: Stan
             title: Tytuł
             votes: Głosowania
+      new:
+        limit_reached: Nie możesz tworzyć nowych propozycji, ponieważ przekroczyłeś limit.
       proposal_votes:
         create:
           error: Podczas głosowania nad propozycją wystąpiły błędy.
@@ -125,6 +128,7 @@ pl:
           unfold: Rozwijać się
         index:
           new_proposal: Nowa propozycja
+          proposal_limit_reached: Osiągnięto limit propozycji
           view_proposal: Wyświetl propozycję
         linked_proposals:
           proposal_votes:
@@ -163,6 +167,8 @@ pl:
         voting_rules:
           maximum_votes_per_proposal:
             description: Każda propozycja może otrzymać maksymalnie %{limit} głosów.
+          proposal_limit:
+            description: Możesz utworzyć do %{limit} propozycji.
           title: 'Głosowanie podlega następującym zasadom:'
           vote_limit:
             description: Możesz zgłosić do %{limit} propozycje.
