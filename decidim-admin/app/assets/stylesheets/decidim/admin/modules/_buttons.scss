@@ -20,9 +20,7 @@
 
 .button--title{
   margin-bottom: 0;
-  @include breakpoint(mediumlarge){
-    float: right;
-  }
+  float: right;
   &:not(:first-child){
     margin-right: 1rem;
   }
