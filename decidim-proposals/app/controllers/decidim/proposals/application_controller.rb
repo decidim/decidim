@@ -12,10 +12,18 @@ module Decidim
 
       private
 
+      def proposal_limit
+        feature_settings.proposal_limit if feature_settings.proposal_limit != 0
+      end
+
       def proposal_limit_reached?
         return false unless proposal_limit
 
-        current_user_proposals.count >= proposal_limit
+        proposals.where(author: current_user).count >= proposal_limit
+      end
+
+      def proposals
+        Proposal.where(feature: current_feature)
       end
     end
   end

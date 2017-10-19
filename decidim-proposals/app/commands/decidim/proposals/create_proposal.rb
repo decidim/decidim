@@ -92,6 +92,10 @@ module Decidim
         return false if proposal_limit.zero?
         current_user_proposals.count >= proposal_limit
       end
+
+      def current_user_proposals
+        Proposal.where(author: @current_user, feature: form.current_feature)
+      end
     end
   end
 end
