@@ -34,6 +34,18 @@ FactoryGirl.define do
       end
     end
 
+    trait :with_proposal_limit do
+      transient do
+        proposal_limit 1
+      end
+
+      settings do
+        {
+          proposal_limit: proposal_limit
+        }
+      end
+    end
+
     trait :with_votes_blocked do
       step_settings do
         {

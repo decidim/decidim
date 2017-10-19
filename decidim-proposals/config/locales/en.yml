@@ -27,6 +27,7 @@ en:
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
+            proposal_limit: Proposal limit per user
             vote_limit: Vote limit per user
           step:
             announcement: Announcement
@@ -90,6 +91,8 @@ en:
             state: State
             title: Title
             votes: Votes
+      new:
+        limit_reached: You can't create new proposals since you've exceeded the limit.
       proposal_votes:
         create:
           error: There's been errors when voting the proposal.
@@ -125,6 +128,7 @@ en:
           unfold: Unfold
         index:
           new_proposal: New proposal
+          proposal_limit_reached: Proposal limit reached
           view_proposal: View proposal
         linked_proposals:
           proposal_votes:
@@ -161,6 +165,8 @@ en:
         voting_rules:
           maximum_votes_per_proposal:
             description: Each proposal can receive a maximum of %{limit} votes.
+          proposal_limit:
+            description: You can create up to %{limit} proposals.
           title: 'Voting is subject to the following rules:'
           vote_limit:
             description: You can vote up to %{limit} proposals.

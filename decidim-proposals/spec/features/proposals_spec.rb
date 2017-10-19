@@ -98,6 +98,7 @@ describe "Proposals", type: :feature do
 
           it "creates a new proposal" do
             visit_feature
+
             click_link "New proposal"
 
             within ".new_proposal" do
@@ -243,6 +244,42 @@ describe "Proposals", type: :feature do
         it "does not show the creation button" do
           visit_feature
           expect(page).to have_no_link("New proposal")
+        end
+      end
+
+      context "when the proposal limit is 1" do
+        let!(:feature) do
+          create(:proposal_feature,
+                 :with_creation_enabled,
+                 :with_proposal_limit,
+                 manifest: manifest,
+                 participatory_space: participatory_process)
+        end
+
+        it "allows the creation of a single new proposal" do
+          visit_feature
+
+          click_link "New proposal"
+
+          within ".new_proposal" do
+            fill_in :proposal_title, with: "Creating my first and only proposal"
+            fill_in :proposal_body, with: "This is my only proposal's body and I'm using it unwisely."
+            find("*[type=submit]").click
+          end
+
+          expect(page).to have_content("successfully")
+          visit_feature
+          expect(page).to have_css(".disabled", text: "New proposal")
+        end
+
+        it "redirects when trying to get into the new page when a proposal is previously created" do
+          visit_feature
+          create(:proposal, author: user, feature: feature)
+          click_link "New proposal"
+
+          within ".flash.alert" do
+            expect(page).to have_content "limit"
+          end
         end
       end
     end

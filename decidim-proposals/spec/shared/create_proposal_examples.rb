@@ -72,6 +72,18 @@ shared_examples "create a proposal" do |with_author|
 
           expect(proposal.author).to eq(author)
         end
+
+        context "with a proposal limit" do
+          let(:feature) do
+            create(:proposal_feature, settings: { "proposal_limit" => 2 })
+          end
+
+          it "checks the author doesn't exceed the amount of proposals" do
+            expect { command.call }.to broadcast(:ok)
+            expect { command.call }.to broadcast(:ok)
+            expect { command.call }.to broadcast(:invalid)
+          end
+        end
       end
 
       context "when geocoding is enabled" do

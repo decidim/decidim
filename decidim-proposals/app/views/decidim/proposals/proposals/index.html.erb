@@ -34,9 +34,13 @@
       <%= render partial: "count" %>
     </h2>
     <% if current_settings.creation_enabled %>
-      <%= action_authorized_link_to :create, new_proposal_path, class: "title-action__action button small hollow" do %>
-        <%= t(".new_proposal") %>
-        <%= icon "plus" %>
+      <% if !proposal_limit_reached? %>
+        <%= action_authorized_link_to :create, new_proposal_path, class: "title-action__action button small hollow" do %>
+          <%= t(".new_proposal") %>
+          <%= icon "plus" %>
+        <% end %>
+      <% else %>
+        <%= content_tag :a, t(".new_proposal"), class: "title-action__action button small hollow disabled", title: t(".proposal_limit_reached") %>
       <% end %>
     <% else %>
       <span class="title-action__action button small hollow disabled">
