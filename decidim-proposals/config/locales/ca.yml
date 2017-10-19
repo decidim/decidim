@@ -22,11 +22,11 @@ ca:
             attachments_allowed: Permetre arxius adjunts
             comments_enabled: Comentaris habilitats
             geocoding_enabled: Geocodificació habilitada
-            maximum_votes_per_proposal: Vot màxim per proposta
+            maximum_votes_per_proposal: Vots màxims per proposta
             new_proposal_help_text: Text d'ajuda al crear una nova proposta
             official_proposals_enabled: Propostes oficials habilitades
             proposal_answering_enabled: Resposta oficial a propostes activades
-            vote_limit: Límit de vot per usuari
+            vote_limit: Límit de vots per usuari
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
@@ -149,7 +149,7 @@ ca:
           report: Informe
         vote_button:
           already_voted: Ja has votat
-          maximum_votes_reached: S'ha arribat al límit de vot
+          maximum_votes_reached: S'ha arribat al límit de vots
           no_votes_remaining: No hi ha suports restants
           vote: Donar suport
           votes_blocked: Recollida de suports desactivada
