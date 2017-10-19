@@ -331,6 +331,8 @@ es:
         edit:
           update: Actualizar
         form:
+          cta_button_path_help: 'Puede sobrescribir el enlace al botón Llamar a la acción en la página principal. Use rutas parciales, no URL completas aquí. Acepta letras, números, guiones y barras, y debe comenzar con una letra. El botón Llamar a la acción se muestra en la página de inicio entre el texto de bienvenida y la descripción. Ejemplo: %{url}'
+          cta_button_text_help: Puede sobrescribir el texto del botón Llamar a acción en la página de inicio para cada idioma disponible en su organización. Si no está configurado, se usará el valor predeterminado. El botón Llamar a la acción se muestra en la página de inicio entre el texto de bienvenida y la descripción.
           header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
           homepage_appearance_title: Editar aspecto de página de inicio
           layout_appearance_title: Editar apariencia de diseño
