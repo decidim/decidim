@@ -26,6 +26,7 @@ it:
             new_proposal_help_text: Nuovo testo di aiuto per la proposta
             official_proposals_enabled: Proposte ufficiali abilitate
             proposal_answering_enabled: Risposta Proposte abilitata
+            proposal_limit: Limite di proposta per utente
             vote_limit: Limite di voto per utente
           step:
             announcement: Annuncio
@@ -89,6 +90,8 @@ it:
             state: Stato
             title: Titolo
             votes: Voti
+      new:
+        limit_reached: Non è possibile creare nuove proposte dal momento che hai superato il limite.
       proposal_votes:
         create:
           error: Ci sono stati errori durante la votazione della proposta.
@@ -124,6 +127,7 @@ it:
           unfold: Espandi
         index:
           new_proposal: Nuova proposta
+          proposal_limit_reached: Limite della proposta raggiunto
           view_proposal: Visualizza proposta
         linked_proposals:
           proposal_votes:
@@ -160,6 +164,8 @@ it:
         voting_rules:
           maximum_votes_per_proposal:
             description: Ogni proposta può ricevere un massimo di %{limit} voti.
+          proposal_limit:
+            description: Puoi creare fino a %{limit} proposte.
           title: 'Il voto è soggetto alle seguenti regole:'
           vote_limit:
             description: Puoi votare fino a %{limit} proposte.

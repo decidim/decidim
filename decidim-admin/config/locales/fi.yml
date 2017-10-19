@@ -331,8 +331,8 @@ fi:
         edit:
           update: Päivitä
         form:
-          cta_button_path_help: 'Voit ohittaa, missä kotisivun Call To Action -painike linkittää. Käytä osittaisia ​​polkuja, ei täysiä URL-osoitteita. Puhelutoiminto -painike näkyy kotisivulla tervetullut tekstin ja kuvauksen välillä. Esimerkki: %{url}'
-          cta_button_text_help: Voit ohittaa Call to Action -painikkeen tekstin kotisivuillesi organisaatiosi käytettävissä olevista kielistä. Jos asetusta ei ole asetettu, käytetään oletusarvoa. Puhelutoiminto -painike näkyy kotisivulla tervetullut tekstin ja kuvauksen välillä.
+          cta_button_path_help: 'Voit korvata, missä etusivun Call To Action -painike linkittää. Käytä osittaisia ​​polkuja, ei täysiä URL-osoitteita. Hyväksyy kirjaimet, numerot, viivat ja viivat, ja sen täytyy alkaa kirjaimella. Puhelutoiminto -painike näkyy kotisivulla tervetullut tekstin ja kuvauksen välillä. Esimerkki: %{url}'
+          cta_button_text_help: Voit korvata Call to Action -painikkeen tekstin kotisivuillesi organisaatiosi käytettävissä olevista kielistä. Jos asetusta ei ole asetettu, käytetään oletusarvoa. Puhelutoiminto -painike näkyy kotisivulla tervetullut tekstin ja kuvauksen välillä.
           header_snippets_help: Käytä tätä kenttää lisätäksesi HTML-koodia sivun alkuun. Yleisin käyttötarve on sellaisten kolmannen osapuolen palveluiden integrointi, jotka vaativat JavaScript- tai CSS-koodin lisäystä sivun HTML-koodiin. Huomioi, että tämä lisätään ainoastaan julkisille sivuille, ei hallinnointisivuille.
           homepage_appearance_title: Muokkaa kotisivua
           layout_appearance_title: Muokkaa ulkoasun ulkoasua

@@ -26,6 +26,7 @@ fi:
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
             official_proposals_enabled: Viralliset ehdotukset sallittu
             proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
+            proposal_limit: Ehdotuksen raja käyttäjää kohden
             vote_limit: Äänestysraja käyttäjää kohden
           step:
             announcement: Ilmoitus
@@ -89,6 +90,8 @@ fi:
             state: Tila
             title: Otsikko
             votes: Äänet
+      new:
+        limit_reached: Et voi luoda uusia ehdotuksia, koska olet ylittänyt rajan.
       proposal_votes:
         create:
           error: Äänestettäessä ehdotusta tapahtui virhe.
@@ -124,6 +127,7 @@ fi:
           unfold: Avaa
         index:
           new_proposal: Uusi ehdotus
+          proposal_limit_reached: Ehdotuksen raja saavutettu
           view_proposal: Näytä ehdotus
         linked_proposals:
           proposal_votes:
@@ -160,6 +164,8 @@ fi:
         voting_rules:
           maximum_votes_per_proposal:
             description: Jokainen ehdotus saa enintään %{limit} ääntä.
+          proposal_limit:
+            description: Voit luoda enintään %{limit} ehdotusta.
           title: 'Äänestykseen sovelletaan seuraavia sääntöjä:'
           vote_limit:
             description: Voit äänestää enintään %{limit} ehdotusta.

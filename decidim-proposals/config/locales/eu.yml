@@ -26,6 +26,7 @@ eu:
             new_proposal_help_text: Laguntza-testua proposamen bat sortzean
             official_proposals_enabled: Proposamen ofizialak gaituta
             proposal_answering_enabled: Erantzuna aktibatutako proposamenei
+            proposal_limit: Proposamenaren muga erabiltzaile bakoitzeko
             vote_limit: Erabiltzaile bakoitzari botoa emateko muga
           step:
             announcement: Oharra
@@ -89,6 +90,8 @@ eu:
             state: Egoera
             title: Titulua
             votes: Euskarriak
+      new:
+        limit_reached: Ezin duzu proposamen berririk sortu muga gainditu zenuenetik.
       proposal_votes:
         create:
           error: Erroreak gertatu dira proposamena bozkatzean.
@@ -124,6 +127,7 @@ eu:
           unfold: Zabaldu
         index:
           new_proposal: Proposamen berria
+          proposal_limit_reached: Proposatutako mugara iritsi da
           view_proposal: Ikusi proposamena
         linked_proposals:
           proposal_votes:
@@ -160,6 +164,8 @@ eu:
         voting_rules:
           maximum_votes_per_proposal:
             description: Proposamen bakoitzak gehienez %{limit} boto jaso ditzake.
+          proposal_limit:
+            description: '%{limit} proposamen sortu ditzakezu.'
           title: 'Botoak honako arauak ditu:'
           vote_limit:
             description: '%{limit} proposamenari bozkatu ahal zaizkio.'
