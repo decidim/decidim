@@ -3,11 +3,11 @@
 module Decidim
   module Admin
     class AuthorizationWorkflowsController < Decidim::Admin::ApplicationController
-      skip_authorization_check
-
       layout "decidim/admin/users"
 
       def index
+        authorize! :index, :authorization_workflows
+
         @workflows = Decidim::Verifications.admin_workflows
       end
     end

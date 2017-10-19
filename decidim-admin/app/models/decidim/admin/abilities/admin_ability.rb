@@ -46,6 +46,7 @@ module Decidim
 
           can [:index, :verify, :reject], UserGroup
 
+          can :index, :authorization_workflows
           can [:index, :update], Authorization
         end
 
