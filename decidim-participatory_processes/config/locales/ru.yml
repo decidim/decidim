@@ -2,16 +2,24 @@ ru:
   activemodel:
     attributes:
       participatory_process:
+        banner_image: Изображение баннера
+        copy_categories: Скопировать категории
         copy_features: Копировать составляющие
         copy_steps: Копировать шаги
         description: Описание
+        developer_group: Группа разработчиков
         domain: Домен
         end_date: Дата завершения
         hashtag: Хэштег
         hero_image: Изображение главной страницы
         local_area: Район
+        meta_scope: Метаданные охвата
+        participatory_process_group_id: Группа движений
+        participatory_scope: Охват соучастия
         promoted: Рекламируется
         scope_id: Охват
+        scopes_enabled: Охваты включены
+        short_description: Краткое описание
         slug: Сокращенный URL-адрес
         start_date: Дата начала
         subtitle: Подзаголовок
@@ -21,9 +29,11 @@ ru:
         description: Описание
         hero_image: Изображение
         name: Имя
+        participatory_process_ids: Подобные движения
       participatory_process_step:
         description: Описание
         end_date: Дата завершения
+        short_description: Краткое описание
         start_date: Дата начала
         title: Название
       participatory_process_user_role:
@@ -35,14 +45,17 @@ ru:
       actions:
         activate: Начать
         configure: Настроить
+        confirm_destroy: Подтвердить удаление
         destroy: Удалить
         duplicate: Создать копию
         edit: Редактировать
         new: Добавить
         preview: Предпросмотр
         publish: Опубликовать
+        resend_invitation: Еще раз отправить приглашение
         unpublish: Отменить публикацию
       menu:
+        participatory_process_groups: Группы движений
         participatory_processes: Движения
         participatory_processes_submenu:
           attachments: Вложения
@@ -59,6 +72,7 @@ ru:
             promoted: Выделенные
             published: Опубликовано
             title: Название
+          name: Движение соучастия
         participatory_process_group:
           fields:
             name: Имя
@@ -74,16 +88,27 @@ ru:
             name: Имя
             role: Роль
           roles:
+            admin: Администратор
+            collaborator: Сотрудник
             moderator: Модератор
+        user:
+          fields:
+            invitation_sent_at: 'Приглашение отправлено:'
       participatory_process_copies:
         new:
           copy: Копировать
       participatory_process_groups:
         edit:
+          title: Редактировать группу процессов
           update: Обновить
         new:
           create: Создать
+          title: Новая группа движений
       participatory_process_steps:
+        default_title: Введение
+        destroy:
+          error:
+            active_step: Нельзя удалять уже начатый шаг.
         edit:
           update: Обновить
         index:
@@ -98,15 +123,23 @@ ru:
       participatory_processes:
         edit:
           update: Обновить
+        form:
+          title: Общая информация
         index:
+          not_published: Не опубликовано
           published: Опубликовано
         new:
           create: Создать
+      titles:
+        participatory_process_groups: Группы движений соучастия
     menu:
       processes: Движения
     participatory_process_groups:
       show:
         title: Название
+    participatory_process_steps:
+      index:
+        process_steps: Шаги движения
     participatory_processes:
       order_by_processes:
         active: Начатые
@@ -114,9 +147,14 @@ ru:
         upcoming: Предстоящие
       participatory_process_groups:
         none: Нет
+      participatory_processes:
+        index:
+          loading: Загрузка результатов...
       show:
+        developer_group: Группа разработчиков
         end_date: Дата завершения
         local_area: Район
+        participatory_scope: Охват соучастия
         scope: Охват
         start_date: Дата начала
         target: Цель
@@ -132,6 +170,7 @@ ru:
         proposals_count: Предложения
         results_count: Итоги
         surveys_count: Опросы
+        users_count: Участники
         votes_count: Голоса
     scopes:
       global: Всеобщий охват
@@ -145,9 +184,19 @@ ru:
           active_step: Начатый шаг
           take_part: Принять участие
       participatory_processes:
+        index:
+          promoted_processes: Выделенные движения
+        order_by_processes:
+          processes:
+            one: "%{count} движение"
+            few: "%{count} движения"
+            many: "%{count} движений"
+            other: "%{count} движений"
         participatory_process:
+          active_step: 'Текущий шаг:'
           take_part: Принять участие
         promoted_process:
+          active_step: 'Текущий шаг:'
           more_info: Дополнительные сведения
           take_part: Принять участие
       process_header:

@@ -25,13 +25,12 @@ uk:
             new_proposal_help_text: Підказки зі створення нової пропозиції
             official_proposals_enabled: Офіційні пропозиції ввімкнені
             proposal_answering_enabled: Ввімкнуто відповіді на пропозиції
-            vote_limit: Гранична кількість голосів
           step:
             announcement: Оголошення
-            comments_blocked: Коментарі заблоковано
+            comments_blocked: Коментарі вимкнено
             creation_enabled: Ввімкнено створення пропозицій
             proposal_answering_enabled: Ввімкнуто відповіді на пропозиції
-            votes_blocked: Голосування заблоковане
+            votes_blocked: Голосування вимкнене
             votes_enabled: Голосування ввімкнене
             votes_hidden: Голосування приховане (якщо голосування ввімкнене, то при галочці тут буде сховано кількість голосів)
     proposals:
@@ -58,7 +57,7 @@ uk:
         proposals:
           answer:
             invalid: При спробі відповісти на цю пропозицію виникла проблема
-            success: Відповідь на пропозицію успішно опубліковано
+            success: Успішно дано відповідь на пропозицію
           create:
             invalid: При спробі створити цю пропозицію виникла проблема
             success: Пропозицію успішно створено
@@ -73,7 +72,7 @@ uk:
       answers:
         accepted: Прийнято
         evaluating: Розглядається
-        not_answered: Ще не отримало відгуків
+        not_answered: Без відповідей
         rejected: Відхилено
       create:
         error: При збереженні цієї пропозиції сталися помилки.
@@ -161,11 +160,10 @@ uk:
             few: ГОЛОСИ
             many: ГОЛОСІВ
             other: ГОЛОСІВ
-        votes_limit:
+        voting_rules:
           vote_limit:
             description: Ви можете проголосувати до %{limit} пропозицій.
             left: Залишилось
-            title: У вас є %{limit} голосів для того, щоб їх розподілити
             votes: Голоси
     resource_links:
       included_proposals:

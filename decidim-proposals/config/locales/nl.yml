@@ -22,10 +22,11 @@ nl:
             attachments_allowed: Bijlagen toestaan
             comments_enabled: Reacties ingeschakeld
             geocoding_enabled: Geocoding ingeschakeld
+            maximum_votes_per_proposal: Maximale stemmen per voorstel
             new_proposal_help_text: Nieuwe tekst voor tekstvoorstellen
             official_proposals_enabled: Officiële voorstellen ingeschakeld
             proposal_answering_enabled: Antwoordbericht geactiveerd
-            vote_limit: Stemlimiet
+            vote_limit: Stemlimiet per gebruiker
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
@@ -148,6 +149,7 @@ nl:
           report: Rapporteren
         vote_button:
           already_voted: Al gestemd
+          maximum_votes_reached: Stemlimiet bereikt
           no_votes_remaining: Geen stemmen over
           vote: Stemmen
           votes_blocked: Stemmen uitgeschakeld
@@ -155,12 +157,14 @@ nl:
           count:
             one: STEMMEN
             other: STEMMINGEN
-        votes_limit:
+        voting_rules:
+          maximum_votes_per_proposal:
+            description: Elk voorstel kan maximaal %{limit} stemmen ontvangen.
+          title: 'Stemmen zijn onderworpen aan de volgende regels:'
           vote_limit:
             description: U kunt stemmen tot %{limit} voorstellen.
-            left: Resterend
-            title: U heeft %{limit} stemmen om te verdelen
-            votes: Stemmen
+            left: resterende
+            votes: stemmen
     resource_links:
       included_proposals:
         proposal_projects: 'Voorstel in deze projecten:'

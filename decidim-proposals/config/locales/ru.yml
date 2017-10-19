@@ -6,6 +6,7 @@ ru:
         category_id: Категория
         scope_id: Охват
         title: Название
+        user_group_id: Создайте предложение как
       proposal_answer:
         answer: Ответить
   decidim:
@@ -17,7 +18,15 @@ ru:
         name: Предложения
         settings:
           global:
-            vote_limit: Предельное количество голосов
+            announcement: Объявление
+            attachments_allowed: Разрешить вложения
+            comments_enabled: Комментарии включены
+            geocoding_enabled: Геокодирование включено
+          step:
+            announcement: Объявление
+            comments_blocked: Комментарии выключены
+            votes_blocked: Голосование выключено
+            votes_enabled: Голосование включено
     proposals:
       actions:
         answer: Ответить
@@ -38,25 +47,41 @@ ru:
             answer_proposal: Ответить
             evaluating: Рассматривается
             rejected: Отклонено
+            title: Ответ на предложение %{title}
         proposals:
+          answer:
+            success: Успешно дан ответ на предложение
+          create:
+            success: Предложение успешно создано
+          form:
+            attachment_legend: "(Необязательно) Добавить вложение"
+            select_a_category: Выберите категорию
           index:
             title: Предложения
           new:
             create: Создать
+            title: Создать предложение
       answers:
         accepted: Принято
         evaluating: Рассматривается
+        not_answered: Без ответов
         rejected: Отклонено
+      create:
+        success: Предложение успешно создано.
       models:
         proposal:
           fields:
             category: Категория
             id: Идентификатор
+            official_proposal: Официальное предложение
             scope: Охват
             state: Cостояние
             title: Название
             votes: Голоса
       proposals:
+        author:
+          deleted: Удаленный пользователь
+          verified_user_group: Проверенная организация
         count:
           proposals_count:
             one: 1 предложение
@@ -68,12 +93,14 @@ ru:
           activity: Деятельность
           all: Все
           category: Категория
+          category_prompt: Выберите категорию
           citizens: Граждане
           evaluating: Рассматривается
           official: Официальный
           origin: Источник
           rejected: Отклонено
           related_to: Связано с
+          scope_prompt: Выбрать охват
           scopes: Охваты
           search: Поиск
           state: Cостояние
@@ -83,24 +110,35 @@ ru:
           filter: Отобрать
           filter_by: 'Отобрать по признаку:'
           unfold: Развернуть
+        index:
+          new_proposal: Новое предложение
+          view_proposal: Просмотреть предложение
         new:
+          attachment_legend: "(Необязательно) Добавить вложение"
           back: Вернуться
           send: Отправить
+          title: Новое предложение
         orders:
+          label: 'Упорядочить предложения по:'
           most_voted: С наибольшим количеством голосов
           random: Произвольно
           recent: Недавние
+        proposal:
+          view_proposal: Просмотреть предложение
         show:
           report: Пожаловаться
         vote_button:
+          already_voted: Уже проголосовали
+          no_votes_remaining: Больше не осталось голосов
           vote: Голосовать
+          votes_blocked: Голосование отключено
         votes_count:
           count:
             one: ГОЛОС
             few: ГОЛОСА
             many: ГОЛОСОВ
             other: ГОЛОСА
-        votes_limit:
+        voting_rules:
           vote_limit:
             left: Осталось
             votes: Голоса

@@ -29,7 +29,7 @@ uk:
             comments_enabled: Коментарі ввімкнено
           step:
             announcement: Оголошення
-            comments_blocked: Коментарі заблоковано
+            comments_blocked: Коментарі вимкнено
     meetings:
       actions:
         attachments: Вкладені файли
@@ -145,7 +145,7 @@ uk:
           filter_by: 'Відібрати за ознакою:'
           unfold: Розгорнути
         index:
-          view_meeting: Подання зустріч
+          view_meeting: Переглянути зустріч
         meetings:
           no_meetings_warning: Жодна зустріч не відповідає вашим критеріям пошуку, або жодних зустрічей не заплановано.
           upcoming_meetings_warning: Наразі нема запланованих зустрічей, але тут ви можете знайти перелік усіх попередніх зустрічей.
