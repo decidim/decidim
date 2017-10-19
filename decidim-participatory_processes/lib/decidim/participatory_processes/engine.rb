@@ -57,6 +57,7 @@ module Decidim
           menu.item I18n.t("menu.processes", scope: "decidim"),
                     decidim_participatory_processes.participatory_processes_path,
                     position: 2,
+                    if: Decidim::ParticipatoryProcess.where(organization: current_organization).published.any?,
                     active: :inclusive
         end
       end

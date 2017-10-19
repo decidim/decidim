@@ -20,12 +20,24 @@ describe "Assemblies", type: :feature do
   end
 
   context "when there are no assemblies" do
-    before do
-      visit decidim_assemblies.assemblies_path
+    context "direct access form URL" do
+      before do
+        visit decidim_assemblies.assemblies_path
+      end
+
+      it "shows a message about the lack of assemblies" do
+        expect(page).to have_content("No assemblies yet!")
+      end
     end
 
-    it "shows a message about the lack of assemblies" do
-      expect(page).to have_content("No assemblies yet!")
+    context "accessing from the homepage" do
+      it "the menu link is not shown" do
+        visit decidim.root_path
+
+        within ".main-nav" do
+          expect(page).to have_no_content("Assemblies")
+        end
+      end
     end
   end
 
@@ -35,13 +47,43 @@ describe "Assemblies", type: :feature do
     end
   end
 
-  context "when there are some assemblies" do
+  context "when there are some assemblies and all are unpublished" do
+    before do
+      create(:assembly, :unpublished, organization: organization)
+      create(:assembly, :published)
+    end
+
+    context "accessing from the homepage" do
+      it "the menu link is not shown" do
+        visit decidim.root_path
+
+        within ".main-nav" do
+          expect(page).to have_no_content("Assemblies")
+        end
+      end
+    end
+  end
+
+  context "when there are some published assemblies" do
     let!(:assembly) { base_assembly }
     let!(:promoted_assembly) { create(:assembly, :promoted, organization: organization) }
     let!(:unpublished_assembly) { create(:assembly, :unpublished, organization: organization) }
 
     before do
       visit decidim_assemblies.assemblies_path
+    end
+
+    context "accessing from the homepage" do
+      it "the menu link is not shown" do
+        visit decidim.root_path
+
+        within ".main-nav" do
+          expect(page).to have_content("Assemblies")
+          click_link "Assemblies"
+        end
+
+        expect(current_path).to eq decidim_assemblies.assemblies_path
+      end
     end
 
     it "lists all the highlighted assemblies" do
