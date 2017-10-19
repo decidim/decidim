@@ -20,6 +20,10 @@
   td:not(:first-child){
     text-align: center;
   }
+  th:first-child,
+  td:first-child{
+    padding-left: 0;
+  }
 
   th:last-child,
   td:last-child{
@@ -27,16 +31,17 @@
     text-align: right;
   }
 
-  th:first-child,
-  td:first-child{
-    padding-left: 0;
-    text-align: left;
-  }
-
   &.table-list--lastcenter{
     th:last-child,
     td:last-child{
       text-align: center;
+    }
+  }
+
+  &.table-list--lastleft{
+    th:last-child,
+    td:last-child{
+      text-align: left;
     }
   }
 

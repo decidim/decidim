@@ -15,7 +15,21 @@ en:
       menu:
         authorization_workflows: Verifications
     authorization_handlers:
+      admin:
+        id_documents:
+          help:
+          - Users fill in their identity information and upload a copy of their document.
+          - You fill in the information present in the uploaded image.
+          - The information should match whatever the user filled in.
+          - If you can't clearly see the information or you can't get it verified, you can reject the request and the user will be able to fix it.
+        postal_letter:
+          help:
+          - Users request a verification code to be sent to their address.
+          - You send the letter to their address with the verification code.
+          - You mark the letter as sent.
+          - Once you mark the letter as sent, the user will be able to introduce the code and get verified.
       direct: Direct
+      help: Help
       id_documents:
         explanation: Upload your identity documents so we can check your identity
         name: Identity documents

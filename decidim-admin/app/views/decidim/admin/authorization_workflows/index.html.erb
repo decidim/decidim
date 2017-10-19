@@ -5,10 +5,11 @@
     </h2>
   </div>
   <div class="card-section">
-    <table class="table-list">
+    <table class="table-list table-list--lastleft">
       <thead>
         <tr>
           <th><%= t("decidim.authorization_handlers.name") %></th>
+          <th><%= t("decidim.authorization_handlers.help") %></th>
         </tr>
       </thead>
       <tbody>
@@ -16,6 +17,13 @@
           <tr>
             <% workflow = Decidim::Verifications::WorkflowWrapper.new(manifest) %>
             <td><%= link_to workflow.fullname, workflow.admin_root_path %></td>
+            <td>
+              <ul>
+                <% t("decidim.authorization_handlers.admin.#{workflow.key}.help").each do |tip| %>
+                  <li><%= tip %></li>
+                <% end %>
+              </ul>
+            </td>
           </tr>
         <% end %>
       </tbody>
