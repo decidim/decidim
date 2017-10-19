@@ -21,7 +21,7 @@ module Decidim
       return if status.ok?
       raise Unauthorized if status.code == :invalid
 
-      redirect_to status.auth_method.root_path(redirect_url: redirect_url)
+      redirect_to authorize_action_path(action_name, redirect_url: redirect_url)
     end
 
     # Public: Returns the authorization object for an authorization.
