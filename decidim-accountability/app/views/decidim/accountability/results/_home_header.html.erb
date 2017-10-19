@@ -6,9 +6,9 @@
 
     <div class="small-12 medium-5 columns">
       <div class="progress-level">
-        <p><%= t(".global_status") %></p>
-
         <% if progress_calculator(current_scope, nil).present? %>
+          <p><%= t(".global_status") %></p>
+
           <div class="progress">
             <div class="progress-meter" style="width:<%= progress_calculator(current_scope, nil) %>%"></div>
           </div>
