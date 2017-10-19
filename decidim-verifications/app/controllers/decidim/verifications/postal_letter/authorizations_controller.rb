@@ -22,7 +22,7 @@ module Decidim
           PerformAuthorizationStep.call(@authorization, @form) do
             on(:ok) do
               flash[:notice] = t("authorizations.create.success", scope: "decidim.verifications.postal_letter")
-              redirect_to edit_authorization_path
+              redirect_to decidim.authorizations_path
             end
 
             on(:invalid) do
