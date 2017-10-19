@@ -163,13 +163,13 @@ en:
         voting_rules:
           maximum_votes_per_proposal:
             description: Each proposal can receive a maximum of %{limit} votes.
+          proposal_limit:
+            description: You can create up to %{limit} proposals.
           title: 'Voting is subject to the following rules:'
           vote_limit:
             description: You can vote up to %{limit} proposals.
             left: Remaining
             votes: Votes
-          proposal_limit:
-            description: You can create up to %{limit} proposals.
     resource_links:
       included_proposals:
         proposal_projects: 'Proposal appearing in these projects:'
