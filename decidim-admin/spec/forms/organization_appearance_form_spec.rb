@@ -21,6 +21,7 @@ module Decidim
         }
       end
       let(:organization) { create(:organization) }
+      let(:cta_button_path) { nil }
       let(:homepage_image_path) { Decidim::Dev.asset("city.jpeg") }
       let(:attributes) do
         {
@@ -33,6 +34,7 @@ module Decidim
             "description_ca" => description[:ca],
             "homepage_image" => Rack::Test::UploadedFile.new(homepage_image_path, "image/jpeg"),
             "show_statics" => false,
+            "cta_button_path" => cta_button_path,
             "header_snippets" => header_snippets
           }
         }
@@ -51,6 +53,18 @@ module Decidim
       end
 
       context "when everything is OK" do
+        it { is_expected.to be_valid }
+      end
+
+      context "when cta_button_path is a full URL" do
+        let(:cta_button_path) { "http://example.org" }
+
+        it { is_expected.not_to be_valid }
+      end
+
+      context "when cta_button_path is a valid path" do
+        let(:cta_button_path) { "processes/my-process/" }
+
         it { is_expected.to be_valid }
       end
     end
