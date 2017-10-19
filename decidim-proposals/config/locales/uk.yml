@@ -22,9 +22,11 @@ uk:
             attachments_allowed: Дозволити вкладення
             comments_enabled: Коментарі ввімкнено
             geocoding_enabled: Геокодування ввімкнено
+            maximum_votes_per_proposal: Максимальна кількість голосів на пропозицію
             new_proposal_help_text: Підказки зі створення нової пропозиції
             official_proposals_enabled: Офіційні пропозиції ввімкнені
             proposal_answering_enabled: Ввімкнуто відповіді на пропозиції
+            vote_limit: Максимальна кількість голосів для одного користувача
           step:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
@@ -151,6 +153,7 @@ uk:
           report: Поскаржитись
         vote_button:
           already_voted: Вже проголосували
+          maximum_votes_reached: Використано всі голоси
           no_votes_remaining: Не залишилось голосів
           vote: Голосувати
           votes_blocked: Голосування вимкнене
@@ -161,6 +164,9 @@ uk:
             many: ГОЛОСІВ
             other: ГОЛОСІВ
         voting_rules:
+          maximum_votes_per_proposal:
+            description: Кожна пропозиція може отримати максимум %{limit} голосів.
+          title: 'Голосування регулюється наступними правилами:'
           vote_limit:
             description: Ви можете проголосувати до %{limit} пропозицій.
             left: Залишилось
