@@ -164,6 +164,8 @@ fr:
         voting_rules:
           maximum_votes_per_proposal:
             description: Chaque proposition peut recevoir un maximum de %{limit} votes.
+          proposal_limit:
+            description: Vous pouvez créer jusqu'à %{limit} propositions.
           title: 'Le vote est soumis aux règles suivantes:'
           vote_limit:
             description: Vous pouvez voter jusqu'à %{limit} propositions.
