@@ -91,6 +91,8 @@ en:
             state: State
             title: Title
             votes: Votes
+      new:
+        limit_reached: You can't create new proposals since you've exceeded the limit.
       proposal_votes:
         create:
           error: There's been errors when voting the proposal.

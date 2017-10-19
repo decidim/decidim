@@ -89,7 +89,8 @@ module Decidim
       end
 
       def check_proposal_limit!
-        raise "Proposal limit reached" if proposal_limit_reached?
+        flash[:error] = I18n.t("proposals.new.limit_reached", scope: "decidim")
+        redirect_to action: :index
       end
     end
   end
