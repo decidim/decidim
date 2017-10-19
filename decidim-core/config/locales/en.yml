@@ -61,6 +61,7 @@ en:
         related_photos: Related photos
     authorization_handlers:
       decidim/dummy_authorization_handler:
+        explanation: Get verified by introducing a document number ending with "X"
         fields:
           document_number: Document number
           postal_code: Postal code
@@ -74,6 +75,8 @@ en:
           bar: Bar
           foo: Foo
         name: Foo authorization
+      granted_at: Granted at %{timestamp}
+      started_at: Started at %{timestamp}
     authorizations:
       create:
         error: There was an error creating the authorization.

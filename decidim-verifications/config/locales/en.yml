@@ -17,10 +17,12 @@ en:
     authorization_handlers:
       direct: Direct
       id_documents:
+        explanation: Upload your identity documents so we can check your identity
         name: Identity documents
       multistep: Multi-Step
       name: Name
       postal_letter:
+        explanation: We'll send you a postal letter with a code that you'll have to enter so we can verify your address
         name: Code by postal letter
     verifications:
       id_documents:

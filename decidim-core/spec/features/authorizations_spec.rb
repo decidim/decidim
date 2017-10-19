@@ -119,7 +119,7 @@ describe "Authorizations", type: :feature do
         within ".authorizations-list" do
           expect(page).to have_content("Example authorization")
           expect(page).to have_no_link("Example authorization")
-          expect(page).to have_content(I18n.localize(authorization.created_at, format: :long))
+          expect(page).to have_content(I18n.localize(authorization.granted_at, format: :long))
         end
       end
     end

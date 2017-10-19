@@ -10,7 +10,9 @@
                 <h5 class="card--list__heading">
                   <%= t("#{authorization.name}.name", scope: "decidim.authorization_handlers") %>
                 </h5>
-                <span class="text-small"><%= l(authorization.updated_at, format: :long) %></span>
+                <span class="text-small">
+                  <%= t("granted_at", scope: "decidim.authorization_handlers", timestamp: l(authorization.granted_at, format: :long)) %>
+                </span>
               </div>
             </div>
           </div>
@@ -31,7 +33,9 @@
                 <h5 class="card--list__heading">
                   <%= link_to t("#{authorization.name}.name", scope: "decidim.authorization_handlers"), authorization_method.resume_authorization_path %>
                 </h5>
-                <span class="text-small"><%= l(authorization.updated_at, format: :long) %></span>
+                <span class="text-small">
+                  <%= t("started_at", scope: "decidim.authorization_handlers", timestamp: l(authorization.updated_at, format: :long)) %>
+                </span>
               </div>
             </div>
             <div class="card--list__data">
@@ -56,6 +60,9 @@
                 <h5 class="card--list__heading">
                   <%= link_to t("#{unauthorized_method.key}.name", scope: "decidim.authorization_handlers"), unauthorized_method.root_path %>
                 </h5>
+                <span class="text-small">
+                  <%= t("#{unauthorized_method.key}.explanation", scope: "decidim.authorization_handlers") %>
+                </span>
               </div>
             </div>
             <div class="card--list__data">
