@@ -144,12 +144,12 @@ ca:
         name: Seguiment
         settings:
           global:
-            categories_label: Nom de "Categories"
+            categories_label: Nom per a "Categories"
             comments_enabled: Comentaris habilitats
-            heading_leaf_level_results: Nom de "Projectes"
-            heading_parent_level_results: Nom de "Resultats"
+            heading_leaf_level_results: Nom per a "Projectes"
+            heading_parent_level_results: Nom per a "Resultats"
             intro: Introducció
-            subcategories_label: Nom per a "subcategories"
+            subcategories_label: Nom per a "Subcategories"
           step:
             comments_blocked: Comentaris bloquejats
     resource_links:
