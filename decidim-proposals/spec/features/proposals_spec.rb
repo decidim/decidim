@@ -98,6 +98,7 @@ describe "Proposals", type: :feature do
 
           it "creates a new proposal" do
             visit_feature
+
             click_link "New proposal"
 
             within ".new_proposal" do

@@ -13,7 +13,8 @@ module Decidim
       private
 
       def proposal_limit
-        feature_settings.proposal_limit if feature_settings.proposal_limit != 0
+        return nil if feature_settings.proposal_limit.zero?
+        feature_settings.proposal_limit
       end
 
       def proposal_limit_reached?
