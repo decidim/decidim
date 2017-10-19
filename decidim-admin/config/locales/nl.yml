@@ -331,7 +331,7 @@ nl:
         edit:
           update: Bijwerken
         form:
-          cta_button_path_help: 'U kunt overschrijven waar de knop Aanbellen naar actie op de homepage links naar. Gebruik gedeeltelijke paden, niet volledige URL''s hier. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving. Voorbeeld: %{url}'
+          cta_button_path_help: 'U kunt overschrijven waar de knop Aanbellen naar actie op de homepage links naar. Gebruik gedeeltelijke paden, niet volledige URL''s hier. Aanvaardt letters, cijfers, streepjes en streepjes en moet beginnen met een brief. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving. Voorbeeld: %{url}'
           cta_button_text_help: U kunt de tekst voor oproepen naar actie op de homepage voor elke beschikbare taal in uw organisatie overschrijven. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
           header_snippets_help: Gebruik dit veld om dingen toe te voegen aan de HTML-kop. Het meest voorkomende gebruik is het integreren van diensten van derden die extra JavaScript of CSS nodig hebben. U kunt het ook gebruiken om extra metatags toe te voegen aan de HTML. Houd er rekening mee dat dit alleen op openbare pagina's wordt weergegeven, niet in de beheerdersafdeling.
           homepage_appearance_title: Bewerk de startpagina-weergave
