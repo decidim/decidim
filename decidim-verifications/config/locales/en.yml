@@ -69,7 +69,7 @@ en:
               letter_sent_at: Letter sent at
               mark_as_sent: Mark as sent
               not_yet_sent: Not yet sent
-              title: Pending letters to be sent
+              title: Ongoing verifications
               username: Username
               verification_code: Verification code
           postages:
