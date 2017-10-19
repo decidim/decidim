@@ -26,7 +26,7 @@ es:
             new_proposal_help_text: Texto de ayuda al crear una propuesta
             official_proposals_enabled: Propuestas oficiales habilitadas
             proposal_answering_enabled: Respuesta oficial a propuestas habilitadas
-            proposal_limit: Límite de propuesta por usuario
+            proposal_limit: Límite de propuestas por usuario
             vote_limit: Límite de votos por usuario
           step:
             announcement: Aviso
@@ -127,7 +127,7 @@ es:
           unfold: Desplegar
         index:
           new_proposal: Nueva propuesta
-          proposal_limit_reached: Límite de la propuesta alcanzado
+          proposal_limit_reached: Límite de propuestas alcanzado
           view_proposal: Ver propuesta
         linked_proposals:
           proposal_votes:
@@ -165,7 +165,7 @@ es:
           maximum_votes_per_proposal:
             description: Cada propuesta puede recibir un máximo de %{limit} votos.
           proposal_limit:
-            description: Puede crear hasta %{limit} propuestas.
+            description: Puedes crear hasta %{limit} propuestas.
           title: 'La votación está sujeta a las siguientes reglas:'
           vote_limit:
             description: Puedes votar hasta %{limit} propuestas.
