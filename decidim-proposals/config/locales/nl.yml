@@ -26,6 +26,7 @@ nl:
             new_proposal_help_text: Nieuwe tekst voor tekstvoorstellen
             official_proposals_enabled: Officiële voorstellen ingeschakeld
             proposal_answering_enabled: Antwoordbericht geactiveerd
+            proposal_limit: Voorstellimiet per gebruiker
             vote_limit: Stemlimiet per gebruiker
           step:
             announcement: Aankondiging
@@ -89,6 +90,8 @@ nl:
             state: Staat
             title: Titel
             votes: stemmen
+      new:
+        limit_reached: U kunt geen nieuwe voorstellen maken omdat u de limiet heeft overschreden.
       proposal_votes:
         create:
           error: Er zijn fouten geweest bij het stemmen van het voorstel.
@@ -124,6 +127,7 @@ nl:
           unfold: Ontvouwen
         index:
           new_proposal: Nieuw voorstel
+          proposal_limit_reached: Voorstellimiet bereikt
           view_proposal: Bekijk voorstel
         linked_proposals:
           proposal_votes:
@@ -160,6 +164,8 @@ nl:
         voting_rules:
           maximum_votes_per_proposal:
             description: Elk voorstel kan maximaal %{limit} stemmen ontvangen.
+          proposal_limit:
+            description: U kunt maximaal %{limit} voorstellen maken.
           title: 'Stemmen zijn onderworpen aan de volgende regels:'
           vote_limit:
             description: U kunt stemmen tot %{limit} voorstellen.
