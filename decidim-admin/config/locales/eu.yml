@@ -331,7 +331,7 @@ eu:
         edit:
           update: Eguneratu
         form:
-          cta_button_path_help: 'Hasierako orrialdera deitu nahi duzun tokira botoia sakatu dezakezu. Erabili bideak partzialak, ez URL osoak hemen. The Call To Action botoian hasierako orrian erakusten da ongietorri testua eta azalpena. Adibidea: %{url}'
+          cta_button_path_help: 'Hasierako orrialdera deitu nahi duzun tokira botoia sakatu dezakezu. Erabili bideak partzialak, ez URL osoak hemen. Letrak, zenbakiak, marrak eta barrak onartzen ditu eta gutun batekin hasi behar duzu. The Call To Action botoian hasierako orrian erakusten da ongietorri testua eta azalpena. Adibidea: %{url}'
           cta_button_text_help: Atzera botoia sakatu hasierako orrian, zure erakundean eskuragarri dagoen hizkuntza bakoitzarentzat. Ezartzen bada, balio lehenetsia erabiliko da. The Call To Action botoian hasierako orrian erakusten da ongietorri testua eta azalpena.
           header_snippets_help: Erabili eremu hau HTML goiburuari gauzak gehitzeko. Erabilerarik ohikoena da JavaScript edo CSS gehigarriak behar dituzten hirugarrenen zerbitzuak txertatzea. Gainera, HTMLari meta-etiketa gehigarriak gehitzeko erabil dezakezu. Kontuan hartu orri publikoetan baino ez dela erakutsiko, ez administrazio atalean.
           homepage_appearance_title: Editatu orriaren itxura
