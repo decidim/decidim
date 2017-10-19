@@ -44,7 +44,12 @@ module Decidim
         def update
           authorize! :update, @authorization
 
-          @form = UploadForm.from_params(params.merge(user: current_user))
+          @form = UploadForm.from_params(
+            params.merge(
+              user: current_user,
+              verification_attachment: @authorization.verification_attachment
+            )
+          )
 
           PerformAuthorizationStep.call(@authorization, @form) do
             on(:ok) do

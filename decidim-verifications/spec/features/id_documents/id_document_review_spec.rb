@@ -67,7 +67,7 @@ describe "Identity document review", type: :feature do
       end
 
       it "allows the verificator to review the amended request" do
-        submit_reupload_form(doc_type: "NIE", doc_number: "XXXXXXXY", file_name: "id.jpg")
+        submit_reupload_form(doc_type: "NIE", doc_number: "XXXXXXXY")
         expect(page).to have_content("Document reuploaded successfully")
 
         relogin_as admin, scope: :user
@@ -94,10 +94,9 @@ describe "Identity document review", type: :feature do
     click_button "Verify"
   end
 
-  def submit_reupload_form(doc_type:, doc_number:, file_name:)
+  def submit_reupload_form(doc_type:, doc_number:)
     select doc_type, from: "Type of your document"
     fill_in "Document number (with letter)", with: doc_number
-    attach_file "Scanned copy of your document", Decidim::Dev.asset(file_name)
 
     click_button "Request verification again"
   end
