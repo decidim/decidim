@@ -84,6 +84,7 @@ pl:
         authorize: Wysłać
         authorize_with: Zweryfikuj za pomocą %{authorizer}
       skip_verification: Możesz to pominąć teraz i %{link}
+      start_exploring: rozpocznij zwiedzanie
     core:
       actions:
         unauthorized: Nie masz uprawnień do wykonywania tej czynności
