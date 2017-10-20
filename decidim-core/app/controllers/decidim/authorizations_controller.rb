@@ -9,6 +9,7 @@ module Decidim
 
     include Decidim::UserProfile
     helper Decidim::DecidimFormHelper
+    helper Decidim::CtaButtonHelper
     helper Decidim::AuthorizationFormHelper
 
     layout "layouts/decidim/user_profile", only: [:index]

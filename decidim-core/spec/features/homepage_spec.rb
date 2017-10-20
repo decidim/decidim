@@ -29,17 +29,29 @@ describe "Homepage", type: :feature do
     end
 
     context "call to action" do
+      let!(:participatory_process) { create :participatory_process, :published }
+      let!(:organization) { participatory_process.organization }
+
+      before do
+        switch_to_host(organization.host)
+        visit decidim.root_path
+      end
+
       context "when the organization has the CTA button text customized" do
-        let(:cta_button_text) { { en: "Log in", es: "Conéctate", ca: "Connecta't" } }
+        let(:cta_button_text) { { en: "Sign up", es: "Regístrate", ca: "Registra't" } }
         let(:organization) { create(:organization, cta_button_text: cta_button_text) }
+
+        before do
+          create :static_page, slug: "terms-and-conditions", organization: organization
+        end
 
         it "uses the custom values for the CTA button text" do
           within ".hero" do
-            expect(page).to have_selector("a.hero-cta", text: "LOG IN")
-            click_link "Log in"
+            expect(page).to have_selector("a.hero-cta", text: "SIGN UP")
+            click_link "Sign up"
           end
 
-          expect(current_path).to eq decidim_participatory_processes.participatory_processes_path
+          expect(current_path).to eq decidim.new_user_registration_path
         end
       end
 
@@ -60,6 +72,8 @@ describe "Homepage", type: :feature do
 
       context "when the organization does not have it customized" do
         it "uses the default values for the CTA button" do
+          visit decidim.root_path
+
           within ".hero" do
             expect(page).to have_selector("a.hero-cta", text: "PARTICIPATE")
             click_link "Participate"

@@ -18,6 +18,8 @@ module Decidim
       helper_method :collection, :promoted_participatory_processes, :participatory_processes, :stats, :filter
 
       def index
+        redirect_to "/404" if published_processes.none?
+
         authorize! :read, ParticipatoryProcess
         authorize! :read, ParticipatoryProcessGroup
       end
@@ -27,6 +29,10 @@ module Decidim
       end
 
       private
+
+      def published_processes
+        @published_processes ||= OrganizationPublishedParticipatoryProcesses.new(current_organization)
+      end
 
       def collection
         @collection ||= (participatory_processes.to_a + participatory_process_groups).flatten

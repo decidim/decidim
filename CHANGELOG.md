@@ -6,12 +6,14 @@
 
 - **decidim**: Available authorization handlers are added to the sample organization automatically when seeding. [\#1978](https://github.com/decidim/decidim/pull/1978)
 - **decidim-admin**: Let admins customize the Call To Action homepage button text and URL [\#2053](https://github.com/decidim/decidim/pull/2053)
+- **decidim-assemblies**: Hide the link to Assemblies from the main menu if no assemblies are published [\#2074](https://github.com/decidim/decidim/pull/2074)
 - **decidim-core**: Show a disabled "Follow" button to anonymous users (not logged in) with a prompt to sign in [\#1903](https://github.com/decidim/decidim/pull/1903)
 - **decidim-core**: Adds an option to the initializer file to enable/disable header snippets (`true` by default) [\#1923](https://github.com/decidim/decidim/pull/1923)
 - **decidim-core**: Adds an option to configure the maximum file size for avatar images [\#1969](https://github.com/decidim/decidim/pull/1969)
 - **decidim-core**: Hides the "Mark all as read" notifications button when no notifications are found [\#1948](https://github.com/decidim/decidim/pull/1948)
 - **decidim-core**: Add fields to customize the Call To Action homepage button text and URL [\#2053](https://github.com/decidim/decidim/pull/2053)
 - **decidim-meetings**: Participatory admins can invite users to join a meeting. [\#1879](https://github.com/decidim/decidim/pull/1879)
+- **decidim-participatory_processes**: Hide the link to Processes from the main menu if no processes are published [\#2074](https://github.com/decidim/decidim/pull/2074)
 - **decidim-proposals**: Show votes in the proposals table in admin when votes are enabled [\#2011](https://github.com/decidim/decidim/pull/2011)
 - **decidim-proposals**: Allow setting the maximum amount of votes a proposal can receive [\#2054](https://github.com/decidim/decidim/pull/2054).
 

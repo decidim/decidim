@@ -118,8 +118,6 @@ en:
           take_part: Take part
         index:
           promoted_assemblies: Highlighted assemblies
-        no_assemblies_yet:
-          no_assemblies_yet: No assemblies yet!
         order_by_assemblies:
           assemblies:
             one: "%{count} assembly"

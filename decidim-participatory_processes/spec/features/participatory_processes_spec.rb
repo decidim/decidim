@@ -20,12 +20,21 @@ describe "Participatory Processes", type: :feature do
   end
 
   context "when there are no processes" do
-    before do
-      visit decidim_participatory_processes.participatory_processes_path
+    context "direct access form URL" do
+      it "renders an error page" do
+        visit decidim_participatory_processes.participatory_processes_path
+        expect(page).to have_http_status(:not_found)
+      end
     end
 
-    it "shows a message about the lack of processes" do
-      expect(page).to have_content("No participatory processes yet!")
+    context "accessing from the homepage" do
+      it "the menu link is not shown" do
+        visit decidim.root_path
+
+        within ".main-nav" do
+          expect(page).to have_no_content("Processes")
+        end
+      end
     end
   end
 
@@ -35,13 +44,50 @@ describe "Participatory Processes", type: :feature do
     end
   end
 
-  context "when there are some processes" do
+  context "when there are some processes and all are unpublished" do
+    before do
+      create(:participatory_process, :unpublished, organization: organization)
+      create(:participatory_process, :published)
+    end
+
+    context "direct access from URL" do
+      it "renders an error page" do
+        visit decidim_participatory_processes.participatory_processes_path
+        expect(page).to have_http_status(:not_found)
+      end
+    end
+
+    context "accessing from the homepage" do
+      it "the menu link is not shown" do
+        visit decidim.root_path
+
+        within ".main-nav" do
+          expect(page).to have_no_content("Processes")
+        end
+      end
+    end
+  end
+
+  context "when there are some published processes" do
     let!(:participatory_process) { base_process }
     let!(:promoted_process) { create(:participatory_process, :promoted, organization: organization) }
     let!(:unpublished_process) { create(:participatory_process, :unpublished, organization: organization) }
 
     before do
       visit decidim_participatory_processes.participatory_processes_path
+    end
+
+    context "accessing from the homepage" do
+      it "the menu link is not shown" do
+        visit decidim.root_path
+
+        within ".main-nav" do
+          expect(page).to have_content("Processes")
+          click_link "Processes"
+        end
+
+        expect(current_path).to eq decidim_participatory_processes.participatory_processes_path
+      end
     end
 
     it "lists all the highlighted processes" do

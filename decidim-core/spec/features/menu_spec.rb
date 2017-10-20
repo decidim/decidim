@@ -20,10 +20,8 @@ describe "Menu", type: :feature do
   it "renders the default main menu" do
     within ".main-nav" do
       expect(page).to \
-        have_selector("li", count: 4) &
+        have_selector("li", count: 2) &
         have_link("Home", href: "/") &
-        have_link("Processes", href: "/processes") &
-        have_link("Assemblies", href: "/assemblies") &
         have_link("More information", href: "/pages")
     end
   end
