@@ -27,6 +27,8 @@ ru:
       assemblies:
         create:
           success: Собрание успешно создано.
+        destroy:
+          success: Собрание успешно удалено.
         edit:
           update: Обновить
         form:
