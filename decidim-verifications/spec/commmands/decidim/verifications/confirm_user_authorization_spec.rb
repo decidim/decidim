@@ -35,7 +35,7 @@ describe Decidim::Verifications::ConfirmUserAuthorization do
   let(:form) { form_class.new(secret_code: secret_code) }
 
   let(:authorizations) do
-    Decidim::Authorizations.new(user: user, granted: true)
+    Decidim::Verifications::Authorizations.new(user: user, granted: true)
   end
 
   let(:user) { authorization.user }

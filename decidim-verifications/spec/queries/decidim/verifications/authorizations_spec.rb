@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Authorizations do
+describe Decidim::Verifications::Authorizations do
   let(:name) { "some_method" }
   let(:user) { create(:user) }
 

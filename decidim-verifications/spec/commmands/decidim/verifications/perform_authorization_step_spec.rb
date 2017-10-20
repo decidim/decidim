@@ -28,7 +28,7 @@ describe Decidim::Verifications::PerformAuthorizationStep do
   end
 
   let(:authorizations) do
-    Decidim::Authorizations.new(user: user, granted: false)
+    Decidim::Verifications::Authorizations.new(user: user, granted: false)
   end
 
   let(:user) { create(:user) }

@@ -45,7 +45,7 @@ module Decidim
       private
 
       def not_already_active?(user, authorization)
-        Authorizations.new(user: user, name: authorization.name).none?
+        Verifications::Authorizations.new(user: user, name: authorization.name).none?
       end
     end
   end
