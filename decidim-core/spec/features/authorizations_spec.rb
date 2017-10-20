@@ -37,7 +37,7 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
 
       it "allows the user to skip it" do
         click_link "take a look at the current processes"
-        expect(page).to have_content("No participatory processes yet!")
+        expect(current_path).to eq decidim.root_path
       end
     end
 
