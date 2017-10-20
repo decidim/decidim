@@ -266,8 +266,6 @@ eu:
       participatory_processes:
         index:
           promoted_processes: Prozesu nabarmenduak
-        no_processes_yet:
-          no_processes_yet: Oraindik ez dago prozesu partizipatiborik!
         order_by_processes:
           processes:
             one: "%{count} prozesu"
