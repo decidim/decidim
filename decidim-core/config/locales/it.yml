@@ -84,6 +84,7 @@ it:
         authorize: Invia
         authorize_with: Verifica con %{authorizer}
       skip_verification: Se preferisci puoi saltare questa verifica per il momento e %{link}
+      start_exploring: iniziare a esplorare
     core:
       actions:
         unauthorized: Non sei autorizzato a eseguire questa azione
