@@ -75,7 +75,6 @@ nl:
       create:
         error: Er is een fout opgetreden bij het verlenen van de machtiging.
         success: U bent geautoriseerd.
-      current_participatory_processes: neem een kijkje bij de huidige processen
       first_login:
         actions:
           decidim/dummy_authorization_handler: Gebruik de voorbeeld autorisatie
