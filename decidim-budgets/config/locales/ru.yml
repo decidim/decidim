@@ -50,6 +50,7 @@ ru:
         budget_excess:
           close: Закрыть
           ok: Хорошо
+          title: Превышен максимальный бюджет
         budget_summary:
           assigned: 'Выделено:'
           checked_out:
