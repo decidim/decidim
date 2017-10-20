@@ -22,6 +22,8 @@ ru:
             attachments_allowed: Разрешить вложения
             comments_enabled: Комментарии включены
             geocoding_enabled: Геокодирование включено
+            new_proposal_help_text: Подсказки по созданию нового предложения
+            vote_limit: Максимальное количество голосов для одного пользователя
           step:
             announcement: Объявление
             comments_blocked: Комментарии выключены
@@ -129,6 +131,7 @@ ru:
           report: Пожаловаться
         vote_button:
           already_voted: Уже проголосовали
+          maximum_votes_reached: Достигнуто предельное количество голосов
           no_votes_remaining: Больше не осталось голосов
           vote: Голосовать
           votes_blocked: Голосование отключено
