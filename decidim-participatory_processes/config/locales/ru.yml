@@ -101,6 +101,7 @@ ru:
       participatory_process_copies:
         new:
           copy: Копировать
+          title: Создать копию движения соучастия
       participatory_process_groups:
         edit:
           title: Редактировать группу процессов
@@ -114,11 +115,13 @@ ru:
           error:
             active_step: Нельзя удалять уже начатый шаг.
         edit:
+          title: Редактировать шаг движения соучастия
           update: Обновить
         index:
           steps_title: Шаги
         new:
           create: Создать
+          title: Новый шаг движения соучастия
       participatory_process_user_roles:
         edit:
           update: Обновить
@@ -126,6 +129,7 @@ ru:
           process_admins_title: Участники движения соучастия
         new:
           create: Создать
+          title: Новый участник движения соучастия.
       participatory_processes:
         edit:
           update: Обновить
@@ -140,6 +144,10 @@ ru:
       titles:
         participatory_process_groups: Группы движений соучастия
         participatory_processes: Движения соучастия
+      users:
+        resend_invitation:
+          error: При повторной отправке приглашения произошла ошибка.
+          success: Приглашение успешно повторно отправлено.
     menu:
       processes: Движения
     participatory_process_groups:
