@@ -11,7 +11,7 @@ fr:
         password: Nouveau mot de passe
         password_confirmation: Confirmez votre nouveau mot de passe
         remove_avatar: Supprimer l'avatar
-        user_group_document_number: Numéro de document de l'organisation
+        user_group_document_number: Numéro d'identification de l'organisation
         user_group_name: Nom de l'organisation
         user_group_phone: Téléphone de l'organisation
   activerecord:
@@ -156,7 +156,7 @@ fr:
     filters:
       linked_classes:
         all: Tout
-        dummyresource: Mannequins
+        dummyresource: Exemple factice
         meeting: Rencontres
         project: Projets
         proposal: Propositions
@@ -346,7 +346,7 @@ fr:
         meetings_explanation: Découvrez où et quand vous pouvez participer à des réunions publiques.
         more_info: En savoir plus
         proposals: Propositions
-        proposals_explanation: Faites des propositions, appuie les projets existants et favorise les changements que vous souhaitez voir.
+        proposals_explanation: Faites des propositions, appuyez les projets existants et favorisez les changements que vous souhaitez voir.
       footer_sub_hero:
         footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez au processus et décidez, ensemble.
         footer_sub_hero_headline: Bienvenue sur la plate-forme participative de %{organization} .
