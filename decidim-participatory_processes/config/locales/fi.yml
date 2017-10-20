@@ -266,8 +266,6 @@ fi:
       participatory_processes:
         index:
           promoted_processes: Korostetut prosessit
-        no_processes_yet:
-          no_processes_yet: Ei vielä osallistumisprosesseja!
         order_by_processes:
           processes:
             one: "%{count} prosessi"

@@ -13,6 +13,7 @@ ru:
         local_area: Район
         meta_scope: Метаданные охвата
         participatory_scope: Охват соучастия
+        participatory_structure: Структура соучастия
         promoted: Рекламируется
         scope_id: Охват
         scopes_enabled: Охваты включены
@@ -63,6 +64,7 @@ ru:
         developer_group: Группа разработчиков
         local_area: Район
         participatory_scope: Охват соучастия
+        participatory_structure: Структура соучастия
         scope: Охват
         target: Цель
       statistics:
@@ -86,8 +88,6 @@ ru:
       assemblies:
         assembly:
           take_part: Принять участие
-        no_assemblies_yet:
-          no_assemblies_yet: Еще нет собраний!
         order_by_assemblies:
           assemblies:
             one: "%{count} собрание"

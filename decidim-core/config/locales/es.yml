@@ -75,7 +75,6 @@ es:
       create:
         error: Se ha producido un error al crear la autorización.
         success: Has sido autorizado/a correctamente.
-      current_participatory_processes: echar un vistazo a los procesos actuales
       first_login:
         actions:
           decidim/dummy_authorization_handler: Verificar ejemplo autorización en contra de la
@@ -85,6 +84,7 @@ es:
         authorize: Enviar
         authorize_with: Verificarme con %{authorizer}
       skip_verification: Puedes saltarte este paso por ahora y %{link}
+      start_exploring: empezar a explorar
     core:
       actions:
         unauthorized: No tienes permiso para realizar esta acción.

@@ -75,7 +75,6 @@ fi:
       create:
         error: Varmennuksen luomisessa tapahtui virhe.
         success: Sinut on onnistuneesti varmennettu.
-      current_participatory_processes: tutustu tämänhetkisiin prosesseihin
       first_login:
         actions:
           decidim/dummy_authorization_handler: Vahvista esimerkkivarmennuksen avulla
@@ -85,6 +84,7 @@ fi:
         authorize: Lähetä
         authorize_with: Vahvista palvelun "%{authorizer}" avulla
       skip_verification: Voit ohittaa tämän toistaiseksi ja %{link}
+      start_exploring: alkaa tutkia
     core:
       actions:
         unauthorized: Sinua ei ole valtuutettu tämän toiminnon suorittamiseen

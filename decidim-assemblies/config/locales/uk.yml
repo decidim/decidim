@@ -117,8 +117,6 @@ uk:
           take_part: Взяти участь
         index:
           promoted_assemblies: Висвітлені збори
-        no_assemblies_yet:
-          no_assemblies_yet: Ще немає зборів!
         order_by_assemblies:
           assemblies:
             one: "%{count} (одні) збори"

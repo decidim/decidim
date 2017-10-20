@@ -117,8 +117,6 @@ pl:
           take_part: Wziąć udział
         index:
           promoted_assemblies: Podświetlone zespoły
-        no_assemblies_yet:
-          no_assemblies_yet: Żadne zespoły!
         order_by_assemblies:
           assemblies:
             one: "%{count} montaż"

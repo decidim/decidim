@@ -75,7 +75,6 @@ ca:
       create:
         error: S'ha produït un error en crear l'autorització.
         success: Has estat autoritzat/da correctament.
-      current_participatory_processes: fer una ullada als processos actuals
       first_login:
         actions:
           decidim/dummy_authorization_handler: Verificar contra l'exemple d'autorització
@@ -85,6 +84,7 @@ ca:
         authorize: Enviar
         authorize_with: Verificar-me amb %{authorizer}
       skip_verification: Pots saltar-te aquest pas per ara i %{link}
+      start_exploring: començar a explorar
     core:
       actions:
         unauthorized: No tens permís per realitzar aquesta acció

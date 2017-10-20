@@ -117,8 +117,6 @@ ca:
           take_part: Participa
         index:
           promoted_assemblies: Assemblees destacades
-        no_assemblies_yet:
-          no_assemblies_yet: Encara no hi ha cap assemblea!
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblea"

@@ -117,8 +117,6 @@ fr:
           take_part: Participer
         index:
           promoted_assemblies: Assemblées mises en avant
-        no_assemblies_yet:
-          no_assemblies_yet: Aucune assemblée n'a été créée pour le moment !
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblée"

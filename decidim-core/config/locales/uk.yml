@@ -75,7 +75,6 @@ uk:
       create:
         error: При створенні підтвердження особи сталася помилка.
         success: Ви успішно підтвердили свою особу.
-      current_participatory_processes: поглянути на поточні рухи
       first_login:
         actions:
           decidim/dummy_authorization_handler: Перевірте, порівнявши з прикладом підтвердження своєї особи

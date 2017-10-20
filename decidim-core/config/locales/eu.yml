@@ -75,7 +75,6 @@ eu:
       create:
         error: Errorea gertatu da baimena sortzean.
         success: Baimendua izan zara zuzen.
-      current_participatory_processes: eman behakoa egungo prozesuei
       first_login:
         actions:
           decidim/dummy_authorization_handler: 'Egiaztatu baimen-adibidea honekin erkatuta:'
@@ -85,6 +84,7 @@ eu:
         authorize: Bidali
         authorize_with: 'Egiaztatu nire nortasuna honen bidez: %{authorizer}'
       skip_verification: Oraingoz, urrats hau egin gabe utzi dezakezu eta %{link}
+      start_exploring: Hasi esploratzen
     core:
       actions:
         unauthorized: Ez duzu baimenik ekintza honi heltzeko.

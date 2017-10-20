@@ -266,8 +266,6 @@ ca:
       participatory_processes:
         index:
           promoted_processes: Processos destacats
-        no_processes_yet:
-          no_processes_yet: Encara no hi ha cap procés participatiu!
         order_by_processes:
           processes:
             one: "%{count} procés"

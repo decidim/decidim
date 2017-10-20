@@ -266,8 +266,6 @@ fr:
       participatory_processes:
         index:
           promoted_processes: Processus mis en avant
-        no_processes_yet:
-          no_processes_yet: Pas encore de processus participatifs!
         order_by_processes:
           processes:
             one: "%{count} processus participatif"

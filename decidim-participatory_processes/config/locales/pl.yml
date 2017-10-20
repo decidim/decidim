@@ -266,8 +266,6 @@ pl:
       participatory_processes:
         index:
           promoted_processes: Podświetlone procesy
-        no_processes_yet:
-          no_processes_yet: Żadne procesy uczestniczące!
         order_by_processes:
           processes:
             one: "%{count} proces"

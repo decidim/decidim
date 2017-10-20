@@ -75,7 +75,6 @@ ru:
       create:
         error: При создании этого подтверждения личности произошла ошибка.
         success: Вы успешно подтвердили свою личность.
-      current_participatory_processes: взглянуть на текущие движения
       first_login:
         actions:
           decidim/dummy_authorization_handler: Проверьте, сравнив с примером подтверждения личности

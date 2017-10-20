@@ -117,8 +117,6 @@ fi:
           take_part: Osallistu
         index:
           promoted_assemblies: Korostetut kokoonpanot
-        no_assemblies_yet:
-          no_assemblies_yet: Ei kokoonpanoja vielä!
         order_by_assemblies:
           assemblies:
             one: "%{count} kokoonpano"
