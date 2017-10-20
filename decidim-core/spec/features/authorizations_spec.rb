@@ -36,8 +36,8 @@ describe "Authorizations", type: :feature, perform_enqueued: true do
       end
 
       it "allows the user to skip it" do
-        click_link "take a look at the current processes"
-        expect(current_path).to eq decidim.root_path
+        click_link "start exploring"
+        expect(current_path).to eq decidim.account_path
       end
     end
 
