@@ -20,6 +20,8 @@ ru:
         name: Имя
         reference_prefix: Справочный префикс
       organization_appearance:
+        cta_button_path: Путь кнопки "Призвать к действию"
+        cta_button_text: Текст кнопки «Призвать к действию»
         description: Описание
         favicon: Значок
         header_snippets: Сниппеты для гипертекстовых заголовков страниц сайта
