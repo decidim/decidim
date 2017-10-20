@@ -47,5 +47,8 @@ ru:
           title: Организации
         new:
           title: Новая организация
+      shared:
+        notices:
+          our_getting_started_guide: наше руководство для начинающих
       titles:
         dashboard: Панель управления
