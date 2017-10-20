@@ -75,7 +75,6 @@ fr:
       create:
         error: Une erreur s'est produite lors de la création de l'autorisation.
         success: Votre autorisation a été réalisée avec succès.
-      current_participatory_processes: Voir les processus en cours
       first_login:
         actions:
           decidim/dummy_authorization_handler: Vérifier en comparant avec l'autorisation exemple
