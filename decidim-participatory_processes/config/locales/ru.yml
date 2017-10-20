@@ -83,11 +83,13 @@ ru:
             end_date: Дата завершения
             start_date: Дата начала
             title: Название
+          name: Шаг движения соучастия
         participatory_process_user_role:
           fields:
             email: Эл. адрес
             name: Имя
             role: Роль
+          name: Участник движения соучастия
           roles:
             admin: Администратор
             collaborator: Сотрудник
@@ -120,6 +122,8 @@ ru:
       participatory_process_user_roles:
         edit:
           update: Обновить
+        index:
+          process_admins_title: Участники движения соучастия
         new:
           create: Создать
       participatory_processes:
@@ -132,6 +136,7 @@ ru:
           published: Опубликовано
         new:
           create: Создать
+          title: Новое движение соучастия
       titles:
         participatory_process_groups: Группы движений соучастия
         participatory_processes: Движения соучастия
@@ -144,6 +149,7 @@ ru:
     participatory_process_steps:
       index:
         process_steps: Шаги движения
+        title: Шаги движения соучастия
     participatory_processes:
       index:
         title: Движения соучастия
