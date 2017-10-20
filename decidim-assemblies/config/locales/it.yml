@@ -117,8 +117,6 @@ it:
           take_part: Partecipa
         index:
           promoted_assemblies: Assiemi evidenziati
-        no_assemblies_yet:
-          no_assemblies_yet: Nessun assemblee ancora!
         order_by_assemblies:
           assemblies:
             one: "%{count} montaggio"
