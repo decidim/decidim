@@ -84,6 +84,7 @@ eu:
         authorize: Bidali
         authorize_with: 'Egiaztatu nire nortasuna honen bidez: %{authorizer}'
       skip_verification: Oraingoz, urrats hau egin gabe utzi dezakezu eta %{link}
+      start_exploring: Hasi esploratzen
     core:
       actions:
         unauthorized: Ez duzu baimenik ekintza honi heltzeko.
