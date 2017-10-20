@@ -23,10 +23,12 @@ ru:
             comments_enabled: Комментарии включены
             geocoding_enabled: Геокодирование включено
             new_proposal_help_text: Подсказки по созданию нового предложения
+            proposal_limit: Максимальное количество предложений на одного участника
             vote_limit: Максимальное количество голосов для одного пользователя
           step:
             announcement: Объявление
             comments_blocked: Комментарии выключены
+            creation_enabled: Включена возможность создания предложений
             votes_blocked: Голосование выключено
             votes_enabled: Голосование включено
     proposals:
@@ -114,10 +116,12 @@ ru:
           unfold: Развернуть
         index:
           new_proposal: Новое предложение
+          proposal_limit_reached: Достигнуто максимальное количество предложений
           view_proposal: Просмотреть предложение
         new:
           attachment_legend: "(Необязательно) Добавить вложение"
           back: Вернуться
+          select_a_category: Пожалуйста, выберите категорию
           send: Отправить
           title: Новое предложение
         orders:
