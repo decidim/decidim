@@ -266,8 +266,6 @@ uk:
       participatory_processes:
         index:
           promoted_processes: Висвітлені рухи
-        no_processes_yet:
-          no_processes_yet: Рухів співучасті поки що нема!
         order_by_processes:
           processes:
             one: "%{count} рух"
