@@ -10,7 +10,7 @@ ru:
         domain: Домен
         hashtag: Хэштег
         hero_image: Изображение главной страницы
-        local_area: Район
+        local_area: Местность
         meta_scope: Метаданные охвата
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
@@ -62,7 +62,7 @@ ru:
         title: Собрания
       show:
         developer_group: Группа разработчиков
-        local_area: Район
+        local_area: Местность
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
         scope: Охват
