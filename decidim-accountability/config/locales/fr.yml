@@ -75,7 +75,7 @@ fr:
             title: Nouveau statut
           update:
             invalid: Un problème est survenu lors de la mise à jour de ce statut
-            success: État mis à jour avec succès
+            success: Statut mis à jour avec succès
         timeline_entries:
           create:
             invalid: Un problème est survenu lors de la création de cette entrée
@@ -84,7 +84,7 @@ fr:
             success: Entrée supprimée avec succès
           edit:
             title: Modifier l'entrée
-            update: Modifier l'entrée
+            update: Mise à jour de l'entrée
           index:
             title: Entrées de la chronologie du projet
           new:
@@ -124,7 +124,7 @@ fr:
           categories_label: Catégories
           subcategories_label: Sous-catégories
         home_header:
-          global_status: État d'exécution global
+          global_status: État d'exécution globale
         nav_breadcrumb:
           global: Exécution globale
         search:
