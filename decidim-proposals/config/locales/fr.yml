@@ -26,8 +26,8 @@ fr:
             new_proposal_help_text: Nouveau texte d'aide à la proposition
             official_proposals_enabled: Propositions officielles activées
             proposal_answering_enabled: '"Réponses aux propositions" activé'
-            proposal_limit: Limite de proposition par utilisateur
-            vote_limit: Limite de vote par utilisateur
+            proposal_limit: Maximum de propositions par utilisateur
+            vote_limit: Nombre limite de votes par utilisateur
           step:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
