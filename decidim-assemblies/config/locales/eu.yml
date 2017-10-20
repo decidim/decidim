@@ -117,8 +117,6 @@ eu:
           take_part: Parte hartu
         index:
           promoted_assemblies: Batzar nabarmenduak
-        no_assemblies_yet:
-          no_assemblies_yet: Oraindik ez dago batzarrik!
         order_by_assemblies:
           assemblies:
             one: "%{count} batzarra"
