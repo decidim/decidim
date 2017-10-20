@@ -75,7 +75,6 @@ pl:
       create:
         error: Podczas tworzenia autoryzacji wystąpił błąd.
         success: Jesteś pomyślnie autoryzowany/autoryzowana.
-      current_participatory_processes: przyjrzyj się obecnym procesom
       first_login:
         actions:
           decidim/dummy_authorization_handler: Zwróć uwagę na przykładowe uprawnienia
