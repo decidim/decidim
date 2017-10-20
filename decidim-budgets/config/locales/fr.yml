@@ -33,7 +33,7 @@ fr:
             update: Mettre à jour
           index:
             finished_orders: Votes terminés
-            pending_orders: En attente de vote
+            pending_orders: Votes en cours
             title: Projets
           new:
             create: Créer
