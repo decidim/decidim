@@ -84,6 +84,7 @@ uk:
         authorize: Надіслати
         authorize_with: Підтвердити особу за допомогою %{authorizer}
       skip_verification: Ви можете поки що пропустити це і %{link}
+      start_exploring: почати досліджувати
     core:
       actions:
         unauthorized: Ви не маєте прав на виконання цієї дії
