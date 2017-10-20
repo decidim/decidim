@@ -26,6 +26,7 @@ uk:
             new_proposal_help_text: Підказки зі створення нової пропозиції
             official_proposals_enabled: Офіційні пропозиції ввімкнені
             proposal_answering_enabled: Ввімкнуто відповіді на пропозиції
+            proposal_limit: Максимальна кількість пропозицій на одного учасника
             vote_limit: Максимальна кількість голосів для одного користувача
           step:
             announcement: Оголошення
@@ -89,6 +90,8 @@ uk:
             state: Стан
             title: Назва
             votes: Голоси
+      new:
+        limit_reached: Ви не можете створювати нові пропозиції, оскільки ви перевищили ліміт.
       proposal_votes:
         create:
           error: При голосуванні пропозиції сталися помилки.
@@ -126,6 +129,7 @@ uk:
           unfold: Розгорнути
         index:
           new_proposal: Нова пропозиція
+          proposal_limit_reached: Досягнуто максимальної дозволеної кількості пропозицій
           view_proposal: Переглянути пропозицію
         linked_proposals:
           proposal_votes:
@@ -166,6 +170,8 @@ uk:
         voting_rules:
           maximum_votes_per_proposal:
             description: Кожна пропозиція може отримати максимум %{limit} голосів.
+          proposal_limit:
+            description: Ви можете висунути до %{limit} пропозицій.
           title: 'Голосування регулюється наступними правилами:'
           vote_limit:
             description: Ви можете проголосувати до %{limit} пропозицій.
