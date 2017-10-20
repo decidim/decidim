@@ -63,6 +63,8 @@ ru:
           edit:
             title: Редактировать запись
             update: Обновить запись
+          index:
+            title: Записи на линии времени проекта
           new:
             create: Создать запись
             title: Новая запись
@@ -124,5 +126,6 @@ ru:
             heading_leaf_level_results: Название для "Проекты"
             heading_parent_level_results: Название для "Результаты"
             intro: Вступление
+            subcategories_label: Название для "Подкатегории"
           step:
             comments_blocked: Комментарии выключены
