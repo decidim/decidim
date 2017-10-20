@@ -11,6 +11,8 @@ ru:
             label: Комментировать как
         opinion:
           neutral: Безучастно
+        remaining_characters: "Осталось %{count} символов"
+        remaining_characters_1: "Остался %{count} символ"
         title: Добавьте свой комментарий
       comment:
         alignment:
