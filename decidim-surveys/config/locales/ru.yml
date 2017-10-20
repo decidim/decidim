@@ -41,6 +41,8 @@ ru:
             question: Вопрос
             remove_question: Удалить вопрос
             statement: Высказывание
+          update:
+            success: Опрос успешно сохранен.
       question_types:
         long_answer: Длинный ответ
         multiple_option: Несколько вариантов
