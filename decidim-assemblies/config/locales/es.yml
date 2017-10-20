@@ -117,8 +117,6 @@ es:
           take_part: Participa
         index:
           promoted_assemblies: Asambleas destacadas
-        no_assemblies_yet:
-          no_assemblies_yet: '¡Todavía no hay asambleas!'
         order_by_assemblies:
           assemblies:
             one: "%{count} asamblea"
