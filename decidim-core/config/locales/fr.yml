@@ -84,6 +84,7 @@ fr:
         authorize: Envoyer
         authorize_with: Vérifiez avec %{authorizer}
       skip_verification: Vous pouvez ignorer ceci pour l'instant et %{link}
+      start_exploring: Commencez à explorer
     core:
       actions:
         unauthorized: Vous n'êtes pas autorisé à effectuer cette action
