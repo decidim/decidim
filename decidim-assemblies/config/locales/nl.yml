@@ -117,8 +117,6 @@ nl:
           take_part: Deelnemen
         index:
           promoted_assemblies: Uitgelichte samenstellingen
-        no_assemblies_yet:
-          no_assemblies_yet: Nog geen vergaderingen!
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblage"
