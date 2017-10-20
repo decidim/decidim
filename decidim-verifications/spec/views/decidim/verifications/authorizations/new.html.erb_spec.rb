@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe "decidim/authorizations/new" do
+  describe "decidim/verifications/authorizations/new" do
     let(:handler) do
       DummyAuthorizationHandler.new({})
     end

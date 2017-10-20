@@ -25,7 +25,7 @@ module Decidim
           PerformAuthorizationStep.call(@authorization, @form) do
             on(:ok) do
               flash[:notice] = t("authorizations.create.success", scope: "decidim.verifications.id_documents")
-              redirect_to decidim.authorizations_path
+              redirect_to decidim_verifications.authorizations_path
             end
 
             on(:invalid) do
@@ -54,7 +54,7 @@ module Decidim
           PerformAuthorizationStep.call(@authorization, @form) do
             on(:ok) do
               flash[:notice] = t("authorizations.update.success", scope: "decidim.verifications.id_documents")
-              redirect_to decidim.authorizations_path
+              redirect_to decidim_verifications.authorizations_path
             end
 
             on(:invalid) do

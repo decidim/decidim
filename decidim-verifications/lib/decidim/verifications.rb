@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "decidim/verifications/engine"
+
 require "decidim/verifications/workflows"
 require "decidim/verifications/adapter"
 

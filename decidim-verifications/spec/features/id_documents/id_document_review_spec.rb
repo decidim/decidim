@@ -58,7 +58,7 @@ describe "Identity document review", type: :feature do
     context "and the user logs back in" do
       before do
         relogin_as user, scope: :user
-        visit decidim.authorizations_path
+        visit decidim_verifications.authorizations_path
         click_link "Identity documents"
       end
 

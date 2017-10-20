@@ -45,7 +45,7 @@ module Decidim
 
       def after_sign_in_path_for(user)
         if first_login_and_not_authorized?(user)
-          authorizations_path
+          decidim_verifications.authorizations_path
         else
           super
         end

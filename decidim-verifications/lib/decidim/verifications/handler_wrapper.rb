@@ -14,7 +14,7 @@ module Decidim
       end
 
       def root_path(redirect_url: nil)
-        decidim.new_authorization_path(handler: name, redirect_url: redirect_url)
+        decidim_verifications.new_authorization_path(handler: name, redirect_url: redirect_url)
       end
 
       def resume_authorization_path(_redirect_url: nil)

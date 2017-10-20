@@ -11,15 +11,15 @@
           <div class="columns medium-4 large-3">
             <div class="side-panel">
               <ul class="tabs vertical side-panel__tabs" id="user-settings-tabs">
-                <%= user_profile_tab t("account", scope: "layouts.decidim.user_profile"), account_path, aria_link_type: :exact %>
-                <%= user_profile_tab t("notifications_settings", scope: "layouts.decidim.user_profile"), notifications_settings_path %>
+                <%= user_profile_tab t("account", scope: "layouts.decidim.user_profile"), decidim.account_path, aria_link_type: :exact %>
+                <%= user_profile_tab t("notifications_settings", scope: "layouts.decidim.user_profile"), decidim.notifications_settings_path %>
                 <% if available_authorization_handlers.any? %>
-                  <%= user_profile_tab t("authorizations", scope: "layouts.decidim.user_profile"), authorizations_path %>
+                  <%= user_profile_tab t("authorizations", scope: "layouts.decidim.user_profile"), decidim_verifications.authorizations_path %>
                 <% end %>
                 <% if user_groups.any? %>
-                  <%= user_profile_tab t("user_groups", scope: "layouts.decidim.user_profile"), own_user_groups_path %>
+                  <%= user_profile_tab t("user_groups", scope: "layouts.decidim.user_profile"), decidim.own_user_groups_path %>
                 <% end %>
-                <%= user_profile_tab t("delete_my_account", scope: "layouts.decidim.user_profile"), delete_account_path, aria_link_type: :exact %>
+                <%= user_profile_tab t("delete_my_account", scope: "layouts.decidim.user_profile"), decidim.delete_account_path, aria_link_type: :exact %>
               </ul>
             </div>
           </div>

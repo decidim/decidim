@@ -11,9 +11,9 @@
         <div class="card">
           <div class="card__content">
             <% unauthorized_methods.each do |unauthorized_method| %>
-              <%= link_to t("authorizations.first_login.actions.#{unauthorized_method.key}", scope: "decidim"), unauthorized_method.root_path, class: "button expanded" %>
+              <%= link_to t(".actions.#{unauthorized_method.key}"), unauthorized_method.root_path, class: "button expanded" %>
             <% end %>
-            <p class="text-center skip"><%= t("decidim.authorizations.skip_verification", link: link_to(t("decidim.authorizations.start_exploring"), cta_button_path).html_safe).html_safe %>.</p>
+            <p class="text-center skip"><%= t("decidim.verifications.authorizations.skip_verification", link: link_to(t("decidim.verifications.authorizations.start_exploring"), cta_button_path).html_safe).html_safe %>.</p>
           </div>
         </div>
       </div>

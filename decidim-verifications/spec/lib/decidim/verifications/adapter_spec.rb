@@ -24,7 +24,7 @@ describe Decidim::Verifications::Adapter do
       it "returns a wrapper with the right interface" do
         expect(wrapper.name).to eq("dummy_authorization_workflow")
         expect(wrapper.key).to eq("dummy_authorization_workflow")
-        expect(wrapper.root_path).to eq("/authorizations/dummy_authorization_workflow/")
+        expect(wrapper.root_path).to eq("/dummy_authorization_workflow/")
       end
     end
   end

@@ -39,6 +39,23 @@ en:
         explanation: We'll send you a postal letter with a code that you'll have to enter so we can verify your address
         name: Code by postal letter
     verifications:
+      authorizations:
+        create:
+          error: There was an error creating the authorization.
+          success: You've been successfully authorized.
+        first_login:
+          actions:
+            decidim/dummy_authorization_handler: Verify against the example authorization handler
+            dummy_authorization_workflow: Verify against the example authorization workflow
+            id_documents: Get verified by uploading your identity document
+            postal_letter: Get verified by receiving a verification code through postal mail
+          title: Verify your identity
+          verify_with_these_options: 'These are the available options to verify your identity:'
+        new:
+          authorize: Send
+          authorize_with: Verify with %{authorizer}
+        skip_verification: You can skip this for now and %{link}
+        start_exploring: start exploring
       id_documents:
         admin:
           confirmations:

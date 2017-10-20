@@ -27,7 +27,7 @@ describe "Postal letter code verification", type: :feature do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    visit decidim.authorizations_path
+    visit decidim_verifications.authorizations_path
     click_link "Code by postal letter"
   end
 
