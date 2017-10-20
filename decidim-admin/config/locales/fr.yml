@@ -332,10 +332,10 @@ fr:
           update: Mettre à jour
         form:
           cta_button_path_help: 'Vous pouvez remplacer le lien vers lequel renvoie le bouton d''Appel à action de la page d''accueil. Utilisez ici des chemins partiels et non des URL complets. Accepte les lettres, les chiffres, les tirets et les barres obliques, et doit commencer par une lettre. Le bouton d''Appel à action apparaît sur la page d''accueil entre le texte de bienvenue et la description. Exemple: %{url}'
-          cta_button_text_help: Vous pouvez remplacer le texte du bouton d'Appel à action dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas défini, la valeur par défaut sera utilisée. Le bouton d'Appel à action apparaît sur la page d'accueil entre le texte de bienvenue et la description.
-          header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises <head> </head> HTML. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
+          cta_button_text_help: Vous pouvez remplacer le texte du bouton d'Appel à action dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton d'Appel à action apparaît sur la page d'accueil entre le texte de bienvenue et la description.
+          header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises HTML <head> </head>. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
           homepage_appearance_title: Modifier l'apparence de la page d'accueil
-          layout_appearance_title: Modifier l'apparence de la disposition
+          layout_appearance_title: Modifier l’aspect de la mise en page
       scope_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de zone d'application.
