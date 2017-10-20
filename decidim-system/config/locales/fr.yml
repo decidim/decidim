@@ -57,7 +57,7 @@ fr:
         index:
           title: Organisations
         new:
-          reference_prefix_hint: Le préfixe de référence est utilisé pour identifier de manière unique les ressources de toutes les organisations
+          reference_prefix_hint: Le préfixe de référence est utilisé pour identifier de manière unique les ressources pour toutes les organisations
           secondary_hosts_hint: Entrez chacun d'eux dans une nouvelle ligne
           title: Nouvelle organisation
         update:
