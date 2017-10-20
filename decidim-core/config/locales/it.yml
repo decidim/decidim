@@ -75,7 +75,6 @@ it:
       create:
         error: Si è verificato un errore nella creazione dell'autorizzazione.
         success: Sei stato autorizzato con successo.
-      current_participatory_processes: dai un'occhiata ai processi attuali
       first_login:
         actions:
           decidim/dummy_authorization_handler: Verifica rispetto all'autorizzazione esempio
