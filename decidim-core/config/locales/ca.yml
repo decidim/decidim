@@ -84,6 +84,7 @@ ca:
         authorize: Enviar
         authorize_with: Verificar-me amb %{authorizer}
       skip_verification: Pots saltar-te aquest pas per ara i %{link}
+      start_exploring: comença a explorar
     core:
       actions:
         unauthorized: No tens permís per realitzar aquesta acció
