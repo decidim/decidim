@@ -47,7 +47,7 @@ uk:
         invite_join_meeting_mailer:
           invite:
             invited_you_to_join_a_meeting: "%{invited_by} запросив вас долучитись до зустрічі %{application}. Ви можете прийняти це запрошення за посиланням нижче."
-            join: Долучитись до зустрічі "%{meeting_title}"
+            join: Долучитись до зустрічі '%{meeting_title}'
         invites:
           create:
             error: При спробі запросити учасника на зустріч виникла проблема.
