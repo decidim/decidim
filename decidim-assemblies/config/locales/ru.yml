@@ -25,6 +25,8 @@ ru:
   decidim:
     admin:
       assemblies:
+        create:
+          success: Собрание успешно создано.
         edit:
           update: Обновить
         form:
@@ -35,6 +37,8 @@ ru:
         new:
           create: Создать
           title: Новое собрание
+        update:
+          success: Собрание успешно обновлено.
       assembly_copies:
         new:
           copy: Копировать
