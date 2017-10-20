@@ -57,7 +57,7 @@ module Decidim::Admin
         end
 
         it "authorizes the user" do
-          expect(Decidim::AuthorizeUser).to receive(:call).with(form.authorization)
+          expect(Verifications::AuthorizeUser).to receive(:call).with(form.authorization)
           command.call
         end
       end
