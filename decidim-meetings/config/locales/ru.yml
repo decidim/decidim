@@ -4,6 +4,7 @@ ru:
       close_meeting:
         attendees_count: Количество участников
         closing_report: Отчет
+        contributions_count: Количество внесенных предложений
       meeting:
         address: Адрес
         decidim_category_id: Категория
@@ -99,6 +100,7 @@ ru:
           join: Присоединиться к встрече
           meeting_report: Отчет о встрече
           no_slots_available: Не осталось мест
+          organizations: Участвующие организации
           remaining_slots:
             one: Осталось 1 место
             few: "Осталось %{count} места"
