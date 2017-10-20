@@ -38,23 +38,23 @@ fr:
           status:
             name: Statut
           timeline_entry:
-            name: Entrée de chronologie
+            name: Elément de chronologie
         results:
           create:
-            invalid: Il y a eu un problème pour créer ce résultat
+            invalid: Un problème est survenu lors de la création de ce résultat
             success: Résultat créé avec succès
           destroy:
             success: Résultat supprimé avec succès
           edit:
             title: Modifier le résultat
-            update: Update result
+            update: Mise à jour du résultat
           index:
             title: Résultats
           new:
             create: Créer un résultat
             title: Nouveau résultat
           update:
-            invalid: Il y a eu un problème pour mettre à jour ce résultat
+            invalid: Un problème est survenu lors de la mise à jour de ce résultat
             success: Résultat mis à jour avec succès
         shared:
           subnav:
@@ -64,10 +64,10 @@ fr:
             invalid: Un problème est survenu lors de la création de ce statut
             success: Statut créé avec succès
           destroy:
-            success: État supprimé avec succès
+            success: Statut supprimé avec succès
           edit:
             title: Modifier le statut
-            update: État de mise à jour
+            update: Mettre à jour le statut
           index:
             title: Statuts
           new:
