@@ -2,7 +2,7 @@
 
 require "decidim/core/test/factories"
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :comment, class: "Decidim::Comments::Comment" do
     author { build(:user, organization: commentable.organization) }
     commentable { build(:dummy_resource) }

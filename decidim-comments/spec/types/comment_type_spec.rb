@@ -8,7 +8,7 @@ module Decidim
     describe CommentType do
       include_context "graphql type"
 
-      let(:model) { FactoryGirl.create(:comment) }
+      let(:model) { FactoryBot.create(:comment) }
       let(:sgid) { double("sgid", to_s: "1234") }
 
       describe "sgid" do
@@ -36,12 +36,12 @@ module Decidim
         end
 
         it "returns true if the comment has comments" do
-          FactoryGirl.create(:comment, commentable: model)
+          FactoryBot.create(:comment, commentable: model)
           expect(response).to include("hasComments" => true)
         end
 
         it "returns false if the comment depth is equal to MAX_DEPTH" do
-          FactoryGirl.create(:comment, commentable: model)
+          FactoryBot.create(:comment, commentable: model)
           model.update_attributes!(depth: Comment::MAX_DEPTH)
           expect(response).to include("hasComments" => false)
         end
@@ -56,8 +56,8 @@ module Decidim
       end
 
       describe "comments" do
-        let!(:random_comment) { FactoryGirl.create(:comment) }
-        let!(:replies) { Array.new(3) { |n| FactoryGirl.create(:comment, commentable: model, created_at: Time.current - n.days) } }
+        let!(:random_comment) { FactoryBot.create(:comment) }
+        let!(:replies) { Array.new(3) { |n| FactoryBot.create(:comment, commentable: model, created_at: Time.current - n.days) } }
 
         let(:query) { "{ comments { id } }" }
 

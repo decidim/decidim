@@ -6,7 +6,7 @@ require "decidim/dev"
 require "decidim/participatory_processes/test/factories"
 require "decidim/comments/test/factories"
 
-FactoryGirl.define do
+FactoryBot.define do
   sequence(:name) do |n|
     "#{Faker::Name.name} #{n}"
   end

@@ -5,7 +5,7 @@ require "decidim/dev"
 
 require "decidim/core/test/factories"
 
-FactoryGirl.define do
+FactoryBot.define do
   sequence(:participatory_process_slug) do |n|
     "#{Faker::Internet.slug(nil, "-")}-#{n}"
   end

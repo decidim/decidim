@@ -3,7 +3,7 @@
 require "decidim/core/test/factories"
 require "decidim/participatory_processes/test/factories"
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :proposal_feature, parent: :feature do
     name { Decidim::Features::Namer.new(participatory_space.organization.available_locales, :proposals).i18n_name }
     manifest_name :proposals
