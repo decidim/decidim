@@ -393,6 +393,24 @@ $datetime-bg: $primary;
   font-size: 1.5rem;
 }
 
+.card--list__titled-text{
+  @extend .card--list__text;
+  flex-wrap: wrap;
+
+  .card--list__heading{
+    margin-bottom: 5px;
+    width: 100%;
+  }
+
+  .card--list__annotation{
+    margin-left: auto;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    font-size: .7em;
+    font-weight: 600;
+  }
+}
+
 /* Card full width variant */
 
 .card--full{

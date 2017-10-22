@@ -6,8 +6,18 @@ module Decidim
     class ChatsController < Decidim::ApplicationController
       before_action :authenticate_user!
 
+      helper_method :username_list
+
       def index
-        authorize! :index, :chats
+        authorize! :index, Chat
+
+        @chats = UserChats.for(current_user)
+      end
+
+      private
+
+      def username_list(users)
+        users.pluck(:name).join(", ")
       end
     end
   end

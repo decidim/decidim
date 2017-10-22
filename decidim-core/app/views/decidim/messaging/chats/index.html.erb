@@ -9,10 +9,37 @@
     </div>
   </div>
   <div class="row">
-    <div class="columns mediumlarge-12 large-12">
-      <div class="callout secondary">
-        <p><%= t(".no_chats") %></p>
-      </div>
+    <div class="columns large-8">
+      <% if @chats.empty? %>
+        <div class="callout secondary">
+          <p><%= t(".no_chats") %></p>
+        </div>
+      <% else %>
+        <div class="card card--list chats">
+          <% @chats.each do |chat| %>
+            <a class="card--list__item">
+              <div class="card--list__titled-text">
+                <h6 class="card--list__heading heading6">
+                  <%= username_list(chat.interlocutors(current_user)) %>
+                </h6>
+
+                <span class="text-small">
+                  <%= truncate chat.last_message.body, length: 150 %>
+                </span>
+
+                <span class="card--list__annotation">
+                  <%= chat.last_message.created_at %>
+                </span>
+              </div>
+              <div class="card--list__data">
+                <span class="card--list__data__icon">
+                  <%= icon "chevron-right" %>
+                </span>
+              </div>
+            </a>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </main>

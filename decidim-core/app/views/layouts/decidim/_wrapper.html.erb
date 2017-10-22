@@ -39,7 +39,7 @@
                 <%= link_to decidim.notifications_path, class: "topbar__notifications #{current_user.notifications.any? ? "is-active" : ""}" do %>
                   <%= icon "bell" %>
                 <% end %>
-                <%= link_to decidim.chats_path do %>
+                <%= link_to decidim.chats_path, class: "topbar__chats" do %>
                   <%= icon "envelope-closed" %>
                 <% end %>
                 <ul class="dropdown menu" data-dropdown-menu>
