@@ -48,9 +48,12 @@ ru:
       organizations:
         create:
           success: Организация успешно создана.
+        edit:
+          secondary_hosts_hint: Введите каждый из них в новой строке
         index:
           title: Организации
         new:
+          secondary_hosts_hint: Введите каждый из них в новой строке
           title: Новая организация
         update:
           success: Организация успешно обновлена.
