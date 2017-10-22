@@ -39,15 +39,21 @@ ru:
             email: Эл. адрес
           name: Администратор
         organization:
+          actions:
+            save_and_invite: Создать организацию и пригласить администратора
           fields:
             created_at: 'Создано:'
             name: Имя
           name: Организация
       organizations:
+        create:
+          success: Организация успешно создана.
         index:
           title: Организации
         new:
           title: Новая организация
+        update:
+          success: Организация успешно обновлена.
       shared:
         notices:
           our_getting_started_guide: наше руководство для начинающих
