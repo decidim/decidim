@@ -147,3 +147,6 @@ ru:
             subcategories_label: Название для "Подкатегории"
           step:
             comments_blocked: Комментарии выключены
+    resource_links:
+      included_proposals:
+        result_proposals: Предложения, включенные в этот итог
