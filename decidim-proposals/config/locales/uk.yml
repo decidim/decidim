@@ -179,5 +179,5 @@ uk:
             votes: Голоси
     resource_links:
       included_proposals:
-        proposal_projects: 'Пропозиція, яка є в таких проектах:'
-        proposal_results: 'Пропозиція, яка є в таких підсумках:'
+        proposal_projects: 'Пропозиція є в таких проектах:'
+        proposal_results: 'Пропозиція є в таких підсумках:'
