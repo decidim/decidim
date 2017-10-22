@@ -41,6 +41,9 @@ ru:
           title: Новое собрание
         update:
           success: Собрание успешно обновлено.
+      assemblies_copies:
+        create:
+          success: Успешно создана копия собрания.
       assembly_copies:
         new:
           copy: Копировать
