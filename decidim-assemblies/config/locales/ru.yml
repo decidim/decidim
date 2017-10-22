@@ -51,6 +51,8 @@ ru:
       assembly_publications:
         create:
           success: Собрание успешно опубликовано.
+        destroy:
+          success: Публикация собрания успешно отменена.
       menu:
         assemblies: Собрания
         assemblies_submenu:
