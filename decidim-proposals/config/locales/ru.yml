@@ -137,7 +137,9 @@ ru:
         proposal:
           view_proposal: Просмотреть предложение
         show:
+          proposal_accepted_reason: 'Это предложение было принято, поскольку:'
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
+          proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'
           report: Пожаловаться
         vote_button:
           already_voted: Уже проголосовали
@@ -153,5 +155,10 @@ ru:
             other: ГОЛОСА
         voting_rules:
           vote_limit:
+            description: Вы можете проголосовать до %{limit} предложений.
             left: Осталось
             votes: Голоса
+    resource_links:
+      included_proposals:
+        proposal_projects: 'Предложение представлено в проектах:'
+        proposal_results: 'Предложения, представленные в этих итогах:'
