@@ -156,6 +156,7 @@ ru:
         voting_rules:
           proposal_limit:
             description: Вы можете выдвинуть до %{limit} предложений.
+          title: 'Голосование регулируется следующими правилами:'
           vote_limit:
             description: Вы можете проголосовать до %{limit} предложений.
             left: Осталось
