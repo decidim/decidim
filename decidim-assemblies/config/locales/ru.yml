@@ -45,6 +45,9 @@ ru:
         new:
           copy: Копировать
           title: Создать копию собрания
+      assembly_publications:
+        create:
+          success: Собрание успешно опубликовано.
       menu:
         assemblies: Собрания
         assemblies_submenu:
