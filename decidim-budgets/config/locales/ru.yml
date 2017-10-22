@@ -52,6 +52,7 @@ ru:
           ok: Хорошо
           title: Превышен максимальный бюджет
         budget_summary:
+          are_you_sure: Вы действительно хотите отменить свой голос?
           assigned: 'Выделено:'
           cancel_order: удалить свой голос и начать все сначала
           checked_out:
@@ -118,6 +119,7 @@ ru:
       checkout:
         success: Ваш голос был успешно принят
       destroy:
+        error: При отмене вашего голоса произошла ошибка
         success: Ваш голос успешно отменен
     resource_links:
       included_proposals:
