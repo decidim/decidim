@@ -3,6 +3,7 @@ ru:
     attributes:
       close_meeting:
         attendees_count: Количество участников
+        attending_organizations: Список принявших участие организаций
         closing_report: Отчет
         contributions_count: Количество внесенных предложений
         proposal_ids: Предложения, выдвинутые на собрании
@@ -134,6 +135,7 @@ ru:
           invalid: При попытке присоединиться к встрече возникла проблема.
         destroy:
           invalid: При попытке отказаться от встречи возникла проблема.
+          success: Вы успешно отменили регистрацию на встречу.
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Подобные итоги:'
