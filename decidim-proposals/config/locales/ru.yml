@@ -154,6 +154,8 @@ ru:
             many: ГОЛОСОВ
             other: ГОЛОСА
         voting_rules:
+          proposal_limit:
+            description: Вы можете выдвинуть до %{limit} предложений.
           vote_limit:
             description: Вы можете проголосовать до %{limit} предложений.
             left: Осталось
