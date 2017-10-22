@@ -114,6 +114,7 @@ ru:
         destroy:
           error:
             active_step: Нельзя удалять уже начатый шаг.
+            last_step: Нельзя удалять последний шаг процесса.
         edit:
           title: Редактировать шаг движения соучастия
           update: Обновить
@@ -124,6 +125,7 @@ ru:
           title: Новый шаг движения соучастия
       participatory_process_user_roles:
         edit:
+          title: Обновить участника движения соучастия.
           update: Обновить
         index:
           process_admins_title: Участники движения соучастия
