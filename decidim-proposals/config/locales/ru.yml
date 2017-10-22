@@ -137,6 +137,7 @@ ru:
         proposal:
           view_proposal: Просмотреть предложение
         show:
+          proposal_in_evaluation_reason: Это предложение сейчас рассматривается
           report: Пожаловаться
         vote_button:
           already_voted: Уже проголосовали
