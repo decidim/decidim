@@ -114,6 +114,14 @@ ru:
             comments_blocked: Комментарии выключены
             show_votes: Показать голоса
             votes_enabled: Голосование включено
+    orders:
+      checkout:
+        success: Ваш голос был успешно принят
+      destroy:
+        success: Ваш голос успешно отменен
+    resource_links:
+      included_proposals:
+        project_proposals: 'Предложения, включенные в этот проект:'
   index:
     confirmed_orders_count: Количество голосов
   total_budget: Общий бюджет
