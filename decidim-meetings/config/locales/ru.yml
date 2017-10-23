@@ -89,6 +89,8 @@ ru:
               few: Зарегистрировалось %{count} человека.
               many: Зарегистрировалось %{count} человек.
               other: Зарегистрировалось %{count} человек.
+          update:
+            success: Настройки регистрации на встречу успешно сохранены.
       events:
         close_meeting_event:
           email_subject: Встреча "%{resource_title}" закрыта
