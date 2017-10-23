@@ -40,14 +40,14 @@ ru:
           name: Администратор
         organization:
           actions:
-            save_and_invite: Создать организацию и пригласить администратора
+            save_and_invite: Добавить организацию и пригласить администратора
           fields:
             created_at: 'Добавлено:'
             name: Имя
           name: Организация
       organizations:
         create:
-          success: Организация успешно создана.
+          success: Организация успешно добавлена.
         edit:
           secondary_hosts_hint: Введите каждый из них в новой строке
         index:
