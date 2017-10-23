@@ -10,7 +10,7 @@ module Decidim
       #
       # collection - An Array with the collection to be exported.
       # serializer - A Serializer to be used during the export.
-      def initialize(collection, serializer)
+      def initialize(collection, serializer = Serializer)
         @collection = collection
         @serializer = serializer
       end

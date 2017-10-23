@@ -5,6 +5,7 @@ module Decidim
     autoload :Exporter, "decidim/exporters/exporter"
     autoload :JSON, "decidim/exporters/json"
     autoload :CSV, "decidim/exporters/csv"
+    autoload :Excel, "decidim/exporters/excel"
     autoload :ExportData, "decidim/exporters/export_data"
     autoload :Serializer, "decidim/exporters/serializer"
 
@@ -12,7 +13,7 @@ module Decidim
     #
     # format - The exporter format as a string. i.e "csv"
     def self.find_exporter(format)
-      const_get(format.upcase)
+      const_get(format)
     end
   end
 end
