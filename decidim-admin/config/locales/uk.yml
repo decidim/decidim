@@ -96,7 +96,7 @@ uk:
       attachments:
         create:
           error: При створенні нового вкладеного файлу сталася помилка.
-          success: Вкладений файл успішно створено.
+          success: Вкладений файл успішно додано.
         destroy:
           success: Вкладений файл успішно видалено.
         edit:
@@ -105,7 +105,7 @@ uk:
         index:
           attachments_title: Вкладені файли
         new:
-          create: Створити вкладений файл
+          create: Додати вкладений файл
           title: Новий вкладений файл
         update:
           error: При оновленні цього вкладеного файлу сталася помилка.
@@ -238,7 +238,7 @@ uk:
           name: Керований учасник
         newsletter:
           fields:
-            created_at: 'Створене:'
+            created_at: 'Створено:'
             progress: Перебіг
             sent_at: 'Надіслане:'
             subject: Тема
