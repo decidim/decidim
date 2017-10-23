@@ -154,6 +154,7 @@ en:
           report: Report
         vote_button:
           already_voted: Already voted
+          already_voted_hover: Unvote
           maximum_votes_reached: Vote limit reached
           no_votes_remaining: No votes remaining
           vote: Vote
