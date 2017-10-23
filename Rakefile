@@ -40,6 +40,12 @@ task :update_versions do
   version = File.read("#{__dir__}/.decidim-version").strip
 
   replace_file(
+    "#{__dir__}/package.json",
+    /^  "version": "[^"]*"/,
+    "  \"version\": \"#{version}\""
+  )
+  
+  replace_file(
     "#{__dir__}/package-lock.json",
     /^  "version": "[^"]*"/,
     "  \"version\": \"#{version}\""
