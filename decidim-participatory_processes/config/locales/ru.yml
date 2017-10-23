@@ -101,6 +101,7 @@ ru:
       participatory_process_copies:
         new:
           copy: Копировать
+          select: Выберите, какие данные вы хотите продублировать
           title: Создать копию движения соучастия
       participatory_process_groups:
         edit:
@@ -109,6 +110,9 @@ ru:
         new:
           create: Создать
           title: Новая группа движений
+      participatory_process_publications:
+        create:
+          success: Движение соучастия успешно опубликовано.
       participatory_process_steps:
         default_title: Введение
         destroy:
@@ -133,6 +137,8 @@ ru:
           create: Создать
           title: Новый участник движения соучастия.
       participatory_processes:
+        destroy:
+          success: Движение соучастия успешно удалено.
         edit:
           update: Обновить
         form:
