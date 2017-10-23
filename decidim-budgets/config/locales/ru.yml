@@ -23,6 +23,7 @@ ru:
             name: Проект
         projects:
           create:
+            invalid: При попытке добавить этот проект возникла проблема
             success: Проект успешно создан
           destroy:
             success: Проект успешно удален
@@ -37,6 +38,7 @@ ru:
             create: Создать
             title: Новый итог
           update:
+            invalid: При попытке обновить этот проект возникла проблема
             success: Проект успешно обновлен
       models:
         project:
