@@ -280,7 +280,7 @@ GEM
     geocoder (1.4.4)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
-    graphiql-rails (1.4.5)
+    graphiql-rails (1.4.4)
       rails
     graphql (1.6.8)
     hashdiff (0.3.7)
