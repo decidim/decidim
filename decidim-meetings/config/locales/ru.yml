@@ -59,7 +59,7 @@ ru:
           close:
             success: Встреча успешно закрыта
           create:
-            success: Встреча успешно создана
+            success: Встреча успешно добавлена
           destroy:
             success: Встреча успешно удалена
           edit:
@@ -68,7 +68,7 @@ ru:
             title: Встречи
           new:
             create: Создать
-            title: Создать встречу
+            title: Добавить встречу
           update:
             success: Встреча успешно обновлена
         models:
