@@ -3,7 +3,10 @@ ru:
     attributes:
       close_meeting:
         attendees_count: Количество участников
+        attending_organizations: Список принявших участие организаций
         closing_report: Отчет
+        contributions_count: Количество внесенных предложений
+        proposal_ids: Предложения, внесенные на собрании
       meeting:
         address: Адрес
         decidim_category_id: Категория
@@ -31,6 +34,7 @@ ru:
       actions:
         attachments: Вложения
         close: Закрыть
+        confirm_destroy: Вы действительно хотите удалить эту встречу?
         destroy: Удалить
         edit: Редактировать
         new: Добавить
@@ -40,6 +44,9 @@ ru:
       admin:
         exports:
           registrations: Регистрации
+        invite_join_meeting_mailer:
+          invite:
+            join: Присоединиться к встрече '%{meeting_title}'
         invites:
           new:
             invite: Пригласить
@@ -49,6 +56,10 @@ ru:
             close: Закрыть
             title: Закрыть встречу
         meetings:
+          close:
+            success: Встреча успешно закрыта
+          create:
+            success: Встреча успешно добавлена
           destroy:
             success: Встреча успешно удалена
           edit:
@@ -57,7 +68,7 @@ ru:
             title: Встречи
           new:
             create: Создать
-            title: Создать встречу
+            title: Добавить встречу
           update:
             success: Встреча успешно обновлена
         models:
@@ -68,6 +79,11 @@ ru:
             save: Сохранить
           form:
             invite_user: Пригласить участника
+            registrations_count:
+              one: Зарегистрировался 1 человек.
+              few: Зарегистрировалось %{count} человека.
+              many: Зарегистрировалось %{count} человек.
+              other: Зарегистрировалось %{count} человек.
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -99,6 +115,7 @@ ru:
           join: Присоединиться к встрече
           meeting_report: Отчет о встрече
           no_slots_available: Не осталось мест
+          organizations: Участвующие организации
           remaining_slots:
             one: Осталось 1 место
             few: "Осталось %{count} места"
@@ -113,6 +130,13 @@ ru:
             start_time: Дата начала
             title: Название
       read_more: "(читать подробнее)"
+      registrations:
+        create:
+          invalid: При попытке присоединиться к встрече возникла проблема.
+          success: Вы успешно зарегистрировались на эту встречу.
+        destroy:
+          invalid: При попытке отказаться от встречи возникла проблема.
+          success: Вы успешно отменили регистрацию на встречу.
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Подобные итоги:'

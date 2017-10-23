@@ -10,7 +10,7 @@ ru:
         domain: Домен
         hashtag: Хэштег
         hero_image: Изображение главной страницы
-        local_area: Район
+        local_area: Местность
         meta_scope: Метаданные охвата
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
@@ -25,6 +25,10 @@ ru:
   decidim:
     admin:
       assemblies:
+        create:
+          success: Собрание успешно добавлено.
+        destroy:
+          success: Собрание успешно удалено.
         edit:
           update: Обновить
         form:
@@ -33,12 +37,22 @@ ru:
           not_published: Не опубликовано
           published: Опубликовано
         new:
-          create: Создать
+          create: Добавить
           title: Новое собрание
+        update:
+          success: Собрание успешно обновлено.
+      assemblies_copies:
+        create:
+          success: Успешно создана копия собрания.
       assembly_copies:
         new:
           copy: Копировать
           title: Создать копию собрания
+      assembly_publications:
+        create:
+          success: Собрание успешно опубликовано.
+        destroy:
+          success: Публикация собрания успешно отменена.
       menu:
         assemblies: Собрания
         assemblies_submenu:
@@ -50,8 +64,8 @@ ru:
       models:
         assembly:
           fields:
-            created_at: 'Создано:'
-            promoted: Выделенные
+            created_at: 'Добавлено:'
+            promoted: Выдвинутые на первый план
             published: Опубликовано
             title: Название
           name: Собрание
@@ -62,7 +76,7 @@ ru:
         title: Собрания
       show:
         developer_group: Группа разработчиков
-        local_area: Район
+        local_area: Местность
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
         scope: Охват
@@ -88,6 +102,8 @@ ru:
       assemblies:
         assembly:
           take_part: Принять участие
+        index:
+          promoted_assemblies: Выдвинутые на первый план собрания
         order_by_assemblies:
           assemblies:
             one: "%{count} собрание"

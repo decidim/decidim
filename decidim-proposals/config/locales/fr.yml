@@ -2,7 +2,7 @@ fr:
   activemodel:
     attributes:
       proposal:
-        body: Corps de texte
+        body: Corps du texte
         category_id: Catégorie
         scope_id: Zone d'application
         title: Titre
@@ -26,8 +26,8 @@ fr:
             new_proposal_help_text: Nouveau texte d'aide à la proposition
             official_proposals_enabled: Propositions officielles activées
             proposal_answering_enabled: '"Réponses aux propositions" activé'
-            proposal_limit: Limite de proposition par utilisateur
-            vote_limit: Limite de vote par utilisateur
+            proposal_limit: Maximum de propositions par utilisateur
+            vote_limit: Nombre maximum de votes par utilisateur
           step:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
@@ -91,7 +91,7 @@ fr:
             title: Titre
             votes: Votes
       new:
-        limit_reached: Vous ne pouvez pas créer de nouvelles propositions car vous avez dépassé la limite.
+        limit_reached: Vous ne pouvez pas créer de nouvelles propositions car vous avez dépassé le nombre autorisé.
       proposal_votes:
         create:
           error: Des erreurs se sont produites lors du vote de la proposition.
@@ -127,7 +127,7 @@ fr:
           unfold: Déplier
         index:
           new_proposal: Nouvelle proposition
-          proposal_limit_reached: Limite de proposition atteinte
+          proposal_limit_reached: Nombre maximum de propositions atteint
           view_proposal: Voir la proposition
         linked_proposals:
           proposal_votes:
@@ -153,7 +153,7 @@ fr:
           report: Signaler
         vote_button:
           already_voted: Déjà voté
-          maximum_votes_reached: Limite de vote atteinte
+          maximum_votes_reached: Nombre maximum de votes atteint
           no_votes_remaining: Aucun vote restant
           vote: Voter
           votes_blocked: Votes désactivés
@@ -168,7 +168,7 @@ fr:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
           title: 'Le vote est soumis aux règles suivantes:'
           vote_limit:
-            description: Vous pouvez voter jusqu'à %{limit} propositions.
+            description: Vous pouvez voter pour %{limit} propositions au maximum.
             left: Restant
             votes: Votes
     resource_links:

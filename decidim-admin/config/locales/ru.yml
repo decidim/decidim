@@ -20,6 +20,8 @@ ru:
         name: Имя
         reference_prefix: Справочный префикс
       organization_appearance:
+        cta_button_path: Путь кнопки "Призвать к действию"
+        cta_button_text: Текст кнопки «Призвать к действию»
         description: Описание
         favicon: Значок
         header_snippets: Сниппеты для гипертекстовых заголовков страниц сайта
@@ -54,7 +56,7 @@ ru:
         end_date: Дата завершения
         hashtag: Хэштег
         hero_image: Изображение главной страницы
-        local_area: Район
+        local_area: Местность
         meta_scope: Метаданные охвата
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
@@ -94,7 +96,7 @@ ru:
       attachments:
         create:
           error: При создании нового вложенного файла произошла ошибка.
-          success: Вложенный файл успешно создан.
+          success: Вложенный файл успешно добавлен.
         destroy:
           success: Вложенный файл успешно удален.
         edit:
@@ -103,7 +105,7 @@ ru:
         index:
           attachments_title: Вложенные файлы
         new:
-          create: Создать вложенный файл
+          create: Добавить вложенный файл
           title: Новый вложенный файл
         update:
           error: При обновлении этого вложенного файла произошла ошибка.
@@ -143,7 +145,7 @@ ru:
       features:
         create:
           error: При создании этой составляющей произошла ошибка.
-          success: Составляющая успешно создана.
+          success: Составляющая успешно добавлена.
         destroy:
           error: При удалении этой составляющей произошла ошибка.
           success: Составляющая успешно удалена.

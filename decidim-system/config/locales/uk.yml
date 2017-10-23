@@ -10,8 +10,8 @@ uk:
         title: Дії
       admins:
         create:
-          error: При створенні нового адміністратора сталася помилка.
-          success: Адміністратора успішно створено
+          error: При додаванні нового адміністратора сталася помилка.
+          success: Адміністратора успішно додано
         destroy:
           success: Адміністратора успішно видалено
         edit:
@@ -20,7 +20,7 @@ uk:
         index:
           title: Адміністратори
         new:
-          create: Створити
+          create: Додати
           title: Новий адміністратор
         update:
           error: При оновленні цього адміністратора сталася помилка.
@@ -36,22 +36,22 @@ uk:
       models:
         admin:
           fields:
-            created_at: 'Створене:'
+            created_at: 'Додано:'
             email: Адреса електронної пошти
           name: Адміністратор
           validations:
             email_uniqueness: вже є інший адміністратор з такою ж адресою електронної пошти
         organization:
           actions:
-            save_and_invite: Створити організацію та запросити адміністратора
+            save_and_invite: Додати організацію та запросити адміністратора
           fields:
-            created_at: 'Створене:'
+            created_at: 'Додано:'
             name: Ім'я
           name: Організація
       organizations:
         create:
-          error: При створенні нової організації сталася помилка.
-          success: Організацію успішно створено.
+          error: При додаванні нової організації сталася помилка.
+          success: Організацію успішно додано.
         edit:
           secondary_hosts_hint: Введіть кожну з них в новому рядку
         index:
@@ -65,7 +65,7 @@ uk:
           success: Організацію успішно оновлено.
       shared:
         notices:
-          no_organization_warning_html: Насамперед ви повинні створити організацію. Обов'язково прочитайте %{guide}, перш ніж продовжити.
-          our_getting_started_guide: наш початковий посібник
+          no_organization_warning_html: Насамперед ви повинні додати організацію. Обов'язково прочитайте %{guide}, перш ніж продовжити.
+          our_getting_started_guide: наш посібник для початківців
       titles:
         dashboard: Приладна дошка

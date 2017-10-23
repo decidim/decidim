@@ -10,7 +10,8 @@ ru:
         title: Действия
       admins:
         create:
-          success: Администратор успешно создан
+          error: При создании нового администратора произошла ошибка.
+          success: Администратор успешно добавлен
         destroy:
           success: Администратор успешно удален
         edit:
@@ -19,7 +20,7 @@ ru:
         index:
           title: Администраторы
         new:
-          create: Создать
+          create: Добавить
           title: Новый администратор
         update:
           error: При обновлении этого администратора произошла ошибка.
@@ -34,18 +35,30 @@ ru:
       models:
         admin:
           fields:
-            created_at: 'Создано:'
+            created_at: 'Добавлено:'
             email: Эл. адрес
           name: Администратор
         organization:
+          actions:
+            save_and_invite: Добавить организацию и пригласить администратора
           fields:
-            created_at: 'Создано:'
+            created_at: 'Добавлено:'
             name: Имя
           name: Организация
       organizations:
+        create:
+          success: Организация успешно добавлена.
+        edit:
+          secondary_hosts_hint: Введите каждый из них в новой строке
         index:
           title: Организации
         new:
+          secondary_hosts_hint: Введите каждый из них в новой строке
           title: Новая организация
+        update:
+          success: Организация успешно обновлена.
+      shared:
+        notices:
+          our_getting_started_guide: наше руководство для начинающих
       titles:
         dashboard: Панель управления

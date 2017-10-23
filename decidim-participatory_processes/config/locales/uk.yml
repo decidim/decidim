@@ -12,7 +12,7 @@ uk:
         end_date: Дата закінчення
         hashtag: Хештег
         hero_image: Зображення головної сторінки
-        local_area: Район
+        local_area: Місцевість
         meta_scope: Метадані терену
         participatory_process_group_id: Група рухів
         participatory_scope: Терен співучасті
@@ -69,7 +69,7 @@ uk:
       models:
         participatory_process:
           fields:
-            created_at: 'Створене:'
+            created_at: 'Додано:'
             promoted: Висвітлено
             published: Опубліковано
             title: Назва
@@ -232,7 +232,7 @@ uk:
       show:
         developer_group: Група розробників
         end_date: Дата закінчення
-        local_area: Район
+        local_area: Місцевість
         participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
         scope: Терен

@@ -11,6 +11,8 @@ ru:
             label: Комментировать как
         opinion:
           neutral: Безучастно
+        remaining_characters: "Осталось %{count} символов"
+        remaining_characters_1: "Остался %{count} символ"
         title: Добавьте свой комментарий
       comment:
         alignment:
@@ -33,6 +35,8 @@ ru:
           older: Старые
           recent: Недавние
         title: 'Упорядочить по:'
+      comment_thread:
+        title: Беседа с %{authorName}
       comments:
         loading: Загрузка комментариев ...
         title: "%{count} комментариев"

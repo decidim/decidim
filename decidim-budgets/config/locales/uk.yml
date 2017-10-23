@@ -25,7 +25,7 @@ uk:
         projects:
           create:
             invalid: При спробі створити цей проект виникла проблема
-            success: Проект успішно створено
+            success: Проект успішно додано
           destroy:
             success: Проект успішно видалено
           edit:

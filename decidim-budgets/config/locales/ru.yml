@@ -50,8 +50,11 @@ ru:
         budget_excess:
           close: Закрыть
           ok: Хорошо
+          title: Превышен максимальный бюджет
         budget_summary:
+          are_you_sure: Вы действительно хотите отменить свой голос?
           assigned: 'Выделено:'
+          cancel_order: удалить свой голос и начать все сначала
           checked_out:
             title: Голосование по бюджету завершено
           title: Вы определяете бюджет
@@ -112,6 +115,15 @@ ru:
             comments_blocked: Комментарии выключены
             show_votes: Показать голоса
             votes_enabled: Голосование включено
+    orders:
+      checkout:
+        success: Ваш голос был успешно принят
+      destroy:
+        error: При отмене вашего голоса произошла ошибка
+        success: Ваш голос успешно отменен
+    resource_links:
+      included_proposals:
+        project_proposals: 'Предложения, включенные в этот проект:'
   index:
     confirmed_orders_count: Количество голосов
   total_budget: Общий бюджет

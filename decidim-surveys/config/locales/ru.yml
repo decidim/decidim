@@ -41,6 +41,8 @@ ru:
             question: Вопрос
             remove_question: Удалить вопрос
             statement: Высказывание
+          update:
+            success: Опрос успешно сохранен.
       question_types:
         long_answer: Длинный ответ
         multiple_option: Несколько вариантов
@@ -54,6 +56,7 @@ ru:
             title: Пройдите опрос
           submit: Отправить
           survey_answered:
+            body: Вы уже ответили на этот опрос.
             title: Опрос пройден
           survey_closed:
             title: Опрос закрыт

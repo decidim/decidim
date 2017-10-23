@@ -6,14 +6,14 @@ ru:
         category_id: Категория
         scope_id: Охват
         title: Название
-        user_group_id: Создайте предложение как
+        user_group_id: Внести предложение как
       proposal_answer:
         answer: Ответить
   decidim:
     features:
       proposals:
         actions:
-          create: Создать
+          create: Внести
           vote: Голосовать
         name: Предложения
         settings:
@@ -22,9 +22,17 @@ ru:
             attachments_allowed: Разрешить вложения
             comments_enabled: Комментарии включены
             geocoding_enabled: Геокодирование включено
+            maximum_votes_per_proposal: Максимальное количество голосов на одно предложение
+            new_proposal_help_text: Подсказки по созданию нового предложения
+            official_proposals_enabled: Включена возможность выдвигать официальные предложения
+            proposal_answering_enabled: Включена возможность отвечать на предложения
+            proposal_limit: Максимальное количество предложений на одного участника
+            vote_limit: Максимальное количество голосов для одного пользователя
           step:
             announcement: Объявление
             comments_blocked: Комментарии выключены
+            creation_enabled: Включена возможность создания предложений
+            proposal_answering_enabled: Включена возможность отвечать на предложения
             votes_blocked: Голосование выключено
             votes_enabled: Голосование включено
     proposals:
@@ -52,22 +60,23 @@ ru:
           answer:
             success: Успешно дан ответ на предложение
           create:
-            success: Предложение успешно создано
+            invalid: При попытке выдвинуть предложение возникла проблема
+            success: Предложение успешно внесено
           form:
             attachment_legend: "(Необязательно) Добавить вложение"
             select_a_category: Выберите категорию
           index:
             title: Предложения
           new:
-            create: Создать
-            title: Создать предложение
+            create: Внести
+            title: Внести предложение
       answers:
         accepted: Принято
         evaluating: Рассматривается
         not_answered: Без ответов
         rejected: Отклонено
       create:
-        success: Предложение успешно создано.
+        success: Предложение успешно внесено.
       models:
         proposal:
           fields:
@@ -112,10 +121,12 @@ ru:
           unfold: Развернуть
         index:
           new_proposal: Новое предложение
+          proposal_limit_reached: Достигнуто максимальное количество предложений
           view_proposal: Просмотреть предложение
         new:
           attachment_legend: "(Необязательно) Добавить вложение"
           back: Вернуться
+          select_a_category: Пожалуйста, выберите категорию
           send: Отправить
           title: Новое предложение
         orders:
@@ -126,9 +137,13 @@ ru:
         proposal:
           view_proposal: Просмотреть предложение
         show:
+          proposal_accepted_reason: 'Это предложение было принято, поскольку:'
+          proposal_in_evaluation_reason: Это предложение сейчас рассматривается
+          proposal_rejected_reason: 'Это предложение было отклонено, поскольку:'
           report: Пожаловаться
         vote_button:
           already_voted: Уже проголосовали
+          maximum_votes_reached: Достигнуто предельное количество голосов
           no_votes_remaining: Больше не осталось голосов
           vote: Голосовать
           votes_blocked: Голосование отключено
@@ -139,6 +154,14 @@ ru:
             many: ГОЛОСОВ
             other: ГОЛОСА
         voting_rules:
+          proposal_limit:
+            description: Вы можете внести до %{limit} предложений.
+          title: 'Голосование регулируется следующими правилами:'
           vote_limit:
+            description: Вы можете проголосовать до %{limit} предложений.
             left: Осталось
             votes: Голоса
+    resource_links:
+      included_proposals:
+        proposal_projects: 'Предложение представлено в проектах:'
+        proposal_results: 'Предложения, представленные в этих итогах:'

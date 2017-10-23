@@ -6,14 +6,14 @@ uk:
         category_id: Розділ
         scope_id: Терен
         title: Назва
-        user_group_id: Створити пропозицію як
+        user_group_id: Внести пропозицію як
       proposal_answer:
         answer: Відповісти
   decidim:
     features:
       proposals:
         actions:
-          create: Створити
+          create: Внести
           vote: Голосувати
         name: Пропозиції
         settings:
@@ -26,6 +26,7 @@ uk:
             new_proposal_help_text: Підказки зі створення нової пропозиції
             official_proposals_enabled: Офіційні пропозиції ввімкнені
             proposal_answering_enabled: Ввімкнуто відповіді на пропозиції
+            proposal_limit: Максимальна кількість пропозицій на одного учасника
             vote_limit: Максимальна кількість голосів для одного користувача
           step:
             announcement: Оголошення
@@ -62,15 +63,15 @@ uk:
             success: Успішно дано відповідь на пропозицію
           create:
             invalid: При спробі створити цю пропозицію виникла проблема
-            success: Пропозицію успішно створено
+            success: Пропозицію успішно внесено
           form:
             attachment_legend: "(Необов'язково) Додати вкладений файл"
             select_a_category: Оберіть розділ
           index:
             title: Пропозиції
           new:
-            create: Створити
-            title: Створити пропозицію
+            create: Внести
+            title: Внести пропозицію
       answers:
         accepted: Прийнято
         evaluating: Розглядається
@@ -78,7 +79,7 @@ uk:
         rejected: Відхилено
       create:
         error: При збереженні цієї пропозиції сталися помилки.
-        success: Пропозицію успішно створено.
+        success: Пропозицію успішно додано.
       models:
         proposal:
           fields:
@@ -89,6 +90,8 @@ uk:
             state: Стан
             title: Назва
             votes: Голоси
+      new:
+        limit_reached: Ви не можете додавати нові пропозиції, оскільки ви перевищили ліміт.
       proposal_votes:
         create:
           error: При голосуванні пропозиції сталися помилки.
@@ -126,6 +129,7 @@ uk:
           unfold: Розгорнути
         index:
           new_proposal: Нова пропозиція
+          proposal_limit_reached: Досягнуто максимальної дозволеної кількості пропозицій
           view_proposal: Переглянути пропозицію
         linked_proposals:
           proposal_votes:
@@ -166,6 +170,8 @@ uk:
         voting_rules:
           maximum_votes_per_proposal:
             description: Кожна пропозиція може отримати максимум %{limit} голосів.
+          proposal_limit:
+            description: Ви можете висунути до %{limit} пропозицій.
           title: 'Голосування регулюється наступними правилами:'
           vote_limit:
             description: Ви можете проголосувати до %{limit} пропозицій.
@@ -173,5 +179,5 @@ uk:
             votes: Голоси
     resource_links:
       included_proposals:
-        proposal_projects: 'Пропозиція, яка є в таких проектах:'
-        proposal_results: 'Пропозиція, яка є в таких підсумках:'
+        proposal_projects: 'Пропозиція є в таких проектах:'
+        proposal_results: 'Пропозиція є в таких підсумках:'

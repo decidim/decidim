@@ -6,7 +6,7 @@ fr:
           comment:
             email_intro: '"%{resource_title}" a été commenté. Vous pouvez lire le commentaire de cette page:'
             email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
-            email_subject: Nouveau commentaire de %{author_name} dans %{resource_title}
+            email_subject: Un nouveau commentaire a été publié par %{author_name} dans %{resource_title}
             notification_title: Nouveau commentaire de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
           reply:
             email_intro: '"%{resource_title}" a reçu un commentaire'

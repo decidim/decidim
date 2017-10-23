@@ -84,6 +84,7 @@ ru:
         authorize: Отправить
         authorize_with: Подтвердить личность с помощью %{authorizer}
       skip_verification: Вы можете пока что пропустить это и %{link}
+      start_exploring: начать иccледовать
     core:
       actions:
         unauthorized: Вы не имеете прав для выполнения этого действия
@@ -212,7 +213,7 @@ ru:
     reports:
       create:
         error: При создании жалобы возникла ошибка. Повторите, пожалуйста, попытку.
-        success: Жалоба была создана успешно, и она будет рассмотрена администратором.
+        success: Жалоба была успешно создана, и она будет рассмотрена администратором.
     shared:
       action_authorization_modal:
         incomplete:
