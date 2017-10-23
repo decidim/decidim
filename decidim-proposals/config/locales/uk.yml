@@ -6,14 +6,14 @@ uk:
         category_id: Розділ
         scope_id: Терен
         title: Назва
-        user_group_id: Створити пропозицію як
+        user_group_id: Внести пропозицію як
       proposal_answer:
         answer: Відповісти
   decidim:
     features:
       proposals:
         actions:
-          create: Створити
+          create: Внести
           vote: Голосувати
         name: Пропозиції
         settings:
