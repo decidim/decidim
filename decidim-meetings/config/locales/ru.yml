@@ -48,6 +48,8 @@ ru:
           invite:
             join: Присоединиться к встрече '%{meeting_title}'
         invites:
+          create:
+            success: Пользователь успешно приглашен на встречу.
           new:
             invite: Пригласить
             new_invite: Пригласить участника
@@ -96,6 +98,9 @@ ru:
         invite_join_meeting_mailer:
           invite:
             subject: Тема
+        registration_mailer:
+          confirmation:
+            subject: Ваша регистрация на встречу подтверждена
       meetings:
         filters:
           category: Категория
