@@ -22,6 +22,7 @@ ru:
   decidim:
     accountability:
       actions:
+        confirm_destroy: Вы действительно хотите удалить %{name}?
         destroy: Удалить
         edit: Редактировать
         new: Добавить %{name}
@@ -40,6 +41,7 @@ ru:
             name: Запись на линии времени
         results:
           create:
+            invalid: При попытке добавить этот итог возникла проблема
             success: Итог успешно создан
           destroy:
             success: Итог успешно удален
@@ -52,12 +54,14 @@ ru:
             create: Создать итог
             title: Новый итог
           update:
+            invalid: При попытке обновить этот итог возникла проблема
             success: Итог успешно обновлен
         shared:
           subnav:
             statuses: Состояния
         statuses:
           create:
+            invalid: При попытке создать это состояние возникла проблема
             success: Состояние успешно создано
           destroy:
             success: Состояние успешно удалено
@@ -70,9 +74,11 @@ ru:
             create: Создать состояние
             title: Новое состояние
           update:
+            invalid: При попытке обновить это состояние возникла проблема
             success: Состояние успешно обновлено
         timeline_entries:
           create:
+            invalid: При попытке создать эту запись возникла проблема
             success: Запись успешно создана
           destroy:
             success: Запись успешно удалена
@@ -85,6 +91,7 @@ ru:
             create: Создать запись
             title: Новая запись
           update:
+            invalid: При попытке обновить эту запись возникла проблема
             success: Запись успешно обновлена
       models:
         result:

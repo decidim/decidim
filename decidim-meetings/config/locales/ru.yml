@@ -48,6 +48,8 @@ ru:
           invite:
             join: Присоединиться к встрече '%{meeting_title}'
         invites:
+          create:
+            success: Пользователь успешно приглашен на встречу.
           new:
             invite: Пригласить
             new_invite: Пригласить участника
@@ -57,8 +59,10 @@ ru:
             title: Закрыть встречу
         meetings:
           close:
+            invalid: При попытке закрыть эту встречу возникла проблема
             success: Встреча успешно закрыта
           create:
+            invalid: При попытке добавить эту встречу возникла проблема
             success: Встреча успешно добавлена
           destroy:
             success: Встреча успешно удалена
@@ -70,6 +74,7 @@ ru:
             create: Создать
             title: Добавить встречу
           update:
+            invalid: При попытке обновить эту встречу возникла проблема
             success: Встреча успешно обновлена
         models:
           meeting:
@@ -84,10 +89,18 @@ ru:
               few: Зарегистрировалось %{count} человека.
               many: Зарегистрировалось %{count} человек.
               other: Зарегистрировалось %{count} человек.
+      events:
+        close_meeting_event:
+          email_subject: Встреча "%{resource_title}" закрыта
+        update_meeting_event:
+          email_subject: Встреча "%{resource_title}" обновлена
       mailer:
         invite_join_meeting_mailer:
           invite:
             subject: Тема
+        registration_mailer:
+          confirmation:
+            subject: Ваша регистрация на встречу подтверждена
       meetings:
         filters:
           category: Категория
