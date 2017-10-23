@@ -55,4 +55,26 @@ describe "Menu", type: :feature do
       end
     end
   end
+
+  context "with a user logged in and multiple languages" do
+    let!(:user) { create :user, :confirmed, organization: organization }
+
+    before do
+      login_as user, scope: :user
+
+      visit decidim.root_path
+
+      within_language_menu do
+        click_link "Català"
+      end
+    end
+
+    it "works with multiple languages" do
+      visit decidim.root_path
+
+      within ".main-nav" do
+        expect(page).to have_selected_option("Inici")
+      end
+    end
+  end
 end
