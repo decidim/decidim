@@ -76,6 +76,7 @@ ru:
         not_answered: Без ответов
         rejected: Отклонено
       create:
+        error: При сохранении этого предложения произошли ошибки.
         success: Предложение успешно внесено.
       models:
         proposal:
@@ -87,6 +88,9 @@ ru:
             state: Cостояние
             title: Название
             votes: Голоса
+      proposal_votes:
+        create:
+          error: При голосовании по этому предложению произошли ошибки.
       proposals:
         author:
           deleted: Удаленный пользователь
