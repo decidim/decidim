@@ -4,7 +4,7 @@ module Decidim
   # A Helper to render the Call To Action button.
   module CtaButtonHelper
     # Renders the Call To Action button. Link and text can be configured
-    # per organizationn.
+    # per organization.
     def cta_button
       button_text = translated_attribute(current_organization.cta_button_text).presence || t("pages.home.hero.participate")
 
