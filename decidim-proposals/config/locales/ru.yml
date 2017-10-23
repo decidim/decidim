@@ -6,14 +6,14 @@ ru:
         category_id: Категория
         scope_id: Охват
         title: Название
-        user_group_id: Создайте предложение как
+        user_group_id: Внести предложение как
       proposal_answer:
         answer: Ответить
   decidim:
     features:
       proposals:
         actions:
-          create: Создать
+          create: Внести
           vote: Голосовать
         name: Предложения
         settings:
@@ -68,8 +68,8 @@ ru:
           index:
             title: Предложения
           new:
-            create: Создать
-            title: Создать предложение
+            create: Внести
+            title: Внести предложение
       answers:
         accepted: Принято
         evaluating: Рассматривается
