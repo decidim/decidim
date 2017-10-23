@@ -69,7 +69,7 @@ uk:
       models:
         participatory_process:
           fields:
-            created_at: 'Створене:'
+            created_at: 'Додано:'
             promoted: Висвітлено
             published: Опубліковано
             title: Назва
