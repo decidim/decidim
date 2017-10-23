@@ -5,6 +5,9 @@ ru:
         comment_created:
           reply:
             email_intro: '«%{resource_title}» прокомментировано'
+      votes:
+        create:
+          error: При голосовании за комментарий произошли ошибки.
     components:
       add_comment_form:
         form:
