@@ -49,6 +49,7 @@ ru:
           name: Организация
       organizations:
         create:
+          error: При добавлении новой организации произошла ошибка.
           success: Организация успешно добавлена.
         edit:
           secondary_hosts_hint: Введите каждый из них в новой строке
@@ -62,6 +63,7 @@ ru:
           success: Организация успешно обновлена.
       shared:
         notices:
+          no_organization_warning_html: Для начала определите организацию. Обязательно почитайте %{guide}, прежде чем продолжать дальше.
           our_getting_started_guide: наше руководство для начинающих
       titles:
         dashboard: Панель управления
