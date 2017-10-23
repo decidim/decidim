@@ -84,6 +84,9 @@ ru:
               few: Зарегистрировалось %{count} человека.
               many: Зарегистрировалось %{count} человек.
               other: Зарегистрировалось %{count} человек.
+      events:
+        close_meeting_event:
+          email_subject: Встреча "%{resource_title}" закрыта
       mailer:
         invite_join_meeting_mailer:
           invite:
