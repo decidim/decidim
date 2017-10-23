@@ -51,6 +51,7 @@ ru:
         single_option: Единственный вариант
       surveys:
         answer:
+          invalid: При прохождении опроса произошли ошибки.
           success: Опрос успешно пройден.
         show:
           answer_survey:
