@@ -6,7 +6,7 @@ ru:
         attending_organizations: Список принявших участие организаций
         closing_report: Отчет
         contributions_count: Количество внесенных предложений
-        proposal_ids: Предложения, выдвинутые на собрании
+        proposal_ids: Предложения, внесенные на собрании
       meeting:
         address: Адрес
         decidim_category_id: Категория
