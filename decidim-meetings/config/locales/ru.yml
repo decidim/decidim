@@ -60,6 +60,7 @@ ru:
             invalid: При попытке закрыть эту встречу возникла проблема
             success: Встреча успешно закрыта
           create:
+            invalid: При попытке добавить эту встречу возникла проблема
             success: Встреча успешно добавлена
           destroy:
             success: Встреча успешно удалена
@@ -71,6 +72,7 @@ ru:
             create: Создать
             title: Добавить встречу
           update:
+            invalid: При попытке обновить эту встречу возникла проблема
             success: Встреча успешно обновлена
         models:
           meeting:
@@ -88,6 +90,8 @@ ru:
       events:
         close_meeting_event:
           email_subject: Встреча "%{resource_title}" закрыта
+        update_meeting_event:
+          email_subject: Встреча "%{resource_title}" обновлена
       mailer:
         invite_join_meeting_mailer:
           invite:
