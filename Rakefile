@@ -8,7 +8,7 @@ require "decidim/dev"
 
 load "decidim-dev/lib/tasks/test_app.rake"
 
-DECIDIM_GEMS = %w(core system admin api participatory_processes assemblies pages meetings proposals comments results budgets surveys dev).freeze
+DECIDIM_GEMS = %w(core system admin api participatory_processes assemblies pages meetings proposals comments accountability budgets surveys dev).freeze
 
 RSpec::Core::RakeTask.new(:spec)
 
