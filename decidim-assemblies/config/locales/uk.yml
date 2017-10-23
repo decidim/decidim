@@ -27,7 +27,7 @@ uk:
       assemblies:
         create:
           error: При створенні нових зборів сталася помилка.
-          success: Збори успішно створено.
+          success: Збори успішно додано.
         destroy:
           success: Збори успішно видалено.
         edit:
@@ -38,7 +38,7 @@ uk:
           not_published: Не опубліковано
           published: Опубліковано
         new:
-          create: Створити
+          create: Додати
           title: Нові збори
         update:
           error: При оновленні цих зборів сталася помилка.
@@ -70,7 +70,7 @@ uk:
       models:
         assembly:
           fields:
-            created_at: 'Створене:'
+            created_at: 'Додано:'
             promoted: Висвітлено
             published: Опубліковано
             title: Назва
