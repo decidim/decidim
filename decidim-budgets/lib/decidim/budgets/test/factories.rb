@@ -47,19 +47,19 @@ FactoryGirl.define do
     end
   end
 
-  factory :project, class: Decidim::Budgets::Project do
+  factory :project, class: "Decidim::Budgets::Project" do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     budget { Faker::Number.number(8) }
     feature { create(:budget_feature) }
   end
 
-  factory :order, class: Decidim::Budgets::Order do
+  factory :order, class: "Decidim::Budgets::Order" do
     feature { create(:budget_feature) }
     user { create(:user, organization: feature.organization) }
   end
 
-  factory :line_item, class: Decidim::Budgets::LineItem do
+  factory :line_item, class: "Decidim::Budgets::LineItem" do
     order
     project { create(:project, feature: order.feature) }
   end

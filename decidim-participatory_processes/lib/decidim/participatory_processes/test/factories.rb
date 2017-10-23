@@ -10,7 +10,7 @@ FactoryGirl.define do
     "#{Faker::Internet.slug(nil, "-")}-#{n}"
   end
 
-  factory :participatory_process, class: Decidim::ParticipatoryProcess do
+  factory :participatory_process, class: "Decidim::ParticipatoryProcess" do
     title { Decidim::Faker::Localized.sentence(3) }
     slug { generate(:participatory_process_slug) }
     subtitle { Decidim::Faker::Localized.sentence(1) }
@@ -66,7 +66,7 @@ FactoryGirl.define do
     end
   end
 
-  factory :participatory_process_group, class: Decidim::ParticipatoryProcessGroup do
+  factory :participatory_process_group, class: "Decidim::ParticipatoryProcessGroup" do
     name { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     hero_image { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
@@ -79,7 +79,7 @@ FactoryGirl.define do
     end
   end
 
-  factory :participatory_process_step, class: Decidim::ParticipatoryProcessStep do
+  factory :participatory_process_step, class: "Decidim::ParticipatoryProcessStep" do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     start_date 1.month.ago.at_midnight

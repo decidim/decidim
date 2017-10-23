@@ -27,7 +27,7 @@ FactoryGirl.define do
     "#{Faker::Lorem.characters(4).upcase}-#{n}"
   end
 
-  factory :category, class: Decidim::Category do
+  factory :category, class: "Decidim::Category" do
     name { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
 
@@ -40,7 +40,7 @@ FactoryGirl.define do
     participatory_space { parent.participatory_space }
   end
 
-  factory :organization, class: Decidim::Organization do
+  factory :organization, class: "Decidim::Organization" do
     name { Faker::Company.unique.name }
     reference_prefix { Faker::Name.suffix }
     twitter_handler { Faker::Hipster.word }
@@ -60,7 +60,7 @@ FactoryGirl.define do
     official_url { Faker::Internet.url }
   end
 
-  factory :user, class: Decidim::User do
+  factory :user, class: "Decidim::User" do
     email { generate(:email) }
     password "password1234"
     password_confirmation "password1234"
@@ -140,13 +140,13 @@ FactoryGirl.define do
     end
   end
 
-  factory :participatory_process_user_role, class: Decidim::ParticipatoryProcessUserRole do
+  factory :participatory_process_user_role, class: "Decidim::ParticipatoryProcessUserRole" do
     user
     participatory_process { create :participatory_process, organization: user.organization }
     role "admin"
   end
 
-  factory :user_group, class: Decidim::UserGroup do
+  factory :user_group, class: "Decidim::UserGroup" do
     name { Faker::Educator.course }
     document_number { Faker::Number.number(8) + "X" }
     phone { Faker::PhoneNumber.phone_number }
@@ -175,25 +175,25 @@ FactoryGirl.define do
     end
   end
 
-  factory :user_group_membership, class: Decidim::UserGroupMembership do
+  factory :user_group_membership, class: "Decidim::UserGroupMembership" do
     user
     user_group
   end
 
-  factory :identity, class: Decidim::Identity do
+  factory :identity, class: "Decidim::Identity" do
     provider "facebook"
     sequence(:uid)
     user
     organization { user.organization }
   end
 
-  factory :authorization, class: Decidim::Authorization do
+  factory :authorization, class: "Decidim::Authorization" do
     name "decidim/dummy_authorization_handler"
     user
     metadata { {} }
   end
 
-  factory :static_page, class: Decidim::StaticPage do
+  factory :static_page, class: "Decidim::StaticPage" do
     slug { generate(:slug) }
     title { Decidim::Faker::Localized.sentence(3) }
     content { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
@@ -204,7 +204,7 @@ FactoryGirl.define do
     end
   end
 
-  factory :attachment, class: Decidim::Attachment do
+  factory :attachment, class: "Decidim::Attachment" do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
@@ -219,7 +219,7 @@ FactoryGirl.define do
     end
   end
 
-  factory :feature, class: Decidim::Feature do
+  factory :feature, class: "Decidim::Feature" do
     transient do
       organization { create(:organization) }
     end
@@ -238,13 +238,13 @@ FactoryGirl.define do
     end
   end
 
-  factory :scope_type, class: Decidim::ScopeType do
+  factory :scope_type, class: "Decidim::ScopeType" do
     name { Decidim::Faker::Localized.word }
     plural { Decidim::Faker::Localized.literal(name.values.first.pluralize) }
     organization
   end
 
-  factory :scope, class: Decidim::Scope do
+  factory :scope, class: "Decidim::Scope" do
     name { Decidim::Faker::Localized.literal(generate(:scope_name)) }
     code { generate(:scope_code) }
     scope_type
@@ -259,19 +259,19 @@ FactoryGirl.define do
     end
   end
 
-  factory :dummy_resource, class: Decidim::DummyResources::DummyResource do
+  factory :dummy_resource, class: "Decidim::DummyResources::DummyResource" do
     title { generate(:name) }
     feature { create(:feature, manifest_name: "dummy") }
     author { create(:user, :confirmed, organization: feature.organization) }
   end
 
-  factory :resource_link, class: Decidim::ResourceLink do
+  factory :resource_link, class: "Decidim::ResourceLink" do
     name { generate(:slug) }
     to { build(:dummy_resource) }
     from { build(:dummy_resource, feature: to.feature) }
   end
 
-  factory :newsletter, class: Decidim::Newsletter do
+  factory :newsletter, class: "Decidim::Newsletter" do
     author { build(:user, :confirmed, organization: organization) }
     organization
 
@@ -279,18 +279,18 @@ FactoryGirl.define do
     body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
   end
 
-  factory :moderation, class: Decidim::Moderation do
+  factory :moderation, class: "Decidim::Moderation" do
     reportable { build(:dummy_resource) }
     participatory_space { reportable.feature.participatory_space }
   end
 
-  factory :report, class: Decidim::Report do
+  factory :report, class: "Decidim::Report" do
     moderation
     user { build(:user, organization: moderation.reportable.organization) }
     reason "spam"
   end
 
-  factory :impersonation_log, class: Decidim::ImpersonationLog do
+  factory :impersonation_log, class: "Decidim::ImpersonationLog" do
     admin { build(:user, :admin) }
     user { build(:user, :managed, organization: admin.organization) }
     started_at { 10.minutes.ago }

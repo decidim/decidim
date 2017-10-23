@@ -22,7 +22,7 @@ FactoryGirl.define do
     end
   end
 
-  factory :status, class: Decidim::Accountability::Status do
+  factory :status, class: "Decidim::Accountability::Status" do
     feature { create(:accountability_feature) }
     sequence(:key) { |n| "status_#{n}" }
     name { Decidim::Faker::Localized.word }
@@ -30,7 +30,7 @@ FactoryGirl.define do
     progress { rand(1..100) }
   end
 
-  factory :result, class: Decidim::Accountability::Result do
+  factory :result, class: "Decidim::Accountability::Result" do
     feature { create(:accountability_feature) }
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
@@ -40,7 +40,7 @@ FactoryGirl.define do
     progress { rand(1..100) }
   end
 
-  factory :timeline_entry, class: Decidim::Accountability::TimelineEntry do
+  factory :timeline_entry, class: "Decidim::Accountability::TimelineEntry" do
     result { create(:result) }
     entry_date { "12/7/2017" }
     description { Decidim::Faker::Localized.sentence(2) }

@@ -93,7 +93,7 @@ FactoryGirl.define do
     end
   end
 
-  factory :proposal, class: Decidim::Proposals::Proposal do
+  factory :proposal, class: "Decidim::Proposals::Proposal" do
     title { Faker::Lorem.sentence }
     body { Faker::Lorem.sentences(3).join("\n") }
     feature { create(:proposal_feature) }
@@ -126,7 +126,7 @@ FactoryGirl.define do
     end
   end
 
-  factory :proposal_vote, class: Decidim::Proposals::ProposalVote do
+  factory :proposal_vote, class: "Decidim::Proposals::ProposalVote" do
     proposal { build(:proposal) }
     author { build(:user, organization: proposal.organization) }
   end
