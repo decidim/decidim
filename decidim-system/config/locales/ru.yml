@@ -38,6 +38,8 @@ ru:
             created_at: 'Добавлено:'
             email: Эл. адрес
           name: Администратор
+          validations:
+            email_uniqueness: уже есть другой администратор с тем же эл-адресом
         organization:
           actions:
             save_and_invite: Добавить организацию и пригласить администратора
