@@ -22,6 +22,7 @@ ru:
   decidim:
     accountability:
       actions:
+        confirm_destroy: Вы действительно хотите удалить %{name}?
         destroy: Удалить
         edit: Редактировать
         new: Добавить %{name}
