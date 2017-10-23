@@ -11,7 +11,7 @@ ru:
       admins:
         create:
           error: При создании нового администратора произошла ошибка.
-          success: Администратор успешно создан
+          success: Администратор успешно добавлен
         destroy:
           success: Администратор успешно удален
         edit:
@@ -20,7 +20,7 @@ ru:
         index:
           title: Администраторы
         new:
-          create: Создать
+          create: Добавить
           title: Новый администратор
         update:
           error: При обновлении этого администратора произошла ошибка.
@@ -35,14 +35,14 @@ ru:
       models:
         admin:
           fields:
-            created_at: 'Создано:'
+            created_at: 'Добавлено:'
             email: Эл. адрес
           name: Администратор
         organization:
           actions:
             save_and_invite: Создать организацию и пригласить администратора
           fields:
-            created_at: 'Создано:'
+            created_at: 'Добавлено:'
             name: Имя
           name: Организация
       organizations:
