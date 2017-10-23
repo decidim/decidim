@@ -37,7 +37,7 @@ ru:
           not_published: Не опубликовано
           published: Опубликовано
         new:
-          create: Создать
+          create: Добавить
           title: Новое собрание
         update:
           success: Собрание успешно обновлено.
@@ -64,7 +64,7 @@ ru:
       models:
         assembly:
           fields:
-            created_at: 'Создано:'
+            created_at: 'Добавлено:'
             promoted: Выдвинутые на первый план
             published: Опубликовано
             title: Название
