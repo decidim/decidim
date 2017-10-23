@@ -42,6 +42,7 @@ ru:
             remove_question: Удалить вопрос
             statement: Высказывание
           update:
+            invalid: При сохранении опроса произошли ошибки.
             success: Опрос успешно сохранен.
       question_types:
         long_answer: Длинный ответ
