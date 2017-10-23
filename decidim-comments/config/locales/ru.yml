@@ -1,5 +1,10 @@
 ru:
   decidim:
+    comments:
+      events:
+        comment_created:
+          reply:
+            email_intro: '«%{resource_title}» прокомментировано'
     components:
       add_comment_form:
         form:
