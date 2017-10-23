@@ -8,7 +8,7 @@ require "decidim/dev"
 
 load "decidim-dev/lib/tasks/test_app.rake"
 
-DECIDIM_GEMS = %w(core system admin api participatory_processes assemblies pages meetings proposals comments results budgets surveys dev).freeze
+DECIDIM_GEMS = %w(core system admin api participatory_processes assemblies pages meetings proposals comments accountability budgets surveys dev).freeze
 
 RSpec::Core::RakeTask.new(:spec)
 
@@ -40,6 +40,12 @@ task :update_versions do
   version = File.read("#{__dir__}/.decidim-version").strip
 
   replace_file(
+    "#{__dir__}/package.json",
+    /^  "version": "[^"]*"/,
+    "  \"version\": \"#{version}\""
+  )
+
+  replace_file(
     "#{__dir__}/package-lock.json",
     /^  "version": "[^"]*"/,
     "  \"version\": \"#{version}\""
@@ -52,6 +58,12 @@ task :update_versions do
       "def self.version\\1\"#{version}\""
     )
   end
+
+  replace_file(
+    "#{__dir__}/lib/decidim/version.rb",
+    /def self\.version(\s*)"[^"]*"/,
+    "def self.version\\1\"#{version}\""
+  )
 end
 
 desc "Pushes a new build for each gem."
