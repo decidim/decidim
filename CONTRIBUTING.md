@@ -34,15 +34,15 @@ Changes that are cosmetic in nature and do not add anything substantial to the s
 
 #### **Do you want to contribute to Decidim documentation?**
 
-* Watch out the [Decidim Documentation repository](https://github.com/decidim/docs.decidim.org) and the [decidim.org](https://github.com/decidim/decidim.org) code website.  
+* Watch out the [Decidim Documentation repository](https://github.com/decidim/docs.decidim.org) and the [decidim.org](https://github.com/decidim/decidim.org) code website.
 
 #### **Do you want to contribute to Decidim design?**
 
-* Go to the [Decidim design repository](https://github.com/decidim/design) and propose the changes that you want. 
+* Go to the [Decidim design repository](https://github.com/decidim/design) and propose the changes that you want.
 
 #### **Do you want to improve or add a new language for Decidim?**
 
-* Add a new issue asking for adding a user to the Crowdin project ([example issue](https://github.com/decidim/decidim/issues/2073)). 
+* Add a new issue asking for adding a user to the Crowdin project ([example issue](https://github.com/decidim/decidim/issues/2073)).
 
 Thanks! :heart: :heart: :heart:
 
