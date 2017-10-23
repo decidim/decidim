@@ -12,6 +12,7 @@ ru:
     budgets:
       actions:
         attachments: Вложения
+        confirm_destroy: Вы действительно хотите удалить этот проект?
         destroy: Удалить
         edit: Редактировать
         new: Добавить
