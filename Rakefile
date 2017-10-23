@@ -52,6 +52,12 @@ task :update_versions do
       "def self.version\\1\"#{version}\""
     )
   end
+  
+  replace_file(
+    "#{__dir__}/lib/decidim/version.rb",
+    /def self\.version(\s*)"[^"]*"/,
+    "def self.version\\1\"#{version}\""
+  )
 end
 
 desc "Pushes a new build for each gem."
