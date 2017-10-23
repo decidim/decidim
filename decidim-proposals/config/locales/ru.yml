@@ -128,6 +128,12 @@ ru:
           new_proposal: Новое предложение
           proposal_limit_reached: Достигнуто максимальное количество предложений
           view_proposal: Просмотреть предложение
+        linked_proposals:
+          proposal_votes:
+            one: <span class="card--list__data__number">1</span> голос
+            few: <span class="card--list__data__number">%{count}</span> голоса
+            many: <span class="card--list__data__number">%{count}</span> голосов
+            other: <span class="card--list__data__number">%{count}</span> голосов
         new:
           attachment_legend: "(Необязательно) Добавить вложение"
           back: Вернуться
