@@ -44,7 +44,7 @@ task :update_versions do
     /^  "version": "[^"]*"/,
     "  \"version\": \"#{version}\""
   )
-  
+
   replace_file(
     "#{__dir__}/package-lock.json",
     /^  "version": "[^"]*"/,
@@ -58,7 +58,7 @@ task :update_versions do
       "def self.version\\1\"#{version}\""
     )
   end
-  
+
   replace_file(
     "#{__dir__}/lib/decidim/version.rb",
     /def self\.version(\s*)"[^"]*"/,
