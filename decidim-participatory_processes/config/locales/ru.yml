@@ -143,6 +143,8 @@ ru:
         new:
           create: Создать
           title: Новое движение соучастия
+        update:
+          success: Движение соучастия успешно обновлено.
       titles:
         participatory_process_groups: Группы движений соучастия
         participatory_processes: Движения соучастия
