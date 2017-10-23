@@ -45,6 +45,7 @@ ru:
           success: Собрание успешно обновлено.
       assemblies_copies:
         create:
+          error: При создании копии этого собрания произошла ошибка.
           success: Успешно создана копия собрания.
       assembly_copies:
         new:
