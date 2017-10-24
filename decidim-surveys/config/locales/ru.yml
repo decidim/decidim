@@ -36,6 +36,7 @@ ru:
             title: Название
           form:
             add_question: Добавить вопрос
+            already_answered_warning: Некоторые участники уже прошли этот опрос, поэтому вы не можете менять вопросы в нем.
           question:
             add_answer_option: Добавить вариант ответа
             question: Вопрос
