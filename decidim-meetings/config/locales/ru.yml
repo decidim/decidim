@@ -168,6 +168,7 @@ ru:
       read_more: "(читать подробнее)"
       registration_mailer:
         confirmation:
+          confirmed_html: Ваша регистрация на встречу <a href="%{url}">%{title}</a> подтверждена.
           details: Подробное описание встречи - в прилагаемом файле.
       registrations:
         create:
