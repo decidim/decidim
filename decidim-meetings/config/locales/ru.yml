@@ -99,10 +99,13 @@ ru:
           email_subject: Встреча "%{resource_title}" закрыта
         meeting_registrations_enabled:
           email_intro: 'Открылась регистрация на встречу «%{resource_title}». Вы можете зарегистрироваться на странице:'
+          email_subject: Открылась регистрация на встречу «%{resource_title}».
         meeting_registrations_over_percentage:
           email_outro: Вы получили это уведомление, потому что вы являетесь администратором пространства соучастия этой встречи.
           notification_title: На встречу <a href="%{resource_path}">%{resource_title}</a> забронировано более %{percentage}% процентов мест.
         upcoming_meeting_event:
+          email_intro: Встреча "%{resource_title}" начнется менее чем через 48 часов.
+          email_subject: Встреча "%{resource_title}" начнется менее чем через 48 часов.
           notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> начнется менее чем через 48 часов.
         update_meeting_event:
           email_subject: Встреча "%{resource_title}" обновлена
