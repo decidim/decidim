@@ -44,7 +44,7 @@ PATH
       jquery-rails (~> 4.0)
     decidim-core (0.7.0.pre.pre)
       active_link_to (~> 1.0.4)
-      autoprefixer-rails (~> 7.1.1)
+      autoprefixer-rails (~> 7.1.6)
       cancancan (~> 2.0.0)
       carrierwave (~> 1.1.0)
       date_validator (~> 0.9.0)

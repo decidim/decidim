@@ -26,7 +26,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rectify", "~> 0.10.0"
   s.add_dependency "sassc-rails", "~> 1.3.0"
   s.add_dependency "foundation-rails", "~> 6.3.0"
-  s.add_dependency "autoprefixer-rails", "~> 7.1.1"
+  s.add_dependency "autoprefixer-rails", "~> 7.1.6"
   s.add_dependency "jquery-rails", "~> 4.3.1"
   s.add_dependency "carrierwave", "~> 1.1.0"
   s.add_dependency "foundation_rails_helper", "~> 3.0.0.rc"
