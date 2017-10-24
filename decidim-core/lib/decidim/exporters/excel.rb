@@ -10,6 +10,9 @@ module Decidim
     #
     # For example, `{ name: { ca: "Hola", en: "Hello" } }` would result into
     # the columns: `name/ca` and `name/es`.
+    #
+    # It will maintain types like Integers, Floats & Dates so Excel can deal with
+    # them.
     class Excel < CSV
       # Public: Exports a file in an Excel readable format.
       #
@@ -23,8 +26,9 @@ module Decidim
           weight: :bold,
           pattern: 1,
           pattern_fg_color: :xls_color_14,
-          horizontal_align: :center,
+          horizontal_align: :center
         )
+
         sheet.row(0).replace headers
 
         headers.length.times.each do |index|
