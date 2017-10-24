@@ -4,6 +4,7 @@ ru:
       events:
         comment_created:
           comment:
+            email_subject: Появился новый комментарий от %{author_name} в %{resource_title}
             notification_title: Появился новый комментарий от %{author_name} в <a href="%{resource_path}">%{resource_title}</a>
           reply:
             email_intro: '«%{resource_title}» прокомментировано'
