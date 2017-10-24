@@ -124,6 +124,7 @@ ru:
           success: Публикация движения соучастия успешно отменена.
       participatory_process_step_activations:
         create:
+          error: При попытке начать новый шаг движения соучастия произошла ошибка.
           success: Шаг движения соучастия успешно начат.
       participatory_process_steps:
         create:
@@ -180,9 +181,11 @@ ru:
           success: Движение соучастия успешно обновлено.
       participatory_processes_copies:
         create:
+          error: При создании копии этого движения соучастия произошла ошибка.
           success: Движение соучастия успешно продублировано.
       participatory_processes_group:
         create:
+          error: При создании новой группы движения соучастия произошла ошибка.
           success: Группа движения соучастия успешно создана.
       titles:
         participatory_process_groups: Группы движений соучастия
