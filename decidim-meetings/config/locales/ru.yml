@@ -84,6 +84,7 @@ ru:
           edit:
             save: Сохранить
           form:
+            available_slots_help: Оставьте его равным 0, если у вас не ограничено количество мест.
             invite_user: Пригласить участника
             registrations_count:
               one: Зарегистрировался 1 человек.
@@ -91,6 +92,7 @@ ru:
               many: Зарегистрировалось %{count} человек.
               other: Зарегистрировалось %{count} человек.
           update:
+            invalid: При попытке сохранить настройки регистрации возникла проблема.
             success: Настройки регистрации на встречу успешно сохранены.
       events:
         close_meeting_event:
@@ -155,6 +157,9 @@ ru:
             start_time: Дата начала
             title: Название
       read_more: "(читать подробнее)"
+      registration_mailer:
+        confirmation:
+          details: Подробное описание встречи - в прилагаемом файле.
       registrations:
         create:
           invalid: При попытке присоединиться к встрече возникла проблема.
