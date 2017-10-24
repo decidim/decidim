@@ -19,6 +19,7 @@ ru:
           body:
             label: Комментарий
             placeholder: Что вы думаете об этом?
+          form_error: Тут обязательно нужно ввести текст, но не больше %{length} символов.
           submit: Отправить
           user_group_id:
             label: Комментировать как
