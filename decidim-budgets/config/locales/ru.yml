@@ -49,6 +49,7 @@ ru:
         budget_confirm:
           cancel: Отменить
           confirm: Подтвердить
+          description: Вот те проекты, которые вы выбрали для включения в бюджет.
           title: Подтвердить голос
         budget_excess:
           close: Закрыть
