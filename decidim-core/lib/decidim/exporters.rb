@@ -11,7 +11,7 @@ module Decidim
 
     # Get the exporter class constant from the format as a string.
     #
-    # format - The exporter format as a string. i.e "csv"
+    # format - The exporter format as a string. i.e "CSV"
     def self.find_exporter(format)
       const_get(format)
     end
