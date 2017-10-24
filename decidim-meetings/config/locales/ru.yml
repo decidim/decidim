@@ -103,6 +103,7 @@ ru:
           email_subject: Открылась регистрация на встречу «%{resource_title}».
         meeting_registrations_over_percentage:
           email_outro: Вы получили это уведомление, потому что вы являетесь администратором пространства соучастия этой встречи.
+          email_subject: Число мест, забронированных на встречу "%{resource_title}", превысило %{percentage}% процентов
           notification_title: На встречу <a href="%{resource_path}">%{resource_title}</a> забронировано более %{percentage}% процентов мест.
         upcoming_meeting_event:
           email_intro: Встреча "%{resource_title}" начнется менее чем через 48 часов.
