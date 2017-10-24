@@ -4,9 +4,12 @@ ru:
       events:
         comment_created:
           comment:
+            email_subject: Появился новый комментарий от %{author_name} в %{resource_title}
             notification_title: Появился новый комментарий от %{author_name} в <a href="%{resource_path}">%{resource_title}</a>
           reply:
             email_intro: '«%{resource_title}» прокомментировано'
+            email_subject: На ваш комментарий появился новый ответ от %{author_name} в <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: На ваш комментарий появился новый ответ от %{author_name} в <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: При голосовании за комментарий произошли ошибки.
@@ -36,6 +39,9 @@ ru:
           close: Закрыть
           description: Это сообщение неприемлемо?
           details: Дополнительные комментарии
+          reasons:
+            offensive: Содержит расизм, сексизм, оскорбления, личные нападки, угрозы убийства, заявления о самоубийстве, или любую форму разжигания ненависти.
+            spam: Содержит кликоловки (манипулятивно-сенсационные заголовки), рекламу, мошенничество или лохотроны.
           title: Пожаловаться на проблему
         verified_user_group: Проверенная организация
       comment_order_selector:

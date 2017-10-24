@@ -46,6 +46,7 @@ ru:
           registrations: Регистрации
         invite_join_meeting_mailer:
           invite:
+            invited_you_to_join_a_meeting: "%{invited_by} пригласил вас на встречу %{application}. Вы можете принять это приглашение по ссылке ниже."
             join: Присоединиться к встрече '%{meeting_title}'
         invites:
           create:
@@ -83,6 +84,7 @@ ru:
           edit:
             save: Сохранить
           form:
+            available_slots_help: Оставьте его равным 0, если у вас не ограничено количество мест.
             invite_user: Пригласить участника
             registrations_count:
               one: Зарегистрировался 1 человек.
@@ -90,15 +92,20 @@ ru:
               many: Зарегистрировалось %{count} человек.
               other: Зарегистрировалось %{count} человек.
           update:
+            invalid: При попытке сохранить настройки регистрации возникла проблема.
             success: Настройки регистрации на встречу успешно сохранены.
       events:
         close_meeting_event:
           email_subject: Встреча "%{resource_title}" закрыта
         meeting_registrations_enabled:
           email_intro: 'Открылась регистрация на встречу «%{resource_title}». Вы можете зарегистрироваться на странице:'
+          email_subject: Открылась регистрация на встречу «%{resource_title}».
         meeting_registrations_over_percentage:
           email_outro: Вы получили это уведомление, потому что вы являетесь администратором пространства соучастия этой встречи.
+          notification_title: На встречу <a href="%{resource_path}">%{resource_title}</a> забронировано более %{percentage}% процентов мест.
         upcoming_meeting_event:
+          email_intro: Встреча "%{resource_title}" начнется менее чем через 48 часов.
+          email_subject: Встреча "%{resource_title}" начнется менее чем через 48 часов.
           notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> начнется менее чем через 48 часов.
         update_meeting_event:
           email_subject: Встреча "%{resource_title}" обновлена
@@ -153,6 +160,9 @@ ru:
             start_time: Дата начала
             title: Название
       read_more: "(читать подробнее)"
+      registration_mailer:
+        confirmation:
+          details: Подробное описание встречи - в прилагаемом файле.
       registrations:
         create:
           invalid: При попытке присоединиться к встрече возникла проблема.
