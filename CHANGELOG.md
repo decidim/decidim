@@ -34,6 +34,7 @@
 - **decidim-core**: Handle nil resources on static maps (errors were caused by search engine spiders) [\#1936](https://github.com/decidim/decidim/pull/1936)
 - **decidim-core**: Homepage blocks were not distinguishable when statistics were hidden [\#2064](https://github.com/decidim/decidim/pull/2064)
 - **decidim-core**: Menu was not being properly highlighted when users were logged in with non-default locales [\#2095](https://github.com/decidim/decidim/pull/2095)
+- **decidim-core**: Don't autocomplete the profile's password fields so uptating it doesn't break. [\#2108](https://github.com/decidim/decidim/pull/2108)
 - **decidim-comments**: Fix a bug sending email notifications when a comment is created [\#2036](https://github.com/decidim/decidim/pull/2036)
 - **decidim-participatory-processes**: Invited moderators couldn't access the process admin panel [\#2020](https://github.com/decidim/decidim/pull/2020)
 - **decidim-proposals**: Do not count hidden proposals on stats [\#1988](https://github.com/decidim/decidim/pull/1988)
