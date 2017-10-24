@@ -7,6 +7,8 @@ ru:
             notification_title: Появился новый комментарий от %{author_name} в <a href="%{resource_path}">%{resource_title}</a>
           reply:
             email_intro: '«%{resource_title}» прокомментировано'
+            email_subject: На ваш комментарий появился новый ответ от %{author_name} в <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: На ваш комментарий появился новый ответ от %{author_name} в <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: При голосовании за комментарий произошли ошибки.
@@ -36,6 +38,8 @@ ru:
           close: Закрыть
           description: Это сообщение неприемлемо?
           details: Дополнительные комментарии
+          reasons:
+            offensive: Содержит расизм, сексизм, оскорбления, личные нападки, угрозы смерти, заявления о самоубийстве, или любую форму разжигания ненависти.
           title: Пожаловаться на проблему
         verified_user_group: Проверенная организация
       comment_order_selector:
