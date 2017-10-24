@@ -165,6 +165,8 @@ ru:
             many: ГОЛОСОВ
             other: ГОЛОСА
         voting_rules:
+          maximum_votes_per_proposal:
+            description: Каждое предложение может получить максимум %{limit} голосов.
           proposal_limit:
             description: Вы можете внести до %{limit} предложений.
           title: 'Голосование регулируется следующими правилами:'
