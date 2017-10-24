@@ -166,7 +166,7 @@ ca:
             description: Cada proposta pot rebre un màxim de %{limit} vots.
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
-          title: 'La votació està subjecta a les regles següents:'
+          title: 'La votació es regeix per les següents normes:'
           vote_limit:
             description: Pots votar fins a %{limit} propostes.
             left: Restant

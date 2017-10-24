@@ -166,7 +166,7 @@ es:
             description: Cada propuesta puede recibir un máximo de %{limit} votos.
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
-          title: 'La votación está sujeta a las siguientes reglas:'
+          title: 'La votación se rige por las siguientes normas:'
           vote_limit:
             description: Puedes votar hasta %{limit} propuestas.
             left: Restante
