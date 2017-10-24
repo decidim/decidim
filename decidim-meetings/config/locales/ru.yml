@@ -46,6 +46,7 @@ ru:
           registrations: Регистрации
         invite_join_meeting_mailer:
           invite:
+            invited_you_to_join_a_meeting: "%{invited_by} пригласил вас на встречу %{application}. Вы можете принять это приглашение по ссылке ниже."
             join: Присоединиться к встрече '%{meeting_title}'
         invites:
           create:
@@ -98,6 +99,7 @@ ru:
           email_intro: 'Открылась регистрация на встречу «%{resource_title}». Вы можете зарегистрироваться на странице:'
         meeting_registrations_over_percentage:
           email_outro: Вы получили это уведомление, потому что вы являетесь администратором пространства соучастия этой встречи.
+          notification_title: На встречу <a href="%{resource_path}">%{resource_title}</a> забронировано более %{percentage}% процентов мест.
         upcoming_meeting_event:
           notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> начнется менее чем через 48 часов.
         update_meeting_event:
