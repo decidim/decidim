@@ -98,10 +98,12 @@ ru:
       events:
         close_meeting_event:
           email_subject: Встреча "%{resource_title}" закрыта
+          notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> закрыта.
         meeting_registrations_enabled:
           email_intro: 'Открылась регистрация на встречу «%{resource_title}». Вы можете зарегистрироваться на странице:'
           email_subject: Открылась регистрация на встречу «%{resource_title}».
         meeting_registrations_over_percentage:
+          email_intro: Число мест, забронированных на встречу "%{resource_title}", превысило %{percentage}% процентов%.
           email_outro: Вы получили это уведомление, потому что вы являетесь администратором пространства соучастия этой встречи.
           email_subject: Число мест, забронированных на встречу "%{resource_title}", превысило %{percentage}% процентов
           notification_title: На встречу <a href="%{resource_path}">%{resource_title}</a> забронировано более %{percentage}% процентов мест.
@@ -111,6 +113,7 @@ ru:
           notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> начнется менее чем через 48 часов.
         update_meeting_event:
           email_subject: Встреча "%{resource_title}" обновлена
+          notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> обновлена.
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -136,6 +139,7 @@ ru:
         index:
           view_meeting: Посмотреть встречу
         meetings:
+          no_meetings_warning: Нет встреч, соответствующих вашим критериям поиска, или нет ни одной запланированной встречи.
           upcoming_meetings_warning: Сейчас нет запланированных встреч, но здесь вы можете найти список всех прошедших встреч.
         registration_confirm:
           cancel: Отменить
