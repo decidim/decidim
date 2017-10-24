@@ -89,9 +89,17 @@ ru:
               few: Зарегистрировалось %{count} человека.
               many: Зарегистрировалось %{count} человек.
               other: Зарегистрировалось %{count} человек.
+          update:
+            success: Настройки регистрации на встречу успешно сохранены.
       events:
         close_meeting_event:
           email_subject: Встреча "%{resource_title}" закрыта
+        meeting_registrations_enabled:
+          email_intro: 'Открылась регистрация на встречу «%{resource_title}». Вы можете зарегистрироваться на странице:'
+        meeting_registrations_over_percentage:
+          email_outro: Вы получили это уведомление, потому что вы являетесь администратором пространства соучастия этой встречи.
+        upcoming_meeting_event:
+          notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> начнется менее чем через 48 часов.
         update_meeting_event:
           email_subject: Встреча "%{resource_title}" обновлена
       mailer:
@@ -118,6 +126,8 @@ ru:
           unfold: Развернуть
         index:
           view_meeting: Посмотреть встречу
+        meetings:
+          upcoming_meetings_warning: Сейчас нет запланированных встреч, но здесь вы можете найти список всех прошедших встреч.
         registration_confirm:
           cancel: Отменить
           confirm: Подтвердить

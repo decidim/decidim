@@ -104,23 +104,33 @@ ru:
           select: Выберите, какие данные вы хотите продублировать
           title: Создать копию движения соучастия
       participatory_process_groups:
+        destroy:
+          success: Группа движения соучастия успешно удалена.
         edit:
           title: Редактировать группу процессов
           update: Обновить
         new:
           create: Создать
           title: Новая группа движений
+        update:
+          success: Группа движения соучастия успешно обновлена.
       participatory_process_publications:
         create:
           success: Движение соучастия успешно опубликовано.
         destroy:
           success: Публикация движения соучастия успешно отменена.
+      participatory_process_step_activations:
+        create:
+          success: Шаг движения соучастия успешно начат.
       participatory_process_steps:
+        create:
+          success: Шаг движения соучастия успешно создан.
         default_title: Введение
         destroy:
           error:
             active_step: Нельзя удалять уже начатый шаг.
             last_step: Нельзя удалять последний шаг процесса.
+          success: Шаг движения соучастия успешно удален.
         edit:
           title: Редактировать шаг движения соучастия
           update: Обновить
@@ -129,6 +139,8 @@ ru:
         new:
           create: Создать
           title: Новый шаг движения соучастия
+        update:
+          success: Шаг движения соучастия успешно обновлен.
       participatory_process_user_roles:
         edit:
           title: Обновить участника движения соучастия.
@@ -156,6 +168,9 @@ ru:
       participatory_processes_copies:
         create:
           success: Движение соучастия успешно продублировано.
+      participatory_processes_group:
+        create:
+          success: Группа движения соучастия успешно создана.
       titles:
         participatory_process_groups: Группы движений соучастия
         participatory_processes: Движения соучастия

@@ -3,6 +3,8 @@ ru:
     comments:
       events:
         comment_created:
+          comment:
+            notification_title: Появился новый комментарий от %{author_name} в <a href="%{resource_path}">%{resource_title}</a>
           reply:
             email_intro: '«%{resource_title}» прокомментировано'
       votes:
@@ -46,6 +48,7 @@ ru:
       comment_thread:
         title: Беседа с %{authorName}
       comments:
+        blocked_comments_warning: На текущем шаге комментарии отключены, но вы можете прочитать комментарии предыдущих шагов.
         loading: Загрузка комментариев ...
         title: "%{count} комментариев"
       featured_comment:
