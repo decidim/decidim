@@ -12,6 +12,7 @@
 - **decidim-core**: Adds an option to configure the maximum file size for avatar images [\#1969](https://github.com/decidim/decidim/pull/1969)
 - **decidim-core**: Hides the "Mark all as read" notifications button when no notifications are found [\#1948](https://github.com/decidim/decidim/pull/1948)
 - **decidim-core**: Add fields to customize the Call To Action homepage button text and URL [\#2053](https://github.com/decidim/decidim/pull/2053)
+- **decidim-core**: Add a new Excel exporter that exports to native XLS format [\#2099](https://github.com/decidim/decidim/pull/2099)
 - **decidim-meetings**: Participatory admins can invite users to join a meeting. [\#1879](https://github.com/decidim/decidim/pull/1879)
 - **decidim-participatory_processes**: Hide the link to Processes from the main menu if no processes are published [\#2074](https://github.com/decidim/decidim/pull/2074)
 - **decidim-proposals**: Show votes in the proposals table in admin when votes are enabled [\#2011](https://github.com/decidim/decidim/pull/2011)
