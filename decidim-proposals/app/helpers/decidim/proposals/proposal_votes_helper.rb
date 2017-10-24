@@ -72,7 +72,7 @@ module Decidim
       #
       # Returns true if the current user can vote, false otherwise.
       def current_user_can_vote?
-        current_user && votes_enabled && vote_limit_enabled? && !votes_blocked?
+        current_user && votes_enabled? && vote_limit_enabled? && !votes_blocked?
       end
 
       # Return the remaining votes for a user if the current feature has a vote limit
