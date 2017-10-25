@@ -1,5 +1,5 @@
 <section class="wrapper-home">
-  <% Decidim.view_hooks.get(:highlighted_elements).sort_by{ |h| h[:priority] }.each do |hook| %>
+  <% Decidim.view_hooks.get(:highlighted_elements).each do |hook| %>
     <%= render partial: hook[:partial] %>
   <% end %>
 </section>
