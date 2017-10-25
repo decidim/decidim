@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 describe "Application generation" do
-  let(:status) do
-    Bundler.clean_system("bundle exec rake install_all && #{command}", out: File::NULL)
-  end
+  let(:status) { Bundler.clean_system(command, out: File::NULL) }
 
   let(:test_app) { "spec/generator_test_app" }
 
@@ -16,7 +14,7 @@ describe "Application generation" do
   end
 
   context "without flags" do
-    let(:command) { "bin/decidim #{test_app}" }
+    let(:command) { "bundle exec rake install_all && bin/decidim #{test_app}" }
 
     it_behaves_like "a sane generator"
   end
