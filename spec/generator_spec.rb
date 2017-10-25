@@ -2,7 +2,7 @@
 
 describe "Application generation" do
   let(:status) do
-    Bundler.clean_system("gem install decidim && #{command}", out: File::NULL)
+    Bundler.clean_system("bundle exec rake install_all && #{command}", out: File::NULL)
   end
 
   let(:test_app) { "spec/generator_test_app" }

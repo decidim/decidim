@@ -66,6 +66,16 @@ task :update_versions do
   )
 end
 
+desc "Installs all gems locally."
+task :install_all do
+  sh "rake install", verbose: false
+  DECIDIM_GEMS.each do |gem_name|
+    Dir.chdir("#{__dir__}/decidim-#{gem_name}") do
+      sh "rake install", verbose: false
+    end
+  end
+end
+
 desc "Pushes a new build for each gem."
 task release_all: [:update_versions, :check_locale_completeness, :webpack] do
   sh "rake release"
