@@ -131,8 +131,8 @@ es:
           view_proposal: Ver propuesta
         linked_proposals:
           proposal_votes:
-            one: dar apoyo
-            other: soportes
+            one: voto
+            other: votos
         new:
           attachment_legend: "(Opcional) Añadir un archivo adjunto"
           back: Atrás
