@@ -131,8 +131,8 @@ fi:
           view_proposal: Näytä ehdotus
         linked_proposals:
           proposal_votes:
-            one: <span class="card--list__data__number">1</span>ääni
-            other: <span class="card--list__data__number">%{count}</span>ääntä
+            one: äänestä
+            other: äänet
         new:
           attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
