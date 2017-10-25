@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.name = "decidim"
 
   s.summary = "Citizen participation framework for Ruby on Rails."
-  s.description = "Citizen participation framework for Ruby on Rails."
+  s.description = "A generator and multiple gems made with Ruby on Rails."
 
   s.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^decidim-.*/}) }
   s.bindir = "bin"
