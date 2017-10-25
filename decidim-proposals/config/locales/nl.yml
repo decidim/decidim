@@ -131,8 +131,8 @@ nl:
           view_proposal: Bekijk voorstel
         linked_proposals:
           proposal_votes:
-            one: <span class="card--list__data__number">1</span>vote
-            other: <span class="card--list__data__number">%{count}</span>votes
+            one: stemmen
+            other: stemmen
         new:
           attachment_legend: "(Optioneel) Een bijlage toevoegen"
           back: Terug

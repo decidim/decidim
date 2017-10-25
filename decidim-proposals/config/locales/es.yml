@@ -131,8 +131,8 @@ es:
           view_proposal: Ver propuesta
         linked_proposals:
           proposal_votes:
-            one: <span class="card--list__data__number">1</span>vote
-            other: <span class="card--list__data__number">%{count}</span>votos
+            one: voto
+            other: votos
         new:
           attachment_legend: "(Opcional) Añadir un archivo adjunto"
           back: Atrás

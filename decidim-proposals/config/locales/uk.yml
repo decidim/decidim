@@ -133,10 +133,10 @@ uk:
           view_proposal: Переглянути пропозицію
         linked_proposals:
           proposal_votes:
-            one: <span class="card--list__data__number">1</span> голос
-            few: <span class="card--list__data__number">%{count}</span> голоси
-            many: <span class="card--list__data__number">%{count}</span> голосів
-            other: <span class="card--list__data__number">%{count}</span> голосів
+            one: голосувати
+            few: голоси
+            many: голоси
+            other: голоси
         new:
           attachment_legend: "(Необов'язково) Додати вкладений файл"
           back: Назад
