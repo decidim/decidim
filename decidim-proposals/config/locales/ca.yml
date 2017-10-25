@@ -131,8 +131,8 @@ ca:
           view_proposal: Veure proposta
         linked_proposals:
           proposal_votes:
-            one: donar suport
-            other: vots
+            one: suport
+            other: suports
         new:
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
           back: Enrere
