@@ -3,6 +3,9 @@
 require "decidim/faker/localized"
 require "decidim/dev"
 
+require "decidim/participatory_processes/test/factories"
+require "decidim/comments/test/factories"
+
 FactoryGirl.define do
   sequence(:name) do |n|
     "#{Faker::Name.name} #{n}"

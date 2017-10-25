@@ -3,6 +3,8 @@
 require "decidim/faker/localized"
 require "decidim/dev"
 
+require "decidim/core/test/factories"
+
 FactoryGirl.define do
   sequence(:participatory_process_slug) do |n|
     "#{Faker::Internet.slug(nil, "-")}-#{n}"
