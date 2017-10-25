@@ -130,6 +130,11 @@ pl:
           new_proposal: Nowa propozycja
           proposal_limit_reached: Osiągnięto limit propozycji
           view_proposal: Wyświetl propozycję
+        linked_proposals:
+          proposal_votes:
+            one: głosować
+            few: głosów
+            other: głosów
         new:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Plecy
