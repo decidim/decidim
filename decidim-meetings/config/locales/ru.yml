@@ -50,8 +50,10 @@ ru:
             join: Присоединиться к встрече '%{meeting_title}'
         invites:
           create:
+            error: При попытке пригласить этого участника на встречу возникла проблема.
             success: Пользователь успешно приглашен на встречу.
           new:
+            explanation: Участник будет приглашен на встречу. Если эл-адрес не зарегистрирован, он также будет приглашен в организацию.
             invite: Пригласить
             new_invite: Пригласить участника
         meeting_closes:
@@ -61,7 +63,7 @@ ru:
         meetings:
           close:
             invalid: При попытке закрыть эту встречу возникла проблема
-            success: Встреча успешно закрыта
+            success: Встреча успешно завершена
           create:
             invalid: При попытке добавить эту встречу возникла проблема
             success: Встреча успешно добавлена
@@ -96,19 +98,30 @@ ru:
             success: Настройки регистрации на встречу успешно сохранены.
       events:
         close_meeting_event:
-          email_subject: Встреча "%{resource_title}" закрыта
+          email_intro: 'Встреча «%{resource_title}» завершена. Вы можете прочитать итоги на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
+          email_subject: Встреча "%{resource_title}" завершена
+          notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> завершена.
         meeting_registrations_enabled:
           email_intro: 'Открылась регистрация на встречу «%{resource_title}». Вы можете зарегистрироваться на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
           email_subject: Открылась регистрация на встречу «%{resource_title}».
+          notification_title: Открыта регистрация на встречу <a href="%{resource_path}">%{resource_title}</a>.
         meeting_registrations_over_percentage:
+          email_intro: Число мест, забронированных на встречу "%{resource_title}", превысило %{percentage}% процентов%.
           email_outro: Вы получили это уведомление, потому что вы являетесь администратором пространства соучастия этой встречи.
+          email_subject: Число мест, забронированных на встречу "%{resource_title}", превысило %{percentage}% процентов
           notification_title: На встречу <a href="%{resource_path}">%{resource_title}</a> забронировано более %{percentage}% процентов мест.
         upcoming_meeting_event:
           email_intro: Встреча "%{resource_title}" начнется менее чем через 48 часов.
+          email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
           email_subject: Встреча "%{resource_title}" начнется менее чем через 48 часов.
           notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> начнется менее чем через 48 часов.
         update_meeting_event:
+          email_intro: 'Встреча «%{resource_title}» обновлена. Вы можете прочитать новую версию на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
           email_subject: Встреча "%{resource_title}" обновлена
+          notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> обновлена.
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -134,6 +147,7 @@ ru:
         index:
           view_meeting: Посмотреть встречу
         meetings:
+          no_meetings_warning: Нет встреч, соответствующих вашим критериям поиска, или нет ни одной запланированной встречи.
           upcoming_meetings_warning: Сейчас нет запланированных встреч, но здесь вы можете найти список всех прошедших встреч.
         registration_confirm:
           cancel: Отменить
@@ -154,7 +168,7 @@ ru:
       models:
         meeting:
           fields:
-            closed: Закрыто
+            closed: Завершена
             end_time: Дата завершения
             map: Карта
             start_time: Дата начала
@@ -162,6 +176,7 @@ ru:
       read_more: "(читать подробнее)"
       registration_mailer:
         confirmation:
+          confirmed_html: Ваша регистрация на встречу <a href="%{url}">%{title}</a> подтверждена.
           details: Подробное описание встречи - в прилагаемом файле.
       registrations:
         create:
