@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -28,7 +29,7 @@ ca:
         user_group_phone: Telèfon de l'organització
   booleans:
     'false': 'No'
-    'true': 'Sí'
+    'true': Sí
   carrierwave:
     errors:
       image_too_big: La imatge és massa gran
@@ -303,11 +304,13 @@ ca:
   layouts:
     decidim:
       cookie_warning:
-        description_html: "Aquest lloc web fa servir cookies pròpies i de tercers per millorar l’experiència de navegació, i oferir continguts i serveis d’interès.\nEn continuar la navegació entenem que s’accepta la nostra política de cookies. Per a més informació consulta %{link}."
+        description_html: |-
+          Aquest lloc web fa servir cookies pròpies i de tercers per millorar l’experiència de navegació, i oferir continguts i serveis d’interès.
+          En continuar la navegació entenem que s’accepta la nostra política de cookies. Per a més informació consulta %{link}.
         link_label: aquí
         ok: Hi estic d'acord
       footer:
-        made_with_open_source: 'Web feta amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.'
+        made_with_open_source: Web feta amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
       header:
         close_menu: Tancar menú
         navigation: Navegació

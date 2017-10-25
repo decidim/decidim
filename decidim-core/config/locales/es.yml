@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -28,7 +29,7 @@ es:
         user_group_phone: Teléfono de la organización
   booleans:
     'false': 'No'
-    'true': 'Sí'
+    'true': Sí
   carrierwave:
     errors:
       image_too_big: La imagen es demasiado grande
@@ -39,7 +40,7 @@ es:
         confirm:
           close: Cerrar ventana
           ok: Sí, quiero eliminar mi cuenta
-          question: '¿Seguro que quieres eliminar tu cuenta?'
+          question: "¿Seguro que quieres eliminar tu cuenta?"
           title: Eliminar mi cuenta
         explanation: Por favor, rellena el motivo por el que deseas eliminar tu cuenta (opcional).
       destroy:
@@ -99,7 +100,7 @@ es:
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         new:
-          already_have_an_account?: '¿Ya tienes una cuenta?'
+          already_have_an_account?: "¿Ya tienes una cuenta?"
           newsletter_notifications: Recibir información sobre la actividad relevante
           sign_in: Entra
           sign_up: Regístrate
@@ -113,7 +114,7 @@ es:
           username_help: Nombre público que aparecerá en tus publicaciones. Con el objetivo de garantizar el anonimato puede ser cualquier nombre.
       sessions:
         new:
-          are_you_new?: '¿Eres nuevo en la plataforma?'
+          are_you_new?: "¿Eres nuevo en la plataforma?"
           register: Créate una cuenta
       shared:
         omniauth_buttons:
@@ -279,7 +280,7 @@ es:
       organization_admin_invitation_instructions:
         subject: Has sido invitado para gestionar %{organization}
       password_change:
-        greeting: '¡Hola %{recipient}!'
+        greeting: "¡Hola %{recipient}!"
         message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada correctamente.
         subject: Contraseña modificada
   errors:
@@ -307,7 +308,7 @@ es:
         link_label: aquí
         ok: Estoy de acuerdo
       footer:
-        made_with_open_source: 'Sitio web creado con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.'
+        made_with_open_source: Sitio web creado con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
       header:
         close_menu: Cerrar menú
         navigation: Navegación
@@ -342,7 +343,7 @@ es:
       extended:
         debates: Debates
         debates_explanation: Debate y discute, comparte tus opiniones y enriquece los temas relevantes.
-        how_to_participate: '¿Cómo tomo parte en un proceso?'
+        how_to_participate: "¿Cómo tomo parte en un proceso?"
         meetings: Encuentros
         meetings_explanation: Averigua dónde y cuándo puedes participar en encuentros públicos.
         more_info: Más información

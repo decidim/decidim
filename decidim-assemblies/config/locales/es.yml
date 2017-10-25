@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -20,7 +21,7 @@ es:
         short_description: Descripción breve
         slug: Texto corto de URL
         subtitle: Subtítulo
-        target: '¿A quién va dirigido?'
+        target: "¿A quién va dirigido?"
         title: Grupo de procesos participativos
   decidim:
     admin:
@@ -93,7 +94,7 @@ es:
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
         scope: Ámbito
-        target: '¿A quién va dirigida?'
+        target: "¿A quién va dirigida?"
       statistics:
         answers_count: Respuestas
         assemblies_count: Asambleas
