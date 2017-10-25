@@ -110,10 +110,10 @@ module Decidim
         auth_handler = if options[:demo]
                          "decidim/dummy_authorization_handler"
                        else
+                         template "example_authorization_handler.rb", "app/services/example_authorization_handler.rb"
+
                          "example_authorization_handler"
                        end
-
-        template "#{auth_handler}.rb", "app/services/#{auth_handler}.rb"
 
         gsub_file "config/initializers/decidim.rb",
                   /config\.mailer_sender = "change-me@domain\.org"/ do |match|
