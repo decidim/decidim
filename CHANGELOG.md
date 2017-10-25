@@ -2,6 +2,9 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+## [v0.7.0](https://github.com/decidim/decidim/tree/v0.7.0) (2017-10-25)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.6.8...v0.7.0)
+
 **Added**
 
 - **decidim**: Available authorization handlers are added to the sample organization automatically when seeding. [\#1978](https://github.com/decidim/decidim/pull/1978)
