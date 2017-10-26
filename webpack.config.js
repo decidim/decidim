@@ -71,11 +71,7 @@ module.exports = env => {
         reportFilename: 'webpack.report.html',
         openAnalyzer: false
       })
-    ],
-    externals: {
-      'react/lib/ExecutionEnvironment': 'react',
-      'react/lib/ReactContext': 'react'
-    }
+    ]
   };
   return config;
 };
