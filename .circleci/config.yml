@@ -50,9 +50,6 @@ jobs:
             ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
             rm phantomjs-2.1.1-linux-x86_64.tar.bz2
       - run:
-          name: Install dependencies
-          command: gem install decidim
-      - run:
           name: Create test DB
           command: |
             cd spec/decidim_dummy_app/
