@@ -1,6 +1,13 @@
 # Change Log
 
-## [v0.7.0](https://github.com/decidim/decidim/tree/v0.7.0) (2017-10-23)
+## [v0.7.1](https://github.com/decidim/decidim/tree/v0.7.1) (2017-10-26)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.7.0...v0.7.1)
+
+**Fixed**:
+
+- **decidim**: Fixed app generators [\#2119](https://github.com/decidim/decidim/pull/2119)
+
+## [v0.7.0](https://github.com/decidim/decidim/tree/v0.7.0) (2017-10-25)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.8...v0.7.0)
 
 **Added**

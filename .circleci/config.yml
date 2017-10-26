@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: codegram/decidim:0.7.0
+    - image: codegram/decidim:0.7.1
       environment:
         SIMPLECOV: true
         DATABASE_USERNAME: postgres
@@ -49,9 +49,6 @@ jobs:
             mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
             ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
             rm phantomjs-2.1.1-linux-x86_64.tar.bz2
-      - run:
-          name: Install dependencies
-          command: gem install decidim
       - run:
           name: Create test DB
           command: |

@@ -72,7 +72,6 @@ The easiest way to work on decidim is to clone decidim's repository and install 
 ```bash
 $ git clone git@github.com:decidim/decidim.git
 $ cd decidim
-$ gem install decidim
 $ bundle install
 $ npm install
 ```
