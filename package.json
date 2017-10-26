@@ -54,7 +54,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
-    "expose-loader": "~0.7.1",
+    "expose-loader": "~0.7.3",
     "faker": "^4.1.0",
     "jest": "^21.2.1",
     "json-loader": "~0.5.4",
