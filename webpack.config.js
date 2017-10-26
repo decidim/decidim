@@ -73,7 +73,6 @@ module.exports = env => {
       })
     ],
     externals: {
-      'react/addons': 'react',
       'react/lib/ExecutionEnvironment': 'react',
       'react/lib/ReactContext': 'react'
     }
