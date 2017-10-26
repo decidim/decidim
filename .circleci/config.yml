@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: codegram/decidim:0.7.0
+    - image: codegram/decidim:0.7.1
       environment:
         SIMPLECOV: true
         DATABASE_USERNAME: postgres
