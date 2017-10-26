@@ -30,7 +30,7 @@ module.exports = env => {
         },
         {
           test: /\.tsx?$/,
-          loaders: ['awesome-typescript-loader']
+          loaders: ['babel-loader', 'awesome-typescript-loader']
         },
         {
           test: /\.js.es6$/,
