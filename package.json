@@ -57,7 +57,7 @@
     "expose-loader": "~0.7.3",
     "faker": "^4.1.0",
     "jest": "^21.2.1",
-    "json-loader": "~0.5.4",
+    "json-loader": "~0.5.7",
     "progress-bar-webpack-plugin": "^1.10.0",
     "select2": "^4.0.3",
     "source-map-loader": "^0.2.1",
