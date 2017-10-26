@@ -31,7 +31,7 @@
     "@types/es6-promise": "^0.0.33",
     "@types/faker": "^4.1.1",
     "@types/jest": "^21.1.5",
-    "@types/jquery": "^3.2.12",
+    "@types/jquery": "^3.2.15",
     "@types/react": "^16.0.7",
     "@types/react-dom": "^15.5.5",
     "@types/uuid": "^3.4.2",
