@@ -131,8 +131,8 @@ ca:
           view_proposal: Veure proposta
         linked_proposals:
           proposal_votes:
-            one: <span class="card--list__data__number">1</span>suport
-            other: <span class="card--list__data__number">%{count}</span>suports
+            one: suport
+            other: suports
         new:
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
           back: Enrere
