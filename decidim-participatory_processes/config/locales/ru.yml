@@ -70,7 +70,7 @@ ru:
         participatory_process:
           fields:
             created_at: 'Создано:'
-            promoted: Выдвинутые на первый план
+            promoted: Рекомендуемые
             published: Опубликовано
             title: Название
           name: Движение соучастия
@@ -265,7 +265,7 @@ ru:
           take_part: Принять участие
       participatory_processes:
         index:
-          promoted_processes: Выдвинутые на первый план движения
+          promoted_processes: Рекомендуемые движения
         order_by_processes:
           processes:
             one: "%{count} движение"
