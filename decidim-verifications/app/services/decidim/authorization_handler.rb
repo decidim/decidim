@@ -80,7 +80,7 @@ module Decidim
     #
     # Returns a String.
     def self.handler_name
-      name.underscore
+      name.demodulize.underscore
     end
 
     # Same as the class method but accessible from the instance.
@@ -101,13 +101,12 @@ module Decidim
     # Returns an AuthorizationHandler descendant.
     # Returns nil when no handlers could be found.
     def self.handler_for(name, params = {})
-      return unless active_handler?(name)
+      return unless name
 
-      name.classify.constantize.from_params(params || {})
-    end
+      manifest = Decidim.authorization_handlers.find { |m| m.name == name }
+      return unless manifest
 
-    def self.active_handler?(name)
-      name && Decidim.authorization_handlers.include?(name.classify)
+      manifest.form.constantize.from_params(params || {})
     end
   end
 end

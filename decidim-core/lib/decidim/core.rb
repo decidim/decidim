@@ -83,12 +83,6 @@ module Decidim
     []
   end
 
-  # Exposes a configuration option: an Array of classes that can be used as
-  # AuthorizaionHandlers so users can be verified against different systems.
-  config_accessor :authorization_handlers do
-    []
-  end
-
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
     %w(en ca es eu it fi fr nl uk ru)

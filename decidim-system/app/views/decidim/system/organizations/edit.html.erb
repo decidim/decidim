@@ -14,7 +14,7 @@
 
   <div class="field">
     <%= f.label :available_authorizations %>
-    <%= f.collection_check_boxes :available_authorizations, Decidim.authorization_methods, :name, :description %>
+    <%= f.collection_check_boxes :available_authorizations, Decidim.authorization_workflows, :name, :description %>
   </div>
 
   <div class="actions">

@@ -14,7 +14,7 @@ module Decidim
             end
           end
 
-          Decidim::Verifications.workflows.each do |manifest|
+          Decidim.authorization_engines.each do |manifest|
             mount manifest.engine, at: "/#{manifest.name}", as: "decidim_#{manifest.name}"
           end
         end

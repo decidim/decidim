@@ -195,7 +195,7 @@ describe "Proposals", type: :feature do
           before do
             permissions = {
               create: {
-                authorization_handler_name: "decidim/dummy_authorization_handler"
+                authorization_handler_name: "dummy_authorization_handler"
               }
             }
 

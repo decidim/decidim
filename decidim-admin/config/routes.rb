@@ -18,9 +18,7 @@ Decidim::Admin::Engine.routes.draw do
 
     resources :authorization_workflows, only: :index
 
-    Decidim::Verifications.workflows.each do |manifest|
-      next unless manifest.admin_engine
-
+    Decidim.authorization_admin_engines.each do |manifest|
       mount manifest.admin_engine, at: "/#{manifest.name}", as: "decidim_admin_#{manifest.name}"
     end
 

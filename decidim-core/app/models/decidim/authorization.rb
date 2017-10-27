@@ -34,7 +34,11 @@ module Decidim
     private
 
     def active_handler?
-      AuthorizationHandler.active_handler?(name)
+      if Decidim::Verifications.find_workflow_manifest(name)
+        true
+      else
+        false
+      end
     end
   end
 end

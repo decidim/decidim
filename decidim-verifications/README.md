@@ -1,7 +1,7 @@
 # Decidim::Verifications
 
 Decidim offers several methods for allowing participants to get authorization to
-perform certain priviledge actions. This gem implements several of those methods
+perform certain privileged actions. This gem implements several of those methods
 and also offers a way for installation to implement their custom verification
 methods.
 
@@ -34,13 +34,14 @@ Decidim implements two type of authorization methods:
   class][authorization handler base class] or have a look at a
   [live example][live authorization handler example] in decidim-barcelona.
 
-  To register your handler, you'll need to reference it from the Decidim
-  initializer:
+  To register your handler, use
 
   ```ruby
   # config/initializers/decidim.rb
 
-  config.authorization_handlers = ["<my authorization handler class>"]
+  Decidim::Verifications.register_workflow(:census) do |workflow|
+    workflow.form = "<myAuthorizationHandlerClass"
+  end
   ```
 
 * _Workflow authorizations_.
@@ -51,6 +52,8 @@ Decidim implements two type of authorization methods:
   For example:
 
   ```ruby
+  # config/initializers/decidim.rb
+
   Decidim::Verifications.register_workflow(:sms_verification) do |workflow|
     workflow.engine = Decidim::Verifications::SmsVerification::Engine
     workflow.admin_engine = Decidim::Verifications::SmsVerification::AdminEngine

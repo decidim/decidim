@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Authorizations", type: :feature do
+describe "Authorizations", type: :feature, with_authorization_workflows: ["dummy_authorization_handler"] do
   before do
     switch_to_host(organization.host)
   end
@@ -13,7 +13,7 @@ describe "Authorizations", type: :feature do
     let(:user) { create(:user, :confirmed, organization: organization) }
 
     context "when one authorization has been configured" do
-      let(:authorizations) { ["Decidim::DummyAuthorizationHandler"] }
+      let(:authorizations) { ["dummy_authorization_handler"] }
 
       before do
         visit decidim.root_path
@@ -41,9 +41,8 @@ describe "Authorizations", type: :feature do
       end
     end
 
-    context "when multiple authorizations have been configured", with_authorization_handlers: ["Decidim::DummyAuthorizationHandler"],
-                                                                 with_authorization_workflows: ["dummy_authorization_workflow"] do
-      let(:authorizations) { ["Decidim::DummyAuthorizationHandler", "dummy_authorization_workflow"] }
+    context "when multiple authorizations have been configured", with_authorization_workflows: %w(dummy_authorization_handler dummy_authorization_workflow) do
+      let(:authorizations) { %w(dummy_authorization_handler dummy_authorization_workflow) }
 
       before do
         visit decidim.root_path
@@ -72,7 +71,7 @@ describe "Authorizations", type: :feature do
     end
 
     context "when user has not already been authorized" do
-      let(:authorizations) { ["Decidim::DummyAuthorizationHandler"] }
+      let(:authorizations) { ["dummy_authorization_handler"] }
 
       it "allows the user to authorize against available authorizations" do
         within_user_menu do
@@ -101,12 +100,10 @@ describe "Authorizations", type: :feature do
     end
 
     context "when the user has already been authorized" do
-      let(:authorizations) { ["Decidim::DummyAuthorizationHandler"] }
+      let(:authorizations) { ["dummy_authorization_handler"] }
 
       let!(:authorization) do
-        create(:authorization,
-               name: Decidim::DummyAuthorizationHandler.handler_name,
-               user: user)
+        create(:authorization, name: "dummy_authorization_handler", user: user)
       end
 
       it "shows the authorization at their account" do

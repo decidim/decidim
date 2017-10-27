@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Admin
-    describe ManagedUserForm do
+    describe ManagedUserForm, with_authorization_workflows: ["dummy_authorization_handler"] do
       subject do
         described_class.from_params(
           attributes
@@ -17,7 +17,7 @@ module Decidim
       let(:name) { "Foo" }
       let(:authorization) do
         {
-          handler_name: "decidim/dummy_authorization_handler",
+          handler_name: "dummy_authorization_handler",
           document_number: "12345678X"
         }
       end
@@ -40,7 +40,7 @@ module Decidim
 
       context "when the authorization already exists for another user" do
         before do
-          Authorization.create!(
+          Decidim::Authorization.create!(
             user: create(:user, organization: organization),
             name: authorization[:handler_name],
             unique_id: authorization[:document_number]

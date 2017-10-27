@@ -59,7 +59,7 @@ nl:
       photos:
         related_photos: Gerelateerde foto 's
     authorization_handlers:
-      decidim/dummy_authorization_handler:
+      dummy_authorization_handler:
         fields:
           document_number: Documentnummer
           postal_code: Postcode
@@ -77,7 +77,7 @@ nl:
         success: U bent geautoriseerd.
       first_login:
         actions:
-          decidim/dummy_authorization_handler: Gebruik de voorbeeld autorisatie
+          dummy_authorization_handler: Gebruik de voorbeeld autorisatie
         title: Verifieer uw identiteit
         verify_with_these_options: 'Dit zijn de beschikbare opties om uw identiteit te verifiëren:'
       new:

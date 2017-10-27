@@ -59,7 +59,7 @@ ru:
       photos:
         related_photos: Сопутствующие фотографии
     authorization_handlers:
-      decidim/dummy_authorization_handler:
+      dummy_authorization_handler:
         fields:
           document_number: Номер документа
           postal_code: Почтовый индекс
@@ -77,7 +77,7 @@ ru:
         success: Вы успешно подтвердили свою личность.
       first_login:
         actions:
-          decidim/dummy_authorization_handler: Проверьте, сравнив с примером подтверждения личности
+          dummy_authorization_handler: Проверьте, сравнив с примером подтверждения личности
         title: Подтвердите вашу личность
         verify_with_these_options: 'Есть такие способы подтверждения вашей личности:'
       new:

@@ -31,14 +31,14 @@ module Decidim
 
               context "when there are authorization handlers" do
                 before do
-                  user.organization.available_authorizations = ["Decidim::DummyAuthorizationHandler"]
+                  user.organization.available_authorizations = ["dummy_authorization_handler"]
                   user.organization.save
                 end
 
                 it { is_expected.to eq("/authorizations/first_login") }
               end
 
-              context "otherwise", with_authorization_handlers: [] do
+              context "otherwise", with_authorization_workflows: [] do
                 it { is_expected.to eq("/") }
               end
             end

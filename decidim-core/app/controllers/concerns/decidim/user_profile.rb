@@ -17,7 +17,7 @@ module Decidim
       helper Decidim::UserProfileHelper
       layout "layouts/decidim/user_profile"
 
-      helper_method :available_authorization_handlers,
+      helper_method :available_verification_workflows,
                     :user_groups
 
       before_action :current_user
@@ -26,9 +26,9 @@ module Decidim
 
     # Public: Available authorization handlers in order to conditionally
     # show the menu element.
-    def available_authorization_handlers
+    def available_verification_workflows
       Verifications::Adapter.from_collection(
-        current_organization.available_authorizations & Decidim.authorization_methods.map(&:name)
+        current_organization.available_authorizations & Decidim.authorization_workflows.map(&:name)
       )
     end
   end

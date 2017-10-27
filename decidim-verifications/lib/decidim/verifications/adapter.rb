@@ -2,55 +2,73 @@
 
 module Decidim
   module Verifications
-    autoload :HandlerWrapper, "decidim/verifications/handler_wrapper"
-    autoload :WorkflowWrapper, "decidim/verifications/workflow_wrapper"
+    class InvalidVerificationRoute < StandardError
+      def new(route:)
+        msg = <<~MSG
+          You specified a direct handler but you're trying to use `#{route}`
+          which is only available for multi-step authorization workflows. Change
+          your workflow to define an engine with a `#{route}` route.
+        MSG
+
+        super(msg)
+      end
+    end
+
+    class UnregisteredVerificationManifest < StandardError
+    end
 
     class Adapter
+      include Rails.application.routes.mounted_helpers
+
       def self.from_collection(collection)
         collection.map { |e| from_element(e) }
       end
 
       def self.from_element(element)
-        new(element).wrapper
+        manifest = Verifications.find_workflow_manifest(element)
+
+        raise UnregisteredVerificationManifest unless manifest
+
+        new(manifest)
       end
 
-      def initialize(element)
-        @element = element
+      def initialize(manifest)
+        @manifest = manifest
       end
 
-      def wrapper
-        manifest_wrapper || handler_wrapper
+      delegate :key, :name, :fullname, :description, :type, to: :manifest
+
+      def root_path(redirect_url: nil)
+        if manifest.type == "direct"
+          decidim_verifications.new_authorization_path(handler: name, redirect_url: redirect_url)
+        else
+          main_engine.send(:root_path, redirect_url: redirect_url)
+        end
       end
 
-      def manifest_wrapper
-        return unless manifest
+      def resume_authorization_path(redirect_url: nil)
+        if manifest.type == "direct"
+          raise InvalidDirectVerificationRoute.new(route: "edit_authorization_path")
+        end
 
-        WorkflowWrapper.new(manifest)
+        main_engine.send(:edit_authorization_path, redirect_url: redirect_url)
       end
 
-      def handler_wrapper
-        handler = handler_for(element) || handler_for(element.classify)
-        return unless handler
+      def admin_root_path
+        if manifest.type == "direct"
+          raise InvalidDirectVerificationROute.new(route: "admin_route_path")
+        end
 
-        HandlerWrapper.new(handler)
+        public_send(:"decidim_admin_#{name}").send(:root_path)
       end
 
       private
 
-      def handler_for(name)
-        klass = name.constantize
-        return unless klass < Decidim::AuthorizationHandler
+      attr_reader :manifest
 
-        klass
-      rescue NameError
-        nil
+      def main_engine
+        send("decidim_#{manifest.name}")
       end
-
-      def manifest
-        Verifications.find_workflow_manifest(element)
-      end
-
-      attr_reader :element
     end
   end
 end

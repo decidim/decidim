@@ -11,7 +11,7 @@ module Decidim
         extend(Virtus.model)
 
         # Set the authorization dynamic attribute as a nested form class based on the handler name.
-        attribute(:authorization, attributes.dig(:authorization, :handler_name).classify.constantize)
+        attribute(:authorization, Decidim::AuthorizationHandler.handler_for(attributes.dig(:authorization, :handler_name)))
 
         super
       end

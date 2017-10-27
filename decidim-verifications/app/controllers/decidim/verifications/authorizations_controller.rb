@@ -70,7 +70,7 @@ module Decidim
       end
 
       def unauthorized_methods
-        @unauthorized_methods ||= available_authorization_handlers.reject do |handler|
+        @unauthorized_methods ||= available_verification_workflows.reject do |handler|
           active_authorization_methods.include?(handler.key)
         end
       end

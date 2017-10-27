@@ -23,18 +23,6 @@ Decidim::Verifications.register_workflow(:dummy_authorization_workflow) do |work
 end
 
 RSpec.configure do |config|
-  config.around(:example, :with_authorization_handlers) do |example|
-    begin
-      previous_handlers = Decidim.authorization_handlers
-
-      Decidim.authorization_handlers = example.metadata[:with_authorization_handlers]
-
-      example.run
-    ensure
-      Decidim.authorization_handlers = previous_handlers
-    end
-  end
-
   config.around(:example, :with_authorization_workflows) do |example|
     begin
       previous_workflows = Decidim::Verifications.workflows.dup

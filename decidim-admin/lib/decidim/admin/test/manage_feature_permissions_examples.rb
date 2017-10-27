@@ -3,7 +3,7 @@
 require "spec_helper"
 
 shared_examples "Managing feature permissions" do
-  let(:organization) { create(:organization, available_authorizations: ["Decidim::DummyAuthorizationHandler"]) }
+  let(:organization) { create(:organization, available_authorizations: ["dummy_authorization_handler"]) }
   let(:user) { create(:user, :admin, :confirmed, organization: organization) }
 
   let!(:feature) do
@@ -33,7 +33,7 @@ shared_examples "Managing feature permissions" do
 
     expect(feature.reload.permissions["foo"]).to(
       include(
-        "authorization_handler_name" => "decidim/dummy_authorization_handler",
+        "authorization_handler_name" => "dummy_authorization_handler",
         "options" => { "foo" => 123 }
       )
     )

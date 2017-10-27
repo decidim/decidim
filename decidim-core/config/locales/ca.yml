@@ -59,7 +59,7 @@ ca:
       photos:
         related_photos: Fotos relacionades
     authorization_handlers:
-      decidim/dummy_authorization_handler:
+      dummy_authorization_handler:
         fields:
           document_number: Número de document
           postal_code: Codi Postal
@@ -77,7 +77,7 @@ ca:
         success: Has estat autoritzat/da correctament.
       first_login:
         actions:
-          decidim/dummy_authorization_handler: Verificar contra l'exemple d'autorització
+          dummy_authorization_handler: Verificar contra l'exemple d'autorització
         title: Verificar la teva identitat
         verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la teva identitat:'
       new:

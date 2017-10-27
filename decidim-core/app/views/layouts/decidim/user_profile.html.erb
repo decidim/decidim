@@ -13,7 +13,7 @@
               <ul class="tabs vertical side-panel__tabs" id="user-settings-tabs">
                 <%= user_profile_tab t("account", scope: "layouts.decidim.user_profile"), decidim.account_path, aria_link_type: :exact %>
                 <%= user_profile_tab t("notifications_settings", scope: "layouts.decidim.user_profile"), decidim.notifications_settings_path %>
-                <% if available_authorization_handlers.any? %>
+                <% if available_verification_workflows.any? %>
                   <%= user_profile_tab t("authorizations", scope: "layouts.decidim.user_profile"), decidim_verifications.authorizations_path %>
                 <% end %>
                 <% if user_groups.any? %>

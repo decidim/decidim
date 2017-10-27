@@ -28,12 +28,12 @@ describe "Action Authorization", type: :feature do
     login_as user, scope: :user
   end
 
-  context "when using a handler authorization", with_authorization_handlers: ["Decidim::DummyAuthorizationHandler"] do
-    let(:authorization) { "Decidim::DummyAuthorizationHandler" }
+  context "when using a handler authorization", with_authorization_workflows: ["dummy_authorization_handler"] do
+    let(:authorization) { "dummy_authorization_handler" }
 
     context "and action authorized" do
       let(:permissions) do
-        { create: { authorization_handler_name: "decidim/dummy_authorization_handler" } }
+        { create: { authorization_handler_name: "dummy_authorization_handler" } }
       end
 
       before do

@@ -2,7 +2,7 @@
 
 module Decidim
   module Verifications
-    autoload :WorkflowManifest, "decidim/verifications/workflow_manifest"
+    autoload :Adapter, "decidim/verifications/adapter"
     autoload :Registry, "decidim/verifications/registry"
 
     class << self

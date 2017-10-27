@@ -23,7 +23,7 @@ module Decidim
       subject { Nokogiri::HTML(builder.all_fields) }
 
       it "includes the handler name" do
-        expect(find("input#authorization_handler_handler_name")["value"]).to eq("decidim/dummy_authorization_handler")
+        expect(find("input#authorization_handler_handler_name")["value"]).to eq("dummy_authorization_handler")
       end
 
       it "includes the public handler attributes" do

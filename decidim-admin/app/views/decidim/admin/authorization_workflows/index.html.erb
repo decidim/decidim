@@ -15,7 +15,7 @@
       <tbody>
         <% @workflows.each do |manifest| %>
           <tr>
-            <% workflow = Decidim::Verifications::WorkflowWrapper.new(manifest) %>
+            <% workflow = Decidim::Verifications::Adapter.new(manifest) %>
             <td><%= link_to workflow.fullname, workflow.admin_root_path %></td>
             <td>
               <ul>

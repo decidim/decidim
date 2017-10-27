@@ -23,7 +23,7 @@
     <% if @pending_authorizations.any? %>
       <div class="card card--list">
         <% @pending_authorizations.each do |authorization| %>
-          <% authorization_method = Decidim::Verifications::Adapter.new(authorization.name).manifest_wrapper %>
+          <% authorization_method = Decidim::Verifications::Adapter.from_element(authorization.name) %>
           <%= link_to authorization_method.resume_authorization_path do %>
             <div class="card--list__item">
               <div class="card--list__text">

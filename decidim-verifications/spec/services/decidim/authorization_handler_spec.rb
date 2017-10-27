@@ -17,13 +17,13 @@ module Decidim
     describe "to_partial_path" do
       subject { handler.to_partial_path }
 
-      it { is_expected.to eq("decidim/authorization/form") }
+      it { is_expected.to eq("authorization/form") }
     end
 
     describe "handler_name" do
       subject { handler.handler_name }
 
-      it { is_expected.to eq("decidim/authorization_handler") }
+      it { is_expected.to eq("authorization_handler") }
     end
 
     describe "user" do
@@ -58,9 +58,9 @@ module Decidim
         end
 
         context "when the handler is valid" do
-          let(:name) { "decidim/dummy_authorization_handler" }
+          let(:name) { "dummy_authorization_handler" }
 
-          context "when the handler is not configured", with_authorization_handlers: [] do
+          context "when the handler is not configured", with_authorization_workflows: [] do
             it { is_expected.to eq(nil) }
           end
 
