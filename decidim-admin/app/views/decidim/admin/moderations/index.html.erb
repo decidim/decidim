@@ -34,9 +34,7 @@
               </td>
               <td>
                 <%=
-                  link_to moderation.reportable.reported_content_url, target: "_blank" do
-                    (moderation.reportable.reported_content_url + " " + icon("external-link")).html_safe
-                  end
+                  link_to t("models.moderation.fields.visit_url", scope: "decidim.moderations"), moderation.reportable.reported_content_url
                 %>
               </td>
               <td>
