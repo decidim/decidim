@@ -27,7 +27,7 @@ shared_examples "manage projects" do
     end
   end
 
-  context "previewing projects" do
+  context "previewing projects", driver: :poltergeist do
     it "allows the user to preview the project" do
       within find("tr", text: translated(project.title)) do
         @new_window = window_opened_by { find("a.action-icon--preview").click }

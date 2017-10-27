@@ -12,7 +12,7 @@ shared_examples "manage proposals" do
     )
   end
 
-  context "previewing proposals" do
+  context "previewing proposals", driver: :poltergeist do
     it "allows the user to preview the proposal" do
       within find("tr", text: proposal.title) do
         @new_window = window_opened_by { find("a.action-icon--preview").click }
@@ -151,7 +151,7 @@ shared_examples "manage proposals" do
           end
         end
 
-        context "when attachments are allowed", processing_uploads_for: Decidim::AttachmentUploader do
+        context "when attachments are allowed", driver: :poltergeist, processing_uploads_for: Decidim::AttachmentUploader do
           before do
             current_feature.update_attributes!(settings: { attachments_allowed: true })
           end

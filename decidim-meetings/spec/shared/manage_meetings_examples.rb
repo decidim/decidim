@@ -39,7 +39,7 @@ shared_examples "manage meetings" do
     end
   end
 
-  context "previewing meetings" do
+  context "previewing meetings", driver: :poltergeist do
     it "allows the user to preview the meeting" do
       within find("tr", text: translated(meeting.title)) do
         @new_window = window_opened_by { find("a.action-icon--preview").click }

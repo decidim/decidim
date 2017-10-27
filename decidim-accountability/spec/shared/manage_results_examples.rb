@@ -30,7 +30,7 @@ shared_examples "manage results" do
     end
   end
 
-  context "previewing results" do
+  context "previewing results", driver: :poltergeist do
     it "allows the user to preview the result" do
       within find("tr", text: translated(result.title)) do
         @new_window = window_opened_by { find("a.action-icon--preview").click }

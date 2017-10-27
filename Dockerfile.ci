@@ -5,6 +5,9 @@ MAINTAINER deivid.rodriguez@riseup.net
 
 USER root
 
+RUN apt-get update \
+  && apt-get install -y unzip
+
 RUN DOCKERIZE_URL="https://circle-downloads.s3.amazonaws.com/circleci-images/cache/linux-amd64/dockerize-latest.tar.gz" \
   && curl --silent --show-error --location --fail --retry 3 --output /tmp/dockerize-linux-amd64.tar.gz $DOCKERIZE_URL \
   && tar -C /usr/local/bin -xzvf /tmp/dockerize-linux-amd64.tar.gz \
@@ -18,3 +21,16 @@ RUN PHANTOMJS_URL="https://circle-downloads.s3.amazonaws.com/circleci-images/cac
   && mv /tmp/phantomjs-*-linux-x86_64/bin/phantomjs /usr/local/bin \
   && rm -r /tmp/phantomjs.tar.bz2 /tmp/phantomjs-* \
   && phantomjs --version
+
+RUN CHROME_URL="https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" \
+  && curl --silent --show-error --location --fail --retry 3 --output /tmp/google-chrome-stable_current_amd64.deb $CHROME_URL \
+  && (dpkg -i /tmp/google-chrome-stable_current_amd64.deb || apt-get -fy install) \
+  && rm /tmp/google-chrome-stable_current_amd64.deb \
+  && google-chrome-stable --version
+
+RUN CHROMEDRIVER_RELEASE=$(curl --location --fail --retry 3 http://chromedriver.storage.googleapis.com/LATEST_RELEASE) \
+  && CHROMEDRIVER_URL="http://chromedriver.storage.googleapis.com/$CHROMEDRIVER_RELEASE/chromedriver_linux64.zip" \
+  && curl --silent --show-error --location --fail --retry 3 --output /tmp/chromedriver_linux64.zip $CHROMEDRIVER_URL \
+  && unzip /tmp/chromedriver_linux64.zip chromedriver -d /usr/local/bin \
+  && rm /tmp/chromedriver_linux64.zip \
+  && chromedriver --version

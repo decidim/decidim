@@ -5,13 +5,11 @@ shared_examples "reports" do
     it "should be given the option to sign in" do
       visit reportable_path
 
-      expect(page).to have_selector(".author-data__extra")
+      expect(page).to have_no_css("body.is-reveal-open")
 
-      within ".author-data__extra", match: :first do
-        page.find("button").click
-      end
+      click_button "Report"
 
-      expect(page).to have_css("#loginModal", visible: true)
+      expect(page).to have_css("body.is-reveal-open")
     end
   end
 
