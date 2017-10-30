@@ -43,9 +43,8 @@ module Decidim
     # partials for a given hook name by priority.
     #
     # name - a symbol representing the name of the view hook
-    # options - A hash of options
-    #         * priority: The priority of the partial to be rendered. Default is `LOW_PRIORITY`
-    #         * partial: The name of the partial that needs to be rendered.
+    # priority - a Number (Integer|Float) to sort the block.
+    # &block - The block that will be rendered in the view hook.
     #
     # Returns nothing.
     def register(name, priority: LOW_PRIORITY, &block)
@@ -87,7 +86,7 @@ module Decidim
 
     # Internal class to encapsulate each view registered on a view hook.
     class ViewHook
-      # priority - a Number (Integer/Float) to sort the block.
+      # priority - a Number (Integer|Float) to sort the block.
       # block - a block that will bbe rendered in a view context.
       def initialize(priority, block)
         @priority = priority
