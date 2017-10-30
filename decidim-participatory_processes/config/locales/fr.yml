@@ -232,8 +232,12 @@ fr:
       show:
         developer_group: Groupe d'initiateurs
         end_date: Date de fin
+        local_area: Zone d'organisation
+        participatory_scope: Ce qui est décidé
+        participatory_structure: Comment est-il décidé
         scope: Zone d'application
         start_date: Date de début
+        target: Qui participe
       statistics:
         answers_count: Réponses
         comments_count: Commentaires
