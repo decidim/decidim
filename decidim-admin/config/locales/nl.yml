@@ -426,7 +426,7 @@ nl:
           role: Rol
         new:
           create: Nodig uit
-          title: Inviteer gebruiker als beheerder
+          title: Nodig gebruiker uit als beheerder
     moderations:
       actions:
         hidden: Verborgen
