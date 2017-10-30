@@ -131,7 +131,7 @@ ca:
           success: Categoria actualitzada correctament.
       dashboard:
         show:
-          welcome: Benvingut al Tauler d'administració de decisions.
+          welcome: Benvingut al tauler d'administració de Decidim.
       exports:
         export_as: "%{name} com a %{export_format}"
         notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
