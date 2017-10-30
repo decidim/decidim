@@ -41,7 +41,7 @@ nl:
         report:
           action: Melden
           already_reported: Deze inhoud is al gemeld en het zal worden beoordeeld door een admin.
-          close: Dichtbij
+          close: Sluiten
           description: Is deze inhoud ongepast?
           details: aanvullende opmerkingen
           reasons:
@@ -56,15 +56,15 @@ nl:
           most_discussed: Meest besproken
           older: Ouder
           recent: Recentelijk
-        title: 'Bestellen door:'
+        title: 'Sorteer op:'
       comment_thread:
         title: Gesprek met %{authorName}
       comments:
         blocked_comments_warning: Reacties zijn uitgeschakeld in de huidige stap, maar u kunt de opmerkingen van vorige stappen lezen.
-        loading: Bezig met laden van opmerkingen ...
+        loading: Reacties laden...
         title: "%{count} reacties"
       featured_comment:
-        title: Aanbevolen commentaar
+        title: Aanbevolen reactie
   errors:
     messages:
       cannot_have_comments: Kan geen reacties hebben
