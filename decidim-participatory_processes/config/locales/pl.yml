@@ -232,8 +232,12 @@ pl:
       show:
         developer_group: Grupa programistyczna
         end_date: Data zakończenia
+        local_area: Obszar Organizacji
+        participatory_scope: Co jest zdecydowane
+        participatory_structure: Jak to się stało
         scope: Zakres
         start_date: Data rozpoczęcia
+        target: Kto uczestniczy
       statistics:
         answers_count: Odpowiedzi
         comments_count: Komentarze
