@@ -3,7 +3,7 @@ nl:
     attributes:
       attachment:
         description: Beschrijving
-        file: het dossier
+        file: Bestand
         title: Titel
       category:
         description: Beschrijving
