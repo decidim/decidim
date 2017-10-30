@@ -3,9 +3,9 @@
 module Decidim
   # This module includes helpers to manage view hooks in layout
   module ViewHooksHelper
-    # Public: Renders all hooks registered as `name`.
+    # Public: Renders all hooks registered as `hook_name`.
     #
-    # name - a Symbol reporesenting the name of the hook.
+    # hook_name - a Symbol representing the name of the hook.
     #
     # Returns an HTML safe String.
     def render_hook(hook_name)
