@@ -65,7 +65,7 @@ nl:
         short_description: Korte beschrijving
         slug: URL slak
         start_date: Begindatum
-        subtitle: Ondertitel
+        subtitle: Ondertiteling
         target: Doel
         title: Titel
       decidim/participatory_process_group:
@@ -238,10 +238,10 @@ nl:
           name: Beheerde gebruiker
         newsletter:
           fields:
-            created_at: Gemaakt bij
+            created_at: Aangemaakt op
             progress: Vooruitgang
             sent_at: Verzonden bij
-            subject: Onderwerpen
+            subject: Onderwerp
           name: Nieuwsbrief
         scope:
           fields:
@@ -253,23 +253,23 @@ nl:
             plural: Meervoud
         static_page:
           fields:
-            created_at: Gemaakt bij
+            created_at: Aangemaakt op
             title: Titel
         user:
           fields:
             created_at: Aanmaakdatum
             email: E-mail
-            last_sign_in_at: Laatste inloggen datum
+            last_sign_in_at: Datum laatste login
             name: Naam
             role: Rol
             roles:
-              admin: beheerder
+              admin: Beheerder
               user_manager: Gebruikersbeheerder
           name: Gebruiker
         user_group:
           fields:
             actions: acties
-            created_at: Gemaakt bij
+            created_at: Aangemaakt op
             document_number: Documentnummer
             name: Naam
             phone: Telefoon
@@ -441,15 +441,15 @@ nl:
             success: Resource succesvol verborgen.
           unreport:
             invalid: Er is een probleem geweest om de bron niet te rapporteren.
-            success: Resource succesvol ongemeld.
+            success: Bron succesvol ontmeld.
       models:
         moderation:
           fields:
-            hidden_at: Verborgen bij
-            report_count: tellen
+            hidden_at: Verborgen op
+            report_count: Aantal
             reportable: Rapporterbaar
             reported_content_url: Gerapporteerde inhouds-URL
-            reports: Rapporten
+            reports: Meldingen
   errors:
     messages:
       invalid_json: Ongeldige JSON
