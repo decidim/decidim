@@ -70,7 +70,7 @@ nl:
         title: Titel
       decidim/participatory_process_group:
         description: Beschrijving
-        hero_image: Home image
+        hero_image: Afbeelding van de startpagina
         name: Naam
         participatory_processes: Participatieve processen
       decidim/participatory_process_step:
@@ -78,7 +78,7 @@ nl:
         start_date: Begin datum
       decidim/static_page:
         content: Inhoud
-        slug: URL slak
+        slug: URL slug
         title: Titel
   date:
     formats:
@@ -90,8 +90,8 @@ nl:
         browse: Browsen
         export: Exporteren
         manage: Beheer
-        permissions: Toelatingen
-        reject: afwijzen
+        permissions: Permissies
+        reject: Weigeren
         verify: Verifiëren
       attachments:
         create:
@@ -103,7 +103,7 @@ nl:
           title: Bewerk bijlage
           update: Bijwerken
         index:
-          attachments_title: toebehoren
+          attachments_title: Bijlagen
         new:
           create: Maak bijlage
           title: Nieuwe bijlage
@@ -361,11 +361,11 @@ nl:
           title: Bewerk de scope
           update: Bijwerken
         new:
-          create: Maak ruimte
-          title: Nieuw bereik
+          create: Creëer scope
+          title: Nieuwe scope
         no_scopes: Geen scopes op dit niveau.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van dit bereik.
+          error: Er is een fout opgetreden bij het bijwerken van deze scope.
           success: Scope is succesvol bijgewerkt
       static_pages:
         actions:
@@ -386,7 +386,7 @@ nl:
           success: Pagina is succesvol bijgewerkt
       titles:
         dashboard: Dashboard
-        impersonations: imitaties
+        impersonations: Verpersoonlijkingen
         managed_users: Beheerde gebruikers
         scope_types: Scope types
         scopes: Scopes
@@ -395,8 +395,8 @@ nl:
         users: Gebruikers
       user_group:
         reject:
-          invalid: Er is een fout opgetreden bij het afwijzen van deze gebruikersgroep.
-          success: Gebruikersgroep is succesvol afgewezen
+          invalid: Er is een fout opgetreden bij het weigeren van deze gebruikersgroep.
+          success: Gebruikersgroep is succesvol geweigerd
         verify:
           invalid: Er is een fout opgetreden bij het verifiëren van deze gebruikersgroep.
           success: Gebruikersgroep is succesvol geverifieerd
@@ -405,21 +405,21 @@ nl:
           filter:
             all: Alle
             pending: In afwachting
-            rejected: Verworpen
+            rejected: Geweigerd
             verified: Geverifieerd
           filter_by: Filteren op
           search: Zoeken
           state:
             pending: In afwachting
-            rejected: Verworpen
+            rejected: Geweigerd
             verified: Geverifieerd
       users:
         create:
           error: Er is een fout opgetreden bij het uitnodigen van deze gebruiker.
-          success: Gebruiker heeft succesvol uitgenodigd.
+          success: Gebruiker succesvol uitgenodigd.
         destroy:
           error: Er is een fout opgetreden bij het proberen om deze gebruiker te verwijderen.
-          success: Gebruiker is niet meer een beheerder.
+          success: Gebruiker is niet meer een administrator.
         form:
           email: E-mail
           name: Naam
