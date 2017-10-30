@@ -232,12 +232,8 @@ pl:
       show:
         developer_group: Grupa programistyczna
         end_date: Data zakończenia
-        local_area: Okolica
-        participatory_scope: Zakres partycypacji
-        participatory_structure: Struktura partycypacji
         scope: Zakres
         start_date: Data rozpoczęcia
-        target: Cel
       statistics:
         answers_count: Odpowiedzi
         comments_count: Komentarze
