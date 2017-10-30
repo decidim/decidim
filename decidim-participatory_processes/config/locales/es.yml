@@ -232,12 +232,8 @@ es:
       show:
         developer_group: Grupo promotor
         end_date: Fecha de finalización
-        local_area: Áreas municipales
-        participatory_scope: Ámbito participativo
-        participatory_structure: Estructura participativa
         scope: Ámbito
         start_date: Fecha de inicio
-        target: '¿A quién va dirigida?'
       statistics:
         answers_count: '¿A quién va dirigida?'
         comments_count: Comentarios
