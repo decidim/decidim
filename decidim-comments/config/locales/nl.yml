@@ -39,7 +39,7 @@ nl:
         deleted_user: Verwijderde gebruiker
         reply: Antwoord
         report:
-          action: Rapport
+          action: Melden
           already_reported: Deze inhoud is al gemeld en het zal worden beoordeeld door een admin.
           close: Dichtbij
           description: Is deze inhoud ongepast?
