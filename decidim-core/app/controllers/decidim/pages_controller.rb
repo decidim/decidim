@@ -11,7 +11,7 @@ module Decidim
 
     authorize_resource :public_pages, class: false
     delegate :page, to: :page_finder
-    helper_method :page, :promoted_participatory_processes, :highlighted_participatory_processes, :stats
+    helper_method :page, :stats
     helper CtaButtonHelper
 
     def index
@@ -22,11 +22,6 @@ module Decidim
 
     def page_finder
       @page_finder ||= Decidim::PageFinder.new(params[:id], current_organization)
-    end
-
-    def promoted_participatory_processes
-      @promoted_participatory_processes ||=
-        ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcesses.new(current_organization) | ParticipatoryProcesses::PromotedParticipatoryProcesses.new
     end
 
     def highlighted_participatory_processes
