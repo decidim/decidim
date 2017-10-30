@@ -129,6 +129,9 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze categorie.
           success: Categorie is succesvol bijgewerkt.
+      dashboard:
+        show:
+          welcome: Welkom bij het Decidim Admin Panel.
       exports:
         export_as: "%{name} als %{export_format}"
         notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
@@ -180,14 +183,14 @@ nl:
         form:
           name: Naam
         impersonate:
-          error: Er is een fout opgetreden die de beheerde gebruiker verpersoonlijken.
+          error: Er is een fout opgetreden bij het verpersoonlijken van de gebruiker.
         impersonations:
           new:
             impersonate: verpersoonlijken
-            new_managed_user_impersonation: Nieuwe beheerde gebruikerspersoonstelling
+            new_managed_user_impersonation: Nieuwe beheerde gebruiker verpersoonlijking
         index:
           impersonate: verpersoonlijken
-          needs_authoriation_warning: U heeft minstens één autorisatie nodig voor deze organisatie.
+          needs_authoriation_warning: U heeft minstens één geactiveerde autorisatie nodig voor deze organisatie.
           promote: Promoten
           view_logs: Bekijk logboeken
         new:
@@ -200,8 +203,8 @@ nl:
           success: De beheerde gebruiker is succesvol gepromoveerd.
         promotions:
           new:
-            explanation: Beheerde gebruikers kunnen worden bevorderd tot standaardgebruikers. Het betekent dat ze worden uitgenodigd voor de aanvraag en u kunt ze niet opnieuw voorstellen. De uitgenodigde gebruiker ontvangt een email om uw uitnodiging te accepteren.
-            new_managed_user_promotion: Nieuwe beheerde gebruikersbevordering
+            explanation: Beheerde gebruikers kunnen worden gepromoveerd worden tot standaardgebruikers. Het betekent dat ze worden uitgenodigd voor de applicatie en dat deze niet verpersoonlijkt kunnen worden. De uitgenodigde gebruiker ontvangt een email om uw uitnodiging te accepteren.
+            new_managed_user_promotion: Nieuwe beheerde gebruikerspromotie
             promote: Promoten
       menu:
         admins: Admins
@@ -283,7 +286,7 @@ nl:
       newsletters:
         create:
           error: Er is een fout opgetreden bij het maken van deze nieuwsbrief.
-          success: Nieuwsbrief is succesvol gemaakt. Controleer het alstublieft voordat u verzendt.
+          success: Nieuwsbrief is succesvol gemaakt. Controleer het alvorens te verzenden.
         deliver:
           error: Er is een fout opgetreden bij het leveren van deze nieuwsbrief.
           success: Nieuwsbrief is succesvol geleverd.
@@ -294,7 +297,7 @@ nl:
           save_and_preview: Opslaan en previewen
           title: Bewerk nieuwsbrief
         form:
-          interpolations_hint: 'Hint: U kunt "%{name}" overal in het lichaam of onderwerp gebruiken en het wordt vervangen door de naam van de ontvanger.'
+          interpolations_hint: 'Hint: U kunt "%{name}" overal in de body of onderwerp gebruiken en het wordt vervangen door de naam van de ontvanger.'
         index:
           confirm_delete: Weet u zeker dat u deze nieuwsbrief wilt verwijderen?
           title: Nieuwsbrieven
