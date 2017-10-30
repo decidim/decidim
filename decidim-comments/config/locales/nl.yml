@@ -5,7 +5,7 @@ nl:
         comment_created:
           comment:
             email_intro: '"%{resource_title}" is becommentarieerd. U kunt de reactie op deze pagina lezen:'
-            email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kunt het niet volgen vanaf de vorige link.
+            email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kan stoppen met deze te volgen via vorige link.
             email_subject: Er is een nieuwe reactie van %{author_name} in %{resource_title}
             notification_title: Er is een nieuwe reactie van %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
           reply:
