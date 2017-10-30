@@ -232,8 +232,12 @@ it:
       show:
         developer_group: Gruppo promotore
         end_date: Data di fine
+        local_area: Area Organizzazione
+        participatory_scope: Che cosa è deciso
+        participatory_structure: Come si decide
         scope: Objetivos
         start_date: Date di inizio
+        target: Chi partecipa
       statistics:
         answers_count: risposte
         comments_count: Commenti
