@@ -145,10 +145,10 @@ nl:
       features:
         create:
           error: Er is een fout opgetreden bij het maken van deze functie.
-          success: Functie is succesvol gemaakt.
+          success: Functionaliteit is succesvol gemaakt.
         destroy:
-          error: Er is een fout gebroken die deze functie vernietigt.
-          success: Functie is succesvol verwijderd.
+          error: Er is een fout onstaan bij het vernietigingen van deze functionaliteit.
+          success: Functionaliteit is succesvol verwijderd.
         edit:
           title: Bewerk functie
           update: Bijwerken
@@ -157,26 +157,26 @@ nl:
           global_settings: Algemene instellingen
           step_settings: Stap instellingen
         index:
-          add: Functie toevoegen
+          add: Functionaliteit toevoegen
           headers:
             actions: Acties
-            name: Feature naam
-            type: Feature type
+            name: Naam functionaliteit
+            type: Functionaliteitstype
         new:
-          add: Functie toevoegen
-          title: 'Functie toevoegen: %{name}'
+          add: Functionaliteit toevoegen
+          title: 'Functionaliteit toevoegen: %{name}'
         publish:
-          success: De functie is succesvol gepubliceerd.
-        title: Kenmerken
+          success: De functionaliteit is succesvol gepubliceerd.
+        title: Functionaliteiten
         unpublish:
-          success: De functie is succesvol ongepubliceerd.
+          success: De functionaliteit is succesvol ongepubliceerd.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze functie.
-          success: De functie is succesvol bijgewerkt.
+          error: Er is een fout opgetreden bij het bijwerken van deze functionaliteit.
+          success: De functionaliteit is succesvol bijgewerkt.
       managed_users:
         close_session:
-          error: Er is een fout opgetreden die de huidige impersonatie sessie sluit.
-          success: De huidige impersonatie sessie is succesvol beëindigd.
+          error: Er is een fout opgetreden bij het sluiten van de impersonatie-sessie.
+          success: De huidige impersonatie-sessie is succesvol beëindigd.
         create:
           error: Er is een fout opgetreden bij het maken van de beheerde gebruiker.
           success: De beheerde gebruiker is succesvol aangemaakt.
