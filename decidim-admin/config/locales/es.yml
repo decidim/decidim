@@ -131,7 +131,7 @@ es:
           success: Categoría actualizada correctamente.
       dashboard:
         show:
-          welcome: Bienvenido al Panel de administración de Decidim.
+          welcome: Bienvenido al panel de administración de Decidim.
       exports:
         export_as: "%{name} como %{export_format}"
         notice: Su exportación está actualmente en curso. Recibirá un correo electrónico cuando esté completo.
