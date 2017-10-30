@@ -232,12 +232,8 @@ fr:
       show:
         developer_group: Groupe d'initiateurs
         end_date: Date de fin
-        local_area: Localisation
-        participatory_scope: Objectif du processus participatif
-        participatory_structure: Organisations concernées
         scope: Zone d'application
         start_date: Date de début
-        target: Public visé
       statistics:
         answers_count: Réponses
         comments_count: Commentaires
