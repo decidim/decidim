@@ -129,6 +129,9 @@ pl:
         update:
           error: Podczas aktualizowania tej kategorii wystąpił błąd.
           success: Kategoria została zaktualizowana.
+      dashboard:
+        show:
+          welcome: Witamy w Decidim Admin Panel.
       exports:
         export_as: "%{name} jako %{export_format}"
         notice: Twój eksport jest obecnie w toku. Po jego zakończeniu otrzymasz e-maila.
