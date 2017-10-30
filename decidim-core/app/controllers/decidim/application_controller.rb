@@ -18,6 +18,7 @@ module Decidim
     helper Decidim::AriaSelectedLinkToHelper
     helper Decidim::MenuHelper
     helper Decidim::FeaturePathHelper
+    helper Decidim::ViewHooksHelper
 
     protect_from_forgery with: :exception, prepend: true
     after_action :add_vary_header

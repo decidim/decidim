@@ -7,20 +7,21 @@ module Decidim
   #
   # This mechanism is useful to extend the views of a given engine from other engines.
   # For example, the homepage of Decidim is found on `decidim-core`, but it can be
-  # extended by other engine to show important info there. For example, an engine might
+  # extended by other engines to show important info there. For example, an engine might
   # want to extend the homepage to show highlighted participatory processes.
   #
   # In order to show view hooks, you can use something like this in your views:
   #
-  #     Decidim.view_hooks # => an instance of this class
-  #     <% Decidim.view_hooks.get(:my_hook).each do |hook| %>
-  #       <%= render partial: hook[:partial]
-  #     <% end %>
+  #     Decidim::MyModule.view_hooks # => an instance of this class
+  #     <%= Decidim::MyModule.view_hooks.render(:my_hook, self) %>
+  #
+  # If you want to hide that call, you can wrap this in a helper method so you don't need
+  # to call `self` from the views directly.
   #
   # In order to add more partials to this view hook, you can register as in the
   # following example. Note that you will probably use this from your engine initializer.
   #
-  #     Decidim.view_hooks.register(
+  #     Decidim::MyModule.view_hooks.register(
   #       :my_hook,
   #       priority: Decidim::ViewHooks::HIGH_PRIORITY,
   #       partial: "path/to/my/partial"
@@ -47,25 +48,62 @@ module Decidim
     #         * partial: The name of the partial that needs to be rendered.
     #
     # Returns nothing.
-    def register(name, options = {})
-      raise StandardError, "Option `:partial` is not defined" if options[:partial].blank?
-      options[:priority] ||= LOW_PRIORITY
-
-      hooks[name].push(options)
-      hooks[name].sort_by! { |hook| hook[:priority] }
+    def register(name, priority: LOW_PRIORITY, &block)
+      hooks[name].push(ViewHook.new(priority, block))
+      hooks[name].sort_by!(&:priority)
     end
 
-    # Gets all the view hooks registered for a given hook name.
+    # Public: Renders all the view hooks registered for a given hook `name`.
+    # Needs a `view_context` parameter, which will almost always be `self` from
+    # the helper method or the view that calls this.
+    #
+    # The easiest is to call this method from within a Helper:
+    #
+    #    module MyViewHooksRenderHelper
+    #      def my_render_hooks(name)
+    #        Decidim.view_hooks.render(name, self)
+    #      end
+    #    end
+    #
+    #    def ApplicationController
+    #      helper MyViewHooksRenderHelper
+    #    end
+    #
+    # Then from your views you need to call `my_render_hooks(name)`.
     #
     # name - The name of the view hook
+    # `view_context` - a context to render the view hooks.
     #
-    # Returns an array of Hashes, ordered by their `:priority` key value.
-    def get(name)
-      hooks[name]
+    # Returns an HTML safe String.
+    def render(name, view_context)
+      hooks[name].map do |hook|
+        hook.render(view_context)
+      end.join("").html_safe
     end
 
     private
 
     attr_reader :hooks
+
+    # Internal class to encapsulate each view registered on a view hook.
+    class ViewHook
+      # priority - a Number (Integer/Float) to sort the block.
+      # block - a block that will bbe rendered in a view context.
+      def initialize(priority, block)
+        @priority = priority
+        @block = block
+      end
+
+      attr_reader :priority
+
+      # Public: renders the block inside the view context.
+      #
+      # view_context - a context to render the view hook.
+      #
+      # Returns a String.
+      def render(view_context)
+        @block.call(view_context)
+      end
+    end
   end
 end

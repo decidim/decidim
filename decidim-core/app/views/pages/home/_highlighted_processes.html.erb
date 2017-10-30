@@ -1,5 +1,3 @@
 <section class="wrapper-home">
-  <% Decidim.view_hooks.get(:highlighted_elements).each do |hook| %>
-    <%= render partial: hook[:partial] %>
-  <% end %>
+  <%= render_hook(:highlighted_elements) %>
 </section>
