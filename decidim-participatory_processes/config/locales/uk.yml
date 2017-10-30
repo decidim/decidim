@@ -232,8 +232,12 @@ uk:
       show:
         developer_group: Група розробників
         end_date: Дата закінчення
+        local_area: Терен організації
+        participatory_scope: Що вирішується
+        participatory_structure: Як це вирішується
         scope: Терен
         start_date: Дата початку
+        target: Хто бере участь
       statistics:
         answers_count: Відповіді
         comments_count: Коментарі
