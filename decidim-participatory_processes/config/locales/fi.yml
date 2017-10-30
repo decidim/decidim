@@ -232,12 +232,8 @@ fi:
       show:
         developer_group: Kehitysryhmä
         end_date: Päättymisaika
-        local_area: Paikallisalue
-        participatory_scope: Osallistumisprosessi
-        participatory_structure: Osallistumisprosessin rakenne
         scope: Konteksti
         start_date: Aloitusaika
-        target: Kohde
       statistics:
         answers_count: Vastaukset
         comments_count: Kommentit
