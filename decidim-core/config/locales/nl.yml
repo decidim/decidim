@@ -295,7 +295,7 @@ nl:
       too_much_caps: Gebruikt te veel hoofdletters
       too_short: Is te kort
   forms:
-    required: nodig
+    required: Vereist
   invisible_captcha:
     sentence_for_humans: Als u een mens bent negeert u dit veld
     timestamp_error_message: Sorry, dat was te snel! Gelieve opnieuw in te dienen.
@@ -306,7 +306,7 @@ nl:
         link_label: hier
         ok: Ik ga akkoord
       footer:
-        made_with_open_source: W
+        made_with_open_source: 'Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.'
       header:
         close_menu: Menu sluiten
         navigation: Navigatie
@@ -314,7 +314,7 @@ nl:
         sign_up: Registreren
       impersonation_warning:
         close_session: Sluit sessie
-        description_html: U veronderstelt de gebruiker <b>%{user_name}</b>.
+        description_html: U verpersoonlijkt de gebruiker <b>%{user_name}</b>.
         expire_time_html: Uw sessie vervalt in <b><span class="minutes">%{minutes}</span> minuten</b>.
       notifications_dashboard:
         mark_all_as_read: Alles als gelezen markeren
