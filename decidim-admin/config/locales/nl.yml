@@ -24,12 +24,12 @@ nl:
         cta_button_text: Oproep naar actie knop tekst
         description: Beschrijving
         favicon: Icoon
-        header_snippets: Koptekstjes
+        header_snippets: Header snippets
         homepage_image: Homepage afbeelding
         logo: Logo
-        official_img_footer: Officiële logo footer
+        official_img_footer: Officiële logo voettekst
         official_img_header: Officiële logo header
-        official_url: Officiële organisatie URL
+        official_url: URL van de officiële organisatie
         show_statistics: Toon statistieken
         welcome_text: Welkom tekst
       scope:
@@ -44,7 +44,7 @@ nl:
       static_page:
         content: Inhoud
         organization: Organisatie
-        slug: URL slak
+        slug: URL slug
         title: Titel
   activerecord:
     attributes:
@@ -55,7 +55,7 @@ nl:
         domain: Domein
         end_date: Einddatum
         hashtag: Hashtag
-        hero_image: Home image
+        hero_image: Afbeelding van de startpagina
         local_area: Lokale buurt
         meta_scope: Omvang metadata
         participatory_scope: Participatief toepassingsgebied
@@ -138,10 +138,10 @@ nl:
       feature_permissions:
         edit:
           everyone: Iedereen
-          submit: Bewaar machtigingen
+          submit: Bewaar permissies
           title: Wijzig permissies
         update:
-          success: Machtigingen succesvol bijgewerkt.
+          success: Permissies succesvol bijgewerkt.
       features:
         create:
           error: Er is een fout opgetreden bij het maken van deze functie.
