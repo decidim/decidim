@@ -129,9 +129,6 @@ it:
         update:
           error: Si è verificato un errore aggiornando questa categoria.
           success: OK, la categoria è stata aggiornata.
-      dashboard:
-        show:
-          welcome: Benvenuto nel nuovo pannello di amministarzione.
       exports:
         export_as: "%{name} esporta come %{export_format}"
         notice: Export in fase di elaborazione.  Riceverai un'email quando l'export sarà terminato.
