@@ -333,7 +333,7 @@ nl:
         title: Gebruikersinstellingen
         user_groups: Organisaties
       widget:
-        see_more: B
+        see_more: Zie meer
   locale:
     name: Nederlands
   pages:
@@ -359,7 +359,7 @@ nl:
         active_step: Actieve stap
         see_all_processes: Toon alle processen
       statistics:
-        answers_count: antwoorden
+        answers_count: Antwoorden
         comments_count: Reacties
         headline: Huidige stand van %{organization}
         meetings_count: Vergaderingen
@@ -369,7 +369,7 @@ nl:
         projects_count: Projecten
         proposals_count: Voorstellen
         results_count: Resultaten
-        surveys_count: onderzoeken
+        surveys_count: Enquête
         users_count: Deelnemers
         votes_count: Stemmen
       sub_hero:
