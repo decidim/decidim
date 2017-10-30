@@ -129,6 +129,9 @@ eu:
         update:
           error: Errorea gertatu da kategoria hau eguneratzean.
           success: Kategoria zuzen eguneratu da.
+      dashboard:
+        show:
+          welcome: Ongi etorri Decidim Admin Panelera.
       exports:
         export_as: "%{name} honako hau gisa: %{export_format}"
         notice: Zure esportazioa bidean da. Mezu elektroniko bat jasoko duzu bukatutakoan.
