@@ -2,7 +2,7 @@ nl:
   activemodel:
     attributes:
       account:
-        delete_reason: Reden om je account te verwijderen
+        delete_reason: Reden om uw account te verwijderen
       report:
         details: Aanvullende opmerkingen
       user:
@@ -35,7 +35,7 @@ nl:
   decidim:
     account:
       delete:
-        alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, kunt u zich niet aanmelden.
+        alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, zal u zich niet meer kunnen aanmelden.
         confirm:
           close: Sluit dit scherm
           ok: Ja, ik wil mijn account verwijderen
