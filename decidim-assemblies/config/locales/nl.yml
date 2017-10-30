@@ -12,14 +12,14 @@ nl:
         hero_image: Home image
         local_area: Lokale buurt
         meta_scope: Omvang metadata
-        participatory_scope: Participatief toepassingsgebied
+        participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
         promoted: gepromoveerd
-        scope_id: Reikwijdte
+        scope_id: Scope
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
         slug: URL slak
-        subtitle: subtitel
+        subtitle: Ondertiteling
         target: Doel
         title: Titel
   decidim:
@@ -90,9 +90,9 @@ nl:
       show:
         developer_group: Ontwikkelaarsgroep
         local_area: Lokale buurt
-        participatory_scope: Participatief toepassingsgebied
+        participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
-        scope: Reikwijdte
+        scope: Scope
         target: Doel
       statistics:
         answers_count: antwoorden
