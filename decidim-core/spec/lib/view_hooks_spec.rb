@@ -8,12 +8,8 @@ module Decidim
 
     describe "register" do
       it "saves the hooks in priority order" do
-        subject.register(:test_hook, priority: 3) do
-          "Lower priority"
-        end
-        subject.register(:test_hook, priority: 1) do
-          "Higher priority"
-        end
+        subject.register(:test_hook, priority: 3) { "Lower priority" }
+        subject.register(:test_hook, priority: 1) { "Higher priority" }
 
         priorities = subject.send(:hooks)[:test_hook].map(&:priority)
         expect(priorities).to eq [1, 3]
@@ -38,12 +34,8 @@ module Decidim
 
     describe "render" do
       it "joins the result of the blocks in an HTML string" do
-        subject.register(:test_hook, priority: 3) do
-          "b"
-        end
-        subject.register(:test_hook, priority: 1) do
-          "a"
-        end
+        subject.register(:test_hook, priority: 3) { "b" }
+        subject.register(:test_hook, priority: 1) { "a" }
 
         result = subject.render(:test_hook, nil)
         expect(result).to eq "ab"
