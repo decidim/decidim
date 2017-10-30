@@ -3,14 +3,14 @@ nl:
     attributes:
       close_meeting:
         attendees_count: Aantal deelnemers
-        attending_organizations: Lijst van organisaties die bijwonen
-        closing_report: Rapporteren
+        attending_organizations: Lijst van organisaties die bijwoonden
+        closing_report: Melden
         contributions_count: Aantal bijdragen
         proposal_ids: Voorstellen die in de vergadering zijn gemaakt
       meeting:
         address: Adres
         decidim_category_id: Categorie
-        decidim_scope_id: Reikwijdte
+        decidim_scope_id: Scope
         description: Beschrijving
         end_time: Eindtijd
         location: Plaats
@@ -21,7 +21,7 @@ nl:
     features:
       meetings:
         actions:
-          join: toetreden
+          join: Lid worden
         name: Vergaderingen
         settings:
           global:
@@ -133,12 +133,12 @@ nl:
           category_prompt: Kies een categorie
           date: Datum
           past: Verleden
-          scope_prompt: Selecteer een bereik
+          scope_prompt: Selecteer een scope
           scopes: Scopes
           search: Zoeken
           upcoming: Aankomend
         filters_small_view:
-          close_modal: Dicht modaal
+          close_modal: Sluit modaal
           filter: Filter
           filter_by: Filteren op
           unfold: Ontvouwen
@@ -146,7 +146,7 @@ nl:
           view_meeting: Bekijk de vergadering
         meetings:
           no_meetings_warning: Geen afspraken komen overeen met uw zoekcriteria of er is geen vergadering gepland.
-          upcoming_meetings_warning: Momenteel zijn er geen geplande vergaderingen, maar hier vindt u alle eerder genoemde vergaderingen.
+          upcoming_meetings_warning: Momenteel zijn er geen geplande vergaderingen, maar hier vindt u alle afgelopen vergaderingen.
         registration_confirm:
           cancel: Annuleer
           confirm: Bevestigen
