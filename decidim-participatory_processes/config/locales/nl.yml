@@ -232,12 +232,12 @@ nl:
       show:
         developer_group: Ontwikkelaarsgroep
         end_date: Einddatum
-        local_area: Lokale buurt
-        participatory_scope: Participatief toepassingsgebied
-        participatory_structure: Participatieve structuur
+        local_area: Organisatiegebied
+        participatory_scope: Wat is besloten
+        participatory_structure: Hoe is het besloten
         scope: Reikwijdte
         start_date: Begindatum
-        target: Doel
+        target: Wie neemt deel aan
       statistics:
         answers_count: antwoorden
         comments_count: Comments
