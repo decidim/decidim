@@ -232,8 +232,12 @@ fi:
       show:
         developer_group: Kehitysryhmä
         end_date: Päättymisaika
+        local_area: Organisaatioalue
+        participatory_scope: Mitä päätetään
+        participatory_structure: Miten päätetään
         scope: Konteksti
         start_date: Aloitusaika
+        target: Kuka osallistuu
       statistics:
         answers_count: Vastaukset
         comments_count: Kommentit
