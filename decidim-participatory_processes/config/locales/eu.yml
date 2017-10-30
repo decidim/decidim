@@ -232,12 +232,8 @@ eu:
       show:
         developer_group: Talde sustatzailea
         end_date: Bukaera-data
-        local_area: Udal-alorrak
-        participatory_scope: Partehartze esparrua
-        participatory_structure: Partehartze egitura
         scope: Esparrua
         start_date: Hasiera-data
-        target: Nori zuzentzen zaio?
       statistics:
         answers_count: Erantzunak
         comments_count: Iruzkinak
