@@ -232,12 +232,8 @@ uk:
       show:
         developer_group: Група розробників
         end_date: Дата закінчення
-        local_area: Місцевість
-        participatory_scope: Терен співучасті
-        participatory_structure: Структура співучасті
         scope: Терен
         start_date: Дата початку
-        target: Мета
       statistics:
         answers_count: Відповіді
         comments_count: Коментарі
