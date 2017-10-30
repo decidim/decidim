@@ -153,7 +153,7 @@ nl:
         show:
           attendees: Aantal deelnemers
           contributions: Aantal bijdragen
-          going: gaand
+          going: Gaat
           join: Word lid van de vergadering
           meeting_report: Notulen
           no_slots_available: Geen slots beschikbaar
