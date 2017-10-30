@@ -232,12 +232,8 @@ ru:
       show:
         developer_group: Группа разработчиков
         end_date: Дата завершения
-        local_area: Местность
-        participatory_scope: Охват соучастия
-        participatory_structure: Структура соучастия
         scope: Охват
         start_date: Дата начала
-        target: Цель
       statistics:
         answers_count: Ответы
         comments_count: Комментарии
