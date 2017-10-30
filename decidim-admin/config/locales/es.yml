@@ -129,9 +129,6 @@ es:
         update:
           error: Se ha producido un error al actualizar esta categoría.
           success: Categoría actualizada correctamente.
-      dashboard:
-        show:
-          welcome: Bienvenido al nuevo panel de administración de Decidim.
       exports:
         export_as: "%{name} como %{export_format}"
         notice: Su exportación está actualmente en curso. Recibirá un correo electrónico cuando esté completo.
