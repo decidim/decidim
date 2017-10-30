@@ -73,7 +73,7 @@ nl:
         filters:
           category: Categorie
           category_prompt: Kies een categorie
-          scope_prompt: Selecteer een bereik
+          scope_prompt: Selecteer een scope
           scopes: Scopes
           search: Zoeken
         filters_small_view:
