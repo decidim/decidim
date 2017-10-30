@@ -129,9 +129,6 @@ fi:
         update:
           error: Tämän aihepiirin luonnissa tapahtui virhe.
           success: Aihepiiri päivitetty onnistuneesti.
-      dashboard:
-        show:
-          welcome: Tervetuloa Decidimin uuteen hallintapaneeliin.
       exports:
         export_as: "%{name} muodossa %{export_format}"
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
