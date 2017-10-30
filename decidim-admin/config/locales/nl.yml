@@ -13,10 +13,10 @@ nl:
         name: Naam
         weight: Gewicht
       newsletter:
-        body: Lichaam
-        subject: Onderwerpen
+        body: Body
+        subject: Onderwerp
       organization:
-        default_locale: Standaard locale
+        default_locale: Standaard taal
         name: Naam
         reference_prefix: Referentievoorvoegsel
       organization_appearance:
