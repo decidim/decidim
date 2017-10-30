@@ -232,12 +232,8 @@ it:
       show:
         developer_group: Gruppo promotore
         end_date: Data di fine
-        local_area: Municipi
-        participatory_scope: Visibilità/ambito partecipativo
-        participatory_structure: Struttura partecipativa
         scope: Objetivos
         start_date: Date di inizio
-        target: A chi è destinato il processo?
       statistics:
         answers_count: risposte
         comments_count: Commenti
