@@ -232,8 +232,12 @@ eu:
       show:
         developer_group: Talde sustatzailea
         end_date: Bukaera-data
+        local_area: Antolakuntza eremua
+        participatory_scope: Zer erabaki
+        participatory_structure: Nola erabakitzen da?
         scope: Esparrua
         start_date: Hasiera-data
+        target: Nork parte hartzen du
       statistics:
         answers_count: Erantzunak
         comments_count: Iruzkinak
