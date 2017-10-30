@@ -129,9 +129,6 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze categorie.
           success: Categorie is succesvol bijgewerkt.
-      dashboard:
-        show:
-          welcome: Welkom bij de nieuwe Decidim Panel Admin.
       exports:
         export_as: "%{name} als %{export_format}"
         notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
