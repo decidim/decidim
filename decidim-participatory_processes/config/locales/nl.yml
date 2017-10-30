@@ -18,12 +18,12 @@ nl:
         participatory_scope: Participatief toepassingsgebied
         participatory_structure: Participatieve structuur
         promoted: gepromoveerd
-        scope_id: Reikwijdte
+        scope_id: Scope
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
         slug: URL slak
         start_date: Begindatum
-        subtitle: subtitel
+        subtitle: Ondertiteling
         target: Doel
         title: Titel
       participatory_process_group:
@@ -235,7 +235,7 @@ nl:
         local_area: Organisatiegebied
         participatory_scope: Wat is besloten
         participatory_structure: Hoe is het besloten
-        scope: Reikwijdte
+        scope: Scope
         start_date: Begindatum
         target: Wie neemt deel aan
       statistics:
@@ -253,7 +253,7 @@ nl:
         users_count: Deelnemers
         votes_count: stemmen
     scopes:
-      global: Globaal bereik
+      global: Globale scope
   layouts:
     decidim:
       participatory_process_groups:
