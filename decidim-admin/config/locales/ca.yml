@@ -450,6 +450,7 @@ ca:
             reportable: Tipus
             reported_content_url: URL contingut del contingut reportat
             reports: Denúncies
+            visit_url: Visiteu l'URL
   errors:
     messages:
       invalid_json: JSON no vàlid
