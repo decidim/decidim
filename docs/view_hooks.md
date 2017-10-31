@@ -18,7 +18,7 @@ Take the homepage, for example. It is rendered by the `decidim-core`. We want to
 This raises two important issues:
 
 1. We are linking `decidim-core` with `decidim-assemblies` and `decidim-participatory_processes`. This is not perfect.
-1. The final app cannot extent this view to add more content in a simple way. The developers could overwrite the view, but this raises maintainability problems, as upgrades will be harder.
+1. The final app cannot extend this view to add more content in a simple way. The developers could overwrite the view, but this raises maintainability problems, as upgrades will be harder.
 
 ## Rendering view hooks
 
