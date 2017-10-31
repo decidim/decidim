@@ -450,6 +450,7 @@ es:
             reportable: Tipo
             reported_content_url: URL del contenido reportado
             reports: Denuncias
+            visit_url: Visita URL
   errors:
     messages:
       invalid_json: JSON no válido
