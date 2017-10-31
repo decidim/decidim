@@ -450,6 +450,7 @@ pl:
             reportable: Zgłoszone
             reported_content_url: Zgłoszony URL treści
             reports: Raporty
+            visit_url: Odwiedź adres URL
   errors:
     messages:
       invalid_json: Nieprawidłowy JSON
