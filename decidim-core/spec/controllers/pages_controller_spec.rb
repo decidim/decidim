@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "decidim/dev/test/promoted_participatory_processes_shared_examples"
 
 module Decidim
   module Devise
@@ -9,8 +8,6 @@ module Decidim
       routes { Decidim::Core::Engine.routes }
 
       let(:organization) { create :organization }
-
-      include_examples "with promoted participatory processes"
 
       context "when a template exists" do
         it "renders it" do
