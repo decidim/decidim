@@ -450,6 +450,7 @@ it:
             reportable: Inseribile
             reported_content_url: URL del contenuto riportato
             reports: Report
+            visit_url: Visita URL
   errors:
     messages:
       invalid_json: Problemi con la trasmissione tramite JSON (JSON non valido)
