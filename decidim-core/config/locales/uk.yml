@@ -354,10 +354,6 @@ uk:
       hero:
         participate: Взяти участь
         welcome: Ласкаво просимо до %{organization}!
-      highlighted_processes:
-        active_processes: Започаті рухи
-        active_step: Започатий крок
-        see_all_processes: Переглянути всі рухи
       statistics:
         answers_count: Відповіді
         comments_count: Коментарі
