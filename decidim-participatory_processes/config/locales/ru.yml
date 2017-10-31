@@ -232,12 +232,12 @@ ru:
       show:
         developer_group: Группа разработчиков
         end_date: Дата завершения
-        local_area: Местность
-        participatory_scope: Охват соучастия
-        participatory_structure: Структура соучастия
+        local_area: Охват организации
+        participatory_scope: Что решается
+        participatory_structure: Как это решается
         scope: Охват
         start_date: Дата начала
-        target: Цель
+        target: Кто участвует
       statistics:
         answers_count: Ответы
         comments_count: Комментарии

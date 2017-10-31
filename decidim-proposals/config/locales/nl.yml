@@ -86,7 +86,7 @@ nl:
             category: Categorie
             id: ID kaart
             official_proposal: Officieel voorstel
-            scope: Reikwijdte
+            scope: Scope
             state: Staat
             title: Titel
             votes: stemmen
@@ -115,7 +115,7 @@ nl:
           origin: Oorsprong
           rejected: Verworpen
           related_to: Gerelateerd aan
-          scope_prompt: Selecteer een bereik
+          scope_prompt: Selecteer een scope
           scopes: Scopes
           search: Zoeken
           state: Staat

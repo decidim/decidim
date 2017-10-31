@@ -131,7 +131,7 @@ fi:
           success: Aihepiiri päivitetty onnistuneesti.
       dashboard:
         show:
-          welcome: Tervetuloa Decidimin uuteen hallintapaneeliin.
+          welcome: Tervetuloa Decidim Admin -paneeliin.
       exports:
         export_as: "%{name} muodossa %{export_format}"
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
@@ -450,6 +450,7 @@ fi:
             reportable: Raportoitava
             reported_content_url: Raportoidun sisällön URL
             reports: Raportit
+            visit_url: Käy URL-osoitteessa
   errors:
     messages:
       invalid_json: Virheellinen JSON
