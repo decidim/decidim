@@ -31,8 +31,9 @@ gem 'decidim-comments'
 ```
 
 And then execute:
+
 ```bash
-$ bundle
+bundle
 ```
 
 ## How to contribute
@@ -40,17 +41,19 @@ $ bundle
 The technology stack used in this module is the following:
 
 For the backend side:
-  - Ruby on Rails
-  - GraphQL
+
+- Ruby on Rails
+- GraphQL
 
 For the frontend side:
-  - Typescript (introduced in #1001)
-  - React
-  - Apollo
+
+- Typescript (introduced in #1001)
+- React
+- Apollo
 
 The frontend code can be found in the folder `app/frontend` instead of `app/assets`. We are using Webpack to build the React application so we are keeping the React files in a separate folder and then including the `bundle.js` file using sprockets as usual.
 
-#### Developing React components
+### Developing React components
 
 You need to execute `npm start` in a separate terminal, in the `decidim` root folder while you are developing this module. When you are finished you can build the project for production like this: `npm run build:prod`. We are checking in the bundle into the repository.
 
@@ -69,7 +72,9 @@ Since we are using Typescript we can generate interfaces and types from our sche
 This command will create a file called `app/frontend/support/schema.ts` that can be used to strict type checking in our components.
 
 ## Contributing
+
 See [Decidim](https://github.com/decidim/decidim).
 
 ## License
+
 See [Decidim](https://github.com/decidim/decidim).

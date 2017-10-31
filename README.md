@@ -16,8 +16,8 @@ All members of the Decidim community agree with [Decidim Social Contract or Code
 [![Yard Docs](http://img.shields.io/badge/yard-docs-blue.svg)](http://rubydoc.info/github/decidim/decidim/master)
 [![Gitter](https://img.shields.io/gitter/room/nwjs/nw.js.svg)](https://gitter.im/decidim/decidim)
 
+Code quality
 
-### Code quality
 [![Build Status](https://img.shields.io/circleci/project/github/decidim/decidim/master.svg)](https://circleci.com/gh/decidim/decidim)
 [![Code Climate](https://img.shields.io/codeclimate/github/decidim/decidim.svg)](https://codeclimate.com/github/decidim/decidim/trends)
 [![codecov](https://img.shields.io/codecov/c/github/decidim/decidim.svg)](https://codecov.io/gh/decidim/decidim)
@@ -27,7 +27,8 @@ All members of the Decidim community agree with [Decidim Social Contract or Code
 [![Accessibility issues](https://rocketvalidator.com/badges/a11y_issues.svg?url=http://staging.decidim.codegram.com/)](https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=a11y)
 [![HTML issues](https://rocketvalidator.com/badges/html_issues.svg?url=http://staging.decidim.codegram.com/)](https://rocketvalidator.com/badges/link?url=http://staging.decidim.codegram.com/&report=html)
 
-### Project management [[See on Waffle.io]](https://waffle.io/decidim/decidim)
+Project management [[See on Waffle.io]](https://waffle.io/decidim/decidim)
+
 [![Stories in Discussion](https://img.shields.io/waffle/label/decidim/decidim/discussion.svg)](https://github.com/decidim/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Adiscussion)
 [![Stories in Planned](https://img.shields.io/waffle/label/decidim/decidim/planned.svg)](https://github.com/decidim/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Aplanned)
 [![Bugs](https://img.shields.io/waffle/label/decidim/decidim/bug.svg)](https://github.com/decidim/decidim/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
@@ -36,14 +37,14 @@ All members of the Decidim community agree with [Decidim Social Contract or Code
 
 ---
 
-## What do you need to do?
+# What do you need to do?
 
-- [Get started with Decidim](#getting-started-with-decidim)
-- [Contribute to the project](#how-to-contribute)
-- [Decidim components](#officially-supported-libraries)
-- [How to test Decidim engines](docs/testing.md)
-- [Create & browse development app](#browse-decidim)
-- [Technical tradeoffs](#technical-tradeoffs)
+* [Get started with Decidim](#getting-started-with-decidim)
+* [Contribute to the project](#how-to-contribute)
+* [Decidim components](#officially-supported-libraries)
+* [How to test Decidim engines](docs/testing.md)
+* [Create & browse development app](#browse-decidim)
+* [Technical tradeoffs](#technical-tradeoffs)
 
 ---
 
@@ -70,10 +71,10 @@ In order to develop on decidim, you'll need:
 The easiest way to work on decidim is to clone decidim's repository and install its dependencies
 
 ```bash
-$ git clone git@github.com:decidim/decidim.git
-$ cd decidim
-$ bundle install
-$ npm install
+git clone git@github.com:decidim/decidim.git
+cd decidim
+bundle install
+npm install
 ```
 
 You have several rake tasks available:
@@ -87,26 +88,25 @@ You have several rake tasks available:
 #### Browse Decidim
 
 After you create a development app (`bundle exec rake development_app`):
-- `cd development_app`
-- `bundle exec rails s`
-- Go to 'http://localhost:3000'
+
+* `cd development_app`
+* `bundle exec rails s`
+* Go to 'http://localhost:3000'
 
 Optionally, you can log in as: user@example.org | decidim123456
 
 Also, if you want to verify yourself against the default authorization handler use a document number ended with "X".
 
-
 #### Browse Admin Interface
 
 After you create a development app (`bundle exec rake development_app`):
-- `cd development_app`
-- `bundle exec rails s`
-- Go to 'http://localhost:3000/admin'
-- Login data: admin@example.org | decidim123456
 
+* `cd development_app`
+* `bundle exec rails s`
+* Go to 'http://localhost:3000/admin'
+* Login data: admin@example.org | decidim123456
 
 ## Officially supported libraries
-
 
 | Library        | Description           |
 | ------------- |-------------|
@@ -142,7 +142,6 @@ The support of Turbolinks was dropped in [d8c7d9f](https://github.com/decidim/de
 ## Following our license
 
 If you plan to release your application you'll need to publish it using the same license: GPL Affero 3. We recommend doing that on GitHub before publishing, you can read more on "[Being Open Source From Day One is Especially Important for Government Projects](http://producingoss.com/en/governments-and-open-source.html#starting-open-for-govs)". If you have any trouble you can contact us on [Gitter](https://gitter.im/decidim/decidim).
-
 
 ## Example applications
 
