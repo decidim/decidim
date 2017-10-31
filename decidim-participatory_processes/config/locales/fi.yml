@@ -224,6 +224,12 @@ fi:
         active: Aktivoi
         past: Menneet
         upcoming: Tulevat
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Aktiiviset prosessit
+            active_step: Aktiivinen vaihe
+            see_all_processes: Katso kaikki prosessit
       participatory_process_groups:
         none: Ei ryhmää
       participatory_processes:
