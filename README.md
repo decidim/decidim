@@ -65,7 +65,7 @@ In order to develop on decidim, you'll need:
 * **Ruby** 2.4.1
 * **NodeJS** 8.x.x
 * **ImageMagick**
-* **PhantomJS**
+* **PhantomJS**. If you're on Ubuntu, make sure you download it from the [official website](http://phantomjs.org/download.html) instead of using the version of the Ubuntu repositories
 
 The easiest way to work on decidim is to clone decidim's repository and install its dependencies
 
