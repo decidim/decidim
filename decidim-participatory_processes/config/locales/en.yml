@@ -225,6 +225,12 @@ en:
         active: Active
         past: Past
         upcoming: Upcoming
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Active processes
+            active_step: Active step
+            see_all_processes: See all processes
       participatory_process_groups:
         none: None
       participatory_processes:
