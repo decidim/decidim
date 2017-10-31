@@ -224,6 +224,12 @@ fr:
         active: Actif
         past: Passés
         upcoming: À venir
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Processus actifs
+            active_step: Étape active
+            see_all_processes: Voir tous les processus
       participatory_process_groups:
         none: Aucun
       participatory_processes:
