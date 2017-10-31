@@ -450,6 +450,7 @@ fi:
             reportable: Raportoitava
             reported_content_url: Raportoidun sisällön URL
             reports: Raportit
+            visit_url: Käy URL-osoitteessa
   errors:
     messages:
       invalid_json: Virheellinen JSON
