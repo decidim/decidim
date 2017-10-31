@@ -450,6 +450,7 @@ eu:
             reportable: Mota
             reported_content_url: Emandako edukiaren URLa
             reports: Salaketak
+            visit_url: Bisitatu URLa
   errors:
     messages:
       invalid_json: JSON baliogabea
