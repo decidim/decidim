@@ -2,53 +2,55 @@
 
 require "spec_helper"
 
-describe Decidim::Budgets::Project do
-  subject { project }
+module Decidim::Budgets
+  describe Project do
+    subject { project }
 
-  let(:project) { create :project }
+    let(:project) { create :project }
 
-  include_examples "has reference"
+    include_examples "has reference"
 
-  it { is_expected.to be_valid }
+    it { is_expected.to be_valid }
 
-  context "without a feature" do
-    let(:project) { build :project, feature: nil }
+    context "without a feature" do
+      let(:project) { build :project, feature: nil }
 
-    it { is_expected.not_to be_valid }
-  end
-
-  context "when the scope is from another organization" do
-    let(:scope) { create :scope }
-    let(:project) { build :project, scope: scope }
-
-    it { is_expected.not_to be_valid }
-  end
-
-  context "when the category is from another organization" do
-    let(:category) { create :category }
-    let(:project) { build :project, category: category }
-
-    it { is_expected.not_to be_valid }
-  end
-
-  context "#orders_count" do
-    let(:project) { create :project, budget: 75_000_000 }
-    let(:order) { create :order, feature: project.feature }
-    let(:unfinished_order) { create :order, feature: project.feature }
-    let!(:line_item) { create :line_item, project: project, order: order }
-    let!(:line_item_1) { create :line_item, project: project, order: unfinished_order }
-
-    it "return number of finished orders for this project" do
-      order.reload.update_attributes!(checked_out_at: Time.current)
-      expect(project.confirmed_orders_count).to eq(1)
+      it { is_expected.not_to be_valid }
     end
-  end
 
-  describe "#users_to_notify_on_comment_created" do
-    let!(:follows) { create_list(:follow, 3, followable: subject) }
+    context "when the scope is from another organization" do
+      let(:scope) { create :scope }
+      let(:project) { build :project, scope: scope }
 
-    it "returns the followers" do
-      expect(subject.users_to_notify_on_comment_created).to match_array(follows.map(&:user))
+      it { is_expected.not_to be_valid }
+    end
+
+    context "when the category is from another organization" do
+      let(:category) { create :category }
+      let(:project) { build :project, category: category }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    context "#orders_count" do
+      let(:project) { create :project, budget: 75_000_000 }
+      let(:order) { create :order, feature: project.feature }
+      let(:unfinished_order) { create :order, feature: project.feature }
+      let!(:line_item) { create :line_item, project: project, order: order }
+      let!(:line_item_1) { create :line_item, project: project, order: unfinished_order }
+
+      it "return number of finished orders for this project" do
+        order.reload.update_attributes!(checked_out_at: Time.current)
+        expect(project.confirmed_orders_count).to eq(1)
+      end
+    end
+
+    describe "#users_to_notify_on_comment_created" do
+      let!(:follows) { create_list(:follow, 3, followable: subject) }
+
+      it "returns the followers" do
+        expect(subject.users_to_notify_on_comment_created).to match_array(follows.map(&:user))
+      end
     end
   end
 end

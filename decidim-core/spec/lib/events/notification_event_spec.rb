@@ -2,16 +2,18 @@
 
 require "spec_helper"
 
-describe Decidim::Events::NotificationEvent do
-  class TestEvent < Decidim::Events::BaseEvent
-    include Decidim::Events::NotificationEvent
-  end
+module Decidim
+  describe Events::NotificationEvent do
+    class TestEvent < Decidim::Events::BaseEvent
+      include Events::NotificationEvent
+    end
 
-  describe ".types" do
-    subject { TestEvent }
+    describe ".types" do
+      subject { TestEvent }
 
-    it "adds `:notification` to the types array" do
-      expect(subject.types).to include :notification
+      it "adds `:notification` to the types array" do
+        expect(subject.types).to include :notification
+      end
     end
   end
 end

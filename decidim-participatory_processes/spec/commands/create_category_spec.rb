@@ -3,8 +3,10 @@
 require "spec_helper"
 require "decidim/admin/test/commands/create_category_examples"
 
-describe Decidim::Admin::CreateCategory do
-  include_examples "CreateCategory command" do
-    let(:participatory_space) { create(:participatory_process, organization: organization) }
+module Decidim::Admin
+  describe CreateCategory do
+    include_examples "CreateCategory command" do
+      let(:participatory_space) { create(:participatory_process, organization: organization) }
+    end
   end
 end

@@ -2,24 +2,26 @@
 
 require "spec_helper"
 
-describe Decidim::Notification do
-  subject { notification }
+module Decidim
+  describe Notification do
+    subject { notification }
 
-  let(:notification) { build(:notification) }
+    let(:notification) { build(:notification) }
 
-  it { is_expected.to be_valid }
+    it { is_expected.to be_valid }
 
-  context "validations" do
-    context "without user" do
-      let(:notification) { build(:notification, user: nil) }
+    context "validations" do
+      context "without user" do
+        let(:notification) { build(:notification, user: nil) }
 
-      it { is_expected.not_to be_valid }
-    end
+        it { is_expected.not_to be_valid }
+      end
 
-    context "without resource" do
-      let(:notification) { build(:notification, resource: nil) }
+      context "without resource" do
+        let(:notification) { build(:notification, resource: nil) }
 
-      it { is_expected.not_to be_valid }
+        it { is_expected.not_to be_valid }
+      end
     end
   end
 end
