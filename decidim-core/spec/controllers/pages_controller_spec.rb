@@ -9,6 +9,10 @@ module Decidim
 
       let(:organization) { create :organization }
 
+      before do
+        @request.env["decidim.current_organization"] = organization
+      end
+
       context "when a template exists" do
         it "renders it" do
           get :show, params: { id: "home" }
