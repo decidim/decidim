@@ -224,6 +224,12 @@ nl:
         active: Actieve
         past: Verleden
         upcoming: Aankomende
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Actieve processen
+            active_step: Actieve stap
+            see_all_processes: Bekijk alle processen
       participatory_process_groups:
         none: Geen
       participatory_processes:
