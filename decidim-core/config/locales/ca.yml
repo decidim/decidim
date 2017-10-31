@@ -355,10 +355,6 @@ ca:
       hero:
         participate: Participa
         welcome: Benvingut a %{organization}!
-      highlighted_processes:
-        active_processes: Processos actius
-        active_step: Fase activa
-        see_all_processes: Veure tots els processos
       statistics:
         answers_count: Respostes
         comments_count: Comentaris
