@@ -450,6 +450,7 @@ fr:
             reportable: Signalable
             reported_content_url: Contenu d'une URL
             reports: Signalements
+            visit_url: URL de visite
   errors:
     messages:
       invalid_json: JSON non valide
