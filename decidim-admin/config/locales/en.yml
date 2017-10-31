@@ -451,6 +451,7 @@ en:
             reportable: Reportable
             reported_content_url: Reported content URL
             reports: Reports
+            visit_url: Visit URL
   errors:
     messages:
       invalid_json: Invalid JSON

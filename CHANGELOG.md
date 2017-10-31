@@ -2,6 +2,8 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+- **decidim-admin**: Replace url to visit_url moderation admin [\#2129](https://github.com/decidim/decidim/pull/2129)
+
 ## [v0.7.1](https://github.com/decidim/decidim/tree/v0.7.1) (2017-10-26)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.7.0...v0.7.1)
 
