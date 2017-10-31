@@ -224,6 +224,12 @@ ca:
         active: Actius
         past: Passats
         upcoming: Propers
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Processos actius
+            active_step: Pas actiu
+            see_all_processes: Veure tots els processos
       participatory_process_groups:
         none: Cap
       participatory_processes:
