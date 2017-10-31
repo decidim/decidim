@@ -24,11 +24,6 @@ module Decidim
       @page_finder ||= Decidim::PageFinder.new(params[:id], current_organization)
     end
 
-    def highlighted_participatory_processes
-      @highlighted_participatory_processes ||=
-        ParticipatoryProcesses::OrganizationPublishedParticipatoryProcesses.new(current_organization) | ParticipatoryProcesses::HighlightedParticipatoryProcesses.new
-    end
-
     private
 
     def stats
