@@ -354,10 +354,6 @@ pl:
       hero:
         participate: Uczestniczyć
         welcome: Witamy w %{organization}!
-      highlighted_processes:
-        active_processes: Aktywne procesy
-        active_step: Aktywny krok
-        see_all_processes: Zobacz wszystkie procesy
       statistics:
         answers_count: Odpowiedzi
         comments_count: Komentarze
