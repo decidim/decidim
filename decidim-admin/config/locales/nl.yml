@@ -450,6 +450,7 @@ nl:
             reportable: Rapporterbaar
             reported_content_url: Gerapporteerde inhouds-URL
             reports: Meldingen
+            visit_url: Bezoek URL
   errors:
     messages:
       invalid_json: Ongeldige JSON
