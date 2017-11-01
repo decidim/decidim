@@ -129,6 +129,9 @@ ru:
         update:
           error: При обновлении этой категории произошла ошибка.
           success: Категория успешно обновлена.
+      dashboard:
+        show:
+          welcome: Добро пожаловать в админ-панель Десидим!
       exports:
         export_as: "%{name} как %{export_format}"
         notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.
@@ -447,6 +450,7 @@ ru:
             reportable: Тип жалобы
             reported_content_url: URL-адрес обжалованного содержимого
             reports: Жалобы
+            visit_url: Посетите URL-адрес
   errors:
     messages:
       invalid_json: Недопустимый JSON
