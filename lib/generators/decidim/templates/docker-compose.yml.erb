@@ -1,10 +1,7 @@
 version: '2'
 services:
   app:
-    build:
-      context: .
-      args:
-        rails_env: development
+    build: '.'
     volumes:
       - .:/code
     environment:
