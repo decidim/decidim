@@ -131,7 +131,7 @@ it:
           success: OK, la categoria è stata aggiornata.
       dashboard:
         show:
-          welcome: Benvenuto nel nuovo pannello di amministarzione.
+          welcome: Benvenuti nel pannello di amministrazione di Decidim.
       exports:
         export_as: "%{name} esporta come %{export_format}"
         notice: Export in fase di elaborazione.  Riceverai un'email quando l'export sarà terminato.
@@ -450,6 +450,7 @@ it:
             reportable: Inseribile
             reported_content_url: URL del contenuto riportato
             reports: Report
+            visit_url: Visita URL
   errors:
     messages:
       invalid_json: Problemi con la trasmissione tramite JSON (JSON non valido)

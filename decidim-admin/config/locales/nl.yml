@@ -3,7 +3,7 @@ nl:
     attributes:
       attachment:
         description: Beschrijving
-        file: het dossier
+        file: Bestand
         title: Titel
       category:
         description: Beschrijving
@@ -13,10 +13,10 @@ nl:
         name: Naam
         weight: Gewicht
       newsletter:
-        body: Lichaam
-        subject: Onderwerpen
+        body: Body
+        subject: Onderwerp
       organization:
-        default_locale: Standaard locale
+        default_locale: Standaard taal
         name: Naam
         reference_prefix: Referentievoorvoegsel
       organization_appearance:
@@ -24,12 +24,12 @@ nl:
         cta_button_text: Oproep naar actie knop tekst
         description: Beschrijving
         favicon: Icoon
-        header_snippets: Koptekstjes
+        header_snippets: Header snippets
         homepage_image: Homepage afbeelding
         logo: Logo
-        official_img_footer: Officiële logo footer
+        official_img_footer: Officiële logo voettekst
         official_img_header: Officiële logo header
-        official_url: Officiële organisatie URL
+        official_url: URL van de officiële organisatie
         show_statistics: Toon statistieken
         welcome_text: Welkom tekst
       scope:
@@ -44,7 +44,7 @@ nl:
       static_page:
         content: Inhoud
         organization: Organisatie
-        slug: URL slak
+        slug: URL slug
         title: Titel
   activerecord:
     attributes:
@@ -55,7 +55,7 @@ nl:
         domain: Domein
         end_date: Einddatum
         hashtag: Hashtag
-        hero_image: Home image
+        hero_image: Afbeelding van de startpagina
         local_area: Lokale buurt
         meta_scope: Omvang metadata
         participatory_scope: Participatief toepassingsgebied
@@ -65,12 +65,12 @@ nl:
         short_description: Korte beschrijving
         slug: URL slak
         start_date: Begindatum
-        subtitle: Ondertitel
+        subtitle: Ondertiteling
         target: Doel
         title: Titel
       decidim/participatory_process_group:
         description: Beschrijving
-        hero_image: Home image
+        hero_image: Afbeelding van de startpagina
         name: Naam
         participatory_processes: Participatieve processen
       decidim/participatory_process_step:
@@ -78,7 +78,7 @@ nl:
         start_date: Begin datum
       decidim/static_page:
         content: Inhoud
-        slug: URL slak
+        slug: URL slug
         title: Titel
   date:
     formats:
@@ -90,8 +90,8 @@ nl:
         browse: Browsen
         export: Exporteren
         manage: Beheer
-        permissions: Toelatingen
-        reject: afwijzen
+        permissions: Permissies
+        reject: Weigeren
         verify: Verifiëren
       attachments:
         create:
@@ -103,7 +103,7 @@ nl:
           title: Bewerk bijlage
           update: Bijwerken
         index:
-          attachments_title: toebehoren
+          attachments_title: Bijlagen
         new:
           create: Maak bijlage
           title: Nieuwe bijlage
@@ -131,24 +131,24 @@ nl:
           success: Categorie is succesvol bijgewerkt.
       dashboard:
         show:
-          welcome: Welkom bij de nieuwe Decidim Panel Admin.
+          welcome: Welkom bij het Decidim Admin Panel.
       exports:
         export_as: "%{name} als %{export_format}"
         notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
       feature_permissions:
         edit:
           everyone: Iedereen
-          submit: Bewaar machtigingen
+          submit: Bewaar permissies
           title: Wijzig permissies
         update:
-          success: Machtigingen succesvol bijgewerkt.
+          success: Permissies succesvol bijgewerkt.
       features:
         create:
           error: Er is een fout opgetreden bij het maken van deze functie.
-          success: Functie is succesvol gemaakt.
+          success: Functionaliteit is succesvol gemaakt.
         destroy:
-          error: Er is een fout gebroken die deze functie vernietigt.
-          success: Functie is succesvol verwijderd.
+          error: Er is een fout onstaan bij het vernietigingen van deze functionaliteit.
+          success: Functionaliteit is succesvol verwijderd.
         edit:
           title: Bewerk functie
           update: Bijwerken
@@ -157,40 +157,40 @@ nl:
           global_settings: Algemene instellingen
           step_settings: Stap instellingen
         index:
-          add: Functie toevoegen
+          add: Functionaliteit toevoegen
           headers:
             actions: Acties
-            name: Feature naam
-            type: Feature type
+            name: Naam functionaliteit
+            type: Functionaliteitstype
         new:
-          add: Functie toevoegen
-          title: 'Functie toevoegen: %{name}'
+          add: Functionaliteit toevoegen
+          title: 'Functionaliteit toevoegen: %{name}'
         publish:
-          success: De functie is succesvol gepubliceerd.
-        title: Kenmerken
+          success: De functionaliteit is succesvol gepubliceerd.
+        title: Functionaliteiten
         unpublish:
-          success: De functie is succesvol ongepubliceerd.
+          success: De functionaliteit is succesvol ongepubliceerd.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze functie.
-          success: De functie is succesvol bijgewerkt.
+          error: Er is een fout opgetreden bij het bijwerken van deze functionaliteit.
+          success: De functionaliteit is succesvol bijgewerkt.
       managed_users:
         close_session:
-          error: Er is een fout opgetreden die de huidige impersonatie sessie sluit.
-          success: De huidige impersonatie sessie is succesvol beëindigd.
+          error: Er is een fout opgetreden bij het sluiten van de impersonatie-sessie.
+          success: De huidige impersonatie-sessie is succesvol beëindigd.
         create:
           error: Er is een fout opgetreden bij het maken van de beheerde gebruiker.
           success: De beheerde gebruiker is succesvol aangemaakt.
         form:
           name: Naam
         impersonate:
-          error: Er is een fout opgetreden die de beheerde gebruiker verpersoonlijken.
+          error: Er is een fout opgetreden bij het verpersoonlijken van de gebruiker.
         impersonations:
           new:
             impersonate: verpersoonlijken
-            new_managed_user_impersonation: Nieuwe beheerde gebruikerspersoonstelling
+            new_managed_user_impersonation: Nieuwe beheerde gebruiker verpersoonlijking
         index:
           impersonate: verpersoonlijken
-          needs_authoriation_warning: U heeft minstens één autorisatie nodig voor deze organisatie.
+          needs_authoriation_warning: U heeft minstens één geactiveerde autorisatie nodig voor deze organisatie.
           promote: Promoten
           view_logs: Bekijk logboeken
         new:
@@ -203,8 +203,8 @@ nl:
           success: De beheerde gebruiker is succesvol gepromoveerd.
         promotions:
           new:
-            explanation: Beheerde gebruikers kunnen worden bevorderd tot standaardgebruikers. Het betekent dat ze worden uitgenodigd voor de aanvraag en u kunt ze niet opnieuw voorstellen. De uitgenodigde gebruiker ontvangt een email om uw uitnodiging te accepteren.
-            new_managed_user_promotion: Nieuwe beheerde gebruikersbevordering
+            explanation: Beheerde gebruikers kunnen worden gepromoveerd worden tot standaardgebruikers. Het betekent dat ze worden uitgenodigd voor de applicatie en dat deze niet verpersoonlijkt kunnen worden. De uitgenodigde gebruiker ontvangt een email om uw uitnodiging te accepteren.
+            new_managed_user_promotion: Nieuwe beheerde gebruikerspromotie
             promote: Promoten
       menu:
         admins: Admins
@@ -238,10 +238,10 @@ nl:
           name: Beheerde gebruiker
         newsletter:
           fields:
-            created_at: Gemaakt bij
+            created_at: Aangemaakt op
             progress: Vooruitgang
             sent_at: Verzonden bij
-            subject: Onderwerpen
+            subject: Onderwerp
           name: Nieuwsbrief
         scope:
           fields:
@@ -253,23 +253,23 @@ nl:
             plural: Meervoud
         static_page:
           fields:
-            created_at: Gemaakt bij
+            created_at: Aangemaakt op
             title: Titel
         user:
           fields:
             created_at: Aanmaakdatum
             email: E-mail
-            last_sign_in_at: Laatste inloggen datum
+            last_sign_in_at: Datum laatste login
             name: Naam
             role: Rol
             roles:
-              admin: beheerder
+              admin: Beheerder
               user_manager: Gebruikersbeheerder
           name: Gebruiker
         user_group:
           fields:
             actions: acties
-            created_at: Gemaakt bij
+            created_at: Aangemaakt op
             document_number: Documentnummer
             name: Naam
             phone: Telefoon
@@ -286,7 +286,7 @@ nl:
       newsletters:
         create:
           error: Er is een fout opgetreden bij het maken van deze nieuwsbrief.
-          success: Nieuwsbrief is succesvol gemaakt. Controleer het alstublieft voordat u verzendt.
+          success: Nieuwsbrief is succesvol gemaakt. Controleer het alvorens te verzenden.
         deliver:
           error: Er is een fout opgetreden bij het leveren van deze nieuwsbrief.
           success: Nieuwsbrief is succesvol geleverd.
@@ -297,7 +297,7 @@ nl:
           save_and_preview: Opslaan en previewen
           title: Bewerk nieuwsbrief
         form:
-          interpolations_hint: 'Hint: U kunt "%{name}" overal in het lichaam of onderwerp gebruiken en het wordt vervangen door de naam van de ontvanger.'
+          interpolations_hint: 'Hint: U kunt "%{name}" overal in de body of onderwerp gebruiken en het wordt vervangen door de naam van de ontvanger.'
         index:
           confirm_delete: Weet u zeker dat u deze nieuwsbrief wilt verwijderen?
           title: Nieuwsbrieven
@@ -331,29 +331,29 @@ nl:
         edit:
           update: Bijwerken
         form:
-          cta_button_path_help: 'U kunt overschrijven waar de knop Call to Action op de homepage links naar. Gebruik gedeeltelijke paden, niet volledige URL''s hier. Aanvaardt letters, cijfers, streepjes en streepjes en moet beginnen met een brief. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving. Voorbeeld: %{url}'
-          cta_button_text_help: U kunt de tekst voor oproep naar actie overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
+          cta_button_path_help: 'U kunt de verwijzing van de knop "Call to Action" overschrijven. Gebruik hier gedeeltelijke paden, niet volledige URL''s. Aanvaardt letters, cijfers, streepjes en streepjes en moet beginnen met een brief. De knop "Call to Action" wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving. Voorbeeld: %{url}'
+          cta_button_text_help: U kunt de tekst voor "Call To Action" overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
           header_snippets_help: Gebruik dit veld om dingen toe te voegen aan de HTML-kop. Het meest voorkomende gebruik is het integreren van diensten van derden die extra JavaScript of CSS nodig hebben. U kunt het ook gebruiken om extra metatags toe te voegen aan de HTML. Houd er rekening mee dat dit alleen op openbare pagina's wordt weergegeven, niet in de beheerdersafdeling.
           homepage_appearance_title: Bewerk de startpagina-weergave
-          layout_appearance_title: Bewerk layoutuitstraling
+          layout_appearance_title: Weergave van de lay-out bewerken
       scope_types:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw bereik type.
+          error: Er is een fout opgetreden bij het maken van een nieuwe scope type.
           success: Scope type is succesvol gemaakt.
         destroy:
-          success: Omvangstype is succesvol vernietigd
+          success: Scope type is succesvol vernietigd
         edit:
-          title: Bewerk type type
+          title: Bewerk scope type
           update: Bijwerken
         new:
-          create: Maak een draagstype aan
-          title: Nieuw bereik
+          create: Maak een scope aan
+          title: Nieuwe scope
         update:
           error: Er is een fout opgetreden bij het bijwerken van dit scope type.
           success: Scope type is succesvol bijgewerkt
       scopes:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe reikwijdte.
+          error: Er is een fout opgetreden bij het maken van een nieuwe scope.
           success: Scope is succesvol gemaakt.
         destroy:
           success: Scope succesvol vernietigd
@@ -361,11 +361,11 @@ nl:
           title: Bewerk de scope
           update: Bijwerken
         new:
-          create: Maak ruimte
-          title: Nieuw bereik
+          create: Creëer scope
+          title: Nieuwe scope
         no_scopes: Geen scopes op dit niveau.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van dit bereik.
+          error: Er is een fout opgetreden bij het bijwerken van deze scope.
           success: Scope is succesvol bijgewerkt
       static_pages:
         actions:
@@ -386,7 +386,7 @@ nl:
           success: Pagina is succesvol bijgewerkt
       titles:
         dashboard: Dashboard
-        impersonations: imitaties
+        impersonations: Verpersoonlijkingen
         managed_users: Beheerde gebruikers
         scope_types: Scope types
         scopes: Scopes
@@ -395,8 +395,8 @@ nl:
         users: Gebruikers
       user_group:
         reject:
-          invalid: Er is een fout opgetreden bij het afwijzen van deze gebruikersgroep.
-          success: Gebruikersgroep is succesvol afgewezen
+          invalid: Er is een fout opgetreden bij het weigeren van deze gebruikersgroep.
+          success: Gebruikersgroep is succesvol geweigerd
         verify:
           invalid: Er is een fout opgetreden bij het verifiëren van deze gebruikersgroep.
           success: Gebruikersgroep is succesvol geverifieerd
@@ -405,28 +405,28 @@ nl:
           filter:
             all: Alle
             pending: In afwachting
-            rejected: Verworpen
+            rejected: Geweigerd
             verified: Geverifieerd
           filter_by: Filteren op
           search: Zoeken
           state:
             pending: In afwachting
-            rejected: Verworpen
+            rejected: Geweigerd
             verified: Geverifieerd
       users:
         create:
           error: Er is een fout opgetreden bij het uitnodigen van deze gebruiker.
-          success: Gebruiker heeft succesvol uitgenodigd.
+          success: Gebruiker succesvol uitgenodigd.
         destroy:
           error: Er is een fout opgetreden bij het proberen om deze gebruiker te verwijderen.
-          success: Gebruiker is niet meer een beheerder.
+          success: Gebruiker is niet meer een administrator.
         form:
           email: E-mail
           name: Naam
           role: Rol
         new:
           create: Nodig uit
-          title: Inviteer gebruiker als beheerder
+          title: Nodig gebruiker uit als beheerder
     moderations:
       actions:
         hidden: Verborgen
@@ -441,15 +441,16 @@ nl:
             success: Resource succesvol verborgen.
           unreport:
             invalid: Er is een probleem geweest om de bron niet te rapporteren.
-            success: Resource succesvol ongemeld.
+            success: Bron succesvol ontmeld.
       models:
         moderation:
           fields:
-            hidden_at: Verborgen bij
-            report_count: tellen
+            hidden_at: Verborgen op
+            report_count: Aantal
             reportable: Rapporterbaar
             reported_content_url: Gerapporteerde inhouds-URL
-            reports: Rapporten
+            reports: Meldingen
+            visit_url: Bezoek URL
   errors:
     messages:
       invalid_json: Ongeldige JSON

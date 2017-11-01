@@ -71,7 +71,7 @@ ru:
         assembly:
           fields:
             created_at: 'Добавлено:'
-            promoted: Выдвинутые на первый план
+            promoted: Рекомендуемые
             published: Опубликовано
             title: Название
           name: Собрание
@@ -116,7 +116,7 @@ ru:
         assembly:
           take_part: Принять участие
         index:
-          promoted_assemblies: Выдвинутые на первый план собрания
+          promoted_assemblies: Рекомендуемые собрания
         order_by_assemblies:
           assemblies:
             one: "%{count} собрание"

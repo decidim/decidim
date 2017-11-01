@@ -131,7 +131,7 @@ eu:
           success: Kategoria zuzen eguneratu da.
       dashboard:
         show:
-          welcome: Ongi etorri Decidim administrazio-panel berrira.
+          welcome: Ongi etorri Decidim Admin Panelera.
       exports:
         export_as: "%{name} honako hau gisa: %{export_format}"
         notice: Zure esportazioa bidean da. Mezu elektroniko bat jasoko duzu bukatutakoan.
@@ -450,6 +450,7 @@ eu:
             reportable: Mota
             reported_content_url: Emandako edukiaren URLa
             reports: Salaketak
+            visit_url: Bisitatu URLa
   errors:
     messages:
       invalid_json: JSON baliogabea

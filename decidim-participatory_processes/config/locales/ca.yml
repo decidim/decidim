@@ -232,12 +232,12 @@ ca:
       show:
         developer_group: Grup promotor
         end_date: Data de finalització
-        local_area: Àrea municipal
-        participatory_scope: Àmbit participatiu
-        participatory_structure: Estructura participativa
+        local_area: Àrea d'organització
+        participatory_scope: El que es decideix
+        participatory_structure: Com es decideix
         scope: Àmbit
         start_date: Data d'inici
-        target: A qui va dirigit
+        target: Qui participa
       statistics:
         answers_count: Respostes
         comments_count: Comentaris

@@ -40,6 +40,7 @@ module Decidim
   autoload :Abilities, "decidim/abilities"
   autoload :EngineRouter, "decidim/engine_router"
   autoload :Events, "decidim/events"
+  autoload :ViewHooks, "decidim/view_hooks"
 
   include ActiveSupport::Configurable
 
@@ -248,5 +249,10 @@ module Decidim
   #
   def self.menu(name, &block)
     MenuRegistry.register(name.to_sym, &block)
+  end
+
+  # Public: Stores an instance of ViewHooks
+  def self.view_hooks
+    @view_hooks ||= ViewHooks.new
   end
 end

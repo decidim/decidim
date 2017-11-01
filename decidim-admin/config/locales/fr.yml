@@ -131,7 +131,7 @@ fr:
           success: Catégorie mise à jour avec succès.
       dashboard:
         show:
-          welcome: Bienvenue dans le nouveau panneau d’administration Decidim.
+          welcome: Bienvenue dans le panneau d'administration de Decidim.
       exports:
         export_as: "%{name} comme %{export_format}"
         notice: Votre exportation est en cours. Vous recevrez un e-mail quand elle sera terminée.
@@ -450,6 +450,7 @@ fr:
             reportable: Signalable
             reported_content_url: Contenu d'une URL
             reports: Signalements
+            visit_url: URL de visite
   errors:
     messages:
       invalid_json: JSON non valide

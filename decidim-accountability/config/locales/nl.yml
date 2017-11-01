@@ -4,7 +4,7 @@ nl:
       result:
         decidim_accountability_status_id: staat
         decidim_category_id: Categorie
-        decidim_scope_id: Reikwijdte
+        decidim_scope_id: Scope
         description: Beschrijving
         end_date: Einddatum
         progress: Vooruitgang

@@ -132,7 +132,7 @@ en:
           success: Category updated successfully.
       dashboard:
         show:
-          welcome: Welcome to the new Decidim Panel Admin.
+          welcome: Welcome to the Decidim Admin Panel.
       exports:
         export_as: "%{name} as %{export_format}"
         notice: Your export is currently in progress. You'll receive an email when it's complete.
@@ -451,6 +451,7 @@ en:
             reportable: Reportable
             reported_content_url: Reported content URL
             reports: Reports
+            visit_url: Visit URL
   errors:
     messages:
       invalid_json: Invalid JSON
