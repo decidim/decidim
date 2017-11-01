@@ -224,6 +224,12 @@ uk:
         active: Започатковані
         past: Минулі
         upcoming: Прийдешні
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Започаті рухи
+            active_step: Започатий крок
+            see_all_processes: Переглянути всі рухи
       participatory_process_groups:
         none: Жоден
       participatory_processes:
