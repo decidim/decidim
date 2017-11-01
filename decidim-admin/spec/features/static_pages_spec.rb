@@ -109,7 +109,7 @@ describe "Content pages", type: :feature do
 
       it "can destroy them" do
         within find("tr", text: translated(decidim_page.title)) do
-          page.find(".action-icon.action-icon--remove").click
+          accept_confirm { page.find(".action-icon.action-icon--remove").click }
         end
 
         within ".callout-wrapper" do

@@ -82,7 +82,7 @@ RSpec.shared_examples "manage child results" do
 
     it "deletes a result" do
       within find("tr", text: translated(child_result.title)) do
-        find("a.action-icon--remove").click
+        accept_confirm { find("a.action-icon--remove").click }
       end
 
       within ".callout-wrapper" do

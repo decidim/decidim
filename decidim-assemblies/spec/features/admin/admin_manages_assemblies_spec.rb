@@ -129,7 +129,7 @@ describe "Admin manages assemblies", type: :feature do
 
     it "deletes an assembly" do
       click_link translated(assembly2.title)
-      click_link "Destroy"
+      accept_confirm { click_link "Destroy" }
 
       within ".callout-wrapper" do
         expect(page).to have_content("successfully")

@@ -107,7 +107,7 @@ shared_examples "manage projects" do
 
     it "deletes a project" do
       within find("tr", text: translated(project2.title)) do
-        find("a.action-icon--remove").click
+        accept_confirm { find("a.action-icon--remove").click }
       end
 
       within ".callout-wrapper" do
