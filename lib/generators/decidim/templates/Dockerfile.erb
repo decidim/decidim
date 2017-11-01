@@ -21,5 +21,3 @@ WORKDIR $APP_HOME
 COPY . ./
 
 RUN bundle exec rails assets:precompile
-
-CMD ["bundle", "exec", "rails", "s", "-b0.0.0.0"]
