@@ -1,7 +1,8 @@
-version: '2'
+version: '3'
 services:
   app:
     build: '.'
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/code
     environment:
