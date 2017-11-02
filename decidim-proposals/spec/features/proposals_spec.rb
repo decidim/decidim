@@ -260,7 +260,6 @@ describe "Proposals", type: :feature do
           visit_feature
 
           click_link "New proposal"
-
           within ".new_proposal" do
             fill_in :proposal_title, with: "Creating my first and only proposal"
             fill_in :proposal_body, with: "This is my only proposal's body and I'm using it unwisely."
@@ -268,18 +267,18 @@ describe "Proposals", type: :feature do
           end
 
           expect(page).to have_content("successfully")
-          visit_feature
-          expect(page).to have_css(".disabled", text: "New proposal")
-        end
 
-        it "redirects when trying to get into the new page when a proposal is previously created" do
           visit_feature
-          create(:proposal, author: user, feature: feature)
+
           click_link "New proposal"
-
-          within ".flash.alert" do
-            expect(page).to have_content "limit"
+          within ".new_proposal" do
+            fill_in :proposal_title, with: "Creating my second and impossible proposal"
+            fill_in :proposal_body, with: "This is my only proposal's body and I'm using it unwisely."
+            find("*[type=submit]").click
           end
+
+          expect(page).to have_no_content("successfully")
+          expect(page).to have_css(".callout.alert", text: "limit")
         end
       end
     end
