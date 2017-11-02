@@ -6,7 +6,7 @@ ENV APP_HOME /decidim
 RUN apt-get update
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash && \
     apt-get install -y nodejs
-RUN gem install bundler --no-document
+RUN gem install bundler --no-rdoc --no-ri
 
 ADD Gemfile /tmp/Gemfile
 ADD Gemfile.lock /tmp/Gemfile.lock
@@ -56,12 +56,11 @@ ADD decidim-surveys/lib/decidim/surveys/version.rb /tmp/decidim-surveys/lib/deci
 ADD decidim-accountability/decidim-accountability.gemspec /tmp/decidim-accountability/decidim-accountability.gemspec
 ADD decidim-accountability/lib/decidim/accountability/version.rb /tmp/decidim-accountability/lib/decidim/accountability/version.rb
 
-RUN cd /tmp && bundle install
+ADD package.json /tmp/package.json
+ADD package-lock.json /tmp/package-lock.json
 
-COPY package.json /tmp/package.json
-COPY package-lock.json /tmp/package-lock.json
+RUN cd /tmp && bundle install && npm i
 
-RUN cd /tmp && npm i
-
+RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
-COPY . ./
+ADD . $APP_HOME

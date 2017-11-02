@@ -1,8 +1,10 @@
-version: '3'
+version: '2'
 services:
   app:
-    build: '.'
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    build:
+      context: .
+      args:
+        rails_env: development
     volumes:
       - .:/code
     environment:

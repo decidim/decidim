@@ -8,11 +8,14 @@ ENV APP_HOME /code
 ENV RAILS_ENV $rails_env
 ENV SECRET_KEY_BASE $secret_key_base
 
-COPY Gemfile /tmp/Gemfile
-COPY Gemfile.lock /tmp/Gemfile.lock
+ADD Gemfile /tmp/Gemfile
+ADD Gemfile.lock /tmp/Gemfile.lock
 RUN cd /tmp && bundle install
 
+RUN mkdir -p $APP_HOME
 WORKDIR $APP_HOME
-COPY . ./
+ADD . $APP_HOME
 
-RUN bundle exec rails assets:precompile
+RUN bundle exec rake DATABASE_URL=postgresql://user:pass@127.0.0.1/dbname assets:precompile
+
+CMD ["bundle", "exec", "rails", "s", "-b0.0.0.0"]
