@@ -15,10 +15,10 @@ jobs:
   build:
     <<: *defaults
     steps:
+      - checkout
       - run:
           name: Install PhantomJS
           command: sh .circleci/install-phantom.sh
-      - checkout
       - run:
           name: Install app dependencies
           command: |
