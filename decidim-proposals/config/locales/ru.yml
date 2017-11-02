@@ -129,7 +129,6 @@ ru:
           unfold: Развернуть
         index:
           new_proposal: Новое предложение
-          proposal_limit_reached: Достигнуто максимальное количество предложений
           view_proposal: Просмотреть предложение
         linked_proposals:
           proposal_votes:
