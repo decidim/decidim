@@ -127,7 +127,6 @@ fr:
           unfold: Déplier
         index:
           new_proposal: Nouvelle proposition
-          proposal_limit_reached: Nombre maximum de propositions atteint
           view_proposal: Voir la proposition
         linked_proposals:
           proposal_votes:
