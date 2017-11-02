@@ -11,7 +11,11 @@ shared_examples "create a proposal" do |with_author|
       current_feature: feature
     )
   end
-  let(:author) { create(:user, organization: organization) } if with_author
+
+  let!(:author) { create(:user, organization: organization) } if with_author
+  let!(:user_group) do
+    create(:user_group, :verified, organization: organization, users: [author])
+  end
 
   let(:has_address) { false }
   let(:address) { nil }
@@ -26,7 +30,8 @@ shared_examples "create a proposal" do |with_author|
         body: "A reasonable proposal body",
         address: address,
         has_address: has_address,
-        attachment: attachment_params
+        attachment: attachment_params,
+        user_group_id: user_group.try(:id)
       }
     end
 
@@ -66,22 +71,53 @@ shared_examples "create a proposal" do |with_author|
       end
 
       if with_author
-        it "sets the author" do
-          command.call
-          proposal = Decidim::Proposals::Proposal.last
+        context "with an author" do
+          let(:user_group) { nil }
 
-          expect(proposal.author).to eq(author)
-        end
+          it "sets the author" do
+            command.call
+            proposal = Decidim::Proposals::Proposal.last
 
-        context "with a proposal limit" do
-          let(:feature) do
-            create(:proposal_feature, settings: { "proposal_limit" => 2 })
+            expect(proposal.author).to eq(author)
+            expect(proposal.user_group).to eq(nil)
           end
 
-          it "checks the author doesn't exceed the amount of proposals" do
-            expect { command.call }.to broadcast(:ok)
-            expect { command.call }.to broadcast(:ok)
-            expect { command.call }.to broadcast(:invalid)
+          context "with a proposal limit" do
+            let(:feature) do
+              create(:proposal_feature, settings: { "proposal_limit" => 2 })
+            end
+
+            it "checks the author doesn't exceed the amount of proposals" do
+              expect { command.call }.to broadcast(:ok)
+              expect { command.call }.to broadcast(:ok)
+              expect { command.call }.to broadcast(:invalid)
+            end
+          end
+        end
+
+        context "with a user group" do
+          it "sets the user group" do
+            command.call
+            proposal = Decidim::Proposals::Proposal.last
+
+            expect(proposal.author).to eq(author)
+            expect(proposal.user_group).to eq(user_group)
+          end
+
+          context "with a proposal limit" do
+            let(:feature) do
+              create(:proposal_feature, settings: { "proposal_limit" => 2 })
+            end
+
+            before do
+              create_list(:proposal, 2, feature: feature, author: author)
+            end
+
+            it "checks the user group doesn't exceed the amount of proposals independently of the author" do
+              expect { command.call }.to broadcast(:ok)
+              expect { command.call }.to broadcast(:ok)
+              expect { command.call }.to broadcast(:invalid)
+            end
           end
         end
       end
