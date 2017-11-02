@@ -129,7 +129,6 @@ uk:
           unfold: Розгорнути
         index:
           new_proposal: Нова пропозиція
-          proposal_limit_reached: Досягнуто максимальної дозволеної кількості пропозицій
           view_proposal: Переглянути пропозицію
         linked_proposals:
           proposal_votes:
