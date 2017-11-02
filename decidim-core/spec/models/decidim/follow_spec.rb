@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Follow, :db do
+describe Decidim::Follow do
   let(:follow) { build(:follow) }
   subject { follow }
 

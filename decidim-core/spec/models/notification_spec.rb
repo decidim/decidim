@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Notification, :db do
+describe Decidim::Notification do
   let(:notification) { build(:notification) }
   subject { notification }
 
