@@ -17,12 +17,7 @@ jobs:
     steps:
       - run:
           name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          command: sh .circleci/install-phantom.sh
       - checkout
       - run:
           name: Install app dependencies
@@ -31,10 +26,7 @@ jobs:
             npm i
       - run:
           name: Install dockerize
-          command: |
-            wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          command: sh .circleci/install-dockerize.sh
           environment:
             DOCKERIZE_VERSION: v0.3.0
       - run:
@@ -54,18 +46,10 @@ jobs:
           at: /code
       - run:
           name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          command: sh .circleci/install-phantom.sh
       - run:
           name: Install dockerize
-          command: |
-            wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          command: sh .circleci/install-dockerize.sh
           environment:
             DOCKERIZE_VERSION: v0.3.0
       - run:
@@ -92,19 +76,11 @@ jobs:
           at: /code
       - run:
           name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=core
       - run:
           name: Install dockerize
-          command: |
-            wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          command: sh .circleci/install-dockerize.sh
           environment:
             DOCKERIZE_VERSION: v0.3.0
       - run:
@@ -131,19 +107,11 @@ jobs:
           at: /code
       - run:
           name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=assemblies
       - run:
           name: Install dockerize
-          command: |
-            wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          command: sh .circleci/install-dockerize.sh
           environment:
             DOCKERIZE_VERSION: v0.3.0
       - run:
@@ -170,19 +138,11 @@ jobs:
           at: /code
       - run:
           name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=api
       - run:
           name: Install dockerize
-          command: |
-            wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          command: sh .circleci/install-dockerize.sh
           environment:
             DOCKERIZE_VERSION: v0.3.0
       - run:
@@ -209,19 +169,11 @@ jobs:
           at: /code
       - run:
           name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=processes
       - run:
           name: Install dockerize
-          command: |
-            wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          command: sh .circleci/install-dockerize.sh
           environment:
             DOCKERIZE_VERSION: v0.3.0
       - run:
@@ -248,19 +200,11 @@ jobs:
           at: /code
       - run:
           name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=admin
       - run:
           name: Install dockerize
-          command: |
-            wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          command: sh .circleci/install-dockerize.sh
           environment:
             DOCKERIZE_VERSION: v0.3.0
       - run:
@@ -287,19 +231,11 @@ jobs:
           at: /code
       - run:
           name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=system
       - run:
           name: Install dockerize
-          command: |
-            wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          command: sh .circleci/install-dockerize.sh
           environment:
             DOCKERIZE_VERSION: v0.3.0
       - run:
@@ -326,19 +262,11 @@ jobs:
           at: /code
       - run:
           name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=proposals
       - run:
           name: Install dockerize
-          command: |
-            wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          command: sh .circleci/install-dockerize.sh
           environment:
             DOCKERIZE_VERSION: v0.3.0
       - run:
@@ -365,19 +293,11 @@ jobs:
           at: /code
       - run:
           name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=comments
       - run:
           name: Install dockerize
-          command: |
-            wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          command: sh .circleci/install-dockerize.sh
           environment:
             DOCKERIZE_VERSION: v0.3.0
       - run:
@@ -404,19 +324,11 @@ jobs:
           at: /code
       - run:
           name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=meetings
       - run:
           name: Install dockerize
-          command: |
-            wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          command: sh .circleci/install-dockerize.sh
           environment:
             DOCKERIZE_VERSION: v0.3.0
       - run:
@@ -443,19 +355,11 @@ jobs:
           at: /code
       - run:
           name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=pages
       - run:
           name: Install dockerize
-          command: |
-            wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          command: sh .circleci/install-dockerize.sh
           environment:
             DOCKERIZE_VERSION: v0.3.0
       - run:
@@ -482,19 +386,11 @@ jobs:
           at: /code
       - run:
           name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=accountability
       - run:
           name: Install dockerize
-          command: |
-            wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          command: sh .circleci/install-dockerize.sh
           environment:
             DOCKERIZE_VERSION: v0.3.0
       - run:
@@ -521,19 +417,11 @@ jobs:
           at: /code
       - run:
           name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=budgets
       - run:
           name: Install dockerize
-          command: |
-            wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          command: sh .circleci/install-dockerize.sh
           environment:
             DOCKERIZE_VERSION: v0.3.0
       - run:
@@ -560,19 +448,11 @@ jobs:
           at: /code
       - run:
           name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=surveys
       - run:
           name: Install dockerize
-          command: |
-            wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-            rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
+          command: sh .circleci/install-dockerize.sh
           environment:
             DOCKERIZE_VERSION: v0.3.0
       - run:
