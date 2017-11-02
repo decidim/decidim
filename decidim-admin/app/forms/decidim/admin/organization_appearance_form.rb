@@ -29,7 +29,7 @@ module Decidim
       translatable_attribute :description, String
       translatable_attribute :welcome_text, String
 
-      validates :cta_button_path, format: { with: %r{\A[a-zA-Z]+[a-zA-Z0-9-/]+\z} }, allow_blank: true
+      validates :cta_button_path, format: { with: %r{\A[a-zA-Z]+[a-zA-Z0-9\-/]+\z} }, allow_blank: true
       validates :official_img_header,
                 :official_img_footer,
                 :homepage_image,
