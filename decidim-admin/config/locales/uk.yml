@@ -129,6 +129,9 @@ uk:
         update:
           error: При оновленні цього розділу сталася помилка.
           success: Розділ успішно оновлено.
+      dashboard:
+        show:
+          welcome: Ласкаво просимо до адмін-панелі Десідім!
       exports:
         export_as: "%{name} як %{export_format}"
         notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.
@@ -447,6 +450,7 @@ uk:
             reportable: Тип скарги
             reported_content_url: URL-адреса оскарженого вмісту
             reports: Скарги
+            visit_url: Відвідайте URL-адресу
   errors:
     messages:
       invalid_json: Неприпустимий JSON

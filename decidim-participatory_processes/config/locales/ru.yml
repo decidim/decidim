@@ -224,6 +224,12 @@ ru:
         active: Начатые
         past: Прошедшие
         upcoming: Предстоящие
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Начатые движения
+            active_step: Начатый шаг
+            see_all_processes: Просмотреть все движения
       participatory_process_groups:
         none: Нет
       participatory_processes:

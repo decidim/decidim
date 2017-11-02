@@ -355,10 +355,6 @@ fi:
       hero:
         participate: Osallistu
         welcome: Tervetuloa organisaatioon %{organization}!
-      highlighted_processes:
-        active_processes: Aktiiviset prosessit
-        active_step: Aktiivinen vaihe
-        see_all_processes: Näytä kaikki prosessit
       statistics:
         answers_count: Vastaukset
         comments_count: Kommentit

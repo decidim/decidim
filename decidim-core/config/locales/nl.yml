@@ -354,10 +354,6 @@ nl:
       hero:
         participate: Deelnemen
         welcome: Welkom bij %{organization}!
-      highlighted_processes:
-        active_processes: Actieve processen
-        active_step: Actieve stap
-        see_all_processes: Toon alle processen
       statistics:
         answers_count: Antwoorden
         comments_count: Reacties

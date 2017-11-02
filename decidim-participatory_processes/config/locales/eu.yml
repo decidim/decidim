@@ -224,6 +224,12 @@ eu:
         active: Aktiboa
         past: Aurrekoak
         upcoming: Hurrengoak
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Prozesu aktiboak
+            active_step: Urratsa aktiboa
+            see_all_processes: Ikusi prozesu guztiak
       participatory_process_groups:
         none: Bat bera ere ez
       participatory_processes:

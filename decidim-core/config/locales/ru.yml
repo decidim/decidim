@@ -354,10 +354,6 @@ ru:
       hero:
         participate: Принять участие
         welcome: Добро пожаловать в %{organization}!
-      highlighted_processes:
-        active_processes: Начатые движения
-        active_step: Начатый шаг
-        see_all_processes: Просмотреть все движения
       statistics:
         answers_count: Ответы
         comments_count: Комментарии
