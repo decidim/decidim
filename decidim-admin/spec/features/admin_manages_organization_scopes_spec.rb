@@ -74,7 +74,7 @@ describe "Organization scopes", type: :feature do
 
       it "can destroy them" do
         within find("tr", text: translated(scope.name)) do
-          page.find("a.action-icon.action-icon--remove").click
+          accept_confirm { page.find("a.action-icon.action-icon--remove").click }
         end
 
         within ".callout-wrapper" do

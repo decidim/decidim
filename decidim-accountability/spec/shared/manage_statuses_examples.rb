@@ -73,7 +73,7 @@ RSpec.shared_examples "manage statuses" do
 
     it "deletes a status" do
       within find("tr", text: status2.key) do
-        find("a.action-icon--remove").click
+        accept_confirm { find("a.action-icon--remove").click }
       end
 
       within ".callout-wrapper" do

@@ -123,7 +123,7 @@ shared_examples "manage meetings" do
 
     it "deletes a meeting" do
       within find("tr", text: translated(meeting2.title)) do
-        page.find("a.action-icon--remove").click
+        accept_confirm { page.find("a.action-icon--remove").click }
       end
 
       within ".callout-wrapper" do
