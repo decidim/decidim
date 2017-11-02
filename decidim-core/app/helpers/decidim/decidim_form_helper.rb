@@ -19,7 +19,7 @@ module Decidim
 
       output = ""
       output += base_error_messages(record).to_s
-      output += form_for(record, options, &block)
+      output += form_for(record, options, &block).to_s
 
       output.html_safe
     end
