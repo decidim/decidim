@@ -12,9 +12,12 @@ shared_examples "create a proposal" do |with_author|
     )
   end
 
-  let!(:author) { create(:user, organization: organization) } if with_author
-  let!(:user_group) do
-    create(:user_group, :verified, organization: organization, users: [author])
+  if with_author
+    let(:author) { create(:user, organization: organization) }
+
+    let(:user_group) do
+      create(:user_group, :verified, organization: organization, users: [author])
+    end
   end
 
   let(:has_address) { false }
@@ -31,7 +34,7 @@ shared_examples "create a proposal" do |with_author|
         address: address,
         has_address: has_address,
         attachment: attachment_params,
-        user_group_id: user_group.try(:id)
+        user_group_id: (with_author ? user_group.try(:id) : nil)
       }
     end
 

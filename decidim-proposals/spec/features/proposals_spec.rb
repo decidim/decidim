@@ -280,16 +280,6 @@ describe "Proposals", type: :feature do
           expect(page).to have_no_content("successfully")
           expect(page).to have_css(".callout.alert", text: "limit")
         end
-
-        it "redirects when trying to get into the new page when a proposal is previously created" do
-          visit_feature
-          create(:proposal, author: user, feature: feature)
-          click_link "New proposal"
-
-          within ".flash.alert" do
-            expect(page).to have_content "limit"
-          end
-        end
       end
     end
   end
