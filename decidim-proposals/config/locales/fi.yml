@@ -127,7 +127,6 @@ fi:
           unfold: Avaa
         index:
           new_proposal: Uusi ehdotus
-          proposal_limit_reached: Ehdotuksen raja saavutettu
           view_proposal: Näytä ehdotus
         linked_proposals:
           proposal_votes:
