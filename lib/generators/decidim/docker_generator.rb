@@ -9,10 +9,8 @@ module Decidim
     class DockerGenerator < Rails::Generators::Base
       desc "Generate a docker app for development purposes"
 
-      class_option :path, type: :string,
-                          desc: "The path to generate the docker app"
-
-      source_root File.expand_path("templates", __dir__)
+      class_option :docker_app_path, type: :string,
+                                     desc: "The path to generate the docker app"
 
       def source_paths
         [
@@ -25,19 +23,20 @@ module Decidim
       end
 
       def create_rails_app
-        Decidim::Generators::AppGenerator.start([path, "--demo"])
+        Decidim::Generators::AppGenerator.start(
+          [docker_app_path, "--path", "..", "--demo"]
+        )
       end
 
       def build_docker
-        remove_file "#{path}/Dockerfile"
-        template "Dockerfile.dev.erb", "#{path}/Dockerfile"
-        inside(path) do
+        template "Dockerfile.dev.erb", "#{docker_app_path}/Dockerfile", force: true
+        inside(docker_app_path) do
           gsub_file "Gemfile",
-                    /gem "decidim(.*)"/,
-                    'gem "decidim", path: "/decidim"'
+                    /gem "decidim([^"]*)".*/,
+                    'gem "decidim\1", path: "/decidim"'
 
           run "docker-compose build"
-          run "docker-compose run --rm app rails db:drop db:create db:migrate db:setup"
+          run "docker-compose run --rm app rails db:drop db:create db:migrate db:seed"
         end
       end
 
@@ -50,11 +49,11 @@ module Decidim
       private
 
       def remove_directory_if_exists
-        remove_dir(path) if File.directory?(path)
+        remove_dir(docker_app_path) if File.directory?(docker_app_path)
       end
 
-      def path
-        options[:path]
+      def docker_app_path
+        options[:docker_app_path]
       end
     end
   end
