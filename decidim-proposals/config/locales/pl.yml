@@ -128,7 +128,6 @@ pl:
           unfold: Rozwijać się
         index:
           new_proposal: Nowa propozycja
-          proposal_limit_reached: Osiągnięto limit propozycji
           view_proposal: Wyświetl propozycję
         linked_proposals:
           proposal_votes:
