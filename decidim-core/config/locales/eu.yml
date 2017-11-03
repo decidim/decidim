@@ -354,10 +354,6 @@ eu:
       hero:
         participate: Parte hartu
         welcome: Ongi etorri %{organization} erakundera!
-      highlighted_processes:
-        active_processes: Prozesu aktiboak
-        active_step: Fase gaitua
-        see_all_processes: Ikusi prozesu guztiak
       statistics:
         answers_count: Erantzunak
         comments_count: Iruzkinak

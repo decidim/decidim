@@ -86,7 +86,7 @@ nl:
             category: Categorie
             id: ID kaart
             official_proposal: Officieel voorstel
-            scope: Reikwijdte
+            scope: Scope
             state: Staat
             title: Titel
             votes: stemmen
@@ -115,7 +115,7 @@ nl:
           origin: Oorsprong
           rejected: Verworpen
           related_to: Gerelateerd aan
-          scope_prompt: Selecteer een bereik
+          scope_prompt: Selecteer een scope
           scopes: Scopes
           search: Zoeken
           state: Staat
@@ -127,12 +127,11 @@ nl:
           unfold: Ontvouwen
         index:
           new_proposal: Nieuw voorstel
-          proposal_limit_reached: Voorstellimiet bereikt
           view_proposal: Bekijk voorstel
         linked_proposals:
           proposal_votes:
-            one: <span class="card--list__data__number">1</span>vote
-            other: <span class="card--list__data__number">%{count}</span>votes
+            one: stemmen
+            other: stemmen
         new:
           attachment_legend: "(Optioneel) Een bijlage toevoegen"
           back: Terug

@@ -127,12 +127,11 @@ it:
           unfold: Espandi
         index:
           new_proposal: Nuova proposta
-          proposal_limit_reached: Limite della proposta raggiunto
           view_proposal: Visualizza proposta
         linked_proposals:
           proposal_votes:
-            one: <span class="card--list__data__number">1</span>voto
-            other: <span class="card--list__data__number">%{count}</span>voti
+            one: votazione
+            other: voti
         new:
           attachment_legend: "(Facoltativo) Aggiungere un allegato"
           back: Indietro

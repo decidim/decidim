@@ -224,6 +224,12 @@ ca:
         active: Actius
         past: Passats
         upcoming: Propers
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Processos actius
+            active_step: Pas actiu
+            see_all_processes: Veure tots els processos
       participatory_process_groups:
         none: Cap
       participatory_processes:
@@ -232,12 +238,12 @@ ca:
       show:
         developer_group: Grup promotor
         end_date: Data de finalització
-        local_area: Àrea municipal
-        participatory_scope: Àmbit participatiu
-        participatory_structure: Estructura participativa
+        local_area: Àrea d'organització
+        participatory_scope: El que es decideix
+        participatory_structure: Com es decideix
         scope: Àmbit
         start_date: Data d'inici
-        target: A qui va dirigit
+        target: Qui participa
       statistics:
         answers_count: Respostes
         comments_count: Comentaris

@@ -27,7 +27,7 @@ nl:
           success: Admin succesvol bijgewerkt
       default_pages:
         placeholders:
-          content: Voeg relevante inhoud aan het statische pagina van %{page} op het dashboard admin.
+          content: Voeg relevante inhoud aan het statische pagina van %{page} op het admin dashboard.
           title: Standaard titel voor %{page}
       menu:
         admins: Admins

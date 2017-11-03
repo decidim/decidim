@@ -127,12 +127,11 @@ eu:
           unfold: Zabaldu
         index:
           new_proposal: Proposamen berria
-          proposal_limit_reached: Proposatutako mugara iritsi da
           view_proposal: Ikusi proposamena
         linked_proposals:
           proposal_votes:
-            one: <span class="card--list__data__number">1</span>boto
-            other: <span class="card--list__data__number">%{count}</span>boto
+            one: proiektuaren alde egin
+            other: euskarriak
         new:
           attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
           back: Atzera

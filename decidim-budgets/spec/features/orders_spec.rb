@@ -162,7 +162,7 @@ describe "Orders", type: :feature do
         visit_feature
 
         within ".budget-summary" do
-          page.find(".cancel-order").click
+          accept_confirm { page.find(".cancel-order").click }
         end
 
         expect(page).to have_content("successfully")

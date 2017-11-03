@@ -61,6 +61,20 @@ module Decidim
         current_settings.votes_enabled
       end
 
+      # Public: Checks if voting is blocked in this step.
+      #
+      # Returns true if blocked, false otherwise.
+      def votes_blocked?
+        current_settings.votes_blocked
+      end
+
+      # Public: Checks if the current user is allowed to vote in this step.
+      #
+      # Returns true if the current user can vote, false otherwise.
+      def current_user_can_vote?
+        current_user && votes_enabled? && vote_limit_enabled? && !votes_blocked?
+      end
+
       # Return the remaining votes for a user if the current feature has a vote limit
       #
       # user - A User object

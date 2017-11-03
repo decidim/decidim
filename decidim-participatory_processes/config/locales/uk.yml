@@ -214,16 +214,22 @@ uk:
       admin:
         participatory_process_copies:
           form:
-            slug_help: 'Cкорочені URL-адреси використовуються для стислої передачі URL-адрес, які вказують на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
+            slug_help: 'Cкорочені URL-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
         participatory_processes:
           form:
-            slug_help: 'Cкорочені URL-адреси використовуються для стислої передачі URL-адрес, які вказують на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
+            slug_help: 'Cкорочені URL-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
       index:
         title: Рухи співучасті
       order_by_processes:
         active: Започатковані
         past: Минулі
         upcoming: Прийдешні
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Започаті рухи
+            active_step: Започатий крок
+            see_all_processes: Переглянути всі рухи
       participatory_process_groups:
         none: Жоден
       participatory_processes:
@@ -232,12 +238,12 @@ uk:
       show:
         developer_group: Група розробників
         end_date: Дата закінчення
-        local_area: Місцевість
-        participatory_scope: Терен співучасті
-        participatory_structure: Структура співучасті
+        local_area: Терен організації
+        participatory_scope: Що вирішується
+        participatory_structure: Як це вирішується
         scope: Терен
         start_date: Дата початку
-        target: Мета
+        target: Хто бере участь
       statistics:
         answers_count: Відповіді
         comments_count: Коментарі

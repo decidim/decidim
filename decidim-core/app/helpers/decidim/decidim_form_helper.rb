@@ -17,7 +17,11 @@ module Decidim
       options[:html] ||= {}
       options[:html].update(novalidate: true)
 
-      form_for(record, options, &block)
+      output = ""
+      output += base_error_messages(record).to_s
+      output += form_for(record, options, &block).to_s
+
+      output.html_safe
     end
 
     # A custom helper to include an editor field without requiring a form object
@@ -148,6 +152,13 @@ module Decidim
         ].join("").html_safe +
           content_tag(:span, value, class: "slug-url-value")
       end
+    end
+
+    def base_error_messages(record)
+      return unless record.respond_to?(:errors)
+      return unless record.errors[:base].any?
+
+      alert_box(record.errors.full_messages_for(:base).join(","), "alert", false)
     end
   end
 end

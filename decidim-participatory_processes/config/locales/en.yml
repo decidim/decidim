@@ -225,6 +225,12 @@ en:
         active: Active
         past: Past
         upcoming: Upcoming
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Active processes
+            active_step: Active step
+            see_all_processes: See all processes
       participatory_process_groups:
         none: None
       participatory_processes:
@@ -233,12 +239,12 @@ en:
       show:
         developer_group: Developer group
         end_date: End date
-        local_area: Local area
-        participatory_scope: Participatory scope
-        participatory_structure: Participatory structure
+        local_area: Organization Area
+        participatory_scope: What is decided
+        participatory_structure: How is it decided
         scope: Scope
         start_date: Start date
-        target: Target
+        target: Who participates
       statistics:
         answers_count: Answers
         comments_count: Comments

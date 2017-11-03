@@ -127,12 +127,11 @@ fr:
           unfold: Déplier
         index:
           new_proposal: Nouvelle proposition
-          proposal_limit_reached: Nombre maximum de propositions atteint
           view_proposal: Voir la proposition
         linked_proposals:
           proposal_votes:
-            one: <span class="card--list__data__number">1</span>vote
-            other: <span class="card--list__data__number">%{count}</span>votes
+            one: voter
+            other: votes
         new:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour

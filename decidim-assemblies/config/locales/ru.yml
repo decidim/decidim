@@ -26,6 +26,7 @@ ru:
     admin:
       assemblies:
         create:
+          error: При добавлении нового собрания произошла ошибка.
           success: Собрание успешно добавлено.
         destroy:
           success: Собрание успешно удалено.
@@ -40,18 +41,23 @@ ru:
           create: Добавить
           title: Новое собрание
         update:
+          error: При обновлении этого собрания произошла ошибка.
           success: Собрание успешно обновлено.
       assemblies_copies:
         create:
+          error: При создании копии этого собрания произошла ошибка.
           success: Успешно создана копия собрания.
       assembly_copies:
         new:
           copy: Копировать
+          select: Выберите, какие данные вы хотите продублировать
           title: Создать копию собрания
       assembly_publications:
         create:
+          error: При публикации этого собрания произошла ошибка.
           success: Собрание успешно опубликовано.
         destroy:
+          error: При отмене публикации этого собрания произошла ошибка.
           success: Публикация собрания успешно отменена.
       menu:
         assemblies: Собрания
@@ -65,13 +71,20 @@ ru:
         assembly:
           fields:
             created_at: 'Добавлено:'
-            promoted: Выдвинутые на первый план
+            promoted: Рекомендуемые
             published: Опубликовано
             title: Название
           name: Собрание
       titles:
         assemblies: Собрания
     assemblies:
+      admin:
+        assemblies:
+          form:
+            slug_help: 'Сокращенные URL-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
+        assembly_copies:
+          form:
+            slug_help: 'Сокращенные URL-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
       index:
         title: Собрания
       show:
@@ -103,7 +116,7 @@ ru:
         assembly:
           take_part: Принять участие
         index:
-          promoted_assemblies: Выдвинутые на первый план собрания
+          promoted_assemblies: Рекомендуемые собрания
         order_by_assemblies:
           assemblies:
             one: "%{count} собрание"

@@ -21,9 +21,8 @@ describe "Participatory Processes", type: :feature do
 
   context "when there are no processes" do
     context "direct access form URL" do
-      it "renders an error page" do
-        visit decidim_participatory_processes.participatory_processes_path
-        expect(page).to have_http_status(:not_found)
+      it_behaves_like "a 404 page" do
+        let(:target_path) { decidim_participatory_processes.participatory_processes_path }
       end
     end
 
@@ -51,9 +50,8 @@ describe "Participatory Processes", type: :feature do
     end
 
     context "direct access from URL" do
-      it "renders an error page" do
-        visit decidim_participatory_processes.participatory_processes_path
-        expect(page).to have_http_status(:not_found)
+      it_behaves_like "a 404 page" do
+        let(:target_path) { decidim_participatory_processes.participatory_processes_path }
       end
     end
 

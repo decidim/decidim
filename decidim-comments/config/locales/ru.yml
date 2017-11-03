@@ -1,11 +1,29 @@
 ru:
   decidim:
+    comments:
+      events:
+        comment_created:
+          comment:
+            email_intro: '«%{resource_title}» прокомментировали. Вы можете прочитать комментарий на странице:'
+            email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
+            email_subject: Появился новый комментарий от %{author_name} в %{resource_title}
+            notification_title: Появился новый комментарий от %{author_name} в <a href="%{resource_path}">%{resource_title}</a>
+          reply:
+            email_intro: '«%{resource_title}» прокомментировано'
+            email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
+            email_subject: На ваш комментарий появился новый ответ от %{author_name} в <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: На ваш комментарий появился новый ответ от %{author_name} в <a href="%{resource_path}">%{resource_title}</a>
+      votes:
+        create:
+          error: При голосовании за комментарий произошли ошибки.
     components:
       add_comment_form:
+        account_message: <a href="%{sign_in_url}">Войдите в систему через свою учетную запись</a> или <a href="%{sign_up_url}">зарегистрируйтесь</a>, чтобы добавить свой комментарий.
         form:
           body:
             label: Комментарий
             placeholder: Что вы думаете об этом?
+          form_error: Тут обязательно нужно ввести текст, но не больше %{length} символов.
           submit: Отправить
           user_group_id:
             label: Комментировать как
@@ -26,6 +44,10 @@ ru:
           close: Закрыть
           description: Это сообщение неприемлемо?
           details: Дополнительные комментарии
+          reasons:
+            does_not_belong: Содержит незаконную деятельность, угрозы самоубийства, личную информацию или что-то еще, недопустимое, на ваш взгляд, для %{organization_name}.
+            offensive: Содержит расизм, сексизм, оскорбления, личные нападки, угрозы убийства, заявления о самоубийстве, или любую форму разжигания ненависти.
+            spam: Содержит кликоловки (манипулятивно-сенсационные заголовки), рекламу, мошенничество или лохотроны.
           title: Пожаловаться на проблему
         verified_user_group: Проверенная организация
       comment_order_selector:
@@ -38,6 +60,7 @@ ru:
       comment_thread:
         title: Беседа с %{authorName}
       comments:
+        blocked_comments_warning: На текущем шаге комментарии отключены, но вы можете прочитать комментарии предыдущих шагов.
         loading: Загрузка комментариев ...
         title: "%{count} комментариев"
       featured_comment:

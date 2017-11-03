@@ -224,6 +224,12 @@ fi:
         active: Aktivoi
         past: Menneet
         upcoming: Tulevat
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Aktiiviset prosessit
+            active_step: Aktiivinen vaihe
+            see_all_processes: Katso kaikki prosessit
       participatory_process_groups:
         none: Ei ryhmää
       participatory_processes:
@@ -232,12 +238,12 @@ fi:
       show:
         developer_group: Kehitysryhmä
         end_date: Päättymisaika
-        local_area: Paikallisalue
-        participatory_scope: Osallistumisprosessi
-        participatory_structure: Osallistumisprosessin rakenne
+        local_area: Organisaatioalue
+        participatory_scope: Mitä päätetään
+        participatory_structure: Miten päätetään
         scope: Konteksti
         start_date: Aloitusaika
-        target: Kohde
+        target: Kuka osallistuu
       statistics:
         answers_count: Vastaukset
         comments_count: Kommentit

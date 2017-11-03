@@ -119,7 +119,7 @@ describe "Admin manages newsletters", type: :feature do
       visit decidim_admin.newsletter_path(newsletter)
 
       within ".button--double" do
-        find("*", text: "Deliver").click
+        accept_confirm { find("*", text: "Deliver").click }
       end
 
       expect(page).to have_content("NEWSLETTERS")
@@ -138,7 +138,7 @@ describe "Admin manages newsletters", type: :feature do
       visit decidim_admin.newsletters_path
 
       within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-        page.find(".action-icon.action-icon--remove").click
+        accept_confirm { page.find(".action-icon.action-icon--remove").click }
       end
 
       expect(page).to have_content("successfully")

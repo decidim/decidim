@@ -224,6 +224,12 @@ it:
         active: Attivo
         past: Passato
         upcoming: Imminenti
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Processi attivi
+            active_step: Passo attivo
+            see_all_processes: Vedere tutti i processi
       participatory_process_groups:
         none: Nessuno
       participatory_processes:
@@ -232,12 +238,12 @@ it:
       show:
         developer_group: Gruppo promotore
         end_date: Data di fine
-        local_area: Municipi
-        participatory_scope: Visibilità/ambito partecipativo
-        participatory_structure: Struttura partecipativa
+        local_area: Area Organizzazione
+        participatory_scope: Che cosa è deciso
+        participatory_structure: Come si decide
         scope: Objetivos
         start_date: Date di inizio
-        target: A chi è destinato il processo?
+        target: Chi partecipa
       statistics:
         answers_count: risposte
         comments_count: Commenti

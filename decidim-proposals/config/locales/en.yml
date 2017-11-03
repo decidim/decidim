@@ -128,12 +128,11 @@ en:
           unfold: Unfold
         index:
           new_proposal: New proposal
-          proposal_limit_reached: Proposal limit reached
           view_proposal: View proposal
         linked_proposals:
           proposal_votes:
-            one: <span class="card--list__data__number">1</span>vote
-            other: <span class="card--list__data__number">%{count}</span>votes
+            one: vote
+            other: votes
         new:
           attachment_legend: "(Optional) Add an attachment"
           back: Back

@@ -35,6 +35,7 @@ ru:
             proposal_answering_enabled: Включена возможность отвечать на предложения
             votes_blocked: Голосование выключено
             votes_enabled: Голосование включено
+            votes_hidden: Голоса скрыты (если голосование включено, то при поставленной здесь птичке будет скрыто количество голосов)
     proposals:
       actions:
         answer: Ответить
@@ -58,9 +59,10 @@ ru:
             title: Ответ на предложение %{title}
         proposals:
           answer:
+            invalid: При попытке ответить на это предложение возникла проблема
             success: Успешно дан ответ на предложение
           create:
-            invalid: При попытке выдвинуть предложение возникла проблема
+            invalid: При попытке внести предложение возникла проблема
             success: Предложение успешно внесено
           form:
             attachment_legend: "(Необязательно) Добавить вложение"
@@ -76,6 +78,7 @@ ru:
         not_answered: Без ответов
         rejected: Отклонено
       create:
+        error: При сохранении этого предложения произошли ошибки.
         success: Предложение успешно внесено.
       models:
         proposal:
@@ -87,6 +90,11 @@ ru:
             state: Cостояние
             title: Название
             votes: Голоса
+      new:
+        limit_reached: Вы не можете вносить новые предложения, так как вы превысили лимит.
+      proposal_votes:
+        create:
+          error: При голосовании по этому предложению произошли ошибки.
       proposals:
         author:
           deleted: Удаленный пользователь
@@ -121,8 +129,13 @@ ru:
           unfold: Развернуть
         index:
           new_proposal: Новое предложение
-          proposal_limit_reached: Достигнуто максимальное количество предложений
           view_proposal: Просмотреть предложение
+        linked_proposals:
+          proposal_votes:
+            one: голосовать
+            few: голоса
+            many: голоса
+            other: голоса
         new:
           attachment_legend: "(Необязательно) Добавить вложение"
           back: Вернуться
@@ -154,6 +167,8 @@ ru:
             many: ГОЛОСОВ
             other: ГОЛОСА
         voting_rules:
+          maximum_votes_per_proposal:
+            description: Каждое предложение может получить максимум %{limit} голосов.
           proposal_limit:
             description: Вы можете внести до %{limit} предложений.
           title: 'Голосование регулируется следующими правилами:'

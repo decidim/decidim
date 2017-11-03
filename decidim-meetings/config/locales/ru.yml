@@ -46,9 +46,14 @@ ru:
           registrations: Регистрации
         invite_join_meeting_mailer:
           invite:
+            invited_you_to_join_a_meeting: "%{invited_by} пригласил вас на встречу %{application}. Вы можете принять это приглашение по ссылке ниже."
             join: Присоединиться к встрече '%{meeting_title}'
         invites:
+          create:
+            error: При попытке пригласить этого участника на встречу возникла проблема.
+            success: Пользователь успешно приглашен на встречу.
           new:
+            explanation: Участник будет приглашен на встречу. Если эл-адрес не зарегистрирован, он также будет приглашен в организацию.
             invite: Пригласить
             new_invite: Пригласить участника
         meeting_closes:
@@ -57,8 +62,10 @@ ru:
             title: Закрыть встречу
         meetings:
           close:
-            success: Встреча успешно закрыта
+            invalid: При попытке закрыть эту встречу возникла проблема
+            success: Встреча успешно завершена
           create:
+            invalid: При попытке добавить эту встречу возникла проблема
             success: Встреча успешно добавлена
           destroy:
             success: Встреча успешно удалена
@@ -70,6 +77,7 @@ ru:
             create: Создать
             title: Добавить встречу
           update:
+            invalid: При попытке обновить эту встречу возникла проблема
             success: Встреча успешно обновлена
         models:
           meeting:
@@ -78,16 +86,49 @@ ru:
           edit:
             save: Сохранить
           form:
+            available_slots_help: Оставьте его равным 0, если у вас не ограничено количество мест.
             invite_user: Пригласить участника
             registrations_count:
               one: Зарегистрировался 1 человек.
               few: Зарегистрировалось %{count} человека.
               many: Зарегистрировалось %{count} человек.
               other: Зарегистрировалось %{count} человек.
+          update:
+            invalid: При попытке сохранить настройки регистрации возникла проблема.
+            success: Настройки регистрации на встречу успешно сохранены.
+      events:
+        close_meeting_event:
+          email_intro: 'Встреча «%{resource_title}» завершена. Вы можете прочитать итоги на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
+          email_subject: Встреча "%{resource_title}" завершена
+          notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> завершена.
+        meeting_registrations_enabled:
+          email_intro: 'Открылась регистрация на встречу «%{resource_title}». Вы можете зарегистрироваться на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
+          email_subject: Открылась регистрация на встречу «%{resource_title}».
+          notification_title: Открыта регистрация на встречу <a href="%{resource_path}">%{resource_title}</a>.
+        meeting_registrations_over_percentage:
+          email_intro: Число мест, забронированных на встречу "%{resource_title}", превысило %{percentage}% процентов%.
+          email_outro: Вы получили это уведомление, потому что вы являетесь администратором пространства соучастия этой встречи.
+          email_subject: Число мест, забронированных на встречу "%{resource_title}", превысило %{percentage}% процентов
+          notification_title: На встречу <a href="%{resource_path}">%{resource_title}</a> забронировано более %{percentage}% процентов мест.
+        upcoming_meeting_event:
+          email_intro: Встреча "%{resource_title}" начнется менее чем через 48 часов.
+          email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
+          email_subject: Встреча "%{resource_title}" начнется менее чем через 48 часов.
+          notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> начнется менее чем через 48 часов.
+        update_meeting_event:
+          email_intro: 'Встреча «%{resource_title}» обновлена. Вы можете прочитать новую версию на странице:'
+          email_outro: Вы получили это уведомление, потому что вы следите за встречей «%{resource_title}». Вы можете перестать за ней следить, перейдя по приведенной выше ссылке.
+          email_subject: Встреча "%{resource_title}" обновлена
+          notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> обновлена.
       mailer:
         invite_join_meeting_mailer:
           invite:
             subject: Тема
+        registration_mailer:
+          confirmation:
+            subject: Ваша регистрация на встречу подтверждена
       meetings:
         filters:
           category: Категория
@@ -105,6 +146,9 @@ ru:
           unfold: Развернуть
         index:
           view_meeting: Посмотреть встречу
+        meetings:
+          no_meetings_warning: Нет встреч, соответствующих вашим критериям поиска, или нет ни одной запланированной встречи.
+          upcoming_meetings_warning: Сейчас нет запланированных встреч, но здесь вы можете найти список всех прошедших встреч.
         registration_confirm:
           cancel: Отменить
           confirm: Подтвердить
@@ -124,12 +168,16 @@ ru:
       models:
         meeting:
           fields:
-            closed: Закрыто
+            closed: Завершена
             end_time: Дата завершения
             map: Карта
             start_time: Дата начала
             title: Название
       read_more: "(читать подробнее)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Ваша регистрация на встречу <a href="%{url}">%{title}</a> подтверждена.
+          details: Подробное описание встречи - в прилагаемом файле.
       registrations:
         create:
           invalid: При попытке присоединиться к встрече возникла проблема.

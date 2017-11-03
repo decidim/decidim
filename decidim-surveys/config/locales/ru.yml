@@ -36,12 +36,14 @@ ru:
             title: Название
           form:
             add_question: Добавить вопрос
+            already_answered_warning: Некоторые участники уже прошли этот опрос, поэтому вы не можете менять вопросы в нем.
           question:
             add_answer_option: Добавить вариант ответа
             question: Вопрос
             remove_question: Удалить вопрос
             statement: Высказывание
           update:
+            invalid: При сохранении опроса произошли ошибки.
             success: Опрос успешно сохранен.
       question_types:
         long_answer: Длинный ответ
@@ -50,13 +52,18 @@ ru:
         single_option: Единственный вариант
       surveys:
         answer:
+          invalid: При прохождении опроса произошли ошибки.
           success: Опрос успешно пройден.
         show:
           answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Войдите в систему через свою учетную запись</a> или <a href="%{sign_up_link}">зарегистрируйтесь</a>, чтобы пройти опрос.
             title: Пройдите опрос
+          are_you_sure: Это действие не может быть отменено, и вы не сможете редактировать свои ответы. Вы уверены?
           submit: Отправить
           survey_answered:
             body: Вы уже ответили на этот опрос.
             title: Опрос пройден
           survey_closed:
-            title: Опрос закрыт
+            body: Опрос завершен и его уже нельзя проходить.
+            title: Опрос завершен
+          tos_agreement: Участвуя в этом опросе, вы принимаете его "Условия использования"

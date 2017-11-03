@@ -87,7 +87,7 @@ shared_examples "manage results" do
 
     it "deletes a result" do
       within find("tr", text: translated(result2.title)) do
-        find("a.action-icon--remove").click
+        accept_confirm { find("a.action-icon--remove").click }
       end
 
       within ".callout-wrapper" do

@@ -224,6 +224,12 @@ fr:
         active: Actif
         past: Passés
         upcoming: À venir
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Processus actifs
+            active_step: Étape active
+            see_all_processes: Voir tous les processus
       participatory_process_groups:
         none: Aucun
       participatory_processes:
@@ -232,12 +238,12 @@ fr:
       show:
         developer_group: Groupe d'initiateurs
         end_date: Date de fin
-        local_area: Localisation
-        participatory_scope: Objectif du processus participatif
-        participatory_structure: Organisations concernées
+        local_area: Zone d'organisation
+        participatory_scope: Ce qui est décidé
+        participatory_structure: Comment est-il décidé
         scope: Zone d'application
         start_date: Date de début
-        target: Public visé
+        target: Qui participe
       statistics:
         answers_count: Réponses
         comments_count: Commentaires

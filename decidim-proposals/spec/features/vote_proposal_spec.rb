@@ -138,6 +138,44 @@ describe "Vote Proposal", type: :feature do
                  participatory_space: participatory_process)
         end
 
+        describe "vote counter" do
+          context "when votes are blocked" do
+            let!(:feature) do
+              create(:proposal_feature,
+                     :with_votes_blocked,
+                     :with_vote_limit,
+                     vote_limit: vote_limit,
+                     manifest: manifest,
+                     participatory_space: participatory_process)
+            end
+
+            it "doesn't show the remaining votes counter" do
+              visit_feature
+
+              expect(page).to have_css(".voting-rules")
+              expect(page).to have_no_css(".remaining-votes-counter")
+            end
+          end
+
+          context "when votes are enabled" do
+            let!(:feature) do
+              create(:proposal_feature,
+                     :with_votes_enabled,
+                     :with_vote_limit,
+                     vote_limit: vote_limit,
+                     manifest: manifest,
+                     participatory_space: participatory_process)
+            end
+
+            it "shows the remaining votes counter" do
+              visit_feature
+
+              expect(page).to have_css(".voting-rules")
+              expect(page).to have_css(".remaining-votes-counter")
+            end
+          end
+        end
+
         context "when the proposal is not voted yet" do
           before do
             visit_feature

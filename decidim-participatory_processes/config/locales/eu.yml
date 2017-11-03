@@ -224,6 +224,12 @@ eu:
         active: Aktiboa
         past: Aurrekoak
         upcoming: Hurrengoak
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Prozesu aktiboak
+            active_step: Urratsa aktiboa
+            see_all_processes: Ikusi prozesu guztiak
       participatory_process_groups:
         none: Bat bera ere ez
       participatory_processes:
@@ -232,12 +238,12 @@ eu:
       show:
         developer_group: Talde sustatzailea
         end_date: Bukaera-data
-        local_area: Udal-alorrak
-        participatory_scope: Partehartze esparrua
-        participatory_structure: Partehartze egitura
+        local_area: Antolakuntza eremua
+        participatory_scope: Zer erabaki
+        participatory_structure: Nola erabakitzen da?
         scope: Esparrua
         start_date: Hasiera-data
-        target: Nori zuzentzen zaio?
+        target: Nork parte hartzen du
       statistics:
         answers_count: Erantzunak
         comments_count: Iruzkinak

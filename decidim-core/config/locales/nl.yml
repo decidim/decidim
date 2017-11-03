@@ -2,7 +2,7 @@ nl:
   activemodel:
     attributes:
       account:
-        delete_reason: Reden om je account te verwijderen
+        delete_reason: Reden om uw account te verwijderen
       report:
         details: Aanvullende opmerkingen
       user:
@@ -35,7 +35,7 @@ nl:
   decidim:
     account:
       delete:
-        alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, kunt u zich niet aanmelden.
+        alert: Deze actie kan niet ongedaan gemaakt worden. Als u uw account verwijdert, zal u zich niet meer kunnen aanmelden.
         confirm:
           close: Sluit dit scherm
           ok: Ja, ik wil mijn account verwijderen
@@ -295,7 +295,7 @@ nl:
       too_much_caps: Gebruikt te veel hoofdletters
       too_short: Is te kort
   forms:
-    required: nodig
+    required: Vereist
   invisible_captcha:
     sentence_for_humans: Als u een mens bent negeert u dit veld
     timestamp_error_message: Sorry, dat was te snel! Gelieve opnieuw in te dienen.
@@ -306,7 +306,7 @@ nl:
         link_label: hier
         ok: Ik ga akkoord
       footer:
-        made_with_open_source: W
+        made_with_open_source: 'Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.'
       header:
         close_menu: Menu sluiten
         navigation: Navigatie
@@ -314,7 +314,7 @@ nl:
         sign_up: Registreren
       impersonation_warning:
         close_session: Sluit sessie
-        description_html: U veronderstelt de gebruiker <b>%{user_name}</b>.
+        description_html: U verpersoonlijkt de gebruiker <b>%{user_name}</b>.
         expire_time_html: Uw sessie vervalt in <b><span class="minutes">%{minutes}</span> minuten</b>.
       notifications_dashboard:
         mark_all_as_read: Alles als gelezen markeren
@@ -333,7 +333,7 @@ nl:
         title: Gebruikersinstellingen
         user_groups: Organisaties
       widget:
-        see_more: B
+        see_more: Zie meer
   locale:
     name: Nederlands
   pages:
@@ -354,12 +354,8 @@ nl:
       hero:
         participate: Deelnemen
         welcome: Welkom bij %{organization}!
-      highlighted_processes:
-        active_processes: Actieve processen
-        active_step: Actieve stap
-        see_all_processes: Toon alle processen
       statistics:
-        answers_count: antwoorden
+        answers_count: Antwoorden
         comments_count: Reacties
         headline: Huidige stand van %{organization}
         meetings_count: Vergaderingen
@@ -369,7 +365,7 @@ nl:
         projects_count: Projecten
         proposals_count: Voorstellen
         results_count: Resultaten
-        surveys_count: onderzoeken
+        surveys_count: Enquête
         users_count: Deelnemers
         votes_count: Stemmen
       sub_hero:

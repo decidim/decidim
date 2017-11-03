@@ -29,7 +29,7 @@ module Decidim
           format = params[:format]
           export_data = Decidim::Exporters.find_exporter(format).new(meeting.registrations, Decidim::Meetings::RegistrationSerializer).export
 
-          send_data export_data.read, type: "text/#{format}", filename: export_data.filename("registrations")
+          send_data export_data.read, type: "text/#{export_data.extension}", filename: export_data.filename("registrations")
         end
 
         private

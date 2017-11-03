@@ -70,7 +70,7 @@ ru:
         participatory_process:
           fields:
             created_at: 'Создано:'
-            promoted: Выдвинутые на первый план
+            promoted: Рекомендуемые
             published: Опубликовано
             title: Название
           name: Движение соучастия
@@ -101,20 +101,41 @@ ru:
       participatory_process_copies:
         new:
           copy: Копировать
+          select: Выберите, какие данные вы хотите продублировать
           title: Создать копию движения соучастия
       participatory_process_groups:
+        destroy:
+          success: Группа движения соучастия успешно удалена.
         edit:
           title: Редактировать группу процессов
           update: Обновить
         new:
           create: Создать
           title: Новая группа движений
+        update:
+          error: При обновлении этой группы движения соучастия произошла ошибка.
+          success: Группа движения соучастия успешно обновлена.
+      participatory_process_publications:
+        create:
+          error: При публикации нового движения соучастия произошла ошибка.
+          success: Движение соучастия успешно опубликовано.
+        destroy:
+          error: При отмене публикации этого движения соучастия произошла ошибка.
+          success: Публикация движения соучастия успешно отменена.
+      participatory_process_step_activations:
+        create:
+          error: При попытке начать новый шаг движения соучастия произошла ошибка.
+          success: Шаг движения соучастия успешно начат.
       participatory_process_steps:
+        create:
+          error: При создании нового шага движения соучастия произошла ошибка.
+          success: Шаг движения соучастия успешно создан.
         default_title: Введение
         destroy:
           error:
             active_step: Нельзя удалять уже начатый шаг.
             last_step: Нельзя удалять последний шаг процесса.
+          success: Шаг движения соучастия успешно удален.
         edit:
           title: Редактировать шаг движения соучастия
           update: Обновить
@@ -123,7 +144,17 @@ ru:
         new:
           create: Создать
           title: Новый шаг движения соучастия
+        ordering:
+          error: При перестановке шагов этого движения соучастия произошла ошибка.
+        update:
+          error: При обновлении этого шага движения соучастия произошла ошибка.
+          success: Шаг движения соучастия успешно обновлен.
       participatory_process_user_roles:
+        create:
+          error: При добавлении участника в это движение соучастия произошла ошибка.
+          success: В это движение соучастия успешно добавлен участник.
+        destroy:
+          success: Успешно удален участник этого движения соучастия.
         edit:
           title: Обновить участника движения соучастия.
           update: Обновить
@@ -132,7 +163,15 @@ ru:
         new:
           create: Создать
           title: Новый участник движения соучастия.
+        update:
+          error: При обновлении участника этого движения соучастия произошла ошибка.
+          success: Успешно обновлен участник этого движения соучастия.
       participatory_processes:
+        create:
+          error: При создании нового движения соучастия произошла ошибка.
+          success: Движение соучастия было успешно создано. Теперь настройте его шаги.
+        destroy:
+          success: Движение соучастия успешно удалено.
         edit:
           update: Обновить
         form:
@@ -143,6 +182,17 @@ ru:
         new:
           create: Создать
           title: Новое движение соучастия
+        update:
+          error: При обновлении этого движения соучастия произошла ошибка.
+          success: Движение соучастия успешно обновлено.
+      participatory_processes_copies:
+        create:
+          error: При создании копии этого движения соучастия произошла ошибка.
+          success: Движение соучастия успешно продублировано.
+      participatory_processes_group:
+        create:
+          error: При создании новой группы движения соучастия произошла ошибка.
+          success: Группа движения соучастия успешно создана.
       titles:
         participatory_process_groups: Группы движений соучастия
         participatory_processes: Движения соучастия
@@ -161,12 +211,25 @@ ru:
         process_steps: Шаги движения
         title: Шаги движения соучастия
     participatory_processes:
+      admin:
+        participatory_process_copies:
+          form:
+            slug_help: 'Сокращенные URL-адреса используются для создания ссылок на это движение. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
+        participatory_processes:
+          form:
+            slug_help: 'Сокращенные URL-адреса используются для создания ссылок на это движение. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
       index:
         title: Движения соучастия
       order_by_processes:
         active: Начатые
         past: Прошедшие
         upcoming: Предстоящие
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Начатые движения
+            active_step: Начатый шаг
+            see_all_processes: Просмотреть все движения
       participatory_process_groups:
         none: Нет
       participatory_processes:
@@ -175,12 +238,12 @@ ru:
       show:
         developer_group: Группа разработчиков
         end_date: Дата завершения
-        local_area: Местность
-        participatory_scope: Охват соучастия
-        participatory_structure: Структура соучастия
+        local_area: Охват организации
+        participatory_scope: Что решается
+        participatory_structure: Как это решается
         scope: Охват
         start_date: Дата начала
-        target: Цель
+        target: Кто участвует
       statistics:
         answers_count: Ответы
         comments_count: Комментарии
@@ -208,7 +271,7 @@ ru:
           take_part: Принять участие
       participatory_processes:
         index:
-          promoted_processes: Выдвинутые на первый план движения
+          promoted_processes: Рекомендуемые движения
         order_by_processes:
           processes:
             one: "%{count} движение"

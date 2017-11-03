@@ -10,7 +10,7 @@ module Decidim
       let!(:user) { create(:user, organization: organization) }
 
       it "sends an email with the result of the export" do
-        ExportJob.perform_now(user, feature, "dummies", "csv")
+        ExportJob.perform_now(user, feature, "dummies", "CSV")
 
         email = last_email
         expect(email.subject).to include("dummies")
@@ -33,7 +33,7 @@ module Decidim
             .to(receive(:export).with(user, anything, export_data))
             .and_return(double(deliver_now: true))
 
-          ExportJob.perform_now(user, feature, "dummies", "csv")
+          ExportJob.perform_now(user, feature, "dummies", "CSV")
         end
       end
 
@@ -49,7 +49,7 @@ module Decidim
             .to(receive(:export).with(user, anything, export_data))
             .and_return(double(deliver_now: true))
 
-          ExportJob.perform_now(user, feature, "dummies", "json")
+          ExportJob.perform_now(user, feature, "dummies", "JSON")
         end
       end
     end

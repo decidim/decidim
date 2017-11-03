@@ -224,6 +224,12 @@ es:
         active: Activa
         past: Pasadas
         upcoming: Próximas
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Procesos activos
+            active_step: Paso activo
+            see_all_processes: Ver todos los procesos
       participatory_process_groups:
         none: Ninguna
       participatory_processes:
@@ -232,12 +238,12 @@ es:
       show:
         developer_group: Grupo promotor
         end_date: Fecha de finalización
-        local_area: Áreas municipales
-        participatory_scope: Ámbito participativo
-        participatory_structure: Estructura participativa
+        local_area: Área de organización
+        participatory_scope: Qué se decide
+        participatory_structure: Cómo se decide
         scope: Ámbito
         start_date: Fecha de inicio
-        target: '¿A quién va dirigida?'
+        target: Quién participa
       statistics:
         answers_count: '¿A quién va dirigida?'
         comments_count: Comentarios

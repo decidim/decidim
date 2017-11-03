@@ -127,12 +127,11 @@ ca:
           unfold: Desplegar
         index:
           new_proposal: Nova proposta
-          proposal_limit_reached: Has arribat al límit de la proposta
           view_proposal: Veure proposta
         linked_proposals:
           proposal_votes:
-            one: <span class="card--list__data__number">1</span>suport
-            other: <span class="card--list__data__number">%{count}</span>suports
+            one: suport
+            other: suports
         new:
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
           back: Enrere
@@ -166,7 +165,7 @@ ca:
             description: Cada proposta pot rebre un màxim de %{limit} vots.
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
-          title: 'La votació està subjecta a les regles següents:'
+          title: 'La votació es regeix per les següents normes:'
           vote_limit:
             description: Pots votar fins a %{limit} propostes.
             left: Restant

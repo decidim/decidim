@@ -14,7 +14,7 @@ describe "Application generation" do
   end
 
   context "without flags" do
-    let(:command) { "bin/decidim #{test_app}" }
+    let(:command) { "bundle exec rake install_all && bin/decidim #{test_app}" }
 
     it_behaves_like "a sane generator"
   end

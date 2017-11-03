@@ -115,19 +115,21 @@ end
 
 RSpec.configure do |config|
   config.before(:suite) do
-    unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources")
-      ActiveRecord::Migration.create_table :decidim_dummy_resources do |t|
-        t.string :title
-        t.text :address
-        t.float :latitude
-        t.float :longitude
+    ActiveRecord::Migration.suppress_messages do
+      unless ActiveRecord::Base.connection.data_source_exists?("decidim_dummy_resources")
+        ActiveRecord::Migration.create_table :decidim_dummy_resources do |t|
+          t.string :title
+          t.text :address
+          t.float :latitude
+          t.float :longitude
 
-        t.references :decidim_feature, index: true
-        t.references :decidim_author, index: true
-        t.references :decidim_category, index: true
-        t.references :decidim_scope, index: true
+          t.references :decidim_feature, index: true
+          t.references :decidim_author, index: true
+          t.references :decidim_category, index: true
+          t.references :decidim_scope, index: true
 
-        t.timestamps
+          t.timestamps
+        end
       end
     end
   end
