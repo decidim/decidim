@@ -127,7 +127,6 @@ it:
           unfold: Espandi
         index:
           new_proposal: Nuova proposta
-          proposal_limit_reached: Limite della proposta raggiunto
           view_proposal: Visualizza proposta
         linked_proposals:
           proposal_votes:

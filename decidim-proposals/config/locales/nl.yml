@@ -127,7 +127,6 @@ nl:
           unfold: Ontvouwen
         index:
           new_proposal: Nieuw voorstel
-          proposal_limit_reached: Voorstellimiet bereikt
           view_proposal: Bekijk voorstel
         linked_proposals:
           proposal_votes:

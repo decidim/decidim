@@ -127,7 +127,6 @@ eu:
           unfold: Zabaldu
         index:
           new_proposal: Proposamen berria
-          proposal_limit_reached: Proposatutako mugara iritsi da
           view_proposal: Ikusi proposamena
         linked_proposals:
           proposal_votes:

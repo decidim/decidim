@@ -127,7 +127,6 @@ ca:
           unfold: Desplegar
         index:
           new_proposal: Nova proposta
-          proposal_limit_reached: Has arribat al límit de la proposta
           view_proposal: Veure proposta
         linked_proposals:
           proposal_votes:
