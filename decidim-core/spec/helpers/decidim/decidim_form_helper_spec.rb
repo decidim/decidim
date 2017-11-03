@@ -25,6 +25,17 @@ module Decidim
           "Foo"
         end
       end
+
+      context "when there's errors on base" do
+        it "adds an error callout" do
+          form = Form.new
+          form.errors.add(:base, "Arbitrary error")
+
+          output = helper.decidim_form_for(form, url: "#") {}
+          expect(output).to include("callout")
+          expect(output).to include("Arbitrary error")
+        end
+      end
     end
 
     describe "translated_field_tag" do
