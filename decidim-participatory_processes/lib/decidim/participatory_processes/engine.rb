@@ -67,6 +67,8 @@ module Decidim
           highlighted_processes =
             OrganizationPublishedParticipatoryProcesses.new(view_context.current_organization) | HighlightedParticipatoryProcesses.new
 
+          next unless highlighted_processes.any?
+
           view_context.render(
             partial: "decidim/participatory_processes/pages/home/highlighted_processes",
             locals: {
