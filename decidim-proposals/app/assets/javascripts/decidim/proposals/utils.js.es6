@@ -1,6 +1,6 @@
 /* eslint-disable no-invalid-this */
 
-((exports) => {
+(() => {
   $("#vote_button").mouseover(function () {
     $(this).text($(this).data('replace'));
   });
