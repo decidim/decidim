@@ -1,8 +1,11 @@
-$("#vote_button").mouseover(function () {
-  $(this).text($(this).data('replace'));
-});
+/* eslint-disable no-invalid-this */
 
+((exports) => {
+  $("#vote_button").mouseover(function () {
+    $(this).text($(this).data('replace'));
+  });
 
-$("#vote_button").mouseout(function () {
-  $(this).text($(this).data('original'));
-});
+  $("#vote_button").mouseout(function () {
+    $(this).text($(this).data('original'));
+  });
+})(this);
