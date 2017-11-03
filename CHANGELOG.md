@@ -6,6 +6,7 @@
 **Fixed**:
 
 - **decidim**: Fixed app generators [\#2119](https://github.com/decidim/decidim/pull/2119)
+- **decidim-proposals**: Proposal limit should apply to organizations as well [\#2150](https://github.com/decidim/decidim/pull/2150)
 
 ## [v0.7.0](https://github.com/decidim/decidim/tree/v0.7.0) (2017-10-25)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.6.8...v0.7.0)
