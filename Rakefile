@@ -2,11 +2,9 @@
 
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
+require "generators/decidim/dummy_generator"
 require "generators/decidim/app_generator"
 require "generators/decidim/docker_generator"
-require "decidim/dev"
-
-load "decidim-dev/lib/tasks/test_app.rake"
 
 DECIDIM_GEMS = %w(core system admin api participatory_processes assemblies pages meetings proposals comments accountability budgets surveys dev).freeze
 
@@ -89,6 +87,17 @@ end
 desc "Makes sure all official locales are complete and clean."
 task :check_locale_completeness do
   system({ "ENFORCED_LOCALES" => "en,ca,es" }, "rspec spec/i18n_spec.rb")
+end
+
+desc "Generates a dummy app for testing"
+task :test_app do
+  dummy_app_path = File.expand_path(File.join(Dir.pwd, "spec", "decidim_dummy_app"))
+
+  Bundler.with_clean_env do
+    Decidim::Generators::DummyGenerator.start(
+      ["--dummy_app_path=#{dummy_app_path}"]
+    )
+  end
 end
 
 desc "Generates a development app."
