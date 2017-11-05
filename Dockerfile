@@ -1,4 +1,4 @@
-FROM ruby:2.4.2
+FROM deividrodriguez/ruby-2.4.2-rubygems-2.6.13:latest
 MAINTAINER david.morcillo@codegram.com
 
 ENV APP_HOME /decidim
