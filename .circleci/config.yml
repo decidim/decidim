@@ -31,10 +31,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install app dependencies
-          command: |
-            bundle install
-            npm i
+          name: Install npm dependencies
+          command: npm i
       - run:
           name: Install dockerize
           command: sh .circleci/install-dockerize.sh
