@@ -30,7 +30,7 @@ module Decidim
 
       def build_docker
         remove_file "#{path}/Dockerfile"
-        template "Dockerfile.dev.erb", "#{path}/Dockerfile"
+        template "Dockerfile.dev", "#{path}/Dockerfile"
         inside(path) do
           gsub_file "Gemfile",
                     /gem "decidim(.*)"/,

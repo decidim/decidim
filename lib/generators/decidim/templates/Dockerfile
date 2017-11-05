@@ -1,4 +1,4 @@
-FROM ruby:<%= RUBY_VERSION %>
+FROM ruby:2.4.2
 MAINTAINER david.morcillo@codegram.com
 
 ARG rails_env=production
