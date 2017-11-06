@@ -24,8 +24,9 @@ jobs:
           name: Build, tag and push docker image
           command: |
             docker login -u $DOCKER_USER -p $DOCKER_PASS
+            docker pull codegram/decidim:latest
             if [ $CIRCLE_BRANCH = 'master' ] then
-              docker build -t codegram/decidim:latest .
+              docker build --tag codegram/decidim:$CIRCLE_SHA1 --tag codegram/decidim:latest .
               docker push codegram/decidim:latest
             else
               docker build -t codegram/decidim:$CIRCLE_SHA1 --cache-from codegram/decidim:latest .
