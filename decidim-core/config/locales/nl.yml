@@ -193,7 +193,7 @@ nl:
         success: Uw notificatie instellingen zijn bijgewerkt.
     own_user_groups:
       index:
-        pending: In afwachting
+        pending: In behandeling
         rejected: Verworpen
         verified: Geverifieerd
     pages:
@@ -314,7 +314,7 @@ nl:
         sign_up: Registreren
       impersonation_warning:
         close_session: Sluit sessie
-        description_html: U verpersoonlijkt de gebruiker <b>%{user_name}</b>.
+        description_html: U boots de gebruiker <b>%{user_name}</b> na.
         expire_time_html: Uw sessie vervalt in <b><span class="minutes">%{minutes}</span> minuten</b>.
       notifications_dashboard:
         mark_all_as_read: Alles als gelezen markeren
