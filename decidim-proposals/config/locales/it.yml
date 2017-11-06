@@ -19,7 +19,7 @@ it:
         settings:
           global:
             announcement: Annuncio
-            attachments_allowed: Consenti gli allegati
+            attachments_allowed: Autorizzare allegati
             comments_enabled: Commenti abilitati
             geocoding_enabled: Geocoding abilitato
             maximum_votes_per_proposal: Numero massimo di voti per proposta
