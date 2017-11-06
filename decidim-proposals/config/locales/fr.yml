@@ -152,6 +152,7 @@ fr:
           report: Signaler
         vote_button:
           already_voted: Déjà voté
+          already_voted_hover: Unvote
           maximum_votes_reached: Nombre maximum de votes atteint
           no_votes_remaining: Aucun vote restant
           vote: Voter
