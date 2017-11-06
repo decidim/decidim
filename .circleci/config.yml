@@ -25,7 +25,7 @@ jobs:
           command: |
             docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker pull codegram/decidim:latest
-            if [ $CIRCLE_BRANCH = 'master' ] then
+            if [ $CIRCLE_BRANCH = 'master' ]; then
               docker build --tag codegram/decidim:$CIRCLE_SHA1 --tag codegram/decidim:latest .
               docker push codegram/decidim:latest
             else
