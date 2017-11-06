@@ -167,7 +167,7 @@ it:
         error: C'è stato un errore seguendo questa risorsa.
       destroy:
         button: Smettere di seguire
-        error: C'è stato un errore smettere questa risorsa.
+        error: Si è verificato un errore ad smettere questa risorsa.
     forms:
       current_file: File attuale
       current_image: Immagine attuale
