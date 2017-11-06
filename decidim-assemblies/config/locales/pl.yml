@@ -87,6 +87,11 @@ pl:
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
       index:
         title: Zespoły
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktywne złożenia
+            see_all_assemblies: Zobacz wszystkie zespoły
       show:
         developer_group: Grupa programistyczna
         local_area: Okolica
