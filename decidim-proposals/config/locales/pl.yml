@@ -154,6 +154,7 @@ pl:
           report: Raport
         vote_button:
           already_voted: Już głosował
+          already_voted_hover: Unvote
           maximum_votes_reached: Osiągnięto limit głosu
           no_votes_remaining: Brak głosów
           vote: Głosować
