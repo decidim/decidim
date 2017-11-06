@@ -23,8 +23,13 @@ jobs:
       - run:
           name: Build, tag and push docker image
           command: |
-            if [ $CIRCLE_BRANCH = 'master' ]; then docker build -t codegram/decidim:latest . ; else docker build -t codegram/decidim:$CIRCLE_SHA1 --cache-from codegram/decidim:latest; fi
             docker login -u $DOCKER_USER -p $DOCKER_PASS
+            if [ $CIRCLE_BRANCH = 'master' ] then
+              docker build -t codegram/decidim:latest .
+              docker push codegram/decidim:latest
+            else
+              docker build -t codegram/decidim:$CIRCLE_SHA1 --cache-from codegram/decidim:latest .
+            fi
             docker push codegram/decidim:$CIRCLE_SHA1
   build_test_app:
     <<: *defaults
