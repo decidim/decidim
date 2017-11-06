@@ -57,7 +57,7 @@ it:
         index:
           title: Organizzazioni
         new:
-          reference_prefix_hint: Il prefisso di riferimento viene utilizzato per identificare in modo univoco le risorse in tutte le organizzazioni
+          reference_prefix_hint: Il prefisso di riferimento è utilizzato solamente per identificare le risorse in tutte le organizzazioni
           secondary_hosts_hint: Inserisci ciascun elemento in una nuova linea
           title: Nuova Organizzazione
         update:
