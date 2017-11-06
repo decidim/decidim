@@ -39,7 +39,7 @@ ru:
     proposals:
       actions:
         answer: Ответить
-        new: Новая
+        new: Добавить
         title: Действия
       admin:
         actions:

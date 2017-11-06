@@ -257,7 +257,7 @@ es:
         results_count: Resultados
         surveys_count: Encuestas
         users_count: Participantes
-        votes_count: Soportes
+        votes_count: Apoyos
     scopes:
       global: Ámbito global
   layouts:
