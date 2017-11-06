@@ -87,6 +87,11 @@ eu:
             slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
       index:
         title: Biltzarrak
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Batzar aktiboak
+            see_all_assemblies: Ikusi muntaia guztiak
       show:
         developer_group: Talde sustatzailea
         local_area: Udal-alorrak
