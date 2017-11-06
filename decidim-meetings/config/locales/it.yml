@@ -99,7 +99,7 @@ it:
           email_intro: 'La riunione "%{resource_title}" è stata chiusa. È possibile leggere le conclusioni dalla sua pagina:'
           email_outro: Hai ricevuto questa notifica perché segui la riunione "%{resource_title}". Puoi smettere di seguirla nel link precedente.
           email_subject: È stata chiusa la riunione "%{resource_title}"
-          notification_title: La riunione di <a href="%{resource_path}">%{resource_title}</a> era chiusa.
+          notification_title: La riunione di <a href="%{resource_path}">%{resource_title}</a> è stata chiusa.
         meeting_registrations_enabled:
           email_intro: 'La riunione "%{resource_title}" ha permesso le registrazioni. È possibile registrarsi sulla sua pagina:'
           email_outro: Hai ricevuto questa notifica perché si segue la riunione "%{resource_title}". Puoi smettere di seguirla nel link precedente.
@@ -126,14 +126,14 @@ it:
             subject: Oggetto
         registration_mailer:
           confirmation:
-            subject: Registrazione del vostro incontro è stata confermata
+            subject: La tua registrazione alla riunione è stata confermata
       meetings:
         filters:
           category: Categoria
           category_prompt: Scegli una categoria
           date: Data
           past: Passato
-          scope_prompt: Selezionare un ambito
+          scope_prompt: Seleziona un campo
           scopes: Visibilità
           search: Cerca
           upcoming: Imminenti
@@ -153,7 +153,7 @@ it:
         show:
           attendees: Conteggio dei partecipanti
           contributions: Conteggio dei contributi
-          going: Andando
+          going: Parteciperò
           join: Iscriviti alla riunione
           meeting_report: Relazione sull'incontro
           no_slots_available: Nessuna slot disponibile
