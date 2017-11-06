@@ -35,12 +35,12 @@ it:
   decidim:
     account:
       delete:
-        alert: Questa azione non può essere annullata. Se elimini il tuo account non potrai più accedere.
+        alert: Questa azione non può essere annullata. Se si cancella l'account, non sarà più possibile accederci.
         confirm:
           close: Chiudere finestra
-          ok: Sì, voglio eliminare il mio account
-          question: Sei sicuro di voler eliminare il tuo account?
-          title: Elimina il mio account
+          ok: Sì, voglio cancellare il mio account
+          question: Sei sicuro di voler cancellare il tuo account?
+          title: Cancellare il mio account
         explanation: Per favore, compila il motivo per cui desideri eliminare il tuo account (facoltativo).
       destroy:
         error: Si è verificato un errore durante l'eliminazione del tuo account.
