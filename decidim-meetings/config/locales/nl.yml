@@ -53,32 +53,32 @@ nl:
             error: Er is een probleem opgetreden tijdens het uitnodigen van de gebruiker om deel te nemen aan de vergadering.
             success: Gebruikers succesvol uitgenodigd om deel te nemen aan de vergadering.
           new:
-            explanation: De gebruiker wordt uitgenodigd om deel te nemen aan een vergadering. Als het e-mail niet is geregistreerd, worden ze ook uitgenodigd voor de organisatie.
-            invite: Nodig uit
-            new_invite: Uitnodigen gebruiker
+            explanation: De gebruiker wordt uitgenodigd om deel te nemen aan een vergadering. Als het e-mailadres niet is geregistreerd, worden ze ook uitgenodigd voor de organisatie.
+            invite: Uitnodigen
+            new_invite: Gebruiker uitnodigen
         meeting_closes:
           edit:
-            close: Sluit
-            title: Dichte ontmoeting
+            close: Sluiten
+            title: Vergadering sluiten
         meetings:
           close:
             invalid: Er is een probleem opgetreden bij het sluiten van deze vergadering
-            success: Vergadering met succes gesloten
+            success: Vergadering succesvol afgesloten
           create:
             invalid: Er is een probleem opgetreden met het maken van deze vergadering
-            success: Vergadering met succes gemaakt
+            success: Vergadering succesvol aangemaakt
           destroy:
-            success: Meeting met succes verwijderd
+            success: Vergadering succesvol verwijderd
           edit:
             update: Bijwerken
           index:
             title: Vergaderingen
           new:
             create: Creëren
-            title: Maak een afspraak
+            title: Creëer vergadering
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze vergadering
-            success: Vergadering met succes bijgewerkt
+            success: Vergadering succesvol bijgewerkt
         models:
           meeting:
             name: Vergadering
@@ -86,8 +86,8 @@ nl:
           edit:
             save: Opslaan
           form:
-            available_slots_help: Laat het naar 0 als u onbeperkt beschikbare slots hebt.
-            invite_user: Uitnodigen gebruiker
+            available_slots_help: Laat het op 0 indien u onbeperkt beschikbare plaatsen hebt.
+            invite_user: Gebruiker uitnodigen
             registrations_count:
               one: Er is 1 registratie geweest.
               other: Er zijn %{count} registraties geweest.
