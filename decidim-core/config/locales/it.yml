@@ -18,7 +18,7 @@ it:
     attributes:
       decidim/user:
         current_password: Password attuale
-        email: E-mail
+        email: Email
         name: Nome Utente
         password: Password
         password_confirmation: Conferma password
