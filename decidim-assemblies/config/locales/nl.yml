@@ -87,6 +87,11 @@ nl:
             slug_help: 'URL-slakjes worden gebruikt om de URL''s die naar dit assemblage wijzen, te genereren. Aanvaardt alleen letters, cijfers en streepjes, en moet beginnen met een brief. Voorbeeld: %{url}'
       index:
         title: Assemblies
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Actieve vergaderingen
+            see_all_assemblies: Bekijk alle vergaderingen
       show:
         developer_group: Ontwikkelaarsgroep
         local_area: Lokale buurt
