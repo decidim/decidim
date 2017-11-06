@@ -154,12 +154,12 @@ it:
           attendees: Conteggio dei partecipanti
           contributions: Conteggio dei contributi
           going: Parteciperò
-          join: Iscriviti alla riunione
-          meeting_report: Relazione sull'incontro
+          join: Partecipa alla riunione
+          meeting_report: Rapporto della riunione
           no_slots_available: Nessuna slot disponibile
           organizations: Organizzazioni partecipanti.
           remaining_slots:
-            one: 1 slot rimanente
+            one: 1 slot restanti
             other: "%{count} slot rimanenti"
       models:
         meeting:
