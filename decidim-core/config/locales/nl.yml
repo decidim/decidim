@@ -123,20 +123,20 @@ nl:
         title: Er was een probleem met de server
         try_later: Probeer het later opnieuw.
       not_found:
-        back_home: Terug naar huis
+        back_home: Terug naar de hoofdpagina
         content_doesnt_exist: Dit adres is onjuist of is verwijderd.
-        title: De pagina die u zoekt is niet gevonden
+        title: De opgevraagde pagina kan niet gevonden worden
     events:
       email_event:
         email_greeting: Hallo %{user_name},
-        email_intro: 'Er is een update aan "%{resource_title}". Je ziet het vanaf deze pagina:'
-        email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
-        email_subject: Een update aan %{resource_title}
+        email_intro: 'Er is een update voor ''%{resource_title}''. Je kunt het vanaf deze pagina bekijken:'
+        email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kan stoppen met deze te volgen via vorige link.
+        email_subject: Een update voor %{resource_title}
       notification_event:
-        notification_title: Een gebeurtenis heeft plaatsgevonden om te <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:
       export:
-        ready: Hierbij vindt u een bijgevoegde versie van uw export.
+        ready: In de bijlage vindt u een versie van uw export.
       subject: Uw export "%{name}" is klaar
     features:
       dummy:
@@ -163,10 +163,10 @@ nl:
         result: Resultaten
     follows:
       create:
-        button: Ga als volgt te
+        button: Volgen
         error: Er is een fout opgetreden na deze bron.
       destroy:
-        button: Stop volgende
+        button: Stop met volgen
         error: Er is een fout opgetreden unfollowing van deze resource.
     forms:
       current_file: Huidig ​​bestand
