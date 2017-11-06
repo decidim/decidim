@@ -18,6 +18,7 @@ This plugin provides:
   menu.
 
 ## Installation
+
 Add this line to your application's Gemfile:
 
 ```ruby
@@ -25,12 +26,15 @@ gem 'decidim-participatory_processes'
 ```
 
 And then execute:
+
 ```bash
-$ bundle
+bundle
 ```
 
 ## Contributing
+
 See [Decidim](https://github.com/decidim/decidim).
 
 ## License
+
 See [Decidim](https://github.com/decidim/decidim).

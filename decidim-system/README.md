@@ -14,8 +14,9 @@ gem 'decidim-system'
 ```
 
 And then execute:
+
 ```bash
-$ bundle
+bundle
 ```
 
 ## Multi-tenancy in Decidim
@@ -62,4 +63,5 @@ Remember that System admins and regular Admins are completely different users (t
 system user to login in as an organization admin.
 
 ## License
+
 The gem is available as open source under the terms of the [AGPLv3 License](https://opensource.org/licenses/AGPL-3.0).

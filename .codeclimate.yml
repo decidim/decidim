@@ -37,6 +37,12 @@ engines:
           annotation: "Don't leave trailing whitespace"
           severity: minor
           categories: Style
+  markdownlint:
+    enabled: true
+    exclude_paths:
+      - docs/*
+      - .github/*
+      - CHANGELOG.md
   rubocop:
     enabled: true
     channel: rubocop-0-50

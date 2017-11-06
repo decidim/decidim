@@ -16,6 +16,7 @@ This plugin provides:
 * Public views for assembly via a high level section in the main menu.
 
 ## Installation
+
 Add this line to your application's Gemfile:
 
 ```ruby
@@ -23,12 +24,15 @@ gem 'decidim-assemblies'
 ```
 
 And then execute:
+
 ```bash
-$ bundle
+bundle
 ```
 
 ## Contributing
+
 See [Decidim](https://github.com/decidim/decidim).
 
 ## License
+
 See [Decidim](https://github.com/decidim/decidim).
