@@ -340,13 +340,13 @@ it:
     home:
       extended:
         debates: Dibattiti
-        debates_explanation: Discutere e discutere, condividere le tue opinioni e arricchire gli argomenti pertinenti.
+        debates_explanation: Dibattere e discutere, condividere le tue opinioni e arricchire gli argomenti pertinenti.
         how_to_participate: Come posso partecipare ad un processo?
         meetings: Incontri, meeting
-        meetings_explanation: Scopri dove e quando puoi partecipare a riunioni pubbliche.
+        meetings_explanation: Scopri dove e quando puoi partecipare a incontri pubblici.
         more_info: Maggiori informazioni
         proposals: Proposte
-        proposals_explanation: Fare proposte, sostenere quelle esistenti e promuovere le modifiche che si desidera vedere.
+        proposals_explanation: Fare proposte, sostenere quelle esistenti e promuovere le modifiche che vuoi vedere.
       footer_sub_hero:
         footer_sub_hero_body: Costruiamo una società più aperta, trasparente e collaborativa.<br /> Unisciti, participa e decidi.
         footer_sub_hero_headline: Benvenuto sulla piattaforma partecipativa di %{organization}.
@@ -355,7 +355,7 @@ it:
         participate: Partecipa
         welcome: Benvenuto su %{organization}!
       statistics:
-        answers_count: risposte
+        answers_count: Risposte
         comments_count: Commenti
         headline: Stato attuale dell'organizzazione %{organization}
         meetings_count: Meeting
@@ -382,7 +382,7 @@ it:
     pinterest: Pinterest
     qq: Qzone
     reddit: Reddit
-    share_to: Condividi su %{name}
+    share_to: Condividi con %{name}
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte
