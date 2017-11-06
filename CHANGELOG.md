@@ -9,6 +9,12 @@
 **Changed**:
 
 - **decidim-admin**: Replace url to visit_url moderation admin [\#2129](https://github.com/decidim/decidim/pull/2129)
+- **decidim-core**: Hide link to register when user is already logged in [\#2088](https://github.com/decidim/decidim/pull/2088)
+- **decidim-proposals**: Change "Already voted" to "Unvote" on button hover [\#2096](https://github.com/decidim/decidim/pull/2096)
+
+**Fixed**:
+
+- **decidim-proposals**: Separate organization and user-submitted proposals for the proposal limits [\#2150](https://github.com/decidim/decidim/pull/2150)
 
 ## [v0.7.1](https://github.com/decidim/decidim/tree/v0.7.1) (2017-10-26)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.7.0...v0.7.1)
@@ -35,6 +41,7 @@
 - **decidim-participatory_processes**: Hide the link to Processes from the main menu if no processes are published [\#2074](https://github.com/decidim/decidim/pull/2074)
 - **decidim-proposals**: Show votes in the proposals table in admin when votes are enabled [\#2011](https://github.com/decidim/decidim/pull/2011)
 - **decidim-proposals**: Allow setting the maximum amount of votes a proposal can receive [\#2054](https://github.com/decidim/decidim/pull/2054).
+- **decidim-proposals**: Let admins specify how many proposals can a user send per process [\#2069](https://github.com/decidim/decidim/pull/2069).
 
 **Changed**
 
