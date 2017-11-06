@@ -167,16 +167,16 @@ nl:
         error: Er is een fout opgetreden na deze bron.
       destroy:
         button: Stop met volgen
-        error: Er is een fout opgetreden unfollowing van deze resource.
+        error: Er is een fout opgetreden bij het stoppen met volgen van deze bron.
     forms:
       current_file: Huidig ​​bestand
-      current_image: Huidig ​​beeld
+      current_image: Huidige afbeelding
       default_image: Standaard afbeelding
       errors:
         error: Er is een fout in dit veld.
       remove_this_file: Verwijder dit bestand
     managed_users:
-      expired_session: De huidige impersonatie sessie is verlopen.
+      expired_session: De huidige naboots sessie is verlopen.
     menu:
       home: Home
       more_information: Meer informatie
