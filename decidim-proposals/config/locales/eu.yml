@@ -152,6 +152,7 @@ eu:
           report: Salatu
         vote_button:
           already_voted: Bozkatuta duzu
+          already_voted_hover: Unvote
           maximum_votes_reached: Vote muga iritsi da
           no_votes_remaining: Ez da gelditzen botorik
           vote: Proiektuaren alde egin
