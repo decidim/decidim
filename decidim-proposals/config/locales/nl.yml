@@ -152,6 +152,7 @@ nl:
           report: Rapporteren
         vote_button:
           already_voted: Al gestemd
+          already_voted_hover: Unvote
           maximum_votes_reached: Stemlimiet bereikt
           no_votes_remaining: Geen stemmen over
           vote: Stemmen

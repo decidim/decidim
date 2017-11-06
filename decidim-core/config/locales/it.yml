@@ -18,7 +18,7 @@ it:
     attributes:
       decidim/user:
         current_password: Password attuale
-        email: E-mail
+        email: Email
         name: Nome Utente
         password: Password
         password_confirmation: Conferma password
@@ -35,16 +35,16 @@ it:
   decidim:
     account:
       delete:
-        alert: Questa azione non può essere annullata. Se elimini il tuo account non potrai più accedere.
+        alert: Questa azione non può essere annullata. Se si cancella l'account, non sarà più possibile accederci.
         confirm:
           close: Chiudere finestra
-          ok: Sì, voglio eliminare il mio account
-          question: Sei sicuro di voler eliminare il tuo account?
-          title: Elimina il mio account
-        explanation: Per favore, compila il motivo per cui desideri eliminare il tuo account (facoltativo).
+          ok: Sì, voglio cancellare il mio account
+          question: Sei sicuro di voler cancellare il tuo account?
+          title: Cancellare il mio account
+        explanation: Per favore, completa il motivo per cui desideri cancellare il tuo account (opzionale).
       destroy:
-        error: Si è verificato un errore durante l'eliminazione del tuo account.
-        success: Il tuo account è stato eliminato correttamente.
+        error: Si è verificato un errore durante la cancellazione del tuo account.
+        success: Il tuo account è stato cancellato correttamente.
       show:
         change_password: Cambia password
         update_account: Aggiorna Account
@@ -68,7 +68,7 @@ it:
         duplicate_authorization: Esiste già un utente registrato con gli stessi dati.
       foo_authorization:
         fields:
-          bar: Bar
+          bar: Barra
           foo: foo
         name: Autorizzazione Foo
     authorizations:
@@ -84,7 +84,7 @@ it:
         authorize: Invia
         authorize_with: Verifica con %{authorizer}
       skip_verification: Se preferisci puoi saltare questa verifica per il momento e %{link}
-      start_exploring: iniziare a esplorare
+      start_exploring: iniziare ad esplorare
     core:
       actions:
         unauthorized: Non sei autorizzato a eseguire questa azione
@@ -101,16 +101,16 @@ it:
         new:
           already_have_an_account?: Hai già un account?
           newsletter_notifications: Ricevi informazioni sulle attività rilevanti
-          sign_in: Accedi
+          sign_in: Accedere
           sign_up: Registrazione
           sign_up_as:
             legend: Registrati come
             user: Individuo
-            user_group: Organizzazione/Gruppo di persone
+            user_group: Organizzazione / Collettivo
           subtitle: Registrati per partecipare alle discussioni e sostenere le proposte.
           terms: Termini e condizioni di utilizzo del servizio
           tos_agreement: Effettuando la registrazione automaticamente accetti le seguenti condizioni %{link}.
-          username_help: Nome "pubblico" che comparirà per i tuoi post.  Usa un nome di fantasia se vuoi garantirti un certo grado di anonimato.
+          username_help: Nome "pubblico" che comparirà nei tuoi post. Utilizza un nome fittizio se vuoi garantirti un certo grado di anonimato.
       sessions:
         new:
           are_you_new?: Sei nuovo nella piattaforma?
@@ -120,17 +120,17 @@ it:
           or: oppure
     errors:
       internal_server_error:
-        title: Si è verificato un problema da parte del server
-        try_later: Si prega di riprovare più tardi.
+        title: Si è verificato un problema durante la comunicazione con i server
+        try_later: Per cortesia, riprova più tardi.
       not_found:
-        back_home: Torna alla home page
+        back_home: Torna alla homepage
         content_doesnt_exist: Questo indirizzo non è corretto oppure è stato rimosso.
         title: La pagina che stai cercando non è stata trovata
     events:
       email_event:
         email_greeting: Ciao %{user_name},
         email_intro: 'C''è stato un aggiornamento alla "%{resource_title}". Si può vedere da questa pagina:'
-        email_outro: Hai ricevuto questa notifica perché si segue "%{resource_title}". Puoi smettere di seguire e dal link precedente.
+        email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
         email_subject: Un aggiornamento per %{resource_title}
       notification_event:
         notification_title: Si è verificato un evento di <a href="%{resource_path}">%{resource_title}</a>.
@@ -141,7 +141,7 @@ it:
     features:
       dummy:
         actions:
-          bar: Bar
+          bar: Barra
           foo: foo
         name: Funzionalità di prova
         settings:
@@ -167,7 +167,7 @@ it:
         error: C'è stato un errore seguendo questa risorsa.
       destroy:
         button: Smettere di seguire
-        error: C'è stato un errore smettere questa risorsa.
+        error: Si è verificato un errore ad smettere questa risorsa.
     forms:
       current_file: File attuale
       current_image: Immagine attuale
@@ -240,13 +240,13 @@ it:
         description: Questo contenuto è inappropriato?
         does_not_belong: Contiene attività illegali, istigazione al suicidio, informazioni personali o riservate, o altre cose che tu credi che non sono appropriato per %{organization_name}.
         offensive: Contiene contenuti razzisti, diffamatori, sessisti, insulti o attacchi personali, minacce di morte, istigazioni al suicidio o altre forme di odio verbale.
-        report: rapporto
+        report: Rapporto
         spam: Contiene clickbait, pubblicità, truffe o script bots.
         title: Segnala un problema
       follow_button:
-        sign_in_before_follow: Accedi prima di eseguire questa azione
+        sign_in_before_follow: Accede prima di eseguire questa azione
       login_modal:
-        please_sign_in: Per cortesia effettua l'accesso.
+        please_sign_in: Per cortesia, effettua l'accesso
         sign_up: Registrazione
       reference:
         reference: 'Riferimento: %{reference}'
@@ -268,9 +268,9 @@ it:
         hello: Ciao %{email},
         ignore: |-
           Se non desideri accettare l'invito, ignora questa email.<br /> Il tuo account non verrà creato finché non accedi al link precedente e imposti la tua password.
-        invited_you_as_admin: "%{invited_by} ti ha invitato come amministratore di %{application}. Puoi accettarla tramite il collegamento qui sotto."
-        someone_invited_you: Qualcuno ti ha invitato a %{application}. Puoi accettarla tramite il collegamento qui sotto.
-        someone_invited_you_as_admin: Qualcuno ti ha invitato come amministratore di %{application}, puoi accettarlo tramite il collegamento qui sotto.
+        invited_you_as_admin: "%{invited_by} ti ha invitato come amministratore di %{application}. Puoi accettare l'invito facendo clic sul link sottostante."
+        someone_invited_you: Qualcuno ti ha invitato a %{application}. Puoi accettare l'invito facendo clic sul link sottostante.
+        someone_invited_you_as_admin: Qualcuno ti ha invitato come amministratore di %{application}. Puoi accettare l'invito facendo clic sul link sottostante.
       invite_admin:
         subject: Sei stato invitato per la gestione della sezione relativa all'organizzazione %{organization}
       invite_collaborator:
@@ -313,12 +313,12 @@ it:
         sign_in: Accedi
         sign_up: Registrati
       impersonation_warning:
-        close_session: Chiudi sessione
+        close_session: Chiudere la sessione
         description_html: Stai impersonando l'utente <b>%{user_name}</b>.
-        expire_time_html: La sessione scadrà in <b><span class="minutes">%{minutes}</span> minutes</b>.
+        expire_time_html: La sessione scadrà in <b><span class="minutes">%{minutes}</span> minuti</b>.
       notifications_dashboard:
         mark_all_as_read: Contrassegnare tutti come letti
-        no_notifications: No le notifiche.
+        no_notifications: Nessuna notifica.
         title: Notifiche
       user_menu:
         admin_dashboard: Cruscotto per gli amministratori (Admin dashboard)
@@ -340,13 +340,13 @@ it:
     home:
       extended:
         debates: Dibattiti
-        debates_explanation: Discutere e discutere, condividere le tue opinioni e arricchire gli argomenti pertinenti.
+        debates_explanation: Dibattere e discutere, condividere le tue opinioni e arricchire gli argomenti pertinenti.
         how_to_participate: Come posso partecipare ad un processo?
         meetings: Incontri, meeting
-        meetings_explanation: Scopri dove e quando puoi partecipare a riunioni pubbliche.
+        meetings_explanation: Scopri dove e quando puoi partecipare a incontri pubblici.
         more_info: Maggiori informazioni
         proposals: Proposte
-        proposals_explanation: Fare proposte, sostenere quelle esistenti e promuovere le modifiche che si desidera vedere.
+        proposals_explanation: Fare proposte, sostenere quelle esistenti e promuovere le modifiche che vuoi vedere.
       footer_sub_hero:
         footer_sub_hero_body: Costruiamo una società più aperta, trasparente e collaborativa.<br /> Unisciti, participa e decidi.
         footer_sub_hero_headline: Benvenuto sulla piattaforma partecipativa di %{organization}.
@@ -355,7 +355,7 @@ it:
         participate: Partecipa
         welcome: Benvenuto su %{organization}!
       statistics:
-        answers_count: risposte
+        answers_count: Risposte
         comments_count: Commenti
         headline: Stato attuale dell'organizzazione %{organization}
         meetings_count: Meeting
@@ -382,7 +382,7 @@ it:
     pinterest: Pinterest
     qq: Qzone
     reddit: Reddit
-    share_to: Condividi su %{name}
+    share_to: Condividi con %{name}
     tumblr: Tumblr
     twitter: Twitter
     vkontakte: Vkontakte

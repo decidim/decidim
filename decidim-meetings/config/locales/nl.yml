@@ -46,39 +46,39 @@ nl:
           registrations: registraties
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} heeft je uitgenodigd om deel te nemen aan een vergadering op %{application}. U kunt het accepteren via de onderstaande link."
+            invited_you_to_join_a_meeting: "%{invited_by} heeft u uitgenodigd om deel te nemen aan een vergadering op %{application}. U kunt het accepteren via de onderstaande link."
             join: Word lid van '%{meeting_title}'
         invites:
           create:
             error: Er is een probleem opgetreden tijdens het uitnodigen van de gebruiker om deel te nemen aan de vergadering.
             success: Gebruikers succesvol uitgenodigd om deel te nemen aan de vergadering.
           new:
-            explanation: De gebruiker wordt uitgenodigd om deel te nemen aan een vergadering. Als de e-mail niet is geregistreerd, worden ze ook uitgenodigd voor de organisatie.
-            invite: Nodig uit
-            new_invite: Uitnodigen gebruiker
+            explanation: De gebruiker wordt uitgenodigd om deel te nemen aan een vergadering. Als het e-mailadres niet is geregistreerd, worden ze ook uitgenodigd voor de organisatie.
+            invite: Uitnodigen
+            new_invite: Gebruiker uitnodigen
         meeting_closes:
           edit:
-            close: Sluit
-            title: Dichte ontmoeting
+            close: Sluiten
+            title: Vergadering sluiten
         meetings:
           close:
             invalid: Er is een probleem opgetreden bij het sluiten van deze vergadering
-            success: Vergadering met succes gesloten
+            success: Vergadering succesvol afgesloten
           create:
             invalid: Er is een probleem opgetreden met het maken van deze vergadering
-            success: Vergadering met succes gemaakt
+            success: Vergadering succesvol aangemaakt
           destroy:
-            success: Meeting met succes verwijderd
+            success: Vergadering succesvol verwijderd
           edit:
             update: Bijwerken
           index:
             title: Vergaderingen
           new:
             create: Creëren
-            title: Maak een afspraak
+            title: Creëer vergadering
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van deze vergadering
-            success: Vergadering met succes bijgewerkt
+            success: Vergadering succesvol bijgewerkt
         models:
           meeting:
             name: Vergadering
@@ -86,44 +86,44 @@ nl:
           edit:
             save: Opslaan
           form:
-            available_slots_help: Laat het naar 0 als u onbeperkt beschikbare slots hebt.
-            invite_user: Uitnodigen gebruiker
+            available_slots_help: Laat het op 0 indien u onbeperkt beschikbare plaatsen hebt.
+            invite_user: Gebruiker uitnodigen
             registrations_count:
               one: Er is 1 registratie geweest.
               other: Er zijn %{count} registraties geweest.
           update:
             invalid: Er is een probleem opgetreden bij het opslaan van de registratie-instellingen.
-            success: Vergaderen van instellingen voor instellingen die succesvol zijn opgeslagen.
+            success: Instellingen bijeenkomst registraties succesvol opgeslagen.
       events:
         close_meeting_event:
-          email_intro: 'De "%{resource_title}"-bijeenkomst werd gesloten. U kunt de conclusies van de pagina lezen:'
-          email_outro: U ontvangt dit bericht omdat u de bijeenkomst "%{resource_title} volgen". Je kunt het unfollow uit de vorige koppeling.
-          email_subject: De "%{resource_title}"-bijeenkomst werd gesloten
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering werd gesloten.
+          email_intro: 'De "%{resource_title}"-bijeenkomst werd gesloten. U kunt de conclusies lezen op deze pagina:'
+          email_outro: U heeft deze melding ontvangen omdat u de bijeenkomst "%{resource_title}" volgt. U kan stoppen met deze te volgen via vorige link.
+          email_subject: De bijeenkomst "%{resource_title}" werd gesloten
+          notification_title: De bijeenkomst <a href="%{resource_path}">%{resource_title}</a> werd gesloten.
         meeting_registrations_enabled:
-          email_intro: 'De vergadering van de "%{resource_title}" heeft ingeschakeld registraties. U kunt uzelf registreren op de pagina:'
-          email_outro: U ontvangt dit bericht omdat u de bijeenkomst "%{resource_title} volgen". Je kunt het unfollow uit de vorige koppeling.
-          email_subject: De vergadering van de "%{resource_title}" heeft ingeschakeld registraties.
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a>-bijeenkomst heeft ingeschakeld registraties.
+          email_intro: 'De bijeenkomst "%{resource_title}" voorziet registraties. U kunt uzelf registreren op de pagina:'
+          email_outro: U heeft deze melding ontvangen omdat u de "%{resource_title}"-vergadering volgt. U kan stoppen met deze te volgen via vorige link.
+          email_subject: De bijeenkomst %{resource_title} voorziet registraties.
+          notification_title: De bijeenkomst <a href="%{resource_path}">%{resource_title}</a> voorziet registraties.
         meeting_registrations_over_percentage:
-          email_intro: De "%{resource_title}" vergadering bezet "slots" zijn voorbij %{percentage}%.
-          email_outro: U ontvangt deze melding omdat je beheerder van participatieve ruimte van de vergadering bent.
-          email_subject: De "%{resource_title}" vergadering bezet "slots" zijn voorbij %{percentage}%
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering bezet "slots" zijn voorbij %{percentage}%.
+          email_intro: De bezetten plaatsen voor de bijeenkomst "%{resource_title}" overschrijden %{percentage}%.
+          email_outro: U ontvangt deze melding omdat u de administrator van participatieve ruimte van de bijeenkomst bent.
+          email_subject: De bezetten plaatsen voor "%{resource_title}" overschrijden %{percentage}%
+          notification_title: De bezetten plaatsen voor de bijeenkomst <a href="%{resource_path}">%{resource_title}</a> overschrijden %{percentage}%.
         upcoming_meeting_event:
-          email_intro: De bijeenkomst van de "%{resource_title}" zal beginnen in minder dan 48 uur.
-          email_outro: U ontvangt dit bericht omdat u de bijeenkomst "%{resource_title} volgen". Je kunt het unfollow uit de vorige koppeling.
-          email_subject: De bijeenkomst van de "%{resource_title}" zal beginnen in minder dan 48 uur.
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a>-bijeenkomst zal beginnen in minder dan 48 uur.
+          email_intro: De bijeenkomst "%{resource_title}" zal beginnen in minder dan 48 uur.
+          email_outro: U ontvangt dit bericht omdat u de bijeenkomst "%{resource_title} volgt". Je kunt stoppen met volgen via vorige link.
+          email_subject: De bijeenkomst "%{resource_title}" zal beginnen in minder dan 48 uur.
+          notification_title: De bijeenkomst <a href="%{resource_path}">%{resource_title}</a>-zal beginnen in minder dan 48 uur.
         update_meeting_event:
-          email_intro: 'De vergadering van de "%{resource_title}" werd bijgewerkt. U kunt de nieuwe versie van de pagina lezen:'
-          email_outro: U ontvangt dit bericht omdat u de bijeenkomst "%{resource_title} volgen". Je kunt het unfollow uit de vorige koppeling.
-          email_subject: De vergadering van de "%{resource_title}" werd bijgewerkt
-          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering werd bijgewerkt.
+          email_intro: 'De bijeenkomst "%{resource_title}" werd bijgewerkt. U kunt de nieuwe versie op volgende pagina lezen:'
+          email_outro: U heeft deze melding ontvangen omdat u de bijeenkomst "%{resource_title}" volgt. U kan stoppen met deze te volgen via vorige link.
+          email_subject: De vergadering "%{resource_title}" werd bijgewerkt
+          notification_title: De bijeenkomst <a href="%{resource_path}">%{resource_title}</a> werd bijgewerkt.
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Onderwerpen
+            subject: Onderwerp
         registration_mailer:
           confirmation:
             subject: Registratie van uw vergadering is bevestigd
@@ -154,13 +154,13 @@ nl:
           attendees: Aantal deelnemers
           contributions: Aantal bijdragen
           going: Gaat
-          join: Word lid van de vergadering
-          meeting_report: Notulen
-          no_slots_available: Geen slots beschikbaar
+          join: Deelnemen aan bijeenkomst
+          meeting_report: Bijeenkomst verslag
+          no_slots_available: Geen plaatsen beschikbaar
           organizations: Bijwonen van organisaties
           remaining_slots:
-            one: 1 slot overblijft
-            other: "%{count} resterende slots"
+            one: 1 plaats resterend
+            other: "%{count} resterende plaatsen"
       models:
         meeting:
           fields:

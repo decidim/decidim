@@ -152,6 +152,7 @@ fi:
           report: Ilmoita
         vote_button:
           already_voted: Jo äänestetty
+          already_voted_hover: Unvote
           maximum_votes_reached: Äänestysraja saavutettu
           no_votes_remaining: Ei ääniä jäljellä
           vote: Äänestä

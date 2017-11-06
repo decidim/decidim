@@ -183,13 +183,13 @@ nl:
         form:
           name: Naam
         impersonate:
-          error: Er is een fout opgetreden bij het verpersoonlijken van de gebruiker.
+          error: Er is een fout opgetreden bij het nabootsen van de gebruiker.
         impersonations:
           new:
-            impersonate: verpersoonlijken
-            new_managed_user_impersonation: Nieuwe beheerde gebruiker verpersoonlijking
+            impersonate: Nabootsen
+            new_managed_user_impersonation: Nieuwe beheerde gebruiker nabootsen
         index:
-          impersonate: verpersoonlijken
+          impersonate: Boots na
           needs_authoriation_warning: U heeft minstens één geactiveerde autorisatie nodig voor deze organisatie.
           promote: Promoten
           view_logs: Bekijk logboeken
@@ -386,7 +386,7 @@ nl:
           success: Pagina is succesvol bijgewerkt
       titles:
         dashboard: Dashboard
-        impersonations: Verpersoonlijkingen
+        impersonations: Nabootsingingen
         managed_users: Beheerde gebruikers
         scope_types: Scope types
         scopes: Scopes

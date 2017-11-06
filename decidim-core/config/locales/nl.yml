@@ -123,20 +123,20 @@ nl:
         title: Er was een probleem met de server
         try_later: Probeer het later opnieuw.
       not_found:
-        back_home: Terug naar huis
+        back_home: Terug naar de hoofdpagina
         content_doesnt_exist: Dit adres is onjuist of is verwijderd.
-        title: De pagina die u zoekt is niet gevonden
+        title: De opgevraagde pagina kan niet gevonden worden
     events:
       email_event:
         email_greeting: Hallo %{user_name},
-        email_intro: 'Er is een update aan "%{resource_title}". Je ziet het vanaf deze pagina:'
-        email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
-        email_subject: Een update aan %{resource_title}
+        email_intro: 'Er is een update voor ''%{resource_title}''. Je kunt het vanaf deze pagina bekijken:'
+        email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kan stoppen met deze te volgen via vorige link.
+        email_subject: Een update voor %{resource_title}
       notification_event:
-        notification_title: Een gebeurtenis heeft plaatsgevonden om te <a href="%{resource_path}">%{resource_title}</a>.
+        notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:
       export:
-        ready: Hierbij vindt u een bijgevoegde versie van uw export.
+        ready: In de bijlage vindt u een versie van uw export.
       subject: Uw export "%{name}" is klaar
     features:
       dummy:
@@ -163,20 +163,20 @@ nl:
         result: Resultaten
     follows:
       create:
-        button: Ga als volgt te
+        button: Volgen
         error: Er is een fout opgetreden na deze bron.
       destroy:
-        button: Stop volgende
-        error: Er is een fout opgetreden unfollowing van deze resource.
+        button: Stop met volgen
+        error: Er is een fout opgetreden bij het stoppen met volgen van deze bron.
     forms:
       current_file: Huidig ​​bestand
-      current_image: Huidig ​​beeld
+      current_image: Huidige afbeelding
       default_image: Standaard afbeelding
       errors:
         error: Er is een fout in dit veld.
       remove_this_file: Verwijder dit bestand
     managed_users:
-      expired_session: De huidige impersonatie sessie is verlopen.
+      expired_session: De huidige naboots sessie is verlopen.
     menu:
       home: Home
       more_information: Meer informatie
@@ -185,7 +185,7 @@ nl:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
     notifications_settings:
       show:
-        email_on_notification: Ik wil ontvangen een e-mail telkens als ik een melding ontvangt.
+        email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
         newsletter_notifications: Ik wil informatie ontvangen over relevante activiteiten
         update_notifications_settings: Wijzigingen opslaan
       update:
@@ -193,8 +193,8 @@ nl:
         success: Uw notificatie instellingen zijn bijgewerkt.
     own_user_groups:
       index:
-        pending: In afwachting
-        rejected: Verworpen
+        pending: In behandeling
+        rejected: Geweigerd
         verified: Geverifieerd
     pages:
       index:
@@ -314,7 +314,7 @@ nl:
         sign_up: Registreren
       impersonation_warning:
         close_session: Sluit sessie
-        description_html: U verpersoonlijkt de gebruiker <b>%{user_name}</b>.
+        description_html: U boots de gebruiker <b>%{user_name}</b> na.
         expire_time_html: Uw sessie vervalt in <b><span class="minutes">%{minutes}</span> minuten</b>.
       notifications_dashboard:
         mark_all_as_read: Alles als gelezen markeren

@@ -152,6 +152,7 @@ ca:
           report: Informe
         vote_button:
           already_voted: Ja has votat
+          already_voted_hover: Retirar vot
           maximum_votes_reached: S'ha arribat al límit de vots
           no_votes_remaining: No hi ha suports restants
           vote: Donar suport

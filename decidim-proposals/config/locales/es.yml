@@ -152,6 +152,7 @@ es:
           report: Denunciar
         vote_button:
           already_voted: Ya votado
+          already_voted_hover: Retirar voto
           maximum_votes_reached: Límite de votos alcanzado
           no_votes_remaining: No hay votos restantes
           vote: Dar apoyo

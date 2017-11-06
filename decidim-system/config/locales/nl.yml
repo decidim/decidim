@@ -38,7 +38,7 @@ nl:
           fields:
             created_at: Gemaakt bij
             email: E-mail
-          name: beheerder
+          name: Admin
           validations:
             email_uniqueness: Een andere admin met dezelfde e-mail bestaat al
         organization:
@@ -53,12 +53,12 @@ nl:
           error: Er is een fout opgetreden bij het aanmaken van een nieuwe organisatie.
           success: Organisatie is succesvol gemaakt.
         edit:
-          secondary_hosts_hint: Voer elk van hen in een nieuwe regel in
+          secondary_hosts_hint: Voer elk van hen op een nieuwe regel in
         index:
           title: Organisaties
         new:
-          reference_prefix_hint: Het referentievoorvoegsel wordt gebruikt om middelen uniek in alle organisaties te identificeren
-          secondary_hosts_hint: Voer elk van hen in een nieuwe regel in
+          reference_prefix_hint: Het referentie-voorvoegsel wordt gebruikt ter identificatie van unieke middelen over alle organisaties
+          secondary_hosts_hint: Voer elk van hen op een nieuwe regel in
           title: Nieuwe organisatie
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze organisatie.
@@ -66,6 +66,6 @@ nl:
       shared:
         notices:
           no_organization_warning_html: U moet een organisatie aanmaken om te beginnen. Zorg ervoor dat u %{guide} leest voordat u verder gaat.
-          our_getting_started_guide: Onze begonnen gids
+          our_getting_started_guide: onze handleiding voor beginners
       titles:
         dashboard: Dashboard
