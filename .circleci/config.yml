@@ -60,30 +60,14 @@ jobs:
       - attach_workspace:
           at: /code
       - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
-      - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
-      - run:
-          name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run main folder npm lint
           command: cd /code && time npm run lint
       - run:
           name: Run main folder RSpec
           command: cd /code && time bundle exec rspec
-      - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
   core:
     <<: *defaults
     steps:
@@ -498,7 +482,7 @@ workflows:
             - build_docker_image
       - main:
           requires:
-            - build_test_app
+            - build_docker_image
       - core:
           requires:
             - build_test_app
