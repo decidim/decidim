@@ -20,14 +20,14 @@ it:
         name: Nome
         reference_prefix: Prefisso
       organization_appearance:
-        cta_button_path: Percorso del pulsante di chiamata all'azione
-        cta_button_text: Testo del pulsante di chiamata a azione
+        cta_button_path: Percorso del pulsante di Appello all'azione
+        cta_button_text: Percorso del pulsante di Appello all'azione
         description: Descrizione
         favicon: Icona
-        header_snippets: Cricchetti dell'intestazione
-        homepage_image: immagine per la Homepage
+        header_snippets: Frammenti dell'intestazione
+        homepage_image: Immagine per la Homepage
         logo: Logo
-        official_img_footer: Logo ufficiale a piè pagina
+        official_img_footer: Logo ufficiale nel piè di pagina
         official_img_header: Logo ufficiale per l'intestazione
         official_url: URL dell'organizzazione ufficiale
         show_statistics: Mostra statistiche
