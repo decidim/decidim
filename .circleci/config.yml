@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: codegram/decidim
+    - image: codegram/decidim:$CIRCLE_SHA1
       environment:
         SIMPLECOV: true
         DATABASE_USERNAME: postgres
@@ -12,18 +12,27 @@ defaults: &defaults
   working_directory: /code
 
 jobs:
-  build:
+  build_docker_image:
+    docker:
+      - image: docker:17.10.0-ce-git
+    working_directory: /code
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run:
+          name: Build, tag and push docker image
+          command: |
+            docker build -t codegram/decidim:$CIRCLE_SHA1 .
+            docker login -u $DOCKER_USER -p $DOCKER_PASS
+            docker push codegram/decidim:$CIRCLE_SHA1
+  build_test_app:
     <<: *defaults
     steps:
       - checkout
       - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
-      - run:
-          name: Install app dependencies
-          command: |
-            bundle install
-            npm i
+          name: Install npm dependencies
+          command: npm i
       - run:
           name: Install dockerize
           command: sh .circleci/install-dockerize.sh
@@ -477,46 +486,49 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build
+      - build_docker_image
+      - build_test_app:
+          requires:
+            - build_docker_image
       - main:
           requires:
-            - build
+            - build_test_app
       - core:
           requires:
-            - build
+            - build_test_app
       - assemblies:
           requires:
-            - build
+            - build_test_app
       - api:
           requires:
-            - build
+            - build_test_app
       - processes:
           requires:
-            - build
+            - build_test_app
       - admin:
           requires:
-            - build
+            - build_test_app
       - system:
           requires:
-            - build
+            - build_test_app
       - proposals:
           requires:
-            - build
+            - build_test_app
       - comments:
           requires:
-            - build
+            - build_test_app
       - meetings:
           requires:
-            - build
+            - build_test_app
       - pages:
           requires:
-            - build
+            - build_test_app
       - accountability:
           requires:
-            - build
+            - build_test_app
       - budgets:
           requires:
-            - build
+            - build_test_app
       - surveys:
           requires:
-            - build
+            - build_test_app

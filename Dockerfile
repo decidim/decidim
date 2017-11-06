@@ -1,4 +1,4 @@
-FROM ruby:2.4.2
+FROM deividrodriguez/ruby-2.4.2-rubygems-2.6.13:latest
 MAINTAINER david.morcillo@codegram.com
 
 ENV APP_HOME /decidim
@@ -6,7 +6,6 @@ ENV APP_HOME /decidim
 RUN apt-get update
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash && \
     apt-get install -y nodejs
-RUN gem install bundler --no-rdoc --no-ri
 
 ADD Gemfile /tmp/Gemfile
 ADD Gemfile.lock /tmp/Gemfile.lock
