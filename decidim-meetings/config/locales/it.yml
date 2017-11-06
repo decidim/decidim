@@ -102,23 +102,23 @@ it:
           notification_title: La riunione di <a href="%{resource_path}">%{resource_title}</a> era chiusa.
         meeting_registrations_enabled:
           email_intro: 'La riunione "%{resource_title}" ha permesso le registrazioni. È possibile registrarsi sulla sua pagina:'
-          email_outro: Hai ricevuto questa notifica perché si segue l'incontro "%{resource_title}". Puoi smettere di seguire e dal link precedente.
-          email_subject: L'incontro "%{resource_title}" ha permesso le registrazioni.
+          email_outro: Hai ricevuto questa notifica perché si segue la riunione "%{resource_title}". Puoi smettere di seguirla nel link precedente.
+          email_subject: La riunione "%{resource_title}" ha permesso le registrazioni.
           notification_title: La riunione di <a href="%{resource_path}">%{resource_title}</a> ha permesso le registrazioni.
         meeting_registrations_over_percentage:
-          email_intro: Gli slot di incontro occupato "%{resource_title}" sono più di %{percentage}%.
-          email_outro: Hai ricevuto questa notifica perché sei un admin di spazio partecipativo della riunione.
-          email_subject: Gli slot di incontro occupato "%{resource_title}" sono più di %{percentage}%
+          email_intro: Gli slot di riunione occupati "%{resource_title}" sono più di %{percentage}%.
+          email_outro: Hai ricevuto questa notifica perché sei un admin dello spazio partecipativo della riunione.
+          email_subject: Gli slot di riunione occupati "%{resource_title}" sono più di %{percentage}%
           notification_title: Gli slot di riunione occupate <a href="%{resource_path}">%{resource_title}</a> sono più di %{percentage}%.
         upcoming_meeting_event:
-          email_intro: L'incontro "%{resource_title}" inizierà in meno di 48 ore.
-          email_outro: Hai ricevuto questa notifica perché si segue l'incontro "%{resource_title}". Puoi smettere di seguire e dal link precedente.
-          email_subject: L'incontro "%{resource_title}" inizierà in meno di 48 ore.
+          email_intro: La riunione "%{resource_title}" inizierà in meno di 48 ore.
+          email_outro: Hai ricevuto questa notifica perché si segue la riunione "%{resource_title}". Puoi smettere di seguirla nel link precedente.
+          email_subject: La riunione "%{resource_title}" inizierà in meno di 48 ore.
           notification_title: La riunione di <a href="%{resource_path}">%{resource_title}</a> inizierà in meno di 48 ore.
         update_meeting_event:
-          email_intro: 'L''incontro "%{resource_title}" è stato aggiornato. Potete leggere la nuova versione dalla sua pagina:'
-          email_outro: Hai ricevuto questa notifica perché si segue l'incontro "%{resource_title}". Puoi smettere di seguire e dal link precedente.
-          email_subject: È stato aggiornato l'incontro "%{resource_title}"
+          email_intro: 'La riunione "%{resource_title}" è stata aggiornata. Puoi leggere la nuova versione dalla sua pagina:'
+          email_outro: Hai ricevuto questa notifica perché si segue la riunione "%{resource_title}". Puoi smettere di seguirla nel link precedente.
+          email_subject: È stata aggiornata la riunione "%{resource_title}"
           notification_title: La riunione di <a href="%{resource_path}">%{resource_title}</a> è stata aggiornata.
       mailer:
         invite_join_meeting_mailer:
