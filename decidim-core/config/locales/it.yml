@@ -41,10 +41,10 @@ it:
           ok: Sì, voglio cancellare il mio account
           question: Sei sicuro di voler cancellare il tuo account?
           title: Cancellare il mio account
-        explanation: Per favore, compila il motivo per cui desideri eliminare il tuo account (facoltativo).
+        explanation: Per favore, completa il motivo per cui desideri cancellare il tuo account (opzionale).
       destroy:
-        error: Si è verificato un errore durante l'eliminazione del tuo account.
-        success: Il tuo account è stato eliminato correttamente.
+        error: Si è verificato un errore durante la cancellazione del tuo account.
+        success: Il tuo account è stato cancellato correttamente.
       show:
         change_password: Cambia password
         update_account: Aggiorna Account
@@ -84,7 +84,7 @@ it:
         authorize: Invia
         authorize_with: Verifica con %{authorizer}
       skip_verification: Se preferisci puoi saltare questa verifica per il momento e %{link}
-      start_exploring: iniziare a esplorare
+      start_exploring: iniziare ad esplorare
     core:
       actions:
         unauthorized: Non sei autorizzato a eseguire questa azione
