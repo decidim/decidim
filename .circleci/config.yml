@@ -33,6 +33,9 @@ jobs:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
+          name: Install gems
+          command: gem install bundler && bundle install
+      - run:
           name: Generate test app
           command: bundle exec rake decidim:generate_test_app
       - persist_to_workspace:
