@@ -46,14 +46,14 @@ nl:
           registrations: registraties
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} heeft je uitgenodigd om deel te nemen aan een vergadering op %{application}. U kunt het accepteren via de onderstaande link."
+            invited_you_to_join_a_meeting: "%{invited_by} heeft u uitgenodigd om deel te nemen aan een vergadering op %{application}. U kunt het accepteren via de onderstaande link."
             join: Word lid van '%{meeting_title}'
         invites:
           create:
             error: Er is een probleem opgetreden tijdens het uitnodigen van de gebruiker om deel te nemen aan de vergadering.
             success: Gebruikers succesvol uitgenodigd om deel te nemen aan de vergadering.
           new:
-            explanation: De gebruiker wordt uitgenodigd om deel te nemen aan een vergadering. Als de e-mail niet is geregistreerd, worden ze ook uitgenodigd voor de organisatie.
+            explanation: De gebruiker wordt uitgenodigd om deel te nemen aan een vergadering. Als het e-mail niet is geregistreerd, worden ze ook uitgenodigd voor de organisatie.
             invite: Nodig uit
             new_invite: Uitnodigen gebruiker
         meeting_closes:
