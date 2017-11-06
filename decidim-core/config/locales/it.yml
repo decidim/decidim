@@ -110,7 +110,7 @@ it:
           subtitle: Registrati per partecipare alle discussioni e sostenere le proposte.
           terms: Termini e condizioni di utilizzo del servizio
           tos_agreement: Effettuando la registrazione automaticamente accetti le seguenti condizioni %{link}.
-          username_help: Nome "pubblico" che comparirà per i tuoi post.  Usa un nome di fantasia se vuoi garantirti un certo grado di anonimato.
+          username_help: Nome "pubblico" che comparirà nei tuoi post. Utilizza un nome fittizio se vuoi garantirti un certo grado di anonimato.
       sessions:
         new:
           are_you_new?: Sei nuovo nella piattaforma?
@@ -120,10 +120,10 @@ it:
           or: oppure
     errors:
       internal_server_error:
-        title: Si è verificato un problema da parte del server
-        try_later: Si prega di riprovare più tardi.
+        title: Si è verificato un problema durante la comunicazione con i server
+        try_later: Per cortesia, riprova più tardi.
       not_found:
-        back_home: Torna alla home page
+        back_home: Torna alla homepage
         content_doesnt_exist: Questo indirizzo non è corretto oppure è stato rimosso.
         title: La pagina che stai cercando non è stata trovata
     events:
