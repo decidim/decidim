@@ -101,9 +101,9 @@ nl:
           email_subject: De "%{resource_title}"-vergadering werd gesloten
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering werd gesloten.
         meeting_registrations_enabled:
-          email_intro: 'De "%{resource_title}" vergadering voorziet registraties. U kunt uzelf registreren op de pagina:'
+          email_intro: 'De vergadering van de "%{resource_title}" heeft ingeschakeld registraties. U kunt uzelf registreren op de pagina:'
           email_outro: U heeft deze melding ontvangen omdat u de "%{resource_title}"-vergadering volgt. U kan stoppen met deze te volgen via vorige link.
-          email_subject: De vergadering van de "%{resource_title}" heeft ingeschakeld registraties.
+          email_subject: De vergadering '%{resource_title}' voorziet registraties.
           notification_title: De <a href="%{resource_path}">%{resource_title}</a>-bijeenkomst heeft ingeschakeld registraties.
         meeting_registrations_over_percentage:
           email_intro: De "%{resource_title}" vergadering bezet "slots" zijn voorbij %{percentage}%.
