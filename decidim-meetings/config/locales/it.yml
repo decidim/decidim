@@ -39,23 +39,23 @@ it:
         edit: Modifica
         new: Nuovo
         preview: Anteprima
-        registrations: iscrizioni
+        registrations: Iscrizioni
         title: Azioni
       admin:
         exports:
-          registrations: iscrizioni
+          registrations: Iscrizioni
         invite_join_meeting_mailer:
           invite:
-            invited_you_to_join_a_meeting: "%{invited_by} ti ha invitato a partecipare a una riunione al %{application}. Puoi accettarla tramite il collegamento qui sotto."
-            join: Iscriviti alla riunione '%{meeting_title}'
+            invited_you_to_join_a_meeting: "%{invited_by} ti ha invitato a partecipare a una riunione al %{application}. Puoi accettarla tramite il link sottostante."
+            join: Partecipa alla riunione '%{meeting_title}'
         invites:
           create:
-            error: È stato un problema durante l'invito all'utente di partecipare alla riunione.
+            error: C'è stato un problema durante l'invito all'utente di partecipare alla riunione.
             success: L'utente è stato invitato a partecipare alla riunione.
           new:
-            explanation: L'utente sarà invitato a partecipare a una riunione. Se la posta elettronica non è registrata, saranno invitati anche all'organizzazione.
+            explanation: L'utente sarà invitato a partecipare a una riunione. Se l'indirizzo email non è registrato, saranno anche invitati all'organizzazione.
             invite: Invita
-            new_invite: Invita l'utente
+            new_invite: Invita un utente
         meeting_closes:
           edit:
             close: Chiudi
@@ -72,7 +72,7 @@ it:
           edit:
             update: Modifica
           index:
-            title: Incontri
+            title: Riunioni
           new:
             create: Crea
             title: Crea meeting
@@ -81,7 +81,7 @@ it:
             success: OK, il meeting è stato aggiornato.
         models:
           meeting:
-            name: Incontro
+            name: Reunione
         registrations:
           edit:
             save: Salva
