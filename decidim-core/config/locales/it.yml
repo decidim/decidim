@@ -313,12 +313,12 @@ it:
         sign_in: Accedi
         sign_up: Registrati
       impersonation_warning:
-        close_session: Chiudi sessione
+        close_session: Chiudere la sessione
         description_html: Stai impersonando l'utente <b>%{user_name}</b>.
-        expire_time_html: La sessione scadrà in <b><span class="minutes">%{minutes}</span> minutes</b>.
+        expire_time_html: La sessione scadrà in <b><span class="minutes">%{minutes}</span> minuti</b>.
       notifications_dashboard:
         mark_all_as_read: Contrassegnare tutti come letti
-        no_notifications: No le notifiche.
+        no_notifications: Nessuna notifica.
         title: Notifiche
       user_menu:
         admin_dashboard: Cruscotto per gli amministratori (Admin dashboard)
