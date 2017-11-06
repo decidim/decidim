@@ -17,9 +17,6 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
-      - run:
           name: Install app dependencies
           command: |
             bundle install
