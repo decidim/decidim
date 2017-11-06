@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: deividrodriguez/decidim:$CIRCLE_SHA1
+    - image: codegram/decidim:$CIRCLE_SHA1
       environment:
         SIMPLECOV: true
         DATABASE_USERNAME: postgres
@@ -23,9 +23,9 @@ jobs:
       - run:
           name: Build, tag and push docker image
           command: |
-            docker build -t deividrodriguez/decidim:$CIRCLE_SHA1 .
+            docker build -t codegram/decidim:$CIRCLE_SHA1 .
             docker login -u $DOCKER_USER -p $DOCKER_PASS
-            docker push deividrodriguez/decidim:$CIRCLE_SHA1
+            docker push codegram/decidim:$CIRCLE_SHA1
   build_test_app:
     <<: *defaults
     steps:
