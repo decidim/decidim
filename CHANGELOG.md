@@ -4,6 +4,7 @@
 
 **Added**:
 
+- **decidim-assemblies**: Show promoted assemblies in the homepage [\#2162](https://github.com/decidim/decidim/pull/2162)
 - **decidim-core**: Add view hooks so external engines can extend the homepage and other sections with their own code [\#2114](https://github.com/decidim/decidim/pull/2114)
 
 **Changed**:

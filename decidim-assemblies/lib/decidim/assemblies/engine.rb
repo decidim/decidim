@@ -59,6 +59,21 @@ module Decidim
                     active: :inclusive
         end
       end
+
+      initializer "decidim_assemblies.view_hooks" do
+        Decidim.view_hooks.register(:highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
+          highlighted_assemblies = OrganizationPrioritizedAssemblies.new(view_context.current_organization)
+
+          next unless highlighted_assemblies.any?
+
+          view_context.render(
+            partial: "decidim/assemblies/pages/home/highlighted_assemblies",
+            locals: {
+              highlighted_assemblies: highlighted_assemblies
+            }
+          )
+        end
+      end
     end
   end
 end
