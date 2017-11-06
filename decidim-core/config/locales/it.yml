@@ -68,7 +68,7 @@ it:
         duplicate_authorization: Esiste già un utente registrato con gli stessi dati.
       foo_authorization:
         fields:
-          bar: Bar
+          bar: Barra
           foo: foo
         name: Autorizzazione Foo
     authorizations:
@@ -130,7 +130,7 @@ it:
       email_event:
         email_greeting: Ciao %{user_name},
         email_intro: 'C''è stato un aggiornamento alla "%{resource_title}". Si può vedere da questa pagina:'
-        email_outro: Hai ricevuto questa notifica perché si segue "%{resource_title}". Puoi smettere di seguire e dal link precedente.
+        email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
         email_subject: Un aggiornamento per %{resource_title}
       notification_event:
         notification_title: Si è verificato un evento di <a href="%{resource_path}">%{resource_title}</a>.
@@ -141,7 +141,7 @@ it:
     features:
       dummy:
         actions:
-          bar: Bar
+          bar: Barra
           foo: foo
         name: Funzionalità di prova
         settings:
