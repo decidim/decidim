@@ -93,12 +93,12 @@ nl:
               other: Er zijn %{count} registraties geweest.
           update:
             invalid: Er is een probleem opgetreden bij het opslaan van de registratie-instellingen.
-            success: Vergaderen van instellingen voor instellingen die succesvol zijn opgeslagen.
+            success: Instellingen vergaderregistraties succesvol opgeslagen.
       events:
         close_meeting_event:
-          email_intro: 'De "%{resource_title}"-bijeenkomst werd gesloten. U kunt de conclusies van de pagina lezen:'
-          email_outro: U ontvangt dit bericht omdat u de bijeenkomst "%{resource_title} volgen". Je kunt het unfollow uit de vorige koppeling.
-          email_subject: De "%{resource_title}"-bijeenkomst werd gesloten
+          email_intro: 'De "%{resource_title}"-bijeenkomst werd gesloten. U kunt de conclusies lezen op deze pagina:'
+          email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}"-vergadering volgt. U kan stoppen met deze te volgen via vorige link.
+          email_subject: De "%{resource_title}"-vergadering werd gesloten
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering werd gesloten.
         meeting_registrations_enabled:
           email_intro: 'De vergadering van de "%{resource_title}" heeft ingeschakeld registraties. U kunt uzelf registreren op de pagina:'
