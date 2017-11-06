@@ -244,9 +244,9 @@ it:
         spam: Contiene clickbait, pubblicità, truffe o script bots.
         title: Segnala un problema
       follow_button:
-        sign_in_before_follow: Accedi prima di eseguire questa azione
+        sign_in_before_follow: Accede prima di eseguire questa azione
       login_modal:
-        please_sign_in: Per cortesia effettua l'accesso.
+        please_sign_in: Per cortesia, effettua l'accesso
         sign_up: Registrazione
       reference:
         reference: 'Riferimento: %{reference}'
@@ -268,9 +268,9 @@ it:
         hello: Ciao %{email},
         ignore: |-
           Se non desideri accettare l'invito, ignora questa email.<br /> Il tuo account non verrà creato finché non accedi al link precedente e imposti la tua password.
-        invited_you_as_admin: "%{invited_by} ti ha invitato come amministratore di %{application}. Puoi accettarla tramite il collegamento qui sotto."
-        someone_invited_you: Qualcuno ti ha invitato a %{application}. Puoi accettarla tramite il collegamento qui sotto.
-        someone_invited_you_as_admin: Qualcuno ti ha invitato come amministratore di %{application}, puoi accettarlo tramite il collegamento qui sotto.
+        invited_you_as_admin: "%{invited_by} ti ha invitato come amministratore di %{application}. Puoi accettare l'invito facendo clic sul link sottostante."
+        someone_invited_you: Qualcuno ti ha invitato a %{application}. Puoi accettare l'invito facendo clic sul link sottostante.
+        someone_invited_you_as_admin: Qualcuno ti ha invitato come amministratore di %{application}. Puoi accettare l'invito facendo clic sul link sottostante.
       invite_admin:
         subject: Sei stato invitato per la gestione della sezione relativa all'organizzazione %{organization}
       invite_collaborator:
