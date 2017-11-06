@@ -28,10 +28,10 @@ it:
         homepage_image: Immagine per la Homepage
         logo: Logo
         official_img_footer: Logo ufficiale nel piè di pagina
-        official_img_header: Logo ufficiale per l'intestazione
+        official_img_header: Logo ufficiale nell'intestazione
         official_url: URL dell'organizzazione ufficiale
-        show_statistics: Mostra statistiche
-        welcome_text: Testo di benvenuto
+        show_statistics: Mostrare le statistiche
+        welcome_text: Testo di Benvenuto
       scope:
         code: Codice
         name: Nome
@@ -54,7 +54,7 @@ it:
         developer_group: Gruppo di sviluppo
         domain: Dominio
         end_date: Data di fine
-        hashtag: hashtag
+        hashtag: Hashtag
         hero_image: Immagine sulla Home Page
         local_area: Area locale
         meta_scope: Metadati di ambito
@@ -64,13 +64,13 @@ it:
         scope: Visibilità/ambito
         short_description: Descrizione breve
         slug: URL slug
-        start_date: Date di inizio
+        start_date: Data di inizio
         subtitle: Sottotitolo
-        target: Bersaglio
+        target: Target
         title: Titolo
       decidim/participatory_process_group:
         description: Descrizione
-        hero_image: Immagine sulla Home Page
+        hero_image: Immagine della Home Page
         name: Nome
         participatory_processes: Processi partecipativi
       decidim/participatory_process_step:
