@@ -185,7 +185,7 @@ nl:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
     notifications_settings:
       show:
-        email_on_notification: Ik wil ontvangen een e-mail telkens als ik een melding ontvangt.
+        email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
         newsletter_notifications: Ik wil informatie ontvangen over relevante activiteiten
         update_notifications_settings: Wijzigingen opslaan
       update:
@@ -194,7 +194,7 @@ nl:
     own_user_groups:
       index:
         pending: In behandeling
-        rejected: Verworpen
+        rejected: Geweigerd
         verified: Geverifieerd
     pages:
       index:
