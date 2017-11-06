@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.7.2](https://github.com/decidim/decidim/tree/v0.7.2) (2017-11-06)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.7.1...v0.7.2)
+
+**Fixed**:
+
+- **decidim-proposals**: Separate organization and user-submitted proposals for the proposal limits [\#2150](https://github.com/decidim/decidim/pull/2150)
+
 ## [v0.7.1](https://github.com/decidim/decidim/tree/v0.7.1) (2017-10-26)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.7.0...v0.7.1)
 
@@ -25,7 +32,8 @@
 - **decidim-meetings**: Participatory admins can invite users to join a meeting. [\#1879](https://github.com/decidim/decidim/pull/1879)
 - **decidim-participatory_processes**: Hide the link to Processes from the main menu if no processes are published [\#2074](https://github.com/decidim/decidim/pull/2074)
 - **decidim-proposals**: Show votes in the proposals table in admin when votes are enabled [\#2011](https://github.com/decidim/decidim/pull/2011)
-- **decidim-proposals**: Allow setting the maximum amount of votes a proposal can receive [\#2054](https://github.com/decidim/decidim/pull/2054).
+- **decidim-proposals**: Allow setting the maximum amount of votes a proposal can receive [\#2054](https://github.com/decidim/decidim/pull/2054)
+- **decidim-proposals**: Let admins specify how many proposals can a user send per process [\#2069](https://github.com/decidim/decidim/pull/2069)
 
 **Changed**
 
