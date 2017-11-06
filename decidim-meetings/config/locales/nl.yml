@@ -156,11 +156,11 @@ nl:
           going: Gaat
           join: Deelnemen aan bijeenkomst
           meeting_report: Bijeenkomst verslag
-          no_slots_available: Geen slots beschikbaar
+          no_slots_available: Geen plaatsen beschikbaar
           organizations: Bijwonen van organisaties
           remaining_slots:
-            one: 1 slot overblijft
-            other: "%{count} resterende slots"
+            one: 1 plaats resterend
+            other: "%{count} resterende plaatsen"
       models:
         meeting:
           fields:
