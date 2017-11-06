@@ -27,7 +27,7 @@ it:
           success: Admin modificato con successo
       default_pages:
         placeholders:
-          content: Si prega di aggiungere contenuto significativo alla pagina statica %{page} il pannello di amministrazione.
+          content: Si prega di aggiungere contenuto significativo alla pagina statica %{page} sul pannello di amministrazione.
           title: Titolo predefinito per %{page}
       menu:
         admins: Amministratori
