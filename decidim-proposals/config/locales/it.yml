@@ -65,7 +65,7 @@ it:
             invalid: Sono stati riscontrati dei problemi durante la creazione di questa proposta
             success: OK, proposta creata.
           form:
-            attachment_legend: "(Facoltativo) Aggiungere un allegato"
+            attachment_legend: "(Opzionale) Aggiungere un allegato"
             select_a_category: Scegli una categoria
           index:
             title: Proposte
@@ -109,8 +109,8 @@ it:
           all: Tutto
           category: Categoria
           category_prompt: Scegli una categoria
-          citizens: cittadini
-          evaluating: Valutare
+          citizens: Cittadini
+          evaluating: Valutando
           official: Ufficiale
           origin: Origine
           rejected: Rifiutata
@@ -130,10 +130,10 @@ it:
           view_proposal: Visualizza proposta
         linked_proposals:
           proposal_votes:
-            one: votazione
+            one: voto
             other: voti
         new:
-          attachment_legend: "(Facoltativo) Aggiungere un allegato"
+          attachment_legend: "(Opzionale) Aggiungere un allegato"
           back: Indietro
           select_a_category: Scegli una categoria
           send: Invia
@@ -152,8 +152,8 @@ it:
           report: Report
         vote_button:
           already_voted: Già votata
-          already_voted_hover: Unvote
-          maximum_votes_reached: Il limite di voto raggiunto
+          already_voted_hover: Annullare il voto
+          maximum_votes_reached: Hai raggiunto il limite di voti
           no_votes_remaining: Sono finite le votazioni possibili
           vote: Vota
           votes_blocked: Votazioni disabilitate
