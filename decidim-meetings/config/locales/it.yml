@@ -6,7 +6,7 @@ it:
         attending_organizations: Elenco delle organizzazioni partecipanti
         closing_report: Rapporto
         contributions_count: Numero di contributi
-        proposal_ids: Proposte ricevute nell'incontro
+        proposal_ids: Proposte create nell'incontro
       meeting:
         address: Indirizzo
         decidim_category_id: Categoria
@@ -16,12 +16,12 @@ it:
         location: Luogo
         location_hints: Informazione sul luogo
         start_time: Orario inizio
-        title: Nome
+        title: Titolo
   decidim:
     features:
       meetings:
         actions:
-          join: Aderire
+          join: Unirsi
         name: Incontri
         settings:
           global:
