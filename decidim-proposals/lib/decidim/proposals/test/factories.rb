@@ -119,6 +119,7 @@ FactoryGirl.define do
 
     trait :with_answer do
       answer { Decidim::Faker::Localized.sentence }
+      answered_at { Time.current }
     end
   end
 
