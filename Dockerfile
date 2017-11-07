@@ -56,10 +56,11 @@ COPY decidim-accountability/lib/decidim/accountability/version.rb /tmp/decidim-a
 
 RUN cd /tmp && bundle install
 
-COPY package.json /tmp/package.json
-COPY package-lock.json /tmp/package-lock.json
-
-RUN cd /tmp && npm i
-
 WORKDIR $APP_HOME
+
+COPY package.json $APP_HOME/package.json
+COPY package-lock.json $APP_HOME/package-lock.json
+
+RUN npm i
+
 COPY . ./

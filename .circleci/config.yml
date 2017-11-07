@@ -49,9 +49,6 @@ jobs:
       - attach_workspace:
           at: /decidim
       - run:
-          name: Install npm dependencies
-          command: npm i
-      - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
