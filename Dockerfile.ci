@@ -1,0 +1,20 @@
+ARG BASE_IMAGE_TAG=latest
+
+FROM codegram/decidim:$BASE_IMAGE_TAG
+MAINTAINER deivid.rodriguez@riseup.net
+
+USER root
+
+RUN DOCKERIZE_URL="https://circle-downloads.s3.amazonaws.com/circleci-images/cache/linux-amd64/dockerize-latest.tar.gz" \
+  && curl --silent --show-error --location --fail --retry 3 --output /tmp/dockerize-linux-amd64.tar.gz $DOCKERIZE_URL \
+  && tar -C /usr/local/bin -xzvf /tmp/dockerize-linux-amd64.tar.gz \
+  && rm /tmp/dockerize-linux-amd64.tar.gz \
+  && dockerize --version
+
+RUN PHANTOMJS_URL="https://circle-downloads.s3.amazonaws.com/circleci-images/cache/linux-amd64/phantomjs-latest.tar.bz2" \
+  && apt-get install libfontconfig \
+  && curl --silent --show-error --location --fail --retry 3 --output /tmp/phantomjs.tar.bz2 $PHANTOMJS_URL \
+  && tar -x -C /tmp -f /tmp/phantomjs.tar.bz2 \
+  && mv /tmp/phantomjs-*-linux-x86_64/bin/phantomjs /usr/local/bin \
+  && rm -r /tmp/phantomjs.tar.bz2 /tmp/phantomjs-* \
+  && phantomjs --version

@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: codegram/decidim:$CIRCLE_SHA1
+    - image: codegram/decidim:test-$CIRCLE_SHA1
       environment:
         SIMPLECOV: true
         DATABASE_USERNAME: postgres
@@ -12,38 +12,44 @@ defaults: &defaults
   working_directory: /decidim
 
 jobs:
-  build_docker_image:
+  build_docker_images:
     docker:
       - image: docker:17.10.0-ce-git
     working_directory: /decidim
     steps:
       - checkout
       - setup_remote_docker:
-          docker_layer_caching: true
+          version: 17.10.0-ce
       - run:
-          name: Build, tag and push docker image
+          name: Login to dockerhub
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run:
+          name: Build, tag and push docker production image
           command: |
-            docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker pull codegram/decidim:latest
             if [ $CIRCLE_BRANCH = 'master' ]; then
-              docker build --tag codegram/decidim:$CIRCLE_SHA1 --tag codegram/decidim:latest .
+              docker build --tag codegram/decidim:prod-$CIRCLE_SHA1 --tag codegram/decidim:latest .
               docker push codegram/decidim:latest
             else
-              docker build --tag codegram/decidim:$CIRCLE_SHA1 --cache-from codegram/decidim:latest .
+              docker build --tag codegram/decidim:prod-$CIRCLE_SHA1 --cache-from codegram/decidim:latest .
             fi
-            docker push codegram/decidim:$CIRCLE_SHA1
+      - run:
+          name: Build, tag and push docker test image
+          command: |
+            docker build -f Dockerfile.ci --build-arg BASE_IMAGE_TAG=prod-$CIRCLE_SHA1 --tag codegram/decidim:test-$CIRCLE_SHA1 .
+            docker push codegram/decidim:test-$CIRCLE_SHA1
+      - persist_to_workspace:
+          root: .
+          paths:
+            - "*"
   build_test_app:
     <<: *defaults
     steps:
-      - checkout
+      - attach_workspace:
+          at: /decidim
       - run:
           name: Install npm dependencies
           command: npm i
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -73,15 +79,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /decidim
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=core
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -104,15 +102,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /decidim
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=assemblies
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -135,15 +125,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /decidim
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=api
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -166,15 +148,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /decidim
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=processes
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -197,15 +171,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /decidim
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=admin
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -228,15 +194,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /decidim
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=system
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -259,15 +217,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /decidim
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=proposals
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -290,15 +240,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /decidim
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=comments
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -321,15 +263,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /decidim
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=meetings
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -352,15 +286,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /decidim
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=pages
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -383,15 +309,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /decidim
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=accountability
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -414,15 +332,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /decidim
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=budgets
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -445,15 +355,7 @@ jobs:
     steps:
       - attach_workspace:
           at: /decidim
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
       - run: export CODECOV_FLAG=surveys
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -476,13 +378,13 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build_docker_image
+      - build_docker_images
       - build_test_app:
           requires:
-            - build_docker_image
+            - build_docker_images
       - main:
           requires:
-            - build_docker_image
+            - build_docker_images
       - core:
           requires:
             - build_test_app
