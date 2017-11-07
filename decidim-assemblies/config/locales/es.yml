@@ -90,8 +90,8 @@ es:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Montajes activos
-            see_all_assemblies: Ver todos los ensambles
+            active_assemblies: Asambleas activas
+            see_all_assemblies: Ver todas las asambleas
       show:
         developer_group: Grupo promotor
         local_area: Áreas municipales
