@@ -37,7 +37,8 @@ jobs:
       - run:
           name: Build, tag and push docker test image
           command: |
-            docker build -f Dockerfile.ci --build-arg BASE_IMAGE_TAG=prod-$CIRCLE_SHA1 --tag codegram/decidim:test-$CIRCLE_SHA1 .
+            docker build -f Dockerfile.ci --build-arg BASE_IMAGE_TAG=prod-$CIRCLE_SHA1 --tag codegram/decidim:test-$CIRCLE_SHA1 --tag codegram/decidim:test-latest .
+            docker push codegram/decidim:test-latest
             docker push codegram/decidim:test-$CIRCLE_SHA1
       - persist_to_workspace:
           root: .
