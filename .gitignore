@@ -1,7 +1,6 @@
 spec/decidim_dummy_app/
 .byebug_history
 pkg/
-vendor/bundle
 */Gemfile.lock
 .DS_Store
 node_modules/

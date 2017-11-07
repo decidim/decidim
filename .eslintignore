@@ -4,7 +4,6 @@ spec/decidim_dummy_app/**/*.js
 docker_development_app
 development_app
 **/node_modules/**
-vendor/bundle/**
 bundle.js
 karma.conf.js
 webpack.config.js
