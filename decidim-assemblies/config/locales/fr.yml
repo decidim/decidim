@@ -90,8 +90,8 @@ fr:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Assemblages actifs
-            see_all_assemblies: Voir tous les assemblages
+            active_assemblies: Assemblées actives
+            see_all_assemblies: Voir toutes les assemblées
       show:
         developer_group: Groupe d'initiateurs
         local_area: Localisation
