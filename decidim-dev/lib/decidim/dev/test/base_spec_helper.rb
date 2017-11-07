@@ -28,4 +28,6 @@ require "#{Decidim::Dev.dummy_app_path}/config/environment"
 
 Dir["#{engine_spec_dir}/shared/**/*.rb"].each { |f| require f }
 
+require "paper_trail/frameworks/rspec"
+
 require_relative "spec_helper"
