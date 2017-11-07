@@ -106,15 +106,11 @@ end
 
 desc "Generates a development app based on Docker."
 task :docker_development_app do
-  Dir.chdir(__dir__) do
-    sh "rm -fR docker_development_app"
-  end
-
-  path = __dir__ + "/docker_development_app"
+  docker_app_path = __dir__ + "/docker_development_app"
 
   Bundler.with_clean_env do
     Decidim::Generators::DockerGenerator.start(
-      ["docker_development_app", "--path", path]
+      ["docker_development_app", "--docker_app_path", docker_app_path]
     )
   end
 end
