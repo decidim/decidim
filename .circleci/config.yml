@@ -64,10 +64,10 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Run main folder npm lint
-          command: cd /code && time npm run lint
+          command: time npm run lint
       - run:
           name: Run main folder RSpec
-          command: cd /code && time bundle exec rspec
+          command: time bundle exec rspec
   core:
     <<: *defaults
     steps:
@@ -93,10 +93,10 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run core JS tests
-          command: cd /code && time npm test -- decidim-core
+          command: time npm test -- decidim-core
       - run:
           name: Run core RSpec
-          command: cd /code/decidim-core && time bundle exec rake
+          command: cd decidim-core && time bundle exec rake
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   assemblies:
@@ -124,10 +124,10 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run assemblies JS tests
-          command: cd /code && time npm test -- decidim-assemblies
+          command: time npm test -- decidim-assemblies
       - run:
           name: Run assemblies RSpec
-          command: cd /code/decidim-assemblies && time bundle exec rake
+          command: cd decidim-assemblies && time bundle exec rake
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   api:
@@ -155,10 +155,10 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run api JS tests
-          command: cd /code && time npm test -- decidim-api
+          command: time npm test -- decidim-api
       - run:
           name: Run api RSpec
-          command: cd /code/decidim-api && time bundle exec rake
+          command: cd decidim-api && time bundle exec rake
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   processes:
@@ -186,10 +186,10 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run participatory_processes JS tests
-          command: cd /code && time npm test -- decidim-participatory_processes
+          command: time npm test -- decidim-participatory_processes
       - run:
           name: Run participatory_processes RSpec
-          command: cd /code/decidim-participatory_processes && time bundle exec rake
+          command: cd decidim-participatory_processes && time bundle exec rake
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   admin:
@@ -217,10 +217,10 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run admin JS tests
-          command: cd /code && time npm test -- decidim-admin
+          command: time npm test -- decidim-admin
       - run:
           name: Run admin RSpec
-          command: cd /code/decidim-admin && time bundle exec rake
+          command: cd decidim-admin && time bundle exec rake
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   system:
@@ -248,10 +248,10 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run system JS tests
-          command: cd /code && time npm test -- decidim-system
+          command: time npm test -- decidim-system
       - run:
           name: Run system RSpec
-          command: cd /code/decidim-system && time bundle exec rake
+          command: cd decidim-system && time bundle exec rake
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   proposals:
@@ -279,10 +279,10 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run proposals JS tests
-          command: cd /code && time npm test -- decidim-proposals
+          command: time npm test -- decidim-proposals
       - run:
           name: Run proposals RSpec
-          command: cd /code/decidim-proposals && time bundle exec rake
+          command: cd decidim-proposals && time bundle exec rake
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   comments:
@@ -310,10 +310,10 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run comments JS tests
-          command: cd /code && time npm test -- decidim-comments
+          command: time npm test -- decidim-comments
       - run:
           name: Run comments RSpec
-          command: cd /code/decidim-comments && time bundle exec rake
+          command: cd decidim-comments && time bundle exec rake
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   meetings:
@@ -341,10 +341,10 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run meetings JS tests
-          command: cd /code && time npm test -- decidim-meetings
+          command: time npm test -- decidim-meetings
       - run:
           name: Run meetings RSpec
-          command: cd /code/decidim-meetings && time bundle exec rake
+          command: cd decidim-meetings && time bundle exec rake
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   pages:
@@ -372,10 +372,10 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run pages JS tests
-          command: cd /code && time npm test -- decidim-pages
+          command: time npm test -- decidim-pages
       - run:
           name: Run pages RSpec
-          command: cd /code/decidim-pages && time bundle exec rake
+          command: cd decidim-pages && time bundle exec rake
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   accountability:
@@ -403,10 +403,10 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run accountability JS tests
-          command: cd /code && time npm test -- decidim-accountability
+          command: time npm test -- decidim-accountability
       - run:
           name: Run accountability RSpec
-          command: cd /code/decidim-accountability && time bundle exec rake
+          command: cd decidim-accountability && time bundle exec rake
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   budgets:
@@ -434,10 +434,10 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run budgets JS tests
-          command: cd /code && time npm test -- decidim-budgets
+          command: time npm test -- decidim-budgets
       - run:
           name: Run budgets RSpec
-          command: cd /code/decidim-budgets && time bundle exec rake
+          command: cd decidim-budgets && time bundle exec rake
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
   surveys:
@@ -465,10 +465,10 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run surveys JS tests
-          command: cd /code && time npm test -- decidim-surveys
+          command: time npm test -- decidim-surveys
       - run:
           name: Run surveys RSpec
-          command: cd /code/decidim-surveys && time bundle exec rake
+          command: cd decidim-surveys && time bundle exec rake
       - store_artifacts:
           path: /code/spec/decidim_dummy_app/tmp/capybara
 
