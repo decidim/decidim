@@ -29,7 +29,7 @@ jobs:
               docker build --tag codegram/decidim:$CIRCLE_SHA1 --tag codegram/decidim:latest .
               docker push codegram/decidim:latest
             else
-              docker build -t codegram/decidim:$CIRCLE_SHA1 --cache-from codegram/decidim:latest .
+              docker build --tag codegram/decidim:$CIRCLE_SHA1 --cache-from codegram/decidim:latest .
             fi
             docker push codegram/decidim:$CIRCLE_SHA1
   build_test_app:
