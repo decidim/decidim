@@ -87,6 +87,11 @@ fi:
             slug_help: 'URL-osoittimia käytetään tuottamaan tämän kokoonpanon osoittavat URL-osoitteet. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
       index:
         title: osat
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktiiviset kokoonpanot
+            see_all_assemblies: Katso kaikki kokoonpanot
       show:
         developer_group: Kehitysryhmä
         local_area: Paikallisalue

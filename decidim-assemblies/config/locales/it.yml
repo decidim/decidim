@@ -87,6 +87,11 @@ it:
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo assembly. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
       index:
         title: assemblee
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Assemblee attive
+            see_all_assemblies: Vedere tutti gli assiemi
       show:
         developer_group: Gruppo promotore
         local_area: Municipi
