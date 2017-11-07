@@ -9,13 +9,13 @@ defaults: &defaults
     - image: postgres
       environment:
         POSTGRES_USER: postgres
-  working_directory: /code
+  working_directory: /decidim
 
 jobs:
   build_docker_image:
     docker:
       - image: docker:17.10.0-ce-git
-    working_directory: /code
+    working_directory: /decidim
     steps:
       - checkout
       - setup_remote_docker:
@@ -58,7 +58,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
+          at: /decidim
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -72,7 +72,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
+          at: /decidim
       - run:
           name: Install PhantomJS
           command: sh .circleci/install-phantom.sh
@@ -98,12 +98,12 @@ jobs:
           name: Run core RSpec
           command: cd decidim-core && time bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   assemblies:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
+          at: /decidim
       - run:
           name: Install PhantomJS
           command: sh .circleci/install-phantom.sh
@@ -129,12 +129,12 @@ jobs:
           name: Run assemblies RSpec
           command: cd decidim-assemblies && time bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   api:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
+          at: /decidim
       - run:
           name: Install PhantomJS
           command: sh .circleci/install-phantom.sh
@@ -160,12 +160,12 @@ jobs:
           name: Run api RSpec
           command: cd decidim-api && time bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   processes:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
+          at: /decidim
       - run:
           name: Install PhantomJS
           command: sh .circleci/install-phantom.sh
@@ -191,12 +191,12 @@ jobs:
           name: Run participatory_processes RSpec
           command: cd decidim-participatory_processes && time bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   admin:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
+          at: /decidim
       - run:
           name: Install PhantomJS
           command: sh .circleci/install-phantom.sh
@@ -222,12 +222,12 @@ jobs:
           name: Run admin RSpec
           command: cd decidim-admin && time bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   system:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
+          at: /decidim
       - run:
           name: Install PhantomJS
           command: sh .circleci/install-phantom.sh
@@ -253,12 +253,12 @@ jobs:
           name: Run system RSpec
           command: cd decidim-system && time bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   proposals:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
+          at: /decidim
       - run:
           name: Install PhantomJS
           command: sh .circleci/install-phantom.sh
@@ -284,12 +284,12 @@ jobs:
           name: Run proposals RSpec
           command: cd decidim-proposals && time bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   comments:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
+          at: /decidim
       - run:
           name: Install PhantomJS
           command: sh .circleci/install-phantom.sh
@@ -315,12 +315,12 @@ jobs:
           name: Run comments RSpec
           command: cd decidim-comments && time bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   meetings:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
+          at: /decidim
       - run:
           name: Install PhantomJS
           command: sh .circleci/install-phantom.sh
@@ -346,12 +346,12 @@ jobs:
           name: Run meetings RSpec
           command: cd decidim-meetings && time bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   pages:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
+          at: /decidim
       - run:
           name: Install PhantomJS
           command: sh .circleci/install-phantom.sh
@@ -377,12 +377,12 @@ jobs:
           name: Run pages RSpec
           command: cd decidim-pages && time bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   accountability:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
+          at: /decidim
       - run:
           name: Install PhantomJS
           command: sh .circleci/install-phantom.sh
@@ -408,12 +408,12 @@ jobs:
           name: Run accountability RSpec
           command: cd decidim-accountability && time bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   budgets:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
+          at: /decidim
       - run:
           name: Install PhantomJS
           command: sh .circleci/install-phantom.sh
@@ -439,12 +439,12 @@ jobs:
           name: Run budgets RSpec
           command: cd decidim-budgets && time bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   surveys:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
+          at: /decidim
       - run:
           name: Install PhantomJS
           command: sh .circleci/install-phantom.sh
@@ -470,7 +470,7 @@ jobs:
           name: Run surveys RSpec
           command: cd decidim-surveys && time bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
 
 workflows:
   version: 2
