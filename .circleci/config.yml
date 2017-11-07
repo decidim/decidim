@@ -55,6 +55,10 @@ jobs:
       - run:
           name: Generate test app
           command: bundle exec rake decidim:generate_test_app
+
+      - run:
+          name: Precompile test app assets
+          command: cd spec/decidim_dummy_app && bundle exec rails assets:precompile
       - persist_to_workspace:
           root: .
           paths:
