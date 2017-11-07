@@ -3,7 +3,6 @@ MAINTAINER david.morcillo@codegram.com
 
 ENV APP_HOME /decidim
 
-RUN apt-get update
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash && \
     apt-get install -y nodejs
 
