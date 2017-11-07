@@ -31,6 +31,7 @@ require "omniauth-google-oauth2"
 require "invisible_captcha"
 require "premailer/rails"
 require "geocoder"
+require "paper_trail"
 
 require "decidim/api"
 
@@ -170,6 +171,10 @@ module Decidim
             data[:extra]
           )
         end
+      end
+
+      initializer "paper_trail" do
+        PaperTrail.config.track_associations = false
       end
     end
   end
