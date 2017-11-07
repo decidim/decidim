@@ -90,8 +90,8 @@ ca:
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Conjunts actius
-            see_all_assemblies: Veure tots els muntats
+            active_assemblies: Assemblees actives
+            see_all_assemblies: Veure totes les assemblees
       show:
         developer_group: Grup promotor
         local_area: Àrea municipal
