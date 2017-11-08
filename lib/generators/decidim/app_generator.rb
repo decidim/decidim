@@ -79,9 +79,8 @@ module Decidim
       def gemfile
         return if options[:skip_gemfile]
 
-        path = File.expand_path(File.join("..", "..", "..", "Gemfile"), __dir__)
-
-        template path, "Gemfile", force: true
+        template path_to_root("Gemfile"), "Gemfile", force: true
+        template path_to_root("Gemfile.lock"), "Gemfile.lock", force: true
 
         gem_modifier = if options[:path]
                          "path: \"#{options[:path]}\""
@@ -140,6 +139,10 @@ module Decidim
       end
 
       private
+
+      def path_to_root(file)
+        File.expand_path(File.join("..", "..", "..", file), __dir__)
+      end
 
       def app_const_base
         options["app_const_base"] || super
