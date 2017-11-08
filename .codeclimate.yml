@@ -55,6 +55,12 @@ plugins:
           severity: minor
           categories: Style
 
+        no-tabs:
+          pattern: "	"
+          annotation: "Don't use hard tabs"
+          severity: minor
+          categories: Style
+
     exclude_paths:
       - "decidim-design/**/*"
 
