@@ -61,3 +61,4 @@ exclude_paths:
   - "docker_development_app/**/*"
   - "spec/decidim_dummy_app/**/*"
   - "coverage/**/*"
+  - "webpack.report.html"
