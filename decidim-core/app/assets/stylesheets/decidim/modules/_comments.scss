@@ -7,9 +7,6 @@ $comment-vote-down-color: $alert;
 $comment-nested-bg: $light-gray;
 $comment-nested-alt-bg: $white;
 
-$comment-highlight-bg: rgba($secondary,.15);
-$comment-pinned-bg: lighten($warning,45);
-
 $comment-form-bg: $light-gray;
 
 /* Comments */
@@ -27,20 +24,6 @@ $comment-form-bg: $light-gray;
   font-size: 90%;
   text-transform: none;
   color: $muted;
-}
-
-.show-more--comment-thread{
-  margin-top: -$card-margin-bottom / 2;
-  margin-bottom: $card-margin-bottom;
-}
-
-.comment{
-  &--highlight{
-    background: $comment-highlight-bg !important;
-  }
-  &--pinned{
-    background: $comment-pinned-bg !important;
-  }
 }
 
 .comment__header{
