@@ -1,0 +1,21 @@
+<main class="wrapper">
+  <div class="row">
+    <div class="columns">
+      <div class="title-action" >
+        <h1 class="heading1 title-action__title">
+          <%= t(".title", usernames: username_list(chat.interlocutors(current_user))) %>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="columns large-8">
+      <div id="messages">
+        <% chat.messages.each do |message| %>
+          <%= render "message", message: message %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</main>

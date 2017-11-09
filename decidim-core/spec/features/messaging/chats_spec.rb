@@ -40,6 +40,13 @@ describe "Chats", type: :feature do
         expect(page).to have_selector(".card--list__item", text: /\d{2}:\d{2}/)
       end
     end
+
+    it "allows entering a chat" do
+      click_link interlocutor.name
+
+      expect(page).to have_content("Chat with #{interlocutor.name}")
+      expect(page).to have_content("who wants apples?")
+    end
   end
 
   def visit_inbox

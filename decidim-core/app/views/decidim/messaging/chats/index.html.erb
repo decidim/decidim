@@ -17,7 +17,7 @@
       <% else %>
         <div class="card card--list chats">
           <% @chats.each do |chat| %>
-            <a class="card--list__item">
+            <%= link_to decidim.chat_path(chat), class: "card--list__item" do %>
               <div class="card--list__titled-text">
                 <h6 class="card--list__heading heading6">
                   <%= username_list(chat.interlocutors(current_user)) %>
@@ -36,7 +36,7 @@
                   <%= icon "chevron-right" %>
                 </span>
               </div>
-            </a>
+            <% end %>
           <% end %>
         </div>
       <% end %>

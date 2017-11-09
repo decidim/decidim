@@ -177,6 +177,8 @@ en:
         index:
           no_chats: You have no chats yet
           title: Chats
+        show:
+          title: Chat with %{usernames}
     newsletter_mailer:
       newsletter:
         note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
