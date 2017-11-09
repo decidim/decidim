@@ -4,6 +4,8 @@ module Decidim
   module Messaging
     # The controller to handle the user's chats.
     class ChatsController < Decidim::ApplicationController
+      helper Decidim::DatetimeHelper
+
       before_action :authenticate_user!
 
       helper_method :username_list
