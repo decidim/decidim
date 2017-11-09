@@ -26,7 +26,7 @@ describe "Edit proposals", type: :feature do
       visit_feature
 
       click_link proposal.title
-      visit current_path + "/edit"
+      click_link "Edit proposal"
 
       expect(page).to have_content "EDIT PROPOSAL"
 
@@ -48,11 +48,10 @@ describe "Edit proposals", type: :feature do
       visit_feature
 
       click_link proposal.title
-      proposal_path = current_path
+      expect(page).to have_no_content("Edit proposal")
       visit current_path + "/edit"
 
       expect(page).to have_content("not authorized")
-      expect(current_path).to eq proposal_path
     end
   end
 end

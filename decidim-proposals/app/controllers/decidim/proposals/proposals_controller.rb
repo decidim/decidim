@@ -112,11 +112,6 @@ module Decidim
           related_to: ""
         }
       end
-
-      def user_not_authorized_path
-        super unless @proposal
-        proposal_path(@proposal)
-      end
     end
   end
 end
