@@ -30,9 +30,13 @@ module Decidim
       def self.start(originator:, interlocutors:, body:)
         chat = new(participants: [originator] + interlocutors)
 
-        chat.messages.build(sender: originator, body: body)
+        chat.add_message(sender: originator, body: body)
 
         chat
+      end
+
+      def add_message(sender:, body:)
+        messages.build(sender: sender, body: body)
       end
 
       def interlocutors(user)

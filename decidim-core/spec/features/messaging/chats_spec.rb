@@ -47,6 +47,18 @@ describe "Chats", type: :feature do
       expect(page).to have_content("Chat with #{interlocutor.name}")
       expect(page).to have_content("who wants apples?")
     end
+
+    context "when a message is sent" do
+      before do
+        click_link interlocutor.name
+        fill_in "message_body", with: "Please reply!"
+        click_button "Send"
+      end
+
+      it "appears as the last message" do
+        expect(page).to have_selector(".message:last-child", text: "Please reply!")
+      end
+    end
   end
 
   def visit_inbox

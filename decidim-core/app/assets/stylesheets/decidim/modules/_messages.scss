@@ -22,3 +22,14 @@ $message-padding: 1rem;
     overflow-wrap: break-word;
   }
 }
+
+/* Message form */
+
+.add-message{
+  @extend .message;
+
+  padding: $message-padding;
+  .button{
+    margin-bottom: 0;
+  }
+}

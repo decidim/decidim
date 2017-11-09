@@ -4,6 +4,8 @@ module Decidim
   module Messaging
     # The controller to handle the user's chats.
     class ChatsController < Decidim::ApplicationController
+      include FormFactory
+
       helper Decidim::DatetimeHelper
 
       before_action :authenticate_user!
@@ -18,6 +20,24 @@ module Decidim
 
       def show
         authorize! :show, chat
+
+        @form = MessageForm.new
+      end
+
+      def update
+        authorize! :update, chat
+
+        @form = form(MessageForm).from_params(params)
+
+        ReplyToChat.call(chat, @form) do
+          on(:ok) do |message|
+            render action: :update, locals: { message: message }
+          end
+
+          on(:invalid) do
+            render json: { error: I18n.t("messaging.chats.update.error", scope: "decidim") }, status: 422
+          end
+        end
       end
 
       private
