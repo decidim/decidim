@@ -1,0 +1,6 @@
+pt:
+  decidim:
+    account:
+      delete:
+        confirm:
+          title: Eliminar a minha conta
