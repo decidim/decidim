@@ -42,3 +42,14 @@ pt:
       action_authorization_modal:
         incomplete:
           cancel: Cancelar
+        unauthorized:
+          ok: Ok
+      flag_modal:
+        close: Fechar
+        report: Denunciar
+  layouts:
+    decidim:
+      cookie_warning:
+        ok: Aceito
+  locale:
+    name: Inglês
