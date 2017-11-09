@@ -1,0 +1,5 @@
+pt:
+  activemodel:
+    attributes:
+      attachment:
+        description: Descrição
