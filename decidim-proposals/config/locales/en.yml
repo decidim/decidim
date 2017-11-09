@@ -143,6 +143,9 @@ en:
         new:
           attachment_legend: "(Optional) Add an attachment"
           back: Back
+          proposal_edit_before_minutes:
+            one: You will be able to edit this proposal during the first minute after the proposal was created. Once this time window passes, you will not be able to edit the proposal.
+            other: You will be able to edit this proposal during the first %{count} minutes after the proposal was created. Once this time window passes, you will not be able to edit the proposal.
           select_a_category: Please select a category
           send: Send
           title: New proposal

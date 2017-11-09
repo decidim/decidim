@@ -13,6 +13,12 @@
         <%= render partial: "decidim/shared/announcement", locals: { announcement: feature_settings.new_proposal_help_text } %>
       <% end %>
 
+      <div class="row column">
+        <div class="callout warning">
+          <%= t(".proposal_edit_before_minutes", count: feature_settings.proposal_edit_before_minutes) %>
+        </div>
+      </div>
+
       <div class="card__content">
         <%= decidim_form_for(@form) do |form| %>
           <div class="field">
