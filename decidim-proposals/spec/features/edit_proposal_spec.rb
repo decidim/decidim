@@ -54,4 +54,22 @@ describe "Edit proposals", type: :feature do
       expect(page).to have_content("not authorized")
     end
   end
+
+  describe "editing my proposal outside the time limit" do
+    let!(:proposal) { create :proposal, author: user, feature: feature, created_at: 1.hour.ago }
+
+    before do
+      login_as another_user, scope: :user
+    end
+
+    it "renders an error" do
+      visit_feature
+
+      click_link proposal.title
+      expect(page).to have_no_content("Edit proposal")
+      visit current_path + "/edit"
+
+      expect(page).to have_content("not authorized")
+    end
+  end
 end
