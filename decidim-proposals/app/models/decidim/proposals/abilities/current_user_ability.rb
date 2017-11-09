@@ -26,7 +26,7 @@ module Decidim
 
           can :create, Proposal if authorized?(:create) && creation_enabled?
           can :edit, Proposal do |proposal|
-            proposal.author == user && !proposal.answered?
+            user_is_author?(user, proposal) && !proposal.answered?
           end
 
           can :report, Proposal
@@ -61,6 +61,10 @@ module Decidim
         def voting_enabled?
           return unless current_settings
           current_settings.votes_enabled? && !current_settings.votes_blocked?
+        end
+
+        def user_is_author?(user, proposal)
+          proposal.author == user || user.user_groups.include?(proposal.user_group)
         end
 
         def current_settings

@@ -108,6 +108,13 @@ describe Decidim::Proposals::Abilities::CurrentUserAbility do
       it { is_expected.to be_able_to(:edit, proposal) }
     end
 
+    context "when proposal is from user group and user is admin" do
+      let(:user_group) { create :user_group, users: [user], organization: user.organization }
+      let(:proposal) { build :proposal, feature: proposal_feature, user_group: user_group }
+
+      it { is_expected.to be_able_to(:edit, proposal) }
+    end
+
     context "when user is not the author" do
       let(:proposal) { build :proposal, feature: proposal_feature }
 
