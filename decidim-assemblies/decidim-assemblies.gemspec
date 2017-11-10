@@ -20,6 +20,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-core", Decidim::Assemblies.version
 
-  s.add_development_dependency "decidim-dev", Decidim::Assemblies.version
   s.add_development_dependency "decidim-admin", Decidim::Assemblies.version
+  s.add_development_dependency "decidim-dev", Decidim::Assemblies.version
 end
