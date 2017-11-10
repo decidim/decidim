@@ -12,16 +12,14 @@ module Decidim::Admin
         double(
           subject: Decidim::Faker::Localized.paragraph(3),
           body: Decidim::Faker::Localized.paragraph(3),
-          valid?: true
+          valid?: validity
         )
       end
 
       let(:command) { described_class.new(form, user) }
 
       describe "when the form is not valid" do
-        before do
-          expect(form).to receive(:valid?).and_return(false)
-        end
+        let(:validity) { false }
 
         it "broadcasts invalid" do
           expect { command.call }.to broadcast(:invalid)
@@ -35,6 +33,8 @@ module Decidim::Admin
       end
 
       describe "when the form is valid" do
+        let(:validity) { true }
+
         it "broadcasts ok" do
           expect { command.call }.to broadcast(:ok)
         end
