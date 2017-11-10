@@ -22,6 +22,16 @@ module Decidim
       sign_in user
     end
 
+    describe "POST create" do
+      context "when invalid" do
+        it "renders an error message" do
+          post :create, params: { recipient_id: 999, body: "" }
+
+          expect(response.body).to include("Chat not started")
+        end
+      end
+    end
+
     describe "PUT update" do
       context "when invalid" do
         it "renders an error message" do

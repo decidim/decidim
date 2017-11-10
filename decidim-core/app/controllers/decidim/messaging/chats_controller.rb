@@ -12,6 +12,31 @@ module Decidim
 
       helper_method :username_list, :chat
 
+      def new
+        authorize! :create, Chat
+
+        @form = form(ChatForm).from_params(params)
+      end
+
+      def create
+        authorize! :create, Chat
+
+        @form = form(ChatForm).from_params(params)
+
+        StartChat.call(@form) do
+          on(:ok) do |chat|
+            render action: :create, locals: {
+              chat: chat,
+              form: MessageForm.new
+            }
+          end
+
+          on(:invalid) do
+            render json: { error: I18n.t("messaging.chats.create.error", scope: "decidim") }, status: 422
+          end
+        end
+      end
+
       def index
         authorize! :index, Chat
 

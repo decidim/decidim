@@ -9,7 +9,6 @@ describe "Chats", type: :feature do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    visit decidim.root_path
   end
 
   context "when user has no chats" do
@@ -17,6 +16,25 @@ describe "Chats", type: :feature do
 
     it "shows a notice informing about that" do
       expect(page).to have_content("You have no chats yet")
+    end
+  end
+
+  context "when starting a chat" do
+    let(:recipient) { create(:user) }
+
+    before do
+      visit decidim.new_chat_path(recipient_id: recipient.id)
+    end
+
+    it "shows an empty conversation page" do
+      expect(page).to have_no_selector(".card--list__item")
+    end
+
+    it "allows sending an initial message" do
+      fill_in "chat_body", with: "Is this a Ryanair style democracy?"
+      click_button "Send"
+
+      expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
     end
   end
 
@@ -62,6 +80,8 @@ describe "Chats", type: :feature do
   end
 
   def visit_inbox
+    visit decidim.root_path
+
     within ".topbar__user__logged" do
       find(".icon--envelope-closed").click
     end

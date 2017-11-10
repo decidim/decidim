@@ -1,0 +1,17 @@
+<main class="wrapper">
+  <div class="row">
+    <div class="columns">
+      <div class="title-action" >
+        <h1 class="heading1 title-action__title">
+          <%= t(".title", usernames: username_list(participants)) %>
+        </h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div id="chat" class="columns large-8">
+      <%= yield %>
+    </div>
+  </div>
+</main>
