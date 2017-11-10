@@ -26,6 +26,7 @@ pt:
             new_proposal_help_text: Novo texto de ajuda da proposta
             official_proposals_enabled: Proposta oficial habilitada
             proposal_answering_enabled: Resposta de proposta ativada
+            proposal_edit_before_minutes: As propostas podem ser editadas pelos autores antes que este minimo minuto passe
             proposal_limit: Limite da proposta por usuário
             vote_limit: Limite de voto por usuário
           step:
@@ -103,6 +104,12 @@ pt:
           proposals_count:
             one: 1 proposta
             other: "%{count} propostas"
+        edit:
+          attachment_legend: "(Opcional) Adicionar um anexo"
+          back: Costas
+          select_a_category: Selecione uma categoria
+          send: Enviar
+          title: Editar proposta
         filters:
           accepted: Aceitaram
           activity: Atividade
@@ -135,6 +142,9 @@ pt:
         new:
           attachment_legend: "(Opcional) Adicionar um anexo"
           back: Costas
+          proposal_edit_before_minutes:
+            one: Você poderá editar esta proposta durante o primeiro minuto após a criação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
+            other: Você poderá editar esta proposta durante os primeiros %{count} minutos após a criação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
           select_a_category: Selecione uma categoria
           send: Enviar
           title: Nova proposta
@@ -146,6 +156,7 @@ pt:
         proposal:
           view_proposal: Ver proposta
         show:
+          edit_proposal: Editar proposta
           proposal_accepted_reason: 'Esta proposta foi aceita porque:'
           proposal_in_evaluation_reason: Esta proposta está sendo avaliada
           proposal_rejected_reason: 'Esta proposta foi rejeitada porque:'
@@ -171,6 +182,9 @@ pt:
             description: Você pode votar até %{limit} propostas.
             left: Remanescente
             votes: Votos
+      update:
+        error: Ocorreu erros ao salvar a proposta.
+        success: Proposta atualizada com sucesso.
     resource_links:
       included_proposals:
         proposal_projects: 'Proposta que aparece nesses projetos:'
