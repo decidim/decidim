@@ -2,7 +2,7 @@ nl:
   activemodel:
     attributes:
       proposal:
-        body: Lichaam
+        body: Body
         category_id: Categorie
         scope_id: Reikwijdte
         title: Titel
@@ -13,8 +13,8 @@ nl:
     features:
       proposals:
         actions:
-          create: Creëren
-          vote: Stemmen
+          create: Creër
+          vote: Stem
         name: Voorstellen
         settings:
           global:
@@ -23,10 +23,10 @@ nl:
             comments_enabled: Reacties ingeschakeld
             geocoding_enabled: Geocoding ingeschakeld
             maximum_votes_per_proposal: Maximale stemmen per voorstel
-            new_proposal_help_text: Nieuwe tekst voor tekstvoorstellen
+            new_proposal_help_text: Nieuwe voorstel help-tekst
             official_proposals_enabled: Officiële voorstellen ingeschakeld
-            proposal_answering_enabled: Antwoordbericht geactiveerd
-            proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat deze meny minuten voorbijgaan
+            proposal_answering_enabled: Voorstel beantwoorden ingeschakeld
+            proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat dit aantal minuten zijn veropen
             proposal_limit: Voorstellimiet per gebruiker
             vote_limit: Stemlimiet per gebruiker
           step:
