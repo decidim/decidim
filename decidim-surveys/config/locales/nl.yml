@@ -21,7 +21,7 @@ nl:
     surveys:
       admin:
         exports:
-          survey_user_answers: Survey gebruikers antwoorden
+          survey_user_answers: Enquête gebruikersantwoorden
         models:
           components:
             description: Beschrijving
@@ -29,13 +29,13 @@ nl:
         surveys:
           answer_option:
             answer_option: Antwoord optie
-            remove_answer_option: Verwijder antwoord optie
-            statement: Uitspraak
+            remove_answer_option: Antwoordoptie verwijderen
+            statement: Stelling
           edit:
             save: Opslaan
             title: Titel
           form:
-            add_question: Voeg vraag toe
+            add_question: Vraag toevoegen
             already_answered_warning: Het onderzoek is al door sommige gebruikers beantwoord, zodat u de vragen niet kunt wijzigen.
           question:
             add_answer_option: Voeg antwoord optie toe
