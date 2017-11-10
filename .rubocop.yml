@@ -1305,3 +1305,6 @@ RSpec/NestedGroups:
 
 RSpec/NamedSubject:
   Enabled: false
+
+RSpec/VerifiedDoubles:
+  Enabled: false
