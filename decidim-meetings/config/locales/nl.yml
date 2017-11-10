@@ -167,16 +167,16 @@ nl:
             closed: Gesloten
             end_time: Einddatum
             map: Kaart
-            start_time: Begin datum
+            start_time: Begindatum
             title: Titel
-      read_more: "(Lees verder)"
+      read_more: "(Lees meer)"
       registration_mailer:
         confirmation:
-          confirmed_html: Uw registratie voor de <a href="%{url}">%{title}</a> van de vergadering heeft bevestigd.
+          confirmed_html: Uw registratie voor de vergadering <a href="%{url}">%{title}</a> is bevestigd.
           details: In de bijlage vindt u de details van de vergadering.
       registrations:
         create:
-          invalid: Er is een probleem bij deze ontmoeting geweest.
+          invalid: Er is een probleem opgetreden bij het deelnemen van deze vergadering.
           success: U heeft de vergadering succesvol aangesloten.
         destroy:
           invalid: Er is een probleem geweest met het verlaten van deze vergadering.
