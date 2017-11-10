@@ -107,6 +107,10 @@ pl:
             other: "%{count} propozycje"
         edit:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
+          back: Plecy
+          select_a_category: Proszę wybrać kategorię
+          send: Wysłać
+          title: Edytuj propozycję
         filters:
           accepted: Przyjęty
           activity: Czynność
@@ -140,6 +144,10 @@ pl:
         new:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Plecy
+          proposal_edit_before_minutes:
+            one: Będziesz mógł edytować tę propozycję w pierwszej minucie po utworzeniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
+            few: Będziesz mógł edytować tę propozycję podczas pierwszych %{count} minut po utworzeniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
+            other: Będziesz mógł edytować tę propozycję podczas pierwszych %{count} minut po utworzeniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
           select_a_category: Proszę wybrać kategorię
           send: Wysłać
           title: Nowa propozycja
@@ -151,6 +159,7 @@ pl:
         proposal:
           view_proposal: Wyświetl propozycję
         show:
+          edit_proposal: Edytuj propozycję
           proposal_accepted_reason: 'Niniejszy wniosek został zaakceptowany, ponieważ:'
           proposal_in_evaluation_reason: Niniejszy wniosek jest oceniany
           proposal_rejected_reason: 'Niniejszy wniosek został odrzucony, ponieważ:'
@@ -177,6 +186,9 @@ pl:
             description: Możesz zgłosić do %{limit} propozycje.
             left: Pozostały
             votes: Głosowania
+      update:
+        error: Podczas zapisywania propozycji wystąpiły błędy.
+        success: Wniosek zaktualizowano pomyślnie.
     resource_links:
       included_proposals:
         proposal_projects: 'Propozycja występująca w tych projektach:'
