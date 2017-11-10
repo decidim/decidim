@@ -36,7 +36,7 @@ nl:
             title: Titel
           form:
             add_question: Vraag toevoegen
-            already_answered_warning: Het onderzoek is al door sommige gebruikers beantwoord, zodat u de vragen niet kunt wijzigen.
+            already_answered_warning: Het onderzoek is al door sommige gebruikers beantwoord, hierdoor kunt u de vragen niet meer bewerken.
           question:
             add_answer_option: Voeg antwoord optie toe
             question: Vraag
