@@ -26,6 +26,7 @@ pl:
             new_proposal_help_text: Nowy tekst pomocy propozycji
             official_proposals_enabled: Oficjalne propozycje
             proposal_answering_enabled: Włączona odpowiedź na pytania
+            proposal_edit_before_minutes: Propozycje mogą być edytowane przez autorów, zanim minie minuta
             proposal_limit: Limit propozycji dla użytkownika
             vote_limit: Limit głosu na użytkownika
           step:
@@ -104,6 +105,8 @@ pl:
             one: 1 propozycja
             few: "%{count} propozycje"
             other: "%{count} propozycje"
+        edit:
+          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
         filters:
           accepted: Przyjęty
           activity: Czynność
