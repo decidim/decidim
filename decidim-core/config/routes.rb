@@ -26,6 +26,10 @@ Decidim::Core::Engine.routes.draw do
     mount manifest.engine, at: "/", as: "decidim_#{manifest.name}"
   end
 
+  Decidim.global_engines.each do |engine|
+    mount engine, at: "/"
+  end
+
   authenticate(:user) do
     resources :authorizations, only: [:new, :create, :index] do
       collection do

@@ -36,7 +36,7 @@ module Decidim
       end
     end
 
-    private
+    protected
 
     def menu_items
       items.map do |menu_item|
