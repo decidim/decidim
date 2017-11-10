@@ -37,7 +37,7 @@ describe "Authorizations", type: :feature do
 
       it "allows the user to skip it" do
         click_link "start exploring"
-        expect(current_path).to eq decidim.account_path
+        expect(page).to have_current_path decidim.account_path
       end
     end
 

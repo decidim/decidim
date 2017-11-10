@@ -84,7 +84,7 @@ describe "Assemblies", type: :feature do
           click_link "Assemblies"
         end
 
-        expect(current_path).to eq decidim_assemblies.assemblies_path
+        expect(page).to have_current_path decidim_assemblies.assemblies_path
       end
     end
 
@@ -112,7 +112,7 @@ describe "Assemblies", type: :feature do
     it "links to the individual assembly page" do
       click_link(translated(assembly.title, locale: :en))
 
-      expect(current_path).to eq decidim_assemblies.assembly_path(assembly)
+      expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
     end
   end
 

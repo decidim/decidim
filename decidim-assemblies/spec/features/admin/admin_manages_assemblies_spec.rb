@@ -60,7 +60,7 @@ describe "Admin manages assemblies", type: :feature do
       expect(page).to have_admin_callout("successfully")
 
       within ".container" do
-        expect(current_path).to eq decidim_admin_assemblies.assemblies_path
+        expect(page).to have_current_path decidim_admin_assemblies.assemblies_path
         expect(page).to have_content("My assembly")
       end
     end
@@ -155,7 +155,7 @@ describe "Admin manages assemblies", type: :feature do
           page.find("a.action-icon--preview").click
         end
 
-        expect(current_path).to eq decidim_assemblies.assembly_path(assembly)
+        expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
         expect(page).to have_content(translated(assembly.title))
       end
     end
@@ -178,7 +178,7 @@ describe "Admin manages assemblies", type: :feature do
       click_link "Publish"
       expect(page).to have_content("published successfully")
       expect(page).to have_content("Unpublish")
-      expect(current_path).to eq decidim_admin_assemblies.edit_assembly_path(assembly)
+      expect(page).to have_current_path decidim_admin_assemblies.edit_assembly_path(assembly)
 
       assembly.reload
       expect(assembly).to be_published
@@ -196,7 +196,7 @@ describe "Admin manages assemblies", type: :feature do
       click_link "Unpublish"
       expect(page).to have_content("unpublished successfully")
       expect(page).to have_content("Publish")
-      expect(current_path).to eq decidim_admin_assemblies.edit_assembly_path(assembly)
+      expect(page).to have_current_path decidim_admin_assemblies.edit_assembly_path(assembly)
 
       assembly.reload
       expect(assembly).not_to be_published

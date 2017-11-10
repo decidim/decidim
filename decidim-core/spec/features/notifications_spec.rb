@@ -22,7 +22,7 @@ describe "Notifications", type: :feature do
     it "has a button on the topbar nav that links to the notifications page" do
       within ".topbar__user__logged" do
         find("a.topbar__notifications").click
-        expect(current_path).to eq decidim.notifications_path
+        expect(page).to have_current_path decidim.notifications_path
       end
     end
 

@@ -9,7 +9,7 @@ describe "Homepage", type: :feature do
     end
 
     it "redirects to system UI and shows a warning" do
-      expect(page.current_path).to eq(decidim_system.new_admin_session_path)
+      expect(page).to have_current_path(decidim_system.new_admin_session_path)
       expect(page).to have_content("You must create an organization to get started")
     end
   end
@@ -51,7 +51,7 @@ describe "Homepage", type: :feature do
             click_link "Sign up"
           end
 
-          expect(current_path).to eq decidim.new_user_registration_path
+          expect(page).to have_current_path decidim.new_user_registration_path
         end
       end
 
@@ -64,7 +64,7 @@ describe "Homepage", type: :feature do
             click_link "Participate"
           end
 
-          expect(current_path).to eq decidim.new_user_session_path
+          expect(page).to have_current_path decidim.new_user_session_path
           expect(page).to have_content("Sign in")
           expect(page).to have_content("New to the platform?")
         end
@@ -79,7 +79,7 @@ describe "Homepage", type: :feature do
             click_link "Participate"
           end
 
-          expect(current_path).to eq decidim_participatory_processes.participatory_processes_path
+          expect(page).to have_current_path decidim_participatory_processes.participatory_processes_path
         end
       end
     end

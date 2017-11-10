@@ -23,7 +23,7 @@ shared_examples "manage processes examples" do
           page.find("a.action-icon--preview").click
         end
 
-        expect(current_path).to eq decidim_participatory_processes.participatory_process_path(participatory_process)
+        expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process)
         expect(page).to have_content(translated(participatory_process.title))
       end
     end
@@ -78,7 +78,7 @@ shared_examples "manage processes examples" do
       click_link "Publish"
       expect(page).to have_content("published successfully")
       expect(page).to have_content("Unpublish")
-      expect(current_path).to eq decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
+      expect(page).to have_current_path decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
 
       participatory_process.reload
       expect(participatory_process).to be_published
@@ -96,7 +96,7 @@ shared_examples "manage processes examples" do
       click_link "Unpublish"
       expect(page).to have_content("unpublished successfully")
       expect(page).to have_content("Publish")
-      expect(current_path).to eq decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
+      expect(page).to have_current_path decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
 
       participatory_process.reload
       expect(participatory_process).not_to be_published

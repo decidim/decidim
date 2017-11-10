@@ -24,7 +24,7 @@ describe "Invite process administrator", type: :feature do
         find("*[type=submit]").click
       end
 
-      expect(current_path).to eq "/admin/"
+      expect(page).to have_current_path "/admin/"
       expect(page).to have_content("DASHBOARD")
 
       click_link "Processes"

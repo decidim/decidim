@@ -288,7 +288,7 @@ describe "Authentication", type: :feature do
         end
 
         expect(page).to have_content("password has been changed successfully")
-        expect(current_path).to eq "/"
+        expect(page).to have_current_path "/"
       end
     end
 

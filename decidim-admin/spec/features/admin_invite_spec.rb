@@ -50,7 +50,7 @@ describe "Admin invite", type: :feature do
       end
 
       expect(page).to have_content("DASHBOARD")
-      expect(current_path).to eq "/admin/"
+      expect(page).to have_current_path "/admin/"
     end
   end
 end

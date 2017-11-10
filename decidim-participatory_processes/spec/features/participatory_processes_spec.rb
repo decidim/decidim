@@ -84,7 +84,7 @@ describe "Participatory Processes", type: :feature do
           click_link "Processes"
         end
 
-        expect(current_path).to eq decidim_participatory_processes.participatory_processes_path
+        expect(page).to have_current_path decidim_participatory_processes.participatory_processes_path
       end
     end
 
@@ -112,7 +112,7 @@ describe "Participatory Processes", type: :feature do
     it "links to the individual process page" do
       click_link(translated(participatory_process.title, locale: :en))
 
-      expect(current_path).to eq decidim_participatory_processes.participatory_process_path(participatory_process)
+      expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process)
     end
 
     context "filtering processes" do
