@@ -25,6 +25,9 @@ module Decidim
           end
 
           can :create, Proposal if authorized?(:create) && creation_enabled?
+          can :edit, Proposal do |proposal|
+            proposal.editable_by?(user)
+          end
 
           can :report, Proposal
         end

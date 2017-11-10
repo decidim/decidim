@@ -65,6 +65,32 @@ module Decidim
         end
       end
 
+      def edit
+        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        authorize! :edit, @proposal
+
+        @form = form(ProposalForm).from_model(@proposal)
+      end
+
+      def update
+        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        authorize! :edit, @proposal
+
+        @form = form(ProposalForm).from_params(params)
+
+        UpdateProposal.call(@form, current_user, @proposal) do
+          on(:ok) do |proposal|
+            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+            redirect_to proposal_path(proposal)
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+            render :new
+          end
+        end
+      end
+
       private
 
       def geocoded_proposals

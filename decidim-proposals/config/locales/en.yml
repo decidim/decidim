@@ -27,6 +27,7 @@ en:
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
+            proposal_edit_before_minutes: Proposals can be edited by authors before this meny minutes passes
             proposal_limit: Proposal limit per user
             vote_limit: Vote limit per user
           step:
@@ -104,6 +105,12 @@ en:
           proposals_count:
             one: 1 proposal
             other: "%{count} proposals"
+        edit:
+          attachment_legend: "(Optional) Add an attachment"
+          back: Back
+          select_a_category: Please select a category
+          send: Send
+          title: Edit proposal
         filters:
           accepted: Accepted
           activity: Activity
@@ -136,6 +143,9 @@ en:
         new:
           attachment_legend: "(Optional) Add an attachment"
           back: Back
+          proposal_edit_before_minutes:
+            one: You will be able to edit this proposal during the first minute after the proposal was created. Once this time window passes, you will not be able to edit the proposal.
+            other: You will be able to edit this proposal during the first %{count} minutes after the proposal was created. Once this time window passes, you will not be able to edit the proposal.
           select_a_category: Please select a category
           send: Send
           title: New proposal
@@ -147,6 +157,7 @@ en:
         proposal:
           view_proposal: View proposal
         show:
+          edit_proposal: Edit proposal
           proposal_accepted_reason: 'This proposal has been accepted because:'
           proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: 'This proposal has been rejected because:'
@@ -172,6 +183,9 @@ en:
             description: You can vote up to %{limit} proposals.
             left: Remaining
             votes: Votes
+      update:
+        error: There's been errors when saving the proposal.
+        success: Proposal updated successfully.
     resource_links:
       included_proposals:
         proposal_projects: 'Proposal appearing in these projects:'

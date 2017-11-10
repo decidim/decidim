@@ -5,8 +5,9 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe Proposal do
-      let(:proposal) { build(:proposal) }
-      let(:feature) { proposal.feature }
+      let(:proposal) { build(:proposal, feature: feature) }
+      let(:organization) { feature.participatory_space.organization }
+      let(:feature) { build :proposal_feature }
 
       subject { proposal }
 
@@ -103,6 +104,41 @@ module Decidim
           it "returns nil" do
             expect(proposal.maximum_votes).to be_nil
           end
+        end
+      end
+
+      context "editable_by?" do
+        let(:author) { build(:user, organization: organization) }
+
+        context "when user is author" do
+          let(:proposal) { build :proposal, feature: feature, author: author, created_at: Time.current }
+
+          it { is_expected.to be_editable_by(author) }
+        end
+
+        context "when proposal is from user group and user is admin" do
+          let(:user_group) { create :user_group, users: [author], organization: author.organization }
+          let(:proposal) { build :proposal, feature: feature, author: author, created_at: Time.current, user_group: user_group }
+
+          it { is_expected.to be_editable_by(author) }
+        end
+
+        context "when user is not the author" do
+          let(:proposal) { build :proposal, feature: feature, created_at: Time.current }
+
+          it { is_expected.not_to be_editable_by(author) }
+        end
+
+        context "when proposal is answered" do
+          let(:proposal) { build :proposal, :with_answer, feature: feature, created_at: Time.current, author: author }
+
+          it { is_expected.not_to be_editable_by(author) }
+        end
+
+        context "when proposal editing time has run out" do
+          let(:proposal) { build :proposal, created_at: 10.minutes.ago, feature: feature, author: author }
+
+          it { is_expected.not_to be_editable_by(author) }
         end
       end
     end
