@@ -20,15 +20,15 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-core", Decidim::Proposals.version
   s.add_dependency "decidim-comments", Decidim::Proposals.version
+  s.add_dependency "decidim-core", Decidim::Proposals.version
   s.add_dependency "kaminari", "~> 1.0.1"
   s.add_dependency "social-share-button", "~> 1.0.0"
 
-  s.add_development_dependency "decidim-dev", Decidim::Proposals.version
   s.add_development_dependency "decidim-admin", Decidim::Proposals.version
-  s.add_development_dependency "decidim-participatory_processes", Decidim::Proposals.version
   s.add_development_dependency "decidim-assemblies", Decidim::Proposals.version
-  s.add_development_dependency "decidim-meetings", Decidim::Proposals.version
   s.add_development_dependency "decidim-budgets", Decidim::Proposals.version
+  s.add_development_dependency "decidim-dev", Decidim::Proposals.version
+  s.add_development_dependency "decidim-meetings", Decidim::Proposals.version
+  s.add_development_dependency "decidim-participatory_processes", Decidim::Proposals.version
 end

@@ -25,18 +25,18 @@ Gem::Specification.new do |s|
   s.executables = ["decidim"]
   s.require_paths = ["lib"]
 
-  s.add_dependency "decidim-core", Decidim.version
-  s.add_dependency "decidim-participatory_processes", Decidim.version
-  s.add_dependency "decidim-system", Decidim.version
+  s.add_dependency "decidim-accountability", Decidim.version
   s.add_dependency "decidim-admin", Decidim.version
   s.add_dependency "decidim-api", Decidim.version
-  s.add_dependency "decidim-pages", Decidim.version
-  s.add_dependency "decidim-comments", Decidim.version
-  s.add_dependency "decidim-meetings", Decidim.version
-  s.add_dependency "decidim-proposals", Decidim.version
-  s.add_dependency "decidim-accountability", Decidim.version
   s.add_dependency "decidim-budgets", Decidim.version
+  s.add_dependency "decidim-comments", Decidim.version
+  s.add_dependency "decidim-core", Decidim.version
+  s.add_dependency "decidim-meetings", Decidim.version
+  s.add_dependency "decidim-pages", Decidim.version
+  s.add_dependency "decidim-participatory_processes", Decidim.version
+  s.add_dependency "decidim-proposals", Decidim.version
   s.add_dependency "decidim-surveys", Decidim.version
+  s.add_dependency "decidim-system", Decidim.version
 
   s.add_development_dependency "bundler", "~> 1.12"
   s.add_development_dependency "rake", "~> 12.0"
