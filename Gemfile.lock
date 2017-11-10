@@ -88,7 +88,6 @@ PATH
       i18n-tasks (= 0.9.18)
       listen (~> 3.1)
       nokogiri (~> 1.8)
-      poltergeist (~> 1.16)
       puma (~> 3.10)
       rails-controller-testing (~> 1.0)
       rspec-html-matchers (~> 0.9.1)
@@ -209,7 +208,6 @@ GEM
       mime-types (>= 1.16)
     childprocess (0.8.0)
       ffi (~> 1.0, >= 1.0.11)
-    cliver (0.3.2)
     codecov (0.1.10)
       json
       simplecov
@@ -391,10 +389,6 @@ GEM
     parser (2.4.0.0)
       ast (~> 2.2)
     pg (0.21.0)
-    poltergeist (1.16.0)
-      capybara (~> 2.1)
-      cliver (~> 0.3.1)
-      websocket-driver (>= 0.2.0)
     powerpack (0.1.1)
     premailer (1.11.0)
       addressable

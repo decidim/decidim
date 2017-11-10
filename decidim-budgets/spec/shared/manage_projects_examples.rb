@@ -27,15 +27,17 @@ shared_examples "manage projects" do
     end
   end
 
-  context "previewing projects", driver: :poltergeist do
+  context "previewing projects" do
     it "allows the user to preview the project" do
       within find("tr", text: translated(project.title)) do
-        @new_window = window_opened_by { find("a.action-icon--preview").click }
-      end
+        klass = "action-icon--preview"
+        href = resource_locator(project).path
+        target = "blank"
 
-      within_window @new_window do
-        expect(current_path).to eq resource_locator(project).path
-        expect(page).to have_content(translated(project.title))
+        expect(page).to have_selector(
+          :xpath,
+          "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
+        )
       end
     end
   end

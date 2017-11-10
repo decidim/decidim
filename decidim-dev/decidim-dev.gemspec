@@ -32,7 +32,6 @@ Gem::Specification.new do |s|
   s.add_dependency "i18n-tasks", "0.9.18"
   s.add_dependency "listen", "~> 3.1"
   s.add_dependency "nokogiri", "~> 1.8"
-  s.add_dependency "poltergeist", "~> 1.16"
   s.add_dependency "puma", "~> 3.10"
   s.add_dependency "rails-controller-testing", "~> 1.0"
   s.add_dependency "rspec-html-matchers", "~> 0.9.1"
