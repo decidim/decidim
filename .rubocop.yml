@@ -424,12 +424,6 @@ Layout/EmptyLinesAroundModuleBody:
 # /#.*coding\s?[:=]\s?(?:UTF|utf)-8/
 Style/Encoding:
   Enabled: true
-  EnforcedStyle: never
-  SupportedStyles:
-    - when_needed
-    - always
-    - never
-  AutoCorrectEncodingComment: '# encoding: utf-8'
 
 Layout/ExtraSpacing:
   # When true, allows most uses of extra spacing if the intent is to align
