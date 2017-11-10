@@ -177,18 +177,18 @@ nl:
       registrations:
         create:
           invalid: Er is een probleem opgetreden bij het deelnemen van deze vergadering.
-          success: U heeft de vergadering succesvol aangesloten.
+          success: U bent met succes lid geworden van de vergadering.
         destroy:
           invalid: Er is een probleem geweest met het verlaten van deze vergadering.
           success: U heeft de vergadering succesvol verlaten.
     resource_links:
       meetings_through_proposals:
-        meeting_results: 'Verwante resultaten:'
-        result_meetings: 'Verwante vergaderingen:'
+        meeting_results: 'Gerelateerde resultaten:'
+        result_meetings: 'Gerelateerde vergaderingen:'
       proposals_from_meeting:
-        meeting_proposals: 'Verwante voorstellen:'
-        proposal_meetings: 'Verwante vergaderingen:'
+        meeting_proposals: 'Gerelateerde voorstellen:'
+        proposal_meetings: 'Gerelateerde vergaderingen:'
   devise:
     mailer:
       join_meeting:
-        subject: Onderwerpen
+        subject: Onderwerp
