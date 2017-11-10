@@ -144,9 +144,9 @@ describe "Assemblies", type: :feature do
       end
     end
 
-    let(:attached_to) { assembly }
-
-    it_behaves_like "has attachments"
+    it_behaves_like "has attachments" do
+      let(:attached_to) { assembly }
+    end
 
     context "when the assembly has some features" do
       it "shows the features" do

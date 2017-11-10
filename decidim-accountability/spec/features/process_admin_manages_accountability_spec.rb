@@ -4,11 +4,10 @@ require "spec_helper"
 
 describe "Process admin manages accountability", type: :feature do
   let(:manifest_name) { "accountability" }
+  let(:user) { process_admin }
 
   include_context "admin"
   include_context "feature admin"
-
-  let(:user) { process_admin }
 
   before do
     switch_to_host(organization.host)

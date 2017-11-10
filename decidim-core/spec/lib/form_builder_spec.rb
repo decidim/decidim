@@ -42,13 +42,13 @@ module Decidim
       end.new
     end
 
+    let(:builder) { FormBuilder.new(:resource, resource, helper, {}) }
+    let(:parsed) { Nokogiri::HTML(output) }
+
     before do
       allow(Decidim).to receive(:available_locales).and_return available_locales
       allow(I18n.config).to receive(:enforce_available_locales).and_return(false)
     end
-
-    let(:builder) { FormBuilder.new(:resource, resource, helper, {}) }
-    let(:parsed) { Nokogiri::HTML(output) }
 
     context "#editor" do
       context "using default toolbar" do

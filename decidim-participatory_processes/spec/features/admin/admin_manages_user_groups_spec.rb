@@ -9,13 +9,13 @@ describe "Admin manages user groups", type: :feature do
 
   let!(:user_groups) { create_list(:user_group, 10, users: [create(:user, organization: organization)]) }
 
+  let(:user_group) { user_groups.first }
+
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
     visit decidim_admin.user_groups_path
   end
-
-  let(:user_group) { user_groups.first }
 
   it "verifies a user group" do
     within "tr[data-user-group-id=\"#{user_group.id}\"]" do

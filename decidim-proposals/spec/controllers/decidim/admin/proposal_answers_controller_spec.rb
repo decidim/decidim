@@ -12,12 +12,6 @@ module Decidim
         let(:proposal) { create(:proposal) }
         let(:user) { create(:user, :confirmed, :admin, organization: feature.organization) }
 
-        before do
-          request.env["decidim.current_organization"] = feature.organization
-          request.env["decidim.current_feature"] = feature
-          sign_in user
-        end
-
         let(:params) do
           {
             id: proposal.id,
@@ -26,6 +20,12 @@ module Decidim
             participatory_process_slug: feature.participatory_space.slug,
             state: "rejected"
           }
+        end
+
+        before do
+          request.env["decidim.current_organization"] = feature.organization
+          request.env["decidim.current_feature"] = feature
+          sign_in user
         end
 
         describe "PUT update" do

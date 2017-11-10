@@ -13,10 +13,6 @@ describe "Meeting registrations", type: :feature do
   let(:meeting) { meetings.first }
   let!(:user) { create :user, :confirmed, organization: organization }
 
-  def visit_meeting
-    visit resource_locator(meeting).path
-  end
-
   let(:registrations_enabled) { true }
   let(:available_slots) { 20 }
   let(:registration_terms) do
@@ -25,6 +21,10 @@ describe "Meeting registrations", type: :feature do
       es: "Un texto legal",
       ca: "Un text legal"
     }
+  end
+
+  def visit_meeting
+    visit resource_locator(meeting).path
   end
 
   before do

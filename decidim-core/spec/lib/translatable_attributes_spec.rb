@@ -18,11 +18,11 @@ module Decidim
 
     let(:available_locales) { %w(en ca pt-BR) }
 
+    let(:model) { klass.new }
+
     before do
       allow(Decidim).to receive(:available_locales).and_return available_locales
     end
-
-    let(:model) { klass.new }
 
     describe "#translatable_attribute do" do
       before do

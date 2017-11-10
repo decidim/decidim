@@ -226,9 +226,9 @@ describe "Orders", type: :feature do
       visit resource_locator(project).path
     end
 
-    let(:attached_to) { project }
-
-    it_behaves_like "has attachments"
+    it_behaves_like "has attachments" do
+      let(:attached_to) { project }
+    end
 
     it "shows the feature" do
       expect(page).to have_i18n_content(project.title)
