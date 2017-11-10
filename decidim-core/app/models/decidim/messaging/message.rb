@@ -13,6 +13,14 @@ module Decidim
 
       validates :sender, :body, presence: true
       validates :body, length: { maximum: 1_000 }
+
+      validate :sender_is_participant
+
+      private
+
+      def sender_is_participant
+        errors.add(:sender, :invalid) unless chat.participants.include?(sender)
+      end
     end
   end
 end
