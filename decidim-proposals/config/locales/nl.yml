@@ -26,6 +26,7 @@ nl:
             new_proposal_help_text: Nieuwe tekst voor tekstvoorstellen
             official_proposals_enabled: Officiële voorstellen ingeschakeld
             proposal_answering_enabled: Antwoordbericht geactiveerd
+            proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat deze meny minuten voorbijgaan
             proposal_limit: Voorstellimiet per gebruiker
             vote_limit: Stemlimiet per gebruiker
           step:
@@ -103,6 +104,12 @@ nl:
           proposals_count:
             one: 1 voorstel
             other: "%{count} voorstellen"
+        edit:
+          attachment_legend: "(Optioneel) Voeg een bijlage toe"
+          back: Terug
+          select_a_category: Selecteer een categorie
+          send: sturen
+          title: Bewerk voorstel
         filters:
           accepted: Aanvaard
           activity: Activiteit
@@ -135,6 +142,9 @@ nl:
         new:
           attachment_legend: "(Optioneel) Een bijlage toevoegen"
           back: Terug
+          proposal_edit_before_minutes:
+            one: U kunt dit voorstel bewerken in de eerste minuut nadat het voorstel is gemaakt. Zodra dit tijdvenster is verstreken, kunt u het voorstel niet bewerken.
+            other: U kunt dit voorstel bewerken tijdens de eerste %{count} minuten nadat het voorstel is gemaakt. Zodra dit tijdvenster is verstreken, kunt u het voorstel niet bewerken.
           select_a_category: Selecteer een categorie
           send: Verstuur
           title: Nieuw voorstel
@@ -146,6 +156,7 @@ nl:
         proposal:
           view_proposal: Bekijk voorstel
         show:
+          edit_proposal: Bewerk voorstel
           proposal_accepted_reason: 'Dit voorstel is geaccepteerd omdat:'
           proposal_in_evaluation_reason: Dit voorstel wordt geëvalueerd
           proposal_rejected_reason: 'Dit voorstel is afgewezen omdat:'
@@ -171,6 +182,9 @@ nl:
             description: U kunt stemmen tot %{limit} voorstellen.
             left: resterende
             votes: stemmen
+      update:
+        error: Er zijn fouten opgetreden bij het opslaan van het voorstel.
+        success: Voorstel succesvol bijgewerkt.
     resource_links:
       included_proposals:
         proposal_projects: 'Voorstel in deze projecten:'
