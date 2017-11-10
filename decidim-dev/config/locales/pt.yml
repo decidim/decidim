@@ -1,0 +1,6 @@
+pt:
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Bobos

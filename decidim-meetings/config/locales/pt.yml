@@ -1,0 +1,5 @@
+pt:
+  activemodel:
+    attributes:
+      close_meeting:
+        closing_report: Relatório

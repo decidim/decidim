@@ -1,0 +1,6 @@
+pt:
+  decidim:
+    components:
+      add_comment_form:
+        form:
+          submit: Enviar

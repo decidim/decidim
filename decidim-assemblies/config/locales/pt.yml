@@ -1,0 +1,5 @@
+pt:
+  activemodel:
+    attributes:
+      assembly:
+        description: Descrição

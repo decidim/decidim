@@ -1,0 +1,55 @@
+pt:
+  activemodel:
+    attributes:
+      user:
+        user_group_phone: Telefone da organização
+  booleans:
+    'false': 'Não'
+    'true': 'Sim'
+  carrierwave:
+    errors:
+      image_too_big: A imagem é muito grande
+  decidim:
+    account:
+      delete:
+        confirm:
+          title: Eliminar a minha conta
+    anonymous_user: Anônimo
+    authorizations:
+      new:
+        authorize: Enviar
+    filters:
+      linked_classes:
+        result: Resultados
+    follows:
+      create:
+        button: Seguir
+    forms:
+      current_image: Imagem actual
+    menu:
+      home: Inicio
+      more_information: Mais informação
+    own_user_groups:
+      index:
+        rejected: Rejeitadas
+    pages:
+      index:
+        title: Mais informação
+    reported_mailer:
+      report:
+        hello: Olá %{name},
+    shared:
+      action_authorization_modal:
+        incomplete:
+          cancel: Cancelar
+        unauthorized:
+          ok: Ok
+      flag_modal:
+        close: Fechar
+        report: Denunciar
+  layouts:
+    decidim:
+      cookie_warning:
+        ok: Aceito
+  locale:
+    name: Inglês

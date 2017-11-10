@@ -1,0 +1,5 @@
+pt:
+  activemodel:
+    attributes:
+      proposal:
+        category_id: Categoria
