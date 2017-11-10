@@ -63,6 +63,22 @@ module Decidim
           end
         end
 
+        describe "when the proposal is not editable by the user" do
+          before do
+            expect(proposal).to receive(:editable_by?).and_return(false)
+          end
+
+          it "broadcasts invalid" do
+            expect { command.call }.to broadcast(:invalid)
+          end
+
+          it "doesn't update the proposal" do
+            expect do
+              command.call
+            end.not_to change { proposal.title }
+          end
+        end
+
         describe "when the form is valid" do
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)

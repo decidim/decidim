@@ -26,7 +26,7 @@ module Decidim
 
           can :create, Proposal if authorized?(:create) && creation_enabled?
           can :edit, Proposal do |proposal|
-            user_is_author?(user, proposal) && !proposal.answered? && within_time_limit?(proposal)
+            proposal.editable_by?(user)
           end
 
           can :report, Proposal
@@ -61,16 +61,6 @@ module Decidim
         def voting_enabled?
           return unless current_settings
           current_settings.votes_enabled? && !current_settings.votes_blocked?
-        end
-
-        def user_is_author?(user, proposal)
-          proposal.author == user || user.user_groups.include?(proposal.user_group)
-        end
-
-        def within_time_limit?(proposal)
-          return unless feature_settings
-          limit = proposal.created_at + feature_settings.proposal_edit_before_minutes.minutes
-          Time.current < limit
         end
 
         def current_settings

@@ -104,33 +104,20 @@ describe Decidim::Proposals::Abilities::CurrentUserAbility do
   end
 
   context "edit proposal" do
-    context "when user is author" do
-      let(:proposal) { build :proposal, author: user, created_at: Time.current, feature: proposal_feature }
+    let(:proposal) { build :proposal, author: user, created_at: Time.current, feature: proposal_feature }
+
+    context "when proposal is editable" do
+      before do
+        allow(proposal).to receive(:editable_by?).and_return(true)
+      end
 
       it { is_expected.to be_able_to(:edit, proposal) }
     end
 
-    context "when proposal is from user group and user is admin" do
-      let(:user_group) { create :user_group, users: [user], organization: user.organization }
-      let(:proposal) { build :proposal, created_at: Time.current, feature: proposal_feature, user_group: user_group }
-
-      it { is_expected.to be_able_to(:edit, proposal) }
-    end
-
-    context "when user is not the author" do
-      let(:proposal) { build :proposal, created_at: Time.current, feature: proposal_feature }
-
-      it { is_expected.not_to be_able_to(:edit, proposal) }
-    end
-
-    context "when proposal is answered" do
-      let(:proposal) { build :proposal, :with_answer, created_at: Time.current, author: user, feature: proposal_feature }
-
-      it { is_expected.not_to be_able_to(:edit, proposal) }
-    end
-
-    context "when proposal editing time has run out" do
-      let(:proposal) { build :proposal, created_at: 10.minutes.ago, author: user, feature: proposal_feature }
+    context "when proposal is not editable" do
+      before do
+        allow(proposal).to receive(:editable_by?).and_return(false)
+      end
 
       it { is_expected.not_to be_able_to(:edit, proposal) }
     end

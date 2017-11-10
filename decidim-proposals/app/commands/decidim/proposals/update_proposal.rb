@@ -23,6 +23,7 @@ module Decidim
       # Returns nothing.
       def call
         return broadcast(:invalid) if form.invalid?
+        return broadcast(:invalid) unless proposal.editable_by?(current_user)
 
         if process_attachments?
           build_attachment
@@ -39,7 +40,7 @@ module Decidim
 
       private
 
-      attr_reader :form, :proposal, :attachment
+      attr_reader :form, :proposal, :attachment, :current_user
 
       def update_proposal
         @proposal.update_attributes!(
@@ -47,7 +48,7 @@ module Decidim
           body: form.body,
           category: form.category,
           scope: form.scope,
-          author: @current_user,
+          author: current_user,
           decidim_user_group_id: form.user_group_id,
           address: form.address,
           latitude: form.latitude,
@@ -59,7 +60,7 @@ module Decidim
         @attachment = Attachment.new(
           title: form.attachment.title,
           file: form.attachment.file,
-          attached_to: @proposal
+          attached_to: proposal
         )
       end
 
