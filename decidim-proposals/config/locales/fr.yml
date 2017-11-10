@@ -26,6 +26,7 @@ fr:
             new_proposal_help_text: Nouveau texte d'aide à la proposition
             official_proposals_enabled: Propositions officielles activées
             proposal_answering_enabled: '"Réponses aux propositions" activé'
+            proposal_edit_before_minutes: Les propositions peuvent être éditées par les auteurs avant que ces minutes minutes meny
             proposal_limit: Maximum de propositions par utilisateur
             vote_limit: Nombre maximum de votes par utilisateur
           step:
@@ -103,6 +104,12 @@ fr:
           proposals_count:
             one: 1 proposition
             other: "%{count} propositions"
+        edit:
+          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
+          back: Arrière
+          select_a_category: Veuillez sélectionner une catégorie
+          send: Envoyer
+          title: Modifier la proposition
         filters:
           accepted: Retenues
           activity: Activité
@@ -135,6 +142,9 @@ fr:
         new:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
+          proposal_edit_before_minutes:
+            one: Vous serez en mesure de modifier cette proposition au cours de la première minute après la création de la proposition. Une fois cette fenêtre de temps passée, vous ne pourrez pas modifier la proposition.
+            other: Vous serez en mesure de modifier cette proposition au cours des premières %{count} minutes après la création de la proposition. Une fois cette fenêtre de temps passée, vous ne pourrez pas modifier la proposition.
           select_a_category: Veuillez sélectionner une catégorie
           send: Publier
           title: Nouvelle proposition
@@ -146,6 +156,7 @@ fr:
         proposal:
           view_proposal: Voir la proposition
         show:
+          edit_proposal: Modifier la proposition
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition a été refusée parce que:'
@@ -171,6 +182,9 @@ fr:
             description: Vous pouvez voter pour %{limit} propositions au maximum.
             left: Restant
             votes: Votes
+      update:
+        error: Il y a eu des erreurs lors de l'enregistrement de la proposition.
+        success: Proposition mise à jour avec succès.
     resource_links:
       included_proposals:
         proposal_projects: 'Proposition figurant dans ces projets :'
