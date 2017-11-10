@@ -794,6 +794,9 @@ Style/PreferredHashMethods:
   Enabled: true
   EnforcedStyle: verbose
 
+Style/DateTime:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false
 
