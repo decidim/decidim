@@ -24,6 +24,7 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
         return broadcast(:invalid) unless proposal.editable_by?(current_user)
+        return broadcast(:invalid) if proposal_limit_reached?
 
         if process_attachments?
           build_attachment
@@ -49,7 +50,7 @@ module Decidim
           category: form.category,
           scope: form.scope,
           author: current_user,
-          decidim_user_group_id: form.user_group_id,
+          decidim_user_group_id: user_group.try(:id),
           address: form.address,
           latitude: form.latitude,
           longitude: form.longitude
@@ -86,6 +87,34 @@ module Decidim
 
       def process_attachments?
         attachments_allowed? && attachment_present?
+      end
+
+      def proposal_limit_reached?
+        proposal_limit = form.current_feature.settings.proposal_limit
+
+        return false if proposal_limit.zero?
+
+        if user_group
+          user_group_proposals.count >= proposal_limit
+        else
+          current_user_proposals.count >= proposal_limit
+        end
+      end
+
+      def user_group
+        @user_group ||= Decidim::UserGroup.where(organization: organization, id: form.user_group_id).first
+      end
+
+      def organization
+        @organization ||= current_user.organization
+      end
+
+      def current_user_proposals
+        Proposal.where(author: current_user, feature: form.current_feature).where.not(id: proposal.id)
+      end
+
+      def user_group_proposals
+        Proposal.where(user_group: user_group, feature: form.current_feature).where.not(id: proposal.id)
       end
     end
   end

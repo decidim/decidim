@@ -79,6 +79,15 @@ module Decidim
           end
         end
 
+        context "when the author changinng the author to one that has reached the proposal limit" do
+          let!(:other_proposal) { create :proposal, feature: feature, author: author, user_group: user_group }
+          let(:feature) { create(:proposal_feature, :with_proposal_limit) }
+
+          it "broadcasts invalid" do
+            expect { command.call }.to broadcast(:invalid)
+          end
+        end
+
         describe "when the form is valid" do
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
