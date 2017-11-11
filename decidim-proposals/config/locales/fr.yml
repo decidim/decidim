@@ -26,7 +26,7 @@ fr:
             new_proposal_help_text: Nouveau texte d'aide à la proposition
             official_proposals_enabled: Propositions officielles activées
             proposal_answering_enabled: '"Réponses aux propositions" activé'
-            proposal_edit_before_minutes: Les propositions peuvent être éditées par les auteurs avant que ces minutes minutes meny
+            proposal_edit_before_minutes: Les propositions peuvent être éditées par les auteurs avant l'expiration du temps imparti
             proposal_limit: Maximum de propositions par utilisateur
             vote_limit: Nombre maximum de votes par utilisateur
           step:
@@ -106,7 +106,7 @@ fr:
             other: "%{count} propositions"
         edit:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
-          back: Arrière
+          back: Retour
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Modifier la proposition
@@ -143,7 +143,7 @@ fr:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
           proposal_edit_before_minutes:
-            one: Vous serez en mesure de modifier cette proposition au cours de la première minute après la création de la proposition. Une fois cette fenêtre de temps passée, vous ne pourrez pas modifier la proposition.
+            one: Vous serez en mesure de modifier cette proposition pendant un minute après la création de la proposition. Une fois cette fenêtre de temps passée, vous ne pourrez plus modifier la proposition.
             other: Vous serez en mesure de modifier cette proposition au cours des premières %{count} minutes après la création de la proposition. Une fois cette fenêtre de temps passée, vous ne pourrez pas modifier la proposition.
           select_a_category: Veuillez sélectionner une catégorie
           send: Publier
