@@ -2,54 +2,68 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: codegram/decidim:$CIRCLE_SHA1
+    - image: codegram/decidim:test-$CIRCLE_SHA1
       environment:
         SIMPLECOV: true
         DATABASE_USERNAME: postgres
+        FAIL_FAST: true
     - image: postgres
       environment:
         POSTGRES_USER: postgres
-  working_directory: /code
+  working_directory: /decidim
 
 jobs:
-  build_docker_image:
+  build_docker_images:
     docker:
       - image: docker:17.10.0-ce-git
-    working_directory: /code
+    working_directory: /decidim
     steps:
       - checkout
       - setup_remote_docker:
-          docker_layer_caching: true
+          version: 17.10.0-ce
       - run:
-          name: Build, tag and push docker image
+          name: Login to dockerhub
+          command: docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run:
+          name: Build, tag and push docker production image
           command: |
-            docker login -u $DOCKER_USER -p $DOCKER_PASS
             docker pull codegram/decidim:latest
             if [ $CIRCLE_BRANCH = 'master' ]; then
-              docker build --tag codegram/decidim:$CIRCLE_SHA1 --tag codegram/decidim:latest .
+              docker build --tag codegram/decidim:prod-$CIRCLE_SHA1 --tag codegram/decidim:latest .
               docker push codegram/decidim:latest
             else
-              docker build -t codegram/decidim:$CIRCLE_SHA1 --cache-from codegram/decidim:latest .
+              docker build --tag codegram/decidim:prod-$CIRCLE_SHA1 --cache-from codegram/decidim:latest .
             fi
-            docker push codegram/decidim:$CIRCLE_SHA1
+      - run:
+          name: Build, tag and push docker test image
+          command: |
+            docker pull codegram/decidim:test-latest
+            if [ $CIRCLE_BRANCH = 'master' ]; then
+              docker build -f Dockerfile.ci --build-arg BASE_IMAGE_TAG=prod-$CIRCLE_SHA1 --tag codegram/decidim:test-$CIRCLE_SHA1 --tag codegram/decidim:test-latest .
+              docker push codegram/decidim:test-latest
+            else
+              docker build -f Dockerfile.ci --build-arg BASE_IMAGE_TAG=prod-$CIRCLE_SHA1 --tag codegram/decidim:test-$CIRCLE_SHA1 --cache-from codegram/decidim:test-latest .
+            fi
+            docker push codegram/decidim:test-$CIRCLE_SHA1
+      - persist_to_workspace:
+          root: .
+          paths:
+            - "*"
   build_test_app:
     <<: *defaults
     steps:
-      - checkout
-      - run:
-          name: Install npm dependencies
-          command: npm i
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
+      - attach_workspace:
+          at: /decidim
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Generate test app
           command: bundle exec rake decidim:generate_test_app
+
+      - run:
+          name: Precompile test app assets
+          command: cd spec/decidim_dummy_app && bundle exec rails assets:precompile
       - persist_to_workspace:
           root: .
           paths:
@@ -58,46 +72,22 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
+          at: /decidim
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
-          name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run:
           name: Run main folder npm lint
-          command: cd /code && time npm run lint
+          command: npm run lint
       - run:
           name: Run main folder RSpec
-          command: cd /code && time bundle exec rspec
-      - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          command: bundle exec rspec
   core:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
+          at: /decidim
       - run: export CODECOV_FLAG=core
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -109,26 +99,18 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run core JS tests
-          command: cd /code && time npm test -- decidim-core
+          command: npm test -- decidim-core
       - run:
           name: Run core RSpec
-          command: cd /code/decidim-core && time bundle exec rake
+          command: cd decidim-core && bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   assemblies:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
+          at: /decidim
       - run: export CODECOV_FLAG=assemblies
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -140,26 +122,18 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run assemblies JS tests
-          command: cd /code && time npm test -- decidim-assemblies
+          command: npm test -- decidim-assemblies
       - run:
           name: Run assemblies RSpec
-          command: cd /code/decidim-assemblies && time bundle exec rake
+          command: cd decidim-assemblies && bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   api:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
+          at: /decidim
       - run: export CODECOV_FLAG=api
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -171,26 +145,18 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run api JS tests
-          command: cd /code && time npm test -- decidim-api
+          command: npm test -- decidim-api
       - run:
           name: Run api RSpec
-          command: cd /code/decidim-api && time bundle exec rake
+          command: cd decidim-api && bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   processes:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
+          at: /decidim
       - run: export CODECOV_FLAG=processes
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -202,26 +168,18 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run participatory_processes JS tests
-          command: cd /code && time npm test -- decidim-participatory_processes
+          command: npm test -- decidim-participatory_processes
       - run:
           name: Run participatory_processes RSpec
-          command: cd /code/decidim-participatory_processes && time bundle exec rake
+          command: cd decidim-participatory_processes && bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   admin:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
+          at: /decidim
       - run: export CODECOV_FLAG=admin
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -233,26 +191,18 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run admin JS tests
-          command: cd /code && time npm test -- decidim-admin
+          command: npm test -- decidim-admin
       - run:
           name: Run admin RSpec
-          command: cd /code/decidim-admin && time bundle exec rake
+          command: cd decidim-admin && bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   system:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
+          at: /decidim
       - run: export CODECOV_FLAG=system
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -264,26 +214,18 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run system JS tests
-          command: cd /code && time npm test -- decidim-system
+          command: npm test -- decidim-system
       - run:
           name: Run system RSpec
-          command: cd /code/decidim-system && time bundle exec rake
+          command: cd decidim-system && bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   proposals:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
+          at: /decidim
       - run: export CODECOV_FLAG=proposals
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -295,26 +237,18 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run proposals JS tests
-          command: cd /code && time npm test -- decidim-proposals
+          command: npm test -- decidim-proposals
       - run:
           name: Run proposals RSpec
-          command: cd /code/decidim-proposals && time bundle exec rake
+          command: cd decidim-proposals && bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   comments:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
+          at: /decidim
       - run: export CODECOV_FLAG=comments
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -326,26 +260,18 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run comments JS tests
-          command: cd /code && time npm test -- decidim-comments
+          command: npm test -- decidim-comments
       - run:
           name: Run comments RSpec
-          command: cd /code/decidim-comments && time bundle exec rake
+          command: cd decidim-comments && bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   meetings:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
+          at: /decidim
       - run: export CODECOV_FLAG=meetings
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -357,26 +283,18 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run meetings JS tests
-          command: cd /code && time npm test -- decidim-meetings
+          command: npm test -- decidim-meetings
       - run:
           name: Run meetings RSpec
-          command: cd /code/decidim-meetings && time bundle exec rake
+          command: cd decidim-meetings && bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   pages:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
+          at: /decidim
       - run: export CODECOV_FLAG=pages
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -388,26 +306,18 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run pages JS tests
-          command: cd /code && time npm test -- decidim-pages
+          command: npm test -- decidim-pages
       - run:
           name: Run pages RSpec
-          command: cd /code/decidim-pages && time bundle exec rake
+          command: cd decidim-pages && bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   accountability:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
+          at: /decidim
       - run: export CODECOV_FLAG=accountability
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -419,26 +329,18 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run accountability JS tests
-          command: cd /code && time npm test -- decidim-accountability
+          command: npm test -- decidim-accountability
       - run:
           name: Run accountability RSpec
-          command: cd /code/decidim-accountability && time bundle exec rake
+          command: cd decidim-accountability && bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   budgets:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
+          at: /decidim
       - run: export CODECOV_FLAG=budgets
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -450,26 +352,18 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run budgets JS tests
-          command: cd /code && time npm test -- decidim-budgets
+          command: npm test -- decidim-budgets
       - run:
           name: Run budgets RSpec
-          command: cd /code/decidim-budgets && time bundle exec rake
+          command: cd decidim-budgets && bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
   surveys:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: sh .circleci/install-phantom.sh
+          at: /decidim
       - run: export CODECOV_FLAG=surveys
-      - run:
-          name: Install dockerize
-          command: sh .circleci/install-dockerize.sh
-          environment:
-            DOCKERIZE_VERSION: v0.3.0
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -481,24 +375,24 @@ jobs:
             RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run surveys JS tests
-          command: cd /code && time npm test -- decidim-surveys
+          command: npm test -- decidim-surveys
       - run:
           name: Run surveys RSpec
-          command: cd /code/decidim-surveys && time bundle exec rake
+          command: cd decidim-surveys && bundle exec rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /decidim/spec/decidim_dummy_app/tmp/capybara
 
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - build_docker_image
+      - build_docker_images
       - build_test_app:
           requires:
-            - build_docker_image
+            - build_docker_images
       - main:
           requires:
-            - build_test_app
+            - build_docker_images
       - core:
           requires:
             - build_test_app
