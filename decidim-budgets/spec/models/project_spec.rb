@@ -32,7 +32,7 @@ module Decidim::Budgets
       it { is_expected.not_to be_valid }
     end
 
-    context "#orders_count" do
+    describe "#orders_count" do
       let(:project) { create :project, budget: 75_000_000 }
       let(:order) { create :order, feature: project.feature }
       let(:unfinished_order) { create :order, feature: project.feature }

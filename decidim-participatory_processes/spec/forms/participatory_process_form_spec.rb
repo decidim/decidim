@@ -144,7 +144,7 @@ module Decidim
         end
 
         context "when slug is not unique" do
-          context "in the same organization" do
+          context "and process in the same organization" do
             before do
               create(:participatory_process, slug: slug, organization: organization)
             end
@@ -155,7 +155,7 @@ module Decidim
             end
           end
 
-          context "in another organization" do
+          context "and process in another organization" do
             before do
               create(:participatory_process, slug: slug)
             end

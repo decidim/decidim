@@ -12,7 +12,7 @@ shared_examples "manage proposals" do
     )
   end
 
-  context "previewing proposals" do
+  context "when previewing proposals" do
     it "allows the user to preview the proposal" do
       within find("tr", text: proposal.title) do
         klass = "action-icon--preview"
@@ -27,7 +27,7 @@ shared_examples "manage proposals" do
     end
   end
 
-  context "creation" do
+  describe "creation" do
     context "when official_proposals setting is enabled" do
       before do
         current_feature.update_attributes!(settings: { official_proposals_enabled: true })

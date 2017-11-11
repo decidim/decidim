@@ -48,7 +48,7 @@ module Decidim
         expect(html.css("#authorization_handler_birthday").length).to eq(1)
       end
 
-      context "specifying the input type" do
+      context "when specifying the input type" do
         it "renders it" do
           html = Nokogiri::HTML(builder.input(:document_number, as: :email_field))
 

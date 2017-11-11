@@ -6,8 +6,8 @@ describe "Process admin manages accountability", type: :feature do
   let(:manifest_name) { "accountability" }
   let(:user) { process_admin }
 
-  include_context "admin"
-  include_context "feature admin"
+  include_context "when admin"
+  include_context "when managing a feature as an admin"
 
   before do
     switch_to_host(organization.host)

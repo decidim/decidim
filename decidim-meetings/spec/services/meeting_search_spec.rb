@@ -48,7 +48,7 @@ module Decidim::Meetings
     end
 
     describe "filters" do
-      context "feature_id" do
+      context "with feature_id" do
         it "only returns meetings from the given feature" do
           external_meeting = create(:meeting)
 
@@ -56,13 +56,13 @@ module Decidim::Meetings
         end
       end
 
-      context "date" do
+      context "with date" do
         let(:params) { default_params.merge(date: date) }
         let!(:past_meeting) do
           create(:meeting, feature: current_feature, start_time: 1.day.ago)
         end
 
-        context "is upcoming" do
+        context "when upcoming" do
           let(:date) { "upcoming" }
 
           it "only returns that are scheduled in the future" do
@@ -70,7 +70,7 @@ module Decidim::Meetings
           end
         end
 
-        context "is past" do
+        context "when past" do
           let(:date) { "past" }
 
           it "only returns meetings that were scheduled in the past" do
@@ -79,7 +79,7 @@ module Decidim::Meetings
         end
       end
 
-      context "search_text" do
+      context "with search_text" do
         let(:params) { default_params.merge(search_text: "TestCheck") }
 
         it "show only the meeting containing the search_text" do
@@ -88,7 +88,7 @@ module Decidim::Meetings
         end
       end
 
-      context "scope_id" do
+      context "with scope_id" do
         context "when a single id is being sent" do
           let(:params) { default_params.merge(scope_id: scope1.id) }
 
@@ -115,7 +115,7 @@ module Decidim::Meetings
         end
       end
 
-      context "category_id" do
+      context "with category_id" do
         context "when the given category has no subcategories" do
           let(:params) { default_params.merge(category_id: subcategory.id) }
 

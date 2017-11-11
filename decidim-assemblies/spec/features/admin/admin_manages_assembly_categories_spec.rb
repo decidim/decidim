@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages assembly categories", type: :feature do
-  include_context "assembly administration"
+  include_context "when administrating an assembly"
 
   let!(:category) do
     create(
@@ -74,7 +74,7 @@ describe "Admin manages assembly categories", type: :feature do
     end
   end
 
-  context "deleting a category" do
+  describe "deleting a category" do
     let!(:category2) { create(:category, participatory_space: assembly) }
 
     context "when the category has no associated content" do

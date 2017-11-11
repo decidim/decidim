@@ -3,7 +3,8 @@
 require "spec_helper"
 
 describe "Invite process administrator", type: :feature do
-  include_context "invite process users"
+  include_context "when inviting process users"
+
   let(:role) { "Administrator" }
 
   before do

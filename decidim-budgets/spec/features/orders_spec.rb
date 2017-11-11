@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Orders", type: :feature do
-  include_context "feature"
+  include_context "with a feature"
   let(:manifest_name) { "budgets" }
 
   let!(:user) { create :user, :confirmed, organization: organization }

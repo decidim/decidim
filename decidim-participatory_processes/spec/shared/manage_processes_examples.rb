@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage processes examples" do
-  context "previewing processes" do
+  context "when previewing processes" do
     context "when the process is unpublished" do
       let!(:participatory_process) { create(:participatory_process, :unpublished, organization: organization) }
 
@@ -29,13 +29,13 @@ shared_examples "manage processes examples" do
     end
   end
 
-  context "viewing a missing process" do
+  context "when viewing a missing process" do
     it_behaves_like "a 404 page" do
       let(:target_path) { decidim_admin_participatory_processes.participatory_process_path(99_999_999) }
     end
   end
 
-  context "updating a participatory process" do
+  context "when updating a participatory process" do
     before do
       click_link translated(participatory_process.title)
     end
@@ -67,7 +67,7 @@ shared_examples "manage processes examples" do
     end
   end
 
-  context "publishing a process" do
+  context "when publishing a process" do
     let!(:participatory_process) { create(:participatory_process, :unpublished, organization: organization) }
 
     before do
@@ -85,7 +85,7 @@ shared_examples "manage processes examples" do
     end
   end
 
-  context "unpublishing a process" do
+  context "when unpublishing a process" do
     let!(:participatory_process) { create(:participatory_process, organization: organization) }
 
     before do

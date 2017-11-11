@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Edit proposals", type: :feature do
-  include_context "feature"
+  include_context "with a feature"
   let(:manifest_name) { "proposals" }
 
   let!(:user) { create :user, :confirmed, organization: participatory_process.organization }

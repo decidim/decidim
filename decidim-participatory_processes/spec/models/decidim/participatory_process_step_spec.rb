@@ -37,7 +37,7 @@ module Decidim
       it { is_expected.to be_valid }
     end
 
-    context "active" do
+    context "when active" do
       context "when there's an active step in the same process" do
         let(:active_step) { create :participatory_process_step, :active }
         let(:participatory_process_step) do
@@ -57,63 +57,61 @@ module Decidim
       end
     end
 
-    context "position" do
-      context "with position lower than 0" do
-        let(:position) { -1 }
+    context "with position lower than 0" do
+      let(:position) { -1 }
 
-        it { is_expected.not_to be_valid }
+      it { is_expected.not_to be_valid }
+    end
+
+    context "with position with decimals" do
+      let(:position) { 1.75 }
+
+      it { is_expected.not_to be_valid }
+    end
+
+    context "when set before creation" do
+      context "when the step is the only one" do
+        it "sets the position to 0" do
+          subject.position = nil
+          subject.save
+
+          expect(subject.position).to eq 0
+        end
       end
 
-      context "with position with decimals" do
-        let(:position) { 1.75 }
+      context "when there are more steps in the same process" do
+        let(:other_step) { create :participatory_process_step, :active, position: 3 }
+        let(:participatory_process_step) do
+          build(:participatory_process_step, participatory_process: other_step.participatory_process, position: position)
+        end
 
-        it { is_expected.not_to be_valid }
-      end
+        context "and position is automatically set" do
+          let(:position) { nil }
 
-      context "is set before creation" do
-        context "when the step is the only one" do
-          it "sets the position to 0" do
-            subject.position = nil
+          it "sets the position following the last step" do
             subject.save
 
-            expect(subject.position).to eq 0
+            expect(subject.position).to eq 4
           end
         end
 
-        context "when there are more steps in the same process" do
-          let(:other_step) { create :participatory_process_step, :active, position: 3 }
-          let(:participatory_process_step) do
-            build(:participatory_process_step, participatory_process: other_step.participatory_process, position: position)
-          end
+        context "and position is manually set" do
+          let(:position) { 3 }
 
-          context "and position is automatically set" do
-            let(:position) { nil }
-
-            it "sets the position following the last step" do
-              subject.save
-
-              expect(subject.position).to eq 4
-            end
-          end
-
-          context "and position is manually set" do
-            let(:position) { 3 }
-
-            it "does not let two steps to have the same position" do
-              expect(subject).not_to be_valid
-            end
+          it "does not let two steps to have the same position" do
+            expect(subject).not_to be_valid
           end
         end
       end
+    end
 
-      context "when multiple processes have only one step" do
-        let!(:other_step) { create(:participatory_process_step) }
+    context "when multiple processes have only one step" do
+      let!(:other_step) { create(:participatory_process_step) }
 
-        it "all steps have position 0" do
-          subject.save
-          expect(subject.position).to eq 0
-          expect(other_step.position).to eq 0
-        end
+      it "all steps have position 0" do
+        subject.save
+        expect(subject.position).to eq 0
+        expect(other_step.position).to eq 0
       end
     end
   end

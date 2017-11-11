@@ -45,7 +45,7 @@ module Decidim::Accountability
     end
 
     describe "filters" do
-      context "feature_id" do
+      describe "feature_id" do
         it "only returns results from the given feature" do
           external_result = create(:result)
 
@@ -53,7 +53,7 @@ module Decidim::Accountability
         end
       end
 
-      context "scope_id" do
+      describe "scope_id" do
         context "when a single id is being sent" do
           let(:params) { default_params.merge(scope_id: scope1.id) }
 
@@ -80,7 +80,7 @@ module Decidim::Accountability
         end
       end
 
-      context "category_id" do
+      describe "category_id" do
         context "when the given category has no subcategories" do
           let(:params) { default_params.merge(category_id: subcategory.id) }
 

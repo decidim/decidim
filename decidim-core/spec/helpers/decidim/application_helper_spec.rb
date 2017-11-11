@@ -14,21 +14,21 @@ module Decidim
         end
       end
 
-      context "truncating HTML text" do
+      describe "truncating HTML text" do
         let(:text) { "<p>Hello, this is dog</p>" }
         let(:length) { 5 }
 
         it { is_expected.to eq("<p>Hello...</p>") }
       end
 
-      context "truncating regular text" do
+      describe "truncating regular text" do
         let(:text) { "Hello, this is dog" }
         let(:length) { 5 }
 
         it { is_expected.to eq("Hello...") }
       end
 
-      context "with a custom separator" do
+      describe "truncating with a custom separator" do
         subject { helper.html_truncate(text, length: length, separator: " ...read more") }
 
         let(:text) { "Hello, this is dog" }

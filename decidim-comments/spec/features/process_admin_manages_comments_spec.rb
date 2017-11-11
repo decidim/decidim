@@ -12,7 +12,7 @@ describe "Process admin manages comments", type: :feature do
     end
   end
 
-  include_context "feature process admin"
+  include_context "when managing a feature as a process admin"
 
   it_behaves_like "manage moderations"
 end

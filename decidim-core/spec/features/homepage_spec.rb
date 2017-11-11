@@ -28,7 +28,7 @@ describe "Homepage", type: :feature do
       expect(page).to have_selector("a.main-footer__badge[href='#{official_url}']")
     end
 
-    context "call to action" do
+    describe "call to action" do
       let!(:participatory_process) { create :participatory_process, :published }
       let!(:organization) { participatory_process.organization }
 
@@ -140,7 +140,7 @@ describe "Homepage", type: :feature do
     end
 
     describe "includes participatory processes ending soon" do
-      context "when exists more than 8 participatory processes" do
+      context "when there are more than 8 participatory processes" do
         let!(:participatory_process) do
           create_list(
             :participatory_process,

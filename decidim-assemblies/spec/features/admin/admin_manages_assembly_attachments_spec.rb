@@ -4,7 +4,7 @@ require "spec_helper"
 require "decidim/admin/test/manage_attachments_examples"
 
 describe "Admin manages assembly attachments", type: :feature do
-  include_context "assembly administration"
+  include_context "when administrating an assembly"
 
   let(:attached_to) { assembly }
 

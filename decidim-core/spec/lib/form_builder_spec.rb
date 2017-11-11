@@ -50,8 +50,8 @@ module Decidim
       allow(I18n.config).to receive(:enforce_available_locales).and_return(false)
     end
 
-    context "#editor" do
-      context "using default toolbar" do
+    describe "#editor" do
+      context "when using default toolbar" do
         let(:output) do
           builder.editor :slug
         end
@@ -63,7 +63,7 @@ module Decidim
         end
       end
 
-      context "using full toolbar" do
+      context "when using full toolbar" do
         let(:output) do
           builder.editor :slug, toolbar: :full
         end
@@ -76,8 +76,8 @@ module Decidim
       end
     end
 
-    context "#translated" do
-      context "a text area field" do
+    describe "#translated" do
+      context "when a text area field" do
         let(:output) do
           builder.translated :text_area, :name
         end
@@ -102,7 +102,7 @@ module Decidim
         end
       end
 
-      context "an editor field" do
+      context "with an editor field" do
         let(:output) do
           builder.translated :editor, :short_description
         end
@@ -155,14 +155,14 @@ module Decidim
       end
 
       context "when a category has subcategories" do
-        context "`disable_parents` is true" do
+        context "when `disable_parents` is true" do
           it "is disabled" do
             expect(subject.xpath("//option[@disabled='disabled']").count).to eq(1)
             expect(subject.xpath("//option[@disabled='disabled']").first.text).to eq(category.name["en"])
           end
         end
 
-        context "`disable_parents` is false" do
+        context "when `disable_parents` is false" do
           let(:options) { { disable_parents: false } }
 
           it "is not disabled" do
@@ -224,7 +224,7 @@ module Decidim
           expect(parsed.css("span.form-error").first).to be
         end
 
-        context "translations" do
+        describe "translations" do
           subject { parsed.css("span.form-error").first.text }
 
           context "with no translations for the field" do
@@ -294,7 +294,7 @@ module Decidim
         end
       end
 
-      context "max length" do
+      describe "max length" do
         let(:output) do
           builder.text_field :name, maxlength: 150
         end
@@ -305,7 +305,7 @@ module Decidim
         end
       end
 
-      context "min length" do
+      describe "min length" do
         let(:output) do
           builder.text_field :name, minlength: 150
         end

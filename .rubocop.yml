@@ -1285,6 +1285,14 @@ Metrics/BlockLength:
 RSpec/BeforeAfterAll:
   Enabled: true
 
+RSpec/ContextWording:
+  Enabled: true
+  Prefixes:
+    - when
+    - with
+    - without
+    - and
+
 RSpec/ExampleLength:
   Max: 49
 

@@ -33,7 +33,7 @@ module Decidim
           end
         end
 
-        context "otherwise" do
+        context "when otherwise" do
           let(:locale) { "foo" }
 
           it "doesn't change the user's locale" do

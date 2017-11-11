@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Invite process moderator", type: :feature do
-  include_context "invite process users"
+  include_context "when inviting process users"
 
   before do
     switch_to_host organization.host

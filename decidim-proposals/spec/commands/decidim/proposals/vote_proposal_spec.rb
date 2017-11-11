@@ -10,7 +10,7 @@ module Decidim
         let(:current_user) { create(:user, organization: proposal.feature.organization) }
         let(:command) { described_class.new(proposal, current_user) }
 
-        context "in normal conditions" do
+        context "with normal conditions" do
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
           end

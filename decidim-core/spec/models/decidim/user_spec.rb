@@ -74,14 +74,14 @@ module Decidim
       end
     end
 
-    context "devise emails" do
+    describe "devise emails" do
       it "sends them asynchronously" do
         create(:user)
         expect(ActionMailer::DeliveryJob).to have_been_enqueued.on_queue("mailers")
       end
     end
 
-    context "#deleted?" do
+    describe "#deleted?" do
       it "returns true if deleted_at is present" do
         subject.deleted_at = Time.current
         expect(subject).to be_deleted

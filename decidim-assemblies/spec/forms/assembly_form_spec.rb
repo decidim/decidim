@@ -148,7 +148,7 @@ module Decidim
         end
 
         context "when slug is not unique" do
-          context "in the same organization" do
+          context "when in the same organization" do
             before do
               create(:assembly, slug: slug, organization: organization)
             end
@@ -159,7 +159,7 @@ module Decidim
             end
           end
 
-          context "in another organization" do
+          context "when in another organization" do
             before do
               create(:assembly, slug: slug)
             end

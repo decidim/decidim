@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Comments
     describe CommentMutationType do
-      include_context "graphql type"
+      include_context "with a graphql type"
       let(:model) { create(:comment) }
 
       describe "upVote" do

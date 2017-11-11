@@ -24,7 +24,7 @@ describe "Answer a survey", type: :feature do
   let!(:survey_question_1) { create(:survey_question, survey: survey, position: 1) }
   let!(:survey_question_2) { create(:survey_question, survey: survey, position: 0) }
 
-  include_context "feature"
+  include_context "with a feature"
 
   context "when the survey doesn't allow answers" do
     it "the survey cannot be answered" do

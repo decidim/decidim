@@ -47,7 +47,7 @@ module Decidim::Meetings
       end
     end
 
-    context "events" do
+    describe "events" do
       let(:user) { create :user, :confirmed, organization: meeting.organization }
       let!(:follow) { create :follow, followable: meeting, user: user }
 

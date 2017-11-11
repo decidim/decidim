@@ -6,7 +6,12 @@ module Decidim
   describe AuthorizationsController, type: :controller do
     routes { Decidim::Core::Engine.routes }
 
-    include_context "authenticated user"
+    let(:user) { create(:user, :confirmed) }
+
+    before do
+      request.env["decidim.current_organization"] = user.organization
+      sign_in user, scope: :user
+    end
 
     describe "handler" do
       it "injects the current_user" do

@@ -31,7 +31,7 @@ describe Decidim::Proposals::Abilities::CurrentUserAbility do
 
   it { is_expected.to be_able_to(:report, Decidim::Proposals::Proposal) }
 
-  context "voting" do
+  describe "voting" do
     context "when voting is disabled" do
       let(:proposal) { build :proposal, feature: proposal_feature }
       let(:extra_settings) do
@@ -56,7 +56,7 @@ describe Decidim::Proposals::Abilities::CurrentUserAbility do
     end
   end
 
-  context "unvoting" do
+  describe "unvoting" do
     context "when voting is disabled" do
       let(:proposal) { build :proposal, feature: proposal_feature }
       let(:extra_settings) do
@@ -81,7 +81,7 @@ describe Decidim::Proposals::Abilities::CurrentUserAbility do
     end
   end
 
-  context "creation" do
+  describe "proposal creation" do
     context "when creation is disabled" do
       let(:extra_settings) do
         {
@@ -103,7 +103,7 @@ describe Decidim::Proposals::Abilities::CurrentUserAbility do
     end
   end
 
-  context "edit proposal" do
+  describe "proposal edition" do
     let(:proposal) { build :proposal, author: user, created_at: Time.current, feature: proposal_feature }
 
     context "when proposal is editable" do

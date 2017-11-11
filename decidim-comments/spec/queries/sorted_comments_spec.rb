@@ -44,8 +44,8 @@ module Decidim::Comments
       end
     end
 
-    context "When order_by is not default" do
-      context "When order by recent" do
+    context "when order_by is not default" do
+      context "when order by recent" do
         let!(:order_by) { "recent" }
 
         it "return the comments ordered by recent" do
@@ -55,7 +55,7 @@ module Decidim::Comments
         end
       end
 
-      context "When order by best_rated" do
+      context "when order by best_rated" do
         let!(:order_by) { "best_rated" }
 
         it "return the comments ordered by best_rated" do
@@ -67,7 +67,7 @@ module Decidim::Comments
         end
       end
 
-      context "When order by most_discussed" do
+      context "when order by most_discussed" do
         let!(:order_by) { "most_discussed" }
 
         it "return the comments ordered by most_discussed" do

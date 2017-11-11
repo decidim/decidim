@@ -41,14 +41,14 @@ module Decidim
         expect(survey.feature).to be_a(Decidim::Feature)
       end
 
-      context "#questions_editable?" do
+      describe "#questions_editable?" do
         it "returns false when survey has already answers" do
           create(:survey_answer, survey: survey)
           expect(subject.reload).not_to be_questions_editable
         end
       end
 
-      context "#answered_by?" do
+      describe "#answered_by?" do
         let!(:user) { create(:user, organization: survey.feature.participatory_space.organization) }
         let!(:question) { create(:survey_question, survey: survey) }
 

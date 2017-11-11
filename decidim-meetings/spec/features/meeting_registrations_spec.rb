@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Meeting registrations", type: :feature do
-  include_context "feature"
+  include_context "with a feature"
   let(:manifest_name) { "meetings" }
 
   let(:meetings_count) { 5 }

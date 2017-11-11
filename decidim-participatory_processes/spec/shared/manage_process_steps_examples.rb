@@ -80,7 +80,7 @@ shared_examples "manage process steps examples" do
     end
   end
 
-  context "deleting a participatory process step" do
+  context "when deleting a participatory process step" do
     let!(:process_step2) { create(:participatory_process_step, participatory_process: participatory_process) }
 
     before do
@@ -100,7 +100,7 @@ shared_examples "manage process steps examples" do
     end
   end
 
-  context "activating a step" do
+  context "when activating a step" do
     it "activates a step" do
       within find("tr", text: translated(process_step.title)) do
         page.find(".action-icon--activate").click

@@ -63,7 +63,7 @@ module Decidim::Meetings
         expect(meeting.longitude).to eq(longitude)
       end
 
-      context "events" do
+      describe "events" do
         let!(:follow) { create :follow, followable: meeting, user: user }
         let(:title) { meeting.title }
         let(:start_time) { meeting.start_time }

@@ -39,10 +39,10 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "rejecting a proposal" do
+        context "when rejecting a proposal" do
           let(:state) { "rejected" }
 
-          context "when there's no answer" do
+          context "and there's no answer" do
             let(:answer) { nil }
 
             it { is_expected.to be_invalid }

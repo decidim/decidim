@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "follows" do
-  include_context "feature"
+  include_context "with a feature"
 
   before do
     login_as user, scope: :user

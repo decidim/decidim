@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Vote Proposal", type: :feature do
-  include_context "feature"
+  include_context "with a feature"
   let(:manifest_name) { "proposals" }
 
   let!(:proposals) { create_list(:proposal, 3, feature: feature) }

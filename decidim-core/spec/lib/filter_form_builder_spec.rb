@@ -30,7 +30,7 @@ module Decidim
       end
     end
 
-    context "#collection_radio_buttons" do
+    describe "#collection_radio_buttons" do
       let(:output) do
         builder.collection_radio_buttons :order_start_time, [%w(asc asc), %w(desc desc)], :first, :last, legend_title: "Date"
       end
@@ -43,7 +43,7 @@ module Decidim
       end
     end
 
-    context "#collection_check_boxes" do
+    describe "#collection_check_boxes" do
       let(:output) do
         builder.collection_check_boxes :scope_id, scopes, :id, :name, legend_title: "Date"
       end
@@ -56,7 +56,7 @@ module Decidim
       end
     end
 
-    context "#categories_select" do
+    describe "#categories_select" do
       let(:output) do
         builder.categories_select :category_id, categories, legend_title: "Date", disable_parents: false, label: false, include_blank: true
       end

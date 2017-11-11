@@ -51,7 +51,7 @@ describe "Proposals feature" do
 
     let(:current_stat) { stats.find { |stat| stat[1] == stats_name } }
 
-    context "proposals_count" do
+    describe "proposals_count" do
       let(:stats_name) { :proposals_count }
 
       it "only counts not hidden proposals" do
@@ -60,7 +60,7 @@ describe "Proposals feature" do
       end
     end
 
-    context "votes_count" do
+    describe "votes_count" do
       let(:stats_name) { :votes_count }
 
       before do
@@ -74,7 +74,7 @@ describe "Proposals feature" do
       end
     end
 
-    context "comments_count" do
+    describe "comments_count" do
       let(:stats_name) { :comments_count }
 
       before do

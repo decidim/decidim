@@ -80,7 +80,7 @@ module Decidim::Meetings
         expect(meeting.linked_resources(:proposals, "proposals_from_meeting")).to match_array(proposals)
       end
 
-      context "events" do
+      describe "events" do
         let!(:follow) { create :follow, followable: meeting, user: user }
 
         it "notifies the change" do

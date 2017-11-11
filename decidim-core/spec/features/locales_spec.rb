@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Locales", type: :feature do
-  context "switching locales" do
+  describe "switching locales" do
     let(:organization) { create(:organization, available_locales: %w(en ca)) }
 
     before do

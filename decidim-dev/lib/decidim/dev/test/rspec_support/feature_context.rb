@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_context "feature" do
+shared_context "with a feature" do
   let(:manifest) { Decidim.find_feature_manifest(manifest_name) }
 
   let(:user) { create :user, :confirmed, organization: organization }
@@ -32,17 +32,10 @@ shared_context "feature" do
   end
 end
 
-shared_context "feature admin" do
-  include_context "feature"
+shared_context "when managing a feature" do
+  include_context "with a feature"
 
   let(:current_feature) { feature }
-
-  let(:user) do
-    create :user,
-           :admin,
-           :confirmed,
-           organization: organization
-  end
 
   before do
     login_as user, scope: :user
@@ -63,8 +56,19 @@ shared_context "feature admin" do
   end
 end
 
-shared_context "feature process admin" do
-  include_context "feature admin"
+shared_context "when managing a feature as an admin" do
+  include_context "when managing a feature"
+
+  let(:user) do
+    create :user,
+           :admin,
+           :confirmed,
+           organization: organization
+  end
+end
+
+shared_context "when managing a feature as a process admin" do
+  include_context "when managing a feature"
 
   let(:user) do
     create :user,

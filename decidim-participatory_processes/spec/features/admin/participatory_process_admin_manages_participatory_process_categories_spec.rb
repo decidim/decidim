@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Participatory process admin manages participatory process categories", type: :feature do
-  include_context "participatory process administration by process admin"
+  include_context "when process admin administrating a participatory process"
 
   let!(:category) do
     create(

@@ -25,18 +25,16 @@ RSpec.shared_examples "manage child results" do
     end
   end
 
-  context "previewing results" do
-    it "allows the user to preview the result" do
-      within find("tr", text: translated(child_result.title)) do
-        klass = "action-icon--preview"
-        href = resource_locator(child_result).path
-        target = "blank"
+  it "allows the user to preview the result" do
+    within find("tr", text: translated(child_result.title)) do
+      klass = "action-icon--preview"
+      href = resource_locator(child_result).path
+      target = "blank"
 
-        expect(page).to have_selector(
-          :xpath,
-          "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
-        )
-      end
+      expect(page).to have_selector(
+        :xpath,
+        "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
+      )
     end
   end
 
@@ -72,7 +70,7 @@ RSpec.shared_examples "manage child results" do
     end
   end
 
-  context "deleting a result" do
+  describe "deleting a result" do
     before do
       visit current_path
       click_link translated(result.title)

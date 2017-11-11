@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_context "assembly administration" do
+shared_context "when administrating an assembly" do
   let(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
 

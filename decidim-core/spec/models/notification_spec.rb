@@ -10,7 +10,7 @@ module Decidim
 
     it { is_expected.to be_valid }
 
-    context "validations" do
+    describe "validations" do
       context "without user" do
         let(:notification) { build(:notification, user: nil) }
 

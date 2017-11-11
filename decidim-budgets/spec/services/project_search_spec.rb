@@ -44,7 +44,7 @@ module Decidim::Budgets
     end
 
     describe "filters" do
-      context "feature_id" do
+      context "with feature_id" do
         it "only returns projects from the given feature" do
           external_project = create(:project)
 
@@ -52,7 +52,7 @@ module Decidim::Budgets
         end
       end
 
-      context "scope_id" do
+      context "with scope_id" do
         context "when a single id is being sent" do
           let(:params) { default_params.merge(scope_id: scope1.id) }
 
@@ -79,7 +79,7 @@ module Decidim::Budgets
         end
       end
 
-      context "category_id" do
+      context "with category_id" do
         context "when the given category has no subcategories" do
           let(:params) { default_params.merge(category_id: subcategory.id) }
 

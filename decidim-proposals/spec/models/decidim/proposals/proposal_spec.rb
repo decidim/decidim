@@ -107,7 +107,7 @@ module Decidim
         end
       end
 
-      context "editable_by?" do
+      describe "#editable_by?" do
         let(:author) { build(:user, organization: organization) }
 
         context "when user is author" do

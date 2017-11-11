@@ -45,7 +45,7 @@ describe "Application generation" do
     it_behaves_like "a sane generator"
   end
 
-  context "development application" do
+  context "with development application" do
     let(:command) do
       "decidim --path #{File.expand_path("..", __dir__)} #{test_app} --recreate_db --seed_db"
     end

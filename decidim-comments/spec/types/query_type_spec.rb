@@ -5,18 +5,18 @@ require "decidim/api/test/type_context"
 
 module Decidim::Api
   describe QueryType do
-    include_context "graphql type"
+    include_context "with a graphql type"
 
     describe "session" do
       let(:query) { "{ session { user { name } } }" }
 
-      context "When the user is logged in" do
+      context "when the user is logged in" do
         it "return current user data" do
           expect(response["session"]).to include("user" => { "name" => current_user.name })
         end
       end
 
-      context "When the user is not logged in" do
+      context "when the user is not logged in" do
         let!(:current_user) { nil }
 
         it "return a nil object" do

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Report Comment", type: :feature do
-  include_context "feature"
+  include_context "with a feature"
   include_examples "reports"
 
   let(:manifest_name) { "dummy" }

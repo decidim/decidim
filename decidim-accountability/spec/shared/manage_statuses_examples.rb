@@ -60,7 +60,7 @@ RSpec.shared_examples "manage statuses" do
     end
   end
 
-  context "deleting a result" do
+  describe "deleting a result" do
     let!(:status2) { create(:status, feature: current_feature) }
 
     before do

@@ -18,7 +18,7 @@ module Decidim
         it { is_expected.to eq(page) }
       end
 
-      context "otherwise" do
+      context "when otherwise" do
         it { is_expected.to eq(nil) }
       end
     end

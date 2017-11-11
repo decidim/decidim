@@ -14,7 +14,7 @@ describe "Notifications", type: :feature do
     login_as user, scope: :user
   end
 
-  context "accessing the notifications page" do
+  describe "accessing the notifications page" do
     before do
       page.visit decidim.root_path
     end

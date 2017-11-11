@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_context "participatory process administration by process admin" do
+shared_context "when process admin administrating a participatory process" do
   let!(:user) do
     create(:user,
            :process_admin,
@@ -9,5 +9,5 @@ shared_context "participatory process administration by process admin" do
            participatory_process: participatory_process)
   end
 
-  include_context "participatory process administration"
+  include_context "when administrating a participatory process"
 end

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages assemblies", type: :feature do
-  include_context "assembly administration"
+  include_context "when administrating an assembly"
 
   before do
     switch_to_host(organization.host)
@@ -11,7 +11,7 @@ describe "Admin manages assemblies", type: :feature do
     visit decidim_admin_assemblies.assemblies_path
   end
 
-  context "creating an assembly" do
+  describe "creating an assembly" do
     before do
       within ".secondary-nav__actions" do
         page.find("a.button").click
@@ -66,7 +66,7 @@ describe "Admin manages assemblies", type: :feature do
     end
   end
 
-  context "updating an assembly" do
+  describe "updating an assembly" do
     before do
       click_link translated(assembly.title)
     end
@@ -95,7 +95,7 @@ describe "Admin manages assemblies", type: :feature do
     end
   end
 
-  context "updating an assembly without images" do
+  describe "updating an assembly without images" do
     let!(:assembly3) { create(:assembly, organization: organization) }
 
     before do
@@ -114,7 +114,7 @@ describe "Admin manages assemblies", type: :feature do
     end
   end
 
-  context "deleting an assembly" do
+  describe "deleting an assembly" do
     let!(:assembly2) { create(:assembly, organization: organization) }
 
     before do
@@ -133,7 +133,7 @@ describe "Admin manages assemblies", type: :feature do
     end
   end
 
-  context "previewing assemblies" do
+  describe "previewing assemblies" do
     context "when the assembly is unpublished" do
       let!(:assembly) { create(:assembly, :unpublished, organization: organization) }
 
@@ -161,13 +161,13 @@ describe "Admin manages assemblies", type: :feature do
     end
   end
 
-  context "viewing a missing assembly" do
+  describe "viewing a missing assembly" do
     it_behaves_like "a 404 page" do
       let(:target_path) { decidim_admin_assemblies.assembly_path(99_999_999) }
     end
   end
 
-  context "publishing an assembly" do
+  describe "publishing an assembly" do
     let!(:assembly) { create(:assembly, :unpublished, organization: organization) }
 
     before do
@@ -185,7 +185,7 @@ describe "Admin manages assemblies", type: :feature do
     end
   end
 
-  context "unpublishing an assembly" do
+  describe "unpublishing an assembly" do
     let!(:assembly) { create(:assembly, organization: organization) }
 
     before do

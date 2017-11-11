@@ -19,20 +19,18 @@ describe "Assemblies", type: :feature do
     switch_to_host(organization.host)
   end
 
-  context "when there are no assemblies" do
-    context "direct access from URL" do
-      it_behaves_like "a 404 page" do
-        let(:target_path) { decidim_assemblies.assemblies_path }
-      end
+  context "when there are no assemblies and directly accessing from URL" do
+    it_behaves_like "a 404 page" do
+      let(:target_path) { decidim_assemblies.assemblies_path }
     end
+  end
 
-    context "accessing from the homepage" do
-      it "the menu link is not shown" do
-        visit decidim.root_path
+  context "when there are no assemblies and accessing from the homepage" do
+    it "the menu link is not shown" do
+      visit decidim.root_path
 
-        within ".main-nav" do
-          expect(page).to have_no_content("Assemblies")
-        end
+      within ".main-nav" do
+        expect(page).to have_no_content("Assemblies")
       end
     end
   end
@@ -49,13 +47,13 @@ describe "Assemblies", type: :feature do
       create(:assembly, :published)
     end
 
-    context "direct access from URL" do
+    context "and directly accessing from URL" do
       it_behaves_like "a 404 page" do
         let(:target_path) { decidim_assemblies.assemblies_path }
       end
     end
 
-    context "accessing from the homepage" do
+    context "and accessing from the homepage" do
       it "the menu link is not shown" do
         visit decidim.root_path
 
@@ -75,7 +73,7 @@ describe "Assemblies", type: :feature do
       visit decidim_assemblies.assemblies_path
     end
 
-    context "accessing from the homepage" do
+    context "and accessing from the homepage" do
       it "the menu link is not shown" do
         visit decidim.root_path
 

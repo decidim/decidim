@@ -5,8 +5,8 @@ require "spec_helper"
 describe "Admin manages accountability", type: :feature do
   let(:manifest_name) { "accountability" }
 
-  include_context "admin"
-  include_context "feature admin"
+  include_context "when admin"
+  include_context "when managing a feature as an admin"
 
   before do
     switch_to_host(organization.host)

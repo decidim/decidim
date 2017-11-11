@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Participatory process admin manages participatory processes", type: :feature do
-  include_context "participatory process administration by process admin"
+  include_context "when admin administrating a participatory process"
 
   it_behaves_like "manage processes examples"
   it_behaves_like "manage processes announcements"
@@ -18,7 +18,7 @@ describe "Participatory process admin manages participatory processes", type: :f
     expect(page).to have_no_selector(".actions .new")
   end
 
-  context "deleting a participatory process" do
+  context "when deleting a participatory process" do
     let!(:participatory_process2) { create(:participatory_process, organization: organization) }
     let!(:process_user_role2) { create :participatory_process_user_role, user: user, participatory_process: participatory_process2 }
 
