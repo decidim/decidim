@@ -60,7 +60,7 @@ it:
       comment_thread:
         title: Conversazioni con %{authorName}
       comments:
-        blocked_comments_warning: I commenti sono disabilitati per questa fase, ma puoi leggere i commenti delle fasi precedenti.
+        blocked_comments_warning: I commenti sono disabilitati in questo momento, ma puoi leggere quelli precedenti. "
         loading: Sto caricando i commenti ...
         title: "%{count} commenti"
       featured_comment:
