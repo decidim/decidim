@@ -7,7 +7,7 @@ describe "Bundle sanity" do
     previous_hash = bundle_hash
 
     Dir.chdir("../") do
-      `npm run build:prod 2>&1 /dev/null`
+      expect(system("npm run build:prod", out: File::NULL, err: File::NULL)).to eq(true)
     end
 
     new_hash = bundle_hash
