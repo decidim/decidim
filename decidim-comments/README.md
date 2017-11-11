@@ -59,7 +59,7 @@ You need to execute `npm start` in a separate terminal, in the `decidim` root fo
 
 #### Run tests
 
-You can execute `npm test` to run the javascript test suite or you can run `npm test:watch` to listen for file changes.
+You can execute `npm test` to run the javascript test suite or you can run `npm run test:watch` to listen for file changes.
 
 #### GraphQL schema and Typescript
 
