@@ -144,7 +144,7 @@ fr:
           back: Retour
           proposal_edit_before_minutes:
             one: Vous serez en mesure de modifier cette proposition pendant un minute après la création de la proposition. Une fois cette fenêtre de temps passée, vous ne pourrez plus modifier la proposition.
-            other: Vous serez en mesure de modifier cette proposition au cours des premières %{count} minutes après la création de la proposition. Une fois cette fenêtre de temps passée, vous ne pourrez pas modifier la proposition.
+            other: Vous serez en mesure de modifier cette proposition au cours des premières %{count} minutes après la création de la proposition. Une fois cette fenêtre de temps passée, vous ne pourrez plus modifier la proposition.
           select_a_category: Veuillez sélectionner une catégorie
           send: Publier
           title: Nouvelle proposition
@@ -183,7 +183,7 @@ fr:
             left: Restant
             votes: Votes
       update:
-        error: Il y a eu des erreurs lors de l'enregistrement de la proposition.
+        error: Des erreurs se sont produites lors de l'enregistrement de la proposition.
         success: Proposition mise à jour avec succès.
     resource_links:
       included_proposals:
