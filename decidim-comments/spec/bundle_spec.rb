@@ -17,9 +17,6 @@ describe "Bundle sanity" do
   end
 
   def bundle_hash
-    Dir.glob("app/assets/javascripts/decidim/comments/bundle.js").inject([]) do |results, file|
-      md5 = Digest::MD5.file(file).hexdigest
-      results << md5
-    end
+    Digest::MD5.file("app/assets/javascripts/decidim/comments/bundle.js").hexdigest
   end
 end
