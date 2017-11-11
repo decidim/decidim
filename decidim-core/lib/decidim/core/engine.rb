@@ -60,6 +60,8 @@ module Decidim
         Decidim.feature_manifests.each do |feature|
           app.config.assets.precompile += [feature.icon]
         end
+
+        app.config.assets.debug = true if Rails.env.test?
       end
 
       initializer "decidim.high_voltage" do |_app|

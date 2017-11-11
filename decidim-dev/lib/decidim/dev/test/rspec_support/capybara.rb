@@ -41,6 +41,8 @@ Capybara.configure do |config|
   config.default_driver = :headless_chrome
 end
 
+Capybara.asset_host = "http://localhost:3000"
+
 RSpec.configure do |config|
   config.before :each, type: :feature do
     Capybara.current_session.driver.reset!
