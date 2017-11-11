@@ -65,7 +65,11 @@ In order to develop on decidim, you'll need:
 * **Ruby** 2.4.1
 * **NodeJS** 8.x.x
 * **ImageMagick**
+<<<<<<< HEAD
 * **PhantomJS**
+=======
+* **Chrome** browser and [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/).
+>>>>>>> 898adf74b... Migrate to headless chrome (#2157)
 
 The easiest way to work on decidim is to clone decidim's repository and install its dependencies
 

@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: decidim/decidim:0.7.2-dev
+    - image: decidim/decidim:latest-dev
       environment:
         SIMPLECOV: true
         DATABASE_USERNAME: postgres
@@ -40,7 +40,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Generate test app
-          command: bundle exec rake decidim:generate_test_app
+          command: bundle exec rake test_app
       - restore_cache:
          keys:
            - assets-{{ .Branch }}

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "capybara/poltergeist"
+require "selenium-webdriver"
 require "capybara-screenshot/rspec"
 
 module Decidim
@@ -21,32 +21,24 @@ module Decidim
   end
 end
 
-capybara_options = {
-  extensions: [
-    File.join(__dir__, "phantomjs_polyfills", "promise.js"),
-    File.join(__dir__, "phantomjs_polyfills", "phantomjs-shim.js"),
-    File.join(__dir__, "phantomjs_polyfills", "phantomjs-getOwnPropertyNames.js"),
-    File.join(__dir__, "phantomjs_polyfills", "weakmap-polyfill.js")
-  ],
-  js_errors: true,
-  url_whitelist: ["http://*.lvh.me", "localhost", "127.0.0.1"],
-  timeout: 2.minutes
-}
-
-Capybara.register_driver :poltergeist do |app|
-  Capybara::Poltergeist::Driver.new(app, capybara_options)
-end
-
-Capybara.register_driver :debug do |app|
-  Capybara::Poltergeist::Driver.new(app, capybara_options.merge(inspector: true))
+Capybara.register_driver :headless_chrome do |app|
+  browser_options = ::Selenium::WebDriver::Chrome::Options.new
+  browser_options.args << "--headless"
+  browser_options.args << "--no-sandbox"
+  browser_options.args << "--window-size=1024,768"
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: browser_options)
 end
 
 Capybara::Screenshot.prune_strategy = :keep_last_run
 Capybara::Screenshot::RSpec.add_link_to_screenshot_for_failed_examples = true
 
+Capybara::Screenshot.register_driver(:headless_chrome) do |driver, path|
+  driver.browser.save_screenshot(path)
+end
+
 Capybara.configure do |config|
   config.always_include_port = true
-  config.default_driver = :poltergeist
+  config.default_driver = :headless_chrome
 end
 
 RSpec.configure do |config|

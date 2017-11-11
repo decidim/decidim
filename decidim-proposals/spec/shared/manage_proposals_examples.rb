@@ -15,12 +15,14 @@ shared_examples "manage proposals" do
   context "previewing proposals" do
     it "allows the user to preview the proposal" do
       within find("tr", text: proposal.title) do
-        @new_window = window_opened_by { find("a.action-icon--preview").click }
-      end
+        klass = "action-icon--preview"
+        href = resource_locator(proposal).path
+        target = "blank"
 
-      within_window @new_window do
-        expect(current_path).to eq resource_locator(proposal).path
-        expect(page).to have_content(translated(proposal.title))
+        expect(page).to have_selector(
+          :xpath,
+          "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
+        )
       end
     end
   end
@@ -171,15 +173,8 @@ shared_examples "manage proposals" do
               expect(page).to have_content("successfully")
             end
 
-            within find("tr", text: "Proposal with attachments") do
-              @new_window = window_opened_by { find("a.action-icon--preview").click }
-            end
-
-            within_window @new_window do
-              within ".section.images" do
-                expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
-              end
-            end
+            visit resource_locator(Decidim::Proposals::Proposal.last).path
+            expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
           end
         end
       end
