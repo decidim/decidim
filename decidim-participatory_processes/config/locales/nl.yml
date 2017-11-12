@@ -255,16 +255,16 @@ nl:
         projects_count: Projecten
         proposals_count: Voorstellen
         results_count: Resultaten
-        surveys_count: onderzoeken
+        surveys_count: Enquêtes
         users_count: Deelnemers
-        votes_count: stemmen
+        votes_count: Stemmen
     scopes:
       global: Globale scope
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
-          browse: Browsen
+          browse: Bladeren
       participatory_process_widgets:
         show:
           active_step: Actieve stap
