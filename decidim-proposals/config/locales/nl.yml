@@ -23,7 +23,7 @@ nl:
             comments_enabled: Reacties ingeschakeld
             geocoding_enabled: Geocoding ingeschakeld
             maximum_votes_per_proposal: Maximale stemmen per voorstel
-            new_proposal_help_text: Nieuwe voorstel help-tekst
+            new_proposal_help_text: Nieuw voorstel help-tekst
             official_proposals_enabled: Officiële voorstellen ingeschakeld
             proposal_answering_enabled: Voorstel beantwoorden ingeschakeld
             proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat dit aantal minuten zijn veropen
@@ -44,9 +44,9 @@ nl:
         title: Acties
       admin:
         actions:
-          preview: Voorbeeld
+          preview: Voorbeeldweergave
         exports:
-          comments: Comments
+          comments: Reacties
           proposals: Voorstellen
         models:
           proposal:
@@ -55,16 +55,16 @@ nl:
           edit:
             accepted: Aanvaard
             answer_proposal: Antwoord
-            evaluating: Evalueren
+            evaluating: Aan het beoordelen
             rejected: Verworpen
             title: Antwoord voor voorstel %{title}
         proposals:
           answer:
-            invalid: Er is een probleem geweest met het beantwoorden van dit voorstel
+            invalid: Er is een probleem opgetreden bij het beantwoorden van dit voorstel
             success: Voorstel met succes beantwoord
           create:
             invalid: Er is een probleem opgetreden met het maken van dit voorstel
-            success: Voorstel met succes gecreëerd
+            success: Voorstel succesvol aangemaakt
           form:
             attachment_legend: "(Optioneel) Een bijlage toevoegen"
             select_a_category: Kies een categorie
@@ -75,9 +75,9 @@ nl:
             title: Maak een voorstel
       answers:
         accepted: Aanvaard
-        evaluating: Evalueren
-        not_answered: Niet geantwoord
-        rejected: Verworpen
+        evaluating: Aan het beoordelen
+        not_answered: Nog niet beantwoord
+        rejected: Geweigerd
       create:
         error: Er zijn fouten geweest bij het opslaan van het voorstel.
         success: Voorstel is succesvol gemaakt.
@@ -85,12 +85,12 @@ nl:
         proposal:
           fields:
             category: Categorie
-            id: ID kaart
+            id: ID
             official_proposal: Officieel voorstel
             scope: Scope
             state: Staat
             title: Titel
-            votes: stemmen
+            votes: Stemmen
       new:
         limit_reached: U kunt geen nieuwe voorstellen maken omdat u de limiet heeft overschreden.
       proposal_votes:
@@ -108,7 +108,7 @@ nl:
           attachment_legend: "(Optioneel) Voeg een bijlage toe"
           back: Terug
           select_a_category: Selecteer een categorie
-          send: sturen
+          send: Verzenden
           title: Bewerk voorstel
         filters:
           accepted: Aanvaard
