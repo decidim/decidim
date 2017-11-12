@@ -91,47 +91,47 @@ nl:
         home:
           highlighted_assemblies:
             active_assemblies: Actieve bijeenkomsten
-            see_all_assemblies: Bekijk alle vergaderingen
+            see_all_assemblies: Bekijk alle bijeenkomsten
       show:
         developer_group: Ontwikkelaarsgroep
-        local_area: Lokale buurt
+        local_area: Lokaal gebied
         participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
         scope: Scope
         target: Doel
       statistics:
-        answers_count: antwoorden
-        assemblies_count: Assemblies
-        comments_count: Comments
+        answers_count: Antwoorden
+        assemblies_count: Bijeenkomsten
+        comments_count: Reacties
         headline: Activiteit
         meetings_count: Vergaderingen
-        orders_count: stemmen
-        pages_count: Pages
+        orders_count: Stemmen
+        pages_count: Pagina's
         projects_count: Projecten
         proposals_count: Voorstellen
         results_count: Resultaten
-        surveys_count: onderzoeken
+        surveys_count: Enquêtes
         users_count: Deelnemers
-        votes_count: stemmen
+        votes_count: Stemmen
     menu:
-      assemblies: Assemblies
+      assemblies: Bijeenkomsten
   layouts:
     decidim:
       assemblies:
         assembly:
           take_part: Deelnemen
         index:
-          promoted_assemblies: Uitgelichte samenstellingen
+          promoted_assemblies: Gemarkeerde bijenkomsten
         order_by_assemblies:
           assemblies:
-            one: "%{count} assemblage"
-            other: "%{count} gemeentes"
+            one: "%{count} bijeenkomst"
+            other: "%{count} bijeenkomsten"
         promoted_assembly:
           more_info: Meer informatie
           take_part: Deelnemen
       assembly_header:
-        assembly_menu_item: De vergadering
-        unfold: Ontvouwen
+        assembly_menu_item: De bijeenkomst
+        unfold: Uitvouwen
       assembly_widgets:
         show:
           take_part: Deelnemen
