@@ -2,22 +2,22 @@ nl:
   activemodel:
     attributes:
       participatory_process:
-        banner_image: Banner afbeelding
-        copy_categories: Kopieercategorieën
-        copy_features: Kopieerfuncties
+        banner_image: Bannerafbeelding
+        copy_categories: Categorieën kopiëren
+        copy_features: Functies kopiëren
         copy_steps: Kopieer stappen
         description: Beschrijving
         developer_group: Ontwikkelaarsgroep
         domain: Domein
         end_date: Einddatum
         hashtag: Hashtag
-        hero_image: Home image
-        local_area: Lokale buurt
+        hero_image: Afbeelding van de startpagina
+        local_area: Lokaal gebied
         meta_scope: Omvang metadata
         participatory_process_group_id: Processen groep
         participatory_scope: Participatief toepassingsgebied
         participatory_structure: Participatieve structuur
-        promoted: gepromoveerd
+        promoted: Gepromoveerd
         scope_id: Scope
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
@@ -59,21 +59,21 @@ nl:
         participatory_process_groups: Procesgroepen
         participatory_processes: Processen
         participatory_processes_submenu:
-          attachments: toebehoren
+          attachments: Bijlagen
           categories: Categorieën
-          features: Kenmerken
-          info: info
-          moderations: matigingen
+          features: Functionaliteiten
+          info: Info
+          moderations: Moderaties
           process_admins: Gebruikers verwerken
           steps: Stappen
       models:
         participatory_process:
           fields:
-            created_at: Gemaakt bij
-            promoted: Opvallende
+            created_at: Aangemaakt op
+            promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
-          name: Deelnemend proces
+          name: Participatief proces
         participatory_process_group:
           fields:
             name: Naam
