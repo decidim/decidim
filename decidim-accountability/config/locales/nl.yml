@@ -58,7 +58,7 @@ nl:
             success: Resultaat met succes bijgewerkt
         shared:
           subnav:
-            statuses: statussen
+            statuses: Statussen
         statuses:
           create:
             invalid: Er is een probleem opgetreden bij het maken van deze status
@@ -69,12 +69,12 @@ nl:
             title: Bewerk status
             update: Status bijwerken
           index:
-            title: statussen
+            title: Statussen
           new:
             create: Maak een status
             title: Nieuwe status
           update:
-            invalid: Er is een probleem opgedaan bij het updaten van deze status
+            invalid: Er is een probleem opgetreden bij het maken van deze status
             success: Status succesvol bijgewerkt
         timeline_entries:
           create:
