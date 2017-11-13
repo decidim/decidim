@@ -30,7 +30,7 @@ module.exports = env => {
         },
         {
           test: /\.tsx?$/,
-          loaders: ['awesome-typescript-loader']
+          loaders: ['babel-loader', 'awesome-typescript-loader']
         },
         {
           test: /\.js.es6$/,
@@ -71,12 +71,7 @@ module.exports = env => {
         reportFilename: 'webpack.report.html',
         openAnalyzer: false
       })
-    ],
-    externals: {
-      'react/addons': 'react',
-      'react/lib/ExecutionEnvironment': 'react',
-      'react/lib/ReactContext': 'react'
-    }
+    ]
   };
   return config;
 };
