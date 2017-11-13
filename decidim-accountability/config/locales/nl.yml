@@ -58,7 +58,7 @@ nl:
             success: Resultaat met succes bijgewerkt
         shared:
           subnav:
-            statuses: statussen
+            statuses: Statussen
         statuses:
           create:
             invalid: Er is een probleem opgetreden bij het maken van deze status
@@ -69,12 +69,12 @@ nl:
             title: Bewerk status
             update: Status bijwerken
           index:
-            title: statussen
+            title: Statussen
           new:
             create: Maak een status
             title: Nieuwe status
           update:
-            invalid: Er is een probleem opgedaan bij het updaten van deze status
+            invalid: Er is een probleem opgetreden bij het maken van deze status
             success: Status succesvol bijgewerkt
         timeline_entries:
           create:
@@ -88,23 +88,23 @@ nl:
           index:
             title: Project tijdlijn inzendingen
           new:
-            create: Maak een entry
-            title: Nieuwe invoer
+            create: Item maken
+            title: Nieuw item
           update:
             invalid: Er is een probleem opgetreden met het bijwerken van dit item
-            success: Invoer succesvol bijgewerkt
+            success: Item succesvol bijgewerkt
       models:
         result:
           fields:
             end_date: Einddatum
             progress: Vooruitgang
             start_date: Begin datum
-            status: staat
+            status: Status
             title: Titel
         status:
           fields:
             description: Beschrijving
-            key: sleutel
+            key: Sleutel
             name: Naam
             progress: Vooruitgang
         timeline_entry:
@@ -132,11 +132,11 @@ nl:
         show:
           stats:
             attendees: Deelnemers
-            comments: Comments
-            contributions: bijdragen
+            comments: Reacties
+            contributions: Bijdrage
             meetings: Vergaderingen
             proposals: Voorstellen
-            votes: steunen
+            votes: Ondersteunt
         timeline:
           title: Project evolutie
     features:
