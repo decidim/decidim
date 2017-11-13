@@ -4,6 +4,7 @@ defaults: &defaults
   docker:
     - image: decidim/decidim:latest-dev
       environment:
+        CC_TEST_REPORTER_ID: e052fe03e9f5f2874c7976bd2740d1b10477c964b9a5504f65a9a27f5a9633ca
         SIMPLECOV: true
         DATABASE_USERNAME: postgres
         FAIL_FAST: true
