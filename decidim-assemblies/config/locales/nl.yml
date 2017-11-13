@@ -9,8 +9,8 @@ nl:
         developer_group: Ontwikkelaarsgroep
         domain: Domein
         hashtag: Hashtag
-        hero_image: Home image
-        local_area: Lokale buurt
+        hero_image: Afbeelding van de startpagina
+        local_area: Lokaal gebied
         meta_scope: Omvang metadata
         participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
@@ -39,7 +39,7 @@ nl:
           published: Gepubliceerd
         new:
           create: creëren
-          title: Nieuwe montage
+          title: Nieuwe bijeenkomst
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze assemblage.
           success: Assemblage is succesvol bijgewerkt.
@@ -51,7 +51,7 @@ nl:
         new:
           copy: Kopiëren
           select: Selecteer welke gegevens u wilt dupliceren
-          title: Dupliceerde montage
+          title: Dupliceer montage
       assembly_publications:
         create:
           error: Er is een fout opgetreden bij het publiceren van deze assemblage.
@@ -66,7 +66,7 @@ nl:
           categories: Categorieën
           features: Kenmerken
           info: info
-          moderations: matigingen
+          moderations: Moderaties
       models:
         assembly:
           fields:
