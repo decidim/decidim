@@ -60,7 +60,7 @@ nl:
       comment_thread:
         title: Gesprek met %{authorName}
       comments:
-        blocked_comments_warning: Reacties zijn uitgeschakeld in de huidige stap, maar u kunt de opmerkingen van vorige stappen lezen.
+        blocked_comments_warning: Reacties zijn op dit moment uitgeschakeld, maar u kunt de vorige bekijken. "
         loading: Reacties laden...
         title: "%{count} reacties"
       featured_comment:
