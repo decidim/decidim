@@ -26,6 +26,7 @@ eu:
             new_proposal_help_text: Laguntza-testua proposamen bat sortzean
             official_proposals_enabled: Proposamen ofizialak gaituta
             proposal_answering_enabled: Erantzuna aktibatutako proposamenei
+            proposal_edit_before_minutes: Proposamenak egileek editatu ahal izango dituzte minutu asko igaro aurretik
             proposal_limit: Proposamenaren muga erabiltzaile bakoitzeko
             vote_limit: Erabiltzaile bakoitzari botoa emateko muga
           step:
@@ -103,6 +104,12 @@ eu:
           proposals_count:
             one: 1 proposamen
             other: "%{count} proposamen"
+        edit:
+          attachment_legend: "(Aukerakoa) Gehitu eranskina"
+          back: Back
+          select_a_category: Hautatu kategoria bat
+          send: Bidali
+          title: Editatu proposamena
         filters:
           accepted: Onartuta
           activity: Jarduera
@@ -135,6 +142,9 @@ eu:
         new:
           attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
           back: Atzera
+          proposal_edit_before_minutes:
+            one: Proposamen hau sortu ondoren, lehenengo proposamena editatu ahal izango duzu. Behin leiho hau igarotzen denean, ezingo duzu proposamen hori editatu.
+            other: Proposamen hau sortu zenetik %{count} minutu lehenago editatu ahal izango duzu. Behin leiho hau igarotzen denean, ezingo duzu proposamen hori editatu.
           select_a_category: Mesedez, aukeratu kategoria bat
           send: Bidali
           title: Proposamen berria
@@ -146,6 +156,7 @@ eu:
         proposal:
           view_proposal: Ikusi proposamena
         show:
+          edit_proposal: Editatu proposamena
           proposal_accepted_reason: 'Proposamen hau onartu da arrazoi hauengatik:'
           proposal_in_evaluation_reason: Proposamen hau ebaluatzen ari da
           proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'
@@ -171,6 +182,9 @@ eu:
             description: '%{limit} proposamenari bozkatu ahal zaizkio.'
             left: Emateke
             votes: Euskarriak
+      update:
+        error: Arazoak izan dira proposamena gordetzean.
+        success: Proposamena ondo eguneratu da.
     resource_links:
       included_proposals:
         proposal_projects: 'Proiektu hauetatik sortutako proposamena:'
