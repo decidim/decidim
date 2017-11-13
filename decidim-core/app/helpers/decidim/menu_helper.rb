@@ -16,7 +16,7 @@ module Decidim
     # Public: Returns the user menu presenter object
     def user_menu
       @user_menu ||= ::Decidim::UserMenuPresenter.new(
-        :user_menu, 
+        :user_menu,
         self,
         element_class: "tabs-title",
         active_class: "is-active"
