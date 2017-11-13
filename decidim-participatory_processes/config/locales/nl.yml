@@ -145,9 +145,9 @@ nl:
           create: creëren
           title: Nieuwe participerende processtap
         ordering:
-          error: Er is een fout opgetreden bij het herbestellen van deze deelnemende processtappen.
+          error: Er is een fout opgetreden bij het herschikken van deze participatieve processtappen.
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze deelnemende processtap.
+          error: Er is een fout opgetreden bij het bijwerken van deze participatieve processtap.
           success: Deelnameproces stap succesvol bijgewerkt.
       participatory_process_user_roles:
         create:
@@ -181,7 +181,7 @@ nl:
           published: Gepubliceerd
         new:
           create: creëren
-          title: Nieuw deelnemend proces
+          title: Nieuw participatief proces
         update:
           error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
           success: Participatief procesgroep is succesvol bijgewerkt.
