@@ -62,6 +62,7 @@ Decidim is already translated on multiple languages (English, Spanish, Catalan, 
 
 In order to develop on decidim, you'll need:
 
+* **Git** 2.15+
 * **PostgreSQL** 9.4+
 * **Ruby** 2.4.1
 * **NodeJS** 8.x.x
