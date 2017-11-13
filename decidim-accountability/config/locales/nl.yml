@@ -2,13 +2,13 @@ nl:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: staat
+        decidim_accountability_status_id: status
         decidim_category_id: Categorie
         decidim_scope_id: Scope
         description: Beschrijving
         end_date: Einddatum
         progress: Vooruitgang
-        proposal_ids: Inclusief voorstellen
+        proposal_ids: Opgenomen voorstellen
         start_date: Begin datum
         title: Titel
       status:
@@ -36,9 +36,9 @@ nl:
           result:
             name: Resultaat
           status:
-            name: staat
+            name: Status
           timeline_entry:
-            name: Tijdlijn invoer
+            name: Tijdlijn gebeurtenis
         results:
           create:
             invalid: Er is een probleem opgetreden bij het maken van dit resultaat
