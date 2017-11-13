@@ -27,7 +27,7 @@ en:
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
-            proposal_edit_before_minutes: Proposals can be edited by authors before this meny minutes passes
+            proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
             proposal_limit: Proposal limit per user
             vote_limit: Vote limit per user
           step:
