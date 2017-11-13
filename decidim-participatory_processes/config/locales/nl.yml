@@ -2,22 +2,22 @@ nl:
   activemodel:
     attributes:
       participatory_process:
-        banner_image: Banner afbeelding
-        copy_categories: Kopieercategorieën
-        copy_features: Kopieerfuncties
+        banner_image: Bannerafbeelding
+        copy_categories: Categorieën kopiëren
+        copy_features: Functies kopiëren
         copy_steps: Kopieer stappen
         description: Beschrijving
         developer_group: Ontwikkelaarsgroep
         domain: Domein
         end_date: Einddatum
         hashtag: Hashtag
-        hero_image: Home image
-        local_area: Lokale buurt
+        hero_image: Afbeelding van de startpagina
+        local_area: Lokaal gebied
         meta_scope: Omvang metadata
         participatory_process_group_id: Processen groep
         participatory_scope: Participatief toepassingsgebied
         participatory_structure: Participatieve structuur
-        promoted: gepromoveerd
+        promoted: Gepromoveerd
         scope_id: Scope
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
@@ -59,21 +59,21 @@ nl:
         participatory_process_groups: Procesgroepen
         participatory_processes: Processen
         participatory_processes_submenu:
-          attachments: toebehoren
+          attachments: Bijlagen
           categories: Categorieën
-          features: Kenmerken
-          info: info
-          moderations: matigingen
+          features: Functionaliteiten
+          info: Info
+          moderations: Moderaties
           process_admins: Gebruikers verwerken
           steps: Stappen
       models:
         participatory_process:
           fields:
-            created_at: Gemaakt bij
-            promoted: Opvallende
+            created_at: Aangemaakt op
+            promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
-          name: Deelnemend proces
+          name: Participatief proces
         participatory_process_group:
           fields:
             name: Naam
@@ -81,17 +81,17 @@ nl:
         participatory_process_step:
           fields:
             end_date: Einddatum
-            start_date: Begin datum
+            start_date: Begindatum
             title: Titel
-          name: Deelnemende processtap
+          name: Participatieve processtap
         participatory_process_user_role:
           fields:
             email: E-mail
             name: Naam
             role: Rol
-          name: Participatory Process User
+          name: Participatieve procesgebruiker
           roles:
-            admin: Beheerder
+            admin: Administrator
             collaborator: Medewerker
             moderator: Moderator
         user:
@@ -107,35 +107,35 @@ nl:
         destroy:
           success: Deelnemende procesgroep is succesvol vernietigd.
         edit:
-          title: Edit procesgroep
+          title: Bewerk procesgroep
           update: Bijwerken
         new:
-          create: creëren
+          create: Creëren
           title: Nieuwe procesgroep
         update:
-          error: Er was een fout bij het bijwerken van deze deelnemende procesgroep.
-          success: Deelnemende procesgroep is succesvol bijgewerkt.
+          error: Er was een fout bij het bijwerken van deze participatief procesgroep.
+          success: Participatief procesgroep is succesvol bijgewerkt.
       participatory_process_publications:
         create:
-          error: Er is een fout opgetreden bij het publiceren van dit deelnemende proces.
-          success: Deelnemend proces is succesvol gepubliceerd.
+          error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
+          success: Participatief proces is succesvol gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het publiceren van dit deelnemende proces.
-          success: Deelnemend proces is succesvol gepubliceerd.
+          error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
+          success: Participatief proces is succesvol gepubliceerd.
       participatory_process_step_activations:
         create:
-          error: Er is een fout opgetreden bij het activeren van deze deelnemende processtap.
-          success: Deelnemende processtap is succesvol geactiveerd.
+          error: Er is een fout opgetreden bij het activeren van deze participatief processtap.
+          success: Participatief processtap is succesvol geactiveerd.
       participatory_process_steps:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe participerende processtap.
-          success: Deelnemende processtap is succesvol gecreëerd.
-        default_title: Invoering
+          error: Er is een fout opgetreden bij het maken van een nieuw participatief processtap.
+          success: Participatief processtap is succesvol gecreëerd.
+        default_title: Introductie
         destroy:
           error:
             active_step: Kan de actieve stap niet verwijderen.
             last_step: Kan de laatste stap van een proces niet verwijderen.
-          success: Deelnemende processtap is succesvol vernietigd.
+          success: Participatief processtap is succesvol vernietigd.
         edit:
           title: Bewerk participatieve processtap
           update: Bijwerken
@@ -191,15 +191,15 @@ nl:
           success: Deelnemend proces is succesvol gedupliceerd.
       participatory_processes_group:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe participerende procesgroep.
-          success: Deelnemende procesgroep is succesvol opgericht.
+          error: Er is een fout opgetreden bij het maken van een nieuwe participatieve procesgroep.
+          success: Participatieve procesgroep is succesvol opgericht.
       titles:
-        participatory_process_groups: Deelnemende procesgroepen
+        participatory_process_groups: Participatieve procesgroepen
         participatory_processes: Participatieve processen
       users:
         resend_invitation:
-          error: Er is een fout opgetreden opnieuw verzenden van de uitnodiging.
-          success: Uitnodiging opnieuw met succes verzonden.
+          error: Er is een fout opgetreden bij het opnieuw verzenden van de uitnodiging.
+          success: Uitnodiging opnieuw verzonden met succes.
     menu:
       processes: Processen
     participatory_process_groups:
@@ -214,14 +214,14 @@ nl:
       admin:
         participatory_process_copies:
           form:
-            slug_help: 'URL-slakken worden gebruikt om de URL''s te genereren die wijzen op dit proces. Aanvaardt alleen letters, cijfers en streepjes, en moet beginnen met een brief. Voorbeeld: %{url}'
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         participatory_processes:
           form:
-            slug_help: 'URL-slakken worden gebruikt om de URL''s te genereren die wijzen op dit proces. Aanvaardt alleen letters, cijfers en streepjes, en moet beginnen met een brief. Voorbeeld: %{url}'
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
       index:
         title: Participatieve processen
       order_by_processes:
-        active: Actieve
+        active: Actief
         past: Verleden
         upcoming: Aankomende
       pages:
@@ -243,28 +243,28 @@ nl:
         participatory_structure: Hoe is het besloten
         scope: Scope
         start_date: Begindatum
-        target: Wie neemt deel aan
+        target: Wie neemt deel
       statistics:
-        answers_count: antwoorden
-        comments_count: Comments
+        answers_count: Antwoorden
+        comments_count: Reacties
         headline: Activiteit
         meetings_count: Vergaderingen
-        orders_count: stemmen
-        pages_count: Pages
+        orders_count: Stemmen
+        pages_count: Pagina's
         processes_count: Processen
         projects_count: Projecten
         proposals_count: Voorstellen
         results_count: Resultaten
-        surveys_count: onderzoeken
+        surveys_count: Enquêtes
         users_count: Deelnemers
-        votes_count: stemmen
+        votes_count: Stemmen
     scopes:
       global: Globale scope
   layouts:
     decidim:
       participatory_process_groups:
         participatory_process_group:
-          browse: Browsen
+          browse: Bladeren
       participatory_process_widgets:
         show:
           active_step: Actieve stap
