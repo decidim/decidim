@@ -148,30 +148,30 @@ nl:
           error: Er is een fout opgetreden bij het herschikken van deze participatieve processtappen.
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze participatieve processtap.
-          success: Deelnameproces stap succesvol bijgewerkt.
+          success: Participatief procesgroep is succesvol bijgewerkt.
       participatory_process_user_roles:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor dit deelnemende proces.
-          success: Gebruikers die succesvol zijn gemaakt voor dit deelnemende proces.
+          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor dit participatief proces.
+          success: Gebruiker is succesvol aangemaakt voor dit participatieproces.
         destroy:
-          success: Gebruiker is succesvol vernietigd voor dit deelnemende proces.
+          success: Gebruiker met succes vernietigd voor dit participatieproces.
         edit:
-          title: Update deelnemende proces gebruiker.
+          title: Update participatieve procesgebruiker.
           update: Bijwerken
         index:
-          process_admins_title: Deelnemende procesgebruikers
+          process_admins_title: Participatieve procesgebruiker
         new:
           create: creëren
-          title: Nieuwe deelnemende procesgebruiker.
+          title: Nieuwe participatieve procesgebruiker.
         update:
-          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit deelnemende proces.
-          success: Gebruiker is succesvol bijgewerkt voor dit deelnemende proces.
+          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit participatief proces.
+          success: Gebruiker is succesvol bijgewerkt voor dit participatief proces.
       participatory_processes:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuw deelnemend proces.
-          success: Deelnemend proces is succesvol gecreëerd. Configureer nu zijn stappen.
+          error: Er is een fout opgetreden bij het maken van een nieuw participatief proces.
+          success: Participatief proces is succesvol gecreëerd. Configureer nu zijn stappen.
         destroy:
-          success: Deelnemend proces is succesvol vernietigd.
+          success: Participatief proces is succesvol vernietigd.
         edit:
           update: Bijwerken
         form:
