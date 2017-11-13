@@ -74,7 +74,6 @@ jobs:
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
-      - run: cc-test-reporter before-build
       - run:
           name: Run main folder npm lint
           command: npm run lint
@@ -86,13 +85,6 @@ jobs:
           paths:
             - /decidim/node_modules
             - /usr/local/bundle/gems
-      - run:
-          name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
-      - save_cache:
-          key: cc-test-coverage-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
-          paths:
-            - "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
   core:
     <<: *defaults
     steps:
@@ -464,7 +456,6 @@ jobs:
           at: /decidim
       - restore_cache:
           keys:
-            - cc-test-coverage-cache-{{ .Branch }}-main
             - cc-test-coverage-cache-{{ .Branch }}-core
             - cc-test-coverage-cache-{{ .Branch }}-assemblies
             - cc-test-coverage-cache-{{ .Branch }}-api
@@ -529,7 +520,6 @@ workflows:
             - build_test_app
       - cc-test-coverage:
           requires:
-            - main
             - core
             - assemblies
             - api
