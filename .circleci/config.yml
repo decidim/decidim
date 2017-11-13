@@ -93,10 +93,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run core JS tests
           command: npm test -- decidim-core
@@ -116,10 +113,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run assemblies JS tests
           command: npm test -- decidim-assemblies
@@ -139,10 +133,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run api JS tests
           command: npm test -- decidim-api
@@ -162,10 +153,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run participatory_processes JS tests
           command: npm test -- decidim-participatory_processes
@@ -185,10 +173,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run admin JS tests
           command: npm test -- decidim-admin
@@ -208,10 +193,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run system JS tests
           command: npm test -- decidim-system
@@ -231,10 +213,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run proposals JS tests
           command: npm test -- decidim-proposals
@@ -254,10 +233,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run comments JS tests
           command: npm test -- decidim-comments
@@ -277,10 +253,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run meetings JS tests
           command: npm test -- decidim-meetings
@@ -300,10 +273,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run pages JS tests
           command: npm test -- decidim-pages
@@ -323,10 +293,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run accountability JS tests
           command: npm test -- decidim-accountability
@@ -346,10 +313,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run budgets JS tests
           command: npm test -- decidim-budgets
@@ -369,10 +333,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run surveys JS tests
           command: npm test -- decidim-surveys
