@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require "decidim/core/test/factories"
+require "decidim/participatory_processes/test/factories"
+
 FactoryGirl.define do
   factory :meeting_feature, parent: :feature do
     name { Decidim::Features::Namer.new(participatory_space.organization.available_locales, :meetings).i18n_name }
@@ -7,7 +10,7 @@ FactoryGirl.define do
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
   end
 
-  factory :meeting, class: Decidim::Meetings::Meeting do
+  factory :meeting, class: "Decidim::Meetings::Meeting" do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     location { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
@@ -34,7 +37,7 @@ FactoryGirl.define do
     end
   end
 
-  factory :registration, class: Decidim::Meetings::Registration do
+  factory :registration, class: "Decidim::Meetings::Registration" do
     meeting
     user
   end

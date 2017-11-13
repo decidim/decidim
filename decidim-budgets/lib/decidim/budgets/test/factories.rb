@@ -3,6 +3,9 @@
 require "decidim/faker/localized"
 require "decidim/dev"
 
+require "decidim/core/test/factories"
+require "decidim/participatory_processes/test/factories"
+
 FactoryGirl.define do
   factory :budget_feature, parent: :feature do
     name { Decidim::Features::Namer.new(participatory_space.organization.available_locales, :budgets).i18n_name }
@@ -44,19 +47,19 @@ FactoryGirl.define do
     end
   end
 
-  factory :project, class: Decidim::Budgets::Project do
+  factory :project, class: "Decidim::Budgets::Project" do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     budget { Faker::Number.number(8) }
     feature { create(:budget_feature) }
   end
 
-  factory :order, class: Decidim::Budgets::Order do
+  factory :order, class: "Decidim::Budgets::Order" do
     feature { create(:budget_feature) }
     user { create(:user, organization: feature.organization) }
   end
 
-  factory :line_item, class: Decidim::Budgets::LineItem do
+  factory :line_item, class: "Decidim::Budgets::LineItem" do
     order
     project { create(:project, feature: order.feature) }
   end

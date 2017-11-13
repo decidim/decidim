@@ -10,7 +10,7 @@ FactoryGirl.define do
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
   end
 
-  factory :page, class: Decidim::Pages::Page do
+  factory :page, class: "Decidim::Pages::Page" do
     body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     feature { build(:feature, manifest_name: "pages") }
   end

@@ -8,7 +8,7 @@ FactoryGirl.define do
     "#{Faker::Internet.slug(nil, "-")}-#{n}"
   end
 
-  factory :assembly, class: Decidim::Assembly do
+  factory :assembly, class: "Decidim::Assembly" do
     title { Decidim::Faker::Localized.sentence(3) }
     slug { generate(:assembly_slug) }
     subtitle { Decidim::Faker::Localized.sentence(1) }
