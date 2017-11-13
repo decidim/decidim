@@ -26,7 +26,7 @@ it:
             new_proposal_help_text: Nuovo testo di aiuto per la proposta
             official_proposals_enabled: Proposte ufficiali abilitate
             proposal_answering_enabled: Risposta Proposte abilitata
-            proposal_edit_before_minutes: Le proposte possono essere modificate dagli autori prima di passare questo minuto
+            proposal_edit_before_minutes: Le proposte possono essere modificate dagli autori prima che passi questo minuto
             proposal_limit: Limite di proposta per utente
             vote_limit: Limite di voto per utente
           step:
