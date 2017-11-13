@@ -25,7 +25,7 @@ nl:
         projects:
           create:
             invalid: Er is een probleem opgetreden met het creëren van dit project
-            success: Project succesvol gemaakt
+            success: Voorstel succesvol aangemaakt
           destroy:
             success: Project succesvol vernietigd
           edit:
@@ -47,7 +47,7 @@ nl:
             title: Titel
       projects:
         budget_confirm:
-          are_you_sure: Bent u het eens? Zodra u uw stem heeft bevestigd, kunt u het niet wijzigen.
+          are_you_sure: Bent u het eens? Zodra u uw stem hebt bevestigd, kunt u deze niet meer wijzigen.
           cancel: Annuleer
           confirm: Bevestigen
           description: Dit zijn de projecten die u hebt gekozen om deel uit te maken van de begroting.
@@ -64,7 +64,7 @@ nl:
           checked_out:
             description: Je hebt al voor de begroting gestemd. Als u van mening bent, kunt u %{cancel_link}.
             title: Begrotingsstemming voltooid
-          description: Voor welke projecten vindt u dat we een budget moeten vrijdmaken? Geef ten minste %{minimum_budget} toe aan de projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
+          description: Voor welke projecten vindt u dat we een budget moeten vrijmaken? Geef ten minste %{minimum_budget} toe aan de projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
           title: U bepaalt het budget
         count:
           projects_count:
