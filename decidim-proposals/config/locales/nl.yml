@@ -26,7 +26,7 @@ nl:
             new_proposal_help_text: Nieuw voorstel help-tekst
             official_proposals_enabled: Officiële voorstellen ingeschakeld
             proposal_answering_enabled: Voorstel beantwoorden ingeschakeld
-            proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat dit aantal minuten zijn veropen
+            proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat dit vele minuten verstrijkt
             proposal_limit: Voorstellimiet per gebruiker
             vote_limit: Stemlimiet per gebruiker
           step:
