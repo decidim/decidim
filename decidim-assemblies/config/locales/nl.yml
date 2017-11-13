@@ -26,10 +26,10 @@ nl:
     admin:
       assemblies:
         create:
-          error: Er is een fout opgetreden bij het maken van een nieuwe assemblage.
-          success: Assemblage is succesvol gecreëerd.
+          error: Er is een fout opgetreden bij het maken van een nieuwe bijeenkomt.
+          success: Bijeenkomst is succesvol gecreëerd.
         destroy:
-          success: Assemblage is succesvol vernietigd.
+          success: Bijeenkomst is succesvol vernietigd.
         edit:
           update: Bijwerken
         form:
@@ -41,28 +41,28 @@ nl:
           create: creëren
           title: Nieuwe bijeenkomst
         update:
-          error: Er is een fout opgetreden bij het bijwerken van deze assemblage.
-          success: Assemblage is succesvol bijgewerkt.
+          error: Er is een fout opgetreden bij het bijwerken van deze bijeenkomt.
+          success: Bijeenkomst is succesvol bijgewerkt.
       assemblies_copies:
         create:
-          error: Er was een fout bij het dupliceren van deze assemblage.
-          success: Assemblage is succesvol gedupliceerd.
+          error: Er was een fout bij het dupliceren van deze bijeenkomt.
+          success: Bijeenkomst is succesvol gedupliceerd.
       assembly_copies:
         new:
           copy: Kopiëren
           select: Selecteer welke gegevens u wilt dupliceren
-          title: Dupliceer montage
+          title: Dupliceer bijeenkomst
       assembly_publications:
         create:
-          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
-          success: Assemblage is succesvol gepubliceerd.
+          error: Er is een fout opgetreden bij het publiceren van deze bijeenkomt.
+          success: Bijeenkomst is succesvol gepubliceerd.
         destroy:
-          error: Er is een fout opgetreden bij het publiceren van deze assemblage.
-          success: Assemblage ongepubliceerd succesvol.
+          error: Er is een fout opgetreden bij het publiceren van deze bijeenkomt.
+          success: Bijeenkomt succesvol ongepubliceerd.
       menu:
-        assemblies: Assemblies
+        assemblies: Bijeenkomsten
         assemblies_submenu:
-          attachments: toebehoren
+          attachments: Bijlagen
           categories: Categorieën
           features: Kenmerken
           info: info
