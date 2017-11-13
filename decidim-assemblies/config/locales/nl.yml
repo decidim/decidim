@@ -2,9 +2,9 @@ nl:
   activemodel:
     attributes:
       assembly:
-        banner_image: Banner afbeelding
-        copy_categories: Kopieercategorieën
-        copy_features: Kopieerfuncties
+        banner_image: Bannerafbeelding
+        copy_categories: Categorieën kopiëren
+        copy_features: Functies kopiëren
         description: Beschrijving
         developer_group: Ontwikkelaarsgroep
         domain: Domein
@@ -71,67 +71,67 @@ nl:
         assembly:
           fields:
             created_at: Gemaakt bij
-            promoted: Opvallende
+            promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
-          name: bijeenkomst
+          name: Bijeenkomst
       titles:
-        assemblies: Assemblies
+        assemblies: Bijeenkomsten
     assemblies:
       admin:
         assemblies:
           form:
-            slug_help: 'URL-slakjes worden gebruikt om de URL''s die naar dit assemblage wijzen, te genereren. Aanvaardt alleen letters, cijfers en streepjes, en moet beginnen met een brief. Voorbeeld: %{url}'
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_copies:
           form:
-            slug_help: 'URL-slakjes worden gebruikt om de URL''s die naar dit assemblage wijzen, te genereren. Aanvaardt alleen letters, cijfers en streepjes, en moet beginnen met een brief. Voorbeeld: %{url}'
+            slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
       index:
-        title: Assemblies
+        title: Bijeenkomsten
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Actieve vergaderingen
-            see_all_assemblies: Bekijk alle vergaderingen
+            active_assemblies: Actieve bijeenkomsten
+            see_all_assemblies: Bekijk alle bijeenkomsten
       show:
         developer_group: Ontwikkelaarsgroep
-        local_area: Lokale buurt
+        local_area: Lokaal gebied
         participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
         scope: Scope
         target: Doel
       statistics:
-        answers_count: antwoorden
-        assemblies_count: Assemblies
-        comments_count: Comments
+        answers_count: Antwoorden
+        assemblies_count: Bijeenkomsten
+        comments_count: Reacties
         headline: Activiteit
         meetings_count: Vergaderingen
-        orders_count: stemmen
-        pages_count: Pages
+        orders_count: Stemmen
+        pages_count: Pagina's
         projects_count: Projecten
         proposals_count: Voorstellen
         results_count: Resultaten
-        surveys_count: onderzoeken
+        surveys_count: Enquêtes
         users_count: Deelnemers
-        votes_count: stemmen
+        votes_count: Stemmen
     menu:
-      assemblies: Assemblies
+      assemblies: Bijeenkomsten
   layouts:
     decidim:
       assemblies:
         assembly:
           take_part: Deelnemen
         index:
-          promoted_assemblies: Uitgelichte samenstellingen
+          promoted_assemblies: Gemarkeerde bijenkomsten
         order_by_assemblies:
           assemblies:
-            one: "%{count} assemblage"
-            other: "%{count} gemeentes"
+            one: "%{count} bijeenkomst"
+            other: "%{count} bijeenkomsten"
         promoted_assembly:
           more_info: Meer informatie
           take_part: Deelnemen
       assembly_header:
-        assembly_menu_item: De vergadering
-        unfold: Ontvouwen
+        assembly_menu_item: De bijeenkomst
+        unfold: Uitvouwen
       assembly_widgets:
         show:
           take_part: Deelnemen
