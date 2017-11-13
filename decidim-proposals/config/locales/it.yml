@@ -26,6 +26,7 @@ it:
             new_proposal_help_text: Nuovo testo di aiuto per la proposta
             official_proposals_enabled: Proposte ufficiali abilitate
             proposal_answering_enabled: Risposta Proposte abilitata
+            proposal_edit_before_minutes: Le proposte possono essere modificate dagli autori prima che passi questo minuto
             proposal_limit: Limite di proposta per utente
             vote_limit: Limite di voto per utente
           step:
@@ -103,6 +104,12 @@ it:
           proposals_count:
             one: 1 proposta
             other: "%{count} proposte"
+        edit:
+          attachment_legend: "(Facoltativo) Aggiungere un allegato"
+          back: Indietro
+          select_a_category: Seleziona una categoria
+          send: Inviare
+          title: Modifica la proposta
         filters:
           accepted: Accettata
           activity: Attività
@@ -135,6 +142,9 @@ it:
         new:
           attachment_legend: "(Opzionale) Aggiungere un allegato"
           back: Indietro
+          proposal_edit_before_minutes:
+            one: Sarà possibile modificare questa proposta nel primo minuto dopo la creazione della proposta. Una volta che questa finestra di tempo passa, non sarà possibile modificare la proposta.
+            other: Sarai in grado di modificare questa proposta durante i primi %{count} minuti dopo la creazione della proposta. Una volta che questa finestra di tempo passa, non sarà possibile modificare la proposta.
           select_a_category: Scegli una categoria
           send: Invia
           title: Nuova proposta
@@ -146,6 +156,7 @@ it:
         proposal:
           view_proposal: Visualizza la proposta
         show:
+          edit_proposal: Modifica la proposta
           proposal_accepted_reason: 'Questa proposta è stata accettata perché:'
           proposal_in_evaluation_reason: Questa proposta è in fase di valutazione
           proposal_rejected_reason: 'Questa proposta è stata rifiutata perché:'
@@ -171,6 +182,9 @@ it:
             description: Puoi votare fino a %{limit} proposte.
             left: Restano
             votes: Voti
+      update:
+        error: Ci sono stati errori quando si salva la proposta.
+        success: La proposta è stata aggiornata correttamente.
     resource_links:
       included_proposals:
         proposal_projects: 'Le proposte compaiono nei seguenti progetti:'
