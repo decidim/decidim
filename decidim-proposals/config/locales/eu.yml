@@ -26,7 +26,7 @@ eu:
             new_proposal_help_text: Laguntza-testua proposamen bat sortzean
             official_proposals_enabled: Proposamen ofizialak gaituta
             proposal_answering_enabled: Erantzuna aktibatutako proposamenei
-            proposal_edit_before_minutes: Proposamenak egileek editatu ahal izan ditzakete minutu hau pasa aurretik
+            proposal_edit_before_minutes: Proposamenak egileek editatu ahal izango dituzte minutu asko igaro aurretik
             proposal_limit: Proposamenaren muga erabiltzaile bakoitzeko
             vote_limit: Erabiltzaile bakoitzari botoa emateko muga
           step:
