@@ -28,7 +28,7 @@ nl:
         title: Titel
       participatory_process_group:
         description: Beschrijving
-        hero_image: Beeld
+        hero_image: Afbeelding
         name: Naam
         participatory_process_ids: Gerelateerde processen
       participatory_process_step:
@@ -183,12 +183,12 @@ nl:
           create: creëren
           title: Nieuw deelnemend proces
         update:
-          error: Er is een fout opgetreden bij het bijwerken van dit deelnemende proces.
-          success: Deelnemend proces is succesvol bijgewerkt.
+          error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
+          success: Participatief procesgroep is succesvol bijgewerkt.
       participatory_processes_copies:
         create:
-          error: Er was een fout bij het dupliceren van dit deelnemende proces.
-          success: Deelnemend proces is succesvol gedupliceerd.
+          error: Er is een fout opgetreden bij het publiceren van dit participatief proces.
+          success: Participatief procesgroep is succesvol gedupliceerd.
       participatory_processes_group:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe participatieve procesgroep.
@@ -285,7 +285,7 @@ nl:
           take_part: Deelnemen
       process_header:
         process_menu_item: Het proces
-        unfold: Ontvouwen
+        unfold: Uitvouwen
       process_header_steps:
         step: Stap %{current} van %{total}
         view_steps: Bekijk stappen
