@@ -26,7 +26,7 @@ fi:
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
             official_proposals_enabled: Viralliset ehdotukset sallittu
             proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
-            proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia ennen kuin tämä menipöytäkirja kulkee
+            proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia ennen tämän monen minuutin kuluttua
             proposal_limit: Ehdotuksen raja käyttäjää kohden
             vote_limit: Äänestysraja käyttäjää kohden
           step:
