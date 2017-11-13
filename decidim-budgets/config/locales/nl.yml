@@ -64,7 +64,7 @@ nl:
           checked_out:
             description: Je hebt al voor de begroting gestemd. Als u van mening bent, kunt u %{cancel_link}.
             title: Begrotingsstemming voltooid
-          description: Welke projecten denk je dat we budget moeten voordelen? Geef ten minste %{minimum_budget} toe aan de projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
+          description: Voor welke projecten vindt u dat we een budget moeten vrijdmaken? Geef ten minste %{minimum_budget} toe aan de projecten die u wilt en stem met uw voorkeuren om het budget te definiëren.
           title: U bepaalt het budget
         count:
           projects_count:
@@ -77,23 +77,23 @@ nl:
           scopes: Scopes
           search: Zoeken
         filters_small_view:
-          close_modal: Dicht modaal
+          close_modal: Dialoogvenster sluiten
           filter: Filter
           filter_by: Filteren op
-          unfold: Ontvouwen
+          unfold: Uitvouwen
         order_progress:
-          vote: Stemmen
+          vote: Stem
         order_selected_projects:
           remove: Verwijderen
           selected_projects:
             one: Geselecteerd project
             other: Geselecteerde projecten
-          view: Uitzicht
+          view: Bekijken
         project:
           add: Toevoegen
           count:
             one: 1 ondersteuning
-            other: "%{count} ondersteunt"
+            other: "%{count} ondersteuning"
           remove: Verwijderen
         project_budget_button:
           add: Toevoegen
@@ -104,18 +104,18 @@ nl:
     features:
       budgets:
         actions:
-          vote: Stemmen
+          vote: Stem
         name: Begrotingen
         settings:
           global:
             announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
-            total_budget: Totale budget
+            total_budget: Totale begroting
             vote_threshold_percent: Stem drempel percentage
           step:
             announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
-            show_votes: T
+            show_votes: Toon stemmen
             votes_enabled: Stemmen ingeschakeld
     orders:
       checkout:
@@ -129,4 +129,4 @@ nl:
         project_proposals: 'Voorstellen opgenomen in dit project:'
   index:
     confirmed_orders_count: Aantal stemmen
-  total_budget: Totale budget
+  total_budget: Totale begroting
