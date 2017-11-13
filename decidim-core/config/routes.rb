@@ -27,6 +27,9 @@ Decidim::Core::Engine.routes.draw do
   end
 
   mount Decidim::Verifications::Engine, at: "/", as: "decidim_verifications"
+  Decidim.global_engines.each do |engine|
+    mount engine, at: "/"
+  end
 
   authenticate(:user) do
     resource :account, only: [:show, :update, :destroy], controller: "account" do

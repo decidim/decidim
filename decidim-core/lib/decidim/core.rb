@@ -148,6 +148,19 @@ module Decidim
   # environments, but in different folders.
   config_accessor :base_uploads_path
 
+  # Public: Registers a global engine. This method is intended to be used
+  # by feature engines that also offer unscoped functionality
+  def self.register_global_engine(engine)
+    global_engines << engine unless global_engines.include? engine
+  end
+
+  # Public: Finds all registered engines via the 'register_global_engine' method.
+  #
+  # Returns an Array[::Rails::Engine]
+  def self.global_engines
+    @global_engines ||= []
+  end
+
   # Public: Registers a feature, usually held in an external library or in a
   # separate folder in the main repository. Exposes a DSL defined by
   # `Decidim::FeatureManifest`.
