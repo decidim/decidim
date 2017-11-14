@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: codegram/decidim:test-$CIRCLE_SHA1
+    - image: codegram/decidim:test-latest
       environment:
         SIMPLECOV: true
         DATABASE_USERNAME: postgres
@@ -44,16 +44,22 @@ jobs:
             else
               docker build -f Dockerfile.ci --build-arg BASE_IMAGE_TAG=prod-$CIRCLE_SHA1 --tag codegram/decidim:test-$CIRCLE_SHA1 --cache-from codegram/decidim:test-latest .
             fi
-            docker push codegram/decidim:test-$CIRCLE_SHA1
-      - persist_to_workspace:
-          root: .
-          paths:
-            - "*"
   build_test_app:
     <<: *defaults
     steps:
+      - run:
+          name: "Remove image's decidim folder"
+          command: rm -fR /decidim
       - attach_workspace:
           at: /decidim
+      - checkout
+      - restore_cache:
+         keys:
+          - decidim-{{ .Branch }}
+          - decidim-master
+      - run:
+          name: Install dependencies
+          command: bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -63,6 +69,11 @@ jobs:
       - run:
           name: Precompile test app assets
           command: cd spec/decidim_dummy_app && bundle exec rails assets:precompile
+      - save_cache:
+          key: decidim-{{ .Branch }}
+          paths:
+            - /decidim/node_modules
+            - /usr/local/bundle/gems
       - persist_to_workspace:
           root: .
           paths:
@@ -70,8 +81,22 @@ jobs:
   main:
     <<: *defaults
     steps:
+      - run:
+          name: "Remove image's decidim folder"
+          command: rm -fR /decidim
       - attach_workspace:
           at: /decidim
+      - checkout
+      - restore_cache:
+         keys:
+          - decidim-{{ .Branch }}
+          - decidim-master
+      - run:
+          name: Install ruby dependencies
+          command: bundle install
+      - run:
+          name: Install npm dependencies
+          command: npm install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -81,6 +106,11 @@ jobs:
       - run:
           name: Run main folder RSpec
           command: bundle exec rspec
+      - save_cache:
+          key: decidim-{{ .Branch }}
+          paths:
+            - /decidim/node_modules
+            - /usr/local/bundle/gems
   core:
     <<: *defaults
     steps:
@@ -347,12 +377,8 @@ workflows:
   build_and_test:
     jobs:
       - build_docker_images
-      - build_test_app:
-          requires:
-            - build_docker_images
-      - main:
-          requires:
-            - build_docker_images
+      - build_test_app
+      - main
       - core:
           requires:
             - build_test_app
