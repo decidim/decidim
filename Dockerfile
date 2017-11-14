@@ -1,10 +1,9 @@
-FROM deividrodriguez/ruby-2.4.2-rubygems-2.6.13:latest
+FROM ruby:2.4.2-alpine
 MAINTAINER david.morcillo@codegram.com
 
 ENV APP_HOME /decidim
 
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash && \
-    apt-get install -y nodejs
+RUN apk add --update nodejs nodejs-npm
 
 COPY Gemfile /tmp/Gemfile
 COPY Gemfile.lock /tmp/Gemfile.lock
