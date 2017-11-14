@@ -2,7 +2,7 @@ FROM ruby:2.4.2-alpine
 MAINTAINER david.morcillo@codegram.com
 WORKDIR /decidim
 
-RUN apk add --update nodejs 
+RUN apk add --update nodejs
 RUN apk add --update git
 
 RUN apk add --update ruby-dev build-base \
