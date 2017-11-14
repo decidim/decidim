@@ -6,7 +6,7 @@
     "type": "git"
   },
   "author": "Marc Riera <mrc2407@gmail.com>",
-  "license": "AGPLv3",
+  "license": "AGPL-3.0",
   "engines": {
     "npm": "^5.4.2",
     "node": "^8.1.4"
