@@ -1,8 +1,31 @@
 pt:
   activemodel:
     attributes:
+      account:
+        delete_reason: Razão para excluir sua conta
+      report:
+        details: Comentários adicionais
       user:
+        email: Seu email
+        name: Seu nome
+        password: Nova senha
+        password_confirmation: Confirme sua nova senha
+        remove_avatar: Remover avatar
+        user_group_document_number: Número do documento de organização
+        user_group_name: Nome da organização
         user_group_phone: Telefone da organização
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Senha atual
+        email: O email
+        name: Nome de usuário
+        password: Senha
+        password_confirmation: ConfirmaÇão Da Senha
+        remember_me: Lembre de mim
+        user_group_document_number: Número do documento de organização
+        user_group_name: Nome da organização
+        user_group_phone: Telefone de organização
   booleans:
     'false': 'Não'
     'true': 'Sim'
@@ -12,44 +35,365 @@ pt:
   decidim:
     account:
       delete:
+        alert: Essa ação não pode ser desfeita. Se você excluir sua conta, não poderá fazer login.
         confirm:
+          close: Janela fechada
+          ok: Sim, eu quero excluir minha conta
+          question: Tem certeza de que deseja excluir a sua conta?
           title: Eliminar a minha conta
+        explanation: Por favor, preencha o motivo pelo qual deseja excluir sua conta (opcional).
+      destroy:
+        error: Ocorreu um erro ao excluir sua conta.
+        success: Sua conta foi excluída com sucesso.
+      show:
+        change_password: Mudar senha
+        update_account: Atualizar conta
+      update:
+        error: Ocorreu um erro ao atualizar sua conta.
+        success: Sua conta foi atualizada com sucesso.
+        success_with_email_confirmation: Sua conta foi atualizada com sucesso. Você receberá um e-mail para confirmar seu novo endereço de e-mail.
     anonymous_user: Anônimo
+    application:
+      documents:
+        related_documents: Documentos relacionados
+      photos:
+        related_photos: Fotos relacionadas
+    authorization_handlers:
+      decidim/dummy_authorization_handler:
+        fields:
+          document_number: Número do documento
+          postal_code: Código postal
+        name: Exemplo de autorização
+      errors:
+        duplicate_authorization: Um usuário já está autorizado com os mesmos dados.
+      foo_authorization:
+        fields:
+          bar: Barra
+          foo: Foo
+        name: Autorização Foo
     authorizations:
+      create:
+        error: Ocorreu um erro ao criar a autorização.
+        success: Você foi autorizado com sucesso.
+      first_login:
+        actions:
+          decidim/dummy_authorization_handler: Verifique contra o exemplo de autorização
+        title: Verifique sua identidade
+        verify_with_these_options: 'Estas são as opções disponíveis para verificar sua identidade:'
       new:
         authorize: Enviar
+        authorize_with: Verifique com %{authorizer}
+      skip_verification: Você pode ignorar isso por enquanto e %{link}
+      start_exploring: comece a explorar
+    core:
+      actions:
+        unauthorized: Você não está autorizado a realizar esta ação
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Outra conta está usando o mesmo endereço de e-mail
+        new:
+          complete_profile: Perfil completo
+          sign_up: Complete seu perfil
+          subtitle: Por favor, preencha o seguinte formulário para completar a inscrição
+          username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
+      registrations:
+        new:
+          already_have_an_account?: já tem uma conta?
+          newsletter_notifications: Receba informações sobre atividades relevantes
+          sign_in: Entrar
+          sign_up: inscrever-se
+          sign_up_as:
+            legend: Inscreva-se como
+            user: Individual
+            user_group: Organização / Coletivo
+          subtitle: Inscreva-se para participar de discussões e propostas de suporte.
+          terms: os termos e condições de uso
+          tos_agreement: Ao se inscrever, você aceita %{link}.
+          username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
+      sessions:
+        new:
+          are_you_new?: Novo na plataforma?
+          register: Crie a sua conta aqui
+      shared:
+        omniauth_buttons:
+          or: Ou
+    errors:
+      internal_server_error:
+        title: Houve um problema com o nosso servidor
+        try_later: Por favor, tente novamente mais tarde.
+      not_found:
+        back_home: De volta para casa
+        content_doesnt_exist: Este endereço está incorreto ou foi removido.
+        title: A página que você procura não pode ser encontrada
+    events:
+      email_event:
+        email_greeting: Olá %{user_name},
+        email_intro: 'Houve uma atualização para "%{resource_title}". Você pode vê-lo a partir desta página:'
+        email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
+        email_subject: Uma atualização para %{resource_title}
+      notification_event:
+        notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
+    export_mailer:
+      export:
+        ready: Encontre em anexo uma versão com zíper da sua exportação.
+      subject: Sua exportação "%{name}" está pronta
+    features:
+      dummy:
+        actions:
+          bar: Barra
+          foo: Foo
+        name: Dummy Feature
+        settings:
+          global:
+            comments_enabled: Comentários ativados
+            dummy_global_attribute_1: Dummy Atributo 1
+            dummy_global_attribute_2: Dummy Attribute 2
+          step:
+            comments_blocked: Comentários bloqueados
+            dummy_step_attribute_1: Dummy Step Attribute 1
+            dummy_step_attribute_2: Dummy Step Attribute 2
     filters:
       linked_classes:
+        all: Todos
+        dummyresource: Recursos falsos
+        meeting: Reuniões
+        project: Projetos
+        proposal: Propostas
         result: Resultados
     follows:
       create:
         button: Seguir
+        error: Ocorreu um erro ao seguir este recurso.
+      destroy:
+        button: Pare de seguir
+        error: Ocorreu um erro ao seguir esse recurso.
     forms:
+      current_file: Arquivo atual
       current_image: Imagem actual
+      default_image: Imagem padrão
+      errors:
+        error: Há um erro neste campo.
+      remove_this_file: Remova este arquivo
+    managed_users:
+      expired_session: A sessão de representação atual expirou.
     menu:
       home: Inicio
       more_information: Mais informação
+    newsletter_mailer:
+      newsletter:
+        note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
+    notifications_settings:
+      show:
+        email_on_notification: Quero receber um email sempre que recebo uma notificação.
+        newsletter_notifications: Quero receber informações sobre atividades relevantes
+        update_notifications_settings: Salvar alterações
+      update:
+        error: Ocorreu um erro ao atualizar suas configurações de notificações.
+        success: Suas configurações de notificações foram atualizadas com sucesso.
     own_user_groups:
       index:
+        pending: Pendente
         rejected: Rejeitadas
+        verified: Verificado
     pages:
       index:
         title: Mais informação
     reported_mailer:
+      hide:
+        hello: Olá %{name},
+        manage_moderations: Gerenciar moderações
+        report_html: <p>O seguinte <a href="%{url}">content</a> foi ocultado automaticamente.</p>
+        subject: Um recurso foi escondido automaticamente
       report:
         hello: Olá %{name},
+        manage_moderations: Gerenciar moderações
+        report_html: <p>O seguinte <a href="%{url}">content</a> foi reportado.</p>
+        subject: Um recurso foi relatado
+    reports:
+      create:
+        error: Ocorreu um erro ao criar o relatório. Por favor, tente novamente.
+        success: O relatório foi criado com sucesso e será revisto por um administrador.
     shared:
       action_authorization_modal:
         incomplete:
           cancel: Cancelar
+          explanation: 'Embora você esteja atualmente autorizado com "%{authorization}", precisamos que você reauthorize porque faltamos os seguintes dados:'
+          reauthorize: Reautorize
+          title: Por favor reautorize
+        missing:
+          authorize: Autorize com "%{authorization}"
+          explanation: Para executar esta ação, você precisa ser autorizado com "%{authorization}".
+          title: Autorização necessária
         unauthorized:
+          explanation: Desculpe, você não pode executar esta ação porque alguns de seus dados de autorização não coincidem.
+          invalid: "%{field} não é válido."
           ok: Ok
+          title: Não autorizado
+      embed_modal:
+        close_window: Janela fechada
+        embed: Cole este código na sua página
+        embed_link: Embutir
       flag_modal:
+        already_reported: Este conteúdo já foi relatado e será revisto por um administrador.
         close: Fechar
+        description: Este conteúdo é impróprio?
+        does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou qualquer outra coisa que você acha que não pertence ao %{organization_name}.
+        offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
         report: Denunciar
+        spam: Contém clickbait, publicidade, fraudes ou script bots.
+        title: Reportar um problema
+      follow_button:
+        sign_in_before_follow: Faça login antes de executar esta ação
+      login_modal:
+        please_sign_in: Por favor, inscreva-se
+        sign_up: inscrever-se
+      reference:
+        reference: 'Referência: %{reference}'
+      results_per_page:
+        label: 'Resultados por página:'
+      share_modal:
+        close_window: Janela fechada
+        share: Compartilhar
+        share_link: Compartilhar link
+  devise:
+    invitations:
+      edit:
+        header: Coloque sua senha
+        submit_button: Salve 
+    mailer:
+      invitation_instructions:
+        accept: Aceitar convite
+        accept_until: Este convite será devido em %{due_date}.
+        hello: Olá %{email},
+        ignore: |-
+          Se você não quiser aceitar o convite, ignore este email.<br /> Sua conta não será criada até você acessar o link acima e definir sua senha.
+        invited_you_as_admin: "%{invited_by} convidou você como administrador de %{application}. Você pode aceitá-lo através do link abaixo."
+        someone_invited_you: Alguém convidou você para %{application}. Você pode aceitá-lo através do link abaixo.
+        someone_invited_you_as_admin: Alguém convidou você como administrador de %{application}, você pode aceitá-lo através do link abaixo.
+      invite_admin:
+        subject: Você foi convidado a gerenciar %{organization}
+      invite_collaborator:
+        subject: Você foi convidado a colaborar em %{organization}
+      organization_admin_invitation_instructions:
+        subject: Você foi convidado a gerenciar %{organization}
+      password_change:
+        greeting: Olá %{recipient}!
+        message: Estamos nos comunicando com você para notificá-lo de que sua senha foi alterada.
+        subject: A senha mudou
+  errors:
+    messages:
+      content_type_whitelist_error: O tipo de arquivo não é válido
+      cycle_detected: o pai de um escopo não pode ser um dos seus descendentes
+      file_size_is_less_than_or_equal_to: o tamanho do arquivo deve ser menor ou igual a %{count}
+      invalid_manifest: Manifesto inválido
+      invalid_participatory_process: Processo participativo inválido
+      long_words: Contém palavras que são muito longas
+      must_start_with_caps: Deve começar com tampas
+      nesting_too_deep: não pode estar dentro de uma subcategoria
+      too_many_marks: Está usando muitas marcas
+      too_much_caps: Está usando demasiados limites
+      too_short: É muito curto
+  forms:
+    required: Requeridos
+  invisible_captcha:
+    sentence_for_humans: Se você é humano, ignore este campo
+    timestamp_error_message: Desculpe, isso foi muito rápido! Reenvie.
   layouts:
     decidim:
       cookie_warning:
+        description_html: Este site usa cookies. Ao continuar a navegar no site, você concorda com o uso de cookies. Saiba mais sobre isso %{link}.
+        link_label: Aqui
         ok: Aceito
+      footer:
+        made_with_open_source: 'Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.'
+      header:
+        close_menu: Fechar menu
+        navigation: Navegação
+        sign_in: Assinar em
+        sign_up: Inscrever-se
+      impersonation_warning:
+        close_session: Perda de sessão
+        description_html: Você está representando o usuário <b>%{user_name}</b>.
+        expire_time_html: Sua sessão expirará em <b><span class="minutes">%{minutes}</span> minutos</b>.
+      notifications_dashboard:
+        mark_all_as_read: marcar tudo como lido
+        no_notifications: Ainda não há notificações.
+        title: Notificações
+      user_menu:
+        admin_dashboard: Painel de administração
+        notifications: Notificações
+        profile: Minha conta
+        sign_out: Sair
+      user_profile:
+        account: Conta
+        authorizations: Autorizações
+        delete_my_account: Deletar minha conta
+        notifications_settings: Configurações de notificações
+        title: Configurações do usuário
+        user_groups: Organizações
+      widget:
+        see_more: Ver mais
   locale:
     name: Inglês
+  pages:
+    home:
+      extended:
+        debates: Debates
+        debates_explanation: Debate e discuta, compartilhe suas opiniões e enriqueça os tópicos relevantes.
+        how_to_participate: Como faço parte de um processo?
+        meetings: Reuniões
+        meetings_explanation: Descubra onde e quando você pode participar de reuniões públicas.
+        more_info: Mais informações
+        proposals: Propostas
+        proposals_explanation: Faça propostas, suporte as existentes e promova as mudanças que deseja ver.
+      footer_sub_hero:
+        footer_sub_hero_body: Vamos construir uma sociedade mais aberta, transparente e colaborativa.<br /> Participe, participe e decida.
+        footer_sub_hero_headline: Bem-vindo à plataforma participativa %{organization}.
+        register: registo
+      hero:
+        participate: Participar
+        welcome: Bem-vindo ao %{organization}!
+      statistics:
+        answers_count: Respostas
+        comments_count: Comentários
+        headline: Estado atual de %{organization}
+        meetings_count: Reuniões
+        orders_count: Votos
+        pages_count: Páginas
+        processes_count: Processos
+        projects_count: Projetos
+        proposals_count: Propostas
+        results_count: Resultados
+        surveys_count: pesquisas
+        users_count: Participantes
+        votes_count: Votos
+      sub_hero:
+        register: registo
+  social_share_button:
+    delicious: Delicioso
+    douban: Douban
+    email: O email
+    facebook: Facebook
+    google_bookmark: Google Bookmark
+    google_plus: Google+
+    hacker_news: Notícias do hacker
+    linkedin: Linkedin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    share_to: Compartilhe %{name}
+    tumblr: Tumblr
+    twitter: Twitter
+    vkontakte: Vkontakte
+    wechat: WeChat
+    wechat_footer: Abra seu WeChat, clique no botão "Discover" e clique no menu "Scan QR Code".
+    weibo: Sina Weibo
+    xing: Xing
+  views:
+    pagination:
+      first: "&laquo; Primeiro"
+      last: Última &raquo;
+      next: Próximo &rsaquo;
+      previous: "&lsaquo; Anterior"
+      truncate: "&hellip;"

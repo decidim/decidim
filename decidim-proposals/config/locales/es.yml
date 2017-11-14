@@ -26,6 +26,7 @@ es:
             new_proposal_help_text: Texto de ayuda al crear una propuesta
             official_proposals_enabled: Propuestas oficiales habilitadas
             proposal_answering_enabled: Respuesta oficial a propuestas habilitadas
+            proposal_edit_before_minutes: Las propuestas pueden ser editadas por los autores antes de que pasen estos minutos
             proposal_limit: Límite de propuestas por usuario
             vote_limit: Límite de votos por usuario
           step:
@@ -103,6 +104,12 @@ es:
           proposals_count:
             one: 1 propuesta
             other: "%{count} propuestas"
+        edit:
+          attachment_legend: "(Opcional) Agregar un archivo adjunto"
+          back: Espalda
+          select_a_category: Porfavor seleccione una categoría
+          send: Enviar
+          title: Editar propuesta
         filters:
           accepted: Aceptadas
           activity: Actividad
@@ -135,6 +142,9 @@ es:
         new:
           attachment_legend: "(Opcional) Añadir un archivo adjunto"
           back: Atrás
+          proposal_edit_before_minutes:
+            one: Podrá editar esta propuesta durante el primer minuto posterior a la creación de la propuesta. Una vez que pase esta ventana de tiempo, no podrá editar la propuesta.
+            other: Podrá editar esta propuesta durante los primeros %{count} minutos posteriores a la creación de la propuesta. Una vez que pase esta ventana de tiempo, no podrá editar la propuesta.
           select_a_category: Por favor, seleccione una categoría
           send: Enviar
           title: Nueva propuesta
@@ -146,6 +156,7 @@ es:
         proposal:
           view_proposal: Ver propuesta
         show:
+          edit_proposal: Editar propuesta
           proposal_accepted_reason: 'Esta propuesta ha sido aceptada porque:'
           proposal_in_evaluation_reason: Esta propuesta está siendo evaluada
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
@@ -171,6 +182,9 @@ es:
             description: Puedes votar hasta %{limit} propuestas.
             left: Restante
             votes: Votos
+      update:
+        error: Ha habido errores al guardar la propuesta.
+        success: Propuesta actualizada con éxito.
     resource_links:
       included_proposals:
         proposal_projects: 'Propuesta formulada en estos proyectos:'

@@ -3,3 +3,467 @@ pt:
     attributes:
       attachment:
         description: Descrição
+        file: Arquivo
+        title: Título
+      category:
+        description: Descrição
+        name: Nome
+        parent_id: Pai
+      feature:
+        name: Nome
+        weight: Peso
+      newsletter:
+        body: Corpo
+        subject: Sujeito
+      organization:
+        default_locale: Local padrão
+        name: Nome
+        reference_prefix: Prefixo de referência
+      organization_appearance:
+        cta_button_path: Caminho do botão Chamar para Ação
+        cta_button_text: Texto do botão Chamar para Ação
+        description: Descrição
+        favicon: Ícone
+        header_snippets: Snippets de cabeçalho
+        homepage_image: Imagem do site inicial
+        logo: Logotipo
+        official_img_footer: Símbolo oficial do rodapé
+        official_img_header: Cabeçalho do logotipo oficial
+        official_url: URL da organização oficial
+        show_statistics: Mostrar estatísticas
+        welcome_text: Texto de boas-vindas
+      scope:
+        code: Código
+        name: Nome
+        organization: Organização
+        scope_type: Tipo de escopo
+      scope_type:
+        name: Nome
+        organization: Organização
+        plural: Plural
+      static_page:
+        content: Conteúdo
+        organization: Organização
+        slug: Slug de URL
+        title: Título
+  activerecord:
+    attributes:
+      decidim/participatory_process:
+        banner_image: Imagem da bandeira
+        description: Descrição
+        developer_group: Grupo de desenvolvedores
+        domain: Domínio
+        end_date: Data final
+        hashtag: Hashtag
+        hero_image: Imagem inicial
+        local_area: Área Local
+        meta_scope: Metadados do escopo
+        participatory_scope: Escopo participativo
+        participatory_structure: Estrutura participativa
+        promoted: Promovido
+        scope: Escopo
+        short_description: Pequena descrição
+        slug: Slug de URL
+        start_date: Data de início
+        subtitle: Legenda
+        target: Alvo
+        title: Título
+      decidim/participatory_process_group:
+        description: Descrição
+        hero_image: Imagem inicial
+        name: Nome
+        participatory_processes: Processos participativos
+      decidim/participatory_process_step:
+        end_date: Data final
+        start_date: Data de início
+      decidim/static_page:
+        content: Conteúdo
+        slug: Slug de URL
+        title: Título
+  date:
+    formats:
+      datepicker: "%m / %d / %Y"
+  decidim:
+    admin:
+      actions:
+        add: Adicionar
+        browse: Squeaky toy
+        export: Exportar
+        manage: Gerir
+        permissions: Permissões
+        reject: Rejeitar
+        verify: Verificar
+      attachments:
+        create:
+          error: Ocorreu um erro ao criar um novo anexo.
+          success: Anexo criado com sucesso.
+        destroy:
+          success: Anexo destruído com sucesso.
+        edit:
+          title: Editar anexo
+          update: Atualizar
+        index:
+          attachments_title: Anexos
+        new:
+          create: Criar anexo
+          title: Novo anexo
+        update:
+          error: Ocorreu um erro ao atualizar este anexo.
+          success: Anexo atualizado com sucesso.
+      categories:
+        create:
+          error: Ocorreu um erro ao criar esta categoria.
+          success: Categoria criada com sucesso.
+        destroy:
+          error: Ocorreu um erro ao excluir esta categoria. Por favor elimine qualquer subcategoria primeiro, certifique-se de que nenhuma outra entidade pertence a esta categoria e tente novamente.
+          success: Categoria excluída com sucesso.
+        edit:
+          title: Editar categoria
+          update: Atualizar
+        index:
+          categories_title: Categorias
+          category_used: Esta categoria não pode ser removida porque está em uso.
+        new:
+          create: Criar categoria
+          title: Nova categoria
+        update:
+          error: Ocorreu um erro ao atualizar esta categoria.
+          success: Categoria atualizada com sucesso.
+      dashboard:
+        show:
+          welcome: Bem-vindo ao Decidim Admin Panel.
+      exports:
+        export_as: "%{name} como %{export_format}"
+        notice: Sua exportação está atualmente em andamento. Você receberá um e-mail quando estiver completo.
+      feature_permissions:
+        edit:
+          everyone: Todos
+          submit: Salvar permissões
+          title: Editar permissões
+        update:
+          success: Permissões atualizadas com sucesso.
+      features:
+        create:
+          error: Ocorreu um erro ao criar esse recurso.
+          success: Recurso criado com sucesso.
+        destroy:
+          error: Ocorreu um erro ao destruir esse recurso.
+          success: Recurso eliminado com sucesso.
+        edit:
+          title: Editar recurso
+          update: Atualizar
+        form:
+          default_step_settings: Configurações de etapa padrão
+          global_settings: Configurações globais
+          step_settings: Configurações de etapa
+        index:
+          add: Adicionar recurso
+          headers:
+            actions: Ações
+            name: Nome do recurso
+            type: Tipo de recurso
+        new:
+          add: Adicionar recurso
+          title: 'Adicionar recurso: %{name}'
+        publish:
+          success: O recurso foi publicado com sucesso.
+        title: Características
+        unpublish:
+          success: O recurso foi inesperado com sucesso.
+        update:
+          error: Ocorreu um erro ao atualizar esse recurso.
+          success: O recurso foi atualizado com sucesso.
+      managed_users:
+        close_session:
+          error: Ocorreu um erro ao encerrar a sessão de representação atual.
+          success: A sessão de representação atual foi concluída com sucesso.
+        create:
+          error: Ocorreu um erro ao criar o usuário gerenciado.
+          success: O usuário gerenciado foi criado com sucesso.
+        form:
+          name: Nome
+        impersonate:
+          error: Ocorreu um erro ao personificar o usuário gerenciado.
+        impersonations:
+          new:
+            impersonate: Representar
+            new_managed_user_impersonation: Nova representação de usuários gerenciados
+        index:
+          impersonate: Representar
+          needs_authoriation_warning: Você precisa de pelo menos uma autorização habilitada para esta organização.
+          promote: Promover
+          view_logs: Ver registros
+        new:
+          create: Crio
+          new_managed_user: Novo usuário gerenciado
+          select_authorization_method: Selecione um método de autorização
+          step: Passo %{current} de %{total}
+        promotion:
+          error: Ocorreu um erro ao promover o usuário gerenciado.
+          success: O usuário gerenciado foi promovido com sucesso.
+        promotions:
+          new:
+            explanation: Os usuários gerenciados podem ser promovidos para usuários padrão. Isso significa que eles serão convidados para o aplicativo e você não poderá representá-los novamente. O usuário convidado receberá um e-mail para aceitar seu convite.
+            new_managed_user_promotion: Nova promoção de usuário gerenciado
+            promote: Promover
+      menu:
+        admins: Administradores
+        appearance: Aparência
+        configuration: Configuração
+        dashboard: painel de controle
+        managed_users: Usuários gerenciados
+        newsletters: boletins informativos
+        scope_types: Tipos de escopo
+        scopes: Escopos
+        settings: Configurações
+        static_pages: Páginas
+        user_groups: Grupos de usuários
+        users: Comercial
+      models:
+        attachment:
+          fields:
+            content_type: Tipo
+            title: Título
+          name: Anexo
+        category:
+          name: Categoria
+        impersonation_log:
+          fields:
+            admin: Administrador
+            ended_at: Terminou em
+            expired_at: Expirou em
+            started_at: Começou em
+            user: Do utilizador
+        managed_user:
+          name: Usuário gerenciado
+        newsletter:
+          fields:
+            created_at: Criado em
+            progress: Progresso
+            sent_at: Enviado em
+            subject: Sujeito
+          name: Boletim de Notícias
+        scope:
+          fields:
+            name: Nome
+            scope_type: Tipo de escopo
+        scope_type:
+          fields:
+            name: Nome
+            plural: Plural
+        static_page:
+          fields:
+            created_at: Criado em
+            title: Título
+        user:
+          fields:
+            created_at: Data de criação
+            email: O email
+            last_sign_in_at: Última data de início de sessão
+            name: Nome
+            role: Função
+            roles:
+              admin: Administrador
+              user_manager: Gerente de usuário
+          name: Do utilizador
+        user_group:
+          fields:
+            actions: Ações
+            created_at: Criado em
+            document_number: Número do documento
+            name: Nome
+            phone: telefone
+            state: Estado
+            users_count: Contagem de usuários
+      moderations:
+        index:
+          title: Moderação
+        report:
+          reasons:
+            does_not_belong: Não pertence
+            offensive: Ofensiva
+            spam: Spam
+      newsletters:
+        create:
+          error: Ocorreu um erro ao criar este boletim informativo.
+          success: Newsletter criada com sucesso. Por favor, reveja-o antes de enviar.
+        deliver:
+          error: Houve um erro na entrega deste boletim informativo.
+          success: Newsletter entregue com sucesso.
+        destroy:
+          error_already_sent: 'Não é possível destruir a newsletter: já foi enviada.'
+          success: Newsletter destruída com sucesso.
+        edit:
+          save_and_preview: Salvar e visualizar
+          title: Editar boletim
+        form:
+          interpolations_hint: 'Dica: você pode usar "%{name}" em qualquer parte do corpo ou assunto e será substituído pelo nome do destinatário.'
+        index:
+          confirm_delete: Tem certeza de que deseja excluir esta newsletter?
+          title: boletins informativos
+        new:
+          save: Salve 
+          title: Novo boletim informativo
+        show:
+          confirm_deliver: Tem certeza de que deseja enviar este boletim informativo? Essa ação não pode ser desfeita.
+          deliver: Entregar boletim informativo
+          preview: Visualização
+          subject: Sujeito
+        update:
+          error: Ocorreu um erro ao atualizar este boletim informativo.
+          success: Newsletter atualizada com sucesso. Por favor, reveja-o antes de enviar.
+      organization:
+        edit:
+          title: Editar organização
+          update: Atualizar
+        form:
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          social_handlers: Social
+          twitter: Twitter
+          url: Url
+          youtube: Youtube
+        update:
+          error: Ocorreu um erro ao atualizar essa organização.
+          success: Organização atualizada com sucesso.
+      organization_appearance:
+        edit:
+          update: Atualizar
+        form:
+          cta_button_path_help: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completos aqui. Aceita letras, números, traços e barras, e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
+          cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
+          header_snippets_help: Use este campo para adicionar coisas ao cabeçalho HTML. O uso mais comum é integrar serviços de terceiros que exigem algum JavaScript ou CSS extra. Além disso, você pode usá-lo para adicionar meta tags adicionais ao HTML. Observe que isso só será exibido em páginas públicas, não na seção de administração.
+          homepage_appearance_title: Editar a aparência da página inicial
+          layout_appearance_title: Editar aparência do layout
+      scope_types:
+        create:
+          error: Ocorreu um erro ao criar um novo tipo de escopo.
+          success: Tipo de escopo criado com sucesso.
+        destroy:
+          success: Tipo de escopo destruído com sucesso
+        edit:
+          title: Editar tipo de escopo
+          update: Atualizar
+        new:
+          create: Criar tipo de escopo
+          title: Novo escopo
+        update:
+          error: Ocorreu um erro ao atualizar esse tipo de escopo.
+          success: Tipo de escopo atualizado com sucesso
+      scopes:
+        create:
+          error: Ocorreu um erro ao criar um novo escopo.
+          success: Escopo criado com sucesso.
+        destroy:
+          success: Escopo destruído com sucesso
+        edit:
+          title: Editar o escopo
+          update: Atualizar
+        new:
+          create: Criar escopo
+          title: Novo escopo
+        no_scopes: Nenhum escopo neste nível.
+        update:
+          error: Ocorreu um erro ao atualizar esse escopo.
+          success: Escopo atualizado com sucesso
+      static_pages:
+        actions:
+          view: Ver página pública
+        create:
+          error: Ocorreu um erro ao criar uma nova página.
+          success: Página criada com sucesso.
+        destroy:
+          success: Página destruída com sucesso
+        edit:
+          title: Editar Página
+          update: Atualizar
+        new:
+          create: Novo
+          title: Nova página
+        update:
+          error: Ocorreu um erro ao atualizar esta página.
+          success: Página atualizada com sucesso
+      titles:
+        dashboard: painel de controle
+        impersonations: Personagens
+        managed_users: Usuários gerenciados
+        scope_types: Tipos de escopo
+        scopes: Escopos
+        static_pages: Páginas
+        user_groups: Grupos de usuários
+        users: Comercial
+      user_group:
+        reject:
+          invalid: Ocorreu um erro ao rejeitar esse grupo de usuários.
+          success: Grupo de usuários rejeitado com sucesso
+        verify:
+          invalid: Ocorreu um erro ao verificar este grupo de usuários.
+          success: Grupo de usuários verificado com sucesso
+      user_groups:
+        index:
+          filter:
+            all: Todos
+            pending: Pendente
+            rejected: Rejeitado
+            verified: Verificado
+          filter_by: Filtrar por
+          search: Pesquisa
+          state:
+            pending: Pendente
+            rejected: Rejeitado
+            verified: Verificado
+      users:
+        create:
+          error: Ocorreu um erro ao convidar esse usuário.
+          success: Usuário convidado com sucesso.
+        destroy:
+          error: Ocorreu um erro ao tentar excluir esse usuário.
+          success: O usuário não é mais um administrador.
+        form:
+          email: O email
+          name: Nome
+          role: Função
+        new:
+          create: Convite
+          title: Convide o usuário como administrador
+    moderations:
+      actions:
+        hidden: Escondido
+        hide: ocultar
+        not_hidden: Não oculto
+        title: Ações
+        unreport: Unreport
+      admin:
+        reportable:
+          hide:
+            invalid: Ocorreu um problema ao ocultar o recurso.
+            success: O recurso foi ocultado com sucesso.
+          unreport:
+            invalid: Tem havido um problema não relatando o recurso.
+            success: O recurso não foi relatado com sucesso.
+      models:
+        moderation:
+          fields:
+            hidden_at: Escondido em
+            report_count: Contagem
+            reportable: Reportable
+            reported_content_url: URL de conteúdo relatado
+            reports: Relatórios
+            visit_url: URL de visita
+  errors:
+    messages:
+      invalid_json: JSON inválido
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: boletins informativos
+        settings:
+          title: Configurações
+        users:
+          title: Comercial
+  time:
+    formats:
+      datepicker: "%m / %d / %Y"
+      timepicker: "%m / %d / %Y %H:%M"

@@ -26,6 +26,7 @@ fi:
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
             official_proposals_enabled: Viralliset ehdotukset sallittu
             proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
+            proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia ennen tämän monen minuutin kuluttua
             proposal_limit: Ehdotuksen raja käyttäjää kohden
             vote_limit: Äänestysraja käyttäjää kohden
           step:
@@ -103,6 +104,12 @@ fi:
           proposals_count:
             one: 1 ehdotus
             other: "%{count} ehdotusta"
+        edit:
+          attachment_legend: "(Valinnainen) Lisää liite"
+          back: Takaisin
+          select_a_category: Valitse kategoria
+          send: Lähettää
+          title: Muokkaa ehdotusta
         filters:
           accepted: Hyväksytty
           activity: Aktiivisuus
@@ -135,6 +142,9 @@ fi:
         new:
           attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
+          proposal_edit_before_minutes:
+            one: Voit muokata tätä ehdotusta ensimmäisen minuutin kuluttua ehdotuksen luomisesta. Kun tämä aikaikkuna läpäisee, et pysty muokkaamaan ehdotusta.
+            other: Voit muokata tätä ehdotusta ensimmäisen %{count} minuutin kuluttua ehdotuksen luomisesta. Kun tämä aikaikkuna läpäisee, et pysty muokkaamaan ehdotusta.
           select_a_category: Valitse aihepiiri
           send: Lähetä
           title: Uusi ehdotus
@@ -146,6 +156,7 @@ fi:
         proposal:
           view_proposal: Näytä ehdotus
         show:
+          edit_proposal: Muokkaa ehdotusta
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
           proposal_in_evaluation_reason: Tätä ehdotusta arvioidaan
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
@@ -171,6 +182,9 @@ fi:
             description: Voit äänestää enintään %{limit} ehdotusta.
             left: Jäljellä
             votes: Äänet
+      update:
+        error: Ehdotuksen tallentamisessa on tapahtunut virheitä.
+        success: Ehdotus on päivitetty onnistuneesti.
     resource_links:
       included_proposals:
         proposal_projects: 'Ehdotus esiintyy näissä projekteissa:'

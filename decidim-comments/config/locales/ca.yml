@@ -60,7 +60,7 @@ ca:
       comment_thread:
         title: Conversa amb %{authorName}
       comments:
-        blocked_comments_warning: Els comentaris estan desactivats a la fase actual però pots llegir els comentaris de les fases anteriors.
+        blocked_comments_warning: Els comentaris estan desactivats en aquest moment, però podeu llegir els anteriors. "
         loading: Carregant els comentaris ...
         title: "%{count} comentaris"
       featured_comment:

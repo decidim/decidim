@@ -2,7 +2,7 @@ nl:
   activemodel:
     attributes:
       proposal:
-        body: Lichaam
+        body: Body
         category_id: Categorie
         scope_id: Reikwijdte
         title: Titel
@@ -13,8 +13,8 @@ nl:
     features:
       proposals:
         actions:
-          create: Creëren
-          vote: Stemmen
+          create: Creër
+          vote: Stem
         name: Voorstellen
         settings:
           global:
@@ -23,9 +23,10 @@ nl:
             comments_enabled: Reacties ingeschakeld
             geocoding_enabled: Geocoding ingeschakeld
             maximum_votes_per_proposal: Maximale stemmen per voorstel
-            new_proposal_help_text: Nieuwe tekst voor tekstvoorstellen
+            new_proposal_help_text: Nieuw voorstel help-tekst
             official_proposals_enabled: Officiële voorstellen ingeschakeld
-            proposal_answering_enabled: Antwoordbericht geactiveerd
+            proposal_answering_enabled: Voorstel beantwoorden ingeschakeld
+            proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat dit aantal minuten zijn verlopen
             proposal_limit: Voorstellimiet per gebruiker
             vote_limit: Stemlimiet per gebruiker
           step:
@@ -35,7 +36,7 @@ nl:
             proposal_answering_enabled: Antwoordbericht geactiveerd
             votes_blocked: Stemmen geblokkeerd
             votes_enabled: Stemmen ingeschakeld
-            votes_hidden: Stemmen verborgen (als stemmen zijn ingeschakeld, zal dit hierbij het aantal stemmen verbergen)
+            votes_hidden: Stemmen verborgen (als stemmen zijn ingeschakeld, zal door dit aanvinken het aantal stemmen verbergen)
     proposals:
       actions:
         answer: Antwoord
@@ -43,9 +44,9 @@ nl:
         title: Acties
       admin:
         actions:
-          preview: Voorbeeld
+          preview: Voorbeeldweergave
         exports:
-          comments: Comments
+          comments: Reacties
           proposals: Voorstellen
         models:
           proposal:
@@ -54,16 +55,16 @@ nl:
           edit:
             accepted: Aanvaard
             answer_proposal: Antwoord
-            evaluating: Evalueren
+            evaluating: Aan het beoordelen
             rejected: Verworpen
             title: Antwoord voor voorstel %{title}
         proposals:
           answer:
-            invalid: Er is een probleem geweest met het beantwoorden van dit voorstel
+            invalid: Er is een probleem opgetreden bij het beantwoorden van dit voorstel
             success: Voorstel met succes beantwoord
           create:
             invalid: Er is een probleem opgetreden met het maken van dit voorstel
-            success: Voorstel met succes gecreëerd
+            success: Voorstel succesvol aangemaakt
           form:
             attachment_legend: "(Optioneel) Een bijlage toevoegen"
             select_a_category: Kies een categorie
@@ -74,9 +75,9 @@ nl:
             title: Maak een voorstel
       answers:
         accepted: Aanvaard
-        evaluating: Evalueren
-        not_answered: Niet geantwoord
-        rejected: Verworpen
+        evaluating: Aan het beoordelen
+        not_answered: Nog niet beantwoord
+        rejected: Geweigerd
       create:
         error: Er zijn fouten geweest bij het opslaan van het voorstel.
         success: Voorstel is succesvol gemaakt.
@@ -84,12 +85,12 @@ nl:
         proposal:
           fields:
             category: Categorie
-            id: ID kaart
+            id: ID
             official_proposal: Officieel voorstel
             scope: Scope
             state: Staat
             title: Titel
-            votes: stemmen
+            votes: Stemmen
       new:
         limit_reached: U kunt geen nieuwe voorstellen maken omdat u de limiet heeft overschreden.
       proposal_votes:
@@ -103,6 +104,12 @@ nl:
           proposals_count:
             one: 1 voorstel
             other: "%{count} voorstellen"
+        edit:
+          attachment_legend: "(Optioneel) Voeg een bijlage toe"
+          back: Terug
+          select_a_category: Selecteer een categorie
+          send: Verzenden
+          title: Bewerk voorstel
         filters:
           accepted: Aanvaard
           activity: Activiteit
@@ -110,57 +117,61 @@ nl:
           category: Categorie
           category_prompt: Kies een categorie
           citizens: burgers
-          evaluating: Evalueren
+          evaluating: Aan het beoordelen
           official: Officieel
           origin: Oorsprong
-          rejected: Verworpen
+          rejected: Geweigerd
           related_to: Gerelateerd aan
           scope_prompt: Selecteer een scope
           scopes: Scopes
           search: Zoeken
-          state: Staat
+          state: Status
           voted: Gestemd
         filters_small_view:
-          close_modal: Dicht modaal
+          close_modal: Dialoogvenster sluiten
           filter: Filter
           filter_by: Filteren op
-          unfold: Ontvouwen
+          unfold: Uitvouwen
         index:
           new_proposal: Nieuw voorstel
           view_proposal: Bekijk voorstel
         linked_proposals:
           proposal_votes:
-            one: stemmen
+            one: stem
             other: stemmen
         new:
           attachment_legend: "(Optioneel) Een bijlage toevoegen"
           back: Terug
+          proposal_edit_before_minutes:
+            one: U kunt dit voorstel bewerken in de eerste minuut nadat het voorstel is gemaakt. Zodra dit tijdvenster is verstreken, kunt u het voorstel niet bewerken.
+            other: U kunt dit voorstel bewerken tijdens de eerste %{count} minuten nadat het voorstel is gemaakt. Zodra dit tijdvenster is verstreken, kunt u het voorstel niet bewerken.
           select_a_category: Selecteer een categorie
           send: Verstuur
           title: Nieuw voorstel
         orders:
-          label: 'Bestelling voorstellen door:'
+          label: 'Bestelling sorteren op:'
           most_voted: Meeste stemmen
           random: Willekeurig
           recent: Recentelijk
         proposal:
           view_proposal: Bekijk voorstel
         show:
+          edit_proposal: Bewerk voorstel
           proposal_accepted_reason: 'Dit voorstel is geaccepteerd omdat:'
           proposal_in_evaluation_reason: Dit voorstel wordt geëvalueerd
           proposal_rejected_reason: 'Dit voorstel is afgewezen omdat:'
           report: Rapporteren
         vote_button:
           already_voted: Al gestemd
-          already_voted_hover: Unvote
+          already_voted_hover: Stem Intrekken
           maximum_votes_reached: Stemlimiet bereikt
           no_votes_remaining: Geen stemmen over
-          vote: Stemmen
+          vote: Stem
           votes_blocked: Stemmen uitgeschakeld
         votes_count:
           count:
-            one: STEMMEN
-            other: STEMMINGEN
+            one: STEM
+            other: STEMMEN
         voting_rules:
           maximum_votes_per_proposal:
             description: Elk voorstel kan maximaal %{limit} stemmen ontvangen.
@@ -168,9 +179,12 @@ nl:
             description: U kunt maximaal %{limit} voorstellen maken.
           title: 'Stemmen zijn onderworpen aan de volgende regels:'
           vote_limit:
-            description: U kunt stemmen tot %{limit} voorstellen.
-            left: resterende
-            votes: stemmen
+            description: U kunt tot %{limit} voorstellen stemmen.
+            left: Resterend
+            votes: Stemmen
+      update:
+        error: Er zijn fouten opgetreden bij het opslaan van het voorstel.
+        success: Voorstel succesvol bijgewerkt.
     resource_links:
       included_proposals:
         proposal_projects: 'Voorstel in deze projecten:'

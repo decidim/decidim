@@ -26,6 +26,7 @@ pl:
             new_proposal_help_text: Nowy tekst pomocy propozycji
             official_proposals_enabled: Oficjalne propozycje
             proposal_answering_enabled: Włączona odpowiedź na pytania
+            proposal_edit_before_minutes: Propozycje mogą być edytowane przez autorów przed upływem tych wielu minut
             proposal_limit: Limit propozycji dla użytkownika
             vote_limit: Limit głosu na użytkownika
           step:
@@ -104,6 +105,12 @@ pl:
             one: 1 propozycja
             few: "%{count} propozycje"
             other: "%{count} propozycje"
+        edit:
+          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
+          back: Plecy
+          select_a_category: Proszę wybrać kategorię
+          send: Wysłać
+          title: Edytuj propozycję
         filters:
           accepted: Przyjęty
           activity: Czynność
@@ -137,6 +144,10 @@ pl:
         new:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Plecy
+          proposal_edit_before_minutes:
+            one: Będziesz mógł edytować tę propozycję w pierwszej minucie po utworzeniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
+            few: Będziesz mógł edytować tę propozycję podczas pierwszych %{count} minut po utworzeniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
+            other: Będziesz mógł edytować tę propozycję podczas pierwszych %{count} minut po utworzeniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
           select_a_category: Proszę wybrać kategorię
           send: Wysłać
           title: Nowa propozycja
@@ -148,6 +159,7 @@ pl:
         proposal:
           view_proposal: Wyświetl propozycję
         show:
+          edit_proposal: Edytuj propozycję
           proposal_accepted_reason: 'Niniejszy wniosek został zaakceptowany, ponieważ:'
           proposal_in_evaluation_reason: Niniejszy wniosek jest oceniany
           proposal_rejected_reason: 'Niniejszy wniosek został odrzucony, ponieważ:'
@@ -174,6 +186,9 @@ pl:
             description: Możesz zgłosić do %{limit} propozycje.
             left: Pozostały
             votes: Głosowania
+      update:
+        error: Podczas zapisywania propozycji wystąpiły błędy.
+        success: Wniosek zaktualizowano pomyślnie.
     resource_links:
       included_proposals:
         proposal_projects: 'Propozycja występująca w tych projektach:'

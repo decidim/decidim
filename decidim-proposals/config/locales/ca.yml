@@ -26,6 +26,7 @@ ca:
             new_proposal_help_text: Text d'ajuda al crear una nova proposta
             official_proposals_enabled: Propostes oficials habilitades
             proposal_answering_enabled: Resposta oficial a propostes activades
+            proposal_edit_before_minutes: Les propostes poden ser editades pels autors abans que passin molts minuts
             proposal_limit: Límit de propostes per usuari
             vote_limit: Límit de vots per usuari
           step:
@@ -103,6 +104,12 @@ ca:
           proposals_count:
             one: 1 proposta
             other: "%{count} propostes"
+        edit:
+          attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
+          back: esquena
+          select_a_category: Seleccioneu una categoria
+          send: Enviar
+          title: Edició de la proposta
         filters:
           accepted: Acceptades
           activity: Activitat
@@ -135,6 +142,9 @@ ca:
         new:
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
           back: Enrere
+          proposal_edit_before_minutes:
+            one: Podreu editar aquesta proposta durant el primer minut després de la creació de la proposta. Un cop passada aquesta finestra de temps, no podreu editar la proposta.
+            other: Podreu editar aquesta proposta durant els primers %{count} minuts després de la creació de la proposta. Un cop passada aquesta finestra de temps, no podreu editar la proposta.
           select_a_category: Si us plau, seleccioni una categoria
           send: Enviar
           title: Nova proposta
@@ -146,6 +156,7 @@ ca:
         proposal:
           view_proposal: Veure proposta
         show:
+          edit_proposal: Edició de la proposta
           proposal_accepted_reason: 'Aquesta proposta ha estat acceptada perquè:'
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
@@ -171,6 +182,9 @@ ca:
             description: Pots votar fins a %{limit} propostes.
             left: Restant
             votes: Vots
+      update:
+        error: Hi ha hagut errors en desar la proposta.
+        success: La proposta s'ha actualitzat correctament.
     resource_links:
       included_proposals:
         proposal_projects: 'Proposta formulada en aquests projectes:'
