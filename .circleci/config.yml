@@ -346,12 +346,8 @@ workflows:
   build_and_test:
     jobs:
       - build_docker_images
-      - build_test_app:
-          requires:
-            - build_docker_images
-      - main:
-          requires:
-            - build_docker_images
+      - build_test_app
+      - main
       - core:
           requires:
             - build_test_app
