@@ -62,7 +62,7 @@ jobs:
           command: rake test_app
       - run:
           name: Precompile test app assets
-          command: cd spec/decidim_dummy_app && rails assets:precompile
+          command: cd /decidim/spec/decidim_dummy_app && rails assets:precompile
       - persist_to_workspace:
           root: .
           paths:
