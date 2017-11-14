@@ -106,11 +106,11 @@ jobs:
           command: cd decidim-core && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+          command: cc-test-reporter format-coverage --output "coverage/codeclimate.core.json"
       - save_cache:
-          key: cc-test-coverage-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: cc-test-coverage-cache-{{ .Revision }}-{{ .Environment.CIRCLE_JOB }}
           paths:
-            - "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+            - "coverage/codeclimate.core.json"
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/capybara
   assemblies:
@@ -134,11 +134,11 @@ jobs:
           command: cd decidim-assemblies && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+          command: cc-test-reporter format-coverage --output "coverage/codeclimate.assemblies.json"
       - save_cache:
-          key: cc-test-coverage-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: cc-test-coverage-cache-{{ .Revision }}-{{ .Environment.CIRCLE_JOB }}
           paths:
-            - "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+            - "coverage/codeclimate.assemblies.json"
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/capybara
   api:
@@ -162,11 +162,11 @@ jobs:
           command: cd decidim-api && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+          command: cc-test-reporter format-coverage --output "coverage/codeclimate.api.json"
       - save_cache:
-          key: cc-test-coverage-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: cc-test-coverage-cache-{{ .Revision }}-{{ .Environment.CIRCLE_JOB }}
           paths:
-            - "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+            - "coverage/codeclimate.api.json"
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/capybara
   processes:
@@ -190,11 +190,11 @@ jobs:
           command: cd decidim-participatory_processes && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+          command: cc-test-reporter format-coverage --output "coverage/codeclimate.processes.json"
       - save_cache:
-          key: cc-test-coverage-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: cc-test-coverage-cache-{{ .Revision }}-{{ .Environment.CIRCLE_JOB }}
           paths:
-            - "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+            - "coverage/codeclimate.processes.json"
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/capybara
   admin:
@@ -218,11 +218,11 @@ jobs:
           command: cd decidim-admin && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+          command: cc-test-reporter format-coverage --output "coverage/codeclimate.admin.json"
       - save_cache:
-          key: cc-test-coverage-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: cc-test-coverage-cache-{{ .Revision }}-{{ .Environment.CIRCLE_JOB }}
           paths:
-            - "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+            - "coverage/codeclimate.admin.json"
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/capybara
   system:
@@ -246,11 +246,11 @@ jobs:
           command: cd decidim-system && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+          command: cc-test-reporter format-coverage --output "coverage/codeclimate.system.json"
       - save_cache:
-          key: cc-test-coverage-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: cc-test-coverage-cache-{{ .Revision }}-{{ .Environment.CIRCLE_JOB }}
           paths:
-            - "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+            - "coverage/codeclimate.system.json"
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/capybara
   proposals:
@@ -274,11 +274,11 @@ jobs:
           command: cd decidim-proposals && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+          command: cc-test-reporter format-coverage --output "coverage/codeclimate.proposals.json"
       - save_cache:
-          key: cc-test-coverage-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: cc-test-coverage-cache-{{ .Revision }}-{{ .Environment.CIRCLE_JOB }}
           paths:
-            - "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+            - "coverage/codeclimate.proposals.json"
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/capybara
   comments:
@@ -302,11 +302,11 @@ jobs:
           command: cd decidim-comments && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+          command: cc-test-reporter format-coverage --output "coverage/codeclimate.comments.json"
       - save_cache:
-          key: cc-test-coverage-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: cc-test-coverage-cache-{{ .Revision }}-{{ .Environment.CIRCLE_JOB }}
           paths:
-            - "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+            - "coverage/codeclimate.comments.json"
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/capybara
   meetings:
@@ -330,11 +330,11 @@ jobs:
           command: cd decidim-meetings && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+          command: cc-test-reporter format-coverage --output "coverage/codeclimate.meetings.json"
       - save_cache:
-          key: cc-test-coverage-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: cc-test-coverage-cache-{{ .Revision }}-{{ .Environment.CIRCLE_JOB }}
           paths:
-            - "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+            - "coverage/codeclimate.meetings.json"
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/capybara
   pages:
@@ -358,11 +358,11 @@ jobs:
           command: cd decidim-pages && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+          command: cc-test-reporter format-coverage --output "coverage/codeclimate.pages.json"
       - save_cache:
-          key: cc-test-coverage-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: cc-test-coverage-cache-{{ .Revision }}-{{ .Environment.CIRCLE_JOB }}
           paths:
-            - "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+            - "coverage/codeclimate.pages.json"
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/capybara
   accountability:
@@ -386,11 +386,11 @@ jobs:
           command: cd decidim-accountability && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+          command: cc-test-reporter format-coverage --output "coverage/codeclimate.accountability.json"
       - save_cache:
-          key: cc-test-coverage-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: cc-test-coverage-cache-{{ .Revision }}-{{ .Environment.CIRCLE_JOB }}
           paths:
-            - "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+            - "coverage/codeclimate.accountability.json"
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/capybara
   budgets:
@@ -414,11 +414,11 @@ jobs:
           command: cd decidim-budgets && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+          command: cc-test-reporter format-coverage --output "coverage/codeclimate.budgets.json"
       - save_cache:
-          key: cc-test-coverage-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: cc-test-coverage-cache-{{ .Revision }}-{{ .Environment.CIRCLE_JOB }}
           paths:
-            - "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+            - "coverage/codeclimate.budgets.json"
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/capybara
   surveys:
@@ -442,11 +442,11 @@ jobs:
           command: cd decidim-surveys && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+          command: cc-test-reporter format-coverage --output "coverage/codeclimate.surveys.json"
       - save_cache:
-          key: cc-test-coverage-cache-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: cc-test-coverage-cache-{{ .Revision }}-{{ .Environment.CIRCLE_JOB }}
           paths:
-            - "coverage/codeclimate.${CIRCLE_JOB}.${CIRCLE_BRANCH}.json"
+            - "coverage/codeclimate.surveys.json"
       - store_artifacts:
           path: /decidim/spec/decidim_dummy_app/tmp/capybara
   cc-test-coverage:
@@ -456,19 +456,19 @@ jobs:
           at: /decidim
       - restore_cache:
           keys:
-            - cc-test-coverage-cache-{{ .Branch }}-core
-            - cc-test-coverage-cache-{{ .Branch }}-assemblies
-            - cc-test-coverage-cache-{{ .Branch }}-api
-            - cc-test-coverage-cache-{{ .Branch }}-processes
-            - cc-test-coverage-cache-{{ .Branch }}-admin
-            - cc-test-coverage-cache-{{ .Branch }}-system
-            - cc-test-coverage-cache-{{ .Branch }}-proposals
-            - cc-test-coverage-cache-{{ .Branch }}-comments
-            - cc-test-coverage-cache-{{ .Branch }}-meetings
-            - cc-test-coverage-cache-{{ .Branch }}-pages
-            - cc-test-coverage-cache-{{ .Branch }}-accountability
-            - cc-test-coverage-cache-{{ .Branch }}-budgets
-            - cc-test-coverage-cache-{{ .Branch }}-surveys
+            - cc-test-coverage-cache-{{ .Revision }}-core
+            - cc-test-coverage-cache-{{ .Revision }}-assemblies
+            - cc-test-coverage-cache-{{ .Revision }}-api
+            - cc-test-coverage-cache-{{ .Revision }}-processes
+            - cc-test-coverage-cache-{{ .Revision }}-admin
+            - cc-test-coverage-cache-{{ .Revision }}-system
+            - cc-test-coverage-cache-{{ .Revision }}-proposals
+            - cc-test-coverage-cache-{{ .Revision }}-comments
+            - cc-test-coverage-cache-{{ .Revision }}-meetings
+            - cc-test-coverage-cache-{{ .Revision }}-pages
+            - cc-test-coverage-cache-{{ .Revision }}-accountability
+            - cc-test-coverage-cache-{{ .Revision }}-budgets
+            - cc-test-coverage-cache-{{ .Revision }}-surveys
       - run:
           name: Sum CC test coverage reports
           command: cc-test-reporter sum-coverage --output --parts 14 coverage/codeclimate.*.json | cc-test-reporter upload-coverage --input -
