@@ -47,6 +47,8 @@ jobs:
   build_test_app:
     <<: *defaults
     steps:
+      - attach_workspace:
+          at: /decidim
       - checkout
       - run:
           name: Wait for db
@@ -64,6 +66,8 @@ jobs:
   main:
     <<: *defaults
     steps:
+      - attach_workspace:
+          at: /decidim
       - checkout
       - run:
           name: Wait for db
