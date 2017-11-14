@@ -95,7 +95,7 @@ task :test_app do
 
   Bundler.with_clean_env do
     Decidim::Generators::DummyGenerator.start(
-      ["--dummy_app_path=#{dummy_app_path}"]
+      ["--dummy_app_path=#{dummy_app_path} --skip-bundle"]
     )
   end
 end
