@@ -3,6 +3,8 @@
 module Decidim
   module Assemblies
     class AssemblyWidgetsController < Decidim::WidgetsController
+      helper Decidim::SanitizeHelper
+
       private
 
       def model

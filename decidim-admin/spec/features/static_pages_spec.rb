@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Content pages", type: :feature do
-  include ActionView::Helpers::SanitizeHelper
+  include Decidim::SanitizeHelper
 
   let(:admin) { create :user, :admin, :confirmed }
   let(:organization) { admin.organization }

@@ -7,7 +7,7 @@ module Decidim
       # an existing user.
       class InviteJoinMeetingMailer < Decidim::ApplicationMailer
         include Decidim::TranslationsHelper
-        include ActionView::Helpers::SanitizeHelper
+        include Decidim::SanitizeHelper
 
         helper Decidim::ResourceHelper
         helper Decidim::TranslationsHelper

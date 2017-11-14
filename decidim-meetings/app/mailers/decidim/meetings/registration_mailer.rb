@@ -6,7 +6,7 @@ module Decidim
     # they join a meeting.
     class RegistrationMailer < Decidim::ApplicationMailer
       include Decidim::TranslationsHelper
-      include ActionView::Helpers::SanitizeHelper
+      include Decidim::SanitizeHelper
 
       helper Decidim::ResourceHelper
       helper Decidim::TranslationsHelper
