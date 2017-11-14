@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: codegram/decidim:test-$CIRCLE_SHA1
+    - image: codegram/decidim:test-latest
       environment:
         SIMPLECOV: true
         DATABASE_USERNAME: postgres
@@ -44,7 +44,6 @@ jobs:
             else
               docker build -f Dockerfile.ci --build-arg BASE_IMAGE_TAG=prod-$CIRCLE_SHA1 --tag codegram/decidim:test-$CIRCLE_SHA1 --cache-from codegram/decidim:test-latest .
             fi
-            docker push codegram/decidim:test-$CIRCLE_SHA1
       - persist_to_workspace:
           root: .
           paths:
