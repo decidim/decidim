@@ -1,4 +1,6 @@
-FROM codegram/decidim:latest
+ARG BASE_IMAGE_TAG=latest
+
+FROM codegram/decidim:$BASE_IMAGE_TAG
 MAINTAINER deivid.rodriguez@riseup.net
 
 RUN apk add --update curl bash
