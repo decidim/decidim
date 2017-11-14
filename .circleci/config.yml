@@ -44,15 +44,10 @@ jobs:
             else
               docker build -f Dockerfile.ci --build-arg BASE_IMAGE_TAG=prod-$CIRCLE_SHA1 --tag codegram/decidim:test-$CIRCLE_SHA1 --cache-from codegram/decidim:test-latest .
             fi
-      - persist_to_workspace:
-          root: .
-          paths:
-            - "*"
   build_test_app:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /decidim
+      - checkout
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -69,8 +64,7 @@ jobs:
   main:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /decidim
+      - checkout
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
