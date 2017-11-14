@@ -13,17 +13,7 @@ task default: :spec
 
 desc "Runs all tests in all Decidim engines"
 task :test_all do
-  tested_gems = DECIDIM_GEMS - ["dev"]
-
-  dirs = [__dir__] + tested_gems.map { |name| "#{__dir__}/decidim-#{name}" }
-
-  dirs.each do |dir|
-    Dir.chdir(dir) do
-      puts "Running #{File.basename(dir)}'s tests..."
-      status = system "rake"
-      abort unless status || ENV["FAIL_FAST"] == "false"
-    end
-  end
+  RakeUtils.run_all "rake", except: ["dev"]
 end
 
 desc "Update version in all gems to the one set in the `.decidim-version` file"
@@ -51,12 +41,7 @@ end
 
 desc "Installs all gems locally."
 task :install_all do
-  system "rake install:local"
-  DECIDIM_GEMS.each do |name|
-    Dir.chdir("#{__dir__}/decidim-#{name}") do
-      system "rake install:local"
-    end
-  end
+  RakeUtils.run_all "rake install:local", out: File::NULL
 end
 
 desc "Uninstalls all gems locally."
@@ -69,12 +54,7 @@ end
 
 desc "Pushes a new build for each gem."
 task release_all: [:update_versions, :check_locale_completeness, :webpack] do
-  sh "rake release"
-  DECIDIM_GEMS.each do |name|
-    Dir.chdir("#{__dir__}/decidim-#{name}") do
-      sh "rake release"
-    end
-  end
+  RakeUtils.run_all "rake release"
 end
 
 desc "Makes sure all official locales are complete and clean."
@@ -129,5 +109,19 @@ module RakeUtils
 
   def self.version
     File.read("#{__dir__}/.decidim-version").strip
+  end
+
+  def self.run_all(command, out: STDOUT, except: [])
+    tested_gems = DECIDIM_GEMS - except
+
+    dirs = [__dir__] + tested_gems.map { |name| "#{__dir__}/decidim-#{name}" }
+
+    dirs.each do |dir|
+      Dir.chdir(dir) do
+        puts "Running command '#{command}' inside '#{File.basename(dir)}'..."
+        status = system(command, out: out)
+        abort unless status || ENV["FAIL_FAST"] == "false"
+      end
+    end
   end
 end
