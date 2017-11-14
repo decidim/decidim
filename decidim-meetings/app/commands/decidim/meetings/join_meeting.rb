@@ -40,7 +40,7 @@ module Decidim
       end
 
       def send_email_confirmation
-        RegistrationMailer.confirmation(user, meeting).deliver_later
+        Decidim::Meetings::RegistrationMailer.confirmation(user, meeting).deliver_later
       end
 
       def participatory_space_admins

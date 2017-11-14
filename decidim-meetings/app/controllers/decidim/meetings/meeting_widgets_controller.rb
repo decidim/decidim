@@ -4,6 +4,7 @@ module Decidim
   module Meetings
     class MeetingWidgetsController < Decidim::WidgetsController
       helper MeetingsHelper
+      helper Decidim::SanitizeHelper
 
       private
 
