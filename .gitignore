@@ -1,4 +1,5 @@
 spec/decidim_dummy_app/
+spec/generator_test_app/
 .byebug_history
 pkg/
 */Gemfile.lock
