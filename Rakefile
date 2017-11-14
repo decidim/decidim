@@ -26,36 +26,26 @@ task :test_all do
   end
 end
 
-def replace_file(name, regexp, replacement)
-  new_content = File.read(name).gsub(regexp, replacement)
-
-  File.open(name, "w") { |f| f.write(new_content) }
-end
-
-def version
-  File.read("#{__dir__}/.decidim-version").strip
-end
-
 desc "Update version in all gems to the one set in the `.decidim-version` file"
 task :update_versions do
-  replace_file(
+  RakeUtils.replace_file(
     "#{__dir__}/package.json",
     /^  "version": "[^"]*"/,
-    "  \"version\": \"#{version.gsub(/\.pre/, "-pre")}\""
+    "  \"version\": \"#{RakeUtils.gsub(/\.pre/, "-pre")}\""
   )
 
   DECIDIM_GEMS.each do |name|
-    replace_file(
+    RakeUtils.replace_file(
       "#{__dir__}/decidim-#{name}/lib/decidim/#{name}/version.rb",
       /def self\.version(\s*)"[^"]*"/,
-      "def self.version\\1\"#{version}\""
+      "def self.version\\1\"#{RakeUtils.version}\""
     )
   end
 
-  replace_file(
+  RakeUtils.replace_file(
     "#{__dir__}/lib/decidim/version.rb",
     /def self\.version(\s*)"[^"]*"/,
-    "def self.version\\1\"#{version}\""
+    "def self.version\\1\"#{RakeUtils.version}\""
   )
 end
 
@@ -71,9 +61,9 @@ end
 
 desc "Uninstalls all gems locally."
 task :uninstall_all do
-  system("gem uninstall decidim -v #{version} --executables --force")
+  system("gem uninstall decidim -v #{RakeUtils.version} --executables --force")
   DECIDIM_GEMS.each do |name|
-    system("gem uninstall decidim-#{name} -v #{version} --executables --force")
+    system("gem uninstall decidim-#{name} -v #{RakeUtils.version} --executables --force")
   end
 end
 
@@ -128,4 +118,16 @@ end
 desc "Build webpack bundle files"
 task :webpack do
   sh "yarn install && yarn build:prod"
+end
+
+module RakeUtils
+  def self.replace_file(name, regexp, replacement)
+    new_content = File.read(name).gsub(regexp, replacement)
+
+    File.open(name, "w") { |f| f.write(new_content) }
+  end
+
+  def self.version
+    File.read("#{__dir__}/.decidim-version").strip
+  end
 end
