@@ -12,8 +12,16 @@ RSpec::Core::RakeTask.new(:spec)
 task default: :spec
 
 desc "Runs all tests in all Decidim engines"
-task :test_all do
-  RakeUtils.run_all "rake", except: ["dev"]
+task test_all: [:test_main, :test_subgems]
+
+desc "Runs all tests in decidim subgems"
+task test_subgems: :test_app do
+  RakeUtils.run_all "rake", except: ["dev"], include_root: false
+end
+
+desc "Runs all tests in the main decidim gem"
+task :test_main do
+  RakeUtils.run "rake"
 end
 
 desc "Update version in all gems to the one set in the `.decidim-version` file"
@@ -111,17 +119,21 @@ module RakeUtils
     File.read("#{__dir__}/.decidim-version").strip
   end
 
-  def self.run_all(command, out: STDOUT, except: [])
-    tested_gems = DECIDIM_GEMS - except
+  def self.run_all(command, out: STDOUT, except: [], include_root: true)
+    dirs = (DECIDIM_GEMS - except).map { |name| "#{__dir__}/decidim-#{name}" }
 
-    dirs = [__dir__] + tested_gems.map { |name| "#{__dir__}/decidim-#{name}" }
+    dirs += [__dir__] if include_root == true
 
     dirs.each do |dir|
-      Dir.chdir(dir) do
-        puts "Running command '#{command}' inside '#{File.basename(dir)}'..."
-        status = system(command, out: out)
-        abort unless status || ENV["FAIL_FAST"] == "false"
-      end
+      run command, dir: dir, out: out
+    end
+  end
+
+  def self.run(command, dir: __dir__, out: STDOUT)
+    Dir.chdir(dir) do
+      puts "Running command '#{command}' inside '#{File.basename(dir)}'..."
+      status = system(command, out: out)
+      abort unless status || ENV["FAIL_FAST"] == "false"
     end
   end
 end
