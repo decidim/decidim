@@ -9,6 +9,8 @@ RUN apk add --update ruby-dev build-base \
     libxml2-dev libxslt-dev pcre-dev libffi-dev \
     postgresql-dev
 
+RUN apk add --update tzdata
+
 RUN git init .
 COPY .gitignore .
 

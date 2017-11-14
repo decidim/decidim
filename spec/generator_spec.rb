@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe "Application generation" do
-  let(:status) { Bundler.clean_system(command) }
+  let(:status) { Bundler.clean_system(command, out: File::NULL) }
 
   let(:test_app) { "spec/generator_test_app" }
 
