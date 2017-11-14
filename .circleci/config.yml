@@ -54,6 +54,9 @@ jobs:
           at: /decidim
       - checkout
       - run:
+          name: Install dependencies
+          command: bundle install
+      - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
@@ -75,6 +78,12 @@ jobs:
       - attach_workspace:
           at: /decidim
       - checkout
+      - run:
+          name: Install ruby dependencies
+          command: bundle install
+      - run:
+          name: Install node dependencies
+          command: bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
