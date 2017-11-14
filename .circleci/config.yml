@@ -495,7 +495,7 @@ jobs:
             - cc-test-coverage-cache-{{ .Branch }}-surveys
       - run:
           name: Sum CC test coverage reports
-          command: cc-test-reporter sum-coverage --output --parts 13 coverage/codeclimate.*.json | cc-test-reporter upload-coverage --input -
+          command: cc-test-reporter sum-coverage --output - --parts 13 coverage/codeclimate.*.json | cc-test-reporter upload-coverage --input -
 
 workflows:
   version: 2
