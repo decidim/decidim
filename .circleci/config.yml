@@ -30,14 +30,14 @@ jobs:
           name: Precompile test app assets
           command: cd spec/decidim_dummy_app && bundle exec rails assets:precompile
       - persist_to_workspace:
-          root: .
+          root: /app
           paths:
             - "*"
   main:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /
+          at: /app
       - checkout
       - run:
           name: Install ruby dependencies
@@ -58,7 +58,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /
+          at: /app
       - run: export CODECOV_FLAG=core
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -76,7 +76,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /
+          at: /app
       - run: export CODECOV_FLAG=assemblies
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -94,7 +94,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /
+          at: /app
       - run: export CODECOV_FLAG=api
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -112,7 +112,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /
+          at: /app
       - run: export CODECOV_FLAG=processes
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -130,7 +130,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /
+          at: /app
       - run: export CODECOV_FLAG=admin
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -148,7 +148,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /
+          at: /app
       - run: export CODECOV_FLAG=system
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -166,7 +166,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /
+          at: /app
       - run: export CODECOV_FLAG=proposals
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -184,7 +184,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /
+          at: /app
       - run: export CODECOV_FLAG=comments
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -202,7 +202,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /
+          at: /app
       - run: export CODECOV_FLAG=meetings
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -220,7 +220,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /
+          at: /app
       - run: export CODECOV_FLAG=pages
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -238,7 +238,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /
+          at: /app
       - run: export CODECOV_FLAG=accountability
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -256,7 +256,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /
+          at: /app
       - run: export CODECOV_FLAG=budgets
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -274,7 +274,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /
+          at: /app
       - run: export CODECOV_FLAG=surveys
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
