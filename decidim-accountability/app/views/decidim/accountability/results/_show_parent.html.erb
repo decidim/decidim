@@ -6,12 +6,29 @@
   <div class="small-12 columns">
     <h2 class="heading2"><%= translated_attribute result.title %></h2>
 
-    <div class="small-12 medium-8 column row end">
-      <div class="section">
-        <div class="description">
-          <%== translated_attribute result.description %>
+    <div class="row">
+      <div class="mediumlarge-8 columns">
+        <div class="section">
+          <div class="description">
+            <%== translated_attribute result.description %>
+          </div>
+          <%= render partial: "decidim/shared/tags", locals: { resource: result, tags_class_extra: "tags--result" } %>
         </div>
-        <%= render partial: "decidim/shared/tags", locals: { resource: result, tags_class_extra: "tags--result" } %>
+      </div>
+
+      <div class="columns section mediumlarge-4 large-3">
+        <div class="card extra definition-data">
+          <div class="definition-data__item versions_count">
+            <span class="definition-data__title"><%= t("results.show.stats.current_version_number", scope: "decidim.accountability") %></span>
+            <%= result.versions.count %>
+          </div>
+          <% if result.versions.last.whodunnit.present? %>
+            <div class="definition-data__item last_revision_by">
+              <span class="definition-data__title"><%= t("results.show.stats.last_edited_by", scope: "decidim.accountability") %></span>
+              <%= result.versions.last.whodunnit %>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
 

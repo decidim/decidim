@@ -135,6 +135,8 @@ en:
             attendees: Attendees
             comments: Comments
             contributions: Contributions
+            current_version_number: Version
+            last_edited_by: Last edited by
             meetings: Meetings
             proposals: Proposals
             votes: Supports
