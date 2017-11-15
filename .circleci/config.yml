@@ -16,8 +16,6 @@ jobs:
   build_test_app:
     <<: *defaults
     steps:
-      - attach_workspace:
-          at: /app
       - checkout
       - restore_cache:
          keys:
@@ -43,8 +41,8 @@ jobs:
       - persist_to_workspace:
           root: /
           paths:
-            - /app/*
-            - /usr/local/bundle/gems/*
+            - app/*
+            - usr/local/bundle/gems/*
   main:
     <<: *defaults
     steps:
