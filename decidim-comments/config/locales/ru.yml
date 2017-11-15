@@ -60,6 +60,7 @@ ru:
       comment_thread:
         title: Беседа с %{authorName}
       comments:
+        blocked_comments_warning: Комментарии сейчас отключены, но вы можете прочитать предыдущие."
         loading: Загрузка комментариев ...
         title: "%{count} комментариев"
       featured_comment:
