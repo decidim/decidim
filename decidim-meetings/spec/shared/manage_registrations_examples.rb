@@ -60,10 +60,12 @@ shared_examples "manage registrations" do
     end
 
     context "when inviting a unregistered user" do
-      it "the invited user sign up into the application and joins the meeting", perform_enqueued: true do
+      it "the invited user sign up into the application and joins the meeting" do
         visit_edit_registrations_page
 
-        fill_in_meeting_registration_invite name: "Foo", email: "foo@example.org"
+        perform_enqueued_jobs do
+          fill_in_meeting_registration_invite name: "Foo", email: "foo@example.org"
+        end
 
         logout :user
 
@@ -86,10 +88,12 @@ shared_examples "manage registrations" do
     context "when inviting a registered user" do
       let!(:registered_user) { create(:user, :confirmed, organization: organization) }
 
-      it "the invited user joins the meeting", perform_enqueued: true do
+      it "the invited user joins the meeting" do
         visit_edit_registrations_page
 
-        fill_in_meeting_registration_invite name: registered_user.name, email: registered_user.email
+        perform_enqueued_jobs do
+          fill_in_meeting_registration_invite name: registered_user.name, email: registered_user.email
+        end
 
         logout :user
 

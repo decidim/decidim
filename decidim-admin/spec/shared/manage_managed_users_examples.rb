@@ -110,11 +110,9 @@ shared_examples "manage managed users examples" do
     end
 
     context "when the admin is impersonating that user" do
-      before do
-        impersonate_the_managed_user
-      end
-
       it "closes the current session and check the logs" do
+        impersonate_the_managed_user
+
         visit decidim.root_path
 
         click_button "Close session"
@@ -124,7 +122,9 @@ shared_examples "manage managed users examples" do
         check_impersonation_logs
       end
 
-      it "spends all the session time and is redirected automatically", perform_enqueued: true do
+      it "spends all the session time and is redirected automatically" do
+        perform_enqueued_jobs { impersonate_the_managed_user }
+
         travel Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes
 
         expect(page).to have_content("expired")
@@ -133,7 +133,7 @@ shared_examples "manage managed users examples" do
       end
     end
 
-    it "can promote the user inviting them to the application", perform_enqueued: true do
+    it "can promote the user inviting them to the application" do
       navigate_to_managed_users_page
 
       within find("tr", text: managed_user.name) do
@@ -144,7 +144,7 @@ shared_examples "manage managed users examples" do
         fill_in :managed_user_promotion_email, with: "foo@example.org"
       end
 
-      click_button "Promote"
+      perform_enqueued_jobs { click_button "Promote" }
 
       expect(page).to have_content("successfully")
       expect(page).to have_content(managed_user.name)

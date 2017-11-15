@@ -49,8 +49,10 @@ module Decidim
             expect(admin).to be_created_by_invite
           end
 
-          it "sends a custom email", perform_enqueued: true do
-            expect { command.call }.to change { emails.count }.by(1)
+          it "sends a custom email" do
+            expect do
+              perform_enqueued_jobs { command.call }
+            end.to change { emails.count }.by(1)
             expect(last_email_body).to include(URI.encode_www_form(["/admin"]))
           end
 

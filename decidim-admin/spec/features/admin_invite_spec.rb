@@ -26,11 +26,14 @@ describe "Admin invite", type: :feature do
   end
 
   before do
-    expect { Decidim::System::RegisterOrganization.new(form).call }.to broadcast(:ok)
+    expect do
+      perform_enqueued_jobs { Decidim::System::RegisterOrganization.new(form).call }
+    end.to broadcast(:ok)
+
     switch_to_host("decide.lvh.me")
   end
 
-  describe "Accept an invitation", perform_enqueued: true do
+  describe "Accept an invitation" do
     it "asks for a password and redirects to the organization dashboard" do
       visit last_email_link
 

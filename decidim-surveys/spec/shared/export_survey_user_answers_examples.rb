@@ -8,17 +8,11 @@ shared_examples "export survey user answers" do
     end.flatten
   end
 
-  around do |example|
-    perform_enqueued_jobs do
-      example.run
-    end
-  end
-
   it "exports a CSV" do
     visit_feature_admin
 
     find(".exports.dropdown").click
-    click_link "CSV"
+    perform_enqueued_jobs { click_link "CSV" }
 
     within ".callout.success" do
       expect(page).to have_content("in progress")
@@ -33,7 +27,7 @@ shared_examples "export survey user answers" do
     visit_feature_admin
 
     find(".exports.dropdown").click
-    click_link "JSON"
+    perform_enqueued_jobs { click_link "JSON" }
 
     within ".callout.success" do
       expect(page).to have_content("in progress")
