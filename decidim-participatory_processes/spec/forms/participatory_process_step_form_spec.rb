@@ -63,10 +63,9 @@ module Decidim
           it { is_expected.to be_valid }
         end
 
-        context "when some language in title is missing" do
+        context "when default language in title is missing" do
           let(:title) do
             {
-              en: "Title",
               ca: "Títol"
             }
           end

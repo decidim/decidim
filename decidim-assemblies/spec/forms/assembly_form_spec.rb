@@ -94,10 +94,9 @@ module Decidim
           it { is_expected.not_to be_valid }
         end
 
-        context "when some language in title is missing" do
+        context "when default language in title is missing" do
           let(:title) do
             {
-              en: "Title",
               ca: "Títol"
             }
           end
@@ -105,10 +104,9 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when some language in subtitle is missing" do
+        context "when default language in subtitle is missing" do
           let(:subtitle) do
             {
-              en: "Subtitle",
               ca: "Subtítol"
             }
           end
@@ -116,7 +114,7 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when some language in description is missing" do
+        context "when default language in description is missing" do
           let(:description) do
             {
               ca: "Descripció"
@@ -126,10 +124,10 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when some language in short_description is missing" do
+        context "when default language in short_description is missing" do
           let(:short_description) do
             {
-              en: "Short description"
+              ca: "Descripció curta"
             }
           end
 
