@@ -3,3 +3,4 @@
 pkg/
 .git
 .github
+node_modules/
