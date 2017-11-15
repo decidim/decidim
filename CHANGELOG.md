@@ -1,5 +1,8 @@
 # Change Log
 
+## [v0.7.3](https://github.com/decidim/decidim/tree/v0.7.3) (2017-11-15)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.7.2...v0.7.3)
+
 **Fixed**:
 
 - **decidim-meetings**: Admins could not submit form after getting a validation error in the meeting registrations form [\2202](https://github.com/decidim/decidim/pull/2202)
