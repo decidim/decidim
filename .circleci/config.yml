@@ -19,8 +19,8 @@ jobs:
       - checkout
       - restore_cache:
          keys:
-          - decidim-{{ .Branch }}
-          - decidim-master
+          - decidim-alpine-{{ .Branch }}
+          - decidim-alpine-master
       - run:
           name: Install ruby dependencies
           command: bundle install
@@ -34,7 +34,7 @@ jobs:
           name: Precompile test app assets
           command: cd spec/decidim_dummy_app && bundle exec rails assets:precompile
       - save_cache:
-          key: decidim-{{ .Branch }}
+          key: decidim-alpine-{{ .Branch }}
           paths:
             - /app/node_modules
             - /usr/local/bundle/gems
