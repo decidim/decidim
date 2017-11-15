@@ -13,6 +13,10 @@
 - **decidim-core**: Hide link to register when user is already logged in [\#2088](https://github.com/decidim/decidim/pull/2088)
 - **decidim-proposals**: Change "Already voted" to "Unvote" on button hover [\#2096](https://github.com/decidim/decidim/pull/2096)
 
+**Fixed**:
+
+- **decidim-meetings**: Admins could not submit form after getting a validation error in the meeting registrations form [\2202](https://github.com/decidim/decidim/pull/2202)
+
 ## [v0.7.2](https://github.com/decidim/decidim/tree/v0.7.2) (2017-11-06)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.7.1...v0.7.2)
 
