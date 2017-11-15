@@ -68,7 +68,10 @@ jobs:
           command: rake test_app
       - run:
           name: Precompile test app assets
-          command: cd /decidim/spec/decidim_dummy_app && rails assets:precompile
+          command: |
+            cd /decidim/spec/decidim_dummy_app
+            bundle install
+            rails assets:precompile
       - save_cache:
           key: decidim-{{ .Branch }}
           paths:
