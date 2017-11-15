@@ -5,24 +5,21 @@
 #
 #   validates :my_i18n_field, translatable_presence: true
 #
-# This will automatically check for presence for each of the
-# `available_locales` of the form object (or the `available_locales` of the
-# form's organization) for the given field.
+# This will automatically check for presence for the default locale of the form
+# object (or the `default_locale` of the form's organization) for the given field.
 class TranslatablePresenceValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, _value)
-    available_locales_for(record).each do |locale|
-      translated_attr = "#{attribute}_#{locale}"
-      record.errors.add(translated_attr, :blank) if record.send(translated_attr).blank?
-    end
+    translated_attr = "#{attribute}_#{default_locale_for(record)}"
+    record.errors.add(translated_attr, :blank) if record.send(translated_attr).blank?
   end
 
   private
 
-  def available_locales_for(record)
-    return record.available_locales if record.respond_to?(:available_locales)
+  def default_locale_for(record)
+    return record.default_locale if record.respond_to?(:default_locale)
 
     if record.current_organization
-      record.current_organization.available_locales
+      record.current_organization.default_locale
     else
       record.errors.add(:current_organization, :blank)
       []
