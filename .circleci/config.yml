@@ -41,9 +41,10 @@ jobs:
             - /app/node_modules
             - /usr/local/bundle/gems
       - persist_to_workspace:
-          root: .
+          root: /
           paths:
-            - "*"
+            - /app/*
+            - /usr/local/bundle/gems/*
   main:
     <<: *defaults
     steps:
@@ -51,7 +52,7 @@ jobs:
           name: "Remove image's decidim folder"
           command: rm -fR /decidim
       - attach_workspace:
-          at: /decidim
+          at: /
       - checkout
       - restore_cache:
          keys:
@@ -81,7 +82,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /decidim
+          at: /
       - run: export CODECOV_FLAG=core
       - run:
           name: Wait for db
@@ -101,7 +102,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /decidim
+          at: /
       - run: export CODECOV_FLAG=assemblies
       - run:
           name: Wait for db
@@ -121,7 +122,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /decidim
+          at: /
       - run: export CODECOV_FLAG=api
       - run:
           name: Wait for db
@@ -141,7 +142,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /decidim
+          at: /
       - run: export CODECOV_FLAG=processes
       - run:
           name: Wait for db
@@ -161,7 +162,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /decidim
+          at: /
       - run: export CODECOV_FLAG=admin
       - run:
           name: Wait for db
@@ -181,7 +182,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /decidim
+          at: /
       - run: export CODECOV_FLAG=system
       - run:
           name: Wait for db
@@ -201,7 +202,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /decidim
+          at: /
       - run: export CODECOV_FLAG=proposals
       - run:
           name: Wait for db
@@ -221,7 +222,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /decidim
+          at: /
       - run: export CODECOV_FLAG=comments
       - run:
           name: Wait for db
@@ -241,7 +242,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /decidim
+          at: /
       - run: export CODECOV_FLAG=meetings
       - run:
           name: Wait for db
@@ -261,7 +262,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /decidim
+          at: /
       - run: export CODECOV_FLAG=pages
       - run:
           name: Wait for db
@@ -281,7 +282,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /decidim
+          at: /
       - run: export CODECOV_FLAG=accountability
       - run:
           name: Wait for db
@@ -301,7 +302,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /decidim
+          at: /
       - run: export CODECOV_FLAG=budgets
       - run:
           name: Wait for db
@@ -321,7 +322,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /decidim
+          at: /
       - run: export CODECOV_FLAG=surveys
       - run:
           name: Wait for db
@@ -342,7 +343,6 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build_docker_images
       - build_test_app
       - main
       - core:
