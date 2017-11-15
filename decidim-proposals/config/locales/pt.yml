@@ -106,7 +106,7 @@ pt:
             other: "%{count} propostas"
         edit:
           attachment_legend: "(Opcional) Adicionar um anexo"
-          back: Costas
+          back: Voltar
           select_a_category: Selecione uma categoria
           send: Enviar
           title: Editar proposta
@@ -141,7 +141,7 @@ pt:
             other: votos
         new:
           attachment_legend: "(Opcional) Adicionar um anexo"
-          back: Costas
+          back: Voltar
           proposal_edit_before_minutes:
             one: Você poderá editar esta proposta durante o primeiro minuto após a criação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
             other: Você poderá editar esta proposta durante os primeiros %{count} minutos após a criação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
