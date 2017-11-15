@@ -17,6 +17,11 @@ module Decidim
         validates :available_slots, numericality: { greater_than_or_equal_to: 0 }, if: ->(form) { form.registrations_enabled? }
         validate :available_slots_greater_than_or_equal_to_registrations_count, if: ->(form) { form.registrations_enabled? && form.available_slots.positive? }
 
+        def id
+          return super if super.present?
+          meeting.id
+        end
+
         private
 
         def available_slots_greater_than_or_equal_to_registrations_count
