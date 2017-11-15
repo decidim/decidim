@@ -79,8 +79,8 @@ jobs:
       - persist_to_workspace:
           root: /
           paths:
-            - "/usr/local/bundle/gems/*"
-            - "/decidim/*"
+            - "usr/local/bundle/gems/*"
+            - "decidim/*"
   main:
     <<: *defaults
     steps:
