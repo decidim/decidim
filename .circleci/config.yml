@@ -17,10 +17,6 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - restore_cache:
-         keys:
-          - decidim-alpine-{{ .Branch }}
-          - decidim-alpine-master
       - run:
           name: Install ruby dependencies
           command: bundle install
@@ -32,12 +28,7 @@ jobs:
           command: bundle exec rake test_app
       - run:
           name: Precompile test app assets
-          command: cd spec/decidim_dummy_app && bundle install && bundle exec rails assets:precompile
-      - save_cache:
-          key: decidim-alpine-{{ .Branch }}
-          paths:
-            - /app/node_modules
-            - /usr/local/bundle/gems
+          command: cd spec/decidim_dummy_app && bundle exec rails assets:precompile
       - persist_to_workspace:
           root: /
           paths:
@@ -49,10 +40,6 @@ jobs:
       - attach_workspace:
           at: /
       - checkout
-      - restore_cache:
-         keys:
-          - decidim-alpine-{{ .Branch }}
-          - decidim-alpine-master
       - run:
           name: Install ruby dependencies
           command: bundle install
@@ -68,17 +55,13 @@ jobs:
       - run:
           name: Run main folder RSpec
           command: bundle exec rspec
-      - save_cache:
-          key: decidim-{{ .Branch }}
-          paths:
-            - /decidim/node_modules
-            - /usr/local/bundle/gems
   core:
     <<: *defaults
     steps:
       - attach_workspace:
           at: /
       - run: export CODECOV_FLAG=core
+      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
