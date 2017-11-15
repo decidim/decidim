@@ -32,7 +32,7 @@ jobs:
           command: bundle exec rake test_app
       - run:
           name: Precompile test app assets
-          command: cd spec/decidim_dummy_app && bundle exec rails assets:precompile
+          command: cd spec/decidim_dummy_app && bundle install && bundle exec rails assets:precompile
       - save_cache:
           key: decidim-alpine-{{ .Branch }}
           paths:
