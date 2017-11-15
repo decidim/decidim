@@ -30,10 +30,9 @@ jobs:
           name: Precompile test app assets
           command: cd spec/decidim_dummy_app && bundle exec rails assets:precompile
       - persist_to_workspace:
-          root: /
+          root: .
           paths:
-            - app/*
-            - usr/local/bundle/gems/*
+            - "*"
   main:
     <<: *defaults
     steps:
@@ -69,19 +68,17 @@ jobs:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
-          name: Run core JS tests
-          command: npm test -- decidim-core
-      - run:
           name: Run core RSpec
           command: cd decidim-core && rake
       - store_artifacts:
-          path: /decidim/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   assemblies:
     <<: *defaults
     steps:
       - attach_workspace:
           at: /
       - run: export CODECOV_FLAG=assemblies
+      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -89,19 +86,17 @@ jobs:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
-          name: Run assemblies JS tests
-          command: npm test -- decidim-assemblies
-      - run:
           name: Run assemblies RSpec
           command: cd decidim-assemblies && rake
       - store_artifacts:
-          path: /decidim/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   api:
     <<: *defaults
     steps:
       - attach_workspace:
           at: /
       - run: export CODECOV_FLAG=api
+      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -109,19 +104,17 @@ jobs:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
-          name: Run api JS tests
-          command: npm test -- decidim-api
-      - run:
           name: Run api RSpec
           command: cd decidim-api && rake
       - store_artifacts:
-          path: /decidim/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   processes:
     <<: *defaults
     steps:
       - attach_workspace:
           at: /
       - run: export CODECOV_FLAG=processes
+      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -129,19 +122,17 @@ jobs:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
-          name: Run participatory_processes JS tests
-          command: npm test -- decidim-participatory_processes
-      - run:
           name: Run participatory_processes RSpec
           command: cd decidim-participatory_processes && rake
       - store_artifacts:
-          path: /decidim/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   admin:
     <<: *defaults
     steps:
       - attach_workspace:
           at: /
       - run: export CODECOV_FLAG=admin
+      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -149,19 +140,17 @@ jobs:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
-          name: Run admin JS tests
-          command: npm test -- decidim-admin
-      - run:
           name: Run admin RSpec
           command: cd decidim-admin && rake
       - store_artifacts:
-          path: /decidim/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   system:
     <<: *defaults
     steps:
       - attach_workspace:
           at: /
       - run: export CODECOV_FLAG=system
+      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -169,19 +158,17 @@ jobs:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
-          name: Run system JS tests
-          command: npm test -- decidim-system
-      - run:
           name: Run system RSpec
           command: cd decidim-system && rake
       - store_artifacts:
-          path: /decidim/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   proposals:
     <<: *defaults
     steps:
       - attach_workspace:
           at: /
       - run: export CODECOV_FLAG=proposals
+      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -189,19 +176,17 @@ jobs:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
-          name: Run proposals JS tests
-          command: npm test -- decidim-proposals
-      - run:
           name: Run proposals RSpec
           command: cd decidim-proposals && rake
       - store_artifacts:
-          path: /decidim/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   comments:
     <<: *defaults
     steps:
       - attach_workspace:
           at: /
       - run: export CODECOV_FLAG=comments
+      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -209,19 +194,17 @@ jobs:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
-          name: Run comments JS tests
-          command: npm test -- decidim-comments
-      - run:
           name: Run comments RSpec
           command: cd decidim-comments && rake
       - store_artifacts:
-          path: /decidim/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   meetings:
     <<: *defaults
     steps:
       - attach_workspace:
           at: /
       - run: export CODECOV_FLAG=meetings
+      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -229,19 +212,17 @@ jobs:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
-          name: Run meetings JS tests
-          command: npm test -- decidim-meetings
-      - run:
           name: Run meetings RSpec
           command: cd decidim-meetings && rake
       - store_artifacts:
-          path: /decidim/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   pages:
     <<: *defaults
     steps:
       - attach_workspace:
           at: /
       - run: export CODECOV_FLAG=pages
+      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -249,19 +230,17 @@ jobs:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
-          name: Run pages JS tests
-          command: npm test -- decidim-pages
-      - run:
           name: Run pages RSpec
           command: cd decidim-pages && rake
       - store_artifacts:
-          path: /decidim/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   accountability:
     <<: *defaults
     steps:
       - attach_workspace:
           at: /
       - run: export CODECOV_FLAG=accountability
+      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -269,19 +248,17 @@ jobs:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
-          name: Run accountability JS tests
-          command: npm test -- decidim-accountability
-      - run:
           name: Run accountability RSpec
           command: cd decidim-accountability && rake
       - store_artifacts:
-          path: /decidim/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   budgets:
     <<: *defaults
     steps:
       - attach_workspace:
           at: /
       - run: export CODECOV_FLAG=budgets
+      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -289,19 +266,17 @@ jobs:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
-          name: Run budgets JS tests
-          command: npm test -- decidim-budgets
-      - run:
           name: Run budgets RSpec
           command: cd decidim-budgets && rake
       - store_artifacts:
-          path: /decidim/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   surveys:
     <<: *defaults
     steps:
       - attach_workspace:
           at: /
       - run: export CODECOV_FLAG=surveys
+      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -309,13 +284,10 @@ jobs:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
-          name: Run surveys JS tests
-          command: npm test -- decidim-surveys
-      - run:
           name: Run surveys RSpec
           command: cd decidim-surveys && rake
       - store_artifacts:
-          path: /decidim/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
 
 workflows:
   version: 2
