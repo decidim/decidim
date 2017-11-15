@@ -60,7 +60,7 @@ uk:
       comment_thread:
         title: Бесіда з %{authorName}
       comments:
-        blocked_comments_warning: Коментарі в даний час вимкнені, але ви можете прочитати попередні."
+        blocked_comments_warning: Коментарі зараз вимкнені, але ви можете прочитати попередні."
         loading: Завантаження коментарів...
         title: "%{count} коментарів"
       featured_comment:
