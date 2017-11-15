@@ -14,7 +14,7 @@ pt:
         weight: Peso
       newsletter:
         body: Corpo
-        subject: Sujeito
+        subject: Assunto
       organization:
         default_locale: Idioma por defeito
         name: Nome
@@ -65,7 +65,7 @@ pt:
         short_description: Pequena descrição
         slug: Slug de URL
         start_date: Data de início
-        subtitle: Legenda
+        subtitle: Subtítulo
         target: Alvo
         title: Título
       decidim/participatory_process_group:
@@ -144,20 +144,20 @@ pt:
           success: Permissões atualizadas com sucesso.
       features:
         create:
-          error: Ocorreu um erro ao criar esse recurso.
+          error: Houve um erro na criação da funcionalidade.
           success: Recurso criado com sucesso.
         destroy:
           error: Ocorreu um erro ao destruir esse recurso.
           success: Recurso eliminado com sucesso.
         edit:
-          title: Editar recurso
+          title: Editar funcionalidade
           update: Atualizar
         form:
           default_step_settings: Configurações por defeito
           global_settings: Configurações globais
           step_settings: Configurações de etapa
         index:
-          add: Adicionar recurso
+          add: Adicionar funcionalidade
           headers:
             actions: Ações
             name: Nome do recurso
@@ -167,7 +167,7 @@ pt:
           title: 'Adicionar recurso: %{name}'
         publish:
           success: O recurso foi publicado com sucesso.
-        title: Características
+        title: Funcionalidades
         unpublish:
           success: O recurso foi inesperado com sucesso.
         update:
@@ -358,14 +358,14 @@ pt:
         destroy:
           success: Escopo destruído com sucesso
         edit:
-          title: Editar o escopo
+          title: Editar o âmbito
           update: Atualizar
         new:
-          create: Criar escopo
-          title: Novo escopo
-        no_scopes: Nenhum escopo neste nível.
+          create: Criar âmbito
+          title: Novo âmbito
+        no_scopes: Nenhum âmbito neste nível.
         update:
-          error: Ocorreu um erro ao atualizar esse escopo.
+          error: Ocorreu um erro ao atualizar esse âmbito.
           success: Escopo atualizado com sucesso
       static_pages:
         actions:
