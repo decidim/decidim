@@ -51,8 +51,8 @@ jobs:
       - checkout
       - restore_cache:
          keys:
-          - decidim-{{ .Branch }}
-          - decidim-master
+          - decidim-alpine-{{ .Branch }}
+          - decidim-alpine-master
       - run:
           name: Install ruby dependencies
           command: bundle install
