@@ -6,8 +6,8 @@ pt:
       report:
         details: Comentários adicionais
       user:
-        email: Seu email
-        name: Seu nome
+        email: O seu email
+        name: O seu nome
         password: Nova senha
         password_confirmation: Confirme sua nova senha
         remove_avatar: Remover avatar
@@ -18,14 +18,14 @@ pt:
     attributes:
       decidim/user:
         current_password: Senha atual
-        email: O email
+        email: Email
         name: Nome de usuário
         password: Senha
-        password_confirmation: ConfirmaÇão Da Senha
-        remember_me: Lembre de mim
+        password_confirmation: Confirmação da senha
+        remember_me: Recorde-me
         user_group_document_number: Número do documento de organização
         user_group_name: Nome da organização
-        user_group_phone: Telefone de organização
+        user_group_phone: Telefone da organização
   booleans:
     'false': 'Não'
     'true': 'Sim'
@@ -37,7 +37,7 @@ pt:
       delete:
         alert: Essa ação não pode ser desfeita. Se você excluir sua conta, não poderá fazer login.
         confirm:
-          close: Janela fechada
+          close: Fechar janela
           ok: Sim, eu quero excluir minha conta
           question: Tem certeza de que deseja excluir a sua conta?
           title: Eliminar a minha conta
@@ -68,7 +68,7 @@ pt:
         duplicate_authorization: Um usuário já está autorizado com os mesmos dados.
       foo_authorization:
         fields:
-          bar: Barra
+          bar: Bar
           foo: Foo
         name: Autorização Foo
     authorizations:
