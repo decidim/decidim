@@ -9,6 +9,7 @@
 
 **Changed**:
 
+- **decidim-core**: Only require default locale translations for i18n fields [\#2204](https://github.com/decidim/decidim/pull/2204)
 - **decidim-admin**: Replace url to visit_url moderation admin [\#2129](https://github.com/decidim/decidim/pull/2129)
 - **decidim-core**: Hide link to register when user is already logged in [\#2088](https://github.com/decidim/decidim/pull/2088)
 - **decidim-proposals**: Change "Already voted" to "Unvote" on button hover [\#2096](https://github.com/decidim/decidim/pull/2096)
