@@ -25,7 +25,7 @@ pt:
         description: Descrição
         favicon: Ícone
         header_snippets: Snippets de cabeçalho
-        homepage_image: Imagem do site inicial
+        homepage_image: Imagem da página principal
         logo: Logotipo
         official_img_footer: Símbolo oficial do rodapé
         official_img_header: Cabeçalho do logotipo oficial
@@ -36,7 +36,7 @@ pt:
         code: Código
         name: Nome
         organization: Organização
-        scope_type: Tipo de escopo
+        scope_type: Tipo de âmbito
       scope_type:
         name: Nome
         organization: Organização
@@ -49,20 +49,20 @@ pt:
   activerecord:
     attributes:
       decidim/participatory_process:
-        banner_image: Imagem da bandeira
+        banner_image: Imagem do banner
         description: Descrição
         developer_group: Grupo de desenvolvedores
         domain: Domínio
-        end_date: Data final
+        end_date: Data de fim
         hashtag: Hashtag
-        hero_image: Imagem inicial
-        local_area: Área Local
-        meta_scope: Metadados do escopo
-        participatory_scope: Escopo participativo
+        hero_image: Imagem da página principal
+        local_area: Área municipal
+        meta_scope: Metadados do âmbito
+        participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
         promoted: Promovido
-        scope: Escopo
-        short_description: Pequena descrição
+        scope: Âmbito
+        short_description: Breve descrição
         slug: Slug de URL
         start_date: Data de início
         subtitle: Subtítulo
