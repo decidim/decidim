@@ -2,6 +2,7 @@
 
 module Decidim
   class NewsletterMailer < ApplicationMailer
+    helper Decidim::SanitizeHelper
     add_template_helper Decidim::TranslationsHelper
 
     def newsletter(user, newsletter)

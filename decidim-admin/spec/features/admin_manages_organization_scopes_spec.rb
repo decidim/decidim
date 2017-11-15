@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Organization scopes", type: :feature do
-  include ActionView::Helpers::SanitizeHelper
+  include Decidim::SanitizeHelper
 
   let(:admin) { create :user, :admin, :confirmed }
   let(:organization) { admin.organization }

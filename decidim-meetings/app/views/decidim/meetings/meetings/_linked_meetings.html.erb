@@ -14,7 +14,7 @@
               <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
             </div>
           </div>
-          <%= sanitize translated_attribute meeting.description %>
+          <%= decidim_sanitize translated_attribute meeting.description %>
         </div>
       </article>
     </div>

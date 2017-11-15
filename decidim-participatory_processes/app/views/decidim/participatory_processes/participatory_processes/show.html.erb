@@ -15,9 +15,9 @@
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
         <div class="lead">
-          <%= sanitize translated_attribute(current_participatory_process.short_description) %>
+          <%= decidim_sanitize translated_attribute(current_participatory_process.short_description) %>
         </div>
-        <%= sanitize translated_attribute(current_participatory_process.description) %>
+        <%= decidim_sanitize translated_attribute(current_participatory_process.description) %>
       </div>
       <%= attachments_for current_participatory_process %>
     </div>
