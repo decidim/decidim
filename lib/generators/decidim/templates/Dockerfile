@@ -1,5 +1,5 @@
-FROM ruby:2.4.2
-MAINTAINER david.morcillo@codegram.com
+FROM decidim/decidim
+MAINTAINER info@codegram.com
 
 ARG rails_env=production
 ARG secret_key_base=

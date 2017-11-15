@@ -46,9 +46,6 @@ jobs:
   main:
     <<: *defaults
     steps:
-      - run:
-          name: "Remove image's decidim folder"
-          command: rm -fR /decidim
       - attach_workspace:
           at: /
       - checkout

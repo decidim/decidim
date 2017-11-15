@@ -1,5 +1,5 @@
-FROM codegram/decidim
-MAINTAINER david.morcillo@codegram.com
+FROM decidim/decidim:dev-latest
+MAINTAINER decidim/decidim:dev-latest
 
 ARG rails_env=development
 ARG secret_key_base=
