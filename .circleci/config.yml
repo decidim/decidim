@@ -22,7 +22,7 @@ jobs:
           - decidim-{{ .Branch }}
           - decidim-master
       - run:
-          name: Install dependencies
+          name: Install ruby dependencies
           command: bundle install
       - run:
           name: Wait for db
