@@ -179,7 +179,7 @@ ru:
       expired_session: Текущий сеанс выступления в роли участника истек.
     menu:
       home: Главная
-      more_information: Больше сведений
+      more_information: Узнать больше
     newsletter_mailer:
       newsletter:
         note: Вы получили это электронное письмо, потому что подписались на новостные рассылки %{organization_name}. Вы можете изменить свои настройки на своей <a href="%{link}">странице уведомлений</a>.
@@ -198,7 +198,7 @@ ru:
         verified: Проверено
     pages:
       index:
-        title: Больше сведений
+        title: Узнать больше
     reported_mailer:
       hide:
         hello: Здравствуйте, %{name}!
@@ -344,7 +344,7 @@ ru:
         how_to_participate: Как принять участие в движении?
         meetings: Встречи
         meetings_explanation: Узнайте, где и когда вы можете принять участие в открытых встречах.
-        more_info: Дополнительные сведения
+        more_info: Узнать больше
         proposals: Предложения
         proposals_explanation: Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.
       footer_sub_hero:
