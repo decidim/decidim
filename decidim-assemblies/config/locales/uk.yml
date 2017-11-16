@@ -129,7 +129,7 @@ uk:
             many: "%{count} зборів"
             other: "%{count} зборів"
         promoted_assembly:
-          more_info: Додаткові відомості
+          more_info: Дізнатися більше
           take_part: Взяти участь
       assembly_header:
         assembly_menu_item: Збори
