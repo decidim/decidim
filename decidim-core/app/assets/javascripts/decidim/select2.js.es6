@@ -6,3 +6,4 @@
 // = require select2_locale_fr
 // = require select2_locale_it
 // = require select2_locale_nl
+// = require select2_locale_pt
