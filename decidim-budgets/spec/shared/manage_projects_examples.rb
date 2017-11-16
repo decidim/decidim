@@ -85,7 +85,7 @@ shared_examples "manage projects" do
       )
       fill_in :project_budget, with: 22_000_000
 
-      select2 translated(scope.name), id: "project_decidim_scope_id", search: false
+      select2 translated(scope.name), id: "project_decidim_scope_id"
       select translated(category.name), from: :project_decidim_category_id
 
       find("*[type=submit]").click
