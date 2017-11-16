@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: decidim/decidim:dev-latest
+    - image: decidim/decidim:latest-dev
       environment:
         SIMPLECOV: true
         DATABASE_USERNAME: postgres

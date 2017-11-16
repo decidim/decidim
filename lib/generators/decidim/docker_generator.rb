@@ -29,7 +29,6 @@ module Decidim
       end
 
       def build_docker
-        template "Dockerfile.dev", "#{docker_app_path}/Dockerfile", force: true
         inside(docker_app_path) do
           gsub_file "Gemfile",
                     /gem "decidim([^"]*)".*/,
