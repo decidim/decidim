@@ -68,10 +68,10 @@ end
 
 desc "Installs all gems locally."
 task :install_all do
-  system "rake install"
+  system "rake install:local"
   DECIDIM_GEMS.each do |name|
     Dir.chdir("#{__dir__}/decidim-#{name}") do
-      system "rake install"
+      system "rake install:local"
     end
   end
 end
