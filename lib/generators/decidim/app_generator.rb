@@ -93,7 +93,7 @@ module Decidim
                        end
 
         gsub_file "Gemfile", /gem "decidim([^"]*)".*/, "gem \"decidim\\1\", #{gem_modifier}"
-        run "bundle install"
+        run "BUNDLE_GEMFILE=Gemfile bundle install"
       end
 
       def add_ignore_uploads
