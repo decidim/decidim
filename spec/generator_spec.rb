@@ -20,13 +20,13 @@ describe "Application generation" do
   end
 
   context "with --edge flag" do
-    let(:command) { "bin/decidim --edge #{test_app}" }
+    let(:command) { "bundle exec decidim --edge #{test_app}" }
 
     it_behaves_like "a sane generator"
   end
 
   context "with --branch flag" do
-    let(:command) { "bin/decidim --branch master #{test_app}" }
+    let(:command) { "bundle exec decidim --branch master #{test_app}" }
 
     it_behaves_like "a sane generator"
   end
