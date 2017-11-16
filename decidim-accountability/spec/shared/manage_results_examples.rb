@@ -64,7 +64,7 @@ shared_examples "manage results" do
         ca: "Descripció més llarga"
       )
 
-      select2 translated(scope.name), id: "result_decidim_scope_id", search: true
+      select2 translated(scope.name), id: "result_decidim_scope_id", search: false
 
       select translated(category.name), from: :result_decidim_category_id
 

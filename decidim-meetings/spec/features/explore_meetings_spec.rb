@@ -64,7 +64,7 @@ describe "Explore meetings", type: :feature do
         visit_feature
 
         within ".filters" do
-          select2(translated(scope.name), id: "filter_scope_id", search: true)
+          select2(translated(scope.name), id: "filter_scope_id", search: false)
         end
 
         expect(page).to have_css(".card--meeting", count: 1)

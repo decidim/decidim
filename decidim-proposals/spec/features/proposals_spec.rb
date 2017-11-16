@@ -74,7 +74,7 @@ describe "Proposals", type: :feature do
             fill_in :proposal_title, with: "Oriol for president"
             fill_in :proposal_body, with: "He will solve everything"
             select translated(category.name), from: :proposal_category_id
-            select2 translated(scope.name), id: "proposal_scope_id", search: true
+            select2 translated(scope.name), id: "proposal_scope_id", search: false
 
             find("*[type=submit]").click
           end
@@ -109,7 +109,7 @@ describe "Proposals", type: :feature do
 
               fill_in :proposal_address, with: address
               select translated(category.name), from: :proposal_category_id
-              select2 translated(scope.name), id: "proposal_scope_id", search: true
+              select2 translated(scope.name), id: "proposal_scope_id", search: false
 
               find("*[type=submit]").click
             end
@@ -139,7 +139,7 @@ describe "Proposals", type: :feature do
               fill_in :proposal_title, with: "Oriol for president"
               fill_in :proposal_body, with: "He will solve everything"
               select translated(category.name), from: :proposal_category_id
-              select2 translated(scope.name), id: "proposal_scope_id", search: true
+              select2 translated(scope.name), id: "proposal_scope_id", search: false
               select user_group.name, from: :proposal_user_group_id
 
               find("*[type=submit]").click
@@ -174,7 +174,7 @@ describe "Proposals", type: :feature do
 
                 fill_in :proposal_address, with: address
                 select translated(category.name), from: :proposal_category_id
-                select2 translated(scope.name), id: "proposal_scope_id", search: true
+                select2 translated(scope.name), id: "proposal_scope_id", search: false
                 select user_group.name, from: :proposal_user_group_id
 
                 find("*[type=submit]").click
@@ -676,7 +676,7 @@ describe "Proposals", type: :feature do
         context "selecting one scope" do
           it "lists the filtered proposals" do
             within ".filters" do
-              select2(translated(scope.name), id: "filter_scope_id", search: true)
+              select2(translated(scope.name), id: "filter_scope_id", search: false)
             end
 
             expect(page).to have_css(".card--proposal", count: 2)
@@ -687,7 +687,7 @@ describe "Proposals", type: :feature do
         context "selecting the global scope and another scope" do
           it "lists the filtered proposals" do
             within ".filters" do
-              select2(translated(scope.name), id: "filter_scope_id", search: true)
+              select2(translated(scope.name), id: "filter_scope_id", search: false)
               select2("Global scope", id: "filter_scope_id", search: false)
             end
 
