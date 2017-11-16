@@ -21,6 +21,9 @@ jobs:
           name: Install ruby dependencies
           command: bundle install
       - run:
+          name: Install npm dependencies
+          command: npm install
+      - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:

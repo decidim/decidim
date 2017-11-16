@@ -2,6 +2,8 @@ version: '3'
 services:
   decidim:
     image: decidim/decidim:dev-latest
+    entrypoint: []
+    command: decidim
     volumes:
       - .:/app
       - bundle:/usr/local/bundle
