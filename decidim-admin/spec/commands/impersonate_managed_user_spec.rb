@@ -50,8 +50,8 @@ describe Decidim::Admin::ImpersonateManagedUser do
       end.to change { Decidim::ImpersonationLog.count }.by(1)
     end
 
-    it "expires the impersonation session automatically", perform_enqueued: true do
-      subject.call
+    it "expires the impersonation session automatically" do
+      perform_enqueued_jobs { subject.call }
       travel Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes
       expect(Decidim::ImpersonationLog.last).to be_expired
     end

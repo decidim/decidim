@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe UpdateAccount, perform_enqueued: true do
+  describe UpdateAccount do
     let(:command) { described_class.new(user, form) }
     let(:user) { create(:user, :confirmed) }
     let(:valid) { true }
@@ -64,7 +64,9 @@ module Decidim
         end
 
         it "sends a reconfirmation email" do
-          expect { command.call }.to broadcast(:ok, true)
+          expect do
+            perform_enqueued_jobs { command.call }
+          end.to broadcast(:ok, true)
           expect(last_email.to).to include("new@email.com")
         end
       end

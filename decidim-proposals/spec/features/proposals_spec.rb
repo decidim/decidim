@@ -74,7 +74,7 @@ describe "Proposals", type: :feature do
             fill_in :proposal_title, with: "Oriol for president"
             fill_in :proposal_body, with: "He will solve everything"
             select translated(category.name), from: :proposal_category_id
-            select2 translated(scope.name), xpath: '//select[@id="proposal_scope_id"]/..', search: true
+            select2 translated(scope.name), from: :proposal_scope_id
 
             find("*[type=submit]").click
           end
@@ -109,7 +109,7 @@ describe "Proposals", type: :feature do
 
               fill_in :proposal_address, with: address
               select translated(category.name), from: :proposal_category_id
-              select2 translated(scope.name), xpath: '//select[@id="proposal_scope_id"]/..', search: true
+              select2 translated(scope.name), from: :proposal_scope_id
 
               find("*[type=submit]").click
             end
@@ -139,7 +139,7 @@ describe "Proposals", type: :feature do
               fill_in :proposal_title, with: "Oriol for president"
               fill_in :proposal_body, with: "He will solve everything"
               select translated(category.name), from: :proposal_category_id
-              select2 translated(scope.name), xpath: '//select[@id="proposal_scope_id"]/..', search: true
+              select2 translated(scope.name), from: :proposal_scope_id
               select user_group.name, from: :proposal_user_group_id
 
               find("*[type=submit]").click
@@ -174,7 +174,7 @@ describe "Proposals", type: :feature do
 
                 fill_in :proposal_address, with: address
                 select translated(category.name), from: :proposal_category_id
-                select2 translated(scope.name), xpath: '//select[@id="proposal_scope_id"]/..', search: true
+                select2 translated(scope.name), from: :proposal_scope_id
                 select user_group.name, from: :proposal_user_group_id
 
                 find("*[type=submit]").click
@@ -665,7 +665,7 @@ describe "Proposals", type: :feature do
         context "selecting the global scope" do
           it "lists the filtered proposals" do
             within ".filters" do
-              select2("Global scope", xpath: '//select[@id="filter_scope_id"]/..', search: false)
+              select2("Global scope", from: :filter_scope_id)
             end
 
             expect(page).to have_css(".card--proposal", count: 1)
@@ -676,7 +676,7 @@ describe "Proposals", type: :feature do
         context "selecting one scope" do
           it "lists the filtered proposals" do
             within ".filters" do
-              select2(translated(scope.name), xpath: '//select[@id="filter_scope_id"]/..', search: true)
+              select2(translated(scope.name), from: :filter_scope_id)
             end
 
             expect(page).to have_css(".card--proposal", count: 2)
@@ -687,8 +687,8 @@ describe "Proposals", type: :feature do
         context "selecting the global scope and another scope" do
           it "lists the filtered proposals" do
             within ".filters" do
-              select2(translated(scope.name), xpath: '//select[@id="filter_scope_id"]/..', search: true)
-              select2("Global scope", xpath: '//select[@id="filter_scope_id"]/..', search: false)
+              select2(translated(scope.name), from: :filter_scope_id)
+              select2("Global scope", from: :filter_scope_id)
             end
 
             expect(page).to have_css(".card--proposal", count: 3)
@@ -819,7 +819,7 @@ describe "Proposals", type: :feature do
           visit_feature
 
           within "form.new_filter" do
-            select category.name[I18n.locale.to_s], from: "filter_category_id"
+            select category.name[I18n.locale.to_s], from: :filter_category_id
           end
 
           expect(page).to have_css(".card--proposal", count: 1)
