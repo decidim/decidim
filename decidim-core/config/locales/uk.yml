@@ -179,7 +179,7 @@ uk:
       expired_session: Скінчився поточний сеанс виступу в ролі учасника.
     menu:
       home: Головна
-      more_information: Додаткові відомості
+      more_information: Дізнатися більше
     newsletter_mailer:
       newsletter:
         note: Ви отримали цього електронного листа, оскільки ви підписалися на новини щодо %{organization_name}. Ви можете змінити свої налаштування на <a href="%{link}">сторінці сповіщень</a>.
@@ -198,7 +198,7 @@ uk:
         verified: Перевірено
     pages:
       index:
-        title: Додаткові відомості
+        title: Дізнатися більше
     reported_mailer:
       hide:
         hello: Доброго дня, %{name}%!
@@ -344,7 +344,7 @@ uk:
         how_to_participate: Як я можу взяти участь у русі?
         meetings: Зустрічі
         meetings_explanation: Дізнайтеся, де і коли ви можете брати участь в громадських зустрічах.
-        more_info: Додаткові відомості
+        more_info: Дізнатися більше
         proposals: Пропозиції
         proposals_explanation: Вносьте нові пропозиції, підтримуйте існуючі та сприяйте змінам, які ви хочете бачити.
       footer_sub_hero:
