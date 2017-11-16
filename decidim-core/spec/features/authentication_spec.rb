@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Authentication", type: :feature, perform_enqueued: true do
+describe "Authentication", type: :feature do
   let(:organization) { create(:organization) }
   let(:last_user) { Decidim::User.last }
 
@@ -214,7 +214,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
 
   describe "Confirm email" do
     it "confirms the user" do
-      create(:user, organization: organization)
+      perform_enqueued_jobs { create(:user, organization: organization) }
 
       visit last_email_link
 
@@ -224,14 +224,16 @@ describe "Authentication", type: :feature, perform_enqueued: true do
   end
 
   describe "Resend confirmation instructions" do
-    let(:user) { create(:user, organization: organization) }
+    let(:user) do
+      perform_enqueued_jobs { create(:user, organization: organization) }
+    end
 
     it "sends an email with the instructions" do
       visit decidim.new_user_confirmation_path
 
       within ".new_user" do
         fill_in :user_email, with: user.email
-        find("*[type=submit]").click
+        perform_enqueued_jobs { find("*[type=submit]").click }
       end
 
       expect(emails.count).to eq(2)
@@ -263,7 +265,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
 
         within ".new_user" do
           fill_in :user_email, with: user.email
-          find("*[type=submit]").click
+          perform_enqueued_jobs { find("*[type=submit]").click }
         end
 
         expect(page).to have_content("reset your password")
@@ -273,7 +275,7 @@ describe "Authentication", type: :feature, perform_enqueued: true do
 
     describe "Reset password" do
       before do
-        user.send_reset_password_instructions
+        perform_enqueued_jobs { user.send_reset_password_instructions }
       end
 
       it "sets a new password for the user" do

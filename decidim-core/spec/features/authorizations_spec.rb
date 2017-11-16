@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Authorizations", type: :feature, perform_enqueued: true do
+describe "Authorizations", type: :feature do
   before do
     switch_to_host(organization.host)
   end

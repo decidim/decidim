@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "User groups", type: :feature, perform_enqueued: true do
+describe "User groups", type: :feature do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :confirmed, organization: organization) }
 

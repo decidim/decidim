@@ -24,12 +24,6 @@ describe Decidim::Meetings::Admin::InviteUserToJoinMeeting do
   let!(:feature) { create :meeting_feature, participatory_space: participatory_process }
   let!(:meeting) { create :meeting, feature: feature }
 
-  # around do |example|
-  #   perform_enqueued_jobs do
-  #     example.run
-  #   end
-  # end
-
   subject { described_class.new(form, meeting, current_user) }
 
   context "when everything is ok" do

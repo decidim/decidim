@@ -6,15 +6,9 @@ shared_examples "export results" do
 
   let!(:results) { create_list :result, 3, feature: current_feature }
 
-  around do |example|
-    perform_enqueued_jobs do
-      example.run
-    end
-  end
-
   it "exports a CSV" do
     find(".exports.dropdown").click
-    click_link "Results as CSV"
+    perform_enqueued_jobs { click_link "Results as CSV" }
 
     within ".callout.success" do
       expect(page).to have_content("in progress")
@@ -27,7 +21,7 @@ shared_examples "export results" do
 
   it "exports a JSON" do
     find(".exports.dropdown").click
-    click_link "Results as JSON"
+    perform_enqueued_jobs { click_link "Results as JSON" }
 
     within ".callout.success" do
       expect(page).to have_content("in progress")

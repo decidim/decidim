@@ -12,12 +12,6 @@ describe "Admin manages newsletters", type: :feature do
     login_as user, scope: :user
   end
 
-  around do |example|
-    perform_enqueued_jobs do
-      example.run
-    end
-  end
-
   describe "creates and previews a newsletter" do
     it "allows a newsletter to be created" do
       visit decidim_admin.newsletters_path
@@ -119,7 +113,9 @@ describe "Admin manages newsletters", type: :feature do
       visit decidim_admin.newsletter_path(newsletter)
 
       within ".button--double" do
-        accept_confirm { find("*", text: "Deliver").click }
+        perform_enqueued_jobs do
+          accept_confirm { find("*", text: "Deliver").click }
+        end
       end
 
       expect(page).to have_content("NEWSLETTERS")

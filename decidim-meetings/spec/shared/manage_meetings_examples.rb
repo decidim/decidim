@@ -98,7 +98,7 @@ shared_examples "manage meetings" do
     page.find(".datepicker-dropdown .hour", text: "12:00").click
     page.find(".datepicker-dropdown .minute", text: "12:50").click
 
-    select2 translated(scope.name), xpath: '//select[@id="meeting_decidim_scope_id"]/..', search: true
+    select2 translated(scope.name), from: :meeting_decidim_scope_id
     select translated(category.name), from: :meeting_decidim_category_id
 
     within ".new_meeting" do
@@ -211,7 +211,7 @@ shared_examples "manage meetings" do
       page.find(".datepicker-dropdown .hour", text: "12:00").click
       page.find(".datepicker-dropdown .minute", text: "12:50").click
 
-      select2 translated(scope.name), xpath: '//select[@id="meeting_decidim_scope_id"]/..', search: true
+      select2 translated(scope.name), from: :meeting_decidim_scope_id
       select translated(category.name), from: :meeting_decidim_category_id
 
       within ".new_meeting" do

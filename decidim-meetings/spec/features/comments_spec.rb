@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Comments", type: :feature, perform_enqueued: true do
+describe "Comments", type: :feature do
   let!(:feature) { create(:feature, manifest_name: :meetings, organization: organization) }
   let!(:participatory_space) { feature.participatory_space }
   let!(:participatory_process_admin) do
