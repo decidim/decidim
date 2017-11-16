@@ -48,11 +48,11 @@ module Decidim
         it { is_expected.to be_valid }
       end
 
-      context "when some language in name is missing" do
+      context "when default language in name is missing" do
         let(:name) do
           {
-            en: "Name",
-            ca: "Nombre"
+            ca: "Nom",
+            es: "Nombre"
           }
         end
 

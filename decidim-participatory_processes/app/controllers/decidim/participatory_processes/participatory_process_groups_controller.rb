@@ -3,6 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     class ParticipatoryProcessGroupsController < Decidim::ApplicationController
+      helper Decidim::SanitizeHelper
       helper_method :participatory_processes, :group, :collection
 
       before_action :set_group

@@ -4,14 +4,16 @@ module Decidim
   # Helper that provides convenient methods to deal with translated attributes.
   module TranslationsHelper
     # Public: Returns the translation of an attribute using the current locale,
-    # if available.
+    # if available. Checks for the organization default locale as fallback.
     #
     # attribute - A Hash where keys (strings) are locales, and their values are
     #             the translation for each locale.
     #
     # Returns a String with the translation.
     def translated_attribute(attribute)
-      attribute.try(:[], I18n.locale.to_s) || ""
+      attribute.try(:[], I18n.locale.to_s).presence ||
+        attribute.try(:[], current_organization.default_locale).presence ||
+        ""
     end
 
     # Public: Creates a translation for each available language in the list

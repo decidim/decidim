@@ -18,6 +18,7 @@ module Decidim
       helper Decidim::ScopesHelper
       helper Decidim::ActionAuthorizationHelper
       helper Decidim::AttachmentsHelper
+      helper Decidim::SanitizeHelper
 
       helper_method :current_feature,
                     :current_participatory_space,

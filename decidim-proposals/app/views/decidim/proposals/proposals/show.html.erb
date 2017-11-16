@@ -52,21 +52,21 @@
         <div class="section">
           <div class="callout success">
             <h5><%= t(".proposal_accepted_reason") %></h5>
-            <p><%= sanitize translated_attribute @proposal.answer %></p>
+            <p><%= decidim_sanitize translated_attribute @proposal.answer %></p>
           </div>
         </div>
       <% elsif @proposal.rejected? %>
         <div class="section">
           <div class="callout warning">
             <h5><%= t(".proposal_rejected_reason") %></h5>
-            <p><%= sanitize translated_attribute @proposal.answer %></p>
+            <p><%= decidim_sanitize translated_attribute @proposal.answer %></p>
           </div>
         </div>
       <% else %>
         <div class="section">
           <div class="callout secondary">
             <h5><%= t(".proposal_in_evaluation_reason") %></h5>
-            <p><%= sanitize translated_attribute @proposal.answer %></p>
+            <p><%= decidim_sanitize translated_attribute @proposal.answer %></p>
           </div>
         </div>
       <% end %>

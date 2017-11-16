@@ -11,9 +11,9 @@
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
         <div class="lead">
-          <%= sanitize translated_attribute(current_assembly.short_description) %>
+          <%= decidim_sanitize translated_attribute(current_assembly.short_description) %>
         </div>
-        <%= sanitize translated_attribute(current_assembly.description) %>
+        <%= decidim_sanitize translated_attribute(current_assembly.description) %>
       </div>
       <%= attachments_for current_assembly %>
     </div>

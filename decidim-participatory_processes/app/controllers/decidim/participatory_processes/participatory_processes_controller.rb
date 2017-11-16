@@ -12,6 +12,7 @@ module Decidim
       helper Decidim::AttachmentsHelper
       helper Decidim::IconHelper
       helper Decidim::WidgetUrlsHelper
+      helper Decidim::SanitizeHelper
 
       helper ParticipatoryProcessHelper
 

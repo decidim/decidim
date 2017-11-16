@@ -5,8 +5,11 @@ require "spec_helper"
 module Decidim
   describe TranslationsHelper do
     describe "#translated_attribute" do
+      let(:organization) { double(default_locale: "en") }
+
       before do
         allow(I18n.config).to receive(:enforce_available_locales).and_return(false)
+        allow(helper).to receive(:current_organization).and_return(organization)
       end
 
       it "translates the attribute against the current locale" do
@@ -17,12 +20,24 @@ module Decidim
         end
       end
 
-      context "when therte is no translation for the given locale" do
-        it "returns an empty string" do
-          attribute = { "ca" => "Hola" }
+      context "when there is no translation for the given locale" do
+        context "when the default_locale is present" do
+          it "uses the default locale" do
+            attribute = { "ca" => "Hola", "en" => "Hello" }
 
-          I18n.with_locale(:'zh-CN') do
-            expect(helper.translated_attribute(attribute)).to eq("")
+            I18n.with_locale(:'zh-CN') do
+              expect(helper.translated_attribute(attribute)).to eq("Hello")
+            end
+          end
+        end
+
+        context "when the default locale is not present" do
+          it "returns an empty string" do
+            attribute = { "ca" => "Hola" }
+
+            I18n.with_locale(:'zh-CN') do
+              expect(helper.translated_attribute(attribute)).to eq("")
+            end
           end
         end
       end

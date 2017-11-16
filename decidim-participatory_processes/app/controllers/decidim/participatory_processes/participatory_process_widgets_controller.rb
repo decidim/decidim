@@ -3,6 +3,8 @@
 module Decidim
   module ParticipatoryProcesses
     class ParticipatoryProcessWidgetsController < Decidim::WidgetsController
+      helper Decidim::SanitizeHelper
+
       private
 
       def model
