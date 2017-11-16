@@ -64,8 +64,7 @@ shared_examples "manage results" do
         ca: "Descripció més llarga"
       )
 
-      select2 translated(scope.name), id: "result_decidim_scope_id"
-
+      select2 translated(scope.name), from: :result_decidim_scope_id
       select translated(category.name), from: :result_decidim_category_id
 
       find("*[type=submit]").click
