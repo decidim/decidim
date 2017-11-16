@@ -129,7 +129,7 @@ ru:
             many: "%{count} собраний"
             other: "%{count} собраний"
         promoted_assembly:
-          more_info: Дополнительные сведения
+          more_info: Узнать больше
           take_part: Принять участие
       assembly_header:
         assembly_menu_item: Собрание
