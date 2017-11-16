@@ -23,7 +23,10 @@ jobs:
           version: 17.10.0-ce
       - run:
           name: Login to dockerhub
-          command: docker login -u $DOCKER_USER -p $DOCKER_PASS
+          command: |
+            if [ $CIRCLE_BRANCH = 'master' ]; then
+              docker login -u $DOCKER_USER -p $DOCKER_PASS
+            fi
       - run:
           name: Build, tag and push docker production image
           command: |
