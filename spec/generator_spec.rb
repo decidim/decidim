@@ -14,7 +14,7 @@ describe "Application generation" do
   end
 
   before(:all) do
-    system("bundle exec rake install_all")
+    system("bundle exec rake install_all", out: File::NULL)
   end
 
   context "without flags" do
