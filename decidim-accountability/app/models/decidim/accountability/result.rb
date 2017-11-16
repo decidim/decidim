@@ -11,10 +11,9 @@ module Decidim
       include Decidim::HasCategory
       include Decidim::HasReference
       include Decidim::Comments::Commentable
+      include Decidim::Traceable
 
       feature_manifest_name "accountability"
-
-      has_paper_trail
 
       has_many :children, foreign_key: "parent_id", class_name: "Decidim::Accountability::Result", inverse_of: :parent, dependent: :destroy
       belongs_to :parent, foreign_key: "parent_id", class_name: "Decidim::Accountability::Result", inverse_of: :children, optional: true, counter_cache: :children_count

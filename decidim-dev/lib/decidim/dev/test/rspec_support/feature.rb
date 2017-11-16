@@ -41,6 +41,7 @@ module Decidim
       include HasScope
       include Decidim::Comments::Commentable
       include Followable
+      include Traceable
 
       feature_manifest_name "dummy"
 

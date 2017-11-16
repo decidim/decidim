@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # A Helper to render and link to resources.
+  # A Helper to find and render the author of a version.
   module TraceabilityHelper
     # Renders the avatar and author name of the author of the last version of the given
     # resource.
