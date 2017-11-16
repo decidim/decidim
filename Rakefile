@@ -49,9 +49,9 @@ task :update_versions do
     "  \"version\": \"#{version}\""
   )
 
-  DECIDIM_GEMS.each do |gem_name|
+  DECIDIM_GEMS.each do |name|
     replace_file(
-      "#{__dir__}/decidim-#{gem_name}/lib/decidim/#{gem_name}/version.rb",
+      "#{__dir__}/decidim-#{name}/lib/decidim/#{name}/version.rb",
       /def self\.version(\s*)"[^"]*"/,
       "def self.version\\1\"#{version}\""
     )
@@ -67,8 +67,8 @@ end
 desc "Installs all gems locally."
 task :install_all do
   sh "rake install", verbose: false
-  DECIDIM_GEMS.each do |gem_name|
-    Dir.chdir("#{__dir__}/decidim-#{gem_name}") do
+  DECIDIM_GEMS.each do |name|
+    Dir.chdir("#{__dir__}/decidim-#{name}") do
       sh "rake install", verbose: false
     end
   end
@@ -77,8 +77,8 @@ end
 desc "Pushes a new build for each gem."
 task release_all: [:update_versions, :check_locale_completeness, :webpack] do
   sh "rake release"
-  DECIDIM_GEMS.each do |gem_name|
-    Dir.chdir("#{__dir__}/decidim-#{gem_name}") do
+  DECIDIM_GEMS.each do |name|
+    Dir.chdir("#{__dir__}/decidim-#{name}") do
       sh "rake release"
     end
   end
