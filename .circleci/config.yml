@@ -12,35 +12,46 @@ defaults: &defaults
         POSTGRES_USER: postgres
   working_directory: /app
 
+dependency_cache: &dependency_cache
+  keys:
+    - dependencies-{{ .Branch }}
+    - dependencies-master
+
 jobs:
   build_test_app:
     <<: *defaults
     steps:
       - checkout
       - restore_cache:
-         keys:
-           - {{ .Branch }}
-           - master
+          <<: *dependency_cache
       - run:
           name: Install ruby dependencies
           command: bundle install
       - run:
           name: Install npm dependencies
           command: npm install
+      - save_cache:
+          key: dependencies-{{ .Branch }}
+          paths:
+            - /usr/local/bundle/
+            - node_modules
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Generate test app
           command: bundle exec rake test_app
+      - restore_cache:
+         keys:
+           - assets-{{ .Branch }}
+           - assets-master
       - run:
           name: Precompile test app assets
           command: cd spec/decidim_dummy_app && bundle exec rails assets:precompile
       - save_cache:
-          key: {{ .Branch }}
+          key: assets-{{ .Branch }}
           paths:
-            - /usr/local/bundle/
-            - node_modules
+            - spec/decidim_dummy_app/public/assets
       - persist_to_workspace:
           root: /app
           paths:
@@ -52,9 +63,7 @@ jobs:
           at: /app
       - checkout
       - restore_cache:
-         keys:
-           - {{ .Branch }}
-           - master
+          <<: *dependency_cache
       - run:
           name: Install ruby dependencies
           command: bundle install
@@ -76,9 +85,7 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-         keys:
-           - {{ .Branch }}
-           - master
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=core
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -98,9 +105,7 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-         keys:
-           - {{ .Branch }}
-           - master
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=assemblies
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -120,9 +125,7 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-         keys:
-           - {{ .Branch }}
-           - master
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=api
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -142,9 +145,7 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-         keys:
-           - {{ .Branch }}
-           - master
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=processes
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -164,9 +165,7 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-         keys:
-           - {{ .Branch }}
-           - master
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=admin
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -186,9 +185,7 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-         keys:
-           - {{ .Branch }}
-           - master
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=system
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -208,9 +205,7 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-         keys:
-           - {{ .Branch }}
-           - master
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=proposals
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -230,9 +225,7 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-         keys:
-           - {{ .Branch }}
-           - master
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=comments
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -252,9 +245,7 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-         keys:
-           - {{ .Branch }}
-           - master
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=meetings
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -274,9 +265,7 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-         keys:
-           - {{ .Branch }}
-           - master
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=pages
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -296,9 +285,7 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-         keys:
-           - {{ .Branch }}
-           - master
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=accountability
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -318,9 +305,7 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-         keys:
-           - {{ .Branch }}
-           - master
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=budgets
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
@@ -340,9 +325,7 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-         keys:
-           - {{ .Branch }}
-           - master
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=surveys
       - run: cd spec/decidim_dummy_app && bundle install
       - run:
