@@ -252,6 +252,8 @@ en:
         close_window: Close window
         share: Share
         share_link: Share link
+      version_author:
+        deleted: Deleted user
   devise:
     invitations:
       edit:

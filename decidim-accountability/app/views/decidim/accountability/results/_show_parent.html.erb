@@ -25,7 +25,7 @@
           <% if result.versions.last.whodunnit.present? %>
             <div class="definition-data__item last_revision_by">
               <span class="definition-data__title"><%= t("results.show.stats.last_edited_by", scope: "decidim.accountability") %></span>
-              <%= result.versions.last.whodunnit %>
+              <%= render_resource_last_editor(result) %>
             </div>
           <% end %>
         </div>

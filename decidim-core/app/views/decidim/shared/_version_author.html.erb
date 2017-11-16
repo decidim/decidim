@@ -1,0 +1,16 @@
+<div class="author-data__main">
+  <div class="author author--inline">
+    <span class="author__avatar author__avatar--small">
+      <%= image_tag author.avatar_url %>
+    </span>
+    <span class="author__name">
+      <% if author&.deleted? %>
+        <span class="label label--small label--basic">
+          <%= t('.deleted') %>
+        </span>
+      <% else %>
+        <%= author.name %>
+      <% end %>
+    </span>
+  </div>
+</div>
