@@ -14,32 +14,32 @@ describe "Application generation" do
   end
 
   context "without flags" do
-    let(:command) { "bundle exec decidim #{test_app}" }
+    let(:command) { "bundle exec rake install_all && bin/decidim #{test_app}" }
 
     it_behaves_like "a sane generator"
   end
 
   context "with --edge flag" do
-    let(:command) { "bundle exec decidim --edge #{test_app}" }
+    let(:command) { "bin/decidim --edge #{test_app}" }
 
     it_behaves_like "a sane generator"
   end
 
   context "with --branch flag" do
-    let(:command) { "bundle exec decidim --branch master #{test_app}" }
+    let(:command) { "bin/decidim --branch master #{test_app}" }
 
     it_behaves_like "a sane generator"
   end
 
   context "with --path flag" do
-    let(:command) { "bundle exec decidim --path #{File.expand_path("..", __dir__)} #{test_app}" }
+    let(:command) { "bin/decidim --path #{File.expand_path("..", __dir__)} #{test_app}" }
 
     it_behaves_like "a sane generator"
   end
 
   context "development application" do
     let(:command) do
-      "bundle exec decidim --path #{File.expand_path("..", __dir__)} #{test_app} --recreate_db --seed_db"
+      "bin/decidim --path #{File.expand_path("..", __dir__)} #{test_app} --recreate_db --seed_db"
     end
 
     it_behaves_like "a sane generator"
