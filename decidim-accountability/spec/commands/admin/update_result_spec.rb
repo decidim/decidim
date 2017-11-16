@@ -67,6 +67,13 @@ module Decidim::Accountability
         expect(translated(result.title)).to eq "title"
       end
 
+      it "creates a new version for the result", versioning: true do
+        expect do
+          subject.call
+        end.to change { result.versions.count }.by(1)
+        expect(result.versions.last.whodunnit).to eq user.to_gid.to_s
+      end
+
       it "sets the scope" do
         subject.call
         expect(result.scope).to eq scope

@@ -28,12 +28,20 @@ module Decidim
         Decidim.resource_reference_generator.call(self, feature)
       end
 
-      # Internal: Sets the unique reference to the model.
+      # Internal: Sets the unique reference to the model. Note that if the resource
+      # implements `Decidim::Traceable` then any normal update (or `update_attributes`)
+      # will create a new version through an ActiveRecord update callback, but here
+      # we can't track the author of the version, so we use the `update_column` method
+      # which does not trigger callbacks.
       #
       # Returns nothing.
       def store_reference
         self[:reference] ||= calculate_reference
-        save if changed?
+        return unless changed?
+
+        # rubocop:disable Rails/SkipsModelValidations
+        update_column(:reference, self[:reference])
+        # rubocop:enable Rails/SkipsModelValidations
       end
     end
   end

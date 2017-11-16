@@ -35,7 +35,9 @@ module Decidim
         attr_reader :result, :form
 
         def update_result
-          result.update_attributes!(
+          Decidim.traceability.update!(
+            result,
+            form.current_user,
             scope: @form.scope,
             category: @form.category,
             parent_id: @form.parent_id,
