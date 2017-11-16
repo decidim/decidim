@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# Adapted from https://github.com/goodwill/capybara-select2
-
 module Capybara
   module Select2
     def select2(value, from:)
