@@ -1,12 +1,13 @@
 {
   "name": "decidim",
+  "description": "The participatory democracy framework",
   "version": "0.8.0-pre",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git"
   },
   "author": "Marc Riera <mrc2407@gmail.com>",
-  "license": "AGPLv3",
+  "license": "AGPL-3.0",
   "engines": {
     "npm": "^5.4.2",
     "node": "^8.1.4"
