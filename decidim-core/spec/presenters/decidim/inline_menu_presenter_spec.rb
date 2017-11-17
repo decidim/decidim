@@ -41,7 +41,7 @@ module Decidim
       end
     end
 
-    context "when using visibilty options" do
+    context "when using visibility options" do
       before do
         MenuRegistry.register :custom_menu do |menu|
           menu.item "Foo", "/foo", if: Time.current.year == 2000
