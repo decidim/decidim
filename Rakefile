@@ -33,10 +33,12 @@ def replace_file(name, regexp, replacement)
   File.open(name, "w") { |f| f.write(new_content) }
 end
 
+def version
+  File.read("#{__dir__}/.decidim-version").strip
+end
+
 desc "Update version in all gems to the one set in the `.decidim-version` file"
 task :update_versions do
-  version = File.read("#{__dir__}/.decidim-version").strip
-
   replace_file(
     "#{__dir__}/package.json",
     /^  "version": "[^"]*"/,
@@ -71,6 +73,14 @@ task :install_all do
     Dir.chdir("#{__dir__}/decidim-#{name}") do
       system "rake install"
     end
+  end
+end
+
+desc "Uninstalls all gems locally."
+task :uninstall_all do
+  system("gem uninstall decidim -v #{version} --executables --force")
+  DECIDIM_GEMS.each do |name|
+    system("gem uninstall decidim-#{name} -v #{version} --executables --force")
   end
 end
 

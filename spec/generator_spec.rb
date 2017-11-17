@@ -17,6 +17,10 @@ describe "Application generation" do
     system("bundle exec rake install_all", out: File::NULL)
   end
 
+  after(:all) do
+    system("bundle exec rake uninstall_all", out: File::NULL)
+  end
+
   context "without flags" do
     let(:command) { "decidim #{test_app}" }
 
