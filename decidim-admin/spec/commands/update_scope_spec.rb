@@ -40,11 +40,11 @@ module Decidim::Admin
         expect(translated(scope.name)).to eq("New name")
       end
 
-      it "updates the name of the scope" do
+      it "updates the code of the scope" do
         expect(scope.code).to eq("NEWCODE")
       end
 
-      it "updates the name of the scope" do
+      it "updates the scope type" do
         expect(scope.scope_type).to eq(scope_type)
       end
     end
