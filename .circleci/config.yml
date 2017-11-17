@@ -2,476 +2,386 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: codegram/decidim:0.7.3
+    - image: decidim/decidim:0.7.2-dev
       environment:
         SIMPLECOV: true
         DATABASE_USERNAME: postgres
+        FAIL_FAST: true
     - image: postgres
       environment:
         POSTGRES_USER: postgres
-  working_directory: /code
+  working_directory: /app
+
+dependency_cache: &dependency_cache
+  keys:
+    - dependencies-{{ .Branch }}
+    - dependencies-master
 
 jobs:
-  build:
+  build_test_app:
     <<: *defaults
     steps:
-      - run:
-          name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
       - checkout
+      - restore_cache:
+          <<: *dependency_cache
       - run:
-          name: Install app dependencies
-          command: |
-            bundle install
-            npm i
+          name: Install ruby dependencies
+          command: bundle install
+      - run:
+          name: Install npm dependencies
+          command: npm install
+      - save_cache:
+          key: dependencies-{{ .Branch }}
+          paths:
+            - /usr/local/bundle/
+            - node_modules
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Generate test app
-          command: bundle exec rake decidim:generate_test_app
+          command: bundle exec rake test_app
+      - restore_cache:
+         keys:
+           - assets-{{ .Branch }}
+           - assets-master
+      - run:
+          name: Precompile test app assets
+          command: cd spec/decidim_dummy_app && bundle exec rails assets:precompile
+      - save_cache:
+          key: assets-{{ .Branch }}
+          paths:
+            - spec/decidim_dummy_app/public/assets
       - persist_to_workspace:
-          root: .
+          root: /app
           paths:
             - "*"
   main:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
+          at: /app
+      - checkout
+      - restore_cache:
+          <<: *dependency_cache
       - run:
-          name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          name: Install ruby dependencies
+          command: bundle install
       - run:
-          name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
+          name: Install npm dependencies
+          command: npm install
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Run main folder npm lint
-          command: cd /code && time npm run lint
+          command: npm run lint
       - run:
           name: Run main folder RSpec
-          command: cd /code && time bundle exec rspec
-      - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          command: bundle exec rspec
   core:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          at: /app
+      - restore_cache:
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=core
+      - run: cd spec/decidim_dummy_app && bundle install
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run:
-          name: Run core JS tests
-          command: cd /code && time npm test -- decidim-core
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run core RSpec
-          command: cd /code/decidim-core && time bundle exec rake
+          command: cd decidim-core && rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   assemblies:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          at: /app
+      - restore_cache:
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=assemblies
+      - run: cd spec/decidim_dummy_app && bundle install
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run:
-          name: Run assemblies JS tests
-          command: cd /code && time npm test -- decidim-assemblies
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run assemblies RSpec
-          command: cd /code/decidim-assemblies && time bundle exec rake
+          command: cd decidim-assemblies && rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   api:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          at: /app
+      - restore_cache:
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=api
+      - run: cd spec/decidim_dummy_app && bundle install
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run:
-          name: Run api JS tests
-          command: cd /code && time npm test -- decidim-api
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run api RSpec
-          command: cd /code/decidim-api && time bundle exec rake
+          command: cd decidim-api && rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   processes:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          at: /app
+      - restore_cache:
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=processes
+      - run: cd spec/decidim_dummy_app && bundle install
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run:
-          name: Run participatory_processes JS tests
-          command: cd /code && time npm test -- decidim-participatory_processes
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run participatory_processes RSpec
-          command: cd /code/decidim-participatory_processes && time bundle exec rake
+          command: cd decidim-participatory_processes && rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   admin:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          at: /app
+      - restore_cache:
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=admin
+      - run: cd spec/decidim_dummy_app && bundle install
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run:
-          name: Run admin JS tests
-          command: cd /code && time npm test -- decidim-admin
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run admin RSpec
-          command: cd /code/decidim-admin && time bundle exec rake
+          command: cd decidim-admin && rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   system:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          at: /app
+      - restore_cache:
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=system
+      - run: cd spec/decidim_dummy_app && bundle install
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run:
-          name: Run system JS tests
-          command: cd /code && time npm test -- decidim-system
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run system RSpec
-          command: cd /code/decidim-system && time bundle exec rake
+          command: cd decidim-system && rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   proposals:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          at: /app
+      - restore_cache:
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=proposals
+      - run: cd spec/decidim_dummy_app && bundle install
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run:
-          name: Run proposals JS tests
-          command: cd /code && time npm test -- decidim-proposals
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run proposals RSpec
-          command: cd /code/decidim-proposals && time bundle exec rake
+          command: cd decidim-proposals && rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   comments:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          at: /app
+      - restore_cache:
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=comments
+      - run: cd spec/decidim_dummy_app && bundle install
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run:
-          name: Run comments JS tests
-          command: cd /code && time npm test -- decidim-comments
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run comments RSpec
-          command: cd /code/decidim-comments && time bundle exec rake
+          command: cd decidim-comments && rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   meetings:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          at: /app
+      - restore_cache:
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=meetings
+      - run: cd spec/decidim_dummy_app && bundle install
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run:
-          name: Run meetings JS tests
-          command: cd /code && time npm test -- decidim-meetings
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run meetings RSpec
-          command: cd /code/decidim-meetings && time bundle exec rake
+          command: cd decidim-meetings && rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   pages:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          at: /app
+      - restore_cache:
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=pages
+      - run: cd spec/decidim_dummy_app && bundle install
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run:
-          name: Run pages JS tests
-          command: cd /code && time npm test -- decidim-pages
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run pages RSpec
-          command: cd /code/decidim-pages && time bundle exec rake
+          command: cd decidim-pages && rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   accountability:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          at: /app
+      - restore_cache:
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=accountability
+      - run: cd spec/decidim_dummy_app && bundle install
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run:
-          name: Run accountability JS tests
-          command: cd /code && time npm test -- decidim-accountability
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run accountability RSpec
-          command: cd /code/decidim-accountability && time bundle exec rake
+          command: cd decidim-accountability && rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   budgets:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          at: /app
+      - restore_cache:
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=budgets
+      - run: cd spec/decidim_dummy_app && bundle install
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run:
-          name: Run budgets JS tests
-          command: cd /code && time npm test -- decidim-budgets
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run budgets RSpec
-          command: cd /code/decidim-budgets && time bundle exec rake
+          command: cd decidim-budgets && rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
   surveys:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /code
-      - run:
-          name: Install PhantomJS
-          command: |
-            curl -OLk https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2
-            tar xvjf phantomjs-2.1.1-linux-x86_64.tar.bz2
-            mv phantomjs-2.1.1-linux-x86_64 /usr/local/share
-            ln -sf /usr/local/share/phantomjs-2.1.1-linux-x86_64/bin/phantomjs /usr/local/bin
-            rm phantomjs-2.1.1-linux-x86_64.tar.bz2
+          at: /app
+      - restore_cache:
+          <<: *dependency_cache
       - run: export CODECOV_FLAG=surveys
+      - run: cd spec/decidim_dummy_app && bundle install
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: |
-            cd spec/decidim_dummy_app/
-            bundle install
-            RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run:
-          name: Run surveys JS tests
-          command: cd /code && time npm test -- decidim-surveys
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run surveys RSpec
-          command: cd /code/decidim-surveys && time bundle exec rake
+          command: cd decidim-surveys && rake
       - store_artifacts:
-          path: /code/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/capybara
 
 workflows:
   version: 2
   build_and_test:
     jobs:
-      - build
-      - main:
-          requires:
-            - build
+      - build_test_app
+      - main
       - core:
           requires:
-            - build
+            - build_test_app
       - assemblies:
           requires:
-            - build
+            - build_test_app
       - api:
           requires:
-            - build
+            - build_test_app
       - processes:
           requires:
-            - build
+            - build_test_app
       - admin:
           requires:
-            - build
+            - build_test_app
       - system:
           requires:
-            - build
+            - build_test_app
       - proposals:
           requires:
-            - build
+            - build_test_app
       - comments:
           requires:
-            - build
+            - build_test_app
       - meetings:
           requires:
-            - build
+            - build_test_app
       - pages:
           requires:
-            - build
+            - build_test_app
       - accountability:
           requires:
-            - build
+            - build_test_app
       - budgets:
           requires:
-            - build
+            - build_test_app
       - surveys:
           requires:
-            - build
+            - build_test_app
