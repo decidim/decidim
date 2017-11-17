@@ -158,5 +158,7 @@ shared_examples "a proposal form" do
         file: Decidim::Dev.test_file("city.jpeg", "image/jpeg")
       }
     end
+
+    it { is_expected.to be_valid }
   end
 end
