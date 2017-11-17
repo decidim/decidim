@@ -23,13 +23,19 @@
                   <%= username_list(chat.interlocutors(current_user)) %>
                 </h6>
 
+                <span class="card--list__annotation">
+                  <%= simple_date(chat.last_message.created_at) %>
+                </span>
+
                 <span class="text-small">
                   <%= truncate chat.last_message.body, length: 150 %>
                 </span>
 
-                <span class="card--list__annotation">
-                  <%= simple_date(chat.last_message.created_at) %>
-                </span>
+                <% if chat.unread_count(current_user) > 0 %>
+                  <span class="card--list__counter">
+                    <span><%= chat.unread_count(current_user) %></span>
+                  </span>
+                <% end %>
               </div>
               <div class="card--list__data">
                 <span class="card--list__data__icon">

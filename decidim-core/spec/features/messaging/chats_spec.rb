@@ -39,7 +39,7 @@ describe "Chats", type: :feature do
   end
 
   context "when user has chats" do
-    let(:interlocutor) { create(:user) }
+    let(:interlocutor) { create(:user, :confirmed) }
 
     let!(:chat) do
       Decidim::Messaging::Chat.start!(
@@ -75,6 +75,26 @@ describe "Chats", type: :feature do
 
       it "appears as the last message" do
         expect(page).to have_selector(".message:last-child", text: "Please reply!")
+      end
+
+      context "and interlocutor sees it" do
+        before do
+          expect(page).to have_selector(".message:last-child", text: "Please reply!")
+          relogin_as interlocutor
+          visit_inbox
+        end
+
+        it "appears as unread" do
+          expect(page).to have_selector(".card--list__item .card--list__counter", text: "2")
+        end
+
+        it "appears as read after it's seen" do
+          click_link user.name
+          expect(page).to have_content("Please reply!")
+
+          visit_inbox
+          expect(page).to have_no_selector(".card--list__item .card--list__counter")
+        end
       end
     end
   end

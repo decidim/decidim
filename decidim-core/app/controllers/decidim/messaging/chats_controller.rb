@@ -46,6 +46,8 @@ module Decidim
       def show
         authorize! :show, chat
 
+        @chat.mark_as_read(current_user)
+
         @form = MessageForm.new
       end
 

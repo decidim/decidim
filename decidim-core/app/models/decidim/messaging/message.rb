@@ -11,10 +11,21 @@ module Decidim
                  foreign_key: :decidim_chat_id,
                  class_name: "Decidim::Messaging::Chat"
 
+      has_many :receipts,
+               dependent: :destroy,
+               foreign_key: :decidim_message_id,
+               inverse_of: :message
+
       validates :sender, :body, presence: true
       validates :body, length: { maximum: 1_000 }
 
       validate :sender_is_participant
+
+      def envelope_for(recipients)
+        receipts.build(recipient: sender, read_at: Time.zone.now)
+
+        recipients.each { |recipient| receipts.build(recipient: recipient) }
+      end
 
       private
 
