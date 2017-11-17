@@ -5,9 +5,6 @@ require "spec_helper"
 describe "Admin manages participatory processes", type: :feature do
   include_context "when admin administrating a participatory process"
 
-  it_behaves_like "manage processes examples"
-  it_behaves_like "manage processes announcements"
-
   let!(:participatory_process_groups) do
     create_list(:participatory_process_group, 3, organization: organization)
   end
@@ -17,6 +14,9 @@ describe "Admin manages participatory processes", type: :feature do
     login_as user, scope: :user
     visit decidim_admin_participatory_processes.participatory_processes_path
   end
+
+  it_behaves_like "manage processes examples"
+  it_behaves_like "manage processes announcements"
 
   context "when creating a participatory process" do
     before do

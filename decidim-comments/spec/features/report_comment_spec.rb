@@ -4,7 +4,6 @@ require "spec_helper"
 
 describe "Report Comment", type: :feature do
   include_context "with a feature"
-  include_examples "reports"
 
   let(:manifest_name) { "dummy" }
   let!(:commentable) { create(:dummy_resource, feature: feature) }
@@ -20,4 +19,6 @@ describe "Report Comment", type: :feature do
       participatory_space: participatory_process
     )
   end
+
+  include_examples "reports"
 end
