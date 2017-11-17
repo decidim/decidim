@@ -65,41 +65,54 @@ ignore:
 
 flags:
   core:
+    assume: true
     paths:
       - decidim-core/
   assemblies:
+    assume: true
     paths:
       - decidim-assemblies/
   api:
+    assume: true
     paths:
       - decidim-api/
   processes:
+    assume: true
     paths:
       - decidim-participatory_processes/
   admin:
+    assume: true
     paths:
       - decidim-admin/
   system:
+    assume: true
     paths:
       - decidim-system/
   proposals:
+    assume: true
     paths:
       - decidim-proposals/
   comments:
+    assume: true
     paths:
       - decidim-comments/
   meetings:
+    assume: true
     paths:
       - decidim-meetings/
   pages:
+    assume: true
     paths:
       - decidim-pages/
   accountability:
+    assume: true
     paths:
       - decidim-accountability/
   budgets:
+    assume: true
     paths:
       - decidim-budgets/
   surveys:
+    assume: true
     paths:
       - decidim-surveys/

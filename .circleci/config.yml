@@ -128,10 +128,10 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run core JS tests
-          command: npm test -- decidim-core
+          command: ./.circleci/run_tests.sh decidim-core "npm test -- decidim-core"
       - run:
           name: Run core RSpec
-          command: cd decidim-core && bundle exec rake
+          command: ./.circleci/run_tests.sh decidim-core "cd decidim-core && bundle exec rake"
       - store_artifacts:
           path: /decidim/spec/decidim_dummy_app/tmp/capybara
   assemblies:
@@ -148,10 +148,10 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run assemblies JS tests
-          command: npm test -- decidim-assemblies
+          command: ./.circleci/run_tests.sh decidim-assemblies "npm test -- decidim-assemblies"
       - run:
           name: Run assemblies RSpec
-          command: cd decidim-assemblies && bundle exec rake
+          command: ./.circleci/run_tests.sh decidim-assemblies "cd decidim-assemblies && bundle exec rake"
       - store_artifacts:
           path: /decidim/spec/decidim_dummy_app/tmp/capybara
   api:
@@ -168,10 +168,10 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run api JS tests
-          command: npm test -- decidim-api
+          command: ./.circleci/run_tests.sh decidim-api "npm test -- decidim-api"
       - run:
           name: Run api RSpec
-          command: cd decidim-api && bundle exec rake
+          command: ./.circleci/run_tests.sh decidim-api "cd decidim-api && bundle exec rake"
       - store_artifacts:
           path: /decidim/spec/decidim_dummy_app/tmp/capybara
   processes:
@@ -188,10 +188,10 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run participatory_processes JS tests
-          command: npm test -- decidim-participatory_processes
+          command: ./.circleci/run_tests.sh decidim-participatory_processes "npm test -- decidim-participatory_processes"
       - run:
           name: Run participatory_processes RSpec
-          command: cd decidim-participatory_processes && bundle exec rake
+          command: ./.circleci/run_tests.sh decidim-participatory_processes "cd decidim-participatory_processes && bundle exec rake"
       - store_artifacts:
           path: /decidim/spec/decidim_dummy_app/tmp/capybara
   admin:
@@ -208,10 +208,10 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run admin JS tests
-          command: npm test -- decidim-admin
+          command: ./.circleci/run_tests.sh decidim-admin "npm test -- decidim-admin"
       - run:
           name: Run admin RSpec
-          command: cd decidim-admin && bundle exec rake
+          command: ./.circleci/run_tests.sh decidim-admin "cd decidim-admin && bundle exec rake"
       - store_artifacts:
           path: /decidim/spec/decidim_dummy_app/tmp/capybara
   system:
@@ -228,10 +228,10 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run system JS tests
-          command: npm test -- decidim-system
+          command: ./.circleci/run_tests.sh decidim-system "npm test -- decidim-system"
       - run:
           name: Run system RSpec
-          command: cd decidim-system && bundle exec rake
+          command: ./.circleci/run_tests.sh decidim-system "cd decidim-system && bundle exec rake"
       - store_artifacts:
           path: /decidim/spec/decidim_dummy_app/tmp/capybara
   proposals:
@@ -248,10 +248,10 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run proposals JS tests
-          command: npm test -- decidim-proposals
+          command: ./.circleci/run_tests.sh decidim-proposals "npm test -- decidim-proposals"
       - run:
           name: Run proposals RSpec
-          command: cd decidim-proposals && bundle exec rake
+          command: ./.circleci/run_tests.sh decidim-proposals "cd decidim-proposals && bundle exec rake"
       - store_artifacts:
           path: /decidim/spec/decidim_dummy_app/tmp/capybara
   comments:
@@ -268,10 +268,10 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run comments JS tests
-          command: npm test -- decidim-comments
+          command: ./.circleci/run_tests.sh decidim-comments "npm test -- decidim-comments"
       - run:
           name: Run comments RSpec
-          command: cd decidim-comments && bundle exec rake
+          command: ./.circleci/run_tests.sh decidim-comments "cd decidim-comments && bundle exec rake"
       - store_artifacts:
           path: /decidim/spec/decidim_dummy_app/tmp/capybara
   meetings:
@@ -288,10 +288,10 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run meetings JS tests
-          command: npm test -- decidim-meetings
+          command: ./.circleci/run_tests.sh decidim-meetings "npm test -- decidim-meetings"
       - run:
           name: Run meetings RSpec
-          command: cd decidim-meetings && bundle exec rake
+          command: ./.circleci/run_tests.sh decidim-meetings "cd decidim-meetings && bundle exec rake"
       - store_artifacts:
           path: /decidim/spec/decidim_dummy_app/tmp/capybara
   pages:
@@ -308,10 +308,10 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run pages JS tests
-          command: npm test -- decidim-pages
+          command: ./.circleci/run_tests.sh decidim-pages "npm test -- decidim-pages"
       - run:
           name: Run pages RSpec
-          command: cd decidim-pages && bundle exec rake
+          command: ./.circleci/run_tests.sh decidim-pages "cd decidim-pages && bundle exec rake"
       - store_artifacts:
           path: /decidim/spec/decidim_dummy_app/tmp/capybara
   accountability:
@@ -328,10 +328,10 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run accountability JS tests
-          command: npm test -- decidim-accountability
+          command: ./.circleci/run_tests.sh decidim-accountability "npm test -- decidim-accountability"
       - run:
           name: Run accountability RSpec
-          command: cd decidim-accountability && bundle exec rake
+          command: ./.circleci/run_tests.sh decidim-accountability "cd decidim-accountability && bundle exec rake"
       - store_artifacts:
           path: /decidim/spec/decidim_dummy_app/tmp/capybara
   budgets:
@@ -348,10 +348,10 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run budgets JS tests
-          command: npm test -- decidim-budgets
+          command: ./.circleci/run_tests.sh decidim-budgets "npm test -- decidim-budgets"
       - run:
           name: Run budgets RSpec
-          command: cd decidim-budgets && bundle exec rake
+          command: ./.circleci/run_tests.sh decidim-budgets "cd decidim-budgets && bundle exec rake"
       - store_artifacts:
           path: /decidim/spec/decidim_dummy_app/tmp/capybara
   surveys:
@@ -368,10 +368,10 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
       - run:
           name: Run surveys JS tests
-          command: npm test -- decidim-surveys
+          command: ./.circleci/run_tests.sh decidim-surveys "npm test -- decidim-surveys"
       - run:
           name: Run surveys RSpec
-          command: cd decidim-surveys && bundle exec rake
+          command: ./.circleci/run_tests.sh decidim-surveys "cd decidim-surveys && bundle exec rake"
       - store_artifacts:
           path: /decidim/spec/decidim_dummy_app/tmp/capybara
 
