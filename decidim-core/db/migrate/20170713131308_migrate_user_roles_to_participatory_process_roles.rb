@@ -10,11 +10,13 @@ class MigrateUserRolesToParticipatoryProcessRoles < ActiveRecord::Migration[5.1]
   end
 
   def up
-    participatory_processes = ParticipatoryProcess.includes(:organization).all
+    participatory_processes = ParticipatoryProcess.all
     User.find_each do |user|
       next if user.roles.empty? || user.roles.include?("admin")
 
-      processes = participatory_processes.select { |process| process.organization == user.organization }
+      processes = participatory_processes.select do |process|
+        process.decidim_organization_id == user.decidim_organization_id
+      end
       values = processes.map do |process|
         user.roles.map do |role|
           "(#{user.id}, #{process.id}, '#{role}', NOW(), NOW())"
