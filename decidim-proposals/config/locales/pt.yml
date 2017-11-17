@@ -4,24 +4,24 @@ pt:
       proposal:
         body: Corpo
         category_id: Categoria
-        scope_id: Escopo
+        scope_id: Âmbito
         title: Título
         user_group_id: Criar proposta como
       proposal_answer:
-        answer: Responda
+        answer: Responder
   decidim:
     features:
       proposals:
         actions:
-          create: Crio
-          vote: Voto
+          create: Criar
+          vote: Votar
         name: Propostas
         settings:
           global:
             announcement: Anúncio
             attachments_allowed: Permitir anexos
             comments_enabled: Comentários ativados
-            geocoding_enabled: Geocoding habilitado
+            geocoding_enabled: Geocoding ativado
             maximum_votes_per_proposal: Máximo de votos por proposta
             new_proposal_help_text: Novo texto de ajuda da proposta
             official_proposals_enabled: Proposta oficial habilitada
@@ -44,7 +44,7 @@ pt:
         title: Ações
       admin:
         actions:
-          preview: Visualização
+          preview: Previsualização
         exports:
           comments: Comentários
           proposals: Propostas
