@@ -111,7 +111,7 @@ jobs:
           name: Format test coverage
           command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.core.json"
       - save_cache:
-          key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: codeclimate-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
             - "coverage/codeclimate.core.json"
       - store_artifacts:
@@ -139,7 +139,7 @@ jobs:
           name: Format test coverage
           command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.assemblies.json"
       - save_cache:
-          key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: codeclimate-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
             - "coverage/codeclimate.assemblies.json"
       - store_artifacts:
@@ -167,7 +167,7 @@ jobs:
           name: Format test coverage
           command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.api.json"
       - save_cache:
-          key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: codeclimate-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
             - "coverage/codeclimate.api.json"
       - store_artifacts:
@@ -195,7 +195,7 @@ jobs:
           name: Format test coverage
           command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.processes.json"
       - save_cache:
-          key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: codeclimate-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
             - "coverage/codeclimate.processes.json"
       - store_artifacts:
@@ -223,7 +223,7 @@ jobs:
           name: Format test coverage
           command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.admin.json"
       - save_cache:
-          key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: codeclimate-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
             - "coverage/codeclimate.admin.json"
       - store_artifacts:
@@ -251,7 +251,7 @@ jobs:
           name: Format test coverage
           command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.system.json"
       - save_cache:
-          key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: codeclimate-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
             - "coverage/codeclimate.system.json"
       - store_artifacts:
@@ -279,7 +279,7 @@ jobs:
           name: Format test coverage
           command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.proposals.json"
       - save_cache:
-          key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: codeclimate-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
             - "coverage/codeclimate.proposals.json"
       - store_artifacts:
@@ -307,7 +307,7 @@ jobs:
           name: Format test coverage
           command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.comments.json"
       - save_cache:
-          key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: codeclimate-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
             - "coverage/codeclimate.comments.json"
       - store_artifacts:
@@ -335,7 +335,7 @@ jobs:
           name: Format test coverage
           command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.meetings.json"
       - save_cache:
-          key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: codeclimate-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
             - "coverage/codeclimate.meetings.json"
       - store_artifacts:
@@ -363,7 +363,7 @@ jobs:
           name: Format test coverage
           command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.pages.json"
       - save_cache:
-          key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: codeclimate-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
             - "coverage/codeclimate.pages.json"
       - store_artifacts:
@@ -391,7 +391,7 @@ jobs:
           name: Format test coverage
           command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.accountability.json"
       - save_cache:
-          key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: codeclimate-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
             - "coverage/codeclimate.accountability.json"
       - store_artifacts:
@@ -419,7 +419,7 @@ jobs:
           name: Format test coverage
           command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.budgets.json"
       - save_cache:
-          key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: codeclimate-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
             - "coverage/codeclimate.budgets.json"
       - store_artifacts:
@@ -447,55 +447,55 @@ jobs:
           name: Format test coverage
           command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.surveys.json"
       - save_cache:
-          key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
+          key: codeclimate-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
             - "coverage/codeclimate.surveys.json"
       - store_artifacts:
           path: /decidim/spec/decidim_dummy_app/tmp/capybara
-  cc-test-coverage:
+  codeclimate-test-coverage:
     <<: *defaults
     steps:
       - attach_workspace:
           at: /app
       - restore_cache:
           keys:
-            - cc-test-coverage-{{ .Branch }}-core
+            - codeclimate-test-coverage-{{ .Branch }}-core
       - restore_cache:
           keys:
-            - cc-test-coverage-{{ .Branch }}-assemblies
+            - codeclimate-test-coverage-{{ .Branch }}-assemblies
       - restore_cache:
           keys:
-            - cc-test-coverage-{{ .Branch }}-api
+            - codeclimate-test-coverage-{{ .Branch }}-api
       - restore_cache:
           keys:
-            - cc-test-coverage-{{ .Branch }}-processes
+            - codeclimate-test-coverage-{{ .Branch }}-processes
       - restore_cache:
           keys:
-            - cc-test-coverage-{{ .Branch }}-admin
+            - codeclimate-test-coverage-{{ .Branch }}-admin
       - restore_cache:
           keys:
-            - cc-test-coverage-{{ .Branch }}-system
+            - codeclimate-test-coverage-{{ .Branch }}-system
       - restore_cache:
           keys:
-            - cc-test-coverage-{{ .Branch }}-proposals
+            - codeclimate-test-coverage-{{ .Branch }}-proposals
       - restore_cache:
           keys:
-            - cc-test-coverage-{{ .Branch }}-comments
+            - codeclimate-test-coverage-{{ .Branch }}-comments
       - restore_cache:
           keys:
-            - cc-test-coverage-{{ .Branch }}-meetings
+            - codeclimate-test-coverage-{{ .Branch }}-meetings
       - restore_cache:
           keys:
-            - cc-test-coverage-{{ .Branch }}-pages
+            - codeclimate-test-coverage-{{ .Branch }}-pages
       - restore_cache:
           keys:
-            - cc-test-coverage-{{ .Branch }}-accountability
+            - codeclimate-test-coverage-{{ .Branch }}-accountability
       - restore_cache:
           keys:
-            - cc-test-coverage-{{ .Branch }}-budgets
+            - codeclimate-test-coverage-{{ .Branch }}-budgets
       - restore_cache:
           keys:
-            - cc-test-coverage-{{ .Branch }}-surveys
+            - codeclimate-test-coverage-{{ .Branch }}-surveys
       - run:
           name: Sum CC test coverage reports
           command: ./cc-test-reporter sum-coverage --output - --parts 13 coverage/codeclimate.*.json | ./cc-test-reporter upload-coverage --input -
@@ -545,7 +545,7 @@ workflows:
       - surveys:
           requires:
             - build_test_app
-      - cc-test-coverage:
+      - codeclimate-test-coverage:
           requires:
             - core
             - assemblies
