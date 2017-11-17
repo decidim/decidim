@@ -53,6 +53,9 @@ jobs:
           key: assets-{{ .Branch }}
           paths:
             - spec/decidim_dummy_app/public/assets
+      - run:
+          name: Install CodeClimate test reporter
+          command: /app/.circleci/install_cc_test_reporter.sh
       - persist_to_workspace:
           root: /app
           paths:
@@ -100,13 +103,13 @@ jobs:
       - run:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run: cc-test-reporter before-build
+      - run: ./cc-test-reporter before-build
       - run:
           name: Run core RSpec
           command: cd decidim-core && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.core.json"
+          command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.core.json"
       - save_cache:
           key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
@@ -128,13 +131,13 @@ jobs:
       - run:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run: cc-test-reporter before-build
+      - run: ./cc-test-reporter before-build
       - run:
           name: Run assemblies RSpec
           command: cd decidim-assemblies && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.assemblies.json"
+          command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.assemblies.json"
       - save_cache:
           key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
@@ -156,13 +159,13 @@ jobs:
       - run:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run: cc-test-reporter before-build
+      - run: ./cc-test-reporter before-build
       - run:
           name: Run api RSpec
           command: cd decidim-api && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.api.json"
+          command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.api.json"
       - save_cache:
           key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
@@ -184,13 +187,13 @@ jobs:
       - run:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run: cc-test-reporter before-build
+      - run: ./cc-test-reporter before-build
       - run:
           name: Run participatory_processes RSpec
           command: cd decidim-participatory_processes && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.processes.json"
+          command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.processes.json"
       - save_cache:
           key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
@@ -212,13 +215,13 @@ jobs:
       - run:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run: cc-test-reporter before-build
+      - run: ./cc-test-reporter before-build
       - run:
           name: Run admin RSpec
           command: cd decidim-admin && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.admin.json"
+          command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.admin.json"
       - save_cache:
           key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
@@ -240,13 +243,13 @@ jobs:
       - run:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run: cc-test-reporter before-build
+      - run: ./cc-test-reporter before-build
       - run:
           name: Run system RSpec
           command: cd decidim-system && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.system.json"
+          command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.system.json"
       - save_cache:
           key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
@@ -268,13 +271,13 @@ jobs:
       - run:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run: cc-test-reporter before-build
+      - run: ./cc-test-reporter before-build
       - run:
           name: Run proposals RSpec
           command: cd decidim-proposals && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.proposals.json"
+          command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.proposals.json"
       - save_cache:
           key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
@@ -296,13 +299,13 @@ jobs:
       - run:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run: cc-test-reporter before-build
+      - run: ./cc-test-reporter before-build
       - run:
           name: Run comments RSpec
           command: cd decidim-comments && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.comments.json"
+          command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.comments.json"
       - save_cache:
           key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
@@ -324,13 +327,13 @@ jobs:
       - run:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run: cc-test-reporter before-build
+      - run: ./cc-test-reporter before-build
       - run:
           name: Run meetings RSpec
           command: cd decidim-meetings && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.meetings.json"
+          command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.meetings.json"
       - save_cache:
           key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
@@ -352,13 +355,13 @@ jobs:
       - run:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run: cc-test-reporter before-build
+      - run: ./cc-test-reporter before-build
       - run:
           name: Run pages RSpec
           command: cd decidim-pages && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.pages.json"
+          command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.pages.json"
       - save_cache:
           key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
@@ -380,13 +383,13 @@ jobs:
       - run:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run: cc-test-reporter before-build
+      - run: ./cc-test-reporter before-build
       - run:
           name: Run accountability RSpec
           command: cd decidim-accountability && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.accountability.json"
+          command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.accountability.json"
       - save_cache:
           key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
@@ -408,13 +411,13 @@ jobs:
       - run:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run: cc-test-reporter before-build
+      - run: ./cc-test-reporter before-build
       - run:
           name: Run budgets RSpec
           command: cd decidim-budgets && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.budgets.json"
+          command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.budgets.json"
       - save_cache:
           key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
@@ -436,13 +439,13 @@ jobs:
       - run:
           name: Create test DB
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
-      - run: cc-test-reporter before-build
+      - run: ./cc-test-reporter before-build
       - run:
           name: Run surveys RSpec
           command: cd decidim-surveys && bundle exec rake
       - run:
           name: Format test coverage
-          command: cc-test-reporter format-coverage --output "coverage/codeclimate.surveys.json"
+          command: ./cc-test-reporter format-coverage --output "coverage/codeclimate.surveys.json"
       - save_cache:
           key: cc-test-coverage-{{ .Branch }}-{{ .Environment.CIRCLE_JOB }}
           paths:
@@ -453,7 +456,7 @@ jobs:
     <<: *defaults
     steps:
       - attach_workspace:
-          at: /decidim
+          at: /app
       - restore_cache:
           keys:
             - cc-test-coverage-{{ .Branch }}-core
@@ -495,7 +498,7 @@ jobs:
             - cc-test-coverage-{{ .Branch }}-surveys
       - run:
           name: Sum CC test coverage reports
-          command: cc-test-reporter sum-coverage --output - --parts 13 coverage/codeclimate.*.json | cc-test-reporter upload-coverage --input -
+          command: ./cc-test-reporter sum-coverage --output - --parts 13 coverage/codeclimate.*.json | ./cc-test-reporter upload-coverage --input -
 
 workflows:
   version: 2
