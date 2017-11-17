@@ -10,7 +10,6 @@ module Decidim
     let(:feature) { double(permissions: permissions) }
     let(:action) { "vote" }
     let(:permissions) { { action => permission } }
-    let(:permission) { {} }
     let(:authorization) { double(name: "foo_handler", metadata: metadata) }
     let(:metadata) { { postal_code: "1234", location: "Tomorrowland" } }
     let(:response) { subject.authorize }
