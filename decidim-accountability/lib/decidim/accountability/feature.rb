@@ -41,6 +41,11 @@ Decidim.register_feature(:accountability) do |feature|
   end
 
   feature.seeds do |participatory_space|
+    admin_user = Decidim::User.where(
+      organization: participatory_space.organization,
+      email: "admin@example.org"
+    ).first
+
     feature = Decidim::Feature.create!(
       name: Decidim::Features::Namer.new(participatory_space.organization.available_locales, :accountability).i18n_name,
       manifest_name: :accountability,
@@ -79,7 +84,9 @@ Decidim.register_feature(:accountability) do |feature|
       end
 
       categories.each do |category|
-        result = Decidim::Accountability::Result.create!(
+        result = Decidim.traceability.create!(
+          Decidim::Accountability::Result,
+          admin_user,
           feature: feature,
           scope: participatory_space.organization.scopes.sample,
           category: category,
@@ -92,7 +99,9 @@ Decidim.register_feature(:accountability) do |feature|
         Decidim::Comments::Seed.comments_for(result)
 
         3.times do
-          child_result = Decidim::Accountability::Result.create!(
+          child_result = Decidim.traceability.create!(
+            Decidim::Accountability::Result,
+            admin_user,
             feature: feature,
             parent: result,
             start_date: Time.zone.today,
