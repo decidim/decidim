@@ -3,6 +3,10 @@
     <div class="columns">
       <div class="title-action" >
         <h1 class="heading1 title-action__title">
+          <%= link_to decidim.chats_path, class: "card--list__data__icon card--list__data__icon--back" do %>
+            <%= icon "chevron-left" %>
+          <% end %>
+
           <%= t(".title", usernames: username_list(participants)) %>
         </h1>
       </div>

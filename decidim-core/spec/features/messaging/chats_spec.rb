@@ -135,7 +135,7 @@ describe "Chats", type: :feature do
           click_link user.name
           expect(page).to have_content("Please reply!")
 
-          visit_inbox
+          find("a.card--list__data__icon--back").click
           expect(page).to have_no_selector(".card--list__item .card--list__counter")
         end
       end
