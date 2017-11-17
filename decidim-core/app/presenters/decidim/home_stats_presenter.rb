@@ -7,7 +7,7 @@ module Decidim
 
     # Public: Render a collection of primary stats.
     def highlighted
-      highlighted_stats = Decidim.stats.only([:users_count, :processes_count]).with_context(organization).map { |name, data| [name, data] }
+      highlighted_stats = Decidim.stats.only([:users_count, :proposals_count]).with_context(organization).map { |name, data| [name, data] }
       highlighted_stats = highlighted_stats.concat(global_stats(priority: StatsRegistry::HIGH_PRIORITY))
       highlighted_stats = highlighted_stats.concat(feature_stats(priority: StatsRegistry::HIGH_PRIORITY))
       highlighted_stats = highlighted_stats.reject(&:empty?)
@@ -49,7 +49,7 @@ module Decidim
     private
 
     def global_stats(conditions)
-      Decidim.stats.except([:users_count, :processes_count])
+      Decidim.stats.except([:users_count, :proposals_count])
              .filter(conditions)
              .with_context(published_features)
              .map { |name, data| [name, data] }
@@ -57,8 +57,8 @@ module Decidim
 
     def feature_stats(conditions)
       Decidim.feature_manifests.map do |feature|
-        feature.stats.filter(conditions).with_context(published_features).map { |name, data| [name, data] }.flatten
-      end
+        feature.stats.filter(conditions).with_context(published_features).map { |name, data| [name, data] }
+      end.flatten(1)
     end
 
     def render_stats_data(name, data)

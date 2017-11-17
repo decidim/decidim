@@ -391,6 +391,8 @@ en:
         processes_count: Processes
         projects_count: Projects
         proposals_count: Proposals
+        proposals_accepted: Accepted Proposals
+        assemblies_count: Assemblies
         results_count: Results
         surveys_count: Surveys
         users_count: Participants
