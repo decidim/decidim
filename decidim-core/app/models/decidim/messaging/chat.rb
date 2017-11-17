@@ -17,6 +17,10 @@ module Decidim
 
       has_many :receipts, through: :messages
 
+      scope :unread_by, lambda { |user|
+        joins(:receipts).merge(Receipt.unread_by(user)).distinct
+      }
+
       delegate :mark_as_read, to: :receipts
 
       def self.start!(originator:, interlocutors:, body:)

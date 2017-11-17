@@ -17,6 +17,13 @@ describe "Chats", type: :feature do
     it "shows a notice informing about that" do
       expect(page).to have_content("You have no chats yet")
     end
+
+    it "shows the topbar button as inactive" do
+      within ".topbar__user__logged" do
+        expect(page).to have_no_selector("a.topbar__chats.is-active")
+        expect(page).to have_selector("a.topbar__chats")
+      end
+    end
   end
 
   context "when starting a chat" do
@@ -49,9 +56,9 @@ describe "Chats", type: :feature do
       )
     end
 
-    before { visit_inbox }
-
     it "shows user's chat list" do
+      visit_inbox
+
       within ".chats" do
         expect(page).to have_selector(".card--list__item", text: /#{interlocutor.name}/i)
         expect(page).to have_selector(".card--list__item", text: "who wants apples?")
@@ -60,14 +67,50 @@ describe "Chats", type: :feature do
     end
 
     it "allows entering a chat" do
+      visit_inbox
       click_link interlocutor.name
 
       expect(page).to have_content("Chat with #{interlocutor.name}")
       expect(page).to have_content("who wants apples?")
     end
 
+    context "and some of them are unread" do
+      before do
+        chat.add_message(sender: interlocutor, body: "I want one")
+        chat.save!
+
+        visit_inbox
+      end
+
+      it "shows the topbar button as active" do
+        within ".topbar__user__logged" do
+          expect(page).to have_selector("a.topbar__chats.is-active")
+        end
+      end
+
+      it "shows the number of unread messages per chat" do
+        expect(page).to have_selector(".card--list__item .card--list__counter", text: "1")
+      end
+    end
+
+    context "and they are read" do
+      before { visit_inbox }
+
+      it "shows the topbar button as inactive" do
+        within ".topbar__user__logged" do
+          expect(page).to have_no_selector("a.topbar__chats.is-active")
+          expect(page).to have_selector("a.topbar__chats")
+        end
+      end
+
+      it "does not show an unread count" do
+        expect(page).to have_no_selector(".card--list__item .card--list__counter")
+      end
+    end
+
     context "when a message is sent" do
       before do
+        visit_inbox
         click_link interlocutor.name
         fill_in "message_body", with: "Please reply!"
         click_button "Send"
