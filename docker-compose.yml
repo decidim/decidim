@@ -1,10 +1,12 @@
 version: '3'
 services:
   decidim:
-    build: '.'
-    working_dir: /code
+    image: decidim/decidim:dev-latest
+    entrypoint: []
+    command: decidim
     volumes:
-      - .:/code
+      - .:/app
+      - bundle:/usr/local/bundle
     environment:
       - DATABASE_HOST=pg
       - DATABASE_USERNAME=postgres
@@ -20,5 +22,6 @@ services:
     volumes:
       - redis-data:/data
 volumes:
+  bundle: {}
   pg-data: {}
   redis-data: {}
