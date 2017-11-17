@@ -133,15 +133,22 @@ en:
         show:
           stats:
             attendees: Attendees
+            back_to_result: Go back to result
             comments: Comments
             contributions: Contributions
             current_version_number: Version
             last_edited_by: Last edited by
             meetings: Meetings
             proposals: Proposals
+            version_author: Version author
+            version_number: Version number
+            version_number_out_of_total: "%{current_version} out of %{total_count}"
             votes: Supports
         timeline:
           title: Project evolution
+      versions:
+        show:
+          changes_at_title: "Changes at \"%{title}\""
     features:
       accountability:
         name: Accountability
