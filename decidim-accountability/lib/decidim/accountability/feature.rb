@@ -26,7 +26,7 @@ Decidim.register_feature(:accountability) do |feature|
     settings.attribute :heading_leaf_level_results, type: :string, translated: true, editor: true
   end
 
-  feature.register_stat :results_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, start_at, end_at|
+  feature.register_stat :results_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, _start_at, _end_at|
     Decidim::Accountability::Result.where(feature: features).count
   end
 

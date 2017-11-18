@@ -56,9 +56,9 @@ module Decidim
     end
 
     def feature_stats(conditions)
-      Decidim.feature_manifests.map do |feature|
+      Decidim.feature_manifests.flat_map do |feature|
         feature.stats.filter(conditions).with_context(published_features).map { |name, data| [name, data] }
-      end.flatten(1)
+      end
     end
 
     def render_stats_data(name, data)
