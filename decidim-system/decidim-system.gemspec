@@ -25,7 +25,6 @@ Gem::Specification.new do |s|
   s.add_dependency "devise", "~> 4.2"
   s.add_dependency "devise-i18n", "~> 1.2.0"
   s.add_dependency "devise_invitable", "~> 1.7.1"
-  s.add_dependency "foundation_rails_helper", "~> 3.0.0"
   s.add_dependency "jquery-rails", "~> 4.3.1"
   s.add_dependency "sassc-rails", "~> 1.3.0"
 
