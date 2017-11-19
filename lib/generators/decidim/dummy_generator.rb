@@ -40,7 +40,6 @@ module Decidim
           dummy_app_path,
           "--path",
           "../..",
-          "--app_const_base=DummyApplication",
           "--recreate_db",
           "--skip_gemfile=#{options[:skip_gemfile]}",
           "--demo"
