@@ -2,7 +2,6 @@
 
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
-require "generators/decidim/dummy_generator"
 require "generators/decidim/app_generator"
 require "generators/decidim/docker_generator"
 
@@ -103,9 +102,13 @@ desc "Generates a dummy app for testing"
 task :test_app do
   dummy_app_path = File.expand_path(File.join(Dir.pwd, "spec", "decidim_dummy_app"))
 
+  Dir.chdir(__dir__) do
+    sh "rm -fR #{dummy_app_path}", verbose: false
+  end
+
   Bundler.with_clean_env do
-    Decidim::Generators::DummyGenerator.start(
-      ["--dummy_app_path=#{dummy_app_path}"]
+    Decidim::Generators::AppGenerator.start(
+      [dummy_app_path, "--path", "../..", "--recreate_db", "--demo"]
     )
   end
 end
