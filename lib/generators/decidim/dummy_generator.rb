@@ -47,25 +47,6 @@ module Decidim
         ]
       end
 
-      def decidim_dev
-        template "no_animations.rb", "#{dummy_app_path}/app/middleware/no_animations.rb"
-      end
-
-      def test_env
-        gsub_file "#{dummy_app_path}/config/environments/test.rb",
-                  /allow_forgery_protection = (.*)/, "allow_forgery_protection = true"
-
-        inject_into_file "#{dummy_app_path}/config/environments/test.rb",
-                         after: "allow_forgery_protection = true\n" do
-          <<~RUBY.gsub(/^ *\|/, "")
-            |
-            |  # Inject middleware to disable CSS animations
-            |  config.middleware.use NoAnimations
-            |
-          RUBY
-        end
-      end
-
       private
 
       def dummy_app_path
