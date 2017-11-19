@@ -22,11 +22,20 @@ module Decidim
 end
 
 Capybara.register_driver :headless_chrome do |app|
+  http_client = Selenium::WebDriver::Remote::Http::Default.new
+  http_client.read_timeout = 90
+
   options = ::Selenium::WebDriver::Chrome::Options.new
   options.args << "--headless"
   options.args << "--no-sandbox"
   options.args << "--window-size=1024,768"
-  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+
+  Capybara::Selenium::Driver.new(
+    app,
+    browser: :chrome,
+    options: options,
+    http_client: http_client
+  )
 end
 
 Capybara::Screenshot.prune_strategy = :keep_last_run
