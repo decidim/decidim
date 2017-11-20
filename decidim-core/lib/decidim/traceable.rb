@@ -16,6 +16,16 @@ module Decidim
 
     included do
       has_paper_trail
+
+      delegate :count, to: :versions, prefix: true
+
+      def last_whodunnit
+        versions.last.whodunnit
+      end
+
+      def last_editor
+        Decidim.traceability.version_editor(versions.last)
+      end
     end
   end
 end

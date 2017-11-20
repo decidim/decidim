@@ -6,6 +6,8 @@ describe Decidim::Traceability, versioning: true do
   let!(:user) { create :user }
   let(:klass) { Decidim::DummyResources::DummyResource }
   let(:params) { attributes_for(:dummy_resource) }
+  let(:dummy_resource) { create :dummy_resource }
+
   subject { described_class.new }
 
   describe "create" do
@@ -45,8 +47,6 @@ describe Decidim::Traceability, versioning: true do
   end
 
   describe "update!" do
-    let(:dummy_resource) { create :dummy_resource }
-
     it "calls `update_attributes!` to the resource" do
       expect(dummy_resource).to receive(:update_attributes!).with(params)
       subject.update!(dummy_resource, user, params)
@@ -61,6 +61,38 @@ describe Decidim::Traceability, versioning: true do
     it "sets the author of the version to the user" do
       resource = subject.update!(dummy_resource, user, params)
       expect(resource.versions.last.whodunnit).to eq user.to_gid.to_s
+    end
+  end
+
+  describe "version_editor" do
+    context "when editor is a string" do
+      let(:author) { "the_author_name" }
+
+      it "returns the string" do
+        resource = subject.update!(dummy_resource, author, params)
+        editor = subject.version_editor(resource.versions.last)
+        expect(editor).to eq author
+      end
+    end
+
+    context "when editor is an object" do
+      let(:author) { user }
+
+      it "returns the string" do
+        resource = subject.update!(dummy_resource, author, params)
+        editor = subject.version_editor(resource.versions.last)
+        expect(editor).to eq author
+      end
+    end
+  end
+
+  context "last_editor" do
+    it "finds the editor of the last version" do
+      resource = subject.update!(dummy_resource, user, title: "New title")
+      resource = subject.update!(resource, "my user name", title: "Another title")
+      editor = subject.last_editor(resource)
+
+      expect(editor).to eq "my user name"
     end
   end
 end

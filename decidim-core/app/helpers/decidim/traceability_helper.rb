@@ -13,7 +13,7 @@ module Decidim
     def render_resource_last_editor(resource)
       render partial: "decidim/shared/version_author",
              locals: {
-               author: resource_last_editor(resource)
+               author: Decidim.traceability.last_editor(resource)
              }
     end
 
@@ -25,26 +25,8 @@ module Decidim
     def render_resource_editor(version)
       render partial: "decidim/shared/version_author",
              locals: {
-               author: version_author(version)
+               author: Decidim.traceability.version_editor(version)
              }
-    end
-
-    # Finds the author of the last version of the resource.
-    #
-    # resource - an object implementing `Decidim::Traceable`
-    #
-    # Returns an object identifiable via GlobalID or a String.
-    def resource_last_editor(resource)
-      version_author(resource.versions.last)
-    end
-
-    # Finds the author of the given version.
-    #
-    # version - an object that responds to `whodunnit` and returns a String.
-    #
-    # Returns an object identifiable via GlobalID or a String.
-    def version_author(version)
-      ::GlobalID::Locator.locate(version.whodunnit) || version.whodunnit
     end
 
     # Renders the diff of the given changeset. Takes into account translatable fields.

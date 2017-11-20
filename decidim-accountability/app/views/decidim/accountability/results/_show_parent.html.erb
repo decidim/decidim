@@ -22,7 +22,7 @@
             <span class="definition-data__title"><%= t("results.show.stats.current_version_number", scope: "decidim.accountability") %></span>
             <%= result.versions.count %>
           </div>
-          <% if result.versions.last.whodunnit.present? %>
+          <% if result.last_editor.present? %>
             <div class="definition-data__item last_revision_by">
               <span class="definition-data__title"><%= t("results.show.stats.last_edited_by", scope: "decidim.accountability") %></span>
               <%= render_resource_last_editor(result) %>

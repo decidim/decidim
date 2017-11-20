@@ -60,6 +60,24 @@ module Decidim
       end
     end
 
+    # Finds the author of the last version of the resource.
+    #
+    # resource - an object implementing `Decidim::Traceable`
+    #
+    # Returns an object identifiable via GlobalID or a String.
+    def last_editor(resource)
+      version_editor(resource.versions.last)
+    end
+
+    # Finds the author of the given version.
+    #
+    # version - an object that responds to `whodunnit` and returns a String.
+    #
+    # Returns an object identifiable via GlobalID or a String.
+    def version_editor(version)
+      ::GlobalID::Locator.locate(version.whodunnit) || version.whodunnit
+    end
+
     private
 
     # Calculates the GlobalID of the version author. If the object does not respond to
