@@ -16,8 +16,11 @@
 - **decidim-proposals**: Change "Already voted" to "Unvote" on button hover [\#2096](https://github.com/decidim/decidim/pull/2096)
 
 **Fixed**:
+
+- **decidim-core**: Fixes to MigrateUserRolesToParticipatoryProcessRoles: avoid using relations and work with id's directly [\#2223](https://github.com/decidim/decidim/pull/2223)
 - **decidim-core**: Embedded videos were not displaying properly [\#2198](https://github.com/decidim/decidim/pull/2198)
 - **decidim-meetings**: Admins could not submit form after getting a validation error in the meeting registrations form [\2202](https://github.com/decidim/decidim/pull/2202)
+
 
 ## [v0.7.2](https://github.com/decidim/decidim/tree/v0.7.2) (2017-11-06)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.7.1...v0.7.2)
