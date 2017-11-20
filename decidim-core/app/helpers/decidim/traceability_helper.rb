@@ -29,44 +29,48 @@ module Decidim
              }
     end
 
-    # Renders the diff of the given changeset. Takes into account translatable fields.
-    # To be refactored to a presenter.
-    #
-    # changeset - a `Version` changeset
-    #
-    # Returns a Hash, where keys are the fields that have changed and values are an array,
-    # the first element being the previous value and the last being the new one.
-    def render_diff(changeset)
-      changeset.inject({}) do |diff, (attribute, values)|
-        if values.first.is_a?(Hash) || values.last.is_a?(Hash)
-          values.last.each_key do |key, _value|
-            first_value = values.first.try(:[], key)
-            last_value = values.last.try(:[], key)
-            next if first_value == last_value
-            attribute_key = "#{attribute}_#{key}"
-            diff.update(attribute_key => [first_value, last_value])
-          end
-          diff
-        else
-          diff.update(attribute => values)
-        end
-      end
+    # Caches a DiffRenderer instance for the `current_version`.
+    def diff_renderer
+      @diff_renderer ||= Decidim::Accountability::DiffRenderer.new(current_version)
     end
 
+    # Renders the diff between `:old_data` and `:new_data` keys in the `data` param.
+    #
+    # data - A Hash with `old_data`, `:new_data` and `:type` keys.
+    #
+    # Returns an HTML-safe string.
+    def render_diff_data(data)
+      render_diff_value(data[:old_value], data[:type], :removal) +
+        render_diff_value(data[:new_value], data[:type], :addition)
+    end
+
+    private
+
     # Renders the given value in a user-friendly way based on the value class.
-    # To be refactored to a presenter.
     #
     # value - an object to be rendered
     #
-    # Returns a String.
-    def render_diff_value(value)
-      case value
-      when ActiveSupport::TimeWithZone
-        l value, format: :long
-      when String
-        decidim_sanitize value
-      else
-        value
+    # Returns an HTML-ready String.
+    def render_diff_value(value, type, action)
+      return "".html_safe if value.blank?
+
+      value_to_render = case type
+                        when :date
+                          l value, format: :long
+                        when :i18n_html
+                          decidim_sanitize value
+                        when :percentage
+                          number_to_percentage value, precision: 2
+                        else
+                          value
+                        end
+
+      content_tag(:div, class: "card--list__item #{action}") do
+        content_tag(:div, class: "card--list__text") do
+          content_tag(:div) do
+            value_to_render
+          end
+        end
       end
     end
   end
