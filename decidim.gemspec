@@ -20,7 +20,15 @@ Gem::Specification.new do |s|
   s.summary = "Citizen participation framework for Ruby on Rails."
   s.description = "A generator and multiple gems made with Ruby on Rails."
 
-  s.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^decidim-.*/}) }
+  s.files = Dir[
+    "{docs,lib}/**/*",
+    "Gemfile",
+    "Gemfile.lock",
+    "LICENSE-AGPLv3.txt",
+    "Rakefile",
+    "README.md"
+  ]
+
   s.bindir = "bin"
   s.executables = ["decidim"]
   s.require_paths = ["lib"]

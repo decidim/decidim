@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 describe "Application generation" do
-  let(:status) { system(command, out: File::NULL) }
+  let(:status) { Bundler.clean_system(command, out: File::NULL) }
 
   let(:test_app) { "spec/generator_test_app" }
 
@@ -14,7 +14,11 @@ describe "Application generation" do
   end
 
   before(:all) do
-    system("bundle exec rake install_all")
+    system("bundle exec rake install_all", out: File::NULL)
+  end
+
+  after(:all) do
+    system("bundle exec rake uninstall_all", out: File::NULL)
   end
 
   context "without flags" do
