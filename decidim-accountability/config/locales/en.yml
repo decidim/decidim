@@ -147,6 +147,9 @@ en:
         timeline:
           title: Project evolution
       versions:
+        index:
+          title: Versions
+          version_index: Version %{index}
         show:
           changes_at_title: "Changes at \"%{title}\""
     features:
