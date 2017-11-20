@@ -76,10 +76,10 @@ module Decidim
     # Returns a User.
     def self.find_for_authentication(warden_conditions)
       organization = warden_conditions.dig(:env, "decidim.current_organization")
-      where(
+      find_by(
         email: warden_conditions[:email],
         decidim_organization_id: organization.id
-      ).first
+      )
     end
 
     protected
