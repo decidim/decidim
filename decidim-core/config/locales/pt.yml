@@ -31,14 +31,14 @@ pt:
     'true': 'Sim'
   carrierwave:
     errors:
-      image_too_big: A imagem é muito grande
+      image_too_big: A imagem é demasiado grande
   decidim:
     account:
       delete:
-        alert: Essa ação não pode ser desfeita. Se você excluir sua conta, não poderá fazer login.
+        alert: Esta ação não poderá ser desfeita. Se cancelar a sua conta não poderá voltar a fazer login.
         confirm:
           close: Fechar janela
-          ok: Sim, eu quero excluir minha conta
+          ok: Sim, eu quero cancelar minha conta
           question: Tem certeza de que deseja excluir a sua conta?
           title: Eliminar a minha conta
         explanation: Por favor, preencha o motivo pelo qual deseja excluir sua conta (opcional).
