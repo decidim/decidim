@@ -38,20 +38,20 @@ pt:
         alert: Esta ação não poderá ser desfeita. Se cancelar a sua conta não poderá voltar a fazer login.
         confirm:
           close: Fechar janela
-          ok: Sim, eu quero cancelar minha conta
-          question: Tem certeza de que deseja excluir a sua conta?
+          ok: Sim, eu quero cancelar a minha conta
+          question: Tem certeza de que deseja cancelar a sua conta?
           title: Eliminar a minha conta
-        explanation: Por favor, preencha o motivo pelo qual deseja excluir sua conta (opcional).
+        explanation: Por favor, preencha o motivo pelo qual deseja cancelar a sua conta (opcional).
       destroy:
-        error: Ocorreu um erro ao excluir sua conta.
-        success: Sua conta foi excluída com sucesso.
+        error: Ocorreu um erro ao cancelar a sua conta.
+        success: Sua conta foi cancelada com sucesso.
       show:
         change_password: Mudar senha
         update_account: Atualizar conta
       update:
-        error: Ocorreu um erro ao atualizar sua conta.
-        success: Sua conta foi atualizada com sucesso.
-        success_with_email_confirmation: Sua conta foi atualizada com sucesso. Você receberá um e-mail para confirmar seu novo endereço de e-mail.
+        error: Ocorreu um erro ao actualizar a sua conta.
+        success: A sua conta foi actualizada com sucesso.
+        success_with_email_confirmation: A sua conta foi actualizada com sucesso. Irá receber um e-mail de confirmação do seu novo endereço.
     anonymous_user: Anônimo
     application:
       documents:
