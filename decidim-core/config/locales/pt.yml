@@ -2,7 +2,7 @@ pt:
   activemodel:
     attributes:
       account:
-        delete_reason: Razão para excluir sua conta
+        delete_reason: Razão para cancelar a sua conta
       report:
         details: Comentários adicionais
       user:
