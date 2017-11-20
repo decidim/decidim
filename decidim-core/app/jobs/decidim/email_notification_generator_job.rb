@@ -2,7 +2,7 @@
 
 module Decidim
   class EmailNotificationGeneratorJob < ApplicationJob
-    queue_as :decidim_events
+    queue_as :events
 
     def perform(event, event_class_name, resource, recipient_ids, extra)
       event_class = event_class_name.constantize
