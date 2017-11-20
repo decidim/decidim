@@ -7,7 +7,7 @@ describe Decidim::NotificationGeneratorJob do
 
   describe "queue" do
     it "is queued to events" do
-      expect(subject.queue_name).to eq "decidim_events"
+      expect(subject.queue_name).to eq "events"
     end
   end
 

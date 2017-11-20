@@ -3,7 +3,7 @@
 module Decidim
   module Meetings
     class UpcomingMeetingNotificationJob < ApplicationJob
-      queue_as :decidim_events
+      queue_as :events
 
       def perform(meeting_id, checksum)
         meeting = Decidim::Meetings::Meeting.find(meeting_id)
