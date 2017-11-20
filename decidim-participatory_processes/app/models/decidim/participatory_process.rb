@@ -38,7 +38,7 @@ module Decidim
              dependent: :destroy,
              as: :participatory_space
 
-    has_many :features, as: :participatory_space
+    has_many :features, as: :participatory_space, dependent: :destroy
 
     attr_readonly :active_step
 

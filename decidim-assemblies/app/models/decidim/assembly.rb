@@ -23,7 +23,7 @@ module Decidim
              dependent: :destroy,
              as: :participatory_space
 
-    has_many :features, as: :participatory_space
+    has_many :features, as: :participatory_space, dependent: :destroy
 
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }

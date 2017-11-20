@@ -14,7 +14,7 @@ module Decidim
       include Decidim::Followable
       include Decidim::Comments::Commentable
 
-      has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id"
+      has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
 
       feature_manifest_name "meetings"
 
