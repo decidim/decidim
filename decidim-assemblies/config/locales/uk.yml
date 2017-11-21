@@ -6,7 +6,7 @@ uk:
         copy_categories: Скопіювати розділи
         copy_features: Скопіювати складові
         description: Опис
-        developer_group: Група розробників
+        developer_group: Група зачинальників
         domain: Домен
         hashtag: Хештег
         hero_image: Зображення головної сторінки
@@ -93,7 +93,7 @@ uk:
             active_assemblies: Започаті збори
             see_all_assemblies: Переглянути всі збори
       show:
-        developer_group: Група розробників
+        developer_group: Група зачинальників
         local_area: Місцевість
         participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
