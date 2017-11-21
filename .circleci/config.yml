@@ -40,7 +40,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Generate test app
-          command: bundle exec rake test_app
+          command: bundle exec rake decidim:generate_test_app
       - restore_cache:
          keys:
            - assets-{{ .Branch }}
