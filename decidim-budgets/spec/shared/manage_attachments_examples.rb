@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "decidim/admin/test/manage_attachments_examples"
+require "spec_helper"
 
 shared_examples "manage project attachments" do
   let(:attached_to) { project }
