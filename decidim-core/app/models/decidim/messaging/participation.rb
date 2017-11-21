@@ -2,6 +2,9 @@
 
 module Decidim
   module Messaging
+    #
+    # Holds a many-to-many relationship between chats and their participants
+    #
     class Participation < ApplicationRecord
       belongs_to :chat,
                  foreign_key: :decidim_chat_id,

@@ -2,6 +2,11 @@
 
 module Decidim
   module Messaging
+    #
+    # Holds a single message in a conversation. A message has a body, and sender
+    # and a set of receipts, which correspond to each user that will receive the
+    # message, namely, the interlocutors of the sender in the conversation.
+    #
     class Message < ApplicationRecord
       belongs_to :sender,
                  foreign_key: :decidim_sender_id,
@@ -21,6 +26,13 @@ module Decidim
 
       validate :sender_is_participant
 
+      #
+      # Associates receipts for this message for each of the given users,
+      # including also a receipt for the remitent (sender) of the message.
+      # Receipts are unread by default, except for the sender's receipt.
+      #
+      # @param recipients [Array<Decidim::User>]
+      #
       def envelope_for(recipients)
         receipts.build(recipient: sender, read_at: Time.zone.now)
 
