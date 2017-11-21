@@ -1173,7 +1173,7 @@ Rails/ActionFilter:
     - action
     - filter
   Include:
-    - app/controllers/**/*.rb
+    - '*/app/controllers/**/*.rb'
 
 Rails/Date:
   # The value `strict` disallows usage of `Date.today`, `Date.current`,
@@ -1188,21 +1188,21 @@ Rails/Date:
 
 Rails/Exit:
   Include:
-    - app/**/*.rb
+    - '*/app/**/*.rb'
     - config/**/*.rb
     - lib/**/*.rb
 
 Rails/FindBy:
   Include:
-    - app/models/**/*.rb
+    - '*/app/models/**/*.rb'
 
 Rails/FindEach:
   Include:
-    - app/models/**/*.rb
+    - '*/app/models/**/*.rb'
 
 Rails/HasAndBelongsToMany:
   Include:
-    - app/models/**/*.rb
+    - '*/app/models/**/*.rb'
 
 Rails/NotNullColumn:
   Include:
@@ -1210,7 +1210,7 @@ Rails/NotNullColumn:
 
 Rails/Output:
   Include:
-    - app/**/*.rb
+    - '*/app/**/*.rb'
     - config/**/*.rb
     - db/**/*.rb
     - lib/**/*.rb
@@ -1220,7 +1220,7 @@ Rails/OutputSafety:
 
 Rails/ReadWriteAttribute:
   Include:
-    - app/models/**/*.rb
+    - '*/app/models/**/*.rb'
 
 Rails/RequestReferer:
   EnforcedStyle: referer
@@ -1237,7 +1237,7 @@ Rails/SafeNavigation:
 
 Rails/ScopeArgs:
   Include:
-    - app/models/**/*.rb
+    - '*/app/models/**/*.rb'
 
 Rails/TimeZone:
   # The value `strict` means that `Time` should be used with `zone`.
@@ -1253,7 +1253,7 @@ Rails/UniqBeforePluck:
 
 Rails/Validation:
   Include:
-    - app/models/**/*.rb
+    - '*/app/models/**/*.rb'
 
 Rails/HasManyOrHasOneDependent:
   Include:

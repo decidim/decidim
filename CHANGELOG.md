@@ -10,13 +10,17 @@
 **Changed**:
 
 - **decidim-core**: Only require default locale translations for i18n fields [\#2204](https://github.com/decidim/decidim/pull/2204)
+- **decidim-core**: Changed `ActiveJob` queue name from `decidim_events` to `events` for consistency reasons [\#2229](https://github.com/decidim/decidim/pull/2229).
 - **decidim-admin**: Replace url to visit_url moderation admin [\#2129](https://github.com/decidim/decidim/pull/2129)
 - **decidim-core**: Hide link to register when user is already logged in [\#2088](https://github.com/decidim/decidim/pull/2088)
 - **decidim-proposals**: Change "Already voted" to "Unvote" on button hover [\#2096](https://github.com/decidim/decidim/pull/2096)
 
 **Fixed**:
+
+- **decidim-core**: Fixes to MigrateUserRolesToParticipatoryProcessRoles: avoid using relations and work with id's directly [\#2223](https://github.com/decidim/decidim/pull/2223)
 - **decidim-core**: Embedded videos were not displaying properly [\#2198](https://github.com/decidim/decidim/pull/2198)
 - **decidim-meetings**: Admins could not submit form after getting a validation error in the meeting registrations form [\2202](https://github.com/decidim/decidim/pull/2202)
+
 
 ## [v0.7.2](https://github.com/decidim/decidim/tree/v0.7.2) (2017-11-06)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.7.1...v0.7.2)
