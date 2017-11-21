@@ -240,6 +240,8 @@ shared_examples "manage proposals" do
           find("a.action-icon--edit-answer").click
         end
 
+        expect(page).to have_selector(".edit_proposal_answer")
+
         within ".edit_proposal_answer" do
           fill_in_i18n_editor(
             :proposal_answer_answer,
@@ -268,6 +270,8 @@ shared_examples "manage proposals" do
           find("a.action-icon--edit-answer").click
         end
 
+        expect(page).to have_selector(".edit_proposal_answer")
+
         within ".edit_proposal_answer" do
           choose "Accepted"
           click_button "Answer"
@@ -288,6 +292,8 @@ shared_examples "manage proposals" do
         within find("tr", text: proposal.title) do
           find("a.action-icon--edit-answer").click
         end
+
+        expect(page).to have_selector(".edit_proposal_answer")
 
         within ".edit_proposal_answer" do
           choose "Evaluating"
@@ -322,6 +328,8 @@ shared_examples "manage proposals" do
           end
           find("a.action-icon--edit-answer").click
         end
+
+        expect(page).to have_selector(".edit_proposal_answer")
 
         within ".edit_proposal_answer" do
           choose "Accepted"
