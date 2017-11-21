@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe ParticipatoryProcessStatsPresenter do
+  describe ParticipatoryProcesses::ParticipatoryProcessStatsPresenter do
     let!(:organization) { create(:organization) }
     let!(:user) { create(:user, :confirmed, organization: organization) }
     let!(:process) { create(:participatory_process, organization: organization) }

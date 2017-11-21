@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe AssemblyStatsPresenter do
+  describe Assemblies::AssemblyStatsPresenter do
     let!(:organization) { create(:organization) }
     let!(:user) { create(:user, :confirmed, organization: organization) }
     let!(:assembly) { create(:assembly, organization: organization) }
