@@ -1,5 +1,6 @@
 ---
-engines:
+version: "2"
+plugins:
   bundler-audit:
     enabled: true
   csslint:
@@ -47,18 +48,12 @@ engines:
     enabled: true
     channel: rubocop-0-51
 
-ratings:
-  paths:
-  - Gemfile.lock
-  - "**.css"
-  - "**.js"
-  - "**.rb"
-exclude_paths:
-  - "**/vendor/**/*"
-  - "bundle.js"
-  - "node_modules/**/*"
-  - "development_app/**/*"
-  - "docker_development_app/**/*"
-  - "spec/decidim_dummy_app/**/*"
-  - "coverage/**/*"
+exclude_patterns:
+  - "**/vendor/"
+  - "decidim-comments/app/assets/javascripts/decidim/comments/bundle.js"
+  - "node_modules/"
+  - "development_app/"
+  - "docker_development_app/"
+  - "spec/decidim_dummy_app/"
+  - "coverage/"
   - "webpack.report.html"
