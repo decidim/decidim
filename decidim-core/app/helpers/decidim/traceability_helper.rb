@@ -41,8 +41,20 @@ module Decidim
     # Returns an HTML-safe string.
     def render_diff_data(data)
       content_tag(:div, class: "card card--list diff diff-#{data[:type]}") do
-        render_diff_value(data[:old_value], data[:type], :removal) +
-          render_diff_value(data[:new_value], data[:type], :addition)
+        if [:i18n, :i18n_html].include?(data[:type])
+          render_diff_value(
+            "&nbsp;",
+            data[:type],
+            nil,
+            data: {
+              old_value: data[:old_value].to_s.gsub("</p>", "</p>\n"),
+              new_value: data[:new_value].to_s.gsub("</p>", "</p>\n")
+            }
+          )
+        else
+          render_diff_value(data[:old_value], data[:type], :removal) +
+            render_diff_value(data[:new_value], data[:type], :addition)
+        end
       end
     end
 
@@ -53,7 +65,7 @@ module Decidim
     # value - an object to be rendered
     #
     # Returns an HTML-ready String.
-    def render_diff_value(value, type, action)
+    def render_diff_value(value, type, action, options = {})
       return "".html_safe if value.blank?
 
       value_to_render = case type
@@ -67,7 +79,7 @@ module Decidim
 
       content_tag(:div, class: "card--list__item #{action}") do
         content_tag(:div, class: "card--list__text") do
-          content_tag(:div, class: "diff__value") do
+          content_tag(:div, { class: "diff__value" }.merge(options)) do
             value_to_render
           end
         end

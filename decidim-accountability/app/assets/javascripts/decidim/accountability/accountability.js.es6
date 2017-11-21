@@ -1,5 +1,7 @@
 // = require_self
 
+/* global JsDiff */
+
 $(() => {
   // Show category list on click when we are on a small scren
   if ($(window).width() < 768) {
@@ -8,21 +10,37 @@ $(() => {
     });
   }
 
-  $(".diff-i18n_html").each(function() {
-    const diffElement = $(this);
-    const oldElement = diffElement.find(".removal .diff__value");
-    const oldValue = oldElement.html();
-    const newElement = diffElement.find(".addition .diff__value");
-    const newValue = newElement.html();
+  $(".diff-i18n_html, .diff-i18n").each(function(_index, element) {
+    const diffElement = $(element);
+    const valueElement = diffElement.find(".diff__value");
+    const oldValue = valueElement.data("old-value").
+          replace(/</g, "&lt;").
+          replace(/>/g, "&gt;");
+    const newValue = valueElement.data("new-value").
+          replace(/</g, "&lt;").
+          replace(/>/g, "&gt;");
 
     const diff = JsDiff.diffChars(oldValue, newValue);
     let outputHTML = "";
+
     diff.forEach(({added, removed, value}) => {
-      const color = added ? '#89ffaa' : removed ? 'red' : '';
-      outputHTML += `<span style="background-color: ${color}">${value}</span>`;
+      let color = "";
+
+      if (added) {
+        color = "#89ffaa";
+      } else if (removed) {
+        color = "red";
+      }
+
+      if (added || removed) {
+        outputHTML += `<span style="background-color: ${color}">${value}</span>`;
+      } else {
+        outputHTML += value;
+      }
     });
-    console.log(diff);
-    oldElement.html(outputHTML);
-    newElement.html(outputHTML);
+
+    outputHTML = outputHTML.replace(/\n/g, "<br><br>");
+
+    valueElement.html(outputHTML);
   });
 })

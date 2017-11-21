@@ -30,6 +30,10 @@
               <%= render_resource_editor(current_version) %>
             </div>
           <% end %>
+          <div class="definition-data__item versions_count">
+            <span class="definition-data__title"><%= t("results.show.stats.version_created_at", scope: "decidim.accountability") %></span>
+            <%= l current_version.created_at, format: :decidim_short %>
+          </div>
         </div>
       </div>
     </div>
