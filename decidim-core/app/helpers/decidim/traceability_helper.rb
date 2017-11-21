@@ -40,8 +40,10 @@ module Decidim
     #
     # Returns an HTML-safe string.
     def render_diff_data(data)
-      render_diff_value(data[:old_value], data[:type], :removal) +
-        render_diff_value(data[:new_value], data[:type], :addition)
+      content_tag(:div, class: "card card--list diff diff-#{data[:type]}") do
+        render_diff_value(data[:old_value], data[:type], :removal) +
+          render_diff_value(data[:new_value], data[:type], :addition)
+      end
     end
 
     private
@@ -57,8 +59,6 @@ module Decidim
       value_to_render = case type
                         when :date
                           l value, format: :long
-                        when :i18n_html
-                          decidim_sanitize value
                         when :percentage
                           number_to_percentage value, precision: 2
                         else
@@ -67,7 +67,7 @@ module Decidim
 
       content_tag(:div, class: "card--list__item #{action}") do
         content_tag(:div, class: "card--list__text") do
-          content_tag(:div) do
+          content_tag(:div, class: "diff__value") do
             value_to_render
           end
         end
