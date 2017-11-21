@@ -283,7 +283,7 @@ ru:
           take_part: Принять участие
         promoted_process:
           active_step: 'Текущий шаг:'
-          more_info: Дополнительные сведения
+          more_info: Узнать больше
           take_part: Принять участие
       process_header:
         process_menu_item: Движение

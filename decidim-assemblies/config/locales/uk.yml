@@ -87,6 +87,11 @@ uk:
             slug_help: 'Cкорочені URL-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
       index:
         title: Збори
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Започаті збори
+            see_all_assemblies: Переглянути всі збори
       show:
         developer_group: Група розробників
         local_area: Місцевість
@@ -124,7 +129,7 @@ uk:
             many: "%{count} зборів"
             other: "%{count} зборів"
         promoted_assembly:
-          more_info: Додаткові відомості
+          more_info: Дізнатися більше
           take_part: Взяти участь
       assembly_header:
         assembly_menu_item: Збори

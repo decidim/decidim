@@ -87,6 +87,11 @@ ru:
             slug_help: 'Сокращенные URL-адреса используются для создания ссылок на это собрание. В них допустимы только буквы, цифры и тире, и они должны начинаться с буквы. Пример: %{url}'
       index:
         title: Собрания
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Начатые собрания
+            see_all_assemblies: Просмотреть все собрания
       show:
         developer_group: Группа разработчиков
         local_area: Местность
@@ -124,7 +129,7 @@ ru:
             many: "%{count} собраний"
             other: "%{count} собраний"
         promoted_assembly:
-          more_info: Дополнительные сведения
+          more_info: Узнать больше
           take_part: Принять участие
       assembly_header:
         assembly_menu_item: Собрание

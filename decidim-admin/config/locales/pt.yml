@@ -14,9 +14,9 @@ pt:
         weight: Peso
       newsletter:
         body: Corpo
-        subject: Sujeito
+        subject: Assunto
       organization:
-        default_locale: Local padrão
+        default_locale: Idioma por defeito
         name: Nome
         reference_prefix: Prefixo de referência
       organization_appearance:
@@ -25,7 +25,7 @@ pt:
         description: Descrição
         favicon: Ícone
         header_snippets: Snippets de cabeçalho
-        homepage_image: Imagem do site inicial
+        homepage_image: Imagem da página principal
         logo: Logotipo
         official_img_footer: Símbolo oficial do rodapé
         official_img_header: Cabeçalho do logotipo oficial
@@ -36,7 +36,7 @@ pt:
         code: Código
         name: Nome
         organization: Organização
-        scope_type: Tipo de escopo
+        scope_type: Tipo de âmbito
       scope_type:
         name: Nome
         organization: Organização
@@ -49,23 +49,23 @@ pt:
   activerecord:
     attributes:
       decidim/participatory_process:
-        banner_image: Imagem da bandeira
+        banner_image: Imagem do banner
         description: Descrição
         developer_group: Grupo de desenvolvedores
         domain: Domínio
-        end_date: Data final
+        end_date: Data de fim
         hashtag: Hashtag
-        hero_image: Imagem inicial
-        local_area: Área Local
-        meta_scope: Metadados do escopo
-        participatory_scope: Escopo participativo
+        hero_image: Imagem da página principal
+        local_area: Área municipal
+        meta_scope: Metadados do âmbito
+        participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
         promoted: Promovido
-        scope: Escopo
-        short_description: Pequena descrição
+        scope: Âmbito
+        short_description: Breve descrição
         slug: Slug de URL
         start_date: Data de início
-        subtitle: Legenda
+        subtitle: Subtítulo
         target: Alvo
         title: Título
       decidim/participatory_process_group:
@@ -144,20 +144,20 @@ pt:
           success: Permissões atualizadas com sucesso.
       features:
         create:
-          error: Ocorreu um erro ao criar esse recurso.
+          error: Houve um erro na criação da funcionalidade.
           success: Recurso criado com sucesso.
         destroy:
           error: Ocorreu um erro ao destruir esse recurso.
           success: Recurso eliminado com sucesso.
         edit:
-          title: Editar recurso
+          title: Editar funcionalidade
           update: Atualizar
         form:
-          default_step_settings: Configurações de etapa padrão
+          default_step_settings: Configurações por defeito
           global_settings: Configurações globais
           step_settings: Configurações de etapa
         index:
-          add: Adicionar recurso
+          add: Adicionar funcionalidade
           headers:
             actions: Ações
             name: Nome do recurso
@@ -167,7 +167,7 @@ pt:
           title: 'Adicionar recurso: %{name}'
         publish:
           success: O recurso foi publicado com sucesso.
-        title: Características
+        title: Funcionalidades
         unpublish:
           success: O recurso foi inesperado com sucesso.
         update:
@@ -214,7 +214,7 @@ pt:
         managed_users: Usuários gerenciados
         newsletters: boletins informativos
         scope_types: Tipos de escopo
-        scopes: Escopos
+        scopes: Âmbitos
         settings: Configurações
         static_pages: Páginas
         user_groups: Grupos de usuários
@@ -358,14 +358,14 @@ pt:
         destroy:
           success: Escopo destruído com sucesso
         edit:
-          title: Editar o escopo
+          title: Editar o âmbito
           update: Atualizar
         new:
-          create: Criar escopo
-          title: Novo escopo
-        no_scopes: Nenhum escopo neste nível.
+          create: Criar âmbito
+          title: Novo âmbito
+        no_scopes: Nenhum âmbito neste nível.
         update:
-          error: Ocorreu um erro ao atualizar esse escopo.
+          error: Ocorreu um erro ao atualizar esse âmbito.
           success: Escopo atualizado com sucesso
       static_pages:
         actions:
@@ -389,7 +389,7 @@ pt:
         impersonations: Personagens
         managed_users: Usuários gerenciados
         scope_types: Tipos de escopo
-        scopes: Escopos
+        scopes: Âmbitos
         static_pages: Páginas
         user_groups: Grupos de usuários
         users: Comercial

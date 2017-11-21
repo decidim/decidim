@@ -105,11 +105,11 @@ ca:
             one: 1 proposta
             other: "%{count} propostes"
         edit:
-          attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
-          back: esquena
-          select_a_category: Seleccioneu una categoria
+          attachment_legend: "(Opcional) Afegir un fitxer adjunt"
+          back: Enrere
+          select_a_category: Si us plau, selecciona una categoria
           send: Enviar
-          title: Edició de la proposta
+          title: Editar proposta
         filters:
           accepted: Acceptades
           activity: Activitat
@@ -156,7 +156,7 @@ ca:
         proposal:
           view_proposal: Veure proposta
         show:
-          edit_proposal: Edició de la proposta
+          edit_proposal: Editar proposta
           proposal_accepted_reason: 'Aquesta proposta ha estat acceptada perquè:'
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
