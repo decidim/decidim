@@ -25,7 +25,7 @@ module Decidim
         decidim: {
           assemblies: {
             statistics: {
-              foo: "Foo",
+              foo: "Foo"
             }
           }
         }

@@ -25,7 +25,7 @@ module Decidim
         decidim: {
           participatory_processes: {
             statistics: {
-              foo: "Foo",
+              foo: "Foo"
             }
           }
         }
