@@ -8,6 +8,7 @@ services:
     volumes:
       - .:/code
       - bundle:/usr/local/bundle
+      - dummy_app:/code/spec/decidim_dummy_app
     environment:
       - DATABASE_HOST=pg
       - DATABASE_USERNAME=postgres
@@ -23,6 +24,7 @@ services:
     volumes:
       - redis-data:/data
 volumes:
+  dummy_app: {}
   bundle: {}
   pg-data: {}
   redis-data: {}
