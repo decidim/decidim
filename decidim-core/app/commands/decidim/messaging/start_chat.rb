@@ -20,13 +20,9 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        chat = Chat.start(
-          originator: form.current_user,
-          interlocutors: [form.recipient],
-          body: form.body
-        )
-
         if chat.save
+          notify_interlocutors
+
           broadcast(:ok, chat)
         else
           broadcast(:invalid)
@@ -34,6 +30,24 @@ module Decidim
       end
 
       private
+
+      def chat
+        @chat ||= Chat.start(
+          originator: originator,
+          interlocutors: [form.recipient],
+          body: form.body
+        )
+      end
+
+      def notify_interlocutors
+        chat.interlocutors(originator).each do |recipient|
+          ChatMailer.new_chat(originator, recipient, chat).deliver_later
+        end
+      end
+
+      def originator
+        form.current_user
+      end
 
       attr_reader :form
     end

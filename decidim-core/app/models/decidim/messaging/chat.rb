@@ -68,6 +68,18 @@ module Decidim
         chat
       end
 
+      # Appends a message to this chat and saves everything to DB.
+      #
+      # @param (see #add_message)
+      #
+      # @return (see #add_message)
+      #
+      def add_message!(sender:, body:)
+        add_message(sender: sender, body: body)
+
+        save!
+      end
+
       #
       # Appends a message to this chat
       #

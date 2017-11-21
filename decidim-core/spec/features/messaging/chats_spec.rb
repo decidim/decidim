@@ -76,8 +76,7 @@ describe "Chats", type: :feature do
 
     context "and some of them are unread" do
       before do
-        chat.add_message(sender: interlocutor, body: "I want one")
-        chat.save!
+        chat.add_message!(sender: interlocutor, body: "I want one")
 
         visit_inbox
       end

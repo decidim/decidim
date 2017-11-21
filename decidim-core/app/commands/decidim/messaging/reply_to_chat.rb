@@ -22,9 +22,9 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        message = chat.add_message(sender: form.current_user, body: form.body)
-
         if message.save
+          notify_interlocutors
+
           broadcast(:ok, message)
         else
           broadcast(:invalid)
@@ -32,6 +32,22 @@ module Decidim
       end
 
       private
+
+      def sender
+        form.current_user
+      end
+
+      def message
+        @message ||= chat.add_message(sender: sender, body: form.body)
+      end
+
+      def notify_interlocutors
+        chat.interlocutors(sender).each do |recipient|
+          if chat.unread_count(recipient) == 1
+            ChatMailer.new_message(sender, recipient, chat).deliver_later
+          end
+        end
+      end
 
       attr_reader :chat, :form
     end

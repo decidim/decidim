@@ -1,0 +1,9 @@
+<p><%= t(".greeting", recipient: @recipient) %></p>
+
+<p><%= t(".intro", sender: @sender) %></p>
+
+<p>
+  <%= link_to decidim.chat_url(@chat, host: @host), decidim.chat_url(@chat, host: @host) %>
+</p>
+
+<p><%= t(".outro") %></p>
