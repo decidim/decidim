@@ -7,7 +7,7 @@ uk:
         copy_features: Скопіювати складові
         copy_steps: Скопіювати кроки
         description: Опис
-        developer_group: Група розробників
+        developer_group: Група зачинальників
         domain: Домен
         end_date: Дата закінчення
         hashtag: Хештег
@@ -236,7 +236,7 @@ uk:
         index:
           loading: Завантаження підсумків...
       show:
-        developer_group: Група розробників
+        developer_group: Група зачинальників
         end_date: Дата закінчення
         local_area: Терен організації
         participatory_scope: Що вирішується

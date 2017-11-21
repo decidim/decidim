@@ -6,7 +6,7 @@ ru:
         copy_categories: Скопировать категории
         copy_features: Копировать составляющие
         description: Описание
-        developer_group: Группа разработчиков
+        developer_group: Группа зачинателей
         domain: Домен
         hashtag: Хэштег
         hero_image: Изображение главной страницы
@@ -93,7 +93,7 @@ ru:
             active_assemblies: Начатые собрания
             see_all_assemblies: Просмотреть все собрания
       show:
-        developer_group: Группа разработчиков
+        developer_group: Группа зачинателей
         local_area: Местность
         participatory_scope: Охват соучастия
         participatory_structure: Структура соучастия
