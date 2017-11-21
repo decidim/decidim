@@ -1,11 +1,12 @@
 version: '3'
 services:
   decidim:
-    image: decidim/decidim:dev-latest
+    image: decidim/decidim:latest-dev
     entrypoint: []
     command: decidim
+    working_dir: "/code"
     volumes:
-      - .:/app
+      - .:/code
       - bundle:/usr/local/bundle
     environment:
       - DATABASE_HOST=pg
