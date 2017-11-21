@@ -389,6 +389,9 @@ en:
     wechat_footer: Open your WeChat, click "Discover" button then click the "Scan QR Code" menu.
     weibo: Sina Weibo
     xing: Xing
+  time:
+    formats:
+      decidim_short: "%d/%m/%Y %H:%M"
   views:
     pagination:
       first: "&laquo; First"

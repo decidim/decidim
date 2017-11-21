@@ -1,9 +1,10 @@
-<div class="columns section view-side mediumlarge-4 large-3 end">
+<div class="columns section mediumlarge-4 large-3">
   <div class="card extra line-stats">
     <div class="definition-data">
       <div class="definition-data__item versions_count">
         <span class="definition-data__title"><%= t("results.show.stats.current_version_number", scope: "decidim.accountability") %></span>
         <%= result.versions.count %>
+        <%= link_to t("results.show.stats.show_all_versions", scope: "decidim.accountability"), result_versions_path(result), class: "button button--sc hollow secondary small expanded" %>
       </div>
       <% if result.last_editor.present? %>
         <div class="definition-data__item last_revision_by">
@@ -11,6 +12,10 @@
           <%= render_resource_last_editor(result) %>
         </div>
       <% end %>
+      <div class="definition-data__item last_updated_at">
+        <span class="definition-data__title"><%= t("results.show.stats.last_updated_at", scope: "decidim.accountability") %></span>
+        <%= l result.versions.last.created_at, format: :decidim_short %>
+      </div>
       <% if result.linked_resources(:proposals, "included_proposals").any? %>
         <div class="definition-data__item definition-data__item--double">
           <span class="definition-data__title"><%= t("results.show.stats.proposals", scope: "decidim.accountability") %></span>

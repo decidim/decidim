@@ -138,8 +138,10 @@ en:
             contributions: Contributions
             current_version_number: Version
             last_edited_by: Last edited by
+            last_updated_at: Last updated at
             meetings: Meetings
             proposals: Proposals
+            show_all_versions: Show all versions
             version_author: Version author
             version_number: Version number
             version_number_out_of_total: "%{current_version} out of %{total_count}"
