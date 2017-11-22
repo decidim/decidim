@@ -27,19 +27,25 @@ module Decidim
     #
     # Returns nil.
     def authorize
-      raise AuthorizationError, "Missing data" unless feature && action
+      status_code, fields = *status_data
 
-      return status(:ok) unless authorization_handler_name
-
-      return status(:missing) unless authorization
-      return status(:pending) unless authorization.granted?
-      return status(:invalid, fields: unmatched_fields) if unmatched_fields.any?
-      return status(:incomplete, fields: missing_fields) if missing_fields.any?
-
-      status(:ok)
+      status(status_code, fields || {})
     end
 
     private
+
+    def status_data
+      raise AuthorizationError, "Missing data" unless feature && action
+
+      return :ok unless authorization_handler_name
+
+      return :missing unless authorization
+      return :pending unless authorization.granted?
+      return :invalid, fields: unmatched_fields if unmatched_fields.any?
+      return :incomplete, fields: missing_fields if missing_fields.any?
+
+      :ok
+    end
 
     def status(status_code, data = {})
       AuthorizationStatus.new(status_code, authorization_handler_name, data)
