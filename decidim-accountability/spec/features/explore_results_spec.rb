@@ -56,8 +56,19 @@ describe "Explore results", versioning: true, type: :feature do
       expect(page).to have_content(result.reference)
     end
 
-    it "shows the current version" do
-      within ".definition-data__item.versions_count" do
+    context "when it has no versions" do
+      before do
+        result.versions.destroy_all
+        visit current_path
+      end
+
+      it "does not show version data" do
+        expect(page).not_to have_content("VERSION NUMBER")
+      end
+    end
+
+    context "when it has some versions" do
+      it "does shows version data" do
         expect(page).to have_content("VERSION NUMBER 1")
       end
     end
