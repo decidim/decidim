@@ -79,7 +79,7 @@ module Decidim::Meetings
           .to receive(:generate_checksum).and_return "1234"
 
         expect(UpcomingMeetingNotificationJob)
-          .to receive_message_chain(:set, :perform_later)
+          .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
           .with(set: start_time - 2.days).with(1, "1234")
 
         subject.call

@@ -14,10 +14,8 @@ module Decidim
         let(:comment) { create(:comment, commentable: commentable) }
         let(:command) { described_class.new(comment, author) }
 
-        describe "when the vote is not created" do
-          before do
-            expect(comment).to receive_message_chain("up_votes.create!").and_raise(ActiveRecord::RecordInvalid)
-          end
+        describe "when the author is not in the same org as the comment" do
+          let(:author) { build(:user, organization: create(:organization)) }
 
           it "broadcasts invalid" do
             expect { command.call }.to broadcast(:invalid)
@@ -32,7 +30,7 @@ module Decidim
 
         describe "when the vote is already created for this user" do
           before do
-            expect(comment).to receive_message_chain("up_votes.create!").and_raise(ActiveRecord::RecordNotUnique)
+            comment.up_votes.create!(author: author)
           end
 
           it "broadcasts invalid" do
@@ -62,10 +60,8 @@ module Decidim
           describe "and it is equal to -1" do
             let(:command) { described_class.new(comment, author, weight: -1) }
 
-            describe "when the vote is not created" do
-              before do
-                expect(comment).to receive_message_chain("down_votes.create!").and_raise(ActiveRecord::RecordInvalid)
-              end
+            describe "when the author is not in the same org as the comment" do
+              let(:author) { build(:user, organization: create(:organization)) }
 
               it "broadcasts invalid" do
                 expect { command.call }.to broadcast(:invalid)
@@ -80,7 +76,7 @@ module Decidim
 
             describe "when the vote is already created for this user" do
               before do
-                expect(comment).to receive_message_chain("down_votes.create!").and_raise(ActiveRecord::RecordNotUnique)
+                comment.down_votes.create!(author: author)
               end
 
               it "broadcasts invalid" do
