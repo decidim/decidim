@@ -72,13 +72,4 @@ RSpec.configure do |config|
   end
 
   config.include Decidim::CapybaraTestHelpers, type: :feature
-
-  if ENV["CI"]
-    require "rspec/repeat"
-
-    config.include RSpec::Repeat
-    config.around :each, type: :feature do |example|
-      repeat example, 5.times, wait: 1, verbose: true
-    end
-  end
 end

@@ -36,7 +36,6 @@ Gem::Specification.new do |s|
   s.add_dependency "rails-controller-testing", "~> 1.0"
   s.add_dependency "rspec-html-matchers", "~> 0.9.1"
   s.add_dependency "rspec-rails", "~> 3.7"
-  s.add_dependency "rspec-repeat", "~> 1.0"
   s.add_dependency "rubocop", "~> 0.51.0"
   s.add_dependency "selenium-webdriver", "~> 3.7"
   s.add_dependency "simplecov", "~> 0.13"
