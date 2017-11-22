@@ -136,10 +136,10 @@ en:
             back_to_result: Go back to result
             comments: Comments
             contributions: Contributions
-            current_version_number: Version
             last_edited_by: Last edited by
             last_updated_at: Last updated at
             meetings: Meetings
+            number_of_versions: Versions
             proposals: Proposals
             show_all_versions: Show all versions
             version_author: Version author
@@ -151,6 +151,7 @@ en:
           title: Project evolution
       versions:
         index:
+          changes_at_title: "Changes at \"%{title}\""
           title: Versions
           version_index: Version %{index}
         show:

@@ -2,7 +2,7 @@
   <div class="card extra line-stats">
     <div class="definition-data">
       <div class="definition-data__item versions_count">
-        <span class="definition-data__title"><%= t("results.show.stats.current_version_number", scope: "decidim.accountability") %></span>
+        <span class="definition-data__title"><%= t("results.show.stats.version_number", scope: "decidim.accountability") %></span>
         <%= result.versions.count %>
         <%= link_to t("results.show.stats.show_all_versions", scope: "decidim.accountability"), result_versions_path(result), class: "button button--sc hollow secondary small expanded" %>
       </div>
