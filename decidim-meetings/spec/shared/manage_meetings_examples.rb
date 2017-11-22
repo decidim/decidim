@@ -42,12 +42,14 @@ shared_examples "manage meetings" do
   context "previewing meetings" do
     it "allows the user to preview the meeting" do
       within find("tr", text: translated(meeting.title)) do
-        @new_window = window_opened_by { find("a.action-icon--preview").click }
-      end
+        klass = "action-icon--preview"
+        href = resource_locator(meeting).path
+        target = "blank"
 
-      within_window @new_window do
-        expect(current_path).to eq resource_locator(meeting).path
-        expect(page).to have_content(translated(meeting.title))
+        expect(page).to have_selector(
+          :xpath,
+          "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
+        )
       end
     end
   end
@@ -121,7 +123,7 @@ shared_examples "manage meetings" do
 
     it "deletes a meeting" do
       within find("tr", text: translated(meeting2.title)) do
-        page.find("a.action-icon--remove").click
+        accept_confirm { page.find("a.action-icon--remove").click }
       end
 
       within ".callout-wrapper" do

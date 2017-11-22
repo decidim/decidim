@@ -21,9 +21,8 @@ describe "Assemblies", type: :feature do
 
   context "when there are no assemblies" do
     context "direct access from URL" do
-      it "renders an error page" do
-        visit decidim_assemblies.assemblies_path
-        expect(page).to have_http_status(:not_found)
+      it_behaves_like "a 404 page" do
+        let(:target_path) { decidim_assemblies.assemblies_path }
       end
     end
 
@@ -51,9 +50,8 @@ describe "Assemblies", type: :feature do
     end
 
     context "direct access from URL" do
-      it "renders an error page" do
-        visit decidim_assemblies.assemblies_path
-        expect(page).to have_http_status(:not_found)
+      it_behaves_like "a 404 page" do
+        let(:target_path) { decidim_assemblies.assemblies_path }
       end
     end
 

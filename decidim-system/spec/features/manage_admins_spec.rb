@@ -53,7 +53,7 @@ describe "Manage admins", type: :feature do
 
   it "deletes an admin" do
     within find("tr", text: admin2.email) do
-      click_link "Destroy"
+      accept_confirm { click_link "Destroy" }
     end
 
     within ".success.flash" do

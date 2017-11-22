@@ -81,7 +81,7 @@ describe "Answer a survey", type: :feature do
 
         check "survey_tos_agreement"
 
-        click_button "Submit"
+        accept_confirm { click_button "Submit" }
 
         within ".success.flash" do
           expect(page).to have_content("successfully")
@@ -109,7 +109,7 @@ describe "Answer a survey", type: :feature do
 
           check "survey_tos_agreement"
 
-          click_button "Submit"
+          accept_confirm { click_button "Submit" }
 
           within ".alert.flash" do
             expect(page).to have_content("error")
@@ -151,7 +151,7 @@ describe "Answer a survey", type: :feature do
 
           check "survey_tos_agreement"
 
-          click_button "Submit"
+          accept_confirm { click_button "Submit" }
 
           within ".success.flash" do
             expect(page).to have_content("successfully")
@@ -185,7 +185,7 @@ describe "Answer a survey", type: :feature do
 
           check "survey_tos_agreement"
 
-          click_button "Submit"
+          accept_confirm { click_button "Submit" }
 
           within ".success.flash" do
             expect(page).to have_content("successfully")
@@ -219,7 +219,7 @@ describe "Answer a survey", type: :feature do
 
           check "survey_tos_agreement"
 
-          click_button "Submit"
+          accept_confirm { click_button "Submit" }
 
           within ".success.flash" do
             expect(page).to have_content("successfully")

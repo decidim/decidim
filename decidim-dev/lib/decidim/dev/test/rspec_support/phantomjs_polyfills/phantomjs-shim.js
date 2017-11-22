@@ -87,23 +87,6 @@
 }());
 
 /**
- * Polyfill for CustomEvent
- * Until PhantomJS v2.0 is out (see https://github.com/ariya/phantomjs/issues/11289)
- */
-(function() {
-  function CustomEvent(event, params) {
-    params = params || { bubbles: false, cancelable: false, detail: undefined };
-    var evt = document.createEvent('CustomEvent');
-    evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
-    return evt;
-  };
-
-  CustomEvent.prototype = window.Event.prototype;
-
-  window.CustomEvent = CustomEvent;
-})();
-
-/**
  * Polyfill for String.startsWith
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith
  */

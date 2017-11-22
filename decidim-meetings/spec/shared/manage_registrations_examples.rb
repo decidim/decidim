@@ -104,7 +104,7 @@ shared_examples "manage registrations" do
     end
   end
 
-  context "export registrations" do
+  context "export registrations", driver: :rack_test do
     let!(:registrations) { create_list :registration, 10, meeting: meeting }
 
     it "exports a CSV" do

@@ -33,12 +33,14 @@ shared_examples "manage results" do
   context "previewing results" do
     it "allows the user to preview the result" do
       within find("tr", text: translated(result.title)) do
-        @new_window = window_opened_by { find("a.action-icon--preview").click }
-      end
+        klass = "action-icon--preview"
+        href = resource_locator(result).path
+        target = "blank"
 
-      within_window @new_window do
-        expect(current_path).to eq(resource_locator(result).path)
-        expect(page).to have_content(translated(result.title))
+        expect(page).to have_selector(
+          :xpath,
+          "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
+        )
       end
     end
   end
@@ -87,7 +89,7 @@ shared_examples "manage results" do
 
     it "deletes a result" do
       within find("tr", text: translated(result2.title)) do
-        find("a.action-icon--remove").click
+        accept_confirm { find("a.action-icon--remove").click }
       end
 
       within ".callout-wrapper" do
