@@ -13,6 +13,7 @@ describe "Application generation" do
     end
   end
 
+  # rubocop:disable RSpec/BeforeAfterAll
   before(:all) do
     system("bundle exec rake install_all", out: File::NULL)
   end
@@ -20,6 +21,7 @@ describe "Application generation" do
   after(:all) do
     system("bundle exec rake uninstall_all", out: File::NULL)
   end
+  # rubocop:enable RSpec/BeforeAfterAll
 
   context "without flags" do
     let(:command) { "decidim #{test_app}" }
