@@ -12,29 +12,21 @@ defaults: &defaults
         POSTGRES_USER: postgres
   working_directory: /app
 
-dependency_cache: &dependency_cache
-  keys:
-    - dependencies-{{ .Branch }}
-    - dependencies-master
-
 jobs:
   build_test_app:
     <<: *defaults
     steps:
       - checkout
       - restore_cache:
-          <<: *dependency_cache
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
       - run:
           name: Install ruby dependencies
           command: bundle install
-      - run:
-          name: Install npm dependencies
-          command: npm install
       - save_cache:
-          key: dependencies-{{ .Branch }}
+          key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
           paths:
             - /usr/local/bundle/
-            - node_modules
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -63,13 +55,25 @@ jobs:
           at: /app
       - checkout
       - restore_cache:
-          <<: *dependency_cache
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
       - run:
           name: Install ruby dependencies
           command: bundle install
+      - save_cache:
+          key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
+          paths:
+            - /usr/local/bundle/
+      - restore_cache:
+          keys:
+            - npm-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: Install npm dependencies
           command: npm install
+      - save_cache:
+          key: npm-dependencies-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -85,9 +89,9 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-          <<: *dependency_cache
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
       - run: export CODECOV_FLAG=core
-      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -105,9 +109,9 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-          <<: *dependency_cache
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
       - run: export CODECOV_FLAG=assemblies
-      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -125,9 +129,9 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-          <<: *dependency_cache
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
       - run: export CODECOV_FLAG=api
-      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -145,9 +149,9 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-          <<: *dependency_cache
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
       - run: export CODECOV_FLAG=processes
-      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -165,9 +169,9 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-          <<: *dependency_cache
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
       - run: export CODECOV_FLAG=admin
-      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -185,9 +189,9 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-          <<: *dependency_cache
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
       - run: export CODECOV_FLAG=system
-      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -205,9 +209,9 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-          <<: *dependency_cache
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
       - run: export CODECOV_FLAG=proposals
-      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -225,9 +229,12 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-          <<: *dependency_cache
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
+      - restore_cache:
+          keys:
+            - npm-dependencies-{{ checksum "package-lock.json" }}
       - run: export CODECOV_FLAG=comments
-      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -245,9 +252,9 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-          <<: *dependency_cache
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
       - run: export CODECOV_FLAG=meetings
-      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -265,9 +272,9 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-          <<: *dependency_cache
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
       - run: export CODECOV_FLAG=pages
-      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -285,9 +292,9 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-          <<: *dependency_cache
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
       - run: export CODECOV_FLAG=accountability
-      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -305,9 +312,9 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-          <<: *dependency_cache
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
       - run: export CODECOV_FLAG=budgets
-      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -325,9 +332,9 @@ jobs:
       - attach_workspace:
           at: /app
       - restore_cache:
-          <<: *dependency_cache
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
       - run: export CODECOV_FLAG=surveys
-      - run: cd spec/decidim_dummy_app && bundle install
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
