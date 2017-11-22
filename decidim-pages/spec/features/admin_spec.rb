@@ -33,9 +33,7 @@ describe "Edit a page", type: :feature do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       visit_feature
 

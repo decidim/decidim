@@ -69,9 +69,7 @@ shared_examples "manage proposals" do
               find("*[type=submit]").click
             end
 
-            within ".callout-wrapper" do
-              expect(page).to have_content("successfully")
-            end
+            expect(page).to have_admin_callout("successfully")
 
             within "table" do
               proposal = Decidim::Proposals::Proposal.last
@@ -107,9 +105,7 @@ shared_examples "manage proposals" do
               find("*[type=submit]").click
             end
 
-            within ".callout-wrapper" do
-              expect(page).to have_content("successfully")
-            end
+            expect(page).to have_admin_callout("successfully")
 
             within "table" do
               proposal = Decidim::Proposals::Proposal.last
@@ -137,9 +133,7 @@ shared_examples "manage proposals" do
                 find("*[type=submit]").click
               end
 
-              within ".callout-wrapper" do
-                expect(page).to have_content("successfully")
-              end
+              expect(page).to have_admin_callout("successfully")
 
               within "table" do
                 proposal = Decidim::Proposals::Proposal.last
@@ -169,9 +163,7 @@ shared_examples "manage proposals" do
               find("*[type=submit]").click
             end
 
-            within ".callout-wrapper" do
-              expect(page).to have_content("successfully")
-            end
+            expect(page).to have_admin_callout("successfully")
 
             visit resource_locator(Decidim::Proposals::Proposal.last).path
             expect(page).to have_selector("img[src*=\"city.jpeg\"]", count: 1)
@@ -254,9 +246,7 @@ shared_examples "manage proposals" do
           click_button "Answer"
         end
 
-        within ".callout-wrapper" do
-          expect(page).to have_content("Proposal successfully answered")
-        end
+        expect(page).to have_admin_callout("Proposal successfully answered")
 
         within find("tr", text: proposal.title) do
           within find("td:nth-child(5)") do
@@ -277,9 +267,7 @@ shared_examples "manage proposals" do
           click_button "Answer"
         end
 
-        within ".callout-wrapper" do
-          expect(page).to have_content("Proposal successfully answered")
-        end
+        expect(page).to have_admin_callout("Proposal successfully answered")
 
         within find("tr", text: proposal.title) do
           within find("td:nth-child(5)") do
@@ -300,9 +288,7 @@ shared_examples "manage proposals" do
           click_button "Answer"
         end
 
-        within ".callout-wrapper" do
-          expect(page).to have_content("Proposal successfully answered")
-        end
+        expect(page).to have_admin_callout("Proposal successfully answered")
 
         within find("tr", text: proposal.title) do
           within find("td:nth-child(5)") do
@@ -336,9 +322,7 @@ shared_examples "manage proposals" do
           click_button "Answer"
         end
 
-        within ".callout-wrapper" do
-          expect(page).to have_content("Proposal successfully answered")
-        end
+        expect(page).to have_admin_callout("Proposal successfully answered")
 
         within find("tr", text: proposal.title) do
           within find("td:nth-child(5)") do

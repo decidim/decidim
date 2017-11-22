@@ -23,9 +23,7 @@ shared_examples "edit surveys" do
       click_button "Save"
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("successfully")
 
     visit_feature
 
@@ -66,9 +64,7 @@ shared_examples "edit surveys" do
         click_button "Save"
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       visit_feature_admin
 
@@ -130,9 +126,7 @@ shared_examples "edit surveys" do
         click_button "Save"
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       visit_feature_admin
 
@@ -159,9 +153,7 @@ shared_examples "edit surveys" do
           click_button "Save"
         end
 
-        within ".callout-wrapper" do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_admin_callout("successfully")
 
         visit_feature_admin
 
@@ -184,9 +176,7 @@ shared_examples "edit surveys" do
           click_button "Save"
         end
 
-        within ".callout-wrapper" do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_admin_callout("successfully")
 
         visit_feature_admin
 

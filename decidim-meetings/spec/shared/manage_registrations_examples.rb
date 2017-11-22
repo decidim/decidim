@@ -36,9 +36,7 @@ shared_examples "manage registrations" do
       click_button "Save"
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("Meeting registrations settings successfully saved")
-    end
+    expect(page).to have_admin_callout("Meeting registrations settings successfully saved")
   end
 
   context "when registrations are not enabled" do

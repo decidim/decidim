@@ -57,9 +57,7 @@ describe "Admin manages assemblies", type: :feature do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       within ".container" do
         expect(current_path).to eq decidim_admin_assemblies.assemblies_path
@@ -87,9 +85,7 @@ describe "Admin manages assemblies", type: :feature do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       within ".container" do
         expect(page).to have_selector("input[value='My new title']")
@@ -111,9 +107,7 @@ describe "Admin manages assemblies", type: :feature do
       click_submenu_link "Info"
       click_button "Update"
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       expect(page).to have_css("img[src*='#{assembly3.hero_image.url}']")
       expect(page).to have_css("img[src*='#{assembly3.banner_image.url}']")
@@ -131,9 +125,7 @@ describe "Admin manages assemblies", type: :feature do
       click_link translated(assembly2.title)
       accept_confirm { click_link "Destroy" }
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       within "table" do
         expect(page).not_to have_content(translated(assembly2.title))
@@ -243,9 +235,7 @@ describe "Admin manages assemblies", type: :feature do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
     end
   end
 end

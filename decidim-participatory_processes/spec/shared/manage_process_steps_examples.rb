@@ -44,9 +44,7 @@ shared_examples "manage process steps examples" do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("successfully")
 
     within "#steps table" do
       expect(page).to have_content("My participatory process step")
@@ -74,9 +72,7 @@ shared_examples "manage process steps examples" do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("successfully")
 
     within "#steps table" do
       expect(page).to have_content("My new title")
@@ -96,9 +92,7 @@ shared_examples "manage process steps examples" do
         accept_confirm { page.find(".action-icon--remove").click }
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       within "#steps table" do
         expect(page).to have_no_content(translated(process_step2.title))

@@ -30,9 +30,7 @@ shared_examples "manage process categories examples" do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("successfully")
 
     within "#categories table" do
       expect(page).to have_content("My category")
@@ -58,9 +56,7 @@ shared_examples "manage process categories examples" do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("successfully")
 
     within "#categories table" do
       expect(page).to have_content("My new name")
@@ -81,9 +77,7 @@ shared_examples "manage process categories examples" do
             accept_confirm { page.find("a.action-icon--remove").click }
           end
 
-          within ".callout-wrapper" do
-            expect(page).to have_content("successfully")
-          end
+          expect(page).to have_admin_callout("successfully")
 
           within "#categories table" do
             expect(page).to have_no_content(translated(category2.name))
@@ -103,9 +97,7 @@ shared_examples "manage process categories examples" do
             accept_confirm { page.find("a.action-icon--remove").click }
           end
 
-          within ".callout-wrapper" do
-            expect(page).to have_content("error deleting")
-          end
+          expect(page).to have_admin_callout("error deleting")
 
           within "#categories table" do
             expect(page).to have_content(translated(category2.name))

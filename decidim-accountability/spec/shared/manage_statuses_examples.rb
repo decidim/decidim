@@ -18,9 +18,7 @@ RSpec.shared_examples "manage statuses" do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("successfully")
 
     within "table" do
       expect(page).to have_content("My new name")
@@ -54,9 +52,7 @@ RSpec.shared_examples "manage statuses" do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("successfully")
 
     within "table" do
       expect(page).to have_content("status_key_1")
@@ -76,7 +72,7 @@ RSpec.shared_examples "manage statuses" do
         accept_confirm { find("a.action-icon--remove").click }
       end
 
-      within ".callout-wrapper" do
+      within ".callout--full" do
         expect(page).to have_content("successfully")
       end
 

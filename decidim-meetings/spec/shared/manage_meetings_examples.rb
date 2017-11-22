@@ -30,9 +30,7 @@ shared_examples "manage meetings" do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("successfully")
 
     within "table" do
       expect(page).to have_content("My new title")
@@ -105,9 +103,7 @@ shared_examples "manage meetings" do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("successfully")
 
     within "table" do
       expect(page).to have_content("My meeting")
@@ -126,9 +122,7 @@ shared_examples "manage meetings" do
         accept_confirm { page.find("a.action-icon--remove").click }
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       within "table" do
         expect(page).to have_no_content(translated(meeting2.title))
@@ -159,9 +153,7 @@ shared_examples "manage meetings" do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       within "table" do
         expect(page).to have_content("My new title")
@@ -218,9 +210,7 @@ shared_examples "manage meetings" do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       within "table" do
         expect(page).to have_content("My meeting")
@@ -254,9 +244,7 @@ shared_examples "manage meetings" do
         click_button "Close"
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("Meeting successfully closed")
-      end
+      expect(page).to have_admin_callout("Meeting successfully closed")
 
       within find("tr", text: translated(meeting.title)) do
         within find("td:nth-child(4)") do
@@ -278,9 +266,7 @@ shared_examples "manage meetings" do
           click_button "Close"
         end
 
-        within ".callout-wrapper" do
-          expect(page).to have_content("Meeting successfully closed")
-        end
+        expect(page).to have_admin_callout("Meeting successfully closed")
       end
     end
   end

@@ -35,9 +35,7 @@ shared_examples "manage process admins examples" do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("successfully")
 
     within "#process_admins table" do
       expect(page).to have_content(other_user.email)
@@ -64,9 +62,7 @@ shared_examples "manage process admins examples" do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       within "#process_admins table" do
         expect(page).to have_content("Administrator")
@@ -78,9 +74,7 @@ shared_examples "manage process admins examples" do
         accept_confirm { page.find("a.action-icon--remove").click }
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       within "#process_admins table" do
         expect(page).to have_no_content(other_user.email)
@@ -111,7 +105,7 @@ shared_examples "manage process admins examples" do
           end
         end
 
-        within ".callout-wrapper" do
+        within ".callout--full" do
           expect(page).to have_content("successfully")
         end
       end

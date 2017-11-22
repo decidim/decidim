@@ -18,9 +18,7 @@ RSpec.shared_examples "manage child results" do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("successfully")
 
     within "table" do
       expect(page).to have_content("My new title")
@@ -67,9 +65,7 @@ RSpec.shared_examples "manage child results" do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("successfully")
 
     within "table" do
       expect(page).to have_content("My result")
@@ -87,9 +83,7 @@ RSpec.shared_examples "manage child results" do
         accept_confirm { find("a.action-icon--remove").click }
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       within "table" do
         expect(page).not_to have_content(translated(child_result.title))

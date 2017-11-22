@@ -45,10 +45,7 @@ describe "Admin manages assembly features", type: :feature do
     end
 
     it "is successfully created" do
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
-
+      expect(page).to have_admin_callout("successfully")
       expect(page).to have_content("My feature")
     end
 
@@ -72,9 +69,7 @@ describe "Admin manages assembly features", type: :feature do
       it "successfully edits it" do
         click_button "Update"
 
-        within ".callout-wrapper" do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_admin_callout("successfully")
       end
     end
   end
@@ -121,10 +116,7 @@ describe "Admin manages assembly features", type: :feature do
         click_button "Update"
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
-
+      expect(page).to have_admin_callout("successfully")
       expect(page).to have_content("My updated feature")
 
       within find("tr", text: "My updated feature") do

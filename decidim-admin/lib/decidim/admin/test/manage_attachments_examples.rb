@@ -49,9 +49,7 @@ shared_examples "manage attachments examples" do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       within "#attachments table" do
         expect(page).to have_link("Very Important Document")
@@ -63,9 +61,7 @@ shared_examples "manage attachments examples" do
         accept_confirm { page.find("a.action-icon--remove").click }
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       expect(page).to have_no_content(translated(attachment.title, locale: :en))
     end
@@ -89,9 +85,7 @@ shared_examples "manage attachments examples" do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       within "#attachments table" do
         expect(page).to have_link("This is a nice photo")

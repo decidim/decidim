@@ -57,9 +57,7 @@ shared_examples "manage processes examples" do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       within ".container" do
         expect(page).to have_selector("input[value='My new title']")
@@ -137,9 +135,7 @@ shared_examples "manage processes examples" do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
     end
   end
 end
