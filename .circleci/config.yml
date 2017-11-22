@@ -91,7 +91,6 @@ jobs:
       - restore_cache:
           keys:
             - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run: export CODECOV_FLAG=core
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -111,7 +110,6 @@ jobs:
       - restore_cache:
           keys:
             - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run: export CODECOV_FLAG=assemblies
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -131,7 +129,6 @@ jobs:
       - restore_cache:
           keys:
             - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run: export CODECOV_FLAG=api
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -151,7 +148,6 @@ jobs:
       - restore_cache:
           keys:
             - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run: export CODECOV_FLAG=processes
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -171,7 +167,6 @@ jobs:
       - restore_cache:
           keys:
             - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run: export CODECOV_FLAG=admin
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -191,7 +186,6 @@ jobs:
       - restore_cache:
           keys:
             - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run: export CODECOV_FLAG=system
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -211,7 +205,6 @@ jobs:
       - restore_cache:
           keys:
             - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run: export CODECOV_FLAG=proposals
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -234,7 +227,6 @@ jobs:
       - restore_cache:
           keys:
             - npm-dependencies-{{ checksum "package-lock.json" }}
-      - run: export CODECOV_FLAG=comments
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -254,7 +246,6 @@ jobs:
       - restore_cache:
           keys:
             - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run: export CODECOV_FLAG=meetings
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -274,7 +265,6 @@ jobs:
       - restore_cache:
           keys:
             - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run: export CODECOV_FLAG=pages
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -294,7 +284,6 @@ jobs:
       - restore_cache:
           keys:
             - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run: export CODECOV_FLAG=accountability
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -314,7 +303,6 @@ jobs:
       - restore_cache:
           keys:
             - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run: export CODECOV_FLAG=budgets
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -334,7 +322,6 @@ jobs:
       - restore_cache:
           keys:
             - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run: export CODECOV_FLAG=surveys
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
