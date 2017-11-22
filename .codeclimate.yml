@@ -1,36 +1,49 @@
 ---
+
 version: "2"
+
 plugins:
   bundler-audit:
     enabled: true
+
   csslint:
     enabled: true
     exclude_paths:
       - "decidim-core/app/assets/stylesheets/decidim/email.css"
+
   duplication:
     enabled: true
+
     config:
       languages:
         javascript:
           mass_threshold: 1000
+
         ruby:
           mass_threshold: 80
+
     exclude_fingerprints:
-    - 3806e0c6847f506e683c8bc4133b22e5
-    - ae2cee64fca2a95102d03e03b9ffb54f
-    - 6c2da054d1cb001d86033cf36f6dac04
-    - cf5598d5182f0e2ec0afbcab63a2b017
+      - 3806e0c6847f506e683c8bc4133b22e5
+      - ae2cee64fca2a95102d03e03b9ffb54f
+      - 6c2da054d1cb001d86033cf36f6dac04
+      - cf5598d5182f0e2ec0afbcab63a2b017
+
     exclude_paths:
-    - "decidim-*/spec/**/*"
+      - "decidim-*/spec/**/*"
+
   eslint:
     enabled: false
+
   fixme:
     enabled: true
+
     exclude_paths:
      - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
      - .rubocop.yml
+
   grep:
     enabled: true
+
     config:
       patterns:
         no-trailing-whitespace:
@@ -38,12 +51,15 @@ plugins:
           annotation: "Don't leave trailing whitespace"
           severity: minor
           categories: Style
+
   markdownlint:
     enabled: true
+
     exclude_paths:
       - docs/*
       - .github/*
       - CHANGELOG.md
+
   rubocop:
     enabled: true
     channel: rubocop-0-51
