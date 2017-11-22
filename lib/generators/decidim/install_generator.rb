@@ -106,6 +106,7 @@ module Decidim
           <<~RUBY.gsub(/^ *\|/, "")
             |
             |  config.action_mailer.delivery_method = :letter_opener_web
+            |  config.action_mailer.default_url_options = { port: 3000 }
           RUBY
         end
       end

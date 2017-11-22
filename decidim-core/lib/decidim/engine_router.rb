@@ -28,11 +28,13 @@ module Decidim
       new(target.mounted_admin_engine, target.mounted_params)
     end
 
-    attr_reader :default_url_options
-
     def initialize(engine, default_url_options)
       @engine = engine
       @default_url_options = default_url_options
+    end
+
+    def default_url_options
+      @default_url_options.reverse_merge(ActionMailer::Base.default_url_options)
     end
 
     def respond_to_missing?(method_name, include_private = false)

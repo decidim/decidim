@@ -23,6 +23,16 @@ module Decidim
         subject { described_class.new(resource).url }
 
         it { is_expected.to eq("http://1.lvh.me/processes/my-process/f/1/dummy_resources/1") }
+
+        context "when specific port configured" do
+          before do
+            allow(ActionMailer::Base)
+              .to receive(:default_url_options)
+              .and_return(port: 3000)
+          end
+
+          it { is_expected.to eq("http://1.lvh.me:3000/processes/my-process/f/1/dummy_resources/1") }
+        end
       end
 
       describe "#path" do
