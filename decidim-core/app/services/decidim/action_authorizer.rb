@@ -37,14 +37,19 @@ module Decidim
     def status_data
       raise AuthorizationError, "Missing data" unless feature && action
 
-      return :ok unless authorization_handler_name
-
-      return :missing unless authorization
-      return :pending unless authorization.granted?
-      return :invalid, fields: unmatched_fields if unmatched_fields.any?
-      return :incomplete, fields: missing_fields if missing_fields.any?
-
-      :ok
+      if !authorization_handler_name
+        :ok
+      elsif !authorization
+        :missing
+      elsif !authorization.granted?
+        :pending
+      elsif unmatched_fields.any?
+        [:invalid, fields: unmatched_fields]
+      elsif missing_fields.any?
+        [:incomplete, fields: missing_fields]
+      else
+        :ok
+      end
     end
 
     def status(status_code, data = {})
