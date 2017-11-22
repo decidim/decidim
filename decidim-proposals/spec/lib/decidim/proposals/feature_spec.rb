@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Proposals feature" do
+describe "Proposals feature" do # rubocop:disable RSpec/DescribeClass
   let!(:feature) { create(:proposal_feature) }
 
   describe "on destroy" do

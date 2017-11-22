@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Feature routing" do
+describe "Feature routing", type: :routing do
   routes { Decidim::Core::Engine.routes }
 
   let(:participatory_process) { create(:participatory_process) }

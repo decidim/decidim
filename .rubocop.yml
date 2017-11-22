@@ -1293,6 +1293,12 @@ RSpec/ContextWording:
     - without
     - and
 
+RSpec/DescribeClass:
+  Exclude:
+    - spec/i18n_spec.rb
+    - spec/generator_spec.rb
+    - decidim-comments/spec/bundle_spec.rb
+
 RSpec/ExampleLength:
   Max: 49
 
