@@ -151,11 +151,11 @@ en:
           title: Project evolution
       versions:
         index:
-          changes_at_title: "Changes at \"%{title}\""
+          changes_at_title: Changes at "%{title}"
           title: Versions
           version_index: Version %{index}
         show:
-          changes_at_title: "Changes at \"%{title}\""
+          changes_at_title: Changes at "%{title}"
     features:
       accountability:
         name: Accountability

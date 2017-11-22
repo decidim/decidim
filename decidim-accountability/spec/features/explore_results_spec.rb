@@ -58,7 +58,7 @@ describe "Explore results", versioning: true, type: :feature do
 
     it "shows the current version" do
       within ".definition-data__item.versions_count" do
-        expect(page).to have_content("VERSION 1")
+        expect(page).to have_content("VERSION NUMBER 1")
       end
     end
 
