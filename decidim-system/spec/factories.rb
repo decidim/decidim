@@ -2,7 +2,7 @@
 
 require "decidim/core/test/factories"
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :admin, class: "Decidim::System::Admin" do
     sequence(:email) { |n| "admin#{n}@citizen.corp" }
     password "password1234"

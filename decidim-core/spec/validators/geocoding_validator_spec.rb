@@ -19,7 +19,7 @@ describe GeocodingValidator do
       validates :address, geocoding: true
 
       def feature
-        FactoryGirl.create(:feature)
+        FactoryBot.create(:feature)
       end
     end
   end

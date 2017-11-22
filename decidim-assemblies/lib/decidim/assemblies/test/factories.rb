@@ -3,7 +3,7 @@
 require "decidim/faker/localized"
 require "decidim/dev"
 
-FactoryGirl.define do
+FactoryBot.define do
   sequence(:assembly_slug) do |n|
     "#{Faker::Internet.slug(nil, "-")}-#{n}"
   end
