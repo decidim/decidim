@@ -1,16 +1,20 @@
 # frozen_string_literal: true
 
-require "generators/decidim/dummy_generator"
+require "generators/decidim/app_generator"
 
 namespace :decidim do
   desc "Generates a dummy app for testing in external installations"
   task :generate_external_test_app do
     dummy_app_path = File.expand_path(File.join(Dir.pwd, "spec", "decidim_dummy_app"))
 
-    Decidim::Generators::DummyGenerator.start(
+    Decidim::Generators::AppGenerator.start(
       [
-        "--dummy_app_path=#{dummy_app_path}",
-        "--skip_gemfile"
+        dummy_app_path,
+        "--path",
+        "../..",
+        "--recreate_db",
+        "--skip_gemfile",
+        "--demo"
       ]
     )
   end
