@@ -38,6 +38,19 @@ Capybara.register_driver :headless_chrome do |app|
   )
 end
 
+# Monkeypatch the other place where capybara can timeout. We should contribute
+# the configurability to capybara if this works consistently and proves to be
+# useful
+module Capybara
+  class Server
+    def wait_for_pending_requests
+      Timeout.timeout(120) { sleep(0.01) while pending_requests? }
+    rescue Timeout::Error
+      raise "Requests did not finish in 60 seconds"
+    end
+  end
+end
+
 Capybara::Screenshot.prune_strategy = :keep_last_run
 Capybara::Screenshot::RSpec.add_link_to_screenshot_for_failed_examples = true
 
