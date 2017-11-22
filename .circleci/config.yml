@@ -4,6 +4,7 @@ defaults: &defaults
   docker:
     - image: decidim/decidim:latest-dev
       environment:
+        BUNDLE_GEMFILE: /app/Gemfile
         SIMPLECOV: true
         DATABASE_USERNAME: postgres
         FAIL_FAST: true
