@@ -5,7 +5,7 @@ module Decidim
   class UserGroup < ApplicationRecord
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
 
-    has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_group_id
+    has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_group_id, dependent: :destroy
     has_many :users, through: :memberships, class_name: "Decidim::User", foreign_key: :decidim_user_id
 
     validates :name, presence: true, uniqueness: { scope: :decidim_organization_id }

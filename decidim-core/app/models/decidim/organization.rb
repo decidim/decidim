@@ -7,12 +7,12 @@ module Decidim
   class Organization < ApplicationRecord
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
 
-    has_many :static_pages, foreign_key: "decidim_organization_id", class_name: "Decidim::StaticPage", inverse_of: :organization
+    has_many :static_pages, foreign_key: "decidim_organization_id", class_name: "Decidim::StaticPage", inverse_of: :organization, dependent: :destroy
     has_many :scopes, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::Scope", inverse_of: :organization
     has_many :scope_types, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::ScopeType", inverse_of: :organization
     has_many :admins, -> { where(admin: true) }, foreign_key: "decidim_organization_id", class_name: "Decidim::User"
     has_many :users_with_any_role, -> { where.not(roles: []) }, foreign_key: "decidim_organization_id", class_name: "Decidim::User"
-    has_many :users, foreign_key: "decidim_organization_id", class_name: "Decidim::User"
+    has_many :users, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
 
     validates :name, :host, uniqueness: true
     validates :reference_prefix, presence: true

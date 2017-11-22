@@ -25,7 +25,8 @@ module Decidim
     has_many :children,
              foreign_key: "parent_id",
              class_name: "Decidim::Scope",
-             inverse_of: :parent
+             inverse_of: :parent,
+             dependent: :destroy
 
     before_validation :update_part_of, on: :update
 

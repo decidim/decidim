@@ -14,9 +14,9 @@ module Decidim
                           request_keys: [:env], reset_password_keys: [:decidim_organization_id, :email]
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
-    has_many :authorizations, foreign_key: "decidim_user_id", class_name: "Decidim::Authorization", inverse_of: :user
-    has_many :identities, foreign_key: "decidim_user_id", class_name: "Decidim::Identity"
-    has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_id
+    has_many :authorizations, foreign_key: "decidim_user_id", class_name: "Decidim::Authorization", inverse_of: :user, dependent: :destroy
+    has_many :identities, foreign_key: "decidim_user_id", class_name: "Decidim::Identity", dependent: :destroy
+    has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_id, dependent: :destroy
     has_many :user_groups, through: :memberships, class_name: "Decidim::UserGroup", foreign_key: :decidim_user_group_id
     has_many :follows, foreign_key: "decidim_user_id", class_name: "Decidim::Follow", dependent: :destroy
     has_many :notifications, foreign_key: "decidim_user_id", class_name: "Decidim::Notification", dependent: :destroy

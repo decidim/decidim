@@ -3,41 +3,40 @@
 require "spec_helper"
 
 module Decidim
-  describe ParticipatoryProcessStatsPresenter do
+  describe ParticipatoryProcesses::ParticipatoryProcessStatsPresenter do
     let!(:organization) { create(:organization) }
     let!(:user) { create(:user, :confirmed, organization: organization) }
     let!(:process) { create(:participatory_process, organization: organization) }
     let!(:feature) { create(:feature, participatory_space: process) }
-    let!(:feature2) { create(:feature, participatory_space: process) }
-    let!(:feature3) { create(:feature, participatory_space: process) }
 
     subject { described_class.new(participatory_process: process) }
 
+    let(:manifest) do
+      Decidim::FeatureManifest.new.tap do |manifest|
+        manifest.name = "Test"
+      end
+    end
+
     before do
-      feature.manifest.stats.register :foo, priority: StatsRegistry::HIGH_PRIORITY, &proc { 10 }
-      feature2.manifest.stats.register :bar, priority: StatsRegistry::MEDIUM_PRIORITY, &proc { 20 }
-      feature3.manifest.stats.register :baz, priority: StatsRegistry::LOW_PRIORITY, &proc { 30 }
+      manifest.stats.register :foo, priority: StatsRegistry::HIGH_PRIORITY, &proc { 10 }
+
       I18n.backend.store_translations(
         :en,
         decidim: {
           participatory_processes: {
             statistics: {
-              foo: "Foo",
-              bar: "Bar",
-              baz: "Baz"
+              foo: "Foo"
             }
           }
         }
       )
 
-      allow(Decidim).to receive(:feature_manifests).and_return([feature.manifest, feature2.manifest, feature3.manifest])
+      allow(Decidim).to receive(:feature_manifests).and_return([manifest])
     end
 
     describe "#highlighted" do
       it "renders a collection of stats including users and proceses" do
         expect(subject.highlighted).to include("10 Foo")
-        expect(subject.highlighted).to include("20 Bar")
-        expect(subject.highlighted).to_not include("30 Baz")
       end
     end
   end

@@ -9,7 +9,7 @@ module Decidim
 
       feature_manifest_name "accountability"
 
-      has_many :results, foreign_key: "decidim_accountability_status_id", class_name: "Decidim::Accountability::Result", inverse_of: :status
+      has_many :results, foreign_key: "decidim_accountability_status_id", class_name: "Decidim::Accountability::Result", inverse_of: :status, dependent: :nullify
 
       validates :key, presence: true, uniqueness: { scope: :decidim_feature_id }
       validates :name, presence: true

@@ -5,7 +5,9 @@ module Decidim
     has_many :participatory_processes,
              foreign_key: "decidim_participatory_process_group_id",
              class_name: "Decidim::ParticipatoryProcess",
-             inverse_of: :participatory_process_group
+             inverse_of: :participatory_process_group,
+             dependent: :nullify
+
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"

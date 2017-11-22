@@ -1255,6 +1255,10 @@ Rails/Validation:
   Include:
     - '*/app/models/**/*.rb'
 
+Rails/HasManyOrHasOneDependent:
+  Include:
+    - "**/*/app/models/**/*.rb"
+
 Metrics/BlockLength:
   Exclude:
     - 'decidim-admin/app/controllers/decidim/admin/concerns/has_attachments.rb'
@@ -1271,5 +1275,7 @@ Metrics/BlockLength:
     - 'decidim-*/lib/**/*/test/**/*'
     - 'decidim-*/lib/**/*/feature.rb'
     - 'decidim-*/lib/**/*/participatory_space.rb'
-    - '**/spec/**/*.rb'
+    - '**/spec/**/*_spec.rb'
+    - '**/spec/**/*_examples.rb'
     - '**/*.gemspec'
+    - '**/abilities/**/*_ability.rb'
