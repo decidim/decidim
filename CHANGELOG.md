@@ -4,6 +4,7 @@
 
 **Added**:
 
+- **decidim-accountability**: Add result tracing and version diffing [\#2206](https://github.com/decidim/decidim/pull/2206)
 - **decidim-assemblies**: Show promoted assemblies in the homepage [\#2162](https://github.com/decidim/decidim/pull/2162)
 - **decidim-core**: Add view hooks so external engines can extend the homepage and other sections with their own code [\#2114](https://github.com/decidim/decidim/pull/2114)
 - **decidim-proposals**: Admins can set a minute window after the creation of a proposal in which the proposal can be edited by its author. Once the window has passed, it cannot be edited. [\#2171](https://github.com/decidim/decidim/pull/2171)
