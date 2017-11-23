@@ -24,7 +24,9 @@ module Decidim
 
         context "when the vote is not valid" do
           before do
+            # rubocop:disable RSpec/AnyInstance
             allow_any_instance_of(ProposalVote).to receive(:valid?).and_return(false)
+            # rubocop:enable RSpec/AnyInstance
           end
 
           it "broadcasts invalid" do

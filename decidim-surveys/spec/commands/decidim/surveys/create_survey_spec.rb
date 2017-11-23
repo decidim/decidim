@@ -11,7 +11,9 @@ module Decidim
 
         describe "when the survey is not saved" do
           before do
+            # rubocop:disable RSpec/AnyInstance
             expect_any_instance_of(Survey).to receive(:save).and_return(false)
+            # rubocop:enable RSpec/AnyInstance
           end
 
           it "broadcasts invalid" do

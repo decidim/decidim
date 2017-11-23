@@ -71,7 +71,7 @@ describe Decidim::Meetings::Admin::CreateMeeting do
     end
 
     it "schedules a upcoming meeting notification job 48h before start time" do
-      expect_any_instance_of(Decidim::Meetings::Meeting)
+      expect_any_instance_of(Decidim::Meetings::Meeting) # rubocop:disable RSpec/AnyInstance
         .to receive(:id).at_least(:once).and_return 1
 
       expect(Decidim::Meetings::UpcomingMeetingNotificationJob)

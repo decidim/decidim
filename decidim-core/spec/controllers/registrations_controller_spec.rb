@@ -31,7 +31,7 @@ module Decidim
 
       context "when the user created is active for authentication" do
         before do
-          expect_any_instance_of(Decidim::User)
+          expect_any_instance_of(Decidim::User) # rubocop:disable RSpec/AnyInstance
             .to receive(:active_for_authentication?)
             .at_least(:once)
             .and_return(true)
