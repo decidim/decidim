@@ -17,6 +17,7 @@
 
 **Fixed**:
 
+- **decidim-accountability**: Make accountability work with assemblies [\#2243](https://github.com/decidim/decidim/pull/2243)
 - **decidim-core**: Fixes to MigrateUserRolesToParticipatoryProcessRoles: avoid using relations and work with id's directly [\#2223](https://github.com/decidim/decidim/pull/2223)
 - **decidim-core**: Embedded videos were not displaying properly [\#2198](https://github.com/decidim/decidim/pull/2198)
 - **decidim-core**: Links in emails in development being generated without a port [\#2237](https://github.com/decidim/decidim/pull/2237)
