@@ -18,10 +18,14 @@ module Decidim
         link_to(link,
                 method: options[:method],
                 class: "action-icon #{options[:class]}",
-                data: { tooltip: true, disable_hover: false }.merge(options[:data] || {}),
+                data: options[:data] || {},
                 title: title,
                 target: options[:target]) do
-          icon(icon_name)
+          content_tag(:span, class: "simple-has-tip",
+                             data: { tooltip: true, disable_hover: false },
+                             title: title) do
+            icon(icon_name)
+          end
         end
       end
     end
