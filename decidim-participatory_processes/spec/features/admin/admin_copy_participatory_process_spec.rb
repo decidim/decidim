@@ -22,7 +22,7 @@ describe "Admin copies participatory process", type: :feature do
 
   context "without any context" do
     it "copies the process with the basic fields" do
-      page.find(".action-icon--copy", match: :first).click
+      click_link "Duplicate", match: :first
 
       within ".copy_participatory_process" do
         fill_in_i18n(
@@ -44,7 +44,7 @@ describe "Admin copies participatory process", type: :feature do
 
   context "with context" do
     before do
-      page.find(".action-icon--copy", match: :first).click
+      click_link "Duplicate", match: :first
 
       within ".copy_participatory_process" do
         fill_in_i18n(

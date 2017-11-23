@@ -386,7 +386,7 @@ shared_examples "manage proposals" do
 
   def go_to_edit_answer(proposal)
     within find("tr", text: proposal.title) do
-      find("a.action-icon--edit-answer").click
+      click_link "Answer"
     end
 
     expect(page).to have_selector(".edit_proposal_answer")
