@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.7.4](https://github.com/decidim/decidim/tree/v0.7.4) (2017-11-23)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.7.3...v0.7.4)
+
+**Fixed**:
+
+- **decidim-accountability**: Make accountability work with assemblies [\#2243](https://github.com/decidim/decidim/pull/2243)
+
 ## [v0.7.3](https://github.com/decidim/decidim/tree/v0.7.3) (2017-11-15)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.7.2...v0.7.3)
 

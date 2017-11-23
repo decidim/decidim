@@ -1,6 +1,6 @@
 {
   "name": "decidim",
-  "version": "0.7.3",
+  "version": "0.7.4",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git"
