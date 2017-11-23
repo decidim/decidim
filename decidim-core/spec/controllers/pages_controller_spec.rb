@@ -10,7 +10,7 @@ module Decidim
       let(:organization) { create :organization }
 
       before do
-        @request.env["decidim.current_organization"] = organization
+        request.env["decidim.current_organization"] = organization
       end
 
       context "when a template exists" do

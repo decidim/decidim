@@ -9,7 +9,7 @@ module Decidim
     let(:organization) { create(:organization) }
 
     before do
-      @request.env["decidim.current_organization"] = organization
+      request.env["decidim.current_organization"] = organization
     end
 
     describe "POST create" do

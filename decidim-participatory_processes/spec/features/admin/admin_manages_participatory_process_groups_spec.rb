@@ -5,10 +5,13 @@ require "spec_helper"
 describe "Admin manages participatory process groups", type: :feature do
   include_context "participatory process administration by admin"
 
+  let!(:participatory_processes) do
+    create_list(:participatory_process, 3, organization: organization)
+  end
+
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    @participatory_processes = create_list(:participatory_process, 3, organization: organization)
     visit decidim_admin_participatory_processes.participatory_process_groups_path
   end
 
@@ -30,7 +33,7 @@ describe "Admin manages participatory process groups", type: :feature do
         es: "Descripción más larga",
         ca: "Descripció més llarga"
       )
-      select @participatory_processes.first.title["en"], from: :participatory_process_group_participatory_process_ids
+      select participatory_processes.first.title["en"], from: :participatory_process_group_participatory_process_ids
       attach_file :participatory_process_group_hero_image, image1_path
 
       find("*[type=submit]").click
@@ -38,7 +41,7 @@ describe "Admin manages participatory process groups", type: :feature do
 
     expect(page).to have_admin_callout("successfully")
     expect(page).to have_content("My group")
-    expect(page).to have_content(@participatory_processes.first.title["en"])
+    expect(page).to have_content(participatory_processes.first.title["en"])
     expect(page).to have_css("img[src*='#{image1_filename}']")
   end
 
@@ -70,7 +73,7 @@ describe "Admin manages participatory process groups", type: :feature do
           es: "Nueva descripción",
           ca: "Nova descripció"
         )
-        select @participatory_processes.last.title["en"], from: :participatory_process_group_participatory_process_ids
+        select participatory_processes.last.title["en"], from: :participatory_process_group_participatory_process_ids
         attach_file :participatory_process_group_hero_image, image2_path
 
         find("*[type=submit]").click
@@ -79,7 +82,7 @@ describe "Admin manages participatory process groups", type: :feature do
       expect(page).to have_admin_callout("successfully")
       expect(page).to have_content("My old group")
       expect(page).to have_content("New description")
-      expect(page).to have_content(@participatory_processes.last.title["en"])
+      expect(page).to have_content(participatory_processes.last.title["en"])
       expect(page).to have_css("img[src*='#{image2_filename}']")
     end
 

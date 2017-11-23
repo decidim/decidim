@@ -14,7 +14,7 @@ module Decidim
         let!(:feature) { create(:feature, participatory_space: participatory_process, manifest_name: "dummy") }
 
         before do
-          @request.env["decidim.current_organization"] = organization
+          request.env["decidim.current_organization"] = organization
           sign_in user, scope: :user
         end
 

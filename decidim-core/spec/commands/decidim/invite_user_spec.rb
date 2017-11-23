@@ -20,9 +20,7 @@ module Decidim
     let(:invited_user) { User.where(organization: organization).last }
 
     context "when a user with the given email already exists in the same organization" do
-      before do
-        @user = create(:user, email: form.email, organization: organization)
-      end
+      let!(:user) { create(:user, email: form.email, organization: organization) }
 
       it "does not create another user" do
         expect do
@@ -33,13 +31,13 @@ module Decidim
       it "broadcasts ok and the user" do
         expect do
           command.call
-        end.to broadcast(:ok, @user)
+        end.to broadcast(:ok, user)
       end
     end
 
     context "when a user with the given email already exists in a different organization" do
       before do
-        @user = create(:user, :confirmed, email: form.email)
+        create(:user, :confirmed, email: form.email)
       end
 
       it "creates another user" do

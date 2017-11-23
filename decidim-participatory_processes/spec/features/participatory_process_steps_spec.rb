@@ -18,15 +18,18 @@ describe "Participatory Process Steps", type: :feature do
   end
 
   context "when there are some processes with steps" do
+    let!(:steps) do
+      create_list(:participatory_process_step, 3, participatory_process: participatory_process)
+    end
+
     before do
-      @steps = create_list(:participatory_process_step, 3, participatory_process: participatory_process)
       participatory_process.steps.first.update_attributes!(active: true)
       visit decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process)
     end
 
     it "lists all the steps" do
       expect(page).to have_css(".timeline__item", count: 3)
-      @steps.each do |step|
+      steps.each do |step|
         expect(page).to have_content(/#{translated(step.title)}/i)
       end
     end

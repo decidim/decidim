@@ -19,16 +19,16 @@ module Decidim
     end
 
     context "when there's a partial to render the form" do
-      before do
+      around do |example|
         filepath = File.join(Dir.pwd, "/app/views/", handler.to_partial_path).split("/")
         filename = "_" + filepath.pop + ".html.erb"
-        @filepath = filepath.join("/")
-        FileUtils.mkdir_p(@filepath)
+        filepath = filepath.join("/")
+        FileUtils.mkdir_p(filepath)
         File.open(File.join(filepath, "/", filename), "w") { |file| file.write("Custom partial") }
-      end
 
-      after do
-        FileUtils.rm_rf(@filepath)
+        example.run
+
+        FileUtils.rm_rf(filepath)
       end
 
       it "renders the form with the partial" do

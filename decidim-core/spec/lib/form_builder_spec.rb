@@ -208,13 +208,11 @@ module Decidim
     end
 
     describe "validations" do
-      before do
-        @previous_backend = I18n.backend
+      around do |example|
+        previous_backend = I18n.backend
         I18n.backend = I18n::Backend::Simple.new
-      end
-
-      after do
-        I18n.backend = @previous_backend
+        example.run
+        I18n.backend = previous_backend
       end
 
       context "when a field is required" do

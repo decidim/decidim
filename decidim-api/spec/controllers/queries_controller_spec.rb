@@ -11,7 +11,7 @@ module Decidim
       let!(:other_participatory_process) { create(:participatory_process) }
 
       before do
-        @request.env["decidim.current_organization"] = participatory_process.organization
+        request.env["decidim.current_organization"] = participatory_process.organization
       end
 
       it "executes a query" do

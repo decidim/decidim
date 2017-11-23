@@ -7,6 +7,7 @@ describe Decidim::Exporters::JSON do
 
   let(:serializer) do
     Class.new do
+      # rubocop:disable RSpec/InstanceVariable
       def initialize(resource)
         @resource = resource
       end
@@ -17,6 +18,7 @@ describe Decidim::Exporters::JSON do
           serialized_name: @resource.name
         }
       end
+      # rubocop:enable RSpec/InstanceVariable
     end
   end
 

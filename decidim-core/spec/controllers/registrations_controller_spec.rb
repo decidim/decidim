@@ -9,8 +9,8 @@ module Decidim
     let(:organization) { create(:organization) }
 
     before do
-      @request.env["devise.mapping"] = ::Devise.mappings[:user]
-      @request.env["decidim.current_organization"] = organization
+      request.env["devise.mapping"] = ::Devise.mappings[:user]
+      request.env["decidim.current_organization"] = organization
     end
 
     describe "POST create" do

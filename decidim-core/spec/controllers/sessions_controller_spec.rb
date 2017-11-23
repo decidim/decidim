@@ -11,7 +11,7 @@ module Decidim
         subject { controller.after_sign_in_path_for(user) }
 
         before do
-          @request.env["decidim.current_organization"] = user.organization
+          request.env["decidim.current_organization"] = user.organization
         end
 
         context "when the given resource is a user" do

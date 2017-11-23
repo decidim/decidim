@@ -8,6 +8,7 @@ describe Decidim::Exporters::CSV do
 
   let(:serializer) do
     Class.new do
+      # rubocop:disable RSpec/InstanceVariable
       def initialize(resource)
         @resource = resource
       end
@@ -19,6 +20,7 @@ describe Decidim::Exporters::CSV do
           other_ids: @resource.ids
         }
       end
+      # rubocop:enable RSpec/InstanceVariable
     end
   end
 

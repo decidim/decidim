@@ -37,10 +37,12 @@ describe "Invite process collaborator", type: :feature do
 
   context "when the user already exists" do
     let(:email) { "collaborator@example.org" }
-    let(:collaborator) { @collaborator }
+
+    let!(:collaborator) do
+      create :user, :confirmed, email: email, organization: organization
+    end
 
     before do
-      @collaborator = create :user, :confirmed, email: email, organization: organization
       perform_enqueued_jobs { invite_user }
     end
 

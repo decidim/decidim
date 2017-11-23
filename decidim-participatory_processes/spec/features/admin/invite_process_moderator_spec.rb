@@ -41,10 +41,12 @@ describe "Invite process moderator", type: :feature do
 
   context "when the user already exists" do
     let(:email) { "moderator@example.org" }
-    let(:moderator) { @moderator }
+
+    let!(:moderator) do
+      create :user, :confirmed, email: email, organization: organization
+    end
 
     before do
-      @moderator = create :user, :confirmed, email: email, organization: organization
       perform_enqueued_jobs { invite_user }
     end
 

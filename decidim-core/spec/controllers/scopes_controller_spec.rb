@@ -20,7 +20,7 @@ module Decidim
     let(:results) { JSON.parse(response.body) }
 
     before do
-      @request.env["decidim.current_organization"] = organization
+      request.env["decidim.current_organization"] = organization
       sign_in user, scope: :user
       get :search, format: :json, params: params
     end

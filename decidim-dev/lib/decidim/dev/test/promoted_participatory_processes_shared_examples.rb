@@ -2,7 +2,7 @@
 
 shared_examples "with promoted participatory processes" do
   before do
-    @request.env["decidim.current_organization"] = organization
+    request.env["decidim.current_organization"] = organization
   end
 
   describe "promoted_participatory_processes" do
