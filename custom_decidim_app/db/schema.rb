@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171228100869) do
+ActiveRecord::Schema.define(version: 20171123112920) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -155,6 +155,7 @@ ActiveRecord::Schema.define(version: 20171228100869) do
     t.integer "decidim_user_group_id"
     t.string "decidim_root_commentable_type", null: false
     t.integer "decidim_root_commentable_id", null: false
+    t.string "upstream_moderation", default: "unmoderate"
     t.index ["created_at"], name: "index_decidim_comments_comments_on_created_at"
     t.index ["decidim_author_id"], name: "decidim_comments_comment_author"
     t.index ["decidim_commentable_type", "decidim_commentable_id"], name: "decidim_comments_comment_commentable"
