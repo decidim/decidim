@@ -6,7 +6,7 @@ describe Decidim::Accountability::DiffRenderer, versioning: true do
   let!(:result) { create :result, progress: 50 }
   let(:version) { result.versions.last }
 
-  before(:each) do
+  before do
     Decidim.traceability.update!(
       result,
       "test suite",

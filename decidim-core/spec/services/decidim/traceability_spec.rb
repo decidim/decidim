@@ -3,12 +3,12 @@
 require "spec_helper"
 
 describe Decidim::Traceability, versioning: true do
+  subject { described_class.new }
+
   let!(:user) { create :user }
   let(:klass) { Decidim::DummyResources::DummyResource }
   let(:params) { attributes_for(:dummy_resource) }
   let(:dummy_resource) { create :dummy_resource }
-
-  subject { described_class.new }
 
   describe "create" do
     it "calls `create` to the class" do
@@ -86,7 +86,7 @@ describe Decidim::Traceability, versioning: true do
     end
   end
 
-  context "last_editor" do
+  describe "last_editor" do
     it "finds the editor of the last version" do
       resource = subject.update!(dummy_resource, user, title: "New title")
       resource = subject.update!(resource, "my user name", title: "Another title")

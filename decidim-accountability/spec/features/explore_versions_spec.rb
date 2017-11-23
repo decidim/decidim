@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Explore versions", versioning: true, type: :feature do
-  include_context "feature"
+  include_context "with a feature"
   let(:manifest_name) { "accountability" }
 
   let(:result_path) do
@@ -31,7 +31,7 @@ describe "Explore versions", versioning: true, type: :feature do
     visit result_path
   end
 
-  context "versions index" do
+  context "when visiting versions index" do
     before do
       click_link "Show all versions"
     end
@@ -47,18 +47,18 @@ describe "Explore versions", versioning: true, type: :feature do
 
     it "allows going back to the result" do
       click_link "Go back to result"
-      expect(current_path).to eq result_path
+      expect(page).to have_current_path result_path
     end
 
     it "shows the version author and creation date" do
       within ".card--list__item:last-child" do
         expect(page).to have_content("test suite")
-        expect(page).to have_content(Date.today.strftime("%d/%m/%Y"))
+        expect(page).to have_content(Time.zone.today.strftime("%d/%m/%Y"))
       end
     end
   end
 
-  context "show version" do
+  context "when showing version" do
     before do
       click_link "Show all versions"
 
@@ -73,18 +73,18 @@ describe "Explore versions", versioning: true, type: :feature do
 
     it "allows going back to the result" do
       click_link "Go back to result"
-      expect(current_path).to eq result_path
+      expect(page).to have_current_path result_path
     end
 
     it "allows going back to the versions list" do
       click_link "Show all versions"
-      expect(current_path).to eq result_path + "/versions"
+      expect(page).to have_current_path result_path + "/versions"
     end
 
     it "shows the version author and creation date" do
       within ".card.extra.definition-data" do
         expect(page).to have_content("test suite")
-        expect(page).to have_content(Date.today.strftime("%d/%m/%Y"))
+        expect(page).to have_content(Time.zone.today.strftime("%d/%m/%Y"))
       end
     end
 

@@ -8,6 +8,7 @@ module Decidim::Accountability
 
     let(:result) { create :result }
     let(:organization) { result.feature.organization }
+    let(:user) { create :user, organization: organization }
     let(:scope) { create :scope, organization: organization }
     let(:category) { create :category, participatory_space: participatory_process }
     let(:participatory_process) { result.feature.participatory_space }
@@ -48,6 +49,7 @@ module Decidim::Accountability
         end_date: end_date,
         decidim_accountability_status_id: status.id,
         progress: progress,
+        current_user: user,
         parent_id: nil
       )
     end

@@ -7,6 +7,7 @@ module Decidim::Accountability
     subject { described_class.new(form) }
 
     let(:organization) { create :organization, available_locales: [:en] }
+    let(:user) { create :user, organization: organization }
     let(:participatory_process) { create :participatory_process, organization: organization }
     let(:current_feature) { create :accountability_feature, participatory_space: participatory_process }
     let(:scope) { create :scope, organization: organization }
@@ -49,6 +50,7 @@ module Decidim::Accountability
         end_date: end_date,
         decidim_accountability_status_id: status.id,
         progress: progress,
+        current_user: user,
         parent_id: nil
       )
     end
