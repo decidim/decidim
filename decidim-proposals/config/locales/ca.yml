@@ -150,7 +150,7 @@ ca:
           title: Nova proposta
         orders:
           label: 'Ordenar propostes per:'
-          most_voted: Més votat
+          most_voted: Ha rebut més suports
           random: Aleatori
           recent: Recent
         proposal:
@@ -162,9 +162,9 @@ ca:
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
           report: Informe
         vote_button:
-          already_voted: Ja has votat
-          already_voted_hover: Retirar vot
-          maximum_votes_reached: S'ha arribat al límit de vots
+          already_voted: Ja li has donat suport
+          already_voted_hover: Retirar suport
+          maximum_votes_reached: S'ha arribat al límit de suports
           no_votes_remaining: No hi ha suports restants
           vote: Donar suport
           votes_blocked: Recollida de suports desactivada
@@ -174,14 +174,14 @@ ca:
             other: SUPORTS
         voting_rules:
           maximum_votes_per_proposal:
-            description: Cada proposta pot rebre un màxim de %{limit} vots.
+            description: Cada proposta pot rebre un màxim de %{limit} suports.
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
-          title: 'La votació es regeix per les següents normes:'
+          title: 'La selecció de propostes es regeix per les següents normes:'
           vote_limit:
-            description: Pots votar fins a %{limit} propostes.
+            description: Pots donar suport a %{limit} propostes.
             left: Restant
-            votes: Vots
+            votes: Suports
       update:
         error: Hi ha hagut errors en desar la proposta.
         success: La proposta s'ha actualitzat correctament.
