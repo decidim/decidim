@@ -65,7 +65,7 @@ In order to develop on decidim, you'll need:
 * **Git** 2.15+
 * **PostgreSQL** 9.4+
 * **Ruby** 2.4.1
-* **NodeJS** 8.x.x
+* **NodeJS** 9.x.x (with `yarn` as a package manager)
 * **ImageMagick**
 * **Chrome** browser and [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/).
 
@@ -75,7 +75,7 @@ The easiest way to work on decidim is to clone decidim's repository and install 
 git clone git@github.com:decidim/decidim.git
 cd decidim
 bundle install
-npm install
+yarn install
 ```
 
 You have several rake tasks available:

@@ -7,13 +7,13 @@ describe "Bundle sanity" do
     previous_hash = bundle_hash
 
     Dir.chdir("../") do
-      expect(system("npm run build:prod", out: File::NULL, err: File::NULL)).to eq(true)
+      expect(system("yarn build:prod", out: File::NULL, err: File::NULL)).to eq(true)
     end
 
     new_hash = bundle_hash
 
     expect(previous_hash).to eq(new_hash),
-                             "Please normalize the comments bundle file with `npm run build:prod` from the Decidim root folder"
+                             "Please normalize the comments bundle file with `yarn build:prod` from the Decidim root folder"
   end
 
   def bundle_hash

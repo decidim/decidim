@@ -139,5 +139,5 @@ end
 
 desc "Build webpack bundle files"
 task :webpack do
-  sh "npm install && npm run build:prod"
+  sh "yarn install && yarn build:prod"
 end
