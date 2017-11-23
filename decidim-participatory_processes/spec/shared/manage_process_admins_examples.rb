@@ -105,9 +105,7 @@ shared_examples "manage process admins examples" do
           end
         end
 
-        within ".callout--full" do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_admin_callout("successfully")
       end
     end
   end

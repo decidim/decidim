@@ -137,9 +137,7 @@ describe "Admin manages participatory process features", type: :feature do
         it "successfully edits it" do
           click_button "Update"
 
-          within ".callout--full" do
-            expect(page).to have_content("successfully")
-          end
+          expect(page).to have_admin_callout("successfully")
         end
       end
     end
@@ -187,10 +185,7 @@ describe "Admin manages participatory process features", type: :feature do
         click_button "Update"
       end
 
-      within ".callout--full" do
-        expect(page).to have_content("successfully")
-      end
-
+      expect(page).to have_admin_callout("successfully")
       expect(page).to have_content("My updated feature")
 
       within find("tr", text: "My updated feature") do
@@ -222,9 +217,7 @@ describe "Admin manages participatory process features", type: :feature do
           click_button "Update"
         end
 
-        within ".callout--full" do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_admin_callout("successfully")
 
         within find("tr", text: "My feature") do
           page.find(".action-icon--configure").click

@@ -72,9 +72,7 @@ RSpec.shared_examples "manage statuses" do
         accept_confirm { find("a.action-icon--remove").click }
       end
 
-      within ".callout--full" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       within "table" do
         expect(page).not_to have_content(status2.key)
