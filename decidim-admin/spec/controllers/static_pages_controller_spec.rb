@@ -11,7 +11,7 @@ module Decidim
       let(:user) { create(:user, :admin, :confirmed, organization: organization) }
 
       before do
-        @request.env["decidim.current_organization"] = organization
+        request.env["decidim.current_organization"] = organization
         sign_in user, scope: :user
       end
 

@@ -42,16 +42,16 @@ module Decidim
       end.new
     end
 
+    let(:builder) { FormBuilder.new(:resource, resource, helper, {}) }
+    let(:parsed) { Nokogiri::HTML(output) }
+
     before do
       allow(Decidim).to receive(:available_locales).and_return available_locales
       allow(I18n.config).to receive(:enforce_available_locales).and_return(false)
     end
 
-    let(:builder) { FormBuilder.new(:resource, resource, helper, {}) }
-    let(:parsed) { Nokogiri::HTML(output) }
-
-    context "#editor" do
-      context "using default toolbar" do
+    describe "#editor" do
+      context "when using default toolbar" do
         let(:output) do
           builder.editor :slug
         end
@@ -63,7 +63,7 @@ module Decidim
         end
       end
 
-      context "using full toolbar" do
+      context "when using full toolbar" do
         let(:output) do
           builder.editor :slug, toolbar: :full
         end
@@ -76,8 +76,8 @@ module Decidim
       end
     end
 
-    context "#translated" do
-      context "a text area field" do
+    describe "#translated" do
+      context "when a text area field" do
         let(:output) do
           builder.translated :text_area, :name
         end
@@ -102,7 +102,7 @@ module Decidim
         end
       end
 
-      context "an editor field" do
+      context "with an editor field" do
         let(:output) do
           builder.translated :editor, :short_description
         end
@@ -134,6 +134,8 @@ module Decidim
     end
 
     describe "categories_for_select" do
+      subject { Nokogiri::HTML(output) }
+
       let!(:feature) { create(:feature) }
       let!(:category) { create(:category, name: { "en" => "Nice category" }, participatory_space: feature.participatory_space) }
       let!(:other_category) { create(:category, name: { "en" => "A better category" }, participatory_space: feature.participatory_space) }
@@ -142,7 +144,6 @@ module Decidim
 
       let(:options) { {} }
       let(:output) { builder.categories_select(:category_id, scope, options) }
-      subject { Nokogiri::HTML(output) }
 
       it "includes all the categories" do
         values = subject.css("option").map(&:text)
@@ -154,15 +155,16 @@ module Decidim
       end
 
       context "when a category has subcategories" do
-        context "`disable_parents` is true" do
+        context "when `disable_parents` is true" do
           it "is disabled" do
             expect(subject.xpath("//option[@disabled='disabled']").count).to eq(1)
             expect(subject.xpath("//option[@disabled='disabled']").first.text).to eq(category.name["en"])
           end
         end
 
-        context "`disable_parents` is false" do
+        context "when `disable_parents` is false" do
           let(:options) { { disable_parents: false } }
+
           it "is not disabled" do
             expect(subject.xpath("//option[@disabled='disabled']").count).to eq(0)
           end
@@ -206,13 +208,11 @@ module Decidim
     end
 
     describe "validations" do
-      before do
-        @previous_backend = I18n.backend
+      around do |example|
+        previous_backend = I18n.backend
         I18n.backend = I18n::Backend::Simple.new
-      end
-
-      after do
-        I18n.backend = @previous_backend
+        example.run
+        I18n.backend = previous_backend
       end
 
       context "when a field is required" do
@@ -224,7 +224,7 @@ module Decidim
           expect(parsed.css("span.form-error").first).to be
         end
 
-        context "translations" do
+        describe "translations" do
           subject { parsed.css("span.form-error").first.text }
 
           context "with no translations for the field" do
@@ -294,7 +294,7 @@ module Decidim
         end
       end
 
-      context "max length" do
+      describe "max length" do
         let(:output) do
           builder.text_field :name, maxlength: 150
         end
@@ -305,7 +305,7 @@ module Decidim
         end
       end
 
-      context "min length" do
+      describe "min length" do
         let(:output) do
           builder.text_field :name, minlength: 150
         end

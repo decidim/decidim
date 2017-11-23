@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "provides valid scope helpers" do
+describe Decidim::ScopesHelper do
   let(:participatory_space) do
     create(
       :participatory_process,

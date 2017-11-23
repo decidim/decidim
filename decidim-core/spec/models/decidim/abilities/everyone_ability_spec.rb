@@ -5,9 +5,9 @@ require "spec_helper"
 module Decidim
   module Abilities
     describe EveryoneAbility do
-      let(:user) { build(:user) }
-
       subject { described_class.new(user, {}) }
+
+      let(:user) { build(:user) }
 
       it "lets the user read processes" do
         expect(subject.permissions[:can][:read]).to include("public_pages")

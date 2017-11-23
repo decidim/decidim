@@ -6,7 +6,7 @@ module Decidim
   describe StaticPage do
     let(:page) { build(:static_page) }
 
-    context "validations" do
+    describe "validations" do
       let(:invalid_slug) { "#Invalid.Slug" }
 
       it "is valid" do
@@ -35,16 +35,16 @@ module Decidim
       end
     end
 
-    describe "to_param" do
+    describe "#to_param" do
       subject { page.to_param }
 
       it { is_expected.to eq(page.slug) }
     end
 
-    context "callbacks" do
+    describe "callbacks" do
       let(:page) { create(:static_page, slug: slug) }
 
-      context "pages with a default slug" do
+      context "with a default slug" do
         let(:slug) { described_class::DEFAULT_PAGES.sample }
 
         context "when editing" do
@@ -65,7 +65,7 @@ module Decidim
         end
       end
 
-      context "pages with a regular slug" do
+      context "with a regular slug" do
         let(:slug) { "some-slug" }
 
         context "when editing" do
@@ -92,11 +92,13 @@ module Decidim
 
       context "when the slug is a default one" do
         let(:slug) { described_class::DEFAULT_PAGES.sample }
+
         it { is_expected.to be_default }
       end
 
       context "when the slug is a regular one" do
         let(:slug) { "some-slug" }
+
         it { is_expected.not_to be_default }
       end
     end

@@ -7,5 +7,6 @@ describe "Accountability result comments", type: :feature do
   let!(:commentable) { create(:result, feature: feature) }
 
   let(:resource_path) { resource_locator(commentable).path }
+
   include_examples "comments"
 end

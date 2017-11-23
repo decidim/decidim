@@ -5,6 +5,14 @@ require "spec_helper"
 module Decidim
   module Admin
     describe ImpersonateManagedUserForm do
+      subject do
+        described_class.from_params(
+          attributes
+        ).with_context(
+          current_organization: organization
+        )
+      end
+
       let(:organization) { create :organization }
       let(:authorization) do
         {
@@ -16,13 +24,6 @@ module Decidim
         {
           authorization: authorization
         }
-      end
-      subject do
-        described_class.from_params(
-          attributes
-        ).with_context(
-          current_organization: organization
-        )
       end
 
       context "when everything is OK" do

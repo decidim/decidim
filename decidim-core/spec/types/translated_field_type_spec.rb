@@ -5,7 +5,7 @@ require "decidim/api/test/type_context"
 
 module Decidim
   describe TranslatedFieldType do
-    include_context "graphql type"
+    include_context "with a graphql type"
 
     let(:model) do
       {

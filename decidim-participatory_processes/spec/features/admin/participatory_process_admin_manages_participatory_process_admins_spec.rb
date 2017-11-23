@@ -3,11 +3,11 @@
 require "spec_helper"
 
 describe "Participatory process admin manages participatory process admins", type: :feature do
-  include_context "participatory process administration by process admin"
+  include_context "when process admin administrating a participatory process"
 
   it_behaves_like "manage process admins examples"
 
-  context "removing himself from the list" do
+  context "when removing himself from the list" do
     before do
       switch_to_host(organization.host)
       login_as user, scope: :user

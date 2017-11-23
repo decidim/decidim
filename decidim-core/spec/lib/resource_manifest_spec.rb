@@ -4,10 +4,6 @@ require "spec_helper"
 
 module Decidim
   describe ResourceManifest do
-    let(:feature_manifest) do
-      FeatureManifest.new(name: "dummy")
-    end
-
     subject do
       described_class.new(
         feature_manifest: feature_manifest,
@@ -15,6 +11,10 @@ module Decidim
         route_name: route_name,
         model_class_name: model_class
       )
+    end
+
+    let(:feature_manifest) do
+      FeatureManifest.new(name: "dummy")
     end
 
     let(:name) { :dummy }

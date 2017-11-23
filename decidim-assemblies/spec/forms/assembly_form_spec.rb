@@ -6,6 +6,8 @@ module Decidim
   module Assemblies
     module Admin
       describe AssemblyForm do
+        subject { described_class.from_params(attributes).with_context(current_organization: organization) }
+
         let(:organization) { create :organization }
         let(:title) do
           {
@@ -60,11 +62,10 @@ module Decidim
             }
           }
         end
+
         before do
           Decidim::AttachmentUploader.enable_processing = true
         end
-
-        subject { described_class.from_params(attributes).with_context(current_organization: organization) }
 
         context "when everything is OK" do
           it { is_expected.to be_valid }
@@ -147,7 +148,7 @@ module Decidim
         end
 
         context "when slug is not unique" do
-          context "in the same organization" do
+          context "when in the same organization" do
             before do
               create(:assembly, slug: slug, organization: organization)
             end
@@ -158,7 +159,7 @@ module Decidim
             end
           end
 
-          context "in another organization" do
+          context "when in another organization" do
             before do
               create(:assembly, slug: slug)
             end

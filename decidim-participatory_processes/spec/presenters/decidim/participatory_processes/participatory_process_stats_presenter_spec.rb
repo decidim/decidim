@@ -4,12 +4,12 @@ require "spec_helper"
 
 module Decidim
   describe ParticipatoryProcesses::ParticipatoryProcessStatsPresenter do
+    subject { described_class.new(participatory_process: process) }
+
     let!(:organization) { create(:organization) }
     let!(:user) { create(:user, :confirmed, organization: organization) }
     let!(:process) { create(:participatory_process, organization: organization) }
     let!(:feature) { create(:feature, participatory_space: process) }
-
-    subject { described_class.new(participatory_process: process) }
 
     let(:manifest) do
       Decidim::FeatureManifest.new.tap do |manifest|

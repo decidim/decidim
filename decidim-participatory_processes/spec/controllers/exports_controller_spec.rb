@@ -13,17 +13,17 @@ module Decidim
         let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
         let!(:feature) { create(:feature, participatory_space: participatory_process, manifest_name: "dummy") }
 
-        before do
-          @request.env["decidim.current_organization"] = organization
-          sign_in user, scope: :user
-        end
-
         let(:params) do
           {
             id: "dummies",
             feature_id: feature.id,
             participatory_process_slug: participatory_process.slug
           }
+        end
+
+        before do
+          request.env["decidim.current_organization"] = organization
+          sign_in user, scope: :user
         end
 
         describe "POST create" do

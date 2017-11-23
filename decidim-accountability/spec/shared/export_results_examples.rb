@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 shared_examples "export results" do
-  include_context "admin"
-  include_context "feature admin"
+  include_context "when admin"
+  include_context "when managing a feature as an admin"
 
   let!(:results) { create_list :result, 3, feature: current_feature }
 

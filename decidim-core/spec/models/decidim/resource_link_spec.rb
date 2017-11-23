@@ -4,8 +4,9 @@ require "spec_helper"
 
 module Decidim
   describe ResourceLink do
-    let(:link) { build(:resource_link) }
     subject { link }
+
+    let(:link) { build(:resource_link) }
 
     it { is_expected.to be_valid }
 
@@ -36,6 +37,7 @@ module Decidim
 
       context "when an exact link already exists" do
         let(:link) { build(:resource_link, name: "test-link") }
+
         before do
           create(:resource_link, name: "test-link", to: link.to, from: link.from)
         end

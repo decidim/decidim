@@ -4,11 +4,12 @@ require "spec_helper"
 
 module Decidim
   describe ActionAuthorizer do
+    subject { described_class.new(user, feature, action) }
+
     let(:user) { double(authorizations: [authorization]) }
     let(:feature) { double(permissions: permissions) }
     let(:action) { "vote" }
     let(:permissions) { { action => permission } }
-    let(:permission) { {} }
     let(:authorization) { double(name: "foo_handler", metadata: metadata) }
     let(:metadata) { { postal_code: "1234", location: "Tomorrowland" } }
     let(:response) { subject.authorize }
@@ -21,8 +22,6 @@ module Decidim
     end
 
     let(:options) { {} }
-
-    subject { described_class.new(user, feature, action) }
 
     describe "authorized?" do
       context "when no permissions are set" do
@@ -38,7 +37,7 @@ module Decidim
           let(:user) { nil }
 
           it "returns missing" do
-            expect(response).to_not be_ok
+            expect(response).not_to be_ok
             expect(response.code).to eq(:missing)
             expect(response.handler_name).to eq("foo_handler")
             expect(response.data).to be_empty
@@ -74,7 +73,7 @@ module Decidim
           let(:authorization) { double(name: "bar_handler") }
 
           it "returns missing" do
-            expect(response).to_not be_ok
+            expect(response).not_to be_ok
             expect(response.code).to eq(:missing)
             expect(response.handler_name).to eq("foo_handler")
             expect(response.data).to be_empty
@@ -94,7 +93,7 @@ module Decidim
             let(:options) { { postal_code: "789" } }
 
             it "returns invalid" do
-              expect(response).to_not be_ok
+              expect(response).not_to be_ok
               expect(response.code).to eq(:invalid)
               expect(response.handler_name).to eq("foo_handler")
               expect(response.data).to include(fields: { postal_code: "789" })
@@ -121,7 +120,7 @@ module Decidim
             let(:options) { { postal_code: "1234", age: 18 } }
 
             it "returns incomplete with the fields" do
-              expect(response).to_not be_ok
+              expect(response).not_to be_ok
               expect(response.code).to eq(:incomplete)
               expect(response.handler_name).to eq("foo_handler")
               expect(response.data).to include(fields: [:age])

@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Api
     describe QueryType do
-      include_context "graphql type"
+      include_context "with a graphql type"
 
       describe "processes" do
         let!(:process1) { create(:participatory_process, organization: current_organization) }

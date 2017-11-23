@@ -5,8 +5,9 @@ require "spec_helper"
 module Decidim
   module Accountability
     describe Result do
-      let(:result) { build :result }
       subject { result }
+
+      let(:result) { build :result }
 
       it { is_expected.to be_valid }
 

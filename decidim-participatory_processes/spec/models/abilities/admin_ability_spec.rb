@@ -2,11 +2,13 @@
 
 require "spec_helper"
 
-describe Decidim::ParticipatoryProcesses::Abilities::AdminAbility do
-  let(:user) { build(:user, :admin) }
-  let(:context) { {} }
+module Decidim::ParticipatoryProcesses
+  describe Abilities::AdminAbility do
+    subject { described_class.new(user, context) }
 
-  subject { described_class.new(user, context) }
+    let(:user) { build(:user, :admin) }
+    let(:context) { {} }
 
-  it { is_expected.to be_able_to(:read, Decidim::ParticipatoryProcess) }
+    it { is_expected.to be_able_to(:read, Decidim::ParticipatoryProcess) }
+  end
 end

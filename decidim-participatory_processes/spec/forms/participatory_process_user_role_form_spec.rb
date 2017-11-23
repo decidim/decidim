@@ -6,6 +6,8 @@ module Decidim
   module ParticipatoryProcesses
     module Admin
       describe ParticipatoryProcessUserRoleForm do
+        subject { described_class.from_params(attributes) }
+
         let(:email) { "my_email@example.org" }
         let(:name) { "John Wayne" }
         let(:role) { "admin" }
@@ -18,8 +20,6 @@ module Decidim
             }
           }
         end
-
-        subject { described_class.from_params(attributes) }
 
         context "when everything is OK" do
           it { is_expected.to be_valid }

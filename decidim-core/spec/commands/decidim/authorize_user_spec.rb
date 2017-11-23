@@ -4,6 +4,8 @@ require "spec_helper"
 
 module Decidim
   describe AuthorizeUser do
+    subject { described_class.new(handler) }
+
     let(:user) { create(:user) }
     let(:document_number) { "12345678X" }
     let(:handler) do
@@ -12,8 +14,6 @@ module Decidim
         user: user
       )
     end
-
-    subject { described_class.new(handler) }
 
     context "when the form is not authorized" do
       before do

@@ -4,8 +4,9 @@ require "spec_helper"
 
 module Decidim
   describe Feature do
-    let(:feature) { build(:feature, manifest_name: "dummy") }
     subject { feature }
+
+    let(:feature) { build(:feature, manifest_name: "dummy") }
 
     it { is_expected.to be_valid }
 

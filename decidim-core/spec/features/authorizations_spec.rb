@@ -7,7 +7,7 @@ describe "Authorizations", type: :feature do
     switch_to_host(organization.host)
   end
 
-  context "a new user" do
+  context "when a new user" do
     let(:organization) { create :organization, available_authorizations: authorizations }
 
     let(:user) { create(:user, :confirmed, organization: organization) }
@@ -37,7 +37,7 @@ describe "Authorizations", type: :feature do
 
       it "allows the user to skip it" do
         click_link "start exploring"
-        expect(current_path).to eq decidim.account_path
+        expect(page).to have_current_path decidim.account_path
       end
     end
 
@@ -61,7 +61,7 @@ describe "Authorizations", type: :feature do
     end
   end
 
-  context "user account" do
+  context "when existing user from her account" do
     let(:organization) { create :organization, available_authorizations: authorizations }
     let(:user) { create(:user, :confirmed) }
 

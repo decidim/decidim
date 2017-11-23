@@ -19,20 +19,18 @@ describe "Participatory Processes", type: :feature do
     switch_to_host(organization.host)
   end
 
-  context "when there are no processes" do
-    context "direct access form URL" do
-      it_behaves_like "a 404 page" do
-        let(:target_path) { decidim_participatory_processes.participatory_processes_path }
-      end
+  context "when there are no processes and directly accessing form URL" do
+    it_behaves_like "a 404 page" do
+      let(:target_path) { decidim_participatory_processes.participatory_processes_path }
     end
+  end
 
-    context "accessing from the homepage" do
-      it "the menu link is not shown" do
-        visit decidim.root_path
+  context "when there are no processes and accessing from the homepage" do
+    it "does not show the menu link" do
+      visit decidim.root_path
 
-        within ".main-nav" do
-          expect(page).to have_no_content("Processes")
-        end
+      within ".main-nav" do
+        expect(page).to have_no_content("Processes")
       end
     end
   end
@@ -49,13 +47,13 @@ describe "Participatory Processes", type: :feature do
       create(:participatory_process, :published)
     end
 
-    context "direct access from URL" do
+    context "and directly accessing from URL" do
       it_behaves_like "a 404 page" do
         let(:target_path) { decidim_participatory_processes.participatory_processes_path }
       end
     end
 
-    context "accessing from the homepage" do
+    context "and accessing from the homepage" do
       it "the menu link is not shown" do
         visit decidim.root_path
 
@@ -75,7 +73,7 @@ describe "Participatory Processes", type: :feature do
       visit decidim_participatory_processes.participatory_processes_path
     end
 
-    context "accessing from the homepage" do
+    context "and accessing from the homepage" do
       it "the menu link is not shown" do
         visit decidim.root_path
 
@@ -84,7 +82,7 @@ describe "Participatory Processes", type: :feature do
           click_link "Processes"
         end
 
-        expect(current_path).to eq decidim_participatory_processes.participatory_processes_path
+        expect(page).to have_current_path decidim_participatory_processes.participatory_processes_path
       end
     end
 
@@ -112,10 +110,10 @@ describe "Participatory Processes", type: :feature do
     it "links to the individual process page" do
       click_link(translated(participatory_process.title, locale: :en))
 
-      expect(current_path).to eq decidim_participatory_processes.participatory_process_path(participatory_process)
+      expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process)
     end
 
-    context "filtering processes" do
+    context "and filtering processes" do
       let!(:past_process) { create :participatory_process, :past, organization: organization }
       let!(:upcoming_process) { create :participatory_process, :upcoming, organization: organization }
 
@@ -124,7 +122,7 @@ describe "Participatory Processes", type: :feature do
         expect(page).to have_no_content(translated(upcoming_process.title, locale: :en))
       end
 
-      context "choosing 'past' processes" do
+      context "and choosing 'past' processes" do
         before do
           within ".order-by__tabs" do
             click_link "Past"
@@ -140,7 +138,7 @@ describe "Participatory Processes", type: :feature do
         end
       end
 
-      context "choosing 'upcoming' processes" do
+      context "and choosing 'upcoming' processes" do
         before do
           within ".order-by__tabs" do
             click_link "Upcoming"
@@ -178,7 +176,7 @@ describe "Participatory Processes", type: :feature do
     end
   end
 
-  describe "when going to the participatory process page" do
+  context "when going to the participatory process page" do
     let!(:participatory_process) { base_process }
     let!(:proposals_feature) { create(:feature, :published, participatory_space: participatory_process, manifest_name: :proposals) }
     let!(:meetings_feature) { create(:feature, :unpublished, participatory_space: participatory_process, manifest_name: :meetings) }
@@ -207,10 +205,11 @@ describe "Participatory Processes", type: :feature do
       end
     end
 
-    let(:attached_to) { participatory_process }
-    it_behaves_like "has attachments"
+    it_behaves_like "has attachments" do
+      let(:attached_to) { participatory_process }
+    end
 
-    context "when the process has some features" do
+    context "and the process has some features" do
       it "shows the features" do
         within ".process-nav" do
           expect(page).to have_content(translated(proposals_feature.name, locale: :en).upcase)
@@ -225,7 +224,7 @@ describe "Participatory Processes", type: :feature do
         end
       end
 
-      context "when the process stats are not enabled" do
+      context "and the process stats are not enabled" do
         let(:show_statistics) { false }
 
         it "the stats for those features are not visible" do

@@ -5,6 +5,8 @@ require "spec_helper"
 module Decidim
   module Surveys
     describe SurveyAnswer do
+      subject { survey_answer }
+
       let(:organization) { create(:organization) }
       let(:user) { create(:user, organization: organization) }
       let(:participatory_process) { create(:participatory_process, organization: organization) }
@@ -12,7 +14,6 @@ module Decidim
       let(:survey) { create(:survey, feature: feature) }
       let(:survey_question) { create(:survey_question, survey: survey) }
       let(:survey_answer) { create(:survey_answer, survey: survey, question: survey_question, user: user) }
-      subject { survey_answer }
 
       it { is_expected.to be_valid }
 

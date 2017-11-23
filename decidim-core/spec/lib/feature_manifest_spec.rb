@@ -74,6 +74,7 @@ module Decidim
       let(:collection1) { [{ id: 1 }, { id: 2 }] }
       let(:collection2) { [{ name: "ed" }, { name: "john" }] }
       let(:serializer) { Class.new }
+      let(:manifests) { subject.export_manifests }
 
       before do
         subject.exports :foos do |exports|
@@ -85,8 +86,6 @@ module Decidim
           exports.collection { collection2 }
         end
       end
-
-      let(:manifests) { subject.export_manifests }
 
       describe "#export_manifests" do
         it "creates manifest instances" do

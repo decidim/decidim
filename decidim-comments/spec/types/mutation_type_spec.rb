@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Api
     describe MutationType do
-      include_context "graphql type"
+      include_context "with a graphql type"
 
       describe "commentable" do
         let!(:commentable) { create(:dummy_resource) }
@@ -14,7 +14,7 @@ module Decidim
           "{ commentable(id: \"#{commentable.id}\", type: \"#{commentable.commentable_type}\") { id } }"
         end
 
-        it "should fetch the commentable given its id and commentable_type" do
+        it "fetches the commentable given its id and commentable_type" do
           expect(response["commentable"]).to include("id" => commentable.id.to_s)
         end
       end
@@ -23,7 +23,7 @@ module Decidim
         let!(:comment) { create(:comment) }
         let(:query) { "{ comment(id: \"#{comment.id}\") { id } }" }
 
-        it "should fetch the comment given its id" do
+        it "fetches the comment given its id" do
           expect(response["comment"]).to include("id" => comment.id.to_s)
         end
       end

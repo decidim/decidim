@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Explore meetings", type: :feature do
-  include_context "feature"
+  include_context "with a feature"
   let(:manifest_name) { "meetings" }
 
   let(:meetings_count) { 5 }
@@ -11,7 +11,7 @@ describe "Explore meetings", type: :feature do
     create_list(:meeting, meetings_count, feature: feature)
   end
 
-  context "index" do
+  describe "index" do
     it "shows all meetings for the given process" do
       visit_feature
       expect(page).to have_selector("article.card", count: meetings_count)
@@ -21,7 +21,7 @@ describe "Explore meetings", type: :feature do
       end
     end
 
-    context "filtering" do
+    context "when filtering" do
       it "allows searching by text" do
         visit_feature
         within ".filters" do
@@ -71,7 +71,7 @@ describe "Explore meetings", type: :feature do
       end
     end
 
-    context "No upcoming meetings scheduled" do
+    context "when no upcoming meetings scheduled" do
       let!(:meetings) do
         create_list(:meeting, 2, feature: feature, start_time: Time.current - 4.days, end_time: Time.current - 2.days)
       end
@@ -89,7 +89,7 @@ describe "Explore meetings", type: :feature do
       end
     end
 
-    context "No meetings scheduled" do
+    context "when no meetings scheduled" do
       let!(:meetings) { [] }
 
       it "shows the correct warning" do
@@ -112,7 +112,7 @@ describe "Explore meetings", type: :feature do
     end
   end
 
-  context "show", :serves_map do
+  describe "show", :serves_map do
     let(:meetings_count) { 1 }
     let(:meeting) { meetings.first }
     let(:date) { 10.days.from_now }
@@ -232,8 +232,9 @@ describe "Explore meetings", type: :feature do
       end
     end
 
-    let(:attached_to) { meeting }
-    it_behaves_like "has attachments"
+    it_behaves_like "has attachments" do
+      let(:attached_to) { meeting }
+    end
 
     shared_examples_for "a closing report page" do
       it "shows the closing report" do

@@ -6,6 +6,12 @@ module Decidim
   module Surveys
     module Admin
       describe SurveyForm do
+        subject do
+          described_class.from_params(attributes).with_context(
+            current_organization: current_organization
+          )
+        end
+
         let(:current_organization) { create(:organization) }
 
         let(:title) do
@@ -68,12 +74,6 @@ module Decidim
               "questions" => questions
             }
           }
-        end
-
-        subject do
-          described_class.from_params(attributes).with_context(
-            current_organization: current_organization
-          )
         end
 
         context "when everything is OK" do

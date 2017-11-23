@@ -9,7 +9,7 @@ describe "Homepage", type: :feature do
     end
 
     it "redirects to system UI and shows a warning" do
-      expect(page.current_path).to eq(decidim_system.new_admin_session_path)
+      expect(page).to have_current_path(decidim_system.new_admin_session_path)
       expect(page).to have_content("You must create an organization to get started")
     end
   end
@@ -28,7 +28,7 @@ describe "Homepage", type: :feature do
       expect(page).to have_selector("a.main-footer__badge[href='#{official_url}']")
     end
 
-    context "call to action" do
+    describe "call to action" do
       let!(:participatory_process) { create :participatory_process, :published }
       let!(:organization) { participatory_process.organization }
 
@@ -51,7 +51,7 @@ describe "Homepage", type: :feature do
             click_link "Sign up"
           end
 
-          expect(current_path).to eq decidim.new_user_registration_path
+          expect(page).to have_current_path decidim.new_user_registration_path
         end
       end
 
@@ -64,7 +64,7 @@ describe "Homepage", type: :feature do
             click_link "Participate"
           end
 
-          expect(current_path).to eq decidim.new_user_session_path
+          expect(page).to have_current_path decidim.new_user_session_path
           expect(page).to have_content("Sign in")
           expect(page).to have_content("New to the platform?")
         end
@@ -79,7 +79,7 @@ describe "Homepage", type: :feature do
             click_link "Participate"
           end
 
-          expect(current_path).to eq decidim_participatory_processes.participatory_processes_path
+          expect(page).to have_current_path decidim_participatory_processes.participatory_processes_path
         end
       end
     end
@@ -89,7 +89,7 @@ describe "Homepage", type: :feature do
       let(:organization) { create(:organization, official_url: official_url, header_snippets: snippet) }
 
       it "does not include the header snippets" do
-        expect(page).to_not have_selector("meta[data-hello]", visible: false)
+        expect(page).not_to have_selector("meta[data-hello]", visible: false)
       end
 
       context "when header snippets are enabled" do
@@ -140,7 +140,7 @@ describe "Homepage", type: :feature do
     end
 
     describe "includes participatory processes ending soon" do
-      context "when exists more than 8 participatory processes" do
+      context "when there are more than 8 participatory processes" do
         let!(:participatory_process) do
           create_list(
             :participatory_process,
@@ -152,7 +152,7 @@ describe "Homepage", type: :feature do
           )
         end
 
-        it "should show a maximum of 8" do
+        it "shows a maximum of 8" do
           visit current_path
           expect(page).to have_selector("article.card", count: 8)
         end
@@ -163,7 +163,7 @@ describe "Homepage", type: :feature do
         let!(:participatory_process_2) { create(:participatory_process, :with_steps, promoted: false, organization: organization) }
         let!(:participatory_process_3) { create(:participatory_process, :with_steps, promoted: true, organization: organization) }
 
-        it "should show promoted first and ordered by active step end_date" do
+        it "shows promoted first and ordered by active step end_date" do
           processes = [participatory_process_3, participatory_process_1, participatory_process_2]
           participatory_process_1.active_step.update_attributes!(end_date: 5.days.from_now)
           participatory_process_2.active_step.update_attributes!(end_date: 3.days.from_now)
@@ -193,7 +193,7 @@ describe "Homepage", type: :feature do
       context "when organization show_statistics attribute is false" do
         let(:organization) { create(:organization, show_statistics: false) }
 
-        it "should not show the statistics block" do
+        it "does not show the statistics block" do
           expect(page).to have_no_content("Current state of #{organization.name}")
         end
       end
@@ -205,7 +205,7 @@ describe "Homepage", type: :feature do
           visit current_path
         end
 
-        it "should show the statistics block" do
+        it "shows the statistics block" do
           within "#statistics" do
             expect(page).to have_content("Current state of #{organization.name}")
             expect(page).to have_content("PROCESSES")
@@ -213,7 +213,7 @@ describe "Homepage", type: :feature do
           end
         end
 
-        it "should have the correct values for the statistics" do
+        it "has the correct values for the statistics" do
           within ".users_count" do
             expect(page).to have_content("4")
           end

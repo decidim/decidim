@@ -3,10 +3,10 @@
 require "spec_helper"
 
 describe Decidim::Proposals::Abilities::AdminAbility do
+  subject { described_class.new(user, context) }
+
   let(:user) { build(:user, :admin) }
   let(:context) { {} }
-
-  subject { described_class.new(user, context) }
 
   context "when the user is not an admin" do
     let(:user) { build(:user) }

@@ -1,3 +1,5 @@
+require: rubocop-rspec
+
 # Common configuration.
 AllCops:
   Exclude:
@@ -1279,3 +1281,47 @@ Metrics/BlockLength:
     - '**/spec/**/*_examples.rb'
     - '**/*.gemspec'
     - '**/abilities/**/*_ability.rb'
+
+RSpec/BeforeAfterAll:
+  Enabled: true
+
+RSpec/ContextWording:
+  Enabled: true
+  Prefixes:
+    - when
+    - with
+    - without
+    - and
+
+RSpec/DescribeClass:
+  Exclude:
+    - spec/i18n_spec.rb
+    - spec/generator_spec.rb
+    - decidim-comments/spec/bundle_spec.rb
+
+RSpec/ExampleLength:
+  Max: 49
+
+RSpec/ExpectInHook:
+  Enabled: false
+
+RSpec/IteratedExpectation:
+  Enabled: true
+
+RSpec/LetSetup:
+  Enabled: false
+
+RSpec/MessageSpies:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Max: 17
+
+RSpec/NestedGroups:
+  Max: 7
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/VerifiedDoubles:
+  Enabled: false

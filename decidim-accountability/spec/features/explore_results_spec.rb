@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Explore results", type: :feature do
-  include_context "feature"
+  include_context "with a feature"
   let(:manifest_name) { "accountability" }
 
   let(:results_count) { 5 }
@@ -20,7 +20,7 @@ describe "Explore results", type: :feature do
     visit path
   end
 
-  context "home" do
+  describe "home" do
     let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_slug: participatory_process.slug, feature_id: feature.id) }
 
     it "shows categories and subcategories with results" do
@@ -33,7 +33,7 @@ describe "Explore results", type: :feature do
     end
   end
 
-  context "index" do
+  describe "index" do
     let(:path) { decidim_participatory_process_accountability.results_path(participatory_process_slug: participatory_process.slug, feature_id: feature.id) }
 
     it "shows all results for the given process and category" do
@@ -45,7 +45,7 @@ describe "Explore results", type: :feature do
     end
   end
 
-  context "show" do
+  describe "show" do
     let(:path) { decidim_participatory_process_accountability.result_path(id: result.id, participatory_process_slug: participatory_process.slug, feature_id: feature.id) }
     let(:results_count) { 1 }
     let(:result) { results.first }

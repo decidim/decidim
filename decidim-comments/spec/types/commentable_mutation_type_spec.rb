@@ -6,7 +6,7 @@ require "decidim/api/test/type_context"
 module Decidim
   module Comments
     describe CommentableMutationType do
-      include_context "graphql type"
+      include_context "with a graphql type"
 
       let(:participatory_process) { create(:participatory_process, organization: current_organization) }
       let(:feature) { create(:feature, participatory_space: participatory_process) }

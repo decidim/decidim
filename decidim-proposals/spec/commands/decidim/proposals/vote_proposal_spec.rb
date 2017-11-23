@@ -10,7 +10,7 @@ module Decidim
         let(:current_user) { create(:user, organization: proposal.feature.organization) }
         let(:command) { described_class.new(proposal, current_user) }
 
-        context "in normal conditions" do
+        context "with normal conditions" do
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
           end
@@ -24,7 +24,9 @@ module Decidim
 
         context "when the vote is not valid" do
           before do
+            # rubocop:disable RSpec/AnyInstance
             allow_any_instance_of(ProposalVote).to receive(:valid?).and_return(false)
+            # rubocop:enable RSpec/AnyInstance
           end
 
           it "broadcasts invalid" do

@@ -19,20 +19,18 @@ describe "Assemblies", type: :feature do
     switch_to_host(organization.host)
   end
 
-  context "when there are no assemblies" do
-    context "direct access from URL" do
-      it_behaves_like "a 404 page" do
-        let(:target_path) { decidim_assemblies.assemblies_path }
-      end
+  context "when there are no assemblies and directly accessing from URL" do
+    it_behaves_like "a 404 page" do
+      let(:target_path) { decidim_assemblies.assemblies_path }
     end
+  end
 
-    context "accessing from the homepage" do
-      it "the menu link is not shown" do
-        visit decidim.root_path
+  context "when there are no assemblies and accessing from the homepage" do
+    it "the menu link is not shown" do
+      visit decidim.root_path
 
-        within ".main-nav" do
-          expect(page).to have_no_content("Assemblies")
-        end
+      within ".main-nav" do
+        expect(page).to have_no_content("Assemblies")
       end
     end
   end
@@ -49,13 +47,13 @@ describe "Assemblies", type: :feature do
       create(:assembly, :published)
     end
 
-    context "direct access from URL" do
+    context "and directly accessing from URL" do
       it_behaves_like "a 404 page" do
         let(:target_path) { decidim_assemblies.assemblies_path }
       end
     end
 
-    context "accessing from the homepage" do
+    context "and accessing from the homepage" do
       it "the menu link is not shown" do
         visit decidim.root_path
 
@@ -75,7 +73,7 @@ describe "Assemblies", type: :feature do
       visit decidim_assemblies.assemblies_path
     end
 
-    context "accessing from the homepage" do
+    context "and accessing from the homepage" do
       it "the menu link is not shown" do
         visit decidim.root_path
 
@@ -84,7 +82,7 @@ describe "Assemblies", type: :feature do
           click_link "Assemblies"
         end
 
-        expect(current_path).to eq decidim_assemblies.assemblies_path
+        expect(page).to have_current_path decidim_assemblies.assemblies_path
       end
     end
 
@@ -112,7 +110,7 @@ describe "Assemblies", type: :feature do
     it "links to the individual assembly page" do
       click_link(translated(assembly.title, locale: :en))
 
-      expect(current_path).to eq decidim_assemblies.assembly_path(assembly)
+      expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
     end
   end
 
@@ -144,8 +142,9 @@ describe "Assemblies", type: :feature do
       end
     end
 
-    let(:attached_to) { assembly }
-    it_behaves_like "has attachments"
+    it_behaves_like "has attachments" do
+      let(:attached_to) { assembly }
+    end
 
     context "when the assembly has some features" do
       it "shows the features" do
@@ -158,7 +157,7 @@ describe "Assemblies", type: :feature do
       it "shows the stats for those features" do
         within ".process_stats" do
           expect(page).to have_content("3 PROPOSALS")
-          expect(page).to_not have_content("0 MEETINGS")
+          expect(page).not_to have_content("0 MEETINGS")
         end
       end
 

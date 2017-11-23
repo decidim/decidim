@@ -19,7 +19,7 @@ describe "Highlighted Assemblies", type: :feature do
     within "#highlighted-assemblies" do
       expect(page).to have_i18n_content(promoted_assembly.title)
       expect(page).to have_i18n_content(unpromoted_assembly.title)
-      expect(page).to_not have_i18n_content(promoted_external_assembly.title)
+      expect(page).not_to have_i18n_content(promoted_external_assembly.title)
     end
   end
 end

@@ -4,9 +4,6 @@ require "spec_helper"
 
 module Decidim
   describe AccountForm do
-    let(:user) { create(:user) }
-    let(:organization) { user.organization }
-
     subject do
       described_class.new(
         name: name,
@@ -20,6 +17,9 @@ module Decidim
         current_user: user
       )
     end
+
+    let(:user) { create(:user) }
+    let(:organization) { user.organization }
 
     let(:name) { "Lord of the Foo" }
     let(:email) { "depths@ofthe.bar" }

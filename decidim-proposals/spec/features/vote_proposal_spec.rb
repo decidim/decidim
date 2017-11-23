@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Vote Proposal", type: :feature do
-  include_context "feature"
+  include_context "with a feature"
   let(:manifest_name) { "proposals" }
 
   let!(:proposals) { create_list(:proposal, 3, feature: feature) }
@@ -64,7 +64,7 @@ describe "Vote Proposal", type: :feature do
     end
 
     context "when the user is not logged in" do
-      it "should be given the option to sign in" do
+      it "is given the option to sign in" do
         visit_feature
 
         within ".card__support", match: :first do
@@ -85,7 +85,7 @@ describe "Vote Proposal", type: :feature do
           visit_feature
         end
 
-        it "should be able to vote the proposal" do
+        it "is able to vote the proposal" do
           within "#proposal-#{proposal.id}-vote-button" do
             click_button "Vote"
             expect(page).to have_button("Already voted")
@@ -103,7 +103,7 @@ describe "Vote Proposal", type: :feature do
           visit_feature
         end
 
-        it "should not be able to vote it again" do
+        it "is not able to vote it again" do
           within "#proposal-#{proposal.id}-vote-button" do
             expect(page).to have_button("Already voted")
             expect(page).to have_no_button("Vote")
@@ -114,7 +114,7 @@ describe "Vote Proposal", type: :feature do
           end
         end
 
-        it "should be able to undo the vote" do
+        it "is able to undo the vote" do
           within "#proposal-#{proposal.id}-vote-button" do
             click_button "Already voted"
             expect(page).to have_button("Vote")
@@ -181,7 +181,7 @@ describe "Vote Proposal", type: :feature do
             visit_feature
           end
 
-          it "should update the remaining votes counter" do
+          it "updates the remaining votes counter" do
             within "#proposal-#{proposal.id}-vote-button" do
               click_button "Vote"
               expect(page).to have_button("Already voted")
@@ -203,7 +203,7 @@ describe "Vote Proposal", type: :feature do
             visit_feature
           end
 
-          it "should show a modal dialog" do
+          it "shows a modal dialog" do
             within "#proposal-#{proposal.id}-vote-button" do
               click_button "Vote"
             end
@@ -218,14 +218,14 @@ describe "Vote Proposal", type: :feature do
             visit_feature
           end
 
-          it "should not be able to vote it again" do
+          it "is not able to vote it again" do
             within "#proposal-#{proposal.id}-vote-button" do
               expect(page).to have_button("Already voted")
               expect(page).to have_no_button("Vote")
             end
           end
 
-          it "should be able to undo the vote" do
+          it "is able to undo the vote" do
             within "#proposal-#{proposal.id}-vote-button" do
               click_button "Already voted"
               expect(page).to have_button("Vote")
@@ -247,7 +247,7 @@ describe "Vote Proposal", type: :feature do
             visit_feature
           end
 
-          it "should not be able to vote other proposals" do
+          it "is not able to vote other proposals" do
             expect(page).to have_css(".card__button[disabled]", count: 2)
           end
 
@@ -275,7 +275,7 @@ describe "Vote Proposal", type: :feature do
         feature.update_attributes!(settings: { proposal_answering_enabled: true })
       end
 
-      it "it cannot be voted" do
+      it "cannot be voted" do
         visit_feature
         expect(page).not_to have_selector("#proposal-#{rejected_proposal.id}-vote-button")
 

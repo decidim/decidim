@@ -4,8 +4,9 @@ require "spec_helper"
 
 module Decidim
   describe ParticipatoryProcess do
-    let(:participatory_process) { build(:participatory_process, slug: "my-slug") }
     subject { participatory_process }
+
+    let(:participatory_process) { build(:participatory_process, slug: "my-slug") }
 
     it { is_expected.to be_valid }
 

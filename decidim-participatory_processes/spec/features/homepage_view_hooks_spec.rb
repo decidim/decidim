@@ -19,7 +19,7 @@ describe "Highlighted Processes", type: :feature do
     within "#highlighted-processes" do
       expect(page).to have_i18n_content(promoted_process.title)
       expect(page).to have_i18n_content(unpromoted_process.title)
-      expect(page).to_not have_i18n_content(promoted_external_process.title)
+      expect(page).not_to have_i18n_content(promoted_external_process.title)
     end
   end
 end

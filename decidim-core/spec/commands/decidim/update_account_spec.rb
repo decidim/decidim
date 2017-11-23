@@ -6,7 +6,6 @@ module Decidim
   describe UpdateAccount do
     let(:command) { described_class.new(user, form) }
     let(:user) { create(:user, :confirmed) }
-    let(:valid) { true }
     let(:data) do
       {
         name: user.name,
@@ -19,26 +18,23 @@ module Decidim
     end
 
     let(:form) do
-      form = double(
+      AccountForm.from_params(
         name: data[:name],
         email: data[:email],
         password: data[:password],
         password_confirmation: data[:password_confirmation],
         avatar: data[:avatar],
-        remove_avatar: data[:remove_avatar],
-        valid?: valid
-      )
-
-      allow(form).to receive(:remove_avatar=).with(anything)
-
-      form
+        remove_avatar: data[:remove_avatar]
+      ).with_context(current_organization: user.organization, current_user: user)
     end
 
     context "when invalid" do
-      let(:valid) { false }
+      before do
+        allow(form).to receive(:valid?).and_return(false)
+      end
 
       it "Doesn't update anything" do
-        data[:name] = "John Doe"
+        form.name = "John Doe"
         old_name = user.name
         expect { command.call }.to broadcast(:invalid)
         expect(user.reload.name).to eq(old_name)
@@ -46,17 +42,15 @@ module Decidim
     end
 
     context "when valid" do
-      let(:valid) { true }
-
       it "updates the users's name" do
-        data[:name] = "Pepito de los palotes"
+        form.name = "Pepito de los palotes"
         expect { command.call }.to broadcast(:ok)
         expect(user.reload.name).to eq("Pepito de los palotes")
       end
 
       describe "updating the email" do
         before do
-          data[:email] = "new@email.com"
+          form.email = "new@email.com"
         end
 
         it "broadcasts ok" do
@@ -73,7 +67,7 @@ module Decidim
 
       describe "avatar" do
         before do
-          data[:avatar] = File.open("spec/assets/avatar.jpg")
+          form.avatar = File.open("spec/assets/avatar.jpg")
         end
 
         it "updates the avatar" do
@@ -86,7 +80,7 @@ module Decidim
         let(:user) { create(:user, avatar: File.open("spec/assets/avatar.jpg")) }
 
         before do
-          data[:remove_avatar] = true
+          form.remove_avatar = true
         end
 
         it "removes the avatar" do
@@ -97,8 +91,8 @@ module Decidim
 
       describe "when the password is present" do
         before do
-          data[:password] = "test123"
-          data[:password_confirmation] = "test123"
+          form.password = "test123"
+          form.password_confirmation = "test123"
         end
 
         it "broadcasts invalid" do
@@ -109,10 +103,11 @@ module Decidim
 
       describe "when the avatar dimensions are too big" do
         let(:message) { "Avatar is too big." }
+
         before do
-          expect(user).to receive(:valid?).and_return(false)
-          expect(user).to receive(:errors).and_return(avatar: message).at_least(:once)
-          allow(form).to receive_message_chain(:errors, :add).with(:avatar, message)
+          form.avatar = user.avatar
+
+          allow(form.avatar).to receive(:size).and_return(1000.megabytes)
         end
 
         it "broadcasts invalid" do

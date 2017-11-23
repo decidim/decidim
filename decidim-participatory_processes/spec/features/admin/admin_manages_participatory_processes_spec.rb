@@ -3,18 +3,22 @@
 require "spec_helper"
 
 describe "Admin manages participatory processes", type: :feature do
-  include_context "participatory process administration by admin"
-  it_behaves_like "manage processes examples"
-  it_behaves_like "manage processes announcements"
+  include_context "when admin administrating a participatory process"
+
+  let!(:participatory_process_groups) do
+    create_list(:participatory_process_group, 3, organization: organization)
+  end
 
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    @participatory_process_groups = create_list(:participatory_process_group, 3, organization: organization)
     visit decidim_admin_participatory_processes.participatory_processes_path
   end
 
-  context "creating a participatory process" do
+  it_behaves_like "manage processes examples"
+  it_behaves_like "manage processes announcements"
+
+  context "when creating a participatory process" do
     before do
       within ".secondary-nav__actions" do
         page.find("a.button").click
@@ -52,8 +56,8 @@ describe "Admin manages participatory processes", type: :feature do
           ca: "Descripció més llarga"
         )
 
-        @group_name = @participatory_process_groups.first.name["en"]
-        select @group_name, from: :participatory_process_participatory_process_group_id
+        group_name = participatory_process_groups.first.name["en"]
+        select group_name, from: :participatory_process_participatory_process_group_id
 
         fill_in :participatory_process_slug, with: "slug"
         fill_in :participatory_process_hashtag, with: "#hashtag"
@@ -66,14 +70,14 @@ describe "Admin manages participatory processes", type: :feature do
       expect(page).to have_admin_callout("successfully")
 
       within ".container" do
-        expect(current_path).to eq decidim_admin_participatory_processes.participatory_process_steps_path(Decidim::ParticipatoryProcess.last)
+        expect(page).to have_current_path decidim_admin_participatory_processes.participatory_process_steps_path(Decidim::ParticipatoryProcess.last)
         expect(page).to have_content("STEPS")
         expect(page).to have_content("Introduction")
       end
     end
   end
 
-  context "updating a participatory process" do
+  context "when updating a participatory process" do
     let!(:participatory_process3) { create(:participatory_process, organization: organization) }
 
     before do
@@ -91,7 +95,7 @@ describe "Admin manages participatory processes", type: :feature do
     end
   end
 
-  context "deleting a participatory process" do
+  context "when deleting a participatory process" do
     let!(:participatory_process2) { create(:participatory_process, organization: organization) }
 
     before do

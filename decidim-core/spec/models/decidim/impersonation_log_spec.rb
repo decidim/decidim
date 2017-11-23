@@ -4,8 +4,9 @@ require "spec_helper"
 
 module Decidim
   describe ImpersonationLog do
-    let(:impersonation_log) { build(:impersonation_log) }
     subject { impersonation_log }
+
+    let(:impersonation_log) { build(:impersonation_log) }
 
     it { is_expected.to be_valid }
 

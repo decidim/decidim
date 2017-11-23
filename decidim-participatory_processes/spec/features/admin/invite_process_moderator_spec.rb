@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Invite process moderator", type: :feature do
-  include_context "invite process users"
+  include_context "when inviting process users"
 
   before do
     switch_to_host organization.host
@@ -23,7 +23,7 @@ describe "Invite process moderator", type: :feature do
         find("*[type=submit]").click
       end
 
-      expect(current_path).to eq "/admin/"
+      expect(page).to have_current_path "/admin/"
       expect(page).to have_content("DASHBOARD")
 
       click_link "Processes"
@@ -41,10 +41,12 @@ describe "Invite process moderator", type: :feature do
 
   context "when the user already exists" do
     let(:email) { "moderator@example.org" }
-    let(:moderator) { @moderator }
+
+    let!(:moderator) do
+      create :user, :confirmed, email: email, organization: organization
+    end
 
     before do
-      @moderator = create :user, :confirmed, email: email, organization: organization
       perform_enqueued_jobs { invite_user }
     end
 

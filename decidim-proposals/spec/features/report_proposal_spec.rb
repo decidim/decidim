@@ -3,8 +3,7 @@
 require "spec_helper"
 
 describe "Report Proposal", type: :feature do
-  include_context "feature"
-  include_examples "reports"
+  include_context "with a feature"
 
   let(:manifest_name) { "proposals" }
   let!(:proposals) { create_list(:proposal, 3, feature: feature) }
@@ -17,4 +16,6 @@ describe "Report Proposal", type: :feature do
            manifest: manifest,
            participatory_space: participatory_process)
   end
+
+  include_examples "reports"
 end

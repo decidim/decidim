@@ -19,7 +19,7 @@ module Decidim
         end
 
         it "excludes other comments" do
-          expect(collection).to_not include(*other_comments)
+          expect(collection).not_to include(*other_comments)
         end
       end
     end

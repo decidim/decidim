@@ -9,16 +9,11 @@ module Decidim
     let(:organization) { create(:organization) }
 
     before do
-      @request.env["decidim.current_organization"] = organization
+      request.env["decidim.current_organization"] = organization
     end
 
     describe "POST create" do
       context "when the unverified email address is already in use" do
-        let(:provider) { "facebook" }
-        let(:uid) { "12345" }
-        let(:email) { "user@from-facebook.com" }
-        let!(:user) { create(:user, organization: organization, email: email) }
-
         subject do
           post :create, params: {
             user: {
@@ -31,12 +26,17 @@ module Decidim
           }
         end
 
+        let(:provider) { "facebook" }
+        let(:uid) { "12345" }
+        let(:email) { "user@from-facebook.com" }
+        let!(:user) { create(:user, organization: organization, email: email) }
+
         it "doesn't create a new user" do
           expect(User.count).to eq(1)
         end
 
         it "doesn't log in" do
-          expect(controller.user_signed_in?).to be_falsey
+          expect(controller).not_to be_user_signed_in
         end
       end
     end

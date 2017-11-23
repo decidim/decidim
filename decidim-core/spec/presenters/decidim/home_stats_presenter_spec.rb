@@ -10,10 +10,11 @@ module Decidim
     let!(:user) { create(:user, :confirmed, organization: organization) }
     let!(:process) { create(:participatory_process, organization: organization) }
 
-    before :all do
+    around do |example|
       Decidim.stats.register :foo, priority: StatsRegistry::HIGH_PRIORITY, &proc { 10 }
       Decidim.stats.register :bar, priority: StatsRegistry::MEDIUM_PRIORITY, &proc { 20 }
       Decidim.stats.register :baz, priority: StatsRegistry::LOW_PRIORITY, &proc { 30 }
+
       I18n.backend.store_translations(
         :en,
         pages: {
@@ -25,6 +26,12 @@ module Decidim
           }
         }
       )
+
+      example.run
+
+      Decidim.stats.stats.reject! { |s| s[:name] == :baz }
+      Decidim.stats.stats.reject! { |s| s[:name] == :bar }
+      Decidim.stats.stats.reject! { |s| s[:name] == :foo }
     end
 
     before do

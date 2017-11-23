@@ -75,10 +75,10 @@ module Decidim
               .to receive(:users_to_notify_on_comment_created)
               .and_return([follower, author])
 
-            expect_any_instance_of(Decidim::Comments::Comment)
+            expect_any_instance_of(Decidim::Comments::Comment) # rubocop:disable RSpec/AnyInstance
               .to receive(:id).at_least(:once).and_return 1
 
-            expect_any_instance_of(Decidim::Comments::Comment)
+            expect_any_instance_of(Decidim::Comments::Comment) # rubocop:disable RSpec/AnyInstance
               .to receive(:root_commentable).at_least(:once).and_return commentable
 
             expect(Decidim::EventsManager)

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_context "invite process users" do
+shared_context "when inviting process users" do
   let(:participatory_process) { create :participatory_process }
   let(:organization) { participatory_process.organization }
   let(:user) { create :user, :admin, :confirmed, organization: participatory_process.organization }

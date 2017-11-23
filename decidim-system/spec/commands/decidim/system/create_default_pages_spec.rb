@@ -5,8 +5,9 @@ require "spec_helper"
 module Decidim
   module System
     describe CreateDefaultPages do
-      let(:organization) { create(:organization) }
       subject { described_class.new(organization).call }
+
+      let(:organization) { create(:organization) }
 
       it "creates all the default pages for an organization" do
         expect do

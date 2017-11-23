@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 shared_examples "manage results" do
-  include_context "admin"
-  include_context "feature admin"
+  include_context "when admin"
+  include_context "when managing a feature as an admin"
 
   it "updates a result" do
     within find("tr", text: translated(result.title)) do
@@ -28,18 +28,16 @@ shared_examples "manage results" do
     end
   end
 
-  context "previewing results" do
-    it "allows the user to preview the result" do
-      within find("tr", text: translated(result.title)) do
-        klass = "action-icon--preview"
-        href = resource_locator(result).path
-        target = "blank"
+  it "allows the user to preview the result" do
+    within find("tr", text: translated(result.title)) do
+      klass = "action-icon--preview"
+      href = resource_locator(result).path
+      target = "blank"
 
-        expect(page).to have_selector(
-          :xpath,
-          "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
-        )
-      end
+      expect(page).to have_selector(
+        :xpath,
+        "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
+      )
     end
   end
 
@@ -75,7 +73,7 @@ shared_examples "manage results" do
     end
   end
 
-  context "deleting a result" do
+  describe "deleting a result" do
     let!(:result2) { create(:result, feature: current_feature) }
 
     before do

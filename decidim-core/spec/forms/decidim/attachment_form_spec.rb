@@ -3,15 +3,15 @@
 require "spec_helper"
 
 describe Decidim::AttachmentForm do
-  let(:title) { "My attachment" }
-  let(:file) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
-
   subject do
     described_class.new(
       title: title,
       file: file
     )
   end
+
+  let(:title) { "My attachment" }
+  let(:file) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
 
   context "with correct data" do
     it "is valid" do

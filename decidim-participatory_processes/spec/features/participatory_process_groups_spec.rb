@@ -38,7 +38,7 @@ describe "Participatory Process Groups", type: :feature do
     it "links to the individual group page" do
       click_link(translated(participatory_process_group.name, locale: :en))
 
-      expect(current_path).to eq decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
+      expect(page).to have_current_path decidim_participatory_processes.participatory_process_group_path(participatory_process_group)
     end
   end
 
@@ -73,7 +73,7 @@ describe "Participatory Process Groups", type: :feature do
     it "links to the individual process page" do
       click_link(translated(group_processes.first.title, locale: :en))
 
-      expect(current_path).to eq decidim_participatory_processes.participatory_process_path(group_processes.first)
+      expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(group_processes.first)
     end
   end
 end

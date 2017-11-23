@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Meeting embeds", type: :feature do
-  include_context "feature"
+  include_context "with a feature"
   let(:manifest_name) { "meetings" }
 
   let!(:meeting) { create(:meeting, feature: feature) }

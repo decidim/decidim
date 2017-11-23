@@ -19,7 +19,7 @@ module Decidim
 
       describe "participatory_processes" do
         before do
-          @request.env["decidim.current_organization"] = organization
+          request.env["decidim.current_organization"] = organization
         end
 
         it "orders them by end_date" do
@@ -69,7 +69,7 @@ module Decidim
 
       describe "collection" do
         before do
-          @request.env["decidim.current_organization"] = organization
+          request.env["decidim.current_organization"] = organization
         end
 
         let(:other_organization) { create(:organization) }

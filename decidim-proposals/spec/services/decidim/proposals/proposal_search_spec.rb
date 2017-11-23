@@ -14,13 +14,6 @@ module Decidim
       let!(:proposal) { create(:proposal, feature: feature, scope: scope1) }
 
       describe "results" do
-        let(:activity) { [] }
-        let(:search_text) { nil }
-        let(:origin) { nil }
-        let(:related_to) { nil }
-        let(:state) { nil }
-        let(:scope_id) { nil }
-
         subject do
           described_class.new(
             feature: feature,
@@ -34,6 +27,13 @@ module Decidim
           ).results
         end
 
+        let(:activity) { [] }
+        let(:search_text) { nil }
+        let(:origin) { nil }
+        let(:related_to) { nil }
+        let(:state) { nil }
+        let(:scope_id) { nil }
+
         it "only includes proposals from the given feature" do
           other_proposal = create(:proposal)
 
@@ -41,7 +41,7 @@ module Decidim
           expect(subject).not_to include(other_proposal)
         end
 
-        describe "when the filter includes search_text" do
+        describe "search_text filter" do
           let(:search_text) { "dog" }
 
           it "returns the proposals containing the search in the title or the body" do
@@ -53,7 +53,7 @@ module Decidim
           end
         end
 
-        describe "when the filter includes activity" do
+        describe "activity filter" do
           let(:activity) { ["voted"] }
 
           it "returns the proposals voted by the user" do
@@ -64,7 +64,7 @@ module Decidim
           end
         end
 
-        describe "when the filter includes origin" do
+        describe "origin filter" do
           context "when filtering official proposals" do
             let(:origin) { "official" }
 
@@ -91,7 +91,7 @@ module Decidim
           end
         end
 
-        describe "when the filter includes state" do
+        describe "state filter" do
           context "when filtering accpeted proposals" do
             let(:state) { "accepted" }
 
@@ -117,7 +117,7 @@ module Decidim
           end
         end
 
-        context "scope_id" do
+        describe "scope_id filter" do
           let!(:proposal2) { create(:proposal, feature: feature, scope: scope2) }
           let!(:proposal3) { create(:proposal, feature: feature, scope: subscope1) }
 
@@ -164,7 +164,7 @@ module Decidim
           end
         end
 
-        describe "when the filter includes related_to" do
+        describe "related_to filter" do
           context "when filtering by related to meetings" do
             let(:related_to) { "Decidim::Meetings::Meeting".underscore }
             let(:meetings_feature) { create(:feature, manifest_name: "meetings", participatory_space: participatory_process) }

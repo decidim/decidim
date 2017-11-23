@@ -5,6 +5,10 @@ require "spec_helper"
 module Decidim
   module Surveys
     describe SurveyUserAnswersSerializer do
+      subject do
+        described_class.new(survey_answers)
+      end
+
       let!(:survey) { create(:survey) }
       let!(:user) { create(:user, organization: survey.feature.organization) }
       let!(:survey_questions) { create_list :survey_question, 3, survey: survey }
@@ -12,10 +16,6 @@ module Decidim
         survey_questions.map do |question|
           create :survey_answer, survey: survey, question: question, user: user
         end
-      end
-
-      subject do
-        described_class.new(survey_answers)
       end
 
       describe "#serialize" do

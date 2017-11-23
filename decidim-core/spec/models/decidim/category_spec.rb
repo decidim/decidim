@@ -4,8 +4,9 @@ require "spec_helper"
 
 module Decidim
   describe Category do
-    let(:category) { build(:category) }
     subject { category }
+
+    let(:category) { build(:category) }
 
     it { is_expected.to be_valid }
 
@@ -27,11 +28,11 @@ module Decidim
       end
     end
 
-    context "before saving a subcategory" do
+    context "without a participatory space" do
       let(:parent) { create(:category) }
       let(:category) { create(:subcategory, parent: parent, participatory_space: nil) }
 
-      it "sets its process to its parent's" do
+      it "is saved to parent before save" do
         subject.save
         expect(subject.participatory_space).to eq parent.participatory_space
       end

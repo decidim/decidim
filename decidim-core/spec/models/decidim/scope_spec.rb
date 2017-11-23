@@ -4,21 +4,22 @@ require "spec_helper"
 
 module Decidim
   describe Scope do
-    let(:parent) { nil }
-    let(:scope) { build(:scope, parent: parent) }
     subject { scope }
 
-    context "it is valid" do
+    let(:parent) { nil }
+    let(:scope) { build(:scope, parent: parent) }
+
+    context "when it is valid" do
       it { is_expected.to be_valid }
     end
 
-    context "two scopes with the same code and organization" do
+    context "with two scopes with the same code and organization" do
       let!(:existing_scope) { create(:scope, code: scope.code, organization: scope.organization) }
 
       it { is_expected.to be_invalid }
     end
 
-    context "two scopes with the same code in different organizations" do
+    context "with two scopes with the same code in different organizations" do
       let!(:existing_scope) { create(:scope, code: scope.code) }
 
       it { is_expected.to be_valid }
@@ -48,7 +49,7 @@ module Decidim
       it { is_expected.to be_invalid }
     end
 
-    context "cycles validation" do
+    describe "cycles validation" do
       let(:scope) { create(:scope) }
       let(:subscope) { create(:subscope, parent: scope) }
       let(:subsubscope) { create(:subscope, parent: subscope) }
@@ -64,7 +65,7 @@ module Decidim
       end
     end
 
-    context "part_of for top level scopes" do
+    describe "part_of for top level scopes" do
       it "is empty before save" do
         expect(subject.part_of).to be_empty
       end
@@ -84,7 +85,7 @@ module Decidim
       end
     end
 
-    context "#part_of_scopes" do
+    describe "#part_of_scopes" do
       let(:grandparent) { create(:scope) }
       let(:parent) { create(:scope, parent: grandparent) }
 
@@ -94,7 +95,7 @@ module Decidim
       end
     end
 
-    context "creating several scopes on a transaction" do
+    describe "creating several scopes on a transaction" do
       let(:scopes) { build_list(:scope, 9) }
 
       before do

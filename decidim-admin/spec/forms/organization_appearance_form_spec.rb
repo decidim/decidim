@@ -5,6 +5,12 @@ require "spec_helper"
 module Decidim
   module Admin
     describe OrganizationAppearanceForm do
+      subject do
+        described_class.from_params(attributes).with_context(
+          context
+        )
+      end
+
       let(:header_snippets) { "<my-html />" }
       let(:welcome_text) do
         {
@@ -44,12 +50,6 @@ module Decidim
           current_organization: organization,
           current_user: instance_double(Decidim::User).as_null_object
         }
-      end
-
-      subject do
-        described_class.from_params(attributes).with_context(
-          context
-        )
       end
 
       context "when everything is OK" do

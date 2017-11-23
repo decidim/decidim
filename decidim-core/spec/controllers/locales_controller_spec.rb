@@ -9,7 +9,7 @@ module Decidim
     let(:organization) { create(:organization) }
 
     before do
-      @request.env["decidim.current_organization"] = organization
+      request.env["decidim.current_organization"] = organization
     end
 
     describe "POST create" do
@@ -33,7 +33,7 @@ module Decidim
           end
         end
 
-        context "otherwise" do
+        context "when otherwise" do
           let(:locale) { "foo" }
 
           it "doesn't change the user's locale" do
@@ -50,7 +50,7 @@ module Decidim
 
       context "when the referrer has some query params" do
         before do
-          @request.env["HTTP_REFERER"] = "/search?param1=foo&param2=bar"
+          request.env["HTTP_REFERER"] = "/search?param1=foo&param2=bar"
         end
 
         it "keeps the original query params too" do
@@ -60,7 +60,7 @@ module Decidim
 
         context "when the referer already include the locale" do
           before do
-            @request.env["HTTP_REFERER"] = "/search?param1=foo&param2=bar&locale=en-US"
+            request.env["HTTP_REFERER"] = "/search?param1=foo&param2=bar&locale=en-US"
           end
 
           it "replaces it" do

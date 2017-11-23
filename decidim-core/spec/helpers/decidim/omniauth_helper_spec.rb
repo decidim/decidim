@@ -15,18 +15,19 @@ module Decidim
       }
     end
 
-    before :each do
+    before do
       allow(Rails.application).to receive(:secrets).and_return(secrets)
     end
 
     describe "#social_provider_enabled?" do
       describe "when the facebook provider is enabled" do
-        it { expect(helper.social_provider_enabled?(:facebook)).to be_truthy }
+        it { expect(helper).to be_social_provider_enabled(:facebook) }
       end
 
       describe "when the facebook provider is not enabled" do
         let(:facebook_enabled) { false }
-        it { expect(helper.social_provider_enabled?(:facebook)).to be_falsy }
+
+        it { expect(helper).not_to be_social_provider_enabled(:facebook) }
       end
     end
 
@@ -35,7 +36,7 @@ module Decidim
       let(:twitter_enabled) { false }
 
       describe "when all providers are disabled" do
-        it { expect(helper.any_social_provider_enabled?).to be_falsy }
+        it { expect(helper).not_to be_any_social_provider_enabled }
       end
     end
 

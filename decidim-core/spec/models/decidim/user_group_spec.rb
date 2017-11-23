@@ -4,9 +4,9 @@ require "spec_helper"
 
 module Decidim
   describe UserGroup do
-    let(:user_group) { create(:user_group) }
-
     subject { user_group }
+
+    let(:user_group) { create(:user_group) }
 
     it "is valid" do
       expect(subject).to be_valid

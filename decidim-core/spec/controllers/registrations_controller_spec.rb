@@ -9,8 +9,8 @@ module Decidim
     let(:organization) { create(:organization) }
 
     before do
-      @request.env["devise.mapping"] = ::Devise.mappings[:user]
-      @request.env["decidim.current_organization"] = organization
+      request.env["devise.mapping"] = ::Devise.mappings[:user]
+      request.env["decidim.current_organization"] = organization
     end
 
     describe "POST create" do
@@ -31,7 +31,7 @@ module Decidim
 
       context "when the user created is active for authentication" do
         before do
-          expect_any_instance_of(Decidim::User)
+          expect_any_instance_of(Decidim::User) # rubocop:disable RSpec/AnyInstance
             .to receive(:active_for_authentication?)
             .at_least(:once)
             .and_return(true)
@@ -47,7 +47,7 @@ module Decidim
       context "when the form is invalid" do
         let(:email) { nil }
 
-        it "should render the new template" do
+        it "renders the new template" do
           post :create, params: params
           expect(controller).to render_template "new"
         end

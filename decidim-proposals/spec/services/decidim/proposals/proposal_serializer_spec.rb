@@ -5,6 +5,10 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe ProposalSerializer do
+      subject do
+        described_class.new(proposal)
+      end
+
       let!(:proposal) { create(:proposal) }
       let!(:category) { create(:category, participatory_space: feature.participatory_space) }
       let!(:scope) { create(:scope, organization: feature.participatory_space.organization) }
@@ -18,10 +22,6 @@ module Decidim
         proposal.update_attributes!(category: category)
         proposal.update_attributes!(scope: scope)
         proposal.link_resources(meetings, "proposals_from_meeting")
-      end
-
-      subject do
-        described_class.new(proposal)
       end
 
       describe "#serialize" do

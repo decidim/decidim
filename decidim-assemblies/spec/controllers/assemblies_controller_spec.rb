@@ -35,7 +35,7 @@ module Decidim
       end
 
       before do
-        @request.env["decidim.current_organization"] = organization
+        request.env["decidim.current_organization"] = organization
       end
 
       describe "assemblies" do

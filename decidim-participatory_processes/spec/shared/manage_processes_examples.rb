@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage processes examples" do
-  context "previewing processes" do
+  context "when previewing processes" do
     context "when the process is unpublished" do
       let!(:participatory_process) { create(:participatory_process, :unpublished, organization: organization) }
 
@@ -23,19 +23,19 @@ shared_examples "manage processes examples" do
           page.find("a.action-icon--preview").click
         end
 
-        expect(current_path).to eq decidim_participatory_processes.participatory_process_path(participatory_process)
+        expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process)
         expect(page).to have_content(translated(participatory_process.title))
       end
     end
   end
 
-  context "viewing a missing process" do
+  context "when viewing a missing process" do
     it_behaves_like "a 404 page" do
       let(:target_path) { decidim_admin_participatory_processes.participatory_process_path(99_999_999) }
     end
   end
 
-  context "updating a participatory process" do
+  context "when updating a participatory process" do
     before do
       click_link translated(participatory_process.title)
     end
@@ -67,7 +67,7 @@ shared_examples "manage processes examples" do
     end
   end
 
-  context "publishing a process" do
+  context "when publishing a process" do
     let!(:participatory_process) { create(:participatory_process, :unpublished, organization: organization) }
 
     before do
@@ -78,14 +78,14 @@ shared_examples "manage processes examples" do
       click_link "Publish"
       expect(page).to have_content("published successfully")
       expect(page).to have_content("Unpublish")
-      expect(current_path).to eq decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
+      expect(page).to have_current_path decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
 
       participatory_process.reload
       expect(participatory_process).to be_published
     end
   end
 
-  context "unpublishing a process" do
+  context "when unpublishing a process" do
     let!(:participatory_process) { create(:participatory_process, organization: organization) }
 
     before do
@@ -96,7 +96,7 @@ shared_examples "manage processes examples" do
       click_link "Unpublish"
       expect(page).to have_content("unpublished successfully")
       expect(page).to have_content("Publish")
-      expect(current_path).to eq decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
+      expect(page).to have_current_path decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
 
       participatory_process.reload
       expect(participatory_process).not_to be_published

@@ -36,8 +36,8 @@ module Decidim
           expect(helper).to receive(:authorize_action_path).with("foo").and_return "authorization_route"
           rendered = helper.action_authorization_modal("foo")
           expect(rendered).to include("missing-authorization")
-          expect(rendered).to_not include("incomplete-authorization")
-          expect(rendered).to_not include("invalid-authorization")
+          expect(rendered).not_to include("incomplete-authorization")
+          expect(rendered).not_to include("invalid-authorization")
         end
       end
 
@@ -50,8 +50,8 @@ module Decidim
           rendered = helper.action_authorization_modal("foo")
           expect(rendered.downcase).to include("reauthorize")
           expect(rendered).to include("incomplete-authorization")
-          expect(rendered).to_not include("missing-authorization")
-          expect(rendered).to_not include("invalid-authorization")
+          expect(rendered).not_to include("missing-authorization")
+          expect(rendered).not_to include("invalid-authorization")
         end
       end
 
@@ -62,8 +62,8 @@ module Decidim
         it "renders a modal with the invalid information" do
           rendered = helper.action_authorization_modal("foo")
           expect(rendered).to include("invalid-authorization")
-          expect(rendered).to_not include("missing-authorization")
-          expect(rendered).to_not include("incomplete-authorization")
+          expect(rendered).not_to include("missing-authorization")
+          expect(rendered).not_to include("incomplete-authorization")
         end
       end
 
@@ -84,7 +84,7 @@ module Decidim
 
         it "renders a regular link" do
           rendered = helper.action_authorized_link_to("foo", "Link", "fake_path")
-          expect(rendered).to_not include("data-toggle")
+          expect(rendered).not_to include("data-toggle")
           expect(rendered).to include("<a")
           expect(rendered).to include("Link")
         end
@@ -92,7 +92,7 @@ module Decidim
         it "renders with a block" do
           rendered = helper.action_authorized_link_to("foo", "fake_path") { "Link" }
 
-          expect(rendered).to_not include("data-toggle")
+          expect(rendered).not_to include("data-toggle")
           expect(rendered).to include("<a")
           expect(rendered).to include("Link")
         end
@@ -104,7 +104,7 @@ module Decidim
 
         it "renders a link toggling the modal" do
           rendered = helper.action_authorized_link_to("foo", "Link", "fake_path")
-          expect(rendered).to_not include("fake_path")
+          expect(rendered).not_to include("fake_path")
           expect(rendered).to include('data-toggle="fooAuthorizationModal"')
           expect(rendered).to include("<a")
         end
@@ -118,7 +118,7 @@ module Decidim
 
         it "renders a regular button" do
           rendered = helper.action_authorized_button_to("foo", "Link", "fake_path")
-          expect(rendered).to_not include("data-toggle")
+          expect(rendered).not_to include("data-toggle")
           expect(rendered).to include("<input")
           expect(rendered).to include("type=\"submit\"")
           expect(rendered).to include("Link")
@@ -127,7 +127,7 @@ module Decidim
         it "renders with a block" do
           rendered = helper.action_authorized_button_to("foo", "fake_path") { "Link" }
 
-          expect(rendered).to_not include("data-toggle")
+          expect(rendered).not_to include("data-toggle")
           expect(rendered).to include("<button")
           expect(rendered).to include("type=\"submit\"")
           expect(rendered).to include("Link")
@@ -142,7 +142,7 @@ module Decidim
           rendered = helper.action_authorized_button_to("foo", "Link", "fake_path")
           expect(rendered).to include("<input")
           expect(rendered).to include("type=\"submit\"")
-          expect(rendered).to_not include("fake_path")
+          expect(rendered).not_to include("fake_path")
           expect(rendered).to include('data-toggle="fooAuthorizationModal"')
         end
       end

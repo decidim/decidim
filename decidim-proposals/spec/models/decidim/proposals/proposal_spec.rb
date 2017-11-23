@@ -5,11 +5,11 @@ require "spec_helper"
 module Decidim
   module Proposals
     describe Proposal do
+      subject { proposal }
+
       let(:proposal) { build(:proposal, feature: feature) }
       let(:organization) { feature.participatory_space.organization }
       let(:feature) { build :proposal_feature }
-
-      subject { proposal }
 
       include_examples "authorable"
       include_examples "has feature"
@@ -28,12 +28,12 @@ module Decidim
         let(:user) { create(:user, organization: subject.organization) }
 
         it "returns false if the proposal is not voted by the given user" do
-          expect(subject.voted_by?(user)).to be_falsey
+          expect(subject).not_to be_voted_by(user)
         end
 
         it "returns true if the proposal is not voted by the given user" do
           create(:proposal_vote, proposal: subject, author: user)
-          expect(subject.voted_by?(user)).to be_truthy
+          expect(subject).to be_voted_by(user)
         end
       end
 
@@ -107,7 +107,7 @@ module Decidim
         end
       end
 
-      context "editable_by?" do
+      describe "#editable_by?" do
         let(:author) { build(:user, organization: organization) }
 
         context "when user is author" do

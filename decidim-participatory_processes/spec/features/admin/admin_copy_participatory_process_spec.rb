@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin copies participatory process", type: :feature do
-  include_context "participatory process administration by admin"
+  include_context "when admin administrating a participatory process"
 
   let!(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
   let!(:feature) { create :feature, manifest_name: :dummy, participatory_space: participatory_process }

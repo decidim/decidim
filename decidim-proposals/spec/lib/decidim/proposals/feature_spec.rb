@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Proposals feature" do
+describe "Proposals feature" do # rubocop:disable RSpec/DescribeClass
   let!(:feature) { create(:proposal_feature) }
 
   describe "on destroy" do
@@ -32,6 +32,8 @@ describe "Proposals feature" do
   end
 
   describe "stats" do
+    subject { current_stat[2] }
+
     let(:raw_stats) do
       Decidim.feature_manifests.map do |feature_manifest|
         feature_manifest.stats.filter(name: stats_name).with_context(feature).flat_map { |name, data| [feature_manifest.name, name, data] }
@@ -48,9 +50,8 @@ describe "Proposals feature" do
     let!(:moderation) { create :moderation, reportable: hidden_proposal, hidden_at: 1.day.ago }
 
     let(:current_stat) { stats.find { |stat| stat[1] == stats_name } }
-    subject { current_stat[2] }
 
-    context "proposals_count" do
+    describe "proposals_count" do
       let(:stats_name) { :proposals_count }
 
       it "only counts not hidden proposals" do
@@ -59,7 +60,7 @@ describe "Proposals feature" do
       end
     end
 
-    context "votes_count" do
+    describe "votes_count" do
       let(:stats_name) { :votes_count }
 
       before do
@@ -73,7 +74,7 @@ describe "Proposals feature" do
       end
     end
 
-    context "comments_count" do
+    describe "comments_count" do
       let(:stats_name) { :comments_count }
 
       before do

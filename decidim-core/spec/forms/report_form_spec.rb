@@ -4,6 +4,8 @@ require "spec_helper"
 
 module Decidim
   describe ReportForm do
+    subject { form }
+
     let(:reason) { "spam" }
     let(:params) do
       {
@@ -15,14 +17,13 @@ module Decidim
       described_class.from_params(params)
     end
 
-    subject { form }
-
     context "when everything is OK" do
       it { is_expected.to be_valid }
     end
 
     context "when reason is not in the list" do
       let(:reason) { "foo" }
+
       it { is_expected.to be_invalid }
     end
   end

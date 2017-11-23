@@ -112,7 +112,9 @@ module Decidim
           end
 
           it "confirms the user if the email is already verified" do
+            # rubocop:disable RSpec/AnyInstance
             expect_any_instance_of(User).to receive(:skip_confirmation!)
+            # rubocop:enable RSpec/AnyInstance
             command.call
           end
         end

@@ -6,6 +6,12 @@ module Decidim
   module Pages
     module Admin
       describe PageForm do
+        subject do
+          described_class.from_params(attributes).with_context(
+            current_organization: current_organization
+          )
+        end
+
         let(:current_organization) { create(:organization) }
 
         let(:body) do
@@ -25,12 +31,6 @@ module Decidim
               "commentable" => commentable
             }
           }
-        end
-
-        subject do
-          described_class.from_params(attributes).with_context(
-            current_organization: current_organization
-          )
         end
 
         context "when everything is OK" do

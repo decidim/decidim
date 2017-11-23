@@ -5,6 +5,12 @@ require "spec_helper"
 module Decidim
   module Admin
     describe OrganizationForm do
+      subject do
+        described_class.from_params(attributes).with_context(
+          context
+        )
+      end
+
       let(:name) { "My super organization" }
       let(:reference_prefix) { "MSO" }
       let(:twitter_handler) { "My twitter awesome handler" }
@@ -33,12 +39,6 @@ module Decidim
           current_organization: organization,
           current_user: instance_double(Decidim::User).as_null_object
         }
-      end
-
-      subject do
-        described_class.from_params(attributes).with_context(
-          context
-        )
       end
 
       context "when everything is OK" do

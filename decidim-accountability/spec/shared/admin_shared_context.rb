@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.shared_context "admin" do
+RSpec.shared_context "when admin" do
   let(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization: organization, email: "admin@example.org") }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }

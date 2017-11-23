@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages assemblies", type: :feature do
-  include_context "assembly administration"
+  include_context "when administrating an assembly"
 
   before do
     switch_to_host(organization.host)
@@ -11,7 +11,7 @@ describe "Admin manages assemblies", type: :feature do
     visit decidim_admin_assemblies.assemblies_path
   end
 
-  context "creating an assembly" do
+  describe "creating an assembly" do
     before do
       within ".secondary-nav__actions" do
         page.find("a.button").click
@@ -60,13 +60,13 @@ describe "Admin manages assemblies", type: :feature do
       expect(page).to have_admin_callout("successfully")
 
       within ".container" do
-        expect(current_path).to eq decidim_admin_assemblies.assemblies_path
+        expect(page).to have_current_path decidim_admin_assemblies.assemblies_path
         expect(page).to have_content("My assembly")
       end
     end
   end
 
-  context "updating an assembly" do
+  describe "updating an assembly" do
     before do
       click_link translated(assembly.title)
     end
@@ -95,7 +95,7 @@ describe "Admin manages assemblies", type: :feature do
     end
   end
 
-  context "updating an assembly without images" do
+  describe "updating an assembly without images" do
     let!(:assembly3) { create(:assembly, organization: organization) }
 
     before do
@@ -114,7 +114,7 @@ describe "Admin manages assemblies", type: :feature do
     end
   end
 
-  context "deleting an assembly" do
+  describe "deleting an assembly" do
     let!(:assembly2) { create(:assembly, organization: organization) }
 
     before do
@@ -133,7 +133,7 @@ describe "Admin manages assemblies", type: :feature do
     end
   end
 
-  context "previewing assemblies" do
+  describe "previewing assemblies" do
     context "when the assembly is unpublished" do
       let!(:assembly) { create(:assembly, :unpublished, organization: organization) }
 
@@ -155,19 +155,19 @@ describe "Admin manages assemblies", type: :feature do
           page.find("a.action-icon--preview").click
         end
 
-        expect(current_path).to eq decidim_assemblies.assembly_path(assembly)
+        expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)
         expect(page).to have_content(translated(assembly.title))
       end
     end
   end
 
-  context "viewing a missing assembly" do
+  describe "viewing a missing assembly" do
     it_behaves_like "a 404 page" do
       let(:target_path) { decidim_admin_assemblies.assembly_path(99_999_999) }
     end
   end
 
-  context "publishing an assembly" do
+  describe "publishing an assembly" do
     let!(:assembly) { create(:assembly, :unpublished, organization: organization) }
 
     before do
@@ -178,14 +178,14 @@ describe "Admin manages assemblies", type: :feature do
       click_link "Publish"
       expect(page).to have_content("published successfully")
       expect(page).to have_content("Unpublish")
-      expect(current_path).to eq decidim_admin_assemblies.edit_assembly_path(assembly)
+      expect(page).to have_current_path decidim_admin_assemblies.edit_assembly_path(assembly)
 
       assembly.reload
       expect(assembly).to be_published
     end
   end
 
-  context "unpublishing an assembly" do
+  describe "unpublishing an assembly" do
     let!(:assembly) { create(:assembly, organization: organization) }
 
     before do
@@ -196,7 +196,7 @@ describe "Admin manages assemblies", type: :feature do
       click_link "Unpublish"
       expect(page).to have_content("unpublished successfully")
       expect(page).to have_content("Publish")
-      expect(current_path).to eq decidim_admin_assemblies.edit_assembly_path(assembly)
+      expect(page).to have_current_path decidim_admin_assemblies.edit_assembly_path(assembly)
 
       assembly.reload
       expect(assembly).not_to be_published

@@ -15,7 +15,7 @@ module Decidim
     end
 
     describe "#filter_form_for" do
-      before :each do
+      before do
         allow(helper).to receive(:url_for)
         allow(helper).to receive(:javascript_include_tag)
         allow(helper).to receive(:dummies_path)

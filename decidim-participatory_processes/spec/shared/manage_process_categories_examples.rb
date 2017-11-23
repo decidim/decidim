@@ -63,7 +63,7 @@ shared_examples "manage process categories examples" do
     end
   end
 
-  context "deleting a category" do
+  context "when deleting a category" do
     let!(:category2) { create(:category, participatory_space: participatory_process) }
 
     context "when the category has no associated content" do

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Proposals", type: :feature do
-  include_context "feature"
+  include_context "with a feature"
   let(:manifest_name) { "proposals" }
 
   let!(:category) { create :category, participatory_space: participatory_process }
@@ -21,7 +21,7 @@ describe "Proposals", type: :feature do
     )
   end
 
-  context "creating a new proposal" do
+  context "when creating a new proposal" do
     context "when the user is logged in" do
       before do
         login_as user, scope: :user
@@ -202,7 +202,7 @@ describe "Proposals", type: :feature do
             feature.update_attributes!(permissions: permissions)
           end
 
-          it "should show a modal dialog" do
+          it "shows a modal dialog" do
             visit_feature
             click_link "New proposal"
             expect(page).to have_content("Authorization required")
@@ -284,7 +284,7 @@ describe "Proposals", type: :feature do
     end
   end
 
-  context "viewing a single proposal" do
+  context "when viewing a single proposal" do
     let!(:feature) do
       create(:proposal_feature,
              manifest: manifest,
@@ -486,7 +486,7 @@ describe "Proposals", type: :feature do
     end
   end
 
-  context "listing proposals in a participatory process" do
+  context "when listing proposals in a participatory process" do
     shared_examples_for "a random proposal ordering" do
       let!(:lucky_proposal) { create(:proposal, feature: feature) }
       let!(:unlucky_proposal) { create(:proposal, feature: feature) }
@@ -601,7 +601,7 @@ describe "Proposals", type: :feature do
           end
         end
 
-        context "by origin 'official'" do
+        context "with 'official' origin" do
           it "lists the filtered proposals" do
             create_list(:proposal, 2, :official, feature: feature, scope: scope)
             create(:proposal, feature: feature, scope: scope)
@@ -616,7 +616,7 @@ describe "Proposals", type: :feature do
           end
         end
 
-        context "by origin 'citizens'" do
+        context "with 'citizens' origin" do
           it "lists the filtered proposals" do
             create_list(:proposal, 2, feature: feature, scope: scope)
             create(:proposal, :official, feature: feature, scope: scope)
@@ -646,7 +646,7 @@ describe "Proposals", type: :feature do
         end
       end
 
-      context "by scope" do
+      context "with scope" do
         let!(:scope2) { create :scope, organization: participatory_process.organization }
 
         before do
@@ -662,7 +662,7 @@ describe "Proposals", type: :feature do
           end
         end
 
-        context "selecting the global scope" do
+        context "when selecting the global scope" do
           it "lists the filtered proposals" do
             within ".filters" do
               select2("Global scope", from: :filter_scope_id)
@@ -673,7 +673,7 @@ describe "Proposals", type: :feature do
           end
         end
 
-        context "selecting one scope" do
+        context "when selecting one scope" do
           it "lists the filtered proposals" do
             within ".filters" do
               select2(translated(scope.name), from: :filter_scope_id)
@@ -684,7 +684,7 @@ describe "Proposals", type: :feature do
           end
         end
 
-        context "selecting the global scope and another scope" do
+        context "when selecting the global scope and another scope" do
           it "lists the filtered proposals" do
             within ".filters" do
               select2(translated(scope.name), from: :filter_scope_id)
@@ -735,39 +735,35 @@ describe "Proposals", type: :feature do
             end
           end
 
-          context "by accepted" do
-            it "lists the filtered proposals" do
-              create(:proposal, :accepted, feature: feature, scope: scope)
-              visit_feature
+          it "lists accepted proposals" do
+            create(:proposal, :accepted, feature: feature, scope: scope)
+            visit_feature
 
-              within ".filters" do
-                choose "Accepted"
-              end
+            within ".filters" do
+              choose "Accepted"
+            end
 
-              expect(page).to have_css(".card--proposal", count: 1)
-              expect(page).to have_content("1 PROPOSAL")
+            expect(page).to have_css(".card--proposal", count: 1)
+            expect(page).to have_content("1 PROPOSAL")
 
-              within ".card--proposal" do
-                expect(page).to have_content("Accepted")
-              end
+            within ".card--proposal" do
+              expect(page).to have_content("Accepted")
             end
           end
 
-          context "by rejected" do
-            it "lists the filtered proposals" do
-              create(:proposal, :rejected, feature: feature, scope: scope)
-              visit_feature
+          it "lists the filtered proposals" do
+            create(:proposal, :rejected, feature: feature, scope: scope)
+            visit_feature
 
-              within ".filters" do
-                choose "Rejected"
-              end
+            within ".filters" do
+              choose "Rejected"
+            end
 
-              expect(page).to have_css(".card--proposal", count: 1)
-              expect(page).to have_content("1 PROPOSAL")
+            expect(page).to have_css(".card--proposal", count: 1)
+            expect(page).to have_content("1 PROPOSAL")
 
-              within ".card--proposal" do
-                expect(page).to have_content("Rejected")
-              end
+            within ".card--proposal" do
+              expect(page).to have_content("Rejected")
             end
           end
         end
@@ -827,49 +823,47 @@ describe "Proposals", type: :feature do
       end
     end
 
-    context "when ordering" do
-      context "by 'most_voted'" do
-        let!(:feature) do
-          create(:proposal_feature,
-                 :with_votes_enabled,
-                 manifest: manifest,
-                 participatory_space: participatory_process)
-        end
-
-        it "lists the proposals ordered by votes" do
-          most_voted_proposal = create(:proposal, feature: feature)
-          create_list(:proposal_vote, 3, proposal: most_voted_proposal)
-          less_voted_proposal = create(:proposal, feature: feature)
-
-          visit_feature
-
-          within ".order-by" do
-            expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
-            page.find("a", text: "Random").click
-            click_link "Most voted"
-          end
-
-          expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
-          expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)
-        end
+    context "when ordering by 'most_voted'" do
+      let!(:feature) do
+        create(:proposal_feature,
+               :with_votes_enabled,
+               manifest: manifest,
+               participatory_space: participatory_process)
       end
 
-      context "by 'recent'" do
-        it "lists the proposals ordered by created at" do
-          older_proposal = create(:proposal, feature: feature, created_at: 1.month.ago)
-          recent_proposal = create(:proposal, feature: feature)
+      it "lists the proposals ordered by votes" do
+        most_voted_proposal = create(:proposal, feature: feature)
+        create_list(:proposal_vote, 3, proposal: most_voted_proposal)
+        less_voted_proposal = create(:proposal, feature: feature)
 
-          visit_feature
+        visit_feature
 
-          within ".order-by" do
-            expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
-            page.find("a", text: "Random").click
-            click_link "Recent"
-          end
-
-          expect(page).to have_selector("#proposals .card-grid .column:first-child", text: recent_proposal.title)
-          expect(page).to have_selector("#proposals .card-grid .column:last-child", text: older_proposal.title)
+        within ".order-by" do
+          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          page.find("a", text: "Random").click
+          click_link "Most voted"
         end
+
+        expect(page).to have_selector("#proposals .card-grid .column:first-child", text: most_voted_proposal.title)
+        expect(page).to have_selector("#proposals .card-grid .column:last-child", text: less_voted_proposal.title)
+      end
+    end
+
+    context "when ordering by 'recent'" do
+      it "lists the proposals ordered by created at" do
+        older_proposal = create(:proposal, feature: feature, created_at: 1.month.ago)
+        recent_proposal = create(:proposal, feature: feature)
+
+        visit_feature
+
+        within ".order-by" do
+          expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
+          page.find("a", text: "Random").click
+          click_link "Recent"
+        end
+
+        expect(page).to have_selector("#proposals .card-grid .column:first-child", text: recent_proposal.title)
+        expect(page).to have_selector("#proposals .card-grid .column:last-child", text: older_proposal.title)
       end
     end
 

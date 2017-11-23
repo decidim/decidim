@@ -13,6 +13,7 @@ describe "Application generation" do
     end
   end
 
+  # rubocop:disable RSpec/BeforeAfterAll
   before(:all) do
     system("bundle exec rake install_all", out: File::NULL)
   end
@@ -20,6 +21,7 @@ describe "Application generation" do
   after(:all) do
     system("bundle exec rake uninstall_all", out: File::NULL)
   end
+  # rubocop:enable RSpec/BeforeAfterAll
 
   context "without flags" do
     let(:command) { "decidim #{test_app}" }
@@ -45,7 +47,7 @@ describe "Application generation" do
     it_behaves_like "a sane generator"
   end
 
-  context "development application" do
+  context "with development application" do
     let(:command) do
       "decidim --path #{File.expand_path("..", __dir__)} #{test_app} --recreate_db --seed_db"
     end

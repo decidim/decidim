@@ -5,8 +5,9 @@ require "spec_helper"
 module Decidim
   module Pages
     describe Page do
-      let(:page) { create(:page) }
       subject { page }
+
+      let(:page) { create(:page) }
 
       include_examples "has feature"
 

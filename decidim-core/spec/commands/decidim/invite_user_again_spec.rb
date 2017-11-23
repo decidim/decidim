@@ -5,6 +5,7 @@ require "spec_helper"
 module Decidim
   describe InviteUserAgain do
     let(:command) { described_class.new(user, "invite_admin") }
+
     context "when the user was invited" do
       let(:user) { build(:user) }
 

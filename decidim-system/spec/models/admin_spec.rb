@@ -11,7 +11,7 @@ module Decidim
         expect(admin).to be_valid
       end
 
-      context "devise emails" do
+      describe "devise emails" do
         let(:admin) { create(:admin) }
 
         it "sends them asynchronously" do

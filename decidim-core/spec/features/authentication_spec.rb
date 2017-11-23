@@ -13,7 +13,7 @@ describe "Authentication", type: :feature do
   end
 
   describe "Sign Up" do
-    context "using email and password" do
+    context "when using email and password" do
       it "creates a new User" do
         find(".sign-up-link").click
 
@@ -30,7 +30,7 @@ describe "Authentication", type: :feature do
       end
     end
 
-    context "being a robot" do
+    context "when being a robot" do
       it "denies the sign up" do
         find(".sign-up-link").click
 
@@ -48,7 +48,7 @@ describe "Authentication", type: :feature do
       end
     end
 
-    context "using facebook" do
+    context "when using facebook" do
       let(:omniauth_hash) do
         OmniAuth::AuthHash.new(
           provider: "facebook",
@@ -60,12 +60,12 @@ describe "Authentication", type: :feature do
         )
       end
 
-      before :each do
+      before do
         OmniAuth.config.test_mode = true
         OmniAuth.config.mock_auth[:facebook] = omniauth_hash
       end
 
-      after :each do
+      after do
         OmniAuth.config.test_mode = false
         OmniAuth.config.mock_auth[:facebook] = nil
       end
@@ -82,7 +82,7 @@ describe "Authentication", type: :feature do
       end
     end
 
-    context "using twitter" do
+    context "when using twitter" do
       let(:email) { nil }
       let(:omniauth_hash) do
         OmniAuth::AuthHash.new(
@@ -95,12 +95,12 @@ describe "Authentication", type: :feature do
         )
       end
 
-      before :each do
+      before do
         OmniAuth.config.test_mode = true
         OmniAuth.config.mock_auth[:twitter] = omniauth_hash
       end
 
-      after :each do
+      after do
         OmniAuth.config.test_mode = false
         OmniAuth.config.mock_auth[:twitter] = nil
       end
@@ -156,7 +156,7 @@ describe "Authentication", type: :feature do
       end
     end
 
-    context "using google" do
+    context "when using google" do
       let(:omniauth_hash) do
         OmniAuth::AuthHash.new(
           provider: "google_oauth2",
@@ -168,12 +168,12 @@ describe "Authentication", type: :feature do
         )
       end
 
-      before :each do
+      before do
         OmniAuth.config.test_mode = true
         OmniAuth.config.mock_auth[:google_oauth2] = omniauth_hash
       end
 
-      after :each do
+      after do
         OmniAuth.config.test_mode = false
         OmniAuth.config.mock_auth[:google_oauth2] = nil
       end
@@ -241,7 +241,7 @@ describe "Authentication", type: :feature do
     end
   end
 
-  context "When a user is already registered" do
+  context "when a user is already registered" do
     let(:user) { create(:user, :confirmed, organization: organization) }
 
     describe "Sign in" do
@@ -288,7 +288,7 @@ describe "Authentication", type: :feature do
         end
 
         expect(page).to have_content("password has been changed successfully")
-        expect(current_path).to eq "/"
+        expect(page).to have_current_path "/"
       end
     end
 
@@ -310,7 +310,7 @@ describe "Authentication", type: :feature do
     end
   end
 
-  context "When a user is already registered with a social provider" do
+  context "when a user is already registered with a social provider" do
     let(:user) { create(:user, :confirmed, organization: organization) }
     let(:identity) { create(:identity, user: user, provider: "facebook", uid: "12345") }
 
@@ -326,12 +326,12 @@ describe "Authentication", type: :feature do
       )
     end
 
-    before :each do
+    before do
       OmniAuth.config.test_mode = true
       OmniAuth.config.mock_auth[:facebook] = omniauth_hash
     end
 
-    after :each do
+    after do
       OmniAuth.config.test_mode = false
       OmniAuth.config.mock_auth[:facebook] = nil
     end
@@ -348,11 +348,11 @@ describe "Authentication", type: :feature do
     end
   end
 
-  context "When a user is already registered in another organization with the same email" do
+  context "when a user is already registered in another organization with the same email" do
     let(:user) { create(:user, :confirmed) }
 
     describe "Sign Up" do
-      context "using the same email" do
+      context "when using the same email" do
         it "creates a new User" do
           find(".sign-up-link").click
 
@@ -371,7 +371,7 @@ describe "Authentication", type: :feature do
     end
   end
 
-  context "When a user is already registered in another organization with the same fb account" do
+  context "when a user is already registered in another organization with the same fb account" do
     let(:user) { create(:user, :confirmed) }
     let(:identity) { create(:identity, user: user, provider: "facebook", uid: "12345") }
 
@@ -387,12 +387,12 @@ describe "Authentication", type: :feature do
       )
     end
 
-    before :each do
+    before do
       OmniAuth.config.test_mode = true
       OmniAuth.config.mock_auth[:facebook] = omniauth_hash
     end
 
-    after :each do
+    after do
       OmniAuth.config.test_mode = false
       OmniAuth.config.mock_auth[:facebook] = nil
     end

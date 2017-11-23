@@ -37,18 +37,16 @@ shared_examples "manage meetings" do
     end
   end
 
-  context "previewing meetings" do
-    it "allows the user to preview the meeting" do
-      within find("tr", text: translated(meeting.title)) do
-        klass = "action-icon--preview"
-        href = resource_locator(meeting).path
-        target = "blank"
+  it "allows the user to preview the meeting" do
+    within find("tr", text: translated(meeting.title)) do
+      klass = "action-icon--preview"
+      href = resource_locator(meeting).path
+      target = "blank"
 
-        expect(page).to have_selector(
-          :xpath,
-          "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
-        )
-      end
+      expect(page).to have_selector(
+        :xpath,
+        "//a[contains(@class,'#{klass}')][@href='#{href}'][@target='#{target}']"
+      )
     end
   end
 
@@ -110,7 +108,7 @@ shared_examples "manage meetings" do
     end
   end
 
-  context "deleting a meeting" do
+  describe "deleting a meeting" do
     let!(:meeting2) { create(:meeting, feature: current_feature) }
 
     before do
@@ -218,7 +216,7 @@ shared_examples "manage meetings" do
     end
   end
 
-  context "closing a meeting" do
+  describe "closing a meeting" do
     let(:proposal_feature) do
       create(:feature, manifest_name: :proposals, participatory_space: meeting.feature.participatory_space)
     end

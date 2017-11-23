@@ -122,7 +122,7 @@ describe "Content pages", type: :feature do
 
         expect(page).to have_content(translated(decidim_page.title))
         expect(page).to have_content(strip_tags(translated(decidim_page.content)))
-        expect(current_path).to include(decidim_page.slug)
+        expect(page).to have_current_path(/#{decidim_page.slug}/)
       end
     end
   end

@@ -7,6 +7,7 @@ module Decidim
     module Admin
       describe CreateProposal do
         let(:form_klass) { ProposalForm }
+
         it_behaves_like "create a proposal", false
       end
     end

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Invite process collaborator", type: :feature do
-  include_context "invite process users"
+  include_context "when inviting process users"
   let(:role) { "Collaborator" }
 
   before do
@@ -24,7 +24,7 @@ describe "Invite process collaborator", type: :feature do
         find("*[type=submit]").click
       end
 
-      expect(current_path).to eq "/admin/"
+      expect(page).to have_current_path "/admin/"
       expect(page).to have_content("DASHBOARD")
 
       click_link "Processes"
@@ -37,10 +37,12 @@ describe "Invite process collaborator", type: :feature do
 
   context "when the user already exists" do
     let(:email) { "collaborator@example.org" }
-    let(:collaborator) { @collaborator }
+
+    let!(:collaborator) do
+      create :user, :confirmed, email: email, organization: organization
+    end
 
     before do
-      @collaborator = create :user, :confirmed, email: email, organization: organization
       perform_enqueued_jobs { invite_user }
     end
 

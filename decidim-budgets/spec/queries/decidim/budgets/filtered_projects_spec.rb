@@ -13,10 +13,10 @@ describe Decidim::Budgets::FilteredProjects do
   let(:another_projects) { create_list(:project, 3, feature: another_feature) }
 
   it "returns projects included in a collection of features" do
-    expect(Decidim::Budgets::FilteredProjects.for([feature, another_feature])).to match_array projects.concat(old_projects, another_projects)
+    expect(described_class.for([feature, another_feature])).to match_array projects.concat(old_projects, another_projects)
   end
 
   it "returns projects created in a date range" do
-    expect(Decidim::Budgets::FilteredProjects.for([feature, another_feature], 2.weeks.ago, 1.week.ago)).to match_array old_projects
+    expect(described_class.for([feature, another_feature], 2.weeks.ago, 1.week.ago)).to match_array old_projects
   end
 end

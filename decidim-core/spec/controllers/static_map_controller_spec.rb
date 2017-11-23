@@ -11,8 +11,8 @@ module Decidim
     let(:resource) { create(:dummy_resource, feature: feature) }
 
     before do
-      @request.env["decidim.current_organization"] = organization
-      @request.env["decidim.current_feature"] = feature
+      request.env["decidim.current_organization"] = organization
+      request.env["decidim.current_feature"] = feature
     end
 
     describe "GET /static_map" do

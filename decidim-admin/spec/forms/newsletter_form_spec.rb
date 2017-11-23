@@ -5,6 +5,11 @@ require "spec_helper"
 module Decidim
   module Admin
     describe NewsletterForm do
+      subject do
+        described_class.new(subject: newsletter_subject, body: body)
+                       .with_context(current_organization: organization)
+      end
+
       let(:organization) { create(:organization) }
       let(:newsletter_subject) do
         {
@@ -20,11 +25,6 @@ module Decidim
           es: "Cuerpo",
           ca: "Cos"
         }
-      end
-
-      subject do
-        described_class.new(subject: newsletter_subject, body: body)
-                       .with_context(current_organization: organization)
       end
 
       context "when everything is OK" do

@@ -3,7 +3,8 @@
 require "spec_helper"
 
 describe "Invite process administrator", type: :feature do
-  include_context "invite process users"
+  include_context "when inviting process users"
+
   let(:role) { "Administrator" }
 
   before do
@@ -24,7 +25,7 @@ describe "Invite process administrator", type: :feature do
         find("*[type=submit]").click
       end
 
-      expect(current_path).to eq "/admin/"
+      expect(page).to have_current_path "/admin/"
       expect(page).to have_content("DASHBOARD")
 
       click_link "Processes"
@@ -42,10 +43,12 @@ describe "Invite process administrator", type: :feature do
 
   context "when the user already exists" do
     let(:email) { "administrator@example.org" }
-    let(:administrator) { @administrator }
+
+    let!(:administrator) do
+      create :user, :confirmed, email: email, organization: organization
+    end
 
     before do
-      @administrator = create :user, :confirmed, email: email, organization: organization
       perform_enqueued_jobs { invite_user }
     end
 

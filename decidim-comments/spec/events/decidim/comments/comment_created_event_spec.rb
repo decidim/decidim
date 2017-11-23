@@ -3,6 +3,10 @@
 require "spec_helper"
 
 describe Decidim::Comments::CommentCreatedEvent do
+  subject do
+    described_class.new(resource: resource, event_name: event_name, user: user, extra: extra)
+  end
+
   let(:resource) { comment.commentable }
   let(:organization) { resource.organization }
   let(:comment) { create :comment }
@@ -11,10 +15,6 @@ describe Decidim::Comments::CommentCreatedEvent do
   let(:user) { create :user, organization: organization }
   let(:extra) { { comment_id: comment.id } }
   let(:resource_path) { resource_locator(resource).path }
-
-  subject do
-    described_class.new(resource: resource, event_name: event_name, user: user, extra: extra)
-  end
 
   describe "types" do
     subject { described_class }

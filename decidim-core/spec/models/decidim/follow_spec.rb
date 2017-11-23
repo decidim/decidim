@@ -3,8 +3,9 @@
 require "spec_helper"
 
 describe Decidim::Follow do
-  let(:follow) { build(:follow) }
   subject { follow }
+
+  let(:follow) { build(:follow) }
 
   it { is_expected.to be_valid }
 

@@ -4,6 +4,8 @@ require "spec_helper"
 
 module Decidim
   describe FormFactory do
+    subject { producer.form(form_klass) }
+
     let(:form_klass) do
       Class.new(Decidim::Form) do
         include ActiveModel::Naming
@@ -29,8 +31,6 @@ module Decidim
         end
       end.new
     end
-
-    subject { producer.form(form_klass) }
 
     describe "instance" do
       it "returns an instance of the form" do

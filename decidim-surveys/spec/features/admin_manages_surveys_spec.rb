@@ -6,7 +6,7 @@ describe "Admin manages surveys", type: :feature do
   let(:manifest_name) { "surveys" }
   let!(:survey) { create :survey, feature: feature }
 
-  include_context "feature admin"
+  include_context "when managing a feature as an admin"
 
   it_behaves_like "edit surveys"
   it_behaves_like "export survey user answers"

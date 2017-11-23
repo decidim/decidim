@@ -25,7 +25,7 @@ shared_examples "manage projects" do
     end
   end
 
-  context "previewing projects" do
+  context "when previewing projects" do
     it "allows the user to preview the project" do
       within find("tr", text: translated(project.title)) do
         klass = "action-icon--preview"
@@ -40,7 +40,7 @@ shared_examples "manage projects" do
     end
   end
 
-  context "seeing finished and pending votes" do
+  context "when seeing finished and pending votes" do
     let!(:project) { create(:project, budget: 70_000_000, feature: current_feature) }
 
     let!(:finished_orders) do
@@ -96,7 +96,7 @@ shared_examples "manage projects" do
     end
   end
 
-  context "deleting a project" do
+  context "when deleting a project" do
     let!(:project2) { create(:project, feature: current_feature) }
 
     before do

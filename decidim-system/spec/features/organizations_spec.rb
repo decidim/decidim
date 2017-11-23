@@ -5,13 +5,13 @@ require "spec_helper"
 describe "Organizations", type: :feature do
   let(:admin) { create(:admin) }
 
-  context "authenticated admin" do
+  context "when an admin authenticated" do
     before do
       login_as admin, scope: :admin
       visit decidim_system.root_path
     end
 
-    context "creating an organization" do
+    describe "creating an organization" do
       before do
         click_link "Organizations"
         click_link "New"
@@ -43,7 +43,7 @@ describe "Organizations", type: :feature do
       end
     end
 
-    context "editing an organization" do
+    describe "editing an organization" do
       let!(:organization) { create(:organization, name: "Citizen Corp") }
 
       before do
