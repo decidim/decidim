@@ -228,11 +228,7 @@ shared_examples "manage proposals" do
       end
 
       it "can reject a proposal" do
-        within find("tr", text: proposal.title) do
-          find("a.action-icon--edit-answer").click
-        end
-
-        expect(page).to have_selector(".edit_proposal_answer")
+        go_to_edit_answer(proposal)
 
         within ".edit_proposal_answer" do
           fill_in_i18n_editor(
@@ -254,11 +250,7 @@ shared_examples "manage proposals" do
       end
 
       it "can accept a proposal" do
-        within find("tr", text: proposal.title) do
-          find("a.action-icon--edit-answer").click
-        end
-
-        expect(page).to have_selector(".edit_proposal_answer")
+        go_to_edit_answer(proposal)
 
         within ".edit_proposal_answer" do
           choose "Accepted"
@@ -273,11 +265,7 @@ shared_examples "manage proposals" do
       end
 
       it "can mark a proposal as evaluating" do
-        within find("tr", text: proposal.title) do
-          find("a.action-icon--edit-answer").click
-        end
-
-        expect(page).to have_selector(".edit_proposal_answer")
+        go_to_edit_answer(proposal)
 
         within ".edit_proposal_answer" do
           choose "Evaluating"
@@ -306,11 +294,7 @@ shared_examples "manage proposals" do
           expect(page).to have_content("Rejected")
         end
 
-        within find("tr", text: proposal.title) do
-          find("a.action-icon--edit-answer").click
-        end
-
-        expect(page).to have_selector(".edit_proposal_answer")
+        go_to_edit_answer(proposal)
 
         within ".edit_proposal_answer" do
           choose "Accepted"
@@ -398,5 +382,13 @@ shared_examples "manage proposals" do
         expect(page).to have_content("VOTES")
       end
     end
+  end
+
+  def go_to_edit_answer(proposal)
+    within find("tr", text: proposal.title) do
+      find("a.action-icon--edit-answer").click
+    end
+
+    expect(page).to have_selector(".edit_proposal_answer")
   end
 end
