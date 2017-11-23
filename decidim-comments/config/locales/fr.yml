@@ -60,7 +60,7 @@ fr:
       comment_thread:
         title: Conversation avec %{authorName}
       comments:
-        blocked_comments_warning: Les commentaires sont actuellement désactivés, mais vous pouvez lire ceux déjà saisis. "
+        blocked_comments_warning: Les commentaires sont désactivés pour le moment, mais vous pouvez lire les précédents.
         loading: Chargement des commentaires ...
         title: "%{count} commentaires"
       featured_comment:
