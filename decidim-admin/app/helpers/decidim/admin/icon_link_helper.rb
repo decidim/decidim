@@ -19,8 +19,6 @@ module Decidim
                 method: options[:method],
                 class: "action-icon #{options[:class]}",
                 data: { tooltip: true, disable_hover: false }.merge(options[:data] || {}),
-                tooltip: true,
-                disable_hover: false,
                 title: title,
                 target: options[:target]) do
           icon(icon_name)
