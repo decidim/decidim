@@ -249,9 +249,7 @@ shared_examples "manage proposals" do
         expect(page).to have_admin_callout("Proposal successfully answered")
 
         within find("tr", text: proposal.title) do
-          within find("td:nth-child(5)") do
-            expect(page).to have_content("Rejected")
-          end
+          expect(page).to have_content("Rejected")
         end
       end
 
@@ -270,9 +268,7 @@ shared_examples "manage proposals" do
         expect(page).to have_admin_callout("Proposal successfully answered")
 
         within find("tr", text: proposal.title) do
-          within find("td:nth-child(5)") do
-            expect(page).to have_content("Accepted")
-          end
+          expect(page).to have_content("Accepted")
         end
       end
 
@@ -291,9 +287,7 @@ shared_examples "manage proposals" do
         expect(page).to have_admin_callout("Proposal successfully answered")
 
         within find("tr", text: proposal.title) do
-          within find("td:nth-child(5)") do
-            expect(page).to have_content("Evaluating")
-          end
+          expect(page).to have_content("Evaluating")
         end
       end
 
@@ -309,9 +303,7 @@ shared_examples "manage proposals" do
         visit_feature_admin
 
         within find("tr", text: proposal.title) do
-          within find("td:nth-child(5)") do
-            expect(page).to have_content("Rejected")
-          end
+          expect(page).to have_content("Rejected")
           find("a.action-icon--edit-answer").click
         end
 
@@ -325,9 +317,7 @@ shared_examples "manage proposals" do
         expect(page).to have_admin_callout("Proposal successfully answered")
 
         within find("tr", text: proposal.title) do
-          within find("td:nth-child(5)") do
-            expect(page).to have_content("Accepted")
-          end
+          expect(page).to have_content("Accepted")
         end
       end
     end
