@@ -304,6 +304,9 @@ shared_examples "manage proposals" do
 
         within find("tr", text: proposal.title) do
           expect(page).to have_content("Rejected")
+        end
+
+        within find("tr", text: proposal.title) do
           find("a.action-icon--edit-answer").click
         end
 
