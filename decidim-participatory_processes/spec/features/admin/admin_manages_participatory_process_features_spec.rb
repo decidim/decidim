@@ -61,7 +61,7 @@ describe "Admin manages participatory process features", type: :feature do
           end
         end
 
-        it "sucessfully displays initial values in the form" do
+        it "successfully displays initial values in the form" do
           within ".global-settings" do
             expect(all("input[type=checkbox]").last).to be_checked
           end
@@ -124,7 +124,7 @@ describe "Admin manages participatory process features", type: :feature do
           end
         end
 
-        it "sucessfully displays initial values in the form" do
+        it "successfully displays initial values in the form" do
           within ".global-settings" do
             expect(all("input[type=checkbox]").last).to be_checked
           end
