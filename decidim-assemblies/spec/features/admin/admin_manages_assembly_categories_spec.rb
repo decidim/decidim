@@ -41,9 +41,7 @@ describe "Admin manages assembly categories", type: :feature do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("successfully")
 
     within "#categories table" do
       expect(page).to have_content("My category")
@@ -69,9 +67,7 @@ describe "Admin manages assembly categories", type: :feature do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("successfully")
 
     within "#categories table" do
       expect(page).to have_content("My new name")
@@ -92,9 +88,7 @@ describe "Admin manages assembly categories", type: :feature do
             accept_confirm { page.find("a.action-icon--remove").click }
           end
 
-          within ".callout-wrapper" do
-            expect(page).to have_content("successfully")
-          end
+          expect(page).to have_admin_callout("successfully")
 
           within "#categories table" do
             expect(page).not_to have_content(translated(category2.name))
@@ -114,9 +108,7 @@ describe "Admin manages assembly categories", type: :feature do
             accept_confirm { page.find("a.action-icon--remove").click }
           end
 
-          within ".callout-wrapper" do
-            expect(page).to have_content("error deleting")
-          end
+          expect(page).to have_admin_callout("error deleting")
 
           within "#categories table" do
             expect(page).to have_content(translated(category2.name))

@@ -18,9 +18,7 @@ shared_examples "manage processes announcements" do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
+    expect(page).to have_admin_callout("successfully")
 
     visit decidim_admin_participatory_processes.participatory_processes_path
 

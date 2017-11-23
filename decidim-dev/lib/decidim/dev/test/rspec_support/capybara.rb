@@ -23,7 +23,7 @@ end
 
 Capybara.register_driver :headless_chrome do |app|
   http_client = Selenium::WebDriver::Remote::Http::Default.new
-  http_client.read_timeout = 90
+  http_client.read_timeout = 120
 
   options = ::Selenium::WebDriver::Chrome::Options.new
   options.args << "--headless"
@@ -36,6 +36,19 @@ Capybara.register_driver :headless_chrome do |app|
     options: options,
     http_client: http_client
   )
+end
+
+# Monkeypatch the other place where capybara can timeout. We should contribute
+# the configurability to capybara if this works consistently and proves to be
+# useful
+module Capybara
+  class Server
+    def wait_for_pending_requests
+      Timeout.timeout(120) { sleep(0.01) while pending_requests? }
+    rescue Timeout::Error
+      raise "Requests did not finish in 60 seconds"
+    end
+  end
 end
 
 Capybara::Screenshot.prune_strategy = :keep_last_run
@@ -59,13 +72,4 @@ RSpec.configure do |config|
   end
 
   config.include Decidim::CapybaraTestHelpers, type: :feature
-
-  if ENV["CI"]
-    require "rspec/repeat"
-
-    config.include RSpec::Repeat
-    config.around :each, type: :feature do |example|
-      repeat example, 5.times, wait: 1, verbose: true
-    end
-  end
 end

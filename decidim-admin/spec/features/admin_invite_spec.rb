@@ -43,7 +43,9 @@ describe "Admin invite", type: :feature do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
+      expect(page).to have_selector ".callout--full"
+
+      within ".callout--full" do
         page.find(".close-button").click
       end
 

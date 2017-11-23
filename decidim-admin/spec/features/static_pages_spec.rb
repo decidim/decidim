@@ -63,9 +63,7 @@ describe "Content pages", type: :feature do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       within "table" do
         expect(page).to have_content("Welcome to Decidim")
@@ -98,9 +96,7 @@ describe "Content pages", type: :feature do
           find("*[type=submit]").click
         end
 
-        within ".callout-wrapper" do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_admin_callout("successfully")
 
         within "table" do
           expect(page).to have_content("Not welcomed anymore")
@@ -112,9 +108,7 @@ describe "Content pages", type: :feature do
           accept_confirm { page.find(".action-icon.action-icon--remove").click }
         end
 
-        within ".callout-wrapper" do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_admin_callout("successfully")
 
         within "table" do
           expect(page).to have_no_content(translated(decidim_page.title))

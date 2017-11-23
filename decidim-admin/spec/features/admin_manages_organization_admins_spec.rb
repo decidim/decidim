@@ -32,9 +32,7 @@ describe "Organization admins", type: :feature do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       within "table" do
         expect(page).to have_content("New admin")
@@ -54,9 +52,7 @@ describe "Organization admins", type: :feature do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       within "table" do
         expect(page).to have_content("New user manager")

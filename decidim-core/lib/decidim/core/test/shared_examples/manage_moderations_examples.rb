@@ -37,9 +37,7 @@ shared_examples "manage moderations" do
         find("a.action-icon--unreport").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("Resource successfully unreported")
-      end
+      expect(page).to have_admin_callout("Resource successfully unreported")
     end
 
     it "user can hide a resource" do
@@ -47,10 +45,7 @@ shared_examples "manage moderations" do
         find("a.action-icon--hide").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("Resource successfully hidden")
-      end
-
+      expect(page).to have_admin_callout("Resource successfully hidden")
       expect(page).to have_no_content(moderation.reportable.reported_content_url)
     end
   end

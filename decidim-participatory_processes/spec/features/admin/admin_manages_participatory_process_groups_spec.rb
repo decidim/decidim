@@ -36,10 +36,7 @@ describe "Admin manages participatory process groups", type: :feature do
       find("*[type=submit]").click
     end
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
-
+    expect(page).to have_admin_callout("successfully")
     expect(page).to have_content("My group")
     expect(page).to have_content(@participatory_processes.first.title["en"])
     expect(page).to have_css("img[src*='#{image1_filename}']")
@@ -79,10 +76,7 @@ describe "Admin manages participatory process groups", type: :feature do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
-
+      expect(page).to have_admin_callout("successfully")
       expect(page).to have_content("My old group")
       expect(page).to have_content("New description")
       expect(page).to have_content(@participatory_processes.last.title["en"])
@@ -105,9 +99,7 @@ describe "Admin manages participatory process groups", type: :feature do
         accept_confirm { page.find(".action-icon.action-icon--remove").click }
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       within "table" do
         expect(page).to have_no_content(participatory_process_group.name["en"])

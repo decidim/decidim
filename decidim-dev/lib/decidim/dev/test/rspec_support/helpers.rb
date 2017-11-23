@@ -35,6 +35,10 @@ module Decidim::FeatureTestHelpers
   def expect_user_logged
     expect(page).to have_css(".topbar__user__logged")
   end
+
+  def have_admin_callout(text)
+    have_selector(".callout--full", text: text)
+  end
 end
 
 RSpec.configure do |config|

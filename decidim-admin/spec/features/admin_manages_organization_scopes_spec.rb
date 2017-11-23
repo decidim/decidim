@@ -35,9 +35,7 @@ describe "Organization scopes", type: :feature do
         find("*[type=submit]").click
       end
 
-      within ".callout-wrapper" do
-        expect(page).to have_content("successfully")
-      end
+      expect(page).to have_admin_callout("successfully")
 
       within "table" do
         expect(page).to have_content("My nice district")
@@ -63,9 +61,7 @@ describe "Organization scopes", type: :feature do
           find("*[type=submit]").click
         end
 
-        within ".callout-wrapper" do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_admin_callout("successfully")
 
         within "table" do
           expect(page).to have_content("Another district")
@@ -77,9 +73,7 @@ describe "Organization scopes", type: :feature do
           accept_confirm { page.find("a.action-icon.action-icon--remove").click }
         end
 
-        within ".callout-wrapper" do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_admin_callout("successfully")
 
         within ".card-section" do
           expect(page).to have_no_content(translated(scope.name))
@@ -103,9 +97,7 @@ describe "Organization scopes", type: :feature do
           find("*[type=submit]").click
         end
 
-        within ".callout-wrapper" do
-          expect(page).to have_content("successfully")
-        end
+        expect(page).to have_admin_callout("successfully")
 
         within "table" do
           expect(page).to have_content("My nice subdistrict")
