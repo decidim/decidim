@@ -41,12 +41,12 @@ module Decidim
       end
 
       def first_class_categories
-        @first_class_categories ||= current_participatory_process.categories.first_class
+        @first_class_categories ||= current_participatory_space.categories.first_class
       end
 
       def category
         if params[:filter] && params[:filter][:category_id].present?
-          current_participatory_process.categories.find(params[:filter][:category_id])
+          current_participatory_space.categories.find(params[:filter][:category_id])
         end
       end
 
