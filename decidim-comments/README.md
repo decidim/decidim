@@ -66,7 +66,7 @@ You can execute `npm test` to run the javascript test suite or you can run `npm 
 Since we are using Typescript we can generate interfaces and types from our schema using the following command:
 
 ```bash
-  npm run graphql:generate_schema_types
+npm run graphql:generate_schema_types
 ```
 
 This command will create a file called `app/frontend/support/schema.ts` that can be used to strict type checking in our components.
