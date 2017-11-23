@@ -22,13 +22,13 @@ ca:
             attachments_allowed: Permetre arxius adjunts
             comments_enabled: Comentaris habilitats
             geocoding_enabled: Geocodificació habilitada
-            maximum_votes_per_proposal: Vots màxims per proposta
+            maximum_votes_per_proposal: Suports màxims per proposta
             new_proposal_help_text: Text d'ajuda al crear una nova proposta
             official_proposals_enabled: Propostes oficials habilitades
             proposal_answering_enabled: Resposta oficial a propostes activades
-            proposal_edit_before_minutes: Les propostes poden ser editades pels autors abans que passin molts minuts
+            proposal_edit_before_minutes: Les propostes poden ser editades pels autors abans que passin aquest nombre de minuts
             proposal_limit: Límit de propostes per usuari
-            vote_limit: Límit de vots per usuari
+            vote_limit: Límit de suports per usuari
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
@@ -36,7 +36,7 @@ ca:
             proposal_answering_enabled: Resposta oficial a propostes activades
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
-            votes_hidden: Vots ocults (si els vots estan habilitats, marcant aquesta opció amagarà el nombre de vots)
+            votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports)
     proposals:
       actions:
         answer: Respondre
@@ -90,12 +90,12 @@ ca:
             scope: Àmbit
             state: Estat
             title: Títol
-            votes: Vots
+            votes: Suports
       new:
         limit_reached: No pots crear noves propostes ja que has superat el límit.
       proposal_votes:
         create:
-          error: Hi ha hagut errors en votar la proposta.
+          error: Hi ha hagut errors en donar suport a la proposta.
       proposals:
         author:
           deleted: Usuari eliminat
@@ -126,7 +126,7 @@ ca:
           scopes: Àmbits
           search: Cerca
           state: Estat
-          voted: Votat
+          voted: Has donat suport
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra
@@ -143,8 +143,8 @@ ca:
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
           back: Enrere
           proposal_edit_before_minutes:
-            one: Podreu editar aquesta proposta durant el primer minut després de la creació de la proposta. Un cop passada aquesta finestra de temps, no podreu editar la proposta.
-            other: Podreu editar aquesta proposta durant els primers %{count} minuts després de la creació de la proposta. Un cop passada aquesta finestra de temps, no podreu editar la proposta.
+            one: Podràs editar aquesta proposta durant el primer minut després de la creació de la proposta. Un cop passada aquesta finestra de temps, no podràs editar la proposta.
+            other: Podràs editar aquesta proposta durant els primers %{count} minuts després de la creació de la proposta. Un cop passada aquesta finestra de temps, no podràs editar la proposta.
           select_a_category: Si us plau, seleccioni una categoria
           send: Enviar
           title: Nova proposta
