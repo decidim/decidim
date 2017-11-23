@@ -8,6 +8,14 @@ module Decidim
 
       def index
         authorize! :read, Decidim::Moderation
+        @upstream =  true if params[:moderation_type] == "upstream"
+        @downstream = true if params[:moderation_type] == "downstream"
+      end
+
+      def unmoderated
+      end
+
+      def moderated
       end
 
       def unreport
@@ -46,9 +54,9 @@ module Decidim
 
       def moderations
         @moderations ||= begin
-          if params[:hidden]
+          if params[:hidden] && params[:moderation_type] == "downstream"
             participatory_space_moderations.where.not(hidden_at: nil)
-          else
+          else # TODO conditionner l'affichement en fonction du params moderation_type
             participatory_space_moderations.where(hidden_at: nil)
           end
         end

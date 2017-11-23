@@ -49,6 +49,8 @@ module Decidim
             member do
               put :unreport
               put :hide
+              put :moderate
+              put :unmoderate
             end
           end
         end

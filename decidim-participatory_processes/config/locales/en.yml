@@ -65,6 +65,9 @@ en:
           features: Features
           info: Info
           moderations: Moderations
+          moderation:
+            upstream: Upstream
+            downstream: Downstream
           process_admins: Process users
           steps: Steps
       models:

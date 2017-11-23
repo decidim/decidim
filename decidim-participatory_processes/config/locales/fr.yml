@@ -64,6 +64,9 @@ fr:
           features: Fonctions
           info: Information
           moderations: Modérations
+          moderation:
+            upstream: A priori
+            downstream: A posteriori
           process_admins: Administrateurs du processus participatif
           steps: Etapes
       models:
