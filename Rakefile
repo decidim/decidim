@@ -138,11 +138,6 @@ task :docker_development_app do
 end
 
 desc "Build webpack bundle files"
-task webpack: ["npm:install"] do
-  sh "npm run build:prod"
-end
-
-desc "Install npm dependencies"
-task "npm:install" do
-  sh "npm i"
+task :webpack do
+  sh "npm install && npm run build:prod"
 end
