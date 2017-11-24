@@ -101,7 +101,7 @@ shared_examples "manage process admins examples" do
       it "resends the invitation to the user" do
         within "#process_admins" do
           within find("#process_admins tr", text: "test@example.org") do
-            page.find(".action-icon.resend-invitation").click
+            click_link "Resend invitation"
           end
         end
 

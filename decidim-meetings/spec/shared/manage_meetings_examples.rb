@@ -245,9 +245,7 @@ shared_examples "manage meetings" do
       expect(page).to have_admin_callout("Meeting successfully closed")
 
       within find("tr", text: translated(meeting.title)) do
-        within find("td:nth-child(4)") do
-          expect(page).to have_content("Yes")
-        end
+        expect(page).to have_content("Yes")
       end
     end
 

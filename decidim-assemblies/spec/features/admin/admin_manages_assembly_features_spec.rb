@@ -52,7 +52,7 @@ describe "Admin manages assembly features", type: :feature do
     context "and then edit it" do
       before do
         within find("tr", text: "My feature") do
-          page.find(".action-icon--configure").click
+          click_link "Configure"
         end
       end
 
@@ -93,7 +93,7 @@ describe "Admin manages assembly features", type: :feature do
 
     it "updates the feature" do
       within ".feature-#{feature.id}" do
-        page.find(".action-icon--configure").click
+        click_link "Configure"
       end
 
       within ".edit_feature" do
@@ -120,7 +120,7 @@ describe "Admin manages assembly features", type: :feature do
       expect(page).to have_content("My updated feature")
 
       within find("tr", text: "My updated feature") do
-        page.find(".action-icon--configure").click
+        click_link "Configure"
       end
 
       within ".global-settings" do
@@ -173,7 +173,7 @@ describe "Admin manages assembly features", type: :feature do
     context "when the feature is unpublished" do
       it "publishes the feature" do
         within ".feature-#{feature.id}" do
-          page.find(".action-icon--publish").click
+          click_link "Publish"
         end
 
         within ".feature-#{feature.id}" do
@@ -187,7 +187,7 @@ describe "Admin manages assembly features", type: :feature do
 
       it "unpublishes the feature" do
         within ".feature-#{feature.id}" do
-          page.find(".action-icon--unpublish").click
+          click_link "Unpublish"
         end
 
         within ".feature-#{feature.id}" do

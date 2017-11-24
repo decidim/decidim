@@ -16,7 +16,7 @@ shared_examples "Managing feature permissions" do
     visit participatory_space_engine.features_path(participatory_space)
 
     within ".feature-#{feature.id}" do
-      page.find(".action-icon--permissions").click
+      click_link "Permissions"
     end
   end
 

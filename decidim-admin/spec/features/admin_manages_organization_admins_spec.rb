@@ -74,7 +74,7 @@ describe "Organization admins", type: :feature do
 
       it "can resend the invitation" do
         within "tr[data-user-id=\"#{user.id}\"]" do
-          page.find(".action-icon.resend-invitation").click
+          click_link "Resend invitation"
         end
 
         expect(page).to have_content("Invitation resent successfully")

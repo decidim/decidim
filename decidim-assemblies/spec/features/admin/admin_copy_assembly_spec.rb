@@ -22,7 +22,7 @@ describe "Admin copies assembly", type: :feature do
 
   context "without any context" do
     it "copies the assembly with the basic fields" do
-      page.find(".action-icon--copy", match: :first).click
+      click_link "Duplicate", match: :first
 
       within ".copy_assembly" do
         fill_in_i18n(
@@ -44,7 +44,7 @@ describe "Admin copies assembly", type: :feature do
 
   context "with context" do
     before do
-      page.find(".action-icon--copy", match: :first).click
+      click_link "Duplicate", match: :first
 
       within ".copy_assembly" do
         fill_in_i18n(
