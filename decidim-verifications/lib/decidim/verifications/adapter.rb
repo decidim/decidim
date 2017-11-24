@@ -17,6 +17,10 @@ module Decidim
     class UnregisteredVerificationManifest < StandardError
     end
 
+    #
+    # Provides a unified interface for direct and deferred authorizations, so
+    # they can be used transparently
+    #
     class Adapter
       include Rails.application.routes.mounted_helpers
 
@@ -38,6 +42,9 @@ module Decidim
 
       delegate :key, :name, :fullname, :description, :type, to: :manifest
 
+      #
+      # Main entry point for the verification engine
+      #
       def root_path(redirect_url: nil)
         if manifest.type == "direct"
           decidim_verifications.new_authorization_path(handler: name, redirect_url: redirect_url)
@@ -46,6 +53,10 @@ module Decidim
         end
       end
 
+      #
+      # In the case of deferred authorizations, route to resume an authorization
+      # process. Otherwise it rises
+      #
       def resume_authorization_path(redirect_url: nil)
         if manifest.type == "direct"
           raise InvalidDirectVerificationRoute.new(route: "edit_authorization_path")
@@ -54,6 +65,9 @@ module Decidim
         main_engine.send(:edit_authorization_path, redirect_url: redirect_url)
       end
 
+      #
+      # Administrational entry point for the verification engine
+      #
       def admin_root_path
         if manifest.type == "direct"
           raise InvalidDirectVerificationROute.new(route: "admin_route_path")
