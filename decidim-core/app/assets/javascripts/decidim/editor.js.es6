@@ -11,13 +11,19 @@ $(() => {
     let quillToolbar = [
       ['bold', 'italic', 'underline'],
       [{ list: 'ordered' }, { list: 'bullet' }],
-      ['link', 'video', 'clean']
+      ['link', 'clean']
     ];
 
     if (toolbar === 'full') {
       quillToolbar = [
         [{ header: [1, 2, 3, 4, 5, 6, false] }],
-        ...quillToolbar
+        ...quillToolbar,
+        ['video']
+      ];
+    } else if (toolbar === 'basic') {
+      quillToolbar = [
+        ...quillToolbar,
+        ['video']
       ];
     }
 

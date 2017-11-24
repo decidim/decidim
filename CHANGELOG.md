@@ -17,6 +17,7 @@
 
 **Fixed**:
 
+- **decidim-admin**: Do not let newsletters have videos, as emails can't render them [\#2257](https://github.com/decidim/decidim/pull/2257)
 - **decidim-core**: Fixes ScopeType relation with Scope [\#2255](https://github.com/decidim/decidim/pull/2255)
 - **decidim-core**: Fixes to MigrateUserRolesToParticipatoryProcessRoles: avoid using relations and work with id's directly [\#2223](https://github.com/decidim/decidim/pull/2223)
 - **decidim-core**: Embedded videos were not displaying properly [\#2198](https://github.com/decidim/decidim/pull/2198)
