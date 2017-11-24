@@ -99,10 +99,8 @@ shared_examples "manage process admins examples" do
       end
 
       it "resends the invitation to the user" do
-        within "#process_admins" do
-          within find("#process_admins tr", text: "test@example.org") do
-            click_link "Resend invitation"
-          end
+        within find("#process_admins tr", text: "test@example.org") do
+          click_link "Resend invitation"
         end
 
         expect(page).to have_admin_callout("successfully")
