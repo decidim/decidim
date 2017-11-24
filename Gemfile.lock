@@ -27,7 +27,6 @@ PATH
       devise-i18n (~> 1.2.0)
       devise_invitable (~> 1.7.0)
       jquery-rails (~> 4.3.1)
-      pry-byebug
       sassc-rails (~> 1.3.0)
       select2-rails (~> 4.0.3)
     decidim-api (0.8.3)

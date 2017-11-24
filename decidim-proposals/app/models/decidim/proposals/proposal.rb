@@ -100,6 +100,13 @@ module Decidim
 
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`
       def users_to_notify_on_comment_created
+        puts "ADMIN AND MODERATOR"
+        return feature.organization.admins + feature.organization.users_with_any_role
+        # return (followers | feature.participatory_space.admins).uniq if official?
+        # followers
+      end
+
+      def users_to_notify_on_comment_authorized
         return (followers | feature.participatory_space.admins).uniq if official?
         followers
       end

@@ -64,10 +64,10 @@ en:
           categories: Categories
           features: Features
           info: Info
-          moderations: Moderations
           moderation:
-            upstream: Upstream
             downstream: Downstream
+            upstream: Upstream
+          moderations: Moderations
           process_admins: Process users
           steps: Steps
       models:
