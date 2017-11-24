@@ -211,12 +211,12 @@ jobs:
           at: /app
       - restore_cache:
           keys:
-            - npm-dependencies-{{ checksum "package-lock.json" }}
+            - npm-dependencies-{{ checksum "yarn.lock" }}
       - run:
           name: Install npm dependencies
           command: npm install --no-save
       - save_cache:
-          key: npm-dependencies-{{ checksum "package-lock.json" }}
+          key: npm-dependencies-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
       - run:
