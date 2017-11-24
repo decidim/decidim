@@ -7,7 +7,7 @@ shared_examples "manage meetings attachments" do
 
   before do
     within find("tr", text: translated(meeting.title)) do
-      find("a.action-icon--attachments").click
+      click_link "Attachments"
     end
   end
 

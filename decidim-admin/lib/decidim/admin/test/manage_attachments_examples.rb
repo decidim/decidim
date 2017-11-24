@@ -58,7 +58,7 @@ shared_examples "manage attachments examples" do
 
     it "can delete an attachment from a process" do
       within find("tr", text: stripped(translated(attachment.title))) do
-        accept_confirm { page.find("a.action-icon--remove").click }
+        accept_confirm { click_link "Destroy" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -69,7 +69,7 @@ shared_examples "manage attachments examples" do
     it "can update an attachment" do
       within "#attachments" do
         within find("tr", text: stripped(translated(attachment.title))) do
-          page.find("a.action-icon--edit").click
+          click_link "Edit"
         end
       end
 

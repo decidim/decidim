@@ -51,7 +51,7 @@ describe "Admin manages assembly categories", type: :feature do
   it "updates a category" do
     within "#categories" do
       within find("tr", text: translated(category.name)) do
-        page.find("a.action-icon--edit").click
+        click_link "Edit"
       end
     end
 
@@ -85,7 +85,7 @@ describe "Admin manages assembly categories", type: :feature do
 
         it "deletes a category" do
           within find("tr", text: translated(category2.name)) do
-            accept_confirm { page.find("a.action-icon--remove").click }
+            accept_confirm { click_link "Destroy" }
           end
 
           expect(page).to have_admin_callout("successfully")
@@ -105,7 +105,7 @@ describe "Admin manages assembly categories", type: :feature do
 
         it "deletes a category" do
           within find("tr", text: translated(category2.name)) do
-            accept_confirm { page.find("a.action-icon--remove").click }
+            accept_confirm { click_link "Destroy" }
           end
 
           expect(page).to have_admin_callout("error deleting")

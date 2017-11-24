@@ -34,7 +34,7 @@ shared_examples "manage moderations" do
 
     it "user can un-report a resource" do
       within "tr[data-id=\"#{moderation.id}\"]" do
-        find("a.action-icon--unreport").click
+        click_link "Unreport"
       end
 
       expect(page).to have_admin_callout("Resource successfully unreported")
@@ -42,7 +42,7 @@ shared_examples "manage moderations" do
 
     it "user can hide a resource" do
       within "tr[data-id=\"#{moderation.id}\"]" do
-        find("a.action-icon--hide").click
+        click_link "Hide"
       end
 
       expect(page).to have_admin_callout("Resource successfully hidden")

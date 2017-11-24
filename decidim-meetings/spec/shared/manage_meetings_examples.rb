@@ -14,7 +14,7 @@ shared_examples "manage meetings" do
 
   it "updates a meeting" do
     within find("tr", text: translated(meeting.title)) do
-      page.find("a.action-icon--edit").click
+      click_link "Edit"
     end
 
     within ".edit_meeting" do
@@ -117,7 +117,7 @@ shared_examples "manage meetings" do
 
     it "deletes a meeting" do
       within find("tr", text: translated(meeting2.title)) do
-        accept_confirm { page.find("a.action-icon--remove").click }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -135,7 +135,7 @@ shared_examples "manage meetings" do
 
     it "updates a meeting" do
       within find("tr", text: translated(meeting.title)) do
-        page.find("a.action-icon--edit").click
+        click_link "Edit"
       end
 
       within ".edit_meeting" do
@@ -224,7 +224,7 @@ shared_examples "manage meetings" do
 
     it "closes a meeting with a report" do
       within find("tr", text: translated(meeting.title)) do
-        page.find("a.action-icon--close").click
+        page.click_link "Close"
       end
 
       within ".edit_close_meeting" do
@@ -254,7 +254,7 @@ shared_examples "manage meetings" do
 
       it "can update the information" do
         within find("tr", text: translated(meeting.title)) do
-          page.find("a.action-icon--close").click
+          page.click_link "Close"
         end
 
         within ".edit_close_meeting" do

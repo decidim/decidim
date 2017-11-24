@@ -152,7 +152,7 @@ describe "Admin manages assembly features", type: :feature do
 
     it "removes the feature" do
       within ".feature-#{feature.id}" do
-        page.find(".action-icon--remove").click
+        click_link "Destroy"
       end
 
       expect(page).to have_no_content("My feature")

@@ -56,7 +56,7 @@ shared_examples "manage process steps examples" do
   it "updates a participatory_process_step" do
     within "#steps" do
       within find("tr", text: translated(process_step.title)) do
-        page.find(".action-icon--edit").click
+        click_link "Edit"
       end
     end
 
@@ -89,7 +89,7 @@ shared_examples "manage process steps examples" do
 
     it "deletes a participatory_process_step" do
       within find("tr", text: translated(process_step2.title)) do
-        accept_confirm { page.find(".action-icon--remove").click }
+        accept_confirm { click_link "Destroy" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -103,7 +103,7 @@ shared_examples "manage process steps examples" do
   context "when activating a step" do
     it "activates a step" do
       within find("tr", text: translated(process_step.title)) do
-        page.find(".action-icon--activate").click
+        click_link "Activate"
       end
 
       within find("tr", text: translated(process_step.title)) do
