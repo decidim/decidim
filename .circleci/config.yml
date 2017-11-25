@@ -211,17 +211,17 @@ jobs:
           at: /app
       - restore_cache:
           keys:
-            - npm-dependencies-{{ checksum "package-lock.json" }}
+            - yarn-dependencies-{{ checksum "yarn.lock" }}
       - run:
-          name: Install npm dependencies
-          command: npm install --no-save
+          name: Install yarn dependencies
+          command: yarn
       - save_cache:
-          key: npm-dependencies-{{ checksum "package-lock.json" }}
+          key: yarn-dependencies-{{ checksum "yarn.lock" }}
           paths:
             - node_modules
       - run:
-          name: Run main folder npm lint
-          command: npm run lint
+          name: Run main folder yarn lint
+          command: yarn lint
       - restore_cache:
           keys:
             - bundler-dependencies-{{ checksum "Gemfile.lock" }}
