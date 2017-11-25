@@ -196,7 +196,7 @@
 
       // Only one instance should submit the form on browser history navigation
       if (this.popStateSubmiter) {
-        this.$form.submit();
+        exports.Rails.fire(this.$form[0], 'submit');
       }
     }
 
@@ -211,7 +211,7 @@
 
       let newUrl = '';
 
-      this.$form.submit();
+      exports.Rails.fire(this.$form[0], 'submit');
 
       if (formAction.indexOf('?') < 0) {
         newUrl = `${formAction}?${params}`;
