@@ -2,7 +2,7 @@
 @import "utils/*";
 
 @import "foundation";
-@include foundation-everything;
+@include foundation-everything($flex: false);
 
 @import "select2";
 @import "plugins/select2";
