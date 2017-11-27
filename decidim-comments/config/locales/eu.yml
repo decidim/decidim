@@ -60,7 +60,7 @@ eu:
       comment_thread:
         title: 'Solasaldia honekin: %{authorName}'
       comments:
-        blocked_comments_warning: Iruzkinak desgaituta daude une honetan, baina aurrekoak irakur ditzakezu ".
+        blocked_comments_warning: Iruzkinak desgaituta daude une honetan, baina aurrekoak irakur ditzakezu.
         loading: Iruzkinak kargatzen...
         title: "%{count} iruzkin"
       featured_comment:
