@@ -39,27 +39,6 @@ module Decidim
       def accepts_new_comments?
         depth < MAX_DEPTH
       end
-      def
-      def unmoderate
-        upstream_moderation == "unmoderate"
-      end
-
-      def authorize?
-        upstream_moderation == "authorize"
-      end
-
-      def refused?
-        upstream_moderation == "refused"
-      end
-
-      def authorize!
-        update_attributes(upstream_moderation: "authorize")
-        send_notification
-      end
-
-      def refused!
-        update_attributes(upstream_moderation: "refuse")
-      end
 
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`
       delegate :users_to_notify_on_comment_created, to: :root_commentable
@@ -83,20 +62,21 @@ module Decidim
         ResourceLocatorPresenter.new(root_commentable).url(anchor: "comment_#{id}")
       end
 
-      private
-
       def send_notification
         puts "SEND NOTIF TO FOLLOWERS"
         Decidim::EventsManager.publish(
           event: "decidim.events.comments.comment_created",
           event_class: Decidim::Comments::CommentCreatedEvent,
           resource: self.root_commentable,
-          recipient_ids: (self.commentable.users_to_notify_on_comment_authorized - [@author]).pluck(:id),
+          recipient_ids: (self.root_commentable.users_to_notify_on_comment_authorized - [@author]).pluck(:id),
           extra: {
             comment_id: self.id
           }
         )
       end
+
+      private
+
 
       # Private: Check if commentable can have comments and if not adds
       # a validation error to the model

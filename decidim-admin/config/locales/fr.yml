@@ -278,7 +278,11 @@ fr:
             users_count: Nombre d'utilisateurs
       moderations:
         index:
-          title: Modérations
+          title:
+            upstream: Modération à priori
+            downstream: Modération à postériori
+          unmoderated: Non modérés
+          moderated: Modérés
         report:
           reasons:
             does_not_belong: N'appartient pas
@@ -436,6 +440,10 @@ fr:
         not_hidden: Non masqués
         title: Actions
         unreport: Annuler le signalement
+        moderated: Modéré
+        unmoderated: Non modéré
+        authorize: Authoriser
+        refuse: Refuser
       admin:
         reportable:
           hide:
@@ -453,6 +461,9 @@ fr:
             reported_content_url: Contenu d'une URL
             reports: Signalements
             visit_url: Visitez l'URL
+            date: Date
+            type: Type
+            status: Statut
   errors:
     messages:
       invalid_json: JSON non valide

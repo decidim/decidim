@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 module Decidim
   module Comments
     # A class used to find comments for a commentable resource
@@ -21,7 +20,7 @@ module Decidim
       # options - The Hash options is used to refine the selection ( default: {}):
       #           :order_by - The string order_by to sort by ( optional )
       def initialize(commentable, options = {})
-        options[:order_by] ||= "older"
+        # options[:order_by] ||= "older"
         @commentable = commentable
         @options = options
       end
@@ -30,24 +29,26 @@ module Decidim
       # loads comments replies. It uses Comment's MAX_DEPTH to load a maximum
       # level of nested replies.
       def query
+        # puts "COMMENTABLE #{commentable}"
+        # puts "NOMBRE DE COMMENTAIRES :#{Comment.where(commentable.public_comments_filters, commentable: commentable).inspect}"
+        # scope = Comment.where(upstream_moderation: commentable.public_comments_filters[:upstream_moderation])
         scope = Comment
                 .where(commentable: commentable)
                 .not_hidden
                 .includes(:author, :up_votes, :down_votes)
-
-        scope = case @options[:order_by]
-                when "older"
-                  order_by_older(scope)
-                when "recent"
-                  order_by_recent(scope)
-                when "best_rated"
-                  order_by_best_rated(scope)
-                when "most_discussed"
-                  order_by_most_discussed(scope)
-                else
-                  order_by_older(scope)
-                end
-
+        puts "RESULTATS 2 :#{scope.inspect}"
+        # scope = case @options[:order_by]
+        #         when "older"
+        #           order_by_older(scope)
+        #         when "recent"
+        #           order_by_recent(scope)
+        #         when "best_rated"
+        #           order_by_best_rated(scope)
+        #         when "most_discussed"
+        #           order_by_most_discussed(scope)
+        #         else
+        #           order_by_older(scope)
+        #         end
         scope
       end
 

@@ -99,16 +99,26 @@ module Decidim
       end
 
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`
-      def users_to_notify_on_comment_created
-        puts "ADMIN AND MODERATOR"
-        return feature.organization.admins + feature.organization.users_with_any_role
-        # return (followers | feature.participatory_space.admins).uniq if official?
-        # followers
+      def users_to_notify_on_comment_created # Notify Admins and Moderators for moderation
+        puts "Notify on comment created"
+        participatory_process = feature.participatory_space
+        admins = feature.organization.admins
+        users_with_role = feature.organization.users_with_any_role
+        process_users_with_role = Decidim::ParticipatoryProcessUserRole.where(decidim_participatory_process_id: participatory_process.id).map(&:user)
+        return (admins + users_with_role + process_users_with_role).uniq
       end
 
       def users_to_notify_on_comment_authorized
+        puts "Notify on comment authorized"
+        puts (followers | feature.participatory_space.admins).uniq if official?
+        followers
         return (followers | feature.participatory_space.admins).uniq if official?
         followers
+      end
+
+      # Public: Overrides the `public_comments_filters` Commentable concern method. Get all authorised comments, after downstream moderation
+      def public_comments_filters
+        {upstream_moderation: "authorized"}
       end
 
       # Public: Overrides the `reported_content_url` Reportable concern method.

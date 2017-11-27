@@ -42,7 +42,12 @@ PATH
     decidim-comments (0.8.3)
       decidim-core (= 0.8.3)
       jquery-rails (~> 4.0)
+<<<<<<< HEAD
     decidim-core (0.8.3)
+=======
+      pry-byebug
+    decidim-core (0.7.2)
+>>>>>>> 48dd943d... front + mail
       active_link_to (~> 1.0.4)
       autoprefixer-rails (~> 7.1.1)
       cancancan (~> 2.0.0)

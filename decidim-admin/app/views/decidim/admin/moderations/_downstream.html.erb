@@ -14,7 +14,7 @@
         </tr>
       </thead>
       <tbody>
-        <% moderations.each do |moderation| %>
+        <% downstream_moderation.each do |moderation| %>
           <tr data-id="<%= moderation.id %>">
             <td>
               <%= moderation.reportable.class.name.demodulize %>

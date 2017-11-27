@@ -24,7 +24,8 @@ module Decidim
 
         transaction do
           create_comment
-          send_notification
+          send_notification_to_moderators
+          create_moderation
         end
 
         broadcast(:ok, @comment)
@@ -43,7 +44,7 @@ module Decidim
                                    decidim_user_group_id: form.user_group_id)
       end
 
-      def send_notification
+      def send_notification_to_moderators
         puts "SEND NOTIF TO MODERATOR"
         Decidim::EventsManager.publish(
           event: "decidim.events.comments.comment_created",
@@ -59,6 +60,11 @@ module Decidim
       def root_commentable(commentable)
         return commentable.root_commentable if commentable.is_a? Decidim::Comments::Comment
         commentable
+      end
+
+      def create_moderation
+        participatory_space_id = @comment.root_commentable.feature.participatory_space_id
+        Decidim::Moderation.create(decidim_participatory_space_id: participatory_space_id, decidim_reportable_type: @comment.class.name, decidim_reportable_id: @comment.id, decidim_participatory_space_type: "Decidim::ParticipatoryProcess")
       end
     end
   end

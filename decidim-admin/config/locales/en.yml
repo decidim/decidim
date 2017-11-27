@@ -279,7 +279,11 @@ en:
             users_count: Users count
       moderations:
         index:
-          title: Moderations
+          title:
+            upstream: Upstream moderation
+            downstream: Downstream moderation
+          moderated: Moderated
+          unmoderated: Unmoderated
         report:
           reasons:
             does_not_belong: Does not belong
@@ -437,6 +441,11 @@ en:
         not_hidden: Not hidden
         title: Actions
         unreport: Unreport
+        moderated: Moderated
+        unmoderated: Unmoderated
+        authorize: Authorize
+        refuse: Refuse
+
       admin:
         reportable:
           hide:
@@ -454,6 +463,9 @@ en:
             reported_content_url: Reported content URL
             reports: Reports
             visit_url: Visit URL
+            date: Date
+            type: Type
+            status: Status
   errors:
     messages:
       invalid_json: Invalid JSON

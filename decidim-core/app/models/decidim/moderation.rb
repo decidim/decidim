@@ -8,5 +8,23 @@ module Decidim
     has_many :reports, foreign_key: "decidim_moderation_id", class_name: "Decidim::Report", dependent: :destroy
 
     delegate :feature, :organization, to: :reportable
+
+
+    def authorized?
+      upstream_moderation == "authorized"
+    end
+
+    def unmoderated?
+      upstream_moderation == "unmoderate"
+    end
+
+    def authorize!
+      update_attributes(upstream_moderation: "authorized")
+      reportable.send_notification
+    end
+
+    def refuse!
+      update_attributes(upstream_moderation: "refused")
+    end
   end
 end

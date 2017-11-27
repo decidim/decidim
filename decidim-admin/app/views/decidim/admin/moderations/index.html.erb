@@ -1,21 +1,24 @@
 <div class="card">
   <div class="card-divider">
-    <h2 class="card-title">
-      <%= t(".title") %>
-      <%if @upstream%>
+    <%if @upstream%>
+      <h2 class="card-title">
+        <%= t(".title.upstream") %>
         <div class="card__filter">
-          <%= link_to t("actions.not_hidden", scope: "decidim.moderations"), moderations_path, moderation_type: "upstream" %>
+          <%= link_to t("index.unmoderated", scope: "decidim.admin.moderations"), moderations_path( moderation_type: "upstream") %>
           |
-          <%= link_to t("actions.hidden", scope: "decidim.moderations"), moderations_path(hidden: true, moderation_type: "upstream") %>
+          <%= link_to t("index.moderated", scope: "decidim.admin.moderations"), moderations_path(moderated: true, moderation_type: "upstream") %>
         </div>
-      <%else @downstream%>
+      </h2>
+    <%else @downstream%>
+      <h2 class="card-title">
+        <%= t(".title.downstream") %>
         <div class="card__filter">
-          <%= link_to t("actions.not_hidden", scope: "decidim.moderations"), moderations_path, moderation_type: "downstream" %>
+          <%= link_to t("actions.not_hidden", scope: "decidim.moderations"), moderations_path( moderation_type: "downstream") %>
           |
           <%= link_to t("actions.hidden", scope: "decidim.moderations"), moderations_path(hidden: true, moderation_type: "downstream") %>
         </div>
-      <% end %>
-    </h2>
+      </h2>
+    <% end %>
   </div>
   <%if @upstream%>
     <%= render "upstream" %>

@@ -1,0 +1,28 @@
+version: '2'
+services:
+  app:
+    build:
+      context: .
+      args:
+        rails_env: development
+    volumes:
+      - .:/code
+    environment:
+      - DATABASE_HOST=pg
+      - DATABASE_USERNAME=postgres
+    ports:
+      - 3000:3000
+    links:
+      - pg
+      - redis
+  pg:
+    image: postgres
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+  redis:
+    image: redis
+    volumes:
+      - redis-data:/data
+volumes:
+  pg-data: {}
+  redis-data: {}
