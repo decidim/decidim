@@ -20,7 +20,7 @@ module Decidim
         redirect_to moderations_path(moderation_type: "upstream")
       end
 
-      # This action is use to hide or to refuse moderated object
+      # This action is use to hide or to set as refused moderated object
       def hide
         authorize! :hide, reportable
         if params[:refuse]
@@ -30,6 +30,7 @@ module Decidim
           Admin::HideResource.call(reportable) do
             on(:ok) do
               flash[:notice] = I18n.t("reportable.hide.success", scope: "decidim.moderations.admin")
+
               redirect_to moderations_path
             end
 
@@ -41,14 +42,30 @@ module Decidim
         end
       end
 
+      def unreport
+        authorize! :unreport, reportable
+
+        Admin::UnreportResource.call(reportable) do
+          on(:ok) do
+            flash[:notice] = I18n.t("reportable.unreport.success", scope: "decidim.moderations.admin")
+            redirect_to moderations_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("reportable.unreport.invalid", scope: "decidim.moderations.admin")
+            redirect_to moderations_path
+          end
+        end
+      end
+
       private
 
       def downstream_moderation
         @moderations ||= begin
           if params[:hidden] && params[:moderation_type] == "downstream"
-            participatory_space_moderations.where.not(hidden_at: nil)
-          else # TODO conditionner l'affichement en fonction du params moderation_type
-            participatory_space_moderations.where(hidden_at: nil)
+            participatory_space_moderations.where.not(hidden_at: nil, report_count: 0)
+          elsif params[:moderation_type] == "downstream"
+            participatory_space_moderations.where(hidden_at: nil).where.not( report_count: 0)
           end
         end
       end

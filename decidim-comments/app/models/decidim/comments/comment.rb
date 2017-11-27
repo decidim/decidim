@@ -77,7 +77,6 @@ module Decidim
 
       private
 
-
       # Private: Check if commentable can have comments and if not adds
       # a validation error to the model
       def commentable_can_have_comments
