@@ -19,6 +19,6 @@ Decidim uses [Crowdin](https://crowdin.com/) to manage the translations.
 
 ## Test the new language
 
-- Generate the development app and cd into it.
+- Generate the development app and `cd` into it.
 - Change the `config/initializer/decidim.rb` file and add your locale to `Decidim.available_locales`.
 - `rake db:drop db:setup` to drop, create, load schema and seed the DB.
