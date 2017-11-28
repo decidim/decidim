@@ -44,11 +44,15 @@ PATH
       jquery-rails (~> 4.0)
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     decidim-core (0.8.3)
 =======
       pry-byebug
 =======
 >>>>>>> d6a814bc... configure mail
+=======
+      pry-byebug
+>>>>>>> 3b331838... sorted comment spec
     decidim-core (0.7.2)
 >>>>>>> 48dd943d... front + mail
       active_link_to (~> 1.0.4)

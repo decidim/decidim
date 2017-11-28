@@ -32,8 +32,8 @@ module Decidim
       def query
         scope = Comment
                 .where(commentable: commentable)
-                .not_hidden
                 .authorized
+                .not_hidden
                 .includes(:author, :up_votes, :down_votes)
 
         scope = case @options[:order_by]

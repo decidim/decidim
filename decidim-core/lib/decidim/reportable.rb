@@ -13,8 +13,8 @@ module Decidim
 
       scope :reported, -> { left_outer_joins(:moderation).where(Decidim::Moderation.arel_table[:report_count].gt(0)) }
       scope :hidden, -> { left_outer_joins(:moderation).where.not(Decidim::Moderation.arel_table[:hidden_at].eq nil) }
+      scope :authorized, -> { left_outer_joins(:moderation).where(Decidim::Moderation.arel_table[:upstream_moderation].eq "authorized") } # TODO rajouter dans le scope une variante quand le current user est admin afin de tout afficher
       scope :not_hidden, -> { left_outer_joins(:moderation).where(Decidim::Moderation.arel_table[:hidden_at].eq nil) }
-      scope :authorized, -> { left_outer_joins(:moderation).where(Decidim::Moderation.arel_table[:upstream_moderation].eq "authorized") }
 
 
       # Public: Check if the user has reported the reportable.
