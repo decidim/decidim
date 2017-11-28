@@ -45,6 +45,11 @@ module Decidim
         def users_to_notify_on_comment_created
           Decidim::User.none
         end
+
+        # Public: Defines which users will receive a notification when a comment is authorized.
+        def users_to_notify_on_comment_authorized
+          Decidim::User.none
+        end
       end
     end
   end

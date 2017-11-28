@@ -9,6 +9,9 @@ en:
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
             email_subject: There is a new comment from %{author_name} in %{resource_title}
             notification_title: There is a new comment from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+            moderation:
+              email_intro: 'A new comment have been posted, you can moderate it in this page:'
+              email_subject: 'New comment from %{author_name} waiting for moderation'
           reply:
             email_intro: The "%{resource_title}" has been commented
             email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.

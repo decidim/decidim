@@ -52,7 +52,8 @@ module Decidim
           resource: @comment.root_commentable,
           recipient_ids: (@commentable.users_to_notify_on_comment_created - [@author]).pluck(:id),
           extra: {
-            comment_id: @comment.id
+            comment_id: @comment.id,
+            moderation_event: true
           }
         )
       end

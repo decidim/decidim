@@ -63,12 +63,11 @@ module Decidim
       end
 
       def send_notification
-        puts "SEND NOTIF TO FOLLOWERS"
         Decidim::EventsManager.publish(
           event: "decidim.events.comments.comment_created",
           event_class: Decidim::Comments::CommentCreatedEvent,
           resource: self.root_commentable,
-          recipient_ids: (self.root_commentable.users_to_notify_on_comment_authorized - [@author]).pluck(:id),
+          recipient_ids: (self.root_commentable.users_to_notify_on_comment_authorized - [author]).pluck(:id),
           extra: {
             comment_id: self.id
           }

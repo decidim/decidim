@@ -120,9 +120,12 @@ nl:
     events:
       email_event:
         email_greeting: Hallo %{user_name},
-        email_intro: 'Er is een update voor ''%{resource_title}''. Je kunt het vanaf deze pagina bekijken:'
-        email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kan stoppen met deze te volgen via vorige link.
-        email_subject: Een update voor %{resource_title}
+        email_intro: 'Er is een update aan "%{resource_title}". Je ziet het vanaf deze pagina:'
+        email_outro: U ontvangt dit bericht omdat u "%{resource_title}" volgen. Je kunt het unfollow uit de vorige koppeling.
+        email_subject: Een update aan %{resource_title}
+        moderation:
+          email_intro: 'There is a new content to moderate. You can see it from this page:'
+          email_subject: New content waiting for moderation
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:

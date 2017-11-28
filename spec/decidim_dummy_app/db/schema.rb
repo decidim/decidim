@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171124110960) do
+ActiveRecord::Schema.define(version: 20171128100011) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -282,6 +282,7 @@ ActiveRecord::Schema.define(version: 20171124110960) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "decidim_participatory_space_type", null: false
+    t.string "upstream_moderation", default: "unmoderate"
     t.index ["decidim_participatory_space_id", "decidim_participatory_space_type"], name: "decidim_moderations_participatory_space"
     t.index ["decidim_reportable_type", "decidim_reportable_id"], name: "decidim_moderations_reportable", unique: true
     t.index ["hidden_at"], name: "decidim_moderations_hidden_at"

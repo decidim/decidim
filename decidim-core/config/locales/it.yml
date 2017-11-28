@@ -123,6 +123,9 @@ it:
         email_intro: 'C''è stato un aggiornamento alla "%{resource_title}". Si può vedere da questa pagina:'
         email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
         email_subject: Un aggiornamento per %{resource_title}
+        moderation:
+          email_intro: 'There is a new content to moderate. You can see it from this page:'
+          email_subject: New content waiting for moderation
       notification_event:
         notification_title: Si è verificato un evento di <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:

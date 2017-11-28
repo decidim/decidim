@@ -38,6 +38,20 @@ module Decidim
         ).html_safe
       end
 
+      def email_moderation_intro
+        I18n.t(
+          "decidim.comments.events.comment_created.#{comment_type}.moderation.email_intro",
+          resource_title: resource_title
+        ).html_safe
+      end
+
+      def email_moderation_subject
+        I18n.t(
+          "decidim.comments.events.comment_created.#{comment_type}.moderation.email_subject",
+          resource_title: resource_title
+        ).html_safe
+      end
+
       private
 
       def comment

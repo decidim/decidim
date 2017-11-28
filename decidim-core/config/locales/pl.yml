@@ -123,6 +123,9 @@ pl:
         email_intro: 'Nastąpiła aktualizacja do "%{resource_title}". Widać go z tej strony:'
         email_outro: Otrzymałeś powiadomienie, ponieważ są po "%{resource_title}". Możesz przestać obserwować go od poprzedniego łącza.
         email_subject: Aktualizacja %{resource_title}
+        moderation:
+          email_intro: 'There is a new content to moderate. You can see it from this page:'
+          email_subject: New content waiting for moderation
       notification_event:
         notification_title: Zdarzenie miało miejsce na <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:

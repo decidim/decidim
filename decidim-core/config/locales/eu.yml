@@ -123,6 +123,9 @@ eu:
         email_intro: 'Eguneratze da "%{resource_title}". Orri honetan ikus daiteke:'
         email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
         email_subject: '%{resource_title} eguneratzea'
+        moderation:
+          email_intro: 'There is a new content to moderate. You can see it from this page:'
+          email_subject: New content waiting for moderation
       notification_event:
         notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
     export_mailer:

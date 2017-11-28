@@ -99,7 +99,8 @@ module Decidim
       end
 
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`
-      def users_to_notify_on_comment_created # Notify Admins and Moderators for moderation
+      # Notify Admins and Moderators when a new comment has been create and need to be moderate
+      def users_to_notify_on_comment_created
         puts "Notify on comment created"
         participatory_process = feature.participatory_space
         admins = feature.organization.admins
@@ -108,10 +109,8 @@ module Decidim
         return (admins + users_with_role + process_users_with_role).uniq
       end
 
+      # Public: Override Commentable concern method `users_to_notify_on_comment_authorized`
       def users_to_notify_on_comment_authorized
-        puts "Notify on comment authorized"
-        puts (followers | feature.participatory_space.admins).uniq if official?
-        followers
         return (followers | feature.participatory_space.admins).uniq if official?
         followers
       end
