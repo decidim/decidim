@@ -5,7 +5,7 @@
 Decidim uses [Crowdin](https://crowdin.com/) to manage the translations.
 
 - Whenever someone [adds a new translation key](https://github.com/decidim/decidim/pull/1814/files#diff-c78c80097da59920d55b3f462ca21afaR177) to _Decidim_, _Crowdin_ gets notified and the new content is available to be translated from [Crowdin's Decidim dashboard](https://crowdin.com/project/decidim).
-- When a translator translates any key from Crowdin, it automatically creates a [PR in Github](https://github.com/decidim/decidim/pull/2207), adding the keys in the corresponding _yaml_ files.
+- When a translator translates any key from Crowdin, it automatically creates a [PR in Github](https://github.com/decidim/decidim/pulls?utf8=%E2%9C%93&q=is%3Apr%20author%3Adecidim-bot%20Crowdin), adding the keys in the corresponding _yaml_ files.
 - 🌈
 
 ## Adding a new language
@@ -19,4 +19,6 @@ Decidim uses [Crowdin](https://crowdin.com/) to manage the translations.
 
 ## Test the new language
 
-To test the new language in a local development app, first, you need to add the new language to the [initializer template](https://github.com/decidim/decidim/blob/master/lib/generators/decidim/templates/initializer.rb#L9). After that, [create the `development_app` and start the server](https://github.com/decidim/decidim#browse-decidim).
+- Generate the development app and cd into it.
+- Change the `config/initializer/decidim.rb` file and add your locale to `Decidim.available_locales`.
+- `rake db:drop db:setup` to drop, create, load schema and seed the DB.
