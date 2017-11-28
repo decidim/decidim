@@ -1,4 +1,5 @@
 // = require jquery
+// = require rails-ujs
 // = require decidim/foundation
 // = require modernizr
 // = require svg4everybody.min

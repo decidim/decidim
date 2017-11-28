@@ -1,6 +1,6 @@
 // = require jquery
-// = require jquery_ujs
 // = require foundation
+// = require rails-ujs
 // = require ./tab_focus
 // = require ./toggle_nav
 // = require ./sort_list.component
