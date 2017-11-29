@@ -44,12 +44,6 @@ task :update_versions do
     "  \"version\": \"#{version}\""
   )
 
-  replace_file(
-    "#{__dir__}/package-lock.json",
-    /^  "version": "[^"]*"/,
-    "  \"version\": \"#{version}\""
-  )
-
   DECIDIM_GEMS.each do |name|
     replace_file(
       "#{__dir__}/decidim-#{name}/lib/decidim/#{name}/version.rb",
