@@ -153,9 +153,10 @@ en:
         index:
           changes_at_title: Changes at "%{title}"
           title: Versions
-          version_index: Version %{index}
         show:
           changes_at_title: Changes at "%{title}"
+        version:
+          version_index: Version %{index}
     features:
       accountability:
         name: Accountability

@@ -20,7 +20,7 @@ module Decidim
       delegate :count, to: :versions, prefix: true
 
       def last_whodunnit
-        versions.last.whodunnit
+        versions.last.try(:whodunnit)
       end
 
       def last_editor

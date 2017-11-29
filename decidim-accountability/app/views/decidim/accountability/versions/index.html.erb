@@ -10,26 +10,7 @@
         <div class="section">
           <div class="card card--list">
             <% result.versions.each_with_index do |version, index| %>
-              <div class="card--list__item">
-                <div class="card--list__text">
-                  <div>
-                    <%= link_to result_version_path(result, index + 1) do %>
-                      <h6 class="card--list__heading heading6">
-                        <%= t(".version_index", index: index + 1) %>
-                      </h6>
-                    <% end %>
-                    <div class="author-data">
-                      <%= render_resource_editor(version) %>
-                      <%= l version.created_at, format: :decidim_short %>
-                    </div>
-                  </div>
-                </div>
-                <div class="card--list__data">
-                  <%= link_to result_version_path(result, index + 1), class: "card--list__data__icon" do %>
-                    <%= icon "chevron-right" %>
-                  <% end %>
-                </div>
-              </div>
+              <%= render partial: "version", locals: { version: version, index: index }%>
             <% end %>
           </div>
         </div>
