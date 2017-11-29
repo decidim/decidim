@@ -8,7 +8,7 @@ ca:
         document_number: Número de document (amb lletra)
         document_type: Tipus del teu document
         user: Usuari
-        verification_attachment: Còpia escanejada del vostre document
+        verification_attachment: Còpia escanejada del teu document
   decidim:
     admin:
       menu:
@@ -17,25 +17,25 @@ ca:
       admin:
         id_documents:
           help:
-            - Els usuaris omplen la informació d'identitat i carreguen una còpia del seu document.
-            - Empleneu la informació que es mostra a la imatge penjada.
+            - Els usuaris omplen la informació de la seva identitat i carreguen una còpia del seu document.
+            - Emplenes la informació que es mostra a la imatge penjada.
             - La informació ha de coincidir amb el que hagi omplert l'usuari.
-            - Si no podeu veure la informació o no la podeu verificar, podeu rebutjar la sol·licitud i l'usuari la podrà solucionar.
+            - Si no pots veure la informació amb claredat o no la pots verificar, pots rebutjar la sol·licitud i l'usuari la podrà solucionar.
         postal_letter:
           help:
             - Els usuaris sol·liciten un codi de verificació que s'enviarà a la seva adreça.
-            - Envia la lletra a la seva adreça amb el codi de verificació.
-            - Marca la lletra com a enviada.
-            - Una vegada que marca la lletra que s'envia, l'usuari podrà introduir el codi i verificar-se.
+            - Envies la carta a la seva adreça amb el codi de verificació.
+            - Marques la carta com a enviada.
+            - Una vegada la carta està marcada com a enviada, l'usuari podrà introduir el codi i verificar-se.
       direct: Directe
       help: Ajuda
       id_documents:
-        explanation: Carregueu els vostres documents d'identitat per poder comprovar la vostra identitat
+        explanation: Carrega els teus documents d'identitat per a que puguem comprovar la teva identitat
         name: Documents d'identitat
-      multistep: Múltiples passos
+      multistep: Amb múltiples passos
       name: Nom
       postal_letter:
-        explanation: Us enviarem una carta postal amb un codi que haureu d'introduir perquè puguem verificar la vostra adreça
+        explanation: T'enviarem una carta postal amb un codi que hauràs d'introduir perquè puguem verificar la teva adreça
         name: Codi per carta postal
     verifications:
       authorizations:
@@ -44,16 +44,16 @@ ca:
           success: Has estat autoritzat amb èxit.
         first_login:
           actions:
-            dummy_authorization_handler: Verifiqueu el controlador d'autorització d'exemple
-            dummy_authorization_workflow: Verifiqueu el flux de treball d'autorització d'exemple
-            id_documents: Aconseguiu verificar si pengeu el vostre document d'identitat
-            postal_letter: Aconseguiu verificar si rebeu un codi de verificació per correu postal
-          title: Verifiqueu la vostra identitat
-          verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la vostra identitat:'
+            dummy_authorization_handler: Verificar contra l'autorització d'exemple
+            dummy_authorization_workflow: Verificar contra l'exemple de flux d'autorització
+            id_documents: Verifica't carregant el teu document d'identitat
+            postal_letter: Verifica't rebent un codi de verificació per correu postal
+          title: Verifica la teva identitat
+          verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la teva identitat:'
         new:
           authorize: Enviar
-          authorize_with: Verifiqueu amb %{authorizer}
-        skip_verification: Podeu ometre-ho per ara i %{link}
+          authorize_with: Verifica amb %{authorizer}
+        skip_verification: Pots ometre-ho per ara i %{link}
         start_exploring: comença a explorar
       id_documents:
         admin:
@@ -62,13 +62,13 @@ ca:
               error: La verificació no coincideix. Torna-ho a provar o rebutja la verificació perquè l'usuari pugui modificar-la
               success: S'ha verificat l'usuari correctament
             new:
-              introduce_user_data: Introduïu les dades a la imatge
+              introduce_user_data: Introdueix les dades de la imatge
               reject: Rebutjar
-              verify: Verifica
+              verify: Verificar
           pending_authorizations:
             index:
               title: Verificacions pendents
-              verification_number: 'Verificació # %{n}'
+              verification_number: 'Verificació #%{n}'
           rejections:
             create:
               success: S'ha rebutjat la verificació. Es demanarà a l'usuari que modifiqui els seus documents
@@ -77,9 +77,9 @@ ca:
             error: S'ha produït un problema en penjar el document
             success: Document penjat correctament
           edit:
-            being_reviewed: Estem revisant els vostres documents. Aviat es verificarà
-            rejection_clarity: Assegureu-vos que la informació sigui visible a la imatge carregada
-            rejection_correctness: Assegureu-vos que la informació introduïda sigui correcta
+            being_reviewed: Estem revisant els teus documents. Et verificarem aviat
+            rejection_clarity: Assegura't que la informació sigui visible a la imatge carregada
+            rejection_correctness: Assegura't que la informació introduïda sigui correcta
             rejection_notice: S'ha produït un problema amb la vostra verificació. Siusplau torna-ho a provar
             send: Sol·liciteu la verificació de nou
           new:
