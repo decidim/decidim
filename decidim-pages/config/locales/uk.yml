@@ -2,21 +2,21 @@ uk:
   decidim:
     features:
       pages:
-        name: Сторінка
+        name: 'Сторінка'
         settings:
           global:
-            announcement: Оголошення
+            announcement: 'Оголошення'
           step:
-            announcement: Оголошення
+            announcement: 'Оголошення'
     pages:
       admin:
         models:
           components:
-            body: Основний текст
+            body: 'Основний текст'
         pages:
           edit:
-            save: Оновити
-            title: Редагувати сторінку
+            save: 'Оновити'
+            title: 'Редагувати сторінку'
           update:
-            invalid: При збереженні цієї сторінки сталися помилки.
-            success: Сторінку успішно збережено.
+            invalid: 'При збереженні цієї сторінки сталися помилки.'
+            success: 'Сторінку успішно збережено.'
