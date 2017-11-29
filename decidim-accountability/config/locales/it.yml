@@ -61,7 +61,7 @@ it:
             statuses: Gli stati
         statuses:
           create:
-            invalid: È stato un problema che crea questo stato
+            invalid: 'È stato un problema che crea questo stato'
             success: Stato creato con successo
           destroy:
             success: Stato eliminato con successo
@@ -74,7 +74,7 @@ it:
             create: Crea stato
             title: Nuovo stato
           update:
-            invalid: È stato un problema che aggiorna questo stato
+            invalid: 'È stato un problema che aggiorna questo stato'
             success: Stato aggiornato con successo
         timeline_entries:
           create:
@@ -91,7 +91,7 @@ it:
             create: Crea voce
             title: Nuovo arrivato
           update:
-            invalid: È stato un problema che aggiorna questa voce
+            invalid: 'È stato un problema che aggiorna questa voce'
             success: Entrata aggiornata con successo
       models:
         result:
