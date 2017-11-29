@@ -22,10 +22,10 @@ it:
         name: Nome Utente
         password: Password
         password_confirmation: Conferma password
-        remember_me: Ricordami su questo computer (rimani collegato)
+        remember_me: Ricordare password
         user_group_document_number: Codice fiscale dell'organizzazione
         user_group_name: Nome dell'organizzazione
-        user_group_phone: Telefono dell'organizzazione
+        user_group_phone: Numero di telefono dell'organizzazione
   booleans:
     'false': 'No'
     'true': 'Si'
@@ -47,7 +47,7 @@ it:
         success: Il tuo account è stato cancellato correttamente.
       show:
         change_password: Cambia password
-        update_account: Aggiorna Account
+        update_account: Aggiorna l'account
       update:
         error: Si è verificato un errore durante l'aggiornamento del tuo account.
         success: Il tuo account è stato aggiornato correttamente.
@@ -55,9 +55,9 @@ it:
     anonymous_user: Anonimo
     application:
       documents:
-        related_documents: Documenti correlati
+        related_documents: Documenti Relativi
       photos:
-        related_photos: Immagini correlate
+        related_photos: Immagini relative
     authorization_handlers:
       dummy_authorization_handler:
         explanation: Ottieni la verifica introducendo un numero di documento che termina con "X"
