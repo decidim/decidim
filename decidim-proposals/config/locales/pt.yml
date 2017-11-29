@@ -4,7 +4,7 @@ pt:
       proposal:
         body: Corpo
         category_id: Categoria
-        scope_id: Âmbito
+        scope_id: 'Âmbito'
         title: Título
         user_group_id: Criar proposta como
       proposal_answer:
