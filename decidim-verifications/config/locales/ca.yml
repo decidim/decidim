@@ -80,10 +80,10 @@ ca:
             being_reviewed: Estem revisant els teus documents. Et verificarem aviat
             rejection_clarity: Assegura't que la informació sigui visible a la imatge carregada
             rejection_correctness: Assegura't que la informació introduïda sigui correcta
-            rejection_notice: S'ha produït un problema amb la vostra verificació. Siusplau torna-ho a provar
-            send: Sol·liciteu la verificació de nou
+            rejection_notice: S'ha produït un problema amb la teva verificació. Siusplau torna-ho a provar
+            send: Sol·licita la verificació de nou
           new:
-            send: Sol·liciteu la verificació
+            send: Sol·licita la verificació
             title: Penja el document d'identitat
           update:
             error: S'ha produït un problema en tornar a carregar el document
@@ -95,31 +95,31 @@ ca:
         admin:
           pending_authorizations:
             index:
-              address: adreça
-              letter_sent_at: Carta enviada a
-              mark_as_sent: Marca com s'envia
+              address: Adreça
+              letter_sent_at: Carta enviada el
+              mark_as_sent: Marca com a enviada
               not_yet_sent: Encara no s'ha enviat
               title: Verificacions en curs
               username: Nom d'usuari
               verification_code: Codi de verificació
           postages:
             create:
-              error: S'ha produït un error en marcar la lletra com s'envia
-              success: La lletra s'ha marcat correctament com s'ha enviat
+              error: S'ha produït un error en marcar la carta com a enviada
+              success: La carta s'ha marcat com a enviada correctament
         authorizations:
           create:
-            error: S'ha produït un problema amb la vostra sol·licitud
-            success: Gràcies Enviarem un codi de verificació a la vostra adreça
+            error: S'ha produït un problema amb la teva sol·licitud
+            success: Gràcies! Enviarem un codi de verificació a la teva adreça
           edit:
-            send: Confirma
-            title: Introduïu el codi de verificació que heu rebut
-            waiting_for_letter: En breu enviarem una carta a la vostra adreça amb el vostre codi de verificació
+            send: Confirmar
+            title: Introduïeix el codi de verificació que has rebut
+            waiting_for_letter: En breu enviarem una carta a la teva adreça amb el teu codi de verificació
           new:
             send: Envia'm una carta
-            title: Sol·liciteu el vostre codi de verificació
+            title: Sol·licita el teu codi de verificació
           update:
-            error: El codi de verificació no coincideix amb el nostre. Si us plau, reviseu la carta que us enviem
-            success: Felicitacions S'ha verificat correctament
+            error: El teu codi de verificació no coincideix amb el nostre. Si us plau, revisa la carta que t'hem enviat
+            success: Felicitats. T'has verificat correctament
   errors:
     messages:
-      uppercase_only_letters_numbers: Totes les majúscules han de contenir lletres i / o nombres
+      uppercase_only_letters_numbers: ha d'estar en majúscules i contenir lletres i/o nombres
