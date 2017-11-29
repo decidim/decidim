@@ -98,7 +98,7 @@ it:
             legend: Registrati come
             user: Individuo
             user_group: Organizzazione / Collettivo
-          subtitle: Registrati per partecipare alle discussioni e sostenere le proposte.
+          subtitle: Registrati per partecipare alle discussioni e appoggiare le proposte.
           terms: Termini e condizioni di utilizzo del servizio
           tos_agreement: Effettuando la registrazione automaticamente accetti le seguenti condizioni %{link}.
           username_help: Nome "pubblico" che comparirà nei tuoi post. Utilizza un nome fittizio se vuoi garantirti un certo grado di anonimato.
