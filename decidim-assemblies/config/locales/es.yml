@@ -10,13 +10,13 @@ es:
         domain: Dominio
         hashtag: Hashtag
         hero_image: Imagen de portada
-        local_area: Áreas municipales
+        local_area: 'Áreas municipales'
         meta_scope: 'Metadatos: ámbito'
-        participatory_scope: Ámbito participativo
+        participatory_scope: 'Ámbito participativo'
         participatory_structure: Estructura participativa
         promoted: Destacado
-        scope_id: Ámbito
-        scopes_enabled: Ámbitos habilitados
+        scope_id: 'Ámbito'
+        scopes_enabled: 'Ámbitos habilitados'
         short_description: Descripción breve
         slug: Texto corto de URL
         subtitle: Subtítulo
@@ -94,10 +94,10 @@ es:
             see_all_assemblies: Ver todas las asambleas
       show:
         developer_group: Grupo promotor
-        local_area: Áreas municipales
-        participatory_scope: Ámbito participativo
+        local_area: 'Áreas municipales'
+        participatory_scope: 'Ámbito participativo'
         participatory_structure: Estructura participativa
-        scope: Ámbito
+        scope: 'Ámbito'
         target: '¿A quién va dirigida?'
       statistics:
         answers_count: Respuestas
