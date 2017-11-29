@@ -60,13 +60,13 @@ ca:
         related_photos: Fotos relacionades
     authorization_handlers:
       dummy_authorization_handler:
-        explanation: Obteniu la verificació introduint un número de document que finalitzi amb "X"
+        explanation: Verifica't introduint un número de document que finalitzi amb "X"
         fields:
-          document_number: Número de Document
-          postal_code: Codi Postal
+          document_number: Número de document
+          postal_code: Codi postal
         name: Autorització d'exemple
       dummy_authorization_workflow:
-        name: Flux de treball d'autorització simulada
+        name: Flux de treball d'autorització d'exemple
       errors:
         duplicate_authorization: Un usuari ja està autoritzat amb les mateixes dades.
       foo_authorization:
@@ -74,8 +74,8 @@ ca:
           bar: Bar
           foo: Foo
         name: Autorització foo
-      granted_at: Atorgat a %{timestamp}
-      started_at: Iniciat a %{timestamp}
+      granted_at: Atorgada el %{timestamp}
+      started_at: Iniciat el %{timestamp}
     core:
       actions:
         unauthorized: No tens permís per realitzar aquesta acció
@@ -217,8 +217,8 @@ ca:
           explanation: Per dur a terme aquesta acció, ha de disposar de l'autorització "%{authorization}".
           title: Es requereix autorització
         pending:
-          explanation: Per realitzar aquesta acció, heu d'estar autoritzada amb "%{authorization}", però la vostra autorització encara està en curs
-          resume: Comproveu el progrés de l'autorització "%{authorization}"
+          explanation: Per realitzar aquesta acció, has d'estar autoritzat/da amb "%{authorization}", però la teva autorització encara està en curs
+          resume: Comprova el progrés de l'autorització "%{authorization}"
           title: L'autorització encara està en progrés
         unauthorized:
           explanation: No es pot realitzar aquesta acció ja que alguna de les seves dades d'autorització no coincideixen amb les requerides.
