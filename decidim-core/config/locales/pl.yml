@@ -60,10 +60,13 @@ pl:
         related_photos: Powiązane zdjęcia
     authorization_handlers:
       dummy_authorization_handler:
+        explanation: Uzyskaj weryfikację, wprowadzając numer dokumentu kończący się na "X"
         fields:
           document_number: Numer dokumentu
           postal_code: Kod pocztowy
-        name: Przykładowa autoryzacja
+        name: Przykład autoryzacji
+      dummy_authorization_workflow:
+        name: Przepustowy proces autoryzacji
       errors:
         duplicate_authorization: Użytkownik jest już uprawniony z tych samych danych.
       foo_authorization:
@@ -71,20 +74,8 @@ pl:
           bar: Bar
           foo: Foo
         name: Autoryzacja Foo
-    authorizations:
-      create:
-        error: Podczas tworzenia autoryzacji wystąpił błąd.
-        success: Jesteś pomyślnie autoryzowany/autoryzowana.
-      first_login:
-        actions:
-          dummy_authorization_handler: Zwróć uwagę na przykładowe uprawnienia
-        title: Potwierdź swoją tożsamość
-        verify_with_these_options: 'Są to dostępne opcje zweryfikowania Twojej tożsamości:'
-      new:
-        authorize: Wysłać
-        authorize_with: Zweryfikuj za pomocą %{authorizer}
-      skip_verification: Możesz to pominąć teraz i %{link}
-      start_exploring: rozpocznij zwiedzanie
+      granted_at: Przyznano na %{timestamp}
+      started_at: Rozpoczęty pod adresem %{timestamp}
     core:
       actions:
         unauthorized: Nie masz uprawnień do wykonywania tej czynności
@@ -225,6 +216,10 @@ pl:
           authorize: Zezwól na "%{authorization}"
           explanation: Aby wykonać tę czynność, musisz być autoryzowanym przez "%{authorization}".
           title: Wymagana Autoryzacja
+        pending:
+          explanation: Aby wykonać tę akcję, musisz mieć autoryzację z "%{authorization}", ale twoja autoryzacja jest nadal w toku
+          resume: Sprawdź postęp procesu autoryzacji "%{authorization}"
+          title: Autoryzacja jest nadal w toku
         unauthorized:
           explanation: Niestety, nie można wykonać tej czynności, ponieważ niektóre z Twoich danych autoryzacyjnych nie są zgodne.
           invalid: "%{field} jest nieprawidłowy."
@@ -306,7 +301,7 @@ pl:
         link_label: tutaj
         ok: zgadzam się
       footer:
-        made_with_open_source: 'Strona internetowa za pomocą <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.'
+        made_with_open_source: Strona internetowa za pomocą <a target="_blank" href="https://github.com/decidim/decidim">free software</a>.
       header:
         close_menu: Zamknij menu
         navigation: Nawigacja
@@ -384,7 +379,7 @@ pl:
     reddit: Reddit
     share_to: Udostępnij do %{name}
     tumblr: Tumblr
-    twitter: Świergot
+    twitter: 'Świergot'
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Otwórz program WeChat, kliknij przycisk "Odkryj", a następnie kliknij menu "Zeskanuj kod QR Code".
