@@ -1,0 +1,125 @@
+ca:
+  activemodel:
+    attributes:
+      id_document_information:
+        document_number: Número de document (amb lletra)
+        document_type: Tipus del document
+      id_document_upload:
+        document_number: Número de document (amb lletra)
+        document_type: Tipus del document
+        user: Usuari
+        verification_attachment: Còpia escanejada del vostre document
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: Verificacions
+    authorization_handlers:
+      admin:
+        id_documents:
+          help:
+            - Els usuaris omplen la informació d'identitat i carreguen una còpia del seu document.
+            - Empleneu la informació que es mostra a la imatge penjada.
+            - La informació ha de coincidir amb el que hagi omplert l'usuari.
+            - Si no podeu veure la informació o no la podeu verificar, podeu rebutjar la sol·licitud i l'usuari la podrà solucionar.
+        postal_letter:
+          help:
+            - Els usuaris sol·liciten un codi de verificació que s'enviarà a la seva adreça.
+            - Envia la lletra a la seva adreça amb el codi de verificació.
+            - Marca la lletra com a enviada.
+            - Una vegada que marca la lletra que s'envia, l'usuari podrà introduir el codi i verificar-se.
+      direct: Directe
+      help: Ajuda
+      id_documents:
+        explanation: Carregueu els vostres documents d'identitat per poder comprovar la vostra identitat
+        name: Documents d'identitat
+      multistep: Múltiples passos
+      name: Nom
+      postal_letter:
+        explanation: Us enviarem una carta postal amb un codi que haureu d'introduir perquè puguem verificar la vostra adreça
+        name: Codi per carta postal
+    verifications:
+      authorizations:
+        create:
+          error: S'ha produït un error en crear l'autorització.
+          success: Has estat autoritzat amb èxit.
+        first_login:
+          actions:
+            dummy_authorization_handler: Verifiqueu el controlador d'autorització d'exemple
+            dummy_authorization_workflow: Verifiqueu el flux de treball d'autorització d'exemple
+            id_documents: Aconseguiu verificar si pengeu el vostre document d'identitat
+            postal_letter: Aconseguiu verificar si rebeu un codi de verificació per correu postal
+          title: Verifiqueu la vostra identitat
+          verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la vostra identitat:'
+        new:
+          authorize: Enviar
+          authorize_with: Verifiqueu amb %{authorizer}
+        skip_verification: Podeu ometre-ho per ara i %{link}
+        start_exploring: comença a explorar
+      id_documents:
+        admin:
+          confirmations:
+            create:
+              error: La verificació no coincideix. Torna-ho a provar o rebutja la verificació perquè l'usuari pugui modificar-la
+              success: S'ha verificat l'usuari correctament
+            new:
+              introduce_user_data: Introduïu les dades a la imatge
+              reject: Rebutjar
+              verify: Verifica
+          pending_authorizations:
+            index:
+              title: Verificacions pendents
+              verification_number: 'Verificació # %{n}'
+          rejections:
+            create:
+              success: S'ha rebutjat la verificació. Es demanarà a l'usuari que modifiqui els seus documents
+        authorizations:
+          create:
+            error: S'ha produït un problema en penjar el document
+            success: Document penjat correctament
+          edit:
+            being_reviewed: Estem revisant els vostres documents. Aviat es verificarà
+            rejection_clarity: Assegureu-vos que la informació sigui visible a la imatge carregada
+            rejection_correctness: Assegureu-vos que la informació introduïda sigui correcta
+            rejection_notice: S'ha produït un problema amb la vostra verificació. Siusplau torna-ho a provar
+            send: Sol·liciteu la verificació de nou
+          new:
+            send: Sol·liciteu la verificació
+            title: Penja el document d'identitat
+          update:
+            error: S'ha produït un problema en tornar a carregar el document
+            success: El document s'ha tornat a carregar correctament
+        dni: DNI
+        nie: NIE
+        passport: Passaport
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: adreça
+              letter_sent_at: Carta enviada a
+              mark_as_sent: Marca com s'envia
+              not_yet_sent: Encara no s'ha enviat
+              title: Verificacions en curs
+              username: Nom d'usuari
+              verification_code: Codi de verificació
+          postages:
+            create:
+              error: S'ha produït un error en marcar la lletra com s'envia
+              success: La lletra s'ha marcat correctament com s'ha enviat
+        authorizations:
+          create:
+            error: S'ha produït un problema amb la vostra sol·licitud
+            success: Gràcies Enviarem un codi de verificació a la vostra adreça
+          edit:
+            send: Confirma
+            title: Introduïu el codi de verificació que heu rebut
+            waiting_for_letter: En breu enviarem una carta a la vostra adreça amb el vostre codi de verificació
+          new:
+            send: Envia'm una carta
+            title: Sol·liciteu el vostre codi de verificació
+          update:
+            error: El codi de verificació no coincideix amb el nostre. Si us plau, reviseu la carta que us enviem
+            success: Felicitacions S'ha verificat correctament
+  errors:
+    messages:
+      uppercase_only_letters_numbers: Totes les majúscules han de contenir lletres i / o nombres
