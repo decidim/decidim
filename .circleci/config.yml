@@ -355,8 +355,14 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build_test_app
-      - main
+      - build_test_app:
+          filters:
+            branches:
+              ignore: /^l10n_.*/
+      - main:
+          filters:
+            branches:
+              ignore: /^l10n_.*/
       - core:
           requires:
             - build_test_app
