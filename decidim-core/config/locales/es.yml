@@ -60,13 +60,13 @@ es:
         related_photos: Fotos relacionadas
     authorization_handlers:
       dummy_authorization_handler:
-        explanation: Verifíquese introduciendo un número de documento que termine con "X"
+        explanation: Verifícate introduciendo un número de documento que termine con "X"
         fields:
-          document_number: Número del Documento
-          postal_code: código postal
-        name: Ejemplo de autorización
+          document_number: Número de documento
+          postal_code: Código postal
+        name: Autorización de ejemplo
       dummy_authorization_workflow:
-        name: Flujo de trabajo de autorización simulada
+        name: Flujo de trabajo de autorización de ejemplo
       errors:
         duplicate_authorization: Un usuario ya está autorizado con los mismos datos.
       foo_authorization:
@@ -74,8 +74,8 @@ es:
           bar: Bar
           foo: Foo
         name: Autorización foo
-      granted_at: Concedido en %{timestamp}
-      started_at: Comenzó en %{timestamp}
+      granted_at: Concedida el %{timestamp}
+      started_at: Comenzó el %{timestamp}
     core:
       actions:
         unauthorized: No tienes permiso para realizar esta acción.
@@ -217,8 +217,8 @@ es:
           explanation: Para llevar a cabo esta acción, tiene que disponer de la autorización "%{authorization}".
           title: Autorización requerida
         pending:
-          explanation: Para realizar esta acción, debe estar autorizado con "%{authorization}", pero su autorización todavía está en progreso.
-          resume: Verifique su progreso de autorización "%{authorization}"
+          explanation: Para realizar esta acción, debes estar autorizado con "%{authorization}", pero tu autorización todavía está en progreso
+          resume: Verifica el progreso de la autorización "%{authorization}"
           title: La autorización aún está en progreso
         unauthorized:
           explanation: No puedes realizar esta acción ya que algunos de los datos de autorización no son los requeridos.
