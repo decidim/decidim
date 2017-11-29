@@ -6,11 +6,11 @@ it:
       report:
         details: Ulteriori commenti
       user:
-        email: La tua email
+        email: Il tuo indirizzo email
         name: Il tuo nome
         password: Nuova password
         password_confirmation: Conferma la tua nuova password
-        remove_avatar: Rimuovere avatar
+        remove_avatar: Rimuovi avatar
         user_group_document_number: Codice fiscale dell'organizzazione
         user_group_name: Nome dell'organizzazione
         user_group_phone: Telefono dell'organizzazione
