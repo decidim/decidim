@@ -4,7 +4,7 @@ es:
       proposal:
         body: Cuerpo
         category_id: Categoría
-        scope_id: Ámbito
+        scope_id: 'Ámbito'
         title: Título
         user_group_id: Crear propuesta como
       proposal_answer:
@@ -87,7 +87,7 @@ es:
             category: Categoría
             id: Identificador
             official_proposal: Propuesta oficial
-            scope: Ámbito
+            scope: 'Ámbito'
             state: Estado
             title: Título
             votes: Votos
@@ -123,7 +123,7 @@ es:
           rejected: Rechazadas
           related_to: Relacionado con
           scope_prompt: Seleccione un ámbito
-          scopes: Ámbitos
+          scopes: 'Ámbitos'
           search: Buscar
           state: Estado
           voted: Votado
