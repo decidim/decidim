@@ -12,7 +12,7 @@ es:
       feature:
         name: Nombre
         weight: Peso
-      id: CARNÉ DE IDENTIDAD
+      id: ID
       newsletter:
         body: Cuerpo
         subject: Asunto
