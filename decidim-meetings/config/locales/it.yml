@@ -98,7 +98,7 @@ it:
         close_meeting_event:
           email_intro: 'La riunione "%{resource_title}" è stata chiusa. È possibile leggere le conclusioni dalla sua pagina:'
           email_outro: Hai ricevuto questa notifica perché segui la riunione "%{resource_title}". Puoi smettere di seguirla nel link precedente.
-          email_subject: È stata chiusa la riunione "%{resource_title}"
+          email_subject: 'È stata chiusa la riunione "%{resource_title}"'
           notification_title: La riunione di <a href="%{resource_path}">%{resource_title}</a> è stata chiusa.
         meeting_registrations_enabled:
           email_intro: 'La riunione "%{resource_title}" ha permesso le registrazioni. È possibile registrarsi sulla sua pagina:'
@@ -118,7 +118,7 @@ it:
         update_meeting_event:
           email_intro: 'La riunione "%{resource_title}" è stata aggiornata. Puoi leggere la nuova versione dalla sua pagina:'
           email_outro: Hai ricevuto questa notifica perché si segue la riunione "%{resource_title}". Puoi smettere di seguirla nel link precedente.
-          email_subject: È stata aggiornata la riunione "%{resource_title}"
+          email_subject: 'È stata aggiornata la riunione "%{resource_title}"'
           notification_title: La riunione di <a href="%{resource_path}">%{resource_title}</a> è stata aggiornata.
       mailer:
         invite_join_meeting_mailer:
