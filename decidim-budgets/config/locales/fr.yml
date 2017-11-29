@@ -12,7 +12,7 @@ fr:
     budgets:
       actions:
         attachments: Pièces jointes
-        confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet?
+        confirm_destroy: 'Êtes-vous certain de vouloir supprimer ce projet?'
         destroy: Supprimer
         edit: Modifier
         new: Nouveau
@@ -29,7 +29,7 @@ fr:
           destroy:
             success: Projet supprimé avec succès
           edit:
-            title: Éditer un projet
+            title: 'Éditer un projet'
             update: Mettre à jour
           index:
             finished_orders: Votes terminés
@@ -47,7 +47,7 @@ fr:
             title: Titre
       projects:
         budget_confirm:
-          are_you_sure: Êtes-vous d'accord ? Une fois que vous aurez confirmé votre vote, vous ne pourrez plus le modifier.
+          are_you_sure: 'Êtes-vous d''accord ? Une fois que vous aurez confirmé votre vote, vous ne pourrez plus le modifier.'
           cancel: Annuler
           confirm: Confirmer
           description: Voici les projets que vous avez choisis pour le budget.
@@ -58,7 +58,7 @@ fr:
           ok: D'accord
           title: Budget maximum dépassé
         budget_summary:
-          are_you_sure: Êtes-vous certain de vouloir annuler votre vote ?
+          are_you_sure: 'Êtes-vous certain de vouloir annuler votre vote ?'
           assigned: 'Affecté à :'
           cancel_order: supprimer votre vote et recommencer
           checked_out:
