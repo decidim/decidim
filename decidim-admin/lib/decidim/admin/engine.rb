@@ -61,7 +61,7 @@ module Decidim
                     can?(:read, :admin_users) ? decidim_admin.users_path : decidim_admin.managed_users_path,
                     icon_name: "person",
                     position: 5,
-                    active: [%w(decidim/admin/user_groups decidim/admin/users decidim/admin/managed_users), []],
+                    active: [%w(decidim/admin/user_groups decidim/admin/users decidim/admin/managed_users decidim/admin/authorization_workflows), []],
                     if: can?(:read, :admin_users) || can?(:read, :managed_users)
 
           menu.item I18n.t("menu.newsletters", scope: "decidim.admin"),

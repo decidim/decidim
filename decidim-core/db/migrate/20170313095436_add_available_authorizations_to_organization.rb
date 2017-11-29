@@ -8,9 +8,9 @@ class AddAvailableAuthorizationsToOrganization < ActiveRecord::Migration[5.0]
   def change
     add_column :decidim_organizations, :available_authorizations, :string, array: true, default: []
 
-    handlers = Decidim.authorization_handlers
+    workflows = Decidim::Verifications.workflows.map(&:name)
     Organization.find_each do |org|
-      org.update_attributes!(available_authorizations: handlers)
+      org.update_attributes!(available_authorizations: workflows)
     end
   end
 end

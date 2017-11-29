@@ -5,7 +5,7 @@ require "rspec/core/rake_task"
 require "generators/decidim/app_generator"
 require "generators/decidim/docker_generator"
 
-DECIDIM_GEMS = %w(core system admin api participatory_processes assemblies pages meetings proposals comments accountability budgets surveys dev).freeze
+DECIDIM_GEMS = %w(core system admin api participatory_processes assemblies pages meetings proposals comments accountability budgets surveys verifications dev).freeze
 
 RSpec::Core::RakeTask.new(:spec)
 

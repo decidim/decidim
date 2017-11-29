@@ -26,7 +26,7 @@ describe "Organizations", type: :feature do
         fill_in "Organization admin email", with: "mayor@citizen.corp"
         check "organization_available_locales_en"
         choose "organization_default_locale_en"
-        check "Decidim::DummyAuthorizationHandler"
+        check "Example authorization (Direct)"
         click_button "Create organization & invite admin"
 
         expect(page).to have_css("div.flash.success")
@@ -57,7 +57,7 @@ describe "Organizations", type: :feature do
         fill_in "Name", with: "Citizens Rule!"
         fill_in "Host", with: "www.foo.org"
         fill_in "Secondary hosts", with: "foobar.citizen.corp\n\rbar.citizen.corp"
-        check "Decidim::DummyAuthorizationHandler"
+        check "Example authorization (Direct)"
         click_button "Save"
 
         expect(page).to have_css("div.flash.success")

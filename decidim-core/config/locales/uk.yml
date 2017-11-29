@@ -59,7 +59,7 @@ uk:
       photos:
         related_photos: Супутні світлини
     authorization_handlers:
-      decidim/dummy_authorization_handler:
+      dummy_authorization_handler:
         fields:
           document_number: Номер документа
           postal_code: Поштовий індекс
@@ -77,7 +77,7 @@ uk:
         success: Ви успішно підтвердили свою особу.
       first_login:
         actions:
-          decidim/dummy_authorization_handler: Перевірте, порівнявши з прикладом підтвердження своєї особи
+          dummy_authorization_handler: Перевірте, порівнявши з прикладом підтвердження своєї особи
         title: Підтвердьте свою особу
         verify_with_these_options: 'Наявні такі способи підтвердити вашу особу:'
       new:

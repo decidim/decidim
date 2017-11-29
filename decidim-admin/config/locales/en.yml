@@ -13,6 +13,7 @@ en:
       feature:
         name: Name
         weight: Weight
+      id: ID
       newsletter:
         body: Body
         subject: Subject
@@ -386,6 +387,7 @@ en:
           error: There was an error when updating this page.
           success: Page updated successfully
       titles:
+        authorization_workflows: Verification methods
         dashboard: Dashboard
         impersonations: Impersonations
         managed_users: Managed users

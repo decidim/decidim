@@ -59,7 +59,7 @@ fi:
       photos:
         related_photos: Liittyvät kuvat
     authorization_handlers:
-      decidim/dummy_authorization_handler:
+      dummy_authorization_handler:
         fields:
           document_number: Dokumenttinumero
           postal_code: Postinumero
@@ -77,7 +77,7 @@ fi:
         success: Sinut on onnistuneesti varmennettu.
       first_login:
         actions:
-          decidim/dummy_authorization_handler: Vahvista esimerkkivarmennuksen avulla
+          dummy_authorization_handler: Vahvista esimerkkivarmennuksen avulla
         title: Vahvista identiteettisi
         verify_with_these_options: 'Voit vahvistaa identiteettisi seuraavien vaihtoehtojen avulla:'
       new:

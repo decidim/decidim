@@ -12,7 +12,7 @@
           <ul>
             <% current_assembly.features.each do |feature| %>
               <% if feature.manifest.admin_engine %>
-                <li <% if is_active_link?(manage_feature_path(feature)) %> class="is-active" <% end %>>
+                <li <% if is_active_link?(manage_feature_path(feature)) || is_active_link?(decidim_admin_assemblies.edit_feature_path(current_assembly, feature)) || is_active_link?(decidim_admin_assemblies.edit_feature_permissions_path(current_assembly, feature)) %> class="is-active" <% end %>>
                   <%= link_to manage_feature_path(feature) do %>
                     <%= translated_attribute feature.name %>
                     <% if feature.primary_stat.present? %>

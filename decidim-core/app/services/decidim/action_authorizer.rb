@@ -27,18 +27,30 @@ module Decidim
     #
     # Returns nil.
     def authorize
-      raise AuthorizationError, "Missing data" unless feature && action
+      status_code, fields = *status_data
 
-      return status(:ok) unless authorization_handler_name
-
-      return status(:missing) unless authorization
-      return status(:invalid, fields: unmatched_fields) if unmatched_fields.any?
-      return status(:incomplete, fields: missing_fields) if missing_fields.any?
-
-      status(:ok)
+      status(status_code, fields || {})
     end
 
     private
+
+    def status_data
+      raise AuthorizationError, "Missing data" unless feature && action
+
+      if !authorization_handler_name
+        :ok
+      elsif !authorization
+        :missing
+      elsif !authorization.granted?
+        :pending
+      elsif unmatched_fields.any?
+        [:invalid, fields: unmatched_fields]
+      elsif missing_fields.any?
+        [:incomplete, fields: missing_fields]
+      else
+        :ok
+      end
+    end
 
     def status(status_code, data = {})
       AuthorizationStatus.new(status_code, authorization_handler_name, data)
@@ -52,9 +64,7 @@ module Decidim
       handler = permission["authorization_handler_name"]
       return nil unless handler
 
-      @authorization ||= user.authorizations.find do |authorization|
-        authorization.name == handler
-      end
+      @authorization ||= Verifications::Authorizations.new(user: user, name: handler).first
     end
 
     def unmatched_fields
@@ -87,7 +97,7 @@ module Decidim
     end
 
     class AuthorizationStatus
-      attr_reader :code, :handler_name, :data
+      attr_reader :code, :data
 
       def initialize(code, handler_name, data)
         @code = code.to_sym
@@ -95,8 +105,34 @@ module Decidim
         @data = data.symbolize_keys
       end
 
+      def auth_method
+        return unless @handler_name
+
+        @auth_method ||= Verifications::Adapter.from_element(@handler_name)
+      end
+
+      def current_path(redirect_url: nil)
+        return unless auth_method
+
+        if pending?
+          auth_method.resume_authorization_path(redirect_url: redirect_url)
+        else
+          auth_method.root_path(redirect_url: redirect_url)
+        end
+      end
+
+      def handler_name
+        return unless auth_method
+
+        auth_method.key
+      end
+
       def ok?
         @code == :ok
+      end
+
+      def pending?
+        @code == :pending
       end
     end
 

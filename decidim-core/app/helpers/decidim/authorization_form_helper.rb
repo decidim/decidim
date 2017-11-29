@@ -16,7 +16,7 @@ module Decidim
       default_options = {
         builder: AuthorizationFormBuilder,
         as: "authorization_handler",
-        url: authorizations_path
+        url: decidim_verifications.authorizations_path
       }
 
       options = default_options.merge(options)

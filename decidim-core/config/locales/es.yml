@@ -59,7 +59,7 @@ es:
       photos:
         related_photos: Fotos relacionadas
     authorization_handlers:
-      decidim/dummy_authorization_handler:
+      dummy_authorization_handler:
         fields:
           document_number: Número de documento
           postal_code: Código postal
@@ -77,7 +77,7 @@ es:
         success: Has sido autorizado/a correctamente.
       first_login:
         actions:
-          decidim/dummy_authorization_handler: Verificar ejemplo autorización en contra de la
+          dummy_authorization_handler: Verificar ejemplo autorización en contra de la
         title: Verifica tu identidad
         verify_with_these_options: 'Estas son las opciones disponibles para verificar su identidad:'
       new:

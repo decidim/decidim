@@ -1,0 +1,126 @@
+---
+en:
+  activemodel:
+    attributes:
+      id_document_information:
+        document_number: Document number (with letter)
+        document_type: Type of the document
+      id_document_upload:
+        document_number: Document number (with letter)
+        document_type: Type of your document
+        user: User
+        verification_attachment: Scanned copy of your document
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: Verifications
+    authorization_handlers:
+      admin:
+        id_documents:
+          help:
+          - Users fill in their identity information and upload a copy of their document.
+          - You fill in the information present in the uploaded image.
+          - The information should match whatever the user filled in.
+          - If you can't clearly see the information or you can't get it verified, you can reject the request and the user will be able to fix it.
+        postal_letter:
+          help:
+          - Users request a verification code to be sent to their address.
+          - You send the letter to their address with the verification code.
+          - You mark the letter as sent.
+          - Once you mark the letter as sent, the user will be able to introduce the code and get verified.
+      direct: Direct
+      help: Help
+      id_documents:
+        explanation: Upload your identity documents so we can check your identity
+        name: Identity documents
+      multistep: Multi-Step
+      name: Name
+      postal_letter:
+        explanation: We'll send you a postal letter with a code that you'll have to enter so we can verify your address
+        name: Code by postal letter
+    verifications:
+      authorizations:
+        create:
+          error: There was an error creating the authorization.
+          success: You've been successfully authorized.
+        first_login:
+          actions:
+            dummy_authorization_handler: Verify against the example authorization handler
+            dummy_authorization_workflow: Verify against the example authorization workflow
+            id_documents: Get verified by uploading your identity document
+            postal_letter: Get verified by receiving a verification code through postal mail
+          title: Verify your identity
+          verify_with_these_options: 'These are the available options to verify your identity:'
+        new:
+          authorize: Send
+          authorize_with: Verify with %{authorizer}
+        skip_verification: You can skip this for now and %{link}
+        start_exploring: start exploring
+      id_documents:
+        admin:
+          confirmations:
+            create:
+              error: Verification doesn't match. Try again or reject the verification so the user can amend it
+              success: User successfully verified
+            new:
+              introduce_user_data: Introduce the data in the picture
+              reject: Reject
+              verify: Verify
+          pending_authorizations:
+            index:
+              title: Pending verifications
+              verification_number: 'Verification #%{n}'
+          rejections:
+            create:
+              success: Verification rejected. User will be prompted to amend her documents
+        authorizations:
+          create:
+            error: There was a problem uploading your document
+            success: Document uploaded successfully
+          edit:
+            being_reviewed: We're reviewing your documents. You'll be verified shortly
+            rejection_clarity: Make sure the information is clearly visible in the uploaded image
+            rejection_correctness: Make sure the information entered is correct
+            rejection_notice: There was a problem with your verification. Please try again
+            send: Request verification again
+          new:
+            send: Request verification
+            title: Upload your identity document
+          update:
+            error: There was a problem reuploading your document
+            success: Document reuploaded successfully
+        dni: DNI
+        nie: NIE
+        passport: Passport
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Address
+              letter_sent_at: Letter sent at
+              mark_as_sent: Mark as sent
+              not_yet_sent: Not yet sent
+              title: Ongoing verifications
+              username: Username
+              verification_code: Verification code
+          postages:
+            create:
+              error: Error marking letter as sent
+              success: Letter successfully marked as sent
+        authorizations:
+          create:
+            error: There was a problem with your request
+            success: Thanks! We'll send a verification code to your address
+          edit:
+            send: Confirm
+            title: Introduce the verification code you received
+            waiting_for_letter: We'll be sending a letter to your address with your verification code soon
+          new:
+            send: Send me a letter
+            title: Request your verification code
+          update:
+            error: Your verification code doesn't match ours. Please double-check the letter we sent to you
+            success: Congratulations. You've been successfully verified
+  errors:
+    messages:
+      uppercase_only_letters_numbers: must be all uppercase and contain only letters and/or numbers

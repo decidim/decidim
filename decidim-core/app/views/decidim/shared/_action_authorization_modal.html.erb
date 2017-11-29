@@ -6,7 +6,17 @@
               type="button">
         <span aria-hidden="true">&times;</span>
       </button>
-      <% if status.code == :incomplete %>
+      <% if status.code == :pending %>
+        <div class="reveal__header pending-authorization">
+          <h3 class="reveal__title"><%= t('.pending.title') %></h3>
+        </div>
+        <p><%= t ".pending.explanation", authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers") %></p>
+        <div class="row">
+          <div class="columns medium-8 medium-offset-2">
+            <%= link_to t('.pending.resume', authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers")), authorize_action_path(action), class: "button expanded" %>
+          </div>
+        </div>
+      <% elsif status.code == :incomplete %>
         <div class="reveal__header incomplete-authorization">
           <h3 class="reveal__title"><%= t('.incomplete.title') %></h3>
         </div>

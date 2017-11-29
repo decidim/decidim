@@ -11,16 +11,34 @@ module Decidim
   # depending on the response it allows the creation of the authorization or
   # not.
   class Authorization < ApplicationRecord
-    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User", inverse_of: :authorizations
+    mount_uploader :verification_attachment, Decidim::Verifications::AttachmentUploader
+
+    belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User"
 
     validates :name, uniqueness: { scope: :decidim_user_id }
+    validates :verification_metadata, absence: true, if: :granted?
+    validates :verification_attachment, absence: true, if: :granted?
 
     validate :active_handler?
+
+    def grant!
+      remove_verification_attachment!
+
+      update!(granted_at: Time.zone.now, verification_metadata: {})
+    end
+
+    def granted?
+      !granted_at.nil?
+    end
 
     private
 
     def active_handler?
-      AuthorizationHandler.active_handler?(name)
+      if Decidim::Verifications.find_workflow_manifest(name)
+        true
+      else
+        false
+      end
     end
   end
 end

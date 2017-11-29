@@ -38,6 +38,13 @@
     }
   }
 
+  &.table-list--lastleft{
+    th:last-child,
+    td:last-child{
+      text-align: left;
+    }
+  }
+
   a:not(.button){
     color: $body-font-color;
     &:hover{

@@ -59,7 +59,7 @@ pl:
       photos:
         related_photos: Powiązane zdjęcia
     authorization_handlers:
-      decidim/dummy_authorization_handler:
+      dummy_authorization_handler:
         fields:
           document_number: Numer dokumentu
           postal_code: Kod pocztowy
@@ -77,7 +77,7 @@ pl:
         success: Jesteś pomyślnie autoryzowany/autoryzowana.
       first_login:
         actions:
-          decidim/dummy_authorization_handler: Zwróć uwagę na przykładowe uprawnienia
+          dummy_authorization_handler: Zwróć uwagę na przykładowe uprawnienia
         title: Potwierdź swoją tożsamość
         verify_with_these_options: 'Są to dostępne opcje zweryfikowania Twojej tożsamości:'
       new:

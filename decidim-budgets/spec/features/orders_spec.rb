@@ -62,7 +62,7 @@ describe "Orders", type: :feature do
       before do
         permissions = {
           vote: {
-            authorization_handler_name: "decidim/dummy_authorization_handler"
+            authorization_handler_name: "dummy_authorization_handler"
           }
         }
 

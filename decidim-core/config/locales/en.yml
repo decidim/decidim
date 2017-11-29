@@ -60,11 +60,14 @@ en:
       photos:
         related_photos: Related photos
     authorization_handlers:
-      decidim/dummy_authorization_handler:
+      dummy_authorization_handler:
+        explanation: Get verified by introducing a document number ending with "X"
         fields:
           document_number: Document number
           postal_code: Postal code
         name: Example authorization
+      dummy_authorization_workflow:
+        name: Dummy authorization workflow
       errors:
         duplicate_authorization: A user is already authorized with the same data.
       foo_authorization:
@@ -72,20 +75,8 @@ en:
           bar: Bar
           foo: Foo
         name: Foo authorization
-    authorizations:
-      create:
-        error: There was an error creating the authorization.
-        success: You've been successfully authorized.
-      first_login:
-        actions:
-          decidim/dummy_authorization_handler: Verify against the example authorization
-        title: Verify your identity
-        verify_with_these_options: 'These are the available options to verify your identity:'
-      new:
-        authorize: Send
-        authorize_with: Verify with %{authorizer}
-      skip_verification: You can skip this for now and %{link}
-      start_exploring: start exploring
+      granted_at: Granted at %{timestamp}
+      started_at: Started at %{timestamp}
     core:
       actions:
         unauthorized: You are not authorized to perform this action
@@ -226,6 +217,10 @@ en:
           authorize: Authorize with "%{authorization}"
           explanation: In order to perform this action, you need to be authorized with "%{authorization}".
           title: Authorization required
+        pending:
+          explanation: In order to perform this action, you need to be authorized with "%{authorization}", but your authorization is still in progress
+          resume: Check your "%{authorization}" authorization progress
+          title: Authorization is still in progress
         unauthorized:
           explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
           invalid: "%{field} isn't valid."

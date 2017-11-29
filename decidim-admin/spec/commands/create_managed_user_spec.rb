@@ -5,14 +5,14 @@ require "spec_helper"
 module Decidim::Admin
   describe CreateManagedUser do
     describe "call" do
-      let(:available_authorizations) { ["Decidim::DummyAuthorizationHandler"] }
+      let(:available_authorizations) { ["dummy_authorization_handler"] }
       let(:organization) { create(:organization, available_authorizations: available_authorizations) }
       let(:document_number) { "12345678X" }
       let(:form_params) do
         {
           name: "Foo",
           authorization: {
-            handler_name: "Decidim::DummyAuthorizationHandler",
+            handler_name: "dummy_authorization_handler",
             document_number: document_number
           }
         }
@@ -57,7 +57,7 @@ module Decidim::Admin
         end
 
         it "authorizes the user" do
-          expect(Decidim::AuthorizeUser).to receive(:call).with(form.authorization)
+          expect(Decidim::Verifications::AuthorizeUser).to receive(:call).with(form.authorization)
           command.call
         end
       end

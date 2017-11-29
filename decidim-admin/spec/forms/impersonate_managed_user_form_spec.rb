@@ -16,7 +16,7 @@ module Decidim
       let(:organization) { create :organization }
       let(:authorization) do
         {
-          handler_name: "decidim/dummy_authorization_handler",
+          handler_name: "dummy_authorization_handler",
           document_number: "12345678X"
         }
       end

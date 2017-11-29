@@ -296,7 +296,8 @@ $datetime-bg: $primary;
 
 /* Card list */
 .card--list{
-  .card--list__item:not(:last-of-type){
+  .card--list__item:not(:last-of-type),
+  *:not(:last-of-type) .card--list__item {
     border-bottom: $border;
   }
 }

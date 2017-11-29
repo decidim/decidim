@@ -107,17 +107,8 @@ module Decidim
       def authorization_handler
         template "initializer.rb", "config/initializers/decidim.rb"
 
-        auth_handler = if options[:demo]
-                         "decidim/dummy_authorization_handler"
-                       else
-                         "example_authorization_handler"
-                       end
-
-        template "#{auth_handler}.rb", "app/services/#{auth_handler}.rb"
-
-        gsub_file "config/initializers/decidim.rb",
-                  /config\.mailer_sender = "change-me@domain\.org"/ do |match|
-          match << "\n  config.authorization_handlers = [\"#{auth_handler.classify}\"]"
+        if options[:demo]
+          template "example_authorization_handler.rb", "app/services/example_authorization_handler.rb"
         end
       end
 

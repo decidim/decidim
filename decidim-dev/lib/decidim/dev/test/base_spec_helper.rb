@@ -22,6 +22,7 @@ require "decidim/core"
 require "decidim/core/test"
 
 require_relative "rspec_support/feature.rb"
+require_relative "rspec_support/authorization.rb"
 
 require "#{Decidim::Dev.dummy_app_path}/config/environment"
 

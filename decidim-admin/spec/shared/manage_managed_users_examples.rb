@@ -4,7 +4,7 @@ shared_examples "manage managed users examples" do
   include ActiveSupport::Testing::TimeHelpers
 
   let(:organization) { create(:organization, available_authorizations: available_authorizations) }
-  let(:available_authorizations) { ["Decidim::DummyAuthorizationHandler"] }
+  let(:available_authorizations) { ["dummy_authorization_handler"] }
 
   before do
     switch_to_host(organization.host)
@@ -77,7 +77,7 @@ shared_examples "manage managed users examples" do
   end
 
   context "when the organization has more than one authorization available" do
-    let(:available_authorizations) { ["Decidim::DummyAuthorizationHandler", "Decidim::DummyAuthorizationHandler"] }
+    let(:available_authorizations) { %w(dummy_authorization_handler dummy_authorization_handler) }
 
     it "selects an authorization method and creates a managed user filling in the authorization info" do
       navigate_to_managed_users_page
@@ -100,7 +100,7 @@ shared_examples "manage managed users examples" do
 
   context "when a manager user already exists" do
     let!(:managed_user) { create(:user, :managed, organization: organization) }
-    let!(:authorization) { create(:authorization, user: managed_user, name: "decidim/dummy_authorization_handler", unique_id: "123456789X") }
+    let!(:authorization) { create(:authorization, user: managed_user, name: "dummy_authorization_handler", unique_id: "123456789X") }
 
     it "can impersonate the user filling in the correct authorization" do
       impersonate_the_managed_user

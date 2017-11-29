@@ -14,7 +14,7 @@
             <div class="card-section">
               <%= form.select :authorization_handler_name,
                 authorizations.map { |authorization|
-                  [t("#{authorization}.name", scope: "decidim.authorization_handlers"), authorization]
+                  [authorization.description, authorization.key]
                 }, include_blank: t(".everyone") %>
               <%= form.text_field :options %>
             </div>

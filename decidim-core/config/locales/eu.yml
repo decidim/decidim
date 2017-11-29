@@ -59,7 +59,7 @@ eu:
       photos:
         related_photos: Honekin lotutako argazkiak
     authorization_handlers:
-      decidim/dummy_authorization_handler:
+      dummy_authorization_handler:
         fields:
           document_number: Agiri-zenbakia
           postal_code: Posta-kodea
@@ -77,7 +77,7 @@ eu:
         success: Baimendua izan zara zuzen.
       first_login:
         actions:
-          decidim/dummy_authorization_handler: 'Egiaztatu baimen-adibidea honekin erkatuta:'
+          dummy_authorization_handler: 'Egiaztatu baimen-adibidea honekin erkatuta:'
         title: Egiaztatu zure nortasuna
         verify_with_these_options: 'Hona zure nortasuna egiaztatzeko dituzun aukerak:'
       new:

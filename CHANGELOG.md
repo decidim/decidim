@@ -6,6 +6,7 @@
 
 - **decidim-assemblies**: Show promoted assemblies in the homepage [\#2162](https://github.com/decidim/decidim/pull/2162)
 - **decidim-core**: Add view hooks so external engines can extend the homepage and other sections with their own code [\#2114](https://github.com/decidim/decidim/pull/2114)
+- **decidim-verifications**: Support for deferred verification methods that require several steps in order to be granted. [\#2024](https://github.com/decidim/decidim/pull/2024)
 
 **Changed**:
 
@@ -14,6 +15,30 @@
 - **decidim-admin**: Replace url to visit_url moderation admin [\#2129](https://github.com/decidim/decidim/pull/2129)
 - **decidim-core**: Hide link to register when user is already logged in [\#2088](https://github.com/decidim/decidim/pull/2088)
 - **decidim-proposals**: Change "Already voted" to "Unvote" on button hover [\#2096](https://github.com/decidim/decidim/pull/2096)
+- **decidim-verifications**: Authorization forms now must be registered using
+  the new API. If you previously had a custom authorization form registered via:
+
+  ```ruby
+  # config/initializers/decidim.rb
+
+  Decidim.configure do |config|
+    # ...
+
+    config.authorization_handlers = ["Decidim::MyCensusHandler"]
+
+    # ...
+  end
+  ```
+
+  You must change it to
+
+  ```ruby
+  # config/initializers/decidim.rb
+
+  Decidim::Verifications.register_workflow(:my_census_handler) do |auth|
+    auth.form = "Decidim::MyCensusHandler"
+  end
+  ```
 
 **Fixed**:
 

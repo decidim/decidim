@@ -26,12 +26,9 @@ Decidim::Core::Engine.routes.draw do
     mount manifest.engine, at: "/", as: "decidim_#{manifest.name}"
   end
 
+  mount Decidim::Verifications::Engine, at: "/", as: "decidim_verifications"
+
   authenticate(:user) do
-    resources :authorizations, only: [:new, :create, :index] do
-      collection do
-        get :first_login
-      end
-    end
     resource :account, only: [:show, :update, :destroy], controller: "account" do
       member do
         get :delete

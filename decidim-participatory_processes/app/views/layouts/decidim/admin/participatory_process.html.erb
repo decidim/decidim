@@ -17,7 +17,7 @@
           <ul>
             <% current_participatory_process.features.each do |feature| %>
               <% if feature.manifest.admin_engine %>
-                <li <% if is_active_link?(manage_feature_path(feature)) %> class="is-active" <% end %>>
+                <li <% if is_active_link?(manage_feature_path(feature)) || is_active_link?(decidim_admin_participatory_processes.edit_feature_path(current_participatory_process, feature)) || is_active_link?(decidim_admin_participatory_processes.edit_feature_permissions_path(current_participatory_process, feature)) %> class="is-active" <% end %>>
                   <%= link_to manage_feature_path(feature) do %>
                     <%= translated_attribute feature.name %>
                     <% if feature.primary_stat.present? %>

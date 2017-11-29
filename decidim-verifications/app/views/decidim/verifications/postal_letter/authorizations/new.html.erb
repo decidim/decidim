@@ -1,0 +1,27 @@
+<div class="wrapper">
+  <div class="row collapse">
+    <div class="row collapse">
+      <div class="columns large-8 large-centered text-center page-title">
+        <h1><%= t(".title") %></h1>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="columns large-6 medium-centered">
+        <div class="card">
+          <div class="card__content">
+            <%= decidim_form_for(@form, url: authorization_path) do |form| %>
+              <div class="field">
+                <%= form.text_field :full_address %>
+              </div>
+
+              <div class="actions">
+                <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

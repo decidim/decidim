@@ -16,6 +16,12 @@ Decidim::Admin::Engine.routes.draw do
       resources :scopes, except: [:show]
     end
 
+    resources :authorization_workflows, only: :index
+
+    Decidim.authorization_admin_engines.each do |manifest|
+      mount manifest.admin_engine, at: "/#{manifest.name}", as: "decidim_admin_#{manifest.name}"
+    end
+
     resources :users, except: [:edit, :update], controller: "users" do
       member do
         post :resend_invitation, to: "users#resend_invitation"

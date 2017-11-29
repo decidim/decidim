@@ -76,20 +76,6 @@ We also have other guides on how to configure some extra features:
 - [Analytics](https://github.com/decidim/decidim/blob/master/docs/analytics.md): How to enable analytics
 - [Geocoding](https://github.com/decidim/decidim/blob/master/docs/geocoding.md): How to enable geocoding for proposals and meetings
 
-## Creating an Authorization handler
-
-Authorization handlers are used to validate users following some criteria. The most common use case is validating a user against a census, so that you can differentiate users living in your city from users living outside.
-
-The generator will have created an `ExampleAuthorizationHandler` so you can learn how to implement your own. You'll usually want to define some fields that you will use to authenticate against a census (for example, an ID and a Postal Code). In this class you'll need to write the logic to validate the user against the census. See the documentation for [the parent class](https://github.com/decidim/decidim/blob/master/decidim-core/app/services/decidim/authorization_handler.rb) and a [live example in Decidim Barcelona](https://github.com/decidim/decidim-barcelona/blob/master/app/services/census_authorization_handler.rb).
-
-You'll need to reference it from the Decidim initializer:
-
-```ruby
-# config/initializers/decidim.rb
-
-config.authorization_handlers = ["<my authorization handler class>"]
-```
-
 ## Deploy
 
 Once you've generated the Decidim app you might need to do some changes in order to deploy it. You can check [`codegram/decidim-deploy-heroku`](https://github.com/codegram/decidim-deploy-heroku) for an opinionated example of things to do before deploying to Heroku, for example.
