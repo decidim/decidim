@@ -6,7 +6,7 @@ ca:
         document_type: Tipus del document
       id_document_upload:
         document_number: Número de document (amb lletra)
-        document_type: Tipus del document
+        document_type: Tipus del teu document
         user: Usuari
         verification_attachment: Còpia escanejada del vostre document
   decidim:
