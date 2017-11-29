@@ -4,7 +4,7 @@ ca:
       result:
         decidim_accountability_status_id: Estat
         decidim_category_id: Categoria
-        decidim_scope_id: Àmbit
+        decidim_scope_id: 'Àmbit'
         description: Descripció
         end_date: Fi
         progress: Progrés
@@ -119,7 +119,7 @@ ca:
         filters:
           all: Tots
           global: Global
-          scopes: Àmbits
+          scopes: 'Àmbits'
         home:
           categories_label: Categories
           subcategories_label: Subcategories
