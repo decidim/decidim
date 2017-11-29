@@ -21,7 +21,7 @@ pl:
         scope_id: Zakres
         scopes_enabled: Zakresy włączone
         short_description: Krótki opis
-        slug: Ślimak URL
+        slug: 'Ślimak URL'
         start_date: Data rozpoczęcia
         subtitle: Podtytuł
         target: Cel
