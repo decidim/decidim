@@ -119,7 +119,7 @@ pl:
             other: "%{count} wyników"
         filters:
           all: Wszystkie
-          global: Światowy
+          global: 'Światowy'
           scopes: Zakresy
         home:
           categories_label: Kategorie
