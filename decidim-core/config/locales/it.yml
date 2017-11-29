@@ -60,10 +60,13 @@ it:
         related_photos: Immagini correlate
     authorization_handlers:
       dummy_authorization_handler:
+        explanation: Ottieni la verifica introducendo un numero di documento che termina con "X"
         fields:
-          document_number: Numero di documento
-          postal_code: C.A.P.
+          document_number: Numero del documento
+          postal_code: Codice postale
         name: Esempio di autorizzazione
+      dummy_authorization_workflow:
+        name: Flusso di lavoro fittizio di autorizzazione
       errors:
         duplicate_authorization: Esiste già un utente registrato con gli stessi dati.
       foo_authorization:
@@ -71,20 +74,8 @@ it:
           bar: Barra
           foo: foo
         name: Autorizzazione Foo
-    authorizations:
-      create:
-        error: Si è verificato un errore nella creazione dell'autorizzazione.
-        success: Sei stato autorizzato con successo.
-      first_login:
-        actions:
-          dummy_authorization_handler: Verifica rispetto all'autorizzazione esempio
-        title: Verifica la tua identità
-        verify_with_these_options: 'Opzioni per la verifica dell''autorizzazione:'
-      new:
-        authorize: Invia
-        authorize_with: Verifica con %{authorizer}
-      skip_verification: Se preferisci puoi saltare questa verifica per il momento e %{link}
-      start_exploring: iniziare ad esplorare
+      granted_at: Concesso a %{timestamp}
+      started_at: Iniziato a %{timestamp}
     core:
       actions:
         unauthorized: Non sei autorizzato a eseguire questa azione
@@ -225,6 +216,10 @@ it:
           authorize: Autorizzare con "%{authorization}"
           explanation: Per effettuare questa operazione devi disporre della autorizzazione "%{authorization}".
           title: Autorizzazione richiesta
+        pending:
+          explanation: Per eseguire questa azione, devi essere autorizzato con "%{authorization}", ma la tua autorizzazione è ancora in corso
+          resume: Controlla il tuo avanzamento dell'autorizzazione "%{authorization}"
+          title: L'autorizzazione è ancora in corso
         unauthorized:
           explanation: Non puoi eseguire questa azione poiché alcuni dei tuoi dati di autorizzazione non corrispondono.
           invalid: "%{field} non è valido."
@@ -306,7 +301,7 @@ it:
         link_label: qui
         ok: OK, accetto
       footer:
-        made_with_open_source: 'Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.'
+        made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.
       header:
         close_menu: Chiudere menu
         navigation: Navigazione
