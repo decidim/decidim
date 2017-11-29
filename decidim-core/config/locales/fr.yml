@@ -39,7 +39,7 @@ fr:
         confirm:
           close: Fermer la fenêtre
           ok: Oui, je souhaite supprimer mon compte
-          question: Êtes-vous sûr de vouloir supprimer votre compte?
+          question: 'Êtes-vous sûr de vouloir supprimer votre compte?'
           title: Supprimer mon compte
         explanation: Veuillez indiquer la raison pour laquelle vous souhaitez supprimer votre compte (facultatif).
       destroy:
@@ -59,11 +59,6 @@ fr:
       photos:
         related_photos: Photos associées
     authorization_handlers:
-      dummy_authorization_handler:
-        fields:
-          document_number: Numéro de document
-          postal_code: Code postal
-        name: Exemple d'autorisation
       errors:
         duplicate_authorization: Un utilisateur est déjà autorisé avec les mêmes données.
       foo_authorization:
@@ -71,20 +66,6 @@ fr:
           bar: Machin
           foo: Truc
         name: Autorisation Truc
-    authorizations:
-      create:
-        error: Une erreur s'est produite lors de la création de l'autorisation.
-        success: Votre autorisation a été réalisée avec succès.
-      first_login:
-        actions:
-          dummy_authorization_handler: Vérifier en comparant avec l'autorisation exemple
-        title: Vérifiez votre identité
-        verify_with_these_options: 'Voici les options disponibles pour vérifier votre identité:'
-      new:
-        authorize: Envoyer
-        authorize_with: Vérifiez avec %{authorizer}
-      skip_verification: Vous pouvez ignorer ceci pour l'instant et %{link}
-      start_exploring: Commencez à explorer
     core:
       actions:
         unauthorized: Vous n'êtes pas autorisé à effectuer cette action
@@ -306,7 +287,7 @@ fr:
         link_label: ici
         ok: '"J''accepte"'
       footer:
-        made_with_open_source: 'Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.'
+        made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
       header:
         close_menu: Fermer le menu
         navigation: Navigation
@@ -357,7 +338,7 @@ fr:
       statistics:
         answers_count: Réponses
         comments_count: Commentaires
-        headline: État actuel de %{organization}
+        headline: 'État actuel de %{organization}'
         meetings_count: Rencontres
         orders_count: Votes
         pages_count: Pages
