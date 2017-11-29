@@ -17,6 +17,7 @@
 
 **Fixed**:
 
+- **decidim-core**: Fix foundation datepicker es date format [\#2278](https://github.com/decidim/decidim/pull/2278)
 - **decidim-admin**: Do not let newsletters have videos, as emails can't render them [\#2257](https://github.com/decidim/decidim/pull/2257)
 - **decidim-core**: Fixes ScopeType relation with Scope [\#2255](https://github.com/decidim/decidim/pull/2255)
 - **decidim-core**: Fixes to MigrateUserRolesToParticipatoryProcessRoles: avoid using relations and work with id's directly [\#2223](https://github.com/decidim/decidim/pull/2223)
