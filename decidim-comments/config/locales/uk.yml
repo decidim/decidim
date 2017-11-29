@@ -5,66 +5,66 @@ uk:
         comment_created:
           comment:
             email_intro: '"%{resource_title}" прокоментували. Ви можете прочитати коментар на цій сторінці:'
-            email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-            email_subject: Надійшов новий коментар від %{author_name} на %{resource_title}
-            notification_title: Надійшов новий коментар від %{author_name} на <a href="%{resource_path}">%{resource_title}</a>
+            email_outro: 'Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.'
+            email_subject: 'Надійшов новий коментар від %{author_name} на %{resource_title}'
+            notification_title: 'Надійшов новий коментар від %{author_name} на <a href="%{resource_path}">%{resource_title}</a>'
           reply:
             email_intro: '"%{resource_title}" прокоментували'
-            email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
-            email_subject: Надійшла нова відповідь на ваш коментар від %{author_name} на <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Надійшла нова відповідь на ваш коментар від %{author_name} на <a href="%{resource_path}">%{resource_title}</a>
+            email_outro: 'Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.'
+            email_subject: 'Надійшла нова відповідь на ваш коментар від %{author_name} на <a href="%{resource_url}">%{resource_title}</a>'
+            notification_title: 'Надійшла нова відповідь на ваш коментар від %{author_name} на <a href="%{resource_path}">%{resource_title}</a>'
       votes:
         create:
-          error: При голосуванні коментаря сталися помилки.
+          error: 'При голосуванні коментаря сталися помилки.'
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Увійдіть за допомогою свого облікового запису</a> або <a href="%{sign_up_url}">зареєструйтесь</a>, щоб додати свій коментар.
         form:
           body:
-            label: Коментар
-            placeholder: Що ви думаєте з цього приводу?
-          form_error: Тут обов'язково потрібно ввести текст, але не більше, ніж %{length} символів.
-          submit: Надіслати
+            label: 'Коментар'
+            placeholder: 'Що ви думаєте з цього приводу?'
+          form_error: 'Тут обов''язково потрібно ввести текст, але не більше, ніж %{length} символів.'
+          submit: 'Надіслати'
           user_group_id:
-            label: Коментувати як
+            label: 'Коментувати як'
         opinion:
-          neutral: Безсторонньо
+          neutral: 'Безсторонньо'
         remaining_characters: "Залишилось %{count} символів"
         remaining_characters_1: "Залишився %{count} символ"
-        title: Додати свій коментар
+        title: 'Додати свій коментар'
       comment:
         alignment:
-          against: Проти
-          in_favor: На підтримку
-        deleted_user: Видалений учасник
-        reply: Відповісти
+          against: 'Проти'
+          in_favor: 'На підтримку'
+        deleted_user: 'Видалений учасник'
+        reply: 'Відповісти'
         report:
-          action: Поскаржитись
-          already_reported: Про цей вміст вже передано скаргу, і її перегляне адміністратор.
-          close: Закрити
-          description: Чи цей вміст неприпустимий?
-          details: Додаткові коментарі
+          action: 'Поскаржитись'
+          already_reported: 'Про цей вміст вже передано скаргу, і її перегляне адміністратор.'
+          close: 'Закрити'
+          description: 'Чи цей вміст неприпустимий?'
+          details: 'Додаткові коментарі'
           reasons:
-            does_not_belong: Містить незаконну діяльність, загрози самогубства, особисту інформацію чи ще щось, неприпустиме, на вашу думку, для %{organization_name}.
-            offensive: Містить расизм, сексизм, образи, особисті напади, погрози вбивства, заяви про самогубство або будь-які ненависницькі висловлювання.
-            spam: Містить клацоловки (маніпулятивно-сенсаційні заголовки), рекламу, афери або лохотрони.
-          title: Поскаржитись на проблему
-        verified_user_group: Перевірена організація
+            does_not_belong: 'Містить незаконну діяльність, загрози самогубства, особисту інформацію чи ще щось, неприпустиме, на вашу думку, для %{organization_name}.'
+            offensive: 'Містить расизм, сексизм, образи, особисті напади, погрози вбивства, заяви про самогубство або будь-які ненависницькі висловлювання.'
+            spam: 'Містить клацоловки (маніпулятивно-сенсаційні заголовки), рекламу, афери або лохотрони.'
+          title: 'Поскаржитись на проблему'
+        verified_user_group: 'Перевірена організація'
       comment_order_selector:
         order:
-          best_rated: З найкращим рейтингом
-          most_discussed: Найбільш обговорюване
-          older: Давніші
-          recent: Нещодавнє
+          best_rated: 'З найкращим рейтингом'
+          most_discussed: 'Найбільш обговорюване'
+          older: 'Давніші'
+          recent: 'Нещодавнє'
         title: 'Впорядкувати за:'
       comment_thread:
-        title: Бесіда з %{authorName}
+        title: 'Бесіда з %{authorName}'
       comments:
-        blocked_comments_warning: Коментарі зараз вимкнені, але ви можете прочитати попередні.
-        loading: Завантаження коментарів...
+        blocked_comments_warning: 'Коментарі зараз вимкнені, але ви можете прочитати попередні.'
+        loading: 'Завантаження коментарів...'
         title: "%{count} коментарів"
       featured_comment:
-        title: Рекомендований коментар
+        title: 'Рекомендований коментар'
   errors:
     messages:
-      cannot_have_comments: не підлягає коментуванню
+      cannot_have_comments: 'не підлягає коментуванню'
