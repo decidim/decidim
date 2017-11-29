@@ -60,10 +60,13 @@ nl:
         related_photos: Gerelateerde foto 's
     authorization_handlers:
       dummy_authorization_handler:
+        explanation: Wordt geverifieerd door een documentnummer in te voeren dat eindigt op 'X'
         fields:
-          document_number: Documentnummer
+          document_number: Document Nummer
           postal_code: Postcode
-        name: Voorbeeld machtiging
+        name: Voorbeeld autorisatie
+      dummy_authorization_workflow:
+        name: Dummy autorisatie workflow
       errors:
         duplicate_authorization: Een gebruiker is al gemachtigd met dezelfde gegevens.
       foo_authorization:
@@ -71,20 +74,8 @@ nl:
           bar: Bar
           foo: Foo
         name: Foo machtiging
-    authorizations:
-      create:
-        error: Er is een fout opgetreden bij het verlenen van de machtiging.
-        success: U bent geautoriseerd.
-      first_login:
-        actions:
-          dummy_authorization_handler: Gebruik de voorbeeld autorisatie
-        title: Verifieer uw identiteit
-        verify_with_these_options: 'Dit zijn de beschikbare opties om uw identiteit te verifiëren:'
-      new:
-        authorize: Verstuur
-        authorize_with: Controleer via %{authorizer}
-      skip_verification: U kunt dit overslaan voor nu en %{link}
-      start_exploring: begin met het verkennen
+      granted_at: Toegekend op %{timestamp}
+      started_at: Gestart om %{timestamp}
     core:
       actions:
         unauthorized: U bent niet gemachtigd dit te doen
@@ -225,6 +216,10 @@ nl:
           authorize: Autoriseren met "%{authorization}"
           explanation: Om deze actie uit te voeren, moet u autoriseren met "%{authorization}".
           title: Autorisatie vereist
+        pending:
+          explanation: Als u deze actie wilt uitvoeren, moet u zijn gemachtigd met '%{authorization}', maar uw autorisatie is nog in uitvoering
+          resume: Controleer de voortgang van uw autorisatie bij "%{authorization}"
+          title: Autorisatie is nog bezig
         unauthorized:
           explanation: Excuus, u kunt deze actie niet uitvoeren; sommige gegevens kloppen niet.
           invalid: "%{field} is niet geldig."
@@ -306,7 +301,7 @@ nl:
         link_label: hier
         ok: Ik ga akkoord
       footer:
-        made_with_open_source: 'Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.'
+        made_with_open_source: Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.
       header:
         close_menu: Menu sluiten
         navigation: Navigatie
