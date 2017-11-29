@@ -68,7 +68,7 @@ it:
       dummy_authorization_workflow:
         name: Flusso di lavoro fittizio di autorizzazione
       errors:
-        duplicate_authorization: Esiste già un utente registrato con gli stessi dati.
+        duplicate_authorization: Esiste già un utente autorizzato con questi dati.
       foo_authorization:
         fields:
           bar: Barra
@@ -85,8 +85,8 @@ it:
           email_already_exists: Questo indirizzo email è già utilizzato per un altro account
         new:
           complete_profile: Completa il profilo
-          sign_up: Per favore, completa il tuo profilo
-          subtitle: Per favore, compila il seguente modulo per completare la registrazione
+          sign_up: Si prega di completare il profilo
+          subtitle: Si prega di compilare il seguente modulo per completare la registrazione
           username_help: Nome pubblico che appare suoi tuoi post. Con l'obiettivo di garantire l'anonimato, può essere qualsiasi nome.
       registrations:
         new:
