@@ -1,0 +1,125 @@
+es:
+  activemodel:
+    attributes:
+      id_document_information:
+        document_number: Número de documento (con letra)
+        document_type: Tipo de documento
+      id_document_upload:
+        document_number: Número de documento (con letra)
+        document_type: Tipo de su documento
+        user: Usuario
+        verification_attachment: Copia escaneada de su documento
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: Verificaciones
+    authorization_handlers:
+      admin:
+        id_documents:
+          help:
+            - Los usuarios completan su información de identidad y cargan una copia de su documento.
+            - Usted completa la información presente en la imagen cargada.
+            - La información debe coincidir con lo que el usuario completó.
+            - Si no puede ver claramente la información o no puede verificarla, puede rechazar la solicitud y el usuario podrá repararla.
+        postal_letter:
+          help:
+            - Los usuarios solicitan que se envíe un código de verificación a su dirección.
+            - Usted envía la carta a su dirección con el código de verificación.
+            - Marcas la carta como enviada.
+            - Una vez que marque la carta tal como se envió, el usuario podrá introducir el código y ser verificado.
+      direct: Directo
+      help: Ayuda
+      id_documents:
+        explanation: Suba sus documentos de identidad para que podamos verificar su identidad
+        name: Documentos idénticos
+      multistep: Varios pasos
+      name: Nombre
+      postal_letter:
+        explanation: Le enviaremos una carta postal con un código que deberá ingresar para que podamos verificar su dirección
+        name: Código por carta postal
+    verifications:
+      authorizations:
+        create:
+          error: Hubo un error al crear la autorización.
+          success: Usted ha sido autorizado exitosamente.
+        first_login:
+          actions:
+            dummy_authorization_handler: Verificar contra el manejador de autorización de ejemplo
+            dummy_authorization_workflow: Verificar contra el flujo de trabajo de autorización de ejemplo
+            id_documents: Verifíquese cargando su documento de identidad
+            postal_letter: Obtener la verificación al recibir un código de verificación a través de correo postal
+          title: Verifica tu identidad
+          verify_with_these_options: 'Estas son las opciones disponibles para verificar su identidad:'
+        new:
+          authorize: Enviar
+          authorize_with: Verificar con %{authorizer}
+        skip_verification: Puede omitir esto por ahora y %{link}
+        start_exploring: comienza a explorar
+      id_documents:
+        admin:
+          confirmations:
+            create:
+              error: La verificación no coincide. Intenta de nuevo o rechaza la verificación para que el usuario pueda modificarla
+              success: Usuario verificado con éxito
+            new:
+              introduce_user_data: Introduce los datos en la imagen
+              reject: Rechazar
+              verify: Verificar
+          pending_authorizations:
+            index:
+              title: Verificaciones pendientes
+              verification_number: 'Verificación # %{n}'
+          rejections:
+            create:
+              success: Verificación rechazada Se le pedirá al usuario que modifique sus documentos
+        authorizations:
+          create:
+            error: Hubo un problema al cargar su documento
+            success: Documento subido exitosamente
+          edit:
+            being_reviewed: Estamos revisando sus documentos. Serás verificado en breve
+            rejection_clarity: Asegúrese de que la información sea claramente visible en la imagen cargada
+            rejection_correctness: Asegúrese de que la información ingresada sea correcta
+            rejection_notice: Hubo un problema con su verificación. Inténtalo de nuevo
+            send: Solicitar verificación nuevamente
+          new:
+            send: Solicitar verificación
+            title: Cargue su documento de identidad
+          update:
+            error: Hubo un problema al volver a cargar su documento
+            success: Documento vuelto a cargar con éxito
+        dni: DNI
+        nie: NIE
+        passport: Pasaporte
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Dirección
+              letter_sent_at: Carta enviada a
+              mark_as_sent: Marcar como enviado
+              not_yet_sent: Aún no se ha enviado
+              title: Verificaciones continuas
+              username: Nombre de usuario
+              verification_code: Código de verificación
+          postages:
+            create:
+              error: Error al marcar una letra como enviada
+              success: Carta exitosamente marcada como enviada
+        authorizations:
+          create:
+            error: Hubo un problema con su solicitud
+            success: '¡Gracias! Le enviaremos un código de verificación a su dirección'
+          edit:
+            send: Confirmar
+            title: Introduce el código de verificación que recibiste
+            waiting_for_letter: Pronto enviaremos una carta a su dirección con su código de verificación
+          new:
+            send: Mándame una carta
+            title: Solicite su código de verificación
+          update:
+            error: Tu código de verificación no coincide con el nuestro. Por favor, revisa la carta que te enviamos
+            success: Felicitaciones. Has sido verificado con éxito
+  errors:
+    messages:
+      uppercase_only_letters_numbers: debe ser todo en mayúsculas y contener solo letras y / o números
