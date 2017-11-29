@@ -59,11 +59,6 @@ nl:
       photos:
         related_photos: Gerelateerde foto 's
     authorization_handlers:
-      dummy_authorization_handler:
-        fields:
-          document_number: Documentnummer
-          postal_code: Postcode
-        name: Voorbeeld machtiging
       errors:
         duplicate_authorization: Een gebruiker is al gemachtigd met dezelfde gegevens.
       foo_authorization:
@@ -71,20 +66,6 @@ nl:
           bar: Bar
           foo: Foo
         name: Foo machtiging
-    authorizations:
-      create:
-        error: Er is een fout opgetreden bij het verlenen van de machtiging.
-        success: U bent geautoriseerd.
-      first_login:
-        actions:
-          dummy_authorization_handler: Gebruik de voorbeeld autorisatie
-        title: Verifieer uw identiteit
-        verify_with_these_options: 'Dit zijn de beschikbare opties om uw identiteit te verifiëren:'
-      new:
-        authorize: Verstuur
-        authorize_with: Controleer via %{authorizer}
-      skip_verification: U kunt dit overslaan voor nu en %{link}
-      start_exploring: begin met het verkennen
     core:
       actions:
         unauthorized: U bent niet gemachtigd dit te doen
@@ -306,7 +287,7 @@ nl:
         link_label: hier
         ok: Ik ga akkoord
       footer:
-        made_with_open_source: 'Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.'
+        made_with_open_source: Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.
       header:
         close_menu: Menu sluiten
         navigation: Navigatie
