@@ -249,7 +249,7 @@ fi:
         comments_count: Kommentit
         headline: Tilastot
         meetings_count: Tapaamiset
-        orders_count: Äänet
+        orders_count: 'Äänet'
         pages_count: Sivut
         processes_count: Prosessit
         projects_count: Projektit
@@ -257,7 +257,7 @@ fi:
         results_count: Tulokset
         surveys_count: Kyselyt
         users_count: Osallistujat
-        votes_count: Äänet
+        votes_count: 'Äänet'
     scopes:
       global: Yleinen konteksti
   layouts:
