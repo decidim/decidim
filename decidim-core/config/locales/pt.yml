@@ -59,11 +59,6 @@ pt:
       photos:
         related_photos: Fotos relacionadas
     authorization_handlers:
-      decidim/dummy_authorization_handler:
-        fields:
-          document_number: Número do documento
-          postal_code: Código postal
-        name: Exemplo de autorização
       errors:
         duplicate_authorization: Um usuário já está autorizado com os mesmos dados.
       foo_authorization:
@@ -71,20 +66,6 @@ pt:
           bar: Bar
           foo: Foo
         name: Autorização Foo
-    authorizations:
-      create:
-        error: Ocorreu um erro ao criar a autorização.
-        success: Você foi autorizado com sucesso.
-      first_login:
-        actions:
-          decidim/dummy_authorization_handler: Verifique contra o exemplo de autorização
-        title: Verifique sua identidade
-        verify_with_these_options: 'Estas são as opções disponíveis para verificar sua identidade:'
-      new:
-        authorize: Enviar
-        authorize_with: Verifique com %{authorizer}
-      skip_verification: Você pode ignorar isso por enquanto e %{link}
-      start_exploring: comece a explorar
     core:
       actions:
         unauthorized: Você não está autorizado a realizar esta ação
@@ -293,7 +274,7 @@ pt:
       nesting_too_deep: não pode estar dentro de uma subcategoria
       too_many_marks: Está usando muitas marcas
       too_much_caps: Está usando demasiados limites
-      too_short: É muito curto
+      too_short: 'É muito curto'
   forms:
     required: Requeridos
   invisible_captcha:
@@ -306,7 +287,7 @@ pt:
         link_label: Aqui
         ok: Aceito
       footer:
-        made_with_open_source: 'Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.'
+        made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
       header:
         close_menu: Fechar menu
         navigation: Navegação
@@ -393,7 +374,7 @@ pt:
   views:
     pagination:
       first: "&laquo; Primeiro"
-      last: Última &raquo;
+      last: 'Última &raquo;'
       next: Próximo &rsaquo;
       previous: "&lsaquo; Anterior"
       truncate: "&hellip;"
