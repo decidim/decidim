@@ -12,14 +12,14 @@ es:
         end_date: Fecha de finalización
         hashtag: Hashtag
         hero_image: Imagen de portada
-        local_area: Áreas municipales
+        local_area: 'Áreas municipales'
         meta_scope: 'Metadatos: ámbito'
         participatory_process_group_id: Grupo de procesos
-        participatory_scope: Ámbito participativo
+        participatory_scope: 'Ámbito participativo'
         participatory_structure: Estructura participativa
         promoted: Destacado
-        scope_id: Ámbito
-        scopes_enabled: Ámbitos habilitados
+        scope_id: 'Ámbito'
+        scopes_enabled: 'Ámbitos habilitados'
         short_description: Descripción breve
         slug: Texto corto de URL
         start_date: Fecha de inicio
@@ -238,10 +238,10 @@ es:
       show:
         developer_group: Grupo promotor
         end_date: Fecha de finalización
-        local_area: Área de organización
+        local_area: 'Área de organización'
         participatory_scope: Qué se decide
         participatory_structure: Cómo se decide
-        scope: Ámbito
+        scope: 'Ámbito'
         start_date: Fecha de inicio
         target: Quién participa
       statistics:
@@ -259,7 +259,7 @@ es:
         users_count: Participantes
         votes_count: Apoyos
     scopes:
-      global: Ámbito global
+      global: 'Ámbito global'
   layouts:
     decidim:
       participatory_process_groups:
