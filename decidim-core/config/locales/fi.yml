@@ -59,11 +59,6 @@ fi:
       photos:
         related_photos: Liittyvät kuvat
     authorization_handlers:
-      dummy_authorization_handler:
-        fields:
-          document_number: Dokumenttinumero
-          postal_code: Postinumero
-        name: Esimerkkitunnistautuminen
       errors:
         duplicate_authorization: Käyttäjätili on jo varmennettu samoilla tiedoilla.
       foo_authorization:
@@ -71,20 +66,6 @@ fi:
           bar: Bar
           foo: Foo
         name: Foo-tunnistautuminen
-    authorizations:
-      create:
-        error: Varmennuksen luomisessa tapahtui virhe.
-        success: Sinut on onnistuneesti varmennettu.
-      first_login:
-        actions:
-          dummy_authorization_handler: Vahvista esimerkkivarmennuksen avulla
-        title: Vahvista identiteettisi
-        verify_with_these_options: 'Voit vahvistaa identiteettisi seuraavien vaihtoehtojen avulla:'
-      new:
-        authorize: Lähetä
-        authorize_with: Vahvista palvelun "%{authorizer}" avulla
-      skip_verification: Voit ohittaa tämän toistaiseksi ja %{link}
-      start_exploring: alkaa tutkia
     core:
       actions:
         unauthorized: Sinua ei ole valtuutettu tämän toiminnon suorittamiseen
@@ -307,7 +288,7 @@ fi:
         link_label: täältä
         ok: Hyväksyn
       footer:
-        made_with_open_source: 'Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">ilmaisen ohjelmiston</a> avulla.'
+        made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">ilmaisen ohjelmiston</a> avulla.
       header:
         close_menu: Sulje valikko
         navigation: Navigaatio
@@ -360,7 +341,7 @@ fi:
         comments_count: Kommentit
         headline: Tämänhetkinen tila organisaatiolle %{organization}
         meetings_count: Tapaamiset
-        orders_count: Äänet
+        orders_count: 'Äänet'
         pages_count: Sivut
         processes_count: Prosessit
         projects_count: Projektit
@@ -368,7 +349,7 @@ fi:
         results_count: Tulokset
         surveys_count: Kyselyt
         users_count: Osallistujat
-        votes_count: Äänet
+        votes_count: 'Äänet'
       sub_hero:
         register: Rekisteröidy
   social_share_button:

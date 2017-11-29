@@ -10,7 +10,7 @@ es:
       meeting:
         address: Dirección
         decidim_category_id: Categoría
-        decidim_scope_id: Ámbito
+        decidim_scope_id: 'Ámbito'
         description: Descripción
         end_time: Hora de finalización
         location: Ubicación
@@ -47,7 +47,7 @@ es:
         invite_join_meeting_mailer:
           invite:
             invited_you_to_join_a_meeting: "%{invited_by} te ha invitado a unirte a un encuentro en %{application}. Puedes aceptarlo a través del siguiente enlace."
-            join: Únete al encuentro '%{meeting_title}'
+            join: 'Únete al encuentro ''%{meeting_title}'''
         invites:
           create:
             error: Ha habido un problema al invitar al usuario a unirse al encuentro.
@@ -134,7 +134,7 @@ es:
           date: Fecha
           past: Pasadas
           scope_prompt: Seleccione un ámbito
-          scopes: Ámbitos
+          scopes: 'Ámbitos'
           search: Buscar
           upcoming: Próximas
         filters_small_view:

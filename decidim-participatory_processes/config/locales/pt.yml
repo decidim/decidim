@@ -12,7 +12,7 @@ pt:
         end_date: Data final
         hashtag: Hashtag
         hero_image: Imagem inicial
-        local_area: Área Local
+        local_area: 'Área Local'
         meta_scope: Metadados do escopo
         participatory_process_group_id: Grupo de processos
         participatory_scope: Escopo participativo
@@ -238,7 +238,7 @@ pt:
       show:
         developer_group: Grupo de desenvolvedores
         end_date: Data final
-        local_area: Área de organização
+        local_area: 'Área de organização'
         participatory_scope: O que é decidido
         participatory_structure: Como é decidido
         scope: Escopo
