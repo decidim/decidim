@@ -1,0 +1,125 @@
+nl:
+  activemodel:
+    attributes:
+      id_document_information:
+        document_number: Documentnummer (met letter)
+        document_type: Type van het document
+      id_document_upload:
+        document_number: Documentnummer (met letter)
+        document_type: Type van uw document
+        user: Gebruiker
+        verification_attachment: Gescande kopie van uw document
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: keuringen
+    authorization_handlers:
+      admin:
+        id_documents:
+          help:
+            - Gebruikers vullen hun identiteitsinformatie in en uploaden een kopie van hun document.
+            - U vult de informatie in die in de geüploade afbeelding aanwezig is.
+            - De informatie moet overeenkomen met wat de gebruiker heeft ingevuld.
+            - Als u de informatie niet duidelijk kunt zien of als u de informatie niet kunt verifiëren, kunt u het verzoek afwijzen en kan de gebruiker het probleem oplossen.
+        postal_letter:
+          help:
+            - Gebruikers vragen een verificatiecode op te sturen naar hun adres.
+            - U stuurt de brief naar hun adres met de verificatiecode.
+            - U markeert de brief zoals verzonden.
+            - Nadat u de brief hebt gemarkeerd als verzonden, kan de gebruiker de code invoeren en worden geverifieerd.
+      direct: direct
+      help: Helpen
+      id_documents:
+        explanation: Upload uw identiteitsdocumenten zodat we uw identiteit kunnen controleren
+        name: Identiteitsdocumenten
+      multistep: Multi-Step
+      name: Naam
+      postal_letter:
+        explanation: We sturen u een brief met een code die u moet invoeren, zodat we uw adres kunnen verifiëren
+        name: Code per brief
+    verifications:
+      authorizations:
+        create:
+          error: Er is een fout opgetreden bij het maken van de autorisatie.
+          success: Je bent succesvol geautoriseerd.
+        first_login:
+          actions:
+            dummy_authorization_handler: Verifieer met het voorbeeld van de autorisatieaanduiding
+            dummy_authorization_workflow: Controleer aan de hand van de voorbeeldmachtigingsworkflow
+            id_documents: Wordt geverifieerd door uw identiteitsdocument te uploaden
+            postal_letter: Wordt geverifieerd door een verificatiecode te ontvangen via de post
+          title: Verifieer uw identiteit
+          verify_with_these_options: 'Dit zijn de beschikbare opties om uw identiteit te verifiëren:'
+        new:
+          authorize: sturen
+          authorize_with: Verifieer met %{authorizer}
+        skip_verification: Je kunt dit voor nu overslaan en %{link}
+        start_exploring: begin met verkennen
+      id_documents:
+        admin:
+          confirmations:
+            create:
+              error: Verificatie komt niet overeen. Probeer het opnieuw of verwerp de verificatie zodat de gebruiker het kan wijzigen
+              success: Gebruiker succesvol geverifieerd
+            new:
+              introduce_user_data: Introduceer de gegevens in de afbeelding
+              reject: afwijzen
+              verify: Verifiëren
+          pending_authorizations:
+            index:
+              title: In afwachting van verificaties
+              verification_number: 'Verificatie # %{n}'
+          rejections:
+            create:
+              success: Verificatie afgewezen. De gebruiker wordt gevraagd om haar documenten te wijzigen
+        authorizations:
+          create:
+            error: Er is een probleem opgetreden bij het uploaden van uw document
+            success: Document met succes geüpload
+          edit:
+            being_reviewed: We beoordelen uw documenten. U wordt binnenkort geverifieerd
+            rejection_clarity: Zorg ervoor dat de informatie duidelijk zichtbaar is in de geüploade afbeelding
+            rejection_correctness: Zorg ervoor dat de ingevoerde informatie juist is
+            rejection_notice: Er is een probleem met uw verificatie. Probeer het opnieuw
+            send: Vraag opnieuw verificatie aan
+          new:
+            send: Verzoek om verificatie
+            title: Upload uw identiteitsdocument
+          update:
+            error: Er is een probleem opgetreden bij het opnieuw uploaden van uw document
+            success: Document opnieuw succesvol geladen
+        dni: DNI
+        nie: NIE
+        passport: Paspoort
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Adres
+              letter_sent_at: Brief verzonden naar
+              mark_as_sent: Markeren als verzonden
+              not_yet_sent: nog niet verstuurd
+              title: Doorlopende controles
+              username: Gebruikersnaam
+              verification_code: Verificatie code
+          postages:
+            create:
+              error: Fout bij het markeren van de letter zoals verzonden
+              success: Brief succesvol gemarkeerd als verzonden
+        authorizations:
+          create:
+            error: Er was een probleem met je verzoek
+            success: Bedankt! We sturen een verificatiecode naar uw adres
+          edit:
+            send: Bevestigen
+            title: Voer de verificatiecode in die u heeft ontvangen
+            waiting_for_letter: We sturen binnenkort een brief naar uw adres met uw verificatiecode
+          new:
+            send: Stuur me een brief
+            title: Vraag uw verificatiecode aan
+          update:
+            error: Uw verificatiecode komt niet overeen met de onze. Controleer alstublieft de brief die we u hebben gestuurd
+            success: Hartelijk gefeliciteerd. U bent succesvol geverifieerd
+  errors:
+    messages:
+      uppercase_only_letters_numbers: moet allemaal in hoofdletters zijn en alleen letters en / of cijfers bevatten
