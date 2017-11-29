@@ -4,7 +4,7 @@ es:
       result:
         decidim_accountability_status_id: Estado
         decidim_category_id: Categoría
-        decidim_scope_id: Ámbito
+        decidim_scope_id: 'Ámbito'
         description: Descripción
         end_date: Fin
         progress: Progreso
@@ -119,7 +119,7 @@ es:
         filters:
           all: Todos
           global: Global
-          scopes: Ámbitos
+          scopes: 'Ámbitos'
         home:
           categories_label: Categorías
           subcategories_label: Subcategorías
