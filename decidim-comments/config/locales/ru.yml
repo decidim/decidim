@@ -5,66 +5,66 @@ ru:
         comment_created:
           comment:
             email_intro: '«%{resource_title}» прокомментировали. Вы можете прочитать комментарий на странице:'
-            email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
-            email_subject: Появился новый комментарий от %{author_name} в %{resource_title}
-            notification_title: Появился новый комментарий от %{author_name} в <a href="%{resource_path}">%{resource_title}</a>
+            email_outro: 'Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.'
+            email_subject: 'Появился новый комментарий от %{author_name} в %{resource_title}'
+            notification_title: 'Появился новый комментарий от %{author_name} в <a href="%{resource_path}">%{resource_title}</a>'
           reply:
             email_intro: '«%{resource_title}» прокомментировано'
-            email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
-            email_subject: На ваш комментарий появился новый ответ от %{author_name} в <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: На ваш комментарий появился новый ответ от %{author_name} в <a href="%{resource_path}">%{resource_title}</a>
+            email_outro: 'Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.'
+            email_subject: 'На ваш комментарий появился новый ответ от %{author_name} в <a href="%{resource_url}">%{resource_title}</a>'
+            notification_title: 'На ваш комментарий появился новый ответ от %{author_name} в <a href="%{resource_path}">%{resource_title}</a>'
       votes:
         create:
-          error: При голосовании за комментарий произошли ошибки.
+          error: 'При голосовании за комментарий произошли ошибки.'
     components:
       add_comment_form:
         account_message: <a href="%{sign_in_url}">Войдите в систему через свою учетную запись</a> или <a href="%{sign_up_url}">зарегистрируйтесь</a>, чтобы добавить свой комментарий.
         form:
           body:
-            label: Комментарий
-            placeholder: Что вы думаете об этом?
-          form_error: Тут обязательно нужно ввести текст, но не больше %{length} символов.
-          submit: Отправить
+            label: 'Комментарий'
+            placeholder: 'Что вы думаете об этом?'
+          form_error: 'Тут обязательно нужно ввести текст, но не больше %{length} символов.'
+          submit: 'Отправить'
           user_group_id:
-            label: Комментировать как
+            label: 'Комментировать как'
         opinion:
-          neutral: Безучастно
+          neutral: 'Безучастно'
         remaining_characters: "Осталось %{count} символов"
         remaining_characters_1: "Остался %{count} символ"
-        title: Добавьте свой комментарий
+        title: 'Добавьте свой комментарий'
       comment:
         alignment:
-          against: Против
-          in_favor: В поддержку
-        deleted_user: Удаленный пользователь
-        reply: Ответить
+          against: 'Против'
+          in_favor: 'В поддержку'
+        deleted_user: 'Удаленный пользователь'
+        reply: 'Ответить'
         report:
-          action: Пожаловаться
-          already_reported: На это содержимое уже пожаловались, и жалобу рассмотрит администратор.
-          close: Закрыть
-          description: Это сообщение неприемлемо?
-          details: Дополнительные комментарии
+          action: 'Пожаловаться'
+          already_reported: 'На это содержимое уже пожаловались, и жалобу рассмотрит администратор.'
+          close: 'Закрыть'
+          description: 'Это сообщение неприемлемо?'
+          details: 'Дополнительные комментарии'
           reasons:
-            does_not_belong: Содержит незаконную деятельность, угрозы самоубийства, личную информацию или что-то еще, недопустимое, на ваш взгляд, для %{organization_name}.
-            offensive: Содержит расизм, сексизм, оскорбления, личные нападки, угрозы убийства, заявления о самоубийстве, или любую форму разжигания ненависти.
-            spam: Содержит кликоловки (манипулятивно-сенсационные заголовки), рекламу, мошенничество или лохотроны.
-          title: Пожаловаться на проблему
-        verified_user_group: Проверенная организация
+            does_not_belong: 'Содержит незаконную деятельность, угрозы самоубийства, личную информацию или что-то еще, недопустимое, на ваш взгляд, для %{organization_name}.'
+            offensive: 'Содержит расизм, сексизм, оскорбления, личные нападки, угрозы убийства, заявления о самоубийстве, или любую форму разжигания ненависти.'
+            spam: 'Содержит кликоловки (манипулятивно-сенсационные заголовки), рекламу, мошенничество или лохотроны.'
+          title: 'Пожаловаться на проблему'
+        verified_user_group: 'Проверенная организация'
       comment_order_selector:
         order:
-          best_rated: С наивысшим рейтингом
-          most_discussed: Самые обсуждаемые
-          older: Старые
-          recent: Недавние
+          best_rated: 'С наивысшим рейтингом'
+          most_discussed: 'Самые обсуждаемые'
+          older: 'Старые'
+          recent: 'Недавние'
         title: 'Упорядочить по:'
       comment_thread:
-        title: Беседа с %{authorName}
+        title: 'Беседа с %{authorName}'
       comments:
-        blocked_comments_warning: Комментарии сейчас отключены, но вы можете прочитать предыдущие.
-        loading: Загрузка комментариев ...
+        blocked_comments_warning: 'Комментарии сейчас отключены, но вы можете прочитать предыдущие.'
+        loading: 'Загрузка комментариев ...'
         title: "%{count} комментариев"
       featured_comment:
-        title: Избранный комментарий
+        title: 'Избранный комментарий'
   errors:
     messages:
-      cannot_have_comments: не подлежит комментированию
+      cannot_have_comments: 'не подлежит комментированию'
