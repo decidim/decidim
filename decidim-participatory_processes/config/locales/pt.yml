@@ -205,7 +205,7 @@ pt:
     participatory_process_groups:
       show:
         group_participatory_processes: Processos para %{group}
-        title: Título
+        title: Grupos de processos participativos
     participatory_process_steps:
       index:
         process_steps: Etapas do processo
