@@ -251,6 +251,8 @@ pt:
         close_window: Janela fechada
         share: Compartilhar
         share_link: Compartilhar link
+      version_author:
+        deleted: Usuário deletado
   devise:
     invitations:
       edit:
@@ -385,6 +387,9 @@ pt:
     wechat_footer: Abra seu WeChat, clique no botão "Discover" e clique no menu "Scan QR Code".
     weibo: Sina Weibo
     xing: Xing
+  time:
+    formats:
+      decidim_short: "%d/%m/%Y %H:%M"
   views:
     pagination:
       first: "&laquo; Primeiro"
