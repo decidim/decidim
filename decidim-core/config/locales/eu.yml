@@ -251,6 +251,8 @@ eu:
         close_window: Itxi leihoa
         share: Partekatu
         share_link: Partekatu esteka
+      version_author:
+        deleted: Erabiltzailea ezabatua
   devise:
     invitations:
       edit:
@@ -385,6 +387,9 @@ eu:
     wechat_footer: Ireki zure WeChat, egin klik "Discover" botoian, eta gero, egin klik berriro "Eskaneatu QR kodea” menuan.
     weibo: Sina Weibo
     xing: Xing
+  time:
+    formats:
+      decidim_short: "%d/%m/%Y %H:%M"
   views:
     pagination:
       first: "&laquo; Lehena"
