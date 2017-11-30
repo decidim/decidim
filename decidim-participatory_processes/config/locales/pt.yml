@@ -222,6 +222,7 @@ pt:
         title: Processos participativos
       order_by_processes:
         active: Ativo
+        all: Todos
         past: Passado
         upcoming: próximos
       pages:
