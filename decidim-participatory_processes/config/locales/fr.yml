@@ -222,6 +222,7 @@ fr:
         title: Processus participatifs
       order_by_processes:
         active: Actif
+        all: Tout
         past: Passés
         upcoming: 'À venir'
       pages:
