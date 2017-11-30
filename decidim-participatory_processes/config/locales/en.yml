@@ -206,7 +206,7 @@ en:
     participatory_process_groups:
       show:
         group_participatory_processes: Processes for %{group}
-        title: Title
+        title: Participatory process groups
     participatory_process_steps:
       index:
         process_steps: Process steps
