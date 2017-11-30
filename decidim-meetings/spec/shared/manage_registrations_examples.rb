@@ -2,7 +2,7 @@
 
 def visit_edit_registrations_page
   within find("tr", text: translated(meeting.title)) do
-    page.find("a.action-icon--registrations").click
+    page.click_link "Registrations"
   end
 end
 

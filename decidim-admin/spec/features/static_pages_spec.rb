@@ -79,7 +79,7 @@ describe "Content pages", type: :feature do
 
       it "can edit them" do
         within find("tr", text: translated(decidim_page.title)) do
-          page.find(".action-icon.action-icon--edit").click
+          click_link "Edit"
         end
 
         within ".edit_static_page" do
@@ -105,7 +105,7 @@ describe "Content pages", type: :feature do
 
       it "can destroy them" do
         within find("tr", text: translated(decidim_page.title)) do
-          accept_confirm { page.find(".action-icon.action-icon--remove").click }
+          accept_confirm { click_link "Destroy" }
         end
 
         expect(page).to have_admin_callout("successfully")
@@ -117,7 +117,7 @@ describe "Content pages", type: :feature do
 
       it "can visit them" do
         within find("tr", text: translated(decidim_page.title)) do
-          page.find(".action-icon.action-icon--preview").click
+          click_link "View public page"
         end
 
         expect(page).to have_content(translated(decidim_page.title))

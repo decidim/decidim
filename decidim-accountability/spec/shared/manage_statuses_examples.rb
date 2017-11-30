@@ -3,7 +3,7 @@
 RSpec.shared_examples "manage statuses" do
   it "updates a status" do
     within find("tr", text: status.key) do
-      find("a.action-icon--edit").click
+      click_link "Edit"
     end
 
     within ".edit_status" do
@@ -69,7 +69,7 @@ RSpec.shared_examples "manage statuses" do
 
     it "deletes a status" do
       within find("tr", text: status2.key) do
-        accept_confirm { find("a.action-icon--remove").click }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

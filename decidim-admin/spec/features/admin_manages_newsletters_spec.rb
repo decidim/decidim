@@ -78,7 +78,7 @@ describe "Admin manages newsletters", type: :feature do
     it "allows a newsletter to be updated" do
       visit decidim_admin.newsletters_path
       within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-        page.find(".action-icon.edit").click
+        click_link "Edit"
       end
 
       within ".edit_newsletter" do
@@ -134,7 +134,7 @@ describe "Admin manages newsletters", type: :feature do
       visit decidim_admin.newsletters_path
 
       within("tr[data-newsletter-id=\"#{newsletter.id}\"]") do
-        accept_confirm { page.find(".action-icon.action-icon--remove").click }
+        accept_confirm { click_link "Destroy" }
       end
 
       expect(page).to have_content("successfully")

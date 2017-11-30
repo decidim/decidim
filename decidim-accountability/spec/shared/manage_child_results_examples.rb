@@ -3,7 +3,7 @@
 RSpec.shared_examples "manage child results" do
   it "updates a result" do
     within find("tr", text: translated(child_result.title)) do
-      find("a.action-icon--edit").click
+      click_link "Edit"
     end
 
     within ".edit_result" do
@@ -78,7 +78,7 @@ RSpec.shared_examples "manage child results" do
 
     it "deletes a result" do
       within find("tr", text: translated(child_result.title)) do
-        accept_confirm { find("a.action-icon--remove").click }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

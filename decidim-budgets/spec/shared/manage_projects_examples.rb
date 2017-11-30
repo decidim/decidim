@@ -3,7 +3,7 @@
 shared_examples "manage projects" do
   it "updates a project" do
     within find("tr", text: translated(project.title)) do
-      find("a.action-icon--edit").click
+      click_link "Edit"
     end
 
     within ".edit_project" do
@@ -105,7 +105,7 @@ shared_examples "manage projects" do
 
     it "deletes a project" do
       within find("tr", text: translated(project2.title)) do
-        accept_confirm { find("a.action-icon--remove").click }
+        accept_confirm { click_link "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")

@@ -52,7 +52,7 @@ shared_examples "manage process admins examples" do
     it "updates a process admin" do
       within "#process_admins" do
         within find("#process_admins tr", text: other_user.email) do
-          page.find(".action-icon--edit").click
+          click_link "Edit"
         end
       end
 
@@ -71,7 +71,7 @@ shared_examples "manage process admins examples" do
 
     it "deletes a participatory_process_user_role" do
       within find("#process_admins tr", text: other_user.email) do
-        accept_confirm { page.find("a.action-icon--remove").click }
+        accept_confirm { click_link "Destroy" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -99,10 +99,8 @@ shared_examples "manage process admins examples" do
       end
 
       it "resends the invitation to the user" do
-        within "#process_admins" do
-          within find("#process_admins tr", text: "test@example.org") do
-            click_link "Resend invitation"
-          end
+        within find("#process_admins tr", text: "test@example.org") do
+          click_link "Resend invitation"
         end
 
         expect(page).to have_admin_callout("successfully")

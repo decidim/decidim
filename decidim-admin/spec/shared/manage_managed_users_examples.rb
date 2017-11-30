@@ -38,7 +38,7 @@ shared_examples "manage managed users examples" do
     navigate_to_managed_users_page
 
     within find("tr", text: managed_user.name) do
-      page.find("a.action-icon--impersonate").click
+      click_link "Impersonate"
     end
 
     fill_in_the_impersonation_form
@@ -46,7 +46,7 @@ shared_examples "manage managed users examples" do
 
   def check_impersonation_logs
     within find("tr", text: managed_user.name) do
-      page.find("a.action-icon--view-logs").click
+      click_link "View logs"
     end
 
     expect(page).to have_selector("tbody tr", count: 1)
@@ -137,7 +137,7 @@ shared_examples "manage managed users examples" do
       navigate_to_managed_users_page
 
       within find("tr", text: managed_user.name) do
-        page.find("a.action-icon--promote").click
+        page.click_link "Promote"
       end
 
       within "form.new_managed_user_promotion" do

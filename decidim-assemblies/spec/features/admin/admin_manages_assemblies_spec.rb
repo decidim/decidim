@@ -139,7 +139,7 @@ describe "Admin manages assemblies", type: :feature do
 
       it "allows the user to preview the unpublished assembly" do
         within find("tr", text: translated(assembly.title)) do
-          page.find("a.action-icon--preview").click
+          click_link "Preview"
         end
 
         expect(page).to have_css(".process-header")
@@ -152,7 +152,7 @@ describe "Admin manages assemblies", type: :feature do
 
       it "allows the user to preview the unpublished assembly" do
         within find("tr", text: translated(assembly.title)) do
-          page.find("a.action-icon--preview").click
+          click_link "Preview"
         end
 
         expect(page).to have_current_path decidim_assemblies.assembly_path(assembly)

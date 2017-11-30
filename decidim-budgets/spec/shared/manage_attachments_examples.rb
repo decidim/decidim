@@ -7,7 +7,7 @@ shared_examples "manage project attachments" do
 
   before do
     within find("tr", text: translated(project.title)) do
-      find("a.action-icon--attachments").click
+      click_link "Attachments"
     end
   end
 

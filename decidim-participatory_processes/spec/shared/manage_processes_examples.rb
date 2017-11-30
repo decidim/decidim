@@ -7,7 +7,7 @@ shared_examples "manage processes examples" do
 
       it "allows the user to preview the unpublished process" do
         within find("tr", text: translated(participatory_process.title)) do
-          page.find("a.action-icon--preview").click
+          click_link "Preview"
         end
 
         expect(page).to have_css(".process-header")
@@ -20,7 +20,7 @@ shared_examples "manage processes examples" do
 
       it "allows the user to preview the unpublished process" do
         within find("tr", text: translated(participatory_process.title)) do
-          page.find("a.action-icon--preview").click
+          click_link "Preview"
         end
 
         expect(page).to have_current_path decidim_participatory_processes.participatory_process_path(participatory_process)
