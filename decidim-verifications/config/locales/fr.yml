@@ -48,13 +48,13 @@ fr:
             dummy_authorization_workflow: Vérifiez par rapport au flux de travail d'autorisation exemple
             id_documents: Soyez vérifié en téléchargeant votre document d'identité
             postal_letter: Faites-vous vérifier en recevant un code de vérification par courrier postal
-          title: Vérifiez Votre Identité
+          title: Vérifiez votre Identité
           verify_with_these_options: 'Voici les options disponibles pour vérifier votre identité:'
         new:
           authorize: Envoyer
           authorize_with: Vérifier avec %{authorizer}
         skip_verification: Vous pouvez ignorer ceci pour le moment et %{link}
-        start_exploring: Commencez à explorer
+        start_exploring: commencer à explorer
       id_documents:
         admin:
           confirmations:
