@@ -251,6 +251,8 @@ fi:
         close_window: Sulje ikkuna
         share: Jaa
         share_link: Jaa linkki
+      version_author:
+        deleted: Poistettu käyttäjä
   devise:
     invitations:
       edit:
@@ -386,6 +388,9 @@ fi:
     wechat_footer: Avaa WeChat, klikkaa "Discover" -nappia ja tämän jälkeen klikkaa "Scan QR Code" -valikkoa.
     weibo: Sina Weibo
     xing: Xing
+  time:
+    formats:
+      decidim_short: "%d/%m/%Y %H:%M"
   views:
     pagination:
       first: "&laquo; Ensimmäinen"
