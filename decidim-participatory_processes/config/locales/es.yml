@@ -222,7 +222,7 @@ es:
         title: Procesos participativos
       order_by_processes:
         active: Activa
-        all: Todas
+        all: Todos
         past: Pasadas
         upcoming: Próximas
       pages:
