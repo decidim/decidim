@@ -51,6 +51,17 @@ module Decidim
         end
       end
 
+      context "when the email contains a +" do
+        before do
+          user.email = "user+1@example.org"
+        end
+
+        it "is not valid" do
+          expect(user).not_to be_valid
+          expect(user.errors[:email].length).to eq(1)
+        end
+      end
+
       context "when the file is too big" do
         before do
           expect(subject.avatar).to receive(:size).and_return(11.megabytes)
