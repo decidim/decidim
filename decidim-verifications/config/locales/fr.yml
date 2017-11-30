@@ -113,13 +113,13 @@ fr:
           edit:
             send: Confirmer
             title: Introduisez le code de vérification que vous avez reçu
-            waiting_for_letter: Nous enverrons une lettre à votre adresse avec votre code de vérification bientôt
+            waiting_for_letter: Nous enverrons bientôt une lettre à votre adresse avec votre code de vérification
           new:
             send: Envoyez-moi une lettre
-            title: Demander votre code de vérification
+            title: Demandez votre code de vérification
           update:
             error: Votre code de vérification ne correspond pas au nôtre. Veuillez vérifier la lettre que nous vous avons envoyée
             success: Toutes nos félicitations. Vous avez été vérifié avec succès
   errors:
     messages:
-      uppercase_only_letters_numbers: doit être en majuscule et ne contenir que des lettres et / ou des chiffres
+      uppercase_only_letters_numbers: tout doit être en majuscule et ne contenir que des lettres et / ou des chiffres
