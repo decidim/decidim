@@ -222,6 +222,7 @@ pl:
         title: Procesy partycypacyjne
       order_by_processes:
         active: Aktywne
+        all: Wszystko
         past: Przeszłe
         upcoming: Nadchodzące
       pages:
