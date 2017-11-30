@@ -104,11 +104,11 @@ fr:
               verification_code: Code de vérification
           postages:
             create:
-              error: Erreur de marquage de la lettre envoyée
+              error: Erreur en marquant la lettre comme envoyée
               success: Lettre marquée avec succès comme envoyée
         authorizations:
           create:
-            error: Il y avait un problème avec votre demande
+            error: Il y a eu un problème avec votre demande
             success: Merci! Nous enverrons un code de vérification à votre adresse
           edit:
             send: Confirmer
