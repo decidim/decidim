@@ -251,6 +251,8 @@ ca:
         close_window: Tanca la finestra
         share: Compartir
         share_link: Comparteix l'enllaç
+      version_author:
+        deleted: Usuari eliminat
   devise:
     invitations:
       edit:
@@ -386,6 +388,9 @@ ca:
     wechat_footer: Obri el WeChat, feu clic al botó "Discover" i després feu clic al menú "Escanejar codi QR".
     weibo: Sina Weibo
     xing: Xing
+  time:
+    formats:
+      decidim_short: "%d/%m/%Y %H:%M"
   views:
     pagination:
       first: "&laquo; Primera"
