@@ -20,10 +20,17 @@ module Decidim
     # Public: Broadcasts different events given the status of the authentication.
     #
     # Broadcasts:
-    #   failed       - When no valid authorization can be found.
-    #   unauthorized - When an authorization was found, but didn't match the credentials.
+    #   ok           - When everything is OK and the user is correctly authorized.
+    #   missing      - When no valid authorization can be found.
+    #   pending      - When an authorization was found, but is not complete (eg. is
+    #                  waiting for admin manual confirmation).
+    #   invalid      - When an authorization was found, but the value of some of its fields
+    #                  is not the expected one (eg. the user is authorized for scope A,
+    #                  but this action is only for users in scope B).
     #   incomplete   - An authorization was found, but lacks some required fields. User
     #                  should re-authenticate.
+    #   expired      - The validity time for the given authorization has run out, and
+    #                  needs to be re-validated.
     #
     # Returns nil.
     def authorize
@@ -47,6 +54,8 @@ module Decidim
         [:invalid, fields: unmatched_fields]
       elsif missing_fields.any?
         [:incomplete, fields: missing_fields]
+      elsif authorization_expired?
+        :expired
       else
         :ok
       end
@@ -94,6 +103,16 @@ module Decidim
       return nil unless action
 
       @permission ||= feature.permissions&.fetch(action, nil)
+    end
+
+    def authorization_expired?
+      manifest = Decidim::Verifications.find_workflow_manifest(authorization_handler_name)
+
+      return unless manifest
+      return false if manifest.expires_in.zero?
+
+      expiry_date = authorization.granted_at + manifest.expires_in
+      expiry_date < Time.zone.today
     end
 
     class AuthorizationStatus

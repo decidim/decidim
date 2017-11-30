@@ -6,7 +6,8 @@ module Decidim
   describe ActionAuthorizer do
     subject { described_class.new(user, feature, action) }
 
-    let(:user) { create(:user) }
+    let(:organization) { create :organization }
+    let(:user) { create(:user, organization: organization) }
     let(:feature) { create(:feature, permissions: permissions) }
     let(:action) { "vote" }
     let(:permissions) { { action => permission } }
@@ -100,49 +101,73 @@ module Decidim
           end
 
           context "when the authorization type matches" do
-            context "when it doesn't have options" do
-              let(:options) { {} }
-
-              it "returns ok" do
-                expect(response).to be_ok
+            context "when it has expired" do
+              let!(:authorization) do
+                create(:authorization, :granted, name: name, metadata: metadata, granted_at: 2.months.ago)
               end
-            end
 
-            context "when has options that doesn't match the authorization" do
-              let(:options) { { postal_code: "789" } }
+              before do
+                allow_any_instance_of(Decidim::Verifications::WorkflowManifest)
+                  .to receive(:expires_in).and_return(1.month)
+              end
 
-              it "returns invalid" do
+              it "returns expired" do
                 expect(response).not_to be_ok
-                expect(response.code).to eq(:invalid)
+                expect(response.code).to eq(:expired)
                 expect(response.handler_name).to eq("dummy_authorization_handler")
-                expect(response.data).to include(fields: { "postal_code" => "789" })
               end
             end
 
-            context "when has options that exactly match the authorization" do
-              let(:options) { { postal_code: "1234", location: "Tomorrowland" } }
-
-              it "returns ok" do
-                expect(response).to be_ok
+            context "when it has not expired" do
+              before do
+                allow_any_instance_of(Decidim::Verifications::WorkflowManifest)
+                  .to receive(:expires_in).and_return(1.month)
               end
-            end
 
-            context "when has options that partially match the authorization" do
-              let(:options) { { postal_code: "1234" } }
+              context "when it doesn't have options" do
+                let(:options) { {} }
 
-              it "returns ok" do
-                expect(response).to be_ok
+                it "returns ok" do
+                  expect(response).to be_ok
+                end
               end
-            end
 
-            context "when has options that contains more keys than the authorization" do
-              let(:options) { { postal_code: "1234", age: 18 } }
+              context "when has options that doesn't match the authorization" do
+                let(:options) { { postal_code: "789" } }
 
-              it "returns incomplete with the fields" do
-                expect(response).not_to be_ok
-                expect(response.code).to eq(:incomplete)
-                expect(response.handler_name).to eq("dummy_authorization_handler")
-                expect(response.data).to include(fields: ["age"])
+                it "returns invalid" do
+                  expect(response).not_to be_ok
+                  expect(response.code).to eq(:invalid)
+                  expect(response.handler_name).to eq("dummy_authorization_handler")
+                  expect(response.data).to include(fields: { "postal_code" => "789" })
+                end
+              end
+
+              context "when has options that exactly match the authorization" do
+                let(:options) { { postal_code: "1234", location: "Tomorrowland" } }
+
+                it "returns ok" do
+                  expect(response).to be_ok
+                end
+              end
+
+              context "when has options that partially match the authorization" do
+                let(:options) { { postal_code: "1234" } }
+
+                it "returns ok" do
+                  expect(response).to be_ok
+                end
+              end
+
+              context "when has options that contains more keys than the authorization" do
+                let(:options) { { postal_code: "1234", age: 18 } }
+
+                it "returns incomplete with the fields" do
+                  expect(response).not_to be_ok
+                  expect(response.code).to eq(:incomplete)
+                  expect(response.handler_name).to eq("dummy_authorization_handler")
+                  expect(response.data).to include(fields: ["age"])
+                end
               end
             end
           end
