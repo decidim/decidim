@@ -59,8 +59,8 @@ module Decidim
         true
       end
 
-      # Public: Override Commentable concern method `users_to_notify_on_comment_created`
-      def users_to_notify_on_comment_created
+      # Public: Override Commentable concern method `users_to_notify_on_comment_authorized`
+      def users_to_notify_on_comment_authorized
         followers
       end
     end

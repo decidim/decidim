@@ -25,7 +25,6 @@ module Decidim
         transaction do
           create_comment
           send_notification_to_moderators
-          create_moderation
         end
 
         broadcast(:ok, @comment)

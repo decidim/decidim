@@ -35,6 +35,8 @@ module Decidim
 
       delegate :organization, :feature, to: :commentable
 
+      after_create :create_moderation
+
       # Public: Override Commentable concern method `accepts_new_comments?`
       def accepts_new_comments?
         depth < MAX_DEPTH
@@ -75,6 +77,12 @@ module Decidim
       end
 
       private
+
+      def create_moderation
+        participatory_space = self.root_commentable.feature.participatory_space
+        @moderation = self.create_moderation!(participatory_space: participatory_space)
+      end
+
 
       # Private: Check if commentable can have comments and if not adds
       # a validation error to the model
