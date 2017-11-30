@@ -4,11 +4,25 @@ require "spec_helper"
 
 module Decidim
   describe Organization, processing_uploads_for: Decidim::HomepageImageUploader do
-    subject { organization }
-
-    let(:organization) { build(:organization) }
+    subject(:organization) { build(:organization) }
 
     it { is_expected.to be_valid }
+
+    describe "has an association for scopes" do
+      subject(:organization_scopes) { organization.scopes }
+
+      let(:scopes) { create_list(:scope, 2, organization: organization) }
+
+      it { is_expected.to contain_exactly(*scopes) }
+    end
+
+    describe "has an association for scope types" do
+      subject(:organization_scopes_types) { organization.scope_types }
+
+      let(:scope_types) { create_list(:scope_type, 2, organization: organization) }
+
+      it { is_expected.to contain_exactly(*scope_types) }
+    end
 
     describe "validations" do
       context "when the homepage image is not present" do
