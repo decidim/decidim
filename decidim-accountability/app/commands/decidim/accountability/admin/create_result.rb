@@ -30,7 +30,9 @@ module Decidim
         attr_reader :result
 
         def create_result
-          @result = Result.create!(
+          @result = Decidim.traceability.create!(
+            Result,
+            @form.current_user,
             feature: @form.current_feature,
             scope: @form.scope,
             category: @form.category,

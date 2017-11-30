@@ -1,0 +1,18 @@
+<div class="author-data__main">
+  <div class="author author--inline">
+    <% if author.respond_to?(:avatar_url) %>
+      <span class="author__avatar author__avatar--small">
+        <%= image_tag author.avatar_url %>
+      </span>
+    <% end %>
+    <span class="author__name">
+      <% if author.try(:deleted?) %>
+        <span class="label label--small label--basic">
+          <%= t('.deleted') %>
+        </span>
+      <% else %>
+        <%= author.try(:name) || author %>
+      <% end %>
+    </span>
+  </div>
+</div>

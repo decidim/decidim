@@ -2,10 +2,10 @@
 
 require "spec_helper"
 
-describe "Explore results", type: :feature do
+describe "Explore results", versioning: true, type: :feature do
   include_context "with a feature"
-  let(:manifest_name) { "accountability" }
 
+  let(:manifest_name) { "accountability" }
   let(:results_count) { 5 }
   let!(:scope) { create :scope, organization: organization }
   let!(:results) do
@@ -54,6 +54,23 @@ describe "Explore results", type: :feature do
       expect(page).to have_i18n_content(result.title)
       expect(page).to have_i18n_content(result.description)
       expect(page).to have_content(result.reference)
+    end
+
+    context "when it has no versions" do
+      before do
+        result.versions.destroy_all
+        visit current_path
+      end
+
+      it "does not show version data" do
+        expect(page).not_to have_content("VERSION NUMBER")
+      end
+    end
+
+    context "when it has some versions" do
+      it "does shows version data" do
+        expect(page).to have_content("VERSION NUMBER 1")
+      end
     end
 
     context "without category or scope" do

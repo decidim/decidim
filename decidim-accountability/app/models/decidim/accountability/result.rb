@@ -11,6 +11,7 @@ module Decidim
       include Decidim::HasCategory
       include Decidim::HasReference
       include Decidim::Comments::Commentable
+      include Decidim::Traceable
 
       feature_manifest_name "accountability"
 

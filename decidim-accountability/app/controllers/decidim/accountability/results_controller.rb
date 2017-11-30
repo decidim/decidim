@@ -6,8 +6,10 @@ module Decidim
     class ResultsController < Decidim::Accountability::ApplicationController
       include FilterResource
       helper Decidim::WidgetUrlsHelper
+      helper Decidim::TraceabilityHelper
+      helper Decidim::Accountability::BreadcrumbHelper
 
-      helper_method :results, :result, :stats_calculator, :first_class_categories, :category, :progress_calculator, :count_calculator, :current_scope
+      helper_method :results, :result, :first_class_categories, :count_calculator
 
       private
 
@@ -18,10 +20,6 @@ module Decidim
 
       def result
         @result ||= Result.includes(:timeline_entries).where(feature: current_feature).find(params[:id])
-      end
-
-      def stats_calculator
-        @stats_calculator ||= ResultStatsCalculator.new(result)
       end
 
       def search_klass
@@ -44,22 +42,8 @@ module Decidim
         @first_class_categories ||= current_participatory_space.categories.first_class
       end
 
-      def category
-        if params[:filter] && params[:filter][:category_id].present?
-          current_participatory_space.categories.find(params[:filter][:category_id])
-        end
-      end
-
-      def progress_calculator(scope_id, category_id)
-        Decidim::Accountability::ResultsCalculator.new(current_feature, scope_id, category_id).progress
-      end
-
       def count_calculator(scope_id, category_id)
         Decidim::Accountability::ResultsCalculator.new(current_feature, scope_id, category_id).count
-      end
-
-      def current_scope
-        params[:filter][:scope_id] if params[:filter]
       end
     end
   end
