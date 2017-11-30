@@ -251,6 +251,8 @@ pl:
         close_window: Zamknij okno
         share: Dzielić
         share_link: Udostępnij link
+      version_author:
+        deleted: Usunięty użytkownik
   devise:
     invitations:
       edit:
@@ -385,6 +387,9 @@ pl:
     wechat_footer: Otwórz program WeChat, kliknij przycisk "Odkryj", a następnie kliknij menu "Zeskanuj kod QR Code".
     weibo: Sina Weibo
     xing: Xing
+  time:
+    formats:
+      decidim_short: "%d/%m/%Y %H:%M"
   views:
     pagination:
       first: "&laquo; Najpierw"
