@@ -27,7 +27,9 @@ module Decidim
     validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
     validates :email, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? }
     validates :email, 'valid_email_2/email': { disposable: true }
-    validates :email, format: { with: /.*!\+.*@/ }
+
+    # Disallow the + character in emails
+    validates :email, format: { with: /^[^\+]*$/ }
 
     validate :all_roles_are_valid
 
