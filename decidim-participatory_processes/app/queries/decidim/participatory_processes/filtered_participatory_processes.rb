@@ -13,12 +13,14 @@ module Decidim
         processes = Decidim::ParticipatoryProcess.all
 
         case @filter
-        when "past"
-          processes.where("decidim_participatory_processes.end_date <= ?", Time.current)
-        when "upcoming"
-          processes.where("decidim_participatory_processes.start_date > ?", Time.current)
-        else
+        when "all"
           processes
+        when "past"
+          processes.past
+        when "upcoming"
+          processes.upcoming
+        else
+          processes.active
         end
       end
     end

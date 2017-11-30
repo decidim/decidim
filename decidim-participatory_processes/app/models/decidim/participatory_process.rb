@@ -48,6 +48,10 @@ module Decidim
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::BannerImageUploader
 
+    scope :past, -> { where(arel_table[:end_date].lteq(Time.current)) }
+    scope :upcoming, -> { where(arel_table[:start_date].gt(Time.current)) }
+    scope :active, -> { where(arel_table[:start_date].lteq(Time.current).and(arel_table[:end_date].gt(Time.current).or(arel_table[:end_date].eq(nil)))) }
+
     # Scope to return only the promoted processes.
     #
     # Returns an ActiveRecord::Relation.

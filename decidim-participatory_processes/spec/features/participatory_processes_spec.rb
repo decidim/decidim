@@ -68,6 +68,8 @@ describe "Participatory Processes", type: :feature do
     let!(:participatory_process) { base_process }
     let!(:promoted_process) { create(:participatory_process, :promoted, organization: organization) }
     let!(:unpublished_process) { create(:participatory_process, :unpublished, organization: organization) }
+    let!(:past_process) { create :participatory_process, :past, organization: organization }
+    let!(:upcoming_process) { create :participatory_process, :upcoming, organization: organization }
 
     before do
       visit decidim_participatory_processes.participatory_processes_path
@@ -93,7 +95,7 @@ describe "Participatory Processes", type: :feature do
       end
     end
 
-    it "lists all the processes" do
+    it "lists the active processes" do
       within "#processes-grid" do
         within "#processes-grid h2" do
           expect(page).to have_content("2")
@@ -104,6 +106,8 @@ describe "Participatory Processes", type: :feature do
         expect(page).to have_selector("article.card", count: 2)
 
         expect(page).to have_no_content(translated(unpublished_process.title, locale: :en))
+        expect(page).to have_no_content(translated(past_process.title, locale: :en))
+        expect(page).to have_no_content(translated(upcoming_process.title, locale: :en))
       end
     end
 
@@ -114,12 +118,21 @@ describe "Participatory Processes", type: :feature do
     end
 
     context "and filtering processes" do
-      let!(:past_process) { create :participatory_process, :past, organization: organization }
-      let!(:upcoming_process) { create :participatory_process, :upcoming, organization: organization }
+      context "choosing 'active' processes" do
+        before do
+          within ".order-by__tabs" do
+            click_link "Active"
+          end
+        end
 
-      it "list the active processes by default" do
-        expect(page).to have_no_content(translated(past_process.title, locale: :en))
-        expect(page).to have_no_content(translated(upcoming_process.title, locale: :en))
+        it "lists the active processes" do
+          within "#processes-grid h2" do
+            expect(page).to have_content("2")
+          end
+
+          expect(page).to have_content(translated(participatory_process.title, locale: :en))
+          expect(page).to have_content(translated(promoted_process.title, locale: :en))
+        end
       end
 
       context "and choosing 'past' processes" do
@@ -129,7 +142,7 @@ describe "Participatory Processes", type: :feature do
           end
         end
 
-        it "list the past processes" do
+        it "lists the past processes" do
           within "#processes-grid h2" do
             expect(page).to have_content("1")
           end
@@ -145,11 +158,30 @@ describe "Participatory Processes", type: :feature do
           end
         end
 
-        it "list the past processes" do
+        it "lists the upcoming processes" do
           within "#processes-grid h2" do
             expect(page).to have_content("1")
           end
 
+          expect(page).to have_content(translated(upcoming_process.title, locale: :en))
+        end
+      end
+
+      context "choosing 'all' processes" do
+        before do
+          within ".order-by__tabs" do
+            click_link "All"
+          end
+        end
+
+        it "lists all processes" do
+          within "#processes-grid h2" do
+            expect(page).to have_content("4")
+          end
+
+          expect(page).to have_content(translated(participatory_process.title, locale: :en))
+          expect(page).to have_content(translated(promoted_process.title, locale: :en))
+          expect(page).to have_content(translated(past_process.title, locale: :en))
           expect(page).to have_content(translated(upcoming_process.title, locale: :en))
         end
       end

@@ -223,6 +223,7 @@ en:
         title: Participatory processes
       order_by_processes:
         active: Active
+        all: All
         past: Past
         upcoming: Upcoming
       pages:
