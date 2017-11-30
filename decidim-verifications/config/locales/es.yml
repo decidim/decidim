@@ -17,8 +17,8 @@ es:
       admin:
         id_documents:
           help:
-            - Los usuarios rellenan la información de su identidad y cargan una copia de su documento.
-            - Rellenas la información presente en la imagen cargada.
+            - Los usuarios rellenan la información de su identidad y suben una copia de su documento.
+            - Rellenas la información presente en la imagen subida.
             - La información debe coincidir con lo que el usuario envió.
             - Si no puedes ver claramente la información o no puedes verificarla, puedes rechazar la solicitud y el usuario podrá corregirla.
         postal_letter:
@@ -46,7 +46,7 @@ es:
           actions:
             dummy_authorization_handler: Verificar contra el gestor de autorización de ejemplo
             dummy_authorization_workflow: Verificar contra el flujo de autorización de ejemplo
-            id_documents: Verifícate cargando tu documento de identidad
+            id_documents: Verifícate subiendo tu documento de identidad
             postal_letter: Verifícate recibiendo un código de verificación a través de correo postal
           title: Verifica tu identidad
           verify_with_these_options: 'Estas son las opciones disponibles para verificar tu identidad:'
@@ -74,11 +74,11 @@ es:
               success: Verificación rechazada. Se le pedirá al usuario que modifique sus documentos
         authorizations:
           create:
-            error: Hubo un problema al cargar su documento
-            success: El archivo se ha subido correctamente
+            error: Hubo un problema al subir tu documento
+            success: El documento se ha subido correctamente
           edit:
             being_reviewed: Estamos revisando tus documentos. Serás verificado en breve
-            rejection_clarity: Asegúrate de que la información sea claramente visible en la imagen cargada
+            rejection_clarity: Asegúrate de que la información sea claramente visible en la imagen subida
             rejection_correctness: Asegúrate de que la información ingresada sea correcta
             rejection_notice: Hubo un problema con tu verificación. Inténtalo de nuevo
             send: Solicitar verificación de nuevo
@@ -87,7 +87,7 @@ es:
             title: Sube tu documento de Identidad
           update:
             error: Hubo un problema al volver a subir tu documento
-            success: Documento vuelto a cargar con éxito
+            success: El documento se ha resubido correctamente
         dni: DNI
         nie: NIE
         passport: Pasaporte
@@ -96,27 +96,27 @@ es:
           pending_authorizations:
             index:
               address: Dirección
-              letter_sent_at: Carta enviada a
-              mark_as_sent: Marcar como enviado
+              letter_sent_at: Carta enviada el
+              mark_as_sent: Marcar como enviada
               not_yet_sent: Aún no se ha enviado
-              title: Verificaciones continuas
+              title: Verificaciones en curso
               username: Nombre de usuario
               verification_code: Código de verificación
           postages:
             create:
-              error: Error al marcar una letra como enviada
-              success: Carta exitosamente marcada como enviada
+              error: Error al marcar la carta como enviada
+              success: Carta marcada como enviada correctamente
         authorizations:
           create:
-            error: Hubo un problema con su solicitud
-            success: '¡Gracias! Le enviaremos un código de verificación a su dirección'
+            error: Hubo un problema con su petición
+            success: '¡Gracias! Te enviaremos un código de verificación a tu dirección'
           edit:
             send: Confirmar
             title: Introduce el código de verificación que recibiste
-            waiting_for_letter: Pronto enviaremos una carta a su dirección con su código de verificación
+            waiting_for_letter: Pronto enviaremos una carta a tu dirección con tu código de verificación
           new:
             send: Mándame una carta
-            title: Solicite su código de verificación
+            title: Solicita tu código de verificación
           update:
             error: Tu código de verificación no coincide con el nuestro. Por favor, revisa la carta que te enviamos
             success: Felicitaciones. Has sido verificado con éxito
