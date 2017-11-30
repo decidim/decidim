@@ -20,7 +20,7 @@ fr:
             - Les utilisateurs remplissent leurs informations d'identité et téléchargent une copie de leur document.
             - Vous remplissez les informations présentes dans l'image téléchargée.
             - L'information doit correspondre à tout ce que l'utilisateur a rempli.
-            - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez rejeter la demande et l'utilisateur sera en mesure de la réparer.
+            - Si vous ne pouvez pas voir clairement les informations ou si vous ne pouvez pas les vérifier, vous pouvez rejeter la demande et l'utilisateur sera en mesure de les corriger.
         postal_letter:
           help:
             - Les utilisateurs demandent un code de vérification à envoyer à leur adresse.
@@ -32,10 +32,10 @@ fr:
       id_documents:
         explanation: Téléchargez vos documents d'identité afin que nous puissions vérifier votre identité
         name: Documents d'identité
-      multistep: Multi-Step
-      name: prénom
+      multistep: 'À étapes'
+      name: Nom
       postal_letter:
-        explanation: Nous vous enverrons une lettre postale avec un code que vous devrez saisir pour que nous puissions vérifier votre adresse
+        explanation: Nous vous enverrons une lettre postale avec un code que vous devrez saisir afin que nous puissions vérifier votre adresse
         name: Code par lettre postale
     verifications:
       authorizations:
