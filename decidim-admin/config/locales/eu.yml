@@ -12,6 +12,7 @@ eu:
       feature:
         name: Izena
         weight: Pisua
+      id: NAN
       newsletter:
         body: Testua
         subject: Gaia
@@ -385,6 +386,7 @@ eu:
           error: Errorea gertatu da orri hau eguneratzean.
           success: Orria zuzen eguneratu da.
       titles:
+        authorization_workflows: Egiaztapen metodoak
         dashboard: Kontrol-panela
         impersonations: Ordezteak
         managed_users: Kudeatutako erabiltzaileak

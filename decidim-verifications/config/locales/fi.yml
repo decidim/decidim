@@ -1,0 +1,125 @@
+fi:
+  activemodel:
+    attributes:
+      id_document_information:
+        document_number: Asiakirjan numero (kirjaimella)
+        document_type: Asiakirjan tyyppi
+      id_document_upload:
+        document_number: Asiakirjan numero (kirjaimella)
+        document_type: Asiakirjan tyyppi
+        user: käyttäjä
+        verification_attachment: Asiakirjan skannattu kopio
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: Vahvistukset
+    authorization_handlers:
+      admin:
+        id_documents:
+          help:
+            - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
+            - Täytä ladatun kuvan läsnä olevat tiedot.
+            - Tietojen tulisi vastata mitä tahansa käyttäjän täyttämää.
+            - Jos et voi nähdä tietoja selvästi tai et voi saada sitä vahvistettua, voit hylätä pyynnön ja käyttäjä voi korjata sen.
+        postal_letter:
+          help:
+            - Käyttäjät vaativat vahvistuskoodin lähettämistä osoitteeseen.
+            - Lähetät kirjeen osoitteeseen vahvistuskoodilla.
+            - Merkitään kirje lähetetyksi.
+            - Kun olet merkinnyt lähetetyn kirjeen, käyttäjä voi ottaa koodin käyttöön ja saada vahvistuksen.
+      direct: Suoraan
+      help: auta
+      id_documents:
+        explanation: Lähetä henkilötodistuksesi, jotta voimme tarkistaa henkilöllisyytesi
+        name: Henkilötodistukset
+      multistep: Monivaiheinen
+      name: Nimi
+      postal_letter:
+        explanation: Lähetämme sinulle postinumeron, jonka koodi on kirjoitettava, jotta voimme vahvistaa osoitteen
+        name: Koodi postikirjeellä
+    verifications:
+      authorizations:
+        create:
+          error: Luvalla luotiin virhe.
+          success: Sinulle on myönnetty lupa.
+        first_login:
+          actions:
+            dummy_authorization_handler: Varmista esimerkki valtuutuksen käsittelijältä
+            dummy_authorization_workflow: Varmista esimerkkitodennuksen työnkulku
+            id_documents: Tarkista, että lähetät henkilöllisyystodistuksesi
+            postal_letter: Tarkista, että saat vahvistuskoodin postipostin kautta
+          title: Vahvista henkilöllisyytesi
+          verify_with_these_options: 'Nämä ovat käytettävissä olevia vaihtoehtoja henkilöllisyytesi vahvistamiseksi:'
+        new:
+          authorize: Lähettää
+          authorize_with: Vahvista %{authorizer}
+        skip_verification: Voit ohittaa tämän nyt ja %{link}
+        start_exploring: alkaa tutkia
+      id_documents:
+        admin:
+          confirmations:
+            create:
+              error: Vahvistus ei täsmää. Yritä uudelleen tai hylkää vahvistus, jotta käyttäjä voi muuttaa sitä
+              success: Käyttäjä onnistui
+            new:
+              introduce_user_data: Esitä tiedot kuvassa
+              reject: Hylätä
+              verify: tarkistaa
+          pending_authorizations:
+            index:
+              title: Odottaa tarkistuksia
+              verification_number: 'Vahvistus # %{n}'
+          rejections:
+            create:
+              success: Vahvistus hylätty. Käyttäjää pyydetään muuttamaan asiakirjojaan
+        authorizations:
+          create:
+            error: Dokumentin lataaminen tapahtui
+            success: Asiakirja on ladattu onnistuneesti
+          edit:
+            being_reviewed: Tarkistamme asiakirjoja. Sinut tarkistetaan pian
+            rejection_clarity: Varmista, että tiedot näkyvät selvästi ladatussa kuvassa
+            rejection_correctness: Varmista, että syötetyt tiedot ovat oikein
+            rejection_notice: Vahvistuksessa tapahtui ongelma. Yritä uudelleen
+            send: Pyydä vahvistus uudelleen
+          new:
+            send: Pyydä vahvistus
+            title: Lähetä henkilötodistusasi
+          update:
+            error: Dokumentin uudelleen lataaminen tapahtui
+            success: Asiakirjan uudelleen lataaminen onnistui
+        dni: DNI
+        nie: NIE
+        passport: Passi
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Osoite
+              letter_sent_at: Kirje lähetetty osoitteessa
+              mark_as_sent: Merkitse lähetetty
+              not_yet_sent: Ei vielä lähetetty
+              title: Käynnissä olevat tarkistukset
+              username: Käyttäjätunnus
+              verification_code: Vahvistuskoodi
+          postages:
+            create:
+              error: Virhe merkittynä kirjeeksi lähetettynä
+              success: Kirje onnistuneesti merkitty lähetetyksi
+        authorizations:
+          create:
+            error: Pyynnössäsi oli ongelma
+            success: Kiitos! Lähetämme vahvistuskoodimme osoitteeseen
+          edit:
+            send: Vahvistaa
+            title: Esittele vastaanottamasi vahvistuskoodi
+            waiting_for_letter: Lähetämme kirjeesi osoitteeseen vahvistuskoodisi pian
+          new:
+            send: Lähetä minulle kirje
+            title: Pyydä vahvistuskoodia
+          update:
+            error: Vahvistuskoodi ei vastaa meidän. Tarkista ensin lähettämäsi kirje
+            success: Onnea. Olet varmistunut
+  errors:
+    messages:
+      uppercase_only_letters_numbers: on oltava isoja ja sisältävät vain kirjaimia ja / tai numeroita

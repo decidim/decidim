@@ -61,7 +61,7 @@ it:
             statuses: Gli stati
         statuses:
           create:
-            invalid: È stato un problema che crea questo stato
+            invalid: 'È stato un problema che crea questo stato'
             success: Stato creato con successo
           destroy:
             success: Stato eliminato con successo
@@ -74,7 +74,7 @@ it:
             create: Crea stato
             title: Nuovo stato
           update:
-            invalid: È stato un problema che aggiorna questo stato
+            invalid: 'È stato un problema che aggiorna questo stato'
             success: Stato aggiornato con successo
         timeline_entries:
           create:
@@ -91,7 +91,7 @@ it:
             create: Crea voce
             title: Nuovo arrivato
           update:
-            invalid: È stato un problema che aggiorna questa voce
+            invalid: 'È stato un problema che aggiorna questa voce'
             success: Entrata aggiornata con successo
       models:
         result:
@@ -132,13 +132,30 @@ it:
         show:
           stats:
             attendees: Partecipanti
+            back_to_result: Torna al risultato
             comments: Commenti
             contributions: Contributi
+            last_edited_by: Ultima modifica di
+            last_updated_at: Ultimo aggiornamento alle
             meetings: Riunioni
+            number_of_versions: versioni
             proposals: Proposte
+            show_all_versions: Mostra tutte le versioni
+            version_author: Autore della versione
+            version_created_at: Versione creata a
+            version_number: Numero della versione
+            version_number_out_of_total: "%{current_version} su %{total_count}"
             votes: Voti
         timeline:
           title: Evoluzione del progetto
+      versions:
+        index:
+          changes_at_title: Modifiche a "%{title}"
+          title: versioni
+        show:
+          changes_at_title: Modifiche a "%{title}"
+        version:
+          version_index: Versione %{index}
     features:
       accountability:
         name: Responsabilità

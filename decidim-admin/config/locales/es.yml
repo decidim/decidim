@@ -12,6 +12,7 @@ es:
       feature:
         name: Nombre
         weight: Peso
+      id: ID
       newsletter:
         body: Cuerpo
         subject: Asunto
@@ -56,12 +57,12 @@ es:
         end_date: Fecha de finalización
         hashtag: Hashtag
         hero_image: Imagen de portada
-        local_area: Áreas municipales
+        local_area: 'Áreas municipales'
         meta_scope: 'Metadatos: ámbito'
-        participatory_scope: Ámbito participativo
+        participatory_scope: 'Ámbito participativo'
         participatory_structure: Estructura participativa
         promoted: Destacado
-        scope: Ámbito
+        scope: 'Ámbito'
         short_description: Descripción breve
         slug: Texto corto de URL
         start_date: Fecha de inicio
@@ -214,7 +215,7 @@ es:
         managed_users: Usuarios gestionados
         newsletters: Boletines
         scope_types: Tipos de ámbito
-        scopes: Ámbitos
+        scopes: 'Ámbitos'
         settings: Configuración
         static_pages: Páginas
         user_groups: Grupos de usuarios
@@ -259,7 +260,7 @@ es:
           fields:
             created_at: Fecha de creación
             email: Correo electrónico
-            last_sign_in_at: Última fecha de identificación
+            last_sign_in_at: 'Última fecha de identificación'
             name: Nombre
             role: Rol
             roles:
@@ -354,9 +355,9 @@ es:
       scopes:
         create:
           error: Se ha producido un error al crear un nuevo ámbito.
-          success: Ámbito creado correctamente.
+          success: 'Ámbito creado correctamente.'
         destroy:
-          success: Ámbito eliminado con éxito
+          success: 'Ámbito eliminado con éxito'
         edit:
           title: Editar alcance
           update: Actualizar
@@ -366,7 +367,7 @@ es:
         no_scopes: No hay ámbitos en este nivel.
         update:
           error: Se produjo un error en la actualización de este ámbito.
-          success: Ámbito actualizado correctamente
+          success: 'Ámbito actualizado correctamente'
       static_pages:
         actions:
           view: Ver la página pública
@@ -385,11 +386,12 @@ es:
           error: Se ha producido un error en la actualización de ésta página.
           success: La página se ha actualizado correctamente.
       titles:
+        authorization_workflows: Métodos de verificación
         dashboard: Panel de control
         impersonations: Suplantaciones
         managed_users: Usuarios gestionados
         scope_types: Tipos de ámbito
-        scopes: Ámbitos
+        scopes: 'Ámbitos'
         static_pages: Páginas
         user_groups: Grupos de usuarios
         users: Usuarios

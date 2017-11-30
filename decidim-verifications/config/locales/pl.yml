@@ -1,0 +1,125 @@
+pl:
+  activemodel:
+    attributes:
+      id_document_information:
+        document_number: Numer dokumentu (z literą)
+        document_type: Typ dokumentu
+      id_document_upload:
+        document_number: Numer dokumentu (z literą)
+        document_type: Typ twojego dokumentu
+        user: Użytkownik
+        verification_attachment: Zeskanowana kopia twojego dokumentu
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: Weryfikacje
+    authorization_handlers:
+      admin:
+        id_documents:
+          help:
+            - Użytkownicy wypełniają swoje dane osobowe i przesyłają kopię swojego dokumentu.
+            - Wypełniasz informacje zawarte w przesłanym obrazie.
+            - Informacje powinny pasować do tego, co użytkownik wypełnił.
+            - Jeśli nie możesz wyraźnie zobaczyć tych informacji lub nie możesz ich zweryfikować, możesz odrzucić prośbę, a użytkownik będzie mógł to naprawić.
+        postal_letter:
+          help:
+            - Użytkownicy żądają kodu weryfikacyjnego, który zostanie wysłany na ich adres.
+            - Wysyłasz list na adres z kodem weryfikacyjnym.
+            - Oznacz list jako wysłany.
+            - Po oznaczeniu wysłanej litery użytkownik będzie mógł wprowadzić kod i uzyskać weryfikację.
+      direct: Bezpośredni
+      help: Wsparcie
+      id_documents:
+        explanation: Prześlij dokumenty tożsamości, abyśmy mogli sprawdzić Twoją tożsamość
+        name: Dokumenty tożsamości
+      multistep: Multi-Step
+      name: Nazwa
+      postal_letter:
+        explanation: Wyślemy Ci list pocztowy z kodem, który musisz wprowadzić, abyśmy mogli zweryfikować twój adres
+        name: Kod listem pocztowym
+    verifications:
+      authorizations:
+        create:
+          error: Wystąpił błąd podczas tworzenia autoryzacji.
+          success: Pomyślnie autoryzowano.
+        first_login:
+          actions:
+            dummy_authorization_handler: Sprawdź na przykładzie przykładowej procedury autoryzacji
+            dummy_authorization_workflow: Sprawdź w przykładowym przepływie pracy autoryzacji
+            id_documents: Uzyskaj weryfikację, przesyłając swój dokument tożsamości
+            postal_letter: Uzyskaj weryfikację, otrzymując kod weryfikacyjny za pośrednictwem poczty
+          title: Zweryfikować Twoją tożsamość
+          verify_with_these_options: 'Oto dostępne opcje weryfikacji tożsamości:'
+        new:
+          authorize: Wysłać
+          authorize_with: Zweryfikuj przy pomocy %{authorizer}
+        skip_verification: Możesz teraz pominąć to i %{link}
+        start_exploring: zacznij odkrywać
+      id_documents:
+        admin:
+          confirmations:
+            create:
+              error: Weryfikacja nie pasuje. Spróbuj ponownie lub odrzuć weryfikację, aby użytkownik mógł ją poprawić
+              success: Użytkownik pomyślnie zweryfikowany
+            new:
+              introduce_user_data: Przedstaw dane w obrazie
+              reject: Odrzucać
+              verify: Zweryfikować
+          pending_authorizations:
+            index:
+              title: Oczekujące weryfikacje
+              verification_number: 'Weryfikacja # %{n}'
+          rejections:
+            create:
+              success: Weryfikacja odrzucona. Użytkownik zostanie poproszony o zmianę swoich dokumentów
+        authorizations:
+          create:
+            error: Podczas przesyłania dokumentu wystąpił problem
+            success: Dokument przesłany pomyślnie
+          edit:
+            being_reviewed: Sprawdzamy Twoje dokumenty. Wkrótce zostaniesz zweryfikowany
+            rejection_clarity: Upewnij się, że informacje są wyraźnie widoczne w przesłanym obrazie
+            rejection_correctness: Upewnij się, że wprowadzone informacje są poprawne
+            rejection_notice: Wystąpił problem z Twoją weryfikacją. Proszę spróbuj ponownie
+            send: Zażądaj ponownie weryfikacji
+          new:
+            send: Poproś o weryfikację
+            title: Prześlij swój dokument tożsamości
+          update:
+            error: Podczas ponownego ładowania dokumentu wystąpił problem
+            success: Dokument został pomyślnie przesłany ponownie
+        dni: DNI
+        nie: NIE
+        passport: Paszport
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Adres
+              letter_sent_at: List wysłany pod adresem
+              mark_as_sent: Oznacz jako wysłany
+              not_yet_sent: jeszcze nie wysłane
+              title: Ciągłe weryfikacje
+              username: Nazwa Użytkownika
+              verification_code: Kod weryfikacyjny
+          postages:
+            create:
+              error: Błąd oznaczający literę jako wysłaną
+              success: List został pomyślnie oznaczony jako wysłany
+        authorizations:
+          create:
+            error: Był problem z Twoją prośbą
+            success: Dzięki! Wyślemy kod weryfikacyjny na Twój adres
+          edit:
+            send: Potwierdzać
+            title: Wprowadź kod weryfikacyjny, który otrzymałeś
+            waiting_for_letter: Wkrótce wyślemy list na Twój adres z kodem weryfikacyjnym
+          new:
+            send: Wyślij mi list
+            title: Poproś o kod weryfikacyjny
+          update:
+            error: Twój kod weryfikacyjny nie pasuje do naszego. Proszę dokładnie sprawdzić list, który do Ciebie wysłaliśmy
+            success: Gratulacje. Twoja weryfikacja została pomyślnie zakończona
+  errors:
+    messages:
+      uppercase_only_letters_numbers: musi być wielkimi literami i zawierać wyłącznie litery i / lub cyfry

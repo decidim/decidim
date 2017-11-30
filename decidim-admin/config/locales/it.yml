@@ -12,6 +12,7 @@ it:
       feature:
         name: Nome
         weight: Peso
+      id: ID
       newsletter:
         body: Testo
         subject: Oggetto
@@ -385,6 +386,7 @@ it:
           error: Si è verificato un errore durante l'aggiornamento di questa pagina.
           success: OK, la pagina è stata aggiornata.
       titles:
+        authorization_workflows: Metodi di verifica
         dashboard: Cruscotto (Dashboard)
         impersonations: impersonations
         managed_users: Utenti gestiti

@@ -4,7 +4,7 @@ es:
       proposal:
         body: Cuerpo
         category_id: Categoría
-        scope_id: Ámbito
+        scope_id: 'Ámbito'
         title: Título
         user_group_id: Crear propuesta como
       proposal_answer:
@@ -87,7 +87,7 @@ es:
             category: Categoría
             id: Identificador
             official_proposal: Propuesta oficial
-            scope: Ámbito
+            scope: 'Ámbito'
             state: Estado
             title: Título
             votes: Votos
@@ -105,9 +105,9 @@ es:
             one: 1 propuesta
             other: "%{count} propuestas"
         edit:
-          attachment_legend: "(Opcional) Agregar un archivo adjunto"
-          back: Espalda
-          select_a_category: Porfavor seleccione una categoría
+          attachment_legend: "(Opcional) Añadir un archivo adjunto"
+          back: Atrás
+          select_a_category: Por favor, seleccione una categoría
           send: Enviar
           title: Editar propuesta
         filters:
@@ -123,7 +123,7 @@ es:
           rejected: Rechazadas
           related_to: Relacionado con
           scope_prompt: Seleccione un ámbito
-          scopes: Ámbitos
+          scopes: 'Ámbitos'
           search: Buscar
           state: Estado
           voted: Votado
@@ -143,8 +143,8 @@ es:
           attachment_legend: "(Opcional) Añadir un archivo adjunto"
           back: Atrás
           proposal_edit_before_minutes:
-            one: Podrá editar esta propuesta durante el primer minuto posterior a la creación de la propuesta. Una vez que pase esta ventana de tiempo, no podrá editar la propuesta.
-            other: Podrá editar esta propuesta durante los primeros %{count} minutos posteriores a la creación de la propuesta. Una vez que pase esta ventana de tiempo, no podrá editar la propuesta.
+            one: Podrás editar esta propuesta durante el primer minuto posterior a la creación de la propuesta. Una vez que pase esta ventana de tiempo, no podrás editar la propuesta.
+            other: Podrás editar esta propuesta durante los primeros %{count} minutos posteriores a la creación de la propuesta. Una vez que pase esta ventana de tiempo, no podrás editar la propuesta.
           select_a_category: Por favor, seleccione una categoría
           send: Enviar
           title: Nueva propuesta

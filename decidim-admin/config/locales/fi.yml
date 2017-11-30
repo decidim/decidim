@@ -12,6 +12,7 @@ fi:
       feature:
         name: Nimi
         weight: Painoarvo
+      id: ID
       newsletter:
         body: Runko
         subject: Otsikko
@@ -385,6 +386,7 @@ fi:
           error: Tämän sivun päivityksessä tapahtui virhe.
           success: Sivu päivitetty onnistuneesti
       titles:
+        authorization_workflows: Vahvistusmenetelmät
         dashboard: Hallintapaneeli
         impersonations: Esiintymiset käyttäjinä
         managed_users: Hallinnoitavat käyttäjät

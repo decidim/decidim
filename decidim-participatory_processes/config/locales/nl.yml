@@ -222,6 +222,7 @@ nl:
         title: Participatieve processen
       order_by_processes:
         active: Actief
+        all: Alle
         past: Verleden
         upcoming: Aankomende
       pages:

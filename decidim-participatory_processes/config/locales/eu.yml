@@ -222,6 +222,7 @@ eu:
         title: Prozesu partizipatiboak
       order_by_processes:
         active: Aktiboa
+        all: guztiak
         past: Aurrekoak
         upcoming: Hurrengoak
       pages:

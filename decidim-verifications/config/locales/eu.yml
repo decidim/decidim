@@ -1,0 +1,125 @@
+eu:
+  activemodel:
+    attributes:
+      id_document_information:
+        document_number: Dokumentuaren zenbakia (letra batekin)
+        document_type: Dokumentuaren mota
+      id_document_upload:
+        document_number: Dokumentuaren zenbakia (letra batekin)
+        document_type: Zure dokumentuaren mota
+        user: Erabiltzaileak
+        verification_attachment: Zure dokumentuaren eskaneatutako kopia
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: egiaztapen
+    authorization_handlers:
+      admin:
+        id_documents:
+          help:
+            - Erabiltzaileek beren identifikazio informazioa bete eta dokumentuaren kopia bat kargatu.
+            - Kargatutako irudian dagoen informazio hau bete behar duzu.
+            - Informazioa edozein erabiltzailek bete duenarekin bat egin beharko luke.
+            - Informazio hori argi eta garbi ikusi ez baduzu edo egiaztatu ezin baduzu, eskaera ukatu egin dezakezu eta erabiltzaileak konpondu ahal izango du.
+        postal_letter:
+          help:
+            - Erabiltzaileek egiaztapen-kodea eskatu behar dute euren helbidea bidaltzeko.
+            - Posta-helbidea bere helbidean bidaltzen du egiaztapen-kodearekin.
+            - Bidalitako mezua markatzen du.
+            - Behin bidalitako mezua markatzen duzunean, erabiltzaileak kodea sartu eta egiaztatu egingo du.
+      direct: Zuzeneko
+      help: Laguntza
+      id_documents:
+        explanation: Zure nortasun agiriak kargatu zure identitatea egiaztatzeko
+        name: Nortasun agiriak
+      multistep: Multi-Step
+      name: izena
+      postal_letter:
+        explanation: Posta-gutun bat bidaliko dizugu, sartu behar duzun kode batekin, beraz, zure helbidea egiaztatu ahal izango dugu
+        name: Kodea posta bidez
+    verifications:
+      authorizations:
+        create:
+          error: Errore bat gertatu da baimena sortzean.
+          success: Ongi baimendu duzu.
+        first_login:
+          actions:
+            dummy_authorization_handler: Egiaztatu adibide-baimenaren kudeatzailearen aurka
+            dummy_authorization_workflow: Egiaztatu baimenen laneko fluxuaren aurka
+            id_documents: Egiaztatu zure identifikazio dokumentua kargatzen
+            postal_letter: Egiaztatu egiaztapen-kodea posta-posta bidez egiaztatuz
+          title: Egiaztatu zure identitatea
+          verify_with_these_options: 'Hauek dira zure identitatea egiaztatzeko erabilgarri dauden aukerak:'
+        new:
+          authorize: Bidali
+          authorize_with: Egiaztatu %{authorizer} rekin
+        skip_verification: Hau saltatu dezakezu oraingoz eta %{link}
+        start_exploring: Hasi esploratzen
+      id_documents:
+        admin:
+          confirmations:
+            create:
+              error: Egiaztapena ez dator bat. Berriro saiatu edo ezeztatu egiaztapena erabiltzaileak hura aldatzeko
+              success: Erabiltzaileak behar bezala egiaztatu du
+            new:
+              introduce_user_data: Idatzi irudian datuak
+              reject: Ukatu
+              verify: Ziurtatu
+          pending_authorizations:
+            index:
+              title: Zain dauden egiaztapenak
+              verification_number: 'Egiaztapena # %{n}'
+          rejections:
+            create:
+              success: Verification rejected. Erabiltzailea bere dokumentuak aldatzeko eskatuko zaio
+        authorizations:
+          create:
+            error: Arazo bat izan da dokumentua kargatzean
+            success: Dokumentua behar bezala kargatu da
+          edit:
+            being_reviewed: Zure dokumentuak berrikusten ari gara. Handik gutxira, egiaztatu egingo zara
+            rejection_clarity: Ziurtatu informazioa kargatutako irudian ikusgai dagoela
+            rejection_correctness: Egiaztatu informazioa zuzena dela
+            rejection_notice: Arazo bat izan da zure egiaztapenarekin. Saiatu berriro mesedez
+            send: Eskatu egiaztapena berriro
+          new:
+            send: Eska ezazu egiaztapena
+            title: Kargatu zure identifikazio dokumentua
+          update:
+            error: Arazo bat izan da zure dokumentua berriro kargatzea
+            success: Dokumentua berriro kargatu da
+        dni: DNI
+        nie: NIE
+        passport: pasaportea
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              address: Helbidea
+              letter_sent_at: Gutuna bidali
+              mark_as_sent: Markatu bidali gisa
+              not_yet_sent: Ez da bidali oraindik
+              title: Etengabeko egiaztapenak
+              username: Erabiltzaile izena
+              verification_code: Egiaztapen kodea
+          postages:
+            create:
+              error: Errorea gutun gisa markatutako bidalketa gisa
+              success: Letra bidalitako gisa markatu da
+        authorizations:
+          create:
+            error: Arazo bat izan da eskaera zurekin
+            success: Eskerrik asko! Zure helbidean egiaztapen-kodea bidaliko dugu
+          edit:
+            send: Berretsi
+            title: Jasotako egiaztapen-kodea sartu
+            waiting_for_letter: Zure helbidera gutun bat bidaliko dizugu egiaztapen-kodearekin laster
+          new:
+            send: Bidali gutun bat
+            title: Eskatu egiaztapen-kodea
+          update:
+            error: Zure egiaztapen-kodea ez dator bat gurekin. Begiratu bi aldiz bidalitako mezua
+            success: Zorionak. Ongi egiaztatu duzu
+  errors:
+    messages:
+      uppercase_only_letters_numbers: guztiak maiuskulaz eta letrak eta / edo zenbakiak bakarrik izan behar ditu

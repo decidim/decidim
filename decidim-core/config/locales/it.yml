@@ -6,11 +6,11 @@ it:
       report:
         details: Ulteriori commenti
       user:
-        email: La tua email
+        email: Il tuo indirizzo email
         name: Il tuo nome
         password: Nuova password
         password_confirmation: Conferma la tua nuova password
-        remove_avatar: Rimuovere avatar
+        remove_avatar: Rimuovi avatar
         user_group_document_number: Codice fiscale dell'organizzazione
         user_group_name: Nome dell'organizzazione
         user_group_phone: Telefono dell'organizzazione
@@ -22,10 +22,10 @@ it:
         name: Nome Utente
         password: Password
         password_confirmation: Conferma password
-        remember_me: Ricordami su questo computer (rimani collegato)
+        remember_me: Ricordare password
         user_group_document_number: Codice fiscale dell'organizzazione
         user_group_name: Nome dell'organizzazione
-        user_group_phone: Telefono dell'organizzazione
+        user_group_phone: Numero di telefono dell'organizzazione
   booleans:
     'false': 'No'
     'true': 'Si'
@@ -47,7 +47,7 @@ it:
         success: Il tuo account è stato cancellato correttamente.
       show:
         change_password: Cambia password
-        update_account: Aggiorna Account
+        update_account: Aggiorna l'account
       update:
         error: Si è verificato un errore durante l'aggiornamento del tuo account.
         success: Il tuo account è stato aggiornato correttamente.
@@ -55,36 +55,27 @@ it:
     anonymous_user: Anonimo
     application:
       documents:
-        related_documents: Documenti correlati
+        related_documents: Documenti Relativi
       photos:
-        related_photos: Immagini correlate
+        related_photos: Immagini relative
     authorization_handlers:
       dummy_authorization_handler:
+        explanation: Ottieni la verifica introducendo un numero di documento che termina con "X"
         fields:
-          document_number: Numero di documento
-          postal_code: C.A.P.
+          document_number: Numero del documento
+          postal_code: Codice postale
         name: Esempio di autorizzazione
+      dummy_authorization_workflow:
+        name: Flusso di lavoro fittizio di autorizzazione
       errors:
-        duplicate_authorization: Esiste già un utente registrato con gli stessi dati.
+        duplicate_authorization: Esiste già un utente autorizzato con questi dati.
       foo_authorization:
         fields:
           bar: Barra
           foo: foo
         name: Autorizzazione Foo
-    authorizations:
-      create:
-        error: Si è verificato un errore nella creazione dell'autorizzazione.
-        success: Sei stato autorizzato con successo.
-      first_login:
-        actions:
-          dummy_authorization_handler: Verifica rispetto all'autorizzazione esempio
-        title: Verifica la tua identità
-        verify_with_these_options: 'Opzioni per la verifica dell''autorizzazione:'
-      new:
-        authorize: Invia
-        authorize_with: Verifica con %{authorizer}
-      skip_verification: Se preferisci puoi saltare questa verifica per il momento e %{link}
-      start_exploring: iniziare ad esplorare
+      granted_at: Concesso a %{timestamp}
+      started_at: Iniziato a %{timestamp}
     core:
       actions:
         unauthorized: Non sei autorizzato a eseguire questa azione
@@ -94,8 +85,8 @@ it:
           email_already_exists: Questo indirizzo email è già utilizzato per un altro account
         new:
           complete_profile: Completa il profilo
-          sign_up: Per favore, completa il tuo profilo
-          subtitle: Per favore, compila il seguente modulo per completare la registrazione
+          sign_up: Si prega di completare il profilo
+          subtitle: Si prega di compilare il seguente modulo per completare la registrazione
           username_help: Nome pubblico che appare suoi tuoi post. Con l'obiettivo di garantire l'anonimato, può essere qualsiasi nome.
       registrations:
         new:
@@ -107,7 +98,7 @@ it:
             legend: Registrati come
             user: Individuo
             user_group: Organizzazione / Collettivo
-          subtitle: Registrati per partecipare alle discussioni e sostenere le proposte.
+          subtitle: Registrati per partecipare alle discussioni e appoggiare le proposte.
           terms: Termini e condizioni di utilizzo del servizio
           tos_agreement: Effettuando la registrazione automaticamente accetti le seguenti condizioni %{link}.
           username_help: Nome "pubblico" che comparirà nei tuoi post. Utilizza un nome fittizio se vuoi garantirti un certo grado di anonimato.
@@ -225,6 +216,10 @@ it:
           authorize: Autorizzare con "%{authorization}"
           explanation: Per effettuare questa operazione devi disporre della autorizzazione "%{authorization}".
           title: Autorizzazione richiesta
+        pending:
+          explanation: Per eseguire questa azione, devi essere autorizzato con "%{authorization}", ma la tua autorizzazione è ancora in corso
+          resume: Controlla il tuo avanzamento dell'autorizzazione "%{authorization}"
+          title: L'autorizzazione è ancora in corso
         unauthorized:
           explanation: Non puoi eseguire questa azione poiché alcuni dei tuoi dati di autorizzazione non corrispondono.
           invalid: "%{field} non è valido."
@@ -256,6 +251,8 @@ it:
         close_window: Chiudi questa finestra
         share: Condividi
         share_link: Condividi link
+      version_author:
+        deleted: Utente eliminato
   devise:
     invitations:
       edit:
@@ -306,7 +303,7 @@ it:
         link_label: qui
         ok: OK, accetto
       footer:
-        made_with_open_source: 'Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.'
+        made_with_open_source: Sito web creato con <a target="_blank" href="https://github.com/decidim/decidim">software libero</a>.
       header:
         close_menu: Chiudere menu
         navigation: Navigazione
@@ -390,6 +387,9 @@ it:
     wechat_footer: Apri il tuo WeChat, clicca il pulsante "Discover", infine clicca sul menu "Scan QR Code".
     weibo: Sina Weibo
     xing: Xing
+  time:
+    formats:
+      decidim_short: "%d/%m/%Y %H:%M"
   views:
     pagination:
       first: "&laquo; Primo"
