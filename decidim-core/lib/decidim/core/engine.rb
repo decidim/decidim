@@ -154,6 +154,36 @@ module Decidim
         end
       end
 
+      initializer "decidim.user_menu" do
+        Decidim.menu :user_menu do |menu|
+          menu.item t("account", scope: "layouts.decidim.user_profile"),
+                    decidim.account_path,
+                    position: 1.0,
+                    active: :exact
+
+          menu.item t("notifications_settings", scope: "layouts.decidim.user_profile"),
+                    decidim.notifications_settings_path,
+                    position: 1.1
+
+          if available_verification_workflows.any?
+            menu.item t("authorizations", scope: "layouts.decidim.user_profile"),
+                      decidim_verifications.authorizations_path,
+                      position: 1.2
+          end
+
+          if user_groups.any?
+            menu.item t("user_groups", scope: "layouts.decidim.user_profile"),
+                      decidim.own_user_groups_path,
+                      position: 1.3
+          end
+
+          menu.item t("delete_my_account", scope: "layouts.decidim.user_profile"),
+                    decidim.delete_account_path,
+                    position: 999,
+                    active: :exact
+        end
+      end
+
       initializer "decidim.notifications" do
         Decidim::EventsManager.subscribe(/^decidim\.events\./) do |event_name, data|
           EmailNotificationGeneratorJob.perform_later(
