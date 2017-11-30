@@ -29,7 +29,7 @@ module Decidim
     validates :email, 'valid_email_2/email': { disposable: true }
 
     # Disallow the + character in emails
-    validates :email, format: { with: /^[^\+]*$/ }
+    validates :email, format: { with: /\A[^\+]*\z/ }
 
     validate :all_roles_are_valid
 
