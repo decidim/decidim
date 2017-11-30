@@ -1,4 +1,4 @@
-<% provide :meta_title, t("participatory_processes.index.title", scope: "decidim") %>
+<% add_decidim_meta_tags(title: t("participatory_processes.index.title", scope: "decidim")) %>
 
 <main class="wrapper">
   <% if promoted_participatory_processes.any? %>
