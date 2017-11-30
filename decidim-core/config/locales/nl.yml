@@ -251,6 +251,8 @@ nl:
         close_window: Sluit dit scherm
         share: Deel
         share_link: Link delen
+      version_author:
+        deleted: Verwijderde gebruiker
   devise:
     invitations:
       edit:
@@ -385,6 +387,9 @@ nl:
     wechat_footer: Open uw WeChat, klik op "Ontdekken" en open het menu "QR-Code scannen".
     weibo: Sina Weibo
     xing: Xing
+  time:
+    formats:
+      decidim_short: "%d/%m/%Y %H:%M"
   views:
     pagination:
       first: "&laquo; Eerste"
