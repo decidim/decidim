@@ -119,7 +119,7 @@ es:
             title: Solicita tu código de verificación
           update:
             error: Tu código de verificación no coincide con el nuestro. Por favor, revisa la carta que te enviamos
-            success: Felicitaciones. Has sido verificado con éxito
+            success: Felicidades. Has sido verificado correctamente
   errors:
     messages:
-      uppercase_only_letters_numbers: debe ser todo en mayúsculas y contener solo letras y / o números
+      uppercase_only_letters_numbers: debe ser todo en mayúsculas y contener solo letras y/o números
