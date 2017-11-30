@@ -205,7 +205,7 @@ eu:
     participatory_process_groups:
       show:
         group_participatory_processes: '%{group} talderako prozesuak'
-        title: Prozesu partizipatiboen multzoak
+        title: Parte-hartze prozesuko taldeak
     participatory_process_steps:
       index:
         process_steps: Prozesuaren faseak
