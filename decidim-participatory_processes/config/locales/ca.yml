@@ -222,6 +222,7 @@ ca:
         title: Processos participatius
       order_by_processes:
         active: Actius
+        all: Tots
         past: Passats
         upcoming: Propers
       pages:
