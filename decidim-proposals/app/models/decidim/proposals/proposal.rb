@@ -113,7 +113,7 @@ module Decidim
         process_users_with_role = get_user_with_process_role(participatory_process.id)
         users << admins + users_with_role + process_users_with_role
         return users.uniq if official?
-        users.flatten
+        users
       end
 
       # Public: Override Commentable concern method `users_to_notify_on_comment_authorized`

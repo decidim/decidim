@@ -50,7 +50,7 @@ module Decidim
           process_users_with_role = get_user_with_process_role(participatory_process.id)
           users << admins + users_with_role + process_users_with_role
           return users.uniq
-          users.flatten
+          users
         end
 
         # Public: Defines which users will receive a notification when a comment is authorized.

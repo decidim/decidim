@@ -32,10 +32,10 @@ module Decidim
       validate :commentable_can_have_comments
 
       before_save :compute_depth
+      after_save :create_moderation
 
       delegate :organization, :feature, to: :commentable
 
-      after_create :create_moderation
 
       # Public: Override Commentable concern method `accepts_new_comments?`
       def accepts_new_comments?
@@ -80,7 +80,8 @@ module Decidim
 
       def create_moderation
         participatory_space = self.root_commentable.feature.participatory_space
-        @moderation = self.create_moderation!(participatory_space: participatory_space)
+        moderation = self.create_moderation!(participatory_space: participatory_space)
+        puts "object : #{moderation.reportable}"
       end
 
 
