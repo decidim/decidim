@@ -3,12 +3,12 @@ fr:
     attributes:
       id_document_information:
         document_number: Numéro de document (avec lettre)
-        document_type: Type du document
+        document_type: Type de document
       id_document_upload:
         document_number: Numéro de document (avec lettre)
         document_type: Type de votre document
         user: Utilisateur
-        verification_attachment: Copie numérisée de votre document
+        verification_attachment: Copie scannée de votre document
   decidim:
     admin:
       menu:
