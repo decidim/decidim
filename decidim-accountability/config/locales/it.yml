@@ -4,10 +4,10 @@ it:
       result:
         decidim_accountability_status_id: stato
         decidim_category_id: Categoria
-        decidim_scope_id: Objetivos
+        decidim_scope_id: Ambito
         description: Descrizione
-        end_date: Data di fine
-        progress: Avanzamento
+        end_date: Data di chiusura
+        progress: Progresso
         proposal_ids: Proposte incluse
         start_date: Date di inizio
         title: Nome
@@ -15,7 +15,7 @@ it:
         description: Descrizione
         key: Chiave
         name: Nome
-        progress: Avanzamento
+        progress: Progresso
       timeline_entry:
         description: Descrizione
         entry_date: Data
