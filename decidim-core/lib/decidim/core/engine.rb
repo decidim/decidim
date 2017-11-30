@@ -166,7 +166,7 @@ module Decidim
 
           if available_verification_workflows.any?
             menu.item t("authorizations", scope: "layouts.decidim.user_profile"),
-                      decidim.authorizations_path,
+                      decidim_verifications.authorizations_path,
                       position: 1.2
           end
 
