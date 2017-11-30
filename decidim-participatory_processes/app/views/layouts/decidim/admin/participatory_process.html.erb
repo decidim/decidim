@@ -50,10 +50,10 @@
           <%= aria_selected_link_to t("moderations", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_participatory_processes.moderations_path(current_participatory_process, moderation_type: "upstream") %>
           <ul>
             <li>
-              <%= aria_selected_link_to t("moderation.upstream", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_participatory_processes.moderations_path(current_participatory_process, moderation_type: "upstream") %>
+              <%= aria_selected_link_to t("moderation.upstream", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_participatory_processes.moderations_path(current_participatory_process, moderation_type: "upstream"), style: "#{'font-weight: bold' if @upstream}" %>
             </li>
             <li>
-              <%= aria_selected_link_to t("moderation.downstream", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_participatory_processes.moderations_path(current_participatory_process, moderation_type: "downstream") %>
+              <%= aria_selected_link_to t("moderation.downstream", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_participatory_processes.moderations_path(current_participatory_process, moderation_type: "downstream"), style: "#{'font-weight: bold' if @downstream}" %>
             </li>
           </ul>
         </li>
