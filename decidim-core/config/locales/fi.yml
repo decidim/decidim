@@ -60,10 +60,13 @@ fi:
         related_photos: Liittyvät kuvat
     authorization_handlers:
       dummy_authorization_handler:
+        explanation: Vahvistetaan esittämällä asiakirjan numero, joka päättyy "X"
         fields:
-          document_number: Dokumenttinumero
+          document_number: Asiakirjan numero
           postal_code: Postinumero
-        name: Esimerkkitunnistautuminen
+        name: Esimerkkivaltuutus
+      dummy_authorization_workflow:
+        name: Dummy-valtuutuksen työnkulku
       errors:
         duplicate_authorization: Käyttäjätili on jo varmennettu samoilla tiedoilla.
       foo_authorization:
@@ -71,20 +74,8 @@ fi:
           bar: Bar
           foo: Foo
         name: Foo-tunnistautuminen
-    authorizations:
-      create:
-        error: Varmennuksen luomisessa tapahtui virhe.
-        success: Sinut on onnistuneesti varmennettu.
-      first_login:
-        actions:
-          dummy_authorization_handler: Vahvista esimerkkivarmennuksen avulla
-        title: Vahvista identiteettisi
-        verify_with_these_options: 'Voit vahvistaa identiteettisi seuraavien vaihtoehtojen avulla:'
-      new:
-        authorize: Lähetä
-        authorize_with: Vahvista palvelun "%{authorizer}" avulla
-      skip_verification: Voit ohittaa tämän toistaiseksi ja %{link}
-      start_exploring: alkaa tutkia
+      granted_at: Annettu osoitteessa %{timestamp}
+      started_at: Aloitti %{timestamp}
     core:
       actions:
         unauthorized: Sinua ei ole valtuutettu tämän toiminnon suorittamiseen
@@ -225,6 +216,10 @@ fi:
           authorize: Varmenna varmennustavalla "%{authorization}"
           explanation: Suorittaaksesi tämän toiminnon, sinun tulee varmentaa tilisi varmennustavalla "%{authorization}".
           title: Varmennus vaaditaan
+        pending:
+          explanation: Tämän toiminnan suorittamiseksi sinun on oltava valtuutettu "%{authorization}", mutta valtuutuksesi on edelleen käynnissä
+          resume: Tarkista "%{authorization}" valtuutuksen eteneminen
+          title: Valtuutus on edelleen käynnissä
         unauthorized:
           explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
           invalid: "%{field} on virheellinen."
@@ -256,6 +251,8 @@ fi:
         close_window: Sulje ikkuna
         share: Jaa
         share_link: Jaa linkki
+      version_author:
+        deleted: Poistettu käyttäjä
   devise:
     invitations:
       edit:
@@ -307,7 +304,7 @@ fi:
         link_label: täältä
         ok: Hyväksyn
       footer:
-        made_with_open_source: 'Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">ilmaisen ohjelmiston</a> avulla.'
+        made_with_open_source: Verkkosivusto luotu <a target="_blank" href="https://github.com/decidim/decidim">ilmaisen ohjelmiston</a> avulla.
       header:
         close_menu: Sulje valikko
         navigation: Navigaatio
@@ -360,7 +357,7 @@ fi:
         comments_count: Kommentit
         headline: Tämänhetkinen tila organisaatiolle %{organization}
         meetings_count: Tapaamiset
-        orders_count: Äänet
+        orders_count: 'Äänet'
         pages_count: Sivut
         processes_count: Prosessit
         projects_count: Projektit
@@ -368,7 +365,7 @@ fi:
         results_count: Tulokset
         surveys_count: Kyselyt
         users_count: Osallistujat
-        votes_count: Äänet
+        votes_count: 'Äänet'
       sub_hero:
         register: Rekisteröidy
   social_share_button:
@@ -391,6 +388,9 @@ fi:
     wechat_footer: Avaa WeChat, klikkaa "Discover" -nappia ja tämän jälkeen klikkaa "Scan QR Code" -valikkoa.
     weibo: Sina Weibo
     xing: Xing
+  time:
+    formats:
+      decidim_short: "%d/%m/%Y %H:%M"
   views:
     pagination:
       first: "&laquo; Ensimmäinen"

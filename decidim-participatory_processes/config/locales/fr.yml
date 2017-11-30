@@ -205,7 +205,7 @@ fr:
     participatory_process_groups:
       show:
         group_participatory_processes: Processus participatifs pour %{group}
-        title: Titre
+        title: Groupes de processus participatifs
     participatory_process_steps:
       index:
         process_steps: Etapes du processus
@@ -222,13 +222,14 @@ fr:
         title: Processus participatifs
       order_by_processes:
         active: Actif
+        all: Tout
         past: Passés
-        upcoming: À venir
+        upcoming: 'À venir'
       pages:
         home:
           highlighted_processes:
             active_processes: Processus actifs
-            active_step: Étape active
+            active_step: 'Étape active'
             see_all_processes: Voir tous les processus
       participatory_process_groups:
         none: Aucun
@@ -287,5 +288,5 @@ fr:
         process_menu_item: Le processus
         unfold: Déplier
       process_header_steps:
-        step: Étape %{current} sur %{total}
+        step: 'Étape %{current} sur %{total}'
         view_steps: Voir les étapes

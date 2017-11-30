@@ -12,6 +12,7 @@ pl:
       feature:
         name: Nazwa
         weight: Waga
+      id: ID
       newsletter:
         body: Ciało
         subject: Przedmiot
@@ -20,7 +21,7 @@ pl:
         name: Nazwa
         reference_prefix: Prefiks referencyjny
       organization_appearance:
-        cta_button_path: Ścieżka przycisku wezwania do działania
+        cta_button_path: 'Ścieżka przycisku wezwania do działania'
         cta_button_text: Tekst przycisku przycisku wezwania do działania
         description: Opis
         favicon: Ikona
@@ -44,7 +45,7 @@ pl:
       static_page:
         content: Zadowolony
         organization: Organizacja
-        slug: Ślimak URL
+        slug: 'Ślimak URL'
         title: Tytuł
   activerecord:
     attributes:
@@ -63,7 +64,7 @@ pl:
         promoted: Lansowany
         scope: Zakres
         short_description: Krótki opis
-        slug: Ślimak URL
+        slug: 'Ślimak URL'
         start_date: Data rozpoczęcia
         subtitle: Podtytuł
         target: Cel
@@ -78,7 +79,7 @@ pl:
         start_date: Data rozpoczęcia
       decidim/static_page:
         content: Zadowolony
-        slug: Ślimak URL
+        slug: 'Ślimak URL'
         title: Tytuł
   date:
     formats:
@@ -321,7 +322,7 @@ pl:
           github: GitHub
           instagram: Instagram
           social_handlers: Społeczny
-          twitter: Świergot
+          twitter: 'Świergot'
           url: Url
           youtube: Youtube
         update:
@@ -385,6 +386,7 @@ pl:
           error: Podczas aktualizowania tej strony wystąpił błąd.
           success: Strona została zaktualizowana
       titles:
+        authorization_workflows: Metody weryfikacji
         dashboard: Deska rozdzielcza
         impersonations: Impersonaty
         managed_users: Zarządzane użytkownicy

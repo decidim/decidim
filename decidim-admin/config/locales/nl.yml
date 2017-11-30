@@ -12,6 +12,7 @@ nl:
       feature:
         name: Naam
         weight: Gewicht
+      id: ID kaart
       newsletter:
         body: Body
         subject: Onderwerp
@@ -385,6 +386,7 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van deze pagina.
           success: Pagina is succesvol bijgewerkt
       titles:
+        authorization_workflows: Verificatiemethoden
         dashboard: Dashboard
         impersonations: Nabootsingingen
         managed_users: Beheerde gebruikers

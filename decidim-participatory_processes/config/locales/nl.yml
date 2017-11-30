@@ -205,7 +205,7 @@ nl:
     participatory_process_groups:
       show:
         group_participatory_processes: Processen voor %{group}
-        title: Titel
+        title: Participerende procesgroepen
     participatory_process_steps:
       index:
         process_steps: Processtappen
@@ -222,6 +222,7 @@ nl:
         title: Participatieve processen
       order_by_processes:
         active: Actief
+        all: Alle
         past: Verleden
         upcoming: Aankomende
       pages:

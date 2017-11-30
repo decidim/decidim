@@ -60,10 +60,13 @@ eu:
         related_photos: Honekin lotutako argazkiak
     authorization_handlers:
       dummy_authorization_handler:
+        explanation: Egiaztatu "X" ren bukaerako dokumentu-zenbaki batekin sartuz.
         fields:
-          document_number: Agiri-zenbakia
-          postal_code: Posta-kodea
-        name: baimen-adibidea
+          document_number: Dokumentuaren zenbakia
+          postal_code: Posta kodea
+        name: Adibidez baimena
+      dummy_authorization_workflow:
+        name: Dummy baimena eragiketa
       errors:
         duplicate_authorization: Badago erabiltzaile bat, datu berberekin baimendua.
       foo_authorization:
@@ -71,20 +74,8 @@ eu:
           bar: Bar
           foo: foo
         name: foo baimena
-    authorizations:
-      create:
-        error: Errorea gertatu da baimena sortzean.
-        success: Baimendua izan zara zuzen.
-      first_login:
-        actions:
-          dummy_authorization_handler: 'Egiaztatu baimen-adibidea honekin erkatuta:'
-        title: Egiaztatu zure nortasuna
-        verify_with_these_options: 'Hona zure nortasuna egiaztatzeko dituzun aukerak:'
-      new:
-        authorize: Bidali
-        authorize_with: 'Egiaztatu nire nortasuna honen bidez: %{authorizer}'
-      skip_verification: Oraingoz, urrats hau egin gabe utzi dezakezu eta %{link}
-      start_exploring: Hasi esploratzen
+      granted_at: Onartua %{timestamp}
+      started_at: Hasi zen %{timestamp}
     core:
       actions:
         unauthorized: Ez duzu baimenik ekintza honi heltzeko.
@@ -225,6 +216,10 @@ eu:
           authorize: 'Baimena eskuratu honen bidez: "%{authorization}"'
           explanation: 'Ekintza hau egiteko, baimen hau behar duzu: "%{authorization}".'
           title: Baimena behar da
+        pending:
+          explanation: Ekintza hau burutzeko, "%{authorization}" baimena eduki behar duzu, baina zure baimena oraindik ere badago
+          resume: Egiaztatu "%{authorization}" baimenaren aurrerapena
+          title: Baimena oraindik ere egiten ari da
         unauthorized:
           explanation: Ezin diozu heldu ekintza honi, baimen-datuetako batzuk ez direlako behar direnak.
           invalid: "%{field} ez da baliozkoa."
@@ -256,6 +251,8 @@ eu:
         close_window: Itxi leihoa
         share: Partekatu
         share_link: Partekatu esteka
+      version_author:
+        deleted: Erabiltzailea ezabatua
   devise:
     invitations:
       edit:
@@ -306,7 +303,7 @@ eu:
         link_label: hemen
         ok: Ados nago
       footer:
-        made_with_open_source: 'Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.'
+        made_with_open_source: Gune hau egiteko, <a target="_blank" href="https://github.com/decidim/decidim">software libre</a> erabili da.
       header:
         close_menu: Itxi menua
         navigation: Nabigazioa
@@ -390,6 +387,9 @@ eu:
     wechat_footer: Ireki zure WeChat, egin klik "Discover" botoian, eta gero, egin klik berriro "Eskaneatu QR kodea” menuan.
     weibo: Sina Weibo
     xing: Xing
+  time:
+    formats:
+      decidim_short: "%d/%m/%Y %H:%M"
   views:
     pagination:
       first: "&laquo; Lehena"

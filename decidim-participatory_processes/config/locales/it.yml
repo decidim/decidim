@@ -205,7 +205,7 @@ it:
     participatory_process_groups:
       show:
         group_participatory_processes: Processi per %{group}
-        title: Nome
+        title: Gruppi di processi partecipativi
     participatory_process_steps:
       index:
         process_steps: Fasi del processo
@@ -222,6 +222,7 @@ it:
         title: Processi partecipativi
       order_by_processes:
         active: Attivo
+        all: Tutti
         past: Passato
         upcoming: Imminenti
       pages:

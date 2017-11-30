@@ -2,115 +2,115 @@ uk:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: стан
-        decidim_category_id: Розділ
-        decidim_scope_id: Обсяг
-        description: Опис
-        end_date: Дата закінчення
-        progress: Перебіг
-        proposal_ids: Включені пропозиції
-        start_date: Дата початку
-        title: Назва
+        decidim_accountability_status_id: 'стан'
+        decidim_category_id: 'Розділ'
+        decidim_scope_id: 'Обсяг'
+        description: 'Опис'
+        end_date: 'Дата закінчення'
+        progress: 'Перебіг'
+        proposal_ids: 'Включені пропозиції'
+        start_date: 'Дата початку'
+        title: 'Назва'
       status:
-        description: Опис
-        key: Ключ
-        name: Назва
-        progress: Перебіг
+        description: 'Опис'
+        key: 'Ключ'
+        name: 'Назва'
+        progress: 'Перебіг'
       timeline_entry:
-        description: Опис
-        entry_date: Дата
+        description: 'Опис'
+        entry_date: 'Дата'
   decidim:
     accountability:
       actions:
-        confirm_destroy: Ви впевнені, що хочете видалити %{name}?
-        destroy: Видалити
-        edit: Редагувати
-        new: Додати %{name}
-        preview: Попередній перегляд
-        timeline_entries: Розвиток проекту
-        title: Дії
+        confirm_destroy: 'Ви впевнені, що хочете видалити %{name}?'
+        destroy: 'Видалити'
+        edit: 'Редагувати'
+        new: 'Додати %{name}'
+        preview: 'Попередній перегляд'
+        timeline_entries: 'Розвиток проекту'
+        title: 'Дії'
       admin:
         exports:
-          results: Підсумки
+          results: 'Підсумки'
         models:
           result:
-            name: Підсумки
+            name: 'Підсумки'
           status:
-            name: Стан
+            name: 'Стан'
           timeline_entry:
-            name: Запис на лінії часу
+            name: 'Запис на лінії часу'
         results:
           create:
-            invalid: При спробі створити ці підсумки виникла проблема
-            success: Підсумки успішно створено
+            invalid: 'При спробі створити ці підсумки виникла проблема'
+            success: 'Підсумки успішно створено'
           destroy:
-            success: Підсумки успішно видалено
+            success: 'Підсумки успішно видалено'
           edit:
-            title: Редагувати підсумки
-            update: Оновити підсумки
+            title: 'Редагувати підсумки'
+            update: 'Оновити підсумки'
           index:
-            title: Підсумки
+            title: 'Підсумки'
           new:
-            create: Створити підсумки
-            title: Нові підсумки
+            create: 'Створити підсумки'
+            title: 'Нові підсумки'
           update:
-            invalid: При спробі оновити ці підсумки виникла проблема
-            success: Підсумки успішно оновлено
+            invalid: 'При спробі оновити ці підсумки виникла проблема'
+            success: 'Підсумки успішно оновлено'
         shared:
           subnav:
-            statuses: Стани
+            statuses: 'Стани'
         statuses:
           create:
-            invalid: При спробі створити цей стан виникла проблема
-            success: Стан успішно створено
+            invalid: 'При спробі створити цей стан виникла проблема'
+            success: 'Стан успішно створено'
           destroy:
-            success: Стан успішно видалено
+            success: 'Стан успішно видалено'
           edit:
-            title: Редагувати стан
-            update: Оновити стан
+            title: 'Редагувати стан'
+            update: 'Оновити стан'
           index:
-            title: Стани
+            title: 'Стани'
           new:
-            create: Створити стан
-            title: Новий стан
+            create: 'Створити стан'
+            title: 'Новий стан'
           update:
-            invalid: При спробі оновити цей стан виникла проблема
-            success: Стан успішно оновлено
+            invalid: 'При спробі оновити цей стан виникла проблема'
+            success: 'Стан успішно оновлено'
         timeline_entries:
           create:
-            invalid: Виникла проблема зі створенням цього запису
-            success: Запис успішно створено
+            invalid: 'Виникла проблема зі створенням цього запису'
+            success: 'Запис успішно створено'
           destroy:
-            success: Запис успішно видалено
+            success: 'Запис успішно видалено'
           edit:
-            title: Редагувати запис
-            update: Оновити запис
+            title: 'Редагувати запис'
+            update: 'Оновити запис'
           index:
-            title: Записи на лінії часу проекту
+            title: 'Записи на лінії часу проекту'
           new:
-            create: Створити запис
-            title: Новий запис
+            create: 'Створити запис'
+            title: 'Новий запис'
           update:
-            invalid: Під час оновлення цього запису виникла проблема
-            success: Запис успішно оновлено
+            invalid: 'Під час оновлення цього запису виникла проблема'
+            success: 'Запис успішно оновлено'
       models:
         result:
           fields:
-            end_date: Дата закінчення
-            progress: Перебіг
-            start_date: Дата початку
-            status: Стан
-            title: Назва
+            end_date: 'Дата закінчення'
+            progress: 'Перебіг'
+            start_date: 'Дата початку'
+            status: 'Стан'
+            title: 'Назва'
         status:
           fields:
-            description: Опис
-            key: Ключ
-            name: Назва
-            progress: Перебіг
+            description: 'Опис'
+            key: 'Ключ'
+            name: 'Назва'
+            progress: 'Перебіг'
         timeline_entry:
           fields:
-            description: Опис
-            entry_date: Дата
+            description: 'Опис'
+            entry_date: 'Дата'
       results:
         count:
           results_count:
@@ -119,41 +119,41 @@ uk:
             many: "%{count} підсумків"
             other: "%{count} підсумків"
         filters:
-          all: Усі
-          global: Загальний
-          scopes: Обсяги
+          all: 'Усі'
+          global: 'Загальний'
+          scopes: 'Обсяги'
         home:
-          categories_label: Розділи
-          subcategories_label: Підрозділи
+          categories_label: 'Розділи'
+          subcategories_label: 'Підрозділи'
         home_header:
-          global_status: Загальний стан виконання
+          global_status: 'Загальний стан виконання'
         nav_breadcrumb:
-          global: Загальне виконання
+          global: 'Загальне виконання'
         search:
-          search: Пошук дій
+          search: 'Пошук дій'
         show:
           stats:
-            attendees: Учасники
-            comments: Коментарі
-            contributions: Внесені пропозиції
-            meetings: Зустрічі
-            proposals: Пропозиції
-            votes: Підтримує
+            attendees: 'Учасники'
+            comments: 'Коментарі'
+            contributions: 'Внесені пропозиції'
+            meetings: 'Зустрічі'
+            proposals: 'Пропозиції'
+            votes: 'Підтримує'
         timeline:
-          title: Розвиток проекту
+          title: 'Розвиток проекту'
     features:
       accountability:
-        name: Звітність
+        name: 'Звітність'
         settings:
           global:
-            categories_label: Назва для "Розділи"
-            comments_enabled: Коментарі ввімкнено
-            heading_leaf_level_results: Назва для "Проекти"
-            heading_parent_level_results: Назва для "Підсумки"
-            intro: Вступ
-            subcategories_label: Назва для «Підрозділи»
+            categories_label: 'Назва для "Розділи"'
+            comments_enabled: 'Коментарі ввімкнено'
+            heading_leaf_level_results: 'Назва для "Проекти"'
+            heading_parent_level_results: 'Назва для "Підсумки"'
+            intro: 'Вступ'
+            subcategories_label: 'Назва для «Підрозділи»'
           step:
-            comments_blocked: Коментарі вимкнено
+            comments_blocked: 'Коментарі вимкнено'
     resource_links:
       included_proposals:
-        result_proposals: Пропозиції, включені до цих підсумків
+        result_proposals: 'Пропозиції, включені до цих підсумків'

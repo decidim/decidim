@@ -60,10 +60,13 @@ ca:
         related_photos: Fotos relacionades
     authorization_handlers:
       dummy_authorization_handler:
+        explanation: Verifica't introduint un número de document que finalitzi amb "X"
         fields:
           document_number: Número de document
-          postal_code: Codi Postal
-        name: exemple d'autorització
+          postal_code: Codi postal
+        name: Autorització d'exemple
+      dummy_authorization_workflow:
+        name: Flux de treball d'autorització d'exemple
       errors:
         duplicate_authorization: Un usuari ja està autoritzat amb les mateixes dades.
       foo_authorization:
@@ -71,20 +74,8 @@ ca:
           bar: Bar
           foo: Foo
         name: Autorització foo
-    authorizations:
-      create:
-        error: S'ha produït un error en crear l'autorització.
-        success: Has estat autoritzat/da correctament.
-      first_login:
-        actions:
-          dummy_authorization_handler: Verificar contra l'exemple d'autorització
-        title: Verificar la teva identitat
-        verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la teva identitat:'
-      new:
-        authorize: Enviar
-        authorize_with: Verificar-me amb %{authorizer}
-      skip_verification: Pots saltar-te aquest pas per ara i %{link}
-      start_exploring: començar a explorar
+      granted_at: Atorgada el %{timestamp}
+      started_at: Iniciat el %{timestamp}
     core:
       actions:
         unauthorized: No tens permís per realitzar aquesta acció
@@ -225,6 +216,10 @@ ca:
           authorize: Autoritzar amb "%{authorization}"
           explanation: Per dur a terme aquesta acció, ha de disposar de l'autorització "%{authorization}".
           title: Es requereix autorització
+        pending:
+          explanation: Per realitzar aquesta acció, has d'estar autoritzat/da amb "%{authorization}", però la teva autorització encara està en curs
+          resume: Comprova el progrés de l'autorització "%{authorization}"
+          title: L'autorització encara està en progrés
         unauthorized:
           explanation: No es pot realitzar aquesta acció ja que alguna de les seves dades d'autorització no coincideixen amb les requerides.
           invalid: "%{field} no és vàlid."
@@ -256,6 +251,8 @@ ca:
         close_window: Tanca la finestra
         share: Compartir
         share_link: Comparteix l'enllaç
+      version_author:
+        deleted: Usuari eliminat
   devise:
     invitations:
       edit:
@@ -294,7 +291,7 @@ ca:
       nesting_too_deep: no pot estar dins d'una subcategoria
       too_many_marks: Està utilitzant massa símbols d'exclamació o interrogació
       too_much_caps: Està utilitzant massa majúscules
-      too_short: És massa curt
+      too_short: 'És massa curt'
   forms:
     required: Obligatori
   invisible_captcha:
@@ -307,7 +304,7 @@ ca:
         link_label: aquí
         ok: Hi estic d'acord
       footer:
-        made_with_open_source: 'Web feta amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.'
+        made_with_open_source: Web feta amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
       header:
         close_menu: Tancar menú
         navigation: Navegació
@@ -391,10 +388,13 @@ ca:
     wechat_footer: Obri el WeChat, feu clic al botó "Discover" i després feu clic al menú "Escanejar codi QR".
     weibo: Sina Weibo
     xing: Xing
+  time:
+    formats:
+      decidim_short: "%d/%m/%Y %H:%M"
   views:
     pagination:
       first: "&laquo; Primera"
-      last: Última &raquo;
+      last: 'Última &raquo;'
       next: Següent &rsaquo;
       previous: "&lsaquo; Anterior"
       truncate: "&hellip;"
