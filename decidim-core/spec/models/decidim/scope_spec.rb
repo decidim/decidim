@@ -12,7 +12,8 @@ module Decidim
       subject(:scope_children) { scope.children }
 
       let(:scopes) { create_list(:scope, 2, parent: scope) }
-      it { is_expected.to contain_exactly *scopes }
+
+      it { is_expected.to contain_exactly(*scopes) }
     end
 
     context "when it is valid" do

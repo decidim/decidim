@@ -11,8 +11,9 @@ module Decidim
     describe "has an association for scopes" do
       subject(:scope_type_scopes) { scope_type.scopes }
 
-      let(:scopes) { create_list(:scope, 3, scope_type: scope_type) }
-      it { is_expected.to contain_exactly *scopes }
+      let(:scopes) { create_list(:scope, 2, scope_type: scope_type) }
+
+      it { is_expected.to contain_exactly(*scopes) }
     end
 
     context "without name" do
