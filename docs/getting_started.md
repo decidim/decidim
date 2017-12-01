@@ -25,15 +25,34 @@ Read more about the [installation script](https://github.com/alabs/decidim-insta
 
 ### B. Using Docker [experimental]
 
-> *Please note that this is **experimental***
+You can also use [docker v17+] && [docker-compose] to develop decidim. You'll
+need to install those but in exchange you don't need to install any other
+dependency in your computer, not even Ruby!
 
-Make sure you [have Docker v17 at least](https://docs.docker.com/engine/installation/). `cd` to your preferred folder and run this command:
+To get started, first clone the decidim repo
 
 ```console
-docker run --rm -v $(pwd):/tmp codegram/decidim bash -c "bundle exec decidim /tmp/decidim_application"
+git clone https://github.com/decidim/decidim
 ```
 
-This will create a `decidim_application` Ruby on Rails app using Decidim in the current folder. It will install the latest released version of the gem.
+Switch to the cloned folder
+
+```console
+cd decidim
+```
+
+Then create a development application
+
+```console
+d/bundle install
+d/rake development_app
+cd development_app
+bin/rails server
+```
+
+In general, to use the docker development environment, change any instruction in
+the docs to use its equivalent docker binstub.  So for example, instead of
+running `bundle install`, you would run `d/bundle install`.
 
 ### C. Step by step
 
@@ -148,3 +167,6 @@ bin/rails decidim:check_locales
 
 Be aware that this task might not be able to detect everything, so make sure you
 also manually check your application before upgrading.
+
+[docker]: https://docs.docker.com/engine/installation/
+[docker-compose]: https://docs.docker.com/compose/install/
