@@ -92,7 +92,7 @@ it:
         new:
           already_have_an_account?: Hai già un account?
           newsletter_notifications: Ricevi informazioni sulle attività rilevanti
-          sign_in: Accedere
+          sign_in: Accedi
           sign_up: Registrazione
           sign_up_as:
             legend: Registrati come
