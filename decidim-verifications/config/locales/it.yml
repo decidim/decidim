@@ -77,7 +77,7 @@ it:
             error: Si è verificato un problema durante il caricamento del documento
             success: Documento caricato con successo
           edit:
-            being_reviewed: Stiamo rivedendo i tuoi documenti. Sarai verificato a breve
+            being_reviewed: Stiamo esaminando i tuoi documenti. Sarai verificato prossimamente
             rejection_clarity: Assicurati che le informazioni siano chiaramente visibili nell'immagine caricata
             rejection_correctness: Assicurati che le informazioni inserite siano corrette
             rejection_notice: C'è stato un problema con la tua verifica. Per favore riprova
