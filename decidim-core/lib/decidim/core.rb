@@ -1,3 +1,4 @@
+# coding: utf-8
 # frozen_string_literal: true
 
 require "decidim/core/engine"
@@ -150,15 +151,33 @@ module Decidim
 
   # Public: Registers a global engine. This method is intended to be used
   # by feature engines that also offer unscoped functionality
-  def self.register_global_engine(engine)
-    global_engines << engine unless global_engines.include? engine
+  #
+  # name    - The name of the engine to register. Should be unique.
+  # engine  - The engine to register.
+  # options - Options to pass to the engine.
+  #           :at - The route to mount the engine to.
+  #
+  # Returns nothing.
+  def self.register_global_engine(name, engine, options = {})
+    return if global_engines.keys.include?(name)
+
+    options[:at] ||= "/#{name}"
+
+    global_engines[name.to_sym] = {
+      at: options[:at],
+      engine: engine
+    }
+  end
+
+  def self.unregister_global_engine(name)
+    global_engines.delete(name.to_sym)
   end
 
   # Public: Finds all registered engines via the 'register_global_engine' method.
   #
   # Returns an Array[::Rails::Engine]
   def self.global_engines
-    @global_engines ||= []
+    @global_engines ||= {}
   end
 
   # Public: Registers a feature, usually held in an external library or in a

@@ -27,8 +27,9 @@ Decidim::Core::Engine.routes.draw do
   end
 
   mount Decidim::Verifications::Engine, at: "/", as: "decidim_verifications"
-  Decidim.global_engines.each do |engine|
-    mount engine, at: "/"
+
+  Decidim.global_engines.each do |name, engine_data|
+    mount engine_data[:engine], at: engine_data[:at], as: name
   end
 
   authenticate(:user) do
