@@ -51,10 +51,10 @@ it:
           title: Verifica la tua identità
           verify_with_these_options: 'Queste sono le opzioni disponibili per verificare la tua identità:'
         new:
-          authorize: Inviare
+          authorize: Invia
           authorize_with: Verifica con %{authorizer}
         skip_verification: Puoi saltare questo per ora e %{link}
-        start_exploring: iniziare ad esplorare
+        start_exploring: comincia ad esplorare
       id_documents:
         admin:
           confirmations:
