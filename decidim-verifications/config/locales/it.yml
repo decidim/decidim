@@ -25,7 +25,7 @@ it:
           help:
             - Gli utenti richiedono un codice di verifica da inviare al loro indirizzo.
             - Inviate la lettera al loro indirizzo con il codice di verifica.
-            - Contrassegni la lettera come inviata.
+            - Hai contrassegnato la lettera come inviata.
             - Dopo aver contrassegnato la lettera come inviata, l'utente sarà in grado di introdurre il codice e di essere verificato.
       direct: Diretto
       help: Aiuto
