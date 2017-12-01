@@ -6,12 +6,12 @@ it:
       report:
         details: Ulteriori commenti
       user:
-        email: Il tuo indirizzo email
+        email: La tua email
         name: Il tuo nome
         password: Nuova password
-        password_confirmation: Conferma la tua nuova password
+        password_confirmation: Conferma la nuova password
         remove_avatar: Rimuovi avatar
-        user_group_document_number: Codice fiscale dell'organizzazione
+        user_group_document_number: Numero del documento dell'organizzazione
         user_group_name: Nome dell'organizzazione
         user_group_phone: Telefono dell'organizzazione
   activerecord:
@@ -21,9 +21,9 @@ it:
         email: Email
         name: Nome Utente
         password: Password
-        password_confirmation: Conferma password
+        password_confirmation: Conferma della password
         remember_me: Ricordare password
-        user_group_document_number: Codice fiscale dell'organizzazione
+        user_group_document_number: Numero del documento dell'organizzazione
         user_group_name: Nome dell'organizzazione
         user_group_phone: Numero di telefono dell'organizzazione
   booleans:
@@ -35,16 +35,16 @@ it:
   decidim:
     account:
       delete:
-        alert: Questa azione non può essere annullata. Se si cancella l'account, non sarà più possibile accederci.
+        alert: Questa azione non può essere annullata. Se elimini il tuo account non potrai più accedere.
         confirm:
           close: Chiudere finestra
-          ok: Sì, voglio cancellare il mio account
-          question: Sei sicuro di voler cancellare il tuo account?
-          title: Cancellare il mio account
-        explanation: Per favore, completa il motivo per cui desideri cancellare il tuo account (opzionale).
+          ok: Sì, voglio eliminare il mio account
+          question: Sei sicuro di voler eliminare il tuo account?
+          title: Elimina il mio account
+        explanation: Per favore, compila il motivo per cui desideri eliminare il tuo account (facoltativo).
       destroy:
-        error: Si è verificato un errore durante la cancellazione del tuo account.
-        success: Il tuo account è stato cancellato correttamente.
+        error: Si è verificato un errore durante l'eliminazione del tuo account.
+        success: Il tuo account è stato eliminato correttamente.
       show:
         change_password: Cambia password
         update_account: Aggiorna l'account
