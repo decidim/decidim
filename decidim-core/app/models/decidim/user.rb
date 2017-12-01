@@ -28,9 +28,6 @@ module Decidim
     validates :email, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? }
     validates :email, 'valid_email_2/email': { disposable: true }
 
-    # Disallow the + character in emails
-    validates :email, format: { with: /\A[^\+]*\z/ }
-
     validate :all_roles_are_valid
 
     mount_uploader :avatar, Decidim::AvatarUploader
