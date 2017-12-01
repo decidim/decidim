@@ -30,6 +30,9 @@ Decidim.register_feature(:proposals) do |feature|
   end
 
   feature.settings(:step) do |settings|
+    settings.attribute :adhesions_enabled, type: :boolean
+    settings.attribute :adhesions_blocked, type: :boolean
+    settings.attribute :adhesions_hidden, type: :boolean, default: false
     settings.attribute :votes_enabled, type: :boolean
     settings.attribute :votes_blocked, type: :boolean
     settings.attribute :votes_hidden, type: :boolean, default: false

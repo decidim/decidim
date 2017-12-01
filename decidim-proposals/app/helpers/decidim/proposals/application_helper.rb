@@ -8,6 +8,7 @@ module Decidim
       include Decidim::Comments::CommentsHelper
       include PaginateHelper
       include ProposalVotesHelper
+      include ProposalAdhesionsHelper
       include Decidim::MapHelper
       include Decidim::Proposals::MapHelper
 

@@ -37,6 +37,16 @@
         </div>
       </div>
     <% end %>
+    <%# if current_settings.adhesions_enabled? || current_user %>
+      <div class="card extra">
+        <div class="card__content">
+          <% if current_settings.adhesions_enabled? %>
+            <%= render partial: "adhesions_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+            <%= render partial: "adhesion_button", locals: { proposal: @proposal, from_proposals_list: false } %>
+          <% end %>
+        </div>
+      </div>
+    <%# end %>
     <%= feature_reference(@proposal) %>
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>

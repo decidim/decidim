@@ -14,6 +14,7 @@ module Decidim
 
       routes do
         resources :proposals, except: [:destroy] do
+          resource :proposal_adhesion, only: [:create, :destroy]
           resource :proposal_vote, only: [:create, :destroy]
           resource :proposal_widget, only: :show, path: "embed"
         end

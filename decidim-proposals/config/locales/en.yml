@@ -32,6 +32,9 @@ en:
             proposal_limit: Proposal limit per user
             vote_limit: Vote limit per user
           step:
+            adhesions_blocked: Adhesions blocked
+            adhesions_enabled: Adhesions enabled
+            adhesions_hidden: Adhesions hidden
             announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled: Proposal creation enabled
@@ -109,6 +112,18 @@ en:
         create:
           error: There's been errors when voting the proposal.
       proposals:
+        adhesion_button:
+          already_adhered: Already adhered
+          already_adhered_hover: Unadhere
+          adhere: Adhere
+          adhesions_blocked: Adhesions disabled
+        adhesions_count:
+          count:
+            one: ADHESION
+            other: ADHESIONS
+        author:
+          deleted: Deleted user
+          verified_user_group: Verified organization
         count:
           proposals_count:
             one: 1 proposal
