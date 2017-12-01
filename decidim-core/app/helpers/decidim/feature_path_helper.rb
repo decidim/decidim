@@ -9,7 +9,8 @@ module Decidim
     #
     # Returns a url.
     def main_feature_path(feature)
-      EngineRouter.main_proxy(feature).root_path
+      current_params = try(:params) || {}
+      EngineRouter.main_proxy(feature).root_path(locale: current_params[:locale])
     end
 
     # Returns the defined admin root path for a given feature.
@@ -18,7 +19,8 @@ module Decidim
     #
     # Returns a url.
     def manage_feature_path(feature)
-      EngineRouter.admin_proxy(feature).root_path
+      current_params = try(:params) || {}
+      EngineRouter.admin_proxy(feature).root_path(locale: current_params[:locale])
     end
   end
 end
