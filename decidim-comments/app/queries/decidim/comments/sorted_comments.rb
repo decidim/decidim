@@ -30,11 +30,7 @@ module Decidim
       # loads comments replies. It uses Comment's MAX_DEPTH to load a maximum
       # level of nested replies.
       def query
-        scope = Comment
-                .where(commentable: commentable)
-                .authorized
-                .not_hidden
-                .includes(:author, :up_votes, :down_votes)
+        scope = filter_comments
 
         scope = case @options[:order_by]
                 when "older"
@@ -53,6 +49,33 @@ module Decidim
       end
 
       private
+
+      def filter_comments
+        if admin_or_moderator?
+          Comment
+            .where(commentable: commentable)
+            .not_hidden
+            .includes(:author, :up_votes, :down_votes)
+        else
+          Comment
+            .where(commentable: commentable)
+            .authorized
+            .not_hidden
+            .includes(:author, :up_votes, :down_votes)
+        end
+      end
+
+      def current_user
+        Thread.current[:current_user]
+      end
+
+      def admin_or_moderator?
+        (current_user && current_user.admin?) || @commentable.feature.organization.users_with_any_role.include?(current_user) || (current_user &&get_user_with_process_role(@commentable.feature.participatory_space.id).include?(current_user))
+      end
+
+      def get_user_with_process_role(participatory_process_id)
+        Decidim::ParticipatoryProcessUserRole.where(decidim_participatory_process_id: participatory_process_id).map(&:user)
+      end
 
       def order_by_older(scope)
         scope.order(created_at: :asc)
