@@ -80,7 +80,7 @@ if !Rails.env.production? || ENV["SEED"]
     tos_agreement: true
   )
 
-  Decidim::Messaging::Chat.start!(
+  Decidim::Messaging::Conversation.start!(
     originator: admin,
     interlocutors: [regular_user],
     body: "Hei! I'm glad you like Decidim"

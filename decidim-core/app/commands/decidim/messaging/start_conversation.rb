@@ -2,11 +2,11 @@
 
 module Decidim
   module Messaging
-    # A command with all the business logic for replying to a chat
-    class StartChat < Rectify::Command
+    # A command with all the business logic for replying to a conversation
+    class StartConversation < Rectify::Command
       # Public: Initializes the command.
       #
-      # form - A chat form
+      # form - A conversation form
       def initialize(form)
         @form = form
       end
@@ -20,10 +20,10 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        if chat.save
+        if conversation.save
           notify_interlocutors
 
-          broadcast(:ok, chat)
+          broadcast(:ok, conversation)
         else
           broadcast(:invalid)
         end
@@ -31,8 +31,8 @@ module Decidim
 
       private
 
-      def chat
-        @chat ||= Chat.start(
+      def conversation
+        @conversation ||= Conversation.start(
           originator: originator,
           interlocutors: [form.recipient],
           body: form.body
@@ -40,8 +40,8 @@ module Decidim
       end
 
       def notify_interlocutors
-        chat.interlocutors(originator).each do |recipient|
-          ChatMailer.new_chat(originator, recipient, chat).deliver_later
+        conversation.interlocutors(originator).each do |recipient|
+          ConversationMailer.new_conversation(originator, recipient, conversation).deliver_later
         end
       end
 

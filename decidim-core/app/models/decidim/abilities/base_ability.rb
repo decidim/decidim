@@ -41,8 +41,8 @@ module Decidim
           notification.user == user
         end
 
-        can :manage, Messaging::Chat do |chat|
-          chat.participants.include?(user)
+        can :manage, Messaging::Conversation do |conversation|
+          conversation.participants.include?(user)
         end
       end
 

@@ -3,7 +3,7 @@
     <div class="columns">
       <div class="title-action" >
         <h1 class="heading1 title-action__title">
-          <%= link_to decidim.chats_path, class: "card--list__data__icon card--list__data__icon--back" do %>
+          <%= link_to decidim.conversations_path, class: "card--list__data__icon card--list__data__icon--back" do %>
             <%= icon "chevron-left" %>
           <% end %>
 
@@ -14,7 +14,7 @@
   </div>
 
   <div class="row">
-    <div id="chat" class="columns large-8">
+    <div id="conversation" class="columns large-8">
       <%= yield %>
     </div>
   </div>

@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::Messaging
-  describe StartChat do
+  describe StartConversation do
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :confirmed, organization: organization) }
     let!(:command) { described_class.new(form) }
@@ -11,11 +11,11 @@ module Decidim::Messaging
 
     context "when the form is invalid" do
       let(:form) do
-        ChatForm.from_params(body: "", recipient_id: interlocutor.id)
+        ConversationForm.from_params(body: "", recipient_id: interlocutor.id)
       end
 
-      it "does not create a chat" do
-        expect { command.call }.not_to change { Chat.count }
+      it "does not create a conversation" do
+        expect { command.call }.not_to change { Conversation.count }
       end
 
       it "broadcasts invalid" do
@@ -31,22 +31,22 @@ module Decidim::Messaging
 
     context "when the form is valid" do
       let(:form) do
-        ChatForm.from_params(
+        ConversationForm.from_params(
           body: "<3 from Patagonia",
           recipient_id: interlocutor.id
         ).with_context(current_user: user)
       end
 
-      it "creates a chat with one message" do
+      it "creates a conversation with one message" do
         expect { command.call }
-          .to change { Chat.count }
+          .to change { Conversation.count }
           .by(1)
           .and change { Message.count }
           .by(1)
       end
 
       it "broadcasts ok" do
-        expect { command.call }.to broadcast(:ok, an_instance_of(Chat))
+        expect { command.call }.to broadcast(:ok, an_instance_of(Conversation))
       end
 
       it "sends a notification to the recipient" do

@@ -12,9 +12,9 @@ module Decidim
                  foreign_key: :decidim_sender_id,
                  class_name: "Decidim::User"
 
-      belongs_to :chat,
-                 foreign_key: :decidim_chat_id,
-                 class_name: "Decidim::Messaging::Chat"
+      belongs_to :conversation,
+                 foreign_key: :decidim_conversation_id,
+                 class_name: "Decidim::Messaging::Conversation"
 
       has_many :receipts,
                dependent: :destroy,
@@ -42,7 +42,7 @@ module Decidim
       private
 
       def sender_is_participant
-        errors.add(:sender, :invalid) unless chat.participants.include?(sender)
+        errors.add(:sender, :invalid) unless conversation.participants.include?(sender)
       end
     end
   end

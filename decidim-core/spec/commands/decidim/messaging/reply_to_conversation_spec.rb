@@ -3,20 +3,20 @@
 require "spec_helper"
 
 module Decidim::Messaging
-  describe ReplyToChat do
+  describe ReplyToConversation do
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :confirmed, organization: organization) }
     let(:interlocutor) { create(:user) }
 
-    let(:chat) do
-      Chat.start!(
+    let(:conversation) do
+      Conversation.start!(
         originator: interlocutor,
         interlocutors: [user],
         body: "Initial message"
       )
     end
 
-    let!(:command) { described_class.new(chat, form) }
+    let!(:command) { described_class.new(conversation, form) }
 
     context "when the form is invalid" do
       let(:form) do
@@ -57,7 +57,7 @@ module Decidim::Messaging
         expect { command.call }.to broadcast(:ok, an_instance_of(Message))
       end
 
-      context "and the user didn't have unread messages in the chat" do
+      context "and the user didn't have unread messages in the conversation" do
         it "sends a notification to the recipient" do
           expect do
             perform_enqueued_jobs { command.call }
@@ -65,9 +65,9 @@ module Decidim::Messaging
         end
       end
 
-      context "and the user already has unread messages in the chat" do
+      context "and the user already has unread messages in the conversation" do
         before do
-          chat.add_message!(sender: user, body: "Still thinking of you from Patagonia")
+          conversation.add_message!(sender: user, body: "Still thinking of you from Patagonia")
         end
 
         it "does not send notifications" do

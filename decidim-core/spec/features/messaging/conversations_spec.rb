@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Chats", type: :feature do
+describe "Conversations", type: :feature do
   let(:organization) { create(:organization) }
   let(:user) { create :user, :confirmed, organization: organization }
 
@@ -11,26 +11,26 @@ describe "Chats", type: :feature do
     login_as user, scope: :user
   end
 
-  context "when user has no chats" do
+  context "when user has no conversations" do
     before { visit_inbox }
 
     it "shows a notice informing about that" do
-      expect(page).to have_content("You have no chats yet")
+      expect(page).to have_content("You have no conversations yet")
     end
 
     it "shows the topbar button as inactive" do
       within ".topbar__user__logged" do
-        expect(page).to have_no_selector("a.topbar__chats.is-active")
-        expect(page).to have_selector("a.topbar__chats")
+        expect(page).to have_no_selector("a.topbar__conversations.is-active")
+        expect(page).to have_selector("a.topbar__conversations")
       end
     end
   end
 
-  context "when starting a chat" do
+  context "when starting a conversation" do
     let(:recipient) { create(:user) }
 
     before do
-      visit decidim.new_chat_path(recipient_id: recipient.id)
+      visit decidim.new_conversation_path(recipient_id: recipient.id)
     end
 
     it "shows an empty conversation page" do
@@ -38,56 +38,56 @@ describe "Chats", type: :feature do
     end
 
     it "allows sending an initial message" do
-      fill_in "chat_body", with: "Is this a Ryanair style democracy?"
+      fill_in "conversation_body", with: "Is this a Ryanair style democracy?"
       click_button "Send"
 
       expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
     end
   end
 
-  context "when user has chats" do
+  context "when user has conversations" do
     let(:interlocutor) { create(:user, :confirmed) }
 
-    let!(:chat) do
-      Decidim::Messaging::Chat.start!(
+    let!(:conversation) do
+      Decidim::Messaging::Conversation.start!(
         originator: user,
         interlocutors: [interlocutor],
         body: "who wants apples?"
       )
     end
 
-    it "shows user's chat list" do
+    it "shows user's conversation list" do
       visit_inbox
 
-      within ".chats" do
+      within ".conversations" do
         expect(page).to have_selector(".card--list__item", text: /#{interlocutor.name}/i)
         expect(page).to have_selector(".card--list__item", text: "who wants apples?")
         expect(page).to have_selector(".card--list__item", text: /\d{2}:\d{2}/)
       end
     end
 
-    it "allows entering a chat" do
+    it "allows entering a conversation" do
       visit_inbox
       click_link interlocutor.name
 
-      expect(page).to have_content("Chat with #{interlocutor.name}")
+      expect(page).to have_content("Conversation with #{interlocutor.name}")
       expect(page).to have_content("who wants apples?")
     end
 
     context "and some of them are unread" do
       before do
-        chat.add_message!(sender: interlocutor, body: "I want one")
+        conversation.add_message!(sender: interlocutor, body: "I want one")
 
         visit_inbox
       end
 
       it "shows the topbar button as active" do
         within ".topbar__user__logged" do
-          expect(page).to have_selector("a.topbar__chats.is-active")
+          expect(page).to have_selector("a.topbar__conversations.is-active")
         end
       end
 
-      it "shows the number of unread messages per chat" do
+      it "shows the number of unread messages per conversation" do
         expect(page).to have_selector(".card--list__item .card--list__counter", text: "1")
       end
     end
@@ -97,8 +97,8 @@ describe "Chats", type: :feature do
 
       it "shows the topbar button as inactive" do
         within ".topbar__user__logged" do
-          expect(page).to have_no_selector("a.topbar__chats.is-active")
-          expect(page).to have_selector("a.topbar__chats")
+          expect(page).to have_no_selector("a.topbar__conversations.is-active")
+          expect(page).to have_selector("a.topbar__conversations")
         end
       end
 

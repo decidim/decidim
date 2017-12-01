@@ -3,22 +3,22 @@
 module Decidim
   module Messaging
     #
-    # Holds a chat or conversation between a number of participants. Each chat
+    # Holds a conversation between a number of participants. Each conversation
     # would be equivalent to an entry in your Telegram conversation list, be it
     # a group or a one-to-one conversation.
     #
-    class Chat < ApplicationRecord
-      has_many :participations, foreign_key: :decidim_chat_id,
+    class Conversation < ApplicationRecord
+      has_many :participations, foreign_key: :decidim_conversation_id,
                                 class_name: "Decidim::Messaging::Participation",
                                 dependent: :destroy,
-                                inverse_of: :chat
+                                inverse_of: :conversation
 
       has_many :participants, through: :participations
 
-      has_many :messages, foreign_key: :decidim_chat_id,
+      has_many :messages, foreign_key: :decidim_conversation_id,
                           class_name: "Decidim::Messaging::Message",
                           dependent: :destroy,
-                          inverse_of: :chat
+                          inverse_of: :conversation
 
       has_many :receipts, through: :messages
 
@@ -38,37 +38,37 @@ module Decidim
       # @return (see .start)
       #
       def self.start!(originator:, interlocutors:, body:)
-        chat = start(
+        conversation = start(
           originator: originator,
           interlocutors: interlocutors,
           body: body
         )
 
-        chat.save!
+        conversation.save!
 
-        chat
+        conversation
       end
 
       #
       # Initiates a conversation between a user and a set of interlocutors with
       # an initial message.
       #
-      # @param originator [Decidim::User] The user starting the chat
+      # @param originator [Decidim::User] The user starting the conversation
       # @param interlocutors [Array<Decidim::User>] The set of interlocutors in
-      #   the chat (not including the originator).
+      #   the conversation (not including the originator).
       # @param body [String] The content of the initial message
       #
-      # @return [Decidim::Messaging::Chat] The newly created chat
+      # @return [Decidim::Messaging::Conversation] The newly created conversation
       #
       def self.start(originator:, interlocutors:, body:)
-        chat = new(participants: [originator] + interlocutors)
+        conversation = new(participants: [originator] + interlocutors)
 
-        chat.add_message(sender: originator, body: body)
+        conversation.add_message(sender: originator, body: body)
 
-        chat
+        conversation
       end
 
-      # Appends a message to this chat and saves everything to DB.
+      # Appends a message to this conversation and saves everything to DB.
       #
       # @param (see #add_message)
       #
@@ -81,7 +81,7 @@ module Decidim
       end
 
       #
-      # Appends a message to this chat
+      # Appends a message to this conversation
       #
       # @param sender [Decidim::User] The sender of the message
       # @param body [String] The content of the message

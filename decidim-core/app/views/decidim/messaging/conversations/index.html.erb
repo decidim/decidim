@@ -10,30 +10,30 @@
   </div>
   <div class="row">
     <div class="columns large-8">
-      <% if @chats.empty? %>
+      <% if @conversations.empty? %>
         <div class="callout secondary">
-          <p><%= t(".no_chats") %></p>
+          <p><%= t(".no_conversations") %></p>
         </div>
       <% else %>
-        <div class="card card--list chats">
-          <% @chats.each do |chat| %>
-            <%= link_to decidim.chat_path(chat), class: "card--list__item" do %>
+        <div class="card card--list conversations">
+          <% @conversations.each do |conversation| %>
+            <%= link_to decidim.conversation_path(conversation), class: "card--list__item" do %>
               <div class="card--list__titled-text">
                 <h6 class="card--list__heading heading6">
-                  <%= username_list(chat.interlocutors(current_user)) %>
+                  <%= username_list(conversation.interlocutors(current_user)) %>
                 </h6>
 
                 <span class="card--list__annotation">
-                  <%= simple_date(chat.last_message.created_at) %>
+                  <%= simple_date(conversation.last_message.created_at) %>
                 </span>
 
                 <span class="text-small">
-                  <%= truncate chat.last_message.body, length: 150 %>
+                  <%= truncate conversation.last_message.body, length: 150 %>
                 </span>
 
-                <% if chat.unread_count(current_user) > 0 %>
+                <% if conversation.unread_count(current_user) > 0 %>
                   <span class="card--list__counter">
-                    <span><%= chat.unread_count(current_user) %></span>
+                    <span><%= conversation.unread_count(current_user) %></span>
                   </span>
                 <% end %>
               </div>

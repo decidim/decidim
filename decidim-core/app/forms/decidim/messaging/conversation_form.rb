@@ -3,8 +3,8 @@
 module Decidim
   module Messaging
     # A form object to be used when users want to follow a followable resource.
-    class ChatForm < Decidim::Form
-      mimic :chat
+    class ConversationForm < Decidim::Form
+      mimic :conversation
 
       attribute :body, String
       attribute :recipient_id, Integer

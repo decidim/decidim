@@ -1,9 +1,0 @@
-<%= render layout: "show", locals: { participants: chat.interlocutors(current_user) } do %>
-  <div id="messages">
-    <% chat.messages.each do |message| %>
-      <%= render "message", message: message %>
-    <% end %>
-  </div>
-
-  <%= render "reply", form: @form, chat: chat %>
-<% end %>

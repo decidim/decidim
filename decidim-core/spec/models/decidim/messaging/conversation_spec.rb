@@ -2,12 +2,12 @@
 
 require "spec_helper"
 
-describe Decidim::Messaging::Chat do
-  describe ".start_chat" do
+describe Decidim::Messaging::Conversation do
+  describe ".start_conversation" do
     let(:originator) { create(:user) }
     let(:interlocutor) { create(:user) }
 
-    let(:chat) do
+    let(:conversation) do
       described_class.start!(
         originator: originator,
         interlocutors: [interlocutor],
@@ -15,7 +15,7 @@ describe Decidim::Messaging::Chat do
       )
     end
 
-    let(:receipts) { chat.receipts }
+    let(:receipts) { conversation.receipts }
 
     it "creates receipts for all participants" do
       expect(receipts.count).to eq(2)

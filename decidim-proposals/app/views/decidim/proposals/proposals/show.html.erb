@@ -14,7 +14,7 @@
         <%= icon "flag", aria_label: t('.report'), class: 'icon--small' %>
       </button>
       <% unless @proposal.official? %>
-        <%= link_to link_to_current_or_new_chat_with(@proposal.author), title: t('.contact') do %>
+        <%= link_to link_to_current_or_new_conversation_with(@proposal.author), title: t('.contact') do %>
           <%= icon "envelope-closed", aria_label: t('.contact'), class: 'icon--small' %>
         <% end %>
       <% end %>

@@ -4,37 +4,37 @@ module Decidim
   module Messaging
     # A custom mailer for sending notifications to users when they receive
     # private messages
-    class ChatMailer < Decidim::ApplicationMailer
-      def new_chat(originator, user, chat)
+    class ConversationMailer < Decidim::ApplicationMailer
+      def new_conversation(originator, user, conversation)
         notification_mail(
           from: originator,
           to: user,
-          chat: chat,
-          action: "new_chat"
+          conversation: conversation,
+          action: "new_conversation"
         )
       end
 
-      def new_message(sender, user, chat)
+      def new_message(sender, user, conversation)
         notification_mail(
           from: sender,
           to: user,
-          chat: chat,
-          action: "new_chat"
+          conversation: conversation,
+          action: "new_conversation"
         )
       end
 
       private
 
-      def notification_mail(from:, to:, chat:, action:)
+      def notification_mail(from:, to:, conversation:, action:)
         with_user(to) do
           @organization = to.organization
-          @chat = chat
+          @conversation = conversation
           @sender = from.name
           @recipient = to.name
           @host = @organization.host
 
           subject = I18n.t(
-            "chat_mailer.#{action}.subject",
+            "conversation_mailer.#{action}.subject",
             scope: "decidim.messaging",
             sender: @sender
           )

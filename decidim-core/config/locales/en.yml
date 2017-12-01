@@ -173,8 +173,8 @@ en:
       home: Home
       more_information: More information
     messaging:
-      chat_mailer:
-        new_chat:
+      conversation_mailer:
+        new_conversation:
           greeting: Hi, %{recipient}!
           intro: "%{sender} has started a new conversation with you. Click here to see it:"
           outro: Enjoy decidim!
@@ -184,17 +184,17 @@ en:
           intro: "%{sender} has posted new messages in your conversation. Click here to send them:"
           outro: Enjoy decidim!
           subject: You have new messages from %{sender}
-      chats:
+      conversations:
         create:
-          error: Chat not started. Try again later
+          error: Conversation not started. Try again later
         index:
-          no_chats: You have no chats yet
-          title: Chats
+          no_conversations: You have no conversations yet
+          title: Conversations
         reply:
           send: Send
           title: Reply
         show:
-          title: Chat with %{usernames}
+          title: Conversation with %{usernames}
         start:
           send: Send
           title: Start a conversation

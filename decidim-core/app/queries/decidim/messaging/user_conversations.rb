@@ -2,8 +2,8 @@
 
 module Decidim
   module Messaging
-    # A class used to find the chats a user is participating in.
-    class UserChats < Rectify::Query
+    # A class used to find the conversations a user is participating in.
+    class UserConversations < Rectify::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # user - a User that needs to find which processes can manage
@@ -16,7 +16,7 @@ module Decidim
       end
 
       def query
-        Chat
+        Conversation
           .joins(:participations)
           .where(decidim_messaging_participations: { decidim_participant_id: user.id })
       end

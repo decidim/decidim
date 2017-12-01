@@ -5,13 +5,13 @@ require "spec_helper"
 describe Decidim::Messaging::Message do
   context "when sender is not a participant" do
     subject do
-      chat = Decidim::Messaging::Chat.start(
+      conversation = Decidim::Messaging::Conversation.start(
         originator: originator,
         interlocutors: [recipient],
         body: "Hei!"
       )
 
-      chat.add_message(sender: create(:user), body: "sneaking in")
+      conversation.add_message(sender: create(:user), body: "sneaking in")
     end
 
     let(:originator) { create(:user) }
