@@ -169,6 +169,12 @@ module Decidim
     }
   end
 
+  # Semiprivate: Removes a global engine from the registry. Mostly used on testing,
+  # no real reason to use this on production.
+  #
+  # name - The name of the global engine to remove.
+  #
+  # Returns nothing.
   def self.unregister_global_engine(name)
     global_engines.delete(name.to_sym)
   end
