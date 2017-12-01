@@ -51,6 +51,7 @@
 - **decidim-core**: Fixes to MigrateUserRolesToParticipatoryProcessRoles: avoid using relations and work with id's directly [\#2223](https://github.com/decidim/decidim/pull/2223)
 - **decidim-core**: Embedded videos were not displaying properly [\#2198](https://github.com/decidim/decidim/pull/2198)
 - **decidim-core**: Links in emails in development being generated without a port [\#2237](https://github.com/decidim/decidim/pull/2237)
+- **decidim-core**: Ensure locale is kept between feature pages [\#2310](https://github.com/decidim/decidim/pull/2310)
 - **decidim-participatory-processes**: Fixes active processes and adds all processes filters [\#2081](https://github.com/decidim/decidim/pull/2131)
 
 ## [v0.7.4](https://github.com/decidim/decidim/tree/v0.7.4) (2017-11-23)
