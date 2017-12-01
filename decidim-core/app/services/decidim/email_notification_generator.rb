@@ -57,7 +57,7 @@ module Decidim
           recipient,
           extra
         )
-        .deliver_later
+        .deliver_now
     end
   end
 end

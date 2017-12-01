@@ -35,6 +35,7 @@ module Decidim
         transaction do
           create_proposal
           create_attachment if process_attachments?
+          send_notification_to_moderators
         end
 
         broadcast(:ok, proposal)
@@ -59,6 +60,18 @@ module Decidim
         )
       end
 
+      def send_notification_to_moderators
+        Decidim::EventsManager.publish(
+          event: "decidim.events.proposals.comment_created",
+          event_class: Decidim::Proposals::ProposalCreatedEvent,
+          resource: @proposal,
+          recipient_ids: (@proposal.users_to_notify_on_proposal_created - [@author]).pluck(:id),
+          extra: {
+            moderation_event: true
+          }
+        )
+      end
+
       def build_attachment
         @attachment = Attachment.new(
           title: form.attachment.title,
@@ -66,6 +79,8 @@ module Decidim
           attached_to: @proposal
         )
       end
+
+
 
       def attachment_invalid?
         if attachment.invalid? && attachment.errors.has_key?(:file)

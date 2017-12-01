@@ -43,13 +43,14 @@ module Decidim
                                    decidim_user_group_id: form.user_group_id)
       end
 
+
       def send_notification_to_moderators
         puts "SEND NOTIF TO MODERATOR"
         Decidim::EventsManager.publish(
           event: "decidim.events.comments.comment_created",
           event_class: Decidim::Comments::CommentCreatedEvent,
           resource: @comment.root_commentable,
-          recipient_ids: (@commentable.users_to_notify_on_comment_created - [@author]).flatten.pluck(:id),
+          recipient_ids: (@commentable.users_to_notify_on_comment_created - [@author]).pluck(:id),
           extra: {
             comment_id: @comment.id,
             moderation_event: true

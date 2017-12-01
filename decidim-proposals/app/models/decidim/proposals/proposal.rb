@@ -26,6 +26,7 @@ module Decidim
       scope :accepted, -> { where(state: "accepted") }
       scope :rejected, -> { where(state: "rejected") }
       scope :evaluating, -> { where(state: "evaluating") }
+      after_create :create_moderation
 
       def self.order_randomly(seed)
         transaction do
@@ -103,33 +104,28 @@ module Decidim
         ResourceLocatorPresenter.new(self).url
       end
 
-      # Public: Override Commentable concern method `users_to_notify_on_comment_created`
-      # Notify Admins and Moderators when a new comment has been create and need to be moderate
-      def users_to_notify_on_comment_created
-        puts "Notify on comment created"
-        participatory_process = feature.participatory_space
-        admins = feature.organization.admins
-        users_with_role = feature.organization.users_with_any_role
-        process_users_with_role = get_user_with_process_role(participatory_process.id)
-        users << admins + users_with_role + process_users_with_role
-        return users.uniq if official?
-        users
+      def users_to_notify_on_proposal_created
+        get_all_users_with_role
       end
 
-      # Public: Override Commentable concern method `users_to_notify_on_comment_authorized`
+
+      def users_to_notify_on_comment_created
+        get_all_users_with_role
+      end
+
       def users_to_notify_on_comment_authorized
         return (followers | feature.participatory_space.admins).uniq if official?
         followers
       end
 
-      # Public: Overrides the `public_comments_filters` Commentable concern method. Get all authorised comments, after downstream moderation
-      def public_comments_filters
-        {upstream_moderation: "authorized"}
-      end
-
-      # Public: Overrides the `reported_content_url` Reportable concern method.
-      def reported_content_url
-        ResourceLocatorPresenter.new(self).url
+      def get_all_users_with_role
+        participatory_process = feature.participatory_space
+        admins = feature.organization.admins
+        users_with_role = feature.organization.users_with_any_role
+        process_users_with_role = get_user_with_process_role(participatory_process.id)
+        users = admins + users_with_role + process_users_with_role
+        return users.uniq if official?
+        users
       end
 
       # Public: Whether the proposal is official or not.
@@ -177,6 +173,11 @@ module Decidim
       def within_edit_time_limit?
         limit = created_at + feature.settings.proposal_edit_before_minutes.minutes
         Time.current < limit
+      private
+
+      def create_moderation
+        participatory_space = self.feature.participatory_space
+        self.create_moderation!(participatory_space: participatory_space)
       end
     end
   end

@@ -20,6 +20,7 @@ module Decidim
                      .includes(:author)
                      .includes(:category)
                      .includes(:scope)
+                     # todo scope authorize
 
         @voted_proposals = if current_user
                              ProposalVote.where(
@@ -55,7 +56,7 @@ module Decidim
         CreateProposal.call(@form, current_user) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
-            redirect_to proposal_path(proposal)
+            redirect_to proposal_path(proposal) # todo rediriger vers index + flash message
           end
 
           on(:invalid) do
