@@ -118,8 +118,8 @@ it:
             send: Mandami una lettera
             title: Richiedi il tuo codice di verifica
           update:
-            error: Il tuo codice di verifica non corrisponde al nostro. Per favore ricontrolla la lettera che ti abbiamo inviato
-            success: Complimenti. Sei stato verificato con successo
+            error: Il tuo codice di verifica non corrisponde al nostro. Per favore controlla la lettera che ti abbiamo inviato
+            success: Felicitazioni. Sei stato verificato con successo
   errors:
     messages:
       uppercase_only_letters_numbers: deve essere tutto in maiuscolo e contenere solo lettere e / o numeri
