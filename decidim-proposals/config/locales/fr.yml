@@ -64,7 +64,7 @@ fr:
             success: La réponse à la proposition a publiée avec succès
           create:
             invalid: Il y a eu un problème lors de la création de cette proposition
-            success: Proposition créée avec succès
+            success: Proposition créée avec succès.
           form:
             attachment_legend: "(Facultatif) Ajouter une pièce jointe"
             select_a_category: Sélectionner une catégorie
@@ -80,7 +80,7 @@ fr:
         rejected: Refusée
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
-        success: Proposition créée avec succès.
+        success: Proposition créée avec succès. Elle sera publiée dès qu'un administrateur l'aura validée.
       models:
         proposal:
           fields:

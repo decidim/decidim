@@ -14,13 +14,7 @@ module Decidim
       before_action :authenticate_user!, only: [:new, :create]
 
       def index
-        @proposals = search
-                     .results
-                     .not_hidden
-                     .includes(:author)
-                     .includes(:category)
-                     .includes(:scope)
-                     # todo scope authorize
+        @proposals = filter_proposals
 
         @voted_proposals = if current_user
                              ProposalVote.where(
@@ -36,7 +30,10 @@ module Decidim
       end
 
       def show
-        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        @proposal = Proposal
+                    .not_hidden
+                    .where(feature: current_feature)
+                    .find(params[:id])
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
@@ -93,6 +90,34 @@ module Decidim
       end
 
       private
+
+      def get_user_with_process_role(participatory_process_id)
+        Decidim::ParticipatoryProcessUserRole.where(decidim_participatory_process_id: participatory_process_id).map(&:user)
+      end
+
+
+      def admin_or_moderator?
+        (current_user && current_user.admin?) || current_organization.users_with_any_role.include?(current_user) || get_user_with_process_role(current_participatory_process.id).include?(current_user)
+      end
+
+      def filter_proposals
+        if admin_or_moderator?
+          search
+            .results
+            .not_hidden
+            .includes(:author)
+            .includes(:category)
+            .includes(:scope)
+        else
+          search
+            .results
+            .not_hidden
+            .authorized
+            .includes(:author)
+            .includes(:category)
+            .includes(:scope)
+        end
+      end
 
       def geocoded_proposals
         @geocoded_proposals ||= search.results.not_hidden.select(&:geocoded?)

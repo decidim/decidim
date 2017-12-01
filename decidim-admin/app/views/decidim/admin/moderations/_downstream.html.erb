@@ -14,51 +14,48 @@
         </tr>
       </thead>
       <tbody>
-        <% unless downstream_moderation.nil? %>
-        <!-- TODO checker pourquoi upstream accept .any? et pas downstream-->
-          <% downstream_moderation.each do |moderation| %>
-            <tr data-id="<%= moderation.id %>">
+        <% downstream_moderations.each do |moderation| %>
+          <tr data-id="<%= moderation.id %>">
+            <td>
+              <%= moderation.reportable.class.name.demodulize %>
+            </td>
+            <td>
+              <%=
+                link_to moderation.reportable.reported_content_url, target: "_blank" do
+                  (moderation.reportable.reported_content_url + " " + icon("external-link")).html_safe
+                end
+              %>
+            </td>
+            <td>
+              <% reports = moderation.reports.map { |report| render 'report', report: report } %>
+              <%= safe_join(reports, ',') %>
+            </td>
+            <td>
+              <%= moderation.report_count %>
+            </td>
+            <% if params[:hidden] %>
               <td>
-                <%= moderation.reportable.class.name.demodulize %>
+                <%= l(moderation.hidden_at, format: :short) if moderation.hidden_at.present? %>
               </td>
-              <td>
-                <%=
-                  link_to moderation.reportable.reported_content_url, target: "_blank" do
-                    (moderation.reportable.reported_content_url + " " + icon("external-link")).html_safe
-                  end
-                %>
-              </td>
-              <td>
-                <% reports = moderation.reports.map { |report| render 'report', report: report } %>
-                <%= safe_join(reports, ',') %>
-              </td>
-              <td>
-                <%= moderation.report_count %>
-              </td>
-              <% if params[:hidden] %>
-                <td>
-                  <%= l(moderation.hidden_at, format: :short) if moderation.hidden_at.present? %>
-                </td>
-              <% end %>
-              <td class="actions">
+            <% end %>
+            <td class="actions">
 
-                <% if can? :unreport, moderation %>
-                  <%= icon_link_to "action-undo",
-                                   unreport_moderation_path(id: moderation),
-                                   t("actions.unreport", scope: "decidim.moderations"),
-                                   class: "action-icon--unreport",
-                                   method: :put %>
-                <% end %>
-                <% if !moderation.reportable.hidden? && can?(:hide, moderation) %>
-                  <%= icon_link_to "eye",
-                                   hide_moderation_path(id: moderation),
-                                   t("actions.hide", scope: "decidim.moderations"),
-                                   class: "action-icon--hide",
-                                   method: :put %>
-                <% end %>
-              </td>
-            </tr>
-          <% end %>
+              <% if can? :unreport, moderation %>
+                <%= icon_link_to "action-undo",
+                                 unreport_moderation_path(id: moderation),
+                                 t("actions.unreport", scope: "decidim.moderations"),
+                                 class: "action-icon--unreport",
+                                 method: :put %>
+              <% end %>
+              <% if !moderation.reportable.hidden? && can?(:hide, moderation) %>
+                <%= icon_link_to "eye",
+                                 hide_moderation_path(id: moderation),
+                                 t("actions.hide", scope: "decidim.moderations"),
+                                 class: "action-icon--hide",
+                                 method: :put %>
+              <% end %>
+            </td>
+          </tr>
         <% end %>
       </tbody>
     </table>
