@@ -63,15 +63,15 @@ it:
               success: Utente verificato con successo
             new:
               introduce_user_data: Introduci i dati nella foto
-              reject: Rifiutare
-              verify: Verificare
+              reject: Rifiuta
+              verify: Verifica
           pending_authorizations:
             index:
-              title: Verifiche in sospeso
+              title: Verifiche pendenti
               verification_number: 'Verifica n. %{n}'
           rejections:
             create:
-              success: Verifica respinta. All'utente verrà richiesto di modificare i suoi documenti
+              success: Verifica respinta. L'utente serà richiesto di modificare i suoi documenti
         authorizations:
           create:
             error: Si è verificato un problema durante il caricamento del documento
