@@ -26,11 +26,11 @@ it:
             - Gli utenti richiedono un codice di verifica da inviare al loro indirizzo.
             - Inviate la lettera al loro indirizzo con il codice di verifica.
             - Hai contrassegnato la lettera come inviata.
-            - Dopo aver contrassegnato la lettera come inviata, l'utente sarà in grado di introdurre il codice e di essere verificato.
+            - Dopo aver contrassegnato la lettera come inviata, l'utente potrà introdurre il codice e essere verificato.
       direct: Diretto
       help: Aiuto
       id_documents:
-        explanation: Carica i tuoi documenti di identità in modo che possiamo controllare la tua identità
+        explanation: Carica i tuoi documenti di identità in modo che possiamo verificare la tua identità
         name: Documenti di identità
       multistep: Multi-Step
       name: Nome
