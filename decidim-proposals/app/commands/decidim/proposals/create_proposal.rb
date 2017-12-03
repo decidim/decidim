@@ -65,7 +65,7 @@ module Decidim
           event: "decidim.events.proposals.proposal_created",
           event_class: Decidim::Proposals::ProposalCreatedEvent,
           resource: @proposal,
-          recipient_ids: (@proposal.users_to_notify_on_proposal_created - [@author]).pluck(:id),
+          recipient_ids: (@proposal.users_to_notify_on_proposal_created - [@proposal.author]).pluck(:id),
           extra: {
             moderation_event: true
           }
