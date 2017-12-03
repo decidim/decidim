@@ -53,7 +53,8 @@ module Decidim
           recipient_ids: (@commentable.users_to_notify_on_comment_created - [@author]).pluck(:id),
           extra: {
             comment_id: @comment.id,
-            moderation_event: true
+            moderation_event: true,
+            process_slug: @comment.root_commentable.feature.participatory_space.slug
           }
         )
       end
