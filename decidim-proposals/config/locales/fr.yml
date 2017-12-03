@@ -10,6 +10,15 @@ fr:
       proposal_answer:
         answer: Répondre
   decidim:
+    proposals:
+      events:
+        proposal_created:
+          proposal:
+            notification_title: Nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
+            moderation:
+              email_intro: 'Une nouvelle proposition a été postée. Vous pouvez la modérer en suivant ce lien :'
+              email_subject: 'Nouvelle proposition de %{author_name} en attente de modération'
+
     features:
       proposals:
         actions:

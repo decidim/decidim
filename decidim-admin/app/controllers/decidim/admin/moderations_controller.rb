@@ -63,9 +63,9 @@ module Decidim
       def downstream_moderations
         @downstream_moderations ||= begin
           if params[:hidden] && params[:moderation_type] == "downstream"
-            participatory_space_moderations.where.not(hidden_at: nil, report_count: 0)
+            participatory_space_moderations.where.not(hidden_at: nil, report_count: 0).order("created_at").reverse
           elsif params[:moderation_type] == "downstream"
-            participatory_space_moderations.where(hidden_at: nil).where.not( report_count: 0)
+            participatory_space_moderations.where(hidden_at: nil).where.not( report_count: 0).order("created_at").reverse
           end
         end
       end
@@ -73,9 +73,9 @@ module Decidim
       def upstream_moderations
         @upstream_moderations ||= begin
           if params[:moderated] && params[:moderation_type] == "upstream"
-            participatory_space_moderations.where.not(upstream_moderation: "unmoderate")
+            participatory_space_moderations.where.not(upstream_moderation: "unmoderate").order("created_at").reverse
           elsif params[:moderation_type] == "upstream"
-            participatory_space_moderations.where(upstream_moderation: "unmoderate")
+            participatory_space_moderations.where(upstream_moderation: "unmoderate").order("created_at").reverse
           end
         end
       end

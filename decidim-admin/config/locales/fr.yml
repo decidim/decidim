@@ -442,7 +442,7 @@ fr:
         unreport: Annuler le signalement
         moderated: Modéré
         unmoderated: Non modéré
-        authorize: Authoriser
+        authorize: Autoriser
         refuse: Refuser
       admin:
         reportable:

@@ -62,7 +62,7 @@ module Decidim
 
       def send_notification_to_moderators
         Decidim::EventsManager.publish(
-          event: "decidim.events.proposals.comment_created",
+          event: "decidim.events.proposals.proposal_created",
           event_class: Decidim::Proposals::ProposalCreatedEvent,
           resource: @proposal,
           recipient_ids: (@proposal.users_to_notify_on_proposal_created - [@author]).pluck(:id),
