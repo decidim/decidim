@@ -9,7 +9,6 @@ module Decidim
 
     delegate :feature, :organization, to: :reportable
 
-
     def authorized?
       upstream_moderation == "authorized"
     end
