@@ -43,6 +43,10 @@ module Decidim
         # other users, eg. admins.
         # Returns: a relation of Decidim::User objects.
         def users_to_notify_on_comment_created
+          get_all_users_with_role
+        end
+
+        def get_all_users_with_role
           participatory_process = feature.participatory_space
           admins = feature.organization.admins
           users_with_role = feature.organization.users_with_any_role

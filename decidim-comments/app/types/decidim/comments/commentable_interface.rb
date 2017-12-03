@@ -37,7 +37,7 @@ module Decidim
 
       field :hasComments, !types.Boolean, "Check if the commentable has comments" do
         resolve lambda { |obj, _args, _ctx|
-          obj.comments.size.positive?
+            obj.comments.size.positive?
         }
       end
     end

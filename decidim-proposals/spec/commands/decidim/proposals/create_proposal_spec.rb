@@ -23,13 +23,11 @@ module Decidim
 
         let(:body) { ::Faker::Lorem.sentences(3).join("\n") }
         let(:title) { ::Faker::Lorem.sentence(3) }
-        let(:address) { ::Faker::Address.street_address }
         let(:form_params) do
           {
             "proposal" => {
               "body" => body,
               "title" => title,
-              "address" => address
             }
           }
         end
@@ -43,7 +41,6 @@ module Decidim
 
         context "when a proposal is created" do
           it "sends a notification to admins and moderators" do
-            binding.pry
             expect(proposal)
               .to receive(:users_to_notify_on_proposal_created)
               .and_return([admin, user_manager, process_admin])
