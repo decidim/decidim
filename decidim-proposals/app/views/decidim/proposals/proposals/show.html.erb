@@ -13,6 +13,11 @@
       <button type="button" data-open="<%= current_user.present? ? 'flagModal' : 'loginModal' %>" title="<%= t('.report') %>" aria-controls="<%= current_user.present? ? 'flagModal' : 'loginModal' %>" aria-haspopup="true" tabindex="0">
         <%= icon "flag", aria_label: t('.report'), class: 'icon--small' %>
       </button>
+      <% unless @proposal.official? %>
+        <%= link_to link_to_current_or_new_conversation_with(@proposal.author), title: t('.contact') do %>
+          <%= icon "envelope-closed", aria_label: t('.contact'), class: 'icon--small' %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

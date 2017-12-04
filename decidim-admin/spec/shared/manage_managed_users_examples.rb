@@ -162,9 +162,7 @@ shared_examples "manage managed users examples" do
       expect(page).to have_content("successfully")
       expect(page).to have_content(managed_user.name)
 
-      logout :user
-
-      login_as user, scope: :user
+      relogin_as user
 
       navigate_to_managed_users_page
       expect(page).to have_no_content(managed_user.name)

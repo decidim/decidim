@@ -1,0 +1,11 @@
+<div class="add-message">
+  <h5 class="section-heading">
+    <%= t(".title") %>
+  </h5>
+
+  <%= form_for form, url: decidim.conversation_path(conversation.id), method: :put, remote: true do |f| %>
+    <%= f.text_area :body, label: false, rows: 4, required: true %>
+
+    <%= f.submit t(".send") %>
+  <% end %>
+</div>

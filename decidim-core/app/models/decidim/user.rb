@@ -70,6 +70,10 @@ module Decidim
       Decidim::Follow.where(user: self, followable: followable).any?
     end
 
+    def unread_conversations
+      Decidim::Messaging::Conversation.unread_by(self)
+    end
+
     # Check if the user exists with the given email and the current organization
     #
     # warden_conditions - A hash with the authentication conditions
