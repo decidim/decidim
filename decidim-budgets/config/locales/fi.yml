@@ -82,7 +82,7 @@ fi:
           filter_by: Suodata
           unfold: Avaa
         order_progress:
-          vote: 'Äänestä'
+          vote: Äänestä
         order_selected_projects:
           remove: Poista
           selected_projects:
@@ -104,29 +104,29 @@ fi:
     features:
       budgets:
         actions:
-          vote: 'Äänestä'
+          vote: Äänestä
         name: Budjetit
         settings:
           global:
             announcement: Ilmoitus
             comments_enabled: Kommentointi sallittu
             total_budget: Koko budjetti
-            vote_threshold_percent: 'Äänestyskynnyksen prosentti'
+            vote_threshold_percent: Äänestyskynnyksen prosentti
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi kielletty
             show_votes: Näytä äänet
-            votes_enabled: 'Äänestys sallittu'
+            votes_enabled: Äänestys sallittu
     orders:
       checkout:
-        error: 'Äänesi käsittelyssä tapahtui virhe'
-        success: 'Äänesi on hyväksytty onnistuneesti'
+        error: Äänesi käsittelyssä tapahtui virhe
+        success: Äänesi on hyväksytty onnistuneesti
       destroy:
-        error: 'Äänesi peruutuksen yhteydessä tapahtui virhe'
-        success: 'Äänesi on peruttu onnistuneesti'
+        error: Äänesi peruutuksen yhteydessä tapahtui virhe
+        success: Äänesi on peruttu onnistuneesti
     resource_links:
       included_proposals:
         project_proposals: 'Tähän projektiin liittyvät ehdotukset:'
   index:
-    confirmed_orders_count: 'Äänet lasketaan'
+    confirmed_orders_count: Äänet lasketaan
   total_budget: Koko budjetti
