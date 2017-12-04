@@ -2,8 +2,8 @@ it:
   activemodel:
     attributes:
       assembly:
-        banner_image: Immagine banner
-        copy_categories: Copiare le categorie
+        banner_image: Immagine del banner
+        copy_categories: Copia le categorie
         copy_features: Funzioni di copia
         description: Descrizione
         developer_group: Gruppo promotore
