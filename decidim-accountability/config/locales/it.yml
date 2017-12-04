@@ -42,9 +42,9 @@ it:
         results:
           create:
             invalid: C'è stato un problema durante la creazione di questo risultato
-            success: OK, il risultato è stato creato
+            success: Risultato creato con successo
           destroy:
-            success: Il risultato è stato cancellato
+            success: Risultato cancellato con successo
           edit:
             title: Modifica il risultato (Ambito)
             update: Aggiorna il risultato
