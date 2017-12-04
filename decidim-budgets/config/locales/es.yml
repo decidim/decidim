@@ -4,7 +4,7 @@ es:
       project:
         budget: Presupuesto
         decidim_category_id: Categoría
-        decidim_scope_id: 'Ámbito'
+        decidim_scope_id: Ámbito
         description: Descripción
         proposal_ids: Propuestas relacionadas
         title: Título
@@ -74,7 +74,7 @@ es:
           category: Categoría
           category_prompt: Selecciona una categoría
           scope_prompt: Seleccione un ámbito
-          scopes: 'Ámbitos'
+          scopes: Ámbitos
           search: Buscar
         filters_small_view:
           close_modal: Cerrar ventana
