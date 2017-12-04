@@ -177,10 +177,10 @@ nl:
           greeting: Hallo, %{recipient}!
           intro: "%{sender} is een nieuw gesprek met je begonnen. Klik hier om het te zien:"
           outro: Geniet van Decidim!
-          subject: "%{sender} is een discussie met je begonnen"
+          subject: "%{sender} is een gesprek met je begonnen"
         new_message:
           greeting: Hallo, %{recipient}!
-          intro: "%{sender} heeft nieuwe berichten geplaatst in je gesprek. Klik hier om ze te verzenden:"
+          intro: "%{sender} heeft nieuwe berichten geplaatst in je gesprek. Klik hier om ze te zien:"
           outro: Geniet van Decidim!
           subject: Je hebt nieuwe berichten van %{sender}
       conversations:
