@@ -177,10 +177,8 @@ es:
           greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciado una nueva conversación contigo. Haz click aquí para verla:"
           outro: '¡Disfruta de decidim!'
-          subject: "%{sender} ha comenzado una conversación contigo"
         new_message:
           greeting: '¡Hola, %{recipient}!'
-          intro: "%{sender} ha publicado nuevos mensajes en su conversación. Haz clic aquí para enviarlos:"
           outro: '¡Disfruta de decidim!'
           subject: Tienes nuevos mensajes de %{sender}
       conversations:
