@@ -171,6 +171,16 @@ it:
     menu:
       home: Home
       more_information: Ulteriori informazioni
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          greeting: Ciao, %{recipient}!
+          intro: "%{sender} ha avviato una nuova conversazione con te. Clicca qui per vederlo:"
+          outro: Godetevi i decidim!
+          subject: "%{sender} ha avviato una discussione con te"
+        new_message:
+          greeting: Ciao, %{recipient}!
+          intro: "%{sender} ha pubblicato nuovi messaggi nella tua conversazione. Clicca qui per inviarli:"
     newsletter_mailer:
       newsletter:
         note: Hai ricevuto questa email perché ti sei iscritto alla newsletter su %{organization_name}. Puoi modificare le impostazioni sulla tua <a href="%{link}">pagina di notifiche</a>.
