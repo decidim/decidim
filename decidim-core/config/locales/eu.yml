@@ -177,10 +177,10 @@ eu:
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} elkarrizketa berria hasi duzu zurekin. Egin klik hemen ikusteko:"
           outro: Gozatu erabaki!
-          subject: "%{sender} zurekin eztabaida hasi da"
+          subject: "%{sender} elkarrizketa bat hasi da zurekin"
         new_message:
           greeting: Kaixo, %{recipient}!
-          intro: "%{sender} elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen bidaltzeko:"
+          intro: "%{sender} elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
           outro: Gozatu erabaki!
           subject: '%{sender}-tik mezu berriak dituzu'
       conversations:
