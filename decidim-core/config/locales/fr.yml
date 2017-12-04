@@ -177,10 +177,10 @@ fr:
           greeting: Bonjour, %{recipient}!
           intro: "%{sender} a commencé une nouvelle conversation avec vous. Cliquez ici pour le voir:"
           outro: Profitez de decidim!
-          subject: "%{sender} a commencé une discussion avec vous"
+          subject: "%{sender} a commencé une conversation avec vous"
         new_message:
           greeting: Bonjour, %{recipient}!
-          intro: "%{sender} a posté de nouveaux messages dans votre conversation. Cliquez ici pour les envoyer:"
+          intro: "%{sender} a posté de nouveaux messages dans votre conversation. Cliquez ici pour les voir:"
           outro: Profitez de decidim!
           subject: Vous avez de nouveaux messages de %{sender}
       conversations:
