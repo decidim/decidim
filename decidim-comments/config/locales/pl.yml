@@ -61,7 +61,7 @@ pl:
         title: Rozmowa z %{authorName}
       comments:
         blocked_comments_warning: Komentarze są w tej chwili wyłączone, ale możesz przeczytać poprzednie.
-        loading: 'Ładowanie komentarzy ...'
+        loading: Ładowanie komentarzy ...
         title: "%{count} komentarzy"
       featured_comment:
         title: Wyróżniony komentarz

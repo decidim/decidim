@@ -10,7 +10,7 @@ ca:
       meeting:
         address: Adreça
         decidim_category_id: Categoria
-        decidim_scope_id: 'Àmbit'
+        decidim_scope_id: Àmbit
         description: Descripció
         end_time: Hora de finalització
         location: Ubicació
@@ -134,7 +134,7 @@ ca:
           date: Data
           past: Passades
           scope_prompt: Seleccioneu un àmbit
-          scopes: 'Àmbits'
+          scopes: Àmbits
           search: Cerca
           upcoming: Properes
         filters_small_view:

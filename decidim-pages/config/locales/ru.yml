@@ -2,21 +2,21 @@ ru:
   decidim:
     features:
       pages:
-        name: 'Страница'
+        name: Страница
         settings:
           global:
-            announcement: 'Объявление'
+            announcement: Объявление
           step:
-            announcement: 'Объявление'
+            announcement: Объявление
     pages:
       admin:
         models:
           components:
-            body: 'Основной текст'
+            body: Основной текст
         pages:
           edit:
-            save: 'Обновить'
-            title: 'Редактировать страницу'
+            save: Обновить
+            title: Редактировать страницу
           update:
-            invalid: 'При сохранении страницы произошли ошибки.'
-            success: 'Страница сохранена успешно.'
+            invalid: При сохранении страницы произошли ошибки.
+            success: Страница сохранена успешно.

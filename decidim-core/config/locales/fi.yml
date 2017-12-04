@@ -171,6 +171,34 @@ fi:
     menu:
       home: Etusivu
       more_information: Lisätietoja
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          greeting: Hei, %{recipient}!
+          intro: "%{sender} on alkanut uuden keskustelun kanssasi. Napsauta tätä nähdäksesi:"
+          outro: Nauti decidimista!
+          subject: "%{sender} on alkanut keskustella kanssasi"
+        new_message:
+          greeting: Hei, %{recipient}!
+          intro: "%{sender} on lähettänyt uusia viestejä keskusteluusi. Klikkaa tästä nähdäksesi ne:"
+          outro: Nauti decidimista!
+          subject: Sinulla on uusia viestejä %{sender}
+      conversations:
+        create:
+          error: Keskustelu ei käynnisty. Yritä myöhemmin uudelleen
+        index:
+          no_conversations: Sinulla ei vielä ole keskusteluja
+          title: keskustelut
+        reply:
+          send: Lähettää
+          title: Vastaa
+        show:
+          title: Keskustelu %{usernames} kanssa
+        start:
+          send: Lähettää
+          title: Aloita keskustelu
+        update:
+          error: Viestiä ei lähetetty. Yritä myöhemmin uudelleen
     newsletter_mailer:
       newsletter:
         note: Tämä viesti on lähetetty sinulle, koska olet tilannut uutiskirjeet organisaatiolta %{organization_name}. Voit muuttaa asetuksiasi <a href="%{link}">ilmoitusten sivulla</a>.
@@ -357,7 +385,7 @@ fi:
         comments_count: Kommentit
         headline: Tämänhetkinen tila organisaatiolle %{organization}
         meetings_count: Tapaamiset
-        orders_count: 'Äänet'
+        orders_count: Äänet
         pages_count: Sivut
         processes_count: Prosessit
         projects_count: Projektit
@@ -365,7 +393,7 @@ fi:
         results_count: Tulokset
         surveys_count: Kyselyt
         users_count: Osallistujat
-        votes_count: 'Äänet'
+        votes_count: Äänet
       sub_hero:
         register: Rekisteröidy
   social_share_button:
@@ -390,7 +418,11 @@ fi:
     xing: Xing
   time:
     formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_year: "%d.%m.%y"
       decidim_short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"
   views:
     pagination:
       first: "&laquo; Ensimmäinen"

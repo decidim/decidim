@@ -171,6 +171,34 @@ nl:
     menu:
       home: Home
       more_information: Meer informatie
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          greeting: Hallo, %{recipient}!
+          intro: "%{sender} is een nieuw gesprek met je begonnen. Klik hier om het te zien:"
+          outro: Geniet van Decidim!
+          subject: "%{sender} is een gesprek met je begonnen"
+        new_message:
+          greeting: Hallo, %{recipient}!
+          intro: "%{sender} heeft nieuwe berichten geplaatst in je gesprek. Klik hier om ze te zien:"
+          outro: Geniet van Decidim!
+          subject: Je hebt nieuwe berichten van %{sender}
+      conversations:
+        create:
+          error: Gesprek niet gestart. Probeer het later nogmaals
+        index:
+          no_conversations: Je hebt nog geen gesprekken
+          title: conversaties
+        reply:
+          send: Sturen
+          title: Antwoord
+        show:
+          title: Conversatie met %{usernames}
+        start:
+          send: Sturen
+          title: Een gesprek beginnen
+        update:
+          error: Bericht niet verzonden Probeer het later nogmaals
     newsletter_mailer:
       newsletter:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
@@ -389,7 +417,11 @@ nl:
     xing: Xing
   time:
     formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_year: "%d.%m.%y"
       decidim_short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"
   views:
     pagination:
       first: "&laquo; Eerste"

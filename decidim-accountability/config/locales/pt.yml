@@ -135,8 +135,8 @@ pt:
             back_to_result: Volte ao resultado
             comments: Comentários
             contributions: Contribuições
-            last_edited_by: 'Última edição por'
-            last_updated_at: 'Última atualização em'
+            last_edited_by: Última edição por
+            last_updated_at: Última atualização em
             meetings: Reuniões
             number_of_versions: Versões
             proposals: Propostas
