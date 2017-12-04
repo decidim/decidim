@@ -2,379 +2,379 @@ ru:
   activemodel:
     attributes:
       account:
-        delete_reason: 'Причина для удаления вашей учетной записи'
+        delete_reason: Причина для удаления вашей учетной записи
       report:
-        details: 'Дополнительные комментарии'
+        details: Дополнительные комментарии
       user:
-        email: 'Ваш адрес электронной почты'
-        name: 'Ваше имя'
-        password: 'Новый пароль'
-        password_confirmation: 'Подтвердите свой новый пароль'
-        remove_avatar: 'Удалить аватар'
-        user_group_document_number: 'Номер документа организации'
-        user_group_name: 'Название организации'
-        user_group_phone: 'Телефон организации'
+        email: Ваш адрес электронной почты
+        name: Ваше имя
+        password: Новый пароль
+        password_confirmation: Подтвердите свой новый пароль
+        remove_avatar: Удалить аватар
+        user_group_document_number: Номер документа организации
+        user_group_name: Название организации
+        user_group_phone: Телефон организации
   activerecord:
     attributes:
       decidim/user:
-        current_password: 'Текущий пароль'
-        email: 'Эл. адрес'
-        name: 'Имя участника'
-        password: 'Пароль'
-        password_confirmation: 'Подтверждение пароля'
-        remember_me: 'Запомнить меня'
-        user_group_document_number: 'Номер документа организации'
-        user_group_name: 'Название организации'
-        user_group_phone: 'Телефон организации'
+        current_password: Текущий пароль
+        email: Эл. адрес
+        name: Имя участника
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        remember_me: Запомнить меня
+        user_group_document_number: Номер документа организации
+        user_group_name: Название организации
+        user_group_phone: Телефон организации
   booleans:
     'false': 'Нет'
     'true': 'Да'
   carrierwave:
     errors:
-      image_too_big: 'Изображение слишком велико'
+      image_too_big: Изображение слишком велико
   decidim:
     account:
       delete:
-        alert: 'Это действие нельзя будет отменить. Если вы удалите свою учетную запись, вы не сможете больше входить в систему.'
+        alert: Это действие нельзя будет отменить. Если вы удалите свою учетную запись, вы не сможете больше входить в систему.
         confirm:
-          close: 'Закрыть окно'
-          ok: 'Да, я хочу удалить свою учетную запись'
-          question: 'Вы действительно хотите удалить свою учетную запись?'
-          title: 'Удалить мою учетную запись'
-        explanation: 'Укажите, пожалуйста, причину, по которой вы хотите удалить свою учетную запись (необязательно).'
+          close: Закрыть окно
+          ok: Да, я хочу удалить свою учетную запись
+          question: Вы действительно хотите удалить свою учетную запись?
+          title: Удалить мою учетную запись
+        explanation: Укажите, пожалуйста, причину, по которой вы хотите удалить свою учетную запись (необязательно).
       destroy:
-        error: 'При удалении вашей учетной записи произошла ошибка.'
-        success: 'Ваша учетная запись была успешно удалена.'
+        error: При удалении вашей учетной записи произошла ошибка.
+        success: Ваша учетная запись была успешно удалена.
       show:
-        change_password: 'Поменять пароль'
-        update_account: 'Обновить учетную запись'
+        change_password: Поменять пароль
+        update_account: Обновить учетную запись
       update:
-        error: 'При обновлении вашей учетной записи произошла ошибка.'
-        success: 'Ваша учетная запись была успешно обновлена.'
-        success_with_email_confirmation: 'Ваша учетная запись была успешно обновлена. Вы получите электронное письмо, чтобы подтвердить свой новый адрес электронной почты.'
-    anonymous_user: 'Анонимный'
+        error: При обновлении вашей учетной записи произошла ошибка.
+        success: Ваша учетная запись была успешно обновлена.
+        success_with_email_confirmation: Ваша учетная запись была успешно обновлена. Вы получите электронное письмо, чтобы подтвердить свой новый адрес электронной почты.
+    anonymous_user: Анонимный
     application:
       documents:
-        related_documents: 'Сопутствующие документы'
+        related_documents: Сопутствующие документы
       photos:
-        related_photos: 'Сопутствующие фотографии'
+        related_photos: Сопутствующие фотографии
     authorization_handlers:
       errors:
-        duplicate_authorization: 'С теми же данными уже подтвердил свою личность другой участник.'
+        duplicate_authorization: С теми же данными уже подтвердил свою личность другой участник.
       foo_authorization:
         fields:
-          bar: 'Нерабочая псевдо-переменная 1'
-          foo: 'Нерабочая псевдо-переменная 2'
-        name: 'Нерабочее псевдо-подтверждение личности'
+          bar: Нерабочая псевдо-переменная 1
+          foo: Нерабочая псевдо-переменная 2
+        name: Нерабочее псевдо-подтверждение личности
     core:
       actions:
-        unauthorized: 'Вы не имеете прав для выполнения этого действия'
+        unauthorized: Вы не имеете прав для выполнения этого действия
     devise:
       omniauth_registrations:
         create:
-          email_already_exists: 'Другая учетная запись использует тот же адрес электронной почты'
+          email_already_exists: Другая учетная запись использует тот же адрес электронной почты
         new:
-          complete_profile: 'Заполните профиль'
-          sign_up: 'Пожалуйста, заполните свой профиль'
-          subtitle: 'Пожалуйста, заполните следующую форму, чтобы завершить регистрацию'
-          username_help: 'Общедоступное имя, которое отображается в ваших сообщениях. В целях обеспечения анонимности оно может быть любым.'
+          complete_profile: Заполните профиль
+          sign_up: Пожалуйста, заполните свой профиль
+          subtitle: Пожалуйста, заполните следующую форму, чтобы завершить регистрацию
+          username_help: Общедоступное имя, которое отображается в ваших сообщениях. В целях обеспечения анонимности оно может быть любым.
       registrations:
         new:
-          already_have_an_account?: 'У вас уже есть учетная запись?'
-          newsletter_notifications: 'Получать информацию о связанных с этим событиях'
-          sign_in: 'Войти'
-          sign_up: 'Зарегистрироваться'
+          already_have_an_account?: У вас уже есть учетная запись?
+          newsletter_notifications: Получать информацию о связанных с этим событиях
+          sign_in: Войти
+          sign_up: Зарегистрироваться
           sign_up_as:
-            legend: 'Зарегистрироваться как'
-            user: 'Частное лицо'
-            user_group: 'Организация/коллектив'
-          subtitle: 'Зарегистрируйтесь, чтобы участвовать в обсуждениях и поддерживать предложения.'
-          terms: 'условия использования'
-          tos_agreement: 'Регистрируясь, вы принимаете %{link}.'
-          username_help: 'Общедоступное имя, которое отображается в ваших сообщениях. В целях обеспечения анонимности оно может быть любым.'
+            legend: Зарегистрироваться как
+            user: Частное лицо
+            user_group: Организация/коллектив
+          subtitle: Зарегистрируйтесь, чтобы участвовать в обсуждениях и поддерживать предложения.
+          terms: условия использования
+          tos_agreement: Регистрируясь, вы принимаете %{link}.
+          username_help: Общедоступное имя, которое отображается в ваших сообщениях. В целях обеспечения анонимности оно может быть любым.
       sessions:
         new:
-          are_you_new?: 'Вы в первый раз на этой платформе?'
-          register: 'Создать учетную запись'
+          are_you_new?: Вы в первый раз на этой платформе?
+          register: Создать учетную запись
       shared:
         omniauth_buttons:
-          or: 'Или'
+          or: Или
     errors:
       internal_server_error:
-        title: 'Возникла проблема с нашим сервером'
-        try_later: 'Пожалуйста, повторите попытку позже.'
+        title: Возникла проблема с нашим сервером
+        try_later: Пожалуйста, повторите попытку позже.
       not_found:
-        back_home: 'Вернуться на главную'
-        content_doesnt_exist: 'Этот адрес неверен или был удален.'
-        title: 'Не удается найти страницу, которую вы ищете'
+        back_home: Вернуться на главную
+        content_doesnt_exist: Этот адрес неверен или был удален.
+        title: Не удается найти страницу, которую вы ищете
     events:
       email_event:
-        email_greeting: 'Здравствуйте, %{user_name}!'
+        email_greeting: Здравствуйте, %{user_name}!
         email_intro: '«%{resource_title}» обновили. Вы можете увидеть это на странице:'
-        email_outro: 'Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.'
-        email_subject: 'Обновление %{resource_title}'
+        email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}». Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
+        email_subject: Обновление %{resource_title}
       notification_event:
-        notification_title: 'С <a href="%{resource_path}">%{resource_title}</a> произошло событие.'
+        notification_title: С <a href="%{resource_path}">%{resource_title}</a> произошло событие.
     export_mailer:
       export:
-        ready: 'К настоящему прилагается в архивированном виде сохраненный вами файл.'
-      subject: 'Ваш сохраненный файл «%{name}» готов'
+        ready: К настоящему прилагается в архивированном виде сохраненный вами файл.
+      subject: Ваш сохраненный файл «%{name}» готов
     features:
       dummy:
         actions:
-          bar: 'Нерабочая псевдо-переменная 1'
-          foo: 'Нерабочая псевдо-переменная 2'
-        name: 'Нерабочая псевдо-составляющая'
+          bar: Нерабочая псевдо-переменная 1
+          foo: Нерабочая псевдо-переменная 2
+        name: Нерабочая псевдо-составляющая
         settings:
           global:
-            comments_enabled: 'Комментарии включены'
-            dummy_global_attribute_1: 'Нерабочее псевдо-свойство 1'
-            dummy_global_attribute_2: 'Нерабочее псевдо-свойство 2'
+            comments_enabled: Комментарии включены
+            dummy_global_attribute_1: Нерабочее псевдо-свойство 1
+            dummy_global_attribute_2: Нерабочее псевдо-свойство 2
           step:
-            comments_blocked: 'Комментарии выключены'
-            dummy_step_attribute_1: 'Нерабочее первое псевдо-свойство шага'
-            dummy_step_attribute_2: 'Нерабочее второе псевдо-свойство шага'
+            comments_blocked: Комментарии выключены
+            dummy_step_attribute_1: Нерабочее первое псевдо-свойство шага
+            dummy_step_attribute_2: Нерабочее второе псевдо-свойство шага
     filters:
       linked_classes:
-        all: 'Все'
-        dummyresource: 'Нерабочие псевдо-ресурсы'
-        meeting: 'Встречи'
-        project: 'Проекты'
-        proposal: 'Предложения'
-        result: 'Итоги'
+        all: Все
+        dummyresource: Нерабочие псевдо-ресурсы
+        meeting: Встречи
+        project: Проекты
+        proposal: Предложения
+        result: Итоги
     follows:
       create:
-        button: 'Следить'
-        error: 'При попытке начать следить за этим ресурсом произошла ошибка.'
+        button: Следить
+        error: При попытке начать следить за этим ресурсом произошла ошибка.
       destroy:
-        button: 'Перестать следить'
-        error: 'При попытке перестать следить за этим ресурсом произошла ошибка.'
+        button: Перестать следить
+        error: При попытке перестать следить за этим ресурсом произошла ошибка.
     forms:
-      current_file: 'Текущий файл'
-      current_image: 'Текущее изображение'
-      default_image: 'Изображение по умолчанию'
+      current_file: Текущий файл
+      current_image: Текущее изображение
+      default_image: Изображение по умолчанию
       errors:
-        error: 'В этом поле есть ошибка.'
-      remove_this_file: 'Удалить этот файл'
+        error: В этом поле есть ошибка.
+      remove_this_file: Удалить этот файл
     managed_users:
-      expired_session: 'Текущий сеанс выступления в роли участника истек.'
+      expired_session: Текущий сеанс выступления в роли участника истек.
     menu:
-      home: 'Главная'
-      more_information: 'Узнать больше'
+      home: Главная
+      more_information: Узнать больше
     newsletter_mailer:
       newsletter:
-        note: 'Вы получили это электронное письмо, потому что подписались на новостные рассылки %{organization_name}. Вы можете изменить свои настройки на своей <a href="%{link}">странице уведомлений</a>.'
+        note: Вы получили это электронное письмо, потому что подписались на новостные рассылки %{organization_name}. Вы можете изменить свои настройки на своей <a href="%{link}">странице уведомлений</a>.
     notifications_settings:
       show:
-        email_on_notification: 'Я хочу получать электронное письмо каждый раз, когда приходит уведомление.'
-        newsletter_notifications: 'Я хочу получать информацию о связанных с этим событиях'
-        update_notifications_settings: 'Сохранить изменения'
+        email_on_notification: Я хочу получать электронное письмо каждый раз, когда приходит уведомление.
+        newsletter_notifications: Я хочу получать информацию о связанных с этим событиях
+        update_notifications_settings: Сохранить изменения
       update:
-        error: 'При обновлении настроек уведомлений произошла ошибка.'
-        success: 'Ваши настройки уведомлений были успешно обновлены.'
+        error: При обновлении настроек уведомлений произошла ошибка.
+        success: Ваши настройки уведомлений были успешно обновлены.
     own_user_groups:
       index:
-        pending: 'В ожидании'
-        rejected: 'Отклонено'
-        verified: 'Проверено'
+        pending: В ожидании
+        rejected: Отклонено
+        verified: Проверено
     pages:
       index:
-        title: 'Узнать больше'
+        title: Узнать больше
     reported_mailer:
       hide:
-        hello: 'Здравствуйте, %{name}!'
-        manage_moderations: 'Управление действиями по модерации'
+        hello: Здравствуйте, %{name}!
+        manage_moderations: Управление действиями по модерации
         report_html: <p>Следующее <a href="%{url}">содержимое</a> было автоматически скрыто.</p>
-        subject: 'Ресурс был автоматически скрыт'
+        subject: Ресурс был автоматически скрыт
       report:
-        hello: 'Здравствуйте, %{name}!'
-        manage_moderations: 'Управление действиями по модерации'
+        hello: Здравствуйте, %{name}!
+        manage_moderations: Управление действиями по модерации
         report_html: <p>О следующем <a href="%{url}">содержимом</a> была передана жалоба администраторам.</p>
-        subject: 'О ресурсе была передана жалоба администраторам'
+        subject: О ресурсе была передана жалоба администраторам
     reports:
       create:
-        error: 'При создании жалобы возникла ошибка. Повторите, пожалуйста, попытку.'
-        success: 'Жалоба была успешно создана, и она будет рассмотрена администратором.'
+        error: При создании жалобы возникла ошибка. Повторите, пожалуйста, попытку.
+        success: Жалоба была успешно создана, и она будет рассмотрена администратором.
     shared:
       action_authorization_modal:
         incomplete:
-          cancel: 'Отменить'
+          cancel: Отменить
           explanation: 'Несмотря на то, что вы подтвердили свою личность с помощью «%{authorization}», мы просим вас заново подтвердить свою личность, потому что нам не хватает следующих данных:'
-          reauthorize: 'Заново подтвердить свою личность'
-          title: 'Пожалуйста, заново подтвердите свою личность'
+          reauthorize: Заново подтвердить свою личность
+          title: Пожалуйста, заново подтвердите свою личность
         missing:
-          authorize: 'Подтвердить свою личность с помощью "%{authorization}"'
-          explanation: 'Чтобы выполнить это действие, вам необходимо подтвердить свою личность с помощью «%{authorization}».'
-          title: 'Требуется подтверждение личности'
+          authorize: Подтвердить свою личность с помощью "%{authorization}"
+          explanation: Чтобы выполнить это действие, вам необходимо подтвердить свою личность с помощью «%{authorization}».
+          title: Требуется подтверждение личности
         unauthorized:
-          explanation: 'Извините, вы не можете выполнить это действие, поскольку некоторые данные вашего подтверждения личности не совпадают.'
+          explanation: Извините, вы не можете выполнить это действие, поскольку некоторые данные вашего подтверждения личности не совпадают.
           invalid: "Содержимое поля %{field} недопустимо."
-          ok: 'Хорошо'
-          title: 'Не подтвердили свою личность'
+          ok: Хорошо
+          title: Не подтвердили свою личность
       embed_modal:
-        close_window: 'Закрыть окно'
-        embed: 'Пожалуйста, вставьте этот код в свою страницу'
-        embed_link: 'Встроить'
+        close_window: Закрыть окно
+        embed: Пожалуйста, вставьте этот код в свою страницу
+        embed_link: Встроить
       flag_modal:
-        already_reported: 'На это содержимое уже пожаловались, и жалобу рассмотрит администратор.'
-        close: 'Закрыть'
-        description: 'Это сообщение неприемлемо?'
-        does_not_belong: 'Содержит незаконную деятельность, угрозы самоубийства, личную информацию или что-то еще, недопустимое, на ваш взгляд, для %{organization_name}.'
-        offensive: 'Содержит расизм, сексизм, оскорбления, личные нападки, угрозы убийства, заявления о самоубийстве, или любую форму разжигания ненависти.'
-        report: 'Пожаловаться'
-        spam: 'Содержит кликоловки (манипулятивно-сенсационные заголовки), рекламу, мошенничество или лохотроны.'
-        title: 'Пожаловаться на проблему'
+        already_reported: На это содержимое уже пожаловались, и жалобу рассмотрит администратор.
+        close: Закрыть
+        description: Это сообщение неприемлемо?
+        does_not_belong: Содержит незаконную деятельность, угрозы самоубийства, личную информацию или что-то еще, недопустимое, на ваш взгляд, для %{organization_name}.
+        offensive: Содержит расизм, сексизм, оскорбления, личные нападки, угрозы убийства, заявления о самоубийстве, или любую форму разжигания ненависти.
+        report: Пожаловаться
+        spam: Содержит кликоловки (манипулятивно-сенсационные заголовки), рекламу, мошенничество или лохотроны.
+        title: Пожаловаться на проблему
       follow_button:
-        sign_in_before_follow: 'Пожалуйста, войдите в учетную запись, прежде чем выполнять это действие'
+        sign_in_before_follow: Пожалуйста, войдите в учетную запись, прежде чем выполнять это действие
       login_modal:
-        please_sign_in: 'Пожалуйста войдите'
-        sign_up: 'Зарегистрироваться'
+        please_sign_in: Пожалуйста войдите
+        sign_up: Зарегистрироваться
       reference:
         reference: 'Ссылка: %{reference}'
       results_per_page:
         label: 'Результатов на странице:'
       share_modal:
-        close_window: 'Закрыть окно'
-        share: 'Поделиться'
-        share_link: 'Поделиться ссылкой'
+        close_window: Закрыть окно
+        share: Поделиться
+        share_link: Поделиться ссылкой
   devise:
     invitations:
       edit:
-        header: 'Установите свой пароль'
-        submit_button: 'Сохранить'
+        header: Установите свой пароль
+        submit_button: Сохранить
     mailer:
       invitation_instructions:
-        accept: 'Принять приглашение'
-        accept_until: 'Срок действия этого приглашения закончится %{due_date}.'
-        hello: 'Здравствуйте, %{email}!'
+        accept: Принять приглашение
+        accept_until: Срок действия этого приглашения закончится %{due_date}.
+        hello: Здравствуйте, %{email}!
         ignore: |-
           Если вы не хотите принимать приглашение, пожалуйста, игнорируйте это письмо.<br /> Ваша учетная запись не будет создана до тех пор, пока вы не перейдете по ссылке выше и не установите свой пароль.
         invited_you_as_admin: "%{invited_by} пригласил вас в качестве администратора %{application}. Вы можете принять это прглашение по ссылке ниже."
-        someone_invited_you: 'Кто-то пригласил вас в %{application}. Вы можете принять это приглашение по ссылке ниже.'
-        someone_invited_you_as_admin: 'Кто-то пригласил вас в качестве администратора %{application}, вы можете принять это прилашение по ссылке ниже.'
+        someone_invited_you: Кто-то пригласил вас в %{application}. Вы можете принять это приглашение по ссылке ниже.
+        someone_invited_you_as_admin: Кто-то пригласил вас в качестве администратора %{application}, вы можете принять это прилашение по ссылке ниже.
       invite_admin:
-        subject: 'Вам было предложено распоряжаться %{organization}'
+        subject: Вам было предложено распоряжаться %{organization}
       invite_collaborator:
-        subject: 'Вы пригласили к сотрудничеству в %{organization}'
+        subject: Вы пригласили к сотрудничеству в %{organization}
       organization_admin_invitation_instructions:
-        subject: 'Вам было предложено распоряжаться %{organization}'
+        subject: Вам было предложено распоряжаться %{organization}
       password_change:
-        greeting: 'Здравствуйте, %{recipient}!'
-        message: 'Мы пишем вам, чтобы уведомить вас о том, что ваш пароль был изменен.'
-        subject: 'Пароль изменен'
+        greeting: Здравствуйте, %{recipient}!
+        message: Мы пишем вам, чтобы уведомить вас о том, что ваш пароль был изменен.
+        subject: Пароль изменен
   errors:
     messages:
-      content_type_whitelist_error: 'Тип файла не является допустимым'
-      cycle_detected: 'родитель охвата не может быть одним из его потомков'
-      file_size_is_less_than_or_equal_to: 'размер файла должен быть меньше или равен %{count}'
-      invalid_manifest: 'Недопустимый манифест'
-      invalid_participatory_process: 'Недопустимое движение соучастия'
-      long_words: 'Содержит слишком длинные слова'
-      must_start_with_caps: 'Должно начинаться с заглавных букв'
-      nesting_too_deep: 'не может быть внутри подкатегории'
-      too_many_marks: 'Содержит слишком много знаков вопроса или восклицания'
-      too_much_caps: 'Содержит слишком много заглавных букв'
-      too_short: 'Слишком короткое'
+      content_type_whitelist_error: Тип файла не является допустимым
+      cycle_detected: родитель охвата не может быть одним из его потомков
+      file_size_is_less_than_or_equal_to: размер файла должен быть меньше или равен %{count}
+      invalid_manifest: Недопустимый манифест
+      invalid_participatory_process: Недопустимое движение соучастия
+      long_words: Содержит слишком длинные слова
+      must_start_with_caps: Должно начинаться с заглавных букв
+      nesting_too_deep: не может быть внутри подкатегории
+      too_many_marks: Содержит слишком много знаков вопроса или восклицания
+      too_much_caps: Содержит слишком много заглавных букв
+      too_short: Слишком короткое
   forms:
-    required: 'Обязательно'
+    required: Обязательно
   invisible_captcha:
-    sentence_for_humans: 'Если вы человек, не заполняйте это поле'
-    timestamp_error_message: 'Извините, это было слишком быстро! Отправьте, пожалуйста, еще раз.'
+    sentence_for_humans: Если вы человек, не заполняйте это поле
+    timestamp_error_message: Извините, это было слишком быстро! Отправьте, пожалуйста, еще раз.
   layouts:
     decidim:
       cookie_warning:
-        description_html: 'На этом сайте используются файлы "куки". Продолжая просматривать сайт, вы соглашаетесь на использование файлов "куки". Узнайте об этом больше %{link}.'
-        link_label: 'здесь'
-        ok: 'Я согласен'
+        description_html: На этом сайте используются файлы "куки". Продолжая просматривать сайт, вы соглашаетесь на использование файлов "куки". Узнайте об этом больше %{link}.
+        link_label: здесь
+        ok: Я согласен
       footer:
-        made_with_open_source: 'Сайт создан с помощью <a target="_blank" href="https://github.com/decidim/decidim"> бесплатного программного обеспечения</a>.'
+        made_with_open_source: Сайт создан с помощью <a target="_blank" href="https://github.com/decidim/decidim"> бесплатного программного обеспечения</a>.
       header:
-        close_menu: 'Закрыть меню'
-        navigation: 'Навигация'
-        sign_in: 'Войти в систему'
-        sign_up: 'Зарегистрироваться'
+        close_menu: Закрыть меню
+        navigation: Навигация
+        sign_in: Войти в систему
+        sign_up: Зарегистрироваться
       impersonation_warning:
-        close_session: 'Закрыть сеанс'
-        description_html: 'Вы выступаете в роли участника <b>%{user_name}</b>.'
-        expire_time_html: 'Срок действия вашего сеанса истекает через <b><span class="minutes">%{minutes}</span> минут</b>.'
+        close_session: Закрыть сеанс
+        description_html: Вы выступаете в роли участника <b>%{user_name}</b>.
+        expire_time_html: Срок действия вашего сеанса истекает через <b><span class="minutes">%{minutes}</span> минут</b>.
       notifications_dashboard:
-        mark_all_as_read: 'Отметить все как прочитанные'
-        no_notifications: 'Пока нет уведомлений.'
-        title: 'Уведомления'
+        mark_all_as_read: Отметить все как прочитанные
+        no_notifications: Пока нет уведомлений.
+        title: Уведомления
       user_menu:
-        admin_dashboard: 'Панель управления администратора'
-        notifications: 'Уведомления'
-        profile: 'Моя учетная запись'
-        sign_out: 'Выйти'
+        admin_dashboard: Панель управления администратора
+        notifications: Уведомления
+        profile: Моя учетная запись
+        sign_out: Выйти
       user_profile:
-        account: 'Учетная запись'
-        authorizations: 'Подтверждения личности'
-        delete_my_account: 'Удалить мою учетную запись'
-        notifications_settings: 'Настройки уведомлений'
-        title: 'Пользовательские настройки'
-        user_groups: 'Организации'
+        account: Учетная запись
+        authorizations: Подтверждения личности
+        delete_my_account: Удалить мою учетную запись
+        notifications_settings: Настройки уведомлений
+        title: Пользовательские настройки
+        user_groups: Организации
       widget:
-        see_more: 'Узнать больше'
+        see_more: Узнать больше
   locale:
-    name: 'Русский'
+    name: Русский
   pages:
     home:
       extended:
-        debates: 'Дебаты'
-        debates_explanation: 'Рассматривайте и обговаривайте насущные вопросы, обменивайтесь мыслями и вносите свой вклад в обсуждение.'
-        how_to_participate: 'Как принять участие в движении?'
-        meetings: 'Встречи'
-        meetings_explanation: 'Узнайте, где и когда вы можете принять участие в открытых встречах.'
-        more_info: 'Узнать больше'
-        proposals: 'Предложения'
-        proposals_explanation: 'Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.'
+        debates: Дебаты
+        debates_explanation: Рассматривайте и обговаривайте насущные вопросы, обменивайтесь мыслями и вносите свой вклад в обсуждение.
+        how_to_participate: Как принять участие в движении?
+        meetings: Встречи
+        meetings_explanation: Узнайте, где и когда вы можете принять участие в открытых встречах.
+        more_info: Узнать больше
+        proposals: Предложения
+        proposals_explanation: Вносите новые предложения, поддерживайте уже внесенные и способствуйте изменениям, которые вы хотите видеть.
       footer_sub_hero:
-        footer_sub_hero_body: 'Давайте построим более открытое, прозрачное и сотрудничающее общество.<br /> Присоединяйтесь, участвуйте и принимайте решения.'
-        footer_sub_hero_headline: 'Добро пожаловать на платформу соучастия %{organization}!'
-        register: 'Зарегистрироваться'
+        footer_sub_hero_body: Давайте построим более открытое, прозрачное и сотрудничающее общество.<br /> Присоединяйтесь, участвуйте и принимайте решения.
+        footer_sub_hero_headline: Добро пожаловать на платформу соучастия %{organization}!
+        register: Зарегистрироваться
       hero:
-        participate: 'Принять участие'
-        welcome: 'Добро пожаловать в %{organization}!'
+        participate: Принять участие
+        welcome: Добро пожаловать в %{organization}!
       statistics:
-        answers_count: 'Ответы'
-        comments_count: 'Комментарии'
-        headline: 'Текущее состояние %{organization}'
-        meetings_count: 'Встречи'
-        orders_count: 'Голоса'
-        pages_count: 'Страницы'
-        processes_count: 'Движения'
-        projects_count: 'Проекты'
-        proposals_count: 'Предложения'
-        results_count: 'Итоги'
-        surveys_count: 'Опросы'
-        users_count: 'Участники'
-        votes_count: 'Голоса'
+        answers_count: Ответы
+        comments_count: Комментарии
+        headline: Текущее состояние %{organization}
+        meetings_count: Встречи
+        orders_count: Голоса
+        pages_count: Страницы
+        processes_count: Движения
+        projects_count: Проекты
+        proposals_count: Предложения
+        results_count: Итоги
+        surveys_count: Опросы
+        users_count: Участники
+        votes_count: Голоса
       sub_hero:
-        register: 'Зарегистрироваться'
+        register: Зарегистрироваться
   social_share_button:
     delicious: Delicious
     douban: Douban
-    email: 'Эл. адрес'
-    facebook: 'Фейсбук'
-    google_bookmark: 'Закладки Гугл'
-    google_plus: 'Гугл+'
-    hacker_news: 'Хакерские Новости'
-    linkedin: 'ЛинкедИн'
-    pinterest: 'Пинтерест'
+    email: Эл. адрес
+    facebook: Фейсбук
+    google_bookmark: Закладки Гугл
+    google_plus: Гугл+
+    hacker_news: Хакерские Новости
+    linkedin: ЛинкедИн
+    pinterest: Пинтерест
     qq: Qzone
-    reddit: 'Реддит'
-    share_to: 'Поделиться на %{name}'
-    tumblr: 'Тумблр'
-    twitter: 'Твиттер'
-    vkontakte: 'ВКонтакте'
+    reddit: Реддит
+    share_to: Поделиться на %{name}
+    tumblr: Тумблр
+    twitter: Твиттер
+    vkontakte: ВКонтакте
     wechat: WeChat
-    wechat_footer: 'Откройте ваш WeChat, нажмите кнопку «Discover», затем выберите в меню «Scan QR Code».'
-    weibo: 'Сина Вейбо'
+    wechat_footer: Откройте ваш WeChat, нажмите кнопку «Discover», затем выберите в меню «Scan QR Code».
+    weibo: Сина Вейбо
     xing: Xing
   views:
     pagination:
       first: "&laquo; Первая"
-      last: 'Последняя &raquo;'
-      next: 'Следующая &rsaquo;'
+      last: Последняя &raquo;
+      next: Следующая &rsaquo;
       previous: "&lsaquo; Предыдущая"
       truncate: "&hellip;"
