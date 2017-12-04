@@ -175,7 +175,7 @@ fr:
       conversation_mailer:
         new_conversation:
           greeting: Bonjour, %{recipient}!
-          intro: "%{sender} a commencé une nouvelle conversation avec vous. Cliquez ici pour le voir:"
+          intro: "%{sender} a commencé une nouvelle conversation avec vous. Cliquez ici pour la voir:"
           outro: Profitez de decidim!
           subject: "%{sender} a commencé une conversation avec vous"
         new_message:
