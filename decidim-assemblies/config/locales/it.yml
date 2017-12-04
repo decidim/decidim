@@ -6,10 +6,10 @@ it:
         copy_categories: Copia le categorie
         copy_features: Funzioni di copia
         description: Descrizione
-        developer_group: Gruppo promotore
+        developer_group: Gruppo sviluppatori
         domain: Dominio
-        hashtag: hashtag
-        hero_image: Immagine sulla Home Page
+        hashtag: Hashtag
+        hero_image: Immagine della Home
         local_area: Municipi
         meta_scope: Metadati di ambito
         participatory_scope: Visibilità/ambito partecipativo
