@@ -156,6 +156,7 @@ nl:
         proposal:
           view_proposal: Bekijk voorstel
         show:
+          contact: Contact
           edit_proposal: Bewerk voorstel
           proposal_accepted_reason: 'Dit voorstel is geaccepteerd omdat:'
           proposal_in_evaluation_reason: Dit voorstel wordt geëvalueerd
