@@ -4,9 +4,9 @@ it:
       result:
         decidim_accountability_status_id: stato
         decidim_category_id: Categoria
-        decidim_scope_id: Ambito
+        decidim_scope_id: Scopi
         description: Descrizione
-        end_date: Data di chiusura
+        end_date: Data finale
         progress: Progresso
         proposal_ids: Proposte incluse
         start_date: Date di inizio
