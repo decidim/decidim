@@ -171,6 +171,11 @@ pl:
     menu:
       home: Ekran startowy
       more_information: Więcej informacji
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          greeting: Cześć, %{recipient}!
+          intro: "%{sender} rozpoczął z tobą nową rozmowę. Kliknij tutaj, aby go zobaczyć:"
     newsletter_mailer:
       newsletter:
         note: Otrzymujesz ten e-mail, ponieważ subskrybujesz biuletyny %{organization_name}. Możesz zmienić swoje ustawienia <a href="%{link}">powiadomień</a>.
@@ -381,7 +386,7 @@ pl:
     reddit: Reddit
     share_to: Udostępnij do %{name}
     tumblr: Tumblr
-    twitter: 'Świergot'
+    twitter: Świergot
     vkontakte: Vkontakte
     wechat: WeChat
     wechat_footer: Otwórz program WeChat, kliknij przycisk "Odkryj", a następnie kliknij menu "Zeskanuj kod QR Code".
