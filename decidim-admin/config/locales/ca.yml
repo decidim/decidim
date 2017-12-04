@@ -53,16 +53,16 @@ ca:
         banner_image: Imatge de bàner
         description: Descripció
         developer_group: Grup promotor
-        domain: 'Àrees municipals'
+        domain: Àrees municipals
         end_date: Data de finalització
         hashtag: Hashtag
         hero_image: Imatge de portada
-        local_area: 'Àrea municipal'
+        local_area: Àrea municipal
         meta_scope: 'Metadades: àmbit'
-        participatory_scope: 'Àmbit participatiu'
+        participatory_scope: Àmbit participatiu
         participatory_structure: Estructura participativa
         promoted: Destacat
-        scope: 'Àmbit'
+        scope: Àmbit
         short_description: Descripció breu
         slug: Nom curt d'URL
         start_date: Data d'inici
@@ -215,7 +215,7 @@ ca:
         managed_users: Usuaris gestionats
         newsletters: Butlletins
         scope_types: Tipus d'àmbit
-        scopes: 'Àmbits'
+        scopes: Àmbits
         settings: Configuració
         static_pages: Pàgines
         user_groups: Grups d'usuaris
@@ -355,9 +355,9 @@ ca:
       scopes:
         create:
           error: S'ha produït un error en crear un nou àmbit.
-          success: 'Àmbit creat correctament.'
+          success: Àmbit creat correctament.
         destroy:
-          success: 'Àmbit eliminat amb èxit'
+          success: Àmbit eliminat amb èxit
         edit:
           title: Edita àmbit
           update: Actualitzar
@@ -367,7 +367,7 @@ ca:
         no_scopes: No hi ha àmbits a aquest nivell.
         update:
           error: S'ha produït un error en l'actualització d'aquest àmbit.
-          success: 'Àmbit actualitzat correctament'
+          success: Àmbit actualitzat correctament
       static_pages:
         actions:
           view: Visualitzar la pàgina pública
@@ -391,7 +391,7 @@ ca:
         impersonations: Suplantacions
         managed_users: Usuaris gestionats
         scope_types: Tipus d'àmbit
-        scopes: 'Àmbits'
+        scopes: Àmbits
         static_pages: Pàgines
         user_groups: Grups d'usuaris
         users: Usuaris
