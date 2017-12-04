@@ -171,6 +171,34 @@ ca:
     menu:
       home: Inici
       more_information: Més informació
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          greeting: Hola, %{recipient}!
+          intro: "%{sender} ha iniciat una nova conversa amb tu. Feu clic aquí per veure-la:"
+          outro: Gaudeix de decidir!
+          subject: "%{sender} ha iniciat una discussió amb tu"
+        new_message:
+          greeting: Hola, %{recipient}!
+          intro: "%{sender} ha publicat nous missatges a la vostra conversa. Feu clic aquí per enviar-los:"
+          outro: Gaudeix de decidir!
+          subject: Teniu missatges nous des de %{sender}
+      conversations:
+        create:
+          error: No s'ha iniciat la conversa. Torna-ho a provar més tard
+        index:
+          no_conversations: Encara no tens converses
+          title: Converses
+        reply:
+          send: Enviar
+          title: Respon
+        show:
+          title: Conversa amb %{usernames}
+        start:
+          send: Enviar
+          title: Comença una conversa
+        update:
+          error: Missatge no enviat. Torna-ho a provar més tard
     newsletter_mailer:
       newsletter:
         note: Has rebut aquest missatge perquè estàs subscrit a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
@@ -291,7 +319,7 @@ ca:
       nesting_too_deep: no pot estar dins d'una subcategoria
       too_many_marks: Està utilitzant massa símbols d'exclamació o interrogació
       too_much_caps: Està utilitzant massa majúscules
-      too_short: 'És massa curt'
+      too_short: És massa curt
   forms:
     required: Obligatori
   invisible_captcha:
@@ -390,11 +418,15 @@ ca:
     xing: Xing
   time:
     formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_year: "%d.%m.%y"
       decidim_short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"
   views:
     pagination:
       first: "&laquo; Primera"
-      last: 'Última &raquo;'
+      last: Última &raquo;
       next: Següent &rsaquo;
       previous: "&lsaquo; Anterior"
       truncate: "&hellip;"
