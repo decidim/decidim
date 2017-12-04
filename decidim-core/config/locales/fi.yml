@@ -180,7 +180,7 @@ fi:
           subject: "%{sender} on alkanut keskustella kanssasi"
         new_message:
           greeting: Hei, %{recipient}!
-          intro: "%{sender} on lähettänyt uusia viestejä keskusteluusi. Klikkaa tästä lähettääksesi ne:"
+          intro: "%{sender} on lähettänyt uusia viestejä keskusteluusi. Klikkaa tästä nähdäksesi ne:"
           outro: Nauti decidimista!
           subject: Sinulla on uusia viestejä %{sender}
       conversations:
