@@ -171,6 +171,34 @@ pt:
     menu:
       home: Inicio
       more_information: Mais informação
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          greeting: Oi, %{recipient}!
+          intro: "%{sender} iniciou uma nova conversa com você. Clique aqui para vê-lo:"
+          outro: Aproveite decidim!
+          subject: "%{sender} iniciou uma discussão com você"
+        new_message:
+          greeting: Oi, %{recipient}!
+          intro: "%{sender} publicou novas mensagens na sua conversa. Clique aqui para enviá-los:"
+          outro: Aproveite decidim!
+          subject: Você tem novas mensagens de %{sender}
+      conversations:
+        create:
+          error: Conversa não iniciada. Tente mais tarde
+        index:
+          no_conversations: Ainda não há conversas
+          title: Conversas
+        reply:
+          send: Enviar
+          title: Resposta
+        show:
+          title: Conversa com %{usernames}
+        start:
+          send: Enviar
+          title: Comece uma conversa
+        update:
+          error: Mensagem não enviada. Tente mais tarde
     newsletter_mailer:
       newsletter:
         note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
@@ -290,7 +318,7 @@ pt:
       nesting_too_deep: não pode estar dentro de uma subcategoria
       too_many_marks: Está usando muitas marcas
       too_much_caps: Está usando demasiados limites
-      too_short: 'É muito curto'
+      too_short: É muito curto
   forms:
     required: Requeridos
   invisible_captcha:
@@ -389,11 +417,15 @@ pt:
     xing: Xing
   time:
     formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_year: "%d.%m.%y"
       decidim_short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"
   views:
     pagination:
       first: "&laquo; Primeiro"
-      last: 'Última &raquo;'
+      last: Última &raquo;
       next: Próximo &rsaquo;
       previous: "&lsaquo; Anterior"
       truncate: "&hellip;"
