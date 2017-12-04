@@ -4,6 +4,15 @@
 
 **Added**:
 
+**Changed**:
+
+**Fixed**:
+
+## [v0.8.0](https://github.com/decidim/decidim/tree/v0.8.0) (2017-12-4)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.7.0...v0.8.0)
+
+**Added**:
+
 - **decidim-accountability**: Add result tracing and version diffing [\#2206](https://github.com/decidim/decidim/pull/2206)
 - **decidim-assemblies**: Show promoted assemblies in the homepage [\#2162](https://github.com/decidim/decidim/pull/2162)
 - **decidim-core**: Add support for extending the user profile menu. [\#2193](https://github.com/decidim/decidim/pull/2193)
