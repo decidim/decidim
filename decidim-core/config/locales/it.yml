@@ -177,10 +177,8 @@ it:
           greeting: Ciao, %{recipient}!
           intro: "%{sender} ha avviato una nuova conversazione con te. Clicca qui per vederlo:"
           outro: Godetevi i decidim!
-          subject: "%{sender} ha avviato una discussione con te"
         new_message:
           greeting: Ciao, %{recipient}!
-          intro: "%{sender} ha pubblicato nuovi messaggi nella tua conversazione. Clicca qui per inviarli:"
           outro: Godetevi i decidim!
           subject: Hai nuovi messaggi da %{sender}
       conversations:
