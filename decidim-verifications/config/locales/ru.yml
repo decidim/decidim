@@ -2,4 +2,4 @@ ru:
   activemodel:
     attributes:
       id_document_upload:
-        user: 'Участник'
+        user: Участник
