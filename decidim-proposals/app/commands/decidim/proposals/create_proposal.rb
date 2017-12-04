@@ -35,9 +35,9 @@ module Decidim
         transaction do
           create_proposal
           create_attachment if process_attachments?
-          send_notification_to_moderators
         end
 
+        send_notification_to_moderators
         broadcast(:ok, proposal)
       end
 
@@ -67,7 +67,7 @@ module Decidim
           resource: @proposal,
           recipient_ids: (@proposal.users_to_notify_on_proposal_created - [@proposal.author]).pluck(:id),
           extra: {
-            comment_id: 573,
+            comment_id: Decidim::Comments::Comment.last,
             moderation_event: true,
             process_slug: @proposal.feature.participatory_space.slug
           }
@@ -81,8 +81,6 @@ module Decidim
           attached_to: @proposal
         )
       end
-
-
 
       def attachment_invalid?
         if attachment.invalid? && attachment.errors.has_key?(:file)

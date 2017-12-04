@@ -14,7 +14,6 @@ module Decidim
     # resource - an instance of a class implementing the `Decidim::Resource` concern.
     # extra - a Hash with extra information for the event.
     def initialize(event, event_class, resource, recipient_ids, extra)
-      binding.pry
       @event = event
       @event_class = event_class
       @resource = resource
