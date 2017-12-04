@@ -156,6 +156,7 @@ it:
         proposal:
           view_proposal: Visualizza la proposta
         show:
+          contact: Contatto
           edit_proposal: Modifica la proposta
           proposal_accepted_reason: 'Questa proposta è stata accettata perché:'
           proposal_in_evaluation_reason: Questa proposta è in fase di valutazione

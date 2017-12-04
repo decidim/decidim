@@ -49,7 +49,7 @@ ca:
         long_answer: Resposta llarga
         multiple_option: Opció múltiple
         short_answer: Resposta curta
-        single_option: 'Única opció'
+        single_option: Única opció
       surveys:
         answer:
           invalid: Hi ha hagut errors en respondre a l'enquesta.

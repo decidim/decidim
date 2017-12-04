@@ -4,7 +4,7 @@ ca:
       project:
         budget: Pressupost
         decidim_category_id: Categoria
-        decidim_scope_id: 'Àmbit'
+        decidim_scope_id: Àmbit
         description: Descripció
         proposal_ids: Propostes relacionades
         title: Títol
@@ -74,7 +74,7 @@ ca:
           category: Categoria
           category_prompt: Selecciona una categoria
           scope_prompt: Seleccioneu un àmbit
-          scopes: 'Àmbits'
+          scopes: Àmbits
           search: Cerca
         filters_small_view:
           close_modal: Tancar finestra

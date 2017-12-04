@@ -19,18 +19,18 @@ it:
           help:
             - Gli utenti inseriscono le loro informazioni di identità e caricano una copia del loro documento.
             - Inserisci le informazioni presenti nell'immagine caricata.
-            - Le informazioni dovrebbero corrispondere a qualsiasi utente inserito.
+            - Le informazioni dovrebbero corrispondere a quello que l'utente ha inserito.
             - Se non riesci a vedere chiaramente le informazioni o non riesci a verificarle, puoi rifiutare la richiesta e l'utente sarà in grado di risolverlo.
         postal_letter:
           help:
             - Gli utenti richiedono un codice di verifica da inviare al loro indirizzo.
             - Inviate la lettera al loro indirizzo con il codice di verifica.
-            - Contrassegni la lettera come inviata.
-            - Dopo aver contrassegnato la lettera come inviata, l'utente sarà in grado di introdurre il codice e di essere verificato.
+            - Hai contrassegnato la lettera come inviata.
+            - Dopo aver contrassegnato la lettera come inviata, l'utente potrà introdurre il codice e essere verificato.
       direct: Diretto
       help: Aiuto
       id_documents:
-        explanation: Carica i tuoi documenti di identità in modo che possiamo controllare la tua identità
+        explanation: Carica i tuoi documenti di identità in modo che possiamo verificare la tua identità
         name: Documenti di identità
       multistep: Multi-Step
       name: Nome
@@ -51,10 +51,10 @@ it:
           title: Verifica la tua identità
           verify_with_these_options: 'Queste sono le opzioni disponibili per verificare la tua identità:'
         new:
-          authorize: Inviare
+          authorize: Invia
           authorize_with: Verifica con %{authorizer}
         skip_verification: Puoi saltare questo per ora e %{link}
-        start_exploring: iniziare ad esplorare
+        start_exploring: comincia ad esplorare
       id_documents:
         admin:
           confirmations:
@@ -63,21 +63,21 @@ it:
               success: Utente verificato con successo
             new:
               introduce_user_data: Introduci i dati nella foto
-              reject: Rifiutare
-              verify: Verificare
+              reject: Rifiuta
+              verify: Verifica
           pending_authorizations:
             index:
-              title: Verifiche in sospeso
+              title: Verifiche pendenti
               verification_number: 'Verifica n. %{n}'
           rejections:
             create:
-              success: Verifica respinta. All'utente verrà richiesto di modificare i suoi documenti
+              success: Verifica respinta. L'utente serà richiesto di modificare i suoi documenti
         authorizations:
           create:
             error: Si è verificato un problema durante il caricamento del documento
             success: Documento caricato con successo
           edit:
-            being_reviewed: Stiamo rivedendo i tuoi documenti. Sarai verificato a breve
+            being_reviewed: Stiamo esaminando i tuoi documenti. Sarai verificato prossimamente
             rejection_clarity: Assicurati che le informazioni siano chiaramente visibili nell'immagine caricata
             rejection_correctness: Assicurati che le informazioni inserite siano corrette
             rejection_notice: C'è stato un problema con la tua verifica. Per favore riprova
@@ -118,8 +118,8 @@ it:
             send: Mandami una lettera
             title: Richiedi il tuo codice di verifica
           update:
-            error: Il tuo codice di verifica non corrisponde al nostro. Per favore ricontrolla la lettera che ti abbiamo inviato
-            success: Complimenti. Sei stato verificato con successo
+            error: Il tuo codice di verifica non corrisponde al nostro. Per favore controlla la lettera che ti abbiamo inviato
+            success: Felicitazioni. Sei stato verificato con successo
   errors:
     messages:
       uppercase_only_letters_numbers: deve essere tutto in maiuscolo e contenere solo lettere e / o numeri

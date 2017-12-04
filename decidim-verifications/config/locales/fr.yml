@@ -32,7 +32,7 @@ fr:
       id_documents:
         explanation: Téléchargez vos documents d'identité afin que nous puissions vérifier votre identité
         name: Documents d'identité
-      multistep: 'À étapes'
+      multistep: À étapes
       name: Nom
       postal_letter:
         explanation: Nous vous enverrons une lettre postale avec un code que vous devrez saisir afin que nous puissions vérifier votre adresse

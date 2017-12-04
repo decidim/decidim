@@ -2,26 +2,26 @@ it:
   activemodel:
     attributes:
       assembly:
-        banner_image: Immagine banner
-        copy_categories: Copiare le categorie
+        banner_image: Immagine del banner
+        copy_categories: Copia le categorie
         copy_features: Funzioni di copia
         description: Descrizione
-        developer_group: Gruppo promotore
+        developer_group: Gruppo sviluppatori
         domain: Dominio
-        hashtag: hashtag
-        hero_image: Immagine sulla Home Page
+        hashtag: Hashtag
+        hero_image: Immagine della Home
         local_area: Municipi
         meta_scope: Metadati di ambito
         participatory_scope: Visibilità/ambito partecipativo
         participatory_structure: Struttura partecipativa
-        promoted: Promossa
-        scope_id: Objetivos
-        scopes_enabled: Gli ambiti abilitati
-        short_description: Descrizione breve
+        promoted: Promossop
+        scope_id: Scopi
+        scopes_enabled: Scopi abilitati
+        short_description: Breve descrizione
         slug: URL slug
         subtitle: Sottotitolo
-        target: A chi è destinato il processo?
-        title: Nome
+        target: Target
+        title: Titolo
   decidim:
     admin:
       assemblies:
@@ -31,7 +31,7 @@ it:
         destroy:
           success: Assemblea distrutta con successo.
         edit:
-          update: Modifica
+          update: Aggiorna
         form:
           title: Informazioni generali
         index:

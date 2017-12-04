@@ -14,7 +14,7 @@ fi:
       proposals:
         actions:
           create: Luo
-          vote: 'Äänestä'
+          vote: Äänestä
         name: Ehdotukset
         settings:
           global:
@@ -28,15 +28,15 @@ fi:
             proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
             proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia ennen tämän monen minuutin kuluttua
             proposal_limit: Ehdotuksen raja käyttäjää kohden
-            vote_limit: 'Äänestysraja käyttäjää kohden'
+            vote_limit: Äänestysraja käyttäjää kohden
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
             creation_enabled: Ehdotusten luonti sallittu
             proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
-            votes_blocked: 'Äänestys estetty'
-            votes_enabled: 'Äänestys sallittu'
-            votes_hidden: 'Äänten määrä piilotettu (jos äänestys on käytössä, äänten määrä piilotetaan valitsemalla tämä)'
+            votes_blocked: Äänestys estetty
+            votes_enabled: Äänestys sallittu
+            votes_hidden: Äänten määrä piilotettu (jos äänestys on käytössä, äänten määrä piilotetaan valitsemalla tämä)
     proposals:
       actions:
         answer: Vastaa
@@ -90,12 +90,12 @@ fi:
             scope: Konteksti
             state: Tila
             title: Otsikko
-            votes: 'Äänet'
+            votes: Äänet
       new:
         limit_reached: Et voi luoda uusia ehdotuksia, koska olet ylittänyt rajan.
       proposal_votes:
         create:
-          error: 'Äänestettäessä ehdotusta tapahtui virhe.'
+          error: Äänestettäessä ehdotusta tapahtui virhe.
       proposals:
         author:
           deleted: Poistettu käyttäjä
@@ -126,7 +126,7 @@ fi:
           scopes: Kontekstit
           search: Haku
           state: Tila
-          voted: 'Äänestetty'
+          voted: Äänestetty
         filters_small_view:
           close_modal: Sulje ikkuna
           filter: Suodata
@@ -137,8 +137,8 @@ fi:
           view_proposal: Näytä ehdotus
         linked_proposals:
           proposal_votes:
-            one: 'äänestä'
-            other: 'äänet'
+            one: äänestä
+            other: äänet
         new:
           attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
@@ -156,6 +156,7 @@ fi:
         proposal:
           view_proposal: Näytä ehdotus
         show:
+          contact: Ottaa yhteyttä
           edit_proposal: Muokkaa ehdotusta
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
           proposal_in_evaluation_reason: Tätä ehdotusta arvioidaan
@@ -164,14 +165,14 @@ fi:
         vote_button:
           already_voted: Jo äänestetty
           already_voted_hover: Unvote
-          maximum_votes_reached: 'Äänestysraja saavutettu'
+          maximum_votes_reached: Äänestysraja saavutettu
           no_votes_remaining: Ei ääniä jäljellä
-          vote: 'Äänestä'
-          votes_blocked: 'Äänestys estetty'
+          vote: Äänestä
+          votes_blocked: Äänestys estetty
         votes_count:
           count:
-            one: 'ÄÄNI'
-            other: 'ÄÄNTÄ'
+            one: ÄÄNI
+            other: ÄÄNTÄ
         voting_rules:
           maximum_votes_per_proposal:
             description: Jokainen ehdotus saa enintään %{limit} ääntä.
@@ -181,7 +182,7 @@ fi:
           vote_limit:
             description: Voit äänestää enintään %{limit} ehdotusta.
             left: Jäljellä
-            votes: 'Äänet'
+            votes: Äänet
       update:
         error: Ehdotuksen tallentamisessa on tapahtunut virheitä.
         success: Ehdotus on päivitetty onnistuneesti.

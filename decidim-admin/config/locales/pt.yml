@@ -24,7 +24,7 @@ pt:
         cta_button_path: Caminho do botão Chamar para Ação
         cta_button_text: Texto do botão Chamar para Ação
         description: Descrição
-        favicon: 'Ícone'
+        favicon: Ícone
         header_snippets: Snippets de cabeçalho
         homepage_image: Imagem da página principal
         logo: Logotipo
@@ -57,12 +57,12 @@ pt:
         end_date: Data de fim
         hashtag: Hashtag
         hero_image: Imagem da página principal
-        local_area: 'Área municipal'
+        local_area: Área municipal
         meta_scope: Metadados do âmbito
-        participatory_scope: 'Âmbito participativo'
+        participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
         promoted: Promovido
-        scope: 'Âmbito'
+        scope: Âmbito
         short_description: Breve descrição
         slug: Slug de URL
         start_date: Data de início
@@ -215,7 +215,7 @@ pt:
         managed_users: Usuários gerenciados
         newsletters: boletins informativos
         scope_types: Tipos de escopo
-        scopes: 'Âmbitos'
+        scopes: Âmbitos
         settings: Configurações
         static_pages: Páginas
         user_groups: Grupos de usuários
@@ -260,7 +260,7 @@ pt:
           fields:
             created_at: Data de criação
             email: O email
-            last_sign_in_at: 'Última data de início de sessão'
+            last_sign_in_at: Última data de início de sessão
             name: Nome
             role: Função
             roles:
@@ -391,7 +391,7 @@ pt:
         impersonations: Personagens
         managed_users: Usuários gerenciados
         scope_types: Tipos de escopo
-        scopes: 'Âmbitos'
+        scopes: Âmbitos
         static_pages: Páginas
         user_groups: Grupos de usuários
         users: Comercial

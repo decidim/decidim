@@ -22,7 +22,7 @@ fr:
   decidim:
     accountability:
       actions:
-        confirm_destroy: 'Êtes-vous sûr de vouloir supprimer ce %{name}?'
+        confirm_destroy: Êtes-vous sûr de vouloir supprimer ce %{name}?
         destroy: Supprimer
         edit: Modifier
         new: Nouveau %{name}
@@ -124,7 +124,7 @@ fr:
           categories_label: Catégories
           subcategories_label: Sous-catégories
         home_header:
-          global_status: 'État d''exécution globale'
+          global_status: État d'exécution globale
         nav_breadcrumb:
           global: Exécution globale
         search:

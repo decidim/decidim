@@ -2,68 +2,68 @@ ru:
   activemodel:
     attributes:
       survey_answer:
-        body: 'Ответить'
+        body: Ответить
       survey_question:
-        mandatory: 'Обязательно'
-        question_type: 'Тип'
+        mandatory: Обязательно
+        question_type: Тип
   decidim:
     features:
       surveys:
         actions:
-          answer: 'Ответить'
-        name: 'Опрос'
+          answer: Ответить
+        name: Опрос
         settings:
           global:
-            announcement: 'Объявление'
+            announcement: Объявление
           step:
-            allow_answers: 'Разрешить ответы'
-            announcement: 'Объявление'
+            allow_answers: Разрешить ответы
+            announcement: Объявление
     surveys:
       admin:
         exports:
-          survey_user_answers: 'Ответы участников на опрос'
+          survey_user_answers: Ответы участников на опрос
         models:
           components:
-            description: 'Описание'
-            tos: 'Условия использования'
+            description: Описание
+            tos: Условия использования
         surveys:
           answer_option:
-            answer_option: 'Вариант ответа'
-            remove_answer_option: 'Удалить вариант ответа'
-            statement: 'Высказывание'
+            answer_option: Вариант ответа
+            remove_answer_option: Удалить вариант ответа
+            statement: Высказывание
           edit:
-            save: 'Сохранить'
-            title: 'Название'
+            save: Сохранить
+            title: Название
           form:
-            add_question: 'Добавить вопрос'
-            already_answered_warning: 'Некоторые участники уже прошли этот опрос, поэтому вы не можете менять вопросы в нем.'
+            add_question: Добавить вопрос
+            already_answered_warning: Некоторые участники уже прошли этот опрос, поэтому вы не можете менять вопросы в нем.
           question:
-            add_answer_option: 'Добавить вариант ответа'
-            question: 'Вопрос'
-            remove_question: 'Удалить вопрос'
-            statement: 'Высказывание'
+            add_answer_option: Добавить вариант ответа
+            question: Вопрос
+            remove_question: Удалить вопрос
+            statement: Высказывание
           update:
-            invalid: 'При сохранении опроса произошли ошибки.'
-            success: 'Опрос успешно сохранен.'
+            invalid: При сохранении опроса произошли ошибки.
+            success: Опрос успешно сохранен.
       question_types:
-        long_answer: 'Длинный ответ'
-        multiple_option: 'Несколько вариантов'
-        short_answer: 'Краткий ответ'
-        single_option: 'Единственный вариант'
+        long_answer: Длинный ответ
+        multiple_option: Несколько вариантов
+        short_answer: Краткий ответ
+        single_option: Единственный вариант
       surveys:
         answer:
-          invalid: 'При прохождении опроса произошли ошибки.'
-          success: 'Опрос успешно пройден.'
+          invalid: При прохождении опроса произошли ошибки.
+          success: Опрос успешно пройден.
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Войдите в систему через свою учетную запись</a> или <a href="%{sign_up_link}">зарегистрируйтесь</a>, чтобы пройти опрос.
-            title: 'Пройдите опрос'
-          are_you_sure: 'Это действие не может быть отменено, и вы не сможете редактировать свои ответы. Вы уверены?'
-          submit: 'Отправить'
+            title: Пройдите опрос
+          are_you_sure: Это действие не может быть отменено, и вы не сможете редактировать свои ответы. Вы уверены?
+          submit: Отправить
           survey_answered:
-            body: 'Вы уже ответили на этот опрос.'
-            title: 'Опрос пройден'
+            body: Вы уже ответили на этот опрос.
+            title: Опрос пройден
           survey_closed:
-            body: 'Опрос завершен и его уже нельзя проходить.'
-            title: 'Опрос завершен'
-          tos_agreement: 'Участвуя в этом опросе, вы принимаете его "Условия использования"'
+            body: Опрос завершен и его уже нельзя проходить.
+            title: Опрос завершен
+          tos_agreement: Участвуя в этом опросе, вы принимаете его "Условия использования"

@@ -4,7 +4,7 @@ ca:
       proposal:
         body: Cos
         category_id: Categoria
-        scope_id: 'Àmbit'
+        scope_id: Àmbit
         title: Títol
         user_group_id: Crear proposta
       proposal_answer:
@@ -87,7 +87,7 @@ ca:
             category: Categoria
             id: ID
             official_proposal: Proposta oficial
-            scope: 'Àmbit'
+            scope: Àmbit
             state: Estat
             title: Títol
             votes: Suports
@@ -123,7 +123,7 @@ ca:
           rejected: Rebutjades
           related_to: Relacionat amb
           scope_prompt: Seleccioneu un àmbit
-          scopes: 'Àmbits'
+          scopes: Àmbits
           search: Cerca
           state: Estat
           voted: Has donat suport
@@ -156,6 +156,7 @@ ca:
         proposal:
           view_proposal: Veure proposta
         show:
+          contact: Contactar
           edit_proposal: Editar proposta
           proposal_accepted_reason: 'Aquesta proposta ha estat acceptada perquè:'
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta

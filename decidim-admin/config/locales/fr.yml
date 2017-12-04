@@ -198,7 +198,7 @@ fr:
           create: Créer
           new_managed_user: Nouvel utilisateur à représenter
           select_authorization_method: Sélectionnez une méthode d'autorisation
-          step: 'Étape %{current} sur %{total}'
+          step: Étape %{current} sur %{total}
         promotion:
           error: Une erreur s'est produite lors de la transformation de l'utilisateur représenté.
           success: L'utilisateur représenté a été promu avec succès.
@@ -274,7 +274,7 @@ fr:
             document_number: Numéro de document
             name: Nom
             phone: Téléphone
-            state: 'État'
+            state: État
             users_count: Nombre d'utilisateurs
       moderations:
         index:
@@ -300,13 +300,13 @@ fr:
         form:
           interpolations_hint: 'Astuce : Vous pouvez utiliser "%{name}" n''importe où dans le corps ou le sujet et il sera remplacé par le nom du destinataire.'
         index:
-          confirm_delete: 'Êtes-vous sûr de vouloir supprimer ce bulletin d''information ?'
+          confirm_delete: Êtes-vous sûr de vouloir supprimer ce bulletin d'information ?
           title: Bulletins d'information (newsletter)
         new:
           save: Enregistrer
           title: Nouveau bulletin d'information
         show:
-          confirm_deliver: 'Êtes-vous sûr de vouloir envoyer ce bulletin d''information? Cette action ne peut pas être annulée.'
+          confirm_deliver: Êtes-vous sûr de vouloir envoyer ce bulletin d'information? Cette action ne peut pas être annulée.
           deliver: Envoyer le bulletin d'information
           preview: Aperçu
           subject: Objet

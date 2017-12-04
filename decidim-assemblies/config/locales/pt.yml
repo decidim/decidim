@@ -10,7 +10,7 @@ pt:
         domain: Domínio
         hashtag: Hashtag
         hero_image: Imagem inicial
-        local_area: 'Área Local'
+        local_area: Área Local
         meta_scope: Metadados do escopo
         participatory_scope: Escopo participativo
         participatory_structure: Estrutura participativa
@@ -94,7 +94,7 @@ pt:
             see_all_assemblies: Veja todas as assembléias
       show:
         developer_group: Grupo de desenvolvedores
-        local_area: 'Área Local'
+        local_area: Área Local
         participatory_scope: Escopo participativo
         participatory_structure: Estrutura participativa
         scope: Escopo
