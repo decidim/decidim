@@ -175,9 +175,9 @@ ca:
       conversation_mailer:
         new_conversation:
           greeting: Hola, %{recipient}!
-          intro: "%{sender} ha iniciat una nova conversa amb tu. Feu clic aquí per veure-la:"
-          outro: Gaudeix de decidir!
-          subject: "%{sender} ha iniciat una discussió amb tu"
+          intro: "%{sender} ha iniciat una nova conversa amb tu. Fes clic aquí per veure-la:"
+          outro: Gaudeix de decidim!
+          subject: "%{sender} ha iniciat una conversa amb tu"
         new_message:
           greeting: Hola, %{recipient}!
           intro: "%{sender} ha publicat nous missatges a la vostra conversa. Feu clic aquí per enviar-los:"
