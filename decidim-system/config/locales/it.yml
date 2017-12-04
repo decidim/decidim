@@ -65,7 +65,7 @@ it:
           success: OK, l'Organizzazione è stata aggiornata.
       shared:
         notices:
-          no_organization_warning_html: 'È necessario creare un''organizzazione per iniziare. Assicurati di leggere %{guide} prima di procedere.'
+          no_organization_warning_html: È necessario creare un'organizzazione per iniziare. Assicurati di leggere %{guide} prima di procedere.
           our_getting_started_guide: La nostra guida iniziale
       titles:
         dashboard: Cruscotto
