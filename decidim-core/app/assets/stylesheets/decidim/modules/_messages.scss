@@ -1,0 +1,35 @@
+/* Variables */
+$message-padding: 1rem;
+
+/* Messages */
+
+.message{
+  @extend .card;
+}
+
+.message__header{
+  padding: $message-padding;
+}
+
+.message__content{
+  padding: 0 $message-padding $message-padding;
+
+  > :last-child{
+    margin-bottom: 0;
+  }
+
+  p {
+    overflow-wrap: break-word;
+  }
+}
+
+/* Message form */
+
+.add-message{
+  @extend .message;
+
+  padding: $message-padding;
+  .button{
+    margin-bottom: 0;
+  }
+}

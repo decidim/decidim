@@ -55,7 +55,9 @@ if !Rails.env.production? || ENV["SEED"]
     end
   end
 
-  Decidim::User.find_or_initialize_by(email: "admin@example.org").update!(
+  admin = Decidim::User.find_or_initialize_by(email: "admin@example.org")
+
+  admin.update!(
     name: Faker::Name.name,
     password: "decidim123456",
     password_confirmation: "decidim123456",
@@ -66,7 +68,9 @@ if !Rails.env.production? || ENV["SEED"]
     tos_agreement: true
   )
 
-  Decidim::User.find_or_initialize_by(email: "user@example.org").update!(
+  regular_user = Decidim::User.find_or_initialize_by(email: "user@example.org")
+
+  regular_user.update!(
     name: Faker::Name.name,
     password: "decidim123456",
     password_confirmation: "decidim123456",
@@ -74,6 +78,12 @@ if !Rails.env.production? || ENV["SEED"]
     locale: I18n.default_locale,
     organization: organization,
     tos_agreement: true
+  )
+
+  Decidim::Messaging::Conversation.start!(
+    originator: admin,
+    interlocutors: [regular_user],
+    body: "Hei! I'm glad you like Decidim"
   )
 
   Decidim::User.find_each do |user|
