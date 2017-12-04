@@ -177,10 +177,10 @@ pt:
           greeting: Oi, %{recipient}!
           intro: "%{sender} iniciou uma nova conversa com você. Clique aqui para vê-lo:"
           outro: Aproveite decidim!
-          subject: "%{sender} iniciou uma discussão com você"
+          subject: "%{sender} iniciou uma conversa com você"
         new_message:
           greeting: Oi, %{recipient}!
-          intro: "%{sender} publicou novas mensagens na sua conversa. Clique aqui para enviá-los:"
+          intro: "%{sender} publicou novas mensagens na sua conversa. Clique aqui para vê-los:"
           outro: Aproveite decidim!
           subject: Você tem novas mensagens de %{sender}
       conversations:
