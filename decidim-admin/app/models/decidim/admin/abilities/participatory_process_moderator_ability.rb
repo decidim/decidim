@@ -14,7 +14,7 @@ module Decidim
           end
 
           can :manage, Moderation do |moderation|
-            can_manage_process?(moderation.participatory_process)
+            can_manage_process?(moderation.participatory_space)
           end
         end
       end

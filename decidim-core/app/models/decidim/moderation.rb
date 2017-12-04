@@ -19,9 +19,7 @@ module Decidim
 
     def authorize!
       update_attributes(upstream_moderation: "authorized")
-      if reportable.class.name.demodulize == "Comment"
-        reportable.send_notification
-      end
+      reportable.send_notification
     end
 
     def refuse!

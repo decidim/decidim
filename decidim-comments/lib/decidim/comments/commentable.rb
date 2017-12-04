@@ -52,13 +52,24 @@ module Decidim
           users_with_role = feature.organization.users_with_any_role
           process_users_with_role = get_user_with_process_role(participatory_process.id)
           users = admins + users_with_role + process_users_with_role
-          return users.uniq
-          users
+          users.uniq
         end
 
         # Public: Defines which users will receive a notification when a comment is authorized.
         def users_to_notify_on_comment_authorized
           Decidim::User.none
+        end
+
+        def send_notification(event, event_class, resource, extra)
+          Decidim::EventsManager.publish(
+            event: "decidim.events.comments.comment_created",
+            event_class: Decidim::Comments::CommentCreatedEvent,
+            resource: self.root_commentable,
+            recipient_ids: (self.root_commentable.users_to_notify_on_comment_authorized - [author]).pluck(:id),
+            extra: {
+              comment_id: self.id
+            }
+          )
         end
       end
     end

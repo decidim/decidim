@@ -14,8 +14,6 @@ module Decidim
         let(:organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization: organization) }
         let(:feature) { create :feature, manifest_name: :proposals, participatory_space: participatory_process }
-        let!(:proposal) { create :proposal, feature: feature }
-
         let(:author) { create(:user, organization: organization) }
         let(:admin) {create(:user, :admin, organization: organization)}
         let(:process_admin) {create(:user, :process_admin, organization: feature.organization, participatory_process: feature.participatory_space)}
@@ -39,9 +37,28 @@ module Decidim
         end
         let(:command) { described_class.new(form, author) }
 
+        it "creates a new proposal" do
+            expect(Proposal).to receive(:create!).with(
+              author: author,
+              body: body,
+              title: title
+            ).and_call_original
+
+            expect do
+              command.call
+            end.to change { Proposal.count }.by(1)
+          end
+
         context "when a proposal is created" do
+          before do
+            @proposal = create(:proposal)
+          end
+          it "broadcasts ok" do
+            expect { command.call }.to broadcast(:ok)
+          end
+
           it "sends a notification to admins and moderators" do
-            expect(proposal)
+            expect(@proposal)
               .to receive(:users_to_notify_on_proposal_created)
               .and_return([admin, user_manager, process_admin])
 
@@ -51,9 +68,9 @@ module Decidim
             expect(Decidim::EventsManager)
               .to receive(:publish)
               .with(
-                event: "decidim.events.comments.comment_created",
+                event: "decidim.events.proposals.proposal_created",
                 event_class: Decidim::Proposals::ProposalCreatedEvent,
-                resource: proposal,
+                resource: @proposal,
                 recipient_ids: [admin.id, user_manager.id, process_admin.id],
                 extra: {
                   comment_id: 1,

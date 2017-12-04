@@ -124,8 +124,19 @@ module Decidim
         users_with_role = feature.organization.users_with_any_role
         process_users_with_role = get_user_with_process_role(participatory_process.id)
         users = admins + users_with_role + process_users_with_role
-        return users.uniq if official?
-        users
+        users.uniq
+      end
+
+      def send_notification
+        Decidim::EventsManager.publish(
+          event: "decidim.events.proposals.proposal_created",
+          event_class: Decidim::Proposals::ProposalCreatedEvent,
+          resource: self,
+          recipient_ids: (self.users_to_notify_on_comment_authorized - [author]).pluck(:id),
+          extra: {
+            proposal_id: self.id
+          }
+        )
       end
 
       # Public: Whether the proposal is official or not.
