@@ -34,11 +34,11 @@ module Decidim
       private
 
       def proposal
-        @proposal ||= Decidim::Proposals::Proposal.find(proposal)
+        @proposal ||= Decidim::Proposals::Proposal.find(resource.id)
       end
 
       def url_params
-        proposal_type == :proposal ? {} : { anchor: "proposal_#{proposal.id}" }
+        { anchor: "proposal_#{proposal.id}" }
       end
     end
   end

@@ -14,11 +14,10 @@ en:
     proposals:
       events:
         proposal_created:
-          proposal:
-            notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
-            moderation:
-              email_intro: 'A new proposal have been posted, you can moderate it in this page:'
-              email_subject: 'New proposal from %{author_name} waiting for moderation'
+          notification_title: There is a new proposal from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
+          moderation:
+            email_intro: 'A new proposal have been posted, you can moderate it in this page:'
+            email_subject: 'New proposal from %{author_name} waiting for moderation'
     features:
       proposals:
         actions:
