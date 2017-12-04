@@ -51,34 +51,30 @@ module Decidim
 
         context "when a proposal is created" do
           before do
-            @proposal = create(:proposal)
+            @proposal = create(:proposal, author: author, feature: feature)
           end
-          it "broadcasts ok" do
-            expect { command.call }.to broadcast(:ok)
-          end
-
           it "sends a notification to admins and moderators" do
-            expect(@proposal)
-              .to receive(:users_to_notify_on_proposal_created)
-              .and_return([admin, user_manager, process_admin])
+            binding.pry
+            expect(@proposal.users_to_notify_on_proposal_created)
+              .to eq([admin, user_manager, process_admin])
 
-            expect(Decidim::Proposals::Proposal)
-              .to receive(:id).at_least(:once).and_return 1
+            # expect(Decidim::Proposals::Proposal)
+            #   .to receive(:id).at_least(:once).and_return 1
 
-            expect(Decidim::EventsManager)
-              .to receive(:publish)
-              .with(
-                event: "decidim.events.proposals.proposal_created",
-                event_class: Decidim::Proposals::ProposalCreatedEvent,
-                resource: @proposal,
-                recipient_ids: [admin.id, user_manager.id, process_admin.id],
-                extra: {
-                  comment_id: 1,
-                  moderation_event: true
-                }
-              )
+            # expect(Decidim::EventsManager)
+            #   .to receive(:publish)
+            #   .with(
+            #     event: "decidim.events.proposals.proposal_created",
+            #     event_class: Decidim::Proposals::ProposalCreatedEvent,
+            #     resource: @proposal,
+            #     recipient_ids: [admin.id, user_manager.id, process_admin.id],
+            #     extra: {
+            #       comment_id: 1,
+            #       moderation_event: true
+            #     }
+            #   )
 
-            command.call
+            # command.call
           end
         end
       end
