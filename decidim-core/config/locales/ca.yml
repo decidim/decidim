@@ -180,7 +180,7 @@ ca:
           subject: "%{sender} ha iniciat una conversa amb tu"
         new_message:
           greeting: Hola, %{recipient}!
-          intro: "%{sender} ha publicat nous missatges a la vostra conversa. Feu clic aquí per veure'ls:"
+          intro: "%{sender} ha enviat nous missatges a la teva conversa. Fes clic aquí per veure'ls:"
           outro: Gaudeix de decidim!
           subject: Tens nous missatges de %{sender}
       conversations:
