@@ -108,7 +108,7 @@ it:
           register: Crea un account
       shared:
         omniauth_buttons:
-          or: oppure
+          or: O
     errors:
       internal_server_error:
         title: Si è verificato un problema durante la comunicazione con i server
