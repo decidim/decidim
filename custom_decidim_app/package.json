@@ -1,5 +1,8 @@
 {
   "name": "custom_decidim_app",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
 }

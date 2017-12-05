@@ -45,6 +45,7 @@ PATH
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     decidim-core (0.8.3)
 =======
       pry-byebug
@@ -53,6 +54,8 @@ PATH
 =======
       pry-byebug
 >>>>>>> 3b331838... sorted comment spec
+=======
+>>>>>>> af209905... js
     decidim-core (0.7.2)
 >>>>>>> 48dd943d... front + mail
       active_link_to (~> 1.0.4)
