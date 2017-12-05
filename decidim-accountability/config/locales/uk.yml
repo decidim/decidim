@@ -146,12 +146,18 @@ uk:
             version_author: Автор версії
             version_created_at: 'Версію створено:'
             version_number: Номер версії
+            version_number_out_of_total: "%{current_version}-й крок з %{total_count} кроків"
             votes: Підтримує
         timeline:
           title: Розвиток проекту
       versions:
         index:
+          changes_at_title: Надається %{title}"
           title: Версії
+        show:
+          changes_at_title: Надається %{title}"
+        version:
+          version_index: Версія %{index}
     features:
       accountability:
         name: Звітність
