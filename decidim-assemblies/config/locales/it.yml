@@ -4,7 +4,7 @@ it:
       assembly:
         banner_image: Immagine del banner
         copy_categories: Copia le categorie
-        copy_features: Funzioni di copia
+        copy_features: Copia le caratteristiche
         description: Descrizione
         developer_group: Gruppo sviluppatori
         domain: Dominio
