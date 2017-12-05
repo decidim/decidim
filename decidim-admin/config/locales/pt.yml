@@ -61,7 +61,7 @@ pt:
         meta_scope: Metadados do âmbito
         participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
-        promoted: Promovido
+        promoted: Destacado
         scope: Âmbito
         short_description: Breve descrição
         slug: Slug de URL
@@ -195,7 +195,7 @@ pt:
           promote: Promover
           view_logs: Ver registros
         new:
-          create: Crio
+          create: Criar
           new_managed_user: Novo usuário gerenciado
           select_authorization_method: Selecione um método de autorização
           step: Passo %{current} de %{total}
