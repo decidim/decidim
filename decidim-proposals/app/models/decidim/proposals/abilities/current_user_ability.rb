@@ -16,6 +16,11 @@ module Decidim
           @user = user
           @context = context
 
+          can :adhere, Proposal do |_proposal|
+            #authorized(:adhere)
+            true
+          end
+
           can :vote, Proposal do |_proposal|
             authorized?(:vote) && voting_enabled? && remaining_votes.positive?
           end

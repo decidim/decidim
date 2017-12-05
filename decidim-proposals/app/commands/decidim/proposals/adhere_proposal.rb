@@ -3,14 +3,15 @@
 module Decidim
   module Proposals
     # A command with all the business logic when a user adheres to a proposal.
-    class AdhesionProposal < Rectify::Command
+    class AdhereProposal < Rectify::Command
       # Public: Initializes the command.
       #
       # proposal     - A Decidim::Proposals::Proposal object.
       # current_user - The current user.
-      def initialize(proposal, current_user)
+      def initialize(proposal, current_user, current_group_id=nil)
         @proposal = proposal
-        @current_user = current_user
+        @current_user = current_group_id
+        @current_group_id = current
       end
 
       # Executes the command. Broadcasts these events:
@@ -31,7 +32,7 @@ module Decidim
 
       private
 
-      def build_proposal_vote
+      def build_proposal_adhesion
         @adhesion= @proposal.adhesions.build(author: @current_user)
       end
     end

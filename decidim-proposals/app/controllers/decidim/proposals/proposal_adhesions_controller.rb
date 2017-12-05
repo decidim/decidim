@@ -14,7 +14,7 @@ module Decidim
         authorize! :adhere, proposal
         @from_proposals_list = params[:from_proposals_list] == "true"
 
-        AdhesionProposal.call(proposal, current_user) do
+        AdhereProposal.call(proposal, current_user) do
           on(:ok) do
             proposal.reload
             render :update_buttons_and_counters
