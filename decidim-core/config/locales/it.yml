@@ -198,7 +198,7 @@ it:
           send: Invia
           title: Inizia una conversazione
         update:
-          error: Messaggio non inviato Riprovare più tardi
+          error: Messaggio non inviato. Riprova più tardi
     newsletter_mailer:
       newsletter:
         note: Hai ricevuto questa email perché ti sei iscritto alla newsletter su %{organization_name}. Puoi modificare le impostazioni sulla tua <a href="%{link}">pagina di notifiche</a>.
