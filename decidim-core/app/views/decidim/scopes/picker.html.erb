@@ -1,5 +1,5 @@
   <div class="scope-picker picker-header">
-    <h2><%= t("decidim.scopes.picker.title", field: title) %></h2>
+    <h2 id="data_picker-title"><%= t("decidim.scopes.picker.title", field: title) %></h2>
     <ul>
       <% unless root %>
         <li><a href="<%= scopes_picker_path(**context)%>"><%= t("decidim.scopes.global") %></a></li>
