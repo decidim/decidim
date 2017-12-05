@@ -8,7 +8,7 @@ module Decidim
 
       def notification_title
         I18n.t(
-          "decidim.proposals.events.proposal_created.notification_title",
+          "decidim.events.proposal_created.notification_title",
           resource_title: resource_title,
           resource_path: resource_locator.path(url_params),
           author_name: proposal.author.name
@@ -17,14 +17,14 @@ module Decidim
 
       def email_moderation_intro
         I18n.t(
-          "decidim.proposals.events.proposal_created.moderation.email_intro",
+          "decidim.events.proposal_created.moderation.email_intro",
           resource_title: resource_title
         ).html_safe
       end
 
       def email_moderation_subject
         I18n.t(
-          "decidim.proposals.events.proposal_created.moderation.email_subject",
+          "decidim.events.proposal_created.moderation.email_subject",
           resource_title: resource_title,
           resource_url: resource_locator.url(url_params),
           author_name: proposal.author.name
