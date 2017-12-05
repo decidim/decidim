@@ -79,10 +79,10 @@ end
 
 desc "Pushes a new build for each gem."
 task release_all: [:update_versions, :check_locale_completeness, :webpack] do
-  sh "rake release"
+  sh "rake release" rescue nil
   DECIDIM_GEMS.each do |name|
     Dir.chdir("#{__dir__}/decidim-#{name}") do
-      sh "rake release"
+      sh "rake release" rescue nil
     end
   end
 end
