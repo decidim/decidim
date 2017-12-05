@@ -15,6 +15,7 @@ en:
     features:
       proposals:
         actions:
+          adhere: Adhere
           create: Create
           vote: Vote
         name: Proposals
