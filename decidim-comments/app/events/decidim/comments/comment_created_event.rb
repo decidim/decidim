@@ -29,7 +29,6 @@ module Decidim
         )
       end
 
-      # TODO change notifications text
       def notification_title
         I18n.t(
           "decidim.comments.events.comment_created.#{comment_type}.notification_title",

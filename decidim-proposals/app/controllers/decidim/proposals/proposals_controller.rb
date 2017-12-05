@@ -53,7 +53,7 @@ module Decidim
         CreateProposal.call(@form, current_user) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
-            redirect_to proposal_path(proposal) # todo rediriger vers index + flash message
+            redirect_to proposal_path(proposal)
           end
 
           on(:invalid) do
@@ -97,7 +97,10 @@ module Decidim
 
 
       def admin_or_moderator?
-        (current_user && current_user.admin?) || current_organization.users_with_any_role.include?(current_user) || (current_user &&get_user_with_process_role(current_participatory_process.id).include?(current_user))
+        current_user && (current_user.admin? ||
+          current_organization.users_with_any_role.include?(current_user) ||
+          get_user_with_process_role(current_participatory_process.id).include?(current_user)
+        )
       end
 
       def filter_proposals

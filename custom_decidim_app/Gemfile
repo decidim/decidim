@@ -22,7 +22,6 @@ group :development, :test do
 
   gem "pry-byebug", platform: :mri
   gem "decidim-dev", path: ".."
-  gem 'dotenv-rails'
 end
 
 group :development do

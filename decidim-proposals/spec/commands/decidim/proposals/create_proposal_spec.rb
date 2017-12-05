@@ -38,44 +38,15 @@ module Decidim
         let(:command) { described_class.new(form, author) }
 
         it "creates a new proposal" do
-            expect(Proposal).to receive(:create!).with(
-              author: author,
-              body: body,
-              title: title
-            ).and_call_original
+          expect(Proposal).to receive(:create!).with(
+            author: author,
+            body: body,
+            title: title
+          ).and_call_original
 
-            expect do
-              command.call
-            end.to change { Proposal.count }.by(1)
-          end
-
-        context "when a proposal is created" do
-          before do
-            @proposal = create(:proposal, author: author, feature: feature)
-          end
-          it "sends a notification to admins and moderators" do
-            binding.pry
-            expect(@proposal.users_to_notify_on_proposal_created)
-              .to eq([admin, user_manager, process_admin])
-
-            # expect(Decidim::Proposals::Proposal)
-            #   .to receive(:id).at_least(:once).and_return 1
-
-            # expect(Decidim::EventsManager)
-            #   .to receive(:publish)
-            #   .with(
-            #     event: "decidim.events.proposals.proposal_created",
-            #     event_class: Decidim::Proposals::ProposalCreatedEvent,
-            #     resource: @proposal,
-            #     recipient_ids: [admin.id, user_manager.id, process_admin.id],
-            #     extra: {
-            #       comment_id: 1,
-            #       moderation_event: true
-            #     }
-            #   )
-
-            # command.call
-          end
+          expect do
+            command.call
+          end.to change { Proposal.count }.by(1)
         end
       end
     end
