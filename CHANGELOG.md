@@ -17,6 +17,7 @@
 - **decidim-assemblies**: Show promoted assemblies in the homepage [\#2162](https://github.com/decidim/decidim/pull/2162)
 - **decidim-core**: Add support for extending the user profile menu. [\#2193](https://github.com/decidim/decidim/pull/2193)
 - **decidim-core**: Add view hooks so external engines can extend the homepage and other sections with their own code [\#2114](https://github.com/decidim/decidim/pull/2114)
+- **decidim-core**: Add the ability to register Global Engines that sit at the root of the project. [\#2194](https://github.com/decidim/decidim/pull/2194)
 - **decidim-core**: Private one to one conversations [\#2186](https://github.com/decidim/decidim/pull/2186)
 - **decidim-proposals**: Admins can set a minute window after the creation of a proposal in which the proposal can be edited by its author. Once the window has passed, it cannot be edited. [\#2171](https://github.com/decidim/decidim/pull/2171)
 - **decidim-verifications**: Support for deferred verification methods that require several steps in order to be granted. [\#2024](https://github.com/decidim/decidim/pull/2024)
