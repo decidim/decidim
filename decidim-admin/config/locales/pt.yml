@@ -219,7 +219,7 @@ pt:
         settings: Configurações
         static_pages: Páginas
         user_groups: Grupos de usuários
-        users: Comercial
+        users: Utilizadores
       models:
         attachment:
           fields:
@@ -394,7 +394,7 @@ pt:
         scopes: Âmbitos
         static_pages: Páginas
         user_groups: Grupos de usuários
-        users: Comercial
+        users: Utilizadores
       user_group:
         reject:
           invalid: Ocorreu um erro ao rejeitar esse grupo de usuários.
@@ -464,7 +464,7 @@ pt:
         settings:
           title: Configurações
         users:
-          title: Comercial
+          title: Utilizadores
   time:
     formats:
       datepicker: "%m / %d / %Y"
