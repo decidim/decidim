@@ -8,7 +8,7 @@ describe "Scopes picker", type: :feature do
   let!(:subscope) { create(:subscope, parent: scopes.first) }
 
   describe "scope picker page" do
-    before :each do
+    before do
       switch_to_host(organization.host)
       visit decidim.scopes_picker_path(params)
     end
@@ -18,7 +18,7 @@ describe "Scopes picker", type: :feature do
 
     it "shows given title" do
       expect(page).to have_content("A strange title")
-      end
+    end
 
     context "when a scope is required" do
       let(:params) { { title: title, required: true } }

@@ -38,8 +38,8 @@ module Decidim
         parent_scopes = current.part_of_scopes
       else
         current = root
-        scopes = current ? root.children : Scope.top_level
-        parent_scopes = []
+        scopes = root&.children || Scope.top_level
+        parent_scopes = [root].compact
       end
       render :picker, layout: nil, locals: { required: required, title: title, root: root, current: current, scopes: scopes.order(name: :asc),
                                              parent_scopes: parent_scopes, context: context }
