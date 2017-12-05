@@ -135,6 +135,7 @@ export class AddCommentForm extends React.Component<AddCommentFormProps, AddComm
         <form onSubmit={this.addComment}>
           {this._renderCommentAs()}
           <div className="field">
+            <em> Votre commentaire sera publié après modération par un administrateur </em>
             <label className="show-for-sr" htmlFor={`add-comment-${type}-${id}`}>{I18n.t("components.add_comment_form.form.body.label")}</label>
             {this._renderTextArea()}
             {this._renderTextAreaError()}
