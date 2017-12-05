@@ -59,6 +59,14 @@ ru:
       photos:
         related_photos: Сопутствующие фотографии
     authorization_handlers:
+      dummy_authorization_handler:
+        explanation: Подтвердите, введя номер документа, заканчивающийся на «X»,
+        fields:
+          document_number: Номер документа
+          postal_code: Почтовый индекс
+        name: Пример подтверждения личности
+      dummy_authorization_workflow:
+        name: Рабочий процесс авторизации манекена
       errors:
         duplicate_authorization: С теми же данными уже подтвердил свою личность другой участник.
       foo_authorization:
@@ -66,6 +74,8 @@ ru:
           bar: Нерабочая псевдо-переменная 1
           foo: Нерабочая псевдо-переменная 2
         name: Нерабочее псевдо-подтверждение личности
+      granted_at: Предоставлено %{timestamp}
+      started_at: Начато с %{timestamp}
     core:
       actions:
         unauthorized: Вы не имеете прав для выполнения этого действия
@@ -161,6 +171,34 @@ ru:
     menu:
       home: Главная
       more_information: Узнать больше
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          greeting: Здравствуйте, %{recipient}!
+          intro: "%{sender} начал с вами новый разговор. Нажмите здесь, чтобы посмотреть:"
+          outro: Наслаждайтесь децидим!
+          subject: "%{sender} начал разговор с вами"
+        new_message:
+          greeting: Здравствуйте, %{recipient}!
+          intro: "%{sender} отправил новые сообщения в ваш разговор. Нажмите здесь, чтобы увидеть их:"
+          outro: Наслаждайтесь децидим!
+          subject: У вас есть новые сообщения от %{sender}
+      conversations:
+        create:
+          error: Разговор не начался. Попробуйте позже
+        index:
+          no_conversations: У вас еще нет разговоров
+          title: Беседа с
+        reply:
+          send: Отправить
+          title: Ответить
+        show:
+          title: Беседа с %{usernames}
+        start:
+          send: Отправить
+          title: Начать разговор
+        update:
+          error: Сообщение не отправлено. Попробуйте позже
     newsletter_mailer:
       newsletter:
         note: Вы получили это электронное письмо, потому что подписались на новостные рассылки %{organization_name}. Вы можете изменить свои настройки на своей <a href="%{link}">странице уведомлений</a>.
@@ -206,6 +244,10 @@ ru:
           authorize: Подтвердить свою личность с помощью "%{authorization}"
           explanation: Чтобы выполнить это действие, вам необходимо подтвердить свою личность с помощью «%{authorization}».
           title: Требуется подтверждение личности
+        pending:
+          explanation: Чтобы выполнить это действие, вам необходимо авторизоваться с помощью «%{authorization}», но ваше разрешение все еще выполняется
+          resume: Проверьте выполнение авторизации «%{authorization}»
+          title: Авторизация продолжается
         unauthorized:
           explanation: Извините, вы не можете выполнить это действие, поскольку некоторые данные вашего подтверждения личности не совпадают.
           invalid: "Содержимое поля %{field} недопустимо."
@@ -237,6 +279,8 @@ ru:
         close_window: Закрыть окно
         share: Поделиться
         share_link: Поделиться ссылкой
+      version_author:
+        deleted: Удаленный пользователь
   devise:
     invitations:
       edit:
@@ -371,6 +415,13 @@ ru:
     wechat_footer: Откройте ваш WeChat, нажмите кнопку «Discover», затем выберите в меню «Scan QR Code».
     weibo: Сина Вейбо
     xing: Xing
+  time:
+    formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_year: "%d.%m.%y"
+      decidim_short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"
   views:
     pagination:
       first: "&laquo; Первая"
