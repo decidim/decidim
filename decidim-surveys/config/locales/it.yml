@@ -16,7 +16,7 @@ it:
           global:
             announcement: Annuncio
           step:
-            allow_answers: Consentire risposte
+            allow_answers: Consenti risposte
             announcement: Annuncio
     surveys:
       admin:
