@@ -162,6 +162,7 @@ uk:
         proposal:
           view_proposal: Переглянути пропозицію
         show:
+          contact: Зв'язатися
           edit_proposal: Редагувати пропозицію
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
           proposal_in_evaluation_reason: Ця пропозиція розглядається
