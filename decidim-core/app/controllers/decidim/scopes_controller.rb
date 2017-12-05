@@ -25,5 +25,24 @@ module Decidim
 
       render json: { results: root_option + scopes.map { |scope| { id: scope.id.to_s, text: scope.name[I18n.locale.to_s] } } }
     end
+
+    def picker
+      authorize! :pick, Scope
+      title = params[:title]
+      root = Scope.find(params[:root]) if params[:root]
+      context = root ? { root: root.id, title: title } : { title: title }
+      required = params[:required] && params[:required] != "false"
+      if params[:current]
+        current = Scope.find(params[:current])
+        scopes = current.children
+        parent_scopes = current.part_of_scopes
+      else
+        current = root
+        scopes = current ? root.children : Scope.top_level
+        parent_scopes = []
+      end
+      render :picker, layout: nil, locals: { required: required, title: title, root: root, current: current, scopes: scopes.order(name: :asc),
+                                             parent_scopes: parent_scopes, context: context }
+    end
   end
 end

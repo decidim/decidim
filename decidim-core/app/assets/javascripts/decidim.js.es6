@@ -14,6 +14,7 @@
 // = require decidim/account_form
 // = require decidim/select2
 // = require decidim/select2.field
+// = require decidim/data_picker
 
 /* globals svg4everybody */
 
@@ -24,5 +25,9 @@ $(() => {
   svg4everybody();
   if (window.Decidim.formDatePicker) {
     window.Decidim.formDatePicker();
+  }
+
+  if (window.Decidim.DataPicker) {
+    new window.Decidim.DataPicker();
   }
 });

@@ -238,6 +238,11 @@ en:
       create:
         error: An error ocurred while creating the report. Please, try it again.
         success: The report has been created successfully and it will be reviewed by an admin.
+    scopes:
+      picker:
+        cancel: Cancel
+        choose: Choose
+        title: Choose %{field}
     shared:
       action_authorization_modal:
         expired:

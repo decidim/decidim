@@ -133,10 +133,11 @@ module Decidim
 
     # Public: Generates a select field with the scopes.
     #
-    # name       - The name of the field (usually scope_id)
-    # collection - A collection of scopes.
-    # options    - An optional Hash with options:
-    # - prompt   - An optional String with the text to display as prompt.
+    # name          - The name of the field (usually scope_id)
+    # options       - An optional Hash with options:
+    # - prompt      - An optional String with the text to display as prompt.
+    # - remote_path - Path to be called to load select options.
+    # - multiple    - Multiple mode, to allow multiple scopes selection.
     #
     # Returns a String.
     def scopes_select(name, options = {})
@@ -154,6 +155,29 @@ module Decidim
       html_options = { multiple: multiple, class: "select2", "data-remote-path" => remote_path, "data-placeholder" => prompt }
 
       select(name, @template.options_for_select(scopes, selected: selected), options, html_options)
+    end
+
+    # Public: Generates a picker field for scope selection.
+    #
+    # name          - The name of the field (usually scope_id)
+    # options       - An optional Hash with options:
+    # - prompt      - An optional String with the text to display as prompt.
+    # - remote_path - Path to be called to load picker content.
+    #
+    # Returns a String.
+    def scope_picker(attribute, options = {})
+      current_value = object.send(attribute)
+      current_text = options.delete(:prompt)
+      remote_path = options.delete(:remote_path) || false
+
+      template = ""
+      template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
+      template += @template.content_tag :div, id: "#{@object_name}_#{attribute}", class: "data-picker",
+                                              "data-picker-name" => "#{@object_name}[#{attribute}]",
+                                              "data-picker-url" => remote_path, "data-picker-value" => current_value do
+        current_text
+      end
+      template.html_safe
     end
 
     # Public: Override so checkboxes are rendered before the label.

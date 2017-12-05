@@ -10,6 +10,7 @@
 // = require moment.min
 // = require ./select2
 // = require ./scopes
+// = require decidim/data_picker
 // = require_self
 
 window.Decidim = window.Decidim || {};
@@ -42,5 +43,9 @@ $(() => {
 
   if (window.Decidim.formDatePicker) {
     window.Decidim.formDatePicker();
+  }
+
+  if (window.Decidim.DataPicker) {
+    new window.Decidim.DataPicker();
   }
 });

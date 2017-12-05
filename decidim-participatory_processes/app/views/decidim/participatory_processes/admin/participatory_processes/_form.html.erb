@@ -80,7 +80,7 @@
     </div>
 
     <div class="row column">
-      <%= form.scopes_select :scope_id, prompt: t("decidim.scopes.global"), remote_path: decidim.scopes_search_path %>
+      <%= form.scope_picker :scope_id, prompt: scope_name_with_type(form.object.scope), remote_path: decidim.scopes_picker_path(current: form.object.scope_id, title: Decidim::ParticipatoryProcess.human_attribute_name(:scope).downcase) %>
     </div>
 
     <div class="row column">

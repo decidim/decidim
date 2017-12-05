@@ -11,5 +11,9 @@ module Decidim
     def has_visible_scopes?(resource)
       current_participatory_space.scopes_enabled? && current_participatory_space.scope.blank? && resource.scope.present?
     end
+
+    def scope_name_with_type(scope)
+      scope ? "#{translated_attribute(scope.name)} (#{translated_attribute(scope.scope_type.name)})" : t("decidim.scopes.global")
+    end
   end
 end
