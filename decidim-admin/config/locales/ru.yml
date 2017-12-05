@@ -12,6 +12,7 @@ ru:
       feature:
         name: Имя
         weight: Вес
+      id: Идентификатор
       newsletter:
         body: Основной текст
         subject: Тема
@@ -385,6 +386,7 @@ ru:
           error: При обновлении этой страницы произошла ошибка.
           success: Страница успешно обновлена
       titles:
+        authorization_workflows: Методы проверки
         dashboard: Панель управления
         impersonations: Выступления в роли участника
         managed_users: Управляемые участники
