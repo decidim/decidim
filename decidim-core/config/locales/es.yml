@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -28,7 +29,7 @@ es:
         user_group_phone: Teléfono de la organización
   booleans:
     'false': 'No'
-    'true': 'Sí'
+    'true': Sí
   carrierwave:
     errors:
       image_too_big: La imagen es demasiado grande
@@ -39,7 +40,7 @@ es:
         confirm:
           close: Cerrar ventana
           ok: Sí, quiero eliminar mi cuenta
-          question: '¿Seguro que quieres eliminar tu cuenta?'
+          question: "¿Seguro que quieres eliminar tu cuenta?"
           title: Eliminar mi cuenta
         explanation: Por favor, rellena el motivo por el que deseas eliminar tu cuenta (opcional).
       destroy:
@@ -90,7 +91,7 @@ es:
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         new:
-          already_have_an_account?: '¿Ya tienes una cuenta?'
+          already_have_an_account?: "¿Ya tienes una cuenta?"
           newsletter_notifications: Recibir información sobre la actividad relevante
           sign_in: Entra
           sign_up: Regístrate
@@ -104,7 +105,7 @@ es:
           username_help: Nombre público que aparecerá en tus publicaciones. Con el objetivo de garantizar el anonimato puede ser cualquier nombre.
       sessions:
         new:
-          are_you_new?: '¿Eres nuevo en la plataforma?'
+          are_you_new?: "¿Eres nuevo en la plataforma?"
           register: Créate una cuenta
       shared:
         omniauth_buttons:
@@ -176,12 +177,12 @@ es:
         new_conversation:
           greeting: Hola, %{recipient}!
           intro: "%{sender} ha iniciado una nueva conversación contigo. Haz click aquí para verla:"
-          outro: '¡Disfruta de decidim!'
+          outro: "¡Disfruta de decidim!"
           subject: "%{sender} ha iniciado una conversación contigo"
         new_message:
-          greeting: '¡Hola, %{recipient}!'
+          greeting: "¡Hola, %{recipient}!"
           intro: "%{sender} ha publicado nuevos mensajes en tu conversación. Haz clic aquí para verlos:"
-          outro: '¡Disfruta de decidim!'
+          outro: "¡Disfruta de decidim!"
           subject: Tienes nuevos mensajes de %{sender}
       conversations:
         create:
@@ -304,7 +305,7 @@ es:
       organization_admin_invitation_instructions:
         subject: Has sido invitado para gestionar %{organization}
       password_change:
-        greeting: '¡Hola %{recipient}!'
+        greeting: "¡Hola %{recipient}!"
         message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada correctamente.
         subject: Contraseña modificada
   errors:
@@ -367,7 +368,7 @@ es:
       extended:
         debates: Debates
         debates_explanation: Debate y discute, comparte tus opiniones y enriquece los temas relevantes.
-        how_to_participate: '¿Cómo tomo parte en un proceso?'
+        how_to_participate: "¿Cómo tomo parte en un proceso?"
         meetings: Encuentros
         meetings_explanation: Averigua dónde y cuándo puedes participar en encuentros públicos.
         more_info: Más información

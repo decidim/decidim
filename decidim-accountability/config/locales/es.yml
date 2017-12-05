@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -22,7 +23,7 @@ es:
   decidim:
     accountability:
       actions:
-        confirm_destroy: '¿Está seguro de que quiere eliminar este %{name}?'
+        confirm_destroy: "¿Está seguro de que quiere eliminar este %{name}?"
         destroy: Borrar
         edit: Editar
         new: Nuevo/a %{name}

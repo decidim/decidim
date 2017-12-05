@@ -1,3 +1,4 @@
+---
 ca:
   decidim:
     comments:
@@ -29,8 +30,8 @@ ca:
             label: Comentar com a
         opinion:
           neutral: Neutral
-        remaining_characters: "Queden %{count} caràcters"
-        remaining_characters_1: "Queda %{count} caràcter"
+        remaining_characters: Queden %{count} caràcters
+        remaining_characters_1: Queda %{count} caràcter
         title: Deixa el teu comentari
       comment:
         alignment:

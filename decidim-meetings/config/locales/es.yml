@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -34,7 +35,7 @@ es:
       actions:
         attachments: Archivos adjuntos
         close: Cerrar
-        confirm_destroy: '¿Está seguro de que quiere eliminar este encuentro?'
+        confirm_destroy: "¿Está seguro de que quiere eliminar este encuentro?"
         destroy: Borrar
         edit: Editar
         new: Nuevo
