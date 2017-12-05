@@ -115,18 +115,6 @@ module Decidim
         followers
       end
 
-      def send_notification
-        Decidim::EventsManager.publish(
-          event: "decidim.events.proposals.proposal_created",
-          event_class: Decidim::Proposals::ProposalCreatedEvent,
-          resource: self,
-          recipient_ids: (self.users_to_notify_on_comment_authorized - [author]).pluck(:id),
-          extra: {
-            proposal_id: self.id
-          }
-        )
-      end
-
       # Public: Whether the proposal is official or not.
       def official?
         author.nil?
