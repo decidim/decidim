@@ -2,99 +2,92 @@
  * DataPicker component.
  */
 ((exports) => {
-  'use strict';
-
-  function DataPicker() {
-    this._init();
-  };
-
-  DataPicker.prototype._init = function() {
-    if (!this.modal) {
+  class DataPicker {
+    constructor(elements) {
       this.modal = this._createModalContainer();
       this.modal.appendTo($("body"));
-      new Foundation.Reveal(this.modal);
+      this.current = null;
+
+      elements.each((_index, element) => {
+        let $element = $(element);
+        let name  = $element.data('picker-name'),
+            text  = $element.text(),
+            value = $element.data('picker-value') || "";
+
+        $element.html(`<input class="picker-value" type="hidden" name="${name}" value="${value}"/>
+                        <span class="picker-text">${text}</span>`);
+        $element.click((event) => {
+          event.preventDefault();
+          if ($element.hasClass('disabled')) {
+            return;
+          }
+          this._openPicker($element);
+        });
+      });
     }
 
-    var self = this;
-    $('.data-picker').each(function(index) {
-      var $this = $(this);
-      var value = $this.data('picker-value'),
-          text  = $this.text(),
-          name  = $this.data('picker-name');
-      var id    = name.replace(/[^a-zA-Z0-9]/g, "_");
+    enabled(picker, value) {
+      picker.toggleClass("disabled", !value);
+      $(".picker-value", picker).attr("disabled", !value);
+    }
 
-      $this.html('<input class="picker-value" type="hidden" name="'+name+'" value="'+value+'"/>\
-                      <span class="picker-text">'+text+'</span>');
-      $this.click(function(e){
-        e.preventDefault();
-        if ($this.attr('disabled')=='disabled') return;
-        self.openPicker($this);
-      });
-    });
-  };
+    _createModalContainer() {
+      return $(`<div class="small reveal" id="data_picker-modal" aria-hidden="true" role="dialog" aria-labelledby="data_picker-title" data-reveal>
+                <div class="data_picker-modal-content"></div>
+                <button class="close-button" data-close type="button"><span aria-hidden="true">&times;</span></button>
+              </div>`);
+    }
 
-  DataPicker.prototype._createModalContainer = function() {
-    return $('<div class="small reveal" id="data_picker-modal" aria-labelledby="data_picker-modal" data-reveal>\
-                <div class="data_picker-modal-content"></div>\
-                <button class="close-button" data-close type="button"><span aria-hidden="true">&times;</span></button>\
-              </div>');
-  };
+    _openPicker(picker) {
+      this.current = {
+                        picker: picker,
+                        value: $(".picker-value", picker),
+                        text: $(".picker-text", picker)
+                      };
 
-  DataPicker.prototype.openPicker = function(picker) {
-    this.current = {
-                      picker: picker,
-                      value: $(".picker-value", picker),
-                      text: $(".picker-text", picker)
-                    };
+      this._load(picker.data('picker-url'));
+    }
 
-    this.load(picker.data('picker-url'));
-  };
-
-  DataPicker.prototype.load = function(url) {
-    var self = this;
-    $.ajax(url).done(function(resp){
-        var modalContent = $(".data_picker-modal-content", self.modal);
+    _load(url) {
+      $.ajax(url).done((resp) => {
+        let modalContent = $(".data_picker-modal-content", this.modal);
         modalContent.html(resp);
-        self._handleLinks(modalContent);
-        self.modal.foundation('open');
-    });
-  };
-
-  DataPicker.prototype._handleLinks = function(content) {
-    var self = this;
-    $("a", content).each(function(index){
-      var $link = $(this);
-      $link.click(function(e){
-        e.preventDefault();
-        if ($link.data('data-close')) return;
-        var choose_value = $link.data('picker-value'),
-            choose_text = $link.data('picker-text'),
-            choose_link = $link.attr('href');
-
-        if (choose_link) {
-          if ($link.data('picker-choose') !== undefined)
-            self.choose(choose_link, choose_value, choose_text);
-          else
-            self.load(choose_link);
-        }
+        this._handleLinks(modalContent);
+        this.modal.foundation('open');
       });
-    });
-  };
+    }
 
-  DataPicker.prototype.choose = function(link, value, text) {
-    this.current.picker.data('picker-url', link);
-    this.current.value.attr('value', value);
-    this.current.text.html(text);
-    this.modal.foundation('close');
-  };
+    _handleLinks(content) {
+      $("a", content).each((_index, link) => {
+        let $link = $(link);
+        $link.click((event) => {
+          event.preventDefault();
+          if ($link.data('data-close')) {
+            return;
+          }
 
-  DataPicker.enabled = function(data_picker, value) {
-    data_picker.toggleClass("disabled", !value);
-    $("input", data_picker).attr("disabled", !value);
-  };
+          let chooseLink = $link.attr('href');
+          if (chooseLink) {
+            if (typeof $link.data('picker-choose') === 'undefined') {
+              this._load(chooseLink);
+            } else {
+              this._choose(chooseLink, $link.data('picker-value') || "", $link.data('picker-text') || "");
+            }
+          }
+        });
+      });
+    }
 
-  DataPicker.prototype.current = null;
+    _choose(link, value, text) {
+      this.current.picker.data('picker-url', link);
+      this.current.value.attr('value', value);
+      this.current.text.html(text);
+      this.modal.foundation('close');
+    }
+  }
 
-  exports.Decidim = exports.Decidim || {};
-  exports.Decidim.DataPicker = DataPicker;
-})( window );
+  $(() => {
+    exports.Decidim = exports.Decidim || {};
+    exports.Decidim.DataPicker = new DataPicker($(".data-picker"));
+  });
+})(window);

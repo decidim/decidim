@@ -44,8 +44,4 @@ $(() => {
   if (window.Decidim.formDatePicker) {
     window.Decidim.formDatePicker();
   }
-
-  if (window.Decidim.DataPicker) {
-    new window.Decidim.DataPicker();
-  }
 });

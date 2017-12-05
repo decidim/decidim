@@ -10,5 +10,5 @@ $(() => {
       })
       exports.Decidim.DataPicker.enabled($participatoryProcessScopeId, $participatoryProcessScopeEnabled.prop('checked'));
     }
-  });
+  })(window);
 });

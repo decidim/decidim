@@ -129,7 +129,7 @@ shared_examples "manage processes examples" do
 
       uncheck :participatory_process_scopes_enabled
 
-      expect(page).to have_selector("select#participatory_process_scope_id[disabled]")
+      expect(page).to have_selector("#participatory_process_scope_id input.picker_value[disabled]")
 
       within ".edit_participatory_process" do
         find("*[type=submit]").click
