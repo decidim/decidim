@@ -74,7 +74,7 @@ pt:
           index:
             title: Reuniões
           new:
-            create: Crio
+            create: Criar
             title: Criar reunião
           update:
             invalid: Tem havido um problema ao atualizar esta reunião
