@@ -111,8 +111,8 @@ it:
           or: O
     errors:
       internal_server_error:
-        title: Si è verificato un problema durante la comunicazione con i server
-        try_later: Per cortesia, riprova più tardi.
+        title: C'era un problema con il nostro server
+        try_later: Ti preghiamo di riprovare più tardi.
       not_found:
         back_home: Torna alla homepage
         content_doesnt_exist: Questo indirizzo non è corretto oppure è stato rimosso.
@@ -120,7 +120,7 @@ it:
     events:
       email_event:
         email_greeting: Ciao %{user_name},
-        email_intro: 'C''è stato un aggiornamento alla "%{resource_title}". Si può vedere da questa pagina:'
+        email_intro: 'C''è stato un aggiornamento a "%{resource_title}". Si può vedere da questa pagina:'
         email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
         email_subject: Un aggiornamento per %{resource_title}
       notification_event:
@@ -176,26 +176,26 @@ it:
         new_conversation:
           greeting: Ciao, %{recipient}!
           intro: "%{sender} ha avviato una nuova conversazione con te. Clicca qui per vederlo:"
-          outro: Godetevi i decidim!
+          outro: Godi di decidim!
           subject: "%{sender} ha iniziato una conversazione con te"
         new_message:
           greeting: Ciao, %{recipient}!
           intro: "%{sender} ha pubblicato nuovi messaggi nella tua conversazione. Clicca qui per vederli:"
-          outro: Godetevi i decidim!
+          outro: Godi di decidim!
           subject: Hai nuovi messaggi da %{sender}
       conversations:
         create:
           error: La conversazione non è iniziata. Riprovare più tardi
         index:
           no_conversations: Non hai ancora conversazioni
-          title: conversazioni
+          title: Conversazioni
         reply:
-          send: Inviare
-          title: rispondere
+          send: Invia
+          title: Rispondi
         show:
           title: Conversazione con %{usernames}
         start:
-          send: Inviare
+          send: Invia
           title: Inizia una conversazione
         update:
           error: Messaggio non inviato Riprovare più tardi
