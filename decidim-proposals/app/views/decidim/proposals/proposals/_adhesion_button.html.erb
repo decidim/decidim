@@ -4,7 +4,7 @@
       <% if current_settings.s_blocked? %>
         <%= action_authorized_button_to :adhere, t('.adhesions_blocked'), proposal_proposal_adhesion_path(proposal_id: proposal, from_proposals_list: from_proposals_list), class: "card__button button #{adhesion_button_classes(from_proposals_list)} disabled", disabled: true %>
       <% else %>
-        <%= action_authorized_button_to :adhere, t('.adhesion'), proposal_proposal_adhesion_path(proposal_id: proposal, from_proposals_list: from_proposals_list), class: "card__button button #{adhesion_button_classes(from_proposals_list)}" %>
+        <%= action_authorized_button_to :adhere, t('.adhere'), proposal_proposal_adhesion_path(proposal_id: proposal, from_proposals_list: from_proposals_list), class: "card__button button #{adhesion_button_classes(from_proposals_list)}" %>
       <% end %>
     <% else %>
       <% if @adhered_proposals ? @adered_proposals.include?(proposal.id) : proposal.adhered_by?(current_user) %>

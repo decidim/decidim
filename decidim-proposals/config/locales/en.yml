@@ -116,10 +116,10 @@ en:
           error: There's been errors when voting the proposal.
       proposals:
         adhesion_button:
-          already_adhered: Already adhered
-          already_adhered_hover: Unadhere
           adhere: Adhere
           adhesions_blocked: Adhesions disabled
+          already_adhered: Already adhered
+          already_adhered_hover: Unadhere
         adhesions_count:
           count:
             one: ADHESION
@@ -160,9 +160,6 @@ en:
           new_proposal: New proposal
           view_proposal: View proposal
         linked_proposals:
-          proposal_adhesions:
-            one: adhesion
-            other: adhesions
           proposal_votes:
             one: vote
             other: votes
