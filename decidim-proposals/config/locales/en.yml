@@ -107,6 +107,9 @@ en:
             votes: Votes
       new:
         limit_reached: You can't create new proposals since you've exceeded the limit.
+      proposal_adhesions:
+        create:
+          error: There's been errors when adhering to the proposal.
       proposal_votes:
         create:
           error: There's been errors when voting the proposal.
@@ -156,6 +159,9 @@ en:
           new_proposal: New proposal
           view_proposal: View proposal
         linked_proposals:
+          proposal_adhesions:
+            one: adhesion
+            other: adhesions
           proposal_votes:
             one: vote
             other: votes

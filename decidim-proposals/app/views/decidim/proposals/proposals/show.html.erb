@@ -37,7 +37,7 @@
         </div>
       </div>
     <% end %>
-    <%# if current_settings.adhesions_enabled? || current_user %>
+    <% if current_settings.adhesions_enabled? || current_user %>
       <div class="card extra">
         <div class="card__content">
           <% if current_settings.adhesions_enabled? %>
@@ -46,7 +46,7 @@
           <% end %>
         </div>
       </div>
-    <%# end %>
+    <% end %>
     <%= feature_reference(@proposal) %>
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>
