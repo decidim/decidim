@@ -93,14 +93,14 @@ it:
           already_have_an_account?: Hai già un account?
           newsletter_notifications: Ricevi informazioni sulle attività rilevanti
           sign_in: Accedi
-          sign_up: Registrati
+          sign_up: Iscriviti
           sign_up_as:
             legend: Registrati come
             user: Individuo
             user_group: Organizzazione / Collettivo
           subtitle: Registrati per partecipare alle discussioni e appoggiare le proposte.
           terms: Termini e condizioni di utilizzo del servizio
-          tos_agreement: Effettuando la registrazione automaticamente accetti le seguenti condizioni %{link}.
+          tos_agreement: Iscrivendoti accetti le %{link}.
           username_help: Nome "pubblico" che comparirà nei tuoi post. Utilizza un nome fittizio se vuoi garantirti un certo grado di anonimato.
       sessions:
         new:
