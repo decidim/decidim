@@ -32,7 +32,7 @@ fr:
       id_documents:
         explanation: Téléchargez vos documents d'identité afin que nous puissions vérifier votre identité
         name: Documents d'identité
-      multistep: À étapes
+      multistep: En plusieurs étapes
       name: Nom
       postal_letter:
         explanation: Nous vous enverrons une lettre postale avec un code que vous devrez saisir afin que nous puissions vérifier votre adresse
@@ -44,8 +44,8 @@ fr:
           success: Vous avez été autorisé avec succès.
         first_login:
           actions:
-            dummy_authorization_handler: Vérifier l'exemple de gestionnaire d'autorisation
-            dummy_authorization_workflow: Vérifiez par rapport au flux de travail d'autorisation exemple
+            dummy_authorization_handler: Vérifier en comparant avec l'exemple du gestionnaire d'autorisation
+            dummy_authorization_workflow: Vérifiez par rapport à l'exemple de procédure d'autorisation
             id_documents: Soyez vérifié en téléchargeant votre document d'identité
             postal_letter: Faites-vous vérifier en recevant un code de vérification par courrier postal
           title: Vérifier votre Identité
@@ -77,7 +77,7 @@ fr:
             error: Un problème est survenu lors du téléchargement de votre document
             success: Document téléchargé avec succès
           edit:
-            being_reviewed: Nous examinons vos documents et vous serez bientôt vérifié
+            being_reviewed: Nous examinons vos documents et votre autorisation sera bientôt validée
             rejection_clarity: Assurez-vous que les informations sont clairement visibles dans l'image téléchargée
             rejection_correctness: Assurez-vous que les informations entrées sont correctes
             rejection_notice: Il y a eu un problème avec votre vérification. Veuillez essayer à nouveau
@@ -87,8 +87,8 @@ fr:
             title: Téléchargez votre document d'identité
           update:
             error: Un problème est survenu lors du chargement de votre document
-            success: Document reuploaded avec succès
-        dni: Carte d'identité
+            success: Document téléchargé avec succès
+        dni: Carte nationale d'identité
         nie: NIE
         passport: Passeport
       postal_letter:
