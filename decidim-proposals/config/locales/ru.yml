@@ -162,6 +162,7 @@ ru:
         proposal:
           view_proposal: Просмотреть предложение
         show:
+          contact: Контакт
           edit_proposal: Редактировать предложение
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается
