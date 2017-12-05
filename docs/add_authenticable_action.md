@@ -11,6 +11,7 @@ feature.actions = %w(adhere vote create)
 3. Translate the action for the corresponding key: `en.decidim.features.proposals.actions.adhere= Adhere`
 1. Restart the server to pick up the changes.
 1. Now the admin should be able to go to the Control Panel and edit `PROCESSES/Proposals/Permissions/Adhere` panel. There an `Authorization Handler` can be set.
+1. Edit `app/models/decidim/proposals/abilities/current_user_ability.rb` and ...
 1. **something else should be done because with this config the button is still blocking verified users, but what???!**
 
 
