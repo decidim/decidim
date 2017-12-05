@@ -108,7 +108,7 @@ it:
               success: Lettera contrassegnata con successo come inviata
         authorizations:
           create:
-            error: c'è stato un problema con la tua richiesta
+            error: Si è verificato un problema con la tua richiesta
             success: Grazie! Invieremo un codice di verifica al tuo indirizzo
           edit:
             send: Conferma
