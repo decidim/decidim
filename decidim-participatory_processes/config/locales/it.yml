@@ -11,7 +11,7 @@ it:
         domain: Dominio
         end_date: Data di fine
         hashtag: Hashtag
-        hero_image: Immagine sulla Home Page
+        hero_image: Immagine della Home Page
         local_area: Municipi
         meta_scope: Metadati di ambito
         participatory_process_group_id: Gruppo di processi
