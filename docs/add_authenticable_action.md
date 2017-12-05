@@ -18,4 +18,4 @@ feature.actions = %w(adhere vote create)
 With a user which has the selected permission verifyed:
 1. Go to a Proposal detail in the front-end
 1. Adhere to the current proposal: the user should be able to perform an adhesion.
-  - If the user had the required permission unverified, the 'adhere' button should block the action. You can check it with an unverified user.
+    - If the user had the required permission unverified, the 'adhere' button should block the action. You can check it with an unverified user.
