@@ -35,13 +35,7 @@
     max-height: 100%;
     min-height: 100%;
 
-    .picker-header {
-      order: 1;
-    }
-
     .picker-footer {
-      order: 10;
-
       .buttons {
         display: flex;
         justify-content: center;
@@ -50,7 +44,6 @@
     }
 
     .picker-content {
-      order: 5;
       flex-grow: 10;
       min-height: 100%;
       max-height: 100%;
