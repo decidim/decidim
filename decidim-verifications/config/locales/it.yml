@@ -36,7 +36,7 @@ it:
       name: Nome
       postal_letter:
         explanation: Ti invieremo una lettera postale con un codice che dovrai inserire per poter verificare il tuo indirizzo
-        name: Codice per lettera postale
+        name: Codice via lettera postale
     verifications:
       authorizations:
         create:
