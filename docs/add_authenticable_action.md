@@ -3,11 +3,10 @@
 We're going to reproduce the steps to add an action (adhere) for a proposal step by step.
 ### Configuring a new 'adhere' action
 1. Edit decidim-proposals/lib/decidim/proposals/feature.rb
-1. Add the new action into the `feature.actions` array:
+1. Add the new 'adhere' action into the `feature.actions` array and save the file:
 ```
-feature.actions = %w(**adhere** vote create)
+feature.actions = %w(adhere vote create)
 ```
-And save the file.
 
 3. Translate the action for the corresponding key: `en.decidim.features.proposals.actions.adhere= Adhere`
 1. Restart the server to pick up the changes.
