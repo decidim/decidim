@@ -1,0 +1,33 @@
+<div class="column">
+  <article class="card card--proposal">
+    <div class="card__content">
+      <div class="card__header">
+        <h5 class="card__title"><%= proposal['title'] %></h5>
+
+        <div class="card__author author-data author-data--small">
+          <%= render partial: "proposal_preview_card_author", locals: { proposal: proposal } %>
+        </div>
+
+        <div class='reference reference--text-left'>
+          <%= t("reference", reference: Date.current.strftime('%d-%m-%Y'), scope: "decidim.shared.reference") %>
+        </div>
+      </div>
+      <p><%= truncate(proposal['body'], length: 100) %></p>
+      <%= render partial: "proposal_preview_card_tags", locals: { proposal: proposal, tags_class_extra: "tags--proposal" } %>
+    </div>
+    <div class="card__footer">
+      <div class="card__support">
+        <div class="card__support__data">
+          <span class="card__support__number">0</span>
+          <span class="">
+            <%= t('decidim.proposals.proposals.votes_count.count', count: 0) %>
+          </span>
+        </div>
+
+        <button class="card__button button small" type="button">
+          <%= t('decidim.proposals.proposals.vote_button.vote') %>
+        </button>
+      </div>
+    </div>
+  </article>
+</div>

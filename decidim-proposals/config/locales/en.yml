@@ -94,6 +94,30 @@ en:
             votes: Votes
       new:
         limit_reached: You can't create new proposals since you've exceeded the limit.
+      proposal_wizard:
+        actions:
+          go_to_step_2: Search for similar proposals
+          go_to_step_3: None of the above matches mine, continue
+          go_to_step_4: Preview the proposal
+          go_back_to_step_3: I want to correct my proposal
+          go_to_finish: Publish the proposal
+          go_to_next_step: Next Step
+        header:
+          back: Back
+          title: Create proposal
+        stepper:
+          step_1: Step 1
+          step_2: Step 2
+          step_3: Step 3
+          step_4: Step 4
+        step_2:
+          similar_proposals: "Similar proposals:"
+        step_3:
+          attachment_legend: "(Optional) Add an attachment"
+          select_a_category: Please select a category
+          select_a_user_group: Please select a user
+        step_4:
+          preview: "Preview"
       proposal_votes:
         create:
           error: There's been errors when voting the proposal.

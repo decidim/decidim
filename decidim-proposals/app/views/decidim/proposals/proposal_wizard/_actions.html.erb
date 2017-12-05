@@ -1,0 +1,12 @@
+<div class="actions">
+  <%#= link_to t('decidim.proposals.proposal_wizard.next_step'), next_wizard_path, class: "button expanded" %>
+  <%= form.submit t('.next_step'), class: 'button expanded' %>
+
+  session:<br>
+  <%= session[:proposal].inspect %>
+
+  <hr>
+  params:<br>
+  <%= params.inspect %>
+
+</div>

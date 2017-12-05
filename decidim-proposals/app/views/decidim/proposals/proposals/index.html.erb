@@ -34,6 +34,11 @@
       <%= render partial: "count" %>
     </h2>
     <% if current_settings.creation_enabled %>
+      <%= action_authorized_link_to :create, proposal_wizard_path(:step_1), class: "title-action__action button small hollow" do %>
+        <%= t(".new_proposal") %> (wizard)
+        <%= icon "plus" %>
+      <% end %>
+      &nbsp;&nbsp;&nbsp;
       <%= action_authorized_link_to :create, new_proposal_path, class: "title-action__action button small hollow" do %>
         <%= t(".new_proposal") %>
         <%= icon "plus" %>

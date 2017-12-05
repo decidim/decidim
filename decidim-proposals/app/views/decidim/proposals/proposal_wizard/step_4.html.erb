@@ -1,0 +1,25 @@
+<%= render partial: "header" %>
+<%= render partial: "stepper", locals: {current_step: step}%>
+<div class="row">
+  <div class="columns large-6 medium-centered">
+    <h3 class="heading3"><%= t(".preview") %></h5>
+    <div class="card">
+      <div class="card__content">
+        <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: 'form new_initiative_previous_form' }) do |form| %>
+          <%= form.hidden_field :title %>
+          <%= form.hidden_field :body %>
+          <%= form.hidden_field :category_id %>
+          <%= form.hidden_field :scope_id %>
+          <%= form.hidden_field :user_group_id %>
+          <%= form.hidden_field :address %>
+          <%= form.hidden_field :has_address %>
+          <%#= form.hidden_field :attachment %>
+
+          <%= render partial: "proposal_preview_card", locals: {proposal: session[:proposal]}%>
+
+          <%= proposal_wizard_actions form %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<%= render partial: "header" %>
+<%= render partial: "stepper", locals: {current_step: step}%>
+<div class="row">
+  <div class="columns large-6 medium-centered">
+    <div class="card">
+      <div class="card__content">
+        <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: 'form new_initiative_previous_form' }) do |form| %>
+          <div class="field">
+            <%= form.text_field :title, value: session[:proposal]['title'] %>
+          </div>
+
+          <div class="field">
+            <%= form.text_area :body, value: session[:proposal]['body'], rows: 10 %>
+          </div>
+
+          <% if feature_settings.geocoding_enabled? %>
+            <div class="field">
+              <%= form.check_box :has_address %>
+            </div>
+            <div class="field" id="address_input">
+              <%= form.text_field :address %>
+            </div>
+          <% end %>
+
+          <% if @form.categories&.any? %>
+            <div class="field">
+              <%= form.categories_select :category_id, @form.categories, prompt: t(".select_a_category") %>
+            </div>
+          <% end %>
+
+          <% if current_participatory_space.has_subscopes? %>
+            <div class="field">
+              <%= form.select :scope_id, current_participatory_space.subscopes.map{|s| [translated_attribute(s.name), s.id]}, prompt: t("decidim.scopes.global") %>
+            </div>
+          <% end %>
+
+          <% if current_user.user_groups.verified.any? %>
+            <div class="field">
+              <%= form.select :user_group_id, current_user.user_groups.verified.map{|g| [g.name, g.id]}, prompt: t(".select_a_user_group") %>
+            </div>
+          <% end %>
+
+          <% if false && feature_settings.attachments_allowed? %>
+            <fieldset>
+              <legend><%= t('.attachment_legend') %></legend>
+              <%= form.fields_for :attachment, @form.attachment do |formA| %>
+                <div class="field">
+                  <%= formA.text_field :title %>
+                </div>
+
+                <div class="field">
+                  <%= formA.upload :file, optional: false %>
+                </div>
+              <% end %>
+            </fieldset>
+          <% end %>
+
+          <%= proposal_wizard_actions form %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
