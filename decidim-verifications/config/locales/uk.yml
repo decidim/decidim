@@ -47,6 +47,13 @@ uk:
             dummy_authorization_handler: Перевірте, порівнявши з прикладом підтвердження своєї особи
             dummy_authorization_workflow: Перевірте, порівнявши з прикладом підтвердження своєї особи
             id_documents: Отримайте підтвердження, завантаживши документ особи
+          title: Підтвердьте свою особу
+          verify_with_these_options: 'Наявні такі способи підтвердити вашу особу:'
+        new:
+          authorize: Надіслати
+          authorize_with: Підтвердити особу за допомогою %{authorizer}
+        skip_verification: Ви можете поки що пропустити це і %{link}
+        start_exploring: почати досліджувати
       postal_letter:
         admin:
           pending_authorizations:
