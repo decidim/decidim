@@ -225,6 +225,7 @@ ca:
         attachment:
           fields:
             content_type: Tipus
+            file_size: Mida
             title: Títol
           name: Arxiu adjunt
         category:

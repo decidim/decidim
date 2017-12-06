@@ -230,6 +230,7 @@ en:
         attachment:
           fields:
             content_type: Type
+            file_size: Size
             title: Title
           name: Attachment
         category:

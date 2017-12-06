@@ -12,6 +12,7 @@ shared_examples "manage attachments examples" do
       within "#attachments table" do
         expect(page).to have_content(translated(attachment.title, locale: :en))
         expect(page).to have_content(attachment.file_type)
+        expect(page).to have_content(attachment_file_size(attachment))
       end
     end
 

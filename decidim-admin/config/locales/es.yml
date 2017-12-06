@@ -225,6 +225,7 @@ es:
         attachment:
           fields:
             content_type: Tipo
+            file_size: Tamaño
             title: Título
           name: Archivo adjunto
         category:
