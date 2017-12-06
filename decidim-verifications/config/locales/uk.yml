@@ -44,9 +44,10 @@ uk:
           success: Ви успішно підтвердили свою особу.
         first_login:
           actions:
-            dummy_authorization_handler: Перевірте, порівнявши з прикладом підтвердження своєї особи
-            dummy_authorization_workflow: Перевірте, порівнявши з прикладом підтвердження своєї особи
+            dummy_authorization_handler: Підтвердьте, порівнявши з прикладом підтвердження своєї особи
+            dummy_authorization_workflow: Підтвердьте, порівнявши з прикладом підтвердження своєї особи
             id_documents: Отримайте підтвердження, завантаживши документ особи
+            postal_letter: Підтвердьте особу, отримавши код підтвердження поштою
           title: Підтвердьте свою особу
           verify_with_these_options: 'Наявні такі способи підтвердити вашу особу:'
         new:
@@ -54,6 +55,20 @@ uk:
           authorize_with: Підтвердити особу за допомогою %{authorizer}
         skip_verification: Ви можете поки що пропустити це і %{link}
         start_exploring: почати досліджувати
+      id_documents:
+        admin:
+          confirmations:
+            create:
+              error: Підтвердження не збігається. Спробуйте ще раз, або відхиліть підтвердження, щоб користувач міг його виправити
+              success: Особу учасника успішно підтверджено
+            new:
+              introduce_user_data: Введіть дані на картинці
+              reject: Відхилити
+              verify: Підтвердити
+          pending_authorizations:
+            index:
+              title: Підтвердження, які очікують на розгляд
+              verification_number: 'Підтвердження #%{n}'
       postal_letter:
         admin:
           pending_authorizations:
