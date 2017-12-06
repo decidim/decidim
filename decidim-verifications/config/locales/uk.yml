@@ -72,6 +72,14 @@ uk:
           rejections:
             create:
               success: Підтвердження особи відхилено. Учаснику буде запропоновано виправити свої документи
+        authorizations:
+          create:
+            error: Під час завантаження вашого документа виникла проблема
+            success: Документ успішно завантажено
+          edit:
+            being_reviewed: Ми розглядаємо ваші документи. Вашу особу буде незабаром підтверджено
+            rejection_clarity: Переконайтеся, що у завантаженому зображенні чітко видно дані
+            rejection_correctness: Переконайтеся, що вказані дані правильні
       postal_letter:
         admin:
           pending_authorizations:
