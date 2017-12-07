@@ -58,8 +58,28 @@ ru:
       id_documents:
         admin:
           confirmations:
+            create:
+              error: Подтверждение не соответствует. Повторите попытку или отклоните проверку, чтобы пользователь мог ее исправить
+              success: Литчность участника успешно подтверждена
             new:
+              introduce_user_data: Введите данные на картинке
+              reject: Отклонить
               verify: Подтвердить личность
+          pending_authorizations:
+            index:
+              title: Подтверждения, ожидающие рассмотрения
+              verification_number: 'Подтверждение #%{n}'
+          rejections:
+            create:
+              success: Подтверждение личности отклонено. Участнику будет предложено внести изменения в документы
+        authorizations:
+          create:
+            error: Не удалось загрузить ваш документ
+            success: Документ успешно загружен
+          edit:
+            being_reviewed: Мы рассматриваем ваши документы. Ваша личность вскоре будет проверена
+            rejection_clarity: Убедитесь, что в загруженном изображении ясно видны данные
+            rejection_correctness: Убедитесь, что введенные данные верны
       postal_letter:
         authorizations:
           edit:
