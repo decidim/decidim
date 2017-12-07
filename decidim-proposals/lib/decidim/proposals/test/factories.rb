@@ -130,4 +130,18 @@ FactoryBot.define do
     proposal { build(:proposal) }
     author { build(:user, organization: proposal.organization) }
   end
+
+  factory :proposal_adhesion, class: "Decidim::Proposals::ProposalAdhesion" do
+    proposal { build(:proposal) }
+    author { build(:user, organization: proposal.organization) }
+  end
+
+  factory :organization_proposal_adhesion, class: "Decidim::Proposals::ProposalAdhesion" do
+    proposal { build(:proposal) }
+    author { build(:user, organization: proposal.organization) }
+    user_group { create(:user_group) }
+    after(:create) do |support|
+      create(:user_group_membership, user: support.author, user_group: Decidim::UserGroup.find(support.decidim_user_group_id))
+    end
+  end
 end
