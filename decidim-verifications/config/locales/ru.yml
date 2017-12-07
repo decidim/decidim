@@ -97,6 +97,11 @@ ru:
             index:
               address: Адрес
               letter_sent_at: 'Письмо отправлено по адресу:'
+              mark_as_sent: Пометить как отправленное
+              not_yet_sent: Еще не отправлено
+              title: Текущие проверки личности
+              username: Имя участника
+              verification_code: Проверочный код
         authorizations:
           edit:
             title: Введите код подтверждения, который вы получили
