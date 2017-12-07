@@ -152,10 +152,10 @@ ru:
           title: Развитие проекта
       versions:
         index:
-          changes_at_title: Предоставлено %{title}"
+          changes_at_title: Изменения в "%{title}"
           title: Версии
         show:
-          changes_at_title: Предоставлено %{title}"
+          changes_at_title: Изменения в «%{title}»
         version:
           version_index: Версия %{index}
     features:
