@@ -386,7 +386,7 @@ uk:
           error: При оновленні цієї сторінки сталася помилка.
           success: Сторінку успішно оновлено
       titles:
-        authorization_workflows: Методи перевірки
+        authorization_workflows: Методи підтвердження особи
         dashboard: Приладна дошка
         impersonations: Виступи в ролі учасника
         managed_users: Керовані учасники
