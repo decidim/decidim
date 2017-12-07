@@ -60,13 +60,13 @@ ru:
         related_photos: Сопутствующие фотографии
     authorization_handlers:
       dummy_authorization_handler:
-        explanation: Подтвердите, введя номер документа, заканчивающийся на «X»,
+        explanation: Подтвердите свою личность, введя номер документа, заканчивающийся на «X»,
         fields:
           document_number: Номер документа
           postal_code: Почтовый индекс
         name: Пример подтверждения личности
       dummy_authorization_workflow:
-        name: Нерабочий псведо-путь подтверждения личности
+        name: Пример пути подтверждения личности
       errors:
         duplicate_authorization: С теми же данными уже подтвердил свою личность другой участник.
       foo_authorization:
@@ -132,22 +132,22 @@ ru:
     features:
       dummy:
         actions:
-          bar: Нерабочая псевдо-переменная 1
-          foo: Нерабочая псевдо-переменная 2
-        name: Нерабочая псевдо-составляющая
+          bar: Пример переменной 1
+          foo: Пример переменной 2
+        name: Пример составляющей
         settings:
           global:
             comments_enabled: Комментарии включены
-            dummy_global_attribute_1: Нерабочее псевдо-свойство 1
-            dummy_global_attribute_2: Нерабочее псевдо-свойство 2
+            dummy_global_attribute_1: Пример свойства 1
+            dummy_global_attribute_2: Пример свойства 2
           step:
             comments_blocked: Комментарии выключены
-            dummy_step_attribute_1: Нерабочее первое псевдо-свойство шага
-            dummy_step_attribute_2: Нерабочее второе псевдо-свойство шага
+            dummy_step_attribute_1: Пример 1 свойства шага
+            dummy_step_attribute_2: Пример 2 свойства шага
     filters:
       linked_classes:
         all: Все
-        dummyresource: Нерабочие псевдо-ресурсы
+        dummyresource: Примеры ресурсов
         meeting: Встречи
         project: Проекты
         proposal: Предложения
