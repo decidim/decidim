@@ -14,12 +14,12 @@ pt:
         meta_scope: Metadados do escopo
         participatory_scope: Escopo participativo
         participatory_structure: Estrutura participativa
-        promoted: Promovido
+        promoted: Destacado
         scope_id: Escopo
         scopes_enabled: Escopos ativados
         short_description: Pequena descrição
         slug: Slug de URL
-        subtitle: Legenda
+        subtitle: Subtítulo
         target: Alvo
         title: Título
   decidim:
@@ -38,7 +38,7 @@ pt:
           not_published: Não publicado
           published: Publicados
         new:
-          create: Crio
+          create: Criar
           title: Nova montagem
         update:
           error: Ocorreu um erro ao atualizar este assembly.
