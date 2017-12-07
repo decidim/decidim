@@ -386,7 +386,7 @@ ru:
           error: При обновлении этой страницы произошла ошибка.
           success: Страница успешно обновлена
       titles:
-        authorization_workflows: Методы проверки
+        authorization_workflows: Методы подтверждения личности
         dashboard: Панель управления
         impersonations: Выступления в роли участника
         managed_users: Управляемые участники
