@@ -60,7 +60,7 @@ uk:
         related_photos: Супутні світлини
     authorization_handlers:
       dummy_authorization_handler:
-        explanation: Підтвердьте, введіть номер документа, що закінчується символом "X"
+        explanation: Підтвердьте особу, ввівши номер документа, що закінчується символом "X"
         fields:
           document_number: Номер документа
           postal_code: Поштовий індекс
@@ -74,8 +74,8 @@ uk:
           bar: Приклад змінної 1
           foo: Приклад змінної 2
         name: Приклад підтвердження своєї особи
-      granted_at: Надається %{timestamp}
-      started_at: Надається %{timestamp}
+      granted_at: 'Надано: %{timestamp}'
+      started_at: 'Розпочато: %{timestamp}'
     core:
       actions:
         unauthorized: Ви не маєте прав на виконання цієї дії
