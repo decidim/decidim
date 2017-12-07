@@ -181,13 +181,13 @@ ru:
         new_message:
           greeting: Здравствуйте, %{recipient}!
           intro: "%{sender} отправил новые сообщения в ваш разговор. Нажмите здесь, чтобы увидеть их:"
-          outro: Наслаждайтесь децидим!
+          outro: Наслаждайтесь Десидим!
           subject: У вас есть новые сообщения от %{sender}
       conversations:
         create:
-          error: Разговор не начался. Попробуйте позже
+          error: Беседа не началась. Попробуйте позже
         index:
-          no_conversations: У вас еще нет разговоров
+          no_conversations: У вас еще нет бесед
           title: Беседа с
         reply:
           send: Отправить
@@ -196,7 +196,7 @@ ru:
           title: Беседа с %{usernames}
         start:
           send: Отправить
-          title: Начать разговор
+          title: Начать беседу
         update:
           error: Сообщение не отправлено. Попробуйте позже
     newsletter_mailer:
@@ -245,9 +245,9 @@ ru:
           explanation: Чтобы выполнить это действие, вам необходимо подтвердить свою личность с помощью «%{authorization}».
           title: Требуется подтверждение личности
         pending:
-          explanation: Чтобы выполнить это действие, вам необходимо авторизоваться с помощью «%{authorization}», но ваше разрешение все еще выполняется
-          resume: Проверьте выполнение авторизации «%{authorization}»
-          title: Авторизация продолжается
+          explanation: Чтобы выполнить это действие, вам необходимо подтвердить свою личность с помощью «%{authorization}», но подтверждение вашей личности еще не завершено
+          resume: Отследите ход подтверждения личности «%{authorization}»
+          title: Подтверждение личности еще не проведено
         unauthorized:
           explanation: Извините, вы не можете выполнить это действие, поскольку некоторые данные вашего подтверждения личности не сходятся.
           invalid: "Содержимое поля %{field} недопустимо."
@@ -280,7 +280,7 @@ ru:
         share: Поделиться
         share_link: Поделиться ссылкой
       version_author:
-        deleted: Удаленный пользователь
+        deleted: Удаленный участник
   devise:
     invitations:
       edit:
@@ -420,7 +420,7 @@ ru:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
-      decidim_short: "%d/%m/%Y %H:%M"
+      decidim_short: "%H:%M %d/%m/%Y"
       time_of_day: "%H:%M"
   views:
     pagination:
