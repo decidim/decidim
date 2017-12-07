@@ -66,7 +66,7 @@ uk:
           postal_code: Поштовий індекс
         name: Приклад підтвердження своєї особи
       dummy_authorization_workflow:
-        name: Робочий процес авторизації манекенів
+        name: Неробочий псведо-шлях підтвердження особи
       errors:
         duplicate_authorization: Інший учасник вже підтвердив свою особу з такими ж даними.
       foo_authorization:
