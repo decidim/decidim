@@ -46,7 +46,7 @@ module Decidim
       describe 'Organization adheres Proposal' do
         let(:user_group) { create(:user_group) }
         let(:user_group_membership) { create(:user_group_membership, user: current_user, user_group: user_group) }
-        let(:command) { described_class.new(proposal, current_user, user_group.id) }
+        let(:command) { described_class.new(proposal, current_user, user_group) }
 
         context "in normal conditions" do
           it 'broadcasts ok' do
@@ -61,7 +61,12 @@ module Decidim
         end
 
         context "when the adhesion is not valid" do
-          it 'Do not increases the vote counter by one' do
+          before do
+            # rubocop:disable RSpec/AnyInstance
+            allow_any_instance_of(ProposalAdhesion).to receive(:valid?).and_return(false)
+            # rubocop:enable RSpec/AnyInstance
+          end
+          it 'Do not increase the adhesions counter by one' do
             command.call
             proposal.reload
             expect(proposal.proposal_adhesions_count).to be_zero

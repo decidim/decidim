@@ -8,10 +8,11 @@ module Decidim
       #
       # proposal     - A Decidim::Proposals::Proposal object.
       # current_user - The current user.
-      def initialize(proposal, current_user, current_group_id=nil)
+      # current_group- (optional) The current_grup that is adhering to the Proposal.
+      def initialize(proposal, current_user, current_group=nil)
         @proposal = proposal
-        @current_user = current_group_id
-        @current_group_id = current
+        @current_user = current_user
+        @current_group = current_group
       end
 
       # Executes the command. Broadcasts these events:
@@ -22,9 +23,9 @@ module Decidim
       # Returns nothing.
       def call
         build_proposal_adhesion
-        return broadcast(:invalid) unless adhesion.valid?
+        return broadcast(:invalid) unless @adhesion.valid?
 
-        adhesion.save!
+        @adhesion.save!
         broadcast(:ok, adhesion)
       end
 
@@ -34,6 +35,8 @@ module Decidim
 
       def build_proposal_adhesion
         @adhesion= @proposal.adhesions.build(author: @current_user)
+        @adhesion.user_group= @current_group if @current_group.present?
+        @adhesion
       end
     end
   end
