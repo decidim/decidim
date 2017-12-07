@@ -152,10 +152,10 @@ uk:
           title: Розвиток проекту
       versions:
         index:
-          changes_at_title: Надається %{title}"
+          changes_at_title: Зміни в "%{title}"
           title: Версії
         show:
-          changes_at_title: Надається %{title}"
+          changes_at_title: Зміни в "%{title}"
         version:
           version_index: Версія %{index}
     features:
