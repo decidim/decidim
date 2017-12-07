@@ -12,7 +12,7 @@ ru:
   decidim:
     admin:
       menu:
-        authorization_workflows: Верификация
+        authorization_workflows: Пути подтверждения личности
     authorization_handlers:
       admin:
         id_documents:
@@ -42,10 +42,17 @@ ru:
         first_login:
           actions:
             dummy_authorization_handler: Проверьте, сравнив с примером подтверждения личности
+            dummy_authorization_workflow: Проверьте, сравнив с примером пути подтверждения личности
+          verify_with_these_options: 'Есть такие способы подтверждения вашей личности:'
         new:
           authorize_with: Подтвердить личность с помощью %{authorizer}
         skip_verification: Вы можете пока что пропустить это и %{link}
         start_exploring: начать изучать
+      id_documents:
+        admin:
+          confirmations:
+            new:
+              verify: Подтвердить личность
       postal_letter:
         authorizations:
           edit:
