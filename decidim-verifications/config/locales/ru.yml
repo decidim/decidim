@@ -34,6 +34,8 @@ ru:
         name: Идентификационные документы
       multistep: Многошаговое
       name: Имя
+      postal_letter:
+        explanation: Мы отправим вам почтовое письмо с кодом, который вам нужно будет ввести для подтверждения адреса
     verifications:
       authorizations:
         create:
@@ -41,8 +43,9 @@ ru:
           success: Вы успешно подтвердили свою личность.
         first_login:
           actions:
-            dummy_authorization_handler: Проверьте, сравнив с примером подтверждения личности
-            dummy_authorization_workflow: Проверьте, сравнив с примером пути подтверждения личности
+            dummy_authorization_handler: Проведите подтверждение, сравнив с примером подтверждения личности
+            dummy_authorization_workflow: Проведите подтверждение, сравнив с примером пути подтверждения личности
+          title: Подтвердите вашу личность
           verify_with_these_options: 'Есть такие способы подтверждения вашей личности:'
         new:
           authorize_with: Подтвердить личность с помощью %{authorizer}
