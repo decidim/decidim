@@ -12,7 +12,7 @@ uk:
   decidim:
     admin:
       menu:
-        authorization_workflows: Перевірки
+        authorization_workflows: Шляхи підтвердження особи
     authorization_handlers:
       admin:
         id_documents:
@@ -31,7 +31,7 @@ uk:
       help: Допомога
       id_documents:
         explanation: Завантажте свої посвідчення особи, щоб ми могли перевірити вашу особу
-        name: Документи особистості
+        name: Особисті документи
       multistep: Багатокроковий
       name: Ім'я
       postal_letter:
