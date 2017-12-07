@@ -138,12 +138,12 @@ uk:
         settings:
           global:
             comments_enabled: Коментарі дозволено
-            dummy_global_attribute_1: Неробоча властивість 1
-            dummy_global_attribute_2: Неробоча властивість 2
+            dummy_global_attribute_1: Приклад властивості 1
+            dummy_global_attribute_2: Приклад властивості 2
           step:
             comments_blocked: Коментарі вимкнено
-            dummy_step_attribute_1: 1 властивість неробочого кроку
-            dummy_step_attribute_2: 2 властивість неробочого кроку
+            dummy_step_attribute_1: Приклад 1 властивості кроку
+            dummy_step_attribute_2: Приклад 2 властивості кроку
     filters:
       linked_classes:
         all: Усі
