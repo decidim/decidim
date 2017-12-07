@@ -60,7 +60,7 @@ ru:
         related_photos: Сопутствующие фотографии
     authorization_handlers:
       dummy_authorization_handler:
-        explanation: Подтвердите свою личность, введя номер документа, заканчивающийся на «X»,
+        explanation: Подтвердите свою личность, введя номер документа, заканчивающийся на «X»
         fields:
           document_number: Номер документа
           postal_code: Почтовый индекс
@@ -75,7 +75,7 @@ ru:
           foo: Нерабочая псевдо-переменная 2
         name: Нерабочее псевдо-подтверждение личности
       granted_at: Предоставлено %{timestamp}
-      started_at: Начато с %{timestamp}
+      started_at: 'Начато: %{timestamp}'
     core:
       actions:
         unauthorized: Вы не имеете прав для выполнения этого действия
@@ -175,12 +175,12 @@ ru:
       conversation_mailer:
         new_conversation:
           greeting: Здравствуйте, %{recipient}!
-          intro: "%{sender} начал с вами новый разговор. Нажмите здесь, чтобы посмотреть:"
-          outro: Наслаждайтесь децидим!
-          subject: "%{sender} начал разговор с вами"
+          intro: "%{sender} начал с вами новую беседу. Кликните здесь, чтобы прочитать её:"
+          outro: Наслаждайтесь Десидим!
+          subject: "%{sender} начал беседу с вами"
         new_message:
           greeting: Здравствуйте, %{recipient}!
-          intro: "%{sender} отправил новые сообщения в ваш разговор. Нажмите здесь, чтобы увидеть их:"
+          intro: "%{sender} написал новые сообщения в вашей беседе. Кликните здесь, чтобы увидеть их:"
           outro: Наслаждайтесь Десидим!
           subject: У вас есть новые сообщения от %{sender}
       conversations:
