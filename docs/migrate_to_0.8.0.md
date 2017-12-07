@@ -48,7 +48,7 @@ require 'decidim/dev'
 
 FactoryGirl.define do
   ...
-end  
+end
 
 ```
 
