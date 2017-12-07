@@ -66,12 +66,12 @@ uk:
           postal_code: Поштовий індекс
         name: Приклад підтвердження своєї особи
       dummy_authorization_workflow:
-        name: Неробочий псведо-шлях підтвердження особи
+        name: Приклад шляху підтвердження особи
       errors:
         duplicate_authorization: Інший учасник вже підтвердив свою особу з такими ж даними.
       foo_authorization:
         fields:
-          bar: Неробоча псевдо-змінна 1
+          bar: Приклад змінної 1
           foo: Неробоча псевдо-змінна 2
         name: Неробоче псевдо-підтвердження своєї особи
       granted_at: Надається %{timestamp}
@@ -147,7 +147,7 @@ uk:
     filters:
       linked_classes:
         all: Усі
-        dummyresource: Неробочі псевдо-ресурси
+        dummyresource: Приклади ресурсів
         meeting: Зустрічі
         project: Проекти
         proposal: Пропозиції
