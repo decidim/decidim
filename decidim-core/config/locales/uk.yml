@@ -72,8 +72,8 @@ uk:
       foo_authorization:
         fields:
           bar: Приклад змінної 1
-          foo: Неробоча псевдо-змінна 2
-        name: Неробоче псевдо-підтвердження своєї особи
+          foo: Приклад змінної 2
+        name: Приклад підтвердження своєї особи
       granted_at: Надається %{timestamp}
       started_at: Надається %{timestamp}
     core:
@@ -132,9 +132,9 @@ uk:
     features:
       dummy:
         actions:
-          bar: Неробоча псевдо-змінна 1
-          foo: Неробоча псевдо-змінна 2
-        name: Неробоча складова
+          bar: Приклад змінної 1
+          foo: Приклад змінної 2
+        name: Приклад складової
         settings:
           global:
             comments_enabled: Коментарі дозволено
