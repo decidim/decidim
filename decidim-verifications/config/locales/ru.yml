@@ -32,7 +32,20 @@ ru:
       id_documents:
         explanation: Загрузите документы, удостоверяющие личность, чтобы мы могли проверить вашу личность
         name: Идентификационные документы
+      multistep: Многошаговое
+      name: Имя
     verifications:
+      authorizations:
+        create:
+          error: При создании этого подтверждения личности произошла ошибка.
+          success: Вы успешно подтвердили свою личность.
+        first_login:
+          actions:
+            dummy_authorization_handler: Проверьте, сравнив с примером подтверждения личности
+        new:
+          authorize_with: Подтвердить личность с помощью %{authorizer}
+        skip_verification: Вы можете пока что пропустить это и %{link}
+        start_exploring: начать изучать
       postal_letter:
         authorizations:
           edit:
