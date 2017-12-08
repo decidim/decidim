@@ -35,6 +35,7 @@ fr:
             proposal_edit_before_minutes: Les propositions peuvent être éditées par les auteurs avant que ces minutes soit écoulées
             proposal_limit: Maximum de propositions par utilisateur
             vote_limit: Nombre maximum de votes par utilisateur
+            upstream_moderation: Modération à priori activée
           step:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
