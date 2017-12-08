@@ -26,7 +26,7 @@ module Decidim
       update_attributes(upstream_moderation: "refused")
     end
 
-    def upstream_moderation_activated?
+    def upstream_activated?
       if reportable.is_a?(Decidim::Proposals::Proposal)
         reportable.feature.settings.upstream_moderation_enabled
       else
@@ -34,8 +34,9 @@ module Decidim
       end
     end
 
-    def get_upstream_moderation
-      return self if upstream_moderation_activated?
-    end
+    # def get_upstream_moderation
+
+    #   return self if upstream_activated?
+    # end
   end
 end
