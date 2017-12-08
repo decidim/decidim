@@ -33,6 +33,8 @@ module Decidim
 
       before_save :compute_depth
       after_create :create_comment_moderation
+      after_create :update_moderation
+
 
       delegate :organization, :feature, to: :commentable
 
@@ -82,6 +84,13 @@ module Decidim
         participatory_space = self.root_commentable.feature.participatory_space
         self.create_moderation!(participatory_space: participatory_space)
       end
+
+      def update_moderation
+        unless moderation.upstream_moderation_activated?
+          moderation.authorize!
+        end
+      end
+
 
       # Private: Check if commentable can have comments and if not adds
       # a validation error to the model

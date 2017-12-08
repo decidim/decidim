@@ -28,6 +28,7 @@ en:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
+            comments_upstream_moderation_enabled: Upstream moderation for comments enabled
           step:
             announcement: Announcement
             comments_blocked: Comments blocked

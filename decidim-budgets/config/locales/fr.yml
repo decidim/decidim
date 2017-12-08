@@ -112,6 +112,7 @@ fr:
             comments_enabled: Commentaires activés
             total_budget: Budget total
             vote_threshold_percent: Pourcentage de seuil de vote
+            comments_upstream_moderation_enabled: Modération à priori des commentaires activée
           step:
             announcement: Annonce
             comments_blocked: Commentaires bloqués

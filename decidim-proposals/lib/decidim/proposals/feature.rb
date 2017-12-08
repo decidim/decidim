@@ -22,10 +22,11 @@ Decidim.register_feature(:proposals) do |feature|
     settings.attribute :maximum_votes_per_proposal, type: :integer, default: 0
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
     settings.attribute :official_proposals_enabled, type: :boolean, default: true
+    settings.attribute :upstream_moderation_enabled, type: :boolean, default: false
     settings.attribute :comments_enabled, type: :boolean, default: true
+    settings.attribute :comments_upstream_moderation_enabled, type: :boolean, default: false
     settings.attribute :geocoding_enabled, type: :boolean, default: false
     settings.attribute :attachments_allowed, type: :boolean, default: false
-    settings.attribute :upstream_moderation, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :new_proposal_help_text, type: :text, translated: true, editor: true
   end

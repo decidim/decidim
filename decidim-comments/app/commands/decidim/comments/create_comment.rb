@@ -24,7 +24,9 @@ module Decidim
 
         transaction do
           create_comment
-          send_notification_to_moderators
+          if @comment.moderation.upstream_moderation_activated?
+            send_notification_to_moderators
+          end
         end
 
         broadcast(:ok, @comment)

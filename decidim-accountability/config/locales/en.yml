@@ -164,6 +164,7 @@ en:
           global:
             categories_label: Name for "Categories"
             comments_enabled: Comments enabled
+            comments_upstream_moderation_enabled: Upstream moderation for comments enabled
             heading_leaf_level_results: Name for "Projects"
             heading_parent_level_results: Name for "Results"
             intro: Intro
