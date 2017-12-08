@@ -37,7 +37,9 @@ module Decidim
           create_attachment if process_attachments?
         end
 
-        send_notification_to_moderators
+        if @proposal.upstream_moderation_activated?
+          send_notification_to_moderators
+        end
         broadcast(:ok, proposal)
       end
 
