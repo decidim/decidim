@@ -86,7 +86,7 @@ module Decidim
       end
 
       def update_moderation
-        unless moderation.upstream_moderation_activated?
+        unless moderation.upstream_activated?
           moderation.authorize!
         end
       end
