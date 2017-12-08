@@ -165,6 +165,9 @@ module Decidim
       def create_proposal_moderation
         participatory_space = self.feature.participatory_space
         self.create_moderation!(participatory_space: participatory_space)
+        unless feature.settings.upstream_moderation
+          moderation.authorize!
+        end
       end
     end
   end
