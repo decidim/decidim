@@ -25,5 +25,13 @@ module Decidim
     def refuse!
       update_attributes(upstream_moderation: "refused")
     end
+
+    def upstream_moderation_activated?
+      reportable.feature.settings.upstream_moderation
+    end
+
+    def get_upstream_moderation
+      return self if upstream_moderation_activated?
+    end
   end
 end

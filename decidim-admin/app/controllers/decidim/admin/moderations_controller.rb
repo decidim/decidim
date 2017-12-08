@@ -60,6 +60,7 @@ module Decidim
 
       private
 
+
       def downstream_moderations
         @downstream_moderations ||= begin
           if params[:hidden] && params[:moderation_type] == "downstream"
@@ -73,11 +74,15 @@ module Decidim
       def upstream_moderations
         @upstream_moderations ||= begin
           if params[:moderated] && params[:moderation_type] == "upstream"
-            participatory_space_moderations.where.not(upstream_moderation: "unmoderate").order("created_at").reverse
+            filtered_upstream_moderation.where.not(upstream_moderation: "unmoderate").order("created_at").reverse
           elsif params[:moderation_type] == "upstream"
-            participatory_space_moderations.where(upstream_moderation: "unmoderate").order("created_at").reverse
+            filtered_upstream_moderation.where(upstream_moderation: "unmoderate").order("created_at").reverse
           end
         end
+      end
+
+      def filtered_upstream_moderation
+        moderation_ids = participatory_space_moderations.map(&:get_upstream_moderation)
       end
 
       def reportable
