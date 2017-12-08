@@ -3,5 +3,5 @@
 <p><%= @event_instance.email_moderation_intro %></p>
 
 <p>
-  <a href= "http://" + @organization.host + "/admin/participatory_processes/" + @slug + "/moderations?locale=" + @locale + "&moderation_type=upstream" /> Moderer le contenu </a>
+  <%= "http://" + @organization.host + "/admin/participatory_processes/" + @slug + "/moderations?locale=" + @locale + "&moderation_type=upstream" %>
 </p>
