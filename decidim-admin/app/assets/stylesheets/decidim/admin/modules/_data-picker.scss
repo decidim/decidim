@@ -75,6 +75,7 @@
 
     .picker-footer {
       .buttons {
+        display: flex;
         justify-content: center;
         padding: 10px 0px 50px; // bottom padding is needed to avoid hiding buttons on mobiles because of https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
       }
