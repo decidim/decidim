@@ -205,12 +205,16 @@ ca:
     newsletter_mailer:
       newsletter:
         note: Has rebut aquest missatge perquè estàs subscrit a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
-        see_on_website: No veus correctament aquest missatge? Mira'l al <a href="%{link}">lloc web</a>.
+        see_on_website: No veus correctament aquest missatge? Mira'l al <a href="%{link}" target="_blank">lloc web</a>.
+        unsubscribe: Per no rebre més correu electrònic d'aquest tipus, <a href="%{link}" target="_blank">cancela la subscripció</a>.
     notifications_settings:
       show:
         email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
         newsletter_notifications: Vull rebre informació sobre activitat rellevant
         update_notifications_settings: Guardar canvis
+      unsubscribe:
+        change_subscription: Si vols canviar les preferències, pots fer-ho a la <a href="%{link}">pàgina de configuració </a>
+        unsubscribed: Subscripció cancelada
       update:
         error: Hi ha hagut un error en actualitzar la configuració de les notificacions.
         success: La configuració de les notificacions s'han actualitzat correctament.

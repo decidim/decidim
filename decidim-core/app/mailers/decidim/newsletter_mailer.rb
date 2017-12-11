@@ -3,6 +3,8 @@
 module Decidim
   class NewsletterMailer < ApplicationMailer
     helper Decidim::SanitizeHelper
+    include Decidim::NewslettersHelper
+
     add_template_helper Decidim::TranslationsHelper
 
     def newsletter(user, newsletter)
@@ -17,10 +19,5 @@ module Decidim
       end
     end
 
-    private
-
-    def parse_interpolations(content, user)
-      content.gsub("%{name}", user.name)
-    end
   end
 end

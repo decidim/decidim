@@ -205,12 +205,16 @@ es:
     newsletter_mailer:
       newsletter:
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
-        see_on_website: ¿No puedes ver este correo electrónico correctamente? Ver en el <a href="%{link}"> sitio web </a>.
+        see_on_website: ¿No puedes ver este correo electrónico correctamente? Ver en el <a href="%{link}" target="_blank"> sitio web </a>.
+        unsubscribe: Para no recibir más correo electrónico de este tipo, <a href="%{link}" target="_blank">cancela la suscripción</a>.
     notifications_settings:
       show:
         email_on_notification: Quiero recibir un correo electrónico cada vez que recibo una notificación.
         newsletter_notifications: Quiero recibir información acerca de actividad relevante
         update_notifications_settings: Guardar cambios
+      unsubscribe:
+        change_subscription: Si quieres cambiar las preferencias, puedes hacerlo en la <a href="%{link}"> página de configuración </a>
+        unsubscribed: Suscripción cancelada
       update:
         error: Ha habido un error al actualizar la configuración de las notificaciones.
         success: La configuración de las notificaciones se han actualizado correctamente.
