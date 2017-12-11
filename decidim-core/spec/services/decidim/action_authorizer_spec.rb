@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe ActionAuthorizer do
-    subject { described_class.new(user, feature, action) }
+    subject { authorizer }
 
     let(:organization) { create :organization }
     let(:user) { create(:user, organization: organization) }
@@ -12,6 +12,7 @@ module Decidim
     let(:action) { "vote" }
     let(:permissions) { { action => permission } }
     let(:name) { "dummy_authorization_handler" }
+    let(:authorizer) { described_class.new(user, feature, action) }
 
     let!(:authorization) do
       create(:authorization, :granted, name: name, metadata: metadata)
@@ -107,8 +108,10 @@ module Decidim
               end
 
               before do
-                allow_any_instance_of(Decidim::Verifications::WorkflowManifest)
-                  .to receive(:expires_in).and_return(1.month)
+                allow(authorizer)
+                  .to receive(:authorization).and_return(authorization)
+                allow(authorization)
+                  .to receive(:expires_at).and_return(1.month.ago)
               end
 
               it "returns expired" do
@@ -120,8 +123,10 @@ module Decidim
 
             context "when it has not expired" do
               before do
-                allow_any_instance_of(Decidim::Verifications::WorkflowManifest)
-                  .to receive(:expires_in).and_return(1.month)
+                allow(authorizer)
+                  .to receive(:authorization).and_return(authorization)
+                allow(authorization)
+                  .to receive(:expires_at).and_return(1.month.from_now)
               end
 
               context "when it doesn't have options" do

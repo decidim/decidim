@@ -106,13 +106,9 @@ module Decidim
     end
 
     def authorization_expired?
-      manifest = Decidim::Verifications.find_workflow_manifest(authorization_handler_name)
+      return false if authorization.expires_at.blank?
 
-      return unless manifest
-      return false if manifest.expires_in.zero?
-
-      expiry_date = authorization.granted_at + manifest.expires_in
-      expiry_date < Time.zone.today
+      authorization.expires_at < Time.zone.today
     end
 
     class AuthorizationStatus

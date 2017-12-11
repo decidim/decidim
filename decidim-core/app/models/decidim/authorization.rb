@@ -31,14 +31,28 @@ module Decidim
       !granted_at.nil?
     end
 
+    # Calculates at when this authorization will expire, if it needs to.
+    #
+    # Returns nil if the authorization does not expire.
+    # Returns an ActiveSupport::TimeWithZone if it expires.
+    def expires_at
+      return unless workflow_manifest
+      return if workflow_manifest.expires_in.zero?
+      granted_at + workflow_manifest.expires_in
+    end
+
     private
 
     def active_handler?
-      if Decidim::Verifications.find_workflow_manifest(name)
+      if workflow_manifest.present?
         true
       else
         false
       end
+    end
+
+    def workflow_manifest
+      @workflow_manifest ||= Decidim::Verifications.find_workflow_manifest(name)
     end
   end
 end
