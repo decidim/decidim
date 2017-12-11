@@ -125,7 +125,7 @@ en:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Subject
+            subject: Invitation to join a meeting
         registration_mailer:
           confirmation:
             subject: Your meeting's registration has been confirmed
@@ -194,4 +194,4 @@ en:
   devise:
     mailer:
       join_meeting:
-        subject: Subject
+        subject: Invitation to join a meeting
