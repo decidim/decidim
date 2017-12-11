@@ -13,8 +13,7 @@ module Decidim
       @organization = current_organization
       @newsletter = collection.find(params[:id])
 
-      @subject = parse_interpolations(@newsletter.subject[I18n.locale.to_s], current_user)
-      @body = parse_interpolations(@newsletter.body[I18n.locale.to_s], current_user)
+      @body = parse_interpolations(@newsletter.id, @newsletter.body[I18n.locale.to_s], current_user)
     end
 
     private

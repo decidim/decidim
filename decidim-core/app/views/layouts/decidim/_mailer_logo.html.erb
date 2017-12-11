@@ -1,5 +1,6 @@
 <% if organization %>
   <%= link_to decidim.root_url(host: organization.host) do %>
+  <%#= link_to link_utm_codes(newsletter_id, decidim.root_url(host: organization.host), organization) do %>
     <% if organization.logo.present? %>
       <%= image_tag organization.logo.medium.url, style: "max-height: 50px", alt: "" %>
     <% else %>
