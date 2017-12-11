@@ -40,7 +40,7 @@ Gem::Specification.new do |s|
   s.add_dependency "paper_trail", "~> 8.0.1"
   s.add_dependency "pg", "~> 0.21.0"
   s.add_dependency "premailer-rails", "~> 1.9.5"
-  s.add_dependency "rails", "~> 5.1.3"
+  s.add_dependency "rails", "~> 5.1.4"
   s.add_dependency "rails-i18n"
   s.add_dependency "rectify", "~> 0.10.0"
   s.add_dependency "redis", "~> 3.2"
