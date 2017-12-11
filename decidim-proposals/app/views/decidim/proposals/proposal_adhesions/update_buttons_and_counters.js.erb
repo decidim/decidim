@@ -1,0 +1,5 @@
+var $proposalAdhesionsCount = $('#proposal-<%= proposal.id %>-adhesions-count');
+var $proposalAdhesionButton = $('#proposal-<%= proposal.id %>-adhesion-button');
+
+morphdom($proposalAdhesionsCount[0], '<%= j(render partial: 'decidim/proposals/proposals/adhesions_count', locals: { proposal: proposal, from_proposals_list: @from_proposals_list }).strip.html_safe %>');
+morphdom($proposalAdhesionButton[0], '<%= j(render partial: 'decidim/proposals/proposals/adhesion_button', locals: { proposal: proposal, from_proposals_list: @from_proposals_list }).strip.html_safe %>');

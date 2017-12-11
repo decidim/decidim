@@ -1,21 +1,17 @@
-<% unless proposal.rejected? %>
-  <div id="proposal-<%= proposal.id %>-adhesion-button">
-    <% if !current_user %>
-      <% if current_settings.s_blocked? %>
-        <%= action_authorized_button_to :adhere, t('.adhesions_blocked'), proposal_proposal_adhesion_path(proposal_id: proposal, from_proposals_list: from_proposals_list), class: "card__button button #{adhesion_button_classes(from_proposals_list)} disabled", disabled: true %>
-      <% else %>
-        <%= action_authorized_button_to :adhere, t('.adhere'), proposal_proposal_adhesion_path(proposal_id: proposal, from_proposals_list: from_proposals_list), class: "card__button button #{adhesion_button_classes(from_proposals_list)}" %>
-      <% end %>
+<% 
+current_adhesion_url= proposal_proposal_adhesion_path(proposal_id: proposal,
+  from_proposals_list: from_proposals_list,
+  user_group_id: try(:user_group)&.id
+  )
+%>
+<div id="proposal-<%= proposal.id %>-adhesion-button">
+  <% if !current_user %>
+      <%= action_authorized_button_to :adhere, t('.adhere'), current_adhesion_url, class: "card__button button #{adhesion_button_classes(from_proposals_list)}" %>
+  <% else %>
+    <% if @adhered_proposals ? @adered_proposals.include?(proposal.id) : proposal.adhered_by?(current_user) %>
+      <%= action_authorized_button_to :adhere, t('.already_adhered'), current_adhesion_url, method: :delete, remote: true, data: { disable: true, original: t('.already_adhered'), replace: t('.already_adhered_hover') }, class: "card__button button #{adhesion_button_classes(from_proposals_list)} success", id: "adhesion_button" %>
     <% else %>
-      <% if @adhered_proposals ? @adered_proposals.include?(proposal.id) : proposal.adhered_by?(current_user) %>
-        <%= action_authorized_button_to :adhere, t('.already_adhered'), proposal_proposal_adhesion_path(proposal_id: proposal, from_proposals_list: from_proposals_list), method: :delete, remote: true, data: { disable: true, original: t('.already_adhered'), replace: t('.already_adhered_hover') }, class: "card__button button #{adhesion_button_classes(from_proposals_list)} success", id: "adhesion_button" %>
-      <% else %>
-          <% if current_settings.adhesions_blocked? %>
-            <%= content_tag :span, t('.adhesions_blocked'), class: "card__button button #{adhesion_button_classes(from_proposals_list)} disabled", disabled: true %>
-          <% else %>
-            <%= action_authorized_button_to :adhere, t('.adhere'), proposal_proposal_adhesion_path(proposal_id: proposal, from_proposals_list: from_proposals_list), remote: true, data: { disable: true }, class: "card__button button #{adhesion_button_classes(from_proposals_list)}" %>
-          <% end %>
-      <% end %>
+      <%= action_authorized_button_to :adhere, t('.adhere'), current_adhesion_url, remote: true, data: { disable: true }, class: "card__button button #{adhesion_button_classes(from_proposals_list)}" %>
     <% end %>
-  </div>
-<% end %>
+  <% end %>
+</div>

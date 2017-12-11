@@ -37,6 +37,31 @@ module Decidim
         end
       end
 
+      describe "#adhered_by?" do
+        let(:user) { create(:user, organization: subject.organization) }
+
+        context "User adhesion" do
+          it "returns false if the proposal is not adhered by the given user" do
+            expect(subject).not_to be_adhered_by(user)
+          end
+
+          it "returns true if the proposal is not adhered by the given user" do
+            create(:proposal_adhesion, proposal: subject, author: user)
+            expect(subject).to be_adhered_by(user)
+          end
+        end
+        context "Organization adhesion" do
+          it "returns false if the proposal is not adhered by the given organization" do
+            expect(subject).not_to be_adhered_by(user)
+          end
+
+          it "returns true if the proposal is not adhered by the given organization" do
+            create(:proposal_adhesion, proposal: subject, author: user)
+            expect(subject).to be_adhered_by(user)
+          end
+        end
+      end
+
       context "when it has been accepted" do
         let(:proposal) { build(:proposal, :accepted) }
 
