@@ -63,5 +63,7 @@ Decidim::Core::Engine.routes.draw do
   resource :follow, only: [:create, :destroy]
   resource :report, only: [:create]
 
+  resources :newsletters, only: [:show]
+    
   root to: "pages#show", id: "home"
 end
