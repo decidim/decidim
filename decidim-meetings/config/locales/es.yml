@@ -121,6 +121,9 @@ es:
           email_subject: La reunión "%{resource_title}" ha sido actualizada
           notification_title: La reunión <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada.
       mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Invitación a unirse a una reunión
         registration_mailer:
           confirmation:
             subject: La inscripción a tu encuentro ha sido confirmada
@@ -185,3 +188,7 @@ es:
       proposals_from_meeting:
         meeting_proposals: 'Propuestas relacionadas:'
         proposal_meetings: 'Encuentros relacionados:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Invitación a unirse a una reunión
