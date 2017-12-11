@@ -123,9 +123,6 @@ ru:
           email_subject: Встреча "%{resource_title}" обновлена
           notification_title: Встреча <a href="%{resource_path}">%{resource_title}</a> обновлена.
       mailer:
-        invite_join_meeting_mailer:
-          invite:
-            subject: Тема
         registration_mailer:
           confirmation:
             subject: Ваша регистрация на встречу подтверждена
@@ -192,7 +189,3 @@ ru:
       proposals_from_meeting:
         meeting_proposals: 'Подобные предложения:'
         proposal_meetings: 'Подобные встречи:'
-  devise:
-    mailer:
-      join_meeting:
-        subject: Тема
