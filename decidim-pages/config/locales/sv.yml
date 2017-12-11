@@ -1,0 +1,22 @@
+sv:
+  decidim:
+    features:
+      pages:
+        name: Sida
+        settings:
+          global:
+            announcement: Meddelande
+          step:
+            announcement: Meddelande
+    pages:
+      admin:
+        models:
+          components:
+            body: Kropp
+        pages:
+          edit:
+            save: Uppdatering
+            title: Redigera sida
+          update:
+            invalid: Det har varit fel när du sparar sidan.
+            success: Sidan sparades framgångsrikt.
