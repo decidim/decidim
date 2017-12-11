@@ -89,7 +89,7 @@ fr:
             error: Un problème est survenu lors du chargement de votre document
             success: Document téléchargé avec succès
         dni: Carte nationale d'identité
-        nie: NIE
+        nie: Carte de séjour ou de résident
         passport: Passeport
       postal_letter:
         admin:
