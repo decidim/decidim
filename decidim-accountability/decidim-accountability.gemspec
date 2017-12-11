@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.summary = "An accountability component for decidim's participatory processes."
   s.description = s.summary
 
-  s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-comments", Decidim::Accountability.version
   s.add_dependency "decidim-core", Decidim::Accountability.version
