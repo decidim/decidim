@@ -123,7 +123,7 @@ es:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Asunto
+            subject: Invitación a participar en un encuentro
         registration_mailer:
           confirmation:
             subject: La inscripción a tu encuentro ha sido confirmada
