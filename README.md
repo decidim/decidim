@@ -56,7 +56,7 @@ We've set up a guide on how to install, set up and upgrade Decidim. See the [Get
 
 ### As a Translator
 
-Decidim is already translated on multiple languages (English, Spanish, Catalan, Basque, Italian, Finnish, Dutch, French, Russian and Ukrainian). You can help us at [Crowdin, the translation service](https://crowdin.com/project/decidim), reviewing these translations or proposing a new language to add to the platform.
+Decidim is already translated on multiple languages (English, Spanish, Catalan, Basque, Italian, Finnish, Dutch, French, Portuguese, Swedish, Russian and Ukrainian). You can help us at [Crowdin, the translation service](https://crowdin.com/project/decidim), reviewing these translations or proposing a new language to add to the platform.
 
 ### As a Developer
 
