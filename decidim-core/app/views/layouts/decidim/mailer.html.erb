@@ -111,6 +111,23 @@
                 </tr>
               </table>
             <% end %>
+
+            <% if content_for?(:see_on_website) %>
+              <table class="container">
+                <tr>
+                  <td>
+                    <table class="row">
+                      <th class="expander"></th>
+                      <th class="small-12 first columns footnote">
+                        <center>
+                          <%= yield(:see_on_website) %>
+                        </center>
+                      </th>
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            <% end %>
           </center>
         </td>
       </tr>

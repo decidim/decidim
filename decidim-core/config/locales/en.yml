@@ -203,6 +203,7 @@ en:
     newsletter_mailer:
       newsletter:
         note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
+        see_on_website: Can’t see this email correctly? View on <a href="%{link}">website</a>. 
     notifications_settings:
       show:
         email_on_notification: I want to receive an email every time I receive a notification.
