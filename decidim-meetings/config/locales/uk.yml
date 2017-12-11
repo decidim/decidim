@@ -123,6 +123,9 @@ uk:
           email_subject: Зустріч "%{resource_title}" було оновлено
           notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> було оновлено.
       mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Запрошення приєднатися до зустрічі
         registration_mailer:
           confirmation:
             subject: Вашу реєстрацію на зустріч підтверджено
@@ -189,3 +192,7 @@ uk:
       proposals_from_meeting:
         meeting_proposals: 'Супутні пропозиції:'
         proposal_meetings: 'Пов''язані зустрічі:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Запрошення приєднатися до зустрічі
