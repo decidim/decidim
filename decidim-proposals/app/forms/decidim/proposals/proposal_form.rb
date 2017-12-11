@@ -33,11 +33,7 @@ module Decidim
         self.category_id = model.categorization.decidim_category_id
       end
 
-      def organization_scopes
-        current_organization.scopes
-      end
-
-      def process_scope
+      def participatory_space_scope
         current_feature.participatory_space.scope
       end
 
@@ -54,14 +50,15 @@ module Decidim
       #
       # Returns a Decidim::Scope
       def scope
-        @scope ||= organization_scopes.where(id: scope_id).first
+        return unless current_feature && scope_id
+        @scope ||= current_feature.scopes.where(id: scope_id).first
       end
 
       # Proposal scope_id, uses process scope if missing.
       #
-      # Returns a Decidim::Scope
+      # Returns the scope identifier related to the proposal
       def scope_id
-        @scope_id || process_scope&.id
+        @scope_id || participatory_space_scope&.id
       end
 
       def has_address?

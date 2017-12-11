@@ -38,12 +38,25 @@ module Decidim
           @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, context.current_feature)&.order(title: :asc)&.pluck(:title, :id)
         end
 
-        def organization_scopes
-          current_organization.scopes
+        def participatory_space_scope
+          current_feature.participatory_space.scope
         end
 
+        alias feature current_feature
+
+        # Finds the Scope from the decidim_scope_id.
+        #
+        # Returns a Decidim::Scope
         def scope
-          @scope ||= organization_scopes.where(id: decidim_scope_id).first
+          return unless current_feature && decidim_scope_id
+          @scope ||= current_feature.scopes.where(id: decidim_scope_id).first
+        end
+
+        # Proposal scope_id, uses process scope if missing.
+        #
+        # Returns the scope identifier related to the result
+        def decidim_scope_id
+          @decidim_scope_id || participatory_space_scope&.id
         end
 
         def category

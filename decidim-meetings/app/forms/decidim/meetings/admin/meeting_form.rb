@@ -37,15 +37,25 @@ module Decidim
           self.decidim_category_id = model.categorization.decidim_category_id
         end
 
-        def process_scope
+        def participatory_space_scope
           current_feature.participatory_space.scope
         end
 
         alias feature current_feature
 
+        # Finds the Scope from the decidim_scope_id.
+        #
+        # Returns a Decidim::Scope
         def scope
-          return unless current_feature
-          @scope ||= current_feature.scopes.where(id: decidim_scope_id).first || process_scope
+          return unless current_feature && decidim_scope_id
+          @scope ||= current_feature.scopes.where(id: decidim_scope_id).first
+        end
+
+        # Proposal scope_id, uses process scope if missing.
+        #
+        # Returns the scope identifier related to the meeting
+        def decidim_scope_id
+          @decidim_scope_id || participatory_space_scope&.id
         end
 
         def category
