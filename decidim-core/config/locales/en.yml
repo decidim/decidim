@@ -391,8 +391,8 @@ en:
         pages_count: Pages
         processes_count: Processes
         projects_count: Projects
-        proposals_count: Proposals
         proposals_accepted: Accepted Proposals
+        proposals_count: Proposals
         results_count: Results
         surveys_count: Surveys
         users_count: Participants
