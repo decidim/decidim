@@ -4,6 +4,10 @@
   <%== t ".note", organization_name: h(@organization.name), link: decidim.notifications_settings_url(host: @organization.host) %>
 <% end %>
 
+<% content_for :unsubscribe do %>
+  <%== t ".unsubscribe", link: decidim.unsubscribe_notifications_settings_url(host: @organization.host) %>
+<% end %>
+
 <% content_for :see_on_website do %>
   <%== t ".see_on_website", link: decidim.newsletter_url(host: @organization.host, id: @newsletter) %>
 <% end %>

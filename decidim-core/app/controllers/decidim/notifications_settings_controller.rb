@@ -10,6 +10,27 @@ module Decidim
       @notifications_settings = form(NotificationsSettingsForm).from_model(current_user)
     end
 
+    def unsubscribe
+      authorize! :update, current_user
+      @unsubscribe_notifications_settings = false
+      @notifications_settings = form(NotificationsSettingsForm).from_params(params)
+
+      if current_user.newsletter_notifications
+        UnsubscribeNotificationsSettings.call(current_user, @unsubscribe_notifications_settings) do
+          on(:ok) do
+            flash.now[:notice] = t("notifications_settings.update.success", scope: "decidim")
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = t("notifications_settings.update.error", scope: "decidim")
+            render action: :show
+          end
+        end
+      else
+        redirect_to decidim.notifications_settings_path
+      end
+    end
+
     def update
       authorize! :update, current_user
       @notifications_settings = form(NotificationsSettingsForm).from_params(params)
