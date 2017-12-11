@@ -22,6 +22,7 @@ sv:
         scopes_enabled: Scopes aktiverade
         short_description: Kort beskrivning
         slug: URL slug
+        start_date: Start datum
         subtitle: Texta
         target: Mål
         title: Titel
@@ -42,6 +43,18 @@ sv:
         role: Roll
   decidim:
     admin:
+      actions:
+        activate: Aktivera
+        configure: konfigurera
+        confirm_destroy: Bekräfta förstör
+        destroy: Förstöra
+        duplicate: Duplicera
+        edit: Redigera
+        new: Ny
+        preview: Förhandsvisning
+        publish: Publicera
+        resend_invitation: Skicka inbjudan igen
+        unpublish: Avpublicera
       menu:
         participatory_process_groups: Processgrupper
         participatory_processes: processer
@@ -81,7 +94,199 @@ sv:
             admin: Administratör
             collaborator: Medarbetare
             moderator: moderator
+        user:
+          fields:
+            invitation_accepted_at: Inbjudan accepterad vid
+            invitation_sent_at: Inbjudan skickad till
       participatory_process_copies:
         new:
           copy: Kopiera
           select: Välj vilken data du vill duplicera
+          title: Duplikera deltagande process
+      participatory_process_groups:
+        destroy:
+          success: Deltagande processgrupp förstördes framgångsrikt.
+        edit:
+          title: Redigera processgrupp
+          update: Uppdatering
+        new:
+          create: Skapa
+          title: Ny processgrupp
+        update:
+          error: Det uppstod ett fel vid uppdatering av denna deltagande processgrupp.
+          success: Deltagande processgrupp uppdaterades framgångsrikt.
+      participatory_process_publications:
+        create:
+          error: Det uppstod ett fel vid publicering av denna deltagande process.
+          success: Deltagande processen publiceras framgångsrikt.
+        destroy:
+          error: Ett fel uppstod vid publicering av denna deltagande process.
+          success: Deltagande processen publicerades framgångsrikt.
+      participatory_process_step_activations:
+        create:
+          error: Det gick inte att aktivera det här deltagande processsteget.
+          success: Deltagande processsteg aktiveras framgångsrikt.
+      participatory_process_steps:
+        create:
+          error: Det uppstod ett fel vid skapandet av ett nytt deltagande processsteg.
+          success: Deltagande processsteg skapades framgångsrikt.
+        default_title: Introduktion
+        destroy:
+          error:
+            active_step: Det aktiva steget kan inte raderas.
+            last_step: Det går inte att ta bort det sista steget i en process.
+          success: Deltagande processsteg förstördes framgångsrikt.
+        edit:
+          title: Redigera deltagande processsteg
+          update: Uppdatering
+        index:
+          steps_title: Steg
+        new:
+          create: Skapa
+          title: Nytt deltagande processsteg
+        ordering:
+          error: Ett fel uppstod vid omarrangering av dessa processer för deltagande.
+        update:
+          error: Ett fel uppstod vid uppdatering av detta deltagande processsteg.
+          success: Deltagande processsteg uppdateras framgångsrikt.
+      participatory_process_user_roles:
+        create:
+          error: Det gick inte att lägga till en användare för den här deltagande processen.
+          success: Användaren skapades framgångsrikt för denna deltagande process.
+        destroy:
+          success: Användaren förstördes framgångsrikt för denna deltagande process.
+        edit:
+          title: Uppdatera deltagande processanvändare.
+          update: Uppdatering
+        index:
+          process_admins_title: Deltagande processanvändare
+        new:
+          create: Skapa
+          title: Ny deltagande processanvändare.
+        update:
+          error: Det uppstod ett fel som uppdaterade en användare för den här deltagande processen.
+          success: Användaren uppdaterades framgångsrikt för denna deltagande process.
+      participatory_processes:
+        create:
+          error: Det uppstod ett fel vid att skapa en ny deltagande process.
+          success: Deltagande processen skapades framgångsrikt. Konfigurera nu sina steg.
+        destroy:
+          success: Deltagande processen förstördes framgångsrikt.
+        edit:
+          update: Uppdatering
+        form:
+          title: Allmän information
+        index:
+          not_published: Ej publicerad
+          published: Publicerad
+        new:
+          create: Skapa
+          title: Ny deltagande process
+        update:
+          error: Det uppstod ett fel vid uppdateringen av den här deltagande processen.
+          success: Deltagande processen uppdaterades framgångsrikt.
+      participatory_processes_copies:
+        create:
+          error: Det uppstod ett fel vid duplicering av denna deltagande process.
+          success: Deltagande processen dupliceras framgångsrikt.
+      participatory_processes_group:
+        create:
+          error: Det uppstod ett fel vid att skapa en ny deltagande processgrupp.
+          success: Deltagande processgrupp skapades framgångsrikt.
+      titles:
+        participatory_process_groups: Deltagande processgrupper
+        participatory_processes: Deltagande processer
+      users:
+        resend_invitation:
+          error: Det uppstod ett fel när du skickade inbjudan igen.
+          success: Inbjudan misslyckas framgångsrikt.
+    menu:
+      processes: processer
+    participatory_process_groups:
+      show:
+        group_participatory_processes: Bearbetar för %{group}
+        title: Deltagande processgrupper
+    participatory_process_steps:
+      index:
+        process_steps: Processsteg
+        title: Deltagande processsteg
+    participatory_processes:
+      admin:
+        participatory_process_copies:
+          form:
+            slug_help: 'URL-slitsar används för att generera de URL-adresser som pekar på denna process. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+        participatory_processes:
+          form:
+            slug_help: 'URL-slitsar används för att generera de URL-adresser som pekar på denna process. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+      index:
+        title: Deltagande processer
+      order_by_processes:
+        active: Aktiva
+        all: Allt
+        past: Dåtid
+        upcoming: kommande
+      pages:
+        home:
+          highlighted_processes:
+            active_processes: Aktiva processer
+            active_step: Aktivt steg
+            see_all_processes: Se alla processer
+      participatory_process_groups:
+        none: Ingen
+      participatory_processes:
+        index:
+          loading: Laddar resultat ...
+      show:
+        developer_group: Utvecklargrupp
+        end_date: Slutdatum
+        local_area: Organisationsområde
+        participatory_scope: Vad bestäms
+        participatory_structure: Hur bestäms det
+        scope: Omfattning
+        start_date: Start datum
+        target: Vem deltar
+      statistics:
+        answers_count: svar
+        comments_count: kommentarer
+        headline: Aktivitet
+        meetings_count: möten
+        orders_count: röster
+        pages_count: sidor
+        processes_count: processer
+        projects_count: projekt
+        proposals_count: förslag
+        results_count: Resultat
+        surveys_count: Undersökningar
+        users_count: Deltagare
+        votes_count: röster
+    scopes:
+      global: Global omfattning
+  layouts:
+    decidim:
+      participatory_process_groups:
+        participatory_process_group:
+          browse: Bläddra
+      participatory_process_widgets:
+        show:
+          active_step: Aktivt steg
+          take_part: Ta del
+      participatory_processes:
+        index:
+          promoted_processes: Markerade processer
+        order_by_processes:
+          processes:
+            one: "%{count} process"
+            other: "%{count} processer"
+        participatory_process:
+          active_step: 'Nuvarande steg:'
+          take_part: Ta del
+        promoted_process:
+          active_step: 'Nuvarande steg:'
+          more_info: Mer information
+          take_part: Ta del
+      process_header:
+        process_menu_item: Processen
+        unfold: Veckla ut
+      process_header_steps:
+        step: Steg %{current} av %{total}
+        view_steps: Visa steg
