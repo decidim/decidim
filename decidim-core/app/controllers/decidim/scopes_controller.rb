@@ -36,7 +36,7 @@ module Decidim
       if params[:current]
         current = Scope.find(params[:current])
         scopes = current.children
-        parent_scopes = current.part_of_scopes
+        parent_scopes = current.part_of_scopes(root)
       else
         current = root
         scopes = root&.children || Scope.top_level

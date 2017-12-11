@@ -49,9 +49,13 @@ module Decidim
 
     # Gets the scopes from the part_of list in descending order (first the top level scope, last itself)
     #
+    # root - The root scope to start retrieval. If present, ignores top level scopes until reaching the root scope.
+    #
     # Returns an array of Scope objects
-    def part_of_scopes
-      organization.scopes.where(id: part_of).sort { |s1, s2| part_of.index(s2.id) <=> part_of.index(s1.id) }
+    def part_of_scopes(root = nil)
+      scope_ids = part_of
+      scope_ids.select! { |id| id == root.id || !root.part_of.member?(id) } if root
+      organization.scopes.where(id: scope_ids).sort { |s1, s2| part_of.index(s2.id) <=> part_of.index(s1.id) }
     end
 
     private
