@@ -12,8 +12,8 @@ module Decidim
       @newsletter = newsletter
 
       with_user(user) do
-        @subject = parse_interpolations(@newsletter.subject[I18n.locale.to_s], user)
-        @body = parse_interpolations(@newsletter.body[I18n.locale.to_s], user)
+        @subject = parse_interpolations(@newsletter.id, @newsletter.subject[I18n.locale.to_s], user)
+        @body = parse_interpolations(@newsletter.id, @newsletter.body[I18n.locale.to_s], user)
 
         mail(to: "#{user.name} <#{user.email}>", subject: @subject)
       end
