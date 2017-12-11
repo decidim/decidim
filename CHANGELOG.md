@@ -8,6 +8,18 @@
 
 **Fixed**:
 
+* **decidim-accountability**: Fixed missing `diff.js` [#2344](https://github.com/decidim/decidim/pull/2344)
+
+## [0.8.1](https://github.com/decidim/decidim/tree/v0.8.1)
+
+**Added**:
+
+**Changed**:
+
+**Fixed**:
+
+* **decidim-accountability**: [Backport] Fixed missing `diff.js` [#2345](https://github.com/decidim/decidim/pull/2345)
+
 ## [v0.8.0](https://github.com/decidim/decidim/tree/v0.8.0) (2017-12-4)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.7.0...v0.8.0)
 
