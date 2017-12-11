@@ -123,7 +123,7 @@ ca:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Invitació a participar a una trobada
+            subject: Invitació per participar en una reunió
         registration_mailer:
           confirmation:
             subject: La teva inscripció a la trobada ha estat confirmada
@@ -191,4 +191,4 @@ ca:
   devise:
     mailer:
       join_meeting:
-        subject: Assumpte
+        subject: Invitació per participar en una reunió
