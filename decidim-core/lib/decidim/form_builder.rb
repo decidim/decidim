@@ -298,6 +298,17 @@ module Decidim
       template.html_safe
     end
 
+    # Public: Returns the translated name for the given attribute.
+    #
+    # attribute    - The String name of the attribute to return the name.
+    def label_for(attribute)
+      if object.class.respond_to?(:human_attribute_name)
+        object.class.human_attribute_name(attribute)
+      else
+        attribute.to_s.humanize
+      end
+    end
+
     private
 
     # Private: Override from FoundationRailsHelper in order to render
@@ -500,14 +511,6 @@ module Decidim
                    end
     end
 
-    def label_for(attribute)
-      if object.class.respond_to?(:human_attribute_name)
-        object.class.human_attribute_name(attribute)
-      else
-        attribute.to_s.humanize
-      end
-    end
-
     def name_with_locale(name, locale)
       "#{name}_#{locale.to_s.gsub("-", "__")}"
     end
@@ -546,6 +549,7 @@ module Decidim
       "".html_safe
     end
 
+    # Private: Returns an array of scopes related to object attribute
     def selected_scopes(attribute)
       selected = object.send(attribute) || []
       selected = selected.values if selected.is_a?(Hash)
