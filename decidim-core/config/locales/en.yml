@@ -241,8 +241,8 @@ en:
     scopes:
       picker:
         cancel: Cancel
-        choose: Choose
-        title: Choose %{field}
+        choose: Select
+        title: Select %{field}
     shared:
       action_authorization_modal:
         expired:

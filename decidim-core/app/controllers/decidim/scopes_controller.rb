@@ -28,7 +28,8 @@ module Decidim
 
     def picker
       authorize! :pick, Scope
-      title = params[:title]
+
+      title = params[:title] || t("decidim.scopes.picker.title", field: params[:field]&.downcase)
       root = Scope.find(params[:root]) if params[:root]
       context = root ? { root: root.id, title: title } : { title: title }
       required = params[:required] && params[:required] != "false"
