@@ -1,0 +1,87 @@
+sv:
+  activemodel:
+    attributes:
+      participatory_process:
+        banner_image: Banner image
+        copy_categories: Kopiera kategorier
+        copy_features: Kopiera funktioner
+        copy_steps: Kopiera steg
+        description: Beskrivning
+        developer_group: Utvecklargrupp
+        domain: Domän
+        end_date: Slutdatum
+        hashtag: hashtag
+        hero_image: Hembild
+        local_area: Lokalt område
+        meta_scope: Omfattning metadata
+        participatory_process_group_id: Processgrupp
+        participatory_scope: Deltagande räckvidd
+        participatory_structure: Deltagande struktur
+        promoted: främjas
+        scope_id: Omfattning
+        scopes_enabled: Scopes aktiverade
+        short_description: Kort beskrivning
+        slug: URL slug
+        subtitle: Texta
+        target: Mål
+        title: Titel
+      participatory_process_group:
+        description: Beskrivning
+        hero_image: Bild
+        name: namn
+        participatory_process_ids: Relaterade processer
+      participatory_process_step:
+        description: Beskrivning
+        end_date: Slutdatum
+        short_description: Kort beskrivning
+        start_date: Start datum
+        title: Titel
+      participatory_process_user_role:
+        email: E-post
+        name: namn
+        role: Roll
+  decidim:
+    admin:
+      menu:
+        participatory_process_groups: Processgrupper
+        participatory_processes: processer
+        participatory_processes_submenu:
+          attachments: bilagor
+          categories: kategorier
+          features: Funktioner
+          info: Info
+          moderations: modere
+          process_admins: Processanvändare
+          steps: Steg
+      models:
+        participatory_process:
+          fields:
+            created_at: Skapad vid
+            promoted: Markerad
+            published: Publicerad
+            title: Titel
+          name: Deltagande process
+        participatory_process_group:
+          fields:
+            name: namn
+          name: Processgrupp
+        participatory_process_step:
+          fields:
+            end_date: Slutdatum
+            start_date: Start datum
+            title: Titel
+          name: Deltagande processsteg
+        participatory_process_user_role:
+          fields:
+            email: E-post
+            name: namn
+            role: Roll
+          name: Deltagande processanvändare
+          roles:
+            admin: Administratör
+            collaborator: Medarbetare
+            moderator: moderator
+      participatory_process_copies:
+        new:
+          copy: Kopiera
+          select: Välj vilken data du vill duplicera
