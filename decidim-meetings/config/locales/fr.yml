@@ -123,7 +123,7 @@ fr:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Objet
+            subject: Invitation à rejoindre une réunion
         registration_mailer:
           confirmation:
             subject: Votre inscription a bien été enregistrée
@@ -191,4 +191,4 @@ fr:
   devise:
     mailer:
       join_meeting:
-        subject: Objet
+        subject: Invitation à rejoindre une réunion
