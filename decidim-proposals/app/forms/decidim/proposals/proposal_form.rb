@@ -54,7 +54,14 @@ module Decidim
       #
       # Returns a Decidim::Scope
       def scope
-        @scope ||= organization_scopes.where(id: scope_id).first || process_scope
+        @scope ||= organization_scopes.where(id: scope_id).first
+      end
+
+      # Proposal scope_id, uses process scope if missing.
+      #
+      # Returns a Decidim::Scope
+      def scope_id
+        @scope_id || process_scope&.id
       end
 
       def has_address?

@@ -46,7 +46,10 @@
 
           <% if current_participatory_space.has_subscopes? %>
             <div class="field">
-              <%= form.scopes_select :scope_id, prompt: I18n.t("decidim.scopes.global"), remote_path: decidim.scopes_search_path(root: current_participatory_space.scope) %>
+              <%= form.scopes_picker :scope_id do |scope|
+                { url: decidim.scopes_picker_path(root: current_participatory_space.scope, current: scope&.id, title: I18n.t("decidim.proposals.models.proposal.fields.scope").downcase),
+                  text: scope_name_with_type(scope) }
+              end %>
             </div>
           <% end %>
 

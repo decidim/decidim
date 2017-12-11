@@ -161,22 +161,37 @@ module Decidim
     #
     # name          - The name of the field (usually scope_id)
     # options       - An optional Hash with options:
-    # - prompt      - An optional String with the text to display as prompt.
-    # - remote_path - Path to be called to load picker content.
+    # - multiple    - Multiple mode, to allow multiple scopes selection.
+    # - label       - Show label?
+    #
+    # Also it should receive a block that returns a Hash with :url and :text for each selected scope (and for null scope for prompt)
     #
     # Returns a String.
-    def scope_picker(attribute, options = {})
-      current_value = object.send(attribute)
-      current_text = options.delete(:prompt)
-      remote_path = options.delete(:remote_path) || false
+    def scopes_picker(attribute, options = {})
+      picker_options = { id: "#{@object_name}_#{attribute}", class: "data-picker", "data-picker-name" => "#{@object_name}[#{attribute}]" }
+      picker_options["data-picker-multiple"] = "multiple" if options[:multiple]
 
       template = ""
-      template += label(attribute, label_for(attribute) + required_for_attribute(attribute))
-      template += @template.content_tag :div, id: "#{@object_name}_#{attribute}", class: "data-picker",
-                                              "data-picker-name" => "#{@object_name}[#{attribute}]",
-                                              "data-picker-url" => remote_path, "data-picker-value" => current_value do
-        current_text
+      template += label(attribute, label_for(attribute) + required_for_attribute(attribute)) unless options[:label] == false
+      template += @template.content_tag :div, picker_options do
+        prompt_params = yield(nil)
+        safe_join([
+                    content_tag(:div, class: "picker-values") do
+                      safe_join(
+                        selected_scopes(attribute).map do |scope|
+                          params = yield(scope)
+                          content_tag(:div) do
+                            content_tag(:a, params[:text], href: params[:url], "data-picker-value" => scope.id)
+                          end
+                        end
+                      )
+                    end,
+                    content_tag(:div, class: "picker-prompt") do
+                      content_tag(:a, prompt_params[:text], href: prompt_params[:url])
+                    end
+                  ])
       end
+      template += error_and_help_text(attribute, options)
       template.html_safe
     end
 
@@ -529,6 +544,14 @@ module Decidim
                                        class: "label-required").html_safe
       end
       "".html_safe
+    end
+
+    def selected_scopes(attribute)
+      selected = object.send(attribute) || []
+      selected = selected.values if selected.is_a?(Hash)
+      selected = [selected] unless selected.is_a?(Array)
+      selected = Decidim::Scope.where(id: selected.map(&:to_i)) unless selected.first.is_a?(Decidim::Scope)
+      selected
     end
   end
 end

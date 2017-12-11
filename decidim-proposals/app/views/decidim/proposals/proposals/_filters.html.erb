@@ -29,7 +29,10 @@
   <% end %>
 
   <% if current_participatory_space.has_subscopes? %>
-    <%= form.scopes_select :scope_id, legend_title: t(".scopes"), label: false, prompt: t('.scope_prompt'), remote_path: decidim.scopes_search_path(root: current_participatory_space.scope, include_root: true), multiple: true %>
+    <%= form.scopes_picker :scope_id, multiple: true, legend_title: t(".scopes"), label: false do |scope|
+          { url: decidim.scopes_picker_path(root: current_participatory_space.scope, current: scope&.id, title: I18n.t("decidim.proposals.models.proposal.fields.scope").downcase),
+            text: scope ? scope_name_with_type(scope) : t('.scope_prompt') }
+        end %>
   <% end %>
 
   <% if current_feature.categories.any? %>

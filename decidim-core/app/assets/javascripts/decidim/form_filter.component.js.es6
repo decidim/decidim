@@ -32,7 +32,7 @@
     unmountComponent() {
       if (this.mounted) {
         this.mounted = false;
-        this.$form.off('change', 'input:not(.select2-search__field), select', this._onFormChange);
+        this.$form.off('change', 'input', this._onFormChange);
         this.select2Filters.forEach((select) => {
           select.destroy();
         });
@@ -53,7 +53,7 @@
         this.$form.find('select.select2').each(function(index, select) {
           select2Filters.push(new window.Decidim.Select2Field(select));
         });
-        this.$form.on('change', 'input:not(.select2-search__field), select', this._onFormChange);
+        this.$form.on('change', 'input', this._onFormChange);
 
         exports.Decidim.History.registerCallback(`filters-${this.id}`, () => {
           this._onPopState();
