@@ -2,6 +2,16 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+**Upgrade notes**:
+
+Since uglifier `4.0.0`, we need to set `harmony: true` as options in uglifier. This means
+you need to change the following line in `config/environments/production.rb`:
+
+```diff
+- config.assets.js_compressor = :uglifier
++ config.assets.js_compressor = Uglifier.new(:harmony => true)
+```
+
 **Added**:
 
 **Changed**:
