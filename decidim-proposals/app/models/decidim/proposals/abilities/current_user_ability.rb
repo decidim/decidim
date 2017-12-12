@@ -1,4 +1,3 @@
-# frozen_string_literal: true
 
 module Decidim
   module Proposals
@@ -17,8 +16,10 @@ module Decidim
           @context = context
 
           can :adhere, Proposal do |_proposal|
-            #authorized(:adhere)
-            true
+            authorized?(:adhere)
+          end
+          can :unadhere, Proposal do |_proposal|
+            authorized?(:unadhere) && voting_enabled?
           end
 
           can :vote, Proposal do |_proposal|

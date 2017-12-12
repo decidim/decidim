@@ -9,6 +9,22 @@ FactoryBot.define do
     manifest_name :proposals
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
 
+    trait :with_adhesions_enabled do
+      step_settings do
+        {
+          participatory_space.active_step.id => { adhesions_enabled: true }
+        }
+      end
+    end
+
+    trait :with_adhesions_disabled do
+      step_settings do
+        {
+          participatory_space.active_step.id => { adhesions_enabled: false }
+        }
+      end
+    end
+
     trait :with_votes_enabled do
       step_settings do
         {
@@ -45,6 +61,17 @@ FactoryBot.define do
       settings do
         {
           proposal_limit: proposal_limit
+        }
+      end
+    end
+
+    trait :with_adhesions_blocked do
+      step_settings do
+        {
+          participatory_space.active_step.id => {
+            adhesions_enabled: true,
+            adhesions_blocked: true
+          }
         }
       end
     end

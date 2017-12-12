@@ -8,6 +8,6 @@ class CreateProposalAdhesions < ActiveRecord::Migration[5.1]
       t.timestamps
     end
 
-    add_index :decidim_proposals_proposal_adhesions, [:decidim_proposal_id, :decidim_author_id], unique: true, name: "decidim_proposals_proposal_adhesion_proposal_author_unique"
+    add_index :decidim_proposals_proposal_adhesions, [:decidim_proposal_id, :decidim_author_id, :decidim_user_group_id], unique: true, name: "decidim_proposals_proposal_adhesion_proposal_auth_ugroup_unique"
   end
 end

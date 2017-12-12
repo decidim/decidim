@@ -1,10 +1,13 @@
 <% 
-current_adhesion_url= proposal_proposal_adhesion_path(proposal_id: proposal,
+# avoid "undefined local variable" error
+user_group= local_assigns[:user_group]
+current_adhesion_url= proposal_proposal_adhesion_path(
+  proposal_id: proposal,
   from_proposals_list: from_proposals_list,
-  user_group_id: try(:user_group)&.id
+  user_group_id: user_group&.id
   )
 %>
-<div id="proposal-<%= proposal.id %>-adhesion-button">
+<div id="proposal-<%= proposal.id %>-adhesion-button<%= user_group&.id ? "-#{user_group.id}" : '' %>">
   <% if !current_user %>
       <%= action_authorized_button_to :adhere, t('.adhere'), current_adhesion_url, class: "card__button button #{adhesion_button_classes(from_proposals_list)}" %>
   <% else %>
