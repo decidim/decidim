@@ -1,8 +1,10 @@
-# Migration to 0.8.0
+# Migration from 0.7.0 to 0.8.0
 
 ## Note about this guide.
 
-This is a work-in-progress guide for all those people that needs to adapt his existing source code to Decidim 0.8.0. If you find a mistake or missing parts in this  document do not hesitate to make a pull request and add your discoveries.
+This is a work-in-progress guide for all those people that needs to adapt his existing source code from Decidim
+0.7.0 to Decidim 0.8.0. If you find a mistake or missing parts in this  document do not hesitate to make a pull request
+and add your discoveries.
 
 
 ## Upgrading the gem.
@@ -82,13 +84,16 @@ After I have upgraded to the last version of decidim I have realized that some t
 RSpec::Core::MultipleExceptionError: unexpected alert open: {Alert text : Are you sure?}
 ```
 
-That was caused by a confirmation dialog. In order to get rid of these issue I had to add the following line in the point where the dialog was supposed to be accepted:
+That was caused by a confirmation dialog. In order to get rid of these issue I had to add the following line in the point
+where the dialog was supposed to be accepted:
 
 ```ruby
-page.driver.browser.switch_to.alert.accept
+accept_confirm { click_button "Submit" }
 ```
 
 ## Steps to do after migrating your source code.
+
+### Adapting code for an existing engine:
 
 You must remove the external test app and regenerate it:
 
@@ -107,5 +112,26 @@ $ bundle exec rails db:migrate
 $ bundle exec rails db:migrate RAILS_ENV=test
 $ bundle exec rails db:seed
 ```
+### Adapting code for an existing Decidim implementation.
 
-Finally, take a cold beer and enjoy democracy.
+After updating the decidim gems you should import the new migrations and execute them:
+
+```bash
+$ rails decidim:upgraded
+$ rails db:migrate
+```
+
+Additionally you should change the way uglifier is used in your app:
+
+Edit the file *config/environments/production.rb* and make the following changes:
+
+```ruby
+# Original value
+# config.assets.js_compressor = :uglifier
+
+# Enable ES6 support
+config.assets.js_compressor = Uglifier.new(harmony: true)
+```
+# To sum it up.
+
+Take a cold beer and enjoy democracy.
