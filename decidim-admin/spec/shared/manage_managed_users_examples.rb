@@ -11,47 +11,6 @@ shared_examples "manage managed users examples" do
     login_as user, scope: :user
   end
 
-  def fill_in_the_managed_user_form
-    within "form.new_managed_user" do
-      fill_in :managed_user_name, with: "Foo"
-      fill_in :managed_user_authorization_document_number, with: "123456789X"
-      fill_in :managed_user_authorization_postal_code, with: "08224"
-      page.execute_script("$('#managed_user_authorization_birthday').siblings('input:first').focus()")
-    end
-
-    page.find(".datepicker-dropdown .day", text: "12").click
-    click_button "Create"
-  end
-
-  def fill_in_the_impersonation_form
-    within "form.new_managed_user_impersonation" do
-      fill_in :impersonate_managed_user_authorization_document_number, with: "123456789X"
-      fill_in :impersonate_managed_user_authorization_postal_code, with: "08224"
-      page.execute_script("$('#impersonate_managed_user_authorization_birthday').siblings('input:first').focus()")
-    end
-
-    page.find(".datepicker-dropdown .day", text: "12").click
-    click_button "Impersonate"
-  end
-
-  def impersonate_the_managed_user
-    navigate_to_managed_users_page
-
-    within find("tr", text: managed_user.name) do
-      click_link "Impersonate"
-    end
-
-    fill_in_the_impersonation_form
-  end
-
-  def check_impersonation_logs
-    within find("tr", text: managed_user.name) do
-      click_link "View logs"
-    end
-
-    expect(page).to have_selector("tbody tr", count: 1)
-  end
-
   context "when the organization doesn't have any authorization available" do
     let(:available_authorizations) { [] }
 
@@ -167,5 +126,48 @@ shared_examples "manage managed users examples" do
       navigate_to_managed_users_page
       expect(page).to have_no_content(managed_user.name)
     end
+  end
+
+  private
+
+  def fill_in_the_managed_user_form
+    within "form.new_managed_user" do
+      fill_in :managed_user_name, with: "Foo"
+      fill_in :managed_user_authorization_document_number, with: "123456789X"
+      fill_in :managed_user_authorization_postal_code, with: "08224"
+      page.execute_script("$('#managed_user_authorization_birthday').siblings('input:first').focus()")
+    end
+
+    page.find(".datepicker-dropdown .day", text: "12").click
+    click_button "Create"
+  end
+
+  def fill_in_the_impersonation_form
+    within "form.new_managed_user_impersonation" do
+      fill_in :impersonate_managed_user_authorization_document_number, with: "123456789X"
+      fill_in :impersonate_managed_user_authorization_postal_code, with: "08224"
+      page.execute_script("$('#impersonate_managed_user_authorization_birthday').siblings('input:first').focus()")
+    end
+
+    page.find(".datepicker-dropdown .day", text: "12").click
+    click_button "Impersonate"
+  end
+
+  def impersonate_the_managed_user
+    navigate_to_managed_users_page
+
+    within find("tr", text: managed_user.name) do
+      click_link "Impersonate"
+    end
+
+    fill_in_the_impersonation_form
+  end
+
+  def check_impersonation_logs
+    within find("tr", text: managed_user.name) do
+      click_link "View logs"
+    end
+
+    expect(page).to have_selector("tbody tr", count: 1)
   end
 end
