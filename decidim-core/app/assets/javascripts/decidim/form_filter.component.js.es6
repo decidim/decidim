@@ -55,8 +55,8 @@
         });
         this.$form.on('change', 'input', this._onFormChange);
 
-        exports.Decidim.History.registerCallback(`filters-${this.id}`, () => {
-          this._onPopState();
+        exports.Decidim.History.registerCallback(`filters-${this.id}`, (state) => {
+          this._onPopState(state);
         });
       }
     }
@@ -143,6 +143,9 @@
       this.$form.find('input[type=checkbox]').attr('checked', false);
       this.$form.find('input[type=radio]').attr('checked', false);
       this.$form.find('select.select2').val(null).trigger('change.select2');
+      this.$form.find('.data-picker').each((_index, picker) => {
+        exports.Decidim.DataPicker.clear(picker);
+      });
 
       // This ensure the form is reset in a valid state where a fieldset of
       // radio buttons has the first selected.
@@ -155,9 +158,10 @@
     /**
      * Handles the logic when going back to a previous state in the filter form.
      * @private
+     * @param {Object} state - state stored along with location URL
      * @returns {Void} - Returns nothing.
      */
-    _onPopState() {
+    _onPopState(state) {
       this._clearForm();
 
       const filterParams = this._parseLocationFilterValues();
@@ -194,6 +198,14 @@
         });
       }
 
+      // Retrieves picker information for selected values (value, text and link) from the state object
+      $(".data-picker", this.$form).each((_index, picker) => {
+        let pickerState = state[picker.id];
+        if (pickerState) {
+          exports.Decidim.DataPicker.load(picker, pickerState);
+        }
+      })
+
       // Only one instance should submit the form on browser history navigation
       if (this.popStateSubmiter) {
         exports.Rails.fire(this.$form[0], 'submit');
@@ -210,6 +222,7 @@
       const params = this.$form.serialize();
 
       let newUrl = '';
+      let newState = {};
 
       exports.Rails.fire(this.$form[0], 'submit');
 
@@ -219,7 +232,12 @@
         newUrl = `${formAction}&${params}`;
       }
 
-      exports.Decidim.History.pushState(newUrl);
+      // Stores picker information for selected values (value, text and link) in the state object
+      $(".data-picker", this.$form).each((_index, picker) => {
+        newState[picker.id] = exports.Decidim.DataPicker.save(picker);
+      })
+
+      exports.Decidim.History.pushState(newUrl, newState);
     }
 
     /**
