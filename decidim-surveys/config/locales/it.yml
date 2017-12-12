@@ -16,7 +16,7 @@ it:
           global:
             announcement: Annuncio
           step:
-            allow_answers: Consentire risposte
+            allow_answers: Consenti risposte
             announcement: Annuncio
     surveys:
       admin:
@@ -57,7 +57,7 @@ it:
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Entra con il tuo account</a> or <a href="%{sign_up_link}">Registrati</a> per poter commentare.
-            title: Rispondere al questionario
+            title: Rispondi al questionario
           are_you_sure: Questa azione non potrà essere cancellata e non sarà più possibile modificare le risposte. Sei sicuro?
           submit: Invia
           survey_answered:

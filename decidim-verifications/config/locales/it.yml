@@ -36,7 +36,7 @@ it:
       name: Nome
       postal_letter:
         explanation: Ti invieremo una lettera postale con un codice che dovrai inserire per poter verificare il tuo indirizzo
-        name: Codice per lettera postale
+        name: Codice via lettera postale
     verifications:
       authorizations:
         create:
@@ -97,8 +97,8 @@ it:
             index:
               address: Indirizzo
               letter_sent_at: Lettera inviata a
-              mark_as_sent: Contrassegna come inviato
-              not_yet_sent: non ancora inviato
+              mark_as_sent: Marca come inviato
+              not_yet_sent: Non ancora inviato
               title: Verifiche in corso
               username: Nome utente
               verification_code: Codice di verifica
@@ -108,14 +108,14 @@ it:
               success: Lettera contrassegnata con successo come inviata
         authorizations:
           create:
-            error: c'è stato un problema con la tua richiesta
+            error: Si è verificato un problema con la tua richiesta
             success: Grazie! Invieremo un codice di verifica al tuo indirizzo
           edit:
             send: Conferma
             title: Inserisci il codice di verifica che hai ricevuto
             waiting_for_letter: A breve invieremo al tuo indirizzo una lettera con il tuo codice di verifica
           new:
-            send: Mandami una lettera
+            send: Inviami una lettera
             title: Richiedi il tuo codice di verifica
           update:
             error: Il tuo codice di verifica non corrisponde al nostro. Per favore controlla la lettera che ti abbiamo inviato

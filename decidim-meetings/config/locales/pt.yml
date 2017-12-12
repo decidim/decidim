@@ -74,7 +74,7 @@ pt:
           index:
             title: Reuniões
           new:
-            create: Crio
+            create: Criar
             title: Criar reunião
           update:
             invalid: Tem havido um problema ao atualizar esta reunião
@@ -123,7 +123,7 @@ pt:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Sujeito
+            subject: Convite para participar de uma reunião
         registration_mailer:
           confirmation:
             subject: O registro da sua reunião foi confirmado
@@ -191,4 +191,4 @@ pt:
   devise:
     mailer:
       join_meeting:
-        subject: Sujeito
+        subject: Convite para participar de uma reunião
