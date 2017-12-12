@@ -92,7 +92,7 @@ fr:
           name: Rôle utilisateur du processus participatif
           roles:
             admin: Administrateur
-            collaborator: Rédacteur
+            collaborator: Relecteur
             moderator: Modérateur
         user:
           fields:
