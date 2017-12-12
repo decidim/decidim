@@ -381,6 +381,7 @@ uk:
         welcome: Ласкаво просимо до %{organization}!
       statistics:
         answers_count: Відповіді
+        assemblies_count: Збори
         comments_count: Коментарі
         headline: Поточний стан %{organization}
         meetings_count: Зустрічі
@@ -388,6 +389,7 @@ uk:
         pages_count: Сторінки
         processes_count: Рухи
         projects_count: Проекти
+        proposals_accepted: Прийняті пропозиції
         proposals_count: Пропозиції
         results_count: Підсумки
         surveys_count: Опитування
