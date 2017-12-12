@@ -237,6 +237,10 @@ en:
         success: The report has been created successfully and it will be reviewed by an admin.
     shared:
       action_authorization_modal:
+        expired:
+          authorize: Reauthorize with "%{authorization}"
+          explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
+          title: Authorization has expired
         incomplete:
           cancel: Cancel
           explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
