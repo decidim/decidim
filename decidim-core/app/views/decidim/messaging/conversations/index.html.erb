@@ -1,0 +1,51 @@
+<main class="wrapper">
+  <div class="row">
+    <div class="columns">
+      <div class="title-action" >
+        <h1 class="heading1 title-action__title">
+          <%= t(".title") %>
+        </h1>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns large-8">
+      <% if @conversations.empty? %>
+        <div class="callout secondary">
+          <p><%= t(".no_conversations") %></p>
+        </div>
+      <% else %>
+        <div class="card card--list conversations">
+          <% @conversations.each do |conversation| %>
+            <%= link_to decidim.conversation_path(conversation), class: "card--list__item" do %>
+              <div class="card--list__titled-text">
+                <h6 class="card--list__heading heading6">
+                  <%= username_list(conversation.interlocutors(current_user)) %>
+                </h6>
+
+                <span class="card--list__annotation">
+                  <%= simple_date(conversation.last_message.created_at) %>
+                </span>
+
+                <span class="text-small">
+                  <%= truncate conversation.last_message.body, length: 150 %>
+                </span>
+
+                <% if conversation.unread_count(current_user) > 0 %>
+                  <span class="card--list__counter">
+                    <span><%= conversation.unread_count(current_user) %></span>
+                  </span>
+                <% end %>
+              </div>
+              <div class="card--list__data">
+                <span class="card--list__data__icon">
+                  <%= icon "chevron-right" %>
+                </span>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</main>

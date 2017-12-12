@@ -59,11 +59,6 @@ ru:
       photos:
         related_photos: Сопутствующие фотографии
     authorization_handlers:
-      dummy_authorization_handler:
-        fields:
-          document_number: Номер документа
-          postal_code: Почтовый индекс
-        name: Пример подтверждения личности
       errors:
         duplicate_authorization: С теми же данными уже подтвердил свою личность другой участник.
       foo_authorization:
@@ -71,20 +66,6 @@ ru:
           bar: Нерабочая псевдо-переменная 1
           foo: Нерабочая псевдо-переменная 2
         name: Нерабочее псевдо-подтверждение личности
-    authorizations:
-      create:
-        error: При создании этого подтверждения личности произошла ошибка.
-        success: Вы успешно подтвердили свою личность.
-      first_login:
-        actions:
-          dummy_authorization_handler: Проверьте, сравнив с примером подтверждения личности
-        title: Подтвердите вашу личность
-        verify_with_these_options: 'Есть такие способы подтверждения вашей личности:'
-      new:
-        authorize: Отправить
-        authorize_with: Подтвердить личность с помощью %{authorizer}
-      skip_verification: Вы можете пока что пропустить это и %{link}
-      start_exploring: начать иccледовать
     core:
       actions:
         unauthorized: Вы не имеете прав для выполнения этого действия
@@ -306,7 +287,7 @@ ru:
         link_label: здесь
         ok: Я согласен
       footer:
-        made_with_open_source: 'Сайт создан с помощью <a target="_blank" href="https://github.com/decidim/decidim"> бесплатного программного обеспечения</a>.'
+        made_with_open_source: Сайт создан с помощью <a target="_blank" href="https://github.com/decidim/decidim"> бесплатного программного обеспечения</a>.
       header:
         close_menu: Закрыть меню
         navigation: Навигация

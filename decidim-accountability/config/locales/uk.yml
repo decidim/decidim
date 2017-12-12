@@ -134,13 +134,24 @@ uk:
         show:
           stats:
             attendees: Учасники
+            back_to_result: Повернутися до результату
             comments: Коментарі
             contributions: Внесені пропозиції
+            last_edited_by: Останній раз редагувалося
+            last_updated_at: Останній раз оновлювалося
             meetings: Зустрічі
+            number_of_versions: Версії
             proposals: Пропозиції
+            show_all_versions: Показати всі версії
+            version_author: Автор версії
+            version_created_at: 'Версію створено:'
+            version_number: Номер версії
             votes: Підтримує
         timeline:
           title: Розвиток проекту
+      versions:
+        index:
+          title: Версії
     features:
       accountability:
         name: Звітність

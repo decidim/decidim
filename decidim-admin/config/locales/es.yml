@@ -12,6 +12,7 @@ es:
       feature:
         name: Nombre
         weight: Peso
+      id: ID
       newsletter:
         body: Cuerpo
         subject: Asunto
@@ -385,6 +386,7 @@ es:
           error: Se ha producido un error en la actualización de ésta página.
           success: La página se ha actualizado correctamente.
       titles:
+        authorization_workflows: Métodos de verificación
         dashboard: Panel de control
         impersonations: Suplantaciones
         managed_users: Usuarios gestionados

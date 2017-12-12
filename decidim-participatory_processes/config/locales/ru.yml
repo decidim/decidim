@@ -205,7 +205,6 @@ ru:
     participatory_process_groups:
       show:
         group_participatory_processes: Движения для %{group}
-        title: Название
     participatory_process_steps:
       index:
         process_steps: Шаги движения

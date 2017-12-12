@@ -12,6 +12,7 @@ pl:
       feature:
         name: Nazwa
         weight: Waga
+      id: ID
       newsletter:
         body: Ciało
         subject: Przedmiot
@@ -385,6 +386,7 @@ pl:
           error: Podczas aktualizowania tej strony wystąpił błąd.
           success: Strona została zaktualizowana
       titles:
+        authorization_workflows: Metody weryfikacji
         dashboard: Deska rozdzielcza
         impersonations: Impersonaty
         managed_users: Zarządzane użytkownicy

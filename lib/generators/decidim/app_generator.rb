@@ -42,6 +42,9 @@ module Decidim
       class_option :seed_db, type: :boolean, default: false,
                              desc: "Seed test database"
 
+      class_option :app_const_base, type: :string,
+                                    desc: "The application constant name"
+
       class_option :skip_bundle, type: :boolean, aliases: "-B", default: true,
                                  desc: "Don't run bundle install"
 
@@ -126,6 +129,10 @@ module Decidim
 
       def path_to_root(file)
         File.expand_path(File.join("..", "..", "..", file), __dir__)
+      end
+
+      def app_const_base
+        options["app_const_base"] || super
       end
     end
   end

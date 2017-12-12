@@ -12,6 +12,7 @@ ca:
       feature:
         name: Nom
         weight: Pes
+      id: ID
       newsletter:
         body: Cos
         subject: Assumpte
@@ -385,6 +386,7 @@ ca:
           error: S'ha produït un error en l'actualització d'aquests pàgina.
           success: La pàgina s'ha actualitzat correctament.
       titles:
+        authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
         impersonations: Suplantacions
         managed_users: Usuaris gestionats

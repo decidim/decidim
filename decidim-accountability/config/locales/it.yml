@@ -4,10 +4,10 @@ it:
       result:
         decidim_accountability_status_id: stato
         decidim_category_id: Categoria
-        decidim_scope_id: Objetivos
+        decidim_scope_id: Scopi
         description: Descrizione
-        end_date: Data di fine
-        progress: Avanzamento
+        end_date: Data finale
+        progress: Progresso
         proposal_ids: Proposte incluse
         start_date: Date di inizio
         title: Nome
@@ -15,7 +15,7 @@ it:
         description: Descrizione
         key: Chiave
         name: Nome
-        progress: Avanzamento
+        progress: Progresso
       timeline_entry:
         description: Descrizione
         entry_date: Data
@@ -42,65 +42,65 @@ it:
         results:
           create:
             invalid: C'è stato un problema durante la creazione di questo risultato
-            success: OK, il risultato è stato creato
+            success: Risultato creato con successo
           destroy:
-            success: Il risultato è stato cancellato
+            success: Risultato eliminato con successo
           edit:
-            title: Modifica il risultato (Ambito)
+            title: Modifica il risultato
             update: Aggiorna il risultato
           index:
             title: Risultati
           new:
-            create: Crea il risultato
+            create: Crea un risultato
             title: Nuovo risultato
           update:
             invalid: C'è stato un problema durante l'aggiornamento di questo risultato
-            success: OK, il risultato è stato modificato
+            success: Risultato modificato con successo
         shared:
           subnav:
-            statuses: Gli stati
+            statuses: Status
         statuses:
           create:
-            invalid: È stato un problema che crea questo stato
+            invalid: C'è stato un problema nella creazione di questo stato
             success: Stato creato con successo
           destroy:
             success: Stato eliminato con successo
           edit:
             title: Modifica lo stato
-            update: Aggiorna stato
+            update: Aggiorna lo stato
           index:
-            title: Gli stati
+            title: Status
           new:
-            create: Crea stato
+            create: Crea uno stato
             title: Nuovo stato
           update:
-            invalid: È stato un problema che aggiorna questo stato
+            invalid: C'è stato un problema nel aggiornamento di questo stato
             success: Stato aggiornato con successo
         timeline_entries:
           create:
-            invalid: C'è stato un problema creando questa voce
-            success: Entrata creata con successo
+            invalid: C'è stato un problema nella creazione di questa voce
+            success: Voce creata con successo
           destroy:
-            success: L'iscrizione è stata eliminata correttamente
+            success: La voce è stata eliminata correttamente
           edit:
-            title: Modifica voce
+            title: Modifica la voce
             update: Aggiorna la voce
           index:
-            title: Inserimento di timeline di progetto
+            title: Voci della cronologia del progetto
           new:
-            create: Crea voce
-            title: Nuovo arrivato
+            create: Crea una voce
+            title: Nuova voce
           update:
-            invalid: È stato un problema che aggiorna questa voce
-            success: Entrata aggiornata con successo
+            invalid: C'è stato un problema nel aggiornamento di questa voce
+            success: Voce aggiornata con successo
       models:
         result:
           fields:
-            end_date: Data di fine
+            end_date: Data finale
             progress: Avanzamento
-            start_date: Date di inizio
+            start_date: Data di inizio
             status: Stato
-            title: Nome
+            title: Titolo
         status:
           fields:
             description: Descrizione
@@ -132,13 +132,30 @@ it:
         show:
           stats:
             attendees: Partecipanti
+            back_to_result: Torna al risultato
             comments: Commenti
             contributions: Contributi
+            last_edited_by: Ultima modifica di
+            last_updated_at: Ultimo aggiornamento alle
             meetings: Riunioni
+            number_of_versions: versioni
             proposals: Proposte
+            show_all_versions: Mostra tutte le versioni
+            version_author: Autore della versione
+            version_created_at: Versione creata a
+            version_number: Numero della versione
+            version_number_out_of_total: "%{current_version} su %{total_count}"
             votes: Voti
         timeline:
           title: Evoluzione del progetto
+      versions:
+        index:
+          changes_at_title: Modifiche a "%{title}"
+          title: versioni
+        show:
+          changes_at_title: Modifiche a "%{title}"
+        version:
+          version_index: Versione %{index}
     features:
       accountability:
         name: Responsabilità

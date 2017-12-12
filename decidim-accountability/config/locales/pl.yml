@@ -133,13 +133,30 @@ pl:
         show:
           stats:
             attendees: Uczestnicy i uczestniczki
+            back_to_result: Wróć do wyniku
             comments: Komentarze
             contributions: Wkład
+            last_edited_by: Ostatnio edytowane przez
+            last_updated_at: 'Ostatnia aktualizacja:'
             meetings: Spotkania
+            number_of_versions: Wersje
             proposals: Propozycje
+            show_all_versions: Pokaż wszystkie wersje
+            version_author: Autor wersji
+            version_created_at: Wersja utworzona w
+            version_number: Numer wersji
+            version_number_out_of_total: "%{current_version} z %{total_count}"
             votes: Wsparcie
         timeline:
           title: Ewolucja projektu
+      versions:
+        index:
+          changes_at_title: Zmiany w "%{title}"
+          title: Wersje
+        show:
+          changes_at_title: Zmiany w "%{title}"
+        version:
+          version_index: Wersja %{index}
     features:
       accountability:
         name: Odpowiedzialność

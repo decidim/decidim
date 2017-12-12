@@ -60,10 +60,13 @@ nl:
         related_photos: Gerelateerde foto 's
     authorization_handlers:
       dummy_authorization_handler:
+        explanation: Wordt geverifieerd door een documentnummer in te voeren dat eindigt op 'X'
         fields:
-          document_number: Documentnummer
+          document_number: Document Nummer
           postal_code: Postcode
-        name: Voorbeeld machtiging
+        name: Voorbeeld autorisatie
+      dummy_authorization_workflow:
+        name: Dummy autorisatie workflow
       errors:
         duplicate_authorization: Een gebruiker is al gemachtigd met dezelfde gegevens.
       foo_authorization:
@@ -71,20 +74,8 @@ nl:
           bar: Bar
           foo: Foo
         name: Foo machtiging
-    authorizations:
-      create:
-        error: Er is een fout opgetreden bij het verlenen van de machtiging.
-        success: U bent geautoriseerd.
-      first_login:
-        actions:
-          dummy_authorization_handler: Gebruik de voorbeeld autorisatie
-        title: Verifieer uw identiteit
-        verify_with_these_options: 'Dit zijn de beschikbare opties om uw identiteit te verifiëren:'
-      new:
-        authorize: Verstuur
-        authorize_with: Controleer via %{authorizer}
-      skip_verification: U kunt dit overslaan voor nu en %{link}
-      start_exploring: begin met het verkennen
+      granted_at: Toegekend op %{timestamp}
+      started_at: Gestart om %{timestamp}
     core:
       actions:
         unauthorized: U bent niet gemachtigd dit te doen
@@ -180,6 +171,34 @@ nl:
     menu:
       home: Home
       more_information: Meer informatie
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          greeting: Hallo, %{recipient}!
+          intro: "%{sender} is een nieuw gesprek met je begonnen. Klik hier om het te zien:"
+          outro: Geniet van Decidim!
+          subject: "%{sender} is een gesprek met je begonnen"
+        new_message:
+          greeting: Hallo, %{recipient}!
+          intro: "%{sender} heeft nieuwe berichten geplaatst in je gesprek. Klik hier om ze te zien:"
+          outro: Geniet van Decidim!
+          subject: Je hebt nieuwe berichten van %{sender}
+      conversations:
+        create:
+          error: Gesprek niet gestart. Probeer het later nogmaals
+        index:
+          no_conversations: Je hebt nog geen gesprekken
+          title: conversaties
+        reply:
+          send: Sturen
+          title: Antwoord
+        show:
+          title: Conversatie met %{usernames}
+        start:
+          send: Sturen
+          title: Een gesprek beginnen
+        update:
+          error: Bericht niet verzonden Probeer het later nogmaals
     newsletter_mailer:
       newsletter:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
@@ -225,6 +244,10 @@ nl:
           authorize: Autoriseren met "%{authorization}"
           explanation: Om deze actie uit te voeren, moet u autoriseren met "%{authorization}".
           title: Autorisatie vereist
+        pending:
+          explanation: Als u deze actie wilt uitvoeren, moet u zijn gemachtigd met '%{authorization}', maar uw autorisatie is nog in uitvoering
+          resume: Controleer de voortgang van uw autorisatie bij "%{authorization}"
+          title: Autorisatie is nog bezig
         unauthorized:
           explanation: Excuus, u kunt deze actie niet uitvoeren; sommige gegevens kloppen niet.
           invalid: "%{field} is niet geldig."
@@ -256,6 +279,8 @@ nl:
         close_window: Sluit dit scherm
         share: Deel
         share_link: Link delen
+      version_author:
+        deleted: Verwijderde gebruiker
   devise:
     invitations:
       edit:
@@ -306,7 +331,7 @@ nl:
         link_label: hier
         ok: Ik ga akkoord
       footer:
-        made_with_open_source: 'Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.'
+        made_with_open_source: Website is gemaakt met <a target="_blank" href="https://github.com/decidim/decidim"> open-source software</a>.
       header:
         close_menu: Menu sluiten
         navigation: Navigatie
@@ -390,6 +415,13 @@ nl:
     wechat_footer: Open uw WeChat, klik op "Ontdekken" en open het menu "QR-Code scannen".
     weibo: Sina Weibo
     xing: Xing
+  time:
+    formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_year: "%d.%m.%y"
+      decidim_short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"
   views:
     pagination:
       first: "&laquo; Eerste"

@@ -12,6 +12,7 @@ uk:
       feature:
         name: Ім'я
         weight: Вага
+      id: Ідентифікатор
       newsletter:
         body: Основний текст
         subject: Тема
@@ -385,6 +386,7 @@ uk:
           error: При оновленні цієї сторінки сталася помилка.
           success: Сторінку успішно оновлено
       titles:
+        authorization_workflows: Методи перевірки
         dashboard: Приладна дошка
         impersonations: Виступи в ролі учасника
         managed_users: Керовані учасники

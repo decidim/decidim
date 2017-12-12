@@ -1,0 +1,2 @@
+$("#messages").append("<%= j(render "message", message: conversation.messages.first).html_safe %>");
+$(".add-message").replaceWith("<%= j(render "reply", form: form, conversation: conversation).html_safe %>");

@@ -205,7 +205,7 @@ fi:
     participatory_process_groups:
       show:
         group_participatory_processes: Prosessit ryhmälle %{group}
-        title: Otsikko
+        title: Osallistuvat prosessiryhmät
     participatory_process_steps:
       index:
         process_steps: Prosessin vaiheet
@@ -222,6 +222,7 @@ fi:
         title: Osallistumisprosessit
       order_by_processes:
         active: Aktivoi
+        all: Kaikki
         past: Menneet
         upcoming: Tulevat
       pages:

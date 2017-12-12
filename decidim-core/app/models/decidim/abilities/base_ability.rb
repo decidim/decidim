@@ -40,6 +40,10 @@ module Decidim
         can :manage, Notification do |notification|
           notification.user == user
         end
+
+        can :manage, Messaging::Conversation do |conversation|
+          conversation.participants.include?(user)
+        end
       end
 
       private

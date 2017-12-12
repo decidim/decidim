@@ -393,6 +393,45 @@ $datetime-bg: $primary;
   font-size: 1.5rem;
 }
 
+.card--list__titled-text{
+  @extend .card--list__text;
+  flex-wrap: wrap;
+
+  $date-width: 28px;
+
+  .card--list__heading{
+    margin-bottom: 5px;
+    width: calc(100% - #{$date-width});
+  }
+
+  .card--list__annotation{
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    font-size: .7em;
+    font-weight: 600;
+    width: $date-width;
+  }
+
+  .card--list__counter{
+    $counter-size: 20px;
+    $counter-font-size: $counter-size - 8px;
+
+    background-color: $secondary;
+    border-radius: 50%;
+    color: $white;
+    font-size: $counter-font-size;
+    font-weight: 600;
+    margin-left: auto;
+    width: $counter-size;
+
+    span {
+      display: block;
+      line-height: $counter-size;
+      text-align: center;
+    }
+  }
+}
+
 /* Card full width variant */
 
 .card--full{

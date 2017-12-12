@@ -156,6 +156,7 @@ fi:
         proposal:
           view_proposal: Näytä ehdotus
         show:
+          contact: Ottaa yhteyttä
           edit_proposal: Muokkaa ehdotusta
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
           proposal_in_evaluation_reason: Tätä ehdotusta arvioidaan

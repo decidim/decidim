@@ -4,10 +4,21 @@
 
 **Added**:
 
+**Changed**:
+
+**Fixed**:
+
+## [v0.8.0](https://github.com/decidim/decidim/tree/v0.8.0) (2017-12-4)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.7.0...v0.8.0)
+
+**Added**:
+
 - **decidim-accountability**: Add result tracing and version diffing [\#2206](https://github.com/decidim/decidim/pull/2206)
 - **decidim-assemblies**: Show promoted assemblies in the homepage [\#2162](https://github.com/decidim/decidim/pull/2162)
 - **decidim-core**: Add support for extending the user profile menu. [\#2193](https://github.com/decidim/decidim/pull/2193)
 - **decidim-core**: Add view hooks so external engines can extend the homepage and other sections with their own code [\#2114](https://github.com/decidim/decidim/pull/2114)
+- **decidim-core**: Add the ability to register Global Engines that sit at the root of the project. [\#2194](https://github.com/decidim/decidim/pull/2194)
+- **decidim-core**: Private one to one conversations [\#2186](https://github.com/decidim/decidim/pull/2186)
 - **decidim-proposals**: Admins can set a minute window after the creation of a proposal in which the proposal can be edited by its author. Once the window has passed, it cannot be edited. [\#2171](https://github.com/decidim/decidim/pull/2171)
 - **decidim-verifications**: Support for deferred verification methods that require several steps in order to be granted. [\#2024](https://github.com/decidim/decidim/pull/2024)
 
@@ -51,6 +62,7 @@
 - **decidim-core**: Fixes to MigrateUserRolesToParticipatoryProcessRoles: avoid using relations and work with id's directly [\#2223](https://github.com/decidim/decidim/pull/2223)
 - **decidim-core**: Embedded videos were not displaying properly [\#2198](https://github.com/decidim/decidim/pull/2198)
 - **decidim-core**: Links in emails in development being generated without a port [\#2237](https://github.com/decidim/decidim/pull/2237)
+- **decidim-core**: Ensure locale is kept between feature pages [\#2310](https://github.com/decidim/decidim/pull/2310)
 - **decidim-participatory-processes**: Fixes active processes and adds all processes filters [\#2081](https://github.com/decidim/decidim/pull/2131)
 
 ## [v0.7.4](https://github.com/decidim/decidim/tree/v0.7.4) (2017-11-23)

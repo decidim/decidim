@@ -132,13 +132,30 @@ ca:
         show:
           stats:
             attendees: Assistents
+            back_to_result: Torna al resultat
             comments: Comentaris
             contributions: Aportacions
+            last_edited_by: Editat per última vegada per
+            last_updated_at: Darrera actualització el
             meetings: Trobades
+            number_of_versions: Versions
             proposals: Propostes
+            show_all_versions: Mostra totes les versions
+            version_author: Autor de la versió
+            version_created_at: Versió creada el
+            version_number: Número de versió
+            version_number_out_of_total: "%{current_version} de %{total_count}"
             votes: Suports
         timeline:
           title: Evolució del projecte
+      versions:
+        index:
+          changes_at_title: Canvis a "%{title}"
+          title: Versions
+        show:
+          changes_at_title: Canvis a "%{title}"
+        version:
+          version_index: Versió %{index}
     features:
       accountability:
         name: Seguiment

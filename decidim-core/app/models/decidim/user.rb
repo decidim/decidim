@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_dependency "devise/models/decidim_validatable"
+require "valid_email2"
 
 module Decidim
   # A User is a citizen that wants to join the platform to participate.
@@ -25,6 +26,8 @@ module Decidim
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
     validates :email, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? }
+    validates :email, 'valid_email_2/email': { disposable: true }
+
     validate :all_roles_are_valid
 
     mount_uploader :avatar, Decidim::AvatarUploader
@@ -65,6 +68,10 @@ module Decidim
 
     def follows?(followable)
       Decidim::Follow.where(user: self, followable: followable).any?
+    end
+
+    def unread_conversations
+      Decidim::Messaging::Conversation.unread_by(self)
     end
 
     # Check if the user exists with the given email and the current organization

@@ -28,12 +28,17 @@ Decidim::Core::Engine.routes.draw do
 
   mount Decidim::Verifications::Engine, at: "/", as: "decidim_verifications"
 
+  Decidim.global_engines.each do |name, engine_data|
+    mount engine_data[:engine], at: engine_data[:at], as: name
+  end
+
   authenticate(:user) do
     resource :account, only: [:show, :update, :destroy], controller: "account" do
       member do
         get :delete
       end
     end
+    resources :conversations, only: [:new, :create, :index, :show, :update], controller: "messaging/conversations"
     resources :notifications, only: [:index, :destroy] do
       collection do
         delete :read_all

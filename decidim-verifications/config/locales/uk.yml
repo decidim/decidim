@@ -1,0 +1,41 @@
+uk:
+  activemodel:
+    attributes:
+      id_document_information:
+        document_number: Номер документа (з літерою)
+        document_type: Тип документа
+      id_document_upload:
+        document_number: Номер документа (з літерою)
+        document_type: Тип вашого документа
+        user: Учасник
+        verification_attachment: Сканована копія вашого документа
+  decidim:
+    admin:
+      menu:
+        authorization_workflows: Перевірки
+    authorization_handlers:
+      help: Допомога
+      multistep: Багатокроковий
+      name: Ім'я
+      postal_letter:
+        explanation: Ми надішлемо вам поштовий лист із кодом, який вам потрібно ввести, щоб ми могли підтвердити вашу адресу
+    verifications:
+      postal_letter:
+        admin:
+          pending_authorizations:
+            index:
+              username: Ім'я учасника
+              verification_code: Код підтвердження
+          postages:
+            create:
+              error: Помилка позначення листа як відправленого
+              success: Лист успішно позначено як відправлений
+        authorizations:
+          create:
+            error: Виникла проблема з вашим запитом
+            success: Дякуємо! Ми надішлемо код підтвердження на вашу адресу
+          edit:
+            send: Підтвердити
+            title: Введіть код підтвердження, який ви отримали
+          new:
+            send: Надішліть мені листа

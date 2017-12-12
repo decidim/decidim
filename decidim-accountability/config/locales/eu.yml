@@ -132,13 +132,30 @@ eu:
         show:
           stats:
             attendees: Bertaratuak
+            back_to_result: Joan emaitza batera
             comments: Iruzkinak
             contributions: Ekarpenak
+            last_edited_by: Azkenean editatua
+            last_updated_at: Azkenekoz eguneratuta
             meetings: Topaketa-zerrenda
+            number_of_versions: bertsioak
             proposals: Proposamenak
+            show_all_versions: Erakutsi bertsio guztiak
+            version_author: Egile-bertsioa
+            version_created_at: Bertsioa sortua
+            version_number: Bertsio zenbakia
+            version_number_out_of_total: "%{current_version} %{total_count}tik kanpo"
             votes: Sostenguak
         timeline:
           title: Proiektuen bilakaera
+      versions:
+        index:
+          changes_at_title: Aldaketak "%{title}" atalean
+          title: bertsioak
+        show:
+          changes_at_title: Aldaketak "%{title}" atalean
+        version:
+          version_index: '%{index} bertsioa'
     features:
       accountability:
         name: Emaitzak

@@ -12,6 +12,7 @@ pt:
       feature:
         name: Nome
         weight: Peso
+      id: identidade
       newsletter:
         body: Corpo
         subject: Assunto
@@ -385,6 +386,7 @@ pt:
           error: Ocorreu um erro ao atualizar esta página.
           success: Página atualizada com sucesso
       titles:
+        authorization_workflows: Métodos de verificação
         dashboard: painel de controle
         impersonations: Personagens
         managed_users: Usuários gerenciados

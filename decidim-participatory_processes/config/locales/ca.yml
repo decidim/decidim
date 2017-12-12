@@ -25,7 +25,7 @@ ca:
         start_date: Data d'inici
         subtitle: Subtítol
         target: A qui va dirigit
-        title: Grup de processos participatius
+        title: Títol
       participatory_process_group:
         description: Descripció
         hero_image: Imatge
@@ -36,7 +36,7 @@ ca:
         end_date: Data de finalització
         short_description: Descripció breu
         start_date: Data d'inici
-        title: Grup de processos participatius
+        title: Títol
       participatory_process_user_role:
         email: Correu electrònic
         name: Nom
@@ -72,7 +72,7 @@ ca:
             created_at: Data de creació
             promoted: Destacat
             published: Publicat
-            title: Grup de processos participatius
+            title: Títol
           name: Procés participatiu
         participatory_process_group:
           fields:
@@ -82,7 +82,7 @@ ca:
           fields:
             end_date: Data de finalització
             start_date: Data d'inici
-            title: Grup de processos participatius
+            title: Títol
           name: Name
         participatory_process_user_role:
           fields:
@@ -205,7 +205,7 @@ ca:
     participatory_process_groups:
       show:
         group_participatory_processes: Processos per a %{group}
-        title: Grup de processos participatius
+        title: Grups de processos participatius
     participatory_process_steps:
       index:
         process_steps: Fases del procés
@@ -222,6 +222,7 @@ ca:
         title: Processos participatius
       order_by_processes:
         active: Actius
+        all: Tots
         past: Passats
         upcoming: Propers
       pages:

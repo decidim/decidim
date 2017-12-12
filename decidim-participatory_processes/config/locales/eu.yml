@@ -25,7 +25,7 @@ eu:
         start_date: Hasiera-data
         subtitle: Azpititulua
         target: Nori zuzentzen zaio?
-        title: Prozesu partizipatiboen multzoak
+        title: Titulua
       participatory_process_group:
         description: Deskribapena
         hero_image: Irudia
@@ -36,7 +36,7 @@ eu:
         end_date: Bukaera-data
         short_description: Deskribapen laburra
         start_date: Hasiera-data
-        title: Prozesu partizipatiboen multzoak
+        title: Titulua
       participatory_process_user_role:
         email: Helbide elektronikoa
         name: Izena
@@ -72,7 +72,7 @@ eu:
             created_at: Sortze-data
             promoted: Nabarmendua
             published: Argitaratua
-            title: Prozesu partizipatiboen multzoak
+            title: Titulua
           name: Prozesu partizipatiboa
         participatory_process_group:
           fields:
@@ -82,7 +82,7 @@ eu:
           fields:
             end_date: Bukaera-data
             start_date: Hasiera-data
-            title: Prozesu partizipatiboen multzoak
+            title: Titulua
           name: Prozesu partizipatiboaren fasea
         participatory_process_user_role:
           fields:
@@ -205,7 +205,7 @@ eu:
     participatory_process_groups:
       show:
         group_participatory_processes: '%{group} talderako prozesuak'
-        title: Prozesu partizipatiboen multzoak
+        title: Parte-hartze prozesuko taldeak
     participatory_process_steps:
       index:
         process_steps: Prozesuaren faseak
@@ -222,6 +222,7 @@ eu:
         title: Prozesu partizipatiboak
       order_by_processes:
         active: Aktiboa
+        all: guztiak
         past: Aurrekoak
         upcoming: Hurrengoak
       pages:

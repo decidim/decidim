@@ -60,10 +60,13 @@ ca:
         related_photos: Fotos relacionades
     authorization_handlers:
       dummy_authorization_handler:
+        explanation: Verifica't introduint un número de document que finalitzi amb "X"
         fields:
           document_number: Número de document
-          postal_code: Codi Postal
-        name: exemple d'autorització
+          postal_code: Codi postal
+        name: Autorització d'exemple
+      dummy_authorization_workflow:
+        name: Flux de treball d'autorització d'exemple
       errors:
         duplicate_authorization: Un usuari ja està autoritzat amb les mateixes dades.
       foo_authorization:
@@ -71,20 +74,8 @@ ca:
           bar: Bar
           foo: Foo
         name: Autorització foo
-    authorizations:
-      create:
-        error: S'ha produït un error en crear l'autorització.
-        success: Has estat autoritzat/da correctament.
-      first_login:
-        actions:
-          dummy_authorization_handler: Verificar contra l'exemple d'autorització
-        title: Verificar la teva identitat
-        verify_with_these_options: 'Aquestes són les opcions disponibles per verificar la teva identitat:'
-      new:
-        authorize: Enviar
-        authorize_with: Verificar-me amb %{authorizer}
-      skip_verification: Pots saltar-te aquest pas per ara i %{link}
-      start_exploring: començar a explorar
+      granted_at: Atorgada el %{timestamp}
+      started_at: Iniciat el %{timestamp}
     core:
       actions:
         unauthorized: No tens permís per realitzar aquesta acció
@@ -180,6 +171,34 @@ ca:
     menu:
       home: Inici
       more_information: Més informació
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          greeting: Hola, %{recipient}!
+          intro: "%{sender} ha iniciat una nova conversa amb tu. Fes clic aquí per veure-la:"
+          outro: Gaudeix de decidim!
+          subject: "%{sender} ha iniciat una conversa amb tu"
+        new_message:
+          greeting: Hola, %{recipient}!
+          intro: "%{sender} ha enviat nous missatges a la teva conversa. Fes clic aquí per veure'ls:"
+          outro: Gaudeix de decidim!
+          subject: Tens nous missatges de %{sender}
+      conversations:
+        create:
+          error: No s'ha iniciat la conversa. Torna-ho a provar més tard
+        index:
+          no_conversations: Encara no tens converses
+          title: Converses
+        reply:
+          send: Enviar
+          title: Respon
+        show:
+          title: Conversa amb %{usernames}
+        start:
+          send: Enviar
+          title: Comença una conversa
+        update:
+          error: Missatge no enviat. Torna-ho a provar més tard
     newsletter_mailer:
       newsletter:
         note: Has rebut aquest missatge perquè estàs subscrit a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
@@ -225,6 +244,10 @@ ca:
           authorize: Autoritzar amb "%{authorization}"
           explanation: Per dur a terme aquesta acció, ha de disposar de l'autorització "%{authorization}".
           title: Es requereix autorització
+        pending:
+          explanation: Per realitzar aquesta acció, has d'estar autoritzat/da amb "%{authorization}", però la teva autorització encara està en curs
+          resume: Comprova el progrés de l'autorització "%{authorization}"
+          title: L'autorització encara està en progrés
         unauthorized:
           explanation: No es pot realitzar aquesta acció ja que alguna de les seves dades d'autorització no coincideixen amb les requerides.
           invalid: "%{field} no és vàlid."
@@ -256,6 +279,8 @@ ca:
         close_window: Tanca la finestra
         share: Compartir
         share_link: Comparteix l'enllaç
+      version_author:
+        deleted: Usuari eliminat
   devise:
     invitations:
       edit:
@@ -307,7 +332,7 @@ ca:
         link_label: aquí
         ok: Hi estic d'acord
       footer:
-        made_with_open_source: 'Web feta amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.'
+        made_with_open_source: Web feta amb <a target="_blank" href="https://github.com/decidim/decidim">programari lliure</a>.
       header:
         close_menu: Tancar menú
         navigation: Navegació
@@ -391,6 +416,13 @@ ca:
     wechat_footer: Obri el WeChat, feu clic al botó "Discover" i després feu clic al menú "Escanejar codi QR".
     weibo: Sina Weibo
     xing: Xing
+  time:
+    formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_year: "%d/%m/%y"
+      decidim_short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"
   views:
     pagination:
       first: "&laquo; Primera"

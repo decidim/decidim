@@ -205,7 +205,7 @@ uk:
     participatory_process_groups:
       show:
         group_participatory_processes: Рухи для %{group}
-        title: Назва
+        title: Групи рухів співучасті
     participatory_process_steps:
       index:
         process_steps: Кроки руху
@@ -222,6 +222,7 @@ uk:
         title: Рухи співучасті
       order_by_processes:
         active: Започатковані
+        all: Усі
         past: Минулі
         upcoming: Прийдешні
       pages:

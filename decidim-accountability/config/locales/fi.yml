@@ -132,13 +132,30 @@ fi:
         show:
           stats:
             attendees: Osallistujat
+            back_to_result: Palaa tulokseen
             comments: Kommentit
             contributions: Kontribuutiot
+            last_edited_by: Viimeksi muokannut
+            last_updated_at: Päivitetty viimeksi
             meetings: Tapaamiset
+            number_of_versions: versiot
             proposals: Ehdotukset
+            show_all_versions: Näytä kaikki versiot
+            version_author: Versio kirjoittaja
+            version_created_at: Versio luotu osoitteessa
+            version_number: Versiomäärä
+            version_number_out_of_total: "%{current_version} / %{total_count}"
             votes: Kannatukset
         timeline:
           title: Projektin kehitys
+      versions:
+        index:
+          changes_at_title: Muutokset osoitteessa "%{title}"
+          title: versiot
+        show:
+          changes_at_title: Muutokset osoitteessa "%{title}"
+        version:
+          version_index: Versio %{index}
     features:
       accountability:
         name: Tulokset

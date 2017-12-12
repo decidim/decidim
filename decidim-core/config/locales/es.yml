@@ -60,10 +60,13 @@ es:
         related_photos: Fotos relacionadas
     authorization_handlers:
       dummy_authorization_handler:
+        explanation: Verifícate introduciendo un número de documento que termine con "X"
         fields:
           document_number: Número de documento
           postal_code: Código postal
-        name: ejemplo de autorización
+        name: Autorización de ejemplo
+      dummy_authorization_workflow:
+        name: Flujo de trabajo de autorización de ejemplo
       errors:
         duplicate_authorization: Un usuario ya está autorizado con los mismos datos.
       foo_authorization:
@@ -71,20 +74,8 @@ es:
           bar: Bar
           foo: Foo
         name: Autorización foo
-    authorizations:
-      create:
-        error: Se ha producido un error al crear la autorización.
-        success: Has sido autorizado/a correctamente.
-      first_login:
-        actions:
-          dummy_authorization_handler: Verificar ejemplo autorización en contra de la
-        title: Verifica tu identidad
-        verify_with_these_options: 'Estas son las opciones disponibles para verificar su identidad:'
-      new:
-        authorize: Enviar
-        authorize_with: Verificarme con %{authorizer}
-      skip_verification: Puedes saltarte este paso por ahora y %{link}
-      start_exploring: empezar a explorar
+      granted_at: Concedida el %{timestamp}
+      started_at: Comenzó el %{timestamp}
     core:
       actions:
         unauthorized: No tienes permiso para realizar esta acción.
@@ -180,6 +171,34 @@ es:
     menu:
       home: Inicio
       more_information: Más información
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          greeting: Hola, %{recipient}!
+          intro: "%{sender} ha iniciado una nueva conversación contigo. Haz click aquí para verla:"
+          outro: '¡Disfruta de decidim!'
+          subject: "%{sender} ha iniciado una conversación contigo"
+        new_message:
+          greeting: '¡Hola, %{recipient}!'
+          intro: "%{sender} ha publicado nuevos mensajes en tu conversación. Haz clic aquí para verlos:"
+          outro: '¡Disfruta de decidim!'
+          subject: Tienes nuevos mensajes de %{sender}
+      conversations:
+        create:
+          error: Conversación no iniciada. Inténtalo más tarde
+        index:
+          no_conversations: Aún no tienes conversaciones
+          title: Conversaciones
+        reply:
+          send: Enviar
+          title: Respuesta
+        show:
+          title: Conversación con %{usernames}
+        start:
+          send: Enviar
+          title: Iniciar una conversación
+        update:
+          error: Mensaje no enviado. Inténtalo más tarde
     newsletter_mailer:
       newsletter:
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
@@ -225,6 +244,10 @@ es:
           authorize: Autorizar con "%{authorization}"
           explanation: Para llevar a cabo esta acción, tiene que disponer de la autorización "%{authorization}".
           title: Autorización requerida
+        pending:
+          explanation: Para realizar esta acción, debes estar autorizado con "%{authorization}", pero tu autorización todavía está en progreso
+          resume: Verifica el progreso de la autorización "%{authorization}"
+          title: La autorización aún está en progreso
         unauthorized:
           explanation: No puedes realizar esta acción ya que algunos de los datos de autorización no son los requeridos.
           invalid: "%{field} no es válido."
@@ -256,6 +279,8 @@ es:
         close_window: Cerrar ventana
         share: Compartir
         share_link: Compartir enlace
+      version_author:
+        deleted: Usuario eliminado
   devise:
     invitations:
       edit:
@@ -307,7 +332,7 @@ es:
         link_label: aquí
         ok: Estoy de acuerdo
       footer:
-        made_with_open_source: 'Sitio web creado con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.'
+        made_with_open_source: Sitio web creado con <a target="_blank" href="https://github.com/decidim/decidim">software libre</a>.
       header:
         close_menu: Cerrar menú
         navigation: Navegación
@@ -391,6 +416,13 @@ es:
     wechat_footer: Abra su WeChat, haga clic en el botón "Discover" y luego haga clic en el menú "Escanear código QR".
     weibo: Sina Weibo
     xing: Xing
+  time:
+    formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_year: "%d/%m/%y"
+      decidim_short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"
   views:
     pagination:
       first: "&laquo; Primera"

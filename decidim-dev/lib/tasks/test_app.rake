@@ -13,6 +13,7 @@ namespace :decidim do
         "--path",
         "../..",
         "--recreate_db",
+        "--app_const_base=DummyApplication",
         "--skip_gemfile",
         "--demo"
       ]

@@ -205,7 +205,7 @@ fr:
     participatory_process_groups:
       show:
         group_participatory_processes: Processus participatifs pour %{group}
-        title: Titre
+        title: Groupes de processus participatifs
     participatory_process_steps:
       index:
         process_steps: Etapes du processus
@@ -222,6 +222,7 @@ fr:
         title: Processus participatifs
       order_by_processes:
         active: Actif
+        all: Tout
         past: Passés
         upcoming: À venir
       pages:

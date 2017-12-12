@@ -132,13 +132,30 @@ es:
         show:
           stats:
             attendees: Asistentes
+            back_to_result: Volver al resultado
             comments: Comentarios
             contributions: Aportes
+            last_edited_by: Última edición por
+            last_updated_at: Última actualización en
             meetings: Lista de encuentros
+            number_of_versions: Versiones
             proposals: Propuestas
+            show_all_versions: Mostrar todas las versiones
+            version_author: Autor de la versión
+            version_created_at: Versión creada en
+            version_number: Número de versión
+            version_number_out_of_total: "%{current_version} de %{total_count}"
             votes: Soportes
         timeline:
           title: Evolución del proyecto
+      versions:
+        index:
+          changes_at_title: Cambios en "%{title}"
+          title: Versiones
+        show:
+          changes_at_title: Cambios en "%{title}"
+        version:
+          version_index: Versión %{index}
     features:
       accountability:
         name: Seguimiento

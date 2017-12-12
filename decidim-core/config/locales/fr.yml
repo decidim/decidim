@@ -18,11 +18,11 @@ fr:
     attributes:
       decidim/user:
         current_password: Mot de passe actuel
-        email: Courriel
+        email: Email
         name: Nom d'utilisateur
         password: Mot de passe
         password_confirmation: Confirmation mot de passe
-        remember_me: Rester connecté
+        remember_me: Retenir le mot de passe
         user_group_document_number: Numéro de document de l'organisation
         user_group_name: Nom de l'organisation
         user_group_phone: Téléphone de l'organisation
@@ -60,10 +60,13 @@ fr:
         related_photos: Photos associées
     authorization_handlers:
       dummy_authorization_handler:
+        explanation: Faites-vous vérifier en introduisant un numéro de document se terminant par "X"
         fields:
           document_number: Numéro de document
           postal_code: Code postal
         name: Exemple d'autorisation
+      dummy_authorization_workflow:
+        name: Flux de travail d'autorisation factice
       errors:
         duplicate_authorization: Un utilisateur est déjà autorisé avec les mêmes données.
       foo_authorization:
@@ -71,20 +74,8 @@ fr:
           bar: Machin
           foo: Truc
         name: Autorisation Truc
-    authorizations:
-      create:
-        error: Une erreur s'est produite lors de la création de l'autorisation.
-        success: Votre autorisation a été réalisée avec succès.
-      first_login:
-        actions:
-          dummy_authorization_handler: Vérifier en comparant avec l'autorisation exemple
-        title: Vérifiez votre identité
-        verify_with_these_options: 'Voici les options disponibles pour vérifier votre identité:'
-      new:
-        authorize: Envoyer
-        authorize_with: Vérifiez avec %{authorizer}
-      skip_verification: Vous pouvez ignorer ceci pour l'instant et %{link}
-      start_exploring: Commencez à explorer
+      granted_at: Accordé à %{timestamp}
+      started_at: Commencé à %{timestamp}
     core:
       actions:
         unauthorized: Vous n'êtes pas autorisé à effectuer cette action
@@ -180,6 +171,34 @@ fr:
     menu:
       home: Accueil
       more_information: Plus d'information
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          greeting: Bonjour, %{recipient}!
+          intro: "%{sender} a commencé une nouvelle conversation avec vous. Cliquez ici pour le voir:"
+          outro: Profitez de decidim!
+          subject: "%{sender} a commencé une conversation avec vous"
+        new_message:
+          greeting: Bonjour, %{recipient}!
+          intro: "%{sender} a posté de nouveaux messages dans votre conversation. Cliquez ici pour les voir:"
+          outro: Profitez de decidim!
+          subject: Vous avez de nouveaux messages de %{sender}
+      conversations:
+        create:
+          error: La conversation n'a pas commencé. Réessayez plus tard
+        index:
+          no_conversations: Vous n'avez encore aucune conversation
+          title: Conversations
+        reply:
+          send: Envoyer
+          title: Répondre
+        show:
+          title: Conversation avec %{usernames}
+        start:
+          send: Envoyer
+          title: Commencer une conversation
+        update:
+          error: Message non envoyé. Réessayez plus tard
     newsletter_mailer:
       newsletter:
         note: Vous avez reçu ce courrier électronique parce que vous êtes abonné aux bulletins d'information de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
@@ -225,6 +244,10 @@ fr:
           authorize: Autoriser avec "%{authorization}"
           explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}".
           title: Autorisation requise
+        pending:
+          explanation: Pour effectuer cette action, vous devez être autorisé avec "%{authorization}", mais votre autorisation est toujours en cours.
+          resume: Vérifiez votre progression d'autorisation "%{authorization}"
+          title: L'autorisation est toujours en cours
         unauthorized:
           explanation: Désolé, vous ne pouvez pas effectuer cette action car certaines de vos données d'autorisation ne correspondent pas.
           invalid: "%{field} n'est pas valide."
@@ -256,6 +279,8 @@ fr:
         close_window: Fermer la fenêtre
         share: Partager
         share_link: Lien de partage
+      version_author:
+        deleted: Utilisateur supprimé
   devise:
     invitations:
       edit:
@@ -306,7 +331,7 @@ fr:
         link_label: ici
         ok: '"J''accepte"'
       footer:
-        made_with_open_source: 'Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.'
+        made_with_open_source: Site réalisé grâce au <a target="_blank" href="https://github.com/decidim/decidim">logiciel libre Decidim</a>.
       header:
         close_menu: Fermer le menu
         navigation: Navigation
@@ -390,6 +415,13 @@ fr:
     wechat_footer: Ouvrez WeChat, cliquez sur le bouton "Découvrir" puis cliquez sur le menu "Scanner le QR Code".
     weibo: Sina Weibo
     xing: Xing
+  time:
+    formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_year: "%d.%m.%y"
+      decidim_short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"
   views:
     pagination:
       first: "&laquo; Première"
