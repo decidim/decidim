@@ -383,6 +383,7 @@ en:
         welcome: Welcome to %{organization}!
       statistics:
         answers_count: Answers
+        assemblies_count: Assemblies
         comments_count: Comments
         headline: Current state of %{organization}
         meetings_count: Meetings
@@ -390,6 +391,7 @@ en:
         pages_count: Pages
         processes_count: Processes
         projects_count: Projects
+        proposals_accepted: Accepted Proposals
         proposals_count: Proposals
         results_count: Results
         surveys_count: Surveys

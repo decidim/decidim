@@ -8,6 +8,9 @@
 
 **Fixed**:
 
+- **decidim-core**: Update home page stat categories
+[\#2221](https://github.com/decidim/decidim/pull/2221)
+
 ## [v0.8.0](https://github.com/decidim/decidim/tree/v0.8.0) (2017-12-4)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.7.0...v0.8.0)
 

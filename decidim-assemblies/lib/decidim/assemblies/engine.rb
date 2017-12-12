@@ -50,6 +50,12 @@ module Decidim
         end
       end
 
+      initializer "decidim.stats" do
+        Decidim.stats.register :assemblies_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
+          Decidim::Assembly.where(organization: organization).published.count
+        end
+      end
+
       initializer "decidim_assemblies.menu" do
         Decidim.menu :menu do |menu|
           menu.item I18n.t("menu.assemblies", scope: "decidim"),
