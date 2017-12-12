@@ -106,10 +106,10 @@ en:
           back: Back
           title: Create proposal
         stepper:
-          step_1: Step 1
-          step_2: Step 2
-          step_3: Step 3
-          step_4: Step 4
+          step_1: Start
+          step_2: Compare
+          step_3: Complete
+          step_4: Publish
         step_2:
           similar_proposals: "Similar proposals:"
         step_3:
