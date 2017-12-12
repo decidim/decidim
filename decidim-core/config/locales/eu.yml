@@ -381,6 +381,7 @@ eu:
         welcome: Ongi etorri %{organization} erakundera!
       statistics:
         answers_count: Erantzunak
+        assemblies_count: Batzar
         comments_count: Iruzkinak
         headline: '%{organization} erakundearen egungo egoera'
         meetings_count: Topaketak
@@ -388,6 +389,7 @@ eu:
         pages_count: Orriak
         processes_count: Prozesuak
         projects_count: Proiektuak
+        proposals_accepted: Onartutako proposamenak
         proposals_count: Proposamenak
         results_count: Emaitzak
         surveys_count: Inkestak

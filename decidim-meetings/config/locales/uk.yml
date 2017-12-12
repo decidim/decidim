@@ -125,7 +125,7 @@ uk:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Тема
+            subject: Запрошення приєднатися до зустрічі
         registration_mailer:
           confirmation:
             subject: Вашу реєстрацію на зустріч підтверджено
@@ -195,4 +195,4 @@ uk:
   devise:
     mailer:
       join_meeting:
-        subject: Тема
+        subject: Запрошення приєднатися до зустрічі

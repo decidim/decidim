@@ -124,7 +124,7 @@ pl:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Przedmiot
+            subject: Zaproszenie do przyłączenia się do spotkania
         registration_mailer:
           confirmation:
             subject: Swoje spotkania rejestracja zostanie potwierdzona
@@ -193,4 +193,4 @@ pl:
   devise:
     mailer:
       join_meeting:
-        subject: Przedmiot
+        subject: Zaproszenie do przyłączenia się do spotkania

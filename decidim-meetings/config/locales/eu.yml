@@ -123,7 +123,7 @@ eu:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Gaia
+            subject: Bilera baterako gonbidapena
         registration_mailer:
           confirmation:
             subject: Zure topaketarako izen-ematea baieztatua izan da
@@ -191,4 +191,4 @@ eu:
   devise:
     mailer:
       join_meeting:
-        subject: Gaia
+        subject: Bilera baterako gonbidapena

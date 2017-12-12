@@ -123,7 +123,7 @@ it:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Oggetto
+            subject: Invito a partecipare a una riunione
         registration_mailer:
           confirmation:
             subject: La tua registrazione alla riunione è stata confermata
@@ -191,4 +191,4 @@ it:
   devise:
     mailer:
       join_meeting:
-        subject: Oggetto
+        subject: Invito a partecipare a una riunione

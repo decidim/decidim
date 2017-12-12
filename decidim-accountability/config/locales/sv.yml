@@ -1,0 +1,174 @@
+sv:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: status
+        decidim_category_id: Kategori
+        decidim_scope_id: Omfattning
+        description: Beskrivning
+        end_date: Slutdatum
+        progress: Framsteg
+        proposal_ids: Ingår förslag
+        start_date: Start datum
+        title: Titel
+      status:
+        description: Beskrivning
+        key: Nyckel
+        name: namn
+        progress: Framsteg
+      timeline_entry:
+        description: Beskrivning
+        entry_date: Datum
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Är du säker på att du vill radera den här %{name}?
+        destroy: Radera
+        edit: Redigera
+        new: Ny %{name}
+        preview: Förhandsvisning
+        timeline_entries: Projektutveckling
+        title: Handlingar
+      admin:
+        exports:
+          results: Resultat
+        models:
+          result:
+            name: Resultat
+          status:
+            name: Status
+          timeline_entry:
+            name: Tidslinje inmatning
+        results:
+          create:
+            invalid: Det här har uppstått ett problem
+            success: Resultat som har skapats framgångsrikt
+          destroy:
+            success: Resultatet har tagits bort
+          edit:
+            title: Ändra resultat
+            update: Uppdateringsresultat
+          index:
+            title: Resultat
+          new:
+            create: Skapa resultat
+            title: Nytt resultat
+          update:
+            invalid: Det har varit ett problem att uppdatera resultatet
+            success: Resultatet uppdaterades med framgång
+        shared:
+          subnav:
+            statuses: status
+        statuses:
+          create:
+            invalid: Det har varit ett problem att skapa denna status
+            success: Status skapad
+          destroy:
+            success: Statusen har tagits bort
+          edit:
+            title: Redigera status
+            update: Uppdatera status
+          index:
+            title: status
+          new:
+            create: Skapa status
+            title: Ny status
+          update:
+            invalid: Det har varit ett problem att uppdatera den här statusen
+            success: Status uppdaterad
+        timeline_entries:
+          create:
+            invalid: Det här har uppstått ett problem med att skapa den här posten
+            success: Entry skapades med framgång
+          destroy:
+            success: Inlägget har tagits bort
+          edit:
+            title: Redigera posten
+            update: Uppdatera posten
+          index:
+            title: Projekt tidslinje poster
+          new:
+            create: Skapa inmatning
+            title: Ny ingång
+          update:
+            invalid: Det har varit ett problem att uppdatera den här posten
+            success: Inmatning uppdaterad
+      models:
+        result:
+          fields:
+            end_date: Slutdatum
+            progress: Framsteg
+            start_date: Start datum
+            status: Status
+            title: Titel
+        status:
+          fields:
+            description: Beskrivning
+            key: Nyckel
+            name: namn
+            progress: Framsteg
+        timeline_entry:
+          fields:
+            description: Beskrivning
+            entry_date: Datum
+      results:
+        count:
+          results_count:
+            one: 1 resultat
+            other: "%{count} resultat"
+        filters:
+          all: Allt
+          global: Global
+          scopes: Scopes
+        home:
+          categories_label: kategorier
+          subcategories_label: kategorier
+        home_header:
+          global_status: Global exekveringsstatus
+        nav_breadcrumb:
+          global: Global utförande
+        search:
+          search: Sök efter åtgärder
+        show:
+          stats:
+            attendees: Deltagare
+            back_to_result: Gå tillbaka till resultatet
+            comments: kommentarer
+            contributions: Bidrag
+            last_edited_by: Senast ändrad av
+            last_updated_at: Senast uppdaterad den
+            meetings: möten
+            number_of_versions: versioner
+            proposals: förslag
+            show_all_versions: Visa alla versioner
+            version_author: Version författare
+            version_created_at: Version skapad på
+            version_number: Versionsnummer
+            version_number_out_of_total: "%{current_version} av %{total_count}"
+            votes: stöder
+        timeline:
+          title: Projektutveckling
+      versions:
+        index:
+          changes_at_title: Ändringar vid "%{title}"
+          title: versioner
+        show:
+          changes_at_title: Ändringar vid "%{title}"
+        version:
+          version_index: Version %{index}
+    features:
+      accountability:
+        name: Ansvarighet
+        settings:
+          global:
+            categories_label: Namn för "kategorier"
+            comments_enabled: Kommentarer aktiverade
+            heading_leaf_level_results: Namn på "Projekt"
+            heading_parent_level_results: Namn på "Resultat"
+            intro: Intro
+            subcategories_label: Namn på "Underkategorier"
+          step:
+            comments_blocked: Kommentarer blockerad
+    resource_links:
+      included_proposals:
+        result_proposals: Förslag som ingår i detta resultat

@@ -36,7 +36,7 @@ pt:
             pending_orders: Votações pendentes
             title: Projetos
           new:
-            create: Crio
+            create: Criar
             title: Novo resultado
           update:
             invalid: Ocorreu um problema ao atualizar este projeto

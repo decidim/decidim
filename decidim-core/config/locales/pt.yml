@@ -2,14 +2,14 @@ pt:
   activemodel:
     attributes:
       account:
-        delete_reason: Razão para cancelar a sua conta
+        delete_reason: Motivo de cancelamento da sua conta
       report:
         details: Comentários adicionais
       user:
         email: O seu email
         name: O seu nome
         password: Nova senha
-        password_confirmation: Confirme a sua nova palavra-passe
+        password_confirmation: Confirme a sua nova senha
         remove_avatar: Remover avatar
         user_group_document_number: Número do documento de organização
         user_group_name: Nome da organização
@@ -381,6 +381,7 @@ pt:
         welcome: Bem-vindo ao %{organization}!
       statistics:
         answers_count: Respostas
+        assemblies_count: Assembléias
         comments_count: Comentários
         headline: Estado atual de %{organization}
         meetings_count: Reuniões
@@ -388,6 +389,7 @@ pt:
         pages_count: Páginas
         processes_count: Processos
         projects_count: Projetos
+        proposals_accepted: Propostas aceitas
         proposals_count: Propostas
         results_count: Resultados
         surveys_count: pesquisas
