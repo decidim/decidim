@@ -2,6 +2,16 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+**Added**:
+
+**Changed**:
+
+**Fixed**:
+
+* **decidim-accountability**: Fixed missing `diff.js` [#2344](https://github.com/decidim/decidim/pull/2344)
+
+## [0.8.2](https://github.com/decidim/decidim/tree/v0.8.2)
+
 **Upgrade notes**:
 
 Since uglifier `4.0.0`, we need to set `harmony: true` as options in uglifier. This means
@@ -12,19 +22,12 @@ you need to change the following line in `config/environments/production.rb`:
 + config.assets.js_compressor = Uglifier.new(:harmony => true)
 ```
 
-**Added**:
-
-**Changed**:
-
 **Fixed**:
 
-* **decidim-accountability**: Fixed missing `diff.js` [#2344](https://github.com/decidim/decidim/pull/2344)
+* **decidim-verifications**: Fix migrations that could fail on existing apps.
+* **decidim-core**: Force using `uglifier 4.0.0`. Check out the notes above for more details.
 
 ## [0.8.1](https://github.com/decidim/decidim/tree/v0.8.1)
-
-**Added**:
-
-**Changed**:
 
 **Fixed**:
 
