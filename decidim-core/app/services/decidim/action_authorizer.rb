@@ -108,7 +108,7 @@ module Decidim
     def authorization_expired?
       return false if authorization.expires_at.blank?
 
-      authorization.expires_at < Time.zone.now
+      authorization.expired?
     end
 
     class AuthorizationStatus

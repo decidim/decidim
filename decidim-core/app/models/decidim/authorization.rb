@@ -41,6 +41,10 @@ module Decidim
       granted_at + workflow_manifest.expires_in
     end
 
+    def expired?
+      expires_at.present? && expires_at < Time.zone.now
+    end
+
     private
 
     def active_handler?

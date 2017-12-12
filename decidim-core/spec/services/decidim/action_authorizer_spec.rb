@@ -111,7 +111,7 @@ module Decidim
                 allow(authorizer)
                   .to receive(:authorization).and_return(authorization)
                 allow(authorization)
-                  .to receive(:expires_at).and_return(1.minute.ago)
+                  .to receive(:expired?).and_return(true)
               end
 
               it "returns expired" do
@@ -126,7 +126,7 @@ module Decidim
                 allow(authorizer)
                   .to receive(:authorization).and_return(authorization)
                 allow(authorization)
-                  .to receive(:expires_at).and_return(1.hour.from_now)
+                  .to receive(:expired?).and_return(false)
               end
 
               context "when it doesn't have options" do
