@@ -23,6 +23,8 @@ module Decidim
         case step
         when :step_1
           step_1_step
+        when :step_2
+          step_2_step
         when :step_5
           step_5_step params
         else
@@ -43,6 +45,8 @@ module Decidim
         case step
         when :step_1
           step_1_step
+        when :step_2
+          step_2_step
         when :step_5
           step_5_step params
         else
@@ -56,6 +60,11 @@ module Decidim
         redirect_to proposal_wizard_path(steps.first, proposal_id: @form.id)
       end
 
+      def exit
+        session[:proposal] = {}
+        redirect_to proposals_path
+      end
+
       private
 
       def step_1_step
@@ -64,6 +73,14 @@ module Decidim
         # @form = form(ProposalForm).from_params(
         #   attachment: form(AttachmentForm).from_params({})
         # )
+        render_wizard
+      end
+
+      def step_2_step
+        @form = build_form(Decidim::Proposals::ProposalWizardForm, params)
+        @similar_proposals ||= Decidim::Proposals::SimilarProposals
+                               .for(current_feature, @form)
+                               .all
         render_wizard
       end
 

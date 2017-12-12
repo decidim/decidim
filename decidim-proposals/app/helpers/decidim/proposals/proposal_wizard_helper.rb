@@ -43,7 +43,9 @@ module Decidim
         when :step_1
           form.submit t("decidim.proposals.proposal_wizard.actions.go_to_step_2"), class: "button expanded"
         when :step_2
-          form.submit t("decidim.proposals.proposal_wizard.actions.go_to_step_3"), class: "button expanded"
+          actions = link_to t("decidim.proposals.proposal_wizard.actions.exit_wizard"), proposal_wizard_exit_path, class: "button clear"
+          actions += form.submit t("decidim.proposals.proposal_wizard.actions.go_to_step_3"), class: "button expanded"
+          actions
         when :step_3
           form.submit t("decidim.proposals.proposal_wizard.actions.go_to_step_4"), class: "button expanded"
         when :step_4

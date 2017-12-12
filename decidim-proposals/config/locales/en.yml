@@ -96,6 +96,7 @@ en:
         limit_reached: You can't create new proposals since you've exceeded the limit.
       proposal_wizard:
         actions:
+          exit_wizard: There are proposals similar to mine, I want to finish the creation process
           go_to_step_2: Search for similar proposals
           go_to_step_3: None of the above matches mine, continue
           go_to_step_4: Preview the proposal
@@ -105,6 +106,9 @@ en:
         header:
           back: Back
           title: Create proposal
+        proposal_similar:
+          exit_wizard: This proposal coincides with mine, I want to finish the creation process
+          view_proposal: View proposal
         stepper:
           step_1: Start
           step_2: Compare

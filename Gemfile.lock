@@ -116,6 +116,7 @@ PATH
       decidim-comments (= 0.9.0.pre)
       decidim-core (= 0.9.0.pre)
       kaminari (~> 1.0.1)
+      rectify
       social-share-button (~> 1.0.0)
       wicked (~> 1.3)
     decidim-surveys (0.9.0.pre)

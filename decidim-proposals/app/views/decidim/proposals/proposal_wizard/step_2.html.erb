@@ -1,16 +1,19 @@
 <%= render partial: "header" %>
 <%= render partial: "stepper", locals: {current_step: step}%>
 <div class="row">
-  <div class="columns large-6 medium-centered">
+  <div class="columns large-12 medium-centered">
     <h3 class="heading3"><%= t(".similar_proposals") %></h5>
-    <div class="card">
-      <div class="card__content">
-        <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: 'form new_initiative_previous_form' }) do |form| %>
-          <%= form.hidden_field :title %>
-          <%= form.hidden_field :body %>
-          <%= proposal_wizard_actions form %>
+      <div class="row small-up-1 medium-up-2 card-grid">
+        <% @similar_proposals.each do |proposal| %>
+          <%= render partial: "proposal_similar", locals: {proposal: proposal} %>
         <% end %>
       </div>
-    </div>
+
+      <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: 'form new_initiative_previous_form' }) do |form| %>
+        <%= form.hidden_field :title %>
+        <%= form.hidden_field :body %>
+        <%= proposal_wizard_actions form %>
+      <% end %>
+
   </div>
 </div>
