@@ -381,6 +381,7 @@ sv:
         welcome: Välkommen till %{organization}!
       statistics:
         answers_count: svar
+        assemblies_count: Assemblies
         comments_count: kommentarer
         headline: Aktuellt tillstånd %{organization}
         meetings_count: möten
@@ -388,6 +389,7 @@ sv:
         pages_count: sidor
         processes_count: processer
         projects_count: projekt
+        proposals_accepted: Godkända förslag
         proposals_count: förslag
         results_count: Resultat
         surveys_count: Undersökningar
