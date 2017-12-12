@@ -70,6 +70,7 @@ en:
         name: Dummy authorization workflow
       errors:
         duplicate_authorization: A user is already authorized with the same data.
+      expires_at: Expires at %{timestamp}
       foo_authorization:
         fields:
           bar: Bar
