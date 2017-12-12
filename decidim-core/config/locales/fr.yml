@@ -381,6 +381,7 @@ fr:
         welcome: Bienvenue sur %{organization}!
       statistics:
         answers_count: Réponses
+        assemblies_count: Assemblées
         comments_count: Commentaires
         headline: État actuel de %{organization}
         meetings_count: Rencontres
@@ -388,6 +389,7 @@ fr:
         pages_count: Pages
         processes_count: Processus participatifs
         projects_count: Projets
+        proposals_accepted: Propositions acceptées
         proposals_count: Propositions
         results_count: Résultats
         surveys_count: Enquêtes
