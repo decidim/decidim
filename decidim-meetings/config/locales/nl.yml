@@ -123,7 +123,7 @@ nl:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Onderwerp
+            subject: Uitnodiging om deel te nemen aan een vergadering
         registration_mailer:
           confirmation:
             subject: Registratie van uw vergadering is bevestigd
@@ -191,4 +191,4 @@ nl:
   devise:
     mailer:
       join_meeting:
-        subject: Onderwerp
+        subject: Uitnodiging om deel te nemen aan een vergadering

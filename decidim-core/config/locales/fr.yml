@@ -60,13 +60,13 @@ fr:
         related_photos: Photos associées
     authorization_handlers:
       dummy_authorization_handler:
-        explanation: Faites-vous vérifier en introduisant un numéro de document se terminant par "X"
+        explanation: Obtenir une vérification en saisissant un numéro de document se terminant par "X"
         fields:
           document_number: Numéro de document
           postal_code: Code postal
         name: Exemple d'autorisation
       dummy_authorization_workflow:
-        name: Flux de travail d'autorisation factice
+        name: Procédure d'autorisation factice
       errors:
         duplicate_authorization: Un utilisateur est déjà autorisé avec les mêmes données.
       foo_authorization:
@@ -175,7 +175,7 @@ fr:
       conversation_mailer:
         new_conversation:
           greeting: Bonjour, %{recipient}!
-          intro: "%{sender} a commencé une nouvelle conversation avec vous. Cliquez ici pour le voir:"
+          intro: "%{sender} a commencé une nouvelle conversation avec vous. Cliquez ici pour la voir:"
           outro: Profitez de decidim!
           subject: "%{sender} a commencé une conversation avec vous"
         new_message:

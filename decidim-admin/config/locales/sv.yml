@@ -1,0 +1,471 @@
+sv:
+  activemodel:
+    attributes:
+      attachment:
+        description: Beskrivning
+        file: Fil
+        title: Titel
+      category:
+        description: Beskrivning
+        name: namn
+        parent_id: Förälder
+      feature:
+        name: namn
+        weight: Vikt
+      id: ID
+      newsletter:
+        body: Kropp
+        subject: Ämne
+      organization:
+        default_locale: Standard locale
+        name: namn
+        reference_prefix: Referensprefix
+      organization_appearance:
+        cta_button_path: Call to Action-knappsökväg
+        cta_button_text: Ring till handlingsknapptext
+        description: Beskrivning
+        favicon: Ikon
+        header_snippets: Rubrikrubriker
+        homepage_image: Hemsida bild
+        logo: Logotyp
+        official_img_footer: Officiell logo footer
+        official_img_header: Officiell logotyphuvud
+        official_url: Officiell organisationsadress
+        show_statistics: Visa statistik
+        welcome_text: Välkommen text
+      scope:
+        code: Koda
+        name: namn
+        organization: Organisation
+        scope_type: Omfattningstyp
+      scope_type:
+        name: namn
+        organization: Organisation
+        plural: Flertal
+      static_page:
+        content: Innehåll
+        organization: Organisation
+        slug: URL slug
+        title: Titel
+  activerecord:
+    attributes:
+      decidim/participatory_process:
+        banner_image: Banner image
+        description: Beskrivning
+        developer_group: Utvecklargrupp
+        domain: Domän
+        end_date: Slutdatum
+        hashtag: hashtag
+        hero_image: Hembild
+        local_area: Lokalt område
+        meta_scope: Omfattning metadata
+        participatory_scope: Deltagande räckvidd
+        participatory_structure: Deltagande struktur
+        promoted: främjas
+        scope: Omfattning
+        short_description: Kort beskrivning
+        slug: URL slug
+        start_date: Start datum
+        subtitle: Texta
+        target: Mål
+        title: Titel
+      decidim/participatory_process_group:
+        description: Beskrivning
+        hero_image: Hembild
+        name: namn
+        participatory_processes: Deltagande processer
+      decidim/participatory_process_step:
+        end_date: Slutdatum
+        start_date: Start datum
+      decidim/static_page:
+        content: Innehåll
+        slug: URL slug
+        title: Titel
+  date:
+    formats:
+      datepicker: "%m / %d / %Y"
+  decidim:
+    admin:
+      actions:
+        add: Lägg till
+        browse: Bläddra
+        export: Exportera
+        manage: Hantera
+        permissions: Behörigheter
+        reject: Avvisa
+        verify: Kontrollera
+      attachments:
+        create:
+          error: Det uppstod ett fel vid att skapa en ny bilaga.
+          success: Bilagan skapades framgångsrikt.
+        destroy:
+          success: Bilagan förstördes framgångsrikt.
+        edit:
+          title: Redigera bilagan
+          update: Uppdatering
+        index:
+          attachments_title: bilagor
+        new:
+          create: Skapa bifogad fil
+          title: Ny bilaga
+        update:
+          error: Det uppstod ett fel vid uppdateringen av den här bilagan.
+          success: Bilagan uppdaterades framgångsrikt.
+      categories:
+        create:
+          error: Det uppstod ett fel vid skapandet av den här kategorin.
+          success: Kategori skapad framgångsrikt.
+        destroy:
+          error: Det gick inte att ta bort den här kategorin. Ta bort någon underkategori först, se till att ingen annan enhet tillhör denna kategori och försök igen.
+          success: Kategori raderas framgångsrikt.
+        edit:
+          title: Redigera kategori
+          update: Uppdatering
+        index:
+          categories_title: kategorier
+          category_used: Den här kategorin kan inte tas bort eftersom den används.
+        new:
+          create: Skapa kategori
+          title: Ny kategori
+        update:
+          error: Det uppstod ett fel vid uppdateringen av den här kategorin.
+          success: Kategori uppdaterad framgångsrikt.
+      dashboard:
+        show:
+          welcome: Välkommen till Decidim Admin Panel.
+      exports:
+        export_as: "%{name} som %{export_format}"
+        notice: Din export är pågående. Du får ett mail när det är klart.
+      feature_permissions:
+        edit:
+          everyone: Alla
+          submit: Spara behörigheter
+          title: Redigera behörigheter
+        update:
+          success: Tillstånd uppdaterade framgångsrikt.
+      features:
+        create:
+          error: Det uppstod ett fel vid skapandet av den här funktionen.
+          success: Funktionen skapades framgångsrikt.
+        destroy:
+          error: Det har inträffat ett fel som förstörde den här funktionen.
+          success: Funktionen raderas framgångsrikt.
+        edit:
+          title: Redigera funktionen
+          update: Uppdatering
+        form:
+          default_step_settings: Standard steginställningar
+          global_settings: Globala inställningar
+          step_settings: Steginställningar
+        index:
+          add: Lägg till funktion
+          headers:
+            actions: Handlingar
+            name: Funktionsnamn
+            type: Funktionstyp
+        new:
+          add: Lägg till funktion
+          title: 'Lägg till funktion: %{name}'
+        publish:
+          success: Funktionen har publicerats med framgång.
+        title: Funktioner
+        unpublish:
+          success: Funktionen har blivit framgångsrikt opublicerad.
+        update:
+          error: Det har uppstått ett fel vid uppdateringen av den här funktionen.
+          success: Funktionen uppdaterades framgångsrikt.
+      managed_users:
+        close_session:
+          error: Det har uppstått ett fel att stänga den aktuella efterföljande sessionen.
+          success: Den nuvarande ombildningsperioden har avslutats.
+        create:
+          error: Det har uppstått ett fel med att skapa den hanterade användaren.
+          success: Den hanterade användaren har skapats.
+        form:
+          name: namn
+        impersonate:
+          error: Det har inträffat ett fel för att ersätta den hanterade användaren.
+        impersonations:
+          new:
+            impersonate: Imitera
+            new_managed_user_impersonation: Ny hanterad användarimitering
+        index:
+          impersonate: Imitera
+          needs_authoriation_warning: Du behöver minst en behörighet aktiverad för den här organisationen.
+          promote: Främja
+          view_logs: Visa loggar
+        new:
+          create: Skapa
+          new_managed_user: Ny hanterad användare
+          select_authorization_method: Välj en auktoriseringsmetod
+          step: Steg %{current} av %{total}
+        promotion:
+          error: Det har inträffat ett fel som främjar den hanterade användaren.
+          success: Den hanterade användaren har framgångsrikt marknadsförts.
+        promotions:
+          new:
+            explanation: Administrerade användare kan främjas till standardanvändare. Det innebär att de kommer att bli inbjudna till ansökan och du kommer inte att kunna förverkliga dem igen. Den inbjudna användaren får ett mail för att acceptera din inbjudan.
+            new_managed_user_promotion: Ny hanterad användarpromotion
+            promote: Främja
+      menu:
+        admins: admins
+        appearance: Utseende
+        configuration: Konfiguration
+        dashboard: instrumentbräda
+        managed_users: Administrerade användare
+        newsletters: nyhetsbrev
+        scope_types: Omfattningstyper
+        scopes: Scopes
+        settings: inställningar
+        static_pages: sidor
+        user_groups: Användargrupper
+        users: användare
+      models:
+        attachment:
+          fields:
+            content_type: Typ
+            title: Titel
+          name: Bilaga
+        category:
+          name: Kategori
+        impersonation_log:
+          fields:
+            admin: Administration
+            ended_at: Avslutad vid
+            expired_at: Förfallit ut vid
+            started_at: Börjat vid
+            user: Användare
+        managed_user:
+          name: Administrerad användare
+        newsletter:
+          fields:
+            created_at: Skapad vid
+            progress: Framsteg
+            sent_at: Skickat på
+            subject: Ämne
+          name: Nyhetsbrev
+        scope:
+          fields:
+            name: namn
+            scope_type: Omfattningstyp
+        scope_type:
+          fields:
+            name: namn
+            plural: Flertal
+        static_page:
+          fields:
+            created_at: Skapad vid
+            title: Titel
+        user:
+          fields:
+            created_at: Skapelsedagen
+            email: E-post
+            last_sign_in_at: Senast inloggningsdatum
+            name: namn
+            role: Roll
+            roles:
+              admin: Administration
+              user_manager: Användarhanteraren
+          name: Användare
+        user_group:
+          fields:
+            actions: Handlingar
+            created_at: Skapad vid
+            document_number: Dokumentnummer
+            name: namn
+            phone: Telefon
+            state: stat
+            users_count: Användare räknas
+      moderations:
+        index:
+          title: modere
+        report:
+          reasons:
+            does_not_belong: Hör inte hemma
+            offensive: Offensiv
+            spam: spam
+      newsletters:
+        create:
+          error: Det har varit ett fel att skapa detta nyhetsbrev.
+          success: Nyhetsbrev skapades framgångsrikt. Snälla, granska det innan du skickar.
+        deliver:
+          error: Det har varit ett fel vid leverans av detta nyhetsbrev.
+          success: Nyhetsbrev levereras framgångsrikt.
+        destroy:
+          error_already_sent: 'Kan inte förstöra nyhetsbrev: Det har redan skickats.'
+          success: Nyhetsbrevet förstördes framgångsrikt.
+        edit:
+          save_and_preview: Spara och förhandsgranska
+          title: Redigera nyhetsbrev
+        form:
+          interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i kroppen eller ämnet och det kommer att ersättas av mottagarens namn.'
+        index:
+          confirm_delete: Är du säker på att du vill radera detta nyhetsbrev?
+          title: nyhetsbrev
+        new:
+          save: Spara
+          title: Nytt nyhetsbrev
+        show:
+          confirm_deliver: Är du säker på att du vill leverera detta nyhetsbrev? Den här åtgärden kan inte ångras.
+          deliver: Leverera nyhetsbrev
+          preview: Förhandsvisning
+          subject: Ämne
+        update:
+          error: Det har inträffat ett fel vid uppdatering av detta nyhetsbrev.
+          success: Nyhetsbrev uppdateras framgångsrikt. Kontrollera det innan du skickar.
+      organization:
+        edit:
+          title: Redigera organisation
+          update: Uppdatering
+        form:
+          facebook: Facebook
+          github: GitHub
+          instagram: Instagram
+          social_handlers: Social
+          twitter: Twitter
+          url: url
+          youtube: Youtube
+        update:
+          error: Det uppstod ett fel vid uppdateringen av den här organisationen.
+          success: Organisationen uppdateras framgångsrikt.
+      organization_appearance:
+        edit:
+          update: Uppdatering
+        form:
+          cta_button_path_help: 'Du kan skriva över var knappen Kalla till handling på hemsidan länkar till. Använd partiella sökvägar, inte fullständiga webbadresser här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med ett brev. Knappen Ring till handling visas på hemsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
+          cta_button_text_help: Du kan skriva över textknappen Ring till handling på hemsidan för varje tillgängligt språk i din organisation. Om den inte är inställd kommer standardvärdet att användas. Knappen Ring till handling visas på hemsidan mellan välkomsttexten och beskrivningen.
+          header_snippets_help: Använd det här fältet för att lägga till saker i HTML-huvudet. Den vanligaste användningen är att integrera tjänster från tredje part som kräver lite extra JavaScript eller CSS. Du kan också använda den för att lägga till extra metataggar i HTML-koden. Observera att detta endast kommer att göras på offentliga sidor, inte i administratörsdelen.
+          homepage_appearance_title: Redigera startsidans utseende
+          layout_appearance_title: Ändra layoututseende
+      scope_types:
+        create:
+          error: Ett fel uppstod med att skapa en ny räckviddstyp.
+          success: Omfattningstypen skapades framgångsrikt.
+        destroy:
+          success: Omfattningstypen förstörs framgångsrikt
+        edit:
+          title: Redigera omfattningstyp
+          update: Uppdatering
+        new:
+          create: Skapa omfattningstyp
+          title: Nytt räckvidd
+        update:
+          error: Ett fel uppstod vid uppdatering av denna räckviddstyp.
+          success: Omfattningstypen uppdateras framgångsrikt
+      scopes:
+        create:
+          error: Det uppstod ett fel vid skapandet av ett nytt räckvidd.
+          success: Omfattning skapades framgångsrikt.
+        destroy:
+          success: Omfattning framgångsrikt förstörs
+        edit:
+          title: Redigera räckvidd
+          update: Uppdatering
+        new:
+          create: Skapa omfattning
+          title: Nytt räckvidd
+        no_scopes: Inga omfattningar på denna nivå.
+        update:
+          error: Ett fel uppstod vid uppdatering av detta räckvidd.
+          success: Omfattning uppdateras framgångsrikt
+      static_pages:
+        actions:
+          view: Visa allmän sida
+        create:
+          error: Det uppstod ett fel vid att skapa en ny sida.
+          success: Sidan skapades framgångsrikt.
+        destroy:
+          success: Sidan förstördes framgångsrikt
+        edit:
+          title: Redigera sida
+          update: Uppdatering
+        new:
+          create: Ny
+          title: Ny sida
+        update:
+          error: Det uppstod ett fel vid uppdateringen av den här sidan.
+          success: Sidan uppdaterad framgångsrikt
+      titles:
+        authorization_workflows: Verifieringsmetoder
+        dashboard: instrumentbräda
+        impersonations: impersonations
+        managed_users: Administrerade användare
+        scope_types: Omfattningstyper
+        scopes: Scopes
+        static_pages: sidor
+        user_groups: Användargrupper
+        users: användare
+      user_group:
+        reject:
+          invalid: Det uppstod ett fel när du avvisade den här användargruppen.
+          success: Användargruppen avvisades framgångsrikt
+        verify:
+          invalid: Det uppstod ett fel vid verifiering av denna användargrupp.
+          success: Användargruppen verifierades framgångsrikt
+      user_groups:
+        index:
+          filter:
+            all: Allt
+            pending: Avvaktan
+            rejected: avvisade
+            verified: Verifierad
+          filter_by: Filtrera efter
+          search: Sök
+          state:
+            pending: Avvaktan
+            rejected: avvisade
+            verified: Verifierad
+      users:
+        create:
+          error: Det uppstod ett fel vid inbjudan till den här användaren.
+          success: Användaren bjöds in framgångsrikt.
+        destroy:
+          error: Det uppstod ett fel när du försökte ta bort den här användaren.
+          success: Användaren är inte längre en administratör.
+        form:
+          email: E-post
+          name: namn
+          role: Roll
+        new:
+          create: Inbjudan
+          title: Bjud in användaren som administratör
+    moderations:
+      actions:
+        hidden: Dold
+        hide: Dölj
+        not_hidden: inte gömd
+        title: Handlingar
+        unreport: Unreport
+      admin:
+        reportable:
+          hide:
+            invalid: Det har varit ett problem att dölja resursen.
+            success: Resurs framgångsrikt dold.
+          unreport:
+            invalid: Det har varit ett problem att rapportera resursen.
+            success: Resurs framgångsrikt orapporterad.
+      models:
+        moderation:
+          fields:
+            hidden_at: Dold vid
+            report_count: Räkna
+            reportable: rapporter
+            reported_content_url: Rapporterad innehållsadress
+            reports: rapporter
+            visit_url: Besök URL
+  errors:
+    messages:
+      invalid_json: Ogiltigt JSON
+  layouts:
+    decidim:
+      admin:
+        newsletters:
+          title: nyhetsbrev
+        settings:
+          title: inställningar
+        users:
+          title: användare
+  time:
+    formats:
+      datepicker: "%m / %d / %Y"
+      timepicker: "%m / %d / %Y %H:%M"

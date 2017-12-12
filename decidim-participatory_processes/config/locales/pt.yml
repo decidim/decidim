@@ -17,13 +17,13 @@ pt:
         participatory_process_group_id: Grupo de processos
         participatory_scope: Escopo participativo
         participatory_structure: Estrutura participativa
-        promoted: Promovido
+        promoted: Destacado
         scope_id: Escopo
         scopes_enabled: Escopos ativados
         short_description: Pequena descrição
         slug: Slug de URL
         start_date: Data de início
-        subtitle: Legenda
+        subtitle: Subtítulo
         target: Alvo
         title: Título
       participatory_process_group:
@@ -110,7 +110,7 @@ pt:
           title: Editar grupo de processos
           update: Atualizar
         new:
-          create: Crio
+          create: Criar
           title: Novo grupo de processos
         update:
           error: Ocorreu um erro ao atualizar este grupo de processos participativos.
@@ -142,7 +142,7 @@ pt:
         index:
           steps_title: Passos
         new:
-          create: Crio
+          create: Criar
           title: Nova etapa de processo participativo
         ordering:
           error: Ocorreu um erro ao reordenar as etapas do processo participativo.
@@ -161,7 +161,7 @@ pt:
         index:
           process_admins_title: Usuários do processo participativo
         new:
-          create: Crio
+          create: Criar
           title: Novo usuário do processo participativo.
         update:
           error: Ocorreu um erro ao atualizar um usuário para esse processo participativo.
@@ -180,7 +180,7 @@ pt:
           not_published: Não publicado
           published: Publicados
         new:
-          create: Crio
+          create: Criar
           title: Novo processo participativo
         update:
           error: Ocorreu um erro ao atualizar este processo participativo.
