@@ -9,9 +9,21 @@ module Decidim
 
       def migrate!
         User.find_each do |user|
-          nickname = user.name.parameterize(separator: "_")[0...20]
+          nickname = disambiguate(user.name.parameterize(separator: "_")[0...20])
 
           user.update!(nickname: nickname)
+        end
+      end
+
+      private
+
+      def disambiguate(nickname)
+        candidate = nickname
+
+        2.step do |n|
+          return candidate unless User.exists?(nickname: candidate)
+
+          candidate = "#{candidate}_#{n}"
         end
       end
     end

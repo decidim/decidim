@@ -28,5 +28,13 @@ module Decidim
 
       expect(user.reload.nickname).to eq("felipe_juan_froilan_")
     end
+
+    it "resolves conflicts with current nicknames" do
+      create_list(:user, 2, name: "Ana Pastor")
+
+      subject.migrate!
+
+      expect(User.pluck(:nickname)).to contain_exactly("ana_pastor", "ana_pastor_2")
+    end
   end
 end
