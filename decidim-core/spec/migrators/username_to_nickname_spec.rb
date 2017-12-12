@@ -12,5 +12,13 @@ module Decidim
 
       expect(user.reload.nickname).to eq("peter")
     end
+
+    it "slugizes non-duplicated usernames" do
+      user = create(:user, name: "Rodríguez San Pedro")
+
+      subject.migrate!
+
+      expect(user.reload.nickname).to eq("rodriguez_san_pedro")
+    end
   end
 end
