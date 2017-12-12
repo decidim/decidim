@@ -22,7 +22,7 @@ shared_examples "manage managed users examples" do
     end
   end
 
-  context "when the organization has one authorization available" do
+  shared_examples_for "a single authorization handler enabled situations" do
     it "creates a managed user filling in the authorization info" do
       navigate_to_managed_users_page
 
@@ -35,25 +35,49 @@ shared_examples "manage managed users examples" do
     end
   end
 
-  context "when the organization has more than one authorization available" do
-    let(:available_authorizations) { %w(dummy_authorization_handler dummy_authorization_handler) }
+  context "when no authorization workflows enabled" do
+    it_behaves_like "a single authorization handler enabled situations"
+  end
 
-    it "selects an authorization method and creates a managed user filling in the authorization info" do
-      navigate_to_managed_users_page
+  context "when authorization workflows are enabled" do
+    it_behaves_like "a single authorization handler enabled situations" do
+      let(:available_authorizations) do
+        %w(dummy_authorization_handler dummy_authorization_workflow)
+      end
+    end
+  end
 
-      click_link "New"
+  context "when more than one authorization handler enabled" do
+    before do
+      Decidim::Verifications.register_workflow(:another_dummy_authorization_handler) do |workflow|
+        workflow.form = "Decidim::DummyAuthorizationHandler"
+      end
+    end
 
-      expect(page).to have_content(/Select an authorization method/i)
-      expect(page).to have_content(/Step 1 of 2/i)
+    after do
+      Decidim::Verifications.unregister_workflow(:another_dummy_authorization_handler)
+    end
 
-      click_link "Example authorization", match: :first
+    context "and available for the organization" do
+      let(:available_authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
 
-      expect(page).to have_content(/Step 2 of 2/i)
+      it "selects an authorization method and creates a managed user filling in the authorization info" do
+        navigate_to_managed_users_page
 
-      fill_in_the_managed_user_form
+        click_link "New"
 
-      expect(page).to have_content("successfully")
-      expect(page).to have_content("Foo")
+        expect(page).to have_content(/Select an authorization method/i)
+        expect(page).to have_content(/Step 1 of 2/i)
+
+        click_link "Example authorization", match: :first
+
+        expect(page).to have_content(/Step 2 of 2/i)
+
+        fill_in_the_managed_user_form
+
+        expect(page).to have_content("successfully")
+        expect(page).to have_content("Foo")
+      end
     end
   end
 
