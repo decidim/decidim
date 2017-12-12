@@ -16,10 +16,10 @@ module Decidim
           @context = context
 
           can :adhere, Proposal do |_proposal|
-            authorized?(:adhere)
+            authorized?(:adhere) && adhesions_enabled? && !adhesions_blocked?
           end
           can :unadhere, Proposal do |_proposal|
-            authorized?(:unadhere) && voting_enabled?
+            authorized?(:unadhere) && adhesions_enabled?
           end
 
           can :vote, Proposal do |_proposal|
@@ -62,6 +62,15 @@ module Decidim
           proposals = Proposal.where(feature: feature)
           votes_count = ProposalVote.where(author: user, proposal: proposals).size
           feature_settings.vote_limit - votes_count
+        end
+
+        def adhesions_enabled?
+          return unless current_settings
+          current_settings.adhesions_enabled?
+        end
+        def adhesions_blocked?
+          return unless current_settings
+          current_settings.adhesions_blocked?
         end
 
         def voting_enabled?
