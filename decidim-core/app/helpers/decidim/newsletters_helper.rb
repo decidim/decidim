@@ -3,24 +3,17 @@
 module Decidim
   # Helper that provides methods to render order selector and links
   module NewslettersHelper
-    require 'uri'
-
-    def link_utm_codes(id, link, organization)
-      host = "#{organization.host}"
-      campaign = "newsletter_#{id}"
-      link_replaced = link + "?utm_source=" + host + "&utm_campaign=" + campaign
-    end
-
     def parse_interpolations(id, content, user)
-      links= URI.extract(content)
-      host = "#{user.organization.host}"
+      host = "#{user.organization.host}.to_s"
       campaign = "newsletter_#{id}"
+
+      links = content.scan(/href\s*=\s*"([^"]*)"/)
+
       links.each do |link|
-        link_replaced = link + "?utm_source=" + host + "&utm_campaign=" + campaign
-        content = content.gsub(link, link_replaced)
+        link_replaced = link.first + "?utm_source=" + host + "&utm_campaign=" + campaign
+        content = content.gsub(/href\s*=\s*"([^"]*#{link.first})"/, "href=" + link_replaced)
       end
       content.gsub("%{name}", user.name)
-
     end
   end
 end

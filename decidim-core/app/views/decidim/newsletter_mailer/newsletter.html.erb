@@ -5,7 +5,7 @@
 <% end %>
 
 <% content_for :unsubscribe do %>
-  <%== t ".unsubscribe", link: decidim.unsubscribe_notifications_settings_url(host: @organization.host) %>
+  <%== t ".unsubscribe", link: decidim.unsubscribe_notifications_settings_url(host: @organization.host, u: @user.to_sgid_param(for: :unsubscribe_user)) %>
 <% end %>
 
 <% content_for :see_on_website do %>

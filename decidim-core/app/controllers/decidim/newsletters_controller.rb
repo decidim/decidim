@@ -12,8 +12,13 @@ module Decidim
     def show
       @organization = current_organization
       @newsletter = collection.find(params[:id])
-
-      @body = parse_interpolations(@newsletter.id, @newsletter.body[I18n.locale.to_s], current_user)
+      @user = current_user
+      
+      if @newsletter.sent?
+        @body = parse_interpolations(@newsletter.id, @newsletter.body[I18n.locale.to_s], current_user)
+      else
+        redirect_to decidim.root_url(host: @organization.host)
+      end
     end
 
     private

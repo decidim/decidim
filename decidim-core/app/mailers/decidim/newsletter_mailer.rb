@@ -10,6 +10,7 @@ module Decidim
     def newsletter(user, newsletter)
       @organization = user.organization
       @newsletter = newsletter
+      @user = user
 
       with_user(user) do
         @subject = parse_interpolations(@newsletter.id, @newsletter.subject[I18n.locale.to_s], user)
@@ -18,6 +19,5 @@ module Decidim
         mail(to: "#{user.name} <#{user.email}>", subject: @subject)
       end
     end
-
   end
 end
