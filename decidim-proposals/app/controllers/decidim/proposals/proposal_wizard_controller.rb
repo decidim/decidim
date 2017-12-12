@@ -2,7 +2,7 @@
 
 module Decidim
   module Proposals
-    require 'wicked'
+    require "wicked"
     # Exposes the proposal wizard so users can create them step by step.
     class ProposalWizardController < Decidim::Proposals::ApplicationController
       helper Decidim::WidgetUrlsHelper
@@ -49,7 +49,6 @@ module Decidim
           @form = build_form(Decidim::Proposals::ProposalWizardForm, params)
           render_wizard
         end
-
       end
 
       def create
@@ -58,6 +57,7 @@ module Decidim
       end
 
       private
+
       def step_1_step
         session[:proposal] = {}
         @form = form(Decidim::Proposals::ProposalWizardForm).instance
@@ -83,16 +83,14 @@ module Decidim
       end
 
       def build_form(klass, parameters)
-        @form = form(klass).from_params(parameters,
-          # attachment: form(AttachmentForm).from_params({})
-        )
+        @form = form(klass).from_params(parameters)
+        # attachment: form(AttachmentForm).from_params({})
         attributes = @form.attributes_with_values
         session[:proposal] = session[:proposal].merge(attributes)
         @form.valid? if params[:validate_form]
 
         @form
       end
-
     end
   end
 end

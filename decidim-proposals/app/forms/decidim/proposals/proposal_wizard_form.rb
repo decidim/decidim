@@ -4,7 +4,6 @@ module Decidim
   module Proposals
     # A form object used to collect the title and description for an proposal.
     class ProposalWizardForm < Decidim::Proposals::ProposalForm
-
       clear_validators!
 
       # attribute :id, String # proposal wizard step id (iherited from wicked)
@@ -25,7 +24,6 @@ module Decidim
       # validates :category, presence: true, if: ->(form) { form.category_id.present? } #, if: :step_3?
       # validates :scope, presence: true, if: ->(form) { form.scope_id.present? } #, if: :step_3?
 
-
       # delegate :categories, to: :current_feature
 
       # def step_1?
@@ -41,7 +39,7 @@ module Decidim
       # end
 
       def required_for_step_2?
-        case self.id
+        case id
         when "step_1"
           false
         else
@@ -55,7 +53,6 @@ module Decidim
         # return true if self.id.index(step.to_s) <= self.id.index(form_step)
         # raise
       end
-
     end
   end
 end
