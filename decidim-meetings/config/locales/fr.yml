@@ -25,10 +25,10 @@ fr:
         name: Rencontres
         settings:
           global:
-            announcement: Annonce
+            announcement: Message d'annonce
             comments_enabled: Commentaires activés
           step:
-            announcement: Annonce
+            announcement: Message d'annonce
             comments_blocked: Commentaires bloqués
     meetings:
       actions:
