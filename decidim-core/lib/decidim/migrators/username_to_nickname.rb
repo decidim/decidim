@@ -9,7 +9,9 @@ module Decidim
 
       def migrate!
         User.find_each do |user|
-          user.update!(nickname: user.name.parameterize(separator: "_"))
+          nickname = user.name.parameterize(separator: "_")[0...20]
+
+          user.update!(nickname: nickname)
         end
       end
     end
