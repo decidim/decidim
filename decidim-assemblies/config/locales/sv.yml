@@ -1,0 +1,137 @@
+sv:
+  activemodel:
+    attributes:
+      assembly:
+        banner_image: Banner image
+        copy_categories: Kopiera kategorier
+        copy_features: Kopiera funktioner
+        description: Beskrivning
+        developer_group: Utvecklargrupp
+        domain: Domän
+        hashtag: hashtag
+        hero_image: Hembild
+        local_area: Lokalt område
+        meta_scope: Omfattning metadata
+        participatory_scope: Deltagande räckvidd
+        participatory_structure: Deltagande struktur
+        promoted: främjas
+        scope_id: Omfattning
+        scopes_enabled: Scopes aktiverade
+        short_description: Kort beskrivning
+        slug: URL slug
+        subtitle: Texta
+        target: Mål
+        title: Titel
+  decidim:
+    admin:
+      assemblies:
+        create:
+          error: Det uppstod ett fel vid att skapa en ny enhet.
+          success: Församlingen skapades framgångsrikt.
+        destroy:
+          success: Församlingen förstördes framgångsrikt.
+        edit:
+          update: Uppdatering
+        form:
+          title: Allmän information
+        index:
+          not_published: Ej publicerad
+          published: Publicerad
+        new:
+          create: Skapa
+          title: Ny sammansättning
+        update:
+          error: Det uppstod ett fel vid uppdateringen av den här enheten.
+          success: Församlingen uppdaterades framgångsrikt.
+      assemblies_copies:
+        create:
+          error: Det uppstod ett fel vid duplicering av den här enheten.
+          success: Sammansättning dupliceras framgångsrikt.
+      assembly_copies:
+        new:
+          copy: Kopiera
+          select: Välj vilken data du vill duplicera
+          title: Duplikat montering
+      assembly_publications:
+        create:
+          error: Det uppstod ett fel vid publicering av denna montering.
+          success: Församling publiceras framgångsrikt.
+        destroy:
+          error: Ett fel uppstod vid publicering av denna montering.
+          success: Sammansättningen avpubliceras framgångsrikt.
+      menu:
+        assemblies: Assemblies
+        assemblies_submenu:
+          attachments: bilagor
+          categories: kategorier
+          features: Funktioner
+          info: Info
+          moderations: modere
+      models:
+        assembly:
+          fields:
+            created_at: Skapad vid
+            promoted: Markerad
+            published: Publicerad
+            title: Titel
+          name: hopsättning
+      titles:
+        assemblies: Assemblies
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på den här enheten. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+        assembly_copies:
+          form:
+            slug_help: 'URL-slitsar används för att generera de webbadresser som pekar på den här enheten. Accepterar bara bokstäver, siffror och bindestreck, och måste börja med ett brev. Exempel: %{url}'
+      index:
+        title: Assemblies
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Aktiva aggregat
+            see_all_assemblies: Se alla församlingar
+      show:
+        developer_group: Utvecklargrupp
+        local_area: Lokalt område
+        participatory_scope: Deltagande räckvidd
+        participatory_structure: Deltagande struktur
+        scope: Omfattning
+        target: Mål
+      statistics:
+        answers_count: svar
+        assemblies_count: Assemblies
+        comments_count: kommentarer
+        headline: Aktivitet
+        meetings_count: möten
+        orders_count: röster
+        pages_count: sidor
+        projects_count: projekt
+        proposals_count: förslag
+        results_count: Resultat
+        surveys_count: Undersökningar
+        users_count: Deltagare
+        votes_count: röster
+    menu:
+      assemblies: Assemblies
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Ta del
+        index:
+          promoted_assemblies: Utrustade församlingar
+        order_by_assemblies:
+          assemblies:
+            one: "%{count} montering"
+            other: "%{count} sammansättningar"
+        promoted_assembly:
+          more_info: Mer information
+          take_part: Ta del
+      assembly_header:
+        assembly_menu_item: Sammansättningen
+        unfold: Veckla ut
+      assembly_widgets:
+        show:
+          take_part: Ta del

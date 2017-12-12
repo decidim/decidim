@@ -2,16 +2,16 @@ it:
   activemodel:
     attributes:
       participatory_process:
-        banner_image: Immagine banner
-        copy_categories: Copiare le categorie
-        copy_features: Funzioni di copia
-        copy_steps: Copia passi
+        banner_image: Immagine del banner
+        copy_categories: Copia le categorie
+        copy_features: Copia le caratteristiche
+        copy_steps: Copia i passi
         description: Descrizione
-        developer_group: Gruppo promotore
+        developer_group: Gruppo sviluppatori
         domain: Dominio
         end_date: Data di fine
-        hashtag: hashtag
-        hero_image: Immagine sulla Home Page
+        hashtag: Hashtag
+        hero_image: Immagine della Home Page
         local_area: Municipi
         meta_scope: Metadati di ambito
         participatory_process_group_id: Gruppo di processi

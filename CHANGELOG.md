@@ -2,14 +2,28 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+**Upgrade notes**:
+
+Since uglifier `4.0.0`, we need to set `harmony: true` as options in uglifier. This means
+you need to change the following line in `config/environments/production.rb`:
+
+```diff
+- config.assets.js_compressor = :uglifier
++ config.assets.js_compressor = Uglifier.new(:harmony => true)
+```
+
 **Added**:
 
 **Changed**:
 
 **Fixed**:
 
+- **decidim-core**: Update home page stat categories
+[\#2221](https://github.com/decidim/decidim/pull/2221)
+
 ## [v0.8.0](https://github.com/decidim/decidim/tree/v0.8.0) (2017-12-4)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.7.0...v0.8.0)
+[Migration guide](https://github.com/decidim/decidim/blob/master/docs/migrate_to_0.8.0.md)
 
 **Added**:
 

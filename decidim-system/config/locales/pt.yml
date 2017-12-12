@@ -20,7 +20,7 @@ pt:
         index:
           title: Administradores
         new:
-          create: Crio
+          create: Criar
           title: Novo administrador
         update:
           error: Ocorreu um erro ao atualizar este administrador.

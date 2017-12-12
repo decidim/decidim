@@ -71,7 +71,7 @@ pt:
           index:
             title: Propostas
           new:
-            create: Crio
+            create: Criar
             title: Criar proposta
       answers:
         accepted: Aceitaram

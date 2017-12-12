@@ -1,0 +1,69 @@
+sv:
+  activemodel:
+    attributes:
+      survey_answer:
+        body: Svar
+      survey_question:
+        mandatory: Obligatorisk
+        question_type: Typ
+  decidim:
+    features:
+      surveys:
+        actions:
+          answer: Svar
+        name: Undersökning
+        settings:
+          global:
+            announcement: Meddelande
+          step:
+            allow_answers: Tillåt svar
+            announcement: Meddelande
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Survey användarens svar
+        models:
+          components:
+            description: Beskrivning
+            tos: Användarvillkor
+        surveys:
+          answer_option:
+            answer_option: Svaralternativ
+            remove_answer_option: Ta bort svaralternativet
+            statement: Påstående
+          edit:
+            save: Spara
+            title: Titel
+          form:
+            add_question: Lägg till fråga
+            already_answered_warning: Undersökningen är redan besvarad av vissa användare så att du inte kan ändra sina frågor.
+          question:
+            add_answer_option: Lägg till svaralternativ
+            question: Fråga
+            remove_question: Ta bort fråga
+            statement: Påstående
+          update:
+            invalid: Det har varit fel när du sparat undersökningen.
+            success: Undersökningen sparades framgångsrikt.
+      question_types:
+        long_answer: Långt svar
+        multiple_option: Flera alternativ
+        short_answer: Kort svar
+        single_option: Enkelt alternativ
+      surveys:
+        answer:
+          invalid: Det har förekommit fel vid besvarandet av undersökningen.
+          success: Undersökningen svarades framgångsrikt.
+        show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}"> Logga in med ditt konto</a> eller <a href="%{sign_up_link}">sign up</a> för att svara på enkäten.
+            title: Besvara undersökningen
+          are_you_sure: Den här åtgärden kan inte ångras och du kommer inte att kunna redigera dina svar. Är du säker?
+          submit: Lämna
+          survey_answered:
+            body: Du har redan besvarat denna enkät.
+            title: Undersökningen svarade
+          survey_closed:
+            body: Undersökningen är stängd och kan inte besvaras.
+            title: Undersökningen stängd
+          tos_agreement: Genom att delta i denna undersökning accepterar du användarvillkoren
