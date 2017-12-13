@@ -10,6 +10,7 @@ fragment CommentData on Comment {
   formattedCreatedAt
   author {
     name
+    nickname
     avatarUrl
     isVerified
     isUser

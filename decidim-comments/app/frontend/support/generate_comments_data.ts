@@ -11,7 +11,7 @@ const generateCommentsData = (num = 1) => {
   const commentsData: CommentFragment[] = [];
 
   for (let idx = 0; idx < num; idx += 1) {
-    let creationDate = date.recent();
+    const creationDate = date.recent();
 
     commentsData.push({
       id: random.uuid(),
@@ -20,7 +20,8 @@ const generateCommentsData = (num = 1) => {
       createdAt: creationDate.toISOString(),
       formattedCreatedAt: creationDate.toLocaleTimeString(),
       author: {
-        name: name.findName(),
+        name: `${name.firstName()} ${name.lastName()}`,
+        nickname: `@${name.findName()}`,
         avatarUrl: image.imageUrl(),
         isVerified: Math.random() >= 0.5,
         isUser: Math.random() >= 0.5,

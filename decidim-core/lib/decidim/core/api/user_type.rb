@@ -12,8 +12,12 @@ module Decidim
 
     field :name, !types.String, "The user's name"
 
+    field :nickname, !types.String, "The user's nickname" do
+      resolve ->(obj, _args, _ctx) { UserPresenter.new(obj).nickname }
+    end
+
     field :avatarUrl, !types.String, "The user's avatar url" do
-      resolve ->(obj, _args, _ctx) { obj.avatar.url }
+      resolve ->(obj, _args, _ctx) { UserPresenter.new(obj).avatar_url }
     end
 
     field :organizationName, !types.String, "The user's organization name" do

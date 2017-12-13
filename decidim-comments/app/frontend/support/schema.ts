@@ -32,6 +32,8 @@ export type addCommentMutation = {
       author: ( {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -43,6 +45,8 @@ export type addCommentMutation = {
         } | {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -84,6 +88,8 @@ export type addCommentMutation = {
         author: ( {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -95,6 +101,8 @@ export type addCommentMutation = {
           } | {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -138,6 +146,8 @@ export type addCommentMutation = {
           author: ( {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
               // Whether the author is verified or not
@@ -149,6 +159,8 @@ export type addCommentMutation = {
             } | {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
               // Whether the author is verified or not
@@ -192,6 +204,8 @@ export type addCommentMutation = {
             author: ( {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
                 // Whether the author is verified or not
@@ -203,6 +217,8 @@ export type addCommentMutation = {
               } | {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
                 // Whether the author is verified or not
@@ -260,6 +276,8 @@ export type DownVoteMutation = {
       author: ( {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -271,6 +289,8 @@ export type DownVoteMutation = {
         } | {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -314,6 +334,8 @@ export type DownVoteMutation = {
         author: ( {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -325,6 +347,8 @@ export type DownVoteMutation = {
           } | {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -368,6 +392,8 @@ export type DownVoteMutation = {
           author: ( {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
               // Whether the author is verified or not
@@ -379,6 +405,8 @@ export type DownVoteMutation = {
             } | {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
               // Whether the author is verified or not
@@ -422,6 +450,8 @@ export type DownVoteMutation = {
             author: ( {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
                 // Whether the author is verified or not
@@ -433,6 +463,8 @@ export type DownVoteMutation = {
               } | {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
                 // Whether the author is verified or not
@@ -490,6 +522,8 @@ export type UpVoteMutation = {
       author: ( {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -501,6 +535,8 @@ export type UpVoteMutation = {
         } | {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -544,6 +580,8 @@ export type UpVoteMutation = {
         author: ( {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -555,6 +593,8 @@ export type UpVoteMutation = {
           } | {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -598,6 +638,8 @@ export type UpVoteMutation = {
           author: ( {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
               // Whether the author is verified or not
@@ -609,6 +651,8 @@ export type UpVoteMutation = {
             } | {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
               // Whether the author is verified or not
@@ -652,6 +696,8 @@ export type UpVoteMutation = {
             author: ( {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
                 // Whether the author is verified or not
@@ -663,6 +709,8 @@ export type UpVoteMutation = {
               } | {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
                 // Whether the author is verified or not
@@ -709,6 +757,8 @@ export type GetCommentsQuery = {
     user:  {
       // The user's name
       name: string,
+      // The user's nickname
+      nickname: string,
       // The user's avatar url
       avatarUrl: string,
       // The user's organization name
@@ -748,6 +798,8 @@ export type GetCommentsQuery = {
       author: ( {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -759,6 +811,8 @@ export type GetCommentsQuery = {
         } | {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -800,6 +854,8 @@ export type GetCommentsQuery = {
         author: ( {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -811,6 +867,8 @@ export type GetCommentsQuery = {
           } | {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -854,6 +912,8 @@ export type GetCommentsQuery = {
           author: ( {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
               // Whether the author is verified or not
@@ -865,6 +925,8 @@ export type GetCommentsQuery = {
             } | {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
               // Whether the author is verified or not
@@ -908,6 +970,8 @@ export type GetCommentsQuery = {
             author: ( {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
                 // Whether the author is verified or not
@@ -919,6 +983,8 @@ export type GetCommentsQuery = {
               } | {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
                 // Whether the author is verified or not
@@ -990,6 +1056,8 @@ export type CommentFragment = {
   author: ( {
       // The author's name
       name: string,
+      // The author's nickname
+      nickname: string,
       // The author's avatar url
       avatarUrl: string,
       // Whether the author is verified or not
@@ -1001,6 +1069,8 @@ export type CommentFragment = {
     } | {
       // The author's name
       name: string,
+      // The author's nickname
+      nickname: string,
       // The author's avatar url
       avatarUrl: string,
       // Whether the author is verified or not
@@ -1044,6 +1114,8 @@ export type CommentFragment = {
     author: ( {
         // The author's name
         name: string,
+        // The author's nickname
+        nickname: string,
         // The author's avatar url
         avatarUrl: string,
         // Whether the author is verified or not
@@ -1055,6 +1127,8 @@ export type CommentFragment = {
       } | {
         // The author's name
         name: string,
+        // The author's nickname
+        nickname: string,
         // The author's avatar url
         avatarUrl: string,
         // Whether the author is verified or not
@@ -1098,6 +1172,8 @@ export type CommentFragment = {
       author: ( {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -1109,6 +1185,8 @@ export type CommentFragment = {
         } | {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -1152,6 +1230,8 @@ export type CommentFragment = {
         author: ( {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -1163,6 +1243,8 @@ export type CommentFragment = {
           } | {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -1211,6 +1293,8 @@ export type CommentDataFragment = {
   author: ( {
       // The author's name
       name: string,
+      // The author's nickname
+      nickname: string,
       // The author's avatar url
       avatarUrl: string,
       // Whether the author is verified or not
@@ -1222,6 +1306,8 @@ export type CommentDataFragment = {
     } | {
       // The author's name
       name: string,
+      // The author's nickname
+      nickname: string,
       // The author's avatar url
       avatarUrl: string,
       // Whether the author is verified or not
@@ -1269,6 +1355,8 @@ export type CommentThreadFragment = {
   author: ( {
       // The author's name
       name: string,
+      // The author's nickname
+      nickname: string,
       // The author's avatar url
       avatarUrl: string,
       // Whether the author is verified or not
@@ -1280,6 +1368,8 @@ export type CommentThreadFragment = {
     } | {
       // The author's name
       name: string,
+      // The author's nickname
+      nickname: string,
       // The author's avatar url
       avatarUrl: string,
       // Whether the author is verified or not
@@ -1321,6 +1411,8 @@ export type CommentThreadFragment = {
     author: ( {
         // The author's name
         name: string,
+        // The author's nickname
+        nickname: string,
         // The author's avatar url
         avatarUrl: string,
         // Whether the author is verified or not
@@ -1332,6 +1424,8 @@ export type CommentThreadFragment = {
       } | {
         // The author's name
         name: string,
+        // The author's nickname
+        nickname: string,
         // The author's avatar url
         avatarUrl: string,
         // Whether the author is verified or not
@@ -1375,6 +1469,8 @@ export type CommentThreadFragment = {
       author: ( {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -1386,6 +1482,8 @@ export type CommentThreadFragment = {
         } | {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -1429,6 +1527,8 @@ export type CommentThreadFragment = {
         author: ( {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -1440,6 +1540,8 @@ export type CommentThreadFragment = {
           } | {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
