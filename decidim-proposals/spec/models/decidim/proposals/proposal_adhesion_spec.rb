@@ -49,7 +49,7 @@ module Decidim
           proposal_adhesion.user_group = nil
         end
 
-        it { is_expected.to be_invalid }
+        it { is_expected.to be_valid }
       end
 
       context "when no proposal" do
