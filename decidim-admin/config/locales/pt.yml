@@ -83,7 +83,7 @@ pt:
         title: Título
   date:
     formats:
-      datepicker: "%m / %d / %Y"
+      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -467,5 +467,5 @@ pt:
           title: Utilizadores
   time:
     formats:
-      datepicker: "%m / %d / %Y"
-      timepicker: "%m / %d / %Y %H:%M"
+      datepicker: "%d/%m/%Y"
+      timepicker: "%d/%m/%Y %H:%M"
