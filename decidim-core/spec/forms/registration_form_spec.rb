@@ -15,6 +15,7 @@ module Decidim
     let(:organization) { create(:organization) }
     let(:sign_up_as) { "user" }
     let(:name) { "User" }
+    let(:nickname) { "justme" }
     let(:email) { "user@example.org" }
     let(:password) { "password1234" }
     let(:password_confirmation) { password }
@@ -28,6 +29,7 @@ module Decidim
       {
         sign_up_as: sign_up_as,
         name: name,
+        nickname: nickname,
         email: email,
         password: password,
         password_confirmation: password_confirmation,
@@ -60,6 +62,12 @@ module Decidim
       it { is_expected.to be_invalid }
     end
 
+    context "when the nickname is not present" do
+      let(:nickname) { nil }
+
+      it { is_expected.to be_invalid }
+    end
+
     context "when the email is not present" do
       let(:email) { nil }
 
@@ -68,6 +76,12 @@ module Decidim
 
     context "when the email already exists" do
       let!(:user) { create(:user, organization: organization, email: email) }
+
+      it { is_expected.to be_invalid }
+    end
+
+    context "when the nickname already exists" do
+      let!(:user) { create(:user, organization: organization, nickname: nickname) }
 
       it { is_expected.to be_invalid }
     end

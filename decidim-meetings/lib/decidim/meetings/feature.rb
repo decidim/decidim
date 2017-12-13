@@ -83,6 +83,7 @@ Decidim.register_feature(:meetings) do |feature|
           password: "password1234",
           password_confirmation: "password1234",
           name: name,
+          nickname: Faker::Twitter.unique.screen_name,
           organization: feature.organization,
           tos_agreement: "1",
           confirmed_at: Time.current

@@ -6,6 +6,8 @@ require "valid_email2"
 module Decidim
   # A User is a citizen that wants to join the platform to participate.
   class User < ApplicationRecord
+    extend Nicknamizable
+
     OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, (:developer if Rails.env.development?)].compact
     ROLES = %w(admin user_manager).freeze
 
@@ -22,10 +24,11 @@ module Decidim
     has_many :notifications, foreign_key: "decidim_user_id", class_name: "Decidim::Notification", dependent: :destroy
 
     validates :name, presence: true, unless: -> { deleted? }
+    validates :nickname, presence: true, unless: -> { deleted? || managed? }
     validates :locale, inclusion: { in: :available_locales }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
-    validates :email, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? }
+    validates :email, :nickname, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? }
     validates :email, 'valid_email_2/email': { disposable: true }
 
     validate :all_roles_are_valid

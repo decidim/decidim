@@ -65,6 +65,7 @@ FactoryBot.define do
     password "password1234"
     password_confirmation "password1234"
     name { generate(:name) }
+    nickname { Faker::Twitter.unique.screen_name }
     organization
     locale { organization.default_locale }
     tos_agreement "1"

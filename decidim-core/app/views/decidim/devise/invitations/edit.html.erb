@@ -13,6 +13,8 @@
           <%= decidim_form_for resource, as: resource_name, url: invitation_path(resource_name, invite_redirect: params[:invite_redirect]), html: { method: :put, class: "register-form new_user" } do |f| %>
             <%= f.hidden_field :invitation_token %>
 
+            <%= f.text_field :nickname %>
+
             <% if f.object.class.require_password_on_accepting %>
               <%= f.password_field :password %></p>
 

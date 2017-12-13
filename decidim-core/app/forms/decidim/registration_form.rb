@@ -7,6 +7,7 @@ module Decidim
 
     attribute :sign_up_as, String
     attribute :name, String
+    attribute :nickname, String
     attribute :email, String
     attribute :password, String
     attribute :password_confirmation, String
@@ -19,6 +20,7 @@ module Decidim
 
     validates :sign_up_as, inclusion: { in: %w(user user_group) }
     validates :name, presence: true
+    validates :nickname, presence: true, length: { in: Decidim::User.nickname_length }
     validates :email, presence: true
     validates :password, presence: true, confirmation: true, length: { in: Decidim::User.password_length }
     validates :tos_agreement, allow_nil: false, acceptance: true
@@ -28,6 +30,7 @@ module Decidim
     validates :user_group_phone, presence: true, if: :user_group?
 
     validate :email_unique_in_organization
+    validate :nickname_unique_in_organization
     validate :user_group_name_unique_in_organization
     validate :user_group_document_number_unique_in_organization
 
@@ -39,6 +42,10 @@ module Decidim
 
     def email_unique_in_organization
       errors.add :email, :taken if User.where(email: email, organization: current_organization).first.present?
+    end
+
+    def nickname_unique_in_organization
+      errors.add :nickname, :taken if User.where(nickname: nickname, organization: current_organization).first.present?
     end
 
     def user_group_name_unique_in_organization

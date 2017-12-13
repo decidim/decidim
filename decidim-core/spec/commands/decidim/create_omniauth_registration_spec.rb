@@ -20,6 +20,7 @@ module Decidim
               "email" => email,
               "email_verified" => true,
               "name" => "Facebook User",
+              "nickname" => "facebook_user",
               "oauth_signature" => oauth_signature
             }
           }
