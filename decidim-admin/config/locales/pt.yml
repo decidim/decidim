@@ -12,7 +12,7 @@ pt:
       feature:
         name: Nome
         weight: Peso
-      id: Identidade
+      id: ID
       newsletter:
         body: Corpo
         subject: Assunto
@@ -21,14 +21,14 @@ pt:
         name: Nome
         reference_prefix: Prefixo de referência
       organization_appearance:
-        cta_button_path: Caminho do botão Chamar para Ação
-        cta_button_text: Texto do botão Chamar para Ação
+        cta_button_path: Link do botão principal
+        cta_button_text: Texto do botão principal
         description: Descrição
         favicon: Ícone
         header_snippets: Snippets de cabeçalho
         homepage_image: Imagem da página principal
         logo: Logotipo
-        official_img_footer: Símbolo oficial do rodapé
+        official_img_footer: Logotipo oficial no rodapé
         official_img_header: Cabeçalho do logotipo oficial
         official_url: URL da organização oficial
         show_statistics: Mostrar estatísticas
@@ -88,7 +88,7 @@ pt:
     admin:
       actions:
         add: Adicionar
-        browse: Squeaky toy
+        browse: Explorar
         export: Exportar
         manage: Gerir
         permissions: Permissões
