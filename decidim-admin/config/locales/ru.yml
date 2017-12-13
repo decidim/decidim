@@ -83,7 +83,7 @@ ru:
         title: Название
   date:
     formats:
-      datepicker: "%d. %m. %Y"
+      datepicker: "%d.%m.%Y"
   decidim:
     admin:
       actions:
