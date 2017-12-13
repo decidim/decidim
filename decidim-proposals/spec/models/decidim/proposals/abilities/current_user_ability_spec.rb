@@ -41,7 +41,7 @@ describe Decidim::Proposals::Abilities::CurrentUserAbility do
         }
       end
 
-      it { is_expected.not_to be_able_to(:unvote, proposal) }
+      it { is_expected.not_to be_able_to(:vote, proposal) }
     end
 
     context "when user is authorized" do
@@ -52,7 +52,7 @@ describe Decidim::Proposals::Abilities::CurrentUserAbility do
         }
       end
 
-      it { is_expected.to be_able_to(:unvote, Decidim::Proposals::Proposal) }
+      it { is_expected.to be_able_to(:vote, Decidim::Proposals::Proposal) }
     end
   end
 
@@ -122,4 +122,55 @@ describe Decidim::Proposals::Abilities::CurrentUserAbility do
       it { is_expected.not_to be_able_to(:edit, proposal) }
     end
   end
+
+  describe "adheering" do
+    context "when adheering is disabled" do
+      let(:proposal) { build :proposal, feature: proposal_feature }
+      let(:extra_settings) do
+        {
+          adhesions_enabled?: false,
+          adhesions_blocked?: true
+        }
+      end
+
+      it { is_expected.not_to be_able_to(:adhere, proposal) }
+    end
+
+    context "when user is authorized" do
+      let(:extra_settings) do
+        {
+          adhesions_enabled?: true,
+          adhesions_blocked?: false
+        }
+      end
+
+      it { is_expected.to be_able_to(:adhere, Decidim::Proposals::Proposal) }
+    end
+  end
+
+  describe "unadheering" do
+    context "when adheering is disabled" do
+      let(:proposal) { build :proposal, feature: proposal_feature }
+      let(:extra_settings) do
+        {
+          adhesions_enabled?: false,
+          adhesions_blocked?: true
+        }
+      end
+
+      it { is_expected.not_to be_able_to(:unadhere, proposal) }
+    end
+
+    context "when user is authorized" do
+      let(:extra_settings) do
+        {
+          adhesions_enabled?: true,
+          adhesions_blocked?: false
+        }
+      end
+
+      it { is_expected.to be_able_to(:unadhere, Decidim::Proposals::Proposal) }
+    end
+  end
+
 end
