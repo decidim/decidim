@@ -347,6 +347,7 @@ nl:
         title: Meldingen
       user_menu:
         admin_dashboard: Beheer dashboard
+        conversations: conversaties
         notifications: Meldingen
         profile: Mijn account
         sign_out: Afmelden
@@ -381,6 +382,7 @@ nl:
         welcome: Welkom bij %{organization}!
       statistics:
         answers_count: Antwoorden
+        assemblies_count: Assemblies
         comments_count: Reacties
         headline: Huidige stand van %{organization}
         meetings_count: Vergaderingen
@@ -388,6 +390,7 @@ nl:
         pages_count: Pages
         processes_count: Processen
         projects_count: Projecten
+        proposals_accepted: Aanvaarde voorstellen
         proposals_count: Voorstellen
         results_count: Resultaten
         surveys_count: Enquête
