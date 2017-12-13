@@ -34,15 +34,6 @@ module Decidim
         end
       end
 
-      def author_name
-        return I18n.t("decidim.proposals.models.proposal.fields.official_proposal") if official?
-        user_group&.name || author.name
-      end
-
-      def author_avatar_url
-        author&.avatar&.url || ActionController::Base.helpers.asset_path("decidim/default-avatar.svg")
-      end
-
       # Public: Check if the user has voted the proposal.
       #
       # Returns Boolean.
@@ -131,6 +122,18 @@ module Decidim
         return false unless maximum_votes
 
         votes.count >= maximum_votes
+      end
+
+      # Public: Instantiates a presenter for the author of the proposal and yields
+      #   the given block passing the instantiated presenter to it.
+      #
+      # Returns the instantiated presenter
+      def present_author
+        presenter = official? ? OfficialAuthorPresenter.new : UserPresenter.new(author)
+
+        yield(presenter)
+
+        presenter
       end
 
       # Checks whether the user is author of the given proposal, either directly

@@ -1,18 +1,21 @@
 <article class="message">
   <div class="message__header">
-    <div class="author-data">
-      <div class="author author--inline">
-        <span class="author__avatar">
-          <%= image_tag message.sender.avatar.url %>
-        </span>
-        <span class="author__name">
-          <%= message.sender.name %>
-        </span>
-        <time datetime="<%= message.created_at.utc %>">
-          <%= message.friendly_created_at %>
-        </time>
+    <% present(message.sender) do |user| %>
+      <div class="author-data">
+        <div class="author author--inline">
+          <span class="author__avatar">
+            <%= image_tag user.avatar_url %>
+          </span>
+          <span class="author__name">
+            <strong><%= user.name %></strong>
+            <%= user.nickname %>
+          </span>
+          <time datetime="<%= message.created_at.utc %>">
+            <%= message.friendly_created_at %>
+          </time>
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
   <div class="message__content">
     <%= simple_format(message.body) %>
