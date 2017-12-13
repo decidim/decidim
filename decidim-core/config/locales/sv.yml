@@ -347,6 +347,7 @@ sv:
         title: anmälningar
       user_menu:
         admin_dashboard: Admin-instrumentpanelen
+        conversations: samtal
         notifications: anmälningar
         profile: Mitt konto
         sign_out: Logga ut
