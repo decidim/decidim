@@ -55,7 +55,7 @@ describe "Explore meetings", type: :feature do
         expect(page).to have_css(".card--meeting", count: 5)
       end
 
-      it "allows fitlering by scope", :slow do
+      it "allows filtering by scope" do
         scope = create(:scope, organization: organization)
         meeting = meetings.first
         meeting.scope = scope
@@ -64,7 +64,7 @@ describe "Explore meetings", type: :feature do
         visit_feature
 
         within ".filters" do
-          select2(translated(scope.name), from: :filter_scope_id)
+          scope_pick(scope, from: :filter_scope_id, global_id: "global")
         end
 
         expect(page).to have_css(".card--meeting", count: 1)
