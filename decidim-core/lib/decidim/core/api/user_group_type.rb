@@ -22,11 +22,7 @@ module Decidim
       resolve ->(obj, _args, _ctx) { obj.avatar.url }
     end
 
-    field :isVerified, !types.Boolean, "Whether the user group is verified or not" do
-      resolve lambda { |obj, _args, _ctx|
-        obj.verified?
-      }
-    end
+    field :isVerified, !types.Boolean, "Whether the user group is verified or not", property: :verified?
 
     field :deleted, !types.Boolean, "Whether the user group's has been deleted or not" do
       resolve ->(_obj, _args, _ctx) { false }
