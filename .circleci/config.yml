@@ -2,7 +2,7 @@ version: 2
 
 defaults: &defaults
   docker:
-    - image: decidim/decidim:latest-dev
+    - image: decidim/decidim:0.8-dev
       environment:
         BUNDLE_GEMFILE: /app/Gemfile
         SIMPLECOV: true
