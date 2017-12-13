@@ -100,6 +100,7 @@
 </div>
 <%= attachments_for @proposal %>
 
+<%= render partial: 'adhesions_listing', locals: {proposal: @proposal} %>
 <%= comments_for @proposal %>
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>

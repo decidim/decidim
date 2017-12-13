@@ -124,6 +124,8 @@ en:
           count:
             one: ADHESION
             other: ADHESIONS
+        adhesions_listing:
+          title: Listing of Adhesions
         author:
           deleted: Deleted user
           verified_user_group: Verified organization

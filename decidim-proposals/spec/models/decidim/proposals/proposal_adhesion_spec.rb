@@ -75,6 +75,26 @@ module Decidim
 
         it { is_expected.to be_invalid }
       end
+
+      context "when retrieving for_listing" do
+        before do
+          proposal_adhesion.save!
+        end
+        let!(:other_user_group) { create(:user_group, verified_at: DateTime.now) }
+        let!(:other_proposal_adhesion_1) {
+          create(:proposal_adhesion, proposal: proposal, author: author)
+        }
+        let!(:other_proposal_adhesion_2) {
+          create(:proposal_adhesion, proposal: proposal, author: author, user_group: other_user_group)
+        }
+        it "should sort user_grup adhesions first and then by created_at" do
+          expected_sorting= [
+            proposal_adhesion.id, other_proposal_adhesion_2.id,
+            other_proposal_adhesion_1.id,
+          ]
+          expect(proposal.adhesions.for_listing.pluck(:id)).to eq(expected_sorting)
+        end
+      end
     end
   end
 end

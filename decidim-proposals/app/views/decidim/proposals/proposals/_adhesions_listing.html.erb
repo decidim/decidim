@@ -1,0 +1,20 @@
+<% if proposal.adhesions.any? %>
+  <div class="row">
+    <div class="columns large-12">
+      <h4 class="section-heading"><%= t('.title') %></h4>
+    </div>
+
+    <div class="columns large-12 supports-list">
+      <% proposal.adhesions.limit(5).each do |adh| %>
+        <div class="author author--inline">
+          <span class="author__avatar author__avatar--small">
+            <%= image_tag adh.user_group.avatar_url %>
+          </span>
+          <span class="author__name">
+            <%= adh.user_group.name %>
+          </span>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
