@@ -347,6 +347,7 @@ pt:
         title: Notificações
       user_menu:
         admin_dashboard: Painel de administração
+        conversations: Conversas
         notifications: Notificações
         profile: Minha conta
         sign_out: Sair
@@ -381,6 +382,7 @@ pt:
         welcome: Bem-vindo ao %{organization}!
       statistics:
         answers_count: Respostas
+        assemblies_count: Assembléias
         comments_count: Comentários
         headline: Estado atual de %{organization}
         meetings_count: Reuniões
@@ -388,6 +390,7 @@ pt:
         pages_count: Páginas
         processes_count: Processos
         projects_count: Projetos
+        proposals_accepted: Propostas aceitas
         proposals_count: Propostas
         results_count: Resultados
         surveys_count: pesquisas
