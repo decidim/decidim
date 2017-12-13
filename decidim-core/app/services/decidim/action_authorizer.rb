@@ -22,6 +22,8 @@ module Decidim
     # Broadcasts:
     #   ok           - When everything is OK and the user is correctly authorized.
     #   missing      - When no valid authorization can be found.
+    #   expired      - The validity time for the given authorization has run out, and
+    #                  needs to be re-validated.
     #   pending      - When an authorization was found, but is not complete (eg. is
     #                  waiting for admin manual confirmation).
     #   invalid      - When an authorization was found, but the value of some of its fields
@@ -29,8 +31,6 @@ module Decidim
     #                  but this action is only for users in scope B).
     #   incomplete   - An authorization was found, but lacks some required fields. User
     #                  should re-authenticate.
-    #   expired      - The validity time for the given authorization has run out, and
-    #                  needs to be re-validated.
     #
     # Returns nil.
     def authorize
@@ -48,14 +48,14 @@ module Decidim
         :ok
       elsif !authorization
         :missing
+      elsif authorization_expired?
+        :expired
       elsif !authorization.granted?
         :pending
       elsif unmatched_fields.any?
         [:invalid, fields: unmatched_fields]
       elsif missing_fields.any?
         [:incomplete, fields: missing_fields]
-      elsif authorization_expired?
-        :expired
       else
         :ok
       end

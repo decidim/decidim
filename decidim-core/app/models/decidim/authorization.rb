@@ -38,7 +38,7 @@ module Decidim
     def expires_at
       return unless workflow_manifest
       return if workflow_manifest.expires_in.zero?
-      granted_at + workflow_manifest.expires_in
+      (granted_at || created_at) + workflow_manifest.expires_in
     end
 
     def expired?
@@ -48,11 +48,7 @@ module Decidim
     private
 
     def active_handler?
-      if workflow_manifest.present?
-        true
-      else
-        false
-      end
+      workflow_manifest.present?
     end
 
     def workflow_manifest

@@ -13,7 +13,7 @@ you need to change the following line in `config/environments/production.rb`:
 ```
 
 **Added**:
-- **decidim-verifications**: Let developrs specify for how long authorizations are valid. After this space of time passes, authorizations expire and users need to re-authorize [\#2311](https://github.com/decidim/decidim/pull/2311)
+- **decidim-verifications**: Let developers specify for how long authorizations are valid. After this space of time passes, authorizations expire and users need to re-authorize [\#2311](https://github.com/decidim/decidim/pull/2311)
 
 **Changed**:
 
