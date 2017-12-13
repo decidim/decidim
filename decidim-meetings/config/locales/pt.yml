@@ -70,7 +70,7 @@ pt:
           destroy:
             success: Reunião excluída com êxito
           edit:
-            update: Atualizar
+            update: Actualizar
           index:
             title: Reuniões
           new:
