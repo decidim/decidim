@@ -10,7 +10,7 @@ pt:
       meeting:
         address: Endereço
         decidim_category_id: Categoria
-        decidim_scope_id: Escopo
+        decidim_scope_id: Âmbito
         description: Descrição
         end_time: Fim do tempo
         location: Localização
@@ -133,8 +133,8 @@ pt:
           category_prompt: Selecione uma categoria
           date: Encontro
           past: Passado
-          scope_prompt: Selecione um escopo
-          scopes: Escopos
+          scope_prompt: Selecione um âmbito
+          scopes: Âmbitos
           search: Pesquisa
           upcoming: próximos
         filters_small_view:
