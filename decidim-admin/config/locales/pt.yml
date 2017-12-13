@@ -29,8 +29,8 @@ pt:
         homepage_image: Imagem da página principal
         logo: Logotipo
         official_img_footer: Logotipo oficial no rodapé
-        official_img_header: Cabeçalho do logotipo oficial
-        official_url: URL da organização oficial
+        official_img_header: Logotipo oficial no cabeçalho
+        official_url: URL oficial da organização
         show_statistics: Mostrar estatísticas
         welcome_text: Texto de boas-vindas
       scope:
@@ -45,7 +45,7 @@ pt:
       static_page:
         content: Conteúdo
         organization: Organização
-        slug: Slug de URL
+        slug: Texto curto de URL
         title: Título
   activerecord:
     attributes:
@@ -64,10 +64,10 @@ pt:
         promoted: Destacado
         scope: Âmbito
         short_description: Breve descrição
-        slug: Slug de URL
+        slug: Texto curto de URL
         start_date: Data de início
         subtitle: Subtítulo
-        target: Alvo
+        target: Público alvo
         title: Título
       decidim/participatory_process_group:
         description: Descrição
@@ -79,7 +79,7 @@ pt:
         start_date: Data de início
       decidim/static_page:
         content: Conteúdo
-        slug: Slug de URL
+        slug: Texto curto de URL
         title: Título
   date:
     formats:
@@ -99,10 +99,10 @@ pt:
           error: Ocorreu um erro ao criar um novo anexo.
           success: Anexo criado com sucesso.
         destroy:
-          success: Anexo destruído com sucesso.
+          success: Anexo apagado com sucesso.
         edit:
           title: Editar anexo
-          update: Atualizar
+          update: Actualizar
         index:
           attachments_title: Anexos
         new:
@@ -116,14 +116,14 @@ pt:
           error: Ocorreu um erro ao criar esta categoria.
           success: Categoria criada com sucesso.
         destroy:
-          error: Ocorreu um erro ao excluir esta categoria. Por favor elimine qualquer subcategoria primeiro, certifique-se de que nenhuma outra entidade pertence a esta categoria e tente novamente.
-          success: Categoria excluída com sucesso.
+          error: Ocorreu um erro ao apagar esta categoria. Por favor apague qualquer subcategoria primeiro, certifique-se de que nenhuma outra entidade pertence a esta categoria e tente novamente.
+          success: Categoria apagada com sucesso.
         edit:
           title: Editar categoria
           update: Atualizar
         index:
           categories_title: Categorias
-          category_used: Esta categoria não pode ser removida porque está em uso.
+          category_used: Esta categoria não pode ser apagada porque está a ser usada.
         new:
           create: Criar categoria
           title: Nova categoria
@@ -316,7 +316,7 @@ pt:
       organization:
         edit:
           title: Editar organização
-          update: Atualizar
+          update: Actualizar
         form:
           facebook: Facebook
           github: GitHub
@@ -330,7 +330,7 @@ pt:
           success: Organização atualizada com sucesso.
       organization_appearance:
         edit:
-          update: Atualizar
+          update: Actualizar
         form:
           cta_button_path_help: 'Você pode substituir onde o botão Chamar para Ação na página inicial liga. Use caminhos parciais, não URLs completos aqui. Aceita letras, números, traços e barras, e deve começar com uma letra. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição. Exemplo: %{url}'
           cta_button_text_help: Você pode substituir o texto do botão Chamar para Ação na página inicial para cada idioma disponível em sua organização. Se não for definido, o valor padrão será usado. O botão Chamar para Ação é exibido na página inicial entre o texto de boas-vindas e a descrição.
@@ -345,7 +345,7 @@ pt:
           success: Tipo de escopo destruído com sucesso
         edit:
           title: Editar tipo de escopo
-          update: Atualizar
+          update: Actualizar
         new:
           create: Criar tipo de escopo
           title: Novo escopo
@@ -360,7 +360,7 @@ pt:
           success: Escopo destruído com sucesso
         edit:
           title: Editar o âmbito
-          update: Atualizar
+          update: Actualizar
         new:
           create: Criar âmbito
           title: Novo âmbito
@@ -378,7 +378,7 @@ pt:
           success: Página destruída com sucesso
         edit:
           title: Editar Página
-          update: Atualizar
+          update: Actualizar
         new:
           create: Novo
           title: Nova página
