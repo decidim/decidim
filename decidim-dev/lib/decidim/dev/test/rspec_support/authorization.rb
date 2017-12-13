@@ -20,6 +20,7 @@ end
 
 Decidim::Verifications.register_workflow(:dummy_authorization_workflow) do |workflow|
   workflow.engine = Decidim::Verifications::DummyVerification::Engine
+  workflow.expires_in = 1.hour
 end
 
 RSpec.configure do |config|
