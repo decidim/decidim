@@ -315,7 +315,7 @@ pt:
   errors:
     messages:
       content_type_whitelist_error: O tipo de arquivo não é válido
-      cycle_detected: o pai de um escopo não pode ser um dos seus descendentes
+      cycle_detected: o pai de um âmbito não pode ser um dos seus descendentes
       file_size_is_less_than_or_equal_to: o tamanho do arquivo deve ser menor ou igual a %{count}
       invalid_manifest: Manifesto inválido
       invalid_participatory_process: Processo participativo inválido
