@@ -154,6 +154,34 @@ Decidim.register_feature(:proposals) do |feature|
         Decidim::Proposals::ProposalVote.create!(proposal: proposal, author: author) unless proposal.answered? && proposal.rejected?
       end
 
+      unless proposal.answered? && proposal.rejected?
+        (n*2).times do |idx|
+          email = "ahesion-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-adh#{idx}@example.org"
+          name = "#{Faker::Name.name} #{participatory_space.id} #{n} adh#{idx}"
+
+          author = Decidim::User.find_or_initialize_by(email: email)
+          author.update!(
+            password: 'password1234',
+            password_confirmation: 'password1234',
+            name: name,
+            organization: feature.organization,
+            tos_agreement: '1',
+            confirmed_at: Time.current
+          )
+          if idx % 2 == 0
+            group= Decidim::UserGroup.create!(
+              name: Faker::Name.name,
+              document_number: Faker::Code.isbn,
+              phone: Faker::PhoneNumber.phone_number,
+              decidim_organization_id: feature.organization.id,
+              verified_at: Time.current,
+            )
+            author.user_groups << group
+            author.save!
+          end
+          Decidim::Proposals::ProposalAdhesion.create!(proposal: proposal, author: author, user_group: author.user_groups.first)
+        end
+      end
       Decidim::Comments::Seed.comments_for(proposal)
     end
   end

@@ -37,7 +37,7 @@
         </div>
       </div>
     <% end %>
-    <% if current_settings.adhesions_enabled? || current_user %>
+    <% if current_settings.adhesions_enabled? %>
       <div class="card extra">
         <div class="card__content">
           <% if current_settings.adhesions_enabled? %>
@@ -47,11 +47,13 @@
             <% else %>
               As user:
               <%= render partial: "adhesion_button", locals: { proposal: @proposal, from_proposals_list: false } %>
-              <% current_user.user_groups.verified.each do |user_group| %>
-                As "<%= user_group.name %>":
-                <%= render partial: "adhesion_button", locals: { proposal: @proposal, from_proposals_list: false, user_group: user_group } %>
+              <% if current_user %>
+                <% current_user.user_groups.verified.each do |user_group| %>
+                  As "<%= user_group.name %>":
+                  <%= render partial: "adhesion_button", locals: { proposal: @proposal, from_proposals_list: false, user_group: user_group } %>
+                <% end %>
               <% end %>
-              <% end %>
+            <% end %>
           <% end %>
         </div>
       </div>

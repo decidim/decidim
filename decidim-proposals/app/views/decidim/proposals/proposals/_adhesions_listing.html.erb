@@ -1,20 +1,31 @@
-<% if proposal.adhesions.any? %>
+<% 
+count= proposal.adhesions.count
+if count > 0
+%>
   <div class="row">
     <div class="columns large-12">
       <h4 class="section-heading"><%= t('.title') %></h4>
     </div>
 
-    <div class="columns large-12 supports-list">
+    <div class="columns large-12">
       <% proposal.adhesions.limit(5).each do |adh| %>
-        <div class="author author--inline">
-          <span class="author__avatar author__avatar--small">
-            <%= image_tag adh.user_group.avatar_url %>
-          </span>
-          <span class="author__name">
-            <%= adh.user_group.name %>
-          </span>
-        </div>
+        <%= render partial: 'adhesion_xxs', locals: {adhesion: adh} %>
       <% end %>
+      <% if count > 5 %>...<% end -%>
     </div>
   </div>
+  <% if count > 5 %>
+    <div class="row">
+      <div class="columns large-12">
+        <a data-toggle="remaining-adhesions"><%= t('.see_all') %></a>
+      </div>
+      <div id="remaining-adhesions" class="columns large-12 hide" data-toggler=".hide">
+        <% proposal.adhesions.offset(5).each do |adh| %>
+        <div>
+          <%= render partial: 'adhesion_xxs', locals: {adhesion: adh} %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  <% end -%>
 <% end %>

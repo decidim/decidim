@@ -125,6 +125,7 @@ en:
             one: ADHESION
             other: ADHESIONS
         adhesions_listing:
+          see_all: see all
           title: Listing of Adhesions
         author:
           deleted: Deleted user
