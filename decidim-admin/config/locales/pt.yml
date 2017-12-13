@@ -139,17 +139,17 @@ pt:
       feature_permissions:
         edit:
           everyone: Todos
-          submit: Salvar permissões
+          submit: Guardar permissões
           title: Editar permissões
         update:
           success: Permissões atualizadas com sucesso.
       features:
         create:
-          error: Houve um erro na criação da funcionalidade.
+          error: Ocorreu um erro na criação da funcionalidade.
           success: Recurso criado com sucesso.
         destroy:
-          error: Ocorreu um erro ao destruir esse recurso.
-          success: Recurso eliminado com sucesso.
+          error: Ocorreu um erro ao apagar esse recurso.
+          success: Recurso apagado com sucesso.
         edit:
           title: Editar funcionalidade
           update: Atualizar
@@ -161,19 +161,19 @@ pt:
           add: Adicionar funcionalidade
           headers:
             actions: Ações
-            name: Nome do recurso
-            type: Tipo de recurso
+            name: Nome da funcionalidade
+            type: Tipo de funcionalidade
         new:
-          add: Adicionar recurso
-          title: 'Adicionar recurso: %{name}'
+          add: Adicionar funcionalidade
+          title: 'Adicionar funcionalidade: %{name}'
         publish:
-          success: O recurso foi publicado com sucesso.
+          success: A funcionalidade foi publicada com sucesso.
         title: Funcionalidades
         unpublish:
-          success: O recurso foi inesperado com sucesso.
+          success: A funcionalidade foi despublicada com sucesso.
         update:
-          error: Ocorreu um erro ao atualizar esse recurso.
-          success: O recurso foi atualizado com sucesso.
+          error: Ocorreu um erro ao atualizar essa funcionalidade.
+          success: A funcionalidade foi atualizada com sucesso.
       managed_users:
         close_session:
           error: Ocorreu um erro ao encerrar a sessão de representação atual.
@@ -192,7 +192,7 @@ pt:
         index:
           impersonate: Representar
           needs_authoriation_warning: Você precisa de pelo menos uma autorização habilitada para esta organização.
-          promote: Promover
+          promote: Destacar
           view_logs: Ver registros
         new:
           create: Criar
@@ -206,14 +206,14 @@ pt:
           new:
             explanation: Os usuários gerenciados podem ser promovidos para usuários padrão. Isso significa que eles serão convidados para o aplicativo e você não poderá representá-los novamente. O usuário convidado receberá um e-mail para aceitar seu convite.
             new_managed_user_promotion: Nova promoção de usuário gerenciado
-            promote: Promover
+            promote: Destacar
       menu:
         admins: Administradores
         appearance: Aparência
         configuration: Configuração
-        dashboard: painel de controle
-        managed_users: Usuários gerenciados
-        newsletters: boletins informativos
+        dashboard: Painel de controlo
+        managed_users: Utilizadores geridos
+        newsletters: Boletins informativos
         scope_types: Tipos de escopo
         scopes: Âmbitos
         settings: Configurações
