@@ -2,6 +2,8 @@ version: 2
 
 defaults: &defaults
   docker:
+    # This is the sha of the latest `decidim/decidim:latest-dev` docker image. You can retrieve the
+    # latest digest by doing `$ docker pull decidim/decidim:latest-dev`.
     - image: decidim/decidim@sha256:d54f0b0d026ec5fda24b44d5a45ce0fbe9df201595f3d6cb82efb44183216c83
       environment:
         BUNDLE_GEMFILE: /app/Gemfile
