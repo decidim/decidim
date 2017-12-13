@@ -348,6 +348,7 @@ es:
         title: Notificaciones
       user_menu:
         admin_dashboard: Tablero de administración
+        conversations: Conversaciones
         notifications: Notificaciones
         profile: Mi cuenta
         sign_out: Sal
