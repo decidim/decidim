@@ -8,11 +8,11 @@ pt:
       category:
         description: Descrição
         name: Nome
-        parent_id: Pai
+        parent_id: Superior
       feature:
         name: Nome
         weight: Peso
-      id: identidade
+      id: Identidade
       newsletter:
         body: Corpo
         subject: Assunto
