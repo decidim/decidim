@@ -347,6 +347,7 @@ it:
         title: Notifiche
       user_menu:
         admin_dashboard: Cruscotto per gli amministratori (Admin dashboard)
+        conversations: conversazioni
         notifications: Notifiche
         profile: Il mio account
         sign_out: Esci
@@ -381,6 +382,7 @@ it:
         welcome: Benvenuto su %{organization}!
       statistics:
         answers_count: Risposte
+        assemblies_count: assemblee
         comments_count: Commenti
         headline: Stato attuale dell'organizzazione %{organization}
         meetings_count: Meeting
@@ -388,6 +390,7 @@ it:
         pages_count: Pagine
         processes_count: Processi
         projects_count: Progetti
+        proposals_accepted: Proposte accettate
         proposals_count: Proposte
         results_count: Resultati
         surveys_count: indagini
