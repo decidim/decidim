@@ -86,7 +86,7 @@ pt:
         create:
           email_already_exists: Outra conta está usando o mesmo endereço de e-mail
         new:
-          complete_profile: Perfil completo
+          complete_profile: Complete o seu perfil
           sign_up: Complete seu perfil
           subtitle: Por favor, preencha o seguinte formulário para completar a inscrição
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
@@ -159,15 +159,15 @@ pt:
         button: Seguir
         error: Ocorreu um erro ao seguir este recurso.
       destroy:
-        button: Pare de seguir
+        button: Parar de seguir
         error: Ocorreu um erro ao seguir esse recurso.
     forms:
-      current_file: Arquivo atual
+      current_file: Ficheiro atual
       current_image: Imagem actual
-      default_image: Imagem padrão
+      default_image: Imagem por defeito
       errors:
         error: Há um erro neste campo.
-      remove_this_file: Remova este arquivo
+      remove_this_file: Remover este ficheiro
     managed_users:
       expired_session: A sessão de representação atual expirou.
     menu:
@@ -176,12 +176,12 @@ pt:
     messaging:
       conversation_mailer:
         new_conversation:
-          greeting: Oi, %{recipient}!
+          greeting: Olá, %{recipient}!
           intro: "%{sender} iniciou uma nova conversa com você. Clique aqui para vê-lo:"
           outro: Aproveite decidim!
           subject: "%{sender} iniciou uma conversa com você"
         new_message:
-          greeting: Oi, %{recipient}!
+          greeting: Olá, %{recipient}!
           intro: "%{sender} publicou novas mensagens na sua conversa. Clique aqui para vê-los:"
           outro: Aproveite decidim!
           subject: Você tem novas mensagens de %{sender}
@@ -260,7 +260,7 @@ pt:
           ok: Ok
           title: Não autorizado
       embed_modal:
-        close_window: Janela fechada
+        close_window: Fechar janela
         embed: Cole este código na sua página
         embed_link: Embutir
       flag_modal:
@@ -276,14 +276,14 @@ pt:
         sign_in_before_follow: Faça login antes de executar esta ação
       login_modal:
         please_sign_in: Por favor, inicie a sessão
-        sign_up: inscrever-se
+        sign_up: Inscrever-se
       reference:
         reference: 'Referência: %{reference}'
       results_per_page:
         label: 'Resultados por página:'
       share_modal:
-        close_window: Janela fechada
-        share: Compartilhar
+        close_window: Fechar janela
+        share: Partilhar
         share_link: Compartilhar link
       version_author:
         deleted: Usuário deletado
@@ -291,7 +291,7 @@ pt:
     invitations:
       edit:
         header: Coloque sua senha
-        submit_button: Salve 
+        submit_button: Salvar
     mailer:
       invitation_instructions:
         accept: Aceitar convite
