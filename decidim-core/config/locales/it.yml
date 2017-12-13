@@ -69,6 +69,8 @@ it:
         name: Flusso di lavoro fittizio di autorizzazione
       errors:
         duplicate_authorization: Esiste già un utente autorizzato con questi dati.
+      expired_at: Scaduto a %{timestamp}
+      expires_at: Scade a %{timestamp}
       foo_authorization:
         fields:
           bar: Barra
@@ -235,6 +237,10 @@ it:
         success: Il report è stato creato e sarà rivisto da un amministratore.
     shared:
       action_authorization_modal:
+        expired:
+          authorize: Rinnova con "%{authorization}"
+          explanation: La tua autorizzazione è scaduta. Per eseguire questa azione, devi essere nuovamente autorizzato con "%{authorization}".
+          title: L'autorizzazione è scaduta
         incomplete:
           cancel: Annulla
           explanation: 'Nonostante già sei autorizzato con "%{authorization}", abbiamo bisogno che tu richieda una nuova autorizzazione poiché risultano mancanti i seguenti dati:'
