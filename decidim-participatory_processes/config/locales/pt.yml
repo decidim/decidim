@@ -230,7 +230,7 @@ pt:
           highlighted_processes:
             active_processes: Processos ativos
             active_step: Passo ativo
-            see_all_processes: Veja todos os processos
+            see_all_processes: Ver todos os processos
       participatory_process_groups:
         none: Nenhum
       participatory_processes:
@@ -289,4 +289,4 @@ pt:
         unfold: Desdobrar
       process_header_steps:
         step: Passo %{current} de %{total}
-        view_steps: Veja os passos
+        view_steps: Ver as etapas
