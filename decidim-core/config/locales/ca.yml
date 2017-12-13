@@ -348,6 +348,7 @@ ca:
         title: Notificacions
       user_menu:
         admin_dashboard: Tauler d'administració
+        conversations: Converses
         notifications: Notificacions
         profile: El meu compte
         sign_out: Surt
@@ -382,6 +383,7 @@ ca:
         welcome: Benvingut a %{organization}!
       statistics:
         answers_count: Respostes
+        assemblies_count: Assemblees
         comments_count: Comentaris
         headline: Estat actual de %{organization}
         meetings_count: Trobades
@@ -389,6 +391,7 @@ ca:
         pages_count: Pàgines
         processes_count: Processos
         projects_count: Projectes
+        proposals_accepted: Propostes acceptades
         proposals_count: Propostes
         results_count: Resultats
         surveys_count: Enquestes
