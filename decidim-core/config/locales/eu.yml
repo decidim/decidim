@@ -237,6 +237,10 @@ eu:
         success: Salaketa zuzen sortu da, eta administratzaile batek aztertuko du.
     shared:
       action_authorization_modal:
+        expired:
+          authorize: Errebokatu "%{authorization}" rekin
+          explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berrantolatu behar duzu.
+          title: Baimena iraungi da
         incomplete:
           cancel: Utzi
           explanation: 'Nahiz eta orain baimenduta zauden honako "%{authorization}” honen bidez, behar dugu zuk berriz baimena eskuratzea, ez baititugu honako datu hauek:'
