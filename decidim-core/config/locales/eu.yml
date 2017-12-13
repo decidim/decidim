@@ -347,6 +347,7 @@ eu:
         title: jakinarazpenak
       user_menu:
         admin_dashboard: Administrazioko aginte-mahaia
+        conversations: Elkarrizketak
         notifications: jakinarazpenak
         profile: Nire kontua
         sign_out: Irten
@@ -381,6 +382,7 @@ eu:
         welcome: Ongi etorri %{organization} erakundera!
       statistics:
         answers_count: Erantzunak
+        assemblies_count: Batzar
         comments_count: Iruzkinak
         headline: '%{organization} erakundearen egungo egoera'
         meetings_count: Topaketak
@@ -388,6 +390,7 @@ eu:
         pages_count: Orriak
         processes_count: Prozesuak
         projects_count: Proiektuak
+        proposals_accepted: Onartutako proposamenak
         proposals_count: Proposamenak
         results_count: Emaitzak
         surveys_count: Inkestak
