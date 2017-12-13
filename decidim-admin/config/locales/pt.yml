@@ -214,7 +214,7 @@ pt:
         dashboard: Painel de controlo
         managed_users: Utilizadores geridos
         newsletters: Boletins informativos
-        scope_types: Tipos de escopo
+        scope_types: Tipos de âmbito
         scopes: Âmbitos
         settings: Configurações
         static_pages: Páginas
@@ -247,7 +247,7 @@ pt:
         scope:
           fields:
             name: Nome
-            scope_type: Tipo de escopo
+            scope_type: Tipo de âmbito
         scope_type:
           fields:
             name: Nome
@@ -339,25 +339,25 @@ pt:
           layout_appearance_title: Editar aparência do layout
       scope_types:
         create:
-          error: Ocorreu um erro ao criar um novo tipo de escopo.
-          success: Tipo de escopo criado com sucesso.
+          error: Ocorreu um erro ao criar um novo tipo de âmbito.
+          success: Tipo de âmbito criado com sucesso.
         destroy:
-          success: Tipo de escopo destruído com sucesso
+          success: Tipo de âmbito destruído com sucesso
         edit:
-          title: Editar tipo de escopo
+          title: Editar tipo de âmbito
           update: Actualizar
         new:
-          create: Criar tipo de escopo
-          title: Novo escopo
+          create: Criar tipo de âmbito
+          title: Novo âmbito
         update:
-          error: Ocorreu um erro ao atualizar esse tipo de escopo.
-          success: Tipo de escopo atualizado com sucesso
+          error: Ocorreu um erro ao atualizar esse tipo de âmbito.
+          success: Tipo de âmbito atualizado com sucesso
       scopes:
         create:
-          error: Ocorreu um erro ao criar um novo escopo.
-          success: Escopo criado com sucesso.
+          error: Ocorreu um erro ao criar um novo âmbito.
+          success: Âmbito criado com sucesso.
         destroy:
-          success: Escopo destruído com sucesso
+          success: Âmbito destruído com sucesso
         edit:
           title: Editar o âmbito
           update: Actualizar
@@ -367,7 +367,7 @@ pt:
         no_scopes: Nenhum âmbito neste nível.
         update:
           error: Ocorreu um erro ao atualizar esse âmbito.
-          success: Escopo atualizado com sucesso
+          success: Âmbito atualizado com sucesso
       static_pages:
         actions:
           view: Ver página pública
@@ -390,7 +390,7 @@ pt:
         dashboard: painel de controle
         impersonations: Personagens
         managed_users: Usuários gerenciados
-        scope_types: Tipos de escopo
+        scope_types: Tipos de âmbito
         scopes: Âmbitos
         static_pages: Páginas
         user_groups: Grupos de usuários
