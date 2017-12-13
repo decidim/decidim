@@ -69,6 +69,8 @@ pt:
         name: Fluxo de trabalho de autorização falsa
       errors:
         duplicate_authorization: Um usuário já está autorizado com os mesmos dados.
+      expired_at: Expirou em %{timestamp}
+      expires_at: Expira em %{timestamp}
       foo_authorization:
         fields:
           bar: Bar
@@ -235,6 +237,10 @@ pt:
         success: O relatório foi criado com sucesso e será revisto por um administrador.
     shared:
       action_authorization_modal:
+        expired:
+          authorize: Reautorize com "%{authorization}"
+          explanation: Sua autorização expirou. Para executar esta ação, você precisa ser reautorizado com "%{authorization}".
+          title: A autorização expirou
         incomplete:
           cancel: Cancelar
           explanation: 'Embora você esteja atualmente autorizado com "%{authorization}", precisamos que você reauthorize porque faltamos os seguintes dados:'
