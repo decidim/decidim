@@ -25,7 +25,7 @@
   <div class="scope-picker picker-footer">
     <div class="buttons button--double">
       <% if current || !required %>
-        <a class="button" href="<%= scopes_picker_path(current: current&.id, **context) %>" data-picker-value="<%= current&.id %>" data-picker-text="<%= scope_name_with_type(current) %>" data-picker-choose>
+        <a class="button" href="<%= scopes_picker_path(current: current&.id, **context) %>" data-picker-value="<%= current&.id || global_id %>" data-picker-text="<%= scope_name_with_type(current) %>" data-picker-choose>
       <% else %>
         <a class="button muted">
       <% end %>
