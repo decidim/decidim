@@ -33,7 +33,7 @@
                   <% @form.answers.each_with_index do |answer, answer_idx| %>
                     <div class="row column">
                       <% field_id = "survey_#{survey.id}_question_#{answer.question.id}_answer_body" %>
-                      <%= label_tag field_id , "#{answer_idx + 1}. #{translated_attribute(answer.question.body)} #{'*' if answer.question.mandatory?}" %>
+                      <%= label_tag field_id , "#{answer_idx + 1}. #{translated_attribute(answer.question.body)} #{'*' if answer.question.mandatory?}", class: 'survey-question' %>
 
                       <% case answer.question.question_type %>
                         <% when "short_answer" %>
