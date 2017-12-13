@@ -87,7 +87,7 @@ pt:
             category: Categoria
             id: identidade
             official_proposal: Proposta oficial
-            scope: Escopo
+            scope: Âmbito
             state: Estado
             title: Título
             votes: Votos
@@ -122,8 +122,8 @@ pt:
           origin: Origem
           rejected: Rejeitado
           related_to: Relacionado a
-          scope_prompt: Selecione um escopo
-          scopes: Escopos
+          scope_prompt: Selecione um âmbito
+          scopes: Âmbitos
           search: Pesquisa
           state: Estado
           voted: Votado
