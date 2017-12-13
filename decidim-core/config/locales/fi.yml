@@ -69,6 +69,8 @@ fi:
         name: Dummy-valtuutuksen työnkulku
       errors:
         duplicate_authorization: Käyttäjätili on jo varmennettu samoilla tiedoilla.
+      expired_at: Loppunut %{timestamp}
+      expires_at: Vanhentuu %{timestamp}
       foo_authorization:
         fields:
           bar: Bar
@@ -235,6 +237,10 @@ fi:
         success: Raportti on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
     shared:
       action_authorization_modal:
+        expired:
+          authorize: Reauthorize with "%{authorization}"
+          explanation: Valtuutuksesi on vanhentunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettu uudelleen "%{authorization}".
+          title: Valtuutus on vanhentunut
         incomplete:
           cancel: Peruuta
           explanation: 'Vaikka kirjautumisesi on tällä hetkellä varmennettu varmennustavalla "%{authorization}", tarvitsemme uuden varmennuksen, koska seuraavat tiedot puuttuvat:'
