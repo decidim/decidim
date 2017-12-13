@@ -69,6 +69,8 @@ eu:
         name: Dummy baimena eragiketa
       errors:
         duplicate_authorization: Badago erabiltzaile bat, datu berberekin baimendua.
+      expired_at: '%{timestamp} iraungita dago'
+      expires_at: '%{timestamp} iraungitzen da'
       foo_authorization:
         fields:
           bar: Bar
