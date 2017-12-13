@@ -12,14 +12,14 @@ describe "Cookies", type: :feature do
   end
 
   it "user see the cookie policy" do
-    expect(page).to have_selector ".cookie-warning"
+    expect(page).to have_content "This site uses cookies."
   end
 
   it "user accept the cookie policy and he doesn't see it anymore'" do
-    page.find(".cookie-warning *[type='submit']").click
-    expect(page).to have_no_selector ".cookie-warning"
+    click_button "I agree"
+    expect(page).to have_no_content "This site uses cookies."
 
     visit decidim.root_path
-    expect(page).to have_no_selector ".cookie-warning"
+    expect(page).to have_no_content "This site uses cookies."
   end
 end
