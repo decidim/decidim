@@ -69,6 +69,8 @@ pl:
         name: Przepustowy proces autoryzacji
       errors:
         duplicate_authorization: Użytkownik jest już uprawniony z tych samych danych.
+      expired_at: Wygasł na %{timestamp}
+      expires_at: Wygasa na %{timestamp}
       foo_authorization:
         fields:
           bar: Bar
@@ -235,6 +237,10 @@ pl:
         success: Raport został utworzony z powodzeniem i zostanie poddany przeglądowi przez administratora.
     shared:
       action_authorization_modal:
+        expired:
+          authorize: Ponownie autoryzuj, używając "%{authorization}"
+          explanation: Twoja autoryzacja wygasła. Aby wykonać tę akcję, musisz ponownie uzyskać autoryzację przy użyciu "%{authorization}".
+          title: Upoważnienie wygasło
         incomplete:
           cancel: Anuluj
           explanation: 'Pomimo tego, że obecnie masz autoryzację "%{authorization}", musisz ponownie autoryzować, ponieważ brakuje nam następujących danych:'
