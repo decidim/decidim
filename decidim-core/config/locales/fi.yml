@@ -348,6 +348,7 @@ fi:
         title: Ilmoitukset
       user_menu:
         admin_dashboard: Hallintapaneeli
+        conversations: keskustelut
         notifications: Ilmoitukset
         profile: Oma käyttäjätili
         sign_out: Kirjaudu ulos
@@ -382,6 +383,7 @@ fi:
         welcome: Tervetuloa organisaatioon %{organization}!
       statistics:
         answers_count: Vastaukset
+        assemblies_count: osat
         comments_count: Kommentit
         headline: Tämänhetkinen tila organisaatiolle %{organization}
         meetings_count: Tapaamiset
@@ -389,6 +391,7 @@ fi:
         pages_count: Sivut
         processes_count: Prosessit
         projects_count: Projektit
+        proposals_accepted: Hyväksytyt ehdotukset
         proposals_count: Ehdotukset
         results_count: Tulokset
         surveys_count: Kyselyt
