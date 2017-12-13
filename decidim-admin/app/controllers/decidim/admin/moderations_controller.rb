@@ -74,17 +74,30 @@ module Decidim
       def upstream_moderations
         @upstream_moderations ||= begin
           if params[:moderated] && params[:moderation_type] == "upstream"
-            participatory_space_moderations.where.not(upstream_moderation: "unmoderate").order("created_at").reverse
+            filtered_upstream_moderations.where.not(upstream_moderation: "unmoderate").order("created_at").reverse
           elsif params[:moderation_type] == "upstream"
-            participatory_space_moderations.where(upstream_moderation: "unmoderate").order("created_at").reverse
+            filtered_upstream_moderations.where(upstream_moderation: "unmoderate").order("created_at").reverse
           end
         end
       end
 
-      # def filtered_upstream_moderation
-      #   moderation_ids = participatory_space_moderations.map(&:get_upstream_moderation)
+      def filtered_upstream_moderations
+        moderation_ids = []
+        participatory_space_moderations.each do |m|
+          if get_features.include?(m.feature)
+            moderation_ids << m.id
+          end
+        end
+        Decidim::Moderation.where(id: moderation_ids)
+      end
 
-      # end
+      def get_features
+        features = Decidim::Feature.where("settings->'global' ->> 'upstream_moderation_enabled'  = ?",  "true") +
+            Decidim::Feature.where("settings->'global' ->> 'comments_upstream_moderation_enabled'  = ?",  "true")
+        features.uniq!
+
+        features = Decidim::Feature.where(id: features.map(&:id), participatory_space: current_participatory_space)
+      end
 
       def reportable
         @reportable ||= participatory_space_moderations.find(params[:id]).reportable
