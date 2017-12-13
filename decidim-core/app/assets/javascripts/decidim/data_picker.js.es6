@@ -11,16 +11,12 @@
       elements.each((_index, element) => {
         let $element = $(element);
         let input    = "hidden",
-            multiple = typeof $element.data('picker-multiple') !== 'undefined',
             name     = $element.data('picker-name'),
             values   = $(".picker-values", $element);
 
-        if (multiple) {
-          $element.addClass("picker-multiple");
+        if ($element.hasClass("picker-multiple")) {
           input = "checkbox";
           name += "[]";
-        } else {
-          $element.addClass("picker-single");
         }
 
         $("div", values).each((_index2, div) => {
@@ -129,7 +125,8 @@
     _choose(data, event = true) {
       // Add or update value appearance
       if (this.current.div) {
-        let link = $("a", this.current.div)
+        let link = $("a", this.current.div);
+        link.data("picker-value", data.value);
         link.attr("href", data.url);
         link.text(data.text);
       } else {
@@ -140,7 +137,7 @@
           input = "checkbox";
           name += "[]";
         }
-        this.current.div = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}">${data.text}</a></div>`);
+        this.current.div = $(`<div><input type="${input}" checked name="${name}"/><a href="${data.url}" data-picker-value="${data.value}">${data.text}</a></div>`);
         this.current.div.appendTo(this.current.values);
       }
 

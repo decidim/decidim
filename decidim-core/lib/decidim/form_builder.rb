@@ -168,8 +168,8 @@ module Decidim
     #
     # Returns a String.
     def scopes_picker(attribute, options = {})
-      picker_options = { id: "#{@object_name}_#{attribute}", class: "data-picker", "data-picker-name" => "#{@object_name}[#{attribute}]" }
-      picker_options["data-picker-multiple"] = "multiple" if options[:multiple]
+      picker_options = { id: "#{@object_name}_#{attribute}", class: "data-picker picker-#{options[:multiple] ? "multiple" : "single"}",
+                         "data-picker-name" => "#{@object_name}[#{attribute}]" }
 
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute)) unless options[:label] == false
