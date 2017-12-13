@@ -122,7 +122,7 @@
       });
     }
 
-    _choose(data, event = true) {
+    _choose(data, user = true) {
       // Add or update value appearance
       if (this.current.div) {
         let link = $("a", this.current.div);
@@ -143,16 +143,16 @@
 
       // Set input value
       let $input = $("input", this.current.div);
-      $input.val(data.value);
+      $input.attr("value", data.value);
 
       // Raise changed event
-      if (event) {
+      if (user) {
         $input.trigger("change");
+        this.modal.foundation('close');
       }
 
       // Unselect updated value and close modal
       this.current.div = null;
-      this.modal.foundation('close');
     }
 
     _removeValue($picker, div) {
@@ -164,8 +164,6 @@
     }
   }
 
-  $(() => {
-    exports.Decidim = exports.Decidim || {};
-    exports.Decidim.DataPicker = new DataPicker($(".data-picker"));
-  });
+  exports.Decidim = exports.Decidim || {};
+  exports.Decidim.DataPicker = DataPicker;
 })(window);

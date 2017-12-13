@@ -1,10 +1,9 @@
 /* global spyOn */
 /* eslint-disable id-length */
 window.$ = require('jquery');
-require('select2');
 
 require('./history.js.es6');
-require('./select2.field.js.es6');
+require('./data_picker.js.es6');
 require('./form_filter.component.js.es6');
 
 const { Decidim: { FormFilterComponent } } = window;
@@ -12,16 +11,25 @@ const { Decidim: { FormFilterComponent } } = window;
 describe('FormFilterComponent', () => {
   const selector = 'form#new_filter';
   let subject = null;
+  let scopesPickerState = {filter_scope_id: [{ url: "picker_url_3", value: 3, text: "Scope 3"}, { url: "picker_url_4", value: 4, text: "Scope 4"}]} // eslint-disable-line camelcase
 
   beforeEach(() => {
     let form = `
       <form id="new_filter" action="/filters" method="get">
         <fieldset>
-          <select id="filter_scope_id" name="filter[scope_id]" class="select2" multiple>
-            <option value="1">Scope 1</option>
-            <option value="2">Scope 2</option>
-            <option value="3">Scope 3</option>
-          </select>
+          <div id="filter_scope_id" class="data-picker picker-multiple" data-picker-name="filter[scope_id]">
+            <div class="picker-values">
+              <div>
+                <a href="picker_url_1" data-picker-value="1">Scope 1</a>
+              </div>
+              <div>
+                <a href="picker_url_2" data-picker-value="1">Scope 2</a>
+              </div>
+            </div>
+            <div class="picker-prompt">
+              <a href="picker_url">Seleccione un ámbito</a>
+            </div>
+          </div>
         </fieldset>
 
         <fieldset>
@@ -34,6 +42,7 @@ describe('FormFilterComponent', () => {
     `;
     $('body').append(form);
 
+    window.theDataPicker = new window.Decidim.DataPicker($(".data-picker"));
     subject = new FormFilterComponent($(document).find('form'));
   });
 
@@ -64,7 +73,7 @@ describe('FormFilterComponent', () => {
     });
 
     it('binds the form change event', () => {
-      expect(subject.$form.on).toHaveBeenCalledWith('change', 'input:not(.select2-search__field), select', subject._onFormChange);
+      expect(subject.$form.on).toHaveBeenCalledWith('change', 'input, select', subject._onFormChange);
     });
 
     describe('onpopstate event', () => {
@@ -75,17 +84,19 @@ describe('FormFilterComponent', () => {
       it('clears the form data', () => {
         spyOn(subject, '_clearForm');
 
-        window.onpopstate({ isTrusted: true });
+        window.onpopstate({ isTrusted: true, state: scopesPickerState});
 
         expect(subject._clearForm).toHaveBeenCalled();
       });
 
       it('sets the correct form fields based on the current location', () => {
-        spyOn(subject, '_getLocation').and.returnValue('/filters?filter[scope_id][]=1&scope_id[]=2&filter[category_id]=2');
-        window.onpopstate({ isTrusted: true });
+        spyOn(subject, '_getLocation').and.returnValue('/filters?filter[scope_id][]=3&filter[scope_id][]=4&filter[category_id]=2');
+        window.onpopstate({ isTrusted: true, state: scopesPickerState});
 
         expect($(selector).find('select#filter_category_id').val()).toEqual('2');
-        expect($(selector).find('select#filter_scope_id').val()).toEqual(['1']);
+        expect($(`${selector} #filter_scope_id .picker-values div input`).map(function(_index, input) {
+          return $(input).val();
+        }).get()).toEqual(['3', '4']);
       });
     });
   });
@@ -102,7 +113,7 @@ describe('FormFilterComponent', () => {
     });
 
     it('unbinds the form change event', () => {
-      expect(subject.$form.off).toHaveBeenCalledWith('change', 'input:not(.select2-search__field), select', subject._onFormChange);
+      expect(subject.$form.off).toHaveBeenCalledWith('change', 'input, select', subject._onFormChange);
     });
   });
 

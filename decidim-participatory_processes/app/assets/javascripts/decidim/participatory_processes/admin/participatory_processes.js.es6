@@ -6,9 +6,9 @@ $(() => {
     if ($('.edit_participatory_process, .new_participatory_process').length > 0) {
       $participatoryProcessScopeEnabled.on('change', (event) => {
         const checked = event.target.checked;
-        exports.Decidim.DataPicker.enabled($participatoryProcessScopeId, checked);
+        exports.theDataPicker.enabled($participatoryProcessScopeId, checked);
       })
-      exports.Decidim.DataPicker.enabled($participatoryProcessScopeId, $participatoryProcessScopeEnabled.prop('checked'));
+      exports.theDataPicker.enabled($participatoryProcessScopeId, $participatoryProcessScopeEnabled.prop('checked'));
     }
   })(window);
 });
