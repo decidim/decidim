@@ -26,6 +26,8 @@ export type addCommentMutation = {
       body: string,
       // The creation date of the comment
       createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
       // The comment's author
       author: ( {
           // The author's name
@@ -76,6 +78,8 @@ export type addCommentMutation = {
         body: string,
         // The creation date of the comment
         createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
         // The comment's author
         author: ( {
             // The author's name
@@ -128,6 +132,8 @@ export type addCommentMutation = {
           body: string,
           // The creation date of the comment
           createdAt: string,
+          // The creation date of the comment in relative format
+          formattedCreatedAt: string,
           // The comment's author
           author: ( {
               // The author's name
@@ -180,6 +186,8 @@ export type addCommentMutation = {
             body: string,
             // The creation date of the comment
             createdAt: string,
+            // The creation date of the comment in relative format
+            formattedCreatedAt: string,
             // The comment's author
             author: ( {
                 // The author's name
@@ -246,6 +254,8 @@ export type DownVoteMutation = {
       body: string,
       // The creation date of the comment
       createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
       // The comment's author
       author: ( {
           // The author's name
@@ -298,6 +308,8 @@ export type DownVoteMutation = {
         body: string,
         // The creation date of the comment
         createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
         // The comment's author
         author: ( {
             // The author's name
@@ -350,6 +362,8 @@ export type DownVoteMutation = {
           body: string,
           // The creation date of the comment
           createdAt: string,
+          // The creation date of the comment in relative format
+          formattedCreatedAt: string,
           // The comment's author
           author: ( {
               // The author's name
@@ -402,6 +416,8 @@ export type DownVoteMutation = {
             body: string,
             // The creation date of the comment
             createdAt: string,
+            // The creation date of the comment in relative format
+            formattedCreatedAt: string,
             // The comment's author
             author: ( {
                 // The author's name
@@ -468,6 +484,8 @@ export type UpVoteMutation = {
       body: string,
       // The creation date of the comment
       createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
       // The comment's author
       author: ( {
           // The author's name
@@ -520,6 +538,8 @@ export type UpVoteMutation = {
         body: string,
         // The creation date of the comment
         createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
         // The comment's author
         author: ( {
             // The author's name
@@ -572,6 +592,8 @@ export type UpVoteMutation = {
           body: string,
           // The creation date of the comment
           createdAt: string,
+          // The creation date of the comment in relative format
+          formattedCreatedAt: string,
           // The comment's author
           author: ( {
               // The author's name
@@ -624,6 +646,8 @@ export type UpVoteMutation = {
             body: string,
             // The creation date of the comment
             createdAt: string,
+            // The creation date of the comment in relative format
+            formattedCreatedAt: string,
             // The comment's author
             author: ( {
                 // The author's name
@@ -718,6 +742,8 @@ export type GetCommentsQuery = {
       body: string,
       // The creation date of the comment
       createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
       // The comment's author
       author: ( {
           // The author's name
@@ -768,6 +794,8 @@ export type GetCommentsQuery = {
         body: string,
         // The creation date of the comment
         createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
         // The comment's author
         author: ( {
             // The author's name
@@ -820,6 +848,8 @@ export type GetCommentsQuery = {
           body: string,
           // The creation date of the comment
           createdAt: string,
+          // The creation date of the comment in relative format
+          formattedCreatedAt: string,
           // The comment's author
           author: ( {
               // The author's name
@@ -872,6 +902,8 @@ export type GetCommentsQuery = {
             body: string,
             // The creation date of the comment
             createdAt: string,
+            // The creation date of the comment in relative format
+            formattedCreatedAt: string,
             // The comment's author
             author: ( {
                 // The author's name
@@ -952,6 +984,8 @@ export type CommentFragment = {
   body: string,
   // The creation date of the comment
   createdAt: string,
+  // The creation date of the comment in relative format
+  formattedCreatedAt: string,
   // The comment's author
   author: ( {
       // The author's name
@@ -1004,6 +1038,8 @@ export type CommentFragment = {
     body: string,
     // The creation date of the comment
     createdAt: string,
+    // The creation date of the comment in relative format
+    formattedCreatedAt: string,
     // The comment's author
     author: ( {
         // The author's name
@@ -1056,6 +1092,8 @@ export type CommentFragment = {
       body: string,
       // The creation date of the comment
       createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
       // The comment's author
       author: ( {
           // The author's name
@@ -1108,6 +1146,8 @@ export type CommentFragment = {
         body: string,
         // The creation date of the comment
         createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
         // The comment's author
         author: ( {
             // The author's name
@@ -1165,6 +1205,8 @@ export type CommentDataFragment = {
   body: string,
   // The creation date of the comment
   createdAt: string,
+  // The creation date of the comment in relative format
+  formattedCreatedAt: string,
   // The comment's author
   author: ( {
       // The author's name
@@ -1221,6 +1263,8 @@ export type CommentThreadFragment = {
   body: string,
   // The creation date of the comment
   createdAt: string,
+  // The creation date of the comment in relative format
+  formattedCreatedAt: string,
   // The comment's author
   author: ( {
       // The author's name
@@ -1271,6 +1315,8 @@ export type CommentThreadFragment = {
     body: string,
     // The creation date of the comment
     createdAt: string,
+    // The creation date of the comment in relative format
+    formattedCreatedAt: string,
     // The comment's author
     author: ( {
         // The author's name
@@ -1323,6 +1369,8 @@ export type CommentThreadFragment = {
       body: string,
       // The creation date of the comment
       createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
       // The comment's author
       author: ( {
           // The author's name
@@ -1375,6 +1423,8 @@ export type CommentThreadFragment = {
         body: string,
         // The creation date of the comment
         createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
         // The comment's author
         author: ( {
             // The author's name
@@ -1442,4 +1492,3 @@ export type UpVoteButtonFragment = {
   // Check if the current user has downvoted the comment
   downVoted: boolean,
 };
-/* tslint:enable */

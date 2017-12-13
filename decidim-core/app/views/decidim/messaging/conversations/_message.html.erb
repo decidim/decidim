@@ -9,7 +9,7 @@
           <%= message.sender.name %>
         </span>
         <time datetime="<%= message.created_at.utc %>">
-          <%= simple_date(message.created_at) %>
+          <%= message.friendly_created_at %>
         </time>
       </div>
     </div>

@@ -88,8 +88,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
   public getNodeReference = (commentNode: HTMLElement) => this.commentNode = commentNode;
 
   public render(): JSX.Element {
-    const { session, comment: { id, author, body, createdAt }, articleClassName } = this.props;
-    const formattedCreatedAt = ` ${moment(createdAt).format("LLL")}`;
+    const { session, comment: { id, author, body, createdAt, formattedCreatedAt }, articleClassName } = this.props;
     let modalName = "loginModal";
 
     if (session && session.user) {

@@ -29,6 +29,7 @@ module Decidim
   autoload :HasScope, "decidim/has_scope"
   autoload :HasCategory, "decidim/has_category"
   autoload :Followable, "decidim/followable"
+  autoload :FriendlyDates, "decidim/friendly_dates"
   autoload :Nicknamizable, "decidim/nicknamizable"
   autoload :HasReference, "decidim/has_reference"
   autoload :Attributes, "decidim/attributes"
