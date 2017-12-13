@@ -69,6 +69,8 @@ sv:
         name: Dummy godkännande arbetsflöde
       errors:
         duplicate_authorization: En användare är redan behörig med samma data.
+      expired_at: Förfallit vid %{timestamp}
+      expires_at: Förfaller vid %{timestamp}
       foo_authorization:
         fields:
           bar: Bar
@@ -235,6 +237,10 @@ sv:
         success: Rapporten har skapats framgångsrikt och den kommer att granskas av en administratör.
     shared:
       action_authorization_modal:
+        expired:
+          authorize: Reauthorize med "%{authorization}"
+          explanation: Ditt godkännande har löpt ut. För att kunna utföra den här åtgärden måste du godkännas med "%{authorization}".
+          title: Godkännandet har löpt ut
         incomplete:
           cancel: Annullera
           explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", behöver vi dig att reauthorize eftersom vi saknar följande data:'
