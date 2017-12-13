@@ -467,5 +467,5 @@ ru:
           title: Участники
   time:
     formats:
-      datepicker: "%d. %m. %Y"
+      datepicker: "%d.%m.%Y"
       timepicker: "%H:%M %d.%m.%Y"
