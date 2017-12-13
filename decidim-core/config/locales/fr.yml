@@ -240,6 +240,7 @@ fr:
         expired:
           authorize: Redéterminer avec "%{authorization}"
           explanation: Votre autorisation a expiré. Pour effectuer cette action, vous devez être autorisé à nouveau avec "%{authorization}".
+          title: L'autorisation a expiré
         incomplete:
           cancel: Annuler
           explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de vous réautoriser car nous ne disposons pas les données suivantes:'
