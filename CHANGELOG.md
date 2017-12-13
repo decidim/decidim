@@ -18,6 +18,7 @@ you need to change the following line in `config/environments/production.rb`:
 
 **Fixed**:
 
+- **decidim-core**: Impossible to access conversation page from mobile devices. [\#2364](https://github.com/decidim/decidim/pull/2364)
 - **decidim-core**: Update home page stat categories
 [\#2221](https://github.com/decidim/decidim/pull/2221)
 
