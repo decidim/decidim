@@ -10,8 +10,6 @@ module Decidim
       "@#{super}"
     end
 
-    def avatar_url
-      avatar.url
-    end
+    delegate :url, to: :avatar, prefix: true
   end
 end
