@@ -30,7 +30,7 @@
                           <tr>
                             <th>
                               <center>
-                                <%= render partial: "layouts/decidim/mailer_logo", locals: { organization: @organization, newsletter_id: @newsletter.id } %>
+                                <%= render partial: "layouts/decidim/mailer_logo", locals: { organization: @organization } %>
                               </center>
                             </th>
                           </tr>
@@ -86,8 +86,7 @@
                       <th class="expander"></th>
                       <th class="small-12 first columns cityhall-bar">
                         <div class="decidim-logo" style="float: right; text-align: right; padding-right: 16px">
-                          <% url =  decidim.root_url(host: @organization.host) + "?utm_source=" + @organization.host + "&utm_campaign=" + @newsletter.id.to_s %>
-                          <%= link_to @organization.name, url %>
+                          <%= link_to @organization.name, @custom_url_for_mail_root %>
                         </div>
                       </th>
                     </tr>

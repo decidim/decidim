@@ -4,6 +4,8 @@
   <%== t "note", scope: "decidim.newsletter_mailer.newsletter", organization_name: h(@organization.name), link: decidim.notifications_settings_url(host: @organization.host) %>
 <% end %>
 
-<% content_for :unsubscribe do %>
-  <%== t "unsubscribe", scope: "decidim.newsletter_mailer.newsletter", link: decidim.unsubscribe_notifications_settings_url(host: @organization.host, u: @user.to_sgid_param(for: :unsubscribe_user)) %>
+<% if @user.present? %>
+  <% content_for :unsubscribe do %>
+    <%== t "unsubscribe", scope: "decidim.newsletter_mailer.newsletter", link: decidim.unsubscribe_notifications_settings_url(host: @organization.host, u: @user.to_sgid_param(for: :unsubscribe_user)) %>
+  <% end %>
 <% end %>
