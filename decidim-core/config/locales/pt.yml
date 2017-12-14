@@ -80,7 +80,7 @@ pt:
       started_at: Iniciado em %{timestamp}
     core:
       actions:
-        unauthorized: Você não está autorizado a realizar esta ação
+        unauthorized: Não está autorizado a realizar esta ação
     devise:
       omniauth_registrations:
         create:
@@ -102,7 +102,7 @@ pt:
             user_group: Organização / Coletivo
           subtitle: Inscreva-se para participar de discussões e propostas de suporte.
           terms: os termos e condições de uso
-          tos_agreement: Ao se inscrever, você aceita %{link}.
+          tos_agreement: Ao se inscrever, aceita %{link}.
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       sessions:
         new:
@@ -116,8 +116,8 @@ pt:
         title: Houve um problema com o nosso servidor
         try_later: Por favor, tente novamente mais tarde.
       not_found:
-        back_home: Volta ao Início
-        content_doesnt_exist: Este endereço está incorreto ou foi removido.
+        back_home: Voltar ao início
+        content_doesnt_exist: Este endereço está incorreto ou foi apagado.
         title: A página que você procura não pode ser encontrada
     events:
       email_event:
