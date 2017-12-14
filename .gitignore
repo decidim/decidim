@@ -13,4 +13,3 @@ karma-*
 yarn-error.log
 coverage
 webpack.report.html
-decidim-module-blogs
