@@ -29,6 +29,10 @@ en:
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
             proposal_limit: Proposal limit per user
+            proposal_wizard_step_1_help_text: Proposal wizard step_1 help text
+            proposal_wizard_step_2_help_text: Proposal wizard step_2 help text
+            proposal_wizard_step_3_help_text: Proposal wizard step_3 help text
+            proposal_wizard_step_4_help_text: Proposal wizard step_4 help text
             vote_limit: Vote limit per user
           step:
             announcement: Announcement

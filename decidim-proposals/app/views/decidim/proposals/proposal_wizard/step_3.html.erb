@@ -3,6 +3,10 @@
 <div class="row">
   <div class="columns large-6 medium-centered">
     <div class="card">
+      <% if translated_attribute(feature_settings.proposal_wizard_step_3_help_text).present? %>
+        <%= render partial: "decidim/shared/announcement", locals: { announcement: feature_settings.proposal_wizard_step_3_help_text } %>
+      <% end %>
+
       <div class="card__content">
         <%= decidim_form_for(@form, url: wizard_path(:step_4), method: :put) do |form| %>
 
