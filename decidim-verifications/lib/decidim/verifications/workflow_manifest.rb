@@ -46,7 +46,7 @@ module Decidim
       alias key name
 
       def fullname
-        I18n.t("#{key}.name", scope: "decidim.authorization_handlers")
+        I18n.t("#{key}.name", scope: "decidim.authorization_handlers", default: name.humanize)
       end
 
       def description
