@@ -105,7 +105,6 @@ ca:
             one: 1 proposta
             other: "%{count} propostes"
         edit:
-          attachment_legend: "(Opcional) Afegir un fitxer adjunt"
           back: Enrere
           select_a_category: Si us plau, selecciona una categoria
           send: Enviar
