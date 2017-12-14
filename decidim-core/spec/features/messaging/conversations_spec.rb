@@ -141,6 +141,8 @@ describe "Conversations", type: :feature do
     end
   end
 
+  private
+
   def visit_inbox
     visit decidim.root_path
 
