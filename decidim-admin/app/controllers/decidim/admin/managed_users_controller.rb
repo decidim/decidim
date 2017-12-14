@@ -9,7 +9,7 @@ module Decidim
     class ManagedUsersController < Admin::ApplicationController
       layout "decidim/admin/users"
 
-      helper_method :available_authorizations, :more_than_one_authorization?
+      helper_method :available_authorization_handlers, :more_than_one_authorization_handler?
 
       def index
         authorize! :index, :managed_users
@@ -53,16 +53,18 @@ module Decidim
       end
 
       def handler_name
-        return params[:handler_name] if more_than_one_authorization?
-        available_authorizations.first
+        return params[:handler_name] if more_than_one_authorization_handler?
+        available_authorization_handlers.first.name
       end
 
-      def available_authorizations
-        current_organization.available_authorizations.map(&:underscore)
+      def available_authorization_handlers
+        Verifications::Adapter.from_collection(
+          current_organization.available_authorizations & Decidim.authorization_handlers.map(&:name)
+        )
       end
 
-      def more_than_one_authorization?
-        available_authorizations.length > 1
+      def more_than_one_authorization_handler?
+        available_authorization_handlers.length > 1
       end
     end
   end
