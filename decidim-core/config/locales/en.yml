@@ -70,6 +70,8 @@ en:
         name: Dummy authorization workflow
       errors:
         duplicate_authorization: A user is already authorized with the same data.
+      expired_at: Expired at %{timestamp}
+      expires_at: Expires at %{timestamp}
       foo_authorization:
         fields:
           bar: Bar
@@ -241,6 +243,10 @@ en:
         success: The report has been created successfully and it will be reviewed by an admin.
     shared:
       action_authorization_modal:
+        expired:
+          authorize: Reauthorize with "%{authorization}"
+          explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
+          title: Authorization has expired
         incomplete:
           cancel: Cancel
           explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
@@ -354,6 +360,7 @@ en:
         title: Notifications
       user_menu:
         admin_dashboard: Admin dashboard
+        conversations: Conversations
         notifications: Notifications
         profile: My account
         sign_out: Sign out

@@ -28,6 +28,7 @@ module Decidim
       attribute :engine, Rails::Engine
       attribute :admin_engine, Rails::Engine
       attribute :form, String
+      attribute :expires_in, ActiveSupport::Duration, default: 0.minutes
 
       validate :engine_or_form
 

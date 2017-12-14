@@ -13,11 +13,13 @@ you need to change the following line in `config/environments/production.rb`:
 ```
 
 **Added**:
+- **decidim-verifications**: Let developers specify for how long authorizations are valid. After this space of time passes, authorizations expire and users need to re-authorize [\#2311](https://github.com/decidim/decidim/pull/2311)
 
 **Changed**:
 
 **Fixed**:
 
+- **decidim-core**: Impossible to access conversation page from mobile devices. [\#2364](https://github.com/decidim/decidim/pull/2364)
 - **decidim-core**: Update home page stat categories
 [\#2221](https://github.com/decidim/decidim/pull/2221)
 
