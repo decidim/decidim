@@ -122,6 +122,7 @@ en:
           select_a_user_group: Please select a user
         step_4:
           preview: "Preview"
+        validation_errors: "Sorry, there's been errors: "
       proposal_votes:
         create:
           error: There's been errors when voting the proposal.

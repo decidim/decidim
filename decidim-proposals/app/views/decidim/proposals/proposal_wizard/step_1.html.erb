@@ -8,7 +8,7 @@
       <% end %>
 
       <div class="card__content">
-        <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: 'form new_initiative_previous_form' }) do |form| %>
+        <%= decidim_form_for(@form, url: wizard_path(:step_2), method: :put, html: { class: 'form new_initiative_previous_form' }) do |form| %>
 
           <div class="field">
             <%= form.text_field :title %>
@@ -17,6 +17,7 @@
           <div class="field">
             <%= form.text_area :body, rows: 10 %>
           </div>
+
           <%= proposal_wizard_actions form %>
         <% end %>
       </div>

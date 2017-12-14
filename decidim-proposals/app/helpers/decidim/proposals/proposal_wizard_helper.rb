@@ -58,15 +58,15 @@ module Decidim
       end
 
       def proposal_wizard_author(user_group_id)
-        Decidim::UserGroup.find user_group_id
+        Decidim::UserGroup.find user_group_id if user_group_id.present?
       end
 
       def proposal_wizard_author_avatar_url(user_group_id)
-        proposal_wizard_author(user_group_id).avatar_url
+        proposal_wizard_author(user_group_id).avatar_url if user_group_id.present?
       end
 
       def proposal_wizard_author_name(user_group_id)
-        proposal_wizard_author(user_group_id).name
+        proposal_wizard_author(user_group_id).name if user_group_id.present?
       end
 
       def proposal_wizard_feature(feature_id)
@@ -74,11 +74,11 @@ module Decidim
       end
 
       def proposal_preview_category(category_id)
-        Decidim::Category.find category_id
+        Decidim::Category.find category_id if category_id.present?
       end
 
       def proposal_preview_category_name(category_id)
-        proposal_preview_category(category_id).name
+        proposal_preview_category(category_id).name if category_id.present?
       end
     end
   end

@@ -5,7 +5,7 @@
     <h3 class="heading3"><%= t(".preview") %></h5>
     <div class="card">
       <div class="card__content">
-        <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: 'form new_initiative_previous_form' }) do |form| %>
+        <%= decidim_form_for(@form, url: next_wizard_path, method: :put) do |form| %>
           <%= form.hidden_field :title %>
           <%= form.hidden_field :body %>
           <%= form.hidden_field :category_id %>

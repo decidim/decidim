@@ -9,9 +9,10 @@
         <% end %>
       </div>
 
-      <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: 'form new_initiative_previous_form' }) do |form| %>
+      <%= decidim_form_for(@form, url: wizard_path(:step_3), method: :put, html: { class: 'form new_initiative_previous_form' }) do |form| %>
         <%= form.hidden_field :title %>
         <%= form.hidden_field :body %>
+
         <%= proposal_wizard_actions form %>
       <% end %>
 

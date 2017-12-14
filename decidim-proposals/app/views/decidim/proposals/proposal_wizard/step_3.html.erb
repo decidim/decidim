@@ -4,13 +4,16 @@
   <div class="columns large-6 medium-centered">
     <div class="card">
       <div class="card__content">
-        <%= decidim_form_for(@form, url: next_wizard_path, method: :put, html: { class: 'form new_initiative_previous_form' }) do |form| %>
+        <%= decidim_form_for(@form, url: wizard_path(:step_4), method: :put) do |form| %>
+
           <div class="field">
-            <%= form.text_field :title, value: session[:proposal]['title'] %>
+            <%= form.text_field :title, value: session[:proposal]['title']
+            %>
           </div>
 
           <div class="field">
-            <%= form.text_area :body, value: session[:proposal]['body'], rows: 10 %>
+            <%= form.text_area :body, rows: 10, value: session[:proposal]['body']
+            %>
           </div>
 
           <% if feature_settings.geocoding_enabled? %>
@@ -36,20 +39,20 @@
 
           <% if current_user.user_groups.verified.any? %>
             <div class="field">
-              <%= form.select :user_group_id, current_user.user_groups.verified.map{|g| [g.name, g.id]}, prompt: t(".select_a_user_group") %>
+              <%= form.select :user_group_id, current_user.user_groups.verified.map{|g| [g.name, g.id]}, prompt: current_user.name %>
             </div>
           <% end %>
 
-          <% if false && feature_settings.attachments_allowed? %>
+          <% if feature_settings.attachments_allowed? %>
             <fieldset>
               <legend><%= t('.attachment_legend') %></legend>
-              <%= form.fields_for :attachment, @form.attachment do |formA| %>
+              <%= form.fields_for :attachment, @form.attachment do |form| %>
                 <div class="field">
-                  <%= formA.text_field :title %>
+                  <%= form.text_field :title %>
                 </div>
 
                 <div class="field">
-                  <%= formA.upload :file, optional: false %>
+                  <%= form.upload :file, optional: false %>
                 </div>
               <% end %>
             </fieldset>
@@ -62,4 +65,4 @@
   </div>
 </div>
 
-<%= javascript_include_tag "decidim/proposals/wizard_proposal" %>
+<%= javascript_include_tag "decidim/proposals/add_proposal" %>

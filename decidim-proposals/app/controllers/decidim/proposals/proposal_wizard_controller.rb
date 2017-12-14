@@ -9,8 +9,6 @@ module Decidim
       include Wicked::Wizard
       include Decidim::FormFactory
 
-      helper_method :current_proposal
-
       steps :step_1,
             :step_2,
             :step_3,
@@ -18,46 +16,15 @@ module Decidim
             :step_5
 
       def show
-        authorize! :create, Proposal
         @step = step
-        case step
-        when :step_1
-          step_1_step
-        when :step_2
-          step_2_step
-        when :step_5
-          step_5_step params
-        else
-          @form = build_form(Decidim::Proposals::ProposalWizardForm, params)
-          render_wizard
-        end
-        # unless @form.valid?
-        #   raise
-        #   redirect_to previous_wizard_path(validate_form: true)
-        # else
-        #  render_wizard
-        # end
+        authorize! :create, Proposal
+        send("#{step}_step")
       end
 
       def update
         @step = step
         authorize! :create, Proposal
-        case step
-        when :step_1
-          step_1_step
-        when :step_2
-          step_2_step
-        when :step_5
-          step_5_step params
-        else
-          @form = build_form(Decidim::Proposals::ProposalWizardForm, params)
-          render_wizard
-        end
-      end
-
-      def create
-        @form = Proposal.create
-        redirect_to proposal_wizard_path(steps.first, proposal_id: @form.id)
+        send("#{step}_step")
       end
 
       def exit
@@ -68,46 +35,69 @@ module Decidim
       private
 
       def step_1_step
-        session[:proposal] = {}
-        @form = form(Decidim::Proposals::ProposalWizardForm).instance
-        # @form = form(ProposalForm).from_params(
-        #   attachment: form(AttachmentForm).from_params({})
-        # )
+        session[:proposal] ||= {}
+        @form = form(Decidim::Proposals::ProposalForm).instance
         render_wizard
       end
 
       def step_2_step
-        @form = build_form(Decidim::Proposals::ProposalWizardForm, params)
-        @similar_proposals ||= Decidim::Proposals::SimilarProposals
+        @form = form(Decidim::Proposals::ProposalForm).from_params(params)
+        session[:proposal] = params[:proposal]
+        if @form.valid?
+          @similar_proposals ||= Decidim::Proposals::SimilarProposals
                                .for(current_feature, @form)
                                .all
+          render_wizard
+        else
+          flash.now[:alert] = I18n.t("proposals.proposal_wizard.validation_errors", scope: "decidim")
+          flash.now[:alert] += @form.errors.full_messages.to_sentence.downcase
+          @step = :step_1
+          render "step_1"
+        end
+      end
+
+      def step_3_step
+        session[:proposal] = params[:proposal] if params[:proposal].present?
+        @form = form(Decidim::Proposals::ProposalForm).from_params(
+          attachment: form(Decidim::AttachmentForm).from_params({})
+        )
         render_wizard
       end
 
-      def step_5_step(params)
-        @form = form(Decidim::Proposals::ProposalWizardForm).from_params(params)
+      def step_4_step
+        session[:proposal] = params[:proposal]
+        @form = form(Decidim::Proposals::ProposalForm).from_params(params)
+        # TODO: attachments
+        if @form.valid?
+          render_wizard
+        else
+          flash.now[:alert] = I18n.t("proposals.proposal_wizard.validation_errors", scope: "decidim")
+          flash.now[:alert] += @form.errors.full_messages.to_sentence.downcase
+          @step = :step_3
+          render "step_3"
+        end
 
-        Decidim::Proposals::CreateProposal.call(@form, current_user) do
+      end
+
+      def step_5_step
+        # @form = form(Decidim::Proposals::ProposalForm).from_params(
+        #   attachment: form(Decidim::AttachmentForm).from_params({})
+        # )
+        @form = form(Decidim::Proposals::ProposalForm).from_params(params)
+
+        Decidim::Proposals::CreateProposalWizard.call(@form, current_user) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
             redirect_to proposal_path(proposal)
           end
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.create.error", scope: "decidim")
-            render :show
+            @step = :step_4
+            render "step_4"
           end
         end
       end
 
-      def build_form(klass, parameters)
-        @form = form(klass).from_params(parameters)
-        # attachment: form(AttachmentForm).from_params({})
-        attributes = @form.attributes_with_values
-        session[:proposal] = session[:proposal].merge(attributes)
-        @form.valid? if params[:validate_form]
-
-        @form
-      end
     end
   end
 end
