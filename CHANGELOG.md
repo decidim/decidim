@@ -16,6 +16,18 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-core**: Add unique nicknames for participants. [\2360](https://github.com/decidim/decidim/pull/2360)
 - **decidim-participatory_processes**: Add missinng translations for processes [\#2380](https://github.com/decidim/decidim/pull/2380)
 - **decidim-verifications**: Let developers specify for how long authorizations are valid. After this space of time passes, authorizations expire and users need to re-authorize [\#2311](https://github.com/decidim/decidim/pull/2311)
+- **decidim**: Scopes picker that allows hierarchical browsing scope to select them. This picker was used to replace all Select2 based scope selectors. Any module using the Select2 scope selector should replace this:
+   ```erb
+   <%= form.scopes_select :scope_id, prompt: t("decidim.scopes.global"), remote_path: decidim.scopes_search_path %>
+  ```
+  with this:
+  ```erb
+  <%= form.scopes_picker :scope_id do |scope|
+       { url: decidim.scopes_picker_path(current: scope&.id, field: form.label_for(:scope_id)),
+         text: scope_name_with_type(scope) }
+     end %>
+  ```
+  where the block will be run for each scope, and once more with null scope for the "Select a scope" message. Check method documentation for extra parameters. [\#2330](https://github.com/decidim/decidim/pull/2330)
 
 **Changed**:
 
@@ -35,6 +47,9 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-proposals**: Fix missing icon on proposal reply.
 - **decidim-surveys**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
 - **decidim-verifications**: Fixed a migration that broke feature permissions. If you already upgraded to `0.8.2` or less, please follow the instructions on the PR [\#2373](https://github.com/decidim/decidim/pull/2373)
+
+**Removed**
+- **decidim**: Select2 JS library and scope selector based on Select2.
 
 ## [v0.8.0](https://github.com/decidim/decidim/tree/v0.8.0) (2017-12-4)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.7.0...v0.8.0)
