@@ -50,7 +50,6 @@ Decidim::Core::Engine.routes.draw do
 
   resources :pages, only: [:index, :show], format: false
 
-  get "/scopes/search", to: "scopes#search", as: :scopes_search
   get "/scopes/picker", to: "scopes#picker", as: :scopes_picker
 
   get "/static_map", to: "static_map#show", as: :static_map

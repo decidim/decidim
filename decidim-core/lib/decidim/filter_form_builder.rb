@@ -41,13 +41,6 @@ module Decidim
       end
     end
 
-    # Wrap the scopes select in a custom fieldset.
-    def scopes_select(method, options = {})
-      fieldset_wrapper options[:legend_title] do
-        super(method, options)
-      end
-    end
-
     # Wrap the scopes picker in a custom fieldset.
     def scopes_picker(method, options = {})
       fieldset_wrapper options[:legend_title] do
