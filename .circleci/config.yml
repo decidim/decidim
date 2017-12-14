@@ -220,8 +220,8 @@ jobs:
           paths:
             - node_modules
       - run:
-          name: Run main folder yarn lint
-          command: yarn lint
+          name: Run main folder yarn lint & tests
+          command: yarn test:ci
       - restore_cache:
           keys:
             - bundler-dependencies-{{ checksum "Gemfile.lock" }}
