@@ -42,7 +42,7 @@ module Capybara
       data_picker = scope_picker.data_picker
 
       expect(data_picker).to have_selector(".picker-values div input[value='#{old_scope&.id || scope_picker.global_value}']", visible: false)
-      data_picker.find(:xpath, "//div[contains(@class,'picker-values')]/div/input[@value='#{old_scope&.id || scope_picker.global_value}']/..").click
+      data_picker.find(:xpath, "//div[contains(@class,'picker-values')]/div/input[@value='#{old_scope&.id || scope_picker.global_value}']/../a").click
 
       # browse to lowest common parent between old and new scope
       parent_scope = (old_scope.part_of_scopes & new_scope.part_of_scopes).last
