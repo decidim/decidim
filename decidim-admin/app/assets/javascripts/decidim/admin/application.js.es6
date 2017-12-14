@@ -39,12 +39,13 @@ const pageLoad = () => {
 };
 
 $(() => {
+  if (window.Decidim.DataPicker) {
+    window.theDataPicker = new window.Decidim.DataPicker($(".data-picker"));
+  }
+
   pageLoad();
 
   if (window.Decidim.formDatePicker) {
     window.Decidim.formDatePicker();
-  }
-  if (window.Decidim.DataPicker) {
-    window.theDataPicker = new window.Decidim.DataPicker($(".data-picker"));
   }
 });
