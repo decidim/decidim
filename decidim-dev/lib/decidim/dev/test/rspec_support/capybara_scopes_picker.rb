@@ -2,44 +2,65 @@
 
 module Capybara
   module ScopesPicker
-    def scope_pick(scope, from:, global_id: "")
-      data_picker = data_picker_find(from)
+    def scopes_picker_find(id, multiple: nil, global_value: "")
+      Struct.new(:data_picker, :global_value).new(data_picker_find(id, multiple: multiple), global_value)
+    end
 
+    RSpec::Matchers.define :have_scope_picked do |expected|
+      match do |scope_picker|
+        data_picker = scope_picker.data_picker
+        scope_name = expected ? translated(expected.name) : I18n.t("decidim.scopes.global")
+        expect(data_picker).to have_selector(".picker-values div input[value='#{expected&.id || scope_picker.global_value}']", visible: false)
+        expect(data_picker).to have_selector(:xpath, "//div[contains(@class,'picker-values')]/div/a[text()[contains(.,'#{scope_name}')]]")
+      end
+    end
+
+    RSpec::Matchers.define :have_scope_not_picked do |expected|
+      match do |scope_picker|
+        data_picker = scope_picker.data_picker
+        scope_name = expected ? translated(expected.name) : I18n.t("decidim.scopes.global")
+        expect(data_picker).not_to have_selector(".picker-values div input[value='#{expected&.id || scope_picker.global_value}']", visible: false)
+        expect(data_picker).not_to have_selector(:xpath, "//div[contains(@class,'picker-values')]/div/a[text()[contains(.,'#{scope_name}')]]")
+      end
+    end
+
+    def scope_pick(scope_picker, scope)
+      data_picker = scope_picker.data_picker
       # use scope_repick to change single scope picker selected scope
       expect(data_picker).to have_selector(".picker-values:empty", visible: false) if data_picker.has_css?(".picker-single")
 
       expect(data_picker).to have_selector(".picker-prompt")
       data_picker.find(".picker-prompt").click
 
-      data_picker_browse_scopes(scope.part_of_scopes) if scope
-      data_picker_pick_current
+      scope_picker_browse_scopes(scope.part_of_scopes) if scope
+      scope_picker_pick_current
 
-      data_picker_expect_scope_picked(data_picker, scope, global_id: global_id)
+      expect(scope_picker).to have_scope_picked(scope)
     end
 
-    def scope_repick(old_scope, new_scope, from:, global_id: "")
-      data_picker = data_picker_find(from)
+    def scope_repick(scope_picker, old_scope, new_scope)
+      data_picker = scope_picker.data_picker
 
-      expect(data_picker).to have_selector(".picker-values div input[value='#{old_scope&.id || global_id}']", visible: false)
-      data_picker.find(:xpath, "//div[contains(@class,'picker-values')]/div/input[@value='#{old_scope&.id || global_id}']/..").click
+      expect(data_picker).to have_selector(".picker-values div input[value='#{old_scope&.id || scope_picker.global_value}']", visible: false)
+      data_picker.find(:xpath, "//div[contains(@class,'picker-values')]/div/input[@value='#{old_scope&.id || scope_picker.global_value}']/..").click
 
       # browse to lowest common parent between old and new scope
       parent_scope = (old_scope.part_of_scopes & new_scope.part_of_scopes).last
 
-      data_picker_browse_scope(parent_scope, back: true)
-      data_picker_browse_scopes(new_scope.part_of_scopes - old_scope.part_of_scopes)
-      data_picker_pick_current
+      scope_picker_browse_scope(parent_scope, back: true)
+      scope_picker_browse_scopes(new_scope.part_of_scopes - old_scope.part_of_scopes)
+      scope_picker_pick_current
 
-      data_picker_expect_scope_picked(data_picker, new_scope, global_id: global_id)
+      expect(scope_picker).to have_scope_picked(new_scope)
     end
 
-    def scope_unpick(scope, from:, global_id: "")
-      data_picker = data_picker_find(from, multiple: true)
+    def scope_unpick(scope_picker, scope)
+      data_picker = scope_picker.data_picker
 
-      expect(data_picker).to have_selector(".picker-values div input[value='#{scope&.id || global_id}']", visible: false)
-      data_picker.find(".picker-values div input[value='#{scope&.id || global_id}']").click
+      expect(data_picker).to have_selector(".picker-values div input[value='#{scope&.id || scope_picker.global_value}']", visible: false)
+      data_picker.find(".picker-values div input[value='#{scope&.id || scope_picker.global_value}']").click
 
-      data_picker_expect_scope_not_picked(data_picker, scope, global_id: global_id)
+      expect(scope_picker).to have_scope_not_picked(scope)
     end
 
     private
@@ -53,28 +74,13 @@ module Capybara
       find("div.data-picker##{id}")
     end
 
-    def data_picker_expect_scope_not_picked(data_picker, scope, global_id: "")
-      data_picker_expect_scope_picked(data_picker, scope, inverse: true, global_id: global_id)
-    end
-
-    def data_picker_expect_scope_picked(data_picker, scope, inverse: false, global_id: "")
-      scope_name = scope ? translated(scope.name) : I18n.t("decidim.scopes.global")
-      if inverse
-        expect(data_picker).not_to have_selector(".picker-values div input[value='#{scope&.id || global_id}']", visible: false)
-        expect(data_picker).not_to have_selector(:xpath, "//div[contains(@class,'picker-values')]/div/a[text()[contains(.,'#{scope_name}')]]")
-      else
-        expect(data_picker).to have_selector(".picker-values div input[value='#{scope&.id || global_id}']", visible: false)
-        expect(data_picker).to have_selector(:xpath, "//div[contains(@class,'picker-values')]/div/a[text()[contains(.,'#{scope_name}')]]")
-      end
-    end
-
-    def data_picker_browse_scopes(scopes)
+    def scope_picker_browse_scopes(scopes)
       scopes.each do |scope|
-        data_picker_browse_scope(scope)
+        scope_picker_browse_scope(scope)
       end
     end
 
-    def data_picker_browse_scope(scope, back: false)
+    def scope_picker_browse_scope(scope, back: false)
       body = find(:xpath, "//body")
       where = back ? "header" : "content"
       scope_name = scope ? translated(scope.name) : I18n.t("decidim.scopes.global")
@@ -82,7 +88,7 @@ module Capybara
       body.find("#data_picker-modal .picker-#{where} a", text: scope_name).click
     end
 
-    def data_picker_pick_current
+    def scope_picker_pick_current
       body = find(:xpath, "//body")
       expect(body).to have_selector("#data_picker-modal .picker-footer a[data-picker-choose]")
       body.find("#data_picker-modal .picker-footer a[data-picker-choose]").click

@@ -43,7 +43,7 @@ module Decidim
         parent_scopes = [root].compact
       end
       render :picker, layout: nil, locals: { required: required, title: title, root: root, current: current, scopes: scopes.order(name: :asc),
-                                             parent_scopes: parent_scopes, global_id: params[:global_id], context: context }
+                                             parent_scopes: parent_scopes, global_value: params[:global_value], context: context }
     end
   end
 end

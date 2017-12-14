@@ -27,6 +27,8 @@ describe "Proposals", type: :feature do
   end
 
   context "when creating a new proposal" do
+    let(:scope_picker) { scopes_picker_find(:proposal_scope_id) }
+
     context "when the user is logged in" do
       before do
         login_as user, scope: :user
@@ -79,7 +81,7 @@ describe "Proposals", type: :feature do
             fill_in :proposal_title, with: "Oriol for president"
             fill_in :proposal_body, with: "He will solve everything"
             select translated(category.name), from: :proposal_category_id
-            scope_pick scope, from: :proposal_scope_id
+            scope_pick scope_picker, scope
 
             find("*[type=submit]").click
           end
@@ -114,7 +116,7 @@ describe "Proposals", type: :feature do
 
               fill_in :proposal_address, with: address
               select translated(category.name), from: :proposal_category_id
-              scope_pick scope, from: :proposal_scope_id
+              scope_pick scope_picker, scope
 
               find("*[type=submit]").click
             end
@@ -144,7 +146,7 @@ describe "Proposals", type: :feature do
               fill_in :proposal_title, with: "Oriol for president"
               fill_in :proposal_body, with: "He will solve everything"
               select translated(category.name), from: :proposal_category_id
-              scope_pick scope, from: :proposal_scope_id
+              scope_pick scope_picker, scope
               select user_group.name, from: :proposal_user_group_id
 
               find("*[type=submit]").click
@@ -179,7 +181,7 @@ describe "Proposals", type: :feature do
 
                 fill_in :proposal_address, with: address
                 select translated(category.name), from: :proposal_category_id
-                scope_pick scope, from: :proposal_scope_id
+                scope_pick scope_picker, scope
                 select user_group.name, from: :proposal_user_group_id
 
                 find("*[type=submit]").click
@@ -652,6 +654,7 @@ describe "Proposals", type: :feature do
       end
 
       context "with scope" do
+        let(:scopes_picker) { scopes_picker_find(:filter_scope_id, global_value: "global") }
         let!(:scope2) { create :scope, organization: participatory_process.organization }
 
         before do
@@ -670,7 +673,7 @@ describe "Proposals", type: :feature do
         context "when selecting the global scope" do
           it "lists the filtered proposals", :slow do
             within ".filters" do
-              scope_pick(nil, from: :filter_scope_id, global_id: "global")
+              scope_pick scopes_picker, nil
             end
 
             expect(page).to have_css(".card--proposal", count: 1)
@@ -681,7 +684,7 @@ describe "Proposals", type: :feature do
         context "when selecting one scope" do
           it "lists the filtered proposals", :slow do
             within ".filters" do
-              scope_pick(scope, from: :filter_scope_id, global_id: "global")
+              scope_pick scopes_picker, scope
             end
 
             expect(page).to have_css(".card--proposal", count: 2)
@@ -692,8 +695,8 @@ describe "Proposals", type: :feature do
         context "when selecting the global scope and another scope" do
           it "lists the filtered proposals", :slow do
             within ".filters" do
-              scope_pick(scope, from: :filter_scope_id, global_id: "global")
-              scope_pick(nil, from: :filter_scope_id, global_id: "global")
+              scope_pick scopes_picker, scope
+              scope_pick scopes_picker, nil
             end
 
             expect(page).to have_css(".card--proposal", count: 3)
@@ -704,9 +707,9 @@ describe "Proposals", type: :feature do
         context "when modifying the selected scope" do
           it "lists the filtered proposals" do
             within ".filters" do
-              scope_pick(scope, from: :filter_scope_id, global_id: "global")
-              scope_pick(nil, from: :filter_scope_id, global_id: "global")
-              scope_repick(scope, scope2, from: :filter_scope_id, global_id: "global")
+              scope_pick scopes_picker, scope
+              scope_pick scopes_picker, nil
+              scope_repick scopes_picker, scope, scope2
             end
 
             expect(page).to have_css(".card--proposal", count: 2)
@@ -717,9 +720,9 @@ describe "Proposals", type: :feature do
         context "when unselecting the selected scope" do
           it "lists the filtered proposals" do
             within ".filters" do
-              scope_pick(scope, from: :filter_scope_id, global_id: "global")
-              scope_pick(nil, from: :filter_scope_id, global_id: "global")
-              scope_unpick(scope, from: :filter_scope_id, global_id: "global")
+              scope_pick scopes_picker, scope
+              scope_pick scopes_picker, nil
+              scope_unpick scopes_picker, scope
             end
 
             expect(page).to have_css(".card--proposal", count: 1)

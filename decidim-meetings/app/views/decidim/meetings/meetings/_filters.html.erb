@@ -18,7 +18,7 @@
 
   <% if current_participatory_space.has_subscopes? %>
     <%= form.scopes_picker :scope_id, multiple: true, legend_title: t(".scopes"), label: false do |scope|
-          { url: decidim.scopes_picker_path(root: current_participatory_space.scope, current: scope&.id, title: t('.scope_prompt'), global_id: "global"),
+          { url: decidim.scopes_picker_path(root: current_participatory_space.scope, current: scope&.id, title: t('.scope_prompt'), global_value: "global"),
             text: scope ? scope_name_with_type(scope) : t('.scope_prompt') }
         end %>
   <% end %>

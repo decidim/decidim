@@ -64,7 +64,7 @@ describe "Explore meetings", type: :feature do
         visit_feature
 
         within ".filters" do
-          scope_pick(scope, from: :filter_scope_id, global_id: "global")
+          scope_pick scopes_picker_find(:filter_scope_id, global_value: "global"), scope
         end
 
         expect(page).to have_css(".card--meeting", count: 1)
@@ -188,7 +188,10 @@ describe "Explore meetings", type: :feature do
         within "ul.tags.tags--meeting" do
           click_link translated(meeting.scope.name)
         end
-        expect(page).to have_select("filter_scope_id", selected: translated(meeting.scope.name))
+
+        within ".filters" do
+          expect(scopes_picker_find(:filter_scope_id, global_value: "global")).to have_scope_picked(meeting.scope)
+        end
       end
     end
 

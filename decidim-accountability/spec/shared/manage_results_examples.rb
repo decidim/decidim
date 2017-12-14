@@ -60,7 +60,7 @@ shared_examples "manage results" do
         ca: "Descripció més llarga"
       )
 
-      scope_pick scope, from: :result_decidim_scope_id
+      scope_pick scopes_picker_find(:result_decidim_scope_id), scope
       select translated(category.name), from: :result_decidim_category_id
 
       find("*[type=submit]").click
