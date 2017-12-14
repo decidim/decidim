@@ -105,7 +105,6 @@ es:
             one: 1 propuesta
             other: "%{count} propuestas"
         edit:
-          attachment_legend: "(Opcional) Añadir un archivo adjunto"
           back: Atrás
           select_a_category: Por favor, seleccione una categoría
           send: Enviar
