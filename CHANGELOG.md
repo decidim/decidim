@@ -16,6 +16,10 @@
 
 - **decidim-core**: Prevent many conversation with the same participants at the UI level. [\#2376](https://github.com/decidim/decidim/pull/2376)
 
+**Fixed**:
+
+- **decidim-verifications**: Fixed a migration that broke feature permissions. If you already upgraded to `0.8.2` or less, please follow the instructions on the PR [\#2373](https://github.com/decidim/decidim/pull/2373)
+
 ## [0.8.2](https://github.com/decidim/decidim/tree/v0.8.2)
 
 **Upgrade notes**:
