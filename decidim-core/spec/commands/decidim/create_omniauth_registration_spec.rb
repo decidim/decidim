@@ -51,7 +51,7 @@ module Decidim
             expect { command.call }.to broadcast(:invalid)
           end
 
-          it "doesn't create a comment" do
+          it "doesn't create a user" do
             expect do
               command.call
             end.not_to change { User.count }
