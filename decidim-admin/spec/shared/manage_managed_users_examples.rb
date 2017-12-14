@@ -116,6 +116,16 @@ shared_examples "manage managed users examples" do
 
         check_impersonation_logs
       end
+
+      it "can impersonate again after an impersonation session expiration" do
+        impersonate_the_managed_user
+
+        simulate_session_expiration
+
+        navigate_to_managed_users_page
+
+        expect(page).to have_link("Impersonate")
+      end
     end
 
     it "can promote the user inviting them to the application" do

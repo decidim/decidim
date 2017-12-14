@@ -19,6 +19,7 @@ you need to change the following line in `config/environments/production.rb`:
 
 **Fixed**:
 
+- **decidim-admin**: Admins no longer being able to impersonate a second time. [\#2372](https://github.com/decidim/decidim/pull/2372)
 - **decidim-core**: Impossible to access conversation page from mobile devices. [\#2364](https://github.com/decidim/decidim/pull/2364)
 - **decidim-admin**: User impersonation should only use authorization handlers and not authorization workflows. [\#2363](https://github.com/decidim/decidim/pull/2363)
 - **decidim-core**: Update home page stat categories
