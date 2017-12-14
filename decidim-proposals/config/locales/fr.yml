@@ -105,7 +105,6 @@ fr:
             one: 1 proposition
             other: "%{count} propositions"
         edit:
-          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
