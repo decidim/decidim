@@ -42,7 +42,7 @@ module Decidim
           end
         end
 
-        describe "when the form is not valid" do
+        context "when the form is not valid" do
           before do
             expect(form).to receive(:invalid?).and_return(true)
           end
@@ -58,7 +58,7 @@ module Decidim
           end
         end
 
-        describe "when the form is valid" do
+        context "when the form is valid" do
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
           end
@@ -120,7 +120,7 @@ module Decidim
           end
         end
 
-        describe "when a user exists with that identity" do
+        context "when a user exists with that identity" do
           it "broadcasts ok" do
             user = create(:user, email: email, organization: organization)
             create(:identity, user: user, provider: provider, uid: uid)
