@@ -106,9 +106,11 @@ shared_examples "manage managed users examples" do
       end
 
       it "spends all the session time and is redirected automatically" do
-        perform_enqueued_jobs { impersonate_the_managed_user }
+        impersonate_the_managed_user
 
-        travel Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes
+        simulate_session_expiration
+
+        visit decidim.root_path
 
         expect(page).to have_content("expired")
 
@@ -185,6 +187,12 @@ shared_examples "manage managed users examples" do
     end
 
     fill_in_the_impersonation_form
+  end
+
+  def simulate_session_expiration
+    expect(Decidim::Admin::ExpireImpersonationJob).to have_been_enqueued.with(managed_user, user)
+    travel Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes
+    Decidim::Admin::ExpireImpersonationJob.perform_now(managed_user, user)
   end
 
   def check_impersonation_logs
