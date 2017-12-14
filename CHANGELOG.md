@@ -10,6 +10,12 @@
 
 * **decidim-accountability**: Fixed missing `diff.js` [#2344](https://github.com/decidim/decidim/pull/2344)
 
+## [0.8.3](https://github.com/decidim/decidim/tree/v0.8.3)
+
+**Changed**:
+
+- **decidim-core**: Prevent many conversation with the same participants at the UI level. [\#2376](https://github.com/decidim/decidim/pull/2376)
+
 ## [0.8.2](https://github.com/decidim/decidim/tree/v0.8.2)
 
 **Upgrade notes**:
