@@ -15,6 +15,10 @@
     </div>
 
     <div class="row column">
+      <%= form.select :attachment_collection_id, @form.attachment_collections.collect { |c| [translated_attribute(c.name), c.id] }, include_blank: true %>
+    </div>
+
+    <div class="row column">
       <%= form.upload :file, optional: false %>
     </div>
   </div>

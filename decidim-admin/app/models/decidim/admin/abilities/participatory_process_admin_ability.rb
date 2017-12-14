@@ -32,6 +32,10 @@ module Decidim
             can_manage_process?(category.participatory_space)
           end
 
+          can :manage, AttachmentCollection do |attachment_collection|
+            can_manage_process?(attachment_collection.participatory_space)
+          end
+
           can :manage, Attachment do |attachment|
             attachment.attached_to.is_a?(Decidim::ParticipatoryProcess) && can_manage_process?(attachment.attached_to)
           end

@@ -2,7 +2,11 @@
 en:
   activemodel:
     attributes:
+      attachment_collection:
+        description: Description
+        name: Name
       attachment:
+        attachment_collection_id: Collection
         description: Description
         file: File
         title: Title
@@ -99,6 +103,24 @@ en:
         permissions: Permissions
         reject: Reject
         verify: Verify
+      attachment_collections:
+        create:
+          error: There was an error creating a new collection.
+          success: Collection created successfully.
+        destroy:
+          success: Collection destroyed successfully.
+        edit:
+          title: Edit collection
+          update: Update
+        index:
+          attachment_collections_title: Attachment collections
+          attachment_collection_used: This collection cannot be removed because it is in use.
+        new:
+          create: Create
+          title: New collection
+        update:
+          error: There was an error when updating this collection.
+          success: Collection updated successfully.
       attachments:
         create:
           error: There was an error creating a new attachment.
@@ -227,8 +249,11 @@ en:
         user_groups: User groups
         users: Users
       models:
+        attachment_collection:
+          name: Collection
         attachment:
           fields:
+            collection: Collection
             content_type: Type
             file_size: Size
             title: Title

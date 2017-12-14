@@ -1,0 +1,14 @@
+<h3><%= translated_attribute(@attachment_collection.name) %></h3>
+
+<div class="actions">
+  <hr />
+  <%= link_to t("decidim.admin.actions.edit"), ['edit', @attachment_collection.participatory_space, @attachment_collection], class: "button" if can? :update, @attachment_collection %>
+  <%= link_to t("decidim.admin.actions.destroy"), [@attachment_collection.participatory_space, @attachment_collection], method: :delete, class: "alert button", data: { confirm: t("decidim.admin.actions.confirm_destroy") } if can? :destroy, @attachment_collection %>
+</div>
+
+<dl>
+  <%= display_for @attachment_collection,
+    :name,
+    :description
+    %>
+</dl>

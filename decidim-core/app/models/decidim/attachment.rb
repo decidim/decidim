@@ -4,6 +4,7 @@ module Decidim
   # Attachment can be any type of document or images related to a partcipatory
   # process.
   class Attachment < ApplicationRecord
+    belongs_to :attachment_collection, class_name: "Decidim::AttachmentCollection", optional: true
     belongs_to :attached_to, polymorphic: true
 
     validates :file, :content_type, presence: true

@@ -8,6 +8,7 @@ module Decidim
   # active.
   class ParticipatoryProcess < ApplicationRecord
     include Decidim::HasAttachments
+    include Decidim::HasAttachmentCollections
     include Decidim::Participable
     include Decidim::Publicable
     include Decidim::Scopable

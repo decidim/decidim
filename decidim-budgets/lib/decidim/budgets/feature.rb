@@ -68,10 +68,20 @@ Decidim.register_feature(:budgets) do |feature|
         end,
         budget: Faker::Number.number(8)
       )
+
+      attachment_collection = Decidim::AttachmentCollection.create!(
+        name: Decidim::Faker::Localized.word,
+        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(2)
+        end,
+        participatory_space: project
+      )
+
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(2),
         description: Decidim::Faker::Localized.sentence(5),
         file: File.new(File.join(__dir__, "seeds", "city.jpeg")),
+        attachment_collection: attachment_collection,
         attached_to: project
       )
       Decidim::Attachment.create!(

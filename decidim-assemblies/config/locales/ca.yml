@@ -80,6 +80,8 @@ ca:
         assemblies: Assemblees
         assemblies_submenu:
           assembly_admins: Usuaris de l'assamblea
+          attachment_collections: Col·leccions
+          attachment_files: Fitxers
           attachments: Adjunts
           categories: Categories
           features: Funcionalitats

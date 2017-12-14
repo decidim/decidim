@@ -97,10 +97,19 @@ Decidim.register_feature(:meetings) do |feature|
         )
       end
 
+      attachment_collection = Decidim::AttachmentCollection.create!(
+        name: Decidim::Faker::Localized.word,
+        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(2)
+        end,
+        participatory_space: meeting
+      )
+
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(2),
         description: Decidim::Faker::Localized.sentence(5),
         file: File.new(File.join(__dir__, "seeds", "city.jpeg")),
+        attachment_collection: attachment_collection,
         attached_to: meeting
       )
       Decidim::Attachment.create!(
