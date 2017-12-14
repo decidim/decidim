@@ -12,9 +12,11 @@ module Decidim
       @newsletter = newsletter
       @user = user
 
+      @custom_url_for_mail_root = custom_url_for_mail_root(@organization, @newsletter.id)
+
       with_user(user) do
-        @subject = parse_interpolations(@newsletter.id, @newsletter.subject[I18n.locale.to_s], user)
-        @body = parse_interpolations(@newsletter.id, @newsletter.body[I18n.locale.to_s], user)
+        @subject = parse_interpolations(@newsletter.subject[I18n.locale.to_s], user, @newsletter.id)
+        @body = parse_interpolations(@newsletter.body[I18n.locale.to_s], user, @newsletter.id)
 
         mail(to: "#{user.name} <#{user.email}>", subject: @subject)
       end

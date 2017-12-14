@@ -1,15 +1,14 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This command unsubscribe user from newsletter.
+  # This command unsubscribes user from newsletter.
   class UnsubscribeNotificationsSettings < Rectify::Command
     # unsubscribe user from newsletter.
     #
     # user - The user to be updated.
     # newsletter_notifications - to be false
-    def initialize(user, unsubscribe)
+    def initialize(user)
       @user = user
-      @unsubscribe = unsubscribe
     end
 
     def call
@@ -24,7 +23,7 @@ module Decidim
     private
 
     def update_notifications_settings
-      @user.newsletter_notifications = @unsubscribe
+      @user.newsletter_notifications = false
     end
   end
 end

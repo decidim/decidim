@@ -12,12 +12,11 @@ module Decidim
 
     def unsubscribe
       authorize! :update, current_user
-      @unsubscribe_notifications_settings = false
       @notifications_settings = form(NotificationsSettingsForm).from_params(params)
 
       email_user = SignedGlobalID.find(params[:u], for: :unsubscribe_user)
       if email_user == current_user && current_user.newsletter_notifications
-        UnsubscribeNotificationsSettings.call(current_user, @unsubscribe_notifications_settings) do
+        UnsubscribeNotificationsSettings.call(current_user) do
           on(:ok) do
             flash.now[:notice] = t("notifications_settings.update.success", scope: "decidim")
           end

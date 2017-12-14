@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # The controller to handle the user's notifications dashboard.
+  # The controller to show the newsletter on the website.
   class NewslettersController < Decidim::ApplicationController
     skip_authorization_check
 
@@ -9,16 +9,20 @@ module Decidim
     helper Decidim::SanitizeHelper
     include Decidim::NewslettersHelper
 
+    helper_method :newsletter
+
     def show
-      @organization = current_organization
-      @newsletter = collection.find(params[:id])
       @user = current_user
-      
-      if @newsletter.sent?
-        @body = parse_interpolations(@newsletter.id, @newsletter.body[I18n.locale.to_s], current_user)
+      @organization = current_organization
+      if newsletter.sent?
+        @body = parse_interpolations(newsletter.body[I18n.locale.to_s], @user, newsletter.id)
       else
         redirect_to decidim.root_url(host: @organization.host)
       end
+    end
+
+    def newsletter
+      @newsletter ||= collection.find(params[:id])
     end
 
     private
