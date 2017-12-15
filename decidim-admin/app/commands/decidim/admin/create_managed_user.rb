@@ -44,7 +44,7 @@ module Decidim
       end
 
       def authorized_user?
-        form.authorization.user = @user
+        form.authorization.user = user
         Verifications::AuthorizeUser.call(form.authorization) do
           on(:ok) do
             return true
