@@ -8,22 +8,21 @@ module Decidim
 
     let(:organization) { create :organization }
 
-    before do
-      request.env["decidim.current_organization"] = organization
-    end
+    describe "newsletter" do
+      before do
+        request.env["decidim.current_organization"] = organization
+      end
 
-    context "when a newsletter was send" do
-      let(:newsletter) { create(:newsletter, organization: organization, sent_at: Time.zone) }
+      let(:newsletter) { create(:newsletter, organization: organization) }
 
-      render_views
+      describe "GET show" do
+        context "when the newsletter is not send" do
+          it "redirects to root path" do
+            get :show, params: { id: newsletter.id }
 
-      it "renders the newsletter" do
-        get :show, params: { id: newsletter.id }
-
-        expect(response).to render_template(:show)
-        expect(controller.newsletter).to eq(newsletter)
-
-        expect(response.body).to include(newsletter.body[I18n.locale.to_s])
+            expect(response).to redirect_to(root_url(host: organization.host))
+          end
+        end
       end
     end
   end
