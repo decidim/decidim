@@ -31,6 +31,41 @@ shared_examples "manage managed users examples" do
     end
   end
 
+  shared_examples_for "impersonating a managed user" do
+    it "can impersonate the user filling in the correct authorization" do
+      expect(page).to have_content("You are impersonating the user #{managed_user.name}")
+      expect(page).to have_content("Your session will expire in #{Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES} minutes")
+    end
+
+    it "closes the current session and check the logs" do
+      visit decidim.root_path
+
+      click_button "Close session"
+
+      expect(page).to have_content("successfully")
+
+      check_impersonation_logs
+    end
+
+    it "spends all the session time and is redirected automatically" do
+      simulate_session_expiration
+
+      visit decidim.root_path
+
+      expect(page).to have_content("expired")
+
+      check_impersonation_logs
+    end
+
+    it "can impersonate again after an impersonation session expiration" do
+      simulate_session_expiration
+
+      navigate_to_managed_users_page
+
+      expect(page).to have_link("Impersonate")
+    end
+  end
+
   shared_context "with a single step managed user form" do
     before do
       navigate_to_managed_users_page
@@ -96,45 +131,12 @@ shared_examples "manage managed users examples" do
     let!(:managed_user) { create(:user, :managed, organization: organization) }
     let!(:authorization) { create(:authorization, user: managed_user, name: "dummy_authorization_handler", unique_id: "123456789X") }
 
-    it "can impersonate the user filling in the correct authorization" do
-      impersonate_the_managed_user
-
-      expect(page).to have_content("You are impersonating the user #{managed_user.name}")
-      expect(page).to have_content("Your session will expire in #{Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES} minutes")
-    end
-
     context "when the admin is impersonating that user" do
       before do
         impersonate_the_managed_user
       end
 
-      it "closes the current session and check the logs" do
-        visit decidim.root_path
-
-        click_button "Close session"
-
-        expect(page).to have_content("successfully")
-
-        check_impersonation_logs
-      end
-
-      it "spends all the session time and is redirected automatically" do
-        simulate_session_expiration
-
-        visit decidim.root_path
-
-        expect(page).to have_content("expired")
-
-        check_impersonation_logs
-      end
-
-      it "can impersonate again after an impersonation session expiration" do
-        simulate_session_expiration
-
-        navigate_to_managed_users_page
-
-        expect(page).to have_link("Impersonate")
-      end
+      it_behaves_like "impersonating a managed user"
     end
 
     it "can promote the user inviting them to the application" do
