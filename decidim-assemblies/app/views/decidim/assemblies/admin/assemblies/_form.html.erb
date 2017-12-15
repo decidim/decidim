@@ -72,10 +72,7 @@
     </div>
 
     <div class="row column">
-      <%= form.scopes_picker :scope_id do |scope|
-            { url: decidim.scopes_picker_path(current: scope&.id, field: form.label_for(:scope_id)),
-              text: scope_name_with_type(scope) }
-          end %>
+      <%= scopes_picker_field form, :scope_id %>
     </div>
 
     <div class="row column">

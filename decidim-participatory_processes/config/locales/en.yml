@@ -263,8 +263,6 @@ en:
         surveys_count: Surveys
         users_count: Participants
         votes_count: Votes
-    scopes:
-      global: Global scope
   layouts:
     decidim:
       participatory_process_groups:
