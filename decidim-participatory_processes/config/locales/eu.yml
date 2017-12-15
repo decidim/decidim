@@ -2,6 +2,7 @@ eu:
   activemodel:
     attributes:
       participatory_process:
+        announcement: Anuntzio
         banner_image: Bannerra
         copy_categories: Kopiatu kategoriak
         copy_features: Kopiatu funtzionalitateak
@@ -21,6 +22,7 @@ eu:
         scope_id: Esparrua
         scopes_enabled: Esparru gaituak
         short_description: Deskribapen laburra
+        show_statistics: Erakutsi estatistikak
         slug: URL laburra
         start_date: Hasiera-data
         subtitle: Azpititulua
@@ -217,6 +219,7 @@ eu:
             slug_help: 'URL slugs erabiltzen dira prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
         participatory_processes:
           form:
+            announcement_help: Hemen sartzen duzun testua erabiltzaileari erakutsiko zaio prozesuaren informazioaren azpitik.
             slug_help: 'URL slugs erabiltzen dira prozesu hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
       index:
         title: Prozesu partizipatiboak
