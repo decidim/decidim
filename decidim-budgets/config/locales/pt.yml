@@ -4,7 +4,7 @@ pt:
       project:
         budget: Orçamento
         decidim_category_id: Categoria
-        decidim_scope_id: Escopo
+        decidim_scope_id: Âmbito
         description: Descrição
         proposal_ids: Propostas relacionadas
         title: Título
@@ -30,13 +30,13 @@ pt:
             success: Projeto destruído com sucesso
           edit:
             title: Editar projeto
-            update: Atualizar
+            update: Actualizar
           index:
             finished_orders: Votos finais
             pending_orders: Votações pendentes
             title: Projetos
           new:
-            create: Crio
+            create: Criar
             title: Novo resultado
           update:
             invalid: Ocorreu um problema ao atualizar este projeto
@@ -73,8 +73,8 @@ pt:
         filters:
           category: Categoria
           category_prompt: Selecione uma categoria
-          scope_prompt: Selecione um escopo
-          scopes: Escopos
+          scope_prompt: Selecione um âmbito
+          scopes: Âmbitos
           search: Pesquisa
         filters_small_view:
           close_modal: Fechar modal

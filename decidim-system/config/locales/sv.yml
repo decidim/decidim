@@ -1,0 +1,71 @@
+sv:
+  decidim:
+    system:
+      actions:
+        confirm_destroy: Är du säker på att du vill radera detta?
+        destroy: Förstöra
+        edit: Redigera
+        new: Ny
+        save: Spara
+        title: Handlingar
+      admins:
+        create:
+          error: Det uppstod ett fel vid skapandet av en ny admin.
+          success: Admin skapades framgångsrikt
+        destroy:
+          success: Admin lyckades förstöras
+        edit:
+          title: Redigera admin
+          update: Uppdatering
+        index:
+          title: admins
+        new:
+          create: Skapa
+          title: Ny admin
+        update:
+          error: Det uppstod ett fel vid uppdateringen av den här administratören.
+          success: Admin uppdaterad framgångsrikt
+      default_pages:
+        placeholders:
+          content: Lägg till meningsfullt innehåll på den statiska sidan %{page} på adminpanelen.
+          title: Standardtitel för %{page}
+      menu:
+        admins: admins
+        dashboard: instrumentbräda
+        organizations: organisationer
+      models:
+        admin:
+          fields:
+            created_at: Skapad vid
+            email: E-post
+          name: Administration
+          validations:
+            email_uniqueness: En annan admin med samma e-post finns redan
+        organization:
+          actions:
+            save_and_invite: Skapa organisation och bjud in admin
+          fields:
+            created_at: Skapad vid
+            name: namn
+          name: Organisation
+      organizations:
+        create:
+          error: Det uppstod ett fel vid skapandet av en ny organisation.
+          success: Organisationen skapades framgångsrikt.
+        edit:
+          secondary_hosts_hint: Ange var och en av dem i en ny rad
+        index:
+          title: organisationer
+        new:
+          reference_prefix_hint: Referensprefixet används för att unikt identifiera resurser i alla organisationer
+          secondary_hosts_hint: Ange var och en av dem i en ny rad
+          title: Ny organisation
+        update:
+          error: Det uppstod ett fel vid uppdateringen av den här organisationen.
+          success: Organisationen uppdateras framgångsrikt.
+      shared:
+        notices:
+          no_organization_warning_html: Du måste skapa en organisation för att komma igång. Se till att du läser %{guide} innan du fortsätter.
+          our_getting_started_guide: vår startguide
+      titles:
+        dashboard: instrumentbräda

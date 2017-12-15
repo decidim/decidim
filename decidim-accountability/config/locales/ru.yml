@@ -134,13 +134,30 @@ ru:
         show:
           stats:
             attendees: Участники
+            back_to_result: Вернуться к итогу
             comments: Комментарии
             contributions: Внесенные предложения
+            last_edited_by: Последний раз редактировалось
+            last_updated_at: Последнее обновление
             meetings: Встречи
+            number_of_versions: Версии
             proposals: Предложения
+            show_all_versions: Показать все версии
+            version_author: Автор версии
+            version_created_at: Версия, созданная на
+            version_number: Автор версии
+            version_number_out_of_total: "Шаг %{current_version} из %{total_count}"
             votes: Поддерживает
         timeline:
           title: Развитие проекта
+      versions:
+        index:
+          changes_at_title: Изменения в "%{title}"
+          title: Версии
+        show:
+          changes_at_title: Изменения в «%{title}»
+        version:
+          version_index: Версия %{index}
     features:
       accountability:
         name: Отчетность

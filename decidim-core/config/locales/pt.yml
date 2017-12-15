@@ -9,7 +9,7 @@ pt:
         email: O seu email
         name: O seu nome
         password: Nova senha
-        password_confirmation: Confirme a sua nova palavra-passe
+        password_confirmation: Confirme a sua nova senha
         remove_avatar: Remover avatar
         user_group_document_number: Número do documento de organização
         user_group_name: Nome da organização
@@ -78,19 +78,19 @@ pt:
       started_at: Iniciado em %{timestamp}
     core:
       actions:
-        unauthorized: Você não está autorizado a realizar esta ação
+        unauthorized: Não está autorizado a realizar esta ação
     devise:
       omniauth_registrations:
         create:
           email_already_exists: Outra conta está usando o mesmo endereço de e-mail
         new:
-          complete_profile: Perfil completo
-          sign_up: Complete seu perfil
+          complete_profile: Complete o seu perfil
+          sign_up: Por favor, complete o seu perfil
           subtitle: Por favor, preencha o seguinte formulário para completar a inscrição
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       registrations:
         new:
-          already_have_an_account?: já tem uma conta?
+          already_have_an_account?: Já tem uma conta?
           newsletter_notifications: Receba informações sobre atividades relevantes
           sign_in: Entrar
           sign_up: Inscreva-se
@@ -100,12 +100,12 @@ pt:
             user_group: Organização / Coletivo
           subtitle: Inscreva-se para participar de discussões e propostas de suporte.
           terms: os termos e condições de uso
-          tos_agreement: Ao se inscrever, você aceita %{link}.
+          tos_agreement: Ao se inscrever, aceita %{link}.
           username_help: Nome público que aparece em suas postagens. Com o objetivo de garantir o anonimato, pode ser qualquer nome.
       sessions:
         new:
           are_you_new?: Novo na plataforma?
-          register: Crie a sua conta aqui
+          register: Criar uma conta
       shared:
         omniauth_buttons:
           or: Ou
@@ -114,8 +114,8 @@ pt:
         title: Houve um problema com o nosso servidor
         try_later: Por favor, tente novamente mais tarde.
       not_found:
-        back_home: De volta para casa
-        content_doesnt_exist: Este endereço está incorreto ou foi removido.
+        back_home: Voltar ao início
+        content_doesnt_exist: Este endereço está incorreto ou foi apagado.
         title: A página que você procura não pode ser encontrada
     events:
       email_event:
@@ -132,7 +132,7 @@ pt:
     features:
       dummy:
         actions:
-          bar: Barra
+          bar: Bar
           foo: Foo
         name: Dummy Feature
         settings:
@@ -157,15 +157,15 @@ pt:
         button: Seguir
         error: Ocorreu um erro ao seguir este recurso.
       destroy:
-        button: Pare de seguir
+        button: Parar de seguir
         error: Ocorreu um erro ao seguir esse recurso.
     forms:
-      current_file: Arquivo atual
+      current_file: Ficheiro atual
       current_image: Imagem actual
-      default_image: Imagem padrão
+      default_image: Imagem por defeito
       errors:
         error: Há um erro neste campo.
-      remove_this_file: Remova este arquivo
+      remove_this_file: Remover este ficheiro
     managed_users:
       expired_session: A sessão de representação atual expirou.
     menu:
@@ -174,12 +174,12 @@ pt:
     messaging:
       conversation_mailer:
         new_conversation:
-          greeting: Oi, %{recipient}!
+          greeting: Olá, %{recipient}!
           intro: "%{sender} iniciou uma nova conversa com você. Clique aqui para vê-lo:"
           outro: Aproveite decidim!
           subject: "%{sender} iniciou uma conversa com você"
         new_message:
-          greeting: Oi, %{recipient}!
+          greeting: Olá, %{recipient}!
           intro: "%{sender} publicou novas mensagens na sua conversa. Clique aqui para vê-los:"
           outro: Aproveite decidim!
           subject: Você tem novas mensagens de %{sender}
@@ -206,7 +206,7 @@ pt:
       show:
         email_on_notification: Quero receber um email sempre que recebo uma notificação.
         newsletter_notifications: Quero receber informações sobre atividades relevantes
-        update_notifications_settings: Salvar alterações
+        update_notifications_settings: Guardar alterações
       update:
         error: Ocorreu um erro ao atualizar suas configurações de notificações.
         success: Suas configurações de notificações foram atualizadas com sucesso.
@@ -226,7 +226,7 @@ pt:
         subject: Um recurso foi escondido automaticamente
       report:
         hello: Olá %{name},
-        manage_moderations: Gerenciar moderações
+        manage_moderations: Gerir moderações
         report_html: <p>O seguinte <a href="%{url}">content</a> foi reportado.</p>
         subject: Um recurso foi relatado
     reports:
@@ -238,10 +238,10 @@ pt:
         incomplete:
           cancel: Cancelar
           explanation: 'Embora você esteja atualmente autorizado com "%{authorization}", precisamos que você reauthorize porque faltamos os seguintes dados:'
-          reauthorize: Reautorize
+          reauthorize: Reautorizar
           title: Por favor reautorize
         missing:
-          authorize: Autorize com "%{authorization}"
+          authorize: Autorizar com "%{authorization}"
           explanation: Para executar esta ação, você precisa ser autorizado com "%{authorization}".
           title: Autorização necessária
         pending:
@@ -251,10 +251,10 @@ pt:
         unauthorized:
           explanation: Desculpe, você não pode executar esta ação porque alguns de seus dados de autorização não coincidem.
           invalid: "%{field} não é válido."
-          ok: Ok
+          ok: OK
           title: Não autorizado
       embed_modal:
-        close_window: Janela fechada
+        close_window: Fechar janela
         embed: Cole este código na sua página
         embed_link: Embutir
       flag_modal:
@@ -270,22 +270,22 @@ pt:
         sign_in_before_follow: Faça login antes de executar esta ação
       login_modal:
         please_sign_in: Por favor, inicie a sessão
-        sign_up: inscrever-se
+        sign_up: Inscrever-se
       reference:
         reference: 'Referência: %{reference}'
       results_per_page:
         label: 'Resultados por página:'
       share_modal:
-        close_window: Janela fechada
-        share: Compartilhar
-        share_link: Compartilhar link
+        close_window: Fechar janela
+        share: Partilhar
+        share_link: Partilhar link
       version_author:
         deleted: Usuário deletado
   devise:
     invitations:
       edit:
         header: Coloque sua senha
-        submit_button: Salve 
+        submit_button: Salvar
     mailer:
       invitation_instructions:
         accept: Aceitar convite
@@ -309,12 +309,12 @@ pt:
   errors:
     messages:
       content_type_whitelist_error: O tipo de arquivo não é válido
-      cycle_detected: o pai de um escopo não pode ser um dos seus descendentes
+      cycle_detected: o pai de um âmbito não pode ser um dos seus descendentes
       file_size_is_less_than_or_equal_to: o tamanho do arquivo deve ser menor ou igual a %{count}
       invalid_manifest: Manifesto inválido
       invalid_participatory_process: Processo participativo inválido
       long_words: Contém palavras que são muito longas
-      must_start_with_caps: Deve começar com tampas
+      must_start_with_caps: Deve começar com maiúscula
       nesting_too_deep: não pode estar dentro de uma subcategoria
       too_many_marks: Está usando muitas marcas
       too_much_caps: Está usando demasiados limites
@@ -328,8 +328,8 @@ pt:
     decidim:
       cookie_warning:
         description_html: Este site usa cookies. Ao continuar a navegar no site, você concorda com o uso de cookies. Saiba mais sobre isso %{link}.
-        link_label: Aqui
-        ok: Aceito
+        link_label: aqui
+        ok: Concordo
       footer:
         made_with_open_source: Site criado com <a target="_blank" href="https://github.com/decidim/decidim"> software livre</a>.
       header:
@@ -338,7 +338,7 @@ pt:
         sign_in: Entrar
         sign_up: Inscrever-se
       impersonation_warning:
-        close_session: Perda de sessão
+        close_session: Fechar sessão
         description_html: Você está representando o usuário <b>%{user_name}</b>.
         expire_time_html: Sua sessão expirará em <b><span class="minutes">%{minutes}</span> minutos</b>.
       notifications_dashboard:

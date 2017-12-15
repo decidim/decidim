@@ -14,10 +14,10 @@ fr:
         name: Enquête
         settings:
           global:
-            announcement: Annonce
+            announcement: Message d'annonce
           step:
             allow_answers: Autoriser les réponses
-            announcement: Annonce
+            announcement: Message d'annonce
     surveys:
       admin:
         exports:
