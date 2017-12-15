@@ -9,6 +9,18 @@ describe "Features can be navigated", type: :feature do
 
   describe "navigate to a component" do
     before do
+      I18n.backend.store_translations(
+        :en,
+        decidim: {
+          participatory_processes: {
+            statistics: {
+              dummies_count_medium: "Dummies medium",
+              dummies_count_high: "Dummies high"
+            }
+          }
+        }
+      )
+
       visit decidim_participatory_processes.participatory_process_path(participatory_process)
     end
 
