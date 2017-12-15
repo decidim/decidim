@@ -59,11 +59,11 @@ task :test_app do
 
   Dir.chdir(__dir__) do
     sh "rm -fR #{dummy_app_path}", verbose: false
-  end
 
-  Decidim::Generators::AppGenerator.start(
-    [dummy_app_path, "--path", "../..", "--recreate_db", "--demo"]
-  )
+    Decidim::Generators::AppGenerator.start(
+      [dummy_app_path, "--path", "../..", "--recreate_db", "--demo"]
+    )
+  end
 end
 
 desc "Generates a development app."
