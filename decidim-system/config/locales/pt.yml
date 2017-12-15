@@ -16,11 +16,11 @@ pt:
           success: Admin destruído com sucesso
         edit:
           title: Edit admin
-          update: Atualizar
+          update: Actualizar
         index:
           title: Administradores
         new:
-          create: Crio
+          create: Criar
           title: Novo administrador
         update:
           error: Ocorreu um erro ao atualizar este administrador.
