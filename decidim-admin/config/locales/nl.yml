@@ -83,7 +83,7 @@ nl:
         title: Titel
   date:
     formats:
-      datepicker: "%m / %d / %Y"
+      datepicker: "%m/%d/%Y"
   decidim:
     admin:
       actions:
@@ -467,5 +467,5 @@ nl:
           title: Gebruikers
   time:
     formats:
-      datepicker: "%m / %d / %Y"
+      datepicker: "%m/%d/%Y"
       timepicker: "%d/%m/%Y %H:%M"
