@@ -11,15 +11,15 @@ pt:
         hashtag: Hashtag
         hero_image: Imagem inicial
         local_area: Área Local
-        meta_scope: Metadados do escopo
-        participatory_scope: Escopo participativo
+        meta_scope: Metadados do âmbito
+        participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
-        promoted: Promovido
-        scope_id: Escopo
-        scopes_enabled: Escopos ativados
+        promoted: Destacado
+        scope_id: Âmbito
+        scopes_enabled: Âmbitos ativados
         short_description: Pequena descrição
         slug: Slug de URL
-        subtitle: Legenda
+        subtitle: Subtítulo
         target: Alvo
         title: Título
   decidim:
@@ -38,7 +38,7 @@ pt:
           not_published: Não publicado
           published: Publicados
         new:
-          create: Crio
+          create: Criar
           title: Nova montagem
         update:
           error: Ocorreu um erro ao atualizar este assembly.
@@ -95,9 +95,9 @@ pt:
       show:
         developer_group: Grupo de desenvolvedores
         local_area: Área Local
-        participatory_scope: Escopo participativo
+        participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
-        scope: Escopo
+        scope: Âmbito
         target: Alvo
       statistics:
         answers_count: Respostas
