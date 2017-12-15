@@ -107,7 +107,6 @@ uk:
             many: "%{count} пропозицій"
             other: "%{count} пропозицій"
         edit:
-          attachment_legend: "(Необов'язково) Додати вкладений файл"
           back: Назад
           select_a_category: Будь ласка, оберіть розділ
           send: Надіслати
