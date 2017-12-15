@@ -27,7 +27,6 @@ $datetime-bg: $primary;
   border: $card-border;
   border-radius: $card-border-radius;
   overflow: hidden;
-  //box-shadow: $card-shadow;
 }
 
 .card--nomargin{
@@ -436,9 +435,9 @@ $datetime-bg: $primary;
 
 .card--full{
   margin-bottom: $card-margin-bottom*2;
-	&:last-child{
-		margin-bottom: 0;
-	}
+  &:last-child{
+    margin-bottom: 0;
+  }
   .card__title{
     @extend .heading2;
   }
@@ -452,8 +451,8 @@ $datetime-bg: $primary;
 
 .card--full__image{
   background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
   position: relative;
   @include breakpoint(medium only){
     min-height: 15rem;
@@ -478,9 +477,9 @@ $datetime-bg: $primary;
 //small card with top image
 .card__image-top{
   background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	height: 10rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 10rem;
   .card--process &{
     display: none;
     @include breakpoint(mediumlarge){
@@ -520,9 +519,9 @@ $datetime-bg: $primary;
 
 .card--process__small{
   font-size: $small-font-size;
-	&:last-child{
-		margin-bottom: 0;
-	}
+  &:last-child{
+    margin-bottom: 0;
+  }
 }
 
 /* Card mini */

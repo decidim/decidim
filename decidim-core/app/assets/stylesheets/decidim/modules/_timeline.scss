@@ -11,7 +11,7 @@ $timeline-padding: 1rem;
 /* Timeline */
 
 .timeline {
-	list-style: none;
+  list-style: none;
   margin: 2rem 0 0;
 }
 
@@ -19,20 +19,20 @@ $timeline-padding: 1rem;
   padding-bottom: 2em;
   position: relative;
   &:before {
-		content:"";
-		width: 3px;
-		height: 100%;
-		background: $timeline-color;
-		left: 1rem;
-		top: 0;
-		position: absolute;
-	}
-	&:after {
-		content: "";
-		clear: both;
-		display: table;
-		width: 100%;
-	}
+    content:"";
+    width: 3px;
+    height: 100%;
+    background: $timeline-color;
+    left: 1rem;
+    top: 0;
+    position: absolute;
+  }
+  &:after {
+    content: "";
+    clear: both;
+    display: table;
+    width: 100%;
+  }
   &:last-of-type:before{
     width: 0;
   }
@@ -154,14 +154,14 @@ $timeline-padding: 1rem;
 
 .timeline__item--current{
   &:before {
-		background: $timeline-inactive-color;
-	}
+    background: $timeline-inactive-color;
+  }
 }
 
 .timeline__item--inactive{
   &:before {
-		background: $timeline-inactive-color;
-	}
+    background: $timeline-inactive-color;
+  }
   .timeline__phase{
     background: $timeline-inactive-color;
   }

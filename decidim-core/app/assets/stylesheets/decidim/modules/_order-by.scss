@@ -22,7 +22,7 @@ $order-border: $border;
 }
 
 .order-by__dropdown--right{
-	margin-left: auto;
+  margin-left: auto;
 }
 
 .order-by__action{
@@ -32,12 +32,6 @@ $order-border: $border;
     margin-bottom: 0;
   }
 }
-
-/*.order-by__text{
-	@include breakpoint(medium down){
-		font-size: 18px;
-	}
-}*/
 
 .order-by__tabs{
   display: inline-block;
