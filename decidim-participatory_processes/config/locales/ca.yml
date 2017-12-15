@@ -2,6 +2,7 @@ ca:
   activemodel:
     attributes:
       participatory_process:
+        announcement: Anunci
         banner_image: Imatge de bàner
         copy_categories: Copiar categories
         copy_features: Copiar funcionalitats
@@ -21,6 +22,7 @@ ca:
         scope_id: Àmbit
         scopes_enabled: Àmbit habilitat
         short_description: Descripció breu
+        show_statistics: Mostra estadístiques
         slug: Nom curt d'URL
         start_date: Data d'inici
         subtitle: Subtítol
@@ -217,6 +219,7 @@ ca:
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         participatory_processes:
           form:
+            announcement_help: El text que introduïu aquí es mostrarà a l'usuari just a sota de la informació del procés.
             slug_help: 'Els noms curts d''URL s''utilitzen per generar els URL que apunten a aquest procés. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
       index:
         title: Processos participatius
