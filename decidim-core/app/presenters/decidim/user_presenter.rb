@@ -6,6 +6,8 @@ module Decidim
   #
   class UserPresenter < SimpleDelegator
     #
+    # nickname presented in a twitter-like style
+    #
     def nickname
       "@#{super}"
     end
