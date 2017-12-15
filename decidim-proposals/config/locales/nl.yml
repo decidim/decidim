@@ -105,7 +105,7 @@ nl:
             one: 1 voorstel
             other: "%{count} voorstellen"
         edit:
-          attachment_legend: "(Optioneel) Voeg een bijlage toe"
+          attachment_legend: "(Optioneel) Een bijlage toevoegen"
           back: Terug
           select_a_category: Selecteer een categorie
           send: Verzenden
