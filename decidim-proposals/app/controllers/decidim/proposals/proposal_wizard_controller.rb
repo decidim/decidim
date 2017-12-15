@@ -85,7 +85,7 @@ module Decidim
         # )
         @form = form(Decidim::Proposals::ProposalForm).from_params(params)
 
-        Decidim::Proposals::CreateProposalWizard.call(@form, current_user) do
+        Decidim::Proposals::CreateProposal.call(@form, current_user) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
             redirect_to proposal_path(proposal)
