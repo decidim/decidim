@@ -15,7 +15,7 @@ pt:
             body: Corpo
         pages:
           edit:
-            save: Atualizar
+            save: Actualizar
             title: Editar Página
           update:
             invalid: Ocorreu erros ao salvar a página.
