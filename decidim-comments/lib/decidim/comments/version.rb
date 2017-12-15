@@ -4,7 +4,7 @@ module Decidim
   # This holds the decidim-comments version.
   module Comments
     def self.version
-      "0.8.2"
+      "0.8.3"
     end
   end
 end
