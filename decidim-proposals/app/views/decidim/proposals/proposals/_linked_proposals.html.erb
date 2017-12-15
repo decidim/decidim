@@ -9,14 +9,14 @@
           <%= link_to resource_locator(proposal).path, class: "card__link" do %>
             <h5 class="card--list__heading"><%= proposal.title %></h5>
           <% end %>
-          <% proposal.present_author do |author| %>
+          <% present(proposal) do |proposal| %>
             <div class="author">
               <span class="author__avatar">
-                <%= image_tag author.avatar_url %>
+                <%= image_tag proposal.author.avatar_url %>
               </span>
               <span class="author__name">
-                <strong><%= author.name %></strong>
-                <%= author.nickname %>
+                <strong><%= proposal.author.name %></strong>
+                <%= proposal.author.nickname %>
               </span>
             </div>
           <% end %>

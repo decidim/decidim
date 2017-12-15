@@ -124,18 +124,6 @@ module Decidim
         votes.count >= maximum_votes
       end
 
-      # Public: Instantiates a presenter for the author of the proposal and yields
-      #   the given block passing the instantiated presenter to it.
-      #
-      # Returns the instantiated presenter
-      def present_author
-        presenter = official? ? OfficialAuthorPresenter.new : UserPresenter.new(author)
-
-        yield(presenter)
-
-        presenter
-      end
-
       # Checks whether the user is author of the given proposal, either directly
       # authoring it or via a user group.
       #
