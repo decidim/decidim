@@ -28,6 +28,10 @@ ca:
             proposal_answering_enabled: Resposta oficial a propostes activades
             proposal_edit_before_minutes: Les propostes poden ser editades pels autors abans que passin aquest nombre de minuts
             proposal_limit: Límit de propostes per usuari
+            proposal_wizard_step_1_help_text: Text d'ajuda del primer de l'assistent de creació de la proposta
+            proposal_wizard_step_2_help_text: Text d'ajuda del segon paso de l'assistent de creació de la proposta
+            proposal_wizard_step_3_help_text: Text d'ajuda del tercer de l'assistent de creació de la proposta
+            proposal_wizard_step_4_help_text: Text d'ajuda del quart de l'assistent de creació de la proposta
             vote_limit: Límit de suports per usuari
           step:
             announcement: Avís
@@ -93,6 +97,35 @@ ca:
             votes: Suports
       new:
         limit_reached: No pots crear noves propostes ja que has superat el límit.
+      proposal_wizard:
+        actions:
+          exit_wizard: Hi ha propostes similars a les meves, vull acabar el procés de creació
+          go_to_step_2: Cercar propostes similars
+          go_to_step_3: Cap de les anteriors coincideix amb la meva, continua
+          go_to_step_4: Vista prèvia de la proposta
+          go_back_to_step_3: Vull corregir la meva proposta
+          go_to_finish: Publica la proposta
+          go_to_next_step: pròxim pas
+        header:
+          back: Enrere
+          title: Crear proposta
+        proposal_similar:
+          exit_wizard: Aquesta proposta coincideix amb la meva, vull acabar el procés de creació
+          view_proposal: Veure proposta
+        stepper:
+          step_1: Començament
+          step_2: Comparar
+          step_3: Completar
+          step_4: Publicar
+        step_2:
+          similar_proposals: "Propostas similars:"
+        step_3:
+          attachment_legend: "(Opcional) Afegir un fitxer adjunto"
+          select_a_category: Si us plau, selecciona una categoria
+          select_a_user_group: Si us plau, selecciona un usuari
+        step_4:
+          preview: "Vista previa"
+        validation_errors: "Lo sentimos, ha habido errores: "
       proposal_votes:
         create:
           error: Hi ha hagut errors en donar suport a la proposta.
