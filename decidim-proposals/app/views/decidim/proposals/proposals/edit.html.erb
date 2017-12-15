@@ -51,7 +51,7 @@
           <% end %>
 
           <div class="actions">
-            <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
+            <%= form.submit t(".send"), class: "button expanded", data: { disable: true } %>
           </div>
         <% end %>
       </div>
