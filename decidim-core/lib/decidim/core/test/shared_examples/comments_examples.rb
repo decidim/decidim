@@ -29,6 +29,8 @@ shared_examples "comments" do
 
     visit resource_path
 
+    expect(page).to have_no_content("Comments are disabled at this time")
+
     expect(page).to have_css(".comment", minimum: 1)
     page.find(".order-by .dropdown.menu .is-dropdown-submenu-parent").hover
 

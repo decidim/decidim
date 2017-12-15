@@ -38,9 +38,15 @@ describe "Conversations", type: :feature do
     end
 
     it "allows sending an initial message" do
-      fill_in "conversation_body", with: "Is this a Ryanair style democracy?"
-      click_button "Send"
+      start_conversation("Is this a Ryanair style democracy?")
+      expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
+    end
 
+    it "redirects to an existing conversation if it exists already" do
+      start_conversation("Is this a Ryanair style democracy?")
+      expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
+
+      visit decidim.new_conversation_path(recipient_id: recipient.id)
       expect(page).to have_selector(".message:last-child", text: "Is this a Ryanair style democracy?")
     end
   end
@@ -139,6 +145,13 @@ describe "Conversations", type: :feature do
         end
       end
     end
+  end
+
+  private
+
+  def start_conversation(message)
+    fill_in "conversation_body", with: message
+    click_button "Send"
   end
 
   def visit_inbox

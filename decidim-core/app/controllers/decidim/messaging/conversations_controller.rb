@@ -4,8 +4,10 @@ module Decidim
   module Messaging
     # The controller to handle the user's conversations.
     class ConversationsController < Decidim::ApplicationController
+      include ConversationHelper
       include FormFactory
 
+      helper ConversationHelper
       helper Decidim::DatetimeHelper
 
       before_action :authenticate_user!
@@ -14,8 +16,11 @@ module Decidim
 
       def new
         authorize! :create, Conversation
-
         @form = form(ConversationForm).from_params(params)
+
+        conversation = conversation_between(current_user, @form.recipient)
+
+        redirect_to conversation_path(conversation) if conversation
       end
 
       def create

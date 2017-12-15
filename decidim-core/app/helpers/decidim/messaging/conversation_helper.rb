@@ -21,14 +21,18 @@ module Decidim
       def link_to_current_or_new_conversation_with(user)
         return decidim.new_user_session_path unless user_signed_in?
 
-        conversation_between = UserConversations.for(current_user).find do |conversation|
-          conversation.participants.to_set == [current_user, user].to_set
-        end
+        conversation = conversation_between(current_user, user)
 
-        if conversation_between
-          decidim.conversation_path(conversation_between)
+        if conversation
+          decidim.conversation_path(conversation)
         else
           decidim.new_conversation_path(recipient_id: user.id)
+        end
+      end
+
+      def conversation_between(one_user, another_user)
+        UserConversations.for(one_user).find do |conversation|
+          conversation.participants.to_set == [one_user, another_user].to_set
         end
       end
     end
