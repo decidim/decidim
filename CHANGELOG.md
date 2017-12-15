@@ -10,6 +10,18 @@
 
 * **decidim-accountability**: Fixed missing `diff.js` [#2344](https://github.com/decidim/decidim/pull/2344)
 
+## [0.8.3](https://github.com/decidim/decidim/tree/v0.8.3)
+
+**Changed**:
+
+- **decidim-core**: Prevent many conversation with the same participants at the UI level. [\#2376](https://github.com/decidim/decidim/pull/2376)
+- **decidim-proposals**: Do not allow attachments on proposals edition [\#2221](https://github.com/decidim/decidim/pull/2221)
+
+**Fixed**:
+
+- **decidim-core**: Impossible to access conversation page from mobile devices. [\#2364](https://github.com/decidim/decidim/pull/2364)
+- **decidim-verifications**: Fixed a migration that broke feature permissions. If you already upgraded to `0.8.2` or less, please follow the instructions on the PR [\#2373](https://github.com/decidim/decidim/pull/2373)
+
 ## [0.8.2](https://github.com/decidim/decidim/tree/v0.8.2)
 
 **Upgrade notes**:
