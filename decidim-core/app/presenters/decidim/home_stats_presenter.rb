@@ -74,8 +74,14 @@ module Decidim
       end
     end
 
+    def public_participatory_spaces
+      @public_participatory_spaces ||= Decidim.participatory_space_manifests.flat_map do |manifest|
+        manifest.public_spaces.call(organization)
+      end
+    end
+
     def published_features
-      @published_features ||= Feature.where(participatory_space: ParticipatoryProcesses::OrganizationPublishedParticipatoryProcesses.new(organization).query).published
+      @published_features ||= Feature.where(participatory_space: public_participatory_spaces).published
     end
   end
 end

@@ -50,5 +50,9 @@ module Decidim
     def route_name
       super || model_class_name.demodulize.underscore
     end
+
+    def public_spaces(&block)
+      @public_resources ||= block
+    end
   end
 end
