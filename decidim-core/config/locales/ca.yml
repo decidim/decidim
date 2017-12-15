@@ -69,8 +69,8 @@ ca:
         name: Flux de treball d'autorització d'exemple
       errors:
         duplicate_authorization: Un usuari ja està autoritzat amb les mateixes dades.
-      expired_at: Vençut a %{timestamp}
-      expires_at: Caduca al %{timestamp}
+      expired_at: Vençut el %{timestamp}
+      expires_at: Caduca el %{timestamp}
       foo_authorization:
         fields:
           bar: Bar
@@ -239,7 +239,7 @@ ca:
       action_authorization_modal:
         expired:
           authorize: Torna a autoritzar amb "%{authorization}"
-          explanation: La vostra autorització ha caducat. Per realitzar aquesta acció, heu de tornar a autoritzar amb "%{authorization}".
+          explanation: La vostra autorització ha caducat. Per realitzar aquesta acció, heu de tornar a autoritzar-vos amb "%{authorization}".
           title: L'autorització ha caducat
         incomplete:
           cancel: Cancel·lar
