@@ -23,17 +23,18 @@ shared_examples "manage managed users examples" do
   end
 
   shared_examples_for "creating a managed user" do
-    it "shows a success message and goes back to managed users list" do
-      fill_in_the_managed_user_form
-
+    it "shows a success message" do
       expect(page).to have_content("successfully")
-      expect(page).to have_content("Foo")
     end
+
+    it_behaves_like "impersonating a managed user"
   end
 
   shared_examples_for "impersonating a managed user" do
+    let(:impersonated_user) { Decidim::User.managed.last }
+
     it "can impersonate the user filling in the correct authorization" do
-      expect(page).to have_content("You are impersonating the user #{managed_user.name}")
+      expect(page).to have_content("You are impersonating the user #{impersonated_user.name}")
       expect(page).to have_content("Your session will expire in #{Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES} minutes")
     end
 
@@ -71,6 +72,8 @@ shared_examples "manage managed users examples" do
       navigate_to_managed_users_page
 
       click_link "New"
+
+      fill_in_the_managed_user_form
     end
   end
 
@@ -86,6 +89,8 @@ shared_examples "manage managed users examples" do
       click_link "Example authorization", match: :first
 
       expect(page).to have_content(/Step 2 of 2/i)
+
+      fill_in_the_managed_user_form
     end
   end
 
@@ -128,10 +133,16 @@ shared_examples "manage managed users examples" do
   end
 
   context "when a manager user already exists" do
-    let!(:managed_user) { create(:user, :managed, organization: organization) }
+    let!(:managed_user) { create(:user, :managed, name: "Foo", organization: organization) }
     let!(:authorization) { create(:authorization, user: managed_user, name: "dummy_authorization_handler", unique_id: "123456789X") }
 
-    context "when the admin is impersonating that user" do
+    context "when using the create managed user form" do
+      include_context "with a single step managed user form"
+
+      it_behaves_like "creating a managed user"
+    end
+
+    context "when using the impersonation form" do
       before do
         impersonate_the_managed_user
       end
@@ -211,13 +222,13 @@ shared_examples "manage managed users examples" do
   end
 
   def simulate_session_expiration
-    expect(Decidim::Admin::ExpireImpersonationJob).to have_been_enqueued.with(managed_user, user)
+    expect(Decidim::Admin::ExpireImpersonationJob).to have_been_enqueued.with(impersonated_user, user)
     travel Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes
-    Decidim::Admin::ExpireImpersonationJob.perform_now(managed_user, user)
+    Decidim::Admin::ExpireImpersonationJob.perform_now(impersonated_user, user)
   end
 
   def check_impersonation_logs
-    within find("tr", text: managed_user.name) do
+    within find("tr", text: impersonated_user.name) do
       click_link "View logs"
     end
 

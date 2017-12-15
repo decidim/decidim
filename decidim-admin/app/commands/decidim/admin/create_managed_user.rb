@@ -22,29 +22,41 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         transaction do
-          create_managed_user
-          raise ActiveRecord::Rollback unless authorized_user?
-        end
+          unless managed_user.persisted?
+            managed_user.update!(admin: false, tos_agreement: true)
+          end
 
-        broadcast(:ok)
+          raise ActiveRecord::Rollback unless authorized_user? && impersonation_ok?
+
+          broadcast(:ok)
+        end
       end
 
       private
 
       attr_reader :form, :user
 
-      def create_managed_user
-        @user = Decidim::User.create!(
-          name: form.name,
+      def managed_user
+        @managed_user ||= Decidim::User.find_or_initialize_by(
           organization: form.current_organization,
-          admin: false,
           managed: true,
-          tos_agreement: true
+          name: form.name
         )
       end
 
+      def impersonation_ok?
+        ImpersonateManagedUser.call(form, managed_user) do
+          on(:ok) do
+            return true
+          end
+          on(:invalid) do
+            return false
+          end
+        end
+      end
+
       def authorized_user?
-        form.authorization.user = user
+        form.authorization.user = managed_user
         Verifications::AuthorizeUser.call(form.authorization) do
           on(:ok) do
             return true
