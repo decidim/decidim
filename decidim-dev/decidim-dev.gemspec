@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim", Decidim::Dev.version
   s.add_dependency "factory_bot_rails", "~> 4.8"
 
-  s.add_dependency "byebug"
+  s.add_dependency "byebug", "~> 9.0"
   s.add_dependency "codecov", "~> 0.1.9"
   s.add_dependency "db-query-matchers", "~> 0.9.0"
   s.add_dependency "i18n-tasks", "0.9.18"

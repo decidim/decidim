@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-core", Decidim::Surveys.version
-  s.add_dependency "jquery-tmpl-rails", "~> 1.1.0"
+  s.add_dependency "jquery-tmpl-rails", "~> 1.1"
 
   s.add_development_dependency "decidim-admin", Decidim::Surveys.version
   s.add_development_dependency "decidim-dev", Decidim::Surveys.version

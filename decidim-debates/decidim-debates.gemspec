@@ -17,8 +17,8 @@ Gem::Specification.new do |s|
 
   s.add_dependency "decidim-comments"
   s.add_dependency "decidim-core"
-  s.add_dependency "kaminari", "~> 1.0.0.rc1"
-  s.add_dependency "searchlight", "~> 4.1.0"
+  s.add_dependency "kaminari", "~> 1.0"
+  s.add_dependency "searchlight", "~> 4.1"
 
   s.add_development_dependency "decidim-admin", Decidim::Debates.version
   s.add_development_dependency "decidim-dev", Decidim::Debates.version
