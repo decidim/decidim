@@ -18,7 +18,7 @@ fr:
         name: Propositions
         settings:
           global:
-            announcement: Annonce
+            announcement: Message d'annonce
             attachments_allowed: Autoriser les pièces jointes
             comments_enabled: Commentaires activés
             geocoding_enabled: Géocodage activé
@@ -30,7 +30,7 @@ fr:
             proposal_limit: Maximum de propositions par utilisateur
             vote_limit: Nombre maximum de votes par utilisateur
           step:
-            announcement: Annonce
+            announcement: Message d'annonce
             comments_blocked: Commentaires bloqués
             creation_enabled: Module propositions activé
             proposal_answering_enabled: '"Réponses aux propositions" activé'
@@ -74,7 +74,7 @@ fr:
             create: Créer
             title: Créer une proposition
       answers:
-        accepted: Retenues
+        accepted: Retenue
         evaluating: En cours d'évaluation
         not_answered: Resté sans réponse
         rejected: Refusée
@@ -111,7 +111,7 @@ fr:
           send: Envoyer
           title: Modifier la proposition
         filters:
-          accepted: Retenues
+          accepted: Retenue
           activity: Activité
           all: Toutes
           category: Catégorie
