@@ -83,7 +83,7 @@ eu:
         title: Titulua
   date:
     formats:
-      datepicker: "%Y / %m / %d"
+      datepicker: "%Y/%m/%d"
   decidim:
     admin:
       actions:
@@ -467,5 +467,5 @@ eu:
           title: Erabiltzaileak
   time:
     formats:
-      datepicker: "%Y / %m / %d"
+      datepicker: "%Y/%m/%d"
       timepicker: "%d/%m/%Y %H:%M"

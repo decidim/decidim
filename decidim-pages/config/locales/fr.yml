@@ -5,9 +5,9 @@ fr:
         name: Page
         settings:
           global:
-            announcement: Annonce
+            announcement: Message d'annonce
           step:
-            announcement: Annonce
+            announcement: Message d'annonce
     pages:
       admin:
         models:

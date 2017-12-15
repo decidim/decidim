@@ -69,6 +69,8 @@ uk:
         name: Приклад шляху підтвердження особи
       errors:
         duplicate_authorization: Інший учасник вже підтвердив свою особу з такими ж даними.
+      expired_at: Термін дії закінчився %{timestamp}
+      expires_at: Термін дії закінчується %{timestamp}
       foo_authorization:
         fields:
           bar: Приклад змінної 1
@@ -235,6 +237,10 @@ uk:
         success: Скарга була успішно створена, і вона буде розглянута адміністратором.
     shared:
       action_authorization_modal:
+        expired:
+          authorize: Знову підтвердити свою особу за допомогою "%{authorization}"
+          explanation: Термін дії підтвердження вашої особи вичерпався. Щоб виконати цю дію, вам потрібно знову підтвердити свою особу за допомогою "%{authorization}".
+          title: Термін дії підтвердження особи вичерпався
         incomplete:
           cancel: Скасувати
           explanation: 'Незважаючи на те, що ви наразі підтвердили свою особу за допомогою "%{authorization}", ми просимо вас знову підтвердити свою особу, оскільки нам не вистачає наступних даних:'
@@ -347,6 +353,7 @@ uk:
         title: Сповіщення
       user_menu:
         admin_dashboard: Приладна дошка адміністрування
+        conversations: Бесіди
         notifications: Сповіщення
         profile: Мій обліковий запис
         sign_out: Вийти
@@ -381,6 +388,7 @@ uk:
         welcome: Ласкаво просимо до %{organization}!
       statistics:
         answers_count: Відповіді
+        assemblies_count: Збори
         comments_count: Коментарі
         headline: Поточний стан %{organization}
         meetings_count: Зустрічі
@@ -388,6 +396,7 @@ uk:
         pages_count: Сторінки
         processes_count: Рухи
         projects_count: Проекти
+        proposals_accepted: Прийняті пропозиції
         proposals_count: Пропозиції
         results_count: Підсумки
         surveys_count: Опитування
@@ -420,7 +429,7 @@ uk:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
-      decidim_short: "%H:%M %d/%m/%Y "
+      decidim_short: "%H:%M %d.%m.%Y"
       time_of_day: "%H:%M"
   views:
     pagination:
