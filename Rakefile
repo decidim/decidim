@@ -3,8 +3,7 @@
 require "bundler/gem_tasks"
 require "rspec/core/rake_task"
 require "generators/decidim/app_generator"
-
-DECIDIM_GEMS = %w(core system admin api participatory_processes assemblies pages meetings proposals comments accountability budgets surveys verifications dev).freeze
+require "decidim/component_manager"
 
 RSpec::Core::RakeTask.new(:spec)
 
@@ -15,53 +14,38 @@ task test_all: [:test_main, :test_subgems]
 
 desc "Runs all tests in decidim subgems"
 task test_subgems: :test_app do
-  RakeUtils.run_all "rake", except: ["dev"], include_root: false
+  Decidim::ComponentManager.run_all("rake", include_root: false)
 end
 
 desc "Runs all tests in the main decidim gem"
 task :test_main do
-  RakeUtils.run "rake"
+  Decidim::ComponentManager.new(__dir__).run("rake")
 end
 
 desc "Update version in all gems to the one set in the `.decidim-version` file"
 task :update_versions do
-  RakeUtils.replace_file(
-    "#{__dir__}/package.json",
-    /^  "version": "[^"]*"/,
-    "  \"version\": \"#{RakeUtils.gsub(/\.pre/, "-pre")}\""
-  )
-
-  DECIDIM_GEMS.each do |name|
-    RakeUtils.replace_file(
-      "#{__dir__}/decidim-#{name}/lib/decidim/#{name}/version.rb",
-      /def self\.version(\s*)"[^"]*"/,
-      "def self.version\\1\"#{RakeUtils.version}\""
-    )
-  end
-
-  RakeUtils.replace_file(
-    "#{__dir__}/lib/decidim/version.rb",
-    /def self\.version(\s*)"[^"]*"/,
-    "def self.version\\1\"#{RakeUtils.version}\""
-  )
+  Decidim::ComponentManager.replace_versions
 end
 
 desc "Installs all gems locally."
 task :install_all do
-  RakeUtils.run_all "rake install:local", out: File::NULL
+  Decidim::ComponentManager.run_all(
+    "rake install:local",
+    out: File::NULL
+  )
 end
 
 desc "Uninstalls all gems locally."
 task :uninstall_all do
-  system("gem uninstall decidim -v #{RakeUtils.version} --executables --force")
-  DECIDIM_GEMS.each do |name|
-    system("gem uninstall decidim-#{name} -v #{RakeUtils.version} --executables --force")
-  end
+  Decidim::ComponentManager.run_all(
+    "gem uninstall %name -v %version --executables --force",
+    out: File::NULL
+  )
 end
 
 desc "Pushes a new build for each gem."
 task release_all: [:update_versions, :check_locale_completeness, :webpack] do
-  RakeUtils.run_all "rake release"
+  Decidim::ComponentManager.run_all("rake release")
 end
 
 desc "Makes sure all official locales are complete and clean."
@@ -96,34 +80,4 @@ end
 desc "Build webpack bundle files"
 task :webpack do
   sh "yarn install && yarn build:prod"
-end
-
-module RakeUtils
-  def self.replace_file(name, regexp, replacement)
-    new_content = File.read(name).gsub(regexp, replacement)
-
-    File.open(name, "w") { |f| f.write(new_content) }
-  end
-
-  def self.version
-    File.read("#{__dir__}/.decidim-version").strip
-  end
-
-  def self.run_all(command, out: STDOUT, except: [], include_root: true)
-    dirs = (DECIDIM_GEMS - except).map { |name| "#{__dir__}/decidim-#{name}" }
-
-    dirs += [__dir__] if include_root == true
-
-    dirs.each do |dir|
-      run command, dir: dir, out: out
-    end
-  end
-
-  def self.run(command, dir: __dir__, out: STDOUT)
-    Dir.chdir(dir) do
-      puts "Running command '#{command}' inside '#{File.basename(dir)}'..."
-      status = system(command, out: out)
-      abort unless status || ENV["FAIL_FAST"] == "false"
-    end
-  end
 end
