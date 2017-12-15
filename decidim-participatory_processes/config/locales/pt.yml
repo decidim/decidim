@@ -13,13 +13,13 @@ pt:
         hashtag: Hashtag
         hero_image: Imagem inicial
         local_area: Área Local
-        meta_scope: Metadados do escopo
+        meta_scope: Metadados do âmbito
         participatory_process_group_id: Grupo de processos
-        participatory_scope: Escopo participativo
+        participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
         promoted: Destacado
-        scope_id: Escopo
-        scopes_enabled: Escopos ativados
+        scope_id: Âmbito
+        scopes_enabled: Âmbitos ativados
         short_description: Pequena descrição
         slug: Slug de URL
         start_date: Data de início
@@ -230,7 +230,7 @@ pt:
           highlighted_processes:
             active_processes: Processos ativos
             active_step: Passo ativo
-            see_all_processes: Veja todos os processos
+            see_all_processes: Ver todos os processos
       participatory_process_groups:
         none: Nenhum
       participatory_processes:
@@ -242,7 +242,7 @@ pt:
         local_area: Área de organização
         participatory_scope: O que é decidido
         participatory_structure: Como é decidido
-        scope: Escopo
+        scope: Âmbito
         start_date: Data de início
         target: Quem participa
       statistics:
@@ -260,7 +260,7 @@ pt:
         users_count: Participantes
         votes_count: Votos
     scopes:
-      global: Escopo global
+      global: Âmbito global
   layouts:
     decidim:
       participatory_process_groups:
@@ -289,4 +289,4 @@ pt:
         unfold: Desdobrar
       process_header_steps:
         step: Passo %{current} de %{total}
-        view_steps: Veja os passos
+        view_steps: Ver as etapas

@@ -4,7 +4,7 @@ pt:
       result:
         decidim_accountability_status_id: status
         decidim_category_id: Categoria
-        decidim_scope_id: Escopo
+        decidim_scope_id: Âmbito
         description: Descrição
         end_date: Data final
         progress: Progresso
@@ -119,7 +119,7 @@ pt:
         filters:
           all: Todos
           global: Global
-          scopes: Escopos
+          scopes: Âmbitos
         home:
           categories_label: Categorias
           subcategories_label: Subcategorias
