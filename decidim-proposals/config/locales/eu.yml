@@ -105,7 +105,7 @@ eu:
             one: 1 proposamen
             other: "%{count} proposamen"
         edit:
-          attachment_legend: "(Aukerakoa) Gehitu eranskina"
+          attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
           back: Back
           select_a_category: Hautatu kategoria bat
           send: Bidali
