@@ -8,11 +8,9 @@ module Decidim
       #
       # form         - The form with the authorization info
       # user         - The user to impersonate
-      # current_user - The current user doing the impersonation.
-      def initialize(form, user, current_user)
+      def initialize(form, user)
         @form = form
         @user = user
-        @current_user = current_user
       end
 
       # Executes the command. Broadcasts these events:
@@ -32,7 +30,7 @@ module Decidim
 
       private
 
-      attr_reader :current_user, :user, :form
+      attr_reader :user, :form
 
       def authorization_valid?
         return false unless form.valid?
@@ -45,7 +43,7 @@ module Decidim
 
       def create_impersonation_log
         Decidim::ImpersonationLog.create!(
-          admin: current_user,
+          admin: form.current_user,
           user: user,
           started_at: Time.current
         )
@@ -54,7 +52,7 @@ module Decidim
       def enqueue_expire_job
         Decidim::Admin::ExpireImpersonationJob
           .set(wait: Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes)
-          .perform_later(user, current_user)
+          .perform_later(user, form.current_user)
       end
     end
   end
