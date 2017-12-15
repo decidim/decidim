@@ -45,8 +45,8 @@ module Decidim
         session[:proposal] = params[:proposal]
         if @form.valid?
           @similar_proposals ||= Decidim::Proposals::SimilarProposals
-                               .for(current_feature, @form)
-                               .all
+                                 .for(current_feature, @form)
+                                 .all
           render_wizard
         else
           flash.now[:alert] = I18n.t("proposals.proposal_wizard.validation_errors", scope: "decidim")
@@ -76,7 +76,6 @@ module Decidim
           @step = :step_3
           render "step_3"
         end
-
       end
 
       def step_5_step
@@ -97,7 +96,6 @@ module Decidim
           end
         end
       end
-
     end
   end
 end
