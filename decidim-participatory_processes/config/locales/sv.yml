@@ -2,6 +2,7 @@ sv:
   activemodel:
     attributes:
       participatory_process:
+        announcement: Meddelande
         banner_image: Banner image
         copy_categories: Kopiera kategorier
         copy_features: Kopiera funktioner
@@ -21,6 +22,7 @@ sv:
         scope_id: Omfattning
         scopes_enabled: Scopes aktiverade
         short_description: Kort beskrivning
+        show_statistics: Visa statistik
         slug: URL slug
         start_date: Start datum
         subtitle: Texta
