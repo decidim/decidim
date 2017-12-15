@@ -83,7 +83,7 @@ uk:
         title: Назва
   date:
     formats:
-      datepicker: "%d. %m. %Y"
+      datepicker: "%d.%m.%Y"
   decidim:
     admin:
       actions:
@@ -467,5 +467,5 @@ uk:
           title: Учасники
   time:
     formats:
-      datepicker: "%d. %m. %Y"
+      datepicker: "%d.%m.%Y"
       timepicker: "%H:%M %d.%m.%Y"

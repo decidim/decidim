@@ -108,12 +108,12 @@ fr:
         name: Budgets
         settings:
           global:
-            announcement: Annonce
+            announcement: Message d'annonce
             comments_enabled: Commentaires activés
             total_budget: Budget total
             vote_threshold_percent: Pourcentage de seuil de vote
           step:
-            announcement: Annonce
+            announcement: Message d'annonce
             comments_blocked: Commentaires bloqués
             show_votes: Afficher les votes
             votes_enabled: Votes activés

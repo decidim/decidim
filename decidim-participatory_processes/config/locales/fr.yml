@@ -92,7 +92,7 @@ fr:
           name: Rôle utilisateur du processus participatif
           roles:
             admin: Administrateur
-            collaborator: Rédacteur
+            collaborator: Relecteur
             moderator: Modérateur
         user:
           fields:
@@ -121,7 +121,7 @@ fr:
           success: Processus participatif publié avec succès.
         destroy:
           error: Une erreur s'est produite lors de la publication de ce processus participatif.
-          success: Processus participatif supprimé avec succès.
+          success: Processus participatif dépublié avec succès.
       participatory_process_step_activations:
         create:
           error: Une erreur s'est produite lors de l'activation de cette étape du processus participatif.

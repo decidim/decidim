@@ -11,12 +11,12 @@ pt:
         hashtag: Hashtag
         hero_image: Imagem inicial
         local_area: Área Local
-        meta_scope: Metadados do escopo
-        participatory_scope: Escopo participativo
+        meta_scope: Metadados do âmbito
+        participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
         promoted: Destacado
-        scope_id: Escopo
-        scopes_enabled: Escopos ativados
+        scope_id: Âmbito
+        scopes_enabled: Âmbitos ativados
         short_description: Pequena descrição
         slug: Slug de URL
         subtitle: Subtítulo
@@ -95,9 +95,9 @@ pt:
       show:
         developer_group: Grupo de desenvolvedores
         local_area: Área Local
-        participatory_scope: Escopo participativo
+        participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
-        scope: Escopo
+        scope: Âmbito
         target: Alvo
       statistics:
         answers_count: Respostas
