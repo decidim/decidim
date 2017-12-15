@@ -351,6 +351,7 @@ ca:
         title: Notificacions
       user_menu:
         admin_dashboard: Tauler d'administració
+        conversations: Converses
         notifications: Notificacions
         profile: El meu compte
         sign_out: Surt
