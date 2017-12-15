@@ -3,12 +3,16 @@
 module Decidim
   # This concern contains the logic related to nicknames.
   module Nicknamizable
-    def nickname_length
-      (0...20)
+    def nickname_length_range
+      (0...nickname_max_length)
+    end
+
+    def nickname_max_length
+      20
     end
 
     def nicknamize(name)
-      disambiguate(name.parameterize(separator: "_")[nickname_length])
+      disambiguate(name.parameterize(separator: "_")[nickname_length_range])
     end
 
     private

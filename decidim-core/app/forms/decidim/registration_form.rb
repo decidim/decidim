@@ -20,7 +20,7 @@ module Decidim
 
     validates :sign_up_as, inclusion: { in: %w(user user_group) }
     validates :name, presence: true
-    validates :nickname, presence: true, length: { in: Decidim::User.nickname_length }
+    validates :nickname, presence: true, length: { in: Decidim::User.nickname_length_range }
     validates :email, presence: true
     validates :password, presence: true, confirmation: true, length: { in: Decidim::User.password_length }
     validates :tos_agreement, allow_nil: false, acceptance: true
