@@ -23,8 +23,14 @@ module Decidim
       2.step do |n|
         return candidate unless exists?(nickname: candidate)
 
-        candidate = "#{candidate}_#{n}"
+        candidate = clon(candidate, n)
       end
+    end
+
+    def clon(candidate, number)
+      appendix = "_#{number}"
+
+      "#{candidate[0...(nickname_max_length - appendix.length)]}#{appendix}"
     end
   end
 end

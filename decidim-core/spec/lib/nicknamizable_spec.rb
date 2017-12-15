@@ -31,6 +31,12 @@ module Decidim
 
         expect(subject.nicknamize("ana_pastor")).to eq("ana_pastor_2")
       end
+
+      it "resolves conflicts with long current nicknames" do
+        create(:user, nickname: "felipe_rocks_so_much")
+
+        expect(subject.nicknamize("Felipe Rocks So Much")).to eq("felipe_rocks_so_mu_2")
+      end
     end
   end
 end
