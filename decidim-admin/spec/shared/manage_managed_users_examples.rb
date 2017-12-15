@@ -22,12 +22,8 @@ shared_examples "manage managed users examples" do
     end
   end
 
-  shared_examples_for "a single authorization handler enabled situations" do
-    it "creates a managed user filling in the authorization info" do
-      navigate_to_managed_users_page
-
-      click_link "New"
-
+  shared_examples_for "creating a managed user" do
+    it "shows a success message and goes back to managed users list" do
       fill_in_the_managed_user_form
 
       expect(page).to have_content("successfully")
@@ -35,19 +31,50 @@ shared_examples "manage managed users examples" do
     end
   end
 
-  context "when no authorization workflows enabled" do
-    it_behaves_like "a single authorization handler enabled situations"
-  end
+  shared_context "with a single step managed user form" do
+    before do
+      navigate_to_managed_users_page
 
-  context "when authorization workflows are enabled" do
-    it_behaves_like "a single authorization handler enabled situations" do
-      let(:available_authorizations) do
-        %w(dummy_authorization_handler dummy_authorization_workflow)
-      end
+      click_link "New"
     end
   end
 
+  shared_context "with a multiple step managed user form" do
+    before do
+      navigate_to_managed_users_page
+
+      click_link "New"
+
+      expect(page).to have_content(/Select an authorization method/i)
+      expect(page).to have_content(/Step 1 of 2/i)
+
+      click_link "Example authorization", match: :first
+
+      expect(page).to have_content(/Step 2 of 2/i)
+    end
+  end
+
+  context "when no authorization workflows enabled" do
+    include_context "with a single step managed user form"
+
+    it_behaves_like "creating a managed user"
+  end
+
+  context "when authorization workflows are enabled" do
+    let(:available_authorizations) do
+      %w(dummy_authorization_handler dummy_authorization_workflow)
+    end
+
+    include_context "with a single step managed user form"
+
+    it_behaves_like "creating a managed user"
+  end
+
   context "when more than one authorization handler enabled" do
+    let(:available_authorizations) do
+      %w(dummy_authorization_handler another_dummy_authorization_handler)
+    end
+
     before do
       Decidim::Verifications.register_workflow(:another_dummy_authorization_handler) do |workflow|
         workflow.form = "Decidim::DummyAuthorizationHandler"
@@ -59,25 +86,9 @@ shared_examples "manage managed users examples" do
     end
 
     context "and available for the organization" do
-      let(:available_authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
+      include_context "with a multiple step managed user form"
 
-      it "selects an authorization method and creates a managed user filling in the authorization info" do
-        navigate_to_managed_users_page
-
-        click_link "New"
-
-        expect(page).to have_content(/Select an authorization method/i)
-        expect(page).to have_content(/Step 1 of 2/i)
-
-        click_link "Example authorization", match: :first
-
-        expect(page).to have_content(/Step 2 of 2/i)
-
-        fill_in_the_managed_user_form
-
-        expect(page).to have_content("successfully")
-        expect(page).to have_content("Foo")
-      end
+      it_behaves_like "creating a managed user"
     end
   end
 
