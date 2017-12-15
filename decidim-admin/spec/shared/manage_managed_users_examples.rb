@@ -5,6 +5,7 @@ shared_examples "manage managed users examples" do
 
   let(:organization) { create(:organization, available_authorizations: available_authorizations) }
   let(:available_authorizations) { ["dummy_authorization_handler"] }
+  let(:document_number) { "123456789X" }
 
   before do
     switch_to_host(organization.host)
@@ -25,6 +26,14 @@ shared_examples "manage managed users examples" do
   shared_examples_for "creating a managed user" do
     it "shows a success message" do
       expect(page).to have_content("successfully")
+    end
+
+    context "when authorization data is invalid" do
+      let(:document_number) { "123456789Y" }
+
+      it "shows the errors in the form" do
+        expect(page).to have_selector("label", text: "Document number* is invalid")
+      end
     end
 
     it_behaves_like "impersonating a managed user"
@@ -73,7 +82,7 @@ shared_examples "manage managed users examples" do
 
       click_link "New"
 
-      fill_in_the_managed_user_form
+      fill_in_the_managed_user_form(document_number)
     end
   end
 
@@ -90,7 +99,7 @@ shared_examples "manage managed users examples" do
 
       expect(page).to have_content(/Step 2 of 2/i)
 
-      fill_in_the_managed_user_form
+      fill_in_the_managed_user_form(document_number)
     end
   end
 
@@ -188,10 +197,10 @@ shared_examples "manage managed users examples" do
 
   private
 
-  def fill_in_the_managed_user_form
+  def fill_in_the_managed_user_form(document_number)
     within "form.new_managed_user" do
       fill_in :managed_user_name, with: "Foo"
-      fill_in :managed_user_authorization_document_number, with: "123456789X"
+      fill_in :managed_user_authorization_document_number, with: document_number
       fill_in :managed_user_authorization_postal_code, with: "08224"
       page.execute_script("$('#managed_user_authorization_birthday').siblings('input:first').focus()")
     end
