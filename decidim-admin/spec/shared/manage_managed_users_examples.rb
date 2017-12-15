@@ -93,9 +93,11 @@ shared_examples "manage managed users examples" do
     end
 
     context "when the admin is impersonating that user" do
-      it "closes the current session and check the logs" do
+      before do
         impersonate_the_managed_user
+      end
 
+      it "closes the current session and check the logs" do
         visit decidim.root_path
 
         click_button "Close session"
@@ -106,8 +108,6 @@ shared_examples "manage managed users examples" do
       end
 
       it "spends all the session time and is redirected automatically" do
-        impersonate_the_managed_user
-
         simulate_session_expiration
 
         visit decidim.root_path
@@ -118,8 +118,6 @@ shared_examples "manage managed users examples" do
       end
 
       it "can impersonate again after an impersonation session expiration" do
-        impersonate_the_managed_user
-
         simulate_session_expiration
 
         navigate_to_managed_users_page
