@@ -32,7 +32,7 @@ module Decidim
     end
 
     def utm_codes(host, newsletter_id)
-      "?utm_source=" + host + "&utm_campaign=" + newsletter_id
+      "?utm_source=#{host}&utm_campaign=#{newsletter_id}"
     end
   end
 end
