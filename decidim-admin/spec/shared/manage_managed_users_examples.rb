@@ -5,6 +5,7 @@ shared_examples "manage managed users examples" do
 
   let(:organization) { create(:organization, available_authorizations: available_authorizations) }
   let(:available_authorizations) { ["dummy_authorization_handler"] }
+  let(:document_number) { "123456789X" }
 
   before do
     switch_to_host(organization.host)
@@ -22,32 +23,107 @@ shared_examples "manage managed users examples" do
     end
   end
 
-  shared_examples_for "a single authorization handler enabled situations" do
-    it "creates a managed user filling in the authorization info" do
+  shared_examples_for "creating a managed user" do
+    it "shows a success message" do
+      expect(page).to have_content("successfully")
+    end
+
+    context "when authorization data is invalid" do
+      let(:document_number) { "123456789Y" }
+
+      it "shows the errors in the form" do
+        expect(page).to have_selector("label", text: "Document number* is invalid")
+      end
+    end
+
+    it_behaves_like "impersonating a managed user"
+  end
+
+  shared_examples_for "impersonating a managed user" do
+    let(:impersonated_user) { Decidim::User.managed.last }
+
+    it "can impersonate the user filling in the correct authorization" do
+      expect(page).to have_content("You are impersonating the user #{impersonated_user.name}")
+      expect(page).to have_content("Your session will expire in #{Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES} minutes")
+    end
+
+    it "closes the current session and check the logs" do
+      visit decidim.root_path
+
+      click_button "Close session"
+
+      expect(page).to have_content("successfully")
+
+      check_impersonation_logs
+    end
+
+    it "spends all the session time and is redirected automatically" do
+      simulate_session_expiration
+
+      visit decidim.root_path
+
+      expect(page).to have_content("expired")
+
+      check_impersonation_logs
+    end
+
+    it "can impersonate again after an impersonation session expiration" do
+      simulate_session_expiration
+
+      navigate_to_managed_users_page
+
+      expect(page).to have_link("Impersonate")
+    end
+  end
+
+  shared_context "with a single step managed user form" do
+    before do
       navigate_to_managed_users_page
 
       click_link "New"
 
-      fill_in_the_managed_user_form
+      fill_in_the_managed_user_form(document_number)
+    end
+  end
 
-      expect(page).to have_content("successfully")
-      expect(page).to have_content("Foo")
+  shared_context "with a multiple step managed user form" do
+    before do
+      navigate_to_managed_users_page
+
+      click_link "New"
+
+      expect(page).to have_content(/Select an authorization method/i)
+      expect(page).to have_content(/Step 1 of 2/i)
+
+      click_link "Example authorization", match: :first
+
+      expect(page).to have_content(/Step 2 of 2/i)
+
+      fill_in_the_managed_user_form(document_number)
     end
   end
 
   context "when no authorization workflows enabled" do
-    it_behaves_like "a single authorization handler enabled situations"
+    include_context "with a single step managed user form"
+
+    it_behaves_like "creating a managed user"
   end
 
   context "when authorization workflows are enabled" do
-    it_behaves_like "a single authorization handler enabled situations" do
-      let(:available_authorizations) do
-        %w(dummy_authorization_handler dummy_authorization_workflow)
-      end
+    let(:available_authorizations) do
+      %w(dummy_authorization_handler dummy_authorization_workflow)
     end
+
+    include_context "with a single step managed user form"
+
+    it_behaves_like "creating a managed user"
   end
 
   context "when more than one authorization handler enabled" do
+    let(:available_authorizations) do
+      %w(dummy_authorization_handler another_dummy_authorization_handler)
+    end
+
     before do
       Decidim::Verifications.register_workflow(:another_dummy_authorization_handler) do |workflow|
         workflow.form = "Decidim::DummyAuthorizationHandler"
@@ -59,73 +135,28 @@ shared_examples "manage managed users examples" do
     end
 
     context "and available for the organization" do
-      let(:available_authorizations) { %w(dummy_authorization_handler another_dummy_authorization_handler) }
+      include_context "with a multiple step managed user form"
 
-      it "selects an authorization method and creates a managed user filling in the authorization info" do
-        navigate_to_managed_users_page
-
-        click_link "New"
-
-        expect(page).to have_content(/Select an authorization method/i)
-        expect(page).to have_content(/Step 1 of 2/i)
-
-        click_link "Example authorization", match: :first
-
-        expect(page).to have_content(/Step 2 of 2/i)
-
-        fill_in_the_managed_user_form
-
-        expect(page).to have_content("successfully")
-        expect(page).to have_content("Foo")
-      end
+      it_behaves_like "creating a managed user"
     end
   end
 
   context "when a manager user already exists" do
-    let!(:managed_user) { create(:user, :managed, organization: organization) }
+    let!(:managed_user) { create(:user, :managed, name: "Foo", organization: organization) }
     let!(:authorization) { create(:authorization, user: managed_user, name: "dummy_authorization_handler", unique_id: "123456789X") }
 
-    it "can impersonate the user filling in the correct authorization" do
-      impersonate_the_managed_user
+    context "when using the create managed user form" do
+      include_context "with a single step managed user form"
 
-      expect(page).to have_content("You are impersonating the user #{managed_user.name}")
-      expect(page).to have_content("Your session will expire in #{Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES} minutes")
+      it_behaves_like "creating a managed user"
     end
 
-    context "when the admin is impersonating that user" do
-      it "closes the current session and check the logs" do
+    context "when using the impersonation form" do
+      before do
         impersonate_the_managed_user
-
-        visit decidim.root_path
-
-        click_button "Close session"
-
-        expect(page).to have_content("successfully")
-
-        check_impersonation_logs
       end
 
-      it "spends all the session time and is redirected automatically" do
-        impersonate_the_managed_user
-
-        simulate_session_expiration
-
-        visit decidim.root_path
-
-        expect(page).to have_content("expired")
-
-        check_impersonation_logs
-      end
-
-      it "can impersonate again after an impersonation session expiration" do
-        impersonate_the_managed_user
-
-        simulate_session_expiration
-
-        navigate_to_managed_users_page
-
-        expect(page).to have_link("Impersonate")
-      end
+      it_behaves_like "impersonating a managed user"
     end
 
     it "can promote the user inviting them to the application" do
@@ -166,10 +197,10 @@ shared_examples "manage managed users examples" do
 
   private
 
-  def fill_in_the_managed_user_form
+  def fill_in_the_managed_user_form(document_number)
     within "form.new_managed_user" do
       fill_in :managed_user_name, with: "Foo"
-      fill_in :managed_user_authorization_document_number, with: "123456789X"
+      fill_in :managed_user_authorization_document_number, with: document_number
       fill_in :managed_user_authorization_postal_code, with: "08224"
       page.execute_script("$('#managed_user_authorization_birthday').siblings('input:first').focus()")
     end
@@ -200,13 +231,13 @@ shared_examples "manage managed users examples" do
   end
 
   def simulate_session_expiration
-    expect(Decidim::Admin::ExpireImpersonationJob).to have_been_enqueued.with(managed_user, user)
+    expect(Decidim::Admin::ExpireImpersonationJob).to have_been_enqueued.with(impersonated_user, user)
     travel Decidim::ImpersonationLog::SESSION_TIME_IN_MINUTES.minutes
-    Decidim::Admin::ExpireImpersonationJob.perform_now(managed_user, user)
+    Decidim::Admin::ExpireImpersonationJob.perform_now(impersonated_user, user)
   end
 
   def check_impersonation_logs
-    within find("tr", text: managed_user.name) do
+    within find("tr", text: impersonated_user.name) do
       click_link "View logs"
     end
 
