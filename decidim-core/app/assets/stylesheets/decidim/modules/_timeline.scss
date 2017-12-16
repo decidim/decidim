@@ -6,20 +6,19 @@ $timeline-inactive-color: $medium-gray;
 
 $timeline-padding: 1rem;
 
-
-
 /* Timeline */
 
-.timeline {
+.timeline{
   list-style: none;
   margin: 2rem 0 0;
 }
 
-.timeline__item {
+.timeline__item{
   padding-bottom: 2em;
   position: relative;
-  &:before {
-    content:"";
+
+  &::before{
+    content: "";
     width: 3px;
     height: 100%;
     background: $timeline-color;
@@ -27,13 +26,15 @@ $timeline-padding: 1rem;
     top: 0;
     position: absolute;
   }
-  &:after {
+
+  &::after{
     content: "";
     clear: both;
     display: table;
     width: 100%;
   }
-  &:last-of-type:before{
+
+  &:last-of-type::before{
     width: 0;
   }
 }
@@ -72,6 +73,7 @@ $timeline-padding: 1rem;
   float: right;
   background-color: $white;
   border: $border;
+
   .timeline__item--current &{
     border-color: $timeline-color;
   }
@@ -80,6 +82,7 @@ $timeline-padding: 1rem;
 .timeline__header{
   background: $medium-gray;
   padding: $timeline-padding/2 $timeline-padding;
+
   .timeline__item--current &{
     background-color: $timeline-color;
     color: $white;
@@ -88,8 +91,9 @@ $timeline-padding: 1rem;
 
 .timeline__date{
   color: $muted;
+
   .timeline__item--current &{
-    color: rgba($white,.8);
+    color: rgba($white, .8);
   }
 }
 
@@ -99,6 +103,7 @@ $timeline-padding: 1rem;
 
 .timeline__content{
   padding: $timeline-padding;
+
   :last-child{
     margin-bottom: 0;
   }
@@ -108,6 +113,7 @@ $timeline-padding: 1rem;
   list-style: none;
   margin: 0;
   border-top: $border;
+
   @include breakpoint(medium){
     display: flex;
     flex-wrap: wrap;
@@ -119,12 +125,15 @@ $timeline-padding: 1rem;
   text-align: center;
   padding: .5em;
   border-bottom: $border;
+
   &:last-child{
     border-bottom: 0;
   }
+
   @include breakpoint(medium){
     border-bottom: 0;
     border-right: $border;
+
     &:last-child{
       border-right: 0;
     }
@@ -143,7 +152,7 @@ $timeline-padding: 1rem;
 .timeline__item-text{
   display: block;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: .03em;
   font-size: 90%;
   color: $body-font-color;
   font-weight: 600;
@@ -153,19 +162,21 @@ $timeline-padding: 1rem;
 /* Inactive timeline */
 
 .timeline__item--current{
-  &:before {
+  &::before{
     background: $timeline-inactive-color;
   }
 }
 
 .timeline__item--inactive{
-  &:before {
+  &::before{
     background: $timeline-inactive-color;
   }
+
   .timeline__phase{
     background: $timeline-inactive-color;
   }
+
   .timeline__phase__number{
-    text-shadow: 0 1px 2px rgba(black, 0.1);
+    text-shadow: 0 1px 2px rgba(black, .1);
   }
 }

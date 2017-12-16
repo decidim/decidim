@@ -10,6 +10,7 @@
 
 .user-header__main{
   @include clearfix;
+
   display: flex;
   align-items: center;
 }

@@ -76,6 +76,9 @@ plugins:
     enabled: true
     channel: rubocop-0-51
 
+  stylelint:
+    enabled: true
+
 exclude_patterns:
   - "**/vendor/"
   - "decidim-comments/app/assets/javascripts/decidim/comments/bundle.js"

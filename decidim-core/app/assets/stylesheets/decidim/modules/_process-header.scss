@@ -1,8 +1,10 @@
 .process-header{
   margin-bottom: $margin-sm;
+
   @include breakpoint(medium){
     margin-bottom: $margin-m;
   }
+
   .heading2{
     font-weight: bold;
   }
@@ -14,7 +16,8 @@
   z-index: 0;
   display: flex;
   flex-direction: column;
-  &:after{
+
+  &::after{
     content: "";
     display: block;
     position: absolute;
@@ -30,6 +33,7 @@
   position: relative;
   z-index: 1;
   padding: 0 0 0 1rem;
+
   @include breakpoint(mediumlarge){
     display: flex;
     align-items: center;
@@ -38,9 +42,11 @@
 
 .process-header__info{
   padding: 1rem 1.5rem 1rem 1rem;
+
   @include breakpoint(medium){
     padding: 2rem 1.5rem 2rem 1rem;
   }
+
   @include breakpoint(mediumlarge){
     padding-left: 2rem;
   }
@@ -52,11 +58,13 @@
   text-align: center;
   padding: 2rem 1rem;
   margin-left: -1rem;
+
   .button{
     margin-top: 1rem;
     margin-bottom: 0;
     color: $white;
     border-color: $white;
+
     &:hover,
     &.is-active{
       color: $primary;
@@ -67,6 +75,7 @@
 
 .process-header__phase--simple{
   padding: .5rem 1rem;
+
   @include breakpoint (medium){
     padding: 2rem 1rem;
   }
@@ -74,13 +83,13 @@
 
 .process-header__hashtag{
   font-weight: 600;
+
   &::after{
     content: "·";
     margin-left: .5rem;
     margin-right: .5rem;
   }
 }
-
 
 .process-header__nav{
   margin-top: auto;

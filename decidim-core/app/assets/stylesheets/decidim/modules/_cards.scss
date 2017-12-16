@@ -4,7 +4,7 @@ $card-bg: $white;
 $card-secondary-bg: $light-gray-dark;
 $card-border: $border;
 $card-border-radius: $global-radius;
-$card-shadow: 0 2px 7px rgba(black,.1);
+$card-shadow: 0 2px 7px rgba(black, .1);
 
 $card-padding-small: 1rem;
 $card-padding: 1.5rem;
@@ -18,7 +18,6 @@ $card-debate: $debates;
 $card-meeting: $meetings;
 
 $datetime-bg: $primary;
-
 
 /* Cards */
 .card{
@@ -39,9 +38,10 @@ $datetime-bg: $primary;
 }
 
 .card__content{
-   padding: $card-padding-small;
+  padding: $card-padding-small;
+
   @include breakpoint(medium){
-   padding: $card-padding;
+    padding: $card-padding;
   }
 }
 
@@ -75,6 +75,7 @@ $datetime-bg: $primary;
   display: flex;
   align-self: flex-start;
   align-items: center;
+
   .icon{
     width: 14px;
     height: 14px;
@@ -84,21 +85,19 @@ $datetime-bg: $primary;
 }
 
 /* Card meetings */
-
 .card--meeting{
   .card__content{
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+
     .address{
       margin-top: auto;
     }
   }
 }
 
-
 /* Card datetime */
-
 .card__datetime{
   flex-shrink: 0;
   text-align: center;
@@ -127,14 +126,13 @@ $datetime-bg: $primary;
   font-size: .8rem;
 }
 
-
 /* Card footer */
-
 .card__footer{
   background: $card-footer-bg;
   border-top: $card-border;
   border-radius: 0 0 $card-border-radius $card-border-radius;
   clear: both;
+
   .card__content{
     display: flex;
   }
@@ -143,17 +141,21 @@ $datetime-bg: $primary;
 .card__footer--data{
   display: flex;
   align-items: center;
+
   .card__content{
     flex-grow: 1;
   }
+
   .card-data{
     flex-direction: column;
   }
+
   .card-data__item{
     flex-basis: auto;
     border-right: none;
     border-left: $border;
     border-bottom: $border;
+
     &:last-of-type{
       border-bottom: none;
     }
@@ -184,6 +186,7 @@ $datetime-bg: $primary;
   display: flex;
   flex-wrap: wrap;
 }
+
 .card-data__item{
   display: inline-block;
   flex-basis: 33.33%;
@@ -199,6 +202,7 @@ $datetime-bg: $primary;
   border-top: $border;
   margin-top: -1px;
 }
+
 .card-data__item__number{
   display: block;
   line-height: 1;
@@ -213,6 +217,7 @@ $datetime-bg: $primary;
 .card__popularity{
   padding: $card-padding;
   text-align: center;
+
   .icon{
     fill: $medium-gray;
   }
@@ -227,8 +232,6 @@ $datetime-bg: $primary;
   color: $muted;
 }
 
-
-
 /* Card support */
 
 .card__support{
@@ -238,9 +241,11 @@ $datetime-bg: $primary;
   justify-content: space-between;
   align-items: center;
   padding: $card-padding-small;
+
   @include breakpoint(medium){
     padding: $card-padding;
   }
+
   .card__button{
     //margin-left: auto;
     font-size: $small-font-size;
@@ -263,10 +268,10 @@ $datetime-bg: $primary;
   color: $body-font-color;
 }
 
-
 /* Card with image */
 .card__img{
   text-align: center;
+
   @include breakpoint(large){
     float: right;
     width: 35%;
@@ -280,10 +285,10 @@ $datetime-bg: $primary;
   }
 }
 
-
 /* Card Link */
 .card__link{
   color: inherit;
+
   &:hover{
     color: $anchor-color;
   }
@@ -296,7 +301,7 @@ $datetime-bg: $primary;
 /* Card list */
 .card--list{
   .card--list__item:not(:last-of-type),
-  *:not(:last-of-type) .card--list__item {
+  *:not(:last-of-type) .card--list__item{
     border-bottom: $border;
   }
 }
@@ -305,9 +310,11 @@ $datetime-bg: $primary;
   display: flex;
   align-items: center;
   padding-left: $card-padding-small;
+
   .card--list--mini &{
     padding-left: $card-padding-small;
   }
+
   @include breakpoint(medium){
     padding-left: $card-padding;
   }
@@ -316,6 +323,7 @@ $datetime-bg: $primary;
 .card--list__icon{
   display: none;
   fill: $anchor-color;
+
   @include breakpoint(medium){
     margin-right: 1rem;
     display: block;
@@ -332,9 +340,11 @@ $datetime-bg: $primary;
   overflow: hidden;
   align-items: center;
   padding: 1rem 1rem 1rem 0;
+
   .card--list--mini &{
     padding: .5rem .5rem .5rem 0;
   }
+
   .author{
     margin-top: .3rem;
     margin-right: 1rem;
@@ -366,9 +376,11 @@ $datetime-bg: $primary;
   color: $muted;
   padding: $card-padding-small;
   background: $card-secondary-bg;
+
   @include breakpoint(medium){
     padding: 1rem $card-padding;
   }
+
   .card--list--mini &{
     padding: .5rem $card-padding-small;
   }
@@ -380,6 +392,7 @@ $datetime-bg: $primary;
     height: 20px;
     fill: $muted;
   }
+
   &:hover{
     .icon{
       fill: $anchor-color;
@@ -389,6 +402,7 @@ $datetime-bg: $primary;
 
 .card--list__data__number{
   @extend .card-data__item__number;
+
   font-size: 1.5rem;
 }
 
@@ -435,14 +449,18 @@ $datetime-bg: $primary;
 
 .card--full{
   margin-bottom: $card-margin-bottom*2;
+
   &:last-child{
     margin-bottom: 0;
   }
+
   .card__title{
     @extend .heading2;
   }
+
   .card__content{
     padding: $card-padding;
+
     @include breakpoint(large){
       padding: $card-padding*2;
     }
@@ -454,18 +472,22 @@ $datetime-bg: $primary;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+
   @include breakpoint(medium only){
     min-height: 15rem;
     display: flex;
     align-items: center;
     justify-content: center;
   }
+
   > .card__content{
     position: relative;
     z-index: 1;
+
     @include breakpoint(medium only){
       min-width: 50%;
     }
+
     @include breakpoint(mediumlarge){
       position: absolute;
       top: 0;
@@ -480,34 +502,37 @@ $datetime-bg: $primary;
   background-position: center;
   background-repeat: no-repeat;
   height: 10rem;
+
   .card--process &{
     display: none;
+
     @include breakpoint(mediumlarge){
       display: block;
     }
   }
 }
 
-
 /* Card full width process variant */
 
-
- @include breakpoint(mediumlarge){
+@include breakpoint(mediumlarge){
   .card--process__row{
-      display: flex;
+    display: flex;
   }
 
   .card--process__column{
     position: relative;
+
     .card--full__image-wrapper{
       height: 100%;
       overflow: hidden;
     }
+
     .card--full__image{
       height: 100%;
       position: absolute;
       right: -1px;
       left: 0;
+
       > img{
         min-height: 100%;
         max-width: initial;
@@ -519,6 +544,7 @@ $datetime-bg: $primary;
 
 .card--process__small{
   font-size: $small-font-size;
+
   &:last-child{
     margin-bottom: 0;
   }
@@ -533,10 +559,12 @@ $datetime-bg: $primary;
     flex-direction: column;
     flex-grow: 1;
   }
+
   .card__image-top{
     display: block;
     height: 8rem;
   }
+
   .card--process__small{
     margin-top: auto;
   }

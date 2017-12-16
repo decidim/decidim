@@ -1,15 +1,15 @@
 /* Variables */
 
-
 /* Typography - Foundation overrides */
 button,
 input{
   font-family: inherit;
 }
 
-@mixin heading($heading) {
+@mixin heading($heading){
   line-height: 1.2;
   font-size: map-get(map-get(map-get($header-styles, small), $heading), 'font-size') / 16 + em;
+
   @include breakpoint(medium){
     font-size: map-get(map-get(map-get($header-styles, medium), $heading), 'font-size') / 16 + em;
   }
@@ -17,7 +17,9 @@ input{
 
 .heading1{
   font-weight: 600;
+
   @include heading(h1);
+
   line-height: 1.1;
 }
 
@@ -41,6 +43,7 @@ input{
   text-transform: uppercase;
   letter-spacing: .03em;
   font-weight: 600;
+
   @include heading(h6);
 }
 
@@ -61,7 +64,8 @@ hr{
   text-transform: uppercase;
   font-size: 1.125em;
   letter-spacing: .05em;
-  &:before{
+
+  &::before{
     content: "";
     display: inline-block;
     width: 4px;
@@ -79,11 +83,13 @@ hr{
   letter-spacing: .01em;
   font-weight: 600;
   margin-bottom: 0;
+
   &__strong{
     color: $body-font-color;
     font-size: 1.2rem;
     font-weight: 800;
   }
+
   &__strong--highlight{
     font-size: 1.4rem;
   }
@@ -97,11 +103,14 @@ hr{
   margin-bottom: 0;
   color: $white;
   text-shadow: 0 0 10px rgba(black, .8);
+
   &.heading1{
     font-weight: 800;
   }
+
   > a{
     color: inherit;
+
     &:hover{
       color: $primary;
     }

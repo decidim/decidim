@@ -8,11 +8,13 @@ $tags-border: $border;
   list-style: none;
   margin: 0 0 1rem;
   font-size: 90%;
+
   li{
     display: inline-block;
     margin-right: .3rem;
     margin-bottom: .5rem;
   }
+
   a{
     display: block;
     border: $tags-border;
