@@ -17,7 +17,7 @@ module Decidim
     end
 
     field :avatarUrl, !types.String, "The user's avatar url" do
-      resolve ->(obj, _args, _ctx) { UserPresenter.new(obj).avatar_url }
+      resolve ->(obj, _args, _ctx) { UserPresenter.new(obj).avatar_url(:thumb) }
     end
 
     field :organizationName, !types.String, "The user's organization name" do

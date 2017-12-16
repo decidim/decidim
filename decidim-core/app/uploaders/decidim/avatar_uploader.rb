@@ -12,7 +12,7 @@ module Decidim
     end
 
     version :thumb do
-      process resize_and_pad: [100, 100]
+      process resize_to_fit: [20, 20]
     end
 
     def default_url(*)

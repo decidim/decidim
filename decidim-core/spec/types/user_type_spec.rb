@@ -36,8 +36,8 @@ module Decidim
     describe "avatarUrl" do
       let(:query) { "{ avatarUrl }" }
 
-      it "returns the user avatar url" do
-        expect(response).to include("avatarUrl" => model.avatar.url)
+      it "returns the user avatar url (small version)" do
+        expect(response).to include("avatarUrl" => model.avatar.url(:thumb))
       end
     end
 
