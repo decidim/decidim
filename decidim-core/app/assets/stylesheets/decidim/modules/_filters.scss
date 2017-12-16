@@ -34,9 +34,6 @@ $filters-padding-y: 1rem;
 .filters{
   display: none;
   min-height: 100%;
-  //background-color: $filters-bg;
-  //border: $filters-border;
-  //margin: $filters-margin-small-y $filters-margin-small-x 0;
   padding: $filters-padding;
   @include breakpoint(medium){
     display: block;
