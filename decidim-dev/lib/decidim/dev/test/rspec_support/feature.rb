@@ -113,10 +113,6 @@ Decidim.register_feature(:dummy) do |feature|
     features.count * 100
   end
 
-  feature.register_stat :dummies_count_low do |features, _start_at, _end_at|
-    features.count * 200
-  end
-
   feature.exports :dummies do |exports|
     exports.collection do
       [1, 2, 3]
