@@ -8,7 +8,7 @@ module Decidim
     process :validate_dimensions
 
     version :big do
-      process resize_and_pad: [500, 500]
+      process resize_to_fit: [40, 40]
     end
 
     version :thumb do

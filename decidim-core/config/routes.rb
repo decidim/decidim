@@ -48,6 +48,8 @@ Decidim::Core::Engine.routes.draw do
     resources :own_user_groups, only: [:index]
   end
 
+  resources :profiles, only: [:show], param: :nickname
+
   resources :pages, only: [:index, :show], format: false
 
   get "/scopes/search", to: "scopes#search", as: :scopes_search

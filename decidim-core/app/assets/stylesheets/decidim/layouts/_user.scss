@@ -1,24 +1,33 @@
 // User profile, notifications & settings
 
+$avatar-size: 40px;
+$avatar-right-margin: .5rem;
+
 .user-header{
   @include clearfix;
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
 }
 
 .user-header__avatar{
   float: left;
-  margin-right: .5rem;
+  margin-right: $avatar-right-margin;
+
   > img{
     border-radius: 50%;
+    margin-top: -3px;
+    width: $avatar-size;
   }
 }
 
 .user-header__heading{
   margin-bottom: 0;
-  >.label{
-    vertical-align: middle;
-  }
 }
 
+.user-nickname{
+  color: gray;
+  font-size: 1rem;
+  margin-top: 5px;
+  margin-left: $avatar-size;
+  padding-left: $avatar-right-margin;
+}
