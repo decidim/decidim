@@ -78,6 +78,7 @@ pt:
         name: Autorização Foo
       granted_at: Concedido em %{timestamp}
       started_at: Iniciado em %{timestamp}
+    contact: Contato
     core:
       actions:
         unauthorized: Não está autorizado a realizar esta ação

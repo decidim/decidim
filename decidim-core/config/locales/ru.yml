@@ -78,6 +78,7 @@ ru:
         name: Нерабочее псевдо-подтверждение личности
       granted_at: Предоставлено %{timestamp}
       started_at: 'Начато: %{timestamp}'
+    contact: Связной
     core:
       actions:
         unauthorized: Вы не имеете прав для выполнения этого действия

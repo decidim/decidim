@@ -78,6 +78,7 @@ fi:
         name: Foo-tunnistautuminen
       granted_at: Annettu osoitteessa %{timestamp}
       started_at: Aloitti %{timestamp}
+    contact: Ottaa yhteyttä
     core:
       actions:
         unauthorized: Sinua ei ole valtuutettu tämän toiminnon suorittamiseen

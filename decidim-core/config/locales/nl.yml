@@ -78,6 +78,7 @@ nl:
         name: Foo machtiging
       granted_at: Toegekend op %{timestamp}
       started_at: Gestart om %{timestamp}
+    contact: Contact
     core:
       actions:
         unauthorized: U bent niet gemachtigd dit te doen

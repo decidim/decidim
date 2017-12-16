@@ -78,6 +78,7 @@ sv:
         name: Foo godkännande
       granted_at: Beviljas vid %{timestamp}
       started_at: Börjat vid %{timestamp}
+    contact: Kontakta
     core:
       actions:
         unauthorized: Du har inte behörighet att utföra denna åtgärd

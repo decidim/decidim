@@ -78,6 +78,7 @@ eu:
         name: foo baimena
       granted_at: Onartua %{timestamp}
       started_at: Hasi zen %{timestamp}
+    contact: Harremanetarako
     core:
       actions:
         unauthorized: Ez duzu baimenik ekintza honi heltzeko.

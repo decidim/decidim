@@ -78,6 +78,7 @@ ca:
         name: Autorització foo
       granted_at: Atorgada el %{timestamp}
       started_at: Iniciat el %{timestamp}
+    contact: Contactar
     core:
       actions:
         unauthorized: No tens permís per realitzar aquesta acció

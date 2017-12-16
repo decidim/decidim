@@ -4,21 +4,30 @@ module Decidim
   module Messaging
     module ConversationHelper
       #
-      # Builds a link to the conversation between the current user and another
+      # Links to the conversation between the current user and another user
+      #
+      def link_to_current_or_new_conversation_with(user, title = t("decidim.contact"))
+        link_to current_or_new_conversation_path_with(user), title: title do
+          icon "envelope-closed", aria_label: title, class: "icon--small"
+        end
+      end
+
+      #
+      # Finds the right path to the conversation the current user and another
       # user.
       #
-      # * If there's no current user, it links to the login form.
+      # * If there's no current user, it returns to the login form path.
       #
-      # * If there's no prior existing conversation between the users, it links
-      #   to the new conversation form.
+      # * If there's no prior existing conversation between the users, it
+      #   returns the new conversation form path.
       #
-      # * Otherwise, it links to the existing conversation.
+      # * Otherwise, it returns the path to the existing conversation.
       #
       # @param user [Decidim::User] The user to link to a conversation with
       #
       # @return [String] The resulting route
       #
-      def link_to_current_or_new_conversation_with(user)
+      def current_or_new_conversation_path_with(user)
         return decidim.new_user_session_path unless user_signed_in?
 
         conversation = conversation_between(current_user, user)

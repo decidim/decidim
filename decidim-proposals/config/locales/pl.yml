@@ -157,7 +157,6 @@ pl:
         proposal:
           view_proposal: Wyświetl propozycję
         show:
-          contact: Kontakt
           edit_proposal: Edytuj propozycję
           proposal_accepted_reason: 'Niniejszy wniosek został zaakceptowany, ponieważ:'
           proposal_in_evaluation_reason: Niniejszy wniosek jest oceniany

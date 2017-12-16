@@ -154,7 +154,6 @@ sv:
         proposal:
           view_proposal: Visa förslag
         show:
-          contact: Kontakta
           edit_proposal: Redigera förslag
           proposal_accepted_reason: 'Detta förslag har godkänts eftersom:'
           proposal_in_evaluation_reason: Detta förslag utvärderas

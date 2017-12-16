@@ -79,6 +79,7 @@ en:
         name: Foo authorization
       granted_at: Granted at %{timestamp}
       started_at: Started at %{timestamp}
+    contact: Contact
     core:
       actions:
         unauthorized: You are not authorized to perform this action

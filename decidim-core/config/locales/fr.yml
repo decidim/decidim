@@ -78,6 +78,7 @@ fr:
         name: Autorisation Truc
       granted_at: Accordé à %{timestamp}
       started_at: Commencé à %{timestamp}
+    contact: Contact
     core:
       actions:
         unauthorized: Vous n'êtes pas autorisé à effectuer cette action

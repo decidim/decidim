@@ -78,6 +78,7 @@ uk:
         name: Приклад підтвердження своєї особи
       granted_at: 'Надано: %{timestamp}'
       started_at: 'Розпочато: %{timestamp}'
+    contact: Зв'язковий
     core:
       actions:
         unauthorized: Ви не маєте прав на виконання цієї дії

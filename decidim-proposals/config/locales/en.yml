@@ -156,7 +156,6 @@ en:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
         show:
-          contact: Contact
           edit_proposal: Edit proposal
           proposal_accepted_reason: 'This proposal has been accepted because:'
           proposal_in_evaluation_reason: This proposal is being evaluated
