@@ -78,6 +78,8 @@ plugins:
 
   stylelint:
     enabled: true
+    exclude_paths:
+      - "decidim-core/app/assets/stylesheets/decidim/email.css"
 
 exclude_patterns:
   - "**/vendor/"
