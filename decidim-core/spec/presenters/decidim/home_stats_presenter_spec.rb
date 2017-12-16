@@ -18,20 +18,6 @@ module Decidim
       Decidim.stats.register :bar, priority: StatsRegistry::MEDIUM_PRIORITY, &proc { 20 }
       Decidim.stats.register :baz, priority: StatsRegistry::LOW_PRIORITY, &proc { 30 }
 
-      I18n.backend.store_translations(
-        :en,
-        pages: {
-          home: {
-            statistics: {
-              dummies_count_medium: "Dummies medium",
-              dummies_count_high: "Dummies high",
-              foo: "Foo",
-              bar: "Bar"
-            }
-          }
-        }
-      )
-
       example.run
 
       Decidim.stats.stats.reject! { |s| s[:name] == :baz }
