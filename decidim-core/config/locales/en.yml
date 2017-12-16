@@ -294,6 +294,7 @@ en:
     invitations:
       edit:
         header: Set your password
+        nickname_help: Your unique identifier in decidim.
         submit_button: Save
     mailer:
       invitation_instructions:
