@@ -30,9 +30,16 @@ module Decidim
         end
       end
 
-      def conversation_between(one_user, another_user)
-        UserConversations.for(one_user).find do |conversation|
-          conversation.participants.to_set == [one_user, another_user].to_set
+      #
+      # Finds the conversation between the given participants
+      #
+      # @param participants [Array<Decidim::User>] The participants to find a
+      #   conversation between.
+      #
+      # @return [Decidim::Messaging::Conversation]
+      def conversation_between(*participants)
+        UserConversations.for(participants.first).find do |conversation|
+          conversation.participants.to_set == participants.to_set
         end
       end
     end
