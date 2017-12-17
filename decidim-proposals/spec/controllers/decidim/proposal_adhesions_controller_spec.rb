@@ -38,6 +38,17 @@ module Decidim
             expect(ProposalAdhesion.last.author).to eq(user)
             expect(ProposalAdhesion.last.proposal).to eq(proposal)
           end
+
+          context "when requesting user identities without belonging to any user_group" do
+            it "should only return the user identity adhere button" do
+              get :identities, params: params
+
+              expect(response).to have_http_status(:ok)
+              expect(assigns[:to_adhere_groups]).to be_empty
+              expect(assigns[:to_unadhere_groups]).to be_empty
+            end
+          end
+
         end
 
         context "when adhesions are disabled" do
@@ -53,6 +64,13 @@ module Decidim
             expect(flash[:alert]).not_to be_empty
             expect(response).to have_http_status(302)
           end
+
+          context "when requesting user identities" do
+            it "should raise exception" do
+              get :identities, params: params
+              expect(response).to have_http_status(302)
+            end
+          end
         end
 
         context "when adhesions are enabled but adhesions are blocked" do
@@ -67,6 +85,12 @@ module Decidim
 
             expect(flash[:alert]).not_to be_empty
             expect(response).to have_http_status(302)
+          end
+          context "when requesting user identities" do
+            it "should not allow it" do
+              get :identities, params: params
+              expect(response).to have_http_status(302)
+            end
           end
         end
       end
@@ -193,6 +217,86 @@ module Decidim
         end
       end
 
+      #
+      # Identity adhesions combinations
+      #
+      describe "When user has some of its user_groups adhered" do
+        let(:feature) do
+          create(:proposal_feature, :with_adhesions_enabled)
+        end
+        before do
+          @adhered_groups= []
+          @unadhered_groups= []
+        end
+        context "when user has no user_groups" do
+          it "should return only an adhere button for the user" do
+            get :identities, params: params
+
+            expect(response).to have_http_status(:ok)
+            expect(subject).to render_template('decidim/proposals/proposal_adhesions/identities')
+          end
+        end
+        context "when all user user_groups are adhered" do
+          it "should offer user_groups to unahere" do
+            create_adhered_groups
+
+            get :identities, params: params
+
+            expect(response).to have_http_status(:ok)
+            expect(assigns[:to_adhere_groups]).to be_empty
+            expect(assigns[:to_unadhere_groups]).to eq(@adhered_groups)
+            expect(subject).to render_template('decidim/proposals/proposal_adhesions/identities')
+          end
+        end
+        context "when half user organizations are adhered" do
+          it "should offer the corresponding action to each organization" do
+            create_adhered_groups
+            create_unadhered_groups
+
+            get :identities, params: params
+
+            expect(response).to have_http_status(:ok)
+            expect(assigns[:to_adhere_groups]).to eq(@unadhered_groups)
+            expect(assigns[:to_unadhere_groups]).to eq(@adhered_groups)
+            expect(subject).to render_template('decidim/proposals/proposal_adhesions/identities')
+          end
+        end
+        context "when none of user's user_groups are adhered" do
+          it "should offer all user_groups to adhere" do
+            create_unadhered_groups
+
+            get :identities, params: params
+
+            expect(response).to have_http_status(:ok)
+            expect(assigns[:to_adhere_groups]).to eq(@unadhered_groups)
+            expect(assigns[:to_unadhere_groups]).to be_empty
+            expect(subject).to render_template('decidim/proposals/proposal_adhesions/identities')
+          end
+        end
+      end
+
+      #
+      # ÚTIL METHODS
+      #
+      def create_adhered_groups
+        2.times do
+          adh= create(:organization_proposal_adhesion, 
+            proposal: proposal, author: user
+            )
+          ug= adh.user_group
+          ug.verified_at= DateTime.now
+          @adhered_groups << ug.id
+        end
+        user.save!
+      end
+      def create_unadhered_groups
+        2.times do
+          ug= create(:user_group, verified_at: DateTime.now)
+          user.user_groups << ug
+          @unadhered_groups << ug.id
+        end
+        user.save!
+      end
     end
   end
 end

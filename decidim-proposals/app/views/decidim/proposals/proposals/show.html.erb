@@ -40,20 +40,11 @@
     <% if current_settings.adhesions_enabled? %>
       <div class="card extra">
         <div class="card__content">
-          <% if current_settings.adhesions_enabled? %>
-            <%= render partial: "adhesions_count", locals: { proposal: @proposal, from_proposals_list: false } %>
-            <% if current_settings.adhesions_blocked? %>
-              <%= content_tag :span, t('.adhesions_blocked'), class: "card__button button #{adhesion_button_classes(from_proposals_list)} disabled", disabled: true %>
-            <% else %>
-              As user:
-              <%= render partial: "adhesion_button", locals: { proposal: @proposal, from_proposals_list: false } %>
-              <% if current_user %>
-                <% current_user.user_groups.verified.each do |user_group| %>
-                  As "<%= user_group.name %>":
-                  <%= render partial: "adhesion_button", locals: { proposal: @proposal, from_proposals_list: false, user_group: user_group } %>
-                <% end %>
-              <% end %>
-            <% end %>
+          <%= render partial: "adhesions_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+          <% if current_settings.adhesions_blocked? %>
+            <%= content_tag :span, t('.adhesions_blocked'), class: "card__button button #{adhesion_button_classes(from_proposals_list)} disabled", disabled: true %>
+          <% else %>
+            <%= render partial: "adhesion_identities_cabin", locals: { proposal: @proposal, from_proposals_list: false } %>
           <% end %>
         </div>
       </div>

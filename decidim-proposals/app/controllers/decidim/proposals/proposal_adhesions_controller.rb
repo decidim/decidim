@@ -5,7 +5,7 @@ module Decidim
     # Exposes the proposal adhesion resource so users can adhere to proposals.
     class ProposalAdhesionsController < Decidim::Proposals::ApplicationController
       include ProposalAdhesionsHelper
-
+      include Rectify::ControllerHelpers
       helper_method :proposal
 
       before_action :authenticate_user!
@@ -39,6 +39,21 @@ module Decidim
             render :update_buttons_and_counters
           end
         end
+      end
+
+      def identities
+        authorize! :adhere, proposal
+
+        ret= ShowAdhesionIdentities.call(proposal, current_user) do
+          on(:ok) do |groups_split|
+            expose(
+              to_adhere_groups: groups_split[:adhere],
+              to_unadhere_groups: groups_split[:unadhere]
+            )
+            render :identities
+          end
+        end
+        ret
       end
 
       private
