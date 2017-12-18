@@ -97,7 +97,7 @@ describe "Authorizations", type: :feature, with_authorization_workflows: ["dummy
           expect(page).to have_no_link("Example authorization")
         end
       end
-      
+
       it "checks if the given data is invalid" do
         within_user_menu do
           click_link "My account"
