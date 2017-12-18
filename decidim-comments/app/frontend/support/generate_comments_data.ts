@@ -12,6 +12,7 @@ const generateCommentsData = (num = 1) => {
 
   for (let idx = 0; idx < num; idx += 1) {
     const creationDate = date.recent();
+    const nickname = name.findName();
 
     commentsData.push({
       id: random.uuid(),
@@ -21,8 +22,9 @@ const generateCommentsData = (num = 1) => {
       formattedCreatedAt: creationDate.toLocaleTimeString(),
       author: {
         name: `${name.firstName()} ${name.lastName()}`,
-        nickname: `@${name.findName()}`,
+        nickname: `@${nickname}`,
         avatarUrl: image.imageUrl(),
+        profilePath: `/profiles/${nickname}`,
         deleted: false,
         badge: "crack",
       },

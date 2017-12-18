@@ -41,6 +41,14 @@ module Decidim
       end
     end
 
+    describe "profilePath" do
+      let(:query) { "{ profilePath }" }
+
+      it "returns the user profile path" do
+        expect(response).to include("profilePath" => "/profiles/#{model.nickname}")
+      end
+    end
+
     describe "organizationName" do
       let(:query) { "{ organizationName }" }
 

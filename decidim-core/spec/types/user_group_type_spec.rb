@@ -41,6 +41,14 @@ module Decidim
       end
     end
 
+    describe "profilePath" do
+      let(:query) { "{ profilePath }" }
+
+      it "returns the empty string since user groups have no public profile yet" do
+        expect(response).to include("profilePath" => "")
+      end
+    end
+
     describe "badge" do
       let(:query) { "{ badge }" }
 

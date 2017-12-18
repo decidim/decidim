@@ -36,6 +36,8 @@ export type addCommentMutation = {
           nickname: string,
           // The author's avatar url
           avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
           // The author's badge
@@ -47,6 +49,8 @@ export type addCommentMutation = {
           nickname: string,
           // The author's avatar url
           avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
           // The author's badge
@@ -88,6 +92,8 @@ export type addCommentMutation = {
             nickname: string,
             // The author's avatar url
             avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
             // The author's badge
@@ -99,6 +105,8 @@ export type addCommentMutation = {
             nickname: string,
             // The author's avatar url
             avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
             // The author's badge
@@ -142,6 +150,8 @@ export type addCommentMutation = {
               nickname: string,
               // The author's avatar url
               avatarUrl: string,
+              // The author's profile path
+              profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
               // The author's badge
@@ -153,6 +163,8 @@ export type addCommentMutation = {
               nickname: string,
               // The author's avatar url
               avatarUrl: string,
+              // The author's profile path
+              profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
               // The author's badge
@@ -196,6 +208,8 @@ export type addCommentMutation = {
                 nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
                 // The author's badge
@@ -207,6 +221,8 @@ export type addCommentMutation = {
                 nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
                 // The author's badge
@@ -264,6 +280,8 @@ export type DownVoteMutation = {
           nickname: string,
           // The author's avatar url
           avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
           // The author's badge
@@ -275,6 +293,8 @@ export type DownVoteMutation = {
           nickname: string,
           // The author's avatar url
           avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
           // The author's badge
@@ -318,6 +338,8 @@ export type DownVoteMutation = {
             nickname: string,
             // The author's avatar url
             avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
             // The author's badge
@@ -329,6 +351,8 @@ export type DownVoteMutation = {
             nickname: string,
             // The author's avatar url
             avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
             // The author's badge
@@ -372,6 +396,8 @@ export type DownVoteMutation = {
               nickname: string,
               // The author's avatar url
               avatarUrl: string,
+              // The author's profile path
+              profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
               // The author's badge
@@ -383,6 +409,8 @@ export type DownVoteMutation = {
               nickname: string,
               // The author's avatar url
               avatarUrl: string,
+              // The author's profile path
+              profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
               // The author's badge
@@ -426,6 +454,8 @@ export type DownVoteMutation = {
                 nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
                 // The author's badge
@@ -437,6 +467,8 @@ export type DownVoteMutation = {
                 nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
                 // The author's badge
@@ -494,6 +526,8 @@ export type UpVoteMutation = {
           nickname: string,
           // The author's avatar url
           avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
           // The author's badge
@@ -505,6 +539,8 @@ export type UpVoteMutation = {
           nickname: string,
           // The author's avatar url
           avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
           // The author's badge
@@ -548,6 +584,8 @@ export type UpVoteMutation = {
             nickname: string,
             // The author's avatar url
             avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
             // The author's badge
@@ -559,6 +597,8 @@ export type UpVoteMutation = {
             nickname: string,
             // The author's avatar url
             avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
             // The author's badge
@@ -602,6 +642,8 @@ export type UpVoteMutation = {
               nickname: string,
               // The author's avatar url
               avatarUrl: string,
+              // The author's profile path
+              profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
               // The author's badge
@@ -613,6 +655,8 @@ export type UpVoteMutation = {
               nickname: string,
               // The author's avatar url
               avatarUrl: string,
+              // The author's profile path
+              profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
               // The author's badge
@@ -656,6 +700,8 @@ export type UpVoteMutation = {
                 nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
                 // The author's badge
@@ -667,6 +713,8 @@ export type UpVoteMutation = {
                 nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
                 // The author's badge
@@ -754,6 +802,8 @@ export type GetCommentsQuery = {
           nickname: string,
           // The author's avatar url
           avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
           // The author's badge
@@ -765,6 +815,8 @@ export type GetCommentsQuery = {
           nickname: string,
           // The author's avatar url
           avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
           // The author's badge
@@ -806,6 +858,8 @@ export type GetCommentsQuery = {
             nickname: string,
             // The author's avatar url
             avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
             // The author's badge
@@ -817,6 +871,8 @@ export type GetCommentsQuery = {
             nickname: string,
             // The author's avatar url
             avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
             // The author's badge
@@ -860,6 +916,8 @@ export type GetCommentsQuery = {
               nickname: string,
               // The author's avatar url
               avatarUrl: string,
+              // The author's profile path
+              profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
               // The author's badge
@@ -871,6 +929,8 @@ export type GetCommentsQuery = {
               nickname: string,
               // The author's avatar url
               avatarUrl: string,
+              // The author's profile path
+              profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
               // The author's badge
@@ -914,6 +974,8 @@ export type GetCommentsQuery = {
                 nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
                 // The author's badge
@@ -925,6 +987,8 @@ export type GetCommentsQuery = {
                 nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
+                // The author's profile path
+                profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
                 // The author's badge
@@ -996,6 +1060,8 @@ export type CommentFragment = {
       nickname: string,
       // The author's avatar url
       avatarUrl: string,
+      // The author's profile path
+      profilePath: string,
       // Whether the author's account has been deleted or not
       deleted: boolean,
       // The author's badge
@@ -1007,6 +1073,8 @@ export type CommentFragment = {
       nickname: string,
       // The author's avatar url
       avatarUrl: string,
+      // The author's profile path
+      profilePath: string,
       // Whether the author's account has been deleted or not
       deleted: boolean,
       // The author's badge
@@ -1050,6 +1118,8 @@ export type CommentFragment = {
         nickname: string,
         // The author's avatar url
         avatarUrl: string,
+        // The author's profile path
+        profilePath: string,
         // Whether the author's account has been deleted or not
         deleted: boolean,
         // The author's badge
@@ -1061,6 +1131,8 @@ export type CommentFragment = {
         nickname: string,
         // The author's avatar url
         avatarUrl: string,
+        // The author's profile path
+        profilePath: string,
         // Whether the author's account has been deleted or not
         deleted: boolean,
         // The author's badge
@@ -1104,6 +1176,8 @@ export type CommentFragment = {
           nickname: string,
           // The author's avatar url
           avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
           // The author's badge
@@ -1115,6 +1189,8 @@ export type CommentFragment = {
           nickname: string,
           // The author's avatar url
           avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
           // The author's badge
@@ -1158,6 +1234,8 @@ export type CommentFragment = {
             nickname: string,
             // The author's avatar url
             avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
             // The author's badge
@@ -1169,6 +1247,8 @@ export type CommentFragment = {
             nickname: string,
             // The author's avatar url
             avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
             // The author's badge
@@ -1217,6 +1297,8 @@ export type CommentDataFragment = {
       nickname: string,
       // The author's avatar url
       avatarUrl: string,
+      // The author's profile path
+      profilePath: string,
       // Whether the author's account has been deleted or not
       deleted: boolean,
       // The author's badge
@@ -1228,6 +1310,8 @@ export type CommentDataFragment = {
       nickname: string,
       // The author's avatar url
       avatarUrl: string,
+      // The author's profile path
+      profilePath: string,
       // Whether the author's account has been deleted or not
       deleted: boolean,
       // The author's badge
@@ -1275,6 +1359,8 @@ export type CommentThreadFragment = {
       nickname: string,
       // The author's avatar url
       avatarUrl: string,
+      // The author's profile path
+      profilePath: string,
       // Whether the author's account has been deleted or not
       deleted: boolean,
       // The author's badge
@@ -1286,6 +1372,8 @@ export type CommentThreadFragment = {
       nickname: string,
       // The author's avatar url
       avatarUrl: string,
+      // The author's profile path
+      profilePath: string,
       // Whether the author's account has been deleted or not
       deleted: boolean,
       // The author's badge
@@ -1327,6 +1415,8 @@ export type CommentThreadFragment = {
         nickname: string,
         // The author's avatar url
         avatarUrl: string,
+        // The author's profile path
+        profilePath: string,
         // Whether the author's account has been deleted or not
         deleted: boolean,
         // The author's badge
@@ -1338,6 +1428,8 @@ export type CommentThreadFragment = {
         nickname: string,
         // The author's avatar url
         avatarUrl: string,
+        // The author's profile path
+        profilePath: string,
         // Whether the author's account has been deleted or not
         deleted: boolean,
         // The author's badge
@@ -1381,6 +1473,8 @@ export type CommentThreadFragment = {
           nickname: string,
           // The author's avatar url
           avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
           // The author's badge
@@ -1392,6 +1486,8 @@ export type CommentThreadFragment = {
           nickname: string,
           // The author's avatar url
           avatarUrl: string,
+          // The author's profile path
+          profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
           // The author's badge
@@ -1435,6 +1531,8 @@ export type CommentThreadFragment = {
             nickname: string,
             // The author's avatar url
             avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
             // The author's badge
@@ -1446,6 +1544,8 @@ export type CommentThreadFragment = {
             nickname: string,
             // The author's avatar url
             avatarUrl: string,
+            // The author's profile path
+            profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
             // The author's badge
