@@ -7,8 +7,9 @@ describe "Proposals", type: :feature do
   let(:manifest_name) { "proposals" }
 
   let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: participatory_process.organization }
-  let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
+  let!(:scope) { create :scope, organization: organization }
+  let!(:user) { create :user, :confirmed, organization: organization }
+  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
 
   let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
   let(:latitude) { 40.1234 }
@@ -43,10 +44,6 @@ describe "Proposals", type: :feature do
         end
 
         context "when process is not related to any scope" do
-          before do
-            participatory_process.update_attributes!(scope: nil)
-          end
-
           it "can be related to a scope" do
             visit_feature
             click_link "New proposal"
@@ -58,9 +55,7 @@ describe "Proposals", type: :feature do
         end
 
         context "when process is related to any scope" do
-          before do
-            participatory_process.update_attributes!(scope: scope)
-          end
+          let(:participatory_process) { scoped_participatory_process }
 
           it "cannot be related to a scope" do
             visit_feature
@@ -316,10 +311,6 @@ describe "Proposals", type: :feature do
     context "when process is not related to any scope" do
       let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
 
-      before do
-        participatory_process.update_attributes!(scope: nil)
-      end
-
       it "can be filtered by scope" do
         visit_feature
         click_link proposal.title
@@ -329,10 +320,7 @@ describe "Proposals", type: :feature do
 
     context "when process is related to a scope" do
       let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
-
-      before do
-        participatory_process.update_attributes!(scope: scope)
-      end
+      let(:participatory_process) { scoped_participatory_process }
 
       it "does not show the scope name" do
         visit_feature
@@ -732,9 +720,7 @@ describe "Proposals", type: :feature do
       end
 
       context "when process is related to a scope" do
-        before do
-          participatory_process.update_attributes!(scope: scope)
-        end
+        let(:participatory_process) { scoped_participatory_process }
 
         it "cannot be filtered by scope" do
           visit_feature
