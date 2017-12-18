@@ -50,7 +50,7 @@ pt:
         configure: Configurar
         confirm_destroy: Confirmar destruir
         destroy: Destruir
-        duplicate: Duplicado
+        duplicate: Duplicar
         edit: Editar
         new: Novo
         preview: Visualização
@@ -104,7 +104,7 @@ pt:
         new:
           copy: cópia de
           select: Selecione os dados que você gostaria de duplicar
-          title: Processo participativo duplicado
+          title: Duplicar processo participativo
       participatory_process_groups:
         destroy:
           success: Grupo de processo participativo destruído com sucesso.
