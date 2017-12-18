@@ -46,7 +46,7 @@ module MailerHelpers
 
       return if last_email&.subject&.include? options[:subject]
 
-      sleep 1
+      sleep 0.1
       attempts += 1
     end
   end
