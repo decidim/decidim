@@ -1,3 +1,4 @@
+---
 es:
   activemodel:
     attributes:
@@ -97,38 +98,38 @@ es:
             votes: Votos
       new:
         limit_reached: No puedes crear nuevas propuestas ya que has superado el límite.
+      proposal_votes:
+        create:
+          error: Ha habido errores al votar la propuesta.
       proposal_wizard:
         actions:
           exit_wizard: Hay propuestas similares a las mías, quiero terminar el proceso de creación
-          go_to_step_2: Buscar propuestas similares
-          go_to_step_3: Ninguna de las anteriores coincide con la mia, continúa
-          go_to_step_4: Vista previa de la propuesta
           go_back_to_step_3: Quiero corregir mi propuesta
           go_to_finish: Publica la propuesta
           go_to_next_step: Próximo paso
+          go_to_step_2: Buscar propuestas similares
+          go_to_step_3: Ninguna de las anteriores coincide con la mia, continúa
+          go_to_step_4: Vista previa de la propuesta
         header:
           back: Atrás
           title: Crear propuesta
         proposal_similar:
           exit_wizard: Esta propuesta coincide con la mía, quiero terminar el proceso de creación
           view_proposal: Ver propuesta
-        stepper:
-          step_1: Comienzo
-          step_2: Comparar
-          step_3: Completar
-          step_4: Publicar
         step_2:
-          similar_proposals: "Propuestas similares:"
+          similar_proposals: 'Propuestas similares:'
         step_3:
           attachment_legend: "(Opcional) Agregar un archivo adjunto"
           select_a_category: Por favor, seleccione una categoría
           select_a_user_group: Por favor, seleccione un usuario
         step_4:
-          preview: "Vista previa"
-        validation_errors: "Lo sentimos, ha habido errores: "
-      proposal_votes:
-        create:
-          error: Ha habido errores al votar la propuesta.
+          preview: Vista previa
+        stepper:
+          step_1: Comienzo
+          step_2: Comparar
+          step_3: Completar
+          step_4: Publicar
+        validation_errors: 'Lo sentimos, ha habido errores: '
       proposals:
         author:
           deleted: Usuario eliminado

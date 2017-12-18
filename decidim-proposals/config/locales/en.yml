@@ -29,10 +29,10 @@ en:
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
             proposal_limit: Proposal limit per user
-            proposal_wizard_step_1_help_text: Proposal wizard step_1 help text
-            proposal_wizard_step_2_help_text: Proposal wizard step_2 help text
-            proposal_wizard_step_3_help_text: Proposal wizard step_3 help text
-            proposal_wizard_step_4_help_text: Proposal wizard step_4 help text
+            proposal_wizard_step_1_help_text: Proposal wizard step 1 help text
+            proposal_wizard_step_2_help_text: Proposal wizard step 2 help text
+            proposal_wizard_step_3_help_text: Proposal wizard step 3 help text
+            proposal_wizard_step_4_help_text: Proposal wizard step 4 help text
             vote_limit: Vote limit per user
           step:
             announcement: Announcement
@@ -98,38 +98,37 @@ en:
             votes: Votes
       new:
         limit_reached: You can't create new proposals since you've exceeded the limit.
+      proposal_votes:
+        create:
+          error: There's been errors when voting the proposal.
       proposal_wizard:
         actions:
           exit_wizard: There are proposals similar to mine, I want to finish the creation process
-          go_to_step_2: Search for similar proposals
-          go_to_step_3: None of the above matches mine, continue
-          go_to_step_4: Preview the proposal
           go_back_to_step_3: I want to correct my proposal
           go_to_finish: Publish the proposal
           go_to_next_step: Next Step
+          go_to_step_2: Search for similar proposals
+          go_to_step_3: None of the above matches mine, continue
+          go_to_step_4: Preview the proposal
         header:
           back: Back
           title: Create proposal
         proposal_similar:
           exit_wizard: This proposal coincides with mine, I want to finish the creation process
           view_proposal: View proposal
+        step_2:
+          similar_proposals: 'Similar proposals:'
+        step_3:
+          attachment_legend: "(Optional) Add an attachment"
+          select_a_category: Please select a category
+        step_4:
+          preview: Preview
         stepper:
           step_1: Start
           step_2: Compare
           step_3: Complete
           step_4: Publish
-        step_2:
-          similar_proposals: "Similar proposals:"
-        step_3:
-          attachment_legend: "(Optional) Add an attachment"
-          select_a_category: Please select a category
-          select_a_user_group: Please select a user
-        step_4:
-          preview: "Preview"
-        validation_errors: "Sorry, there's been errors: "
-      proposal_votes:
-        create:
-          error: There's been errors when voting the proposal.
+        validation_errors: 'Sorry, there''s been errors: '
       proposals:
         author:
           deleted: Deleted user

@@ -1,3 +1,4 @@
+---
 ca:
   activemodel:
     attributes:
@@ -97,38 +98,38 @@ ca:
             votes: Suports
       new:
         limit_reached: No pots crear noves propostes ja que has superat el límit.
+      proposal_votes:
+        create:
+          error: Hi ha hagut errors en donar suport a la proposta.
       proposal_wizard:
         actions:
           exit_wizard: Hi ha propostes similars a les meves, vull acabar el procés de creació
-          go_to_step_2: Cercar propostes similars
-          go_to_step_3: Cap de les anteriors coincideix amb la meva, continua
-          go_to_step_4: Vista prèvia de la proposta
           go_back_to_step_3: Vull corregir la meva proposta
           go_to_finish: Publica la proposta
           go_to_next_step: pròxim pas
+          go_to_step_2: Cercar propostes similars
+          go_to_step_3: Cap de les anteriors coincideix amb la meva, continua
+          go_to_step_4: Vista prèvia de la proposta
         header:
           back: Enrere
           title: Crear proposta
         proposal_similar:
           exit_wizard: Aquesta proposta coincideix amb la meva, vull acabar el procés de creació
           view_proposal: Veure proposta
-        stepper:
-          step_1: Començament
-          step_2: Comparar
-          step_3: Completar
-          step_4: Publicar
         step_2:
-          similar_proposals: "Propostas similars:"
+          similar_proposals: 'Propostas similars:'
         step_3:
           attachment_legend: "(Opcional) Afegir un fitxer adjunto"
           select_a_category: Si us plau, selecciona una categoria
           select_a_user_group: Si us plau, selecciona un usuari
         step_4:
-          preview: "Vista previa"
-        validation_errors: "Lo sentimos, ha habido errores: "
-      proposal_votes:
-        create:
-          error: Hi ha hagut errors en donar suport a la proposta.
+          preview: Vista previa
+        stepper:
+          step_1: Començament
+          step_2: Comparar
+          step_3: Completar
+          step_4: Publicar
+        validation_errors: 'Lo sentimos, ha habido errores: '
       proposals:
         author:
           deleted: Usuari eliminat
