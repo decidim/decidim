@@ -51,13 +51,15 @@ module Decidim
           end
         end
         context "Organization adhesion" do
+          let(:user_group) {create(:user_group, verified_at: DateTime.now) }
+          let(:membership) {create(:user_group_membership, user: user, user_group: user_group)}
           it "returns false if the proposal is not adhered by the given organization" do
-            expect(subject).not_to be_adhered_by(user)
+            expect(subject).not_to be_adhered_by(user, user_group)
           end
 
           it "returns true if the proposal is not adhered by the given organization" do
-            create(:proposal_adhesion, proposal: subject, author: user)
-            expect(subject).to be_adhered_by(user)
+            create(:proposal_adhesion, proposal: subject, author: user, user_group: user_group)
+            expect(subject).to be_adhered_by(user, user_group)
           end
         end
       end

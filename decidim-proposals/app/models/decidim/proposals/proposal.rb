@@ -45,8 +45,8 @@ module Decidim
       # Public: Check if the user has adhered the proposal.
       #
       # Returns Boolean.
-      def adhered_by?(user)
-        adhesions.where(author: user).any?
+      def adhered_by?(user, user_group=nil)
+        adhesions.where(author: user, user_group: user_group).any?
       end
 
       # Public: Checks if the organization has given an answer for the proposal.
