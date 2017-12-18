@@ -348,7 +348,7 @@ pt:
         description_html: Você está representando o usuário <b>%{user_name}</b>.
         expire_time_html: Sua sessão expirará em <b><span class="minutes">%{minutes}</span> minutos</b>.
       notifications_dashboard:
-        mark_all_as_read: marcar tudo como lido
+        mark_all_as_read: Marcar tudo como lido
         no_notifications: Ainda não há notificações.
         title: Notificações
       user_menu:
