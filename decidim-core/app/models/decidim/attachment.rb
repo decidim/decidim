@@ -11,6 +11,8 @@ module Decidim
     validates :file, file_size: { less_than_or_equal_to: ->(_attachment) { Decidim.maximum_attachment_size } }
     mount_uploader :file, Decidim::AttachmentUploader
 
+    default_scope { order(arel_table[:weight].asc) }
+
     # Whether this attachment is a photo or not.
     #
     # Returns Boolean.

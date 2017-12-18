@@ -42,6 +42,7 @@ module Decidim
           title: form.title,
           file: form.file,
           description: form.description,
+          weight: form.weight,
           attachment_collection_id: form.attachment_collection_id
         }.reject do |attribute, value|
           value.blank? && !attribute.to_s.ends_with?("_id")

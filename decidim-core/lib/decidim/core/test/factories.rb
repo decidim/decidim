@@ -191,6 +191,7 @@ FactoryBot.define do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+    weight { Faker::Number.number(1) }
     attached_to { build(:participatory_process) }
     content_type { "image/jpeg" }
     file_size { 108_908 }

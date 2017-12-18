@@ -10,6 +10,7 @@ module Decidim
       attribute :file
       translatable_attribute :title, String
       translatable_attribute :description, String
+      attribute :weight, Integer, default: 0
       attribute :attachment_collection_id, Integer
 
       mimic :attachment

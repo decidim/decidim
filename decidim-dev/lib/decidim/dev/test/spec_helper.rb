@@ -10,6 +10,7 @@ require "cancan/matchers"
 require "rectify/rspec"
 require "wisper/rspec/stub_wisper_publisher"
 require "db-query-matchers"
+require 'action_view/helpers/sanitize_helper'
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./rspec_support/ and its subdirectories.
@@ -31,4 +32,5 @@ RSpec.configure do |config|
   config.include AttachmentHelpers
   config.include TranslationHelpers
   config.include Rectify::RSpec::Helpers
+  config.include ActionView::Helpers::SanitizeHelper
 end
