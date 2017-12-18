@@ -56,6 +56,7 @@ module Decidim
       end
 
       initializer "decidim.assets" do |app|
+        app.config.assets.paths << File.expand_path("../../../app/assets/stylesheets", __dir__)
         app.config.assets.precompile += %w(decidim_core_manifest.js)
 
         Decidim.feature_manifests.each do |feature|
