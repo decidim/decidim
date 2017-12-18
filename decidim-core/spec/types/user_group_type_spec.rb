@@ -25,6 +25,14 @@ module Decidim
       end
     end
 
+    describe "nickname" do
+      let(:query) { "{ nickname }" }
+
+      it "returns an empty string since user groups have no nickname yet" do
+        expect(response).to include("nickname" => "")
+      end
+    end
+
     describe "avatarUrl" do
       let(:query) { "{ avatarUrl }" }
 
