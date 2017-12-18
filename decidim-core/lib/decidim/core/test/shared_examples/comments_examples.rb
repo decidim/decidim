@@ -23,7 +23,7 @@ shared_examples "comments" do
     end
   end
 
-  it "allows user to sort the comments" do
+  it "allows user to sort the comments", :slow do
     comment = create(:comment, commentable: commentable, body: "Most Rated Comment")
     create(:comment_vote, comment: comment, author: user, weight: 1)
 
