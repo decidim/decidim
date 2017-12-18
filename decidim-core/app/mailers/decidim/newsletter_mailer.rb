@@ -13,6 +13,7 @@ module Decidim
       @user = user
 
       @custom_url_for_mail_root = custom_url_for_mail_root(@organization, @newsletter.id)
+      @string_encrypted = sent_at_encrypted(@user.id, @newsletter.sent_at)
 
       with_user(user) do
         @subject = parse_interpolations(@newsletter.subject[I18n.locale.to_s], user, @newsletter.id)

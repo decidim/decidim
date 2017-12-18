@@ -2,7 +2,7 @@
 
 module Decidim
   # This command unsubscribes user from newsletter.
-  class UnsubscribeNotificationsSettings < Rectify::Command
+  class UnsubscribeSettings < Rectify::Command
     # unsubscribe user from newsletter.
     #
     # user - The user to be updated.
@@ -14,7 +14,7 @@ module Decidim
     def call
       return broadcast(:invalid) unless @user.newsletter_notifications
 
-      update_notifications_settings
+      update_settings
       @user.save!
 
       broadcast(:ok, @user)
@@ -22,7 +22,7 @@ module Decidim
 
     private
 
-    def update_notifications_settings
+    def update_settings
       @user.newsletter_notifications = false
     end
   end

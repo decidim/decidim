@@ -44,9 +44,7 @@ Decidim::Core::Engine.routes.draw do
         delete :read_all
       end
     end
-    resource :notifications_settings, only: [:show, :update], controller: "notifications_settings" do
-      get :unsubscribe
-    end
+    resource :notifications_settings, only: [:show, :update], controller: "notifications_settings"
     resources :own_user_groups, only: [:index]
   end
 
@@ -65,7 +63,9 @@ Decidim::Core::Engine.routes.draw do
   resource :follow, only: [:create, :destroy]
   resource :report, only: [:create]
 
-  resources :newsletters, only: [:show]
+  resources :newsletters, only: [:show] do
+    get :unsubscribe, on: :collection
+  end
 
   root to: "pages#show", id: "home"
 end
