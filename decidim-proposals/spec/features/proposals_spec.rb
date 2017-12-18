@@ -65,7 +65,7 @@ describe "Proposals", type: :feature do
           end
         end
 
-        it "creates a new proposal" do
+        it "creates a new proposal", :slow do
           visit_feature
 
           click_link "New proposal"
@@ -96,7 +96,7 @@ describe "Proposals", type: :feature do
                    participatory_space: participatory_process)
           end
 
-          it "creates a new proposal" do
+          it "creates a new proposal", :slow do
             visit_feature
 
             click_link "New proposal"
@@ -131,7 +131,7 @@ describe "Proposals", type: :feature do
             create(:user_group_membership, user: user, user_group: user_group)
           end
 
-          it "creates a new proposal as a user group" do
+          it "creates a new proposal as a user group", :slow do
             visit_feature
             click_link "New proposal"
 
@@ -162,7 +162,7 @@ describe "Proposals", type: :feature do
                      participatory_space: participatory_process)
             end
 
-            it "creates a new proposal as a user group" do
+            it "creates a new proposal as a user group", :slow do
               visit_feature
               click_link "New proposal"
 
@@ -663,7 +663,7 @@ describe "Proposals", type: :feature do
         end
 
         context "when selecting the global scope" do
-          it "lists the filtered proposals" do
+          it "lists the filtered proposals", :slow do
             within ".filters" do
               select2("Global scope", from: :filter_scope_id)
             end
@@ -674,7 +674,7 @@ describe "Proposals", type: :feature do
         end
 
         context "when selecting one scope" do
-          it "lists the filtered proposals" do
+          it "lists the filtered proposals", :slow do
             within ".filters" do
               select2(translated(scope.name), from: :filter_scope_id)
             end
@@ -685,7 +685,7 @@ describe "Proposals", type: :feature do
         end
 
         context "when selecting the global scope and another scope" do
-          it "lists the filtered proposals" do
+          it "lists the filtered proposals", :slow do
             within ".filters" do
               select2(translated(scope.name), from: :filter_scope_id)
               select2("Global scope", from: :filter_scope_id)

@@ -55,7 +55,7 @@ describe "Explore meetings", type: :feature do
         expect(page).to have_css(".card--meeting", count: 5)
       end
 
-      it "allows fitlering by scope" do
+      it "allows fitlering by scope", :slow do
         scope = create(:scope, organization: organization)
         meeting = meetings.first
         meeting.scope = scope
