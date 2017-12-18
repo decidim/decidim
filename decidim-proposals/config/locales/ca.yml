@@ -113,6 +113,8 @@ ca:
         header:
           back: Enrere
           title: Crear proposta
+        proposal_preview_card_author:
+          verified_user_group: Organització verificada
         proposal_similar:
           exit_wizard: Aquesta proposta coincideix amb la meva, vull acabar el procés de creació
           view_proposal: Veure proposta

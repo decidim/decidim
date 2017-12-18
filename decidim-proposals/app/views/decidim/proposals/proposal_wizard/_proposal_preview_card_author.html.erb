@@ -1,14 +1,12 @@
 <div class="author-data__main">
   <div class="author author--inline">
     <span class="author__avatar author__avatar--small">
-
-      <%# TODO: show author image
-        = image_tag proposal_wizard_author_avatar_url proposal[:user_group_id] %>
+      <%= image_tag proposal_wizard_author_avatar_url proposal[:user_group_id] %>
     </span>
     <span class="author__name">
       <%= proposal_wizard_author_name proposal[:user_group_id] %>
     </span>
-    <% if false && proposal.user_group && proposal.user_group.verified? %>
+    <% if proposal_wizard_user_group_verified? proposal[:user_group_id] %>
       &nbsp;
       <span class="label label--highlight label--small">
         <%= t ".verified_user_group" %>

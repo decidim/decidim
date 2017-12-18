@@ -113,6 +113,8 @@ es:
         header:
           back: Atrás
           title: Crear propuesta
+        proposal_preview_card_author:
+          verified_user_group: Organización verificada
         proposal_similar:
           exit_wizard: Esta propuesta coincide con la mía, quiero terminar el proceso de creación
           view_proposal: Ver propuesta

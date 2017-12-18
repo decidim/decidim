@@ -58,15 +58,27 @@ module Decidim
       end
 
       def proposal_wizard_author(user_group_id)
-        Decidim::UserGroup.find user_group_id if user_group_id.present?
+        if user_group_id.present? && current_user.user_groups.verified.where(id: user_group_id)
+          Decidim::UserGroup.find user_group_id
+        else
+          current_user
+        end
+      end
+
+      def proposal_wizard_user_group_verified?(user_group_id)
+        if user_group_id.present? && current_user.user_groups.verified.where(id: user_group_id)
+          true
+        else
+          false
+        end
       end
 
       def proposal_wizard_author_avatar_url(user_group_id)
-        proposal_wizard_author(user_group_id).avatar_url if user_group_id.present?
+        proposal_wizard_author(user_group_id).avatar_url
       end
 
       def proposal_wizard_author_name(user_group_id)
-        proposal_wizard_author(user_group_id).name if user_group_id.present?
+        proposal_wizard_author(user_group_id).name
       end
 
       def proposal_wizard_feature(feature_id)
