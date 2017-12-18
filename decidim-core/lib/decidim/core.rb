@@ -143,6 +143,11 @@ module Decidim
     true
   end
 
+  # Allow organization's administrators to track newsletter links
+  config_accessor :track_newsletter_links do
+    true
+  end
+
   # A base path for the uploads. If set, make sure it ends in a slash.
   # Uploads will be set to `<base_path>/uploads/`. This can be useful if you
   # want to use the same uploads place for both staging and production
