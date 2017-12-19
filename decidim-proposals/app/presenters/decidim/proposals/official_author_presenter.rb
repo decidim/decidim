@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     #
-    # A Null Object to abstract out the author of an official proposal.
+    # A dummy presenter to abstract out the author of an official proposal.
     #
     class OfficialAuthorPresenter
       def name
