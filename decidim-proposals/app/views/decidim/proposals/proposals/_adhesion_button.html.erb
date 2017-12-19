@@ -1,4 +1,6 @@
 <% 
+# @params (mandatory): proposal, from_proposals_list
+# @params (optional) : user_group, btn_label
 # avoid "undefined local variable" error
 user_group= local_assigns[:user_group]
 current_adhesion_url= proposal_proposal_adhesion_path(
@@ -6,15 +8,18 @@ current_adhesion_url= proposal_proposal_adhesion_path(
   from_proposals_list: from_proposals_list,
   user_group_id: user_group&.id
   )
+# to override the translation for both buttons: adhere and unadhere (use to be the name of the user/user_group)
+adhere_label= local_assigns[:btn_label] || t('.adhere')
+unadhere_label= local_assigns[:btn_label] || t('.already_adhered')
 %>
 <div id="proposal-<%= proposal.id %>-adhesion-button<%= user_group&.id ? "-#{user_group.id}" : '' %>">
   <% if !current_user %>
-      <%= action_authorized_button_to :adhere, t('.adhere'), current_adhesion_url, class: "card__button button #{adhesion_button_classes(from_proposals_list)}" %>
+      <%= action_authorized_button_to :adhere, adhere_label, current_adhesion_url, class: "card__button button #{adhesion_button_classes(from_proposals_list)}" %>
   <% else %>
     <% if proposal.adhered_by?(current_user, user_group) %>
-      <%= action_authorized_button_to :adhere, t('.already_adhered'), current_adhesion_url, method: :delete, remote: true, data: { original: t('.already_adhered'), replace: t('.already_adhered_hover') }, class: "card__button button #{adhesion_button_classes(from_proposals_list)} success", id: "adhesion_button" %>
+      <%= action_authorized_button_to :adhere, unadhere_label, current_adhesion_url, method: :delete, remote: true, data: { original: t('.already_adhered'), replace: t('.already_adhered_hover') }, class: "card__button button #{adhesion_button_classes(from_proposals_list)} success", id: "adhesion_button" %>
     <% else %>
-      <%= action_authorized_button_to :adhere, t('.adhere'), current_adhesion_url, remote: true, data: {  }, class: "card__button button #{adhesion_button_classes(from_proposals_list)}" %>
+      <%= action_authorized_button_to :adhere, adhere_label, current_adhesion_url, remote: true, data: {  }, class: "card__button button #{adhesion_button_classes(from_proposals_list)}" %>
     <% end %>
   <% end %>
 </div>

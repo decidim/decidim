@@ -1,18 +1,20 @@
 <div class="reveal__header">
   <h1 class="reveal__title"><%=t '.select_identity' %></h1>
 </div>
-<%= render partial: "decidim/proposals/proposals/adhesion_button", locals: { proposal: proposal, from_proposals_list: false } %>
+<%= render partial: "decidim/proposals/proposals/adhesion_button", locals: { proposal: proposal, from_proposals_list: false, btn_label: current_user.name } %>
 <% current_user.user_groups.verified.each do |g| %>
   <br/>
   <% if @to_adhere_groups.include? g.id %>
     <%= render partial: "decidim/proposals/proposals/adhesion_button",
       locals: {
-        proposal: proposal, from_proposals_list: false, user_group: g
+        proposal: proposal, from_proposals_list: false,
+        btn_label: g.name, user_group: g
       } %>
   <% else %>
     <%= render partial: "decidim/proposals/proposals/adhesion_button",
       locals: {
-        proposal: proposal, from_proposals_list: false, user_group: g
+        proposal: proposal, from_proposals_list: false,
+        btn_label: g.name, user_group: g
       } %>
   <% end %>
 <% end %>
