@@ -14,6 +14,10 @@ module Decidim
         ""
       end
 
+      def badge
+        ""
+      end
+
       def avatar_url
         ActionController::Base.helpers.asset_path("decidim/default-avatar.svg")
       end

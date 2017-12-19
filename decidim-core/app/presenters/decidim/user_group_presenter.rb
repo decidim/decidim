@@ -13,6 +13,12 @@ module Decidim
       false
     end
 
+    def badge
+      return "" unless verified?
+
+      I18n.t("decidim.verified_user_group")
+    end
+
     delegate :url, to: :avatar, prefix: true
   end
 end

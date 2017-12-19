@@ -99,7 +99,6 @@ ca:
       proposals:
         author:
           deleted: Usuari eliminat
-          verified_user_group: Organització verificada
         count:
           proposals_count:
             one: 1 proposta

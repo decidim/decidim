@@ -372,8 +372,6 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
                   name: ownProps.session && ownProps.session.user.name,
                   avatarUrl: ownProps.session && ownProps.session.user.avatarUrl,
                   deleted: false,
-                  isVerified: true,
-                  isUser: true,
                 },
                 comments: [],
                 hasComments: false,

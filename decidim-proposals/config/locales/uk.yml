@@ -99,7 +99,6 @@ uk:
       proposals:
         author:
           deleted: Видалений учасник
-          verified_user_group: Перевірена організація
         count:
           proposals_count:
             one: 1 пропозиція

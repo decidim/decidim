@@ -49,7 +49,6 @@ pt:
             offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
             spam: Contém clickbait, publicidade, fraudes ou script bots.
           title: Reportar um problema
-        verified_user_group: Organização verificada
       comment_order_selector:
         order:
           best_rated: Melhores avaliações

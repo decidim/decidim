@@ -10,10 +10,8 @@ module Decidim
     field :nickname, !types.String, "The author's nickname"
 
     field :avatarUrl, !types.String, "The author's avatar url"
-
-    field :isVerified, !types.Boolean, "Whether the author is verified or not"
+    field :badge, !types.String, "The author's badge"
 
     field :deleted, !types.Boolean, "Whether the author's account has been deleted or not"
-    field :isUser, !types.Boolean, "Whether the author is a user or another kind of author (User Group)"
   end
 end

@@ -14,10 +14,10 @@
           <%= proposal.author.nickname %>
         <% end %>
       </span>
-      <% if proposal.user_group && proposal.user_group.verified? %>
+      <% if proposal.author.badge.present? %>
         &nbsp;
         <span class="label label--highlight label--small">
-          <%= t ".verified_user_group" %>
+          <%= proposal.author.badge %>
         </span>
       <% end %>
     </div>

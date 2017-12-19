@@ -12,9 +12,8 @@ fragment CommentData on Comment {
     name
     nickname
     avatarUrl
-    isVerified
-    isUser
     deleted
+    badge
   }
   hasComments
   acceptsNewComments
