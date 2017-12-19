@@ -419,26 +419,28 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
               };
             };
 
-            if (type === "Decidim::Comments::Comment") {
-                comments = prev.commentable.comments.map(commentReducer);
-              } else {
-                comments = [
-                  ...prev.commentable.comments,
-                  newComment,
-                ];
-              }
+            if (prev) {
+              if (type === "Decidim::Comments::Comment") {
+                  comments = prev.commentable.comments.map(commentReducer);
+                } else {
+                  comments = [
+                    ...prev.commentable.comments,
+                    newComment,
+                  ];
+                }
 
-            store.writeQuery({
-              query: getCommentsQuery,
-              data: {
-                ...prev,
-                commentable: {
-                  ...prev.commentable,
-                  comments,
+              store.writeQuery({
+                query: getCommentsQuery,
+                data: {
+                  ...prev,
+                  commentable: {
+                    ...prev.commentable,
+                    comments,
+                  },
                 },
-              },
-              variables,
-            });
+                variables,
+              });
+            }
           },
         });
       }

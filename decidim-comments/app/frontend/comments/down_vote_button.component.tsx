@@ -96,17 +96,19 @@ const DownVoteButtonWithMutation = graphql<DownVoteMutation, DownVoteButtonProps
 
             const prev = store.readQuery<GetCommentsQuery>({ query: getCommentsQuery, variables });
 
-            store.writeQuery({
-              query: getCommentsQuery,
-              data: {
-                ...prev,
-                commentable: {
-                  ...prev.commentable,
-                  comments: prev.commentable.comments.map(commentReducer),
+            if (prev) {
+              store.writeQuery({
+                query: getCommentsQuery,
+                data: {
+                  ...prev,
+                  commentable: {
+                    ...prev.commentable,
+                    comments: prev.commentable.comments.map(commentReducer),
+                  },
                 },
-              },
-              variables,
-            });
+                variables,
+              });
+            }
           },
         });
       }
