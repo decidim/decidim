@@ -208,9 +208,9 @@ en:
     newsletters:
       unsubscribe:
         check_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>
-        token_error: The link has expired.
         error: There's been an error unsubscribing
         success: You are unsubscribed successfully.
+        token_error: The link has expired.
         unsubscribe: Unsubscribe
     newsletter_mailer:
       newsletter:
