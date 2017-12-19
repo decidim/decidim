@@ -1,0 +1,67 @@
+<!-- Topbar -->
+<div class="title-bar">
+  <a target="_blank" href="http://ajuntament.barcelona.cat/"
+     class="logo-cityhall">
+     <%= image_tag "badge-ajuntament-header.svg", alt: "Ajuntament de Barcelona" %>
+  </a>
+  <div class="row column topbar">
+    <div class="logo-wrapper">
+      <a href="/">
+        <%= image_tag "decidim-logo.svg", alt: "Decidim Barcelona" %>
+      </a>
+    </div>
+    <div class="topbar__dropmenu language-choose">
+      <ul class="dropdown menu" data-dropdown-menu>
+        <li class="is-dropdown-submenu-parent">
+          <a href="#">Català</a>
+          <ul class="menu is-dropdown-submenu">
+            <li><a href="#">Castellano</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="hide-for-medium topbar__menu">
+      <button type="button" data-toggle="offCanvas">
+        <%= icon "menu", aria_label: "Navegación", role: "img" %>
+      </button>
+    </div>
+    <% if @activeuser == "logged" %>
+      <div class="topbar__dropmenu topbar__user__logged">
+        <!-- No new notifications? Remove is-active class -->
+        <a href="/user-notifications" class="topbar__notifications is-active"
+           title="Notificaciones">
+          <%= icon "bell" %>
+        </a>
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li class="is-dropdown-submenu-parent show-for-medium">
+              <a href="#">
+                  María Martínez
+              </a>
+            <ul class="menu is-dropdown-submenu js-append usermenu-off-canvas">
+              <li><a href="#">Notificaciones (35)</a></li>
+              <li><a href="#">Siguiendo (12)</a></li>
+              <li><a href="#">Tu cuenta</a></li>
+              <li><a href="#">Salir</a></li>
+            </ul>
+            <span data-set="nav-login-holder" class="show-for-medium">
+              <!-- Repeated due to dropdown limitations -->
+              <ul class="menu is-dropdown-submenu js-append usermenu-off-canvas">
+                <li><a href="#">Notificaciones (35)</a></li>
+                <li><a href="#">Siguiendo (12)</a></li>
+                <li><a href="#">Tu cuenta</a></li>
+                <li><a href="#">Salir</a></li>
+              </ul>
+            </span>
+          </li>
+        </ul>
+      </div>
+    <% else %>
+      <div class="topbar__user show-for-medium" data-set="nav-login-holder">
+          <div class="topbar__user__login js-append">
+            <a href="/user-register">Regístrate</a>
+            <a href="/user-login">Entra</a>
+          </div>
+      </div>
+    <% end %>
+  </div>
+</div>

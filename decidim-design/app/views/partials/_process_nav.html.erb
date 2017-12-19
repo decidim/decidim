@@ -1,0 +1,88 @@
+<div class="process-nav">
+  <button class="process-nav__trigger hide-for-medium"
+          data-toggle="process-nav-content">
+    <%= icon "caret-bottom", class: "icon--small process-nav__trigger__icon", aria_label: "Desplegar", role: "img" %>
+    <% if @activepage == "phases" %>
+      <div class="process-nav__link">
+        <%= icon "information" %>
+        <span>Continguts</span>
+      </div>
+    <% end %>
+    <% if @activepage == "info" %>
+      <div class="process-nav__link">
+        <%= icon "process" %>
+        <span>El procès</span>
+      </div>
+    <% end %>
+    <% if @activepage == "meetings" %>
+      <div class="process-nav__link">
+        <%= icon "meetings" %>
+        <span>Trobades</span>
+      </div>
+    <% end %>
+    <% if @activepage == "proposals" %>
+      <div class="process-nav__link">
+        <%= icon "proposals" %>
+        <span>Propostes</span>
+      </div>
+    <% end %>
+    <% if @activepage == "debates" %>
+      <div class="process-nav__link">
+        <%= icon "debates" %>
+        <span>Debats</span>
+      </div>
+    <% end %>
+    <% if @activepage == "actions" %>
+      <div class="process-nav__link">
+        <%= icon "actions" %>
+        <span>Resultats</span>
+      </div>
+    <% end %>
+  </button>
+  <div class="row column process-nav__content" id="process-nav-content"
+       data-toggler=".is-active">
+    <ul>
+      <li class="<% if @activepage == "info" %>is-active
+                 <% end %>">
+        <a href="/info" class="process-nav__link
+          <% if @activepage == "info" %>is-active<% end %>">
+          <%= icon "process" %>
+          <span>El procés</span>
+        </a>
+      </li>
+      <li class="<% if @activepage == "meetings" %>is-active
+                 <% end %>">
+        <a href="/meetings" class="process-nav__link
+          <% if @activepage == "meetings" %>is-active<% end %>">
+          <%= icon "meetings" %>
+          <span>Trobades</span>
+        </a>
+      </li>
+      <li class="<% if @activepage == "proposals" %>is-active
+                 <% end %>">
+        <a href="/proposals" class="process-nav__link
+          <% if @activepage == "proposals" %>is-active<% end %>">
+          <%= icon "proposals" %>
+          <span>Propostes</span>
+        </a>
+      </li>
+      <li class="<% if @activepage == "debates" %>is-active
+                 <% end %>">
+        <a href="/debates" class="process-nav__link
+          <% if @activepage == "debates" %>is-active<% end %>">
+          <%= icon "debates" %>
+          <span>Debates</span>
+        </a>
+      </li>
+      <li class="<% if @activepage == "actions" %>is-active
+                 <% end %>">
+        <a href="/results" class="process-nav__link
+          <% if @activepage == "actions" %>is-active<% end %>">
+          <%= icon "actions" %>
+          <span>Resultados</span>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+</div>

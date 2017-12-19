@@ -1,0 +1,119 @@
+<% @title = "Decidim Barcelona" %>
+<% @activesection = "home" %>
+<%= partial 'partials/template_top' %>
+
+<main class="wrapper">
+  <div class="row collapse">
+    <div class="columns large-12">
+      <h1>Decidim Barcelona</h1>
+      <div class="section">
+        <h2 class="section-heading">Vistas principales</h2>
+        <ul>
+          <li><a href="/home">Home</a></li>
+          <li><%= link_to 'Listado de procesos', page_path('processes') %></li>
+          <li><a href="/more-information">Más información</a></li>
+        </ul>
+        <h2 class="section-heading">Proceso</h2>
+        <ul>
+          <li><a href="/info">Proceso - Landing e información general</a></li>
+          <li><a href="/phases">Proceso - Fases</a></li>
+          <li>
+            <a href="/meetings">Encuentros - Lista</a>
+            <ul>
+              <li><a href="/meetings-callout">Encuentros pasados</a></li>
+            </ul>
+          </li>
+          <li><a href="/debates">Debates - Lista</a></li>
+          <li>
+            <a href="/proposals">Popuestas - Lista (voto habilitado)</a>
+            <ul>
+              <li><a href="/proposals-no-vote">Propuestas - Lista (voto no habilitado)</a></li>
+              <li><a href="/proposals_2">Propuestas con contador de votos</a></li>
+              <li><a href="/proposals-with-filters">Propuestas con filtros activos</a></li>
+              <li><a href="/new-proposal">Crear propuesta - Formulario</a></li>
+            </ul>
+          </li>
+          <li><a href="/results">Resultados - Lista</a></li>
+        </ul>
+        <h2 class="section-heading">Vistas de componente</h2>
+        <ul>
+          <li><a href="/meeting-view">Encuentro</a></li>
+          <li>
+            <a href="/debate-view">Debate</a>
+            <ul>
+              <li><a href="/debate-view-login">Debate: log in para comentar</a></li>
+              <li><a href="/debate-view-AMA">Debate con concejal</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/proposal-view">Propuesta: aprobada</a>
+            <ul>
+              <li><a href="/proposal-view-rejected">Propuesta: rechazada</a></li>
+              <li><a href="/proposal-view-voted">Propuesta: votada/apoyada</a></li>
+              <li><a href="/proposal-view-login">Propuesta: log in para apoyar</a></li>
+            </ul>
+          </li>
+          <li><a href="/action-view">Resultado</a></li>
+        </ul>
+        <h2 class="section-heading">Usuario</h2>
+        <ul>
+          <li><a href="/user-register">Usuario - registro</a></li>
+          <li><a href="/user-register-success">Usuario - registro ok</a></li>
+          <li><a href="/user-welcome">Usuario - registro email ok</a></li>
+          <li><a href="/user-login">Usuario - entrar</a></li>
+          <li><a href="/user-settings">Usuario - mi cuenta (con cabecera logged)</a></li>
+          <li><a href="/user-profile">Usuario - perfil</a></li>
+          <li><a href="/user-notifications">Usuario - notificaciones</a></li>
+          <li><a href="/user-verification">Usuario - verifica residencia</a></li>
+          <li><a href="/user-new-password">Usuario - Recordar contraseña</a></li>
+          <li><a href="/user-confirm">Usuario - Reeenviar confirmación</a></li>
+        </ul>
+        <h2 class="section-heading">Presupuestos participativos</h2>
+        <ul>
+          <li><a href="/projects-budget">Presupuestos - Lista de proyectos</a></li>
+          <li><a href="/project-budget-view">Presupuestos - Ver proyecto</a></li>
+          <li><a href="/projects-budget-confirm">Presupuestos - Confirmar voto</a></li>
+          <li><a href="/projects-budget-excess">Presupuestos - Votos excedidos</a></li>
+          <li><a href="/projects-budget-finish">Presupuestos - Votación finalizada</a></li>
+        </ul>
+        <h2 class="section-heading">Legal y sistema</h2>
+        <ul>
+          <li><a href="/static">Contenido estático/legal</a></li>
+          <li><a href="/static-with-nav">Contenido estático con navegación</a></li>
+          <li><a href="/404">Error 404</a></li>
+          <li><a href="/500">Error 500</a></li>
+          <li><a href="/cookie-bar">Cookie warning</a></li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2 class="section-heading">Librería de patrones</h2>
+        <ul>
+          <li><a href="/pattern-library">Librería de patrones de la interfaz</a></li>
+          <li><a href="/form-datepicker">Formulario con calendario/datepicker</a></li>
+          <li><a href="/form-validation">Validación en formularios</a></li>
+          <li><a href="/user-stories">User stories</a></li>
+          <li><a href="/style-manual">Manual de estilo</a></li>
+        </ul>
+      </div>
+      <div class="section">
+        <h2 class="section-heading">Plantilla para email</h2>
+        <p>
+          La plantilla de email está creada con
+          <a href="http://foundation.zurb.com/emails/docs/" target="_blank">
+            Foundation para email</a>, y el HTML y CSS original están en la carpeta
+            <code>/source/emails/</code>.
+        </p>
+        <p>
+          El HTML y CSS de los emails se puede combinar con la
+          <a href="http://foundation.zurb.com/emails/inliner-v2.html" target="_blank">
+            herramienta inliner</a> de Foundation.
+        </p>
+        <ul>
+          <li><a href="/email-inline">Ejemplo de email con estilos inline</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial 'partials/template_bottom' %>

@@ -1,0 +1,65 @@
+<div class="process-header process-header--np row column">
+  <div class="row column process-header__main"
+    style="background-image:url(<%= image_path "barcelona-hero.jpg" %>);">
+    <div class="process-header__container row">
+      <div class="columns mediumlarge-9 process-header__info">
+        <div>
+          <h1 class="text-highlight heading2">
+            <a href="info">Plan urbanístico de Gracia</a>
+          </h1>
+        </div>
+        <div>
+          <h2 class="text-highlight heading-small">
+						<span class="process-header__hashtag">#urbaGracia</span>
+            Proceso de mejoras del barrio de Gracia
+					</h2>
+        </div>
+      </div>
+      <div class="columns mediumlarge-3">
+        <div class="process-header__phase">
+          <div class="process-header__progress">
+            <ol>
+              <li class="phase-item--past"><span></span></li>
+              <li class="phase-item--past"><span></span></li>
+              <li class="phase-item--past"><span></span></li>
+              <li><span></span></li>
+              <li><span></span></li>
+              <li><span></span></li>
+              <li><span></span></li>
+              <li><span></span></li>
+              <li><span></span></li>
+            </ol>
+            <span class="phase-current">Fase 3 de 9</span>
+          </div>
+          <div>
+            <span class="phase-nav__title">Priorització de propostes</span>
+            <span class="phase-nav__date">02/06/2016 - 15/02/2016</span>
+          </div>
+          <a href="" class="button tiny hollow">Ver fases</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% if @activephase == "processhome" %>
+  <% else %>
+    <div class="row column">
+      <%= partial 'partials/process_nav_new_proposal' %>
+    </div>
+  <% end %>
+</div>
+
+<div class="reveal large" id="phasesInfo" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title">Fases del projecte:</h3>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="row">
+    <div class="columns large-9 large-centered">
+      <%= partial 'partials/timeline' %>
+    </div>
+  </div>
+</div>
+
+<%= partial 'partials/share' %>

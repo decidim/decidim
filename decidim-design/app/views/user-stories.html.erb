@@ -1,0 +1,40 @@
+---
+title: Decidim Barcelona
+activesection: home
+---
+
+<%= partial 'partials/template_top' %>
+
+<main class="wrapper">
+  <div class="row collapse">
+    <div class="columns large-12">
+      <h1>User stories</h1>
+      <div class="section">
+        <h2 class="section-heading">Navegar por las fases de un proceso</h2>
+        <ol>
+          <li>
+            <a href="/info">Proceso</a>
+            <p>El usuario sigue el enlace "Ver fases" en la cabecera de proceso.</p>
+          </li>
+          <li>
+            <a href="/phases">Proceso - Fases</a>
+            <p>El usuario sigue el enlace a las propuestas dentro de la Fase 2
+              (fase completada)</p>
+          </li>
+          <li>
+            <a href="/proposals-with-filter">Propuestas con filtros activos</a>
+            <p>Se muestra el listrado prefiltrado con las propuestas creadas
+              durante la Fase 2, y con el filtro "Fase 2" activado y visible.</p>
+          </li>
+          <li>
+            <a href="/proposal-view">Propuesta</a>
+            <p>El usuario navega hasta una propuesta. La propuesta se muestra
+              siempre en su estado actual.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial 'partials/template_bottom' %>
