@@ -260,6 +260,9 @@ ru:
           invalid: "Содержимое поля %{field} недопустимо."
           ok: Хорошо
           title: Не подтвердили свою личность
+      author:
+        deleted: Удаленный участник
+        verified_user_group: Проверенная организация
       embed_modal:
         close_window: Закрыть окно
         embed: Пожалуйста, вставьте этот код в свою страницу
@@ -288,7 +291,6 @@ ru:
         share_link: Поделиться ссылкой
       version_author:
         deleted: Удаленный участник
-    verified_user_group: Проверенная организация
   devise:
     invitations:
       edit:

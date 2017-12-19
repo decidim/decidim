@@ -260,6 +260,9 @@ pl:
           invalid: "%{field} jest nieprawidłowy."
           ok: Ok
           title: Nieautoryzowany
+      author:
+        deleted: Usunięty użytkownik
+        verified_user_group: Zweryfikowana organizacja
       embed_modal:
         close_window: Zamknij okno
         embed: Proszę wkleić ten kod na swojej stronie
@@ -288,7 +291,6 @@ pl:
         share_link: Udostępnij link
       version_author:
         deleted: Usunięty użytkownik
-    verified_user_group: Zweryfikowana organizacja
   devise:
     invitations:
       edit:

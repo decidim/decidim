@@ -260,6 +260,9 @@ fi:
           invalid: "%{field} on virheellinen."
           ok: Ok
           title: Ei varmennettu
+      author:
+        deleted: Poistettu käyttäjä
+        verified_user_group: Vahvistettu organisaatio
       embed_modal:
         close_window: Sulje ikkuna
         embed: Liitä tämä koodi sivullesi
@@ -288,7 +291,6 @@ fi:
         share_link: Jaa linkki
       version_author:
         deleted: Poistettu käyttäjä
-    verified_user_group: Vahvistettu organisaatio
   devise:
     invitations:
       edit:

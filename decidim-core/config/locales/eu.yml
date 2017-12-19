@@ -260,6 +260,9 @@ eu:
           invalid: "%{field} ez da baliozkoa."
           ok: Ados
           title: Ez dago baimenduta
+      author:
+        deleted: Erabiltzailea ezabatua
+        verified_user_group: Egiaztatutako erakundea
       embed_modal:
         close_window: Itxi leihoa
         embed: Mesedez, erantsi kode hau zure orrian
@@ -288,7 +291,6 @@ eu:
         share_link: Partekatu esteka
       version_author:
         deleted: Erabiltzailea ezabatua
-    verified_user_group: Egiaztatutako erakundea
   devise:
     invitations:
       edit:

@@ -97,8 +97,6 @@ ca:
         create:
           error: Hi ha hagut errors en donar suport a la proposta.
       proposals:
-        author:
-          deleted: Usuari eliminat
         count:
           proposals_count:
             one: 1 proposta

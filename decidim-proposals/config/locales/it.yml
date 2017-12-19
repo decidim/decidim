@@ -97,8 +97,6 @@ it:
         create:
           error: Ci sono stati errori durante la votazione della proposta.
       proposals:
-        author:
-          deleted: Utente cancellato
         count:
           proposals_count:
             one: 1 proposta

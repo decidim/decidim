@@ -260,6 +260,9 @@ pt:
           invalid: "%{field} não é válido."
           ok: OK
           title: Não autorizado
+      author:
+        deleted: Usuário deletado
+        verified_user_group: Organização verificada
       embed_modal:
         close_window: Fechar janela
         embed: Cole este código na sua página
@@ -288,7 +291,6 @@ pt:
         share_link: Partilhar link
       version_author:
         deleted: Usuário deletado
-    verified_user_group: Organização verificada
   devise:
     invitations:
       edit:

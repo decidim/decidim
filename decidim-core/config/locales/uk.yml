@@ -260,6 +260,9 @@ uk:
           invalid: "%{field} не є дійсним."
           ok: Гаразд
           title: Недостатньо прав через відсутність підтвердження особи
+      author:
+        deleted: Видалений учасник
+        verified_user_group: Перевірена організація
       embed_modal:
         close_window: Закрити вікно
         embed: Будь ласка, вставте цей код на свою сторінку
@@ -288,7 +291,6 @@ uk:
         share_link: Поділитись посиланням
       version_author:
         deleted: Видалений учасник
-    verified_user_group: Перевірена організація
   devise:
     invitations:
       edit:

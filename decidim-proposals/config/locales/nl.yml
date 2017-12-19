@@ -97,8 +97,6 @@ nl:
         create:
           error: Er zijn fouten geweest bij het stemmen van het voorstel.
       proposals:
-        author:
-          deleted: Verwijderde gebruiker
         count:
           proposals_count:
             one: 1 voorstel

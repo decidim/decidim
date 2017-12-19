@@ -260,6 +260,9 @@ fr:
           invalid: "%{field} n'est pas valide."
           ok: D'accord
           title: Non autorisé
+      author:
+        deleted: Utilisateur supprimé
+        verified_user_group: Organisation vérifiée
       embed_modal:
         close_window: Fermer la fenêtre
         embed: Veuillez coller ce code dans votre page
@@ -288,7 +291,6 @@ fr:
         share_link: Lien de partage
       version_author:
         deleted: Utilisateur supprimé
-    verified_user_group: Organisation vérifiée
   devise:
     invitations:
       edit:

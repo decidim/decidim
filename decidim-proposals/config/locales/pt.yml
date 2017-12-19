@@ -97,8 +97,6 @@ pt:
         create:
           error: Houve erros ao votar a proposta.
       proposals:
-        author:
-          deleted: Usuário deletado
         count:
           proposals_count:
             one: 1 proposta

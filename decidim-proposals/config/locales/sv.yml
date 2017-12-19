@@ -97,8 +97,6 @@ sv:
         create:
           error: Det har varit fel när man röstade förslaget.
       proposals:
-        author:
-          deleted: Ta bort användare
         count:
           proposals_count:
             one: 1 förslag

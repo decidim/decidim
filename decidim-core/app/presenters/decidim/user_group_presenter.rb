@@ -16,7 +16,11 @@ module Decidim
     def badge
       return "" unless verified?
 
-      I18n.t("decidim.verified_user_group")
+      I18n.t("decidim.shared.author.verified_user_group")
+    end
+
+    def profile_path
+      ""
     end
 
     delegate :url, to: :avatar, prefix: true

@@ -263,6 +263,9 @@ en:
           invalid: "%{field} isn't valid."
           ok: Ok
           title: Not authorized
+      author:
+        deleted: Deleted user
+        verified_user_group: Verified organization
       embed_modal:
         close_window: Close window
         embed: Please paste this code in your page
@@ -291,7 +294,6 @@ en:
         share_link: Share link
       version_author:
         deleted: Deleted user
-    verified_user_group: Verified organization
   devise:
     invitations:
       edit:

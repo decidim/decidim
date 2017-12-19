@@ -97,8 +97,6 @@ ru:
         create:
           error: При голосовании по этому предложению произошли ошибки.
       proposals:
-        author:
-          deleted: Удаленный пользователь
         count:
           proposals_count:
             one: 1 предложение

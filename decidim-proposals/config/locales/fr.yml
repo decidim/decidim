@@ -97,8 +97,6 @@ fr:
         create:
           error: Des erreurs se sont produites lors du vote de la proposition.
       proposals:
-        author:
-          deleted: Utilisateur supprimé
         count:
           proposals_count:
             one: 1 proposition

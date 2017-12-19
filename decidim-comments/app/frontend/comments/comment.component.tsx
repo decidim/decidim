@@ -100,27 +100,8 @@ class Comment extends React.Component<CommentProps, CommentState> {
         <div className="comment__header">
           <div className="author-data">
             <div className="author-data__main">
-              <div className="author author--inline">
-                <a className="author__avatar">
-                  <img src={author.avatarUrl} alt="author-avatar" />
-                </a>
-                { author.deleted ?
-                    <span className="label label--small label--basic">{I18n.t("components.comment.deleted_user")}</span> :
-                    <a>
-                      <span className="author__name">{author.name}</span>
-                      <span className="author__nickname">{author.nickname}</span>
-                    </a>
-                }
-                { author.badge === "" ||
-                  <span>
-                    &nbsp;
-                    <span className="label success label--small">
-                      {author.badge}
-                    </span>
-                  </span>
-                }
-                <span><time dateTime={createdAt} title={createdAt}>{formattedCreatedAt}</time></span>
-              </div>
+              {this._renderAuthorReference()}
+              <span><time dateTime={createdAt} title={createdAt}>{formattedCreatedAt}</time></span>
             </div>
             <div className="author-data__extra">
               <button type="button" title={I18n.t("components.comment.report.title")} data-open={modalName}>
@@ -150,6 +131,62 @@ class Comment extends React.Component<CommentProps, CommentState> {
   private toggleReplyForm = () => {
     const { showReplyForm } = this.state;
     this.setState({ showReplyForm: !showReplyForm });
+  }
+
+  /**
+   * Render author information as a link to author's profile
+   * @private
+   * @returns {DOMElement} - Render a link with the author information
+   */
+  private _renderAuthorReference() {
+    const { comment: { author } } = this.props;
+
+    if (author.profilePath === "") {
+      return this._renderAuthor();
+    }
+
+    return <a href={author.profilePath}>{this._renderAuthor()}</a>;
+  }
+
+  /**
+   * Render author information
+   * @private
+   * @returns {DOMElement} - Render all the author information
+   */
+  private _renderAuthor() {
+    const { comment: { author } } = this.props;
+
+    if (author.deleted) {
+      return (
+        <div className="author author--inline">
+          <span className="author__avatar">
+            <img src={author.avatarUrl} alt="author-avatar" />
+          </span>
+          <span className="author__name">
+            <span className="label label--small label--basic">
+              {I18n.t("components.comment.deleted_user")}
+            </span>
+          </span>
+        </div>
+      );
+    }
+
+    return (
+      <div className="author author--inline">
+        <span className="author__avatar">
+          <img src={author.avatarUrl} alt="author-avatar" />
+        </span>
+        <span className="author__name">{author.name}</span>
+        <span className="author__nickname">{author.nickname}</span>
+        { author.badge === "" ||
+           <span className="author__badge">
+             <span className="label label--highlight label--small">
+               {author.badge}
+             </span>
+           </span>
+        }
+      </div>
+    );
   }
 
   /**

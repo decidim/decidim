@@ -68,7 +68,7 @@ describe("<Comment />", () => {
 
   it("should render author's avatar as a image tag", () => {
     const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
-    expect(wrapper.find("a.author__avatar img").prop("src")).toEqual(comment.author.avatarUrl);
+    expect(wrapper.find(".author__avatar img").prop("src")).toEqual(comment.author.avatarUrl);
   });
 
   it("should render comment's body on a div with class comment__content", () => {

@@ -1,0 +1,20 @@
+<span class="author__avatar author__avatar--small">
+  <%= image_tag author.avatar_url %>
+</span>
+
+<% if author.deleted? %>
+  <span class="label label--small label--basic">
+    <%= t('.deleted') %>
+  </span>
+<% else %>
+  <span class="author__name"><%= author.name %></span>
+  <span class="author__nickname"><%= author.nickname %></span>
+<% end %>
+
+<% if author.badge.present? %>
+  <span class="author__badge">
+    <span class="label label--highlight label--small">
+      <%= author.badge %>
+    </span>
+  </span>
+<% end %>

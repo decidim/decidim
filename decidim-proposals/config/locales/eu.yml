@@ -97,8 +97,6 @@ eu:
         create:
           error: Erroreak gertatu dira proposamena bozkatzean.
       proposals:
-        author:
-          deleted: Erabiltzaile ezabatua
         count:
           proposals_count:
             one: 1 proposamen

@@ -97,8 +97,6 @@ es:
         create:
           error: Ha habido errores al votar la propuesta.
       proposals:
-        author:
-          deleted: Usuario eliminado
         count:
           proposals_count:
             one: 1 propuesta

@@ -260,6 +260,9 @@ nl:
           invalid: "%{field} is niet geldig."
           ok: Ok
           title: Niet geautoriseerd
+      author:
+        deleted: Verwijderde gebruiker
+        verified_user_group: Geverifieerde organisatie
       embed_modal:
         close_window: Sluit dit scherm
         embed: Plak deze code alstublieft in uw pagina
@@ -288,7 +291,6 @@ nl:
         share_link: Link delen
       version_author:
         deleted: Verwijderde gebruiker
-    verified_user_group: Geverifieerde organisatie
   devise:
     invitations:
       edit:

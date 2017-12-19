@@ -97,8 +97,6 @@ fi:
         create:
           error: Äänestettäessä ehdotusta tapahtui virhe.
       proposals:
-        author:
-          deleted: Poistettu käyttäjä
         count:
           proposals_count:
             one: 1 ehdotus
