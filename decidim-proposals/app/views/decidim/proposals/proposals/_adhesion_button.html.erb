@@ -11,10 +11,10 @@ current_adhesion_url= proposal_proposal_adhesion_path(
   <% if !current_user %>
       <%= action_authorized_button_to :adhere, t('.adhere'), current_adhesion_url, class: "card__button button #{adhesion_button_classes(from_proposals_list)}" %>
   <% else %>
-    <% if @adhered_proposals ? @adered_proposals.include?(proposal.id) : proposal.adhered_by?(current_user) %>
-      <%= action_authorized_button_to :adhere, t('.already_adhered'), current_adhesion_url, method: :delete, remote: true, data: { disable: true, original: t('.already_adhered'), replace: t('.already_adhered_hover') }, class: "card__button button #{adhesion_button_classes(from_proposals_list)} success", id: "adhesion_button" %>
+    <% if proposal.adhered_by?(current_user, user_group) %>
+      <%= action_authorized_button_to :adhere, t('.already_adhered'), current_adhesion_url, method: :delete, remote: true, data: { original: t('.already_adhered'), replace: t('.already_adhered_hover') }, class: "card__button button #{adhesion_button_classes(from_proposals_list)} success", id: "adhesion_button" %>
     <% else %>
-      <%= action_authorized_button_to :adhere, t('.adhere'), current_adhesion_url, remote: true, data: { disable: true }, class: "card__button button #{adhesion_button_classes(from_proposals_list)}" %>
+      <%= action_authorized_button_to :adhere, t('.adhere'), current_adhesion_url, remote: true, data: {  }, class: "card__button button #{adhesion_button_classes(from_proposals_list)}" %>
     <% end %>
   <% end %>
 </div>

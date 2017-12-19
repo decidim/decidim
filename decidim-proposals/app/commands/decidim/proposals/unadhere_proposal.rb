@@ -29,8 +29,9 @@ module Decidim
       private
 
       def destroy_proposal_adhesion
-        query= @proposal.adhesions.where(author: @current_user)
-        query= query.where(user_group: @current_group) if @current_group.present?
+        query= @proposal.adhesions.where(
+          author: @current_user,
+          decidim_user_group_id: @current_group&.id)
         query.destroy_all
       end
     end

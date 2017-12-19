@@ -31,7 +31,7 @@ module Decidim
         authorize! :unadhere, proposal
         @from_proposals_list = params[:from_proposals_list] == "true"
         user_group_id= params[:user_group_id]
-        user_group= ProposalAdhesion.find_by_id(user_group_id) if user_group_id
+        user_group= current_user.user_groups.verified.find(user_group_id) if user_group_id
 
         UnadhereProposal.call(proposal, current_user, user_group) do
           on(:ok) do
@@ -44,16 +44,15 @@ module Decidim
       def identities
         authorize! :adhere, proposal
 
-        ret= ShowAdhesionIdentities.call(proposal, current_user) do
+        ShowAdhesionIdentities.call(proposal, current_user) do
           on(:ok) do |groups_split|
             expose(
               to_adhere_groups: groups_split[:adhere],
               to_unadhere_groups: groups_split[:unadhere]
             )
-            render :identities
+            render :identities, layout: false
           end
         end
-        ret
       end
 
       private

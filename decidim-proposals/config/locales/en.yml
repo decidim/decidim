@@ -111,10 +111,14 @@ en:
       proposal_adhesions:
         create:
           error: There's been errors when adhering to the proposal.
+        identities:
+          select_identity: Select identity
       proposal_votes:
         create:
           error: There's been errors when voting the proposal.
       proposals:
+        adhesion_identities_cabin:
+          adhere: Adhere
         adhesion_button:
           adhere: Adhere
           adhesions_blocked: Adhesions disabled
