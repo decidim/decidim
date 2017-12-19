@@ -43,6 +43,7 @@ module Decidim
   autoload :EngineRouter, "decidim/engine_router"
   autoload :Events, "decidim/events"
   autoload :ViewHooks, "decidim/view_hooks"
+  autoload :Encryptor, "decidim/encryptor"
 
   include ActiveSupport::Configurable
 

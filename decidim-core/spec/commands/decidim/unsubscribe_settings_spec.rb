@@ -8,26 +8,24 @@ module Decidim
       let(:organization) { create(:organization) }
       let(:command) { described_class.new(user) }
 
-      describe "when user click to unsubscribe" do
-        describe "when user newsletter_notifications are true" do
-          let(:user) { create(:user, organization: organization, newsletter_notifications: "1") }
+      context "when invalid" do
+        let(:user) { create(:user, organization: organization, newsletter_notifications: "0") }
 
-          it "broadcasts ok" do
-            expect { command.call }.to broadcast(:ok)
-          end
+        it "Doesn't unsubscribe user" do
+          expect { command.call }.to broadcast(:invalid)
+        end
+      end
 
-          it "unsubscribes user" do
-            user.newsletter_notifications = "0"
-            user.save!
-          end
+      context "when valid" do
+        let(:user) { create(:user, organization: organization, newsletter_notifications: "1") }
+
+        it "unsubscribes user" do
+          user.newsletter_notifications = "0"
+          user.save!
         end
 
-        describe "when user newsletter_notifications are false" do
-          let(:user) { create(:user, organization: organization, newsletter_notifications: "0") }
-
-          it "broadcasts invalid" do
-            expect { command.call }.to broadcast(:invalid)
-          end
+        it "broadcasts ok" do
+          expect { command.call }.to broadcast(:ok)
         end
       end
     end

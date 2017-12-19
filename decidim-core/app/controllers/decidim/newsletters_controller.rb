@@ -15,6 +15,10 @@ module Decidim
       @user = current_user
       @organization = current_organization
 
+      if @user.present?
+        @string_encrypted = Decidim::Encryptor.sent_at_encrypted(@user.id, newsletter.sent_at)
+      end
+
       if newsletter.sent?
         @body = parse_interpolations(newsletter.body[I18n.locale.to_s], @user, newsletter.id)
       else
@@ -23,11 +27,13 @@ module Decidim
     end
 
     def unsubscribe
-      decrypted_string = sent_at_decrypted(params[:u])
-      user = User.find_by(id: decrypted_string.split("-").first)
+      encryptor = Decidim::Encryptor
+
+      decrypted_string = encryptor.sent_at_decrypted(params[:u])
+      user = User.find_by(decidim_organization_id: current_organization.id, id: decrypted_string.split("-").first)
       sent_at_time = Time.zone.at(decrypted_string.split("-").second.to_i)
 
-      if sent_at_time > (Time.current - 15.days) && user.newsletter_notifications
+      if sent_at_time > (Time.current - 15.days)
         UnsubscribeSettings.call(user) do
           on(:ok) do
             flash.now[:notice] = t("newsletters.unsubscribe.success", scope: "decidim")
@@ -35,11 +41,12 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = t("newsletters.unsubscribe.error", scope: "decidim")
-            render action: :show
+            render action: :unsubscribe
           end
         end
       else
-        redirect_to decidim.notifications_settings_path
+        flash.now[:alert] = t("newsletters.unsubscribe.token_error", scope: "decidim")
+        render action: :unsubscribe
       end
     end
 

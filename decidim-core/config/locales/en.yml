@@ -204,10 +204,11 @@ en:
           error: Message not sent. Try again later
     newsletters:
       unsubscribe:
-        change_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>
+        check_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>
+        token_error: The link has expired.
         error: There's been an error unsubscribing
         success: You are unsubscribed successfully.
-        unsubscribed: Unsubscribed
+        unsubscribe: Unsubscribe
     newsletter_mailer:
       newsletter:
         note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
