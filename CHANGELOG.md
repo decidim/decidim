@@ -31,6 +31,7 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-meetings**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
 - **decidim-proposals**: Do not allow attachments on proposals edition [\#2221](https://github.com/decidim/decidim/pull/2221)
 - **decidim-proposals**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
+- **decidim-proposals**: Fix missing icon on proposal reply.
 - **decidim-surveys**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
 - **decidim-verifications**: Fixed a migration that broke feature permissions. If you already upgraded to `0.8.2` or less, please follow the instructions on the PR [\#2373](https://github.com/decidim/decidim/pull/2373)
 
