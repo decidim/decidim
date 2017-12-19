@@ -102,9 +102,11 @@ shared_examples "manage attachment collections examples" do
     context "when the attachment collection has associated content", processing_uploads_for: Decidim::AttachmentUploader do
       let!(:attachment) { create(:attachment, attached_to: collection_for, attachment_collection: attachment_collection) }
 
-      it "cannot delete it" do
+      before do
         visit current_path
+      end
 
+      it "cannot delete it" do
         within find("tr", text: translated(attachment_collection.name)) do
           expect(page).to have_no_selector("a.action-icon--remove")
         end

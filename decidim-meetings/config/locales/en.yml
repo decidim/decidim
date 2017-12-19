@@ -36,6 +36,7 @@ en:
             comments_blocked: Comments blocked
     meetings:
       actions:
+        attachment_collections: Collections
         attachments: Attachments
         close: Close
         confirm_destroy: Are you sure you want to delete this meeting?
