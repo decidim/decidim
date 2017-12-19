@@ -24,7 +24,9 @@ module Decidim
       resolve ->(obj, _args, _ctx) { obj.organization.name }
     end
 
-    field :deleted, !types.Boolean, "Whether the user's account has been deleted or not", property: :deleted?
+    field :deleted, !types.Boolean, "Whether the user's account has been deleted or not" do
+      resolve ->(obj, _args, _ctx) { UserPresenter.new(obj).deleted? }
+    end
 
     field :badge, !types.String, "A badge for the user group" do
       resolve ->(obj, _args, _ctx) { UserPresenter.new(obj).badge }
