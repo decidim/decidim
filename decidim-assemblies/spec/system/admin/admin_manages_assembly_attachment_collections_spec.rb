@@ -6,7 +6,7 @@ require "decidim/admin/test/manage_attachment_collections_examples"
 describe "Admin manages assembly attachment collections examples", type: :system do
   include_context "when administrating an assembly"
 
-  let(:participatory_space) { assembly }
+  let(:collection_for) { assembly }
 
   before do
     switch_to_host(organization.host)

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage attachment collections examples" do
-  let!(:attachment_collection) { create(:attachment_collection, participatory_space: participatory_space) }
+  let!(:attachment_collection) { create(:attachment_collection, collection_for: collection_for) }
 
   before do
     visit current_path
@@ -79,7 +79,7 @@ shared_examples "manage attachment collections examples" do
   end
 
   context "when deleting a attachment collection" do
-    let!(:attachment_collection2) { create(:attachment_collection, participatory_space: participatory_space) }
+    let!(:attachment_collection2) { create(:attachment_collection, collection_for: collection_for) }
 
     context "when the attachment collection has no associated content" do
       before do
@@ -100,7 +100,7 @@ shared_examples "manage attachment collections examples" do
     end
 
     context "when the attachment collection has associated content", processing_uploads_for: Decidim::AttachmentUploader do
-      let!(:attachment) { create(:attachment, attached_to: participatory_space, attachment_collection: attachment_collection) }
+      let!(:attachment) { create(:attachment, attached_to: collection_for, attachment_collection: attachment_collection) }
 
       it "cannot delete it" do
         visit current_path

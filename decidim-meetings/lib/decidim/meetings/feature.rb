@@ -102,7 +102,7 @@ Decidim.register_feature(:meetings) do |feature|
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(2)
         end,
-        participatory_space: meeting
+        collection_for: meeting
       )
 
       Decidim::Attachment.create!(

@@ -33,7 +33,7 @@ module Decidim
           end
 
           can :manage, AttachmentCollection do |attachment_collection|
-            can_manage_process?(attachment_collection.participatory_space)
+            can_manage_process?(attachment_collection.collection_for)
           end
 
           can :manage, Attachment do |attachment|

@@ -74,7 +74,7 @@ Decidim.register_feature(:budgets) do |feature|
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(2)
         end,
-        participatory_space: project
+        collection_for: project
       )
 
       Decidim::Attachment.create!(

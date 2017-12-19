@@ -7,13 +7,13 @@ module Decidim
       # manage the attachment collections for a given type, you should create
       # a new controller and include this concern.
       #
-      # The only requirement is to define a `current_participatory_space` method that
+      # The only requirement is to define a `collection_for` method that
       # returns an instance of the model that will hold the attachment collection.
       module HasAttachmentCollections
         extend ActiveSupport::Concern
 
         included do
-          helper_method :current_participatory_space, :authorization_object
+          helper_method :collection_for, :authorization_object
 
           def index
             authorize! :read, authorization_object
@@ -23,15 +23,15 @@ module Decidim
 
           def new
             authorize! :create, authorization_object
-            @form = form(AttachmentCollectionForm).from_params({}, current_participatory_space: current_participatory_space)
+            @form = form(AttachmentCollectionForm).from_params({}, collection_for: collection_for)
             render template: "decidim/admin/attachment_collections/new"
           end
 
           def create
             authorize! :create, authorization_object
-            @form = form(AttachmentCollectionForm).from_params(params, current_participatory_space: current_participatory_space)
+            @form = form(AttachmentCollectionForm).from_params(params, collection_for: collection_for)
 
-            CreateAttachmentCollection.call(@form, current_participatory_space) do
+            CreateAttachmentCollection.call(@form, collection_for) do
               on(:ok) do
                 flash[:notice] = I18n.t("attachment_collections.create.success", scope: "decidim.admin")
                 redirect_to action: :index
@@ -47,14 +47,14 @@ module Decidim
           def edit
             @attachment_collection = collection.find(params[:id])
             authorize! :update, authorization_object
-            @form = form(AttachmentCollectionForm).from_model(@attachment_collection, current_participatory_space: current_participatory_space)
+            @form = form(AttachmentCollectionForm).from_model(@attachment_collection, collection_for: collection_for)
             render template: "decidim/admin/attachment_collections/edit"
           end
 
           def update
             @attachment_collection = collection.find(params[:id])
             authorize! :update, authorization_object
-            @form = form(AttachmentCollectionForm).from_params(params, current_participatory_space: current_participatory_space)
+            @form = form(AttachmentCollectionForm).from_params(params, collection_for: collection_for)
 
             UpdateAttachmentCollection.call(@attachment_collection, @form) do
               on(:ok) do
@@ -86,30 +86,30 @@ module Decidim
           end
 
           # Public: Returns a String or Object that will be passed to `redirect_to` after
-          # destroying an attachment collection. By default it redirects to the current
-          # participatory space.
+          # destroying an attachment collection. By default it redirects to the object
+          # that holds the attachment collection.
           #
           # It can be redefined at controller level if you need to redirect elsewhere.
           def after_destroy_path
-            current_participatory_space
+            collection_for
           end
 
           # Public: The only method to be implemented at the controller. You need to
           # return the object that will hold the attachment collection.
-          def current_participatory_space
+          def collection_for
             raise NotImplementedError
           end
 
           # Public: The Class or Object to be used with the authorization layer to
           # verify the user can manage the attachment collection
           #
-          # By default is the same as the current_participatory_space.
+          # By default is the same as the collection_for.
           def authorization_object
-            current_participatory_space
+            collection_for
           end
 
           def collection
-            @collection ||= current_participatory_space.attachment_collections
+            @collection ||= collection_for.attachment_collections
           end
         end
       end

@@ -184,7 +184,7 @@ FactoryBot.define do
     name { Decidim::Faker::Localized.sentence(1) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
 
-    association :participatory_space, factory: :participatory_process
+    association :collection_for, factory: :participatory_process
   end
 
   factory :attachment, class: "Decidim::Attachment" do

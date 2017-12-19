@@ -4,7 +4,7 @@ require "spec_helper"
 
 shared_examples "manage process attachments examples" do
   let(:attached_to) { participatory_process }
-  let(:attachment_collection) { create(:attachment_collection, participatory_space: participatory_process) }
+  let(:attachment_collection) { create(:attachment_collection, collection_for: participatory_process) }
 
   before do
     switch_to_host(organization.host)

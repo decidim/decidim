@@ -3,7 +3,7 @@
 require "decidim/admin/test/manage_attachment_collections_examples"
 
 shared_examples "manage process attachment collections examples" do
-  let(:participatory_space) { participatory_process }
+  let(:collection_for) { participatory_process }
 
   before do
     switch_to_host(organization.host)

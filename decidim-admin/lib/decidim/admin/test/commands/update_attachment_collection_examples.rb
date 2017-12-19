@@ -7,7 +7,7 @@ module Decidim
     shared_examples_for "UpdateAttachmentCollection command" do
       describe "call" do
         let(:organization) { create(:organization) }
-        let(:attachment_collection) { create(:attachment_collection, participatory_space: participatory_space) }
+        let(:attachment_collection) { create(:attachment_collection, collection_for: collection_for) }
         let(:form_params) do
           {
             "attachment_collection" => {
@@ -23,7 +23,7 @@ module Decidim
         let(:form) do
           AttachmentCollectionForm.from_params(
             form_params,
-            current_participatory_space: participatory_space
+            collection_for: collection_for
           ).with_context(
             current_organization: organization
           )

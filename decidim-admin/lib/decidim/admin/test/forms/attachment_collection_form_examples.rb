@@ -38,7 +38,7 @@ module Decidim
         described_class.from_params(
           attributes
         ).with_context(
-          current_participatory_space: participatory_space,
+          collection_for: collection_for,
           current_organization: organization
         )
       end

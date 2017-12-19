@@ -104,7 +104,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(2)
         end,
-        participatory_space: process
+        collection_for: process
       )
 
       Decidim::Attachment.create!(

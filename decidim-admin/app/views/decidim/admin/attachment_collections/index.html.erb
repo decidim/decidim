@@ -9,7 +9,7 @@
   </div>
 
   <div class="card-section">
-     <% if current_participatory_space.attachment_collections.any? %>
+     <% if collection_for.attachment_collections.any? %>
       <div class="table-scroll">
         <table class="table-list">
           <thead>
@@ -19,19 +19,19 @@
             </tr>
           </thead>
           <tbody>
-            <% current_participatory_space.attachment_collections.each do |attachment_collection| %>
+            <% collection_for.attachment_collections.each do |attachment_collection| %>
               <tr data-id="<%= attachment_collection.id %>">
                 <td>
-                  <%= link_to translated_attribute(attachment_collection.name), edit_polymorphic_path([current_participatory_space, attachment_collection]) %><br />
+                  <%= link_to translated_attribute(attachment_collection.name), edit_polymorphic_path([collection_for, attachment_collection]) %><br />
                 </td>
                 <td class="table-list__actions">
                   <% if can? :update, attachment_collection %>
-                    <%= icon_link_to "pencil", edit_polymorphic_path([current_participatory_space, attachment_collection]), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                    <%= icon_link_to "pencil", edit_polymorphic_path([collection_for, attachment_collection]), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
                   <% end %>
 
                   <% if can? :destroy, attachment_collection %>
                     <% if attachment_collection.unused? %>
-                      <%= icon_link_to "circle-x", polymorphic_path([current_participatory_space, attachment_collection]), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                      <%= icon_link_to "circle-x", polymorphic_path([collection_for, attachment_collection]), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
                     <% else %>
                       <span class="action-icon" title="<%= t('attachment_collections.index.attachment_collection_used', scope: "decidim.admin") %>" data-tooltip="true" data-disable-hover="false">
                         <%= icon "circle-x", class: "action-icon action-icon--disabled" %>

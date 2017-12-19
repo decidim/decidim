@@ -22,12 +22,12 @@ module Decidim
         let(:form) do
           AttachmentCollectionForm.from_params(
             form_params,
-            current_participatory_space: participatory_space
+            collection_for: collection_for
           ).with_context(
             current_organization: organization
           )
         end
-        let(:command) { described_class.new(form, participatory_space) }
+        let(:command) { described_class.new(form, collection_for) }
 
         describe "when the form is not valid" do
           before do
@@ -53,7 +53,7 @@ module Decidim
           it "creates a new attachment collection" do
             expect do
               command.call
-            end.to change { participatory_space.attachment_collections.count }.by(1)
+            end.to change { collection_for.attachment_collections.count }.by(1)
           end
         end
       end

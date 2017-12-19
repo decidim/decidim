@@ -11,10 +11,8 @@ module Decidim
     included do
       has_many :attachment_collections,
                class_name: "Decidim::AttachmentCollection",
-               foreign_key: "decidim_participatory_space_id",
-               foreign_type: "decidim_participatory_space_type",
                dependent: :destroy,
-               as: :participatory_space
+               as: :collection_for
     end
   end
 end

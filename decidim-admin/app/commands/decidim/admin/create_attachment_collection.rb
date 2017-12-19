@@ -8,11 +8,10 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      # participatory_space - The participatory space that will hold the
-      #   attachment collection
-      def initialize(form, participatory_space)
+      # collection_for - The ActiveRecord::Base that will hold the collection
+      def initialize(form, collection_for)
         @form = form
-        @participatory_space = participatory_space
+        @collection_for = collection_for
       end
 
       # Executes the command. Broadcasts these events:
@@ -36,7 +35,7 @@ module Decidim
         AttachmentCollection.create!(
           name: form.name,
           description: form.description,
-          participatory_space: @participatory_space
+          collection_for: @collection_for
         )
       end
     end

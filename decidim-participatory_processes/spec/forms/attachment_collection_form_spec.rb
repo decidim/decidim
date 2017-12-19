@@ -7,7 +7,7 @@ module Decidim
   module Admin
     describe AttachmentCollectionForm do
       include_examples "attachment collection form" do
-        let(:participatory_space) do
+        let(:collection_for) do
           create :participatory_process, organization: organization
         end
       end

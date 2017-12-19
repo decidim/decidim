@@ -53,7 +53,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(2)
         end,
-        participatory_space: assembly
+        collection_for: assembly
       )
 
       Decidim::Attachment.create!(

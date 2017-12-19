@@ -10,14 +10,14 @@ module Decidim
 
     it { is_expected.to be_valid }
 
-    context "without a participatory space" do
-      let(:attachment_collection) { build(:attachment_collection, participatory_space: nil) }
+    context "without a collection holder" do
+      let(:attachment_collection) { build(:attachment_collection, collection_for: nil) }
 
       it { is_expected.not_to be_valid }
 
       it "adds an error" do
         subject.valid?
-        expect(subject.errors[:participatory_space]).to eq ["must exist"]
+        expect(subject.errors[:collection_for]).to eq ["must exist"]
       end
     end
   end
