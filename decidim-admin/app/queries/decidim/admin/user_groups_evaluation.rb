@@ -33,8 +33,6 @@ module Decidim
 
       private
 
-      attr_reader :user_group
-
       def filter_by_search(user_groups)
         return user_groups if @q.blank?
         user_groups.where("LOWER(name) LIKE LOWER('%#{@q}%')")
