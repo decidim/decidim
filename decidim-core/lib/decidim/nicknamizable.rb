@@ -45,14 +45,14 @@ module Decidim
         2.step do |n|
           return candidate unless exists?(nickname: candidate)
 
-          candidate = clon(candidate, n)
+          candidate = numbered_variation_of(candidate, n)
         end
       end
 
-      def clon(candidate, number)
+      def numbered_variation_of(name, number)
         appendix = "_#{number}"
 
-        "#{candidate[0...(nickname_max_length - appendix.length)]}#{appendix}"
+        "#{name[0...(nickname_max_length - appendix.length)]}#{appendix}"
       end
     end
   end
