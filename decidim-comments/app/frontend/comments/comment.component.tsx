@@ -157,19 +157,41 @@ class Comment extends React.Component<CommentProps, CommentState> {
     const { comment: { author } } = this.props;
 
     if (author.deleted) {
-      return (
-        <div className="author author--inline">
-          <span className="author__avatar">
-            <img src={author.avatarUrl} alt="author-avatar" />
-          </span>
-          <span className="author__name">
-            <span className="label label--small label--basic">
-              {I18n.t("components.comment.deleted_user")}
-            </span>
-          </span>
-        </div>
-      );
+      return this._renderDeletedAuthor();
     }
+
+    return this._renderActiveAuthor();
+  }
+
+  /**
+   * Render deleted author information
+   * @private
+   * @returns {DOMElement} - Render all the author information
+   */
+  private _renderDeletedAuthor() {
+    const { comment: { author } } = this.props;
+
+    return (
+      <div className="author author--inline">
+        <span className="author__avatar">
+          <img src={author.avatarUrl} alt="author-avatar" />
+        </span>
+        <span className="author__name">
+          <span className="label label--small label--basic">
+            {I18n.t("components.comment.deleted_user")}
+          </span>
+        </span>
+      </div>
+    );
+  }
+
+  /**
+   * Render active author information
+   * @private
+   * @returns {DOMElement} - Render all the author information
+   */
+  private _renderActiveAuthor() {
+    const { comment: { author } } = this.props;
 
     return (
       <div className="author author--inline">
