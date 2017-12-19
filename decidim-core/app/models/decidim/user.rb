@@ -69,6 +69,11 @@ module Decidim
       deleted_at.present?
     end
 
+    # Public: whether the user has been officialized or not
+    def officialized?
+      !officialized_at.nil?
+    end
+
     def follows?(followable)
       Decidim::Follow.where(user: self, followable: followable).any?
     end

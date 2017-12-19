@@ -143,6 +143,10 @@ FactoryBot.define do
       password_confirmation { "" }
       managed { true }
     end
+
+    trait :officialized do
+      officialized_at { Time.zone.now }
+    end
   end
 
   factory :participatory_process_user_role, class: "Decidim::ParticipatoryProcessUserRole" do
