@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec::Matchers.define :appear_before do |later_content|
   match do |earlier_content|
     begin

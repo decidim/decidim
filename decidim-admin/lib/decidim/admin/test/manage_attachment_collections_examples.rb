@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 shared_examples "manage attachment collections examples" do
-
   let!(:attachment_collection) { create(:attachment_collection, participatory_space: participatory_space) }
 
   before do

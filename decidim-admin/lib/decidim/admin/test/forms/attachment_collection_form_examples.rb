@@ -5,20 +5,20 @@ require "spec_helper"
 module Decidim
   module Admin
     shared_examples_for "attachment collection form" do
-      let(:name) {
+      let(:name) do
         {
           en: "My attachment collection",
           es: "Mi colección de adjuntos",
           ca: "La meva colecció d'adjunts"
         }
-      }
-      let(:description) {
+      end
+      let(:description) do
         {
           en: "My attachment collection description",
           es: "Descripción de mi colección de adjuntos",
           ca: "Descripció de la meva colecció d'adjunts"
         }
-      }
+      end
 
       let(:attributes) do
         {
