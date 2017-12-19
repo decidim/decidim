@@ -12,7 +12,7 @@ module Decidim
     describe "name" do
       let(:query) { "{ name }" }
 
-      it "returns all the required fields" do
+      it "returns the user's name" do
         expect(response).to include("name" => model.name)
       end
     end
