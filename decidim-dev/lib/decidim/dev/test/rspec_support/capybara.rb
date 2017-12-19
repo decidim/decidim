@@ -71,5 +71,13 @@ RSpec.configure do |config|
     switch_to_default_host
   end
 
+  config.around :each, :slow do |example|
+    max_wait_time_for_slow_specs = 7
+
+    using_wait_time(max_wait_time_for_slow_specs) do
+      example.run
+    end
+  end
+
   config.include Decidim::CapybaraTestHelpers, type: :feature
 end

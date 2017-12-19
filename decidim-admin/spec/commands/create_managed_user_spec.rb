@@ -7,6 +7,7 @@ module Decidim::Admin
     describe "call" do
       let(:available_authorizations) { ["dummy_authorization_handler"] }
       let(:organization) { create(:organization, available_authorizations: available_authorizations) }
+      let!(:current_user) { create :user, :admin, organization: organization }
       let(:document_number) { "12345678X" }
       let(:form_params) do
         {
@@ -21,7 +22,8 @@ module Decidim::Admin
         ManagedUserForm.from_params(
           form_params
         ).with_context(
-          current_organization: organization
+          current_organization: organization,
+          current_user: current_user
         )
       end
       let(:command) { described_class.new(form) }

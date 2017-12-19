@@ -97,6 +97,22 @@ describe "Authorizations", type: :feature, with_authorization_workflows: ["dummy
           expect(page).to have_no_link("Example authorization")
         end
       end
+
+      it "checks if the given data is invalid" do
+        within_user_menu do
+          click_link "My account"
+        end
+
+        click_link "Authorizations"
+        click_link "Example authorization"
+
+        fill_in "Document number", with: "12345678"
+        page.execute_script("$('#date_field_authorization_handler_birthday').focus()")
+        page.find(".datepicker-dropdown .day", text: "12").click
+        click_button "Send"
+
+        expect(page).to have_content("There was an error creating the authorization.")
+      end
     end
 
     context "when the user has already been authorized" do

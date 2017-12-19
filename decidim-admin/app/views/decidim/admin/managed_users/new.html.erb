@@ -5,7 +5,7 @@
   <% end %>
 </h2>
 
-<% if more_than_one_authorization_handler? && params[:handler_name].nil? %>
+<% if select_authorization_handler_step? %>
   <div class="card card--list">
     <div class="card-divider">
       <h2 class="card-title"><%= t ".select_authorization_method" %></h2>
