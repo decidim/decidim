@@ -6,7 +6,7 @@ require "valid_email2"
 module Decidim
   # A User is a citizen that wants to join the platform to participate.
   class User < ApplicationRecord
-    extend Nicknamizable
+    include Nicknamizable
 
     OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, (:developer if Rails.env.development?)].compact
     ROLES = %w(admin user_manager).freeze

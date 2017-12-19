@@ -2,7 +2,7 @@
 
 class CreateUniqueNicknames < ActiveRecord::Migration[5.1]
   class User < ApplicationRecord
-    extend Decidim::Nicknamizable
+    include Decidim::Nicknamizable
 
     self.table_name = :decidim_users
   end

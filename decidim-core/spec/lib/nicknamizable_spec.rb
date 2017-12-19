@@ -8,7 +8,7 @@ module Decidim
       class DummyTestUser < ApplicationRecord
         self.table_name = :decidim_users
 
-        extend Nicknamizable
+        include Nicknamizable
       end
     end
 
