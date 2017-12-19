@@ -7,6 +7,10 @@ module Decidim
   module Nicknamizable
     extend ActiveSupport::Concern
 
+    included do
+      validates :nickname, length: { in: nickname_length_range }, allow_blank: true
+    end
+
     class_methods do
       #
       # Allowed range for nickname length
