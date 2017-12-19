@@ -12,6 +12,11 @@ module Decidim
       end
     end
 
+    it "validates length of nickname" do
+      expect(subject.new(nickname: "A" * 20)).to be_valid
+      expect(subject.new(nickname: "A" * 21)).not_to be_valid
+    end
+
     describe "#nicknamize" do
       it "copies non-duplicated usernames following slugization rules" do
         expect(subject.nicknamize("peter")).to eq("peter")
@@ -23,7 +28,7 @@ module Decidim
 
       it "trims very long usernames" do
         expect(subject.nicknamize("Felipe Juan Froilan de todos los Santos"))
-          .to eq("felipe_juan_froilan_")
+          .to eq("felipe_juan_froilan_d")
       end
 
       it "resolves conflicts with current nicknames" do
@@ -35,7 +40,7 @@ module Decidim
       it "resolves conflicts with long current nicknames" do
         create(:user, nickname: "felipe_rocks_so_much")
 
-        expect(subject.nicknamize("Felipe Rocks So Much")).to eq("felipe_rocks_so_mu_2")
+        expect(subject.nicknamize("Felipe Rocks So Much")).to eq("felipe_rocks_so_muc_2")
       end
     end
   end

@@ -16,7 +16,7 @@ module Decidim
       # Allowed range for nickname length
       #
       def nickname_length_range
-        (0...nickname_max_length)
+        (0..nickname_max_length)
       end
 
       #
@@ -52,7 +52,7 @@ module Decidim
       def numbered_variation_of(name, number)
         appendix = "_#{number}"
 
-        "#{name[0...(nickname_max_length - appendix.length)]}#{appendix}"
+        "#{name[0..(nickname_max_length - appendix.length)]}#{appendix}"
       end
     end
   end
