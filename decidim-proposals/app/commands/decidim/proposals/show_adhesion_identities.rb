@@ -25,17 +25,14 @@ module Decidim
       #
       # Returns nothing.
       def call
-        @to_unadhere= @proposal.adhesions.
-          where(author: @current_user).
-          where.not(decidim_user_group_id: nil).
-          pluck(:decidim_user_group_id) || []
-        @to_adhere= @current_user.user_groups.verified.
-          where.not(id: @to_unadhere).pluck(:id) || []
-        broadcast(:ok, {adhere: @to_adhere, unadhere: @to_unadhere})
+        @to_unadhere = @proposal.adhesions
+                                .where(author: @current_user)
+                                .where.not(decidim_user_group_id: nil)
+                                .pluck(:decidim_user_group_id) || []
+        @to_adhere = @current_user.user_groups.verified
+                                  .where.not(id: @to_unadhere).pluck(:id) || []
+        broadcast(:ok, adhere: @to_adhere, unadhere: @to_unadhere)
       end
-
-      private
-
     end
   end
 end

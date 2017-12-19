@@ -40,7 +40,7 @@ module Decidim
       describe "#adhered_by?" do
         let(:user) { create(:user, organization: subject.organization) }
 
-        context "User adhesion" do
+        context "with User adhesion" do
           it "returns false if the proposal is not adhered by the given user" do
             expect(subject).not_to be_adhered_by(user)
           end
@@ -50,9 +50,10 @@ module Decidim
             expect(subject).to be_adhered_by(user)
           end
         end
-        context "Organization adhesion" do
-          let(:user_group) {create(:user_group, verified_at: DateTime.now) }
-          let(:membership) {create(:user_group_membership, user: user, user_group: user_group)}
+        context "with Organization adhesion" do
+          let(:user_group) { create(:user_group, verified_at: DateTime.current) }
+          let(:membership) { create(:user_group_membership, user: user, user_group: user_group) }
+
           it "returns false if the proposal is not adhered by the given organization" do
             expect(subject).not_to be_adhered_by(user, user_group)
           end

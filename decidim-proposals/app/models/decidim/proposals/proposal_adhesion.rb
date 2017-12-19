@@ -12,7 +12,7 @@ module Decidim
       validate :author_and_proposal_same_organization
       validate :proposal_not_rejected
 
-      scope :for_listing, -> {order(:decidim_user_group_id, :created_at)}
+      scope :for_listing, -> { order(:decidim_user_group_id, :created_at) }
 
       private
 

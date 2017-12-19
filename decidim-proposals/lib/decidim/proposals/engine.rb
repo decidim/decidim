@@ -25,9 +25,8 @@ module Decidim
 
       initializer "decidim_proposals.assets" do |app|
         app.config.assets.precompile += %w(decidim_proposals_manifest.js
-          decidim_proposals_manifest.css
-          decidim/proposals/identity_selector_dialog.js
-        )
+                                           decidim_proposals_manifest.css
+                                           decidim/proposals/identity_selector_dialog.js)
       end
 
       initializer "decidim_proposals.inject_abilities_to_user" do |_app|

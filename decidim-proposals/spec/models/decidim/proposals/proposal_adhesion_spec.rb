@@ -11,10 +11,12 @@ module Decidim
       let!(:feature) { create(:feature, organization: organization, manifest_name: "proposals") }
       let!(:participatory_process) { create(:participatory_process, organization: organization) }
       let!(:author) { create(:user, organization: organization) }
-      let!(:user_group) { create(:user_group, verified_at: DateTime.now) }
+      let!(:user_group) { create(:user_group, verified_at: DateTime.current) }
       let!(:proposal) { create(:proposal, feature: feature, author: author) }
-      let!(:proposal_adhesion) { build(:proposal_adhesion, proposal: proposal, author: author,
-        user_group: user_group) }
+      let!(:proposal_adhesion) do
+        build(:proposal_adhesion, proposal: proposal, author: author,
+                                  user_group: user_group)
+      end
 
       it "is valid" do
         expect(proposal_adhesion).to be_valid
@@ -32,7 +34,7 @@ module Decidim
         proposal_adhesion.save!
         expect do
           create(:proposal_adhesion, proposal: proposal, author: author,
-            user_group: user_group)
+                                     user_group: user_group)
         end.to raise_error(ActiveRecord::RecordInvalid)
       end
 
@@ -80,17 +82,18 @@ module Decidim
         before do
           proposal_adhesion.save!
         end
-        let!(:other_user_group) { create(:user_group, verified_at: DateTime.now) }
-        let!(:other_proposal_adhesion_1) {
+        let!(:other_user_group) { create(:user_group, verified_at: DateTime.current) }
+        let!(:other_proposal_adhesion_1) do
           create(:proposal_adhesion, proposal: proposal, author: author)
-        }
-        let!(:other_proposal_adhesion_2) {
+        end
+        let!(:other_proposal_adhesion_2) do
           create(:proposal_adhesion, proposal: proposal, author: author, user_group: other_user_group)
-        }
-        it "should sort user_grup adhesions first and then by created_at" do
-          expected_sorting= [
+        end
+
+        it "sorts user_grup adhesions first and then by created_at" do
+          expected_sorting = [
             proposal_adhesion.id, other_proposal_adhesion_2.id,
-            other_proposal_adhesion_1.id,
+            other_proposal_adhesion_1.id
           ]
           expect(proposal.adhesions.for_listing.pluck(:id)).to eq(expected_sorting)
         end

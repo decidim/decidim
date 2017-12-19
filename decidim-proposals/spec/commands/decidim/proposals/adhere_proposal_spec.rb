@@ -1,17 +1,17 @@
 # frozen_string_literal: true
 
-require 'spec_helper'
+require "spec_helper"
 
 module Decidim
   module Proposals
     describe AdhereProposal do
       let(:proposal) { create(:proposal) }
       let(:current_user) { create(:user, organization: proposal.feature.organization) }
-        
-      describe 'User adheres Proposal' do
+
+      describe "User adheres Proposal" do
         let(:command) { described_class.new(proposal, current_user) }
 
-        context "in normal conditions" do
+        context "when in normal conditions" do
           it "broadcasts ok" do
             expect { command.call }.to broadcast(:ok)
           end
@@ -42,18 +42,17 @@ module Decidim
         end
       end
 
-
-      describe 'Organization adheres Proposal' do
+      describe "Organization adheres Proposal" do
         let(:user_group) { create(:user_group) }
         let(:user_group_membership) { create(:user_group_membership, user: current_user, user_group: user_group) }
         let(:command) { described_class.new(proposal, current_user, user_group) }
 
-        context "in normal conditions" do
-          it 'broadcasts ok' do
+        context "when in normal conditions" do
+          it "broadcasts ok" do
             expect { command.call }.to broadcast :ok
           end
 
-          it 'Creates an adhesion' do
+          it "Creates an adhesion" do
             expect do
               command.call
             end.to change { ProposalAdhesion.count }.by(1)
@@ -66,14 +65,13 @@ module Decidim
             allow_any_instance_of(ProposalAdhesion).to receive(:valid?).and_return(false)
             # rubocop:enable RSpec/AnyInstance
           end
-          it 'Do not increase the adhesions counter by one' do
+          it "Do not increase the adhesions counter by one" do
             command.call
             proposal.reload
             expect(proposal.proposal_adhesions_count).to be_zero
           end
         end
       end
-
     end
   end
 end

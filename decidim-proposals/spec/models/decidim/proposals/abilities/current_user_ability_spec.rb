@@ -172,5 +172,4 @@ describe Decidim::Proposals::Abilities::CurrentUserAbility do
       it { is_expected.to be_able_to(:unadhere, Decidim::Proposals::Proposal) }
     end
   end
-
 end

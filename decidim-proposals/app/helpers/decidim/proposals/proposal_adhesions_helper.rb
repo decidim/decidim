@@ -44,7 +44,6 @@ module Decidim
       def current_user_can_adhere?
         current_user && adhesions_enabled? && !adhesions_blocked?
       end
-
     end
   end
 end

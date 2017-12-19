@@ -9,7 +9,7 @@ module Decidim
       # proposal     - A Decidim::Proposals::Proposal object.
       # current_user - The current user.
       # current_group_id- (optional) The current_grup that is adhering to the Proposal.
-      def initialize(proposal, current_user, current_group_id=nil)
+      def initialize(proposal, current_user, current_group_id = nil)
         @proposal = proposal
         @current_user = current_user
         @current_group_id = current_group_id
@@ -33,10 +33,10 @@ module Decidim
       private
 
       def build_proposal_adhesion
-        @adhesion= @proposal.adhesions.build(author: @current_user)
+        @adhesion = @proposal.adhesions.build(author: @current_user)
         if @current_group_id.present?
-          @adhesion.user_group= @current_user.
-            user_groups.verified.find(@current_group_id)
+          @adhesion.user_group = @current_user
+                                 .user_groups.verified.find(@current_group_id)
         end
         @adhesion
       end

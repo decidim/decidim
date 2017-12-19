@@ -13,7 +13,7 @@ module Decidim
       def create
         authorize! :adhere, proposal
         @from_proposals_list = params[:from_proposals_list] == "true"
-        user_group_id= params[:user_group_id]
+        user_group_id = params[:user_group_id]
 
         AdhereProposal.call(proposal, current_user, user_group_id) do
           on(:ok) do
@@ -30,8 +30,8 @@ module Decidim
       def destroy
         authorize! :unadhere, proposal
         @from_proposals_list = params[:from_proposals_list] == "true"
-        user_group_id= params[:user_group_id]
-        user_group= current_user.user_groups.verified.find(user_group_id) if user_group_id
+        user_group_id = params[:user_group_id]
+        user_group = current_user.user_groups.verified.find(user_group_id) if user_group_id
 
         UnadhereProposal.call(proposal, current_user, user_group) do
           on(:ok) do

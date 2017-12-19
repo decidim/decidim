@@ -9,7 +9,7 @@ module Decidim
       # proposal     - A Decidim::Proposals::Proposal object.
       # current_user - The current user.
       # current_group- (optional) The current_group that is unadhering from the Proposal.
-      def initialize(proposal, current_user, current_group=nil)
+      def initialize(proposal, current_user, current_group = nil)
         @proposal = proposal
         @current_user = current_user
         @current_group = current_group
@@ -29,9 +29,10 @@ module Decidim
       private
 
       def destroy_proposal_adhesion
-        query= @proposal.adhesions.where(
+        query = @proposal.adhesions.where(
           author: @current_user,
-          decidim_user_group_id: @current_group&.id)
+          decidim_user_group_id: @current_group&.id
+        )
         query.destroy_all
       end
     end

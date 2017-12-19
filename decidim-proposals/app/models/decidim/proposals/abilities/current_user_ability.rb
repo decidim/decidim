@@ -1,4 +1,6 @@
 
+# frozen_string_literal: true
+
 module Decidim
   module Proposals
     module Abilities
@@ -15,30 +17,34 @@ module Decidim
           @user = user
           @context = context
 
+          setup_endorsement_related_abilities
+          setup_voting_related_abilities
+          can :create, Proposal if authorized?(:create) && creation_enabled?
+          can :edit, Proposal do |proposal|
+            proposal.editable_by?(user)
+          end
+          can :report, Proposal
+        end
+
+        private
+
+        def setup_endorsement_related_abilities
           can :adhere, Proposal do |_proposal|
             authorized?(:adhere) && adhesions_enabled? && !adhesions_blocked?
           end
           can :unadhere, Proposal do |_proposal|
             authorized?(:unadhere) && adhesions_enabled?
           end
+        end
 
+        def setup_voting_related_abilities
           can :vote, Proposal do |_proposal|
             authorized?(:vote) && voting_enabled? && remaining_votes.positive?
           end
-
           can :unvote, Proposal do |_proposal|
             authorized?(:vote) && voting_enabled?
           end
-
-          can :create, Proposal if authorized?(:create) && creation_enabled?
-          can :edit, Proposal do |proposal|
-            proposal.editable_by?(user)
-          end
-
-          can :report, Proposal
         end
-
-        private
 
         def authorized?(action)
           return unless feature
@@ -68,6 +74,7 @@ module Decidim
           return unless current_settings
           current_settings.adhesions_enabled?
         end
+
         def adhesions_blocked?
           return unless current_settings
           current_settings.adhesions_blocked?
