@@ -1,11 +1,7 @@
 ca:
   activemodel:
     attributes:
-      attachment_collection:
-        description: Descripció
-        name: Nom
       attachment:
-        attachment_collection_id: Col·lecció
         description: Descripció
         file: Arxiu
         title: Títol
@@ -98,24 +94,6 @@ ca:
         permissions: Permisos
         reject: Rebutjar
         verify: Verificar
-      attachment_collections:
-        create:
-          error: S'ha produït un error en crear una nova col·lecció.
-          success: Col·lecció creada correctament.
-        destroy:
-          success: La col·lecció s'ha eliminat correctament.
-        edit:
-          title: Edita la col·lecció
-          update: Actualitzar
-        index:
-          attachment_collections_title: Col·leccions de fitxers
-          attachment_collection_used: Aquesta col·lecció no es pot suprimir perquè és en ús.
-        new:
-          create: Crear
-          title: Nova col·leció
-        update:
-          error: S'ha produït un error en actualitzar aquesta col·lecció.
-          success: Col·lecció actualitzada correctament.
       attachments:
         create:
           error: S'ha produït un error en crear un nou arxiu adjunt.
@@ -244,13 +222,9 @@ ca:
         user_groups: Grups d'usuaris
         users: Usuaris
       models:
-        attachment_collection:
-          name: Col·lecció
         attachment:
           fields:
-            collection: Col·lecció
             content_type: Tipus
-            file_size: Mida
             title: Títol
           name: Arxiu adjunt
         category:
