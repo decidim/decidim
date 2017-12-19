@@ -1,8 +1,5 @@
 // User profile, notifications & settings
 
-$avatar-size: 40px;
-$avatar-right-margin: .5rem;
-
 .user-header{
   @include clearfix;
   display: flex;
@@ -10,13 +7,11 @@ $avatar-right-margin: .5rem;
 }
 
 .user-header__avatar{
-  float: left;
-  margin-right: $avatar-right-margin;
+  width: 60px;
 
   > img{
     border-radius: 50%;
-    margin-top: -3px;
-    width: $avatar-size;
+    width: 40px;
   }
 }
 
@@ -27,7 +22,8 @@ $avatar-right-margin: .5rem;
 .user-nickname{
   color: gray;
   font-size: 1rem;
-  margin-top: 5px;
-  margin-left: $avatar-size;
-  padding-left: $avatar-right-margin;
+
+  .user-contact_link{
+    margin-left: .5rem;
+  }
 }
