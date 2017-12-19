@@ -11,6 +11,10 @@ FactoryBot.define do
     "#{Faker::Name.name} #{n}"
   end
 
+  sequence(:nickname) do |n|
+    "#{Faker::Lorem.characters(rand(10) + 1)}_#{n}"
+  end
+
   sequence(:email) do |n|
     "user#{n}@example.org"
   end
@@ -65,7 +69,7 @@ FactoryBot.define do
     password "password1234"
     password_confirmation "password1234"
     name { generate(:name) }
-    nickname { Faker::Lorem.unique.characters(rand(20) + 1) }
+    nickname { generate(:nickname) }
     organization
     locale { organization.default_locale }
     tos_agreement "1"
