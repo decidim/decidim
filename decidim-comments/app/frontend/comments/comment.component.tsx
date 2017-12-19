@@ -119,7 +119,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
                     </span>
                   </span>
                 }
-                <time dateTime={createdAt}>{formattedCreatedAt}</time>
+                <span><time dateTime={createdAt} title={createdAt}>{formattedCreatedAt}</time></span>
               </div>
             </div>
             <div className="author-data__extra">
