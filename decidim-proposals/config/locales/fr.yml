@@ -99,7 +99,6 @@ fr:
       proposals:
         author:
           deleted: Utilisateur supprimé
-          verified_user_group: Organisation vérifiée
         count:
           proposals_count:
             one: 1 proposition
@@ -153,6 +152,7 @@ fr:
           random: Aléatoire
           recent: Les plus récents
         proposal:
+          creation_date: 'Création: %{date}'
           view_proposal: Voir la proposition
         show:
           contact: Contact
