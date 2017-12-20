@@ -25,9 +25,12 @@ module Decidim
 
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
+        validate { errors.add(:decidim_scope_id, :invalid) if current_space_scope && !current_space_scope.ancestor_of?(scope) }
 
         validates :parent, presence: true, if: ->(form) { form.parent_id.present? }
         validates :status, presence: true, if: ->(form) { form.decidim_accountability_status_id.present? }
+
+        delegate :categories, to: :current_feature
 
         def map_model(model)
           self.proposal_ids = model.linked_resources(:proposals, "included_proposals").pluck(:id)
@@ -35,40 +38,33 @@ module Decidim
         end
 
         def proposals
-          @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, context.current_feature)&.order(title: :asc)&.pluck(:title, :id)
+          @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, current_feature)&.order(title: :asc)&.pluck(:title, :id)
         end
 
-        def participatory_space_scope
-          current_feature.participatory_space.scope
-        end
-
-        alias feature current_feature
-
-        # Finds the Scope from the decidim_scope_id.
+        # Finds the Scope from the given decidim_scope_id, uses participatory space scope if missing.
         #
         # Returns a Decidim::Scope
         def scope
-          return unless current_feature && decidim_scope_id
-          @scope ||= current_feature.scopes.where(id: decidim_scope_id).first
+          @scope ||= @decidim_scope_id ? current_feature.scopes.find_by(id: @decidim_scope_id) : current_space_scope
         end
 
-        # Proposal scope_id, uses process scope if missing.
+        # Scope identifier
         #
         # Returns the scope identifier related to the result
         def decidim_scope_id
-          @decidim_scope_id || participatory_space_scope&.id
+          @decidim_scope_id || scope&.id
         end
 
         def category
-          @category ||= context.current_feature.categories.where(id: decidim_category_id).first
+          @category ||= categories.find_by(id: decidim_category_id)
         end
 
         def parent
-          @parent ||= Decidim::Accountability::Result.where(feature: current_feature, id: parent_id).first
+          @parent ||= Decidim::Accountability::Result.find_by(feature: current_feature, id: parent_id)
         end
 
         def status
-          @status ||= Decidim::Accountability::Status.where(feature: current_feature, id: decidim_accountability_status_id).first
+          @status ||= Decidim::Accountability::Status.find_by(feature: current_feature, id: decidim_accountability_status_id)
         end
       end
     end

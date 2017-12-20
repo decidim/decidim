@@ -24,6 +24,7 @@ module Decidim
       validates :address, presence: true, if: ->(form) { form.has_address? }
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
+      validate { errors.add(:scope_id, :invalid) if current_space_scope && !current_space_scope.ancestor_of?(scope) }
 
       delegate :categories, to: :current_feature
 
@@ -33,32 +34,27 @@ module Decidim
         self.category_id = model.categorization.decidim_category_id
       end
 
-      def participatory_space_scope
-        current_feature.participatory_space.scope
-      end
-
       alias feature current_feature
 
       # Finds the Category from the category_id.
       #
       # Returns a Decidim::Category
       def category
-        @category ||= categories.where(id: category_id).first
+        @category ||= categories.find_by(id: category_id)
       end
 
-      # Finds the Scope from the scope_id.
+      # Finds the Scope from the given decidim_scope_id, uses participatory space scope if missing.
       #
       # Returns a Decidim::Scope
       def scope
-        return unless current_feature && scope_id
-        @scope ||= current_feature.scopes.where(id: scope_id).first
+        @scope ||= @scope_id ? current_feature.scopes.find_by(id: @scope_id) : current_space_scope
       end
 
-      # Proposal scope_id, uses process scope if missing.
+      # Scope identifier
       #
       # Returns the scope identifier related to the proposal
       def scope_id
-        @scope_id || participatory_space_scope&.id
+        @scope_id || scope&.id
       end
 
       def has_address?

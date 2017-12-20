@@ -11,7 +11,7 @@ module Decidim
       context = root ? { root: root.id, title: title } : { title: title }
       required = params[:required] && params[:required] != "false"
       if params[:current]
-        current = Scope.find(params[:current])
+        current = (root&.descendants || current_organization.scopes).find_by(id: params[:current]) || root
         scopes = current.children
         parent_scopes = current.part_of_scopes(root)
       else

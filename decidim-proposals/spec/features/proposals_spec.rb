@@ -54,7 +54,7 @@ describe "Proposals", type: :feature do
           end
         end
 
-        context "when process is related to any scope" do
+        context "when process is related to a leaf scope" do
           let(:participatory_process) { scoped_participatory_process }
 
           it "cannot be related to a scope" do
@@ -318,7 +318,7 @@ describe "Proposals", type: :feature do
       end
     end
 
-    context "when process is related to a scope" do
+    context "when process is related to a child scope" do
       let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
       let(:participatory_process) { scoped_participatory_process }
 

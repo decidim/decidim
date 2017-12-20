@@ -47,6 +47,10 @@ module Decidim
       organization.scopes.where("? = ANY(decidim_scopes.part_of)", id)
     end
 
+    def ancestor_of?(scope)
+      scope && scope.part_of.member?(id)
+    end
+
     # Gets the scopes from the part_of list in descending order (first the top level scope, last itself)
     #
     # root - The root scope to start retrieval. If present, ignores top level scopes until reaching the root scope.

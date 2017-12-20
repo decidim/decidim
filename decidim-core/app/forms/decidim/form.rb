@@ -15,7 +15,7 @@ module Decidim
     #
     # Returns a Decidim::Scope
     def current_space_scope
-      @current_space_scope = current_feature.participatory_space.try(:scope) unless defined?(@current_space_scope)
+      @current_space_scope = current_feature&.participatory_space&.try(:scope) unless defined?(@current_space_scope)
       @current_space_scope
     end
   end
