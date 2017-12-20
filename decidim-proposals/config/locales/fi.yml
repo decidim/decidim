@@ -153,6 +153,7 @@ fi:
           random: Satunnainen
           recent: Viimeisimmät
         proposal:
+          creation_date: 'Luominen: %{date}'
           view_proposal: Näytä ehdotus
         show:
           contact: Ottaa yhteyttä
