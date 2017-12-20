@@ -15,11 +15,10 @@ module Decidim
       @user = current_user
       @organization = current_organization
 
-      if @user.present?
-        @string_encrypted = Decidim::Encryptor.sent_at_encrypted(@user.id, newsletter.sent_at)
-      end
-
       if newsletter.sent?
+        if @user.present?
+          @string_encrypted = Decidim::Encryptor.sent_at_encrypted(@user.id, newsletter.sent_at)
+        end
         @body = parse_interpolations(newsletter.body[I18n.locale.to_s], @user, newsletter.id)
       else
         redirect_to decidim.root_url(host: @organization.host)
