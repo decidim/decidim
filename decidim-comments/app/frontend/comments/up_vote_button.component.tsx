@@ -54,7 +54,7 @@ export const UpVoteButton: React.SFC<UpVoteButtonProps> = ({
 const upVoteMutation = require("../mutations/up_vote.mutation.graphql");
 const getCommentsQuery = require("../queries/comments.query.graphql");
 
-const UpVoteButtonWithMutation = graphql(upVoteMutation, {
+const UpVoteButtonWithMutation = graphql<UpVoteMutation, UpVoteButtonProps>(upVoteMutation, {
   props: ({ ownProps, mutate }: { ownProps: UpVoteButtonProps, mutate: MutationFunc<UpVoteMutation> }) => ({
     upVote: () => mutate({
       variables: {
@@ -94,17 +94,19 @@ const UpVoteButtonWithMutation = graphql(upVoteMutation, {
 
         const prev = store.readQuery<GetCommentsQuery>({ query: getCommentsQuery, variables });
 
-        store.writeQuery({
-          query: getCommentsQuery,
-          data: {
-            ...prev,
-            commentable: {
-              ...prev.commentable,
-              comments: prev.commentable.comments.map(commentReducer),
+        if (prev) {
+          store.writeQuery({
+            query: getCommentsQuery,
+            data: {
+              ...prev,
+              commentable: {
+                ...prev.commentable,
+                comments: prev.commentable.comments.map(commentReducer),
+              },
             },
-          },
-          variables,
-        });
+            variables,
+          });
+        }
       },
     }),
   }),

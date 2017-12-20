@@ -290,6 +290,7 @@ en:
         share_link: Share link
       version_author:
         deleted: Deleted user
+    verified_user_group: Verified organization
   devise:
     invitations:
       edit:

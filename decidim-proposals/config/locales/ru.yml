@@ -99,7 +99,6 @@ ru:
       proposals:
         author:
           deleted: Удаленный пользователь
-          verified_user_group: Проверенная организация
         count:
           proposals_count:
             one: 1 предложение

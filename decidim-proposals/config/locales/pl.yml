@@ -99,7 +99,6 @@ pl:
       proposals:
         author:
           deleted: Usunięty użytkownik
-          verified_user_group: Zweryfikowana organizacja
         count:
           proposals_count:
             one: 1 propozycja

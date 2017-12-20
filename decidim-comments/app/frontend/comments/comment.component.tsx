@@ -111,11 +111,11 @@ class Comment extends React.Component<CommentProps, CommentState> {
                       <span className="author__nickname">{author.nickname}</span>
                     </a>
                 }
-                { !author.isUser && author.isVerified &&
+                { author.badge === "" ||
                   <span>
                     &nbsp;
                     <span className="label success label--small">
-                      {I18n.t("components.comment.verified_user_group")}
+                      {author.badge}
                     </span>
                   </span>
                 }

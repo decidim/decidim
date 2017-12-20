@@ -22,14 +22,12 @@ module Decidim
       resolve ->(obj, _args, _ctx) { UserGroupPresenter.new(obj).avatar_url }
     end
 
-    field :isVerified, !types.Boolean, "Whether the user group is verified or not", property: :verified?
-
     field :deleted, !types.Boolean, "Whether the user group's has been deleted or not" do
       resolve ->(obj, _args, _ctx) { UserGroupPresenter.new(obj).deleted? }
     end
 
-    field :isUser, !types.Boolean, "User groups are not users" do
-      resolve ->(_obj, _args, _ctx) { false }
+    field :badge, !types.String, "A badge for the user group" do
+      resolve ->(obj, _args, _ctx) { UserGroupPresenter.new(obj).badge }
     end
   end
 end

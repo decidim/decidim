@@ -372,8 +372,6 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
                   name: ownProps.session && ownProps.session.user.name,
                   avatarUrl: ownProps.session && ownProps.session.user.avatarUrl,
                   deleted: false,
-                  isVerified: true,
-                  isUser: true,
                 },
                 comments: [],
                 hasComments: false,
@@ -419,26 +417,28 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
               };
             };
 
-            if (type === "Decidim::Comments::Comment") {
-                comments = prev.commentable.comments.map(commentReducer);
-              } else {
-                comments = [
-                  ...prev.commentable.comments,
-                  newComment,
-                ];
-              }
+            if (prev) {
+              if (type === "Decidim::Comments::Comment") {
+                  comments = prev.commentable.comments.map(commentReducer);
+                } else {
+                  comments = [
+                    ...prev.commentable.comments,
+                    newComment,
+                  ];
+                }
 
-            store.writeQuery({
-              query: getCommentsQuery,
-              data: {
-                ...prev,
-                commentable: {
-                  ...prev.commentable,
-                  comments,
+              store.writeQuery({
+                query: getCommentsQuery,
+                data: {
+                  ...prev,
+                  commentable: {
+                    ...prev.commentable,
+                    comments,
+                  },
                 },
-              },
-              variables,
-            });
+                variables,
+              });
+            }
           },
         });
       }

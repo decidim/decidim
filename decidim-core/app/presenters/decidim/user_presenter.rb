@@ -12,6 +12,10 @@ module Decidim
       "@#{super}"
     end
 
+    def badge
+      ""
+    end
+
     delegate :url, to: :avatar, prefix: true
   end
 end

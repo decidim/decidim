@@ -25,11 +25,11 @@ module Decidim
       end
     end
 
-    describe "isVerified" do
-      let(:query) { "{ isVerified }" }
+    describe "badge" do
+      let(:query) { "{ badge }" }
 
-      it "returns false" do
-        expect(response).to include("isVerified" => false)
+      it "returns empty" do
+        expect(response).to include("badge" => "")
       end
     end
 
