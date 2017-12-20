@@ -13,7 +13,7 @@ module Decidim
     def feature_reference(feature, options = {})
       return unless feature.reference
       @reference = feature.reference
-      "<div class='reference #{options[:class]}'>#{localized_reference}</div>".html_safe
+      "<div class='tech-info #{options[:class]}'>#{localized_reference}</div>".html_safe
     end
 
     private

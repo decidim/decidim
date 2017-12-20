@@ -28,6 +28,7 @@ module Decidim
 
     def destroy_user_account!
       @user.name = ""
+      @user.nickname = ""
       @user.email = ""
       @user.delete_reason = @form.delete_reason
       @user.deleted_at = Time.current

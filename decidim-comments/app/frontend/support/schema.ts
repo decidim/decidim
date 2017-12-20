@@ -26,29 +26,31 @@ export type addCommentMutation = {
       body: string,
       // The creation date of the comment
       createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
       // The comment's author
       author: ( {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
-          // Whether the author is verified or not
-          isVerified: boolean,
-          // Whether the author is a user or another kind of author (User Group)
-          isUser: boolean,
           // Whether the author's account has been deleted or not
           deleted: boolean,
+          // The author's badge
+          badge: string,
         } | {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
-          // Whether the author is verified or not
-          isVerified: boolean,
-          // Whether the author is a user or another kind of author (User Group)
-          isUser: boolean,
           // Whether the author's account has been deleted or not
           deleted: boolean,
+          // The author's badge
+          badge: string,
         }
       ),
       // Whether the object can have new comments or not
@@ -76,29 +78,31 @@ export type addCommentMutation = {
         body: string,
         // The creation date of the comment
         createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
         // The comment's author
         author: ( {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
-            // Whether the author is verified or not
-            isVerified: boolean,
-            // Whether the author is a user or another kind of author (User Group)
-            isUser: boolean,
             // Whether the author's account has been deleted or not
             deleted: boolean,
+            // The author's badge
+            badge: string,
           } | {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
-            // Whether the author is verified or not
-            isVerified: boolean,
-            // Whether the author is a user or another kind of author (User Group)
-            isUser: boolean,
             // Whether the author's account has been deleted or not
             deleted: boolean,
+            // The author's badge
+            badge: string,
           }
         ),
         // Check if the commentable has comments
@@ -128,29 +132,31 @@ export type addCommentMutation = {
           body: string,
           // The creation date of the comment
           createdAt: string,
+          // The creation date of the comment in relative format
+          formattedCreatedAt: string,
           // The comment's author
           author: ( {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
-              // Whether the author is verified or not
-              isVerified: boolean,
-              // Whether the author is a user or another kind of author (User Group)
-              isUser: boolean,
               // Whether the author's account has been deleted or not
               deleted: boolean,
+              // The author's badge
+              badge: string,
             } | {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
-              // Whether the author is verified or not
-              isVerified: boolean,
-              // Whether the author is a user or another kind of author (User Group)
-              isUser: boolean,
               // Whether the author's account has been deleted or not
               deleted: boolean,
+              // The author's badge
+              badge: string,
             }
           ),
           // Check if the commentable has comments
@@ -180,29 +186,31 @@ export type addCommentMutation = {
             body: string,
             // The creation date of the comment
             createdAt: string,
+            // The creation date of the comment in relative format
+            formattedCreatedAt: string,
             // The comment's author
             author: ( {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
-                // Whether the author is verified or not
-                isVerified: boolean,
-                // Whether the author is a user or another kind of author (User Group)
-                isUser: boolean,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
+                // The author's badge
+                badge: string,
               } | {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
-                // Whether the author is verified or not
-                isVerified: boolean,
-                // Whether the author is a user or another kind of author (User Group)
-                isUser: boolean,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
+                // The author's badge
+                badge: string,
               }
             ),
             // Check if the commentable has comments
@@ -246,29 +254,31 @@ export type DownVoteMutation = {
       body: string,
       // The creation date of the comment
       createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
       // The comment's author
       author: ( {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
-          // Whether the author is verified or not
-          isVerified: boolean,
-          // Whether the author is a user or another kind of author (User Group)
-          isUser: boolean,
           // Whether the author's account has been deleted or not
           deleted: boolean,
+          // The author's badge
+          badge: string,
         } | {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
-          // Whether the author is verified or not
-          isVerified: boolean,
-          // Whether the author is a user or another kind of author (User Group)
-          isUser: boolean,
           // Whether the author's account has been deleted or not
           deleted: boolean,
+          // The author's badge
+          badge: string,
         }
       ),
       // Check if the commentable has comments
@@ -298,29 +308,31 @@ export type DownVoteMutation = {
         body: string,
         // The creation date of the comment
         createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
         // The comment's author
         author: ( {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
-            // Whether the author is verified or not
-            isVerified: boolean,
-            // Whether the author is a user or another kind of author (User Group)
-            isUser: boolean,
             // Whether the author's account has been deleted or not
             deleted: boolean,
+            // The author's badge
+            badge: string,
           } | {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
-            // Whether the author is verified or not
-            isVerified: boolean,
-            // Whether the author is a user or another kind of author (User Group)
-            isUser: boolean,
             // Whether the author's account has been deleted or not
             deleted: boolean,
+            // The author's badge
+            badge: string,
           }
         ),
         // Check if the commentable has comments
@@ -350,29 +362,31 @@ export type DownVoteMutation = {
           body: string,
           // The creation date of the comment
           createdAt: string,
+          // The creation date of the comment in relative format
+          formattedCreatedAt: string,
           // The comment's author
           author: ( {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
-              // Whether the author is verified or not
-              isVerified: boolean,
-              // Whether the author is a user or another kind of author (User Group)
-              isUser: boolean,
               // Whether the author's account has been deleted or not
               deleted: boolean,
+              // The author's badge
+              badge: string,
             } | {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
-              // Whether the author is verified or not
-              isVerified: boolean,
-              // Whether the author is a user or another kind of author (User Group)
-              isUser: boolean,
               // Whether the author's account has been deleted or not
               deleted: boolean,
+              // The author's badge
+              badge: string,
             }
           ),
           // Check if the commentable has comments
@@ -402,29 +416,31 @@ export type DownVoteMutation = {
             body: string,
             // The creation date of the comment
             createdAt: string,
+            // The creation date of the comment in relative format
+            formattedCreatedAt: string,
             // The comment's author
             author: ( {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
-                // Whether the author is verified or not
-                isVerified: boolean,
-                // Whether the author is a user or another kind of author (User Group)
-                isUser: boolean,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
+                // The author's badge
+                badge: string,
               } | {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
-                // Whether the author is verified or not
-                isVerified: boolean,
-                // Whether the author is a user or another kind of author (User Group)
-                isUser: boolean,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
+                // The author's badge
+                badge: string,
               }
             ),
             // Check if the commentable has comments
@@ -468,29 +484,31 @@ export type UpVoteMutation = {
       body: string,
       // The creation date of the comment
       createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
       // The comment's author
       author: ( {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
-          // Whether the author is verified or not
-          isVerified: boolean,
-          // Whether the author is a user or another kind of author (User Group)
-          isUser: boolean,
           // Whether the author's account has been deleted or not
           deleted: boolean,
+          // The author's badge
+          badge: string,
         } | {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
-          // Whether the author is verified or not
-          isVerified: boolean,
-          // Whether the author is a user or another kind of author (User Group)
-          isUser: boolean,
           // Whether the author's account has been deleted or not
           deleted: boolean,
+          // The author's badge
+          badge: string,
         }
       ),
       // Check if the commentable has comments
@@ -520,29 +538,31 @@ export type UpVoteMutation = {
         body: string,
         // The creation date of the comment
         createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
         // The comment's author
         author: ( {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
-            // Whether the author is verified or not
-            isVerified: boolean,
-            // Whether the author is a user or another kind of author (User Group)
-            isUser: boolean,
             // Whether the author's account has been deleted or not
             deleted: boolean,
+            // The author's badge
+            badge: string,
           } | {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
-            // Whether the author is verified or not
-            isVerified: boolean,
-            // Whether the author is a user or another kind of author (User Group)
-            isUser: boolean,
             // Whether the author's account has been deleted or not
             deleted: boolean,
+            // The author's badge
+            badge: string,
           }
         ),
         // Check if the commentable has comments
@@ -572,29 +592,31 @@ export type UpVoteMutation = {
           body: string,
           // The creation date of the comment
           createdAt: string,
+          // The creation date of the comment in relative format
+          formattedCreatedAt: string,
           // The comment's author
           author: ( {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
-              // Whether the author is verified or not
-              isVerified: boolean,
-              // Whether the author is a user or another kind of author (User Group)
-              isUser: boolean,
               // Whether the author's account has been deleted or not
               deleted: boolean,
+              // The author's badge
+              badge: string,
             } | {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
-              // Whether the author is verified or not
-              isVerified: boolean,
-              // Whether the author is a user or another kind of author (User Group)
-              isUser: boolean,
               // Whether the author's account has been deleted or not
               deleted: boolean,
+              // The author's badge
+              badge: string,
             }
           ),
           // Check if the commentable has comments
@@ -624,29 +646,31 @@ export type UpVoteMutation = {
             body: string,
             // The creation date of the comment
             createdAt: string,
+            // The creation date of the comment in relative format
+            formattedCreatedAt: string,
             // The comment's author
             author: ( {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
-                // Whether the author is verified or not
-                isVerified: boolean,
-                // Whether the author is a user or another kind of author (User Group)
-                isUser: boolean,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
+                // The author's badge
+                badge: string,
               } | {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
-                // Whether the author is verified or not
-                isVerified: boolean,
-                // Whether the author is a user or another kind of author (User Group)
-                isUser: boolean,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
+                // The author's badge
+                badge: string,
               }
             ),
             // Check if the commentable has comments
@@ -685,6 +709,8 @@ export type GetCommentsQuery = {
     user:  {
       // The user's name
       name: string,
+      // The user's nickname
+      nickname: string,
       // The user's avatar url
       avatarUrl: string,
       // The user's organization name
@@ -718,29 +744,31 @@ export type GetCommentsQuery = {
       body: string,
       // The creation date of the comment
       createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
       // The comment's author
       author: ( {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
-          // Whether the author is verified or not
-          isVerified: boolean,
-          // Whether the author is a user or another kind of author (User Group)
-          isUser: boolean,
           // Whether the author's account has been deleted or not
           deleted: boolean,
+          // The author's badge
+          badge: string,
         } | {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
-          // Whether the author is verified or not
-          isVerified: boolean,
-          // Whether the author is a user or another kind of author (User Group)
-          isUser: boolean,
           // Whether the author's account has been deleted or not
           deleted: boolean,
+          // The author's badge
+          badge: string,
         }
       ),
       // Whether the object can have new comments or not
@@ -768,29 +796,31 @@ export type GetCommentsQuery = {
         body: string,
         // The creation date of the comment
         createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
         // The comment's author
         author: ( {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
-            // Whether the author is verified or not
-            isVerified: boolean,
-            // Whether the author is a user or another kind of author (User Group)
-            isUser: boolean,
             // Whether the author's account has been deleted or not
             deleted: boolean,
+            // The author's badge
+            badge: string,
           } | {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
-            // Whether the author is verified or not
-            isVerified: boolean,
-            // Whether the author is a user or another kind of author (User Group)
-            isUser: boolean,
             // Whether the author's account has been deleted or not
             deleted: boolean,
+            // The author's badge
+            badge: string,
           }
         ),
         // Check if the commentable has comments
@@ -820,29 +850,31 @@ export type GetCommentsQuery = {
           body: string,
           // The creation date of the comment
           createdAt: string,
+          // The creation date of the comment in relative format
+          formattedCreatedAt: string,
           // The comment's author
           author: ( {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
-              // Whether the author is verified or not
-              isVerified: boolean,
-              // Whether the author is a user or another kind of author (User Group)
-              isUser: boolean,
               // Whether the author's account has been deleted or not
               deleted: boolean,
+              // The author's badge
+              badge: string,
             } | {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
-              // Whether the author is verified or not
-              isVerified: boolean,
-              // Whether the author is a user or another kind of author (User Group)
-              isUser: boolean,
               // Whether the author's account has been deleted or not
               deleted: boolean,
+              // The author's badge
+              badge: string,
             }
           ),
           // Check if the commentable has comments
@@ -872,29 +904,31 @@ export type GetCommentsQuery = {
             body: string,
             // The creation date of the comment
             createdAt: string,
+            // The creation date of the comment in relative format
+            formattedCreatedAt: string,
             // The comment's author
             author: ( {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
-                // Whether the author is verified or not
-                isVerified: boolean,
-                // Whether the author is a user or another kind of author (User Group)
-                isUser: boolean,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
+                // The author's badge
+                badge: string,
               } | {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
-                // Whether the author is verified or not
-                isVerified: boolean,
-                // Whether the author is a user or another kind of author (User Group)
-                isUser: boolean,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
+                // The author's badge
+                badge: string,
               }
             ),
             // Check if the commentable has comments
@@ -952,29 +986,31 @@ export type CommentFragment = {
   body: string,
   // The creation date of the comment
   createdAt: string,
+  // The creation date of the comment in relative format
+  formattedCreatedAt: string,
   // The comment's author
   author: ( {
       // The author's name
       name: string,
+      // The author's nickname
+      nickname: string,
       // The author's avatar url
       avatarUrl: string,
-      // Whether the author is verified or not
-      isVerified: boolean,
-      // Whether the author is a user or another kind of author (User Group)
-      isUser: boolean,
       // Whether the author's account has been deleted or not
       deleted: boolean,
+      // The author's badge
+      badge: string,
     } | {
       // The author's name
       name: string,
+      // The author's nickname
+      nickname: string,
       // The author's avatar url
       avatarUrl: string,
-      // Whether the author is verified or not
-      isVerified: boolean,
-      // Whether the author is a user or another kind of author (User Group)
-      isUser: boolean,
       // Whether the author's account has been deleted or not
       deleted: boolean,
+      // The author's badge
+      badge: string,
     }
   ),
   // Check if the commentable has comments
@@ -1004,29 +1040,31 @@ export type CommentFragment = {
     body: string,
     // The creation date of the comment
     createdAt: string,
+    // The creation date of the comment in relative format
+    formattedCreatedAt: string,
     // The comment's author
     author: ( {
         // The author's name
         name: string,
+        // The author's nickname
+        nickname: string,
         // The author's avatar url
         avatarUrl: string,
-        // Whether the author is verified or not
-        isVerified: boolean,
-        // Whether the author is a user or another kind of author (User Group)
-        isUser: boolean,
         // Whether the author's account has been deleted or not
         deleted: boolean,
+        // The author's badge
+        badge: string,
       } | {
         // The author's name
         name: string,
+        // The author's nickname
+        nickname: string,
         // The author's avatar url
         avatarUrl: string,
-        // Whether the author is verified or not
-        isVerified: boolean,
-        // Whether the author is a user or another kind of author (User Group)
-        isUser: boolean,
         // Whether the author's account has been deleted or not
         deleted: boolean,
+        // The author's badge
+        badge: string,
       }
     ),
     // Check if the commentable has comments
@@ -1056,29 +1094,31 @@ export type CommentFragment = {
       body: string,
       // The creation date of the comment
       createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
       // The comment's author
       author: ( {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
-          // Whether the author is verified or not
-          isVerified: boolean,
-          // Whether the author is a user or another kind of author (User Group)
-          isUser: boolean,
           // Whether the author's account has been deleted or not
           deleted: boolean,
+          // The author's badge
+          badge: string,
         } | {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
-          // Whether the author is verified or not
-          isVerified: boolean,
-          // Whether the author is a user or another kind of author (User Group)
-          isUser: boolean,
           // Whether the author's account has been deleted or not
           deleted: boolean,
+          // The author's badge
+          badge: string,
         }
       ),
       // Check if the commentable has comments
@@ -1108,29 +1148,31 @@ export type CommentFragment = {
         body: string,
         // The creation date of the comment
         createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
         // The comment's author
         author: ( {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
-            // Whether the author is verified or not
-            isVerified: boolean,
-            // Whether the author is a user or another kind of author (User Group)
-            isUser: boolean,
             // Whether the author's account has been deleted or not
             deleted: boolean,
+            // The author's badge
+            badge: string,
           } | {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
-            // Whether the author is verified or not
-            isVerified: boolean,
-            // Whether the author is a user or another kind of author (User Group)
-            isUser: boolean,
             // Whether the author's account has been deleted or not
             deleted: boolean,
+            // The author's badge
+            badge: string,
           }
         ),
         // Check if the commentable has comments
@@ -1165,29 +1207,31 @@ export type CommentDataFragment = {
   body: string,
   // The creation date of the comment
   createdAt: string,
+  // The creation date of the comment in relative format
+  formattedCreatedAt: string,
   // The comment's author
   author: ( {
       // The author's name
       name: string,
+      // The author's nickname
+      nickname: string,
       // The author's avatar url
       avatarUrl: string,
-      // Whether the author is verified or not
-      isVerified: boolean,
-      // Whether the author is a user or another kind of author (User Group)
-      isUser: boolean,
       // Whether the author's account has been deleted or not
       deleted: boolean,
+      // The author's badge
+      badge: string,
     } | {
       // The author's name
       name: string,
+      // The author's nickname
+      nickname: string,
       // The author's avatar url
       avatarUrl: string,
-      // Whether the author is verified or not
-      isVerified: boolean,
-      // Whether the author is a user or another kind of author (User Group)
-      isUser: boolean,
       // Whether the author's account has been deleted or not
       deleted: boolean,
+      // The author's badge
+      badge: string,
     }
   ),
   // Check if the commentable has comments
@@ -1221,29 +1265,31 @@ export type CommentThreadFragment = {
   body: string,
   // The creation date of the comment
   createdAt: string,
+  // The creation date of the comment in relative format
+  formattedCreatedAt: string,
   // The comment's author
   author: ( {
       // The author's name
       name: string,
+      // The author's nickname
+      nickname: string,
       // The author's avatar url
       avatarUrl: string,
-      // Whether the author is verified or not
-      isVerified: boolean,
-      // Whether the author is a user or another kind of author (User Group)
-      isUser: boolean,
       // Whether the author's account has been deleted or not
       deleted: boolean,
+      // The author's badge
+      badge: string,
     } | {
       // The author's name
       name: string,
+      // The author's nickname
+      nickname: string,
       // The author's avatar url
       avatarUrl: string,
-      // Whether the author is verified or not
-      isVerified: boolean,
-      // Whether the author is a user or another kind of author (User Group)
-      isUser: boolean,
       // Whether the author's account has been deleted or not
       deleted: boolean,
+      // The author's badge
+      badge: string,
     }
   ),
   // Whether the object can have new comments or not
@@ -1271,29 +1317,31 @@ export type CommentThreadFragment = {
     body: string,
     // The creation date of the comment
     createdAt: string,
+    // The creation date of the comment in relative format
+    formattedCreatedAt: string,
     // The comment's author
     author: ( {
         // The author's name
         name: string,
+        // The author's nickname
+        nickname: string,
         // The author's avatar url
         avatarUrl: string,
-        // Whether the author is verified or not
-        isVerified: boolean,
-        // Whether the author is a user or another kind of author (User Group)
-        isUser: boolean,
         // Whether the author's account has been deleted or not
         deleted: boolean,
+        // The author's badge
+        badge: string,
       } | {
         // The author's name
         name: string,
+        // The author's nickname
+        nickname: string,
         // The author's avatar url
         avatarUrl: string,
-        // Whether the author is verified or not
-        isVerified: boolean,
-        // Whether the author is a user or another kind of author (User Group)
-        isUser: boolean,
         // Whether the author's account has been deleted or not
         deleted: boolean,
+        // The author's badge
+        badge: string,
       }
     ),
     // Check if the commentable has comments
@@ -1323,29 +1371,31 @@ export type CommentThreadFragment = {
       body: string,
       // The creation date of the comment
       createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
       // The comment's author
       author: ( {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
-          // Whether the author is verified or not
-          isVerified: boolean,
-          // Whether the author is a user or another kind of author (User Group)
-          isUser: boolean,
           // Whether the author's account has been deleted or not
           deleted: boolean,
+          // The author's badge
+          badge: string,
         } | {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
-          // Whether the author is verified or not
-          isVerified: boolean,
-          // Whether the author is a user or another kind of author (User Group)
-          isUser: boolean,
           // Whether the author's account has been deleted or not
           deleted: boolean,
+          // The author's badge
+          badge: string,
         }
       ),
       // Check if the commentable has comments
@@ -1375,29 +1425,31 @@ export type CommentThreadFragment = {
         body: string,
         // The creation date of the comment
         createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
         // The comment's author
         author: ( {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
-            // Whether the author is verified or not
-            isVerified: boolean,
-            // Whether the author is a user or another kind of author (User Group)
-            isUser: boolean,
             // Whether the author's account has been deleted or not
             deleted: boolean,
+            // The author's badge
+            badge: string,
           } | {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
-            // Whether the author is verified or not
-            isVerified: boolean,
-            // Whether the author is a user or another kind of author (User Group)
-            isUser: boolean,
             // Whether the author's account has been deleted or not
             deleted: boolean,
+            // The author's badge
+            badge: string,
           }
         ),
         // Check if the commentable has comments
@@ -1442,4 +1494,3 @@ export type UpVoteButtonFragment = {
   // Check if the current user has downvoted the comment
   downVoted: boolean,
 };
-/* tslint:enable */

@@ -99,7 +99,6 @@ eu:
       proposals:
         author:
           deleted: Erabiltzaile ezabatua
-          verified_user_group: Egiaztatutako erakundea
         count:
           proposals_count:
             one: 1 proposamen

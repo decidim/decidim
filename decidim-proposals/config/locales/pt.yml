@@ -99,7 +99,6 @@ pt:
       proposals:
         author:
           deleted: Usuário deletado
-          verified_user_group: Organização verificada
         count:
           proposals_count:
             one: 1 proposta

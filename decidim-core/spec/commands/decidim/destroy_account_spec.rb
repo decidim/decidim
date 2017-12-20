@@ -44,9 +44,10 @@ module Decidim
         expect(user.reload.deleted_at).not_to be_nil
       end
 
-      it "set name and email to blank string" do
+      it "set name, nickname and email to blank string" do
         command.call
         expect(user.reload.name).to eq("")
+        expect(user.reload.nickname).to eq("")
         expect(user.reload.email).to eq("")
       end
 

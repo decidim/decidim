@@ -20,6 +20,7 @@ module Decidim
           user: {
             sign_up_as: "user",
             name: "User",
+            nickname: "nickname",
             email: email,
             password: "password1234",
             password_confirmation: "password1234",

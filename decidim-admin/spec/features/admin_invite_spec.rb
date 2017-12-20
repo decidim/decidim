@@ -34,10 +34,11 @@ describe "Admin invite", type: :feature do
   end
 
   describe "Accept an invitation" do
-    it "asks for a password and redirects to the organization dashboard" do
+    it "asks for a password and nickname and redirects to the organization dashboard" do
       visit last_email_link
 
       within "form.new_user" do
+        fill_in :user_nickname, with: "caballo_loco"
         fill_in :user_password, with: "123456"
         fill_in :user_password_confirmation, with: "123456"
         find("*[type=submit]").click

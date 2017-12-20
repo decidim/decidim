@@ -287,6 +287,7 @@ uk:
         share_link: Поділитись посиланням
       version_author:
         deleted: Видалений учасник
+    verified_user_group: Перевірена організація
   devise:
     invitations:
       edit:

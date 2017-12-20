@@ -50,7 +50,7 @@ shared_examples "manage meetings" do
     end
   end
 
-  it "creates a new meeting" do
+  it "creates a new meeting", :slow do
     find(".card-title a.button").click
 
     fill_in_i18n(
@@ -158,7 +158,7 @@ shared_examples "manage meetings" do
       end
     end
 
-    it "creates a new meeting" do
+    it "creates a new meeting", :slow do
       find(".card-title a.button").click
 
       fill_in_i18n(

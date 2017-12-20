@@ -21,6 +21,11 @@ describe "Proposals", type: :feature do
     )
   end
 
+  matcher :have_author do |name|
+    match { |node| node.has_selector?(".author-data", text: name) }
+    match_when_negated { |node| node.has_no_selector?(".author-data", text: name) }
+  end
+
   context "when creating a new proposal" do
     context "when the user is logged in" do
       before do
@@ -65,7 +70,7 @@ describe "Proposals", type: :feature do
           end
         end
 
-        it "creates a new proposal" do
+        it "creates a new proposal", :slow do
           visit_feature
 
           click_link "New proposal"
@@ -84,7 +89,7 @@ describe "Proposals", type: :feature do
           expect(page).to have_content("He will solve everything")
           expect(page).to have_content(translated(category.name))
           expect(page).to have_content(translated(scope.name))
-          expect(page).to have_content(user.name)
+          expect(page).to have_author(user.name)
         end
 
         context "when geocoding is enabled", :serves_map do
@@ -96,7 +101,7 @@ describe "Proposals", type: :feature do
                    participatory_space: participatory_process)
           end
 
-          it "creates a new proposal" do
+          it "creates a new proposal", :slow do
             visit_feature
 
             click_link "New proposal"
@@ -120,7 +125,7 @@ describe "Proposals", type: :feature do
             expect(page).to have_content(address)
             expect(page).to have_content(translated(category.name))
             expect(page).to have_content(translated(scope.name))
-            expect(page).to have_content(user.name)
+            expect(page).to have_author(user.name)
           end
         end
 
@@ -131,7 +136,7 @@ describe "Proposals", type: :feature do
             create(:user_group_membership, user: user, user_group: user_group)
           end
 
-          it "creates a new proposal as a user group" do
+          it "creates a new proposal as a user group", :slow do
             visit_feature
             click_link "New proposal"
 
@@ -150,7 +155,7 @@ describe "Proposals", type: :feature do
             expect(page).to have_content("He will solve everything")
             expect(page).to have_content(translated(category.name))
             expect(page).to have_content(translated(scope.name))
-            expect(page).to have_content(user_group.name)
+            expect(page).to have_author(user_group.name)
           end
 
           context "when geocoding is enabled", :serves_map do
@@ -162,7 +167,7 @@ describe "Proposals", type: :feature do
                      participatory_space: participatory_process)
             end
 
-            it "creates a new proposal as a user group" do
+            it "creates a new proposal as a user group", :slow do
               visit_feature
               click_link "New proposal"
 
@@ -186,7 +191,7 @@ describe "Proposals", type: :feature do
               expect(page).to have_content(address)
               expect(page).to have_content(translated(category.name))
               expect(page).to have_content(translated(scope.name))
-              expect(page).to have_content(user_group.name)
+              expect(page).to have_author(user_group.name)
             end
           end
         end
@@ -302,7 +307,7 @@ describe "Proposals", type: :feature do
 
       expect(page).to have_content(proposal.title)
       expect(page).to have_content(proposal.body)
-      expect(page).to have_content(proposal.author.name)
+      expect(page).to have_author(proposal.author.name)
       expect(page).to have_content(proposal.reference)
     end
 
@@ -663,7 +668,7 @@ describe "Proposals", type: :feature do
         end
 
         context "when selecting the global scope" do
-          it "lists the filtered proposals" do
+          it "lists the filtered proposals", :slow do
             within ".filters" do
               select2("Global scope", from: :filter_scope_id)
             end
@@ -674,7 +679,7 @@ describe "Proposals", type: :feature do
         end
 
         context "when selecting one scope" do
-          it "lists the filtered proposals" do
+          it "lists the filtered proposals", :slow do
             within ".filters" do
               select2(translated(scope.name), from: :filter_scope_id)
             end
@@ -685,7 +690,7 @@ describe "Proposals", type: :feature do
         end
 
         context "when selecting the global scope and another scope" do
-          it "lists the filtered proposals" do
+          it "lists the filtered proposals", :slow do
             within ".filters" do
               select2(translated(scope.name), from: :filter_scope_id)
               select2("Global scope", from: :filter_scope_id)

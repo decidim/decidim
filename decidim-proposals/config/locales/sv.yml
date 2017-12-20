@@ -99,7 +99,6 @@ sv:
       proposals:
         author:
           deleted: Ta bort användare
-          verified_user_group: Verifierad organisation
         count:
           proposals_count:
             one: 1 förslag
