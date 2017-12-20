@@ -4,10 +4,10 @@ require "spec_helper"
 
 module Decidim::Admin
   describe UserGroupsEvaluation do
-    subject { described_class.new(Decidim::UserGroup.all, query, filter) }
+    subject { described_class.new(Decidim::UserGroup.all, search, filter) }
 
     let(:organization) { create :organization }
-    let(:query) { nil }
+    let(:search) { nil }
     let(:filter) { nil }
 
     describe "when the list is not filtered" do
@@ -27,7 +27,7 @@ module Decidim::Admin
           end
         end
 
-        let(:query) { "Argo" }
+        let(:search) { "Argo" }
 
         it "returns all the user groups" do
           expect(subject.query).to match_array([user_groups[1], user_groups[2]])
@@ -70,7 +70,7 @@ module Decidim::Admin
           end
         end
 
-        let(:query) { "lo" }
+        let(:search) { "lo" }
         let(:filter) { "rejected" }
 
         before do
