@@ -24,7 +24,10 @@ module Decidim
       end
 
       context "when the newsletter is send" do
+        let(:encryptor) { Decidim::Encryptor }
         let(:newsletter) { create(:newsletter, organization: organization, sent_at: Time.current) }
+        let(:user) { create(:user, organization: organization) }
+        let(:string_encrypted) { encryptor.sent_at_encrypted(user.id, newsletter.sent_at) }
 
         it "renders the newsletter" do
           get :show, params: { id: newsletter.id }
