@@ -15,9 +15,9 @@
       </div>
       <div class="row">
         <div class="columns small-centered small-6 medium-4 mediumlarge-3">
-          <a href="/processes" class="hero-cta button expanded large button--sc">
+          <%= link_to page_path("processes"), class: "hero-cta button expanded large button--sc" do %>
             Participa
-          </a>
+          <% end %>
         </div>
       </div>
     </div>
@@ -28,10 +28,10 @@
         <h2 class="heading3">Únete a la plataforma online de
         participación ciudadana y participa de forma activa para mejorar tu
         ciudad. Ya somos 156000.</h2>
-        <a href="/user-register" class="button--sc link subhero-cta">
+        <%= link_to page_path("user-register"), class: "button--sc link subhero-cta" do %>
           Regístrate
           <%= icon "chevron-right", aria_hidden: true %>
-        </a>
+        <% end %>
       </div>
     </div>
   </section>
@@ -228,9 +228,9 @@
       <div class="row">
         <div class="columns small-centered small-10
                   smallmedium-8 medium-6 large-4">
-          <a href="/processes" class="button expanded hollow button--sc">
+          <%= link_to page_path("processes"), class: "button expanded hollow button--sc" do %>
             Más información
-          </a>
+          <% end %>
         </div>
       </div>
     </div>
@@ -273,9 +273,9 @@
       <div class="row">
         <div class="columns small-centered small-12
                   smallmedium-8 medium-6 large-4">
-          <a href="/processes" class="button expanded hollow button--sc">
+          <%= link_to page_path("processes"), class: "button expanded hollow button--sc" do %>
             Explora los resultados
-          </a>
+          <% end %>
         </div>
       </div>
       <div class="row text-center">
@@ -304,10 +304,10 @@
         <h5 class="heading4">Únete a la plataforma online de
         participación ciudadana y participa de forma activa para mejorar tu
         ciudad. Ya somos 156000.</h5>
-        <a href="/user-register" class="button--sc link subhero-cta">
+        <%= link_to page_path("user-register"), class: "button--sc link subhero-cta" do %>
           Regístrate
           <%= icon "chevron-right", aria_hidden: true %>
-        </a>
+        <% end %>
       </div>
     </div>
   </section>

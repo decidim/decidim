@@ -4,12 +4,12 @@
 @activepage = "meetings"
 %>
 
-<%= partial 'partials/template_top' %>
+<%= render partial: "public_pages/partials/template_top" %>
 
 <main class="wrapper">
-  <%= partial 'partials/process_header' %>
+  <%= render partial: "public_pages/partials/process_header" %>
   <div class="row column">
-    <%= partial 'partials/meetings_map' %>
+    <%= render partial: "public_pages/partials/meetings_map" %>
   </div>
   <div class="row column">
     <div class="callout warning">
@@ -31,7 +31,7 @@
           Trobada
         </span>
         <div class="card__content">
-          <%= link_to "Cooperatives i economia solidària" do %>
+          <%= link_to page_path("meeting-view"), class: "card__link" do %>
             <h5 class="card__title">Cooperatives i economia solidària</h5>
           <% end %>
           <div class="card__datetime">
@@ -147,5 +147,5 @@
   </div>
 </main>
 
-<%= partial 'partials/template_bottom' %>
+<%= render partial: "public_pages/partials/template_bottom" %>
 

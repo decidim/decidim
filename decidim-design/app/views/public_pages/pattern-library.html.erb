@@ -3,7 +3,7 @@
 @activeuser = "logged"
 %>
 
-<%= partial 'partials/template_top' %>
+<%= render partial: "public_pages/partials/template_top" %>
 
 <main class="wrapper">
   <div class="row collapse">
@@ -82,7 +82,7 @@
                       </button>
                     </div>
                   </div>
-                  <%= partial 'partials/pagination' %>
+                  <%= render partial: "public_pages/partials/pagination" %>
                   <hr>
                   <h2 class="section-heading">Botones y estados</h2>
                   <button class="button small">Apoyar</button>
@@ -193,7 +193,7 @@
                     Estos iconos han sido diseñados de manera específica para la
                      interfaz de Decidim y son copyleft (AGPL v3).
                   </p>
-                  <%= partial 'partials/component_icons' %>
+                  <%= render partial: "public_pages/partials/component_icons" %>
                   <hr>
                   <h2 class="section-heading">Iconos de interfaz</h2>
                   <p>
@@ -738,4 +738,4 @@
   </div>
 </main>
 
-<%= partial 'partials/template_bottom' %>
+<%= render partial: "public_pages/partials/template_bottom" %>
