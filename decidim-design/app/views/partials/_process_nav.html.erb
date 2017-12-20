@@ -55,14 +55,14 @@
 
           <%= icon "meetings" %>
           <span>Trobades</span>
-        </a>
+        <% end %>
       </li>
       <li class="<% if @activepage == "proposals" %>is-active
                  <% end %>">
         <%= link_to page_path("proposals"), class: "process-nav__link #{'is-active' if @activepage == 'proposals'}" do %>
           <%= icon "proposals" %>
           <span>Propostes</span>
-        </a>
+        <% end %>
       </li>
       <li class="<% if @activepage == "debates" %>is-active
                  <% end %>">
@@ -70,14 +70,14 @@
 
           <%= icon "debates" %>
           <span>Debates</span>
-        </a>
+        <% end %>
       </li>
       <li class="<% if @activepage == "actions" %>is-active
                  <% end %>">
         <%= link_to page_path("results"), class: "process-nav__link #{'is-active' if @activepage == 'results'}" do %>
           <%= icon "actions" %>
           <span>Resultados</span>
-        </a>
+        <% end %>
       </li>
     </ul>
 
