@@ -20,9 +20,9 @@ module Decidim
     end
 
     # Public Setting that defines how many similar proposals will be shown.
-    # Defaults to 6.
+    # Defaults to 10.
     config_accessor :similarity_limit do
-      6
+      10
     end
   end
 end
