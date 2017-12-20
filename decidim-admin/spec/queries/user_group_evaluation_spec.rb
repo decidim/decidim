@@ -21,8 +21,7 @@ module Decidim::Admin
     describe "when the list is filtered" do
       context "and recieves a search param" do
         let(:user_groups) do
-          %w(Walter Fargo Phargo)
-            .map do |name|
+          %w(Walter Fargo Phargo).map do |name|
             create(:user_group, name: name,
                                 users: [create(:user, organization: organization)])
           end
@@ -65,8 +64,7 @@ module Decidim::Admin
 
       context "and recieves a search and a filter aram" do
         let(:rejected_user_groups) do
-          %w(Lorem Ipsum Dolor)
-            .map do |name|
+          %w(Lorem Ipsum Dolor).map do |name|
             create(:user_group, :rejected, name: name,
                                            users: [create(:user, organization: organization)])
           end
@@ -76,14 +74,12 @@ module Decidim::Admin
         let(:filter) { "rejected" }
 
         before do
-          %w(Elit Vivamus Doctum)
-            .map do |name|
+          %w(Elit Vivamus Doctum).map do |name|
             create(:user_group, :verified, name: name,
                                            users: [create(:user, organization: organization)])
           end
 
-          %w(Walter Fargo Phargo)
-            .map do |name|
+          %w(Walter Fargo Phargo).map do |name|
             create(:user_group, name: name,
                                 users: [create(:user, organization: organization)])
           end
