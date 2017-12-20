@@ -1,9 +1,9 @@
 <div class="row collapse order-by">
   <h2 class="order-by__text section-heading">27 procesos
     <span class="order-by__tabs">
-      <a href="#" class="order-by__tab is-active">activos</a>
-			<a href="#" class="order-by__tab">pasados</a>
-			<a href="#" class="order-by__tab">futuros</a>
+      <%= link_to "activos", page_path("#"), class: "order-by__tab is-active" %>
+			<%= link_to "pasados", page_path("#"), class: "order-by__tab" %>
+			<%= link_to "futuros", page_path("#"), class: "order-by__tab" %>
     </span>
   </h2>
   <div class="order-by__dropdown order-by__dropdown--right">

@@ -108,8 +108,8 @@
               <div class="section">
                 <label>
                   <input type="checkbox" required data-custom-error="terms-error">
-                  Estic d'acord amb <a href="/static" target="_blank">els termes
-                  d'accés al padró</a>.
+                  Estic d'acord amb <%= link_to page_path("static") do %>els termes
+                  d'accés al padró<% end %>.
                 </label>
                 <div class="custom-error custom-error--simple" id="terms-error">
                   Es necesario aceptar los términos y condiciones para poder registrarse.
