@@ -1,24 +1,32 @@
-# README
+# decidim-design
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+`decidim-design` is a full-fledged *application* that mounts the assets from `decidim`, thus allowing rapid prototyping of functionalities. It mounts the `decidim` gem present on this same repository so you can safely modify its assets and see changes real-time.
 
-Things you may want to cover:
+This approach has several benefits:
 
-* Ruby version
+* Tests will break if a style breaks an existing functionality, as the applications being tested use the same methods.
 
-* System dependencies
+* `Decidim::LayoutHelper` and others can be reused in `decidim-design` for extra consistency.
 
-* Configuration
+* Gems that provide extra assets can also be used, ensuring we're always consistent with the prototypes.
 
-* Database creation
+* Since it's a rails application, we can keep the assets and specific code need for prototyping separate from the actual `decidim-*` gems, preventing polluting the codebase.
 
-* Database initialization
+## Usage
 
-* How to run the test suite
+## Installation
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+$ bundle install
+$ bundle exec rails s
+```
 
-* Deployment instructions
+Navigate to `http://localhost:3000`. You should see a navigable website with examples.
 
-* ...
+## Contributing
+
+See [Decidim](https://github.com/decidim/decidim).
+
+## License
+
+See [Decidim](https://github.com/decidim/decidim).
