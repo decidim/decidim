@@ -99,7 +99,6 @@ nl:
       proposals:
         author:
           deleted: Verwijderde gebruiker
-          verified_user_group: Geverifieerde organisatie
         count:
           proposals_count:
             one: 1 voorstel
