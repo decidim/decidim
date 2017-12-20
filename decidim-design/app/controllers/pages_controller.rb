@@ -1,7 +1,9 @@
 class PagesController < ApplicationController
-  include HighVoltage::StaticPage
-
   layout :layout_for_page
+
+  def show
+    render template: params[:id]
+  end
 
   private
 
