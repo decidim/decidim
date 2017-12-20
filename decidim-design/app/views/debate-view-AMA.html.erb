@@ -4,11 +4,11 @@
 @activepage = "debates"
 %>
 
-<%= partial 'partials/template_top' %>
+<%= render partial: "partials/template_top" %>
 
 <main>
   <div class="wrapper">
-    <%= partial 'partials/process_header' %>
+    <%= render partial: "partials/process_header" %>
     <div class="row column view-header">
       <h2 class="heading2">
         Decidim amb Janet Sanz una Barcelona més humana i en transició
@@ -50,7 +50,7 @@
         </div>
         <button class="button expanded" data-open="debate-info">
           Com participo al debat?</button>
-        <%= partial 'partials/share' %>
+        <%= render partial: "partials/share" %>
       </div>
       <div class="reveal" id="debate-info" data-reveal>
         <div class="reveal__header">
@@ -103,12 +103,12 @@
     <div class="wrapper wrapper--inner">
       <div class="row">
         <div class="columns large-9" id="comments">
-          <%= partial 'partials/comments' %>
+          <%= render partial: "partials/comments" %>
         </div>
       </div>
     </div>
   </div>
 </main>
 
-<%= partial 'partials/template_bottom' %>
+<%= render partial: "partials/template_bottom" %>
 

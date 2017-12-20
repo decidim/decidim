@@ -4,26 +4,26 @@
 @activepage = "proposals"
 %>
 
-<%= partial 'partials/template_top' %>
+<%= render partial: "partials/template_top" %>
 
 <main class="wrapper">
-  <%= partial 'partials/process_header' %>
+  <%= render partial: "partials/process_header" %>
   <div class="row column">
-    <%= partial 'partials/budget_confirm' %>
-    <%= partial 'partials/budget_summary' %>
+    <%= render partial: "partials/budget_confirm" %>
+    <%= render partial: "partials/budget_summary" %>
   </div>
   <div class="row columns">
     <h2 class="section-heading">168 proyectos</h2>
   </div>
   <div class="row">
     <div class="columns mediumlarge-4 large-3">
-      <%= partial 'partials/filters_small_view' %>
+      <%= render partial: "partials/filters_small_view" %>
       <div class="card card--secondary show-for-mediumlarge">
-        <%= partial 'partials/filters' %>
+        <%= render partial: "partials/filters" %>
       </div>
     </div>
     <div class="columns mediumlarge-8 large-9">
-      <%= partial 'partials/order_by' %>
+      <%= render partial: "partials/order_by" %>
       <div class="card card--list budget-list">
           <div class="card--list__item">
             <div class="card--list__text">
@@ -236,12 +236,12 @@
             </div>
           </div>
         </div>
-        <%= partial 'partials/pagination' %>
+        <%= render partial: "partials/pagination" %>
     </div>
   </div>
 </main>
 
-<%= partial 'partials/template_bottom' %>
+<%= render partial: "partials/template_bottom" %>
 <script>
 /* Inline script for demo purposes */
 window.addEventListener("load", function(event) {

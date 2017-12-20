@@ -1,6 +1,6 @@
 <% @activesection = "home" %>
 
-<%= partial 'partials/template_top' %>
+<%= render partial: "partials/template_top" %>
 
 <main>
   <section class="extended hero"
@@ -292,7 +292,7 @@
         <h3 class="section-heading">Pròximes trobades</h3>
       </div>
     </div>
-    <%= partial 'partials/meetings_map' %>
+    <%= render partial: "partials/meetings_map" %>
   </section>
   <section class="extended subhero">
     <div class="row">
@@ -311,5 +311,5 @@
   </section>
 </main>
 
-<%= partial 'partials/template_bottom' %>
+<%= render partial: "partials/template_bottom" %>
 

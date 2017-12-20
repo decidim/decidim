@@ -10,7 +10,7 @@
 @activepage = "processes"
 %>
 
-<%= partial 'partials/template_top' %>
+<%= render partial: "partials/template_top" %>
 
 <main class="wrapper">
   <div class="row section">
@@ -100,7 +100,7 @@
   </div>
 
   <section class="section row collapse">
-    <%= partial 'partials/order_by_processes' %>
+    <%= render partial: "partials/order_by_processes" %>
     <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
       <div class="column">
         <article class="card card--process">
@@ -332,4 +332,4 @@
   </section>
 </main>
 
-<%= partial 'partials/template_bottom' %>
+<%= render partial: "partials/template_bottom" %>

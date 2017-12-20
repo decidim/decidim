@@ -43,7 +43,7 @@
   <% if @activephase == "processhome" %>
   <% else %>
     <div class="row column">
-      <%= partial 'partials/process_nav_new_proposal' %>
+      <%= render partial: "partials/process_nav_new_proposal" %>
     </div>
   <% end %>
 </div>
@@ -57,9 +57,9 @@
   </div>
   <div class="row">
     <div class="columns large-9 large-centered">
-      <%= partial 'partials/timeline' %>
+      <%= render partial: "partials/timeline" %>
     </div>
   </div>
 </div>
 
-<%= partial 'partials/share' %>
+<%= render partial: "partials/share" %>

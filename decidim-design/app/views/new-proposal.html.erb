@@ -4,10 +4,10 @@
 @activepage = "proposals"
 %>
 
-<%= partial 'partials/template_top' %>
+<%= render partial: "partials/template_top" %>
 
 <main class="wrapper">
-  <%= partial 'partials/process_header' %>
+  <%= render partial: "partials/process_header" %>
   <div class="row columns">
     <a href="" class="muted-link">
       <%= icon "chevron-left", class: "icon--small" %>
@@ -58,5 +58,5 @@
   </div>
 </main>
 
-<%= partial 'partials/template_bottom' %>
+<%= render partial: "partials/template_bottom" %>
 

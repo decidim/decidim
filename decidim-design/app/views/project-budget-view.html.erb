@@ -4,13 +4,13 @@
 @activepage = "proposals"
 %>
 
-<%= partial 'partials/template_top' %>
+<%= render partial: "partials/template_top" %>
 
 <main>
   <div class="wrapper">
-    <%= partial 'partials/process_header' %>
+    <%= render partial: "partials/process_header" %>
     <div class="row column view-header">
-      <%= partial 'partials/budget_summary_mini' %>
+      <%= render partial: "partials/budget_summary_mini" %>
       <a href="" class="muted-link">
         <%= icon "chevron-left", class: "icon--small" %>
         Ver todos los proyectos
@@ -68,11 +68,11 @@
     <div class="wrapper wrapper--inner">
       <div class="row">
         <div class="columns large-9" id="comments">
-          <%= partial 'partials/comments' %>
+          <%= render partial: "partials/comments" %>
         </div>
       </div>
     </div>
   </div>
 </main>
 
-<%= partial 'partials/template_bottom' %>
+<%= render partial: "partials/template_bottom" %>

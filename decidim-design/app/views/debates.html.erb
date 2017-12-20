@@ -4,10 +4,10 @@
 @activepage = "debates"
 %>
 
-<%= partial 'partials/template_top' %>
+<%= render partial: "partials/template_top" %>
 
 <main class="wrapper">
-  <%= partial 'partials/process_header' %>
+  <%= render partial: "partials/process_header" %>
   <div class="row columns">
     <div class="title-action">
       <h2 class="title-action__title section-heading">Debates abiertos</h2>
@@ -180,5 +180,5 @@
   </div>
 </main>
 
-<%= partial 'partials/template_bottom' %>
+<%= render partial: "partials/template_bottom" %>
 

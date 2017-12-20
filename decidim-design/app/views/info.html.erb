@@ -4,10 +4,10 @@
 @activepage = "info"
 %>
 
-<%= partial 'partials/template_top' %>
+<%= render partial: "partials/template_top" %>
 
 <main class="wrapper">
-  <%= partial 'partials/process_header_home' %>
+  <%= render partial: "partials/process_header_home" %>
   <div class="row column">
     <div class="row column">
       <div class="callout secondary">
@@ -86,11 +86,11 @@
       <div class="columns large-8">
         <div class="section">
           <h4 class="section-heading">Citas destacadas</h4>
-					<%= partial 'partials/meetings_highlights' %>
+					<%= render partial: "partials/meetings_highlights" %>
 				</div>
         <div class="section">
           <h4 class="section-heading">Propuestas destacadas</h4>
-					<%= partial 'partials/proposals_highlights' %>
+					<%= render partial: "partials/proposals_highlights" %>
 				</div>
 				<div class="section">
 					<h4 class="section-heading">Documentos relacionados</h4>
@@ -163,11 +163,11 @@
 				</div>
 				<div class="section">
           <h4 class="section-heading">Fotos del proceso</h4>
-					<%= partial 'partials/gallery' %>
+					<%= render partial: "partials/gallery" %>
 				</div>
       </div>
     </div>
   </div>
 </main>
 
-<%= partial 'partials/template_bottom' %>
+<%= render partial: "partials/template_bottom" %>

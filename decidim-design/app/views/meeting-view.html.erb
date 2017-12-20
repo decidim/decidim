@@ -4,11 +4,11 @@
 @activepage = "meetings"
 %>
 
-<%= partial 'partials/template_top' %>
+<%= render partial: "partials/template_top" %>
 
 <main>
   <div class="wrapper">
-    <%= partial 'partials/process_header' %>
+    <%= render partial: "partials/process_header" %>
     <div class="row column view-header">
       <h2 class="heading2">Cooperatives i economia solidària</h2>
       <div class="author-data">
@@ -55,7 +55,7 @@
               Comissionat d'Economia cooperativa, social i solidària.</span>
           </div>
         </div>
-        <%= partial 'partials/share' %>
+        <%= render partial: "partials/share" %>
       </div>
       <div class="columns mediumlarge-8 mediumlarge-pull-4">
         <div class="section">
@@ -90,7 +90,7 @@
         </div>
         <div class="section">
           <h3 class="section-heading">Fotografías de la cita</h3>
-          <%= partial 'partials/gallery' %>
+          <%= render partial: "partials/gallery" %>
         </div>
         <div class="section">
           <h3 class="section-heading">Resumen de la cita</h3>
@@ -122,12 +122,12 @@
             </ul>
         </div>
         <div class="section">
-          <%= partial 'partials/related_proposals' %>
+          <%= render partial: "partials/related_proposals" %>
         </div>
       </div>
     </div>
   </div>
 </main>
 
-<%= partial 'partials/template_bottom' %>
+<%= render partial: "partials/template_bottom" %>
 
