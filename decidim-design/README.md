@@ -16,9 +16,20 @@ This approach has several benefits:
 
 ## Installation
 
-```
+```bash
 $ bundle install
+[Installs all dependencies]
+Bundle complete!
 $ bundle exec rails s
+=> Booting Puma
+=> Rails 5.1.4 application starting in development
+=> Run `rails server -h` for more startup options
+Puma starting in single mode...
+* Version 3.11.0 (ruby 2.4.2-p198), codename: Love Song
+* Min threads: 5, max threads: 5
+* Environment: development
+* Listening on tcp://0.0.0.0:3000
+Use Ctrl-C to stop
 ```
 
 Navigate to `http://localhost:3000`. You should see a navigable website with examples.
