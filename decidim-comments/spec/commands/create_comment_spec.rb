@@ -95,6 +95,25 @@ module Decidim
 
             command.call
           end
+
+          it "sends a notification to the author's followers" do
+            follower = create(:user, organization: organization)
+            create(:follow, followable: author, user: follower)
+
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                event: "decidim.events.comments.comment_created",
+                event_class: Decidim::Comments::CommentCreatedEvent,
+                resource: commentable,
+                recipient_ids: [follower.id],
+                extra: {
+                  comment_id: 1
+                }
+              )
+
+            command.call
+          end
         end
       end
     end

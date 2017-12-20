@@ -44,11 +44,14 @@ module Decidim
       end
 
       def send_notification
+        recipient_ids = (@commentable.users_to_notify_on_comment_created - [@author]).pluck(:id)
+        recipient_ids += @author.followers.pluck(:id)
+
         Decidim::EventsManager.publish(
           event: "decidim.events.comments.comment_created",
           event_class: Decidim::Comments::CommentCreatedEvent,
           resource: @comment.root_commentable,
-          recipient_ids: (@commentable.users_to_notify_on_comment_created - [@author]).pluck(:id),
+          recipient_ids: recipient_ids.uniq,
           extra: {
             comment_id: @comment.id
           }
