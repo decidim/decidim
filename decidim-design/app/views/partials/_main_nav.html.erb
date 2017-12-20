@@ -7,7 +7,7 @@
           <% if @activesection == "home" %>
            main-nav__link--active
           <% end %>
-          "><a  href="/home">Inici</a></li>
+          "><%= link_to "Inici", page_path("home") %></li>
         <li class="main-nav__link
           <% if @activesection == "processes" %>
            main-nav__link--active
@@ -30,7 +30,7 @@
           <% if @activesection == "more-info" %>
              main-nav__link--active
           <% end %>
-          "><a  href="/more-information">Més informació</a>
+          "><%= link_to "Més informació", page_path("more-information") %>
         </li>
         <li class="main-nav__link
           <% if @activesection == "news" %>

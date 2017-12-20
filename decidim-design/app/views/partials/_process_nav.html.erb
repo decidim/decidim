@@ -44,40 +44,37 @@
     <ul>
       <li class="<% if @activepage == "info" %>is-active
                  <% end %>">
-        <a href="/info" class="process-nav__link
-          <% if @activepage == "info" %>is-active<% end %>">
+        <%= link_to page_path("info"), class: "process-nav__link #{'is-active' if @activepage == 'info'}" do %>
           <%= icon "process" %>
           <span>El procés</span>
-        </a>
+        <% end %>
       </li>
       <li class="<% if @activepage == "meetings" %>is-active
                  <% end %>">
-        <a href="/meetings" class="process-nav__link
-          <% if @activepage == "meetings" %>is-active<% end %>">
+        <%= link_to page_path("meetings"), class: "process-nav__link #{'is-active' if @activepage == 'meetings'}" do %>
+
           <%= icon "meetings" %>
           <span>Trobades</span>
         </a>
       </li>
       <li class="<% if @activepage == "proposals" %>is-active
                  <% end %>">
-        <a href="/proposals" class="process-nav__link
-          <% if @activepage == "proposals" %>is-active<% end %>">
+        <%= link_to page_path("proposals"), class: "process-nav__link #{'is-active' if @activepage == 'proposals'}" do %>
           <%= icon "proposals" %>
           <span>Propostes</span>
         </a>
       </li>
       <li class="<% if @activepage == "debates" %>is-active
                  <% end %>">
-        <a href="/debates" class="process-nav__link
-          <% if @activepage == "debates" %>is-active<% end %>">
+        <%= link_to page_path("debates"), class: "process-nav__link #{'is-active' if @activepage == 'debates'}" do %>
+
           <%= icon "debates" %>
           <span>Debates</span>
         </a>
       </li>
       <li class="<% if @activepage == "actions" %>is-active
                  <% end %>">
-        <a href="/results" class="process-nav__link
-          <% if @activepage == "actions" %>is-active<% end %>">
+        <%= link_to page_path("results"), class: "process-nav__link #{'is-active' if @activepage == 'results'}" do %>
           <%= icon "actions" %>
           <span>Resultados</span>
         </a>

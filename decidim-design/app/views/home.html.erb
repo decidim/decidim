@@ -175,10 +175,9 @@
     <div class="row">
       <div class="columns small-centered small-12
                   smallmedium-8 medium-6 large-4">
-        <a href="/processes" class="button expanded hollow button--sc
-          home-section__cta">
+        <%= link_to page_path("processes"), class: "button expanded hollow button--sc home-section__cta" do %>
           Ver todos los procesos
-        </a>
+        <% end %>
       </div>
     </div>
   </section>
@@ -280,10 +279,9 @@
       </div>
       <div class="row text-center">
         <div class="columns small-centered large-3">
-          <a href="/processes" class="button--sc link
-                                      subhero-cta subhero-cta--secondary">
+          <%= link_to page_path("processes"), class: "button--sc link subhero-cta subhero-cta--secondary" do %>
             Descarga el Plan Municipal
-          </a>
+          <% end %>
         </div>
       </div>
     </div>
