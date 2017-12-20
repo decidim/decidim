@@ -148,6 +148,7 @@
       // Raise changed event
       if (user) {
         $input.trigger("change");
+        this._removeErrors();
         this.modal.foundation('close');
       }
 
@@ -161,6 +162,13 @@
         this.current.div.remove();
         this.current.div = null;
       });
+    }
+
+    _removeErrors() {
+      let parent = this.current.picker.parent();
+      $(".is-invalid-input", parent).removeClass("is-invalid-input");
+      $(".is-invalid-label", parent).removeClass("is-invalid-label");
+      $(".form-error.is-visible", parent).removeClass("is-visible");
     }
   }
 

@@ -1,3 +1,4 @@
+
 .data-picker {
   &.picker-single .picker-values div a, .picker-prompt a {
     background: white;
@@ -33,6 +34,11 @@
       float: right;
       margin-top: 7px;
     }
+  }
+
+  &.is-invalid-input.picker-single .picker-values div a, &.is-invalid-input .picker-prompt a {
+    border-color: $alert-color;
+    background-color: #fdeeec;
   }
 
   &.picker-single .picker-values:not(:empty) + .picker-prompt {

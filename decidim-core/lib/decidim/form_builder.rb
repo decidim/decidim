@@ -144,6 +144,7 @@ module Decidim
     def scopes_picker(attribute, options = {})
       picker_options = { id: "#{@object_name}_#{attribute}", class: "data-picker picker-#{options[:multiple] ? "multiple" : "single"}",
                          "data-picker-name" => "#{@object_name}[#{attribute}]" }
+      picker_options[:class] += " is-invalid-input" if error?(attribute)
 
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute)) unless options[:label] == false
