@@ -10,5 +10,13 @@ module Decidim
              to: :context, prefix: false, allow_nil: true
 
     delegate :available_locales, to: :current_organization, allow_nil: true
+
+    # Retrieves current participatory space scope (if this is Scopable or has the scope property).
+    #
+    # Returns a Decidim::Scope
+    def current_space_scope
+      @current_space_scope = current_feature.participatory_space.try(:scope) unless defined?(@current_space_scope)
+      @current_space_scope
+    end
   end
 end
