@@ -7,18 +7,19 @@
     <% end %>
     <h3 class="heading3"><%= t(".similar_proposals") %></h5>
 
-    <div class="row small-up-1 medium-up-2 card-grid">
-      <% @similar_proposals.each do |proposal| %>
-        <%= render partial: "proposal_similar", locals: {proposal: proposal} %>
-      <% end %>
-    </div>
-
     <%= decidim_form_for(@form, url: wizard_path(:step_3), method: :put, html: { class: 'form new_initiative_previous_form' }) do |form| %>
       <%= form.hidden_field :title %>
       <%= form.hidden_field :body %>
 
       <%= proposal_wizard_actions form %>
     <% end %>
+
+    <div class="row small-up-1 medium-up-2 card-grid">
+      <% @similar_proposals.each do |proposal| %>
+        <%= render partial: "proposal_similar", locals: {proposal: proposal} %>
+      <% end %>
+    </div>
+
 
   </div>
 </div>

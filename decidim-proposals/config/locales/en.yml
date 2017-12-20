@@ -103,7 +103,7 @@ en:
           error: There's been errors when voting the proposal.
       proposal_wizard:
         actions:
-          exit_wizard: There are proposals similar to mine, I want to finish the creation process
+          exit_wizard: There are proposals similar to mine, I want to cancel the creation process
           go_back_to_step_3: I want to correct my proposal
           go_to_finish: Publish the proposal
           go_to_next_step: Next Step
@@ -118,7 +118,7 @@ en:
         proposal_preview_card_author:
           verified_user_group: Verified organization
         proposal_similar:
-          exit_wizard: This proposal coincides with mine, I want to finish the creation process
+          exit_wizard: This proposal coincides with mine, I want to cancel the creation process
           view_proposal: View proposal
         published: Proposal published successfully.
         step_2:
