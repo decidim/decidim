@@ -99,7 +99,6 @@ es:
       proposals:
         author:
           deleted: Usuario eliminado
-          verified_user_group: Organización verificada
         count:
           proposals_count:
             one: 1 propuesta
@@ -153,6 +152,7 @@ es:
           random: Aleatorio
           recent: Reciente
         proposal:
+          creation_date: 'Creación: %{date}'
           view_proposal: Ver propuesta
         show:
           contact: Contacto
