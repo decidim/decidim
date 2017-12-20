@@ -13,21 +13,21 @@
         <h2 class="section-heading">Navegar por las fases de un proceso</h2>
         <ol>
           <li>
-            <a href="/info">Proceso</a>
+            <%= link_to "Proceso", page_path("info") %>
             <p>El usuario sigue el enlace "Ver fases" en la cabecera de proceso.</p>
           </li>
           <li>
-            <a href="/phases">Proceso - Fases</a>
+            <%= link_to "Proceso - Fases", page_path("phases") %>
             <p>El usuario sigue el enlace a las propuestas dentro de la Fase 2
               (fase completada)</p>
           </li>
           <li>
-            <a href="/proposals-with-filter">Propuestas con filtros activos</a>
+            <%= link_to "Propuestas con filtros activos", page_path("proposals-with-filter") %>
             <p>Se muestra el listrado prefiltrado con las propuestas creadas
               durante la Fase 2, y con el filtro "Fase 2" activado y visible.</p>
           </li>
           <li>
-            <a href="/proposal-view">Propuesta</a>
+            <%= link_to "Propuesta", page_path("proposal-view") %>
             <p>El usuario navega hasta una propuesta. La propuesta se muestra
               siempre en su estado actual.</p>
           </li>

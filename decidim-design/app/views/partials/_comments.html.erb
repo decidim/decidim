@@ -391,7 +391,7 @@
     <h5 class="section-heading">Deixa el teu comentari</h5>
     <% if @logoutcomments == true %>
       <p>
-        <a href="/user-login">Entra en tu cuenta</a> o <a href="/user-register">regístrate</a> para poder dejar un comentario.
+        <%= link_to "Entra en tu cuenta</a> o <a href="/user-register">regístrate", page_path("user-login") %> para poder dejar un comentario.
       </p>
     <% else %>
 

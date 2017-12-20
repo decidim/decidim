@@ -58,8 +58,8 @@
     <% else %>
       <div class="topbar__user show-for-medium" data-set="nav-login-holder">
           <div class="topbar__user__login js-append">
-            <a href="/user-register">Regístrate</a>
-            <a href="/user-login">Entra</a>
+            <%= link_to "Regístrate", page_path("user-register") %>
+            <%= link_to "Entra", page_path("user-login") %>
           </div>
       </div>
     <% end %>
