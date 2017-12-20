@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PagesController < ApplicationController
   layout :layout_for_page
 
@@ -9,9 +11,9 @@ class PagesController < ApplicationController
 
   def layout_for_page
     if params[:id].match?(/^email-/)
-      'email'
+      "email"
     else
-      'application'
+      "application"
     end
   end
 end
