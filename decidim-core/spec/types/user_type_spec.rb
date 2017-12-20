@@ -47,6 +47,14 @@ module Decidim
       it "returns the user profile path" do
         expect(response).to include("profilePath" => "/profiles/#{model.nickname}")
       end
+
+      context "when user is deleted" do
+        let(:model) { create(:user, :deleted) }
+
+        it "returns empty" do
+          expect(response).to include("profilePath" => "")
+        end
+      end
     end
 
     describe "organizationName" do

@@ -21,6 +21,8 @@ module Decidim
     delegate :url, to: :avatar, prefix: true
 
     def profile_path
+      return "" if deleted?
+
       decidim.profile_path(__getobj__.nickname)
     end
   end
