@@ -35,7 +35,11 @@ module Decidim
         private
 
         def proposals
-          @proposals ||= Proposal.where(feature: current_feature).page(params[:page]).per(15)
+
+          @q = Proposal.where(feature: current_feature).ransack(params[:q])
+          @proposals ||= @q.result.page(params[:page]).per(15)
+
+          # @proposals ||= Proposal.where(feature: current_feature).page(params[:page]).per(15)
         end
 
         def proposal
