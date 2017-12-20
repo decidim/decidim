@@ -289,6 +289,7 @@ fi:
         share_link: Jaa linkki
       version_author:
         deleted: Poistettu käyttäjä
+    verified_user_group: Vahvistettu organisaatio
   devise:
     invitations:
       edit:
