@@ -10,7 +10,6 @@ module Capybara
       select2_container.find(".select2-selection").click
 
       body = find(:xpath, "//body")
-      expect(body).to have_no_content("Searching…")
       expect(body).to have_selector(".select2-dropdown li.select2-results__option", text: value)
 
       body.find(".select2-dropdown li.select2-results__option", text: value).click

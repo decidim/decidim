@@ -41,7 +41,7 @@ shared_examples "manage results" do
     end
   end
 
-  it "creates a new result" do
+  it "creates a new result", :slow do
     click_link "New Result", match: :first
 
     within ".new_result" do

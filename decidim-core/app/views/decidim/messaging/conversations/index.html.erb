@@ -24,7 +24,7 @@
                 </h6>
 
                 <span class="card--list__annotation">
-                  <%= simple_date(conversation.last_message.created_at) %>
+                  <%= conversation.last_message.friendly_created_at %>
                 </span>
 
                 <span class="text-small">

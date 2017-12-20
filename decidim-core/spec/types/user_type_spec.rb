@@ -17,6 +17,14 @@ module Decidim
       end
     end
 
+    describe "nickname" do
+      let(:query) { "{ nickname }" }
+
+      it "returns a presentable user's nickname" do
+        expect(response).to include("nickname" => "@#{model.nickname}")
+      end
+    end
+
     describe "isVerified" do
       let(:query) { "{ isVerified }" }
 

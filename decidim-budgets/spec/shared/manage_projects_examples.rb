@@ -63,7 +63,7 @@ shared_examples "manage projects" do
     end
   end
 
-  it "creates a new project" do
+  it "creates a new project", :slow do
     find(".card-title a.button").click
 
     within ".new_project" do

@@ -7,6 +7,7 @@ module Decidim
     description "An author"
 
     field :name, !types.String, "The author's name"
+    field :nickname, !types.String, "The author's nickname"
 
     field :avatarUrl, !types.String, "The author's avatar url"
 

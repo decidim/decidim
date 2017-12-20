@@ -20,6 +20,7 @@ describe "Authentication", type: :feature do
         within ".new_user" do
           fill_in :user_email, with: "user@example.org"
           fill_in :user_name, with: "Responsible Citizen"
+          fill_in :user_nickname, with: "responsible"
           fill_in :user_password, with: "123456"
           fill_in :user_password_confirmation, with: "123456"
           check :user_tos_agreement
@@ -38,6 +39,7 @@ describe "Authentication", type: :feature do
           page.execute_script("$($('form#new_user > div > input')[0]).val('Ima robot :D')")
           fill_in :user_email, with: "user@example.org"
           fill_in :user_name, with: "Responsible Citizen"
+          fill_in :user_nickname, with: "responsible"
           fill_in :user_password, with: "123456"
           fill_in :user_password_confirmation, with: "123456"
           check :user_tos_agreement
@@ -90,6 +92,7 @@ describe "Authentication", type: :feature do
           uid: "123545",
           info: {
             name: "Twitter User",
+            nickname: "twitter_user",
             email: email
           }
         )
@@ -197,6 +200,7 @@ describe "Authentication", type: :feature do
 
         fill_in :user_email, with: "user@example.org"
         fill_in :user_name, with: "Responsible Citizen"
+        fill_in :user_nickname, with: "responsible"
         fill_in :user_password, with: "123456"
         fill_in :user_password_confirmation, with: "123456"
 
@@ -359,6 +363,7 @@ describe "Authentication", type: :feature do
           within ".new_user" do
             fill_in :user_email, with: user.email
             fill_in :user_name, with: "Responsible Citizen"
+            fill_in :user_nickname, with: "responsible"
             fill_in :user_password, with: "123456"
             fill_in :user_password_confirmation, with: "123456"
             check :user_tos_agreement

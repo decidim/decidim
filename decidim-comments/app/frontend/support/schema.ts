@@ -26,10 +26,14 @@ export type addCommentMutation = {
       body: string,
       // The creation date of the comment
       createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
       // The comment's author
       author: ( {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -41,6 +45,8 @@ export type addCommentMutation = {
         } | {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -76,10 +82,14 @@ export type addCommentMutation = {
         body: string,
         // The creation date of the comment
         createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
         // The comment's author
         author: ( {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -91,6 +101,8 @@ export type addCommentMutation = {
           } | {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -128,10 +140,14 @@ export type addCommentMutation = {
           body: string,
           // The creation date of the comment
           createdAt: string,
+          // The creation date of the comment in relative format
+          formattedCreatedAt: string,
           // The comment's author
           author: ( {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
               // Whether the author is verified or not
@@ -143,6 +159,8 @@ export type addCommentMutation = {
             } | {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
               // Whether the author is verified or not
@@ -180,10 +198,14 @@ export type addCommentMutation = {
             body: string,
             // The creation date of the comment
             createdAt: string,
+            // The creation date of the comment in relative format
+            formattedCreatedAt: string,
             // The comment's author
             author: ( {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
                 // Whether the author is verified or not
@@ -195,6 +217,8 @@ export type addCommentMutation = {
               } | {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
                 // Whether the author is verified or not
@@ -246,10 +270,14 @@ export type DownVoteMutation = {
       body: string,
       // The creation date of the comment
       createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
       // The comment's author
       author: ( {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -261,6 +289,8 @@ export type DownVoteMutation = {
         } | {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -298,10 +328,14 @@ export type DownVoteMutation = {
         body: string,
         // The creation date of the comment
         createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
         // The comment's author
         author: ( {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -313,6 +347,8 @@ export type DownVoteMutation = {
           } | {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -350,10 +386,14 @@ export type DownVoteMutation = {
           body: string,
           // The creation date of the comment
           createdAt: string,
+          // The creation date of the comment in relative format
+          formattedCreatedAt: string,
           // The comment's author
           author: ( {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
               // Whether the author is verified or not
@@ -365,6 +405,8 @@ export type DownVoteMutation = {
             } | {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
               // Whether the author is verified or not
@@ -402,10 +444,14 @@ export type DownVoteMutation = {
             body: string,
             // The creation date of the comment
             createdAt: string,
+            // The creation date of the comment in relative format
+            formattedCreatedAt: string,
             // The comment's author
             author: ( {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
                 // Whether the author is verified or not
@@ -417,6 +463,8 @@ export type DownVoteMutation = {
               } | {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
                 // Whether the author is verified or not
@@ -468,10 +516,14 @@ export type UpVoteMutation = {
       body: string,
       // The creation date of the comment
       createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
       // The comment's author
       author: ( {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -483,6 +535,8 @@ export type UpVoteMutation = {
         } | {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -520,10 +574,14 @@ export type UpVoteMutation = {
         body: string,
         // The creation date of the comment
         createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
         // The comment's author
         author: ( {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -535,6 +593,8 @@ export type UpVoteMutation = {
           } | {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -572,10 +632,14 @@ export type UpVoteMutation = {
           body: string,
           // The creation date of the comment
           createdAt: string,
+          // The creation date of the comment in relative format
+          formattedCreatedAt: string,
           // The comment's author
           author: ( {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
               // Whether the author is verified or not
@@ -587,6 +651,8 @@ export type UpVoteMutation = {
             } | {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
               // Whether the author is verified or not
@@ -624,10 +690,14 @@ export type UpVoteMutation = {
             body: string,
             // The creation date of the comment
             createdAt: string,
+            // The creation date of the comment in relative format
+            formattedCreatedAt: string,
             // The comment's author
             author: ( {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
                 // Whether the author is verified or not
@@ -639,6 +709,8 @@ export type UpVoteMutation = {
               } | {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
                 // Whether the author is verified or not
@@ -685,6 +757,8 @@ export type GetCommentsQuery = {
     user:  {
       // The user's name
       name: string,
+      // The user's nickname
+      nickname: string,
       // The user's avatar url
       avatarUrl: string,
       // The user's organization name
@@ -718,10 +792,14 @@ export type GetCommentsQuery = {
       body: string,
       // The creation date of the comment
       createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
       // The comment's author
       author: ( {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -733,6 +811,8 @@ export type GetCommentsQuery = {
         } | {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -768,10 +848,14 @@ export type GetCommentsQuery = {
         body: string,
         // The creation date of the comment
         createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
         // The comment's author
         author: ( {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -783,6 +867,8 @@ export type GetCommentsQuery = {
           } | {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -820,10 +906,14 @@ export type GetCommentsQuery = {
           body: string,
           // The creation date of the comment
           createdAt: string,
+          // The creation date of the comment in relative format
+          formattedCreatedAt: string,
           // The comment's author
           author: ( {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
               // Whether the author is verified or not
@@ -835,6 +925,8 @@ export type GetCommentsQuery = {
             } | {
               // The author's name
               name: string,
+              // The author's nickname
+              nickname: string,
               // The author's avatar url
               avatarUrl: string,
               // Whether the author is verified or not
@@ -872,10 +964,14 @@ export type GetCommentsQuery = {
             body: string,
             // The creation date of the comment
             createdAt: string,
+            // The creation date of the comment in relative format
+            formattedCreatedAt: string,
             // The comment's author
             author: ( {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
                 // Whether the author is verified or not
@@ -887,6 +983,8 @@ export type GetCommentsQuery = {
               } | {
                 // The author's name
                 name: string,
+                // The author's nickname
+                nickname: string,
                 // The author's avatar url
                 avatarUrl: string,
                 // Whether the author is verified or not
@@ -952,10 +1050,14 @@ export type CommentFragment = {
   body: string,
   // The creation date of the comment
   createdAt: string,
+  // The creation date of the comment in relative format
+  formattedCreatedAt: string,
   // The comment's author
   author: ( {
       // The author's name
       name: string,
+      // The author's nickname
+      nickname: string,
       // The author's avatar url
       avatarUrl: string,
       // Whether the author is verified or not
@@ -967,6 +1069,8 @@ export type CommentFragment = {
     } | {
       // The author's name
       name: string,
+      // The author's nickname
+      nickname: string,
       // The author's avatar url
       avatarUrl: string,
       // Whether the author is verified or not
@@ -1004,10 +1108,14 @@ export type CommentFragment = {
     body: string,
     // The creation date of the comment
     createdAt: string,
+    // The creation date of the comment in relative format
+    formattedCreatedAt: string,
     // The comment's author
     author: ( {
         // The author's name
         name: string,
+        // The author's nickname
+        nickname: string,
         // The author's avatar url
         avatarUrl: string,
         // Whether the author is verified or not
@@ -1019,6 +1127,8 @@ export type CommentFragment = {
       } | {
         // The author's name
         name: string,
+        // The author's nickname
+        nickname: string,
         // The author's avatar url
         avatarUrl: string,
         // Whether the author is verified or not
@@ -1056,10 +1166,14 @@ export type CommentFragment = {
       body: string,
       // The creation date of the comment
       createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
       // The comment's author
       author: ( {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -1071,6 +1185,8 @@ export type CommentFragment = {
         } | {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -1108,10 +1224,14 @@ export type CommentFragment = {
         body: string,
         // The creation date of the comment
         createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
         // The comment's author
         author: ( {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -1123,6 +1243,8 @@ export type CommentFragment = {
           } | {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -1165,10 +1287,14 @@ export type CommentDataFragment = {
   body: string,
   // The creation date of the comment
   createdAt: string,
+  // The creation date of the comment in relative format
+  formattedCreatedAt: string,
   // The comment's author
   author: ( {
       // The author's name
       name: string,
+      // The author's nickname
+      nickname: string,
       // The author's avatar url
       avatarUrl: string,
       // Whether the author is verified or not
@@ -1180,6 +1306,8 @@ export type CommentDataFragment = {
     } | {
       // The author's name
       name: string,
+      // The author's nickname
+      nickname: string,
       // The author's avatar url
       avatarUrl: string,
       // Whether the author is verified or not
@@ -1221,10 +1349,14 @@ export type CommentThreadFragment = {
   body: string,
   // The creation date of the comment
   createdAt: string,
+  // The creation date of the comment in relative format
+  formattedCreatedAt: string,
   // The comment's author
   author: ( {
       // The author's name
       name: string,
+      // The author's nickname
+      nickname: string,
       // The author's avatar url
       avatarUrl: string,
       // Whether the author is verified or not
@@ -1236,6 +1368,8 @@ export type CommentThreadFragment = {
     } | {
       // The author's name
       name: string,
+      // The author's nickname
+      nickname: string,
       // The author's avatar url
       avatarUrl: string,
       // Whether the author is verified or not
@@ -1271,10 +1405,14 @@ export type CommentThreadFragment = {
     body: string,
     // The creation date of the comment
     createdAt: string,
+    // The creation date of the comment in relative format
+    formattedCreatedAt: string,
     // The comment's author
     author: ( {
         // The author's name
         name: string,
+        // The author's nickname
+        nickname: string,
         // The author's avatar url
         avatarUrl: string,
         // Whether the author is verified or not
@@ -1286,6 +1424,8 @@ export type CommentThreadFragment = {
       } | {
         // The author's name
         name: string,
+        // The author's nickname
+        nickname: string,
         // The author's avatar url
         avatarUrl: string,
         // Whether the author is verified or not
@@ -1323,10 +1463,14 @@ export type CommentThreadFragment = {
       body: string,
       // The creation date of the comment
       createdAt: string,
+      // The creation date of the comment in relative format
+      formattedCreatedAt: string,
       // The comment's author
       author: ( {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -1338,6 +1482,8 @@ export type CommentThreadFragment = {
         } | {
           // The author's name
           name: string,
+          // The author's nickname
+          nickname: string,
           // The author's avatar url
           avatarUrl: string,
           // Whether the author is verified or not
@@ -1375,10 +1521,14 @@ export type CommentThreadFragment = {
         body: string,
         // The creation date of the comment
         createdAt: string,
+        // The creation date of the comment in relative format
+        formattedCreatedAt: string,
         // The comment's author
         author: ( {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -1390,6 +1540,8 @@ export type CommentThreadFragment = {
           } | {
             // The author's name
             name: string,
+            // The author's nickname
+            nickname: string,
             // The author's avatar url
             avatarUrl: string,
             // Whether the author is verified or not
@@ -1442,4 +1594,3 @@ export type UpVoteButtonFragment = {
   // Check if the current user has downvoted the comment
   downVoted: boolean,
 };
-/* tslint:enable */

@@ -34,15 +34,6 @@ module Decidim
         end
       end
 
-      def author_name
-        return I18n.t("decidim.proposals.models.proposal.fields.official_proposal") if official?
-        user_group&.name || author.name
-      end
-
-      def author_avatar_url
-        author&.avatar&.url || ActionController::Base.helpers.asset_path("decidim/default-avatar.svg")
-      end
-
       # Public: Check if the user has voted the proposal.
       #
       # Returns Boolean.

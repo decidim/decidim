@@ -7,8 +7,10 @@ fragment CommentData on Comment {
   type
   body
   createdAt
+  formattedCreatedAt
   author {
     name
+    nickname
     avatarUrl
     isVerified
     isUser

@@ -10,6 +10,7 @@ module Decidim
 
         let(:sign_up_as) { "user" }
         let(:name) { "Username" }
+        let(:nickname) { "nickname" }
         let(:email) { "user@example.org" }
         let(:password) { "password1234" }
         let(:password_confirmation) { password }
@@ -25,6 +26,7 @@ module Decidim
             "user" => {
               "sign_up_as" => sign_up_as,
               "name" => name,
+              "nickname" => nickname,
               "email" => email,
               "password" => password,
               "password_confirmation" => password_confirmation,
@@ -69,6 +71,7 @@ module Decidim
           it "creates a new user" do
             expect(User).to receive(:create!).with(
               name: form.name,
+              nickname: form.nickname,
               email: form.email,
               password: form.password,
               password_confirmation: form.password_confirmation,
