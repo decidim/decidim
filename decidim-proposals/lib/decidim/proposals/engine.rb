@@ -14,7 +14,7 @@ module Decidim
 
       routes do
         resources :proposals, except: [:destroy] do
-          resource :proposal_adhesion, only: [:create, :destroy] do
+          resource :proposal_endorsement, only: [:create, :destroy] do
             get :identities, on: :collection
           end
           resource :proposal_vote, only: [:create, :destroy]

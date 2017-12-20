@@ -29,11 +29,11 @@ module Decidim
         private
 
         def setup_endorsement_related_abilities
-          can :adhere, Proposal do |_proposal|
-            authorized?(:adhere) && adhesions_enabled? && !adhesions_blocked?
+          can :endorse, Proposal do |_proposal|
+            authorized?(:endorse) && endorsements_enabled? && !endorsements_blocked?
           end
-          can :unadhere, Proposal do |_proposal|
-            authorized?(:unadhere) && adhesions_enabled?
+          can :unendorse, Proposal do |_proposal|
+            authorized?(:unendorse) && endorsements_enabled?
           end
         end
 
@@ -70,14 +70,14 @@ module Decidim
           feature_settings.vote_limit - votes_count
         end
 
-        def adhesions_enabled?
+        def endorsements_enabled?
           return unless current_settings
-          current_settings.adhesions_enabled?
+          current_settings.endorsements_enabled?
         end
 
-        def adhesions_blocked?
+        def endorsements_blocked?
           return unless current_settings
-          current_settings.adhesions_blocked?
+          current_settings.endorsements_blocked?
         end
 
         def voting_enabled?

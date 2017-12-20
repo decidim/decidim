@@ -15,8 +15,8 @@ en:
     features:
       proposals:
         actions:
-          adhere: Adhere
           create: Create
+          endorse: Endorse
           vote: Vote
         name: Proposals
         settings:
@@ -33,11 +33,11 @@ en:
             proposal_limit: Proposal limit per user
             vote_limit: Vote limit per user
           step:
-            adhesions_blocked: Adhesions blocked
-            adhesions_enabled: Adhesions enabled
             announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled: Proposal creation enabled
+            endorsements_blocked: Endorsements blocked
+            endorsements_enabled: Endorsements enabled
             proposal_answering_enabled: Proposal answering enabled
             votes_blocked: Votes blocked
             votes_enabled: Votes enabled
@@ -108,29 +108,29 @@ en:
             votes: Votes
       new:
         limit_reached: You can't create new proposals since you've exceeded the limit.
-      proposal_adhesions:
+      proposal_endorsements:
         create:
-          error: There's been errors when adhering to the proposal.
+          error: There's been errors when endorsing the proposal.
         identities:
           select_identity: Select identity
       proposal_votes:
         create:
           error: There's been errors when voting the proposal.
       proposals:
-        adhesion_identities_cabin:
-          adhere: Adhere
-        adhesion_button:
-          adhere: Adhere
-          adhesions_blocked: Adhesions disabled
-          already_adhered: Already adhered
-          already_adhered_hover: Unadhere
-        adhesions_count:
+        endorsement_identities_cabin:
+          endorse: Endorse
+        endorsement_button:
+          endorse: Endorse
+          endorsements_blocked: Endorsements disabled
+          already_endorsed: Already endorsed
+          already_endorsed_hover: Unendorse
+        endorsements_count:
           count:
-            one: ADHESION
-            other: ADHESIONS
-        adhesions_listing:
+            one: ENDORSEMENT
+            other: ENDORSEMENTS
+        endorsements_listing:
           see_all: see all
-          title: Listing of Adhesions
+          title: Listing of Endorsements
         author:
           deleted: Deleted user
           verified_user_group: Verified organization

@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   module Proposals
-    describe ShowAdhesionIdentities do
+    describe ShowEndorsementIdentities do
       let(:proposal) { create(:proposal) }
       let(:current_user) { create(:user, organization: proposal.organization) }
       let(:command) { described_class.new(proposal, current_user) }
@@ -17,8 +17,8 @@ module Decidim
       end
 
       context "when user has no user_groups" do
-        it "allows only an adhere button for the user" do
-          expected_groups_split = { adhere: [], unadhere: [] }
+        it "allows only an endorse button for the user" do
+          expected_groups_split = { endorse: [], unendorse: [] }
 
           expect { command.call }.to broadcast :ok, expected_groups_split
         end
@@ -37,35 +37,35 @@ module Decidim
         end
         context "when user's user_groups are not verified" do
           it "ignores them" do
-            user_groups.each { |ug| ug.update_attributes :verified_at, nil }
-            expected_groups_split = { adhere: [], unadhere: [] }
+            user_groups.each { |ug| ug.update_attributes verified_at: nil }
+            expected_groups_split = { endorse: [], unendorse: [] }
 
             expect { command.call }.to broadcast :ok, expected_groups_split
           end
         end
-        context "when all user user_groups are adhered" do
+        context "when all user user_groups are endorsed" do
           it "offers only user_groups to unahere" do
             user_groups.each do |ug|
-              create(:proposal_adhesion,
+              create(:proposal_endorsement,
                      proposal: proposal, author: current_user, decidim_user_group_id: ug.id)
             end
-            expected_groups_split = { adhere: [], unadhere: user_groups.collect(&:id) }
+            expected_groups_split = { endorse: [], unendorse: user_groups.collect(&:id) }
 
             expect { command.call }.to broadcast :ok, expected_groups_split
           end
         end
-        context "when half of user user_groups are adhered" do
+        context "when half of user user_groups are endorsed" do
           it "offers the corresponding action to each user_groups" do
-            create(:proposal_adhesion, proposal: proposal,
-                                       author: current_user, decidim_user_group_id: user_groups.first.id)
-            expected_groups_split = { adhere: [user_groups.last.id], unadhere: [user_groups.first.id] }
+            create(:proposal_endorsement, proposal: proposal,
+                                          author: current_user, decidim_user_group_id: user_groups.first.id)
+            expected_groups_split = { endorse: [user_groups.last.id], unendorse: [user_groups.first.id] }
 
             expect { command.call }.to broadcast :ok, expected_groups_split
           end
         end
-        context "when none of user's user_groups are adhered" do
-          it "offers all user_groups to adhere" do
-            expected_groups_split = { adhere: user_groups.collect(&:id), unadhere: [] }
+        context "when none of user's user_groups are endorsed" do
+          it "offers all user_groups to endorse" do
+            expected_groups_split = { endorse: user_groups.collect(&:id), unendorse: [] }
 
             expect { command.call }.to broadcast :ok, expected_groups_split
           end

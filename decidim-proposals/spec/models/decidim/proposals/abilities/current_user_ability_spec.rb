@@ -123,53 +123,53 @@ describe Decidim::Proposals::Abilities::CurrentUserAbility do
     end
   end
 
-  describe "adheering" do
-    context "when adheering is disabled" do
+  describe "endorsing" do
+    context "when endorsing is disabled" do
       let(:proposal) { build :proposal, feature: proposal_feature }
       let(:extra_settings) do
         {
-          adhesions_enabled?: false,
-          adhesions_blocked?: true
+          endorsements_enabled?: false,
+          endorsements_blocked?: true
         }
       end
 
-      it { is_expected.not_to be_able_to(:adhere, proposal) }
+      it { is_expected.not_to be_able_to(:endorse, proposal) }
     end
 
     context "when user is authorized" do
       let(:extra_settings) do
         {
-          adhesions_enabled?: true,
-          adhesions_blocked?: false
+          endorsements_enabled?: true,
+          endorsements_blocked?: false
         }
       end
 
-      it { is_expected.to be_able_to(:adhere, Decidim::Proposals::Proposal) }
+      it { is_expected.to be_able_to(:endorse, Decidim::Proposals::Proposal) }
     end
   end
 
-  describe "unadheering" do
-    context "when adheering is disabled" do
+  describe "unendorsing" do
+    context "when endorsing is disabled" do
       let(:proposal) { build :proposal, feature: proposal_feature }
       let(:extra_settings) do
         {
-          adhesions_enabled?: false,
-          adhesions_blocked?: true
+          endorsements_enabled?: false,
+          endorsements_blocked?: true
         }
       end
 
-      it { is_expected.not_to be_able_to(:unadhere, proposal) }
+      it { is_expected.not_to be_able_to(:unendorse, proposal) }
     end
 
     context "when user is authorized" do
       let(:extra_settings) do
         {
-          adhesions_enabled?: true,
-          adhesions_blocked?: false
+          endorsements_enabled?: true,
+          endorsements_blocked?: false
         }
       end
 
-      it { is_expected.to be_able_to(:unadhere, Decidim::Proposals::Proposal) }
+      it { is_expected.to be_able_to(:unendorse, Decidim::Proposals::Proposal) }
     end
   end
 end

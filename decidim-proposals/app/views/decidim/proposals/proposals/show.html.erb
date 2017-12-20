@@ -37,14 +37,14 @@
         </div>
       </div>
     <% end %>
-    <% if current_settings.adhesions_enabled? %>
+    <% if current_settings.endorsements_enabled? %>
       <div class="card extra">
         <div class="card__content">
-          <%= render partial: "adhesions_count", locals: { proposal: @proposal, from_proposals_list: false } %>
-          <% if current_settings.adhesions_blocked? %>
-            <%= content_tag :span, t('.adhesions_blocked'), class: "card__button button #{adhesion_button_classes(from_proposals_list)} disabled", disabled: true %>
+          <%= render partial: "endorsements_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+          <% if current_settings.endorsements_blocked? %>
+            <%= content_tag :span, t('.endorsements_blocked'), class: "card__button button #{endorsement_button_classes(from_proposals_list)} disabled", disabled: true %>
           <% else %>
-            <%= render partial: "adhesion_identities_cabin", locals: { proposal: @proposal, from_proposals_list: false } %>
+            <%= render partial: "endorsement_identities_cabin", locals: { proposal: @proposal, from_proposals_list: false } %>
           <% end %>
         </div>
       </div>
@@ -93,7 +93,7 @@
 </div>
 <%= attachments_for @proposal %>
 
-<%= render partial: 'adhesions_listing', locals: {proposal: @proposal} %>
+<%= render partial: 'endorsements_listing', locals: {proposal: @proposal} %>
 <%= comments_for @proposal %>
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>

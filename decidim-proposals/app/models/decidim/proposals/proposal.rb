@@ -17,7 +17,7 @@ module Decidim
 
       feature_manifest_name "proposals"
 
-      has_many :adhesions, foreign_key: "decidim_proposal_id", class_name: "ProposalAdhesion", dependent: :destroy, counter_cache: "proposal_adhesions_count"
+      has_many :endorsements, foreign_key: "decidim_proposal_id", class_name: "ProposalEndorsement", dependent: :destroy, counter_cache: "proposal_endorsements_count"
       has_many :votes, foreign_key: "decidim_proposal_id", class_name: "ProposalVote", dependent: :destroy, counter_cache: "proposal_votes_count"
 
       validates :title, :body, presence: true
@@ -42,11 +42,11 @@ module Decidim
         votes.where(author: user).any?
       end
 
-      # Public: Check if the user has adhered the proposal.
+      # Public: Check if the user has endorsed the proposal.
       #
       # Returns Boolean.
-      def adhered_by?(user, user_group = nil)
-        adhesions.where(author: user, user_group: user_group).any?
+      def endorsed_by?(user, user_group = nil)
+        endorsements.where(author: user, user_group: user_group).any?
       end
 
       # Public: Checks if the organization has given an answer for the proposal.

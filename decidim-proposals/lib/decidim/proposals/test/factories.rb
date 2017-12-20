@@ -9,18 +9,18 @@ FactoryBot.define do
     manifest_name :proposals
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
 
-    trait :with_adhesions_enabled do
+    trait :with_endorsements_enabled do
       step_settings do
         {
-          participatory_space.active_step.id => { adhesions_enabled: true }
+          participatory_space.active_step.id => { endorsements_enabled: true }
         }
       end
     end
 
-    trait :with_adhesions_disabled do
+    trait :with_endorsements_disabled do
       step_settings do
         {
-          participatory_space.active_step.id => { adhesions_enabled: false }
+          participatory_space.active_step.id => { endorsements_enabled: false }
         }
       end
     end
@@ -65,12 +65,12 @@ FactoryBot.define do
       end
     end
 
-    trait :with_adhesions_blocked do
+    trait :with_endorsements_blocked do
       step_settings do
         {
           participatory_space.active_step.id => {
-            adhesions_enabled: true,
-            adhesions_blocked: true
+            endorsements_enabled: true,
+            endorsements_blocked: true
           }
         }
       end
@@ -158,12 +158,12 @@ FactoryBot.define do
     author { build(:user, organization: proposal.organization) }
   end
 
-  factory :proposal_adhesion, class: "Decidim::Proposals::ProposalAdhesion" do
+  factory :proposal_endorsement, class: "Decidim::Proposals::ProposalEndorsement" do
     proposal { build(:proposal) }
     author { build(:user, organization: proposal.organization) }
   end
 
-  factory :organization_proposal_adhesion, class: "Decidim::Proposals::ProposalAdhesion" do
+  factory :organization_proposal_endorsement, class: "Decidim::Proposals::ProposalEndorsement" do
     proposal { build(:proposal) }
     author { build(:user, organization: proposal.organization) }
     user_group { create(:user_group) }

@@ -13,7 +13,7 @@ Decidim.register_feature(:proposals) do |feature|
     end
   end
 
-  feature.actions = %w(adhere vote create)
+  feature.actions = %w(endorse vote create)
 
   feature.settings(:global) do |settings|
     settings.attribute :vote_limit, type: :integer, default: 0
@@ -30,8 +30,8 @@ Decidim.register_feature(:proposals) do |feature|
   end
 
   feature.settings(:step) do |settings|
-    settings.attribute :adhesions_enabled, type: :boolean, default: true
-    settings.attribute :adhesions_blocked, type: :boolean
+    settings.attribute :endorsements_enabled, type: :boolean, default: true
+    settings.attribute :endorsements_blocked, type: :boolean
     settings.attribute :votes_enabled, type: :boolean
     settings.attribute :votes_blocked, type: :boolean
     settings.attribute :votes_hidden, type: :boolean, default: false
@@ -156,8 +156,8 @@ Decidim.register_feature(:proposals) do |feature|
 
       unless proposal.answered? && proposal.rejected?
         (n * 2).times do |idx|
-          email = "ahesion-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-adh#{idx}@example.org"
-          name = "#{Faker::Name.name} #{participatory_space.id} #{n} adh#{idx}"
+          email = "endorsement-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-endr#{idx}@example.org"
+          name = "#{Faker::Name.name} #{participatory_space.id} #{n} endr#{idx}"
 
           author = Decidim::User.find_or_initialize_by(email: email)
           author.update!(
@@ -179,7 +179,7 @@ Decidim.register_feature(:proposals) do |feature|
             author.user_groups << group
             author.save!
           end
-          Decidim::Proposals::ProposalAdhesion.create!(proposal: proposal, author: author, user_group: author.user_groups.first)
+          Decidim::Proposals::ProposalEndorsement.create!(proposal: proposal, author: author, user_group: author.user_groups.first)
         end
       end
       Decidim::Comments::Seed.comments_for(proposal)
