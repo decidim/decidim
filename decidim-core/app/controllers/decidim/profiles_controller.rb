@@ -14,7 +14,10 @@ module Decidim
     private
 
     def user
-      @user ||= Decidim::User.find_by!(nickname: params[:nickname])
+      @user ||= Decidim::User.find_by!(
+        nickname: params[:nickname],
+        organization: current_organization
+      )
     end
   end
 end
