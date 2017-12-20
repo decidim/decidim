@@ -1,8 +1,8 @@
----
-title: Proceso -- Decidim Barcelona
-activesection: processes
-activepage : meetings
----
+<%
+@title = "Proceso -- Decidim Barcelona"
+@activesection = "processes"
+@activepage = "meetings"
+%>
 
 <%= partial 'partials/template_top' %>
 
@@ -18,7 +18,7 @@ activepage : meetings
       <p>Estas citas ya han tenido lugar. No hay citas nuevas.</p>
       <!-- Use this if there are new meetings, but you're checking past ones -->
       <p>
-        Estas citas ya han tenido lugar. 
+        Estas citas ya han tenido lugar.
         <a href="#">Ver <strong>19</strong> citas nuevas</a>.
       </p>
     </div>

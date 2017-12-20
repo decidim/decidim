@@ -1,6 +1,8 @@
-Rails.application.routes.draw do
-  get HighVoltage.route_drawer.match_attributes
+# frozen_string_literal: true
 
-  get "/#{HighVoltage.home_page}", to: redirect('/')
-  root to: 'high_voltage/pages#show', id: HighVoltage.home_page
+Rails.application.routes.draw do
+  get "/*id" => "pages#show", as: :page, format: false
+
+  get "/index", to: redirect("/")
+  root to: "pages#show", id: "index"
 end

@@ -1,7 +1,7 @@
----
-title: Decidim Barcelona
-activeuser: logged
----
+<%
+@title = "Decidim Barcelona"
+@activeuser = "logged"
+%>
 
 <%= partial 'partials/template_top' %>
 
@@ -39,11 +39,11 @@ activeuser: logged
                   <div class="row">
                     <div class="card card--list">
                       <%= partial("partials/doc_item", locals: {
-                        file: "/docs/manual-style-web.pdf",  
+                        file: "/docs/manual-style-web.pdf",
                         title: "Manual de estilo web",
                         type: "PDF" }) %>
                       <%= partial("partials/doc_item", locals: {
-                        file: "/docs/manual-style-paper.pdf",  
+                        file: "/docs/manual-style-paper.pdf",
                         title: "Manual de estilo papel",
                         type: "PDF" }) %>
                     </div>
@@ -55,19 +55,19 @@ activeuser: logged
                   <div class="row">
                     <div class="card card--list">
                       <%= partial("partials/doc_item", locals: {
-                        file: "/docs/logo-decidim.svg",  
+                        file: "/docs/logo-decidim.svg",
                         title: "Logo",
                         type: "SVG" }) %>
                       <%= partial("partials/doc_item", locals: {
-                        file: "/docs/proposal-logos-01.pdf",  
+                        file: "/docs/proposal-logos-01.pdf",
                         title: "[Histórico] Propuestas de logo 01",
                         type: "PDF" }) %>
                       <%= partial("partials/doc_item", locals: {
-                        file: "/docs/proposal-logos-02.pdf",  
+                        file: "/docs/proposal-logos-02.pdf",
                         title: "[Histórico] Propuestas de logo 02",
                         type: "PDF" }) %>
                       <%= partial("partials/doc_item", locals: {
-                        file: "/docs/proposal-logos-03.pdf",  
+                        file: "/docs/proposal-logos-03.pdf",
                         title: "[Histórico] Propuestas de logo 03",
                         type: "PDF" }) %>
                     </div>
@@ -79,19 +79,19 @@ activeuser: logged
                   <div class="row">
                     <div class="card card--list">
                       <%= partial("partials/doc_item", locals: {
-                        file: "/docs/icons.pdf",  
+                        file: "/docs/icons.pdf",
                         title: "Iconos",
                         type: "PDF" }) %>
                       <%= partial("partials/doc_item", locals: {
-                        file: "/docs/icons.svg",  
+                        file: "/docs/icons.svg",
                         title: "Iconos",
                         type: "SVG" }) %>
                       <%= partial("partials/doc_item", locals: {
-                        file: "/docs/timeline-steps.pdf",  
+                        file: "/docs/timeline-steps.pdf",
                         title: "Línea temporal",
                         type: "PDF" }) %>
                       <%= partial("partials/doc_item", locals: {
-                        file: "/docs/timeline-steps.svg",  
+                        file: "/docs/timeline-steps.svg",
                         title: "Línea temporal",
                         type: "SVG" }) %>
                     </div>
