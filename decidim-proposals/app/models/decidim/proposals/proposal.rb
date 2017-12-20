@@ -148,6 +148,11 @@ module Decidim
         authored_by?(user) && !answered? && within_edit_time_limit?
       end
 
+      # Public: Whether the proposal is a draft or not.
+      def draft?
+        published_at.nil?
+      end
+
       private
 
       # Checks whether the proposal is inside the time window to be editable or not.

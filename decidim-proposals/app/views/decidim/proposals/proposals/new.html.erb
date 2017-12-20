@@ -21,6 +21,8 @@
 
       <div class="card__content">
         <%= decidim_form_for(@form) do |form| %>
+          <%= form.hidden_field :published_at, value: Time.zone.now %>
+
           <div class="field">
             <%= form.text_field :title %>
           </div>

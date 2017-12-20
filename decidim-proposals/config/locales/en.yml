@@ -110,6 +110,8 @@ en:
           go_to_step_2: Search for similar proposals
           go_to_step_3: None of the above matches mine, continue
           go_to_step_4: Preview the proposal
+        draft_created: Proposal saved as a draft successfully.
+        exited: Cancelled the proposal creation process
         header:
           back: Back
           title: Create proposal
@@ -118,12 +120,13 @@ en:
         proposal_similar:
           exit_wizard: This proposal coincides with mine, I want to finish the creation process
           view_proposal: View proposal
+        published: Proposal published successfully.
         step_2:
           similar_proposals: 'Similar proposals:'
         step_3:
           attachment_legend: "(Optional) Add an attachment"
           select_a_category: Please select a category
-        step_4:
+        show:
           preview: Preview
         stepper:
           step_1: Start

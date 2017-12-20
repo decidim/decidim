@@ -24,7 +24,7 @@
 
         <%= link_to t(".view_proposal"), proposal, class: "card__button button small secondary", target: "_blank" %>
       </div>
-        <%= link_to t(".exit_wizard"), proposal_wizard_exit_path, class: "card__button button small expanded primary" %>
+        <%= link_to t(".exit_wizard"), proposal_wizard_exit_path(proposal_id: proposal.id), class: "card__button button small expanded primary" %>
     </div>
   </article>
 </div>

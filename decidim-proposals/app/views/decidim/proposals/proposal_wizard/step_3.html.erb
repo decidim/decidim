@@ -8,16 +8,14 @@
       <% end %>
 
       <div class="card__content">
-        <%= decidim_form_for(@form, url: wizard_path(:step_4), method: :put) do |form| %>
+        <%= decidim_form_for(@form, url: wizard_path(:step_create), method: :put) do |form| %>
 
           <div class="field">
-            <%= form.text_field :title, value: session[:proposal]['title']
-            %>
+            <%= form.text_field :title, value: session[:proposal]['title'] %>
           </div>
 
           <div class="field">
-            <%= form.text_area :body, rows: 10, value: session[:proposal]['body']
-            %>
+            <%= form.text_area :body, rows: 10, value: session[:proposal]['body'] %>
           </div>
 
           <% if feature_settings.geocoding_enabled? %>

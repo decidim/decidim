@@ -19,6 +19,10 @@
           </div>
 
           <%= proposal_wizard_actions form %>
+
+          <%# if @proposal.present? %>
+            <%#= link_to "You have a draft", wizard_path(:step_3, proposal_draft: @proposal.id ), class: "button clear" %>
+          <%# end %>
         <% end %>
       </div>
     </div>
