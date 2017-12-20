@@ -88,8 +88,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
   public getNodeReference = (commentNode: HTMLElement) => this.commentNode = commentNode;
 
   public render(): JSX.Element {
-    const { session, comment: { id, author, body, createdAt }, articleClassName } = this.props;
-    const formattedCreatedAt = ` ${moment(createdAt).format("LLL")}`;
+    const { session, comment: { id, author, body, createdAt, formattedCreatedAt }, articleClassName } = this.props;
     let modalName = "loginModal";
 
     if (session && session.user) {
@@ -107,13 +106,16 @@ class Comment extends React.Component<CommentProps, CommentState> {
                 </a>
                 { author.deleted ?
                     <span className="label label--small label--basic">{I18n.t("components.comment.deleted_user")}</span> :
-                    <a className="author__name">{author.name}</a>
+                    <a>
+                      <span className="author__name">{author.name}</span>
+                      <span className="author__nickname">{author.nickname}</span>
+                    </a>
                 }
-                { !author.isUser && author.isVerified &&
+                { author.badge === "" ||
                   <span>
                     &nbsp;
                     <span className="label success label--small">
-                      {I18n.t("components.comment.verified_user_group")}
+                      {author.badge}
                     </span>
                   </span>
                 }

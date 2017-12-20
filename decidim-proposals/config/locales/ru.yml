@@ -99,7 +99,6 @@ ru:
       proposals:
         author:
           deleted: Удаленный пользователь
-          verified_user_group: Проверенная организация
         count:
           proposals_count:
             one: 1 предложение
@@ -107,7 +106,6 @@ ru:
             many: "%{count} предложений"
             other: "%{count} предложений"
         edit:
-          attachment_legend: "(Необязательно) Добавить вложение"
           back: Вернуться
           select_a_category: Пожалуйста, выберите категорию
           send: Отправить
@@ -162,6 +160,7 @@ ru:
         proposal:
           view_proposal: Просмотреть предложение
         show:
+          contact: Связной
           edit_proposal: Редактировать предложение
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается

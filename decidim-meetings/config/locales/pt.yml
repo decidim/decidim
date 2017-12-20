@@ -10,7 +10,7 @@ pt:
       meeting:
         address: Endereço
         decidim_category_id: Categoria
-        decidim_scope_id: Escopo
+        decidim_scope_id: Âmbito
         description: Descrição
         end_time: Fim do tempo
         location: Localização
@@ -70,11 +70,11 @@ pt:
           destroy:
             success: Reunião excluída com êxito
           edit:
-            update: Atualizar
+            update: Actualizar
           index:
             title: Reuniões
           new:
-            create: Crio
+            create: Criar
             title: Criar reunião
           update:
             invalid: Tem havido um problema ao atualizar esta reunião
@@ -123,7 +123,7 @@ pt:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Sujeito
+            subject: Convite para participar de uma reunião
         registration_mailer:
           confirmation:
             subject: O registro da sua reunião foi confirmado
@@ -133,8 +133,8 @@ pt:
           category_prompt: Selecione uma categoria
           date: Encontro
           past: Passado
-          scope_prompt: Selecione um escopo
-          scopes: Escopos
+          scope_prompt: Selecione um âmbito
+          scopes: Âmbitos
           search: Pesquisa
           upcoming: próximos
         filters_small_view:
@@ -191,4 +191,4 @@ pt:
   devise:
     mailer:
       join_meeting:
-        subject: Sujeito
+        subject: Convite para participar de uma reunião

@@ -59,7 +59,7 @@ shared_examples "manage proposals" do
             end
           end
 
-          it "creates a new proposal" do
+          it "creates a new proposal", :slow do
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
               fill_in :proposal_body, with: "Decidim is great but it can be better"

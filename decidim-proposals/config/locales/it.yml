@@ -99,13 +99,11 @@ it:
       proposals:
         author:
           deleted: Utente cancellato
-          verified_user_group: Organizzazione verificata
         count:
           proposals_count:
             one: 1 proposta
             other: "%{count} proposte"
         edit:
-          attachment_legend: "(Facoltativo) Aggiungere un allegato"
           back: Indietro
           select_a_category: Seleziona una categoria
           send: Inviare

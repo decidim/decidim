@@ -99,14 +99,12 @@ pl:
       proposals:
         author:
           deleted: Usunięty użytkownik
-          verified_user_group: Zweryfikowana organizacja
         count:
           proposals_count:
             one: 1 propozycja
             few: "%{count} propozycje"
             other: "%{count} propozycje"
         edit:
-          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Plecy
           select_a_category: Proszę wybrać kategorię
           send: Wysłać

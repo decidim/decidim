@@ -69,6 +69,8 @@ eu:
         name: Dummy baimena eragiketa
       errors:
         duplicate_authorization: Badago erabiltzaile bat, datu berberekin baimendua.
+      expired_at: '%{timestamp} iraungita dago'
+      expires_at: '%{timestamp} iraungitzen da'
       foo_authorization:
         fields:
           bar: Bar
@@ -235,6 +237,10 @@ eu:
         success: Salaketa zuzen sortu da, eta administratzaile batek aztertuko du.
     shared:
       action_authorization_modal:
+        expired:
+          authorize: Errebokatu "%{authorization}" rekin
+          explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berrantolatu behar duzu.
+          title: Baimena iraungi da
         incomplete:
           cancel: Utzi
           explanation: 'Nahiz eta orain baimenduta zauden honako "%{authorization}” honen bidez, behar dugu zuk berriz baimena eskuratzea, ez baititugu honako datu hauek:'
@@ -281,6 +287,7 @@ eu:
         share_link: Partekatu esteka
       version_author:
         deleted: Erabiltzailea ezabatua
+    verified_user_group: Egiaztatutako erakundea
   devise:
     invitations:
       edit:
@@ -347,6 +354,7 @@ eu:
         title: jakinarazpenak
       user_menu:
         admin_dashboard: Administrazioko aginte-mahaia
+        conversations: Elkarrizketak
         notifications: jakinarazpenak
         profile: Nire kontua
         sign_out: Irten
@@ -381,6 +389,7 @@ eu:
         welcome: Ongi etorri %{organization} erakundera!
       statistics:
         answers_count: Erantzunak
+        assemblies_count: Batzar
         comments_count: Iruzkinak
         headline: '%{organization} erakundearen egungo egoera'
         meetings_count: Topaketak
@@ -388,6 +397,7 @@ eu:
         pages_count: Orriak
         processes_count: Prozesuak
         projects_count: Proiektuak
+        proposals_accepted: Onartutako proposamenak
         proposals_count: Proposamenak
         results_count: Emaitzak
         surveys_count: Inkestak

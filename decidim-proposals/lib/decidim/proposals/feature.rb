@@ -52,6 +52,10 @@ Decidim.register_feature(:proposals) do |feature|
     Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).not_hidden.count
   end
 
+  feature.register_stat :proposals_accepted, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, start_at, end_at|
+    Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).accepted.count
+  end
+
   feature.register_stat :votes_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |features, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).not_hidden
     Decidim::Proposals::ProposalVote.where(proposal: proposals).count
@@ -143,6 +147,7 @@ Decidim.register_feature(:proposals) do |feature|
           password: "password1234",
           password_confirmation: "password1234",
           name: name,
+          nickname: Faker::Twitter.unique.screen_name,
           organization: feature.organization,
           tos_agreement: "1",
           confirmed_at: Time.current

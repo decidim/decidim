@@ -99,7 +99,6 @@ uk:
       proposals:
         author:
           deleted: Видалений учасник
-          verified_user_group: Перевірена організація
         count:
           proposals_count:
             one: 1 пропозиція
@@ -107,7 +106,6 @@ uk:
             many: "%{count} пропозицій"
             other: "%{count} пропозицій"
         edit:
-          attachment_legend: "(Необов'язково) Додати вкладений файл"
           back: Назад
           select_a_category: Будь ласка, оберіть розділ
           send: Надіслати
@@ -162,6 +160,7 @@ uk:
         proposal:
           view_proposal: Переглянути пропозицію
         show:
+          contact: Зв'язковий
           edit_proposal: Редагувати пропозицію
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
           proposal_in_evaluation_reason: Ця пропозиція розглядається

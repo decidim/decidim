@@ -60,15 +60,17 @@ fr:
         related_photos: Photos associées
     authorization_handlers:
       dummy_authorization_handler:
-        explanation: Faites-vous vérifier en introduisant un numéro de document se terminant par "X"
+        explanation: Obtenir une vérification en saisissant un numéro de document se terminant par "X"
         fields:
           document_number: Numéro de document
           postal_code: Code postal
         name: Exemple d'autorisation
       dummy_authorization_workflow:
-        name: Flux de travail d'autorisation factice
+        name: Procédure d'autorisation factice
       errors:
         duplicate_authorization: Un utilisateur est déjà autorisé avec les mêmes données.
+      expired_at: Expiré à %{timestamp}
+      expires_at: Expire à %{timestamp}
       foo_authorization:
         fields:
           bar: Machin
@@ -175,7 +177,7 @@ fr:
       conversation_mailer:
         new_conversation:
           greeting: Bonjour, %{recipient}!
-          intro: "%{sender} a commencé une nouvelle conversation avec vous. Cliquez ici pour le voir:"
+          intro: "%{sender} a commencé une nouvelle conversation avec vous. Cliquez ici pour la voir:"
           outro: Profitez de decidim!
           subject: "%{sender} a commencé une conversation avec vous"
         new_message:
@@ -235,6 +237,10 @@ fr:
         success: Le contenu a été signalé, il sera examiné par un administrateur.
     shared:
       action_authorization_modal:
+        expired:
+          authorize: Redéterminer avec "%{authorization}"
+          explanation: Votre autorisation a expiré. Pour effectuer cette action, vous devez être autorisé à nouveau avec "%{authorization}".
+          title: L'autorisation a expiré
         incomplete:
           cancel: Annuler
           explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de vous réautoriser car nous ne disposons pas les données suivantes:'
@@ -281,6 +287,7 @@ fr:
         share_link: Lien de partage
       version_author:
         deleted: Utilisateur supprimé
+    verified_user_group: Organisation vérifiée
   devise:
     invitations:
       edit:
@@ -347,6 +354,7 @@ fr:
         title: Notifications
       user_menu:
         admin_dashboard: Tableau de bord des administrateurs
+        conversations: Conversations
         notifications: Notifications
         profile: Mon compte
         sign_out: Déconnexion
@@ -381,6 +389,7 @@ fr:
         welcome: Bienvenue sur %{organization}!
       statistics:
         answers_count: Réponses
+        assemblies_count: Assemblées
         comments_count: Commentaires
         headline: État actuel de %{organization}
         meetings_count: Rencontres
@@ -388,6 +397,7 @@ fr:
         pages_count: Pages
         processes_count: Processus participatifs
         projects_count: Projets
+        proposals_accepted: Propositions acceptées
         proposals_count: Propositions
         results_count: Résultats
         surveys_count: Enquêtes

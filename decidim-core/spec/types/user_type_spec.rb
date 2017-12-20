@@ -17,11 +17,19 @@ module Decidim
       end
     end
 
-    describe "isVerified" do
-      let(:query) { "{ isVerified }" }
+    describe "nickname" do
+      let(:query) { "{ nickname }" }
 
-      it "returns false" do
-        expect(response).to include("isVerified" => false)
+      it "returns a presentable user's nickname" do
+        expect(response).to include("nickname" => "@#{model.nickname}")
+      end
+    end
+
+    describe "badge" do
+      let(:query) { "{ badge }" }
+
+      it "returns empty" do
+        expect(response).to include("badge" => "")
       end
     end
 

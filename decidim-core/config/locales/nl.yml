@@ -69,6 +69,8 @@ nl:
         name: Dummy autorisatie workflow
       errors:
         duplicate_authorization: Een gebruiker is al gemachtigd met dezelfde gegevens.
+      expired_at: Verlopen bij %{timestamp}
+      expires_at: Verloopt op %{timestamp}
       foo_authorization:
         fields:
           bar: Bar
@@ -235,6 +237,10 @@ nl:
         success: Het rapport is gemaakt en het zal worden beoordeeld door een beheerder.
     shared:
       action_authorization_modal:
+        expired:
+          authorize: Opnieuw autoriseren met "%{authorization}"
+          explanation: Uw autorisatie is verlopen. Als u deze actie wilt uitvoeren, moet u opnieuw gemachtigd worden met '%{authorization}'.
+          title: Autorisatie is verlopen
         incomplete:
           cancel: Annuleer
           explanation: 'Ook al bent u momenteel geautoriseerd met "%{authorization}", moeten we u vragen opnieuw autoriseren omdat we niet beschikken over de volgende gegevens:'
@@ -281,6 +287,7 @@ nl:
         share_link: Link delen
       version_author:
         deleted: Verwijderde gebruiker
+    verified_user_group: Geverifieerde organisatie
   devise:
     invitations:
       edit:
@@ -347,6 +354,7 @@ nl:
         title: Meldingen
       user_menu:
         admin_dashboard: Beheer dashboard
+        conversations: conversaties
         notifications: Meldingen
         profile: Mijn account
         sign_out: Afmelden
@@ -381,6 +389,7 @@ nl:
         welcome: Welkom bij %{organization}!
       statistics:
         answers_count: Antwoorden
+        assemblies_count: Assemblies
         comments_count: Reacties
         headline: Huidige stand van %{organization}
         meetings_count: Vergaderingen
@@ -388,6 +397,7 @@ nl:
         pages_count: Pages
         processes_count: Processen
         projects_count: Projecten
+        proposals_accepted: Aanvaarde voorstellen
         proposals_count: Voorstellen
         results_count: Resultaten
         surveys_count: Enquête

@@ -41,7 +41,7 @@ task :update_versions do
   replace_file(
     "#{__dir__}/package.json",
     /^  "version": "[^"]*"/,
-    "  \"version\": \"#{version}\""
+    "  \"version\": \"#{version.gsub(/\.pre/, "-pre")}\""
   )
 
   DECIDIM_GEMS.each do |name|

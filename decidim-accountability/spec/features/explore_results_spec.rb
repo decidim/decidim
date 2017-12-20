@@ -142,7 +142,7 @@ describe "Explore results", versioning: true, type: :feature do
       it "shows related proposals" do
         proposals.each do |proposal|
           expect(page).to have_content(proposal.title)
-          expect(page).to have_content(proposal.author_name)
+          expect(page).to have_content(proposal.author.name)
           expect(page).to have_content(proposal.votes.size)
         end
       end

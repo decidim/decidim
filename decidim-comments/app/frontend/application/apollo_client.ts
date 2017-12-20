@@ -1,16 +1,20 @@
-import ApolloClient, { createNetworkInterface } from "apollo-client";
+import { InMemoryCache } from "apollo-cache-inmemory";
+import { ApolloClient } from "apollo-client";
+import { createHttpLink } from "apollo-link-http";
+
+import "unfetch/polyfill";
 
 // Create a custom network interface for Apollo since our
 // API endpoint is not the default.
-const networkInterface = createNetworkInterface({
+const httpLink = createHttpLink({
   uri: "/api",
-  opts: {
-    credentials: "same-origin",
-  },
+  fetch,
+  credentials: "same-origin",
 });
 
 const client = new ApolloClient({
-  networkInterface,
+  link: httpLink,
+  cache: new InMemoryCache(),
 });
 
 export default client;

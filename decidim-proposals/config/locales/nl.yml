@@ -99,13 +99,11 @@ nl:
       proposals:
         author:
           deleted: Verwijderde gebruiker
-          verified_user_group: Geverifieerde organisatie
         count:
           proposals_count:
             one: 1 voorstel
             other: "%{count} voorstellen"
         edit:
-          attachment_legend: "(Optioneel) Voeg een bijlage toe"
           back: Terug
           select_a_category: Selecteer een categorie
           send: Verzenden

@@ -53,6 +53,30 @@ describe "Action Authorization", type: :feature do
       end
     end
 
+    context "and action authorized and authorization expired" do
+      let(:permissions) do
+        { create: { authorization_handler_name: "dummy_authorization_handler" } }
+      end
+
+      before do
+        create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 1.month.ago)
+        visit main_feature_path(feature)
+        click_link "New proposal"
+      end
+
+      it "prompts user to check her authorization status" do
+        expect(page).to have_content("Authorization has expired")
+        expect(page)
+          .to have_content("Your authorization has expired. In order to perform this action, you need to be reauthorized with \"Example authorization\"")
+      end
+
+      it "redirects to resume authorization when modal clicked" do
+        click_link "Reauthorize with \"Example authorization\""
+
+        expect(page).to have_content("Verify with Example authorization")
+      end
+    end
+
     context "when action not authorized" do
       let(:permissions) { nil }
 
@@ -113,6 +137,30 @@ describe "Action Authorization", type: :feature do
         click_link "Check your \"Dummy authorization workflow\" authorization progress"
 
         expect(page).to have_content("CONTINUE YOUR VERIFICATION")
+      end
+    end
+
+    context "and action authorized and authorization expired" do
+      let(:permissions) do
+        { create: { authorization_handler_name: "dummy_authorization_workflow" } }
+      end
+
+      before do
+        create(:authorization, name: "dummy_authorization_workflow", user: user, granted_at: 1.month.ago)
+        visit main_feature_path(feature)
+        click_link "New proposal"
+      end
+
+      it "prompts user to check her authorization status" do
+        expect(page).to have_content("Authorization has expired")
+        expect(page)
+          .to have_content("Your authorization has expired. In order to perform this action, you need to be reauthorized with \"Dummy authorization workflow\"")
+      end
+
+      it "redirects to resume authorization when modal clicked" do
+        click_link "Reauthorize with \"Dummy authorization workflow\""
+
+        expect(page).to have_content("DUMMY VERIFICATION ENGINE")
       end
     end
 

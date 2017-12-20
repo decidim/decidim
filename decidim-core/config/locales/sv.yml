@@ -1,0 +1,441 @@
+sv:
+  activemodel:
+    attributes:
+      account:
+        delete_reason: Orsak att ta bort ditt konto
+      report:
+        details: Ytterligare kommentarer
+      user:
+        email: Din email
+        name: Ditt namn
+        password: Nytt lösenord
+        password_confirmation: Bekräfta ditt nya lösenord
+        remove_avatar: Ta bort avatar
+        user_group_document_number: Organisationsdokumentnummer
+        user_group_name: Organisations namn
+        user_group_phone: Organisationstelefon
+  activerecord:
+    attributes:
+      decidim/user:
+        current_password: Nuvarande lösenord
+        email: E-post
+        name: Användarnamn
+        password: Lösenord
+        password_confirmation: lösenordsbekräftelse
+        remember_me: Kom ihåg mig
+        user_group_document_number: Organisationsdokumentnummer
+        user_group_name: Organisations namn
+        user_group_phone: Organisationstelefon
+  booleans:
+    'false': 'Nej'
+    'true': 'Ja'
+  carrierwave:
+    errors:
+      image_too_big: Bilden är för stor
+  decidim:
+    account:
+      delete:
+        alert: Den här åtgärden kan inte ångras. Om du tar bort ditt konto kan du inte logga in.
+        confirm:
+          close: Stäng fönstret
+          ok: Ja, jag vill ta bort mitt konto
+          question: Är du säker på att du vill radera ditt konto?
+          title: Ta bort mitt konto
+        explanation: Var god fyll i anledningen till att du vill radera ditt konto (valfritt).
+      destroy:
+        error: Det har varit ett fel att radera ditt konto.
+        success: Ditt konto har tagits bort.
+      show:
+        change_password: ändra lösenord
+        update_account: Uppdatera konto
+      update:
+        error: Det har uppstått ett fel när du uppdaterade ditt konto.
+        success: Ditt konto har uppdaterats framgångsrikt.
+        success_with_email_confirmation: Ditt konto har uppdaterats framgångsrikt. Du får ett mail för att bekräfta din nya e-postadress.
+    anonymous_user: Anonym
+    application:
+      documents:
+        related_documents: Relaterade dokument
+      photos:
+        related_photos: Relaterade bilder
+    authorization_handlers:
+      dummy_authorization_handler:
+        explanation: Få verifierad genom att införa ett dokumentnummer som slutar med "X"
+        fields:
+          document_number: Dokumentnummer
+          postal_code: Postnummer
+        name: Exempel godkännande
+      dummy_authorization_workflow:
+        name: Dummy godkännande arbetsflöde
+      errors:
+        duplicate_authorization: En användare är redan behörig med samma data.
+      expired_at: Förfallit vid %{timestamp}
+      expires_at: Förfaller vid %{timestamp}
+      foo_authorization:
+        fields:
+          bar: Bar
+          foo: foo
+        name: Foo godkännande
+      granted_at: Beviljas vid %{timestamp}
+      started_at: Börjat vid %{timestamp}
+    core:
+      actions:
+        unauthorized: Du har inte behörighet att utföra denna åtgärd
+    devise:
+      omniauth_registrations:
+        create:
+          email_already_exists: Ett annat konto använder samma e-postadress
+        new:
+          complete_profile: Komplett profil
+          sign_up: Vänligen fyll i din profil
+          subtitle: Vänligen fyll i följande formulär för att slutföra registreringen
+          username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymitet kan det vara något namn.
+      registrations:
+        new:
+          already_have_an_account?: Har du redan ett konto?
+          newsletter_notifications: Ta emot information om relevant aktivitet
+          sign_in: Logga in
+          sign_up: Bli Medlem
+          sign_up_as:
+            legend: Registrera dig som
+            user: Enskild
+            user_group: Organisation / Kollektiv
+          subtitle: Anmäl dig för att delta i diskussioner och supportförslag.
+          terms: användarvillkoren
+          tos_agreement: Genom att registrera dig godkänner du %{link}.
+          username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymitet kan det vara något namn.
+      sessions:
+        new:
+          are_you_new?: Nytt på plattformen?
+          register: Skapa ett konto
+      shared:
+        omniauth_buttons:
+          or: Eller
+    errors:
+      internal_server_error:
+        title: Det uppstod ett problem med vår server
+        try_later: Vänligen försök igen senare.
+      not_found:
+        back_home: Tillbaka hem
+        content_doesnt_exist: Den här adressen är felaktig eller har tagits bort.
+        title: Sidan du söker kan inte hittas
+    events:
+      email_event:
+        email_greeting: Hej %{user_name},
+        email_intro: 'Det har skett en uppdatering till "%{resource_title}". Du kan se den från den här sidan:'
+        email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
+        email_subject: En uppdatering till %{resource_title}
+      notification_event:
+        notification_title: En händelse uppstod till <a href="%{resource_path}">%{resource_title}</a>.
+    export_mailer:
+      export:
+        ready: Vänligen se bifogad en zippad version av din export.
+      subject: Din export "%{name}" är klar
+    features:
+      dummy:
+        actions:
+          bar: Bar
+          foo: foo
+        name: Dummy-funktionen
+        settings:
+          global:
+            comments_enabled: Kommentarer aktiverade
+            dummy_global_attribute_1: Dummy Attribut 1
+            dummy_global_attribute_2: Dummy Attribut 2
+          step:
+            comments_blocked: Kommentarer blockerad
+            dummy_step_attribute_1: Dummy Step Attribut 1
+            dummy_step_attribute_2: Dummy Step Attribut 2
+    filters:
+      linked_classes:
+        all: Allt
+        dummyresource: Dummy resurser
+        meeting: möten
+        project: projekt
+        proposal: förslag
+        result: Resultat
+    follows:
+      create:
+        button: Följ
+        error: Det har inträffat ett fel efter denna resurs.
+      destroy:
+        button: Sluta följa
+        error: Det har inträffat ett fel som följde bort denna resurs.
+    forms:
+      current_file: Nuvarande fil
+      current_image: Nuvarande bild
+      default_image: Standardbild
+      errors:
+        error: Det finns ett fel i det här fältet.
+      remove_this_file: Ta bort den här filen
+    managed_users:
+      expired_session: Den nuvarande ombildningsperioden har löpt ut.
+    menu:
+      home: Hem
+      more_information: Mer information
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          greeting: Hej, %{recipient}!
+          intro: "%{sender} har startat en ny konversation med dig. Klicka här för att se det:"
+          outro: Njut av decidim!
+          subject: "%{sender} har börjat samtala med dig"
+        new_message:
+          greeting: Hej, %{recipient}!
+          intro: "%{sender} har lagt upp nya meddelanden i din konversation. Klicka här för att se dem:"
+          outro: Njut av decidim!
+          subject: Du har nya meddelanden från %{sender}
+      conversations:
+        create:
+          error: Samtalet startade inte. Försök igen senare
+        index:
+          no_conversations: Du har inga samtal ännu
+          title: samtal
+        reply:
+          send: Skicka
+          title: Svar
+        show:
+          title: Samtal med %{usernames}
+        start:
+          send: Skicka
+          title: Starta en konversation
+        update:
+          error: Meddelandet är inte skickat. Försök igen senare
+    newsletter_mailer:
+      newsletter:
+        note: Du har fått det här e-postmeddelandet eftersom du prenumererar på nyhetsbrev på %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">anmälningssidan</a>.
+    notifications_settings:
+      show:
+        email_on_notification: Jag vill ta emot ett mail varje gång jag får ett meddelande.
+        newsletter_notifications: Jag vill få information om relevant verksamhet
+        update_notifications_settings: Spara ändringar
+      update:
+        error: Det har uppstått ett fel vid uppdatering av dina anmälningsinställningar.
+        success: Dina anmälningsinställningar har uppdaterats framgångsrikt.
+    own_user_groups:
+      index:
+        pending: Avvaktan
+        rejected: avvisade
+        verified: Verifierad
+    pages:
+      index:
+        title: Mer information
+    reported_mailer:
+      hide:
+        hello: Hej %{name},
+        manage_moderations: Hantera moderationer
+        report_html: <p>Följande <a href="%{url}">content</a> har dolts automatiskt.</p>
+        subject: En resurs har dolts automatiskt
+      report:
+        hello: Hej %{name},
+        manage_moderations: Hantera moderationer
+        report_html: <p>Följande <a href="%{url}">content</a> har rapporterats.</p>
+        subject: En resurs har rapporterats
+    reports:
+      create:
+        error: Ett fel uppstod när rapporten skapades. Snälla, försök igen.
+        success: Rapporten har skapats framgångsrikt och den kommer att granskas av en administratör.
+    shared:
+      action_authorization_modal:
+        expired:
+          authorize: Reauthorize med "%{authorization}"
+          explanation: Ditt godkännande har löpt ut. För att kunna utföra den här åtgärden måste du godkännas med "%{authorization}".
+          title: Godkännandet har löpt ut
+        incomplete:
+          cancel: Annullera
+          explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", behöver vi dig att reauthorize eftersom vi saknar följande data:'
+          reauthorize: reauthorize
+          title: Vänligen reauthorize
+        missing:
+          authorize: Godkänn med "%{authorization}"
+          explanation: För att utföra denna åtgärd måste du godkännas med "%{authorization}".
+          title: Godkännande krävs
+        pending:
+          explanation: För att kunna utföra denna åtgärd måste du godkännas med "%{authorization}", men din auktorisation är fortfarande på gång
+          resume: Kolla din "%{authorization}" tillståndsframsteg
+          title: Godkännandet är fortfarande på gång
+        unauthorized:
+          explanation: Tyvärr, du kan inte utföra den här åtgärden eftersom vissa av dina auktoriseringsuppgifter inte matchar.
+          invalid: "%{field} är inte giltigt."
+          ok: Ok
+          title: Inte behörig
+      embed_modal:
+        close_window: Stäng fönstret
+        embed: Vänligen klistra in den här koden på din sida
+        embed_link: Bädda in
+      flag_modal:
+        already_reported: Det här innehållet är redan rapporterat och det kommer att granskas av en administratör.
+        close: Stänga
+        description: Är detta innehåll olämpligt?
+        does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tror inte hör hemma på %{organization_name}.
+        offensive: Innehåller rasism, sexism, slurkar, personliga attacker, dödshot, självmordsförfrågningar eller någon form av hattal.
+        report: Rapportera
+        spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
+        title: Rapportera ett problem
+      follow_button:
+        sign_in_before_follow: Vänligen logga in innan du utför den här åtgärden
+      login_modal:
+        please_sign_in: Var god logga in
+        sign_up: Bli Medlem
+      reference:
+        reference: 'Referens: %{reference}'
+      results_per_page:
+        label: 'Resultat per sida:'
+      share_modal:
+        close_window: Stäng fönstret
+        share: Dela med sig
+        share_link: Dela länk
+      version_author:
+        deleted: Ta bort användare
+    verified_user_group: Verifierad organisation
+  devise:
+    invitations:
+      edit:
+        header: Ange ditt lösenord
+        submit_button: Spara
+    mailer:
+      invitation_instructions:
+        accept: Acceptera inbjudan
+        accept_until: Denna inbjudan beror på %{due_date}.
+        hello: Hej %{email},
+        ignore: |-
+          Om du inte vill acceptera inbjudan, ignorerar du detta email.<br /> Ditt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt lösenord.
+        invited_you_as_admin: "%{invited_by} har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan."
+        someone_invited_you: Någon har bjudit in dig till %{application}. Du kan acceptera det via länken nedan.
+        someone_invited_you_as_admin: Någon har bjudit in dig som administratör av %{application}, du kan acceptera den via länken nedan.
+      invite_admin:
+        subject: Du har blivit inbjuden att hantera %{organization}
+      invite_collaborator:
+        subject: Du har blivit inbjuden att samarbeta på %{organization}
+      organization_admin_invitation_instructions:
+        subject: Du har blivit inbjuden att hantera %{organization}
+      password_change:
+        greeting: Hej %{recipient}!
+        message: Vi kontaktar dig för att meddela dig att ditt lösenord har ändrats.
+        subject: lösenordet ändrat
+  errors:
+    messages:
+      content_type_whitelist_error: Filtypen är inte giltig
+      cycle_detected: Omfattarens förälder kan inte vara en av sina efterkommande
+      file_size_is_less_than_or_equal_to: Filstorleken måste vara mindre än eller lika med %{count}
+      invalid_manifest: Ogiltigt manifest
+      invalid_participatory_process: Ogiltig deltagande process
+      long_words: Innehåller ord som är för långa
+      must_start_with_caps: Måste börja med kepsar
+      nesting_too_deep: kan inte vara inuti en underkategori
+      too_many_marks: Används för många märken
+      too_much_caps: Används för mycket kepsar
+      too_short: Är för kort
+  forms:
+    required: Nödvändig
+  invisible_captcha:
+    sentence_for_humans: Om du är mänsklig, ignorera det här fältet
+    timestamp_error_message: Tyvärr, det var för snabbt! Vänligen skicka in igen.
+  layouts:
+    decidim:
+      cookie_warning:
+        description_html: Den här sidan använder cookies. Genom att fortsätta att bläddra på webbplatsen godkänner du vår användning av cookies. Läs mer om det %{link}.
+        link_label: här
+        ok: jag håller med
+      footer:
+        made_with_open_source: Webbplats gjord med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
+      header:
+        close_menu: Stäng menyn
+        navigation: Navigering
+        sign_in: Logga in
+        sign_up: Bli Medlem
+      impersonation_warning:
+        close_session: Stäng sessionen
+        description_html: Du utmärker användaren <b>%{user_name}</b>.
+        expire_time_html: Din session löper ut i <b><span class="minutes">%{minutes}</span> minuter</b>.
+      notifications_dashboard:
+        mark_all_as_read: Markera allt som läst
+        no_notifications: Inga meddelanden ännu.
+        title: anmälningar
+      user_menu:
+        admin_dashboard: Admin-instrumentpanelen
+        conversations: samtal
+        notifications: anmälningar
+        profile: Mitt konto
+        sign_out: Logga ut
+      user_profile:
+        account: konto
+        authorizations: Tillstånd
+        delete_my_account: Ta bort mitt konto
+        notifications_settings: Anmälningsinställningar
+        title: Användarinställningar
+        user_groups: organisationer
+      widget:
+        see_more: Se mer
+  locale:
+    name: engelsk
+  pages:
+    home:
+      extended:
+        debates: debatter
+        debates_explanation: Debatt och diskutera, dela med dig av dina åsikter och berika relevanta ämnen.
+        how_to_participate: Hur tar jag del i en process?
+        meetings: möten
+        meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
+        more_info: Mer information
+        proposals: förslag
+        proposals_explanation: Gör förslag, stödja befintliga och främja de förändringar du vill se.
+      footer_sub_hero:
+        footer_sub_hero_body: Låt oss bygga ett öppet, öppet och samarbetande samhälle.<br /> Gå med, delta och bestäm.
+        footer_sub_hero_headline: Välkommen till %{organization} deltagande plattform.
+        register: Registrera
+      hero:
+        participate: Delta
+        welcome: Välkommen till %{organization}!
+      statistics:
+        answers_count: svar
+        assemblies_count: Assemblies
+        comments_count: kommentarer
+        headline: Aktuellt tillstånd %{organization}
+        meetings_count: möten
+        orders_count: röster
+        pages_count: sidor
+        processes_count: processer
+        projects_count: projekt
+        proposals_accepted: Godkända förslag
+        proposals_count: förslag
+        results_count: Resultat
+        surveys_count: Undersökningar
+        users_count: Deltagare
+        votes_count: röster
+      sub_hero:
+        register: Registrera
+  social_share_button:
+    delicious: Utsökt
+    douban: Douban
+    email: E-post
+    facebook: Facebook
+    google_bookmark: Google Bookmark
+    google_plus: Google+
+    hacker_news: Hacker News
+    linkedin: edin
+    pinterest: Pinterest
+    qq: Qzone
+    reddit: Reddit
+    share_to: Dela till %{name}
+    tumblr: tumblr
+    twitter: Twitter
+    vkontakte: VKontakte
+    wechat: WeChat
+    wechat_footer: Öppna din WeChat, klicka på "Discover" -knappen och klicka sedan på "Scan QR Code" -menyn.
+    weibo: Sina Weibo
+    xing: Xing
+  time:
+    formats:
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_year: "%d.%m.%y"
+      decidim_short: "%d/%m/%Y %H:%M"
+      time_of_day: "%H:%M"
+  views:
+    pagination:
+      first: "&laquo; Första"
+      last: Senaste &raquo;
+      next: Nästa &rsaquo;
+      previous: "&lsaquo; Föreg"
+      truncate: "&hellip;"

@@ -70,6 +70,8 @@ en:
         name: Dummy authorization workflow
       errors:
         duplicate_authorization: A user is already authorized with the same data.
+      expired_at: Expired at %{timestamp}
+      expires_at: Expires at %{timestamp}
       foo_authorization:
         fields:
           bar: Bar
@@ -86,6 +88,7 @@ en:
           email_already_exists: Another account is using the same email address
         new:
           complete_profile: Complete profile
+          nickname_help: Your unique identifier in decidim.
           sign_up: Please complete your profile
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
@@ -93,6 +96,7 @@ en:
         new:
           already_have_an_account?: Already have an account?
           newsletter_notifications: Receive information about relevant activity
+          nickname_help: Your unique identifier in decidim.
           sign_in: Log in
           sign_up: Sign up
           sign_up_as:
@@ -236,6 +240,10 @@ en:
         success: The report has been created successfully and it will be reviewed by an admin.
     shared:
       action_authorization_modal:
+        expired:
+          authorize: Reauthorize with "%{authorization}"
+          explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
+          title: Authorization has expired
         incomplete:
           cancel: Cancel
           explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
@@ -282,10 +290,12 @@ en:
         share_link: Share link
       version_author:
         deleted: Deleted user
+    verified_user_group: Verified organization
   devise:
     invitations:
       edit:
         header: Set your password
+        nickname_help: Your unique identifier in decidim.
         submit_button: Save
     mailer:
       invitation_instructions:
@@ -349,6 +359,7 @@ en:
         title: Notifications
       user_menu:
         admin_dashboard: Admin dashboard
+        conversations: Conversations
         notifications: Notifications
         profile: My account
         sign_out: Sign out
@@ -383,6 +394,7 @@ en:
         welcome: Welcome to %{organization}!
       statistics:
         answers_count: Answers
+        assemblies_count: Assemblies
         comments_count: Comments
         headline: Current state of %{organization}
         meetings_count: Meetings
@@ -390,6 +402,7 @@ en:
         pages_count: Pages
         processes_count: Processes
         projects_count: Projects
+        proposals_accepted: Accepted Proposals
         proposals_count: Proposals
         results_count: Results
         surveys_count: Surveys

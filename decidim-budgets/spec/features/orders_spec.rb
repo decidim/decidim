@@ -251,7 +251,7 @@ describe "Orders", type: :feature do
 
         proposals.each do |proposal|
           expect(page).to have_content(proposal.title)
-          expect(page).to have_content(proposal.author_name)
+          expect(page).to have_content(proposal.author.name)
           expect(page).to have_content(proposal.votes.size)
         end
       end

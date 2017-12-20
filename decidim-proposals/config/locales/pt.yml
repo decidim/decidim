@@ -71,7 +71,7 @@ pt:
           index:
             title: Propostas
           new:
-            create: Crio
+            create: Criar
             title: Criar proposta
       answers:
         accepted: Aceitaram
@@ -87,7 +87,7 @@ pt:
             category: Categoria
             id: identidade
             official_proposal: Proposta oficial
-            scope: Escopo
+            scope: Âmbito
             state: Estado
             title: Título
             votes: Votos
@@ -99,13 +99,11 @@ pt:
       proposals:
         author:
           deleted: Usuário deletado
-          verified_user_group: Organização verificada
         count:
           proposals_count:
             one: 1 proposta
             other: "%{count} propostas"
         edit:
-          attachment_legend: "(Opcional) Adicionar um anexo"
           back: Voltar
           select_a_category: Selecione uma categoria
           send: Enviar
@@ -122,8 +120,8 @@ pt:
           origin: Origem
           rejected: Rejeitado
           related_to: Relacionado a
-          scope_prompt: Selecione um escopo
-          scopes: Escopos
+          scope_prompt: Selecione um âmbito
+          scopes: Âmbitos
           search: Pesquisa
           state: Estado
           voted: Votado

@@ -2,14 +2,43 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+**Upgrade notes**:
+
+Since uglifier `4.0.0`, we need to set `harmony: true` as options in uglifier. This means
+you need to change the following line in `config/environments/production.rb`:
+
+```diff
+- config.assets.js_compressor = :uglifier
++ config.assets.js_compressor = Uglifier.new(:harmony => true)
+```
+
 **Added**:
+- **decidim-core**: Add unique nicknames for participants. [\2360](https://github.com/decidim/decidim/pull/2360)
+- **decidim-participatory_processes**: Add missinng translations for processes [\#2380](https://github.com/decidim/decidim/pull/2380)
+- **decidim-verifications**: Let developers specify for how long authorizations are valid. After this space of time passes, authorizations expire and users need to re-authorize [\#2311](https://github.com/decidim/decidim/pull/2311)
 
 **Changed**:
 
 **Fixed**:
 
+- **decidim-core**: Prevent many conversation with the same participants at the UI level. [\#2376](https://github.com/decidim/decidim/pull/2376)
+- **decidim-admin**: Admins no longer being able to impersonate a second time. [\#2372](https://github.com/decidim/decidim/pull/2372)
+- **decidim-admin**: User impersonation should only use authorization handlers and not authorization workflows. [\#2363](https://github.com/decidim/decidim/pull/2363)
+- **decidim-budgets**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
+- **decidim-core**: Impossible to access conversation page from mobile devices. [\#2364](https://github.com/decidim/decidim/pull/2364)
+- **decidim-core**: Update home page stat categories [\#2221](https://github.com/decidim/decidim/pull/2221)
+- **decidim-core**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
+- **decidim-core**: Clean conversations textarea after sending a private message [\#2379](https://github.com/decidim/decidim/pull/2379)
+- **decidim-meetings**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
+- **decidim-proposals**: Do not allow attachments on proposals edition [\#2221](https://github.com/decidim/decidim/pull/2221)
+- **decidim-proposals**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
+- **decidim-proposals**: Fix missing icon on proposal reply.
+- **decidim-surveys**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
+- **decidim-verifications**: Fixed a migration that broke feature permissions. If you already upgraded to `0.8.2` or less, please follow the instructions on the PR [\#2373](https://github.com/decidim/decidim/pull/2373)
+
 ## [v0.8.0](https://github.com/decidim/decidim/tree/v0.8.0) (2017-12-4)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.7.0...v0.8.0)
+[Migration guide](https://github.com/decidim/decidim/blob/master/docs/migrate_to_0.8.0.md)
 
 **Added**:
 

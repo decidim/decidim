@@ -37,14 +37,12 @@ module Decidim
 
       # Check if the active impersonation session has expired or not.
       def check_impersonation_log_expired
-        return unless can_impersonate_users? && impersonation_log
+        return unless can_impersonate_users? && expired_log
 
-        if impersonation_log.expired?
-          impersonation_log.ended_at = Time.current
-          impersonation_log.save!
-          flash[:alert] = I18n.t("managed_users.expired_session", scope: "decidim")
-          redirect_to decidim_admin.managed_users_path
-        end
+        expired_log.ended_at = Time.current
+        expired_log.save!
+        flash[:alert] = I18n.t("managed_users.expired_session", scope: "decidim")
+        redirect_to decidim_admin.managed_users_path
       end
 
       # Gets the ability instance for the real user logged in.
@@ -54,6 +52,13 @@ module Decidim
 
       def can_impersonate_users?
         real_user && real_ability.can?(:impersonate, :managed_users)
+      end
+
+      def expired_log
+        @expired_log ||= Decidim::ImpersonationLog
+                         .where(admin: real_user)
+                         .expired
+                         .first
       end
 
       def impersonation_log

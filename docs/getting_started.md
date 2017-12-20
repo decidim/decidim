@@ -35,6 +35,7 @@ Afterwards, you can create an application with the nice `decidim` executable:
 ```
 $ decidim decidim_application
 $ cd decidim_application
+$ bundle install
 ```
 
 ### Initializing your app for local development

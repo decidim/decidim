@@ -69,6 +69,8 @@ es:
         name: Flujo de trabajo de autorización de ejemplo
       errors:
         duplicate_authorization: Un usuario ya está autorizado con los mismos datos.
+      expired_at: Caducado en %{timestamp}
+      expires_at: Caduca en %{timestamp}
       foo_authorization:
         fields:
           bar: Bar
@@ -235,6 +237,10 @@ es:
         success: La denuncia se ha creado correctament y será revisada por un administrador.
     shared:
       action_authorization_modal:
+        expired:
+          authorize: Volver a autorizar con "%{authorization}"
+          explanation: Su autorización ha expirado. Para realizar esta acción, debe volver a obtener la autorización con "%{authorization}".
+          title: La autorización ha expirado
         incomplete:
           cancel: Cancelar
           explanation: 'A pesar de que actualmente está autorizado con "%{authorization}", necesitamos que te vuelvas a autorizar porque carecemos de los datos siguientes:'
@@ -281,6 +287,7 @@ es:
         share_link: Compartir enlace
       version_author:
         deleted: Usuario eliminado
+    verified_user_group: Organización verificada
   devise:
     invitations:
       edit:
@@ -348,6 +355,7 @@ es:
         title: Notificaciones
       user_menu:
         admin_dashboard: Tablero de administración
+        conversations: Conversaciones
         notifications: Notificaciones
         profile: Mi cuenta
         sign_out: Sal
@@ -382,6 +390,7 @@ es:
         welcome: Bienvenido a %{organization}!
       statistics:
         answers_count: Respuestas
+        assemblies_count: Asambleas
         comments_count: Comentarios
         headline: Estado actual de %{organization}
         meetings_count: Encuentros
@@ -389,6 +398,7 @@ es:
         pages_count: Páginas
         processes_count: Procesos
         projects_count: Proyectos
+        proposals_accepted: Propuestas aceptadas
         proposals_count: Propuestas
         results_count: Resultados
         surveys_count: Encuestas

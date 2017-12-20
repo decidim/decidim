@@ -99,13 +99,11 @@ eu:
       proposals:
         author:
           deleted: Erabiltzaile ezabatua
-          verified_user_group: Egiaztatutako erakundea
         count:
           proposals_count:
             one: 1 proposamen
             other: "%{count} proposamen"
         edit:
-          attachment_legend: "(Aukerakoa) Gehitu eranskina"
           back: Back
           select_a_category: Hautatu kategoria bat
           send: Bidali

@@ -75,8 +75,9 @@ $author-data-color: $muted;
   flex-grow: 1;
   align-self: center;
   color: $author-color;
-  .card__footer &{
-    color: $footer-author-color;
+  padding-right: 3px;
+  strong{
+    padding-right: 3px;
   }
 }
 

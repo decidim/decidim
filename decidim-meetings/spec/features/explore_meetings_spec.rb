@@ -55,7 +55,7 @@ describe "Explore meetings", type: :feature do
         expect(page).to have_css(".card--meeting", count: 5)
       end
 
-      it "allows fitlering by scope" do
+      it "allows fitlering by scope", :slow do
         scope = create(:scope, organization: organization)
         meeting = meetings.first
         meeting.scope = scope
@@ -207,7 +207,7 @@ describe "Explore meetings", type: :feature do
         click_link translated(meeting.title)
         proposals.each do |proposal|
           expect(page).to have_content(proposal.title)
-          expect(page).to have_content(proposal.author_name)
+          expect(page).to have_content(proposal.author.name)
           expect(page).to have_content(proposal.votes.size)
         end
       end

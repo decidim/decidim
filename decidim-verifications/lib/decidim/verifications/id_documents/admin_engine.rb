@@ -6,6 +6,7 @@ module Decidim
       # This is an engine that performs an example user authorization.
       class AdminEngine < ::Rails::Engine
         isolate_namespace Decidim::Verifications::IdDocuments::Admin
+        paths["db/migrate"] = nil
 
         routes do
           resources :pending_authorizations, only: :index do

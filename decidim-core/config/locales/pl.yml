@@ -69,6 +69,8 @@ pl:
         name: Przepustowy proces autoryzacji
       errors:
         duplicate_authorization: Użytkownik jest już uprawniony z tych samych danych.
+      expired_at: Wygasł na %{timestamp}
+      expires_at: Wygasa na %{timestamp}
       foo_authorization:
         fields:
           bar: Bar
@@ -235,6 +237,10 @@ pl:
         success: Raport został utworzony z powodzeniem i zostanie poddany przeglądowi przez administratora.
     shared:
       action_authorization_modal:
+        expired:
+          authorize: Ponownie autoryzuj, używając "%{authorization}"
+          explanation: Twoja autoryzacja wygasła. Aby wykonać tę akcję, musisz ponownie uzyskać autoryzację przy użyciu "%{authorization}".
+          title: Upoważnienie wygasło
         incomplete:
           cancel: Anuluj
           explanation: 'Pomimo tego, że obecnie masz autoryzację "%{authorization}", musisz ponownie autoryzować, ponieważ brakuje nam następujących danych:'
@@ -281,6 +287,7 @@ pl:
         share_link: Udostępnij link
       version_author:
         deleted: Usunięty użytkownik
+    verified_user_group: Zweryfikowana organizacja
   devise:
     invitations:
       edit:
@@ -347,6 +354,7 @@ pl:
         title: Powiadomienia
       user_menu:
         admin_dashboard: Panel administracyjny
+        conversations: Rozmowy
         notifications: Powiadomienia
         profile: Moje konto
         sign_out: Wyloguj się
@@ -381,6 +389,7 @@ pl:
         welcome: Witamy w %{organization}!
       statistics:
         answers_count: Odpowiedzi
+        assemblies_count: Złożenia
         comments_count: Komentarze
         headline: Aktualny stan %{organization}
         meetings_count: Spotkania
@@ -388,6 +397,7 @@ pl:
         pages_count: Strony
         processes_count: Procesy
         projects_count: Projektowanie
+        proposals_accepted: Przyjęte propozycje
         proposals_count: Propozycje
         results_count: wyniki
         surveys_count: Ankiety

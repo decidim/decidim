@@ -60,17 +60,24 @@ uk:
         related_photos: Супутні світлини
     authorization_handlers:
       dummy_authorization_handler:
+        explanation: Підтвердьте особу, ввівши номер документа, що закінчується символом "X"
         fields:
           document_number: Номер документа
           postal_code: Поштовий індекс
         name: Приклад підтвердження своєї особи
+      dummy_authorization_workflow:
+        name: Приклад шляху підтвердження особи
       errors:
         duplicate_authorization: Інший учасник вже підтвердив свою особу з такими ж даними.
+      expired_at: Термін дії закінчився %{timestamp}
+      expires_at: Термін дії закінчується %{timestamp}
       foo_authorization:
         fields:
-          bar: Неробоча псевдо-змінна 1
-          foo: Неробоча псевдо-змінна 2
-        name: Неробоче псевдо-підтвердження своєї особи
+          bar: Приклад змінної 1
+          foo: Приклад змінної 2
+        name: Приклад підтвердження своєї особи
+      granted_at: 'Надано: %{timestamp}'
+      started_at: 'Розпочато: %{timestamp}'
     core:
       actions:
         unauthorized: Ви не маєте прав на виконання цієї дії
@@ -127,22 +134,22 @@ uk:
     features:
       dummy:
         actions:
-          bar: Неробоча псевдо-змінна 1
-          foo: Неробоча псевдо-змінна 2
-        name: Неробоча складова
+          bar: Приклад змінної 1
+          foo: Приклад змінної 2
+        name: Приклад складової
         settings:
           global:
             comments_enabled: Коментарі дозволено
-            dummy_global_attribute_1: Неробоча властивість 1
-            dummy_global_attribute_2: Неробоча властивість 2
+            dummy_global_attribute_1: Приклад властивості 1
+            dummy_global_attribute_2: Приклад властивості 2
           step:
             comments_blocked: Коментарі вимкнено
-            dummy_step_attribute_1: 1 властивість неробочого кроку
-            dummy_step_attribute_2: 2 властивість неробочого кроку
+            dummy_step_attribute_1: Приклад 1 властивості кроку
+            dummy_step_attribute_2: Приклад 2 властивості кроку
     filters:
       linked_classes:
         all: Усі
-        dummyresource: Неробочі псевдо-ресурси
+        dummyresource: Приклади ресурсів
         meeting: Зустрічі
         project: Проекти
         proposal: Пропозиції
@@ -166,6 +173,34 @@ uk:
     menu:
       home: Головна
       more_information: Дізнатися більше
+    messaging:
+      conversation_mailer:
+        new_conversation:
+          greeting: Доброго дня, %{recipient}!
+          intro: "%{sender} почав з вами нову бесіду. Клацніть тут, щоб прочитати її:"
+          outro: Насолоджуйтесь Десідім!
+          subject: "%{sender} почав з вами бесіду"
+        new_message:
+          greeting: Доброго дня, %{recipient}!
+          intro: "%{sender} написав нові повідомлення у вашій бесіді. Клацніть тут, щоб побачити їх:"
+          outro: Насолоджуйтесь Десідім!
+          subject: Ви отримали нові повідомлення від %{sender}
+      conversations:
+        create:
+          error: Бесіда не розпочата. Спробуйте ще раз пізніше
+        index:
+          no_conversations: У вас ще немає бесід
+          title: Бесіда з
+        reply:
+          send: Надіслати
+          title: Відповісти
+        show:
+          title: Бесіда з %{usernames}
+        start:
+          send: Надіслати
+          title: Почати бесіду
+        update:
+          error: Повідомлення не надіслано. Спробуйте ще раз пізніше
     newsletter_mailer:
       newsletter:
         note: Ви отримали цього електронного листа, оскільки ви підписалися на новини щодо %{organization_name}. Ви можете змінити свої налаштування на <a href="%{link}">сторінці сповіщень</a>.
@@ -202,6 +237,10 @@ uk:
         success: Скарга була успішно створена, і вона буде розглянута адміністратором.
     shared:
       action_authorization_modal:
+        expired:
+          authorize: Знову підтвердити свою особу за допомогою "%{authorization}"
+          explanation: Термін дії підтвердження вашої особи вичерпався. Щоб виконати цю дію, вам потрібно знову підтвердити свою особу за допомогою "%{authorization}".
+          title: Термін дії підтвердження особи вичерпався
         incomplete:
           cancel: Скасувати
           explanation: 'Незважаючи на те, що ви наразі підтвердили свою особу за допомогою "%{authorization}", ми просимо вас знову підтвердити свою особу, оскільки нам не вистачає наступних даних:'
@@ -211,6 +250,10 @@ uk:
           authorize: Підтвердити свою особу за допомогою "%{authorization}"
           explanation: Щоб виконати цю дію, потрібно підтвердити свою особу за допомогою "%{authorization}".
           title: Необхідне підтвердження своєї особи
+        pending:
+          explanation: Щоб виконати цю дію, потрібно підтвердити особу за допомогою "%{authorization}", але ваше підтвердження особи все ще триває
+          resume: Відстежте перебіг підтвердження особи "%{authorization}"
+          title: Підтвердження особи все ще триває
         unauthorized:
           explanation: Вибачте, ви не можете виконати цю дію, оскільки деякі з ваших даних підтвердження особи не збігаються.
           invalid: "%{field} не є дійсним."
@@ -244,6 +287,7 @@ uk:
         share_link: Поділитись посиланням
       version_author:
         deleted: Видалений учасник
+    verified_user_group: Перевірена організація
   devise:
     invitations:
       edit:
@@ -310,6 +354,7 @@ uk:
         title: Сповіщення
       user_menu:
         admin_dashboard: Приладна дошка адміністрування
+        conversations: Бесіди
         notifications: Сповіщення
         profile: Мій обліковий запис
         sign_out: Вийти
@@ -344,6 +389,7 @@ uk:
         welcome: Ласкаво просимо до %{organization}!
       statistics:
         answers_count: Відповіді
+        assemblies_count: Збори
         comments_count: Коментарі
         headline: Поточний стан %{organization}
         meetings_count: Зустрічі
@@ -351,6 +397,7 @@ uk:
         pages_count: Сторінки
         processes_count: Рухи
         projects_count: Проекти
+        proposals_accepted: Прийняті пропозиції
         proposals_count: Пропозиції
         results_count: Підсумки
         surveys_count: Опитування
@@ -380,7 +427,11 @@ uk:
     xing: Xing
   time:
     formats:
-      decidim_short: "%H:%M %d/%m/%Y "
+      day_of_month: "%b %d"
+      day_of_week: "%a"
+      day_of_year: "%d.%m.%y"
+      decidim_short: "%H:%M %d.%m.%Y"
+      time_of_day: "%H:%M"
   views:
     pagination:
       first: "&laquo; Перша"

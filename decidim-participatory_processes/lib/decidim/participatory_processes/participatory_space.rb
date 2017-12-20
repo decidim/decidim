@@ -70,6 +70,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         user = Decidim::User.find_or_initialize_by(email: email)
         user.update!(
           name: Faker::Name.name,
+          nickname: Faker::Twitter.unique.screen_name,
           password: "decidim123456",
           password_confirmation: "decidim123456",
           organization: organization,
