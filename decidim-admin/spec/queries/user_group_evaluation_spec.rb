@@ -27,10 +27,20 @@ module Decidim::Admin
           end
         end
 
-        let(:search) { "Argo" }
+        context "with regular characters" do
+          let(:search) { "Argo" }
 
-        it "returns all the user groups" do
-          expect(subject.query).to match_array([user_groups[1], user_groups[2]])
+          it "returns all matching users" do
+            expect(subject.query).to match_array([user_groups[1], user_groups[2]])
+          end
+        end
+
+        context "with conflictive characters" do
+          let(:search) { "Andy O'Connel" }
+
+          it "returns all matching users" do
+            expect(subject.query).to be_empty
+          end
         end
       end
 

@@ -35,7 +35,7 @@ module Decidim
 
       def filter_by_search(user_groups)
         return user_groups if @q.blank?
-        user_groups.where("LOWER(name) LIKE LOWER('%#{@q}%')")
+        user_groups.where("LOWER(name) LIKE LOWER(?)", "%#{@q}%")
       end
 
       def filter_by_state(user_groups)
