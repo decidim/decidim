@@ -243,6 +243,9 @@ nl:
       picker:
         cancel: Annuleer
         choose: kiezen
+        title: Selecteer %{field}
+      prompt: Selecteer een scope
+      scopes: scopes
     shared:
       action_authorization_modal:
         expired:
