@@ -37,6 +37,7 @@ module Decidim
       def attributes
         {
           name: form.name,
+          weight: form.weight,
           description: form.description
         }
       end

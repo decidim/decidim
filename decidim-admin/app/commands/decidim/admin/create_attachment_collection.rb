@@ -34,6 +34,7 @@ module Decidim
       def create_attachment_collection
         AttachmentCollection.create!(
           name: form.name,
+          weight: form.weight,
           description: form.description,
           collection_for: @collection_for
         )

@@ -7,6 +7,8 @@ module Decidim
     belongs_to :collection_for, polymorphic: true
     has_many :attachments, foreign_key: "attachment_collection_id", class_name: "Decidim::Attachment", dependent: :nullify
 
+    default_scope { order(arel_table[:weight].asc) }
+
     def unused?
       attachments.empty?
     end
