@@ -133,8 +133,6 @@ it:
           category_prompt: Scegli una categoria
           date: Data
           past: Passato
-          scope_prompt: Seleziona un campo
-          scopes: Visibilità
           search: Cerca
           upcoming: Imminenti
         filters_small_view:
