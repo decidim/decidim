@@ -6,7 +6,7 @@
           <h5 class="card__title"><%= proposal.title %></h5>
         <% end %>
         <div class="card__author author-data author-data--small">
-          <%= render partial: "decidim/shared/author_reference", locals: { author: Decidim::Proposals::ProposalPresenter.new(proposal).author } %>
+          <%= render partial: "decidim/shared/author_reference", locals: { author: present(proposal).author } %>
         </div>
         <div class="tech-info tech-info--text-left">
           <%= t(".creation_date", date: l(proposal.created_at, format: :decidim_short)) %>
