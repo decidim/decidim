@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     get "/index", to: redirect("/")
     root to: "pages#show", id: "index"
   end
+
+  root to: "pages#show", id: "index"
 end

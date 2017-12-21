@@ -10,6 +10,6 @@ class PagesController < ApplicationController
   private
 
   def set_layout
-    params[:layout]
+    params[:layout] || "application"
   end
 end
