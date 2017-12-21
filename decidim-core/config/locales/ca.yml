@@ -78,6 +78,7 @@ ca:
         name: Autorització foo
       granted_at: Atorgada el %{timestamp}
       started_at: Iniciat el %{timestamp}
+    contact: Contacte
     core:
       actions:
         unauthorized: No tens permís per realitzar aquesta acció
@@ -261,6 +262,9 @@ ca:
           invalid: "%{field} no és vàlid."
           ok: D'acord
           title: Acció no autoritzada
+      author:
+        deleted: Usuari eliminat
+        verified_user_group: Organització verificada
       embed_modal:
         close_window: Tanca la finestra
         embed: Si us plau, enganxa aquest codi a la teva pàgina
@@ -360,6 +364,7 @@ ca:
         conversations: Converses
         notifications: Notificacions
         profile: El meu compte
+        public_profile: El meu perfil públic
         sign_out: Surt
       user_profile:
         account: Compte
