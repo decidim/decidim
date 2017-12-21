@@ -78,6 +78,7 @@ it:
         name: Autorizzazione Foo
       granted_at: Concesso a %{timestamp}
       started_at: Iniziato a %{timestamp}
+    contact: Contatto
     core:
       actions:
         unauthorized: Non sei autorizzato a eseguire questa azione
@@ -261,6 +262,9 @@ it:
           invalid: "%{field} non è valido."
           ok: Ok
           title: Non autorizzato
+      author:
+        deleted: Utente eliminato
+        verified_user_group: Organizzazione verificata
       embed_modal:
         close_window: Chiudi la finestra
         embed: Per favore, incolla questo codice nella tua pagina
@@ -289,7 +293,6 @@ it:
         share_link: Condividi link
       version_author:
         deleted: Utente eliminato
-    verified_user_group: Organizzazione verificata
   devise:
     invitations:
       edit:
@@ -360,6 +363,7 @@ it:
         conversations: conversazioni
         notifications: Notifiche
         profile: Il mio account
+        public_profile: Il mio profilo pubblico
         sign_out: Esci
       user_profile:
         account: Account
