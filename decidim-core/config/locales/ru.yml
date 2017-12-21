@@ -88,7 +88,7 @@ ru:
           email_already_exists: Другая учетная запись использует тот же адрес электронной почты
         new:
           complete_profile: Заполните профиль
-          nickname_help: Ваш уникальный идентификатор в Десидим.
+          nickname_help: Ваш уникальный псевдоним в Десидим.
           sign_up: Пожалуйста, заполните свой профиль
           subtitle: Пожалуйста, заполните следующую форму, чтобы завершить регистрацию
           username_help: Общедоступное имя, которое отображается в ваших сообщениях. В целях обеспечения анонимности оно может быть любым.
@@ -96,7 +96,7 @@ ru:
         new:
           already_have_an_account?: У вас уже есть учетная запись?
           newsletter_notifications: Получать информацию о связанных с этим событиях
-          nickname_help: Ваш уникальный идентификатор в Десидим.
+          nickname_help: Ваш уникальный псевдоним в Десидим.
           sign_in: Войти
           sign_up: Зарегистрироваться
           sign_up_as:
@@ -297,6 +297,7 @@ ru:
     invitations:
       edit:
         header: Установите свой пароль
+        nickname_help: Ваш уникальный псевдоним в Десидим.
         submit_button: Сохранить
     mailer:
       invitation_instructions:
@@ -362,6 +363,7 @@ ru:
         conversations: Беседы
         notifications: Уведомления
         profile: Моя учетная запись
+        public_profile: Мой общедоступный профиль
         sign_out: Выйти
       user_profile:
         account: Учетная запись
