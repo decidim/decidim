@@ -238,6 +238,14 @@ sv:
       create:
         error: Ett fel uppstod när rapporten skapades. Snälla, försök igen.
         success: Rapporten har skapats framgångsrikt och den kommer att granskas av en administratör.
+    scopes:
+      global: Global omfattning
+      picker:
+        cancel: Annullera
+        choose: Välj
+        title: Välj %{field}
+      prompt: Välj ett räckvidd
+      scopes: Scopes
     shared:
       action_authorization_modal:
         expired:
