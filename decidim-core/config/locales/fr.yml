@@ -87,7 +87,7 @@ fr:
           email_already_exists: Un autre compte utilise la même adresse de email
         new:
           complete_profile: Complétez votre profil
-          nickname_help: Votre identifiant unique en decidim.
+          nickname_help: Votre identifiant unique pour Decidim.
           sign_up: Veuillez compléter votre profil
           subtitle: Remplissez le formulaire suivant pour compléter l'inscription
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
@@ -95,7 +95,7 @@ fr:
         new:
           already_have_an_account?: Vous avez déjà un compte?
           newsletter_notifications: Recevoir des lettres d'informations sur l'activité de la plateforme
-          nickname_help: Votre identifiant unique en decidim.
+          nickname_help: Votre identifiant unique pour Decidim.
           sign_in: S'identifier
           sign_up: S'inscrire
           sign_up_as:
@@ -294,7 +294,7 @@ fr:
     invitations:
       edit:
         header: Définir votre mot de passe
-        nickname_help: Votre identifiant unique en decidim.
+        nickname_help: Votre identifiant unique pour Decidim.
         submit_button: sauvegarder
     mailer:
       invitation_instructions:
