@@ -55,6 +55,9 @@ plugins:
           severity: minor
           categories: Style
 
+    exclude_paths:
+      - "decidim-design/**/*"
+
   markdownlint:
     enabled: true
 

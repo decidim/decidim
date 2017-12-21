@@ -1,0 +1,335 @@
+<%
+@title = "Proceso -- Decidim Barcelona"
+@activesection = "processes"
+@activepage = "processes"
+%>
+
+<%
+@title = "Proceso -- Decidim Barcelona"
+@activesection = "processes"
+@activepage = "processes"
+%>
+
+<%= render partial: "public_pages/partials/template_top" %>
+
+<main class="wrapper">
+  <div class="row section">
+    <h1 class="section-heading">Processos destacats</h1>
+    <article class="card card--full card--process">
+      <div class="row collapse card--process__row">
+        <div class="columns mediumlarge-8 large-6 card--process__column">
+          <div class="card__content">
+            <%= link_to page_path("info"), class: "card__link" do %>
+              <h2 class="card__title">Plan urbanístico de Gracia</h2>
+            <% end %>
+            <p>In hac habitasse platea dictumst. Vivamus adipiscing fermentum
+              quam volutpat aliquam. Integer et elit eget elit facilisis
+              tristique. Namvel iaculis mauris. Sed ullamcorper tellus erat, non
+              ultrices semtincidunt euismod. Fusce rhoncus porttitor velit, eu
+              bibendum nibh aliquet vel. Fusce lorem leo, vehicula at nibh quis,
+              facilisis accumsan turpis.
+            </p>
+            <p>Sed ullamcorper tellus erat, non ultrices sem tincidunt euismod.
+              Fusce rhoncus porttitor velit, eu bibendum nibh aliquet vel. Fusce
+              lorem leo, vehicula at nibh quis, facilisis accumsan turpis. Fusce
+              rhoncus porttitor velit, eu bibendum nibh aliquet vel. Fusce lorem
+              leo, vehicula at nibh quis...
+            </p>
+            <%= link_to page_path("info"), class: "button secondary small hollow card__button" do %>
+              Más información
+            <% end %>
+          </div>
+        </div>
+        <div class="columns mediumlarge-8 large-6 card--process__column">
+          <div class="card--full__image"
+            style="background-image:url(<%= image_path "demo-info-page.jpg" %>)">
+            <div class="card__content row collapse">
+              <div class="large-6 large-offset-6 columns">
+                <%= link_to page_path("info"), class: "button expanded button--sc" do %>
+                  Participa
+                  <span class="button__info">Fase actual: Diagnóstico</span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card card--full card--process">
+      <div class="row collapse card--process__row">
+        <div class="column large-6 card--process__column">
+          <div class="card__content">
+            <%= link_to page_path("info"), class: "card__link" do %>
+              <h2 class="card__title">
+                Plan de fomento del turismo en la Barceloneta
+              </h2>
+            <% end %>
+            <p>In hac habitasse platea dictumst. Vivamus adipiscing fermentum
+              quam volutpat aliquam. Integer et elit eget elit facilisis
+              tristique. Namvel iaculis mauris. Sed ullamcorper tellus erat, non
+              ultrices semtincidunt euismod. Fusce rhoncus porttitor velit, eu
+              bibendum nibh aliquet vel. Fusce lorem leo, vehicula at nibh quis,
+              facilisis accumsan turpis.</p>
+            <p>Sed ullamcorper tellus erat, non ultrices sem tincidunt euismod.
+              Fusce rhoncus porttitor velit, eu bibendum nibh aliquet vel. Fusce
+              lorem leo, vehicula at nibh quis, facilisis accumsan turpis. Fusce
+              rhoncus porttitor velit, eu bibendum nibh aliquet vel. Fusce lorem
+              leo, vehicula at nibh quis...</p>
+						<%= link_to page_path("info"), class: "button secondary small hollow" do %>
+              Más información
+            <% end %>
+          </div>
+        </div>
+        <div class="column large-6 card--process__column">
+          <div class="card--full__image"
+            style="background-image:url(<%= image_path "process-empty-image.jpg" %>)">
+            <div class="card__content row collapse">
+              <div class="large-6 large-offset-6 columns">
+                <%= link_to page_path("info"), class: "button expanded button--sc" do %>
+                  Participa
+                  <span class="button__info">Fase actual: Diagnóstico</span>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <section class="section row collapse">
+    <%= render partial: "public_pages/partials/order_by_processes" %>
+    <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
+      <div class="column">
+        <article class="card card--process">
+					<div class="card__image-top"
+            style="background-image:url(<%= image_path "demo-info-page.jpg" %>)"></div>
+          <div class="card__content">
+            <%= link_to page_path("action-view"), class: "card__link" do %>
+              <h4 class="card__title">Plan urbanístico de Gracia</h4>
+            <% end %>
+            <p class="card__desc">Implementar la instal·lació d’àrees estratègiques
+              de càrrega i descàrrega per garantir uns fluxos de mobilitat
+              sostenibles i respectuosos. Sed ullamcorper tellus erat, non
+              ultrices sem tincidunt euismod. Fusce rhoncus porttitor velit.</p>
+          </div>
+          <div class="card__footer">
+            <div class="card__support">
+              <span class="card--process__small">Fase activa:
+                <strong>Diagnóstico</strong>
+              </span>
+              <button class="card__button button small">
+                Participa
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column">
+        <article class="card card--process">
+					<div class="card__image-top"
+            style="background-image:url(<%= image_path "process-empty-image.jpg" %>)"></div>
+          <div class="card__content">
+            <%= link_to page_path("action-view"), class: "card__link" do %>
+              <h4 class="card__title">Plan de fomento del tursimo de la
+                Barceloneta</h4>
+            <% end %>
+            <p class="card__desc">Implementar la instal·lació d’àrees estratègiques
+              de càrrega i descàrrega per garantir uns fluxos de mobilitat
+              sostenibles i respectuosos. Sed ullamcorper tellus erat, non
+              ultrices sem tincidunt.</p>
+          </div>
+          <div class="card__footer">
+            <div class="card__support">
+              <span class="card--process__small">Fase activa:
+                <strong>Diagnóstico</strong>
+              </span>
+              <button class="card__button button small">
+                Participa
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column">
+        <article class="card card--process">
+					<div class="card__image-top"
+            style="background-image:url(<%= image_path "demo-info-page.jpg" %>)"></div>
+          <div class="card__content">
+            <%= link_to page_path("action-view"), class: "card__link" do %>
+              <h4 class="card__title">Plan urbanístico de Gracia</h4>
+            <% end %>
+            <p class="card__desc">Implementar la instal·lació d’àrees estratègiques
+              de càrrega i descàrrega per garantir uns fluxos de mobilitat
+              sostenibles i respectuosos. Sed ullamcorper tellus erat, non
+              ultrices sem tincidunt euismod. Fusce rhoncus porttitor velit.</p>
+          </div>
+          <div class="card__footer">
+            <div class="card__support">
+              <span class="card--process__small">Fase activa:
+                <strong>Diagnóstico</strong>
+              </span>
+              <button class="card__button button small">
+                Participa
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column">
+        <article class="card card--process">
+					<div class="card__image-top"
+            style="background-image:url(<%= image_path "process2.jpg" %>)"></div>
+          <div class="card__content">
+            <%= link_to page_path("action-view"), class: "card__link" do %>
+              <h4 class="card__title">Plan urbanístico de Gracia</h4>
+            <% end %>
+            <p class="card__desc">Implementar la instal·lació d’àrees estratègiques
+              de càrrega i descàrrega per garantir uns fluxos de mobilitat
+              sostenibles i respectuosos. Sed ullamcorper tellus erat, non
+              ultrices sem tincidunt euismod. Fusce rhoncus porttitor velit.</p>
+          </div>
+          <div class="card__footer">
+            <div class="card__support">
+              <span class="card--process__small">Fase activa:
+                <strong>Diagnóstico</strong>
+              </span>
+              <button class="card__button button small">
+                Participa
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column">
+        <article class="card card--process">
+					<div class="card__image-top"
+            style="background-image:url(<%= image_path "demo-info-page.jpg" %>)"></div>
+          <div class="card__content">
+            <%= link_to page_path("action-view"), class: "card__link" do %>
+              <h4 class="card__title">Plan urbanístico de Gracia</h4>
+            <% end %>
+            <p class="card__desc">Implementar la instal·lació d’àrees estratègiques
+              de càrrega i descàrrega per garantir uns fluxos de mobilitat
+              sostenibles i respectuosos. Sed ullamcorper tellus erat, non
+              ultrices sem tincidunt euismod. Fusce rhoncus porttitor velit.</p>
+          </div>
+          <div class="card__footer">
+            <div class="card__support">
+              <span class="card--process__small">Fase activa:
+                <strong>Diagnóstico</strong>
+              </span>
+              <button class="card__button button small">
+                Participa
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column">
+        <article class="card card--process">
+					<div class="card__image-top"
+            style="background-image:url(<%= image_path "demo-info-page.jpg" %>)"></div>
+          <div class="card__content">
+            <%= link_to page_path("action-view"), class: "card__link" do %>
+              <h4 class="card__title">Plan urbanístico de Gracia</h4>
+            <% end %>
+            <p class="card__desc">Implementar la instal·lació d’àrees estratègiques
+              de càrrega i descàrrega per garantir uns fluxos de mobilitat
+              sostenibles i respectuosos. Sed ullamcorper tellus erat, non
+              ultrices sem tincidunt euismod. Fusce rhoncus porttitor velit.</p>
+          </div>
+          <div class="card__footer">
+            <div class="card__support">
+              <span class="card--process__small">Fase activa:
+                <strong>Diagnóstico</strong>
+              </span>
+              <button class="card__button button small">
+                Participa
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column">
+        <article class="card card--process">
+					<div class="card__image-top"
+            style="background-image:url(<%= image_path "demo-info-page.jpg" %>)"></div>
+          <div class="card__content">
+            <%= link_to page_path("action-view"), class: "card__link" do %>
+              <h4 class="card__title">Plan urbanístico de Gracia</h4>
+            <% end %>
+            <p class="card__desc">Implementar la instal·lació d’àrees estratègiques
+              de càrrega i descàrrega per garantir uns fluxos de mobilitat
+              sostenibles i respectuosos. Sed ullamcorper tellus erat, non
+              ultrices sem tincidunt euismod. Fusce rhoncus porttitor velit.</p>
+          </div>
+          <div class="card__footer">
+            <div class="card__support">
+              <span class="card--process__small">Fase activa:
+                <strong>Diagnóstico</strong>
+              </span>
+              <button class="card__button button small">
+                Participa
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column">
+        <article class="card card--process">
+					<div class="card__image-top"
+            style="background-image:url(<%= image_path "demo-info-page.jpg" %>)"></div>
+          <div class="card__content">
+            <%= link_to page_path("action-view"), class: "card__link" do %>
+              <h4 class="card__title">Plan urbanístico de Gracia</h4>
+            <% end %>
+            <p class="card__desc">Implementar la instal·lació d’àrees estratègiques
+              de càrrega i descàrrega per garantir uns fluxos de mobilitat
+              sostenibles i respectuosos. Sed ullamcorper tellus erat, non
+              ultrices sem tincidunt euismod. Fusce rhoncus porttitor velit.</p>
+          </div>
+          <div class="card__footer">
+            <div class="card__support">
+              <span class="card--process__small">Fase activa:
+                <strong>Diagnóstico</strong>
+              </span>
+              <button class="card__button button small">
+                Participa
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="column">
+        <article class="card card--process">
+					<div class="card__image-top"
+            style="background-image:url(<%= image_path "demo-info-page.jpg" %>)"></div>
+          <div class="card__content">
+            <%= link_to page_path("action-view"), class: "card__link" do %>
+              <h4 class="card__title">Plan urbanístico de Gracia</h4>
+            <% end %>
+            <p class="card__desc">Implementar la instal·lació d’àrees estratègiques
+              de càrrega i descàrrega per garantir uns fluxos de mobilitat
+              sostenibles i respectuosos. Sed ullamcorper tellus erat, non
+              ultrices sem tincidunt euismod. Fusce rhoncus porttitor velit.</p>
+          </div>
+          <div class="card__footer">
+            <div class="card__support">
+              <span class="card--process__small">Fase activa:
+                <strong>Diagnóstico</strong>
+              </span>
+              <button class="card__button button small">
+                Participa
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%= render partial: "public_pages/partials/template_bottom" %>

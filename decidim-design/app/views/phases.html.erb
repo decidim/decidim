@@ -1,0 +1,23 @@
+<%
+@title = "Proceso -- Decidim Barcelona"
+@activesection = "processes"
+@activepage = "phases"
+%>
+
+<%= render partial: "partials/template_top" %>
+
+<main class="wrapper">
+  <%= render partial: "partials/process_header" %>
+  <div class="row column">
+    <div class="row">
+      <div class="columns mediumlarge-9 large-7">
+				<div class="section">
+          <h4 class="section-heading">Fases del proceso</h4>
+					<%= render partial: "partials/timeline" %>
+				</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= render partial: "partials/template_bottom" %>

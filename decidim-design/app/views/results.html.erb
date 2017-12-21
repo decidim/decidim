@@ -1,0 +1,109 @@
+<%
+@title = "Propuesta -- Decidim Barcelona"
+@activesection = "processes"
+@activepage = "actions"
+%>
+
+<%= render partial: "partials/template_top" %>
+
+<main class="wrapper">
+  <%= render partial: "partials/process_header" %>
+  <div class="row columns">
+    <h2 class="section-heading">Resultados</h2>
+  </div>
+  <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
+    <div class="column">
+      <article class="card card--action">
+        <div class="card__content">
+          <%= link_to page_path("action-view"), class: "card__link" do %>
+            <h5 class="card__title">Creació d'aules ambientals al Parc del Clot</h5>
+          <% end %>
+          <p class="card__desc">Implementar la instal·lació d’àrees
+            estratègiques de càrrega i descàrrega per garantir uns
+             fluxos de mobilitat sostenibles i respectuosos.</p>
+          <ul class="tags tags--action">
+            <li><a href="">transició ecológica</a></li>
+            <li><a href="">mobilitat sostenible</a></li>
+            <li><a href="">barri de Sarrià</a></li>
+          </ul>
+        </div>
+        <div class="card__footer">
+          <ul class="card-data">
+            <li class="card-data__item">
+              <span class="card-data__item__number">130</span>propostes
+            </li>
+            <li class="card-data__item">
+              <span class="card-data__item__number">27</span>suports
+            </li>
+            <li class="card-data__item">
+              <span class="card-data__item__number">2567</span>comentaris
+            </li>
+          </ul>
+        </div>
+      </article>
+    </div>
+    <div class="column">
+      <article class="card card--action">
+        <div class="card__content">
+          <%= link_to page_path("action-view"), class: "card__link" do %>
+            <h5 class="card__title">Terrazas para no fumadores</h5>
+          <% end %>
+          <p class="card__desc">Implementar la instal·lació d’àrees
+            estratègiques de càrrega i descàrrega per garantir uns
+             fluxos de mobilitat sostenibles i respectuosos.</p>
+          <ul class="tags tags--action">
+            <li><a href="">transició ecológica</a></li>
+            <li><a href="">mobilitat sostenible</a></li>
+            <li><a href="">barri de Sarrià</a></li>
+          </ul>
+        </div>
+        <div class="card__footer">
+          <ul class="card-data">
+            <li class="card-data__item">
+              <span class="card-data__item__number">130</span>propostes
+            </li>
+            <li class="card-data__item">
+              <span class="card-data__item__number">27</span>suports
+            </li>
+            <li class="card-data__item">
+              <span class="card-data__item__number">2567</span>comentaris
+            </li>
+          </ul>
+        </div>
+      </article>
+    </div>
+    <div class="column">
+      <article class="card card--action">
+        <div class="card__content">
+          <%= link_to page_path("action-view"), class: "card__link" do %>
+            <h5 class="card__title">Augmentar les beques menjador</h5>
+          <% end %>
+          <p class="card__desc">Implementar la instal·lació d’àrees
+            estratègiques de càrrega i descàrrega per garantir uns
+             fluxos de mobilitat sostenibles i respectuosos.</p>
+          <ul class="tags tags--action">
+            <li><a href="">transició ecológica</a></li>
+            <li><a href="">mobilitat sostenible</a></li>
+            <li><a href="">barri de Sarrià</a></li>
+          </ul>
+        </div>
+        <div class="card__footer">
+          <ul class="card-data">
+            <li class="card-data__item">
+              <span class="card-data__item__number">130</span>propostes
+            </li>
+            <li class="card-data__item">
+              <span class="card-data__item__number">27</span>suports
+            </li>
+            <li class="card-data__item">
+              <span class="card-data__item__number">2567</span>comentaris
+            </li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</main>
+
+<%= render partial: "partials/template_bottom" %>
+
