@@ -50,13 +50,13 @@ module Decidim
     end
 
     describe "badge" do
-      let(:query) { "{ badge }" }
+      let(:query) { "{ badgePath }" }
 
       context "when the user group is verified" do
         let(:model) { create(:user_group, :verified) }
 
-        it "returns the verification label" do
-          expect(response).to include("badge" => "Verified organization")
+        it "returns a path for the verification badge" do
+          expect(response).to include("badgePath" => /verified-badge/)
         end
       end
 
@@ -64,7 +64,7 @@ module Decidim
         let(:model) { create(:user_group, :rejected) }
 
         it "returns empty" do
-          expect(response).to include("badge" => "")
+          expect(response).to include("badgePath" => "")
         end
       end
     end

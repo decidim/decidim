@@ -32,8 +32,8 @@ module Decidim
       resolve ->(obj, _args, _ctx) { UserPresenter.new(obj).deleted? }
     end
 
-    field :badge, !types.String, "A badge for the user group" do
-      resolve ->(obj, _args, _ctx) { UserPresenter.new(obj).badge }
+    field :badgePath, !types.String, "A badge for the user group" do
+      resolve ->(obj, _args, _ctx) { UserPresenter.new(obj).badge_path }
     end
   end
 end

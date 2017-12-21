@@ -13,10 +13,10 @@ module Decidim
       false
     end
 
-    def badge
+    def badge_path
       return "" unless verified?
 
-      I18n.t("decidim.shared.author.verified_user_group")
+      "#{ActionController::Base.helpers.asset_path("decidim/icons.svg")}#icon-verified-badge"
     end
 
     def profile_path

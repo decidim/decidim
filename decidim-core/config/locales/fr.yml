@@ -272,7 +272,6 @@ fr:
           title: Non autorisé
       author:
         deleted: Utilisateur supprimé
-        verified_user_group: Organisation vérifiée
       embed_modal:
         close_window: Fermer la fenêtre
         embed: Veuillez coller ce code dans votre page

@@ -273,7 +273,6 @@ en:
           title: Not authorized
       author:
         deleted: Deleted user
-        verified_user_group: Verified organization
       embed_modal:
         close_window: Close window
         embed: Please paste this code in your page

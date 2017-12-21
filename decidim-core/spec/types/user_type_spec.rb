@@ -25,11 +25,11 @@ module Decidim
       end
     end
 
-    describe "badge" do
-      let(:query) { "{ badge }" }
+    describe "badgePath" do
+      let(:query) { "{ badgePath }" }
 
       it "returns empty" do
-        expect(response).to include("badge" => "")
+        expect(response).to include("badgePath" => "")
       end
     end
 

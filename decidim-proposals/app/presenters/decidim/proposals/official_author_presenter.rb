@@ -14,7 +14,7 @@ module Decidim
         ""
       end
 
-      def badge
+      def badge_path
         ""
       end
 

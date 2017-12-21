@@ -272,7 +272,6 @@ ca:
           title: Acció no autoritzada
       author:
         deleted: Usuari eliminat
-        verified_user_group: Organització verificada
       embed_modal:
         close_window: Tanca la finestra
         embed: Si us plau, enganxa aquest codi a la teva pàgina

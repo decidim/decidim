@@ -272,7 +272,6 @@ pt:
           title: Não autorizado
       author:
         deleted: Usuário deletado
-        verified_user_group: Organização verificada
       embed_modal:
         close_window: Fechar janela
         embed: Cole este código na sua página
