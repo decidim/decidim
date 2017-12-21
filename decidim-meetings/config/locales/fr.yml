@@ -133,8 +133,6 @@ fr:
           category_prompt: Sélectionner une catégorie
           date: Date
           past: Passées
-          scope_prompt: Sélectionnez un périmètre d'application
-          scopes: Périmètre d'application
           search: Rechercher
           upcoming: À venir
         filters_small_view:
