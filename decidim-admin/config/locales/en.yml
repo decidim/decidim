@@ -2,14 +2,14 @@
 en:
   activemodel:
     attributes:
-      attachment_collection:
-        description: Description
-        name: Name
       attachment:
         attachment_collection_id: Collection
         description: Description
         file: File
         title: Title
+      attachment_collection:
+        description: Description
+        name: Name
       category:
         description: Description
         name: Name
@@ -113,8 +113,8 @@ en:
           title: Edit collection
           update: Update
         index:
-          attachment_collections_title: Attachment collections
           attachment_collection_used: This collection cannot be removed because it is in use.
+          attachment_collections_title: Attachment collections
         new:
           create: Create
           title: New collection
@@ -249,8 +249,6 @@ en:
         user_groups: User groups
         users: Users
       models:
-        attachment_collection:
-          name: Collection
         attachment:
           fields:
             collection: Collection
@@ -258,6 +256,8 @@ en:
             file_size: Size
             title: Title
           name: Attachment
+        attachment_collection:
+          name: Collection
         category:
           name: Category
         impersonation_log:
