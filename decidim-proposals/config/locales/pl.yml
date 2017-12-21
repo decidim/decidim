@@ -155,6 +155,7 @@ pl:
           random: Losowy
           recent: Niedawny
         proposal:
+          creation_date: 'Tworzenie: %{date}'
           view_proposal: Wyświetl propozycję
         show:
           contact: Kontakt

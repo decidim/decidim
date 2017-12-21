@@ -152,6 +152,7 @@ nl:
           random: Willekeurig
           recent: Recentelijk
         proposal:
+          creation_date: 'Aanmaak: %{date}'
           view_proposal: Bekijk voorstel
         show:
           contact: Contact

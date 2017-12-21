@@ -152,6 +152,7 @@ sv:
           random: Slumpmässig
           recent: Nyligen
         proposal:
+          creation_date: 'Skapelse: %{date}'
           view_proposal: Visa förslag
         show:
           contact: Kontakta

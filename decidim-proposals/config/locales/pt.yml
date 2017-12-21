@@ -152,6 +152,7 @@ pt:
           random: Aleatória
           recent: Recente
         proposal:
+          creation_date: 'Criação: %{date}'
           view_proposal: Ver proposta
         show:
           contact: Contato

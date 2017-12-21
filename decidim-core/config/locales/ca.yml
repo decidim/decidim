@@ -87,6 +87,7 @@ ca:
           email_already_exists: Un altre compte està utilitzant la mateixa adreça de correu electrònic
         new:
           complete_profile: Completa el perfil
+          nickname_help: El vostre identificador únic en decidir.
           sign_up: Si us plau completa el teu perfil
           subtitle: Si us plau, omple el següent formulari per tal de completar la teva inscripció
           username_help: Nom públic que apareix en els teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
@@ -94,6 +95,7 @@ ca:
         new:
           already_have_an_account?: Ja tens un compte?
           newsletter_notifications: Rebre informació sobre activitat rellevant
+          nickname_help: El vostre identificador únic en decidir.
           sign_in: Entra
           sign_up: Registra't
           sign_up_as:
@@ -292,6 +294,7 @@ ca:
     invitations:
       edit:
         header: Establir la contrasenya
+        nickname_help: El vostre identificador únic en decidir.
         submit_button: Desa
     mailer:
       invitation_instructions:

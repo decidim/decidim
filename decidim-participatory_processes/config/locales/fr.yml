@@ -2,6 +2,7 @@ fr:
   activemodel:
     attributes:
       participatory_process:
+        announcement: Annonce
         banner_image: Image d'en-tête
         copy_categories: Copier les catégories
         copy_features: Copier les fonctionnalités
@@ -21,6 +22,7 @@ fr:
         scope_id: Périmètre d'application
         scopes_enabled: Périmètres d'application activés
         short_description: Résumé
+        show_statistics: Montrez les statistiques
         slug: Identifiant
         start_date: Date de début
         subtitle: Sous-titre
@@ -217,6 +219,7 @@ fr:
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         participatory_processes:
           form:
+            announcement_help: Le texte saisi ici sera affiché juste en dessous des informations du processus.
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers ce processus. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
       index:
         title: Processus participatifs

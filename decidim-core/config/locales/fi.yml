@@ -87,6 +87,7 @@ fi:
           email_already_exists: Toinen käyttäjätili käyttää samaa sähköpostiosoitetta
         new:
           complete_profile: Viimeistele profiilisi
+          nickname_help: Sinun yksilöllinen tunniste decidimissa.
           sign_up: Viimeistele profiilsi
           subtitle: Täytä seuraava lomake viimeistelläksesi rekisteröitymisesi
           username_help: Julkinen nimi, joka näkyy viesteissäsi. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
@@ -94,6 +95,7 @@ fi:
         new:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
           newsletter_notifications: Vastaanota tietoa viimeaikaisesta aktiviteetista
+          nickname_help: Sinun yksilöllinen tunniste decidimissa.
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           sign_up_as:
@@ -292,6 +294,7 @@ fi:
     invitations:
       edit:
         header: Aseta salasanasi
+        nickname_help: Sinun yksilöllinen tunniste decidimissa.
         submit_button: Tallenna
     mailer:
       invitation_instructions:

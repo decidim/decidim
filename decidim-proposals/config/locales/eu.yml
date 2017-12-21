@@ -152,6 +152,7 @@ eu:
           random: Ausazkoa eran
           recent: Berrienak
         proposal:
+          creation_date: 'Sorkuntza: %{date}'
           view_proposal: Ikusi proposamena
         show:
           contact: Harremanetarako

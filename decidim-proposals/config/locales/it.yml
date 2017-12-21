@@ -152,6 +152,7 @@ it:
           random: A caso
           recent: le più recenti
         proposal:
+          creation_date: 'Creazione: %{date}'
           view_proposal: Visualizza la proposta
         show:
           contact: Contatto

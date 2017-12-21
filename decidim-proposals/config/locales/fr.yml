@@ -152,6 +152,7 @@ fr:
           random: Aléatoire
           recent: Les plus récents
         proposal:
+          creation_date: 'Création: %{date}'
           view_proposal: Voir la proposition
         show:
           contact: Contact

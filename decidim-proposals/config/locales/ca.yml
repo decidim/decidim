@@ -152,6 +152,7 @@ ca:
           random: Aleatori
           recent: Recent
         proposal:
+          creation_date: 'Creació: %{date}'
           view_proposal: Veure proposta
         show:
           contact: Contactar
