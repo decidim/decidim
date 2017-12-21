@@ -6,6 +6,6 @@
 
 <% if @user.present? %>
   <% content_for :unsubscribe do %>
-    <%== t "unsubscribe", scope: "decidim.newsletter_mailer.newsletter", link: decidim.unsubscribe_newsletters_url(host: @organization.host, u: @string_encrypted) %>
+    <%== t "unsubscribe", scope: "decidim.newsletter_mailer.newsletter", link: decidim.unsubscribe_newsletters_url(host: @organization.host, u: @encrypted_token) %>
   <% end %>
 <% end %>

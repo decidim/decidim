@@ -5,7 +5,7 @@
 <% end %>
 
 <% content_for :unsubscribe do %>
-  <%== t ".unsubscribe", link: decidim.unsubscribe_newsletters_url(host: @organization.host, u: @string_encrypted ) %>
+  <%== t ".unsubscribe", link: decidim.unsubscribe_newsletters_url(host: @organization.host, u: @encrypted_token ) %>
 <% end %>
 
 <% content_for :see_on_website do %>
