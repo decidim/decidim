@@ -289,7 +289,6 @@ ca:
         share_link: Comparteix l'enllaç
       version_author:
         deleted: Usuari eliminat
-    verified_user_group: Organització verificada
   devise:
     invitations:
       edit:
