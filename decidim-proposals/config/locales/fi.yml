@@ -118,8 +118,6 @@ fi:
           origin: Alkuperä
           rejected: Hylätty
           related_to: Liittyy aiheeseen
-          scope_prompt: Valitse konteksti
-          scopes: Kontekstit
           search: Haku
           state: Tila
           voted: Äänestetty
@@ -150,6 +148,7 @@ fi:
           random: Satunnainen
           recent: Viimeisimmät
         proposal:
+          creation_date: 'Luominen: %{date}'
           view_proposal: Näytä ehdotus
         show:
           edit_proposal: Muokkaa ehdotusta

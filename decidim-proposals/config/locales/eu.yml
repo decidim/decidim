@@ -118,8 +118,6 @@ eu:
           origin: Jatorria
           rejected: Ukatua
           related_to: Honekin lotuta
-          scope_prompt: Aukeratu esparru bat
-          scopes: Esparruak
           search: Bilatu
           state: Egoera
           voted: Bozkatuta
@@ -150,6 +148,7 @@ eu:
           random: Ausazkoa eran
           recent: Berrienak
         proposal:
+          creation_date: 'Sorkuntza: %{date}'
           view_proposal: Ikusi proposamena
         show:
           edit_proposal: Editatu proposamena

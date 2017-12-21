@@ -49,6 +49,7 @@ eu:
             offensive: Ertan badago arrazakeriarik, sexismorik, irainik, eraso pertsonalik, heriotza-mehatxurik, suizidio-eskaerarik edo beste edozein eratako gorroto-diskurtsorik.
             spam: Bertan badago clickbait-ik, publizitaterik edo iruzurrik.
           title: Salatu arazo bat
+        verified_user_group: Egiaztatutako erakundea
       comment_order_selector:
         order:
           best_rated: Balorazio hoberenak

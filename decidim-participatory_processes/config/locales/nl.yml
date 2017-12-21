@@ -2,6 +2,7 @@ nl:
   activemodel:
     attributes:
       participatory_process:
+        announcement: Aankondiging
         banner_image: Bannerafbeelding
         copy_categories: Categorieën kopiëren
         copy_features: Functies kopiëren
@@ -21,6 +22,7 @@ nl:
         scope_id: Scope
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
+        show_statistics: Toon statistieken
         slug: URL slak
         start_date: Begindatum
         subtitle: Ondertiteling
@@ -217,6 +219,7 @@ nl:
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         participatory_processes:
           form:
+            announcement_help: De tekst die u hier invoert, wordt rechts onder de procesinformatie aan de gebruiker getoond.
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar dit proces verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
       index:
         title: Participatieve processen
@@ -259,8 +262,6 @@ nl:
         surveys_count: Enquêtes
         users_count: Deelnemers
         votes_count: Stemmen
-    scopes:
-      global: Globale scope
   layouts:
     decidim:
       participatory_process_groups:

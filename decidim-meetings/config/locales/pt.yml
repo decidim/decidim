@@ -133,8 +133,6 @@ pt:
           category_prompt: Selecione uma categoria
           date: Encontro
           past: Passado
-          scope_prompt: Selecione um âmbito
-          scopes: Âmbitos
           search: Pesquisa
           upcoming: próximos
         filters_small_view:

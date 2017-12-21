@@ -49,6 +49,7 @@ pl:
             offensive: Zawiera rasizm, seksizm, gniew, ataki osobiste, groźby śmierci, wnioski o samobójstwo lub jakąkolwiek formę mowy o nienawiści.
             spam: Zawiera kliknięć, reklamy, oszustwa lub boty scenariusza.
           title: Zgłoś problem
+        verified_user_group: Zweryfikowana organizacja
       comment_order_selector:
         order:
           best_rated: Najlepsza ocena
