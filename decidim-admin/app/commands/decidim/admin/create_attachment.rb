@@ -46,7 +46,7 @@ module Decidim
           file: form.file,
           attached_to: @attached_to,
           weight: form.weight,
-          attachment_collection_id: form.attachment_collection_id
+          attachment_collection: form.attachment_collection
         )
       end
 

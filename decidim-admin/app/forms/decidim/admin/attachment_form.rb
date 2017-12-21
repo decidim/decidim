@@ -17,12 +17,17 @@ module Decidim
 
       validates :file, presence: true, unless: :persisted?
       validates :title, :description, translatable_presence: true
+      validates :attachment_collection, presence: true, if: ->(form) { form.attachment_collection_id.present? }
       validates :attachment_collection_id, inclusion: { in: :attachment_collection_ids }, allow_blank: true
 
       delegate :attached_to, to: :context, prefix: false
 
       def attachment_collections
         @attachment_collections ||= attached_to.attachment_collections
+      end
+
+      def attachment_collection
+        @attachment_collection ||= attachment_collections.find_by(id: attachment_collection_id)
       end
 
       private
