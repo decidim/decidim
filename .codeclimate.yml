@@ -44,6 +44,20 @@ plugins:
      - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
      - .rubocop.yml
 
+  grep:
+    enabled: true
+
+    config:
+      patterns:
+        no-trailing-whitespace:
+          pattern: \s*$
+          annotation: "Don't leave trailing whitespace"
+          severity: minor
+          categories: Style
+
+    exclude_paths:
+      - "decidim-design/**/*"
+
   markdownlint:
     enabled: true
 
