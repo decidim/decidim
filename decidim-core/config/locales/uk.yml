@@ -78,6 +78,7 @@ uk:
         name: Приклад підтвердження своєї особи
       granted_at: 'Надано: %{timestamp}'
       started_at: 'Розпочато: %{timestamp}'
+    contact: Зв'язатися
     core:
       actions:
         unauthorized: Ви не маєте прав на виконання цієї дії
@@ -87,6 +88,7 @@ uk:
           email_already_exists: Інший обліковий запис використовує ту ж саму адресу електронної пошти
         new:
           complete_profile: Заповнити профіль
+          nickname_help: Ваш унікальний ідентифікатор в Десідім.
           sign_up: Будь ласка, заповніть свій профіль
           subtitle: Щоб завершити реєстрацію, заповніть наступну форму
           username_help: Загальнодоступне ім'я, яке відображається у ваших публікаціях. З метою гарантування анонімності, може бути будь-яким.
@@ -94,6 +96,7 @@ uk:
         new:
           already_have_an_account?: Вже маєте обліковий запис?
           newsletter_notifications: Отримувати повідомлення про пов'язані події
+          nickname_help: Ваш унікальний ідентифікатор в Десідім.
           sign_in: Увійти
           sign_up: Зареєструватися
           sign_up_as:
@@ -259,6 +262,9 @@ uk:
           invalid: "%{field} не є дійсним."
           ok: Гаразд
           title: Недостатньо прав через відсутність підтвердження особи
+      author:
+        deleted: Видалений учасник
+        verified_user_group: Перевірена організація
       embed_modal:
         close_window: Закрити вікно
         embed: Будь ласка, вставте цей код на свою сторінку
@@ -291,6 +297,7 @@ uk:
     invitations:
       edit:
         header: Встановіть свій пароль
+        nickname_help: Ваш унікальний ідентифікатор в Десідім.
         submit_button: Зберегти
     mailer:
       invitation_instructions:
@@ -356,6 +363,7 @@ uk:
         conversations: Бесіди
         notifications: Сповіщення
         profile: Мій обліковий запис
+        public_profile: Мій загальнодоступний профіль
         sign_out: Вийти
       user_profile:
         account: Обліковий запис
