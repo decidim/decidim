@@ -2,6 +2,7 @@ es:
   activemodel:
     attributes:
       participatory_process:
+        announcement: Anuncio
         banner_image: Imagen de banner
         copy_categories: Copiar categorías
         copy_features: Copiar funcionalidades
@@ -21,6 +22,7 @@ es:
         scope_id: Ámbito
         scopes_enabled: Ámbitos habilitados
         short_description: Descripción breve
+        show_statistics: Mostrar estadísticas
         slug: Texto corto de URL
         start_date: Fecha de inicio
         subtitle: Subtítulo
@@ -217,6 +219,7 @@ es:
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
         participatory_processes:
           form:
+            announcement_help: El texto que ingrese aquí se mostrará al usuario justo debajo de la información del proceso.
             slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a este proceso. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
       index:
         title: Procesos participativos
@@ -259,8 +262,6 @@ es:
         surveys_count: Encuestas
         users_count: Participantes
         votes_count: Apoyos
-    scopes:
-      global: Ámbito global
   layouts:
     decidim:
       participatory_process_groups:
