@@ -78,6 +78,7 @@ nl:
         name: Foo machtiging
       granted_at: Toegekend op %{timestamp}
       started_at: Gestart om %{timestamp}
+    contact: Contact
     core:
       actions:
         unauthorized: U bent niet gemachtigd dit te doen
@@ -261,6 +262,9 @@ nl:
           invalid: "%{field} is niet geldig."
           ok: Ok
           title: Niet geautoriseerd
+      author:
+        deleted: Verwijderde gebruiker
+        verified_user_group: Geverifieerde organisatie
       embed_modal:
         close_window: Sluit dit scherm
         embed: Plak deze code alstublieft in uw pagina
@@ -289,7 +293,6 @@ nl:
         share_link: Link delen
       version_author:
         deleted: Verwijderde gebruiker
-    verified_user_group: Geverifieerde organisatie
   devise:
     invitations:
       edit:
@@ -360,6 +363,7 @@ nl:
         conversations: conversaties
         notifications: Meldingen
         profile: Mijn account
+        public_profile: Mijn openbaar profiel
         sign_out: Afmelden
       user_profile:
         account: Account
