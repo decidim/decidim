@@ -88,6 +88,7 @@ pl:
           email_already_exists: Inne konto korzysta z tego samego adresu e-mail
         new:
           complete_profile: Pełny profil
+          nickname_help: Twój unikalny identyfikator w decidim.
           sign_up: Proszę wypełnić swój profil
           subtitle: Proszę wypełnić poniższy formularz, aby dokończyć rejestrację
           username_help: Publiczne nazwisko wyświetlane na Twoich postów. W celu zagwarantowania anonimowości może być dowolna nazwa.
@@ -95,6 +96,7 @@ pl:
         new:
           already_have_an_account?: Posiadasz już konto?
           newsletter_notifications: Otrzymywanie informacji o odpowiedniej aktywności
+          nickname_help: Twój unikalny identyfikator w decidim.
           sign_in: Zaloguj Się
           sign_up: Zapisz się
           sign_up_as:
@@ -295,6 +297,7 @@ pl:
     invitations:
       edit:
         header: Ustaw swoje hasło
+        nickname_help: Twój unikalny identyfikator w decidim.
         submit_button: Zapisać
     mailer:
       invitation_instructions:
@@ -360,6 +363,7 @@ pl:
         conversations: Rozmowy
         notifications: Powiadomienia
         profile: Moje konto
+        public_profile: Mój profil publiczny
         sign_out: Wyloguj się
       user_profile:
         account: Konto
