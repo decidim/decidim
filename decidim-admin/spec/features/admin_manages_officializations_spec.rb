@@ -37,7 +37,11 @@ describe "Admin manages officializations", type: :feature do
       let!(:user) { create(:user, organization: organization) }
 
       before do
-        go_to_officialization_form_for(user)
+        click_link "Officializations"
+
+        within "tr[data-user-id=\"#{user.id}\"]" do
+          click_link "Officialize"
+        end
       end
 
       it "officializes it with the standard badge" do
@@ -69,10 +73,16 @@ describe "Admin manages officializations", type: :feature do
     end
 
     context "when officialized already" do
-      let!(:user) { create(:user, officialized_as: "Mayor of Barcelona", organization: organization) }
+      let!(:user) do
+        create(:user, :officialized, officialized_as: "Mayor of Barcelona", organization: organization)
+      end
 
       before do
-        go_to_officialization_form_for(user)
+        click_link "Officializations"
+
+        within "tr[data-user-id=\"#{user.id}\"]" do
+          click_link "Reofficialize"
+        end
       end
 
       it "allows changing the officialization label" do
@@ -109,16 +119,6 @@ describe "Admin manages officializations", type: :feature do
       within "tr[data-user-id=\"#{user.id}\"]" do
         expect(page).to have_content("Not officialized")
       end
-    end
-  end
-
-  private
-
-  def go_to_officialization_form_for(user)
-    click_link "Officializations"
-
-    within "tr[data-user-id=\"#{user.id}\"]" do
-      click_link "Officialize"
     end
   end
 end

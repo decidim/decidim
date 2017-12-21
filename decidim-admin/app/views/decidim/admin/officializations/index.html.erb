@@ -64,9 +64,11 @@
               <td class="table-list__actions">
                 <% if user.officialized? %>
                   <%= icon "circle-check", class: "action-icon action-icon--disabled" %>
+                  <%= icon_link_to "pencil", new_officialization_path(user_id: user.id), t(".reofficialize"), class: "action-icon--new" %>
                   <%= icon_link_to "circle-x", officialization_path(user.id), t(".unofficialize"), method: :delete, class: "action-icon--reject" %>
                 <% else %>
                   <%= icon_link_to "circle-check", new_officialization_path(user_id: user.id), t(".officialize"), class: "action-icon--verify" %>
+                  <%= icon "pencil", class: "action-icon action-icon--disabled" %>
                   <%= icon "circle-x", class: "action-icon action-icon--disabled" %>
                 <% end %>
               </td>
