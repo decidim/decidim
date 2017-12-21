@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module Encryptor
+  class NewsletterEncryptor
     # Method to create string encrypt using sent_at time to unsubscribe's user
     def self.sent_at_encrypted(user_id, sent_at)
       crypt_data.encrypt_and_sign("#{user_id}-#{sent_at.to_i}") # => "NlFBTTMwOUV5UlA1QlNEN2xkY2d6eThYWWh..."

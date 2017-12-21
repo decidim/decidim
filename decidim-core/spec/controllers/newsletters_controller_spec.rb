@@ -24,7 +24,7 @@ module Decidim
       end
 
       context "when the newsletter is send" do
-        let(:encryptor) { Decidim::Encryptor }
+        let(:encryptor) { Decidim::NewsletterEncryptor }
         let(:newsletter) { create(:newsletter, organization: organization, sent_at: Time.current) }
         let(:user) { create(:user, organization: organization) }
         let(:string_encrypted) { encryptor.sent_at_encrypted(user.id, newsletter.sent_at) }
@@ -41,7 +41,7 @@ module Decidim
       let(:user_id) { "1" }
 
       describe "when user click to unsubscribed" do
-        let(:encryptor) { Decidim::Encryptor }
+        let(:encryptor) { Decidim::NewsletterEncryptor }
 
         describe "when sent_at is between 15 days and today" do
           let(:decrypted_string) { encryptor.sent_at_decrypted(params[:u]) }

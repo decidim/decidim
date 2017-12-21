@@ -17,7 +17,7 @@ module Decidim
 
       if newsletter.sent?
         if @user.present?
-          @string_encrypted = Decidim::Encryptor.sent_at_encrypted(@user.id, newsletter.sent_at)
+          @encrypted_token = Decidim::NewsletterEncryptor.sent_at_encrypted(@user.id, newsletter.sent_at)
         end
         @body = parse_interpolations(newsletter.body[I18n.locale.to_s], @user, newsletter.id)
       else
@@ -26,7 +26,7 @@ module Decidim
     end
 
     def unsubscribe
-      encryptor = Decidim::Encryptor
+      encryptor = Decidim::NewsletterEncryptor
 
       decrypted_string = encryptor.sent_at_decrypted(params[:u])
       user = User.find_by(decidim_organization_id: current_organization.id, id: decrypted_string.split("-").first)
