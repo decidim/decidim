@@ -79,6 +79,7 @@ en:
         name: Foo authorization
       granted_at: Granted at %{timestamp}
       started_at: Started at %{timestamp}
+    contact: Contact
     core:
       actions:
         unauthorized: You are not authorized to perform this action
@@ -262,6 +263,9 @@ en:
           invalid: "%{field} isn't valid."
           ok: Ok
           title: Not authorized
+      author:
+        deleted: Deleted user
+        verified_user_group: Verified organization
       embed_modal:
         close_window: Close window
         embed: Please paste this code in your page
@@ -290,7 +294,6 @@ en:
         share_link: Share link
       version_author:
         deleted: Deleted user
-    verified_user_group: Verified organization
   devise:
     invitations:
       edit:
@@ -362,6 +365,7 @@ en:
         conversations: Conversations
         notifications: Notifications
         profile: My account
+        public_profile: My public profile
         sign_out: Sign out
       user_profile:
         account: Account

@@ -97,8 +97,6 @@ pt:
         create:
           error: Houve erros ao votar a proposta.
       proposals:
-        author:
-          deleted: Usuário deletado
         count:
           proposals_count:
             one: 1 proposta
@@ -154,7 +152,6 @@ pt:
         proposal:
           view_proposal: Ver proposta
         show:
-          contact: Contato
           edit_proposal: Editar proposta
           proposal_accepted_reason: 'Esta proposta foi aceita porque:'
           proposal_in_evaluation_reason: Esta proposta está sendo avaliada

@@ -97,8 +97,6 @@ nl:
         create:
           error: Er zijn fouten geweest bij het stemmen van het voorstel.
       proposals:
-        author:
-          deleted: Verwijderde gebruiker
         count:
           proposals_count:
             one: 1 voorstel
@@ -154,7 +152,6 @@ nl:
         proposal:
           view_proposal: Bekijk voorstel
         show:
-          contact: Contact
           edit_proposal: Bewerk voorstel
           proposal_accepted_reason: 'Dit voorstel is geaccepteerd omdat:'
           proposal_in_evaluation_reason: Dit voorstel wordt geëvalueerd

@@ -97,8 +97,6 @@ uk:
         create:
           error: При голосуванні пропозиції сталися помилки.
       proposals:
-        author:
-          deleted: Видалений учасник
         count:
           proposals_count:
             one: 1 пропозиція
@@ -160,7 +158,6 @@ uk:
         proposal:
           view_proposal: Переглянути пропозицію
         show:
-          contact: Зв'язковий
           edit_proposal: Редагувати пропозицію
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
           proposal_in_evaluation_reason: Ця пропозиція розглядається

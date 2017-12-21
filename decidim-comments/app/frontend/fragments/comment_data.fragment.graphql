@@ -12,6 +12,7 @@ fragment CommentData on Comment {
     name
     nickname
     avatarUrl
+    profilePath
     deleted
     badge
   }

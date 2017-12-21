@@ -22,6 +22,10 @@ module Decidim
       resolve ->(obj, _args, _ctx) { UserGroupPresenter.new(obj).avatar_url }
     end
 
+    field :profilePath, !types.String, "The user's profile url" do
+      resolve ->(obj, _args, _ctx) { UserGroupPresenter.new(obj).profile_path }
+    end
+
     field :deleted, !types.Boolean, "Whether the user group's has been deleted or not" do
       resolve ->(obj, _args, _ctx) { UserGroupPresenter.new(obj).deleted? }
     end

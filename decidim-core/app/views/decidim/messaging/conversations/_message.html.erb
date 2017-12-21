@@ -1,21 +1,12 @@
 <article class="message">
   <div class="message__header">
-    <% present(message.sender) do |user| %>
-      <div class="author-data">
-        <div class="author author--inline">
-          <span class="author__avatar">
-            <%= image_tag user.avatar_url %>
-          </span>
-          <span class="author__name">
-            <strong><%= user.name %></strong>
-            <%= user.nickname %>
-          </span>
-          <time datetime="<%= message.created_at.utc %>">
-            <%= message.friendly_created_at %>
-          </time>
-        </div>
-      </div>
-    <% end %>
+    <div class="card__author author-data author-data--small">
+      <%= render "decidim/shared/author_reference", author: present(message.sender) %>
+
+      <time datetime="<%= message.created_at.utc %>">
+        <%= message.friendly_created_at %>
+      </time>
+    </div>
   </div>
   <div class="message__content">
     <%= simple_format(message.body) %>

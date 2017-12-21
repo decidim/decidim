@@ -97,8 +97,6 @@ ca:
         create:
           error: Hi ha hagut errors en donar suport a la proposta.
       proposals:
-        author:
-          deleted: Usuari eliminat
         count:
           proposals_count:
             one: 1 proposta
@@ -154,7 +152,6 @@ ca:
         proposal:
           view_proposal: Veure proposta
         show:
-          contact: Contactar
           edit_proposal: Editar proposta
           proposal_accepted_reason: 'Aquesta proposta ha estat acceptada perquè:'
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta

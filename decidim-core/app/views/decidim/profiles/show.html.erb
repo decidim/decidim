@@ -1,0 +1,32 @@
+<% add_decidim_page_title(user.nickname) %>
+
+<main class="wrapper">
+  <% present(user) do |profile_user| %>
+    <div class="row collapse">
+      <div class="columns">
+        <div class="user-header">
+          <div class="user-header__avatar">
+            <%= image_tag profile_user.avatar_url(:big) %>
+          </div>
+
+          <h1 class="heading1 user-header__heading">
+            <strong><%= profile_user.name %></strong>
+            <div class="user-nickname">
+              <%= profile_user.nickname %>
+              <span class="user-contact_link">
+                <%= link_to_current_or_new_conversation_with(user) %>
+              </span>
+            </div>
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="columns mediumlarge-12 large-12">
+        <section class="section">
+        </section>
+      </div>
+    </div>
+  <% end %>
+</main>

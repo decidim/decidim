@@ -4,21 +4,26 @@
   @include clearfix;
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
 }
 
 .user-header__avatar{
-  float: left;
-  margin-right: .5rem;
+  width: 60px;
+
   > img{
     border-radius: 50%;
+    width: 40px;
   }
 }
 
 .user-header__heading{
   margin-bottom: 0;
-  >.label{
-    vertical-align: middle;
-  }
 }
 
+.user-nickname{
+  color: gray;
+  font-size: 1rem;
+
+  .user-contact_link{
+    margin-left: .5rem;
+  }
+}

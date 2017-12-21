@@ -97,8 +97,6 @@ ru:
         create:
           error: При голосовании по этому предложению произошли ошибки.
       proposals:
-        author:
-          deleted: Удаленный пользователь
         count:
           proposals_count:
             one: 1 предложение
@@ -160,7 +158,6 @@ ru:
         proposal:
           view_proposal: Просмотреть предложение
         show:
-          contact: Связной
           edit_proposal: Редактировать предложение
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается

@@ -78,6 +78,7 @@ es:
         name: Autorización foo
       granted_at: Concedida el %{timestamp}
       started_at: Comenzó el %{timestamp}
+    contact: Contacto
     core:
       actions:
         unauthorized: No tienes permiso para realizar esta acción.
@@ -259,6 +260,9 @@ es:
           invalid: "%{field} no es válido."
           ok: De acuerdo
           title: No autorizado
+      author:
+        deleted: Usuario eliminado
+        verified_user_group: Organización verificada
       embed_modal:
         close_window: Cerrar ventana
         embed: Por favor, pega este código en tu página
@@ -287,7 +291,6 @@ es:
         share_link: Compartir enlace
       version_author:
         deleted: Usuario eliminado
-    verified_user_group: Organización verificada
   devise:
     invitations:
       edit:
