@@ -142,30 +142,15 @@ module Decidim
     #
     # Returns a String.
     def scopes_picker(attribute, options = {})
-      picker_options = { id: "#{@object_name}_#{attribute}", class: "data-picker picker-#{options[:multiple] ? "multiple" : "single"}",
-                         "data-picker-name" => "#{@object_name}[#{attribute}]" }
+      picker_options = { id: "#{@object_name}_#{attribute}", class: "picker-#{options[:multiple] ? "multiple" : "single"}",
+                         name: "#{@object_name}[#{attribute}]" }
       picker_options[:class] += " is-invalid-input" if error?(attribute)
 
+      prompt_params = yield(nil)
+      scopes = selected_scopes(attribute).map { |scope| [scope, yield(scope)] }
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute)) unless options[:label] == false
-      template += @template.content_tag :div, picker_options do
-        prompt_params = yield(nil)
-        safe_join([
-                    content_tag(:div, class: "picker-values") do
-                      safe_join(
-                        selected_scopes(attribute).map do |scope|
-                          params = yield(scope)
-                          content_tag(:div) do
-                            content_tag(:a, params[:text], href: params[:url], "data-picker-value" => scope.id)
-                          end
-                        end
-                      )
-                    end,
-                    content_tag(:div, class: "picker-prompt") do
-                      content_tag(:a, prompt_params[:text], href: prompt_params[:url])
-                    end
-                  ])
-      end
+      template += @template.render("decidim/scopes/scopes_picker_input", picker_options: picker_options, prompt_params: prompt_params, scopes: scopes)
       template += error_and_help_text(attribute, options)
       template.html_safe
     end
