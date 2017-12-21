@@ -85,7 +85,7 @@ ru:
         proposal:
           fields:
             category: Категория
-            id: Идентификатор
+            id: Псевдоним
             official_proposal: Официальное предложение
             scope: Охват
             state: Cостояние
@@ -156,6 +156,7 @@ ru:
           random: Произвольно
           recent: Недавние
         proposal:
+          creation_date: 'Создано: %{date}'
           view_proposal: Просмотреть предложение
         show:
           edit_proposal: Редактировать предложение
