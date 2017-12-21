@@ -97,8 +97,6 @@ eu:
         create:
           error: Erroreak gertatu dira proposamena bozkatzean.
       proposals:
-        author:
-          deleted: Erabiltzaile ezabatua
         count:
           proposals_count:
             one: 1 proposamen
@@ -155,7 +153,6 @@ eu:
           creation_date: 'Sorkuntza: %{date}'
           view_proposal: Ikusi proposamena
         show:
-          contact: Harremanetarako
           edit_proposal: Editatu proposamena
           proposal_accepted_reason: 'Proposamen hau onartu da arrazoi hauengatik:'
           proposal_in_evaluation_reason: Proposamen hau ebaluatzen ari da
