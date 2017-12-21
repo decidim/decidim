@@ -289,7 +289,6 @@ pt:
         share_link: Partilhar link
       version_author:
         deleted: Usuário deletado
-    verified_user_group: Organização verificada
   devise:
     invitations:
       edit:
