@@ -182,7 +182,7 @@ FactoryBot.define do
 
   factory :attachment_collection, class: "Decidim::AttachmentCollection" do
     name { Decidim::Faker::Localized.sentence(1) }
-    description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    description { Decidim::Faker::Localized.sentence(2) }
     weight { Faker::Number.number(1) }
 
     association :collection_for, factory: :participatory_process

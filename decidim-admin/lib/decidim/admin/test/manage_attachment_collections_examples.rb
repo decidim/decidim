@@ -19,8 +19,8 @@ shared_examples "manage attachment collections examples" do
     end
 
     expect(page).to have_selector("input#attachment_collection_name_en[value='#{translated(attachment_collection.name, locale: :en)}']")
-    expect(page).to have_selector("input#attachment_collection_description_en[value='#{translated(attachment_collection.description, locale: :en)}']", visible: false)
     expect(page).to have_selector("input#attachment_collection_weight[value='#{attachment_collection.weight}']")
+    expect(page).to have_selector("input#attachment_collection_description_en[value='#{translated(attachment_collection.description, locale: :en)}']")
   end
 
   it "can add attachment collections to a process" do
@@ -35,7 +35,7 @@ shared_examples "manage attachment collections examples" do
         ca: "Formularis de sol·licitud"
       )
 
-      fill_in_i18n_editor(
+      fill_in_i18n(
         :attachment_collection_description,
         "#attachment_collection-description-tabs",
         en: "Contains the application forms",
