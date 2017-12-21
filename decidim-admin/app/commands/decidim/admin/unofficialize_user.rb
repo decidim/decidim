@@ -6,9 +6,9 @@ module Decidim
     class UnofficializeUser < Rectify::Command
       # Public: Initializes the command.
       #
-      # form - The unofficialization form.
-      def initialize(form)
-        @form = form
+      # user - The user to be unofficialized.
+      def initialize(user)
+        @user = user
       end
 
       # Executes the command. Broadcasts these events:
@@ -18,8 +18,6 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) unless form.valid?
-
         unofficialize_user
 
         broadcast(:ok)
@@ -27,10 +25,10 @@ module Decidim
 
       private
 
-      attr_reader :form
+      attr_reader :user
 
       def unofficialize_user
-        form.user.update!(officialized_at: nil, officialized_as: nil)
+        user.update!(officialized_at: nil, officialized_as: nil)
       end
     end
   end

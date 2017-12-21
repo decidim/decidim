@@ -74,7 +74,12 @@ describe "Admin manages officializations", type: :feature do
 
     context "when officialized already" do
       let!(:user) do
-        create(:user, :officialized, officialized_as: "Mayor of Barcelona", organization: organization)
+        create(
+          :user,
+          :officialized,
+          officialized_as: { "en" => "Mayor of Barcelona" },
+          organization: organization
+        )
       end
 
       before do
@@ -86,6 +91,8 @@ describe "Admin manages officializations", type: :feature do
       end
 
       it "allows changing the officialization label" do
+        expect(page).to have_field("officialization_officialized_as_en", with: "Mayor of Barcelona")
+
         fill_in_i18n(
           :officialization_officialized_as,
           "#officialization-officialized_as-tabs",

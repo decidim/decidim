@@ -22,7 +22,7 @@ module Decidim
 
         officialize_user
 
-        broadcast(:ok)
+        broadcast(:ok, form.user)
       end
 
       private

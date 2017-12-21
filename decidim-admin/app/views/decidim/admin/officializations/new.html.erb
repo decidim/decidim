@@ -1,5 +1,5 @@
 <h2 class="process-title-summary">
-  <%= t('.title', name: @form.user.name) %>
+  <%= t('.title', name: user.name) %>
 </h2>
 
 <%= decidim_form_for(@form, html: { class: "form new_officialization" }, url: officializations_path, method: :post) do |f| %>
