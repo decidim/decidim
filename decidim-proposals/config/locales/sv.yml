@@ -97,8 +97,6 @@ sv:
         create:
           error: Det har varit fel när man röstade förslaget.
       proposals:
-        author:
-          deleted: Ta bort användare
         count:
           proposals_count:
             one: 1 förslag
@@ -155,7 +153,6 @@ sv:
           creation_date: 'Skapelse: %{date}'
           view_proposal: Visa förslag
         show:
-          contact: Kontakta
           edit_proposal: Redigera förslag
           proposal_accepted_reason: 'Detta förslag har godkänts eftersom:'
           proposal_in_evaluation_reason: Detta förslag utvärderas
