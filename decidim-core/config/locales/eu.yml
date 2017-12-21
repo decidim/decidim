@@ -264,6 +264,7 @@ eu:
           title: Ez dago baimenduta
       author:
         deleted: Erabiltzailea ezabatua
+        verified_user_group: Egiaztatutako erakundea
       embed_modal:
         close_window: Itxi leihoa
         embed: Mesedez, erantsi kode hau zure orrian
@@ -362,6 +363,7 @@ eu:
         conversations: Elkarrizketak
         notifications: jakinarazpenak
         profile: Nire kontua
+        public_profile: Nire profil publikoa
         sign_out: Irten
       user_profile:
         account: Kontua
