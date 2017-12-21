@@ -97,8 +97,6 @@ pl:
         create:
           error: Podczas głosowania nad propozycją wystąpiły błędy.
       proposals:
-        author:
-          deleted: Usunięty użytkownik
         count:
           proposals_count:
             one: 1 propozycja
@@ -158,7 +156,6 @@ pl:
           creation_date: 'Tworzenie: %{date}'
           view_proposal: Wyświetl propozycję
         show:
-          contact: Kontakt
           edit_proposal: Edytuj propozycję
           proposal_accepted_reason: 'Niniejszy wniosek został zaakceptowany, ponieważ:'
           proposal_in_evaluation_reason: Niniejszy wniosek jest oceniany
