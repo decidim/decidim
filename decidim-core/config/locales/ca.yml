@@ -238,6 +238,14 @@ ca:
       create:
         error: S'ha produït un error en denunciar. Torna-ho a intentar.
         success: La denúncia s'ha creat amb èxit i serà revisada per un administrador.
+    scopes:
+      global: Àmbit global
+      picker:
+        cancel: Cancel·lar
+        choose: Selecciona
+        title: Seleccioneu %{field}
+      prompt: Seleccioneu un àmbit
+      scopes: Àmbits
     shared:
       action_authorization_modal:
         expired:
@@ -297,7 +305,7 @@ ca:
     invitations:
       edit:
         header: Establir la contrasenya
-        nickname_help: El vostre identificador únic en decidir.
+        nickname_help: El teu identificador únic.
         submit_button: Desa
     mailer:
       invitation_instructions:
