@@ -78,6 +78,7 @@ pt:
         name: Autorização Foo
       granted_at: Concedido em %{timestamp}
       started_at: Iniciado em %{timestamp}
+    contact: Contato
     core:
       actions:
         unauthorized: Não está autorizado a realizar esta ação
@@ -261,6 +262,9 @@ pt:
           invalid: "%{field} não é válido."
           ok: OK
           title: Não autorizado
+      author:
+        deleted: Usuário deletado
+        verified_user_group: Organização verificada
       embed_modal:
         close_window: Fechar janela
         embed: Cole este código na sua página
@@ -359,6 +363,7 @@ pt:
         conversations: Conversas
         notifications: Notificações
         profile: Minha conta
+        public_profile: Meu perfil público
         sign_out: Sair
       user_profile:
         account: Conta
