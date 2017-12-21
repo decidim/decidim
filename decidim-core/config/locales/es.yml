@@ -69,7 +69,7 @@ es:
         name: Flujo de trabajo de autorización de ejemplo
       errors:
         duplicate_authorization: Un usuario ya está autorizado con los mismos datos.
-      expired_at: Caducado en %{timestamp}
+      expired_at: Caducado el %{timestamp}
       expires_at: Caduca en %{timestamp}
       foo_authorization:
         fields:
@@ -88,7 +88,7 @@ es:
           email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
         new:
           complete_profile: Completar perfil
-          nickname_help: Su identificador único en decidim.
+          nickname_help: Su identificador único.
           sign_up: Por favor, completa tu perfil
           subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
@@ -96,7 +96,7 @@ es:
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
           newsletter_notifications: Recibir información sobre la actividad relevante
-          nickname_help: Su identificador único en decidim.
+          nickname_help: Su identificador único.
           sign_in: Entra
           sign_up: Regístrate
           sign_up_as:
@@ -238,11 +238,19 @@ es:
       create:
         error: Se ha producido un error al denunciar el contenido. Por favor, inténtalo otra vez.
         success: La denuncia se ha creado correctament y será revisada por un administrador.
+    scopes:
+      global: Alcance global
+      picker:
+        cancel: Cancelar
+        choose: Seleccionar
+        title: Seleccione %{field}
+      prompt: Seleccione un ámbito
+      scopes: Ámbitos
     shared:
       action_authorization_modal:
         expired:
           authorize: Volver a autorizar con "%{authorization}"
-          explanation: Su autorización ha expirado. Para realizar esta acción, debe volver a obtener la autorización con "%{authorization}".
+          explanation: Tu autorización ha expirado. Para realizar esta acción, debe volver a obtener la autorización con "%{authorization}".
           title: La autorización ha expirado
         incomplete:
           cancel: Cancelar
@@ -297,7 +305,7 @@ es:
     invitations:
       edit:
         header: Escribe tu contraseña
-        nickname_help: Su identificador único en decidim.
+        nickname_help: Su identificador único.
         submit_button: Guardar
     mailer:
       invitation_instructions:
