@@ -77,7 +77,6 @@ module Decidim
         authorize! :edit, @proposal
 
         @form = form(ProposalForm).from_params(params)
-
         UpdateProposal.call(@form, current_user, @proposal) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
@@ -86,7 +85,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-            render :new
+            render :edit
           end
         end
       end
