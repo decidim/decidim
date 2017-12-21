@@ -12,7 +12,7 @@ ru:
       feature:
         name: Имя
         weight: Вес
-      id: Идентификатор
+      id: Псевдоним
       newsletter:
         body: Основной текст
         subject: Тема
