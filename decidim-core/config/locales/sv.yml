@@ -88,6 +88,7 @@ sv:
           email_already_exists: Ett annat konto använder samma e-postadress
         new:
           complete_profile: Komplett profil
+          nickname_help: Din unika identifierare i decidim.
           sign_up: Vänligen fyll i din profil
           subtitle: Vänligen fyll i följande formulär för att slutföra registreringen
           username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymitet kan det vara något namn.
@@ -95,6 +96,7 @@ sv:
         new:
           already_have_an_account?: Har du redan ett konto?
           newsletter_notifications: Ta emot information om relevant aktivitet
+          nickname_help: Din unika identifierare i decidim.
           sign_in: Logga in
           sign_up: Bli Medlem
           sign_up_as:
@@ -295,6 +297,7 @@ sv:
     invitations:
       edit:
         header: Ange ditt lösenord
+        nickname_help: Din unika identifierare i decidim.
         submit_button: Spara
     mailer:
       invitation_instructions:
@@ -360,6 +363,7 @@ sv:
         conversations: samtal
         notifications: anmälningar
         profile: Mitt konto
+        public_profile: Min offentliga profil
         sign_out: Logga ut
       user_profile:
         account: konto
