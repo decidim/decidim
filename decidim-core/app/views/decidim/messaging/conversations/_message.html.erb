@@ -1,6 +1,6 @@
 <article class="message">
   <div class="message__header">
-    <div class="author-data">
+    <div class="card__author author-data author-data--small">
       <%= render "decidim/shared/author", author: present(message.sender) %>
 
       <time datetime="<%= message.created_at.utc %>">
