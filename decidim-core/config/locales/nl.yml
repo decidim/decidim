@@ -88,6 +88,7 @@ nl:
           email_already_exists: Er is een ander account met hetzelfde e-mailadres
         new:
           complete_profile: Volledig profiel
+          nickname_help: Uw unieke ID in decidim.
           sign_up: Gelieve uw profiel te voltooien
           subtitle: Vul onderstaand formulier in om de aanmelding te voltooien
           username_help: Publieke naam die op uw berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet uw echte naam te zijn.
@@ -95,6 +96,7 @@ nl:
         new:
           already_have_an_account?: U heeft al een account?
           newsletter_notifications: Stuur me informatie over relevante activiteiten
+          nickname_help: Uw unieke ID in decidim.
           sign_in: Aanmelden
           sign_up: Registratie
           sign_up_as:
@@ -236,6 +238,11 @@ nl:
       create:
         error: Er is een fout opgetreden tijdens het maken van het rapport. Probeer het alstublieft opnieuw.
         success: Het rapport is gemaakt en het zal worden beoordeeld door een beheerder.
+    scopes:
+      global: Wereldwijd bereik
+      picker:
+        cancel: Annuleer
+        choose: kiezen
     shared:
       action_authorization_modal:
         expired:
@@ -295,6 +302,7 @@ nl:
     invitations:
       edit:
         header: Uw wachtwoord instellen
+        nickname_help: Uw unieke ID in decidim.
         submit_button: Opslaan
     mailer:
       invitation_instructions:
@@ -360,6 +368,7 @@ nl:
         conversations: conversaties
         notifications: Meldingen
         profile: Mijn account
+        public_profile: Mijn openbaar profiel
         sign_out: Afmelden
       user_profile:
         account: Account
