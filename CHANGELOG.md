@@ -17,6 +17,19 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-core**: Public profile page for participants. [\2391](https://github.com/decidim/decidim/pull/2391)
 - **decidim-participatory_processes**: Add missinng translations for processes [\#2380](https://github.com/decidim/decidim/pull/2380)
 - **decidim-verifications**: Let developers specify for how long authorizations are valid. After this space of time passes, authorizations expire and users need to re-authorize [\#2311](https://github.com/decidim/decidim/pull/2311)
+- **decidim**: Scopes picker that allows hierarchical browsing scope to select them ([\#2330](https://github.com/decidim/decidim/pull/2330)).
+  This picker was used to replace all Select2 based scope selectors. Any module using the Select2 scope selector should replace this:
+  ```erb
+   <%= form.scopes_select :scope_id, prompt: t("decidim.scopes.global"), remote_path: decidim.scopes_search_path %>
+  ```
+  with this:
+  ```erb
+  <%= scopes_picker_field form, :scope_id %>
+  ```
+  or this, for filter scopes picker:
+  ```erb
+  <%= scopes_picker_filter form, :scope_id %>
+  ```
 
 **Changed**:
 
@@ -36,6 +49,9 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-proposals**: Fix missing icon on proposal reply.
 - **decidim-surveys**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
 - **decidim-verifications**: Fixed a migration that broke feature permissions. If you already upgraded to `0.8.2` or less, please follow the instructions on the PR [\#2373](https://github.com/decidim/decidim/pull/2373)
+
+**Removed**
+- **decidim**: Select2 JS library and scope selector based on Select2.
 
 ## [v0.8.0](https://github.com/decidim/decidim/tree/v0.8.0) (2017-12-4)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.7.0...v0.8.0)

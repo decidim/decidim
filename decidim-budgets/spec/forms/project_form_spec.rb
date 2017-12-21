@@ -6,7 +6,7 @@ require "spec_helper"
 
 module Decidim::Budgets
   describe Admin::ProjectForm do
-    subject { described_class.from_params(attributes).with_context(context) }
+    subject(:form) { described_class.from_params(attributes).with_context(context) }
 
     let(:organization) { create(:organization, available_locales: [:en]) }
     let(:context) do
@@ -108,6 +108,46 @@ module Decidim::Budgets
         it "sets the proposal_ids correctly" do
           project.link_resources([proposal], "included_proposals")
           expect(subject.proposal_ids).to eq [proposal.id]
+        end
+      end
+    end
+
+    describe "scope" do
+      subject { form.scope }
+
+      context "when the scope exists" do
+        it { is_expected.to be_kind_of(Decidim::Scope) }
+      end
+
+      context "when the scope does not exist" do
+        let(:scope_id) { 3456 }
+
+        it { is_expected.to eq(nil) }
+      end
+
+      context "when the scope is from another organization" do
+        let(:scope_id) { create(:scope).id }
+
+        it { is_expected.to eq(nil) }
+      end
+
+      context "when the participatory space has a scope" do
+        let(:parent_scope) { create(:scope, organization: organization) }
+        let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: parent_scope) }
+        let(:scope) { create(:scope, organization: organization, parent: parent_scope) }
+
+        context "when the scope is descendant from participatory space scope" do
+          it { is_expected.to eq(scope) }
+        end
+
+        context "when the scope is not descendant from participatory space scope" do
+          let(:scope) { create(:scope, organization: organization) }
+
+          it { is_expected.to eq(scope) }
+
+          it "makes the form invalid" do
+            expect(form).to be_invalid
+          end
         end
       end
     end
