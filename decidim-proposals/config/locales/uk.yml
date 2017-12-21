@@ -156,6 +156,7 @@ uk:
           random: Довільно
           recent: Нещодавні
         proposal:
+          creation_date: 'Створено: %{date}'
           view_proposal: Переглянути пропозицію
         show:
           edit_proposal: Редагувати пропозицію
