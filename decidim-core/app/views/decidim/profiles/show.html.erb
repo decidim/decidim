@@ -17,6 +17,10 @@
                 <%= link_to_current_or_new_conversation_with(user) %>
               </span>
             </div>
+
+          <% if current_user && current_user != user %>
+            <%= render partial: "decidim/shared/follow_button", locals: { followable: user } %>
+          <% end %>
           </h1>
         </div>
       </div>
