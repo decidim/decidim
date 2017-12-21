@@ -289,7 +289,6 @@ pl:
         share_link: Udostępnij link
       version_author:
         deleted: Usunięty użytkownik
-    verified_user_group: Zweryfikowana organizacja
   devise:
     invitations:
       edit:
