@@ -9,7 +9,7 @@ module Decidim
     # And replace "%{name}" on the subject or content of newsletter to the user Name
     # for example transform "%{name}" to "User Name"
     def parse_interpolations(content, user = nil, id = nil)
-      if Decidim.track_newsletter_links
+      if Decidim.config.track_newsletter_links
         if id.present? && user.present?
           host = user.organization.host.to_s
           campaign = "newsletter_#{id}"
