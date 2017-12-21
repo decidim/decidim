@@ -78,6 +78,7 @@ sv:
         name: Foo godkännande
       granted_at: Beviljas vid %{timestamp}
       started_at: Börjat vid %{timestamp}
+    contact: Kontakta
     core:
       actions:
         unauthorized: Du har inte behörighet att utföra denna åtgärd
@@ -261,6 +262,9 @@ sv:
           invalid: "%{field} är inte giltigt."
           ok: Ok
           title: Inte behörig
+      author:
+        deleted: Ta bort användare
+        verified_user_group: Verifierad organisation
       embed_modal:
         close_window: Stäng fönstret
         embed: Vänligen klistra in den här koden på din sida
@@ -359,6 +363,7 @@ sv:
         conversations: samtal
         notifications: anmälningar
         profile: Mitt konto
+        public_profile: Min offentliga profil
         sign_out: Logga ut
       user_profile:
         account: konto
