@@ -78,6 +78,7 @@ pl:
         name: Autoryzacja Foo
       granted_at: Przyznano na %{timestamp}
       started_at: Rozpoczęty pod adresem %{timestamp}
+    contact: Kontakt
     core:
       actions:
         unauthorized: Nie masz uprawnień do wykonywania tej czynności
@@ -261,6 +262,9 @@ pl:
           invalid: "%{field} jest nieprawidłowy."
           ok: Ok
           title: Nieautoryzowany
+      author:
+        deleted: Usunięty użytkownik
+        verified_user_group: Zweryfikowana organizacja
       embed_modal:
         close_window: Zamknij okno
         embed: Proszę wkleić ten kod na swojej stronie
@@ -359,6 +363,7 @@ pl:
         conversations: Rozmowy
         notifications: Powiadomienia
         profile: Moje konto
+        public_profile: Mój profil publiczny
         sign_out: Wyloguj się
       user_profile:
         account: Konto
