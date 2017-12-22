@@ -70,7 +70,7 @@ module Decidim
       #
       def admin_root_path
         if manifest.type == "direct"
-          raise InvalidDirectVerificationROute.new(route: "admin_route_path")
+          raise InvalidDirectVerificationRoute.new(route: "admin_route_path")
         end
 
         public_send(:"decidim_admin_#{name}").send(:root_path)
