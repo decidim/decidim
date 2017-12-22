@@ -43,7 +43,6 @@ module Decidim
       private
 
       def step_1_step
-        session[:proposal] ||= {}
         @form = form(Decidim::Proposals::ProposalForm).instance
         render_wizard
       end
@@ -115,6 +114,8 @@ module Decidim
       end
 
       def current_proposal
+        session[:proposal] ||= {}
+
         @proposal = proposal_draft if @step == :step_1
 
         if session[:proposal]["proposal_id"].present?
