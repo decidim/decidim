@@ -62,7 +62,7 @@ plugins:
           categories: Style
 
     exclude_paths:
-      - "decidim-design/**/*"
+      - "decidim_app-design/**/*"
 
   markdownlint:
     enabled: true
