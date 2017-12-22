@@ -81,6 +81,10 @@ ca:
       create:
         error: Hi ha hagut errors en desar la proposta.
         success: Proposta creada correctament.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Hola, %{author_name} %{author_nickname}, a qui sigueu, ha creat una nova proposta, revisa-la i contribueix:
       models:
         proposal:
           fields:
