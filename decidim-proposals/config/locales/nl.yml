@@ -148,7 +148,7 @@ nl:
           random: Willekeurig
           recent: Recentelijk
         proposal:
-          creation_date: 'Aanmaak: %{date}'
+          creation_date: 'Aangemaakt op: %{date}'
           view_proposal: Bekijk voorstel
         show:
           edit_proposal: Bewerk voorstel
