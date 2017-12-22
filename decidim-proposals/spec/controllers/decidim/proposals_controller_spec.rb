@@ -46,6 +46,18 @@ module Decidim
           end
         end
       end
+
+      describe "DELETE withdraw a proposal" do
+        context "when xxxxxxx" do
+          let(:feature) { create(:proposal_feature, :with_creation_enabled) }
+
+          it "destroys a proposal" do
+            expect(WithdrawProposal).to receive(:call)
+
+            delete :destroy, params: params
+          end
+        end
+      end
     end
   end
 end

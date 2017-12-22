@@ -17,6 +17,10 @@
         <%= link_to_current_or_new_conversation_with(@proposal.author) %>
       <% end %>
     </div>
+    <%= action_authorized_link_to :create, proposal_path(@proposal), class: "title-action__action button small hollow" do %>
+      <%= ".remove_proposal" %>
+      <%= icon "x" %>
+    <% end %>
   </div>
 </div>
 <div class="row">
