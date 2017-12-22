@@ -81,6 +81,13 @@ fi:
       create:
         error: Ehdotuksen tallennuksessa tapahtui virhe.
         success: Ehdotus luotu onnistuneesti.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Hei, %{author_name} %{author_nickname}, jonka seuraat, on luonut uuden ehdotuksen, tarkista sen ja osallistuu siihen:
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_subject: Uusi ehdotus %{author_nickname}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> -ehdotus luotiin <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         proposal:
           fields:
