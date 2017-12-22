@@ -1,64 +1,66 @@
-.accountability {
-  .categories {
-    .categories--header {
+.accountability{
+  .categories{
+    .categories--header{
       border-bottom: 1px solid $medium-gray;
       padding-bottom: 1rem;
       margin-bottom: 1rem;
 
-      .icon--arrow-bottom {
+      .icon--arrow-bottom{
         fill: lighten($dark-gray, 50);
       }
 
-      span {
+      span{
         text-transform: uppercase;
         font-size: 1.15rem;
         color: lighten($dark-gray, 50);
       }
     }
 
-    .categories--group {
+    .categories--group{
       margin-bottom: 2rem;
 
-      @include breakpoint(medium) {
+      @include breakpoint(medium){
         display: flex;
         margin-bottom: 4rem;
       }
 
-      .category--title {
+      .category--title{
         background: $white;
         padding: 1.5rem 2rem;
         min-height: 9rem;
 
-        @include breakpoint(medium) {
+        @include breakpoint(medium){
           height: calc(100% - 1.875rem);
         }
 
-        p {
+        p{
           font-weight: 600;
-          margin-bottom: 0.75rem;
+          margin-bottom: .75rem;
         }
 
-        .progress {
-          margin-bottom: 0.5rem;
+        .progress{
+          margin-bottom: .5rem;
         }
-        .progress-info {
+
+        .progress-info{
           position: relative;
           margin-bottom: 1.5rem;
 
-          .progress-figure {
+          .progress-figure{
             display: inline-block;
           }
-          .category--count {
+
+          .category--count{
             position: absolute;
             right: 0;
-            top: 0.5rem;
+            top: .5rem;
             color: lighten($dark-gray, 50);
           }
         }
       }
 
-      .card__link {
-        .category--line {
+      .card__link{
+        .category--line{
           background: $light-gray-dark;
           border-radius: 4px;
           min-height: 9rem;
@@ -66,16 +68,17 @@
           margin-bottom: 1.875rem;
           position: relative;
 
-          strong {
+          strong{
             font-weight: 600;
             color: $secondary;
           }
 
-          .progress-figure {
+          .progress-figure{
             position: absolute;
             bottom: 1rem;
           }
-          .category--count {
+
+          .category--count{
             color: lighten($dark-gray, 50);
             position: absolute;
             right: 1rem;
@@ -83,26 +86,28 @@
             font-size: 80%;
           }
         }
-        &:hover {
-          .category--count {
+
+        &:hover{
+          .category--count{
             color: lighten($dark-gray, 50);
           }
-          strong {
+
+          strong{
             color: scale-color($anchor-color, $lightness: -14%);
           }
         }
       }
     }
 
-    .category--elements.active {
+    .category--elements.active{
       display: block !important;
 
-      .medium-4:first-child {
+      .medium-4:first-child{
         margin-top: 1rem;
       }
     }
 
-    .progress-figure {
+    .progress-figure{
       color: lighten($dark-gray, 50);
     }
   }
