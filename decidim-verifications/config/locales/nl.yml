@@ -35,8 +35,8 @@ nl:
       multistep: Multi-Step
       name: Naam
       postal_letter:
-        explanation: We sturen u een brief met een code die u moet invoeren, zodat we uw adres kunnen verifiëren
-        name: Code per brief
+        explanation: We sturen u een post brief met een code die u zult moeten invoeren, zodat we uw adres kunnen verifiëren
+        name: Code per post brief
     verifications:
       authorizations:
         create:
