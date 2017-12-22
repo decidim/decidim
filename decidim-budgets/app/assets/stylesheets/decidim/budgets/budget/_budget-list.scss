@@ -3,13 +3,16 @@
     font-size: $global-font-size;
   }
 }
+
 .budget-list__data{
   flex-basis: 9rem;
+
   @include breakpoint(medium){
     flex-direction: row;
     flex-basis: 16rem;
   }
 }
+
 .budget-list__data--added{
   background-color: tint($success, 80%);
 }
@@ -18,6 +21,7 @@
   @include breakpoint(medium down){
     font-size: 1rem;
   }
+
   @include breakpoint(medium){
     flex-grow: 1;
     font-size: 1.5rem;
