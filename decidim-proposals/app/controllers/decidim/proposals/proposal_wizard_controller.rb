@@ -124,7 +124,7 @@ module Decidim
       end
 
       def delete_proposal_draft
-        proposal_draft.delete
+        proposal_draft.try(:destroy)
       end
 
       def proposal_draft
