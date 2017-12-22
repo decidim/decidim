@@ -8,7 +8,7 @@ if count > 0
     </div>
 
     <div class="columns large-12">
-      <% proposal.endorsements.limit(5).each do |endorsement| %>
+      <% proposal.endorsements.for_listing.limit(5).each do |endorsement| %>
         <%= render partial: 'endorsement_xxs', locals: {endorsement: endorsement} %>
       <% end %>
       <% if count > 5 %>...<% end -%>
@@ -20,7 +20,7 @@ if count > 0
         <a data-toggle="remaining-endorsements"><%= t('.see_all') %></a>
       </div>
       <div id="remaining-endorsements" class="columns large-12 hide" data-toggler=".hide">
-        <% proposal.endorsements.offset(5).each do |endorsement| %>
+        <% proposal.endorsements.for_listing.offset(5).each do |endorsement| %>
         <div>
           <%= render partial: 'endorsement_xxs', locals: {endorsement: endorsement} %>
         </div>
