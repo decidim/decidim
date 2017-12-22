@@ -88,6 +88,7 @@ eu:
           email_already_exists: Beste kontu batek erabiltzen du helbide elektroniko bera.
         new:
           complete_profile: Osatu profila
+          nickname_help: Zure identifikatzaile bakarra erabaki.
           sign_up: Mesedez, osatu zure profila
           subtitle: Mesedez, bete inprimaki hau izen-ematea osatzeko
           username_help: Izen publikoa, zuk argitaratutakoetan agertzekoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
@@ -95,6 +96,7 @@ eu:
         new:
           already_have_an_account?: Baduzu kontu bat?
           newsletter_notifications: Informazio eskuratzeko garrantzizko jarduerari buruz
+          nickname_help: Zure identifikatzaile bakarra erabaki.
           sign_in: Sartu
           sign_up: Erregistratu
           sign_up_as:
@@ -236,6 +238,14 @@ eu:
       create:
         error: Errorea gertatu da edukia salatzean. Mesedez, saiatu berriro.
         success: Salaketa zuzen sortu da, eta administratzaile batek aztertuko du.
+    scopes:
+      global: Esparru orokorra
+      picker:
+        cancel: Utzi
+        choose: Aukeratu
+        title: Hautatu %{field}
+      prompt: Aukeratu esparrua
+      scopes: esparru
     shared:
       action_authorization_modal:
         expired:
@@ -295,6 +305,7 @@ eu:
     invitations:
       edit:
         header: Idatzi zure pasahitza
+        nickname_help: Zure identifikatzaile bakarra erabaki.
         submit_button: Gorde
     mailer:
       invitation_instructions:
@@ -360,6 +371,7 @@ eu:
         conversations: Elkarrizketak
         notifications: jakinarazpenak
         profile: Nire kontua
+        public_profile: Nire profil publikoa
         sign_out: Irten
       user_profile:
         account: Kontua

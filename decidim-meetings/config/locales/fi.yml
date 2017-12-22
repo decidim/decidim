@@ -133,8 +133,6 @@ fi:
           category_prompt: Valitse aihepiiri
           date: Päivämäärä
           past: Menneet
-          scope_prompt: Valitse konteksti
-          scopes: Kontekstit
           search: Etsi
           upcoming: Tulevat
         filters_small_view:

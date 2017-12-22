@@ -73,8 +73,6 @@ sv:
         filters:
           category: Kategori
           category_prompt: Välj en kategori
-          scope_prompt: Välj ett räckvidd
-          scopes: Scopes
           search: Sök
         filters_small_view:
           close_modal: Stäng modal

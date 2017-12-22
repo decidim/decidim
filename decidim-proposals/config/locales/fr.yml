@@ -118,8 +118,6 @@ fr:
           origin: Auteurs
           rejected: Refusée
           related_to: Liée à
-          scope_prompt: Sélectionnez un périmètre d'application
-          scopes: Zones d'application
           search: Rechercher
           state: État
           voted: Votées
@@ -150,6 +148,7 @@ fr:
           random: Aléatoire
           recent: Les plus récents
         proposal:
+          creation_date: 'Création: %{date}'
           view_proposal: Voir la proposition
         show:
           edit_proposal: Modifier la proposition

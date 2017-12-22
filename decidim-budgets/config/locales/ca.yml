@@ -73,8 +73,6 @@ ca:
         filters:
           category: Categoria
           category_prompt: Selecciona una categoria
-          scope_prompt: Seleccioneu un àmbit
-          scopes: Àmbits
           search: Cerca
         filters_small_view:
           close_modal: Tancar finestra

@@ -49,6 +49,7 @@ sv:
             offensive: Innehåller rasism, sexism, slurkar, personliga attacker, dödshot, självmordsförfrågningar eller någon form av hattal.
             spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
           title: Rapportera ett problem
+        verified_user_group: Verifierad organisation
       comment_order_selector:
         order:
           best_rated: Bästa betyg

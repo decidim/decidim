@@ -49,6 +49,7 @@ es:
             offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
             spam: Contiene clickbait, publicidad o estafas.
           title: Denunciar un problema
+        verified_user_group: Organización verificada
       comment_order_selector:
         order:
           best_rated: Mejor valoración

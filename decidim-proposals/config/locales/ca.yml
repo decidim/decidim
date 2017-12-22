@@ -118,8 +118,6 @@ ca:
           origin: Origen
           rejected: Rebutjades
           related_to: Relacionat amb
-          scope_prompt: Seleccioneu un àmbit
-          scopes: Àmbits
           search: Cerca
           state: Estat
           voted: Has donat suport
@@ -150,6 +148,7 @@ ca:
           random: Aleatori
           recent: Recent
         proposal:
+          creation_date: 'Creació: %{date}'
           view_proposal: Veure proposta
         show:
           edit_proposal: Editar proposta

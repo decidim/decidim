@@ -119,8 +119,6 @@ pl:
           origin: Pochodzenie
           rejected: Odrzucone
           related_to: Związany z
-          scope_prompt: Wybierz zakres
-          scopes: Zakresy
           search: Szukanie
           state: Stan
           voted: Głosował
@@ -153,6 +151,7 @@ pl:
           random: Losowy
           recent: Niedawny
         proposal:
+          creation_date: 'Tworzenie: %{date}'
           view_proposal: Wyświetl propozycję
         show:
           edit_proposal: Edytuj propozycję

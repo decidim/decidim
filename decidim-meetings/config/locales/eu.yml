@@ -133,8 +133,6 @@ eu:
           category_prompt: Aukeratu kategoria bat
           date: Data
           past: Aurrekoak
-          scope_prompt: Hautatu esparrua
-          scopes: Esparruak
           search: Bilatu
           upcoming: Hurrengoak
         filters_small_view:

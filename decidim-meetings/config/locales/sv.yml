@@ -133,8 +133,6 @@ sv:
           category_prompt: Välj en kategori
           date: Datum
           past: Dåtid
-          scope_prompt: Välj ett räckvidd
-          scopes: Scopes
           search: Sök
           upcoming: kommande
         filters_small_view:

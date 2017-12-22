@@ -118,8 +118,6 @@ sv:
           origin: Ursprung
           rejected: avvisade
           related_to: Relaterat till
-          scope_prompt: Välj ett räckvidd
-          scopes: Scopes
           search: Sök
           state: stat
           voted: Framröstad
@@ -150,6 +148,7 @@ sv:
           random: Slumpmässig
           recent: Nyligen
         proposal:
+          creation_date: 'Skapelse: %{date}'
           view_proposal: Visa förslag
         show:
           edit_proposal: Redigera förslag

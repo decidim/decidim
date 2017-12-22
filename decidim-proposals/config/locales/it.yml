@@ -118,8 +118,6 @@ it:
           origin: Origine
           rejected: Rifiutata
           related_to: Associata a
-          scope_prompt: Selezionare un ambito
-          scopes: Visibilità
           search: Cerca
           state: Stato
           voted: Votata
@@ -150,6 +148,7 @@ it:
           random: A caso
           recent: le più recenti
         proposal:
+          creation_date: 'Creazione: %{date}'
           view_proposal: Visualizza la proposta
         show:
           edit_proposal: Modifica la proposta
