@@ -408,6 +408,7 @@ $datetime-bg: $primary;
 
 .card--list__titled-text{
   @extend .card--list__text;
+
   flex-wrap: wrap;
 
   $date-width: 28px;
@@ -437,7 +438,7 @@ $datetime-bg: $primary;
     margin-left: auto;
     width: $counter-size;
 
-    span {
+    span{
       display: block;
       line-height: $counter-size;
       text-align: center;
