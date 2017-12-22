@@ -1,0 +1,40 @@
+<%
+@title = "Decidim Barcelona"
+@activeuser = "logged"
+%>
+
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <div class="row collapse">
+    <div class="columns large-12">
+      <h1>User stories</h1>
+      <div class="section">
+        <h2 class="section-heading">Navegar por las fases de un proceso</h2>
+        <ol>
+          <li>
+            <%= link_to "Proceso", page_path("info") %>
+            <p>El usuario sigue el enlace "Ver fases" en la cabecera de proceso.</p>
+          </li>
+          <li>
+            <%= link_to "Proceso - Fases", page_path("phases") %>
+            <p>El usuario sigue el enlace a las propuestas dentro de la Fase 2
+              (fase completada)</p>
+          </li>
+          <li>
+            <%= link_to "Propuestas con filtros activos", page_path("proposals-with-filter") %>
+            <p>Se muestra el listrado prefiltrado con las propuestas creadas
+              durante la Fase 2, y con el filtro "Fase 2" activado y visible.</p>
+          </li>
+          <li>
+            <%= link_to "Propuesta", page_path("proposal-view") %>
+            <p>El usuario navega hasta una propuesta. La propuesta se muestra
+              siempre en su estado actual.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

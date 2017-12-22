@@ -1,0 +1,120 @@
+<%
+@title = "Decidim Admin"
+%>
+<main class="main">
+  <div class="row collapse">
+    <div class="columns medium-8 large-10">
+      <div class="row column">
+        <div class="container">
+          <h1>Decidim Admin</h1>
+          <h2>Plantillas disponibles</h2>
+          <h3>Páginas principales</h3>
+          <ul>
+            <li>
+              <%= link_to "Inicio", page_path("home") %>
+            </li>
+            <li>
+              <%= link_to "Procesos", page_path("processes") %>
+            </li>
+            <li>
+              <%= link_to "Páginas", page_path("pages") %>
+            </li>
+            <li>
+              <%= link_to "Usuarios", page_path("users") %>
+              <ul>
+                <li>
+                  <%= link_to "Grupos de usuarios", page_path("users-groups") %>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <%= link_to "Configuración", page_path("settings") %>
+              <ul>
+                <li>
+                  <%= link_to "Ámbitos", page_path("settings-scopes") %>
+                </li>
+                <li>
+                  <%= link_to "Tipos de Ámbitos", page_path("settings-scope-types") %>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+          <h3>Nuevo proceso</h3>
+          <ul>
+            <li>
+              <%= link_to "Nuevo proceso - Información", page_path("processes-new") %>
+            </li>
+            <li>
+              <%= link_to "Nuevo proceso - Fases", page_path("processes-new-2") %>
+            </li>
+            <li>
+              <%= link_to "Nuevo proceso - Componentes", page_path("processes-new-3") %>
+            </li>
+            <li>
+              <%= link_to "Nuevo proceso - Añadir componente y componente completado (plegado)", page_path("processes-new-3-add") %>
+            </li>
+          </ul>
+          <h3>Páginas de proceso</h3>
+          <ul>
+            <li>
+              <%= link_to "Información", page_path("process-info") %>
+            </li>
+            <li>
+              <%= link_to "Fases", page_path("process-steps") %>
+              <ul>
+                <li>
+                  <%= link_to "Nueva fase", page_path("process-steps-new") %>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <%= link_to "Componentes", page_path("process-components") %>
+              <ul>
+                <li>
+                  <%= link_to "Componentes: Encuentros", page_path("component-meetings") %>
+                </li>
+                <li>
+                  <%= link_to "Componentes: Propuestas", page_path("component-proposals") %>
+                </li>
+                <li>
+                  <%= link_to "Componentes: Debates", page_path("component-results") %>
+                </li>
+                <li>
+                  <%= link_to "Componentes: Resultados", page_path("component-results") %>
+                </li>
+                <li>
+                  <%= link_to "Componentes: Presupuestos", page_path("component-budgets") %>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <%= link_to "Páginas", page_path("process-pages") %>
+            </li>
+            <li>
+              <%= link_to "Categorías", page_path("process-categories") %>
+            </li>
+            <li>
+              <%= link_to "Documentos", page_path("process-docs") %>
+            </li>
+            <li>
+              <%= link_to "Denuncias", page_path("process-moderations") %>
+            </li>
+            <li>
+              <%= link_to "Administradores", page_path("process-admin") %>
+            </li>
+          </ul>
+          <h3>Patrones y casos de uso</h3>
+          <ul>
+            <li>
+            <%= link_to "Formulario con validaciones", page_path("form-with-validation") %>
+            </li>
+            <li>
+            <%= link_to "Formulario con calendario/datepicker", page_path("form-with-datepicker") %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,19 +1,15 @@
 # frozen_string_literal: true
 
 class PagesController < ApplicationController
-  layout :layout_for_page
+  layout :set_layout
 
   def show
-    render template: params[:id]
+    render template: "#{params[:layout]}/#{params[:id]}"
   end
 
   private
 
-  def layout_for_page
-    if params[:id].match?(/^email-/)
-      "email"
-    else
-      "application"
-    end
+  def set_layout
+    params[:layout] || "application"
   end
 end
