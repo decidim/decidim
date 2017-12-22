@@ -59,6 +59,11 @@ Decidim.register_feature(:proposals) do |feature|
     Decidim::Proposals::ProposalVote.where(proposal: proposals).count
   end
 
+  feature.register_stat :endorsements_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |features, start_at, end_at|
+    proposals = Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).not_hidden
+    Decidim::Proposals::ProposalEndorsement.where(proposal: proposals).count
+  end
+
   feature.register_stat :comments_count, tag: :comments do |features, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).not_hidden
     Decidim::Comments::Comment.where(root_commentable: proposals).count
