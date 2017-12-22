@@ -6,7 +6,12 @@ module Decidim
       # This controller allows admins to manage proposals in a participatory process.
       class ProposalsController < Admin::ApplicationController
         helper Proposals::ApplicationHelper
-        helper_method :proposals
+        helper_method :proposals, :query
+
+        def index
+          @q = Proposal.where(feature: current_feature).ransack(params[:q])
+          @proposals ||= @q.result.page(params[:page]).per(15)
+        end
 
         def new
           authorize! :create, Proposal
@@ -34,11 +39,12 @@ module Decidim
 
         private
 
+        def query
+          @q ||= Proposal.where(feature: current_feature).ransack(params[:q])
+        end
+
         def proposals
-
-          @q = Proposal.where(feature: current_feature).ransack(params[:q])
-          @proposals ||= @q.result.page(params[:page]).per(15)
-
+          @proposals ||= query.result.page(params[:page]).per(15)
           # @proposals ||= Proposal.where(feature: current_feature).page(params[:page]).per(15)
         end
 
