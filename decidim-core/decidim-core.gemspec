@@ -46,7 +46,6 @@ Gem::Specification.new do |s|
   s.add_dependency "redis", "~> 3.2"
   s.add_dependency "rubyzip", "1.2.1"
   s.add_dependency "sassc-rails", "~> 1.3.0"
-  s.add_dependency "select2-rails", "~> 4.0.3"
   s.add_dependency "spreadsheet", "~> 1.1"
   s.add_dependency "sprockets-es6", "~> 0.9.2"
   s.add_dependency "truncato", "~> 0.7.10"
