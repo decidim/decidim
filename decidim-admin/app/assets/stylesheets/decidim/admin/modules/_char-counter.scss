@@ -1,5 +1,6 @@
 .textarea-char-counter{
   position: relative;
+
   textarea{
     padding-bottom: 2.2rem;
   }
@@ -15,6 +16,7 @@
   bottom: 1px;
   text-align: right;
 }
+
 .char-counter--excess{
   color: $alert-color;
 }
