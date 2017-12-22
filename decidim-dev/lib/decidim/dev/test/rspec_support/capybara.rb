@@ -46,7 +46,7 @@ module Capybara
     def wait_for_pending_requests
       Timeout.timeout(120) { sleep(0.01) while pending_requests? }
     rescue Timeout::Error
-      raise "Requests did not finish in 60 seconds"
+      raise "Requests did not finish in 120 seconds"
     end
   end
 end
