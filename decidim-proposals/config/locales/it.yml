@@ -81,6 +81,11 @@ it:
       create:
         error: C'è stato un errore durante il salvataggio di questa proposta.
         success: OK, la proposta è stata creata.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Ciao, %{author_name} %{author_nickname}, che stai seguendo, ha creato una nuova proposta, dai un'occhiata e dai:
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{author_nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
       models:
         proposal:
           fields:
