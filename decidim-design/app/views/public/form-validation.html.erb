@@ -1,0 +1,128 @@
+<%
+@title = "Registro -- Decidim Barcelona"
+%>
+
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <div class="row collapse">
+    <div class="row collapse">
+      <div class="columns large-8 large-centered text-center">
+        <h1 class="heading1 page-title">Validación de formularios con Abide</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns medium-7 large-5 medium-centered">
+        <div class="card">
+          <div class="card__content">
+            <form class="register-form" data-abide novalidate>
+              <div data-abide-error class="alert callout" style="display: none;">
+                <p><i class="fi-alert"></i> Hay errores en el formulario. Por favor, revísalo.</p>
+              </div>
+              <h2 class="heading5">
+                Validación por defecto de Foundation Abide (mensaje de error a
+                 continuación del input)
+              </h2>
+              <div class="section">
+                <label>Selecciona una opción
+                  <select required>
+                    <option value=""></option>
+                    <option value="1">Opción 1</option>
+                    <option value="2">Opción 2</option>
+                    <option value="3">Opción 3</option>
+                  </select>
+                  <span class="form-error">
+                    Por favor, selecciona una opción.
+                  </span>
+                </label>
+              </div>
+              <h2 class="heading5">
+                Validación con mensaje de error no contiguo (custom)
+              </h2>
+              <div class="section">
+                <label>Número de documento
+                  <input type="text" required data-custom-error="doc-error">
+                </label>
+                <span class="custom-error" id="doc-error">
+                  Falta el número de documento.
+                </span>
+              </div>
+
+              <h2 class="heading5">
+                Validación con mensaje de error común (custom)
+              </h2>
+              <div class="section">
+                <fieldset class="row">
+                  <legend class="columns">Data de naixement</legend>
+                  <div class="columns small-4">
+                    <label><span class="show-for-sr">Dia</span>
+                      <select required data-custom-error="date-error">
+                        <option value="">Dia</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                      </select>
+                    </label>
+                  </div>
+                  <div class="columns small-4">
+                    <label><span class="show-for-sr">Mes</span>
+                      <select required data-custom-error="date-error">
+                        <option value="">Mes</option>
+                        <option value="1">Gener</option>
+                        <option value="2">Febrer</option>
+                        <option value="3">Març</option>
+                      </select>
+                    </label>
+                  </div>
+                  <div class="columns small-4">
+                    <label><span class="show-for-sr">Any</span>
+                      <select required data-custom-error="date-error">
+                        <option value="">Any</option>
+                        <option value="1">1910</option>
+                        <option value="2">1901</option>
+                        <option value="3">1902</option>
+                      </select>
+                    </label>
+                  </div>
+                </fieldset>
+                <div class="custom-error" id="date-error">
+                  Por favor, introduce la fecha correctamente.
+                </div>
+              </div>
+              <h2 class="heading5">
+                Validación con mensaje de error (custom) cuando ya hay un texto de ayuda
+              </h2>
+              <div class="section">
+                <label>Codi postal
+                  <input type="text" required data-custom-error="cp-error">
+                </label>
+                <div class="custom-error" id="cp-error">
+                  Por favor, introduce un código postal.
+                </div>
+                <p class="help-text">Per verificar les teves dades has d'estar
+                  empadronat al municipi de Barcelona</p>
+              </div>
+              <h2 class="heading5">
+                Validación con mensaje custom en checkbox + label inline
+              </h2>
+              <div class="section">
+                <label>
+                  <input type="checkbox" required data-custom-error="terms-error">
+                  Estic d'acord amb <%= link_to page_path("static") do %>els termes
+                  d'accés al padró<% end %>.
+                </label>
+                <div class="custom-error custom-error--simple" id="terms-error">
+                  Es necesario aceptar los términos y condiciones para poder registrarse.
+                </div>
+              </div>
+              <button type="submit" class="button expanded">
+                Enviar formulario</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>
