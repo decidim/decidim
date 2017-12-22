@@ -9,6 +9,13 @@
   <body>
     <!-- <style> -->
     <table class="body">
+      <% if content_for?(:see_on_website) %>
+        <table class="container">
+          <th class="small-12 first columns headnote float-right">
+            <%= yield(:see_on_website) %>
+          </th>
+        </table>
+      <% end %>
       <tr>
         <td class="float-center" align="center" valign="top">
           <center>
@@ -99,49 +106,16 @@
               </tr>
             </table>
 
-            <% if content_for?(:note) %>
+            <% if content_for?(:note) or content_for?(:unsubscribe)%>
               <table class="container">
                 <tr>
                   <td>
                     <table class="row">
                       <th class="expander"></th>
-                      <th class="small-12 first columns footnote">
+                      <th class="small-12 first last columns footnote">
                         <center>
-                          <%= yield(:note) %>
-                        </center>
-                      </th>
-                    </table>
-                  </td>
-                </tr>
-              </table>
-            <% end %>
-
-            <% if content_for?(:unsubscribe) %>
-              <table class="container">
-                <tr>
-                  <td>
-                    <table class="row">
-                      <th class="expander"></th>
-                      <th class="small-12 first columns footnote">
-                        <center>
-                          <%= yield(:unsubscribe) %>
-                        </center>
-                      </th>
-                    </table>
-                  </td>
-                </tr>
-              </table>
-            <% end %>
-
-            <% if content_for?(:see_on_website) %>
-              <table class="container">
-                <tr>
-                  <td>
-                    <table class="row">
-                      <th class="expander"></th>
-                      <th class="small-12 first columns footnote">
-                        <center>
-                          <%= yield(:see_on_website) %>
+                          <%= yield(:note) if content_for?(:note) %>
+                          <%= yield(:unsubscribe) if content_for?(:unsubscribe) %>
                         </center>
                       </th>
                     </table>
