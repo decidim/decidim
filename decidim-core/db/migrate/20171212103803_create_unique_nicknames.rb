@@ -14,7 +14,10 @@ class CreateUniqueNicknames < ActiveRecord::Migration[5.1]
       user.update!(nickname: User.nicknamize(user.name))
     end
 
-    add_index :decidim_users, :nickname, unique: true
+    add_index :decidim_users,
+              :nickname,
+              where: "(deleted_at IS NULL) AND (managed = 'f')",
+              unique: true
   end
 
   def down
