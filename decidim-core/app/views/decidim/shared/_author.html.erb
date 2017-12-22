@@ -9,9 +9,9 @@
 <% else %>
   <span class="author__name"><%= author.name %></span>
 
-  <% if author.badge_path.present? %>
+  <% if author.badge.present? %>
     <span class="author__badge">
-      <%= icon "verified-badge" %>
+      <%= icon author.badge %>
     </span>
   <% end %>
 

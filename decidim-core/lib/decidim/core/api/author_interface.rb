@@ -11,7 +11,7 @@ module Decidim
 
     field :avatarUrl, !types.String, "The author's avatar url"
     field :profilePath, !types.String, "The author's profile path"
-    field :badgePath, !types.String, "The author's badge path"
+    field :badge, !types.String, "The author's badge icon"
 
     field :deleted, !types.Boolean, "Whether the author's account has been deleted or not"
   end

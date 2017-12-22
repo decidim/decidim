@@ -199,12 +199,10 @@ class Comment extends React.Component<CommentProps, CommentState> {
           <img src={author.avatarUrl} alt="author-avatar" />
         </span>
         <span className="author__name">{author.name}</span>
-        { author.badgePath === "" ||
-           <span className="author__badge">
-             <svg className="icon--verified-badge icon">
-               <use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref={author.badgePath} />
-             </svg>
-           </span>
+        { author.badge === "" ||
+          <span className="author__badge">
+            <Icon name={`icon-${author.badge}`} />
+          </span>
         }
         <span className="author__nickname">{author.nickname}</span>
       </div>

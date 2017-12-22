@@ -40,8 +40,8 @@ export interface addCommentMutation {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge path
-          badgePath: string,
+          // The author's badge icon
+          badge: string,
         } | {
           // The author's name
           name: string,
@@ -53,8 +53,8 @@ export interface addCommentMutation {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge path
-          badgePath: string,
+          // The author's badge icon
+          badge: string,
         }
       ),
       // Whether the object can have new comments or not
@@ -96,8 +96,8 @@ export interface addCommentMutation {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge path
-            badgePath: string,
+            // The author's badge icon
+            badge: string,
           } | {
             // The author's name
             name: string,
@@ -109,8 +109,8 @@ export interface addCommentMutation {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge path
-            badgePath: string,
+            // The author's badge icon
+            badge: string,
           }
         ),
         // Check if the commentable has comments
@@ -154,8 +154,8 @@ export interface addCommentMutation {
               profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
-              // The author's badge path
-              badgePath: string,
+              // The author's badge icon
+              badge: string,
             } | {
               // The author's name
               name: string,
@@ -167,8 +167,8 @@ export interface addCommentMutation {
               profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
-              // The author's badge path
-              badgePath: string,
+              // The author's badge icon
+              badge: string,
             }
           ),
           // Check if the commentable has comments
@@ -212,8 +212,8 @@ export interface addCommentMutation {
                 profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
-                // The author's badge path
-                badgePath: string,
+                // The author's badge icon
+                badge: string,
               } | {
                 // The author's name
                 name: string,
@@ -225,8 +225,8 @@ export interface addCommentMutation {
                 profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
-                // The author's badge path
-                badgePath: string,
+                // The author's badge icon
+                badge: string,
               }
             ),
             // Check if the commentable has comments
@@ -284,8 +284,8 @@ export interface DownVoteMutation {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge path
-          badgePath: string,
+          // The author's badge icon
+          badge: string,
         } | {
           // The author's name
           name: string,
@@ -297,8 +297,8 @@ export interface DownVoteMutation {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge path
-          badgePath: string,
+          // The author's badge icon
+          badge: string,
         }
       ),
       // Check if the commentable has comments
@@ -342,8 +342,8 @@ export interface DownVoteMutation {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge path
-            badgePath: string,
+            // The author's badge icon
+            badge: string,
           } | {
             // The author's name
             name: string,
@@ -355,8 +355,8 @@ export interface DownVoteMutation {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge path
-            badgePath: string,
+            // The author's badge icon
+            badge: string,
           }
         ),
         // Check if the commentable has comments
@@ -400,8 +400,8 @@ export interface DownVoteMutation {
               profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
-              // The author's badge path
-              badgePath: string,
+              // The author's badge icon
+              badge: string,
             } | {
               // The author's name
               name: string,
@@ -413,8 +413,8 @@ export interface DownVoteMutation {
               profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
-              // The author's badge path
-              badgePath: string,
+              // The author's badge icon
+              badge: string,
             }
           ),
           // Check if the commentable has comments
@@ -458,8 +458,8 @@ export interface DownVoteMutation {
                 profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
-                // The author's badge path
-                badgePath: string,
+                // The author's badge icon
+                badge: string,
               } | {
                 // The author's name
                 name: string,
@@ -471,8 +471,8 @@ export interface DownVoteMutation {
                 profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
-                // The author's badge path
-                badgePath: string,
+                // The author's badge icon
+                badge: string,
               }
             ),
             // Check if the commentable has comments
@@ -530,8 +530,8 @@ export interface UpVoteMutation {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge path
-          badgePath: string,
+          // The author's badge icon
+          badge: string,
         } | {
           // The author's name
           name: string,
@@ -543,8 +543,8 @@ export interface UpVoteMutation {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge path
-          badgePath: string,
+          // The author's badge icon
+          badge: string,
         }
       ),
       // Check if the commentable has comments
@@ -588,8 +588,8 @@ export interface UpVoteMutation {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge path
-            badgePath: string,
+            // The author's badge icon
+            badge: string,
           } | {
             // The author's name
             name: string,
@@ -601,8 +601,8 @@ export interface UpVoteMutation {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge path
-            badgePath: string,
+            // The author's badge icon
+            badge: string,
           }
         ),
         // Check if the commentable has comments
@@ -646,8 +646,8 @@ export interface UpVoteMutation {
               profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
-              // The author's badge path
-              badgePath: string,
+              // The author's badge icon
+              badge: string,
             } | {
               // The author's name
               name: string,
@@ -659,8 +659,8 @@ export interface UpVoteMutation {
               profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
-              // The author's badge path
-              badgePath: string,
+              // The author's badge icon
+              badge: string,
             }
           ),
           // Check if the commentable has comments
@@ -704,8 +704,8 @@ export interface UpVoteMutation {
                 profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
-                // The author's badge path
-                badgePath: string,
+                // The author's badge icon
+                badge: string,
               } | {
                 // The author's name
                 name: string,
@@ -717,8 +717,8 @@ export interface UpVoteMutation {
                 profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
-                // The author's badge path
-                badgePath: string,
+                // The author's badge icon
+                badge: string,
               }
             ),
             // Check if the commentable has comments
@@ -806,8 +806,8 @@ export interface GetCommentsQuery {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge path
-          badgePath: string,
+          // The author's badge icon
+          badge: string,
         } | {
           // The author's name
           name: string,
@@ -819,8 +819,8 @@ export interface GetCommentsQuery {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge path
-          badgePath: string,
+          // The author's badge icon
+          badge: string,
         }
       ),
       // Whether the object can have new comments or not
@@ -862,8 +862,8 @@ export interface GetCommentsQuery {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge path
-            badgePath: string,
+            // The author's badge icon
+            badge: string,
           } | {
             // The author's name
             name: string,
@@ -875,8 +875,8 @@ export interface GetCommentsQuery {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge path
-            badgePath: string,
+            // The author's badge icon
+            badge: string,
           }
         ),
         // Check if the commentable has comments
@@ -920,8 +920,8 @@ export interface GetCommentsQuery {
               profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
-              // The author's badge path
-              badgePath: string,
+              // The author's badge icon
+              badge: string,
             } | {
               // The author's name
               name: string,
@@ -933,8 +933,8 @@ export interface GetCommentsQuery {
               profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
-              // The author's badge path
-              badgePath: string,
+              // The author's badge icon
+              badge: string,
             }
           ),
           // Check if the commentable has comments
@@ -978,8 +978,8 @@ export interface GetCommentsQuery {
                 profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
-                // The author's badge path
-                badgePath: string,
+                // The author's badge icon
+                badge: string,
               } | {
                 // The author's name
                 name: string,
@@ -991,8 +991,8 @@ export interface GetCommentsQuery {
                 profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
-                // The author's badge path
-                badgePath: string,
+                // The author's badge icon
+                badge: string,
               }
             ),
             // Check if the commentable has comments
@@ -1064,8 +1064,8 @@ export interface CommentFragment {
       profilePath: string,
       // Whether the author's account has been deleted or not
       deleted: boolean,
-      // The author's badge path
-      badgePath: string,
+      // The author's badge icon
+      badge: string,
     } | {
       // The author's name
       name: string,
@@ -1077,8 +1077,8 @@ export interface CommentFragment {
       profilePath: string,
       // Whether the author's account has been deleted or not
       deleted: boolean,
-      // The author's badge path
-      badgePath: string,
+      // The author's badge icon
+      badge: string,
     }
   ),
   // Check if the commentable has comments
@@ -1122,8 +1122,8 @@ export interface CommentFragment {
         profilePath: string,
         // Whether the author's account has been deleted or not
         deleted: boolean,
-        // The author's badge path
-        badgePath: string,
+        // The author's badge icon
+        badge: string,
       } | {
         // The author's name
         name: string,
@@ -1135,8 +1135,8 @@ export interface CommentFragment {
         profilePath: string,
         // Whether the author's account has been deleted or not
         deleted: boolean,
-        // The author's badge path
-        badgePath: string,
+        // The author's badge icon
+        badge: string,
       }
     ),
     // Check if the commentable has comments
@@ -1180,8 +1180,8 @@ export interface CommentFragment {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge path
-          badgePath: string,
+          // The author's badge icon
+          badge: string,
         } | {
           // The author's name
           name: string,
@@ -1193,8 +1193,8 @@ export interface CommentFragment {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge path
-          badgePath: string,
+          // The author's badge icon
+          badge: string,
         }
       ),
       // Check if the commentable has comments
@@ -1238,8 +1238,8 @@ export interface CommentFragment {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge path
-            badgePath: string,
+            // The author's badge icon
+            badge: string,
           } | {
             // The author's name
             name: string,
@@ -1251,8 +1251,8 @@ export interface CommentFragment {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge path
-            badgePath: string,
+            // The author's badge icon
+            badge: string,
           }
         ),
         // Check if the commentable has comments
@@ -1301,8 +1301,8 @@ export interface CommentDataFragment {
       profilePath: string,
       // Whether the author's account has been deleted or not
       deleted: boolean,
-      // The author's badge path
-      badgePath: string,
+      // The author's badge icon
+      badge: string,
     } | {
       // The author's name
       name: string,
@@ -1314,8 +1314,8 @@ export interface CommentDataFragment {
       profilePath: string,
       // Whether the author's account has been deleted or not
       deleted: boolean,
-      // The author's badge path
-      badgePath: string,
+      // The author's badge icon
+      badge: string,
     }
   ),
   // Check if the commentable has comments
@@ -1363,8 +1363,8 @@ export interface CommentThreadFragment {
       profilePath: string,
       // Whether the author's account has been deleted or not
       deleted: boolean,
-      // The author's badge path
-      badgePath: string,
+      // The author's badge icon
+      badge: string,
     } | {
       // The author's name
       name: string,
@@ -1376,8 +1376,8 @@ export interface CommentThreadFragment {
       profilePath: string,
       // Whether the author's account has been deleted or not
       deleted: boolean,
-      // The author's badge path
-      badgePath: string,
+      // The author's badge icon
+      badge: string,
     }
   ),
   // Whether the object can have new comments or not
@@ -1419,8 +1419,8 @@ export interface CommentThreadFragment {
         profilePath: string,
         // Whether the author's account has been deleted or not
         deleted: boolean,
-        // The author's badge path
-        badgePath: string,
+        // The author's badge icon
+        badge: string,
       } | {
         // The author's name
         name: string,
@@ -1432,8 +1432,8 @@ export interface CommentThreadFragment {
         profilePath: string,
         // Whether the author's account has been deleted or not
         deleted: boolean,
-        // The author's badge path
-        badgePath: string,
+        // The author's badge icon
+        badge: string,
       }
     ),
     // Check if the commentable has comments
@@ -1477,8 +1477,8 @@ export interface CommentThreadFragment {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge path
-          badgePath: string,
+          // The author's badge icon
+          badge: string,
         } | {
           // The author's name
           name: string,
@@ -1490,8 +1490,8 @@ export interface CommentThreadFragment {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge path
-          badgePath: string,
+          // The author's badge icon
+          badge: string,
         }
       ),
       // Check if the commentable has comments
@@ -1535,8 +1535,8 @@ export interface CommentThreadFragment {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge path
-            badgePath: string,
+            // The author's badge icon
+            badge: string,
           } | {
             // The author's name
             name: string,
@@ -1548,8 +1548,8 @@ export interface CommentThreadFragment {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge path
-            badgePath: string,
+            // The author's badge icon
+            badge: string,
           }
         ),
         // Check if the commentable has comments

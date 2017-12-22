@@ -14,10 +14,10 @@ module Decidim
       "@#{super}"
     end
 
-    def badge_path
+    def badge
       return "" unless officialized?
 
-      "#{ActionController::Base.helpers.asset_path("decidim/icons.svg")}#icon-verified-badge"
+      "verified-badge"
     end
 
     delegate :url, to: :avatar, prefix: true
