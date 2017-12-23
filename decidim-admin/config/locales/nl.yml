@@ -12,7 +12,7 @@ nl:
       feature:
         name: Naam
         weight: Gewicht
-      id: ID kaart
+      id: ID
       newsletter:
         body: Body
         subject: Onderwerp

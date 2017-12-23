@@ -81,6 +81,13 @@ pl:
       create:
         error: Podczas zapisywania propozycji wystąpiły błędy.
         success: Propozycja została pomyślnie utworzona.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Witaj, %{author_name} %{author_nickname}, którego obserwujesz, stworzył nową propozycję, sprawdź i pomóż:
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Nowa propozycja %{author_nickname}
+          notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została utworzona przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         proposal:
           fields:

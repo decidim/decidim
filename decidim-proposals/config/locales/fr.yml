@@ -81,6 +81,13 @@ fr:
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Bonjour, %{author_name} %{author_nickname}, que vous suivez, a créé une nouvelle proposition, vérifiez-la et contribuez:
+          email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Nouvelle proposition par %{author_nickname}
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         proposal:
           fields:

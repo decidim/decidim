@@ -81,6 +81,13 @@ ca:
       create:
         error: Hi ha hagut errors en desar la proposta.
         success: Proposta creada correctament.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Hola, %{author_name} %{author_nickname}, a qui sigueu, ha creat una nova proposta, revisa-la i contribueix:
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{author_nickname}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Nova proposta de %{author_nickname}
+          notification_title: La <a href="%{resource_path}">%{resource_title}</a> proposta va ser creada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         proposal:
           fields:
