@@ -272,7 +272,6 @@ sv:
           title: Inte behörig
       author:
         deleted: Ta bort användare
-        verified_user_group: Verifierad organisation
       embed_modal:
         close_window: Stäng fönstret
         embed: Vänligen klistra in den här koden på din sida
