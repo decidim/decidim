@@ -12,7 +12,7 @@ namespace :decidim do
     Dir.chdir("tmp/decidim_repo") do
       env = { "ENFORCED_LOCALES" => Decidim.available_locales.join(",") }
 
-      Bundler.with_clean_env do
+      Bundler.with_original_env do
         system(env, "bundle install")
         system(env, "bundle exec rspec spec/i18n_spec.rb")
       end

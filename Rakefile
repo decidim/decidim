@@ -100,11 +100,9 @@ task :test_app do
     sh "rm -fR #{dummy_app_path}", verbose: false
   end
 
-  Bundler.with_clean_env do
-    Decidim::Generators::AppGenerator.start(
-      [dummy_app_path, "--path", "../..", "--recreate_db", "--demo"]
-    )
-  end
+  Decidim::Generators::AppGenerator.start(
+    [dummy_app_path, "--path", "../..", "--recreate_db", "--demo"]
+  )
 end
 
 desc "Generates a development app."
@@ -113,22 +111,18 @@ task :development_app do
     sh "rm -fR development_app", verbose: false
   end
 
-  Bundler.with_clean_env do
-    Decidim::Generators::AppGenerator.start(
-      ["development_app", "--path", "..", "--recreate_db", "--seed_db", "--demo"]
-    )
-  end
+  Decidim::Generators::AppGenerator.start(
+    ["development_app", "--path", "..", "--recreate_db", "--seed_db", "--demo"]
+  )
 end
 
 desc "Generates a development app based on Docker."
 task :docker_development_app do
   docker_app_path = __dir__ + "/docker_development_app"
 
-  Bundler.with_clean_env do
-    Decidim::Generators::DockerGenerator.start(
-      ["docker_development_app", "--docker_app_path", docker_app_path]
-    )
-  end
+  Decidim::Generators::DockerGenerator.start(
+    ["docker_development_app", "--docker_app_path", docker_app_path]
+  )
 end
 
 desc "Build webpack bundle files"
