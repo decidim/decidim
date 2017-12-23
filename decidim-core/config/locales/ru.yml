@@ -264,7 +264,6 @@ ru:
           title: Не подтвердили свою личность
       author:
         deleted: Удаленный участник
-        verified_user_group: Проверенная организация
       embed_modal:
         close_window: Закрыть окно
         embed: Пожалуйста, вставьте этот код в свою страницу
