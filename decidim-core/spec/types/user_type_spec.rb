@@ -28,8 +28,20 @@ module Decidim
     describe "badge" do
       let(:query) { "{ badge }" }
 
-      it "returns empty" do
-        expect(response).to include("badge" => "")
+      context "when the user is officialized" do
+        let(:model) { create(:user, :officialized) }
+
+        it "returns the icon to use for the verification badge" do
+          expect(response).to include("badge" => "verified-badge")
+        end
+      end
+
+      context "the user is not officialized" do
+        let(:model) { create(:user) }
+
+        it "returns empty" do
+          expect(response).to include("badge" => "")
+        end
       end
     end
 

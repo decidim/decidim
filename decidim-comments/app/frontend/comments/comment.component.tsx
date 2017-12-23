@@ -199,14 +199,12 @@ class Comment extends React.Component<CommentProps, CommentState> {
           <img src={author.avatarUrl} alt="author-avatar" />
         </span>
         <span className="author__name">{author.name}</span>
-        <span className="author__nickname">{author.nickname}</span>
         { author.badge === "" ||
-           <span className="author__badge">
-             <span className="label label--highlight label--small">
-               {author.badge}
-             </span>
-           </span>
+          <span className="author__badge">
+            <Icon name={`icon-${author.badge}`} />
+          </span>
         }
+        <span className="author__nickname">{author.nickname}</span>
       </div>
     );
   }

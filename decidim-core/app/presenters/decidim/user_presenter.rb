@@ -15,7 +15,9 @@ module Decidim
     end
 
     def badge
-      ""
+      return "" unless officialized?
+
+      "verified-badge"
     end
 
     delegate :url, to: :avatar, prefix: true

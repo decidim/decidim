@@ -8,13 +8,12 @@
   </span>
 <% else %>
   <span class="author__name"><%= author.name %></span>
-  <span class="author__nickname"><%= author.nickname %></span>
-<% end %>
 
-<% if author.badge.present? %>
-  <span class="author__badge">
-    <span class="label label--highlight label--small">
-      <%= author.badge %>
+  <% if author.badge.present? %>
+    <span class="author__badge">
+      <%= icon author.badge %>
     </span>
-  </span>
+  <% end %>
+
+  <span class="author__nickname"><%= author.nickname %></span>
 <% end %>
