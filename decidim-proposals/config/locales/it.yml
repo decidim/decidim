@@ -86,6 +86,8 @@ it:
           email_intro: |-
             Ciao, %{author_name} %{author_nickname}, che stai seguendo, ha creato una nuova proposta, dai un'occhiata e dai:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{author_nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_subject: Nuova proposta di %{author_nickname}
+          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata creata da <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         proposal:
           fields:
