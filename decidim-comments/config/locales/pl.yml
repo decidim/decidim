@@ -5,10 +5,14 @@ pl:
         comment_created:
           comment:
             email_intro: '"Skomentował" %{resource_title} ". Możesz przeczytać komentarz na tej stronie:'
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}" lub jego autora. Możesz przestać go obserwować z poprzedniego linku.
             email_subject: Istnieje nowy komentarz z %{author_name} w %{resource_title}
+            notification_title: Jest nowy komentarz od <a href="%{author_path}">%{author_name} %{author_nickname}</a> w <a href="%{resource_path}">%{resource_title}</a>
           reply:
             email_intro: '"Skomentował" %{resource_title} "'
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}" lub jego autora. Możesz przestać go obserwować z poprzedniego linku.
             email_subject: Nowa odpowiedź Twojego komentarza z %{author_name} w <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Pojawiła się nowa odpowiedź Twojego komentarza z <a href="%{author_path}">%{author_name} %{author_nickname}</a> w <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: Podczas głosowania komentarza wystąpiły błędy.
