@@ -81,6 +81,13 @@ eu:
       create:
         error: Erroreak gertatu dira proposamena gordetzean.
         success: Proposamena zuzen sortu da.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Kaixo, %{author_name} %{author_nickname}, jarraitzen ari zarenari, proposamen berri bat sortu du, egiaztatu eta lagundu:
+          email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: Proposamen berria %{author_nickname}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena <a href="%{author_path}">%{author_name} %{author_nickname}</a> sortu zen.
       models:
         proposal:
           fields:
