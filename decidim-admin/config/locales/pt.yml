@@ -214,6 +214,7 @@ pt:
         dashboard: Painel de controlo
         managed_users: Utilizadores geridos
         newsletters: Boletins informativos
+        officializations: Oficializações
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         settings: Configurações
@@ -313,6 +314,33 @@ pt:
         update:
           error: Ocorreu um erro ao atualizar este boletim informativo.
           success: Newsletter atualizada com sucesso. Por favor, reveja-o antes de enviar.
+      officializations:
+        create:
+          success: Usuário oficializado com sucesso
+        destroy:
+          success: Usuário não oficializado com sucesso
+        index:
+          actions: Ações
+          badge: Distintivo
+          created_at: Criado em
+          filter:
+            all: Todos
+            not_officialized: Não oficializado
+            officialized: Oficializado
+          filter_by: Filtrar por
+          name: Nome
+          nickname: Apelido
+          not_officialized: Não oficializado
+          officialize: Oficialize
+          officialized: Oficializado
+          reofficialize: Reorientar
+          search: Pesquisa
+          status: Status
+          unofficialize: Não oficializar
+        new:
+          badge: Emblema de oficialização
+          officialize: Oficialize
+          title: Oficializar o usuário "%{name}"
       organization:
         edit:
           title: Editar organização
@@ -390,6 +418,7 @@ pt:
         dashboard: painel de controle
         impersonations: Personagens
         managed_users: Usuários gerenciados
+        officializations: Oficializações
         scope_types: Tipos de âmbito
         scopes: Âmbitos
         static_pages: Páginas
