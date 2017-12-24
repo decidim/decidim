@@ -241,13 +241,13 @@ fr:
         error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
         success: Le contenu a été signalé, il sera examiné par un administrateur.
     scopes:
-      global: Portée mondiale
+      global: Portée générale
       picker:
         cancel: Annuler
         choose: Sélectionner
         title: Sélectionnez %{field}
-      prompt: Sélectionnez une portée
-      scopes: Scopes
+      prompt: Sélectionnez un périmètre d'application
+      scopes: Périmètre d'application
     shared:
       action_authorization_modal:
         expired:
