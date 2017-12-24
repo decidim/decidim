@@ -320,7 +320,7 @@ fr:
         destroy:
           success: Utilisateur non validé avec succès
         index:
-          actions: Actions
+          actions: actes
           badge: Badge
           created_at: Créé à
           filter:
@@ -336,11 +336,11 @@ fr:
           reofficialize: De nouveau validé
           search: Chercher
           status: Statut
-          unofficialize: Non officialiser
+          unofficialize: Invalider
         new:
-          badge: Badge d'officialisation
-          officialize: Officialiser
-          title: Officialiser l'utilisateur "%{name}"
+          badge: Badge de validation
+          officialize: Valider
+          title: Valider l'utilisateur "%{name}"
       organization:
         edit:
           title: Modifier l'organisation
@@ -418,7 +418,7 @@ fr:
         dashboard: Tableau de bord
         impersonations: Représentations d'utilisateurs
         managed_users: Utilisateurs représentés
-        officializations: Officialisations
+        officializations: Validations
         scope_types: Types de zone d'application
         scopes: Zones d'application
         static_pages: Pages
