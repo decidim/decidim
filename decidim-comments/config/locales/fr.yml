@@ -5,14 +5,14 @@ fr:
         comment_created:
           comment:
             email_intro: '"%{resource_title}" a été commenté. Vous pouvez lire le commentaire de cette page:'
-            email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez le retirer du lien précédent.
+            email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre à partir du lien précédent.
             email_subject: Un nouveau commentaire a été publié par %{author_name} dans %{resource_title}
             notification_title: Il y a un nouveau commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
           reply:
             email_intro: '"%{resource_title}" a reçu un commentaire'
-            email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez le retirer du lien précédent.
+            email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre à partir du lien précédent.
             email_subject: Votre commentaire a reçu une réponse de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Il y a une nouvelle réponse de votre commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
+            notification_title: Il y a une nouvelle réponse à votre commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: Une erreur s'est produite lors du vote sur le commentaire.
