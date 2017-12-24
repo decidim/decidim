@@ -214,7 +214,7 @@ fr:
         dashboard: Tableau de bord
         managed_users: Utilisateurs représentés
         newsletters: Bulletins d'information (newsletter)
-        officializations: Officialisations
+        officializations: Validations
         scope_types: Types de zone d'application
         scopes: Zones d’application
         settings: Paramètres
@@ -316,24 +316,24 @@ fr:
           success: Bulletin d'information mis à jour avec succès. Veuillez le vérifier avant de l'envoyer.
       officializations:
         create:
-          success: Utilisateur officialisé avec succès
+          success: Utilisateur validé avec succès
         destroy:
-          success: Utilisateur non autorisé avec succès
+          success: Utilisateur non validé avec succès
         index:
-          actions: actes
+          actions: Actions
           badge: Badge
           created_at: Créé à
           filter:
             all: Tout
-            not_officialized: Non officialisé
-            officialized: Officialisé
+            not_officialized: Non validé
+            officialized: Validé
           filter_by: Filtrer par
-          name: prénom
-          nickname: Surnom
-          not_officialized: Non officialisé
-          officialize: Officialiser
-          officialized: Officialisé
-          reofficialize: Ré-officialiser
+          name: Nom
+          nickname: Pseudo
+          not_officialized: Non validé
+          officialize: Valider
+          officialized: Validé
+          reofficialize: De nouveau validé
           search: Chercher
           status: Statut
           unofficialize: Non officialiser
