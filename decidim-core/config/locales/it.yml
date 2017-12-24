@@ -223,6 +223,8 @@ it:
     pages:
       index:
         title: Informazione
+    profiles:
+      default_officialization_text: Questo partecipante è verificato pubblicamente, il suo nome o ruolo è stato verificato per corrispondere con il suo vero nome e ruolo
     reported_mailer:
       hide:
         hello: Ciao %{name},
