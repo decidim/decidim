@@ -214,6 +214,7 @@ fi:
         dashboard: Hallintapaneeli
         managed_users: Hallinnoitavat käyttäjät
         newsletters: Uutiskirjeet
+        officializations: Officializations
         scope_types: Kontekstityypit
         scopes: Kontekstit
         settings: Asetukset
@@ -313,6 +314,33 @@ fi:
         update:
           error: Tämän uutiskirjeen päivityksessä tapahtui virhe.
           success: Uutiskirje päivitetty onnistuneesti. Tarkasta se läpi ennen lähetystä.
+      officializations:
+        create:
+          success: Käyttäjä virallisesti onnistuneesti
+        destroy:
+          success: Käyttäjä on epävirallinen onnistuneesti
+        index:
+          actions: Toimet
+          badge: Kunniamerkki
+          created_at: Luotu klo
+          filter:
+            all: Kaikki
+            not_officialized: Ei virallista
+            officialized: Officialized
+          filter_by: Suodata
+          name: Nimi
+          nickname: Nimimerkki
+          not_officialized: Ei virallista
+          officialize: Officialize
+          officialized: Officialized
+          reofficialize: Reofficialize
+          search: Hae
+          status: Status
+          unofficialize: Unofficialize
+        new:
+          badge: Virkistysmerkki
+          officialize: Officialize
+          title: Virallinen käyttäjä "%{name}"
       organization:
         edit:
           title: Muokkaa organisaatiota
@@ -390,6 +418,7 @@ fi:
         dashboard: Hallintapaneeli
         impersonations: Esiintymiset käyttäjinä
         managed_users: Hallinnoitavat käyttäjät
+        officializations: Officializations
         scope_types: Kontekstityypit
         scopes: Kontekstit
         static_pages: Sivut
