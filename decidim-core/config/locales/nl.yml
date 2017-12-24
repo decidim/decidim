@@ -223,6 +223,8 @@ nl:
     pages:
       index:
         title: Meer informatie
+    profiles:
+      default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn / haar naam of rol is geverifieerd om overeen te komen met zijn / haar echte naam en rol
     reported_mailer:
       hide:
         hello: Hallo %{name},
