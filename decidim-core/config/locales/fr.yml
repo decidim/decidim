@@ -223,6 +223,8 @@ fr:
     pages:
       index:
         title: Plus d'information
+    profiles:
+      default_officialization_text: Ce participant a été vérifié de façon publique. Son nom ou son rôle correspond avec son vrai nom ou rôle
     reported_mailer:
       hide:
         hello: Bonjour %{name},
