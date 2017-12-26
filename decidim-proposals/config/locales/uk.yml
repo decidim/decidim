@@ -81,6 +81,9 @@ uk:
       create:
         error: При збереженні цієї пропозиції сталися помилки.
         success: Пропозицію успішно додано.
+      events:
+        create_proposal_event:
+          email_subject: Нова пропозиція від %{author_nickname}
       models:
         proposal:
           fields:
