@@ -313,6 +313,18 @@ ru:
         update:
           error: При обновлении этой рассылки новостей произошла ошибка.
           success: Рассылка новостей успешно обновлена. Пожалуйста, просмотрите её перед отправкой.
+      officializations:
+        index:
+          actions: Действия
+          badge: Знак отличия
+          created_at: 'Создано:'
+          filter:
+            all: Все
+          filter_by: 'Отобрать по признаку:'
+          name: Имя
+          nickname: Псевдоним
+          search: Искать
+          status: Состояние
       organization:
         edit:
           title: Редактировать организацию
