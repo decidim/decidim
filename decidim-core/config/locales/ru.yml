@@ -238,6 +238,14 @@ ru:
       create:
         error: При создании жалобы возникла ошибка. Повторите, пожалуйста, попытку.
         success: Жалоба была успешно создана, и она будет рассмотрена администратором.
+    scopes:
+      global: Всеобщий охват
+      picker:
+        cancel: Отменить
+        choose: Выбрать
+        title: Выберите %{field}
+      prompt: Выбрать охват
+      scopes: Охваты
     shared:
       action_authorization_modal:
         expired:
