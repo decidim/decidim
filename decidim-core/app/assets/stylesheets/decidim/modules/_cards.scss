@@ -150,6 +150,10 @@ $datetime-bg: $primary;
   }
 }
 
+.card__footer--transparent {
+  background: transparent;
+}
+
 .card__footer--data{
   display: flex;
   align-items: center;
@@ -194,6 +198,9 @@ $datetime-bg: $primary;
   display: flex;
   flex-wrap: wrap;
 }
+.card-data--blog {
+  justify-content: flex-end;
+}
 .card-data__item{
   display: inline-block;
   flex-basis: 33.33%;
@@ -216,6 +223,10 @@ $datetime-bg: $primary;
   font-size: rem-calc(20);
   color: $body-font-color;
   margin-bottom: .2rem;
+}
+.card-data__item--blog {
+  padding: 1.25em 2em;
+  flex: 0 0 auto;
 }
 
 /* Card popularity */

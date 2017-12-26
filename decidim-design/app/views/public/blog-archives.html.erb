@@ -9,8 +9,410 @@
 <main>
   <div class="wrapper">
     <%= partial "process_header_home" %>
-    <div class="row column">
-      MAÑO
+    <div class="row columns">
+      <div class="m-bottom">
+        <%= link_to page_path("blog") do %>
+          <%= icon "chevron-left", class: "icon--small" %> Volver
+        <% end %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns mediumlarge-4 large-3">
+        <%= partial "filters_small_view" %>
+        <div class="card card--secondary show-for-mediumlarge">
+          <%= partial "filters" %>
+        </div>
+      </div>
+      <div class="columns mediumlarge-8 large-9">
+        <%= partial "order_by" %>
+        <div class="row small-up-1 medium-up-2 mediumlarge-up-1 large-up-2 card-grid">
+          <div class="column">
+            <article class="card card--blog">
+              <div class="card__content">
+                <div class="card__header">
+                  <%= link_to page_path("blog-view"), class: "card__link" do %>
+                    <h5 class="card__title">
+                      Exercitationem qui, error ad quas aut ea veritatis eligendi doloribus nobis, quam.
+                    </h5>
+                  <% end %>
+                  <div class="card__author author-data author-data--small">
+                    <div class="author-data__main">
+                      <div class="author author--inline">
+                        <a href="#" class="author__avatar author__avatar--small">
+                          <%= image_tag "demo-avatar.jpg" %>
+                        </a>
+                        <a href="#" class="author__name">
+                          Author
+                        </a>
+                        <a href="#" class="author__nickname">
+                          @author
+                        </a>
+                        <%= icon "verification-badge", class: "author__verified" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam…</p>
+                  <a href="#">Economia col·laborativa i gestió</a>
+              </div>
+              <div class="card__footer card__footer--transparent">
+                <ul class="card-data card-data--blog">
+                  <li class="card-data__item card-data__item--blog"></li>
+                  <li class="card-data__item card-data__item--blog">
+                    01/08/2016
+                  </li>
+                  <li class="card-data__item card-data__item--blog">
+                    <a href="#comments" title="Comentarios">
+                      <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+                      23
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--blog">
+              <div class="card__content">
+                <div class="card__header">
+                  <%= link_to page_path("blog-view"), class: "card__link" do %>
+                    <h5 class="card__title">
+                      Exercitationem qui, error ad quas aut ea veritatis eligendi doloribus nobis, quam.
+                    </h5>
+                  <% end %>
+                  <div class="card__author author-data author-data--small">
+                    <div class="author-data__main">
+                      <div class="author author--inline">
+                        <a href="#" class="author__avatar author__avatar--small">
+                          <%= image_tag "demo-avatar.jpg" %>
+                        </a>
+                        <a href="#" class="author__name">
+                          Author
+                        </a>
+                        <a href="#" class="author__nickname">
+                          @author
+                        </a>
+                        <%= icon "verification-badge", class: "author__verified" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam…</p>
+                  <a href="#">Economia col·laborativa i gestió</a>
+              </div>
+              <div class="card__footer card__footer--transparent">
+                <ul class="card-data card-data--blog">
+                  <li class="card-data__item card-data__item--blog"></li>
+                  <li class="card-data__item card-data__item--blog">
+                    01/08/2016
+                  </li>
+                  <li class="card-data__item card-data__item--blog">
+                    <a href="#comments" title="Comentarios">
+                      <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+                      23
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--blog">
+              <div class="card__content">
+                <div class="card__header">
+                  <%= link_to page_path("blog-view"), class: "card__link" do %>
+                    <h5 class="card__title">
+                      Exercitationem qui, error ad quas aut ea veritatis eligendi doloribus nobis, quam.
+                    </h5>
+                  <% end %>
+                  <div class="card__author author-data author-data--small">
+                    <div class="author-data__main">
+                      <div class="author author--inline">
+                        <a href="#" class="author__avatar author__avatar--small">
+                          <%= image_tag "demo-avatar.jpg" %>
+                        </a>
+                        <a href="#" class="author__name">
+                          Author
+                        </a>
+                        <a href="#" class="author__nickname">
+                          @author
+                        </a>
+                        <%= icon "verification-badge", class: "author__verified" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam…</p>
+                  <a href="#">Economia col·laborativa i gestió</a>
+              </div>
+              <div class="card__footer card__footer--transparent">
+                <ul class="card-data card-data--blog">
+                  <li class="card-data__item card-data__item--blog"></li>
+                  <li class="card-data__item card-data__item--blog">
+                    01/08/2016
+                  </li>
+                  <li class="card-data__item card-data__item--blog">
+                    <a href="#comments" title="Comentarios">
+                      <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+                      23
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--blog">
+              <div class="card__content">
+                <div class="card__header">
+                  <%= link_to page_path("blog-view"), class: "card__link" do %>
+                    <h5 class="card__title">
+                      Exercitationem qui, error ad quas aut ea veritatis eligendi doloribus nobis, quam.
+                    </h5>
+                  <% end %>
+                  <div class="card__author author-data author-data--small">
+                    <div class="author-data__main">
+                      <div class="author author--inline">
+                        <a href="#" class="author__avatar author__avatar--small">
+                          <%= image_tag "demo-avatar.jpg" %>
+                        </a>
+                        <a href="#" class="author__name">
+                          Author
+                        </a>
+                        <a href="#" class="author__nickname">
+                          @author
+                        </a>
+                        <%= icon "verification-badge", class: "author__verified" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam…</p>
+                  <a href="#">Economia col·laborativa i gestió</a>
+              </div>
+              <div class="card__footer card__footer--transparent">
+                <ul class="card-data card-data--blog">
+                  <li class="card-data__item card-data__item--blog"></li>
+                  <li class="card-data__item card-data__item--blog">
+                    01/08/2016
+                  </li>
+                  <li class="card-data__item card-data__item--blog">
+                    <a href="#comments" title="Comentarios">
+                      <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+                      23
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--blog">
+              <div class="card__content">
+                <div class="card__header">
+                  <%= link_to page_path("blog-view"), class: "card__link" do %>
+                    <h5 class="card__title">
+                      Exercitationem qui, error ad quas aut ea veritatis eligendi doloribus nobis, quam.
+                    </h5>
+                  <% end %>
+                  <div class="card__author author-data author-data--small">
+                    <div class="author-data__main">
+                      <div class="author author--inline">
+                        <a href="#" class="author__avatar author__avatar--small">
+                          <%= image_tag "demo-avatar.jpg" %>
+                        </a>
+                        <a href="#" class="author__name">
+                          Author
+                        </a>
+                        <a href="#" class="author__nickname">
+                          @author
+                        </a>
+                        <%= icon "verification-badge", class: "author__verified" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam…</p>
+                  <a href="#">Economia col·laborativa i gestió</a>
+              </div>
+              <div class="card__footer card__footer--transparent">
+                <ul class="card-data card-data--blog">
+                  <li class="card-data__item card-data__item--blog"></li>
+                  <li class="card-data__item card-data__item--blog">
+                    01/08/2016
+                  </li>
+                  <li class="card-data__item card-data__item--blog">
+                    <a href="#comments" title="Comentarios">
+                      <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+                      23
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--blog">
+              <div class="card__content">
+                <div class="card__header">
+                  <%= link_to page_path("blog-view"), class: "card__link" do %>
+                    <h5 class="card__title">
+                      Exercitationem qui, error ad quas aut ea veritatis eligendi doloribus nobis, quam.
+                    </h5>
+                  <% end %>
+                  <div class="card__author author-data author-data--small">
+                    <div class="author-data__main">
+                      <div class="author author--inline">
+                        <a href="#" class="author__avatar author__avatar--small">
+                          <%= image_tag "demo-avatar.jpg" %>
+                        </a>
+                        <a href="#" class="author__name">
+                          Author
+                        </a>
+                        <a href="#" class="author__nickname">
+                          @author
+                        </a>
+                        <%= icon "verification-badge", class: "author__verified" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam…</p>
+                  <a href="#">Economia col·laborativa i gestió</a>
+              </div>
+              <div class="card__footer card__footer--transparent">
+                <ul class="card-data card-data--blog">
+                  <li class="card-data__item card-data__item--blog"></li>
+                  <li class="card-data__item card-data__item--blog">
+                    01/08/2016
+                  </li>
+                  <li class="card-data__item card-data__item--blog">
+                    <a href="#comments" title="Comentarios">
+                      <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+                      23
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--blog">
+              <div class="card__content">
+                <div class="card__header">
+                  <%= link_to page_path("blog-view"), class: "card__link" do %>
+                    <h5 class="card__title">
+                      Exercitationem qui, error ad quas aut ea veritatis eligendi doloribus nobis, quam.
+                    </h5>
+                  <% end %>
+                  <div class="card__author author-data author-data--small">
+                    <div class="author-data__main">
+                      <div class="author author--inline">
+                        <a href="#" class="author__avatar author__avatar--small">
+                          <%= image_tag "demo-avatar.jpg" %>
+                        </a>
+                        <a href="#" class="author__name">
+                          Author
+                        </a>
+                        <a href="#" class="author__nickname">
+                          @author
+                        </a>
+                        <%= icon "verification-badge", class: "author__verified" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam…</p>
+                  <a href="#">Economia col·laborativa i gestió</a>
+              </div>
+              <div class="card__footer card__footer--transparent">
+                <ul class="card-data card-data--blog">
+                  <li class="card-data__item card-data__item--blog"></li>
+                  <li class="card-data__item card-data__item--blog">
+                    01/08/2016
+                  </li>
+                  <li class="card-data__item card-data__item--blog">
+                    <a href="#comments" title="Comentarios">
+                      <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+                      23
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+          <div class="column">
+            <article class="card card--blog">
+              <div class="card__content">
+                <div class="card__header">
+                  <%= link_to page_path("blog-view"), class: "card__link" do %>
+                    <h5 class="card__title">
+                      Exercitationem qui, error ad quas aut ea veritatis eligendi doloribus nobis, quam.
+                    </h5>
+                  <% end %>
+                  <div class="card__author author-data author-data--small">
+                    <div class="author-data__main">
+                      <div class="author author--inline">
+                        <a href="#" class="author__avatar author__avatar--small">
+                          <%= image_tag "demo-avatar.jpg" %>
+                        </a>
+                        <a href="#" class="author__name">
+                          Author
+                        </a>
+                        <a href="#" class="author__nickname">
+                          @author
+                        </a>
+                        <%= icon "verification-badge", class: "author__verified" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua. Ut enim ad minim veniam…</p>
+                  <a href="#">Economia col·laborativa i gestió</a>
+              </div>
+              <div class="card__footer card__footer--transparent">
+                <ul class="card-data card-data--blog">
+                  <li class="card-data__item card-data__item--blog"></li>
+                  <li class="card-data__item card-data__item--blog">
+                    01/08/2016
+                  </li>
+                  <li class="card-data__item card-data__item--blog">
+                    <a href="#comments" title="Comentarios">
+                      <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+                      23
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+        <%= partial "pagination" %>
+      </div>
     </div>
   </div>
 </main>
