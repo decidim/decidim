@@ -81,6 +81,9 @@ ru:
       create:
         error: При сохранении этого предложения произошли ошибки.
         success: Предложение успешно внесено.
+      events:
+        create_proposal_event:
+          email_subject: Новое предложение от %{author_nickname}
       models:
         proposal:
           fields:
