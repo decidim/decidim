@@ -6,91 +6,157 @@
 
 <%= partial "template_top" %>
 
-<style media="screen">
-
-
-</style>
-
-<main class="wrapper">
-  <%= partial "process_header_home" %>
-  <div class="row column">
-		<div class="row">
-			<div class="columns medium-7 mediumlarge-8">
-
-      </div>
-      <div class="columns medium-5 mediumlarge-4 large-4">
-        <div class="section">
-          <article class="card">
-            <div class="card__content card__content--center">
-              <button class="button button--sc">Seguir blog</button>
-              <div class="">
-                Recibe una notificación cuando se publiquen nuevos artículos.
+<main>
+  <div class="wrapper">
+    <%= partial "process_header_home" %>
+    <div class="row column">
+      <div class="row">
+        <div class="columns medium-7 mediumlarge-8">
+          <div class="row column view-header">
+            <h2 class="heading2">Cobriment de la Ronda de Dalt al seu pas per
+              la Vall d'Hebrón</h2>
+              <div class="author-data">
+                <div class="author-data__main">
+                  <div class="author author--inline">
+                    <a href="#" class="author__avatar">
+                      <%= image_tag "demo-avatar.jpg" %>
+                    </a>
+                    <a href="#" class="author__name">
+                      Ajuntament de Barcelona
+                    </a>
+                    <a href="#" class="author__nickname">
+                      @ajuntament_bcn
+                    </a>
+                    <%= icon "verification-badge", class: "author__verified" %>
+                  </div>
+                </div>
+                <div class="author-data__extra">
+                  01/02/2014&nbsp;&nbsp;·&nbsp;&nbsp;Medio Ambiente&nbsp;&nbsp;·&nbsp;&nbsp;
+                  <a href="#comments" title="Comentarios">
+                    <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 108 comentarios
+                  </a>
+                </div>
               </div>
             </div>
-          </article>
-        </div>
-        <div class="section">
-          <div class="section-heading-sidebar">
-            <%= icon "heading" %>
-            Artículos con más actividad
-          </div>
-          <div class="m-bottom">
-            <strong>Lorem ipsum dolor sit amet, consectetur.</strong>
-            <div class="author-data author-data--nopadding">
-              01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
-              <a href="#comments" title="Comentarios">
-                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
-              </a>
+            <div class="section">
+              <p>
+                Millores en un conjunt de carrers dels barris del districte que
+                incorporin la renovació integral de les seves infraestructures
+                (voreres, accessibilitat, asfaltat, enllumenat, clavegueram,
+                arbrat, mobiliari urbà...), Interiors de Canyelles, Guineueta
+                i Aiguablava-Portlligat i Amilcar-Cartellà-Av. de Borbó-Maragall,
+                connexió del carrer Pedraforca amb Agudes, accessibilitat i
+                enllumenat a Renfe Meridiana, urbanització de Nou Pins, Mina de la
+                ciutat, Canfranc, Oristà i Almansa, pèrgola del Campillo de la
+                virgen i del parc de Serra Martí, redacció del projecte del
+                passeig de la Peira, reforma de les escales de Matagalls, millores
+                a l'Av. de Borbó i projecte d'intervenció a la Font Pla de
+                Fornells. <em>Millores en el Parc de la Guineueta incloent un espai
+                d'aparells per a la gent gran. Estudi de la viabilitat tècnica
+                d'instal·lar escales mecàniques entre Ciutat Meridiana i Torre
+                Baró per millorar la connectivitat entre els dos barris o millora
+                de l'escala actual</em>. Millores d'accessibilitat, arranjaments i
+                enllumenat en l'àmbit de Renfe Meridiana. Millores en la
+                urbanització per a l'accessibilitat d'acord amb les
+                particularitats orogràfiques al barri de Roquetes.
+              </p>
+              <p>&nbsp;</p>
+              <p>
+                <strong>Lorem ipsum dolor sit amet.</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus soluta ipsum ab maiores explicabo, dicta, dolor asperiores, voluptates possimus tenetur vel doloremque aspernatur deleniti ducimus sed. Cum unde omnis, hic architecto itaque facere voluptatem sint. Commodi nam, animi quisquam quaerat. Expedita laboriosam maxime porro optio!
+              </p>
+              <ul>
+                <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae provident veritatis, a hic iusto blanditiis.</li>
+                <li>Sint quam adipisci officiis suscipit deleniti totam atque, eum reprehenderit delectus architecto tenetur, <em>consectetur quasi</em>!</li>
+                <li>In voluptates doloribus, illum, libero, corporis ullam hic blanditiis quisquam, modi iure animi. Temporibus, nisi!</li>
+              </ul>
+              <p>&nbsp;</p>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident ratione corporis, similique. <strong>Deserunt sed neque voluptas a non molestias voluptatibus distinctio suscipit assumenda illo blanditiis dignissimos, laudantium quidem consectetur in dolor voluptatum magnam laborum libero, dolores accusantium praesentium quam asperiores aliquam</strong>. Optio eos sunt officiis minima aut placeat omnis, maiores.</p>
             </div>
           </div>
-          <div class="m-bottom">
-            <strong>Lorem amet, consectetur adipisicing elit.</strong>
-            <div class="author-data author-data--nopadding">
-              01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
-              <a href="#comments" title="Comentarios">
-                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
-              </a>
+        <!-- Sidebar -->
+        <div class="columns medium-5 mediumlarge-4 large-4">
+          <div class="section">
+            <article class="card">
+              <div class="card__content card__content--center">
+                <button class="button button--sc success"><%= icon "check", class: "icon--small"%> Siguiendo</button>
+                <div class="">
+                  Recibe una notificación cuando se publiquen nuevos artículos.
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="section">
+            <div class="section-heading-sidebar">
+              <%= icon "heading" %>
+              Artículos con más actividad
+            </div>
+            <div class="m-bottom">
+              <strong>Lorem ipsum dolor sit amet, consectetur.</strong>
+              <div class="author-data author-data--nopadding">
+                01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
+                <a href="#comments" title="Comentarios">
+                  <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
+                </a>
+              </div>
+            </div>
+            <div class="m-bottom">
+              <strong>Lorem amet, consectetur adipisicing elit.</strong>
+              <div class="author-data author-data--nopadding">
+                01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
+                <a href="#comments" title="Comentarios">
+                  <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
+                </a>
+              </div>
+            </div>
+            <div class="m-bottom">
+              <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</strong>
+              <div class="author-data author-data--nopadding">
+                01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
+                <a href="#comments" title="Comentarios">
+                  <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
+                </a>
+              </div>
+            </div>
+            <div class="m-bottom">
+              <strong>Lorem ipsum dolor adipisicing elit.</strong>
+              <div class="author-data author-data--nopadding">
+                01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
+                <a href="#comments" title="Comentarios">
+                  <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
+                </a>
+              </div>
             </div>
           </div>
-          <div class="m-bottom">
-            <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</strong>
-            <div class="author-data author-data--nopadding">
-              01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
-              <a href="#comments" title="Comentarios">
-                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
-              </a>
+          <div class="section">
+            <div class="section-heading-sidebar">
+              <%= icon "heading" %>
+              Categorías
+            </div>
+            <div class="m-bottom">
+              <strong>Medio Ambiente</strong>
+              <div class="author-data author-data--nopadding">12 artículos</div>
             </div>
           </div>
-          <div class="m-bottom">
-            <strong>Lorem ipsum dolor adipisicing elit.</strong>
-            <div class="author-data author-data--nopadding">
-              01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
-              <a href="#comments" title="Comentarios">
-                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
-              </a>
+          <div class="section">
+            <div class="section-heading-sidebar">
+              <%= icon "heading" %>
+              Archivo
+            </div>
+            <div class="m-bottom">
+              <span class="author-data author-data--nopadding">Ver archivo de artículos</span>
             </div>
           </div>
         </div>
-        <div class="section">
-          <div class="section-heading-sidebar">
-            <%= icon "heading" %>
-            Categorías
-          </div>
-          <div class="m-bottom">
-            <strong>Medio Ambiente</strong>
-            <div class="author-data author-data--nopadding">12 artículos</div>
-          </div>
+      </div>
+    </div>
+  </div>
+  <div class="expanded">
+    <div class="wrapper wrapper--inner">
+      <div class="row">
+        <div class="columns large-9" id="comments">
+          <%= partial "comments" %>
         </div>
-        <div class="section">
-          <div class="section-heading-sidebar">
-            <%= icon "heading" %>
-            Archivo
-          </div>
-          <div class="m-bottom">
-            <span class="author-data author-data--nopadding">Ver archivo de artículos</span>
-          </div>
-        </div>
-			</div>
+      </div>
     </div>
   </div>
 </main>
