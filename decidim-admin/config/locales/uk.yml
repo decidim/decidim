@@ -313,6 +313,18 @@ uk:
         update:
           error: При оновленні цього випуску новин сталася помилка.
           success: Випуск новин успішно оновлено. Будь ласка, перегляньте його перед відправленням.
+      officializations:
+        index:
+          actions: Дії
+          badge: Відзнака
+          created_at: 'Створено:'
+          filter:
+            all: Усі
+          filter_by: 'Відібрати за ознакою:'
+          name: Ім'я
+          nickname: Псевдонім
+          search: Шукати
+          status: Стан
       organization:
         edit:
           title: Редагувати організацію
