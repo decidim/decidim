@@ -12,6 +12,7 @@
     font-weight: bold;
     text-transform: uppercase;
   }
+
   .card__content--center {
     text-align: center;
   }
@@ -23,6 +24,16 @@
   .author__verified {
     display: inline-block;
     vertical-align: middle;
+  }
+
+  .section-heading-sidebar {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+
+  .section-heading-sidebar svg {
+    fill: #ef604d; /* $primary */
   }
 
 </style>
@@ -120,7 +131,8 @@
           </article>
         </div>
         <div class="section">
-          <div class="section-heading">
+          <div class="section-heading-sidebar">
+            <%= icon "heading" %>
             Artículos con más actividad
           </div>
           <div class="m-bottom">
@@ -161,7 +173,8 @@
           </div>
         </div>
         <div class="section">
-          <div class="section-heading">
+          <div class="section-heading-sidebar">
+            <%= icon "heading" %>
             Categorías
           </div>
           <div class="m-bottom">
@@ -170,7 +183,8 @@
           </div>
         </div>
         <div class="section">
-          <div class="section-heading">
+          <div class="section-heading-sidebar">
+            <%= icon "heading" %>
             Archivo
           </div>
           <div class="m-bottom">
