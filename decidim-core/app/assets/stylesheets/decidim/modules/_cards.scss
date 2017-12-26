@@ -46,6 +46,10 @@ $datetime-bg: $primary;
   }
 }
 
+.card__content--center {
+  text-align: center;
+}
+
 .card__extra{
   background: $card-secondary-bg;
   padding: $card-padding-small;
@@ -53,6 +57,11 @@ $datetime-bg: $primary;
 
 .card__title{
   @extend .heading5;
+}
+
+.card__title--strong {
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .card__header{

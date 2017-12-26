@@ -72,6 +72,16 @@ hr{
   }
 }
 
+.section-heading-sidebar {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.25rem;
+
+  svg {
+    fill: $primary;
+  }
+}
+
 .mini-title{
   color: $muted;
   text-transform: uppercase;
