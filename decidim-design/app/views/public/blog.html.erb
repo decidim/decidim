@@ -20,6 +20,11 @@
     padding-left: 0;
   }
 
+  .author__verified {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
 </style>
 
 <main class="wrapper">
@@ -45,8 +50,9 @@
                       Eius veritatis
                     </a>
                     <a href="#" class="author__nickname">
-                      @aperiam_tempora <span class="label label--small label--basic"><%= icon "check", class: "icon--small" %></span>
+                      @aperiam_tempora
                     </a>
+                    <%= icon "verification-badge", class: "author__verified" %>
                   </div>
                 </div>
                 <div class="author-data__extra">
