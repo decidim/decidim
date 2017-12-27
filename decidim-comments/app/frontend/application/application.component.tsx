@@ -1,4 +1,3 @@
-import * as moment from "moment";
 import * as React from "react";
 import { ApolloProvider } from "react-apollo";
 
@@ -20,7 +19,6 @@ export default class Application extends React.Component<ApplicationProps> {
     const { locale } = props;
 
     I18n.setLocale(locale);
-    moment.locale(locale);
 
     super(props);
   }
