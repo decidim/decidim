@@ -73,81 +73,8 @@
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident ratione corporis, similique. <strong>Deserunt sed neque voluptas a non molestias voluptatibus distinctio suscipit assumenda illo blanditiis dignissimos, laudantium quidem consectetur in dolor voluptatum magnam laborum libero, dolores accusantium praesentium quam asperiores aliquam</strong>. Optio eos sunt officiis minima aut placeat omnis, maiores.</p>
             </div>
           </div>
-        <!-- Sidebar -->
         <div class="columns medium-5 mediumlarge-4 large-4">
-          <div class="section">
-            <article class="card">
-              <div class="card__content card__content--center">
-                <button class="button button--sc success"><%= icon "check", class: "icon--small"%> Siguiendo</button>
-                <div class="">
-                  Recibe una notificación cuando se publiquen nuevos artículos.
-                </div>
-              </div>
-            </article>
-          </div>
-          <div class="section">
-            <div class="section-heading-sidebar">
-              <%= icon "heading" %>
-              Artículos con más actividad
-            </div>
-            <div class="m-bottom">
-              <strong>Lorem ipsum dolor sit amet, consectetur.</strong>
-              <div class="author-data author-data--nopadding">
-                01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
-                <a href="#comments" title="Comentarios">
-                  <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
-                </a>
-              </div>
-            </div>
-            <div class="m-bottom">
-              <strong>Lorem amet, consectetur adipisicing elit.</strong>
-              <div class="author-data author-data--nopadding">
-                01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
-                <a href="#comments" title="Comentarios">
-                  <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
-                </a>
-              </div>
-            </div>
-            <div class="m-bottom">
-              <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</strong>
-              <div class="author-data author-data--nopadding">
-                01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
-                <a href="#comments" title="Comentarios">
-                  <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
-                </a>
-              </div>
-            </div>
-            <div class="m-bottom">
-              <strong>Lorem ipsum dolor adipisicing elit.</strong>
-              <div class="author-data author-data--nopadding">
-                01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
-                <a href="#comments" title="Comentarios">
-                  <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 18 comentarios
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="section">
-            <div class="section-heading-sidebar">
-              <%= icon "heading" %>
-              Categorías
-            </div>
-            <div class="m-bottom">
-              <strong>Medio Ambiente</strong>
-              <div class="author-data author-data--nopadding">12 artículos</div>
-            </div>
-          </div>
-          <div class="section">
-            <div class="section-heading-sidebar">
-              <%= icon "heading" %>
-              Archivo
-            </div>
-            <div class="m-bottom">
-              <%= link_to page_path("blog-archives"), class: "card__link" do %>
-              <span class="author-data author-data--nopadding">Ver archivo de artículos</span>
-              <% end %>
-            </div>
-          </div>
+          <%= partial "sidebar" %>
         </div>
       </div>
     </div>
