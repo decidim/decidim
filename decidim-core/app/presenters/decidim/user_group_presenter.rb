@@ -16,7 +16,7 @@ module Decidim
     def badge
       return "" unless verified?
 
-      I18n.t("decidim.shared.author.verified_user_group")
+      "verified-badge"
     end
 
     def profile_path

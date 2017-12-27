@@ -224,6 +224,8 @@ en:
     pages:
       index:
         title: More information
+    profiles:
+      default_officialization_text: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
     reported_mailer:
       hide:
         hello: Hello %{name},
@@ -273,7 +275,6 @@ en:
           title: Not authorized
       author:
         deleted: Deleted user
-        verified_user_group: Verified organization
       embed_modal:
         close_window: Close window
         embed: Please paste this code in your page

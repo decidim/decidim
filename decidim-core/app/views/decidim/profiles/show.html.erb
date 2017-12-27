@@ -2,9 +2,9 @@
 
 <main class="wrapper">
   <% present(user) do |profile_user| %>
-    <div class="row collapse">
+    <div class="user-header row collapse">
       <div class="columns">
-        <div class="user-header">
+        <div class="user-header__main">
           <div class="user-header__avatar">
             <%= image_tag profile_user.avatar_url(:big) %>
           </div>
@@ -17,16 +17,31 @@
                 <%= link_to_current_or_new_conversation_with(user) %>
               </span>
             </div>
+
+          <% if current_user && current_user != user %>
+            <%= render partial: "decidim/shared/follow_button", locals: { followable: user } %>
+          <% end %>
           </h1>
         </div>
       </div>
     </div>
 
-    <div class="row">
-      <div class="columns mediumlarge-12 large-12">
-        <section class="section">
-        </section>
+    <% if profile_user.officialized? %>
+      <div class="row">
+        <div class="mediumlarge-6 large-6">
+          <div class="card">
+            <div class="badge-card__content">
+              <span>
+                <%= icon "verified-badge" %>
+              </span>
+
+              <span>
+                <%= translated_attribute(profile_user.officialized_as).presence || t("decidim.profiles.default_officialization_text") %>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </main>

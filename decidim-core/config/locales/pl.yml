@@ -272,7 +272,6 @@ pl:
           title: Nieautoryzowany
       author:
         deleted: Usunięty użytkownik
-        verified_user_group: Zweryfikowana organizacja
       embed_modal:
         close_window: Zamknij okno
         embed: Proszę wkleić ten kod na swojej stronie

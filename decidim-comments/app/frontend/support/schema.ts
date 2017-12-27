@@ -40,7 +40,7 @@ export interface addCommentMutation {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge
+          // The author's badge icon
           badge: string,
         } | {
           // The author's name
@@ -53,7 +53,7 @@ export interface addCommentMutation {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge
+          // The author's badge icon
           badge: string,
         }
       ),
@@ -96,7 +96,7 @@ export interface addCommentMutation {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge
+            // The author's badge icon
             badge: string,
           } | {
             // The author's name
@@ -109,7 +109,7 @@ export interface addCommentMutation {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge
+            // The author's badge icon
             badge: string,
           }
         ),
@@ -154,7 +154,7 @@ export interface addCommentMutation {
               profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
-              // The author's badge
+              // The author's badge icon
               badge: string,
             } | {
               // The author's name
@@ -167,7 +167,7 @@ export interface addCommentMutation {
               profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
-              // The author's badge
+              // The author's badge icon
               badge: string,
             }
           ),
@@ -212,7 +212,7 @@ export interface addCommentMutation {
                 profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
-                // The author's badge
+                // The author's badge icon
                 badge: string,
               } | {
                 // The author's name
@@ -225,7 +225,7 @@ export interface addCommentMutation {
                 profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
-                // The author's badge
+                // The author's badge icon
                 badge: string,
               }
             ),
@@ -284,7 +284,7 @@ export interface DownVoteMutation {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge
+          // The author's badge icon
           badge: string,
         } | {
           // The author's name
@@ -297,7 +297,7 @@ export interface DownVoteMutation {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge
+          // The author's badge icon
           badge: string,
         }
       ),
@@ -342,7 +342,7 @@ export interface DownVoteMutation {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge
+            // The author's badge icon
             badge: string,
           } | {
             // The author's name
@@ -355,7 +355,7 @@ export interface DownVoteMutation {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge
+            // The author's badge icon
             badge: string,
           }
         ),
@@ -400,7 +400,7 @@ export interface DownVoteMutation {
               profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
-              // The author's badge
+              // The author's badge icon
               badge: string,
             } | {
               // The author's name
@@ -413,7 +413,7 @@ export interface DownVoteMutation {
               profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
-              // The author's badge
+              // The author's badge icon
               badge: string,
             }
           ),
@@ -458,7 +458,7 @@ export interface DownVoteMutation {
                 profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
-                // The author's badge
+                // The author's badge icon
                 badge: string,
               } | {
                 // The author's name
@@ -471,7 +471,7 @@ export interface DownVoteMutation {
                 profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
-                // The author's badge
+                // The author's badge icon
                 badge: string,
               }
             ),
@@ -530,7 +530,7 @@ export interface UpVoteMutation {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge
+          // The author's badge icon
           badge: string,
         } | {
           // The author's name
@@ -543,7 +543,7 @@ export interface UpVoteMutation {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge
+          // The author's badge icon
           badge: string,
         }
       ),
@@ -588,7 +588,7 @@ export interface UpVoteMutation {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge
+            // The author's badge icon
             badge: string,
           } | {
             // The author's name
@@ -601,7 +601,7 @@ export interface UpVoteMutation {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge
+            // The author's badge icon
             badge: string,
           }
         ),
@@ -646,7 +646,7 @@ export interface UpVoteMutation {
               profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
-              // The author's badge
+              // The author's badge icon
               badge: string,
             } | {
               // The author's name
@@ -659,7 +659,7 @@ export interface UpVoteMutation {
               profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
-              // The author's badge
+              // The author's badge icon
               badge: string,
             }
           ),
@@ -704,7 +704,7 @@ export interface UpVoteMutation {
                 profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
-                // The author's badge
+                // The author's badge icon
                 badge: string,
               } | {
                 // The author's name
@@ -717,7 +717,7 @@ export interface UpVoteMutation {
                 profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
-                // The author's badge
+                // The author's badge icon
                 badge: string,
               }
             ),
@@ -806,7 +806,7 @@ export interface GetCommentsQuery {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge
+          // The author's badge icon
           badge: string,
         } | {
           // The author's name
@@ -819,7 +819,7 @@ export interface GetCommentsQuery {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge
+          // The author's badge icon
           badge: string,
         }
       ),
@@ -862,7 +862,7 @@ export interface GetCommentsQuery {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge
+            // The author's badge icon
             badge: string,
           } | {
             // The author's name
@@ -875,7 +875,7 @@ export interface GetCommentsQuery {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge
+            // The author's badge icon
             badge: string,
           }
         ),
@@ -920,7 +920,7 @@ export interface GetCommentsQuery {
               profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
-              // The author's badge
+              // The author's badge icon
               badge: string,
             } | {
               // The author's name
@@ -933,7 +933,7 @@ export interface GetCommentsQuery {
               profilePath: string,
               // Whether the author's account has been deleted or not
               deleted: boolean,
-              // The author's badge
+              // The author's badge icon
               badge: string,
             }
           ),
@@ -978,7 +978,7 @@ export interface GetCommentsQuery {
                 profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
-                // The author's badge
+                // The author's badge icon
                 badge: string,
               } | {
                 // The author's name
@@ -991,7 +991,7 @@ export interface GetCommentsQuery {
                 profilePath: string,
                 // Whether the author's account has been deleted or not
                 deleted: boolean,
-                // The author's badge
+                // The author's badge icon
                 badge: string,
               }
             ),
@@ -1064,7 +1064,7 @@ export interface CommentFragment {
       profilePath: string,
       // Whether the author's account has been deleted or not
       deleted: boolean,
-      // The author's badge
+      // The author's badge icon
       badge: string,
     } | {
       // The author's name
@@ -1077,7 +1077,7 @@ export interface CommentFragment {
       profilePath: string,
       // Whether the author's account has been deleted or not
       deleted: boolean,
-      // The author's badge
+      // The author's badge icon
       badge: string,
     }
   ),
@@ -1122,7 +1122,7 @@ export interface CommentFragment {
         profilePath: string,
         // Whether the author's account has been deleted or not
         deleted: boolean,
-        // The author's badge
+        // The author's badge icon
         badge: string,
       } | {
         // The author's name
@@ -1135,7 +1135,7 @@ export interface CommentFragment {
         profilePath: string,
         // Whether the author's account has been deleted or not
         deleted: boolean,
-        // The author's badge
+        // The author's badge icon
         badge: string,
       }
     ),
@@ -1180,7 +1180,7 @@ export interface CommentFragment {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge
+          // The author's badge icon
           badge: string,
         } | {
           // The author's name
@@ -1193,7 +1193,7 @@ export interface CommentFragment {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge
+          // The author's badge icon
           badge: string,
         }
       ),
@@ -1238,7 +1238,7 @@ export interface CommentFragment {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge
+            // The author's badge icon
             badge: string,
           } | {
             // The author's name
@@ -1251,7 +1251,7 @@ export interface CommentFragment {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge
+            // The author's badge icon
             badge: string,
           }
         ),
@@ -1301,7 +1301,7 @@ export interface CommentDataFragment {
       profilePath: string,
       // Whether the author's account has been deleted or not
       deleted: boolean,
-      // The author's badge
+      // The author's badge icon
       badge: string,
     } | {
       // The author's name
@@ -1314,7 +1314,7 @@ export interface CommentDataFragment {
       profilePath: string,
       // Whether the author's account has been deleted or not
       deleted: boolean,
-      // The author's badge
+      // The author's badge icon
       badge: string,
     }
   ),
@@ -1363,7 +1363,7 @@ export interface CommentThreadFragment {
       profilePath: string,
       // Whether the author's account has been deleted or not
       deleted: boolean,
-      // The author's badge
+      // The author's badge icon
       badge: string,
     } | {
       // The author's name
@@ -1376,7 +1376,7 @@ export interface CommentThreadFragment {
       profilePath: string,
       // Whether the author's account has been deleted or not
       deleted: boolean,
-      // The author's badge
+      // The author's badge icon
       badge: string,
     }
   ),
@@ -1419,7 +1419,7 @@ export interface CommentThreadFragment {
         profilePath: string,
         // Whether the author's account has been deleted or not
         deleted: boolean,
-        // The author's badge
+        // The author's badge icon
         badge: string,
       } | {
         // The author's name
@@ -1432,7 +1432,7 @@ export interface CommentThreadFragment {
         profilePath: string,
         // Whether the author's account has been deleted or not
         deleted: boolean,
-        // The author's badge
+        // The author's badge icon
         badge: string,
       }
     ),
@@ -1477,7 +1477,7 @@ export interface CommentThreadFragment {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge
+          // The author's badge icon
           badge: string,
         } | {
           // The author's name
@@ -1490,7 +1490,7 @@ export interface CommentThreadFragment {
           profilePath: string,
           // Whether the author's account has been deleted or not
           deleted: boolean,
-          // The author's badge
+          // The author's badge icon
           badge: string,
         }
       ),
@@ -1535,7 +1535,7 @@ export interface CommentThreadFragment {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge
+            // The author's badge icon
             badge: string,
           } | {
             // The author's name
@@ -1548,7 +1548,7 @@ export interface CommentThreadFragment {
             profilePath: string,
             // Whether the author's account has been deleted or not
             deleted: boolean,
-            // The author's badge
+            // The author's badge icon
             badge: string,
           }
         ),
