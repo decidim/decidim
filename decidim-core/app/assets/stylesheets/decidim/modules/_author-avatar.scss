@@ -124,3 +124,9 @@ a:hover .author__name{
   display: inline-block;
   vertical-align: middle;
 }
+
+.comment-data {
+  @extend .author-data;
+
+  padding-left: 0;
+}
