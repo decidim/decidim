@@ -220,6 +220,7 @@ fr:
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs
+        navbar_links: Liens de navigation
       models:
         attachment:
           fields:
@@ -395,6 +396,7 @@ fr:
         static_pages: Pages
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs
+        navbar_links: Liens de navigation
       user_group:
         reject:
           invalid: Une erreur s'est produite lors du rejet de ce groupe d'utilisateurs.
@@ -429,6 +431,11 @@ fr:
         new:
           create: Inviter
           title: Inviter l'utilisateur en tant qu'administrateur
+      navbar_links:
+        no_links: Vous n'avez pas créé de lien
+        new:
+          title: Nouveau lien de navigation
+          create: Créer
     moderations:
       actions:
         hidden: Masqués

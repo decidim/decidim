@@ -221,6 +221,7 @@ en:
         static_pages: Pages
         user_groups: User groups
         users: Users
+        navbar_links: Navbar links
       models:
         attachment:
           fields:
@@ -396,6 +397,7 @@ en:
         static_pages: Pages
         user_groups: User groups
         users: Users
+        navbar_links: Navbar links
       user_group:
         reject:
           invalid: There was an error when rejecting this user group.
@@ -430,6 +432,11 @@ en:
         new:
           create: Invite
           title: Invite user as administrator
+      navbar_links:
+        no_links: No links created
+        new:
+          title: New navbar link
+          create: Create
     moderations:
       actions:
         hidden: Hidden

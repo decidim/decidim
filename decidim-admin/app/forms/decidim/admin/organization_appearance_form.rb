@@ -24,6 +24,7 @@ module Decidim
       attribute :show_statistics, Boolean
       attribute :header_snippets, String
       attribute :cta_button_path, String
+      attribute :navbar_links, String
 
       translatable_attribute :cta_button_text, String
       translatable_attribute :description, String
