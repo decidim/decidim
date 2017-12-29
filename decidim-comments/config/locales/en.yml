@@ -10,7 +10,7 @@ en:
             email_subject: There is a new comment from %{author_name} in %{resource_title}
             notification_title: There is a new comment from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
             moderation:
-              email_intro: 'A new comment has been posted, you can moderate it in this page:'
+              email_intro: '%{author_name} published a comment on'
               email_subject: 'New comment from %{author_name} waiting for moderation'
           reply:
             email_intro: The "%{resource_title}" has been commented
@@ -18,7 +18,7 @@ en:
             email_subject: There is a new reply of your comment from %{author_name} in <a href="%{resource_url}">%{resource_title}</a>
             notification_title: There is a new reply of your comment from %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
             moderation:
-              email_intro: 'A new comment has been posted, you can moderate it in this page:'
+              email_intro: '%{author_name} published a comment on'
               email_subject: 'New comment from %{author_name} waiting for moderation'
       votes:
         create:

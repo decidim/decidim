@@ -18,7 +18,8 @@ module Decidim
       def email_moderation_intro
         I18n.t(
           "decidim.events.proposal_created.moderation.email_intro",
-          resource_title: resource_title
+          resource_title: resource_title,
+          author_name: proposal.author.name
         ).html_safe
       end
 
