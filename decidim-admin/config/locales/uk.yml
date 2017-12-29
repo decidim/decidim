@@ -333,8 +333,14 @@ uk:
           not_officialized: Не має офіційного статусу
           officialize: Надати офіційний статус
           officialized: Має офіційний статус
+          reofficialize: Знову надати офіційний статус
           search: Шукати
           status: Стан
+          unofficialize: Скасувати офіційний статус
+        new:
+          badge: Відзнака надання офіційного статусу
+          officialize: Надати офіційний статус
+          title: Надати офіційний статус учаснику "%{name}"
       organization:
         edit:
           title: Редагувати організацію
@@ -412,6 +418,7 @@ uk:
         dashboard: Приладна дошка
         impersonations: Виступи в ролі учасника
         managed_users: Керовані учасники
+        officializations: Надання офіційного статусу
         scope_types: Різновиди терену
         scopes: Терени
         static_pages: Сторінки
