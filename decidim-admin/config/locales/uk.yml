@@ -214,6 +214,7 @@ uk:
         dashboard: Приладна дошка
         managed_users: Керовані учасники
         newsletters: Розсилання новин
+        officializations: Надання офіційного статусу
         scope_types: Різновиди терену
         scopes: Терени
         settings: Налаштування
@@ -314,15 +315,24 @@ uk:
           error: При оновленні цього випуску новин сталася помилка.
           success: Випуск новин успішно оновлено. Будь ласка, перегляньте його перед відправленням.
       officializations:
+        create:
+          success: Учаснику успішно надано офіційний статус
+        destroy:
+          success: Офіційний статус учасника успішно скасовано
         index:
           actions: Дії
           badge: Відзнака
           created_at: 'Створено:'
           filter:
             all: Усі
+            not_officialized: Не має офіційного статусу
+            officialized: Має офіційний статус
           filter_by: 'Відібрати за ознакою:'
           name: Ім'я
           nickname: Псевдонім
+          not_officialized: Не має офіційного статусу
+          officialize: Надати офіційний статус
+          officialized: Має офіційний статус
           search: Шукати
           status: Стан
       organization:
