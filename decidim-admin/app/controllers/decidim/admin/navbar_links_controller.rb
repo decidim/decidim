@@ -10,7 +10,7 @@ module Decidim
 
       def index
         authorize! :index, NavbarLink
-        @navbar_links = NavbarLink.current_organization_links(current_organization)
+        @navbar_links = current_organization.navbar_links
       end
 
       def new
