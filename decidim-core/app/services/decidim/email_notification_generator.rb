@@ -49,15 +49,27 @@ module Decidim
       return unless recipient
       return unless recipient.email_on_notification?
 
-      NotificationMailer
-        .event_received(
-          event,
-          event_class.name,
-          resource,
-          recipient,
-          extra
-        )
-        .deliver_later
+      if @extra[:new_content]
+        NotificationMailer
+          .new_content_received(
+            event,
+            event_class.name,
+            resource,
+            recipient,
+            extra
+          )
+          .deliver_later
+      else
+        NotificationMailer
+          .event_received(
+            event,
+            event_class.name,
+            resource,
+            recipient,
+            extra
+          )
+          .deliver_later
+      end
     end
   end
 end

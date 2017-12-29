@@ -33,10 +33,5 @@ module Decidim
         reportable.root_commentable.feature.settings.comments_upstream_moderation_enabled
       end
     end
-
-    # def get_upstream_moderation
-
-    #   return self if upstream_activated?
-    # end
   end
 end

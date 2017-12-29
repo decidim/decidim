@@ -37,9 +37,7 @@ module Decidim
           create_attachment if process_attachments?
         end
 
-        if @proposal.moderation.upstream_activated?
-          send_notification_to_moderators
-        end
+        send_notification_to_moderators
         broadcast(:ok, proposal)
       end
 
@@ -69,7 +67,8 @@ module Decidim
           resource: @proposal,
           recipient_ids: (@proposal.users_to_notify_on_proposal_created - [@proposal.author]).pluck(:id),
           extra: {
-            moderation_event: true,
+            moderation_event: @proposal.moderation.upstream_activated? ? true : false,
+            new_content: true,
             process_slug: @proposal.feature.participatory_space.slug
           }
         )

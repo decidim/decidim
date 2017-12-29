@@ -1,0 +1,25 @@
+<p><%= @event_instance.email_moderation_intro %>
+  <% if @is_proposal %>
+    <%= translated_attribute(@parent_title) %> <!-- Translate title if object is a proposal -->
+  <% else %>
+    <%= @parent_title %>
+  <% end %>
+</p>
+
+<h6 class="content-title"> <%= @resource_title %> </h6>
+
+<p> <%= @body %> </p>
+
+<!-- link to show  -->
+<p>
+  <%= t("decidim.events.proposal_created.moderation.url") %>
+  <%= @event_instance.resource_url %>
+</p>
+
+<!-- link to dashboard moderation  -->
+<%if @moderation%>
+  <p>
+    <%= t("decidim.events.proposal_created.moderation.moderation_url") %>
+    <%= @moderation_url %>
+  </p>
+<%end%>
