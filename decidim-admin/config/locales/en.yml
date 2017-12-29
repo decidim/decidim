@@ -278,6 +278,10 @@ en:
             phone: Phone
             state: State
             users_count: Users count
+        navbar_link:
+          fields:
+            title: Title
+            link: Link
       moderations:
         index:
           title: Moderations

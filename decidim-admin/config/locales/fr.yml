@@ -277,6 +277,10 @@ fr:
             phone: Téléphone
             state: État
             users_count: Nombre d'utilisateurs
+        navbar_link:
+          fields:
+            title: Titre
+            link: Lien
       moderations:
         index:
           title: Modérations

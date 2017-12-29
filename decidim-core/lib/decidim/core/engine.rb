@@ -151,7 +151,7 @@ module Decidim
                     decidim.pages_path,
                     position: 3,
                     active: :inclusive
-          Decidim::Admin::NavbarLink.current_organization_links(current_organization).each do |navbar_link|
+          Decidim::NavbarLink.current_organization_links(current_organization).each do |navbar_link|
             menu.item translated_attribute(navbar_link.title),
                       "http://#{navbar_link.link}",
                       position: 4,

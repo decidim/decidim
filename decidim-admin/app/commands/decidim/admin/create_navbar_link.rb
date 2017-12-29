@@ -29,7 +29,7 @@ module Decidim
       attr_reader :form
 
       def create_navbar_link
-        NavbarLink.create!(
+        Decidim::NavbarLink.create!(
           title: form.title,
           link: form.link,
           decidim_organization_id: form.organization_id
