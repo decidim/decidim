@@ -4,9 +4,9 @@
       <h2 class="card-title">
         <%= t(".title.upstream") %>
         <div class="card__filter">
-          <%= link_to t("index.unmoderated", scope: "decidim.admin.moderations"), moderations_path( moderation_type: "upstream") %>
+          <%= link_to t("index.unmoderated", scope: "decidim.admin.moderations"), moderations_path(moderation_type: "upstream"), class: "#{'bold' unless @moderated_or_hidden}" %>
           |
-          <%= link_to t("index.moderated", scope: "decidim.admin.moderations"), moderations_path(moderated: true, moderation_type: "upstream") %>
+          <%= link_to t("index.moderated", scope: "decidim.admin.moderations"), moderations_path(moderated: true, moderation_type: "upstream"), class: "#{'bold' if @moderated_or_hidden}" %>
         </div>
       </h2>
     </div>
@@ -16,9 +16,9 @@
       <h2 class="card-title">
         <%= t(".title.downstream") %>
         <div class="card__filter">
-          <%= link_to t("actions.not_hidden", scope: "decidim.moderations"), moderations_path( moderation_type: "downstream") %>
+          <%= link_to t("actions.not_hidden", scope: "decidim.moderations"), moderations_path( moderation_type: "downstream"), class: "#{'bold' unless @moderated_or_hidden}" %>
           |
-          <%= link_to t("actions.hidden", scope: "decidim.moderations"), moderations_path(hidden: true, moderation_type: "downstream") %>
+          <%= link_to t("actions.hidden", scope: "decidim.moderations"), moderations_path(hidden: true, moderation_type: "downstream"), class: "#{'bold' if @moderated_or_hidden}" %>
         </div>
       </h2>
     </div>

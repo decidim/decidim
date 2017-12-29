@@ -11,7 +11,7 @@ module Decidim
         authorize! :read, Decidim::Moderation
         @upstream =  true if params[:moderation_type] == "upstream"
         @downstream = true if params[:moderation_type] == "downstream"
-        @moderated = true if params[:moderated]
+        @moderated_or_hidden = true if params[:moderated] || params[:hidden]
       end
 
       def authorize
