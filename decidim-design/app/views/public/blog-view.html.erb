@@ -15,28 +15,7 @@
           <div class="row column view-header">
             <h2 class="heading2">Cobriment de la Ronda de Dalt al seu pas per
               la Vall d'Hebrón</h2>
-              <div class="author-data">
-                <div class="author-data__main">
-                  <div class="author author--inline">
-                    <a href="#" class="author__avatar">
-                      <%= image_tag "demo-avatar.jpg" %>
-                    </a>
-                    <a href="#" class="author__name">
-                      Ajuntament de Barcelona
-                    </a>
-                    <a href="#" class="author__nickname">
-                      @ajuntament_bcn
-                    </a>
-                    <%= icon "verified-badge", class: "author__verified" %>
-                  </div>
-                </div>
-                <div class="author-data__extra">
-                  01/02/2014&nbsp;&nbsp;·&nbsp;&nbsp;Medio Ambiente&nbsp;&nbsp;·&nbsp;&nbsp;
-                  <a href="#comments" title="Comentarios">
-                    <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 108 comentarios
-                  </a>
-                </div>
-              </div>
+            <%= partial "author_data", { extra: true } %>
             </div>
             <div class="section">
               <p>

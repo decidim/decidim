@@ -21,28 +21,8 @@
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione fugit, ipsam ex omnis eos dicta modi adipisci, debitis harum?
                 </h5>
                 <% end %>
-                <div class="card__author author-data author-data--small">
-                  <div class="author-data__main">
-                    <div class="author author--inline">
-                      <a href="#" class="author__avatar author__avatar--small">
-                        <%= image_tag "demo-avatar.jpg" %>
-                      </a>
-                      <a href="#" class="author__name">
-                        Eius veritatis
-                      </a>
-                      <a href="#" class="author__nickname">
-                        @aperiam_tempora
-                      </a>
-                      <%= icon "verified-badge", class: "author__verified" %>
-                    </div>
-                  </div>
-                  <div class="author-data__extra">
-                    01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
-                    <a href="#comments" title="Comentarios">
-                      <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-                      108 comentarios
-                    </a>
-                  </div>
+                <div class="card__author">
+                  <%= partial "author_data", { extra: true } %>
                 </div>
               </div>
               <p>
@@ -69,18 +49,8 @@
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione fugit, ipsam ex omnis eos dicta modi adipisci, debitis harum?
                 </h5>
                 <% end %>
-                <div class="card__author author-data author-data--small">
-                  <div class="author-data__main">
-                    <div class="author author--inline">
-                      <a href="#" class="author__avatar author__avatar--small">
-                        <%= image_tag "demo-avatar.jpg" %>
-                      </a>
-                      <a href="#" class="author__name">
-                        Autor
-                      </a>
-                      01/08/2016
-                    </div>
-                  </div>
+                <div class="card__author">
+                  <%= partial "author_data", { extra: false } %>
                 </div>
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam…</p>
