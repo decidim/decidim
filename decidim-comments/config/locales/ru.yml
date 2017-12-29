@@ -12,6 +12,7 @@ ru:
             email_intro: '«%{resource_title}» прокомментировано'
             email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}» или его автором. Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
             email_subject: На ваш комментарий появился новый ответ от %{author_name} в <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: На ваш комментарий в <a href="%{resource_path}">%{resource_title}</a> появился новый ответ от <a href="%{author_path}">%{author_name} %{author_nickname}</a>
       votes:
         create:
           error: При голосовании за комментарий произошли ошибки.
