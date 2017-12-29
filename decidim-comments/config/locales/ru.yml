@@ -5,9 +5,12 @@ ru:
         comment_created:
           comment:
             email_intro: '«%{resource_title}» прокомментировали. Вы можете прочитать комментарий на странице:'
+            email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}» или его автором. Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
             email_subject: Появился новый комментарий от %{author_name} в %{resource_title}
+            notification_title: В <a href="%{resource_path}">%{resource_title}</a> появился новый комментарий от <a href="%{author_path}">%{author_name} %{author_nickname}</a>
           reply:
             email_intro: '«%{resource_title}» прокомментировано'
+            email_outro: Вы получили это уведомление, потому что вы следите за «%{resource_title}» или его автором. Вы можете перестать за ним следить, перейдя по приведенной выше ссылке.
             email_subject: На ваш комментарий появился новый ответ от %{author_name} в <a href="%{resource_url}">%{resource_title}</a>
       votes:
         create:
