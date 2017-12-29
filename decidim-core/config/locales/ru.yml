@@ -223,6 +223,8 @@ ru:
     pages:
       index:
         title: Узнать больше
+    profiles:
+      default_officialization_text: Личность этого участника публично подтверждена, его / ее имя или роль проверены на соответствие его / ее реальному имени и роли
     reported_mailer:
       hide:
         hello: Здравствуйте, %{name}!
