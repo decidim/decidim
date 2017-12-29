@@ -22,14 +22,14 @@ module Decidim
 
     def scopes_picker_field(form, name)
       form.scopes_picker name do |scope|
-        { url: decidim.scopes_picker_path(root: try(:current_participatory_space)&.scope, current: scope&.id, field: form.label_for(name)),
+        { url: decidim.scopes_picker_path(root: form.object.current_space_scope, current: scope&.id, field: form.label_for(name)),
           text: scope_name_for_picker(scope, I18n.t("decidim.scopes.global")) }
       end
     end
 
     def scopes_picker_filter(form, name)
       form.scopes_picker name, multiple: true, legend_title: I18n.t("decidim.scopes.scopes"), label: false do |scope|
-        { url: decidim.scopes_picker_path(root: try(:current_participatory_space)&.scope, current: scope&.id, title: I18n.t("decidim.scopes.prompt"), global_value: "global"),
+        { url: decidim.scopes_picker_path(root: form.object.current_space_scope, current: scope&.id, title: I18n.t("decidim.scopes.prompt"), global_value: "global"),
           text: scope_name_for_picker(scope, I18n.t("decidim.scopes.prompt")) }
       end
     end
