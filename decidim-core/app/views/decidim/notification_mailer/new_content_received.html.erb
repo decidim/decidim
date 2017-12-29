@@ -12,14 +12,10 @@
 
 <!-- link to show  -->
 <p>
-  <%= t("decidim.events.proposal_created.moderation.url") %>
-  <%= @event_instance.resource_url %>
+  <%= @event_instance.email_url %>
 </p>
 
 <!-- link to dashboard moderation  -->
-<%if @moderation%>
-  <p>
-    <%= t("decidim.events.proposal_created.moderation.moderation_url") %>
-    <%= @moderation_url %>
-  </p>
-<%end%>
+<p>
+  <%= @event_instance.email_moderation_url(@moderation_url) if @moderation %>
+</p>

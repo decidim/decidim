@@ -15,6 +15,20 @@ module Decidim
         ).html_safe
       end
 
+      def email_url
+        I18n.t(
+          "decidim.events.proposal_created.url",
+          resource_url: resource_locator.url(url_params)
+        ).html_safe
+      end
+
+      def email_subject
+        I18n.t(
+          "decidim.events.proposal_created.email_subject",
+          author_name: proposal.author.name
+        ).html_safe
+      end
+
       def email_moderation_intro
         I18n.t(
           "decidim.events.proposal_created.moderation.email_intro",
@@ -29,6 +43,13 @@ module Decidim
           resource_title: resource_title,
           resource_url: resource_locator.url(url_params),
           author_name: proposal.author.name
+        ).html_safe
+      end
+
+      def email_moderation_url(moderation_url)
+        I18n.t(
+          "decidim.events.proposal_created.moderation.moderation_url",
+          moderation_url: moderation_url
         ).html_safe
       end
 

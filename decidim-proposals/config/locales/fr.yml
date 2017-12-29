@@ -13,10 +13,11 @@ fr:
     events:
       proposal_created:
         notification_title: Nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
+        url: "Url de la proposition : %{resource_url}"
+        email_subject: 'Nouvelle proposition de %{author_name}'
         moderation:
           email_intro: "%{author_name} a publié une nouvelle proposition dans"
-          moderation_url: 'Vous pouvez la modérer en suivant ce lien :'
-          url: 'Url :'
+          moderation_url: "Vous pouvez la modérer en suivant ce lien : %{moderation_url}"
           email_subject: 'Nouvelle proposition de %{author_name} en attente de modération'
     features:
       proposals:
