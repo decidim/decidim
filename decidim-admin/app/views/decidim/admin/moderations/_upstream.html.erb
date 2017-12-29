@@ -47,12 +47,12 @@
 
                 <% if can? :authorize, moderation || can?(:refuse, moderation)%>
                   <%= icon_link_to "eye",
-                                   authorize_moderation_path(id: moderation),
+                                   authorize_moderation_path(id: moderation, moderated: @moderated),
                                    t("actions.authorize", scope: "decidim.moderations"),
                                    class: "#{'icon-green' if moderation.upstream_moderation == 'authorized' }",
                                    method: :put %>
                   <%= icon_link_to "eye",
-                                   hide_moderation_path(id: moderation, refuse: true),
+                                   hide_moderation_path(id: moderation, refuse: true, moderated: @moderated),
                                    t("actions.refuse", scope: "decidim.moderations"),
                                    class: "action-icon--hide #{'icon-red' if moderation.upstream_moderation == 'refused'}",
                                    method: :put %>
