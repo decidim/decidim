@@ -14,7 +14,13 @@ module Decidim
       before_action :authenticate_user!, only: [:new, :create]
 
       def index
-        @proposals = filter_proposals
+        @proposals = search
+                      .results
+                      .not_hidden
+                      .authorized
+                      .includes(:author)
+                      .includes(:category)
+                      .includes(:scope)
 
         @voted_proposals = if current_user
                              ProposalVote.where(
@@ -101,25 +107,6 @@ module Decidim
           current_organization.users_with_any_role.include?(current_user) ||
           get_user_with_process_role(current_participatory_process.id).include?(current_user)
         )
-      end
-
-      def filter_proposals
-        if admin_or_moderator?
-          search
-            .results
-            .not_hidden
-            .includes(:author)
-            .includes(:category)
-            .includes(:scope)
-        else
-          search
-            .results
-            .not_hidden
-            .authorized
-            .includes(:author)
-            .includes(:category)
-            .includes(:scope)
-        end
       end
 
       def geocoded_proposals
