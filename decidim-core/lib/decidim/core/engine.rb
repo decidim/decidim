@@ -154,7 +154,7 @@ module Decidim
           Decidim::NavbarLink.current_organization_links(current_organization).each do |navbar_link|
             menu.item translated_attribute(navbar_link.title),
                       "http://#{navbar_link.link}",
-                      position: 4,
+                      position: 5,
                       active: :exact
           end
         end
