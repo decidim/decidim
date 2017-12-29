@@ -12,7 +12,7 @@ fr:
             moderation:
               email_intro: "%{author_name} a publié un nouveau commentaire sur"
               email_subject: 'Nouveau commentaire de %{author_name} en attente de modération'
-              moderation_url: "Vous pouvez la modérer en suivant ce lien : %{moderation_url}"
+              moderation_url: "Vous pouvez modérer le contenu en suivant ce lien : %{moderation_url}"
           reply:
             email_intro: '"%{resource_title}" a reçu un commentaire'
             email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
@@ -22,7 +22,7 @@ fr:
             moderation:
               email_intro: "%{author_name} a publié un nouveau commentaire sur"
               email_subject: 'Nouveau commentaire de %{author_name} en attente de modération'
-              moderation_url: Vous pouvez la modérer en suivant ce lien %{moderation_url}
+              moderation_url: Vous pouvez modérer le contenu en suivant ce lien %{moderation_url}
       votes:
         create:
           error: Une erreur s'est produite lors du vote sur le commentaire.

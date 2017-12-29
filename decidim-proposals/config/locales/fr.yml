@@ -17,7 +17,7 @@ fr:
         email_subject: 'Nouvelle proposition de %{author_name}'
         moderation:
           email_intro: "%{author_name} a publié une nouvelle proposition dans"
-          moderation_url: "Vous pouvez la modérer en suivant ce lien : %{moderation_url}"
+          moderation_url: "Vous pouvez modérer le contenu en suivant ce lien : %{moderation_url}"
           email_subject: 'Nouvelle proposition de %{author_name} en attente de modération'
     features:
       proposals:
