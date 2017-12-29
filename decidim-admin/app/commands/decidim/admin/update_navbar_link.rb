@@ -7,8 +7,9 @@ module Decidim
       # Public: Initializes the command.
       #
       # form - A form object with the params.
-      def initialize(form)
+      def initialize(form, navbar_link)
         @form = form
+        @navbar_link = navbar_link
       end
 
       # Executes the command. Broadcasts these events:
@@ -36,7 +37,7 @@ module Decidim
         {
           title: form.title,
           link: form.link,
-          organization: form.organization
+          decidim_organization_id: form.organization_id
         }
       end
     end

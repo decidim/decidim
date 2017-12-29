@@ -436,6 +436,17 @@ fr:
         new:
           title: Nouveau lien de navigation
           create: Créer
+        edit:
+          title: Modifier le lien
+          update: Modifier
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau lien.
+          success: Lien créé avec succès.
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de ce lien.
+          success: Lien mis à jour avec succès
+        destroy:
+          success: Lien supprimé avec succès
     moderations:
       actions:
         hidden: Masqués

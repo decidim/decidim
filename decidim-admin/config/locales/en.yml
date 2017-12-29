@@ -437,6 +437,17 @@ en:
         new:
           title: New navbar link
           create: Create
+        edit:
+          title: Edit navbar link
+          update: Update
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
+        destroy:
+          success: Link successfully destroyed
     moderations:
       actions:
         hidden: Hidden
