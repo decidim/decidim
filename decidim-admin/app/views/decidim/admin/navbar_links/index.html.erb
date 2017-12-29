@@ -22,7 +22,7 @@
                 <%= translated_attribute(navbar_link.title) %>
               </td>
               <td>
-                <%= link_to navbar_link.link, "http://" + navbar_link.link, target: :blank %>
+                <%= link_to navbar_link.link, navbar_link.link, target: :blank %>
               </td>
               <td class="table-list__actions">
                 <% if can? :update, navbar_link %>
