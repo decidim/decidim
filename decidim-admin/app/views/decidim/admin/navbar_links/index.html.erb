@@ -25,9 +25,12 @@
                 <%= navbar_link.link %>
               </td>
               <td class="table-list__actions">
+                <% if can? :update, scope %>
                   <%= icon_link_to "pencil", ['edit', navbar_link], t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
-
+                <% end %>
+                <% if can? :destroy, scope %>
                   <%= icon_link_to "circle-x", navbar_link, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                <% end %>
               </td>
             </tr>
           <% end %>

@@ -32,7 +32,7 @@ module Decidim
         NavbarLink.create!(
           title: form.title,
           link: form.link,
-          organization: form.organization
+          decidim_organization_id: form.organization_id
         )
       end
     end
