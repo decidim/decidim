@@ -49,17 +49,17 @@ shared_examples "manage proposals" do
         end
 
         context "when process is not related to any scope" do
-          before do
-            click_link "New"
-          end
-
           it "can be related to a scope" do
+            click_link "New"
+
             within "form" do
               expect(page).to have_content(/Scope/i)
             end
           end
 
           it "creates a new proposal", :slow do
+            click_link "New"
+
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
               fill_in :proposal_body, with: "Decidim is great but it can be better"
@@ -118,6 +118,8 @@ shared_examples "manage proposals" do
             let!(:child_scope) { create :scope, parent: scope }
 
             it "can be related to a scope" do
+              click_link "New"
+
               within "form" do
                 expect(page).to have_content(/Scope/i)
               end
@@ -130,7 +132,7 @@ shared_examples "manage proposals" do
                 fill_in :proposal_title, with: "Make decidim great again"
                 fill_in :proposal_body, with: "Decidim is great but it can be better"
                 select category.name["en"], from: :proposal_category_id
-                scope_pick scopes_picker_find(:proposal_scope_id), child_scope
+                scope_repick scopes_picker_find(:proposal_scope_id), scope, child_scope
                 find("*[type=submit]").click
               end
 
