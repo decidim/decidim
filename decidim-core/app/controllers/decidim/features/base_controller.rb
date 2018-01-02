@@ -24,6 +24,8 @@ module Decidim
                     :current_participatory_space,
                     :current_manifest
 
+      delegate :current_participatory_space_scope, to: :helpers
+
       skip_authorize_resource
 
       before_action do
