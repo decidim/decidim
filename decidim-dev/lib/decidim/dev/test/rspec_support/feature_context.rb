@@ -36,6 +36,8 @@ shared_context "when managing a feature" do
   include_context "with a feature"
 
   let(:current_feature) { feature }
+  let(:current_participatory_space) { participatory_space }
+  let(:current_participatory_space_scope) { participatory_space.scope }
 
   before do
     login_as user, scope: :user

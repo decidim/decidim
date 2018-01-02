@@ -6,11 +6,11 @@ module Decidim
     Option = Struct.new(:id, :name)
 
     # Checks if the resource should show its scope or not.
-    # resource - the resource to eval
+    # resource - the resource to analize
     #
     # Returns boolean.
     def has_visible_scopes?(resource)
-      current_participatory_space.try(:scopes_enabled?) && resource.scope.present? && current_participatory_space_scope&.id != resource.scope&.id
+      try(:current_participatory_space)&.try(:scopes_enabled?) && resource.scope.present? && current_participatory_space_scope&.id != resource.scope&.id
     end
 
     # Retrieves the translated name and type for an scope.
@@ -30,7 +30,7 @@ module Decidim
     #
     # Returns a Decidim::Scope
     def current_participatory_space_scope
-      @current_participatory_space_scope = current_participatory_space.try(:scope) unless defined?(@current_participatory_space_scope)
+      @current_participatory_space_scope = try(:current_participatory_space)&.try(:scope) unless defined?(@current_participatory_space_scope)
       @current_participatory_space_scope
     end
 
