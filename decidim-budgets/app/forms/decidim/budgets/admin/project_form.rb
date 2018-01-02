@@ -22,7 +22,7 @@ module Decidim
 
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
-        validate { errors.add(:decidim_scope_id, :invalid) if current_participatory_space_scope && !current_participatory_space_scope.ancestor_of?(scope) }
+        validate { errors.add(:decidim_scope_id, :invalid) if current_participatory_space&.scope && !current_participatory_space&.scope&.ancestor_of?(scope) }
 
         delegate :categories, to: :current_feature
 
@@ -49,7 +49,7 @@ module Decidim
         #
         # Returns a Decidim::Scope
         def scope
-          @scope ||= @decidim_scope_id ? current_feature.scopes.find_by(id: @decidim_scope_id) : current_participatory_space_scope
+          @scope ||= @decidim_scope_id ? current_feature.scopes.find_by(id: @decidim_scope_id) : current_participatory_space&.scope
         end
 
         # Scope identifier

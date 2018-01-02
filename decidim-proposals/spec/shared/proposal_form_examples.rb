@@ -35,8 +35,7 @@ shared_examples "a proposal form" do
     described_class.from_params(params).with_context(
       current_feature: feature,
       current_organization: feature.organization,
-      current_participatory_space: participatory_space,
-      current_participatory_space_scope: participatory_space.scope
+      current_participatory_space: participatory_space
     )
   end
 

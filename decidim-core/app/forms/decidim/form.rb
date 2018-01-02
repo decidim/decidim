@@ -8,7 +8,6 @@ module Decidim
              :current_user,
              :current_feature,
              :current_participatory_space,
-             :current_participatory_space_scope,
              to: :context, prefix: false, allow_nil: true
 
     delegate :available_locales, to: :current_organization, allow_nil: true

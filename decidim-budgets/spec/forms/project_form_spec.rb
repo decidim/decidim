@@ -13,8 +13,7 @@ module Decidim::Budgets
       {
         current_organization: organization,
         current_feature: current_feature,
-        current_participatory_space: participatory_process,
-        current_participatory_space_scope: participatory_process.scope
+        current_participatory_space: participatory_process
       }
     end
     let(:participatory_process) { create :participatory_process, organization: organization }

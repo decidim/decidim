@@ -10,7 +10,7 @@ module Decidim
     #
     # Returns boolean.
     def has_visible_scopes?(resource)
-      try(:current_participatory_space)&.try(:scopes_enabled?) && resource.scope.present? && current_participatory_space_scope&.id != resource.scope&.id
+      try(:current_participatory_space)&.try(:scopes_enabled?) && resource.scope.present? && current_participatory_space.try(:scope)&.id != resource.scope&.id
     end
 
     # Retrieves the translated name and type for an scope.
@@ -26,14 +26,6 @@ module Decidim
       end
     end
 
-    # Retrieves current participatory space scope (if this is Scopable or has the scope property).
-    #
-    # Returns a Decidim::Scope
-    def current_participatory_space_scope
-      @current_participatory_space_scope = try(:current_participatory_space)&.try(:scope) unless defined?(@current_participatory_space_scope)
-      @current_participatory_space_scope
-    end
-
     # Renders a scopes picker field in a form.
     # form - FormBuilder object
     # name - attribute name
@@ -41,7 +33,7 @@ module Decidim
     # Returns nothing.
     def scopes_picker_field(form, name)
       form.scopes_picker name do |scope|
-        { url: decidim.scopes_picker_path(root: current_participatory_space_scope, current: scope&.id, field: form.label_for(name)),
+        { url: decidim.scopes_picker_path(root: try(:current_participatory_space)&.scope, current: scope&.id, field: form.label_for(name)),
           text: scope_name_for_picker(scope, I18n.t("decidim.scopes.global")) }
       end
     end
@@ -53,7 +45,7 @@ module Decidim
     # Returns nothing.
     def scopes_picker_filter(form, name)
       form.scopes_picker name, multiple: true, legend_title: I18n.t("decidim.scopes.scopes"), label: false do |scope|
-        { url: decidim.scopes_picker_path(root: current_participatory_space_scope, current: scope&.id, title: I18n.t("decidim.scopes.prompt"), global_value: "global"),
+        { url: decidim.scopes_picker_path(root: try(:current_participatory_space)&.scope, current: scope&.id, title: I18n.t("decidim.scopes.prompt"), global_value: "global"),
           text: scope_name_for_picker(scope, I18n.t("decidim.scopes.prompt")) }
       end
     end
