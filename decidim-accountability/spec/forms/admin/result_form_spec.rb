@@ -10,7 +10,9 @@ module Decidim::Accountability
     let(:context) do
       {
         current_organization: organization,
-        current_feature: current_feature
+        current_feature: current_feature,
+        current_participatory_space: participatory_process,
+        current_participatory_space_scope: participatory_process.scope
       }
     end
     let(:participatory_process) { create :participatory_process, organization: organization }

@@ -29,6 +29,14 @@ module Decidim
         def current_user
           "user"
         end
+
+        def current_participatory_space
+          "participatory_space"
+        end
+
+        def current_participatory_space_scope
+          "participatory_space_scope"
+        end
       end.new
     end
 
@@ -46,6 +54,8 @@ module Decidim
         expect(form.bar).to eq("baz")
         expect(form.current_organization).to eq("organization")
         expect(form.current_user).to eq("user")
+        expect(form.current_participatory_space).to eq("participatory_space")
+        expect(form.current_participatory_space_scope).to eq("participatory_space_scope")
       end
 
       context "with custom context" do
@@ -57,6 +67,8 @@ module Decidim
           expect(form.bar).to eq("baz")
           expect(form.current_organization).to eq("organization")
           expect(form.current_user).to eq("user")
+          expect(form.current_participatory_space).to eq("participatory_space")
+          expect(form.current_participatory_space_scope).to eq("participatory_space_scope")
           expect(form.context.something).to eq("baz")
         end
       end
@@ -85,6 +97,8 @@ module Decidim
           form = subject.from_model(model, context)
           expect(form.context.something).to eq("baz")
           expect(form.current_organization).to eq("organization")
+          expect(form.current_participatory_space).to eq("participatory_space")
+          expect(form.current_participatory_space_scope).to eq("participatory_space_scope")
         end
       end
     end
