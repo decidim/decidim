@@ -224,7 +224,7 @@ fr:
       index:
         title: Plus d'information
     profiles:
-      default_officialization_text: Ce participant a été vérifié de façon publique. Son nom ou son rôle correspond avec son vrai nom ou rôle
+      default_officialization_text: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
     reported_mailer:
       hide:
         hello: Bonjour %{name},
