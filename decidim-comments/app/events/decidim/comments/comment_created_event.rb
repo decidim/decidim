@@ -56,7 +56,8 @@ module Decidim
       def email_moderation_subject
         I18n.t(
           "decidim.comments.events.comment_created.#{comment_type}.moderation.email_subject",
-          resource_title: resource_title
+          resource_title: resource_title,
+          author_name: comment.author.name
         ).html_safe
       end
 

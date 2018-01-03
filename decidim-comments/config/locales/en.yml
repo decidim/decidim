@@ -12,7 +12,7 @@ en:
             url: "Comment's url : %{resource_url}"
             moderation:
               email_intro: '%{author_name} published a comment on'
-              email_subject: 'New comment from %{author_name} waiting for moderation'
+              email_subject: "New comment from %{author_name} waiting for moderation"
               moderation_url: "You can moderate it here : %{moderation_url}"
           reply:
             email_intro: The "%{resource_title}" has been commented
