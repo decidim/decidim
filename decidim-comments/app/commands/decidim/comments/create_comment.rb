@@ -45,7 +45,6 @@ module Decidim
 
 
       def send_notification_to_moderators
-        puts "SEND NOTIF TO MODERATOR"
         Decidim::EventsManager.publish(
           event: "decidim.events.comments.comment_created",
           event_class: Decidim::Comments::CommentCreatedEvent,
