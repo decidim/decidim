@@ -5,11 +5,10 @@ source "https://rubygems.org"
 ruby RUBY_VERSION
 
 gem "decidim", path: ".."
-gem "decidim-export", git: "git@github.com:OpenSourcePolitics/decidim-user-export.git"
 
 # Uncomment the following line if you want to use decidim-assemblies plugin
 # gem "decidim-assemblies", path: ".."
-
+gem "decidim-export", git: "git@github.com:OpenSourcePolitics/decidim-user-export.git"
 gem "puma", "~> 3.0"
 gem "uglifier", ">= 1.3.0"
 

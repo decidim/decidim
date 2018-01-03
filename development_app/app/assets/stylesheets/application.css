@@ -13,5 +13,4 @@
  *= require decidim
  *= require_tree .
  *= require_self
- *= require override
  */
