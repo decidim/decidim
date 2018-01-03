@@ -55,8 +55,8 @@ module Decidim
       context "when the user group is verified" do
         let(:model) { create(:user_group, :verified) }
 
-        it "returns the verification label" do
-          expect(response).to include("badge" => "Verified organization")
+        it "returns the icon to use for the verification badge" do
+          expect(response).to include("badge" => "verified-badge")
         end
       end
 

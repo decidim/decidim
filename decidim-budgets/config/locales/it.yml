@@ -73,8 +73,6 @@ it:
         filters:
           category: Categoria
           category_prompt: Scegli una categoria
-          scope_prompt: Seleziona un campo
-          scopes: Visibilità/ambito
           search: Cerca
         filters_small_view:
           close_modal: Chiudi modalità

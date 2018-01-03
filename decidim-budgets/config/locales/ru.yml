@@ -75,8 +75,6 @@ ru:
         filters:
           category: Категория
           category_prompt: Выберите категорию
-          scope_prompt: Выбрать охват
-          scopes: Охваты
           search: Искать
         filters_small_view:
           close_modal: Закрыть окошко

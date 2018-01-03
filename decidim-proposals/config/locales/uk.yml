@@ -85,7 +85,7 @@ uk:
         proposal:
           fields:
             category: Розділ
-            id: Ідентифікатор
+            id: Псевдонім
             official_proposal: Офіційна пропозиція
             scope: Терен
             state: Стан
@@ -120,8 +120,6 @@ uk:
           origin: Джерело
           rejected: Відхилено
           related_to: Пов'язане з
-          scope_prompt: Оберіть терен
-          scopes: Терени
           search: Шукати
           state: Стан
           voted: Проголосоване
@@ -156,6 +154,7 @@ uk:
           random: Довільно
           recent: Нещодавні
         proposal:
+          creation_date: 'Створено: %{date}'
           view_proposal: Переглянути пропозицію
         show:
           edit_proposal: Редагувати пропозицію

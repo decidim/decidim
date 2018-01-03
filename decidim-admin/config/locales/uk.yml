@@ -12,7 +12,7 @@ uk:
       feature:
         name: Ім'я
         weight: Вага
-      id: Ідентифікатор
+      id: Псевдонім
       newsletter:
         body: Основний текст
         subject: Тема

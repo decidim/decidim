@@ -215,6 +215,7 @@ en:
         dashboard: Dashboard
         managed_users: Managed users
         newsletters: Newsletters
+        officializations: Officializations
         scope_types: Scope types
         scopes: Scopes
         settings: Settings
@@ -314,6 +315,33 @@ en:
         update:
           error: There's been an error updating this newsletter.
           success: Newsletter updated successfully. Please review it before sending.
+      officializations:
+        create:
+          success: User officialized successfully
+        destroy:
+          success: User unofficialized successfully
+        index:
+          actions: Actions
+          badge: Badge
+          created_at: Created At
+          filter:
+            all: All
+            not_officialized: Not officialized
+            officialized: Officialized
+          filter_by: Filter by
+          name: Name
+          nickname: Nickname
+          not_officialized: Not officialized
+          officialize: Officialize
+          officialized: Officialized
+          reofficialize: Reofficialize
+          search: Search
+          status: Status
+          unofficialize: Unofficialize
+        new:
+          badge: Officialization badge
+          officialize: Officialize
+          title: Officialize user "%{name}"
       organization:
         edit:
           title: Edit organization
@@ -391,6 +419,7 @@ en:
         dashboard: Dashboard
         impersonations: Impersonations
         managed_users: Managed users
+        officializations: Officializations
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pages
