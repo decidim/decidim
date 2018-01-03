@@ -1400,3 +1400,10 @@ table.container.main {
   color: black;
 }
 
+.email-card{
+  background-color: #F4F4F4;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 0.5rem;
+  border: 1px solid #e8e8e8;
+}
