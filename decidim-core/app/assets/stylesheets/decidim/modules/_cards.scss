@@ -542,3 +542,62 @@ $datetime-bg: $primary;
     margin-top: auto;
   }
 }
+
+
+// card--proposal
+.card--proposal {
+  border-top-width: 8px;
+
+  &.success {
+    border-top-color: $success;
+  }
+  &.warning {
+    border-top-color: $warning;
+  }
+  &.alert {
+    border-top-color: $alert;
+  }
+  &.muted {
+    border-top-color: rgba($muted, .3);
+  }
+
+  &:hover {
+    &.success {
+      border-color: $success;
+    }
+    &.warning {
+      border-color: $warning;
+    }
+    &.alert {
+      border-color: $alert;
+    }
+    &.muted {
+      border-color: rgba($muted, .3);
+    }
+  }
+}
+
+// card status
+
+.card-status {
+  .card-data__item {
+    flex-basis: initial;
+    padding: 1em .5em;
+  }
+  .card-status__text {
+    font-weight: bold;
+
+    &.success {
+      color: $success;
+    }
+    &.warning {
+      color: $warning;
+    }
+    &.alert {
+      color: $alert;
+    }
+    &.muted {
+      color: $muted;
+    }
+  }
+}
