@@ -545,11 +545,8 @@ $datetime-bg: $primary;
 
 
 /* Progress bars */
-.card__progress__container {
-  flex: 0.8;
-}
-
 .card__progress {
+  flex: .8;
 
   .card__progress__title {
     color: $muted;
@@ -577,4 +574,23 @@ $datetime-bg: $primary;
     }
   }
 
+  &.card__progress--vertical {
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+
+    .card__progress__title {
+      font-size: 1.5rem;
+    }
+    .card__progress__number {
+      display: inline-block;
+      font-weight: 400;
+      font-size: 3rem;
+      line-height: 1;
+    }
+    .card__progress__text {
+      @extend .extra__suport-text;
+      font-weight: 600;
+    }
+  }
 }
