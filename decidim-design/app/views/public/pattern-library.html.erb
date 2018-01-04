@@ -33,6 +33,9 @@
                 <li class="tabs-title">
                   <a href="#patternMarkers">Marcadores</a>
                 </li>
+                <li class="tabs-title">
+                  <a href="#patternBars">Barras</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -727,6 +730,104 @@
                       <%= icon "check", class: "icon--small" %>
                     </span>
                   </p>
+                </div>
+
+                <div class="tabs-panel" id="patternBars">
+                  <h2 class="section-heading">Barras de progreso</h2>
+
+                  <div class="row">
+                    <div class="columns small-12 medium-6">
+                      <p>Carta de propuesta con barra de progreso</p>
+                      <article class="card card--proposal">
+                        <div class="card__content">
+                          <div class="card__header">
+                            <%= link_to page_path("proposal-view"), class: "card__link" do %>
+                              <h5 class="card__title">
+                                Título
+                              </h5>
+                            <% end %>
+                            <div class="card__author author-data author-data--small">
+                              <div class="author-data__main">
+                                <div class="author author--inline">
+                                  <a href="#" class="author__avatar author__avatar--small">
+                                    <%= image_tag "demo-avatar.jpg" %>
+                                  </a>
+                                  <a href="#" class="author__name">
+                                    Autor
+                                  </a>
+                                  01/08/2016
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam…</p>
+                        </div>
+                        <div class="card__footer">
+                          <div class="card__support">
+                            <div class="card__progress__container">
+                              <div class="card__progress">
+                              <div class="card__progress__title">
+                                <span class="card__progress__number">254</span>/500 supports
+                              </div>
+                              <div class="card__progress__bar">
+                                <div class="card__progress__bar--complete" style="width:51%;"></div>
+                                <div class="card__progress__bar--incomplete" style="width:calc(100% - 51%);"></div>
+                              </div>
+                            </div>
+                            </div>
+                            <button class="card__button button small">
+                              Apoyar
+                            </button>
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="columns small-12 medium-6">
+                      <p>Simples, sin contenedores</p>
+                      <% @progress= 27; @max= 100; %>
+                      <% @percent = (@progress.to_f/@max) * 100 %>
+                      <div class="card__progress">
+                        <div class="card__progress__title">
+                          <span class="card__progress__number"><%= @progress %></span>/<%= @max %> supports
+                        </div>
+                        <div class="card__progress__bar">
+                          <div class="card__progress__bar--complete" style="width:<%= @percent %>%;"></div>
+                          <div class="card__progress__bar--incomplete" style="width:calc(100% - <%= @percent %>%);"></div>
+                        </div>
+                      </div>
+
+                      <% @progress= 300; @max= 500; %>
+                      <% @percent = (@progress.to_f/@max) * 100 %>
+                      <div class="card__progress">
+                        <div class="card__progress__title">
+                          <span class="card__progress__number"><%= @progress %></span>/<%= @max %> supports
+                        </div>
+                        <div class="card__progress__bar">
+                          <div class="card__progress__bar--complete" style="width:<%= @percent %>%;"></div>
+                          <div class="card__progress__bar--incomplete" style="width:calc(100% - <%= @percent %>%);"></div>
+                        </div>
+                      </div>
+
+                      <% @progress= 990; @max= 1000; %>
+                      <% @percent = (@progress.to_f/@max) * 100 %>
+                      <div class="card__progress">
+                        <div class="card__progress__title">
+                          <span class="card__progress__number"><%= @progress %></span>/<%= @max %> supports
+                        </div>
+                        <div class="card__progress__bar">
+                          <div class="card__progress__bar--complete" style="width:<%= @percent %>%;"></div>
+                          <div class="card__progress__bar--incomplete" style="width:calc(100% - <%= @percent %>%);"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
 
               </div>

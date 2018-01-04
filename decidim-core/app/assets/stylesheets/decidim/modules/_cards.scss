@@ -542,3 +542,39 @@ $datetime-bg: $primary;
     margin-top: auto;
   }
 }
+
+
+/* Progress bars */
+.card__progress__container {
+  flex: 0.8;
+}
+
+.card__progress {
+
+  .card__progress__title {
+    color: $muted;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+
+    .card__progress__number {
+      @extend .card__support__number;
+    }
+  }
+
+  .card__progress__bar {
+    background-color: $white;
+    height: 6px;
+    display: flex;
+
+    .card__progress__bar--complete{
+      background-color: $success;
+      height: 100%;
+    }
+    .card__progress__bar--incomplete{
+      background-color: rgba($muted, .3);
+      height: 100%;
+      margin-left: 1px;
+    }
+  }
+
+}
