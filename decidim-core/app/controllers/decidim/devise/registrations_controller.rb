@@ -26,6 +26,7 @@ module Decidim
       def create
         @form = form(RegistrationForm).from_params(params[:user])
 
+        ## We now chose a random document number for the User
         @form.user_group_document_number = rand(100000).to_s
 
         CreateRegistration.call(@form) do
