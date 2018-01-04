@@ -47,9 +47,9 @@ module Decidim
       #
       def root_path(redirect_url: nil)
         if manifest.type == "direct"
-          decidim_verifications.new_authorization_path(handler: name, redirect_url: redirect_url)
+          decidim_verifications.new_authorization_path(redirect_params(handler: name, redirect_url: redirect_url))
         else
-          main_engine.send(:root_path, redirect_url: redirect_url)
+          main_engine.send(:root_path, redirect_params(redirect_url: redirect_url))
         end
       end
 
@@ -62,7 +62,7 @@ module Decidim
           raise InvalidDirectVerificationRoute.new(route: "edit_authorization_path")
         end
 
-        main_engine.send(:edit_authorization_path, redirect_url: redirect_url)
+        main_engine.send(:edit_authorization_path, redirect_params(redirect_url: redirect_url))
       end
 
       #
@@ -73,7 +73,20 @@ module Decidim
           raise InvalidDirectVerificationRoute.new(route: "admin_route_path")
         end
 
-        public_send(:"decidim_admin_#{name}").send(:root_path)
+        public_send(:"decidim_admin_#{name}").send(:root_path, redirect_params)
+      end
+
+      #
+      # Saves a hooks object for the authorization context and use it to check authorization status.
+      #
+      # authorization - The existing authorization record to be evaluated. Can be nil.
+      # options       - A hash with options related only to the current authorization process.
+      #
+      # Returns the result of authorization handler check. Check Decidim::Verifications::Hooks class docs.
+      #
+      def authorization_status(authorization, options)
+        @hooks = @manifest.hooks_class.new(authorization, options)
+        @hooks.authorization_status
       end
 
       private
@@ -82,6 +95,11 @@ module Decidim
 
       def main_engine
         send("decidim_#{manifest.name}")
+      end
+
+      def redirect_params(params = {})
+        # Could add redirect params if a Hooks object was previously set.
+        params.merge(@hooks&.redirect_params || {})
       end
     end
   end

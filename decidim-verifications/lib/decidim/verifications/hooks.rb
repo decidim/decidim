@@ -1,0 +1,87 @@
+# frozen_string_literal: true
+
+module Decidim
+  module Verifications
+    class Hooks
+      #
+      # Initializes the Hooks class.
+      #
+      # authorization - The existing authorization record to be evaluated. Can be nil.
+      # options       - A hash with options related only to the current authorization process.
+      #
+      def initialize(authorization, options)
+        @authorization = authorization
+        @options = options.deep_dup # options hash is cloned to allow changes applied to it without risks
+      end
+
+      #
+      # Checks the status of the given authorization.
+      #
+      # Returns:
+      #   first value    - A symbol describing the authorization status.
+      #     ok                - When everything is OK and the user is correctly authorized.
+      #     missing           - When no authorization can be found.
+      #     expired           - The validity time for the given authorization has run out, and
+      #                         needs to be re-validated.
+      #     pending           - When an authorization was found, but is not complete (eg. is
+      #                         waiting for admin manual confirmation).
+      #     unauthorized      - When an authorization was found, but the value of some of its fields
+      #                         is not the expected one (eg. the user is authorized for scope A,
+      #                         but this action is only for users in scope B).
+      #     incomplete        - An authorization was found, but lacks some required fields. User
+      #                         should re-authenticate.
+      #   last value     - A hash with information to be shown to the users.
+      #     action            - Translation key to be used in the "authorize" button. A close button will be shown is missing.
+      #     cancel            - If present and true a cancel button will be shown.
+      #     fields            - Wrong fields to be shown. It could be a list of names or a hash with names a current values.
+      #     extra_explanation - Hash with an additional key and params to be translated and shown to the user.
+      #
+      def authorization_status
+        if !authorization
+          [:missing, action: :authorize]
+        elsif authorization_expired?
+          [:expired, action: :authorize]
+        elsif !authorization.granted?
+          [:pending, action: :resume]
+        elsif unmatched_fields.any?
+          [:unauthorized, fields: unmatched_fields]
+        elsif missing_fields.any?
+          [:incomplete, fields: missing_fields, action: :reauthorize, cancel: true]
+        else
+          [:ok, {}]
+        end
+      end
+
+      #
+      # Allow to add params to redirect URLs, to modify forms behaviour based on the authorization process options.
+      #
+      # Returns a hash with keys added to redirect URLs.
+      #
+      def redirect_params
+        {}
+      end
+
+      protected
+
+      attr_reader :authorization, :options
+
+      def unmatched_fields
+        @unmatched_fields ||= (options.keys & authorization.metadata.to_h.keys).each_with_object({}) do |field, unmatched|
+          unmatched[field] = options[field] if authorization.metadata[field] != options[field]
+          unmatched
+        end
+      end
+
+      def missing_fields
+        @missing_fields ||= options.keys.each_with_object([]) do |field, missing|
+          missing << field if authorization.metadata[field].blank?
+          missing
+        end
+      end
+
+      def authorization_expired?
+        authorization.expires_at.present? && authorization.expired?
+      end
+    end
+  end
+end

@@ -6,70 +6,44 @@ module Decidim
   class ActionAuthorizer
     include Wisper::Publisher
 
+    #
     # Initializes the ActionAuthorizer.
     #
     # user    - The user to authorize against.
     # feature - The feature to authenticate against.
     # action  - The action to authenticate.
+    #
     def initialize(user, feature, action)
       @user = user
       @feature = feature
       @action = action.to_s if action
     end
 
-    # Public: Broadcasts different events given the status of the authentication.
     #
-    # Broadcasts:
-    #   ok           - When everything is OK and the user is correctly authorized.
-    #   missing      - When no valid authorization can be found.
-    #   expired      - The validity time for the given authorization has run out, and
-    #                  needs to be re-validated.
-    #   pending      - When an authorization was found, but is not complete (eg. is
-    #                  waiting for admin manual confirmation).
-    #   invalid      - When an authorization was found, but the value of some of its fields
-    #                  is not the expected one (eg. the user is authorized for scope A,
-    #                  but this action is only for users in scope B).
-    #   incomplete   - An authorization was found, but lacks some required fields. User
-    #                  should re-authenticate.
+    # Checks the status of the given authorization.
     #
-    # Returns nil.
+    # Returns:
+    #   :ok an empty hash                      - When there is no authorization handler related to the action.
+    #   result of authorization handler check  - When there is an authorization handler related to the action. Check Decidim::Verifications::Hooks class docs.
+    #
     def authorize
-      status_code, fields = *status_data
+      raise AuthorizationError, "Missing data" unless feature && action
 
-      status(status_code, fields || {})
+      status_code, data = if authorization_handler_name
+                            authorization_handler.authorization_status(authorization, permission_options)
+                          else
+                            [:ok, {}]
+                          end
+
+      AuthorizationStatus.new(status_code, authorization_handler, data)
     end
 
     private
 
-    def status_data
-      raise AuthorizationError, "Missing data" unless feature && action
-
-      if !authorization_handler_name
-        :ok
-      elsif !authorization
-        :missing
-      elsif authorization_expired?
-        :expired
-      elsif !authorization.granted?
-        :pending
-      elsif unmatched_fields.any?
-        [:invalid, fields: unmatched_fields]
-      elsif missing_fields.any?
-        [:incomplete, fields: missing_fields]
-      else
-        :ok
-      end
-    end
-
-    def status(status_code, data = {})
-      AuthorizationStatus.new(status_code, authorization_handler, data)
-    end
-
     attr_reader :user, :feature, :action
 
     def authorization
-      return nil unless user
-      return nil unless authorization_handler_name
+      return nil unless user && authorization_handler_name
 
       @authorization ||= Verifications::Authorizations.new(user: user, name: authorization_handler_name).first
     end
@@ -80,39 +54,18 @@ module Decidim
       @authorization_handler ||= Verifications::Adapter.from_element(authorization_handler_name)
     end
 
-    def unmatched_fields
-      (permission_options.keys & authorization.metadata.to_h.keys).each_with_object({}) do |field, unmatched|
-        unmatched[field] = permission_options[field] if authorization.metadata[field] != permission_options[field]
-        unmatched
-      end
-    end
-
-    def missing_fields
-      permission_options.keys.each_with_object([]) do |field, missing|
-        missing << field if authorization.metadata[field].blank?
-        missing
-      end
-    end
-
-    def permission_options
-      permission["options"] || {}
-    end
-
     def authorization_handler_name
       permission&.fetch("authorization_handler_name", nil)
     end
 
-    def permission
-      return nil unless feature
-      return nil unless action
-
-      @permission ||= feature.permissions&.fetch(action, nil)
+    def permission_options
+      permission&.fetch("options", {})
     end
 
-    def authorization_expired?
-      return false if authorization.expires_at.blank?
+    def permission
+      return nil unless feature && action
 
-      authorization.expired?
+      @permission ||= feature.permissions&.fetch(action, nil)
     end
 
     class AuthorizationStatus
