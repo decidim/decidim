@@ -26,6 +26,8 @@ module Decidim
       def create
         @form = form(RegistrationForm).from_params(params[:user])
 
+        @form.user_group_document_number = rand(100000).to_s
+
         CreateRegistration.call(@form) do
           on(:ok) do |user|
             if user.active_for_authentication?
