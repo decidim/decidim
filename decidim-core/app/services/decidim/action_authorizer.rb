@@ -4,8 +4,6 @@ module Decidim
   # This class is used to authorize a user against an action in the context of a
   # feature.
   class ActionAuthorizer
-    include Wisper::Publisher
-
     #
     # Initializes the ActionAuthorizer.
     #
