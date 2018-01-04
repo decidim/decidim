@@ -48,7 +48,7 @@ module Decidim
             expect(response).not_to be_ok
             expect(response.code).to eq(:missing)
             expect(response.handler_name).to eq("dummy_authorization_handler")
-            expect(response.data).to be_empty
+            expect(response.data).to eq(action: :authorize)
           end
         end
 
@@ -84,7 +84,7 @@ module Decidim
             expect(response).not_to be_ok
             expect(response.code).to eq(:missing)
             expect(response.handler_name).to eq("dummy_authorization_handler")
-            expect(response.data).to be_empty
+            expect(response.data).to eq(action: :authorize)
           end
         end
 
@@ -140,9 +140,9 @@ module Decidim
               context "when has options that doesn't match the authorization" do
                 let(:options) { { postal_code: "789" } }
 
-                it "returns invalid" do
+                it "returns unauthorized" do
                   expect(response).not_to be_ok
-                  expect(response.code).to eq(:invalid)
+                  expect(response.code).to eq(:unauthorized)
                   expect(response.handler_name).to eq("dummy_authorization_handler")
                   expect(response.data).to include(fields: { "postal_code" => "789" })
                 end
