@@ -558,13 +558,17 @@ $datetime-bg: $primary;
     }
   }
 
+  .card__progress__subtitle {
+    display: none;
+  }
+
   .card__progress__bar {
-    background-color: $white;
+    background-color: $card-bg;
     height: 6px;
     display: flex;
 
     .card__progress__bar--complete{
-      background-color: $success;
+      background-color: $card-action;
       height: 100%;
     }
     .card__progress__bar--incomplete{
@@ -581,6 +585,13 @@ $datetime-bg: $primary;
 
     .card__progress__title {
       font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    .card__progress__subtitle {
+      @extend .card__progress__title;
+      display: block;
+      font-size: 0.875rem;
+      margin: .5rem 0 1rem;
     }
     .card__progress__number {
       display: inline-block;
