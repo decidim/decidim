@@ -767,15 +767,9 @@
                         </div>
                         <div class="card__footer">
                           <div class="card__support">
-                            <div class="card__progress">
-                              <div class="card__progress__title">
-                                <span class="card__progress__number">254</span>/500 supports
-                              </div>
-                              <div class="card__progress__bar">
-                                <div class="card__progress__bar--complete" style="width:51%;"></div>
-                                <div class="card__progress__bar--incomplete" style="width:calc(100% - 51%);"></div>
-                              </div>
-                            </div>
+
+                            <%= partial "progress_bar", { progress: 25, total: 80 } %>
+
                             <button class="card__button button small">
                               Apoyar
                             </button>
@@ -787,19 +781,9 @@
                       <p>Carta extra con barra de progreso</p>
                       <div class="card extra">
                         <div class="card__content">
-                          <div class="card__progress card__progress--vertical">
-                            <div class="card__progress__title">
-                              <span class="card__progress__number">45</span>/60
-                              <span class="card__progress__text">Apoyos</span>
-                            </div>
-                            <div class="card__progress__bar">
-                              <div class="card__progress__bar--complete" style="width:75%;"></div>
-                              <div class="card__progress__bar--incomplete" style="width:calc(100% - 75%);"></div>
-                            </div>
-                            <div class="card__progress__subtitle">
-                              Proposta molt popular <%= partial "help" %>
-                            </div>
-                          </div>
+
+                          <%= partial "progress_bar", { vertical: true, progress: 94, total: 100 } %>
+
                           <button class="button expanded button--sc">Apoyar</button>
                           <button class="button secondary hollow expanded small button--icon">
                             <%= icon "bell" %>
@@ -814,42 +798,16 @@
                     <div class="columns small-12 medium-6">
                       <p>Simple horizontal</p>
 
-                      <div class="card__progress">
-                        <div class="card__progress__title">
-                          <span class="card__progress__number">27</span>/100 supports
-                        </div>
-                        <div class="card__progress__bar">
-                          <div class="card__progress__bar--complete" style="width:27%;"></div>
-                          <div class="card__progress__bar--incomplete" style="width:calc(100% - 27%);"></div>
-                        </div>
-                      </div>
+                      <%= partial "progress_bar", { progress: 127, total: 500 } %>
+                      <%= partial "progress_bar", { progress: 45, total: 100 } %>
 
-                      <div class="card__progress">
-                        <div class="card__progress__title">
-                          <span class="card__progress__number">412</span>/500 supports
-                        </div>
-                        <div class="card__progress__bar">
-                          <div class="card__progress__bar--complete" style="width:82%;"></div>
-                          <div class="card__progress__bar--incomplete" style="width:calc(100% - 82%);"></div>
-                        </div>
-                      </div>
                     </div>
                     <div class="columns small-12 medium-6">
                       <p>Simple vertical</p>
 
-                      <div class="card__progress card__progress--vertical">
-                        <div class="card__progress__title">
-                          <span class="card__progress__number">45</span>/60
-                          <span class="card__progress__text">Apoyos</span>
-                        </div>
-                        <div class="card__progress__bar">
-                          <div class="card__progress__bar--complete" style="width:75%;"></div>
-                          <div class="card__progress__bar--incomplete" style="width:calc(100% - 75%);"></div>
-                        </div>
-                        <div class="card__progress__subtitle">
-                          Proposta molt popular <%= partial "help" %>
-                        </div>
-                      </div>
+                      <%= partial "progress_bar", { vertical: true, progress: 27, total: 50 } %>
+                      <%= partial "progress_bar", { vertical: true, progress: 678, total: 1000 } %>
+
                     </div>
                   </div>
 
