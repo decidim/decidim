@@ -36,8 +36,23 @@ module Decidim
           expect(helper).to receive(:authorize_action_path).with("foo").and_return "authorization_route"
           rendered = helper.action_authorization_modal("foo")
           expect(rendered).to include("missing-authorization")
+          expect(rendered).not_to include("expired-authorization")
           expect(rendered).not_to include("incomplete-authorization")
-          expect(rendered).not_to include("invalid-authorization")
+          expect(rendered).not_to include("unauthorized-authorization")
+        end
+      end
+
+      context "when expired" do
+        let(:code) { :expired }
+        let(:ok?) { false }
+
+        it "renders a modal with the expired information" do
+          expect(helper).to receive(:authorize_action_path).with("foo").and_return "authorization_route"
+          rendered = helper.action_authorization_modal("foo")
+          expect(rendered).to include("expired-authorization")
+          expect(rendered).not_to include("missing-authorization")
+          expect(rendered).not_to include("incomplete-authorization")
+          expect(rendered).not_to include("unauthorized-authorization")
         end
       end
 
@@ -50,18 +65,20 @@ module Decidim
           rendered = helper.action_authorization_modal("foo")
           expect(rendered.downcase).to include("reauthorize")
           expect(rendered).to include("incomplete-authorization")
+          expect(rendered).not_to include("expired-authorization")
           expect(rendered).not_to include("missing-authorization")
-          expect(rendered).not_to include("invalid-authorization")
+          expect(rendered).not_to include("unauthorized-authorization")
         end
       end
 
-      context "when invalid" do
-        let(:code) { :invalid }
+      context "when unauthorized" do
+        let(:code) { :unauthorized }
         let(:ok?) { false }
 
-        it "renders a modal with the invalid information" do
+        it "renders a modal with the unauthorized information" do
           rendered = helper.action_authorization_modal("foo")
-          expect(rendered).to include("invalid-authorization")
+          expect(rendered).to include("unauthorized-authorization")
+          expect(rendered).not_to include("expired-authorization")
           expect(rendered).not_to include("missing-authorization")
           expect(rendered).not_to include("incomplete-authorization")
         end
