@@ -118,6 +118,7 @@ module Decidim
                 expect(response).not_to be_ok
                 expect(response.code).to eq(:expired)
                 expect(response.handler_name).to eq("dummy_authorization_handler")
+                expect(response.data).to eq(action: :authorize)
               end
             end
 
@@ -144,7 +145,7 @@ module Decidim
                   expect(response).not_to be_ok
                   expect(response.code).to eq(:unauthorized)
                   expect(response.handler_name).to eq("dummy_authorization_handler")
-                  expect(response.data).to include(fields: { "postal_code" => "789" })
+                  expect(response.data).to eq(fields: { "postal_code" => "789" })
                 end
               end
 
@@ -172,6 +173,34 @@ module Decidim
                   expect(response.code).to eq(:incomplete)
                   expect(response.handler_name).to eq("dummy_authorization_handler")
                   expect(response.data).to include(fields: ["age"])
+                  expect(response.data).to include(action: :reauthorize)
+                  expect(response.data).to include(cancel: true)
+                end
+              end
+
+              context "when custom hooks options are present and match the authorization" do
+                let(:options) { { allowed_postal_codes: %w(1234 4567) } }
+
+                it "returns ok" do
+                  expect(response).to be_ok
+                  expect(response.data).to include(extra_explanation: { key: "extra_explanation",
+                                                                        params: { scope: "decidim.verifications.dummy_authorization",
+                                                                                  count: 2,
+                                                                                  postal_codes: "1234, 4567" } })
+                end
+              end
+
+              context "when custom hooks are present and don't match the authorization" do
+                let(:options) { { allowed_postal_codes: %w(2345 4567) } }
+
+                it "returns unauthorized" do
+                  expect(response.code).to eq(:unauthorized)
+                  expect(response.handler_name).to eq("dummy_authorization_handler")
+                  expect(response.data).to include(fields: { "postal_code" => "1234" })
+                  expect(response.data).to include(extra_explanation: { key: "extra_explanation",
+                                                                        params: { scope: "decidim.verifications.dummy_authorization",
+                                                                                  count: 2,
+                                                                                  postal_codes: "2345, 4567" } })
                 end
               end
             end
