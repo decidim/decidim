@@ -544,20 +544,22 @@ $datetime-bg: $primary;
 }
 
 
-// card--proposal
+// card--proposal status
 .card--proposal {
-  border-top-width: 8px;
-
   &.success {
+    border-top-width: 8px;
     border-top-color: $success;
   }
   &.warning {
+    border-top-width: 8px;
     border-top-color: $warning;
   }
   &.alert {
+    border-top-width: 8px;
     border-top-color: $alert;
   }
   &.muted {
+    border-top-width: 8px;
     border-top-color: rgba($muted, .3);
   }
 
@@ -578,8 +580,7 @@ $datetime-bg: $primary;
 }
 
 // card status
-
-.card-status {
+.card__status {
   .card-data__item {
     flex-basis: initial;
     padding: 1em .5em;
