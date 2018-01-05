@@ -75,6 +75,45 @@ Decidim implements two type of authorization methods:
   * `edit_authorization_path`: This is the entry point to resume an existing
     authorization process.
 
+## Authorization hooks
+
+Authorization hooks are an advanced feature that can be used in both types of
+authorization methods to customize some parts of the authorization process.
+These are particulary useful when used within verification options, which are
+set in the admin zone related to a feature action. As a result, a verification
+method will be allowed to change the authorization logic and the appearance based
+on the context where the authorization is being performed.
+
+You can implement this hooks through a class that should inherit form
+`Decidim::Verifications::Hooks` class and override any of the following
+methods:
+
+* The `authorization_status` method is responsible of evaluating the current
+authorization user state and the permission `options` related to an action and
+determine if the user authorization is `:ok` or in any other status.
+
+* The `redirect_params` method allows to add additional query string parameters
+when redirecting to the authorization form. This is useful to send to the
+authorization form the permission `options` information that could be useful to
+adapt its behavior or appearance.
+
+To be used by the verification method, this class should be referenced by name in
+its workflow manifest:
+
+```ruby
+# config/initializers/decidim.rb
+
+Decidim::Verifications.register_workflow(:sms_verification) do |workflow|
+  workflow.engine = Decidim::Verifications::SmsVerification::Engine
+  workflow.admin_engine = Decidim::Verifications::SmsVerification::AdminEngine
+  workflow.hooks = "Decidim::Verifications::MySmsHooks"
+end
+```
+
+Check the [example authorization handler](https://github.com/decidim/decidim/blob/master/decidim-verifications/app/services/decidim/dummy_authorization_handler.rb)
+and the [Hooks class](https://github.com/decidim/decidim/blob/master/decidim-verifications/lib/decidim/verifications/hooks.rb)
+for additional technical details.
+
 ## Installation
 
 Add this line to your application's Gemfile:
