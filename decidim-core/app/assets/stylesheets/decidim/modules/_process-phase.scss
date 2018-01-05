@@ -18,7 +18,6 @@
   font-size: 90%;
 }
 
-
 .process-header__progress{
   margin-bottom: 1rem;
   ol{
@@ -80,4 +79,39 @@
 .phase-current{
   font-weight: 600;
   font-size: 90%;
+}
+
+.process-phase {
+  @extend .process-header__phase;
+  padding: 0;
+
+  .process-header__progress {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    border-bottom: 1px solid $muted;
+    padding: .5rem 1rem;
+
+    ol {
+      flex: 1;
+    }
+
+    .phase-current{
+      margin-left: 1rem;
+    }
+  }
+}
+
+.process-header__body {
+  padding: 1rem 1rem 1.5rem;
+
+  .process-header__link {
+    margin-top: .5rem;
+  }
+}
+
+.process-header__button {
+  .button {
+    border-color: $primary;
+  }
 }
