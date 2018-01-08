@@ -223,6 +223,8 @@ uk:
     pages:
       index:
         title: Дізнатися більше
+    profiles:
+      default_officialization_text: Особу цього учасника публічно підтверджено, його ім'я чи роль перевірено на відповідність його справжньому імені та ролі
     reported_mailer:
       hide:
         hello: Доброго дня, %{name}%!
@@ -238,6 +240,14 @@ uk:
       create:
         error: Під час створення скарги сталася помилка. Будь ласка, спробуйте зробити це знову.
         success: Скарга була успішно створена, і вона буде розглянута адміністратором.
+    scopes:
+      global: Загальний терен
+      picker:
+        cancel: Скасувати
+        choose: Оберіть
+        title: Оберіть %{field}
+      prompt: Оберіть терен
+      scopes: Терени
     shared:
       action_authorization_modal:
         expired:
