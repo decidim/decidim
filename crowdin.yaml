@@ -4,7 +4,7 @@ files:
     languages_mapping:
       locale:
         ca: ca
-        es: es
+        es-ES: es
         eu: eu
         fi: fi
         fr: fr
