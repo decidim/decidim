@@ -4,6 +4,7 @@ ca:
       proposal:
         body: Cos
         category_id: Categoria
+        has_address: Té adreça
         scope_id: Àmbit
         title: Títol
         user_group_id: Crear proposta
