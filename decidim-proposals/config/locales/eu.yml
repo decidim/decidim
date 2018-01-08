@@ -4,6 +4,7 @@ eu:
       proposal:
         body: Testua
         category_id: Kategoria
+        has_address: Helbidea du
         scope_id: Esparrua
         title: Titulua
         user_group_id: 'Sortu proposamen bat honako hau gisa:'
