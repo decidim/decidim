@@ -6,8 +6,8 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
   participatory_space.icon = "decidim/assemblies/icon.svg"
   participatory_space.model_class_name = "Decidim::Assembly"
 
-  participatory_space.public_spaces do |organization|
-    Decidim::Assemblies::OrganizationPublishedAssemblies.new(organization).query
+  participatory_space.participatory_spaces do |organization|
+    Decidim::Assemblies::OrganizationAssemblies.new(organization).query
   end
 
   participatory_space.seeds do

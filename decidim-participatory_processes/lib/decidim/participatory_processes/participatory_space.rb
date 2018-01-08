@@ -6,8 +6,8 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
   participatory_space.icon = "decidim/participatory_processes/icon.svg"
   participatory_space.model_class_name = "Decidim::ParticipatoryProcess"
 
-  participatory_space.public_spaces do |organization|
-    Decidim::ParticipatoryProcesses::OrganizationPublishedParticipatoryProcesses.new(organization).query
+  participatory_space.participatory_spaces do |organization|
+    Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(organization).query
   end
 
   participatory_space.seeds do
