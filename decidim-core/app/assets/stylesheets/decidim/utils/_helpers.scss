@@ -1,24 +1,24 @@
 // Helpers
 
-.list-reset {
+.list-reset{
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.list-inline {
-  > li {
+.list-inline{
+  > li{
     display: inline-block;
     vertical-align: top;
   }
 
-  > dt {
+  > dt{
     clear: both;
-    margin-right: 0.3em;
+    margin-right: .3em;
   }
 
   > dt,
-  > dd {
+  > dd{
     float: left;
     margin-bottom: 0;
   }

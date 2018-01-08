@@ -13,27 +13,33 @@ $process-title-height: 3rem;
     list-style: none;
     margin-left: 0;
   }
+
   li > a{
     display: block;
     padding: .5rem 1rem;
     margin: 0 .5rem;
     color: $body-font-color;
+
     &:hover,
     &:focus{
       color: lighten($body-font-color, 20);
     }
   }
+
   li.is-active > a{
     background-color: $lighter-gray;
     border-radius: $global-radius;
   }
+
   li > ul{
     margin-left: 1rem;
     font-size: 90%;
+
     a{
       padding-top: .2rem;
       padding-bottom: .2rem;
     }
+
     li.is-active a{
       font-weight: 600;
       background-color: transparent;
@@ -64,23 +70,22 @@ $process-title-height: 3rem;
 }
 
 .secondary-nav__title{
-  padding: 1rem 1rem;
+  padding: 1rem;
   margin-bottom: 2rem;
 }
 
 .secondary-nav__actions{
-  padding: 1rem 1rem;
+  padding: 1rem;
   margin-top: 2rem;
 }
 
-
-.process-title {
+.process-title{
   @include breakpoint(large){
     margin-bottom: $process-title-height;
   }
 }
 
-.process-title-content {
+.process-title-content{
   @include breakpoint(large){
     position: absolute;
     left: 120px;

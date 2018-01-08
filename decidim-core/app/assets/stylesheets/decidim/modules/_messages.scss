@@ -18,7 +18,7 @@ $message-padding: 1rem;
     margin-bottom: 0;
   }
 
-  p {
+  p{
     overflow-wrap: break-word;
   }
 }
@@ -29,6 +29,7 @@ $message-padding: 1rem;
   @extend .message;
 
   padding: $message-padding;
+
   .button{
     margin-bottom: 0;
   }
