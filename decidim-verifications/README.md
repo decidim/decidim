@@ -75,22 +75,26 @@ Decidim implements two type of authorization methods:
   * `edit_authorization_path`: This is the entry point to resume an existing
     authorization process.
 
-## Authorization hooks
+## Custom action authorizers
 
-Authorization hooks are an advanced feature that can be used in both types of
+Custom action authorizers are an advanced feature that can be used in both types of
 authorization methods to customize some parts of the authorization process.
 These are particulary useful when used within verification options, which are
 set in the admin zone related to a feature action. As a result, a verification
 method will be allowed to change the authorization logic and the appearance based
 on the context where the authorization is being performed.
 
-You can implement this hooks through a class that should inherit form
-`Decidim::Verifications::Hooks` class and override any of the following
-methods:
+You can override default behavior implementing a class that inherits form
+`Decidim::Verifications::DefaultActionAuthorizer` and override some methods or that
+implement its public methods:
 
-* The `authorization_status` method is responsible of evaluating the current
-authorization user state and the permission `options` related to an action and
-determine if the user authorization is `:ok` or in any other status.
+* The `initialize` method receives the current authorization process context and
+saves it in local variables. This include the current authorization user state (an
+`Authorization` record) and permission `options` related to the action is trying to
+perform.
+
+* The `authorize` method is responsible of evaluating the authorization process
+context and determine if the user authorization is `:ok` or in any other status.
 
 * The `redirect_params` method allows to add additional query string parameters
 when redirecting to the authorization form. This is useful to send to the
@@ -106,12 +110,12 @@ its workflow manifest:
 Decidim::Verifications.register_workflow(:sms_verification) do |workflow|
   workflow.engine = Decidim::Verifications::SmsVerification::Engine
   workflow.admin_engine = Decidim::Verifications::SmsVerification::AdminEngine
-  workflow.hooks = "Decidim::Verifications::MySmsHooks"
+  workflow.action_authorizer = "Decidim::Verifications::SmsVerification::ActionAuthorizer"
 end
 ```
 
 Check the [example authorization handler](https://github.com/decidim/decidim/blob/master/decidim-verifications/app/services/decidim/dummy_authorization_handler.rb)
-and the [Hooks class](https://github.com/decidim/decidim/blob/master/decidim-verifications/lib/decidim/verifications/hooks.rb)
+and the [DefaultActionAuthorizer class](https://github.com/decidim/decidim/blob/master/decidim-verifications/lib/decidim/verifications/default_action_authorizer.rb)
 for additional technical details.
 
 ## Installation

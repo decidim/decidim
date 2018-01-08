@@ -77,16 +77,17 @@ module Decidim
       end
 
       #
-      # Saves a hooks object for the authorization context and use it to check authorization status.
+      # Authorize user to perform an action using the authorization handler action authorizer.
+      # Saves the action_authorizer object with its context for subsequent methods calls.
       #
       # authorization - The existing authorization record to be evaluated. Can be nil.
       # options       - A hash with options related only to the current authorization process.
       #
-      # Returns the result of authorization handler check. Check Decidim::Verifications::Hooks class docs.
+      # Returns the result of authorization handler check. Check Decidim::Verifications::DefaultActionAuthorizer class docs.
       #
-      def authorization_status(authorization, options)
-        @hooks = @manifest.hooks_class.new(authorization, options)
-        @hooks.authorization_status
+      def authorize(authorization, options)
+        @action_authorizer = @manifest.action_authorizer_class.new(authorization, options)
+        @action_authorizer.authorize
       end
 
       private
@@ -98,8 +99,8 @@ module Decidim
       end
 
       def redirect_params(params = {})
-        # Could add redirect params if a Hooks object was previously set.
-        params.merge(@hooks&.redirect_params || {})
+        # Could add redirect params if a ActionAuthorizer object was previously set.
+        params.merge(@action_authorizer&.redirect_params || {})
       end
     end
   end

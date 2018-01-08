@@ -178,7 +178,7 @@ module Decidim
                 end
               end
 
-              context "when custom hooks options are present and match the authorization" do
+              context "when custom action authorizer options are present and match the authorization" do
                 let(:options) { { allowed_postal_codes: %w(1234 4567) } }
 
                 it "returns ok" do
@@ -190,7 +190,7 @@ module Decidim
                 end
               end
 
-              context "when custom hooks are present and don't match the authorization" do
+              context "when custom action authorizer options are present and don't match the authorization" do
                 let(:options) { { allowed_postal_codes: %w(2345 4567) } }
 
                 it "returns unauthorized" do

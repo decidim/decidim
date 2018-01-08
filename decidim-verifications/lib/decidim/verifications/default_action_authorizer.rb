@@ -2,9 +2,9 @@
 
 module Decidim
   module Verifications
-    class Hooks
+    class DefaultActionAuthorizer
       #
-      # Initializes the Hooks class.
+      # Initializes the DefaultActionAuthorizer class.
       #
       # authorization - The existing authorization record to be evaluated. Can be nil.
       # options       - A hash with options related only to the current authorization process.
@@ -36,7 +36,7 @@ module Decidim
       #     fields            - Wrong fields to be shown. It could be a list of names or a hash with names a current values.
       #     extra_explanation - Hash with an additional key and params to be translated and shown to the user.
       #
-      def authorization_status
+      def authorize
         if !authorization
           [:missing, action: :authorize]
         elsif authorization_expired?

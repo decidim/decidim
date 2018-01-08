@@ -2,7 +2,7 @@
 
 module Decidim
   module Verifications
-    autoload :Hooks, "decidim/verifications/hooks"
+    autoload :DefaultActionAuthorizer, "decidim/verifications/default_action_authorizer"
 
     #
     # This class serves as a DSL to declaratively specify a verification method.
@@ -31,7 +31,7 @@ module Decidim
       attribute :admin_engine, Rails::Engine
       attribute :form, String
       attribute :expires_in, ActiveSupport::Duration, default: 0.minutes
-      attribute :hooks, String
+      attribute :action_authorizer, String
 
       validate :engine_or_form
 
@@ -56,11 +56,11 @@ module Decidim
         "#{fullname} (#{I18n.t(type, scope: "decidim.authorization_handlers")})"
       end
 
-      def hooks_class
-        if @hooks.present?
-          @hooks.constantize
+      def action_authorizer_class
+        if @action_authorizer.present?
+          @action_authorizer.constantize
         else
-          Hooks
+          DefaultActionAuthorizer
         end
       end
     end

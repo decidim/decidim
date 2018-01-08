@@ -53,7 +53,7 @@ describe "Action Authorization", type: :feature do
       end
     end
 
-    context "and action authorized with custom hooks options" do
+    context "and action authorized with custom action authorizer options" do
       let(:permissions) do
         { create: { authorization_handler_name: "dummy_authorization_handler", options: { allowed_postal_codes: %w(1234 4567) } } }
       end

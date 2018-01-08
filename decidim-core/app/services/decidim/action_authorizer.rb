@@ -18,17 +18,17 @@ module Decidim
     end
 
     #
-    # Checks the status of the given authorization.
+    # Authorize user to perform an action in the context of a feature.
     #
     # Returns:
     #   :ok an empty hash                      - When there is no authorization handler related to the action.
-    #   result of authorization handler check  - When there is an authorization handler related to the action. Check Decidim::Verifications::Hooks class docs.
+    #   result of authorization handler check  - When there is an authorization handler related to the action. Check Decidim::Verifications::DefaultActionAuthorizer class docs.
     #
     def authorize
       raise AuthorizationError, "Missing data" unless feature && action
 
       status_code, data = if authorization_handler_name
-                            authorization_handler.authorization_status(authorization, permission_options)
+                            authorization_handler.authorize(authorization, permission_options)
                           else
                             [:ok, {}]
                           end

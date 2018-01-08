@@ -24,13 +24,13 @@ module Decidim
       errors.add(:document_number, :invalid) unless document_number.to_s.end_with?("X")
     end
 
-    # An example implementation of a Hooks inherited class to override authorization status checking process.
-    # In this case, it allows to set a list of valid postal codes for an authorization.
-    class Hooks < Decidim::Verifications::Hooks
+    # An example implementation of a DefaultActionAuthorizer inherited class to override authorization status
+    # checking process. In this case, it allows to set a list of valid postal codes for an authorization.
+    class ActionAuthorizer < Decidim::Verifications::DefaultActionAuthorizer
       attr_reader :allowed_postal_codes
 
       # Overrides the parent class method, but it still uses it to keep the base behavior
-      def authorization_status
+      def authorize
         # Remove the additional setting from the options hash to avoid to be considered missing.
         @allowed_postal_codes ||= options.delete("allowed_postal_codes")
 
