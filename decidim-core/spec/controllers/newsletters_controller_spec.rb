@@ -16,23 +16,38 @@ module Decidim
       context "when the newsletter is not send" do
         let(:newsletter) { create(:newsletter, organization: organization) }
 
-        it "redirects to root path" do
+        it "expect a 404 page" do
           get :show, params: { id: newsletter.id }
-
-          expect(response).to redirect_to(root_url(host: organization.host))
+          expect(response.status).to eq(302)
+          expect(response).to redirect_to("/404")
         end
       end
 
       context "when the newsletter is send" do
         let(:newsletter) { create(:newsletter, organization: organization, sent_at: Time.current) }
-        let(:user) { create(:user, organization: organization) }
-        let(:encryptor) { Decidim::NewsletterEncryptor }
-        let(:encrypted_token) { encryptor.sent_at_encrypted(user.id, newsletter.sent_at) }
 
-        it "renders the newsletter" do
-          get :show, params: { id: newsletter.id }
+        context "when the user is present" do
+          let(:user) { create(:user, organization: organization) }
+          let(:encryptor) { Decidim::NewsletterEncryptor }
+          let(:encrypted_token) { encryptor.sent_at_encrypted(user.id, newsletter.sent_at) }
 
-          expect(response).to render_template(:show)
+          before do
+            request.env["decidim.current_user"] = user
+          end
+
+          it "renders the newsletter with unsubscribe link" do
+            get :show, params: { id: newsletter.id }
+
+            expect(response).to render_template(:show)
+          end
+        end
+
+        context "when the user is not present" do
+          it "renders the newsletter" do
+            get :show, params: { id: newsletter.id }
+
+            expect(response).to render_template(:show)
+          end
         end
       end
     end

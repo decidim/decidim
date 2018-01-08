@@ -21,7 +21,7 @@ module Decidim
         end
         @body = parse_interpolations(newsletter.body[I18n.locale.to_s], @user, newsletter.id)
       else
-        redirect_to decidim.root_url(host: @organization.host)
+        redirect_to "/404"
       end
     end
 
