@@ -1,3 +1,19 @@
 files:
   - source: /**/locales/en.yml
-    translation: /**/locales/%two_letters_code%.yml
+    translation: /**/locales/%locale%.yml
+    languages_mapping:
+      locale:
+        ca: ca
+        es: es
+        eu: eu
+        fi: fi
+        fr: fr
+        gl: gl
+        it: it
+        nl: nl
+        pl: pl
+        pt-BR: pt-BR
+        pt-PT: pt
+        rumany: ru
+        sv-SE: sv
+        ukmany: uk
