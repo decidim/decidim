@@ -1,0 +1,174 @@
+gl:
+  activemodel:
+    attributes:
+      result:
+        decidim_accountability_status_id: estado
+        decidim_category_id: Categoría
+        decidim_scope_id: Alcance
+        description: Descrición
+        end_date: Data de finalización
+        progress: Progreso
+        proposal_ids: Propostas incluidas
+        start_date: Data de inicio
+        title: Título
+      status:
+        description: Descrición
+        key: Clave
+        name: Nome
+        progress: Progreso
+      timeline_entry:
+        description: Descrición
+        entry_date: Data
+  decidim:
+    accountability:
+      actions:
+        confirm_destroy: Estás seguro de que queres eliminar este %{name}?
+        destroy: Eliminar
+        edit: Editar
+        new: Novo %{name}
+        preview: Vista previa
+        timeline_entries: Evolución do proxecto
+        title: Accións
+      admin:
+        exports:
+          results: Resultados
+        models:
+          result:
+            name: Resultado
+          status:
+            name: Estado
+          timeline_entry:
+            name: Entrada de liña de tempo
+        results:
+          create:
+            invalid: Produciuse un problema ao crear este resultado
+            success: Resultado creado con éxito
+          destroy:
+            success: Resultado eliminado correctamente
+          edit:
+            title: Editar resultado
+            update: Actualizar resultado
+          index:
+            title: Resultados
+          new:
+            create: Crear resultado
+            title: Novo resultado
+          update:
+            invalid: Produciuse un problema ao actualizar este resultado
+            success: Resultado actualizado correctamente
+        shared:
+          subnav:
+            statuses: Estatus
+        statuses:
+          create:
+            invalid: Produciuse un problema ao crear este estado
+            success: Estado creado con éxito
+          destroy:
+            success: Estado eliminado con éxito
+          edit:
+            title: Editar o estado
+            update: Actualizar o estado
+          index:
+            title: Estatus
+          new:
+            create: Crear estado
+            title: Novo estado
+          update:
+            invalid: Houbo un problema ao actualizar este estado
+            success: Estado actualizado correctamente
+        timeline_entries:
+          create:
+            invalid: Produciuse un problema ao crear esta entrada
+            success: Entrada creada con éxito
+          destroy:
+            success: Entrada correctamente eliminada
+          edit:
+            title: Editar entrada
+            update: Actualizar a entrada
+          index:
+            title: Entradas da liña de tempo do proxecto
+          new:
+            create: Crear entrada
+            title: Nova entrada
+          update:
+            invalid: Produciuse un problema ao actualizar esta entrada
+            success: Entrada actualizada con éxito
+      models:
+        result:
+          fields:
+            end_date: Data de finalización
+            progress: Progreso
+            start_date: Data de inicio
+            status: Estado
+            title: Título
+        status:
+          fields:
+            description: Descrición
+            key: Clave
+            name: Nome
+            progress: Progreso
+        timeline_entry:
+          fields:
+            description: Descrición
+            entry_date: Data
+      results:
+        count:
+          results_count:
+            one: 1 resultado
+            other: "%{count} resultados"
+        filters:
+          all: Todo
+          global: Global
+          scopes: Ámbitos
+        home:
+          categories_label: Categorías
+          subcategories_label: Subcategorías
+        home_header:
+          global_status: Estado de execución global
+        nav_breadcrumb:
+          global: Execución global
+        search:
+          search: Busca de accións
+        show:
+          stats:
+            attendees: Asistentes
+            back_to_result: Volver ao resultado
+            comments: Comentarios
+            contributions: Contribucións
+            last_edited_by: Última edición por
+            last_updated_at: Última actualización en
+            meetings: Reunións
+            number_of_versions: Versións
+            proposals: Propostas
+            show_all_versions: Mostrar todas as versións
+            version_author: Autor da versión
+            version_created_at: Versión creada en
+            version_number: Número de versión
+            version_number_out_of_total: "%{current_version} de %{total_count}"
+            votes: Soporta
+        timeline:
+          title: Evolución do proxecto
+      versions:
+        index:
+          changes_at_title: Cambios en "%{title}"
+          title: Versións
+        show:
+          changes_at_title: Cambios en "%{title}"
+        version:
+          version_index: Versión %{index}
+    features:
+      accountability:
+        name: Responsabilidade
+        settings:
+          global:
+            categories_label: Nome para "Categorías"
+            comments_enabled: Comentarios habilitados
+            heading_leaf_level_results: Nome para "Proxectos"
+            heading_parent_level_results: Nome para "Resultados"
+            intro: Intro
+            subcategories_label: Nome para "Subcategorías"
+          step:
+            comments_blocked: Comentarios bloqueados
+    resource_links:
+      included_proposals:
+        result_proposals: Propostas incluídas neste resultado
