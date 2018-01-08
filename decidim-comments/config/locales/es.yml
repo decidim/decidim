@@ -5,14 +5,14 @@ es:
         comment_created:
           comment:
             email_intro: '"%{resource_title}" ha sido comentado. Puedes leer el comentario en esta página:'
-            email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+            email_outro: Recibió esta notificación porque está siguiendo "%{resource_title}" o su autor. Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Hay un nuevo comentario de %{author_name} en %{resource_title}
-            notification_title: Hay un nuevo comentario de %{author_name} en <a href="%{resource_path}">%{resource_title}</a>
+            notification_title: Hay un nuevo comentario desde <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
           reply:
             email_intro: Se ha comentado en "%{resource_title}"
-            email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+            email_outro: Recibió esta notificación porque está siguiendo "%{resource_title}" o su autor. Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Hay una nueva respuesta a tu comentario de %{author_name} en <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Hay una nueva respuesta a su comentario de %{author_name} en <a href="%{resource_path}">%{resource_title}</a>
+            notification_title: Hay una nueva respuesta de tu comentario de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: Ha habido errores al votar el comentario.
@@ -49,7 +49,6 @@ es:
             offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
             spam: Contiene clickbait, publicidad o estafas.
           title: Denunciar un problema
-        verified_user_group: Organización verificada
       comment_order_selector:
         order:
           best_rated: Mejor valoración
