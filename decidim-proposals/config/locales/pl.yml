@@ -4,6 +4,7 @@ pl:
       proposal:
         body: Ciało
         category_id: Kategoria
+        has_address: Ma adres
         scope_id: Zakres
         title: Tytuł
         user_group_id: Utwórz propozycję jako
