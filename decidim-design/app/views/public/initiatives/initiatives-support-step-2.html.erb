@@ -1,23 +1,84 @@
 <%
-@title = "Librería de patrones -- Decidim Barcelona"
+@title = "Apoyo a iniciativas -- Decidim Barcelona"
 @activeuser = "logged"
 %>
 
 <%= partial "template_top" %>
 
+<style>
+
+</style>
+
 <main class="wrapper">
-  <div class="row collapse">
-    <div class="columns">
-      <h1 class="section-heading">DOOOOOOOOSOSOSOSOSSOOS</h1>
+  <div class="row">
+    <div class="columns large-3">
+      <div>
+        <%= link_to page_path("") do %>
+          <%= icon "chevron-left", class: "icon--small" %> Volver
+        <% end %>
+      </div>
+      <div>
+        <p>
+          Estás creando una <strong>consulta ciudadana.</strong>
+        </p>
+        <p>
+          <a href="#">Más información</a>.
+        </p>
+      </div>
+      <div>
+        <ol class="steps">
+          <li class="step--past">Crea tu iniciativa</li>
+          <li class="step--active">Validación</li>
+          <li>Crea la comisión promotora</li>
+        </ol>
+      </div>
     </div>
-  </div>
-  <div class="row collapse">
-    <div class="main-container">
-        <div class="row collapse">
-jumbotron
+    <div class="columns large-6">
+      <div class="callout secondary">
+        <p>
+          Las iniciativas ciudadanas son un medio con el que la ciudadanía interviene a fin de que el Ayuntamiento lleve a cabo una determinada actuación de interés general y competencia municipal. ¿Qué iniciativa quieres impulsar? <a href="#">Más información</a>.
+        </p>
+      </div>
+      <h2 class="section-heading">Crea tu iniciativa</h2>
+      <div class="card">
+        <div class="card__content">
+          <form>
+            <div>
+              <div>
+                <label>Título *
+                  <input type="text" placeholder="Nueva propuesta en decidim.barcelona">
+                </label>
+              </div>
+              <div>
+                <label>Descripción de la propuesta
+                  <textarea placeholder="¿Qué propones?" rows="10"></textarea>
+                </label>
+              </div>
+              <div>
+                <label>Tipo de firma *
+                  <select>
+                    <option></option>
+                    <option>Categoría 1</option>
+                    <option>Categoría 2</option>
+                  </select>
+                </label>
+              </div>
+              <div>
+                <label>Ámbito *
+                  <select>
+                    <option></option>
+                    <option>Subcategoría 1</option>
+                    <option>Subcategoría 2</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <button type="submit" class="button expanded">Enviar</button>
+          </form>
         </div>
       </div>
     </div>
+    <div class="columns large-3"></div>
   </div>
 </main>
 

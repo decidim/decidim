@@ -1,0 +1,43 @@
+.steps {
+  list-style-type: none;
+  margin-left: 0.25rem;
+
+  li {
+    border: none;
+    color: $secondary;
+    border-left: 2px solid $secondary;
+    box-sizing: border-box;
+    border-radius: 0;
+    padding: 1rem 0;
+    font-size: .875rem;
+    cursor: pointer;
+  }
+
+  li::before {
+    border-radius: 50%;
+    background-color: $secondary;
+    content: "";
+    display: inline-block;
+    float: left;
+    height: 10px;
+    line-height: 10px;
+    text-align: center;
+    width: 10px;
+    margin: .4rem 4px 0 -6px;
+  }
+
+  .step--past {
+    color: $primary;
+    border-left: 2px solid $primary;
+
+    &::before {
+      background-color: $primary;
+    }
+  }
+
+  .step--active {
+    @extend .step--past;
+
+    font-weight: bold;
+  }
+}
