@@ -223,6 +223,8 @@ pt:
     pages:
       index:
         title: Mais informação
+    profiles:
+      default_officialization_text: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
     reported_mailer:
       hide:
         hello: Olá %{name},
