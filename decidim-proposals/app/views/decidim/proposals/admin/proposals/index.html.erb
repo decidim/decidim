@@ -46,7 +46,7 @@
             <% end %>
 
             <th>
-              <%= sort_link(query, :comments_count, t("models.proposal.fields.comments", scope: "decidim.proposals") ) %>
+              <%= sort_link(query, :commentable_comments_count, t("models.proposal.fields.comments", scope: "decidim.proposals") ) %>
             </th>
 
             <th>
@@ -93,7 +93,7 @@
 
               <% unless current_settings.comments_blocked? %>
                 <td>
-                  <%= proposal.comments_count %>
+                  <%= proposal.commentable_comments_count %>
                 </td>
               <% end %>
 
