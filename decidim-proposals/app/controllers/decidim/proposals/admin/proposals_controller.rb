@@ -45,7 +45,6 @@ module Decidim
 
         def proposals
           @proposals ||= query.result.page(params[:page]).per(15)
-          # @proposals ||= Proposal.where(feature: current_feature).page(params[:page]).per(15)
         end
 
         def proposal
