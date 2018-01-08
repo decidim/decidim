@@ -46,6 +46,10 @@
             <% end %>
 
             <th>
+              <%= sort_link(query, :comments_count, t("models.proposal.fields.comments", scope: "decidim.proposals") ) %>
+            </th>
+
+            <th>
               <%= sort_link(query, :created_at, t("models.proposal.fields.created_at", scope: "decidim.proposals") ) %>
             </th>
 
@@ -80,9 +84,16 @@
                   <%= humanize_proposal_state proposal.state %>
                 </strong>
               </td>
+
               <% if current_settings.votes_enabled? %>
                 <td>
                   <%= proposal.proposal_votes_count %>
+                </td>
+              <% end %>
+
+              <% unless current_settings.comments_blocked? %>
+                <td>
+                  <%= proposal.comments_count %>
                 </td>
               <% end %>
 

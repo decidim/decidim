@@ -95,6 +95,7 @@ en:
         proposal:
           fields:
             category: Category
+            comments: Comments
             created_at: Created at
             id: ID
             official_proposal: Official proposal
