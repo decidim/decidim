@@ -121,7 +121,6 @@ en:
           endorse: Endorse
         endorsement_button:
           endorse: Endorse
-          endorsements_blocked: Endorsements disabled
           already_endorsed: Already endorsed
           already_endorsed_hover: Unendorse
         endorsements_count:
@@ -189,6 +188,7 @@ en:
           view_proposal: View proposal
         show:
           edit_proposal: Edit proposal
+          endorsements_blocked: Endorsements blocked
           proposal_accepted_reason: 'This proposal has been accepted because:'
           proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: 'This proposal has been rejected because:'
