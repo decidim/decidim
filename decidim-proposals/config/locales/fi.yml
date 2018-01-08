@@ -4,6 +4,7 @@ fi:
       proposal:
         body: Runko
         category_id: Aihepiiri
+        has_address: Onko osoite
         scope_id: Konteksti
         title: Otsikko
         user_group_id: Luo ehdotus käyttäjänä
