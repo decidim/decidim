@@ -5,14 +5,14 @@ pl:
         comment_created:
           comment:
             email_intro: '"Skomentował" %{resource_title} ". Możesz przeczytać komentarz na tej stronie:'
-            email_outro: Otrzymujesz to powiadomienie, ponieważ śledzisz "%{resource_title}". Możesz cofnąć ją od poprzedniego linku.
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}" lub jego autora. Możesz przestać go obserwować z poprzedniego linku.
             email_subject: Istnieje nowy komentarz z %{author_name} w %{resource_title}
-            notification_title: W %{author_name} w <a href="%{resource_path}">%{resource_title}</a> nowy komentarz
+            notification_title: Jest nowy komentarz od <a href="%{author_path}">%{author_name} %{author_nickname}</a> w <a href="%{resource_path}">%{resource_title}</a>
           reply:
             email_intro: '"Skomentował" %{resource_title} "'
-            email_outro: Otrzymujesz to powiadomienie, ponieważ śledzisz "%{resource_title}". Możesz cofnąć ją od poprzedniego linku.
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}" lub jego autora. Możesz przestać go obserwować z poprzedniego linku.
             email_subject: Nowa odpowiedź Twojego komentarza z %{author_name} w <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Nowa odpowiedź Twojego komentarza z %{author_name} w <a href="%{resource_path}">%{resource_title}</a>
+            notification_title: Pojawiła się nowa odpowiedź Twojego komentarza z <a href="%{author_path}">%{author_name} %{author_nickname}</a> w <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: Podczas głosowania komentarza wystąpiły błędy.
@@ -49,7 +49,6 @@ pl:
             offensive: Zawiera rasizm, seksizm, gniew, ataki osobiste, groźby śmierci, wnioski o samobójstwo lub jakąkolwiek formę mowy o nienawiści.
             spam: Zawiera kliknięć, reklamy, oszustwa lub boty scenariusza.
           title: Zgłoś problem
-        verified_user_group: Zweryfikowana organizacja
       comment_order_selector:
         order:
           best_rated: Najlepsza ocena
