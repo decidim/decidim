@@ -4,6 +4,7 @@ es:
       proposal:
         body: Cuerpo
         category_id: Categoría
+        has_address: Tiene dirección
         scope_id: Ámbito
         title: Título
         user_group_id: Crear propuesta como
