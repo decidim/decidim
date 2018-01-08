@@ -4,6 +4,7 @@ it:
       proposal:
         body: Corpo del testo
         category_id: Categoria
+        has_address: Ha un indirizzo
         scope_id: Visibilità
         title: Titolo
         user_group_id: Crea proposta come
