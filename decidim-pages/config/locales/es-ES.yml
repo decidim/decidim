@@ -1,0 +1,22 @@
+es:
+  decidim:
+    features:
+      pages:
+        name: Página
+        settings:
+          global:
+            announcement: Aviso
+          step:
+            announcement: Aviso
+    pages:
+      admin:
+        models:
+          components:
+            body: Cuerpo
+        pages:
+          edit:
+            save: Actualizar
+            title: Editar página
+          update:
+            invalid: Ha habido errores al guardar la página.
+            success: Página guardada correctamente.
