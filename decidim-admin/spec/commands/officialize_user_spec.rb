@@ -45,6 +45,22 @@ module Decidim::Admin
 
         expect(user.reload).to be_officialized
       end
+
+      it "notifies the user's followers" do
+        follower = create(:user, organization: organization)
+        create(:follow, followable: user, user: follower)
+
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.users.user_officialized",
+            event_class: Decidim::Admin::UserOfficializedEvent,
+            resource: kind_of(Decidim::User),
+            recipient_ids: [follower.id]
+          )
+
+        subject.call
+      end
     end
   end
 end
