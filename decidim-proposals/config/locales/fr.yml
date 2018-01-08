@@ -4,6 +4,7 @@ fr:
       proposal:
         body: Corps du texte
         category_id: Catégorie
+        has_address: A une adresse
         scope_id: Zone d'application
         title: Titre
         user_group_id: Créer une proposition en tant que
