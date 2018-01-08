@@ -5,14 +5,14 @@ pt:
         comment_created:
           comment:
             email_intro: '"%{resource_title}" foi comentado. Você pode ler o comentário nesta página:'
-            email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
+            email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}" ou seu autor. Você pode ignorá-lo do link anterior.
             email_subject: Há um novo comentário de %{author_name} em %{resource_title}
-            notification_title: Há um novo comentário de %{author_name} em <a href="%{resource_path}">%{resource_title}</a>
+            notification_title: Há um novo comentário de <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>
           reply:
             email_intro: O "%{resource_title}" foi comentado
-            email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
+            email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}" ou seu autor. Você pode ignorá-lo do link anterior.
             email_subject: Há uma nova resposta do seu comentário de %{author_name} em <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Há uma nova resposta do seu comentário de %{author_name} em <a href="%{resource_path}">%{resource_title}</a>
+            notification_title: Há uma nova resposta do seu comentário de <a href="%{author_path}">%{author_name} %{author_nickname}</a> em <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: Houve erros ao votar o comentário.
@@ -49,7 +49,6 @@ pt:
             offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
             spam: Contém clickbait, publicidade, fraudes ou script bots.
           title: Reportar um problema
-        verified_user_group: Organização verificada
       comment_order_selector:
         order:
           best_rated: Melhores avaliações
