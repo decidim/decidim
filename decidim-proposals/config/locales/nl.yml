@@ -4,6 +4,7 @@ nl:
       proposal:
         body: Body
         category_id: Categorie
+        has_address: Heeft adres
         scope_id: Reikwijdte
         title: Titel
         user_group_id: Maak een voorstel als
