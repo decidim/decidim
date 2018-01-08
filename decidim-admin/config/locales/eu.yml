@@ -214,6 +214,7 @@ eu:
         dashboard: Kontrol-panela
         managed_users: Kudeatutako erabiltzaileak
         newsletters: Buletinak
+        officializations: Officializations
         scope_types: Esparru motak
         scopes: Esparruak
         settings: Ezarpenak
@@ -313,6 +314,33 @@ eu:
         update:
           error: Errorea gertatu da buletin hau eguneratzean.
           success: Buletina zuzen eguneratu da. Mesedez, berrikusi bidali baino lehen.
+      officializations:
+        create:
+          success: Erabiltzailea arrakastatsua izan da
+        destroy:
+          success: Erabiltzailea ez da ongi burutu
+        index:
+          actions: Ekintzak
+          badge: Badge
+          created_at: Sortua
+          filter:
+            all: guztiak
+            not_officialized: Ez ofiziala
+            officialized: Officialized
+          filter_by: Iragazi arabera
+          name: izena
+          nickname: ezizena
+          not_officialized: Ez ofiziala
+          officialize: Officialize
+          officialized: Officialized
+          reofficialize: Reofficialize
+          search: Search
+          status: Egoera
+          unofficialize: Unofficialize
+        new:
+          badge: Ofizializazio xafla
+          officialize: Officialize
+          title: Erabiltzaile ofiziala "%{name}"
       organization:
         edit:
           title: Editatu erakundea
@@ -390,6 +418,7 @@ eu:
         dashboard: Kontrol-panela
         impersonations: Ordezteak
         managed_users: Kudeatutako erabiltzaileak
+        officializations: Officializations
         scope_types: Esparru motak
         scopes: Esparruak
         static_pages: Orriak

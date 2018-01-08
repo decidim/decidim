@@ -223,6 +223,8 @@ eu:
     pages:
       index:
         title: Argibide gehiago
+    profiles:
+      default_officialization_text: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
     reported_mailer:
       hide:
         hello: Kaixo, %{name},

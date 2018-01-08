@@ -223,6 +223,8 @@ fi:
     pages:
       index:
         title: Lisätietoa
+    profiles:
+      default_officialization_text: Tämä osallistuja on julkisesti vahvistettu, hänen nimensä tai tehtävänsä on varmistettu vastaamaan hänen oikeaa nimeään ja tehtäväänsä
     reported_mailer:
       hide:
         hello: Hei %{name},

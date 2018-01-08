@@ -1,0 +1,69 @@
+es:
+  decidim:
+    comments:
+      events:
+        comment_created:
+          comment:
+            email_intro: '"%{resource_title}" ha sido comentado. Puedes leer el comentario en esta página:'
+            email_outro: Recibió esta notificación porque está siguiendo "%{resource_title}" o su autor. Puedes dejar de seguirlo desde el enlace anterior.
+            email_subject: Hay un nuevo comentario de %{author_name} en %{resource_title}
+            notification_title: Hay un nuevo comentario desde <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
+          reply:
+            email_intro: Se ha comentado en "%{resource_title}"
+            email_outro: Recibió esta notificación porque está siguiendo "%{resource_title}" o su autor. Puedes dejar de seguirlo desde el enlace anterior.
+            email_subject: Hay una nueva respuesta a tu comentario de %{author_name} en <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Hay una nueva respuesta de tu comentario de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
+      votes:
+        create:
+          error: Ha habido errores al votar el comentario.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}">Inicia sesión con tu cuenta</a> o <a href="%{sign_up_url}">regístrate</a> para añadir tu comentario.
+        form:
+          body:
+            label: Comentario
+            placeholder: '¿Qué piensas sobre esto?'
+          form_error: El texto es necesario y no puede ser más de caracteres %{length}.
+          submit: Enviar
+          user_group_id:
+            label: Comentar como
+        opinion:
+          neutral: Neutral
+        remaining_characters: "Quedan %{count} caracteres"
+        remaining_characters_1: "Queda %{count} carácter"
+        title: Deje su comentario
+      comment:
+        alignment:
+          against: En contra
+          in_favor: A favor
+        deleted_user: Usuario eliminado
+        reply: Respuesta
+        report:
+          action: Denunciar
+          already_reported: Este contenido ya fue denunciado y será revisado por un administrador.
+          close: Cerrar
+          description: '¿Es inapropiado este contenido?'
+          details: Comentarios adicionales
+          reasons:
+            does_not_belong: Contiene actividad ilegal, amenazas de suicidio, información personal o cualquier otra cosa que usted piense que no pertenece en %{organization_name}.
+            offensive: Contiene racismo, sexismo, insultos, ataques personales, amenazas de muerte, solicitudes de suicidio o cualquier forma de discurso de odio.
+            spam: Contiene clickbait, publicidad o estafas.
+          title: Denunciar un problema
+      comment_order_selector:
+        order:
+          best_rated: Mejor valoración
+          most_discussed: Más discutidos
+          older: Más antiguo
+          recent: Reciente
+        title: 'Ordenar por:'
+      comment_thread:
+        title: Conversación con %{authorName}
+      comments:
+        blocked_comments_warning: Los comentarios están deshabilitados en este momento, pero puedes leer los anteriores.
+        loading: Cargando los comentarios ...
+        title: "%{count} comentarios"
+      featured_comment:
+        title: Comentario destacado
+  errors:
+    messages:
+      cannot_have_comments: no puede tener comentarios

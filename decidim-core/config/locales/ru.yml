@@ -78,7 +78,7 @@ ru:
         name: Нерабочее псевдо-подтверждение личности
       granted_at: Предоставлено %{timestamp}
       started_at: 'Начато: %{timestamp}'
-    contact: Контакт
+    contact: Связаться
     core:
       actions:
         unauthorized: Вы не имеете прав для выполнения этого действия
@@ -223,6 +223,8 @@ ru:
     pages:
       index:
         title: Узнать больше
+    profiles:
+      default_officialization_text: Личность этого участника публично подтверждена, его / ее имя или роль проверены на соответствие его / ее реальному имени и роли
     reported_mailer:
       hide:
         hello: Здравствуйте, %{name}!
@@ -238,6 +240,14 @@ ru:
       create:
         error: При создании жалобы возникла ошибка. Повторите, пожалуйста, попытку.
         success: Жалоба была успешно создана, и она будет рассмотрена администратором.
+    scopes:
+      global: Всеобщий охват
+      picker:
+        cancel: Отменить
+        choose: Выбрать
+        title: Выберите %{field}
+      prompt: Выбрать охват
+      scopes: Охваты
     shared:
       action_authorization_modal:
         expired:
