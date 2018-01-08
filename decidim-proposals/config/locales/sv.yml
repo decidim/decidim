@@ -4,6 +4,7 @@ sv:
       proposal:
         body: Kropp
         category_id: Kategori
+        has_address: Har adress
         scope_id: Omfattning
         title: Titel
         user_group_id: Skapa förslag som
