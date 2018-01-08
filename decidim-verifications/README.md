@@ -84,6 +84,14 @@ set in the admin zone related to a feature action. As a result, a verification
 method will be allowed to change the authorization logic and the appearance based
 on the context where the authorization is being performed.
 
+For example, you can require authorization for supporting proposals in a participatory
+process, and also restrict it to users with postal codes 12345 and 12346. The
+[example authorization handler](https://github.com/decidim/decidim/blob/master/decidim-verifications/app/services/decidim/dummy_authorization_handler.rb)
+included in this module allows to do that. As an admin user, you should visit
+the proposals componenent permissions screen, choose the `Example authorization`
+as the authorization handler name for the `vote` action and type something like
+`{ allowed_postal_codes: ["12345", "12346"] }` in the `Options` field placed below.
+
 You can override default behavior implementing a class that inherits form
 `Decidim::Verifications::DefaultActionAuthorizer` and override some methods or that
 implement its public methods:
