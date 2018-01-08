@@ -223,6 +223,8 @@ ca:
     pages:
       index:
         title: Més informació
+    profiles:
+      default_officialization_text: Aquest participant es verifica públicament, el seu nom o la seva funció s'ha verificat perquè es correspongui amb el seu nom i funció reals
     reported_mailer:
       hide:
         hello: Hola %{name},
