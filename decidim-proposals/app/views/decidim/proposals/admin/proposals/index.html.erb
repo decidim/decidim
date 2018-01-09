@@ -45,9 +45,11 @@
               </th>
             <% end %>
 
-            <th>
-              <%= sort_link(query, :commentable_comments_count, t("models.proposal.fields.comments", scope: "decidim.proposals") ) %>
-            </th>
+            <% if current_feature.settings.comments_enabled? and !current_settings.comments_blocked? %>
+              <th>
+                <%= sort_link(query, :commentable_comments_count, t("models.proposal.fields.comments", scope: "decidim.proposals") ) %>
+              </th>
+            <% end %>
 
             <th>
               <%= sort_link(query, :created_at, t("models.proposal.fields.created_at", scope: "decidim.proposals") ) %>
@@ -91,9 +93,9 @@
                 </td>
               <% end %>
 
-              <% unless current_settings.comments_blocked? %>
+              <% if current_feature.settings.comments_enabled? and !current_settings.comments_blocked? %>
                 <td>
-                  <%= proposal.commentable_comments_count %>
+                  <%= proposal.comments.count %>
                 </td>
               <% end %>
 

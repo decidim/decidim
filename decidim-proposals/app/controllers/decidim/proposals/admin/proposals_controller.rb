@@ -8,10 +8,7 @@ module Decidim
         helper Proposals::ApplicationHelper
         helper_method :proposals, :query
 
-        def index
-          @q = Proposal.where(feature: current_feature).ransack(params[:q])
-          @proposals ||= @q.result.page(params[:page]).per(15)
-        end
+        def index; end
 
         def new
           authorize! :create, Proposal
