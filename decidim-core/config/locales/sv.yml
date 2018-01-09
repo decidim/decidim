@@ -223,6 +223,8 @@ sv:
     pages:
       index:
         title: Mer information
+    profiles:
+      default_officialization_text: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
     reported_mailer:
       hide:
         hello: Hej %{name},
@@ -402,7 +404,7 @@ sv:
         participate: Delta
         welcome: Välkommen till %{organization}!
       statistics:
-        answers_count: svar
+        answers_count: Avslutade undersökningar
         assemblies_count: Assemblies
         comments_count: kommentarer
         headline: Aktuellt tillstånd %{organization}
