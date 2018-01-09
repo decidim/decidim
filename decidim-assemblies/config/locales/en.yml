@@ -60,6 +60,15 @@ en:
         destroy:
           error: There was an error unpublishing this assembly.
           success: Assembly unpublished successfully.
+      assembly_user_roles:
+        create:
+          error: There was an error adding a user for this assembly.
+          success: User created successfully for this assembly.
+        destroy:
+          success: User destroyed successfully for this assembly.
+        update:
+          error: There was an error updated a user for this assembly.
+          success: User updated successfully for this assembly.
       menu:
         assemblies: Assemblies
         assemblies_submenu:
