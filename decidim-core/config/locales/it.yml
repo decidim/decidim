@@ -404,7 +404,7 @@ it:
         participate: Partecipa
         welcome: Benvenuto su %{organization}!
       statistics:
-        answers_count: Risposte
+        answers_count: Sondaggi completati
         assemblies_count: assemblee
         comments_count: Commenti
         headline: Stato attuale dell'organizzazione %{organization}
