@@ -405,7 +405,7 @@ ca:
         participate: Participa
         welcome: Benvingut a %{organization}!
       statistics:
-        answers_count: Respostes
+        answers_count: Enquestes realitzades
         assemblies_count: Assemblees
         comments_count: Comentaris
         headline: Estat actual de %{organization}
