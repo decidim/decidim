@@ -68,11 +68,6 @@ module Decidim
       def current_user_proposals
         Proposal.where(feature: current_feature, author: current_user)
       end
-
-      def comments_enabled?
-        current_settings.comments_enabled
-      end
-
     end
   end
 end
