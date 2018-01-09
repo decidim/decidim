@@ -18,11 +18,11 @@ module Decidim
             :step_4,
             :step_publish,
 
-            def show
-              @step = step
-              authorize! :create, Proposal
-              send("#{step}_step")
-            end
+      def show
+        @step = step
+        authorize! :create, Proposal
+        send("#{step}_step")
+      end
 
       def update
         @step = step
