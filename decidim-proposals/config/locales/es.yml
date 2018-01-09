@@ -85,8 +85,8 @@ es:
       events:
         create_proposal_event:
           email_intro: |-
-            Hola, %{author_name} %{author_nickname}, a quién sigues, ha creado una nueva propuesta, compruébalo y contribuye:
-          email_outro: Recibió esta notificación porque está siguiendo %{author_nickname}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+            Hola, %{author_name} %{author_nickname}, a quién sigues, ha creado una nueva propuesta, compruébala y contribuye:
+          email_outro: Has recibido esta notificación porque estás siguiendo a %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Nueva propuesta de %{author_nickname}
           notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> fue creada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
