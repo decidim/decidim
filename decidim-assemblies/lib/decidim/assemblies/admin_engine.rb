@@ -18,6 +18,12 @@ module Decidim
           resource :publish, controller: "assembly_publications", only: [:create, :destroy]
           resources :copies, controller: "assembly_copies", only: [:new, :create]
 
+          resources :user_roles, controller: "assembly_user_roles" do
+            member do
+              post :resend_invitation, to: "assembly_user_roles#resend_invitation"
+            end
+          end
+
           resources :attachments, controller: "assembly_attachments"
         end
 
