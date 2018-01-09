@@ -404,7 +404,7 @@ gl:
         participate: Participar
         welcome: Benvido a %{organization}.
       statistics:
-        answers_count: Respostas
+        answers_count: Enquisas concluídas
         assemblies_count: Asembleas
         comments_count: Comentarios
         headline: Estado actual de %{organization}
