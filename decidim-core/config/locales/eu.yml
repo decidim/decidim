@@ -404,7 +404,7 @@ eu:
         participate: Parte hartu
         welcome: Ongi etorri %{organization} erakundera!
       statistics:
-        answers_count: Erantzunak
+        answers_count: Amaitutako inkestak
         assemblies_count: Batzar
         comments_count: Iruzkinak
         headline: '%{organization} erakundearen egungo egoera'
