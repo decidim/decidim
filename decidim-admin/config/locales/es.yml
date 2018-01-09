@@ -135,7 +135,7 @@ es:
           welcome: Bienvenido al panel de administración de Decidim.
       events:
         user_officialized_event:
-          email_intro: La página <a href="%{profile_path}">profile</a> de %{name} (%{nickname}), a la que está siguiendo, se ha actualizado.
+          email_intro: La página <a href="%{profile_path}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
           email_outro: Recibió esta notificación porque está siguiendo %{nickname}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: "%{nickname} actualizó su perfil"
           notification_title: La página <a href="%{profile_path}">profile</a> de %{name} (%{nickname}), a la que está siguiendo, se ha actualizado.
