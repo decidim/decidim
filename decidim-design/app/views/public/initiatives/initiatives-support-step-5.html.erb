@@ -5,10 +5,6 @@
 
 <%= partial "template_top" %>
 
-<style>
-
-</style>
-
 <main class="wrapper">
   <div class="row">
     <div class="columns large-3">
@@ -17,65 +13,34 @@
           <%= icon "chevron-left", class: "icon--small" %> Volver
         <% end %>
       </div>
-      <div class="section">
-        <p>
-          Estás creando una <strong>consulta ciudadana.</strong>
-        </p>
-        <p>
-          <a href="#">Más información</a>.
-        </p>
-      </div>
-      <div>
-        <!-- STEPS component: Set any kind of list with 'steps' class; Its children only require set the active element w/ 'step--active' class -->
-        <ol class="steps">
-          <li>Crea tu iniciativa</li>
-          <li class="step--active">Validación</li>
-          <li>Crea la comisión promotora</li>
-        </ol>
-      </div>
     </div>
     <div class="columns large-6">
-      <div class="callout secondary">
-        <p>
-          Rellena los siguientes campos para validar la iniciativa ciudadana.
-        </p>
+      <div class="title-action">        
+        <div class="callout secondary">
+          <p>
+            ¡Enhorabuena! Tu iniciativa ciudadana se ha creado con éxito.
+          </p>
+        </div>
       </div>
-      <h2 class="section-heading">Valida tu iniciativa</h2>
+      <h2 class="section-heading">Iniciativa creada</h2>
       <div class="card">
         <div class="card__content">
           <form class="initiatives-form">
-            <div>
-              <div>
-                <label>Título *
-                  <input type="text" placeholder="Nueva propuesta en decidim.barcelona">
-                </label>
-              </div>
-              <div>
-                <label>Descripción de la propuesta
-                  <textarea placeholder="¿Qué propones?" rows="10"></textarea>
-                </label>
-              </div>
-              <div>
-                <label>Tipo de firma *
-                  <select>
-                    <option></option>
-                    <option>Categoría 1</option>
-                    <option>Categoría 2</option>
-                  </select>
-                </label>
-              </div>
-              <div>
-                <label>Ámbito *
-                  <select>
-                    <option></option>
-                    <option>Subcategoría 1</option>
-                    <option>Subcategoría 2</option>
-                  </select>
-                </label>
-              </div>
-            </div>
+            <p>
+              Recuerda que para tramitar correctamente la iniciativa tienes que acceder al panel de administración que se encuenra en el menú de usuario, subir la información requerida y enviarla a trámite.
+            </p>
+            <ul>
+              <li>Si eres una asociación, deberás subir el acta firmada de los órganos de dirección de las organizaciones miembros de la Comisión Promotora</li>
+              <li>Si has seleccionado la opción de recogida de firmas presencial o mixta, deberás subir la información requerida</li>
+            </ul>
+            <p>
+              Puedes consultar toda esta información en la <a href="#">página de información de iniciativas</a>.
+            </p>
+            <p>
+              Recuerda que siempre podrás acceder a tus iniciativas desde el menú de usuario.
+            </p>
             <%= link_to page_path("initiatives") do %>
-              <button type="submit" class="button expanded">Continuar</button>
+            <button type="submit" class="button expanded">Ir a mis iniciativas</button>
             <% end %>
           </form>
         </div>

@@ -387,6 +387,14 @@ $datetime-bg: $primary;
     }
   }
 }
+.card--list__data__icon--lg{
+  @extend .card--list__data__icon;
+
+  .icon {
+    width: 36px;
+    height: 36px;
+  }
+}
 
 .card--list__data__number{
   @extend .card-data__item__number;
