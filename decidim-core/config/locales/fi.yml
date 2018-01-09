@@ -405,7 +405,7 @@ fi:
         participate: Osallistu
         welcome: Tervetuloa organisaatioon %{organization}!
       statistics:
-        answers_count: Vastaukset
+        answers_count: Valmistuneet tutkimukset
         assemblies_count: osat
         comments_count: Kommentit
         headline: Tämänhetkinen tila organisaatiolle %{organization}
