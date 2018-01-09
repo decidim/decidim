@@ -4,6 +4,17 @@ nl:
       admin:
         exports:
           dummies: Dummies
+    participatory_processes:
+      statistics:
+        dummies_count_high: Dummies hoog
+        dummies_count_medium: Dummies medium
     resource_links:
       test_link:
         dummy_resource_dummy: Gerelateerde dummy
+  pages:
+    home:
+      statistics:
+        bar: Bar
+        dummies_count_high: Dummies hoog
+        dummies_count_medium: Dummies medium
+        foo: Foo
