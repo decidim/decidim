@@ -80,6 +80,7 @@ en:
       menu:
         assemblies: Assemblies
         assemblies_submenu:
+          assembly_admins: Assembly users
           attachments: Attachments
           categories: Categories
           features: Features
