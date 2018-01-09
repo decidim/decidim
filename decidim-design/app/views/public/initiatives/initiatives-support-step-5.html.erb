@@ -28,8 +28,8 @@
       <div>
         <!-- STEPS component: Set any kind of list with 'steps' class; Its children only require set the active element w/ 'step--active' class -->
         <ol class="steps">
-          <li class="step--active">Crea tu iniciativa</li>
-          <li>Validación</li>
+          <li>Crea tu iniciativa</li>
+          <li class="step--active">Validación</li>
           <li>Crea la comisión promotora</li>
         </ol>
       </div>
@@ -37,10 +37,10 @@
     <div class="columns large-6">
       <div class="callout secondary">
         <p>
-          Explícanos en qué consiste tu iniciativa. Te recomendamos que el título sea conciso y la descripción se centre en la solución que se propone.
+          Rellena los siguientes campos para validar la iniciativa ciudadana.
         </p>
       </div>
-      <h2 class="section-heading">Crea tu iniciativa</h2>
+      <h2 class="section-heading">Valida tu iniciativa</h2>
       <div class="card">
         <div class="card__content">
           <form class="initiatives-form">
@@ -58,7 +58,7 @@
               <div>
                 <label>Tipo de firma *
                   <select>
-                    <option disabled selected hidden>Seleciona el tipo de firma</option>
+                    <option></option>
                     <option>Categoría 1</option>
                     <option>Categoría 2</option>
                   </select>
@@ -67,15 +67,15 @@
               <div>
                 <label>Ámbito *
                   <select>
-                    <option disabled selected hidden>Selecciona el ámbito de tu iniciativa</option>
+                    <option></option>
                     <option>Subcategoría 1</option>
                     <option>Subcategoría 2</option>
                   </select>
                 </label>
               </div>
             </div>
-            <%= link_to page_path("initiatives/initiatives-support-step-3") do %>
-              <button type="button" class="button expanded">Continuar</button>
+            <%= link_to page_path("initiatives") do %>
+              <button type="submit" class="button expanded">Continuar</button>
             <% end %>
           </form>
         </div>
