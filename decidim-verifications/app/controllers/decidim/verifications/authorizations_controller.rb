@@ -14,6 +14,7 @@ module Decidim
       helper Decidim::AuthorizationFormHelper
 
       layout "layouts/decidim/user_profile", only: [:index]
+      skip_before_action :store_current_location
 
       def new; end
 
