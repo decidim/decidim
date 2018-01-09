@@ -135,7 +135,8 @@ Decidim.register_feature(:proposals) do |feature|
         user_group: user_group,
         state: state,
         answer: answer,
-        answered_at: Time.current
+        answered_at: Time.current,
+        published_at: Time.current
       )
 
       (n % 3).times do |m|
