@@ -223,6 +223,8 @@ fi:
     pages:
       index:
         title: Lisätietoa
+    profiles:
+      default_officialization_text: Tämä osallistuja on julkisesti vahvistettu, hänen nimensä tai tehtävänsä on varmistettu vastaamaan hänen oikeaa nimeään ja tehtäväänsä
     reported_mailer:
       hide:
         hello: Hei %{name},
@@ -403,7 +405,7 @@ fi:
         participate: Osallistu
         welcome: Tervetuloa organisaatioon %{organization}!
       statistics:
-        answers_count: Vastaukset
+        answers_count: Valmistuneet tutkimukset
         assemblies_count: osat
         comments_count: Kommentit
         headline: Tämänhetkinen tila organisaatiolle %{organization}

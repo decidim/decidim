@@ -69,7 +69,7 @@ nl:
         name: Dummy autorisatie workflow
       errors:
         duplicate_authorization: Een gebruiker is al gemachtigd met dezelfde gegevens.
-      expired_at: Verlopen bij %{timestamp}
+      expired_at: Verstreken op %{timestamp}
       expires_at: Verloopt op %{timestamp}
       foo_authorization:
         fields:
@@ -195,15 +195,15 @@ nl:
           no_conversations: Je hebt nog geen gesprekken
           title: conversaties
         reply:
-          send: Sturen
-          title: Antwoord
+          send: Verzenden
+          title: Beantwoorden
         show:
-          title: Conversatie met %{usernames}
+          title: Gesprek met %{usernames}
         start:
-          send: Sturen
+          send: Verzenden
           title: Een gesprek beginnen
         update:
-          error: Bericht niet verzonden Probeer het later nogmaals
+          error: Bericht niet verzonden. Probeer het later nogmaals
     newsletter_mailer:
       newsletter:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
@@ -223,6 +223,8 @@ nl:
     pages:
       index:
         title: Meer informatie
+    profiles:
+      default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn / haar naam of rol is geverifieerd om overeen te komen met zijn / haar echte naam en rol
     reported_mailer:
       hide:
         hello: Hallo %{name},
@@ -239,10 +241,10 @@ nl:
         error: Er is een fout opgetreden tijdens het maken van het rapport. Probeer het alstublieft opnieuw.
         success: Het rapport is gemaakt en het zal worden beoordeeld door een beheerder.
     scopes:
-      global: Wereldwijd bereik
+      global: Globale scope
       picker:
         cancel: Annuleer
-        choose: kiezen
+        choose: Selecteer
         title: Selecteer %{field}
       prompt: Selecteer een scope
       scopes: scopes
@@ -402,8 +404,8 @@ nl:
         participate: Deelnemen
         welcome: Welkom bij %{organization}!
       statistics:
-        answers_count: Antwoorden
-        assemblies_count: Assemblies
+        answers_count: Voltooide enquêtes
+        assemblies_count: Bijeenkomsten
         comments_count: Reacties
         headline: Huidige stand van %{organization}
         meetings_count: Vergaderingen

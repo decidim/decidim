@@ -4,7 +4,7 @@ uk:
       result:
         decidim_accountability_status_id: стан
         decidim_category_id: Розділ
-        decidim_scope_id: Обсяг
+        decidim_scope_id: Терен
         description: Опис
         end_date: Дата закінчення
         progress: Перебіг
@@ -121,7 +121,7 @@ uk:
         filters:
           all: Усі
           global: Загальний
-          scopes: Обсяги
+          scopes: Терени
         home:
           categories_label: Розділи
           subcategories_label: Підрозділи
