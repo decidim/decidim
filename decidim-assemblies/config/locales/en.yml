@@ -66,6 +66,14 @@ en:
           success: User created successfully for this assembly.
         destroy:
           success: User destroyed successfully for this assembly.
+        edit:
+          title: Update assembly user.
+          update: Update
+        index:
+          assembly_admins_title: Assembly users
+        new:
+          create: Create
+          title: New assembly user.
         update:
           error: There was an error updated a user for this assembly.
           success: User updated successfully for this assembly.
@@ -85,6 +93,14 @@ en:
             published: Published
             title: Title
           name: Assembly
+        assembly_user_role:
+          fields:
+            email: Email
+            name: Name
+            role: Role
+          name: Assembly User
+          roles:
+            admin: Administrator
       titles:
         assemblies: Assemblies
     assemblies:
