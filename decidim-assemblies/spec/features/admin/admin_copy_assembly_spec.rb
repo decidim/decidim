@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin copies assembly", type: :feature do
-  include_context "when administrating an assembly"
+  include_context "when admin administrating an assembly"
 
   let!(:assembly) { create(:assembly, organization: organization) }
   let!(:feature) { create :feature, manifest_name: :dummy, participatory_space: assembly }

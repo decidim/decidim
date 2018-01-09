@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages assembly categories", type: :feature do
-  include_context "when administrating an assembly"
+  include_context "when admin administrating an assembly"
 
   let!(:category) do
     create(

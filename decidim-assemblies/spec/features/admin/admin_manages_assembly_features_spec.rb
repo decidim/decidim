@@ -3,10 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages assembly features", type: :feature do
-  let(:organization) { create(:organization) }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
-
-  let!(:assembly) { create(:assembly, organization: organization) }
+  include_context "when admin administrating an assembly"
 
   before do
     switch_to_host(organization.host)

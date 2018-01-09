@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Admin manages assemblies", type: :feature do
-  include_context "when administrating an assembly"
+  include_context "when admin administrating an assembly"
 
   before do
     switch_to_host(organization.host)
