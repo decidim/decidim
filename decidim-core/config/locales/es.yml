@@ -405,7 +405,6 @@ es:
         participate: Participar
         welcome: Bienvenido a %{organization}!
       statistics:
-        answers_count: Respuestas
         assemblies_count: Asambleas
         comments_count: Comentarios
         headline: Estado actual de %{organization}
