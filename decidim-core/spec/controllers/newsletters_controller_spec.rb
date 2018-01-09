@@ -32,13 +32,13 @@ module Decidim
           let(:encrypted_token) { encryptor.sent_at_encrypted(user.id, newsletter.sent_at) }
 
           before do
-            request.env["decidim.current_user"] = user
+            allow(controller).to receive(:current_user) { user }
+            allow(controller).to receive(:encrypted_token) { encrypted_token }
           end
-
           it "renders the newsletter with unsubscribe link" do
             get :show, params: { id: newsletter.id }
 
-            expect(response).to render_template(:show)
+            expect(assigns(:encrypted_token)).not_to be_empty
           end
         end
 
