@@ -1,6 +1,20 @@
 # frozen_string_literal: true
 
 module Decidim
+  #
+  # Handles a decidim components.
+  #
+  # Allows to perform custom operations on all plugins in a given folder, or on
+  # specific plugin folders.
+  #
+  # Potential operations are:
+  #
+  # * Running custom commands, via the `run` method, such as releasing it, or
+  #   installing it locally.
+  #
+  # * Updating version files from the main `.decidim-version` file in the root
+  #   of the repository.
+  #
   class ComponentManager
     def initialize(dir)
       @dir = File.expand_path(dir)
