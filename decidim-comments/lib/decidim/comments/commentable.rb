@@ -10,7 +10,6 @@ module Decidim
 
       included do
         has_many :comments, as: :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", class_name: "Decidim::Comments::Comment"
-        #has_many :comments, as: :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", class_name: "Decidim::Comments::Comment", counter_cache: "commentable_comments_count"
 
         # Public: Whether the object's comments are visible or not.
         def commentable?

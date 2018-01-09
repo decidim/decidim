@@ -36,7 +36,6 @@ module Decidim
 
       delegate :organization, :feature, to: :commentable
 
-
       # Public: Override Commentable concern method `accepts_new_comments?`
       def accepts_new_comments?
         depth < MAX_DEPTH
