@@ -404,7 +404,7 @@ nl:
         participate: Deelnemen
         welcome: Welkom bij %{organization}!
       statistics:
-        answers_count: Antwoorden
+        answers_count: Voltooide enquêtes
         assemblies_count: Bijeenkomsten
         comments_count: Reacties
         headline: Huidige stand van %{organization}
