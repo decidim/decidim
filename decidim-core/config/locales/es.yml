@@ -224,7 +224,7 @@ es:
       index:
         title: Más información
     profiles:
-      default_officialization_text: Este participante se verifica públicamente, se ha verificado que su nombre o cargo corresponde con su nombre real y rol
+      default_officialization_text: Esta persona participante está verifica públicamente, se ha verificado que su nombre o cargo corresponde con su nombre real y rol
     reported_mailer:
       hide:
         hello: Hola %{name},
