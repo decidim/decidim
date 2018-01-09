@@ -1,13 +1,20 @@
 # frozen_string_literal: true
 
 Decidim.register_participatory_space(:assemblies) do |participatory_space|
-  participatory_space.engine = Decidim::Assemblies::Engine
-  participatory_space.admin_engine = Decidim::Assemblies::AdminEngine
   participatory_space.icon = "decidim/assemblies/icon.svg"
   participatory_space.model_class_name = "Decidim::Assembly"
 
   participatory_space.participatory_spaces do |organization|
     Decidim::Assemblies::OrganizationAssemblies.new(organization).query
+  end
+
+  participatory_space.context(:public) do |context|
+    context.engine = Decidim::Assemblies::Engine
+    context.layout = "layouts/decidim/assembly"
+  end
+
+  participatory_space.context(:admin) do |context|
+    context.engine = Decidim::Assemblies::AdminEngine
   end
 
   participatory_space.seeds do

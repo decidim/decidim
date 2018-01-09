@@ -10,7 +10,7 @@ module Decidim
       # participatory_process_step - The step to format to
       #
       # Returns a String with the formatted dates.
-      def participatory_process_step_dates(participatory_process_step)
+      def step_dates(participatory_process_step)
         dates = [participatory_process_step.start_date, participatory_process_step.end_date]
         dates.map { |date| date ? localize(date.to_date, format: :default) : "?" }.join(" - ")
       end

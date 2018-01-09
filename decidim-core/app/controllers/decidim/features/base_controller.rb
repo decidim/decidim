@@ -9,6 +9,9 @@ module Decidim
       include Settings
       include ActionAuthorization
 
+      include ParticipatorySpaceContext
+      participatory_space_layout
+
       helper Decidim::FiltersHelper
       helper Decidim::OrdersHelper
       helper Decidim::FeatureReferenceHelper
@@ -27,9 +30,11 @@ module Decidim
       skip_authorize_resource
 
       before_action do
-        extend current_participatory_space.extension_module
-
         authorize! :read, current_feature
+      end
+
+      def current_participatory_space
+        request.env["decidim.current_participatory_space"]
       end
 
       def current_feature
@@ -38,10 +43,6 @@ module Decidim
 
       def current_manifest
         @current_manifest ||= current_feature.manifest
-      end
-
-      def current_participatory_space
-        current_feature.participatory_space
       end
 
       def ability_context
