@@ -38,4 +38,10 @@ FactoryBot.define do
       published_at { Time.current }
     end
   end
+
+  factory :assembly_user_role, class: "Decidim::AssemblyUserRole" do
+    user
+    assembly { create :assembly, organization: user.organization }
+    role "admin"
+  end
 end
