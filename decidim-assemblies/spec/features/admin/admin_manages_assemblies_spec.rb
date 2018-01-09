@@ -141,7 +141,7 @@ describe "Admin manages assemblies", type: :feature do
         within find("tr", text: translated(assembly.title)) do
           click_link "Preview"
         end
-
+        
         expect(page).to have_css(".process-header")
         expect(page).to have_content(translated(assembly.title))
       end
