@@ -404,7 +404,6 @@ sv:
         participate: Delta
         welcome: Välkommen till %{organization}!
       statistics:
-        answers_count: svar
         assemblies_count: Assemblies
         comments_count: kommentarer
         headline: Aktuellt tillstånd %{organization}
