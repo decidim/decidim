@@ -404,7 +404,6 @@ ru:
         participate: Принять участие
         welcome: Добро пожаловать в %{organization}!
       statistics:
-        answers_count: Ответы
         assemblies_count: Собрания
         comments_count: Комментарии
         headline: Текущее состояние %{organization}
