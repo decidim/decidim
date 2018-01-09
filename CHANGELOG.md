@@ -51,6 +51,7 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-proposals**: Fix missing icon on proposal reply.
 - **decidim-proposals**: Fix missing icon on proposal admin index.
 - **decidim-surveys**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
+- **decidim-surveys**: Updated icon for surveys feature [\#2433](https://github.com/decidim/decidim/pull/2433)
 - **decidim-verifications**: Fixed a migration that broke feature permissions. If you already upgraded to `0.8.2` or less, please follow the instructions on the PR [\#2373](https://github.com/decidim/decidim/pull/2373)
 
 **Removed**
