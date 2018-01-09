@@ -17,6 +17,7 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-core**: Add unique nicknames for participants. [\2360](https://github.com/decidim/decidim/pull/2360)
 - **decidom-admin**: Let admins officialize certain users from the admin dashboard and specify custom officialization text for them. [\2405](https://github.com/decidim/decidim/pull/2405)
 - **decidim-core**: Public profile page for participants, including name, nickname, follow button, avatar and officialization badge & text. [\2391](https://github.com/decidim/decidim/pull/2391), [\2360](https://github.com/decidim/decidim/pull/2360), [\2401](https://github.com/decidim/decidim/pull/2401) and [\2405](https://github.com/decidim/decidim/pull/2405).
+- **decidim-core**: Add a way for space manifests to publicize how to retrieve public spaces for a given organization [\#2384](https://github.com/decidim/decidim/pull/2384)
 - **decidim-participatory_processes**: Add missinng translations for processes [\#2380](https://github.com/decidim/decidim/pull/2380)
 - **decidim-verifications**: Let developers specify for how long authorizations are valid. After this space of time passes, authorizations expire and users need to re-authorize [\#2311](https://github.com/decidim/decidim/pull/2311)
 - **decidim**: Scopes picker that allows hierarchical browsing scope to select them ([\#2330](https://github.com/decidim/decidim/pull/2330)).
