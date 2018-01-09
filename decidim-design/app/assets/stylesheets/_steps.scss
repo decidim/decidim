@@ -4,18 +4,18 @@
 
   li {
     border: none;
-    color: $secondary;
-    border-left: 2px solid $secondary;
+    color: $primary;
+    border-left: 2px solid $primary;
     box-sizing: border-box;
     border-radius: 0;
     padding: 1rem 0;
-    font-size: .875rem;
+    font-size: 0.875rem;
     cursor: pointer;
   }
 
   li::before {
     border-radius: 50%;
-    background-color: $secondary;
+    background-color: $primary;
     content: "";
     display: inline-block;
     float: left;
@@ -23,21 +23,19 @@
     line-height: 10px;
     text-align: center;
     width: 10px;
-    margin: .4rem 4px 0 -6px;
-  }
-
-  .step--past {
-    color: $primary;
-    border-left: 2px solid $primary;
-
-    &::before {
-      background-color: $primary;
-    }
+    margin: 0.4rem 4px 0 -6px;
   }
 
   .step--active {
-    @extend .step--past;
-
     font-weight: bold;
+
+    & ~ li {
+      color: $secondary;
+      border-left: 2px solid $secondary;
+
+      &::before {
+        background-color: $secondary;
+      }
+    }
   }
 }
