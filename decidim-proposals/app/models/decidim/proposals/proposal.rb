@@ -69,6 +69,13 @@ module Decidim
         answered? && state == "evaluating"
       end
 
+      # Public: Checks if the author has withdrawn the proposal.
+      #
+      # Returns Boolean.
+      def withdrawn?
+        state == 'withdrawn'
+      end
+
       # Public: Overrides the `commentable?` Commentable concern method.
       def commentable?
         feature.settings.comments_enabled?
