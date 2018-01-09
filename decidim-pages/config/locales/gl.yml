@@ -1,0 +1,22 @@
+gl:
+  decidim:
+    features:
+      pages:
+        name: Páxina
+        settings:
+          global:
+            announcement: Anuncio
+          step:
+            announcement: Anuncio
+    pages:
+      admin:
+        models:
+          components:
+            body: Corpo
+        pages:
+          edit:
+            save: Actualización
+            title: Editar páxina
+          update:
+            invalid: Produciuse un erro ao gardar a páxina.
+            success: A páxina gardouse correctamente.

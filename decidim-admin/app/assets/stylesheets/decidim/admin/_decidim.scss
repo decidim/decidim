@@ -1,16 +1,14 @@
 @import "variables";
-
 @import "utils/fontface";
 @import "utils/helpers";
 @import "utils/keyframes";
 @import "utils/mixins";
 @import "utils/settings";
 @import "utils/toggle-expand";
-
 @import "foundation";
+
 @include foundation-everything();
 
 @import "plugins/foundation-datepicker";
-
 @import "decidim/modules/data-picker";
 @import "modules/modules";

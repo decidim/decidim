@@ -2,11 +2,12 @@
 .extra{
   text-align: center;
   margin-bottom: 1rem;
+
   .button:last-of-type{
     margin-bottom: 0;
   }
 
-  .follow-button {
+  .follow-button{
     margin-top: 1rem;
   }
 }
@@ -30,11 +31,13 @@
   font-size: 3rem;
   line-height: 1;
 }
+
 .extra__month{
   display: block;
   text-transform: uppercase;
   font-size: 1rem;
 }
+
 .extra__time{
   display: block;
   font-size: 1.2rem;

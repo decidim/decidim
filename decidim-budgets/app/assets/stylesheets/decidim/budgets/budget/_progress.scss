@@ -1,9 +1,11 @@
 //Foundation progress extension
+
 .progress{
   position: relative;
 }
+
 .progress-meter--minimum{
-  background: repeating-linear-gradient(-55deg, rgba(white, 0.2), rgba(white, 0.2) 8px, rgba(black, 0.03) 8px, rgba(black, 0.03) 16px);
+  background: repeating-linear-gradient(-55deg, rgba(white, .2), rgba(white, .2) 8px, rgba(black, .03) 8px, rgba(black, .03) 16px);
   position: absolute;
 }
 
