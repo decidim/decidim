@@ -10,4 +10,10 @@
   small {
     font-size: rem-calc(11);
   }
+
+  @include breakpoint(small only){
+    .card--list__text .card__link {
+      word-break: break-all;
+    }
+  }
 }
