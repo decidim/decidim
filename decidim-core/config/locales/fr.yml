@@ -2,7 +2,7 @@ fr:
   activemodel:
     attributes:
       account:
-        delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
+        delete_reason: Pour quelle raison de supprimez-vous votre compte ?
       report:
         details: Commentaires additionnels
       user:
@@ -404,7 +404,7 @@ fr:
         participate: Participez
         welcome: Bienvenue sur %{organization}!
       statistics:
-        answers_count: Enquêtes complétées
+        answers_count: Enquêtes terminées
         assemblies_count: Assemblées
         comments_count: Commentaires
         headline: État actuel de %{organization}
