@@ -2,6 +2,7 @@
 
 require "kaminari"
 require "social-share-button"
+require "ransack"
 
 module Decidim
   module Proposals
