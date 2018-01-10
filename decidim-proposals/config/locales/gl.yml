@@ -93,6 +93,8 @@ gl:
         proposal:
           fields:
             category: Categoría
+            comments: Comentarios
+            created_at: Creado en
             id: ID
             official_proposal: Proposta oficial
             scope: Alcance
