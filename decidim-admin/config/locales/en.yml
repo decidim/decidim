@@ -221,6 +221,7 @@ en:
         static_pages: Pages
         user_groups: User groups
         users: Users
+        navbar_links: Navbar links
       models:
         attachment:
           fields:
@@ -277,6 +278,10 @@ en:
             phone: Phone
             state: State
             users_count: Users count
+        navbar_link:
+          fields:
+            title: Title
+            link: Link
       moderations:
         index:
           title: Moderations
@@ -396,6 +401,7 @@ en:
         static_pages: Pages
         user_groups: User groups
         users: Users
+        navbar_links: Navbar links
       user_group:
         reject:
           invalid: There was an error when rejecting this user group.
@@ -430,6 +436,22 @@ en:
         new:
           create: Invite
           title: Invite user as administrator
+      navbar_links:
+        no_links: No links created
+        new:
+          title: New navbar link
+          create: Create
+        edit:
+          title: Edit navbar link
+          update: Update
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
+        destroy:
+          success: Link successfully destroyed
     moderations:
       actions:
         hidden: Hidden
