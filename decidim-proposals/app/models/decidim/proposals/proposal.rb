@@ -73,7 +73,7 @@ module Decidim
       #
       # Returns Boolean.
       def withdrawn?
-        state == 'withdrawn'
+        state == "withdrawn"
       end
 
       # Public: Overrides the `commentable?` Commentable concern method.

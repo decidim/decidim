@@ -95,7 +95,7 @@ module Decidim
         authorize! :withdraw, @proposal
 
         WithdrawProposal.call(@proposal, current_user) do
-          on(:ok) do |proposal|
+          on(:ok) do |_proposal|
             flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
           end
           on(:invalid) do

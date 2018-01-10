@@ -40,7 +40,7 @@ module Decidim
           let(:feature) { create(:proposal_feature, :with_creation_enabled) }
 
           it "creates a proposal" do
-            #expect(CreateProposal).to receive(:call)
+            # expect(CreateProposal).to receive(:call)
 
             post :create, params: params
           end

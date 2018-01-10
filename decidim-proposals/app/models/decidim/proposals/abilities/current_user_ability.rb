@@ -85,7 +85,6 @@ module Decidim
         def can_withdraw?(proposal)
           proposal.decidim_author_id == @user.id
         end
-
       end
     end
   end

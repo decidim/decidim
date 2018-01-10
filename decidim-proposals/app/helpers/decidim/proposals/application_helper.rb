@@ -52,8 +52,8 @@ module Decidim
           "warning"
         when "evaluating"
           "secondary"
-        when 'withdrawn'
-          'alert'
+        when "withdrawn"
+          "alert"
         end
       end
 
