@@ -12,7 +12,7 @@ uk:
       feature:
         name: Ім'я
         weight: Вага
-      id: Ідентифікатор
+      id: Псевдонім
       newsletter:
         body: Основний текст
         subject: Тема
@@ -214,6 +214,7 @@ uk:
         dashboard: Приладна дошка
         managed_users: Керовані учасники
         newsletters: Розсилання новин
+        officializations: Надання офіційного статусу
         scope_types: Різновиди терену
         scopes: Терени
         settings: Налаштування
@@ -313,6 +314,33 @@ uk:
         update:
           error: При оновленні цього випуску новин сталася помилка.
           success: Випуск новин успішно оновлено. Будь ласка, перегляньте його перед відправленням.
+      officializations:
+        create:
+          success: Учаснику успішно надано офіційний статус
+        destroy:
+          success: Офіційний статус учасника успішно скасовано
+        index:
+          actions: Дії
+          badge: Відзнака
+          created_at: 'Створено:'
+          filter:
+            all: Усі
+            not_officialized: Не має офіційного статусу
+            officialized: Має офіційний статус
+          filter_by: 'Відібрати за ознакою:'
+          name: Ім'я
+          nickname: Псевдонім
+          not_officialized: Не має офіційного статусу
+          officialize: Надати офіційний статус
+          officialized: Має офіційний статус
+          reofficialize: Знову надати офіційний статус
+          search: Шукати
+          status: Стан
+          unofficialize: Скасувати офіційний статус
+        new:
+          badge: Відзнака надання офіційного статусу
+          officialize: Надати офіційний статус
+          title: Надати офіційний статус учаснику "%{name}"
       organization:
         edit:
           title: Редагувати організацію
@@ -390,6 +418,7 @@ uk:
         dashboard: Приладна дошка
         impersonations: Виступи в ролі учасника
         managed_users: Керовані учасники
+        officializations: Надання офіційного статусу
         scope_types: Різновиди терену
         scopes: Терени
         static_pages: Сторінки

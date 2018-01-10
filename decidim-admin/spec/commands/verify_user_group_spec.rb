@@ -4,11 +4,11 @@ require "spec_helper"
 
 module Decidim::Admin
   describe VerifyUserGroup do
+    subject { described_class.new(user_group) }
+
     let(:organization) { create :organization }
 
     describe "User group validation is pending" do
-      subject { described_class.new(user_group) }
-
       let!(:user_group) { create(:user_group, users: [create(:user, organization: organization)]) }
 
       context "when the command is not valid" do
@@ -34,8 +34,6 @@ module Decidim::Admin
     end
 
     describe "User group is already rejected" do
-      subject { described_class.new(user_group) }
-
       let!(:user_group) { create(:user_group, rejected_at: Time.current, users: [create(:user, organization: organization)]) }
 
       context "when the command is not valid" do

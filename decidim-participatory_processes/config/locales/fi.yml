@@ -2,6 +2,7 @@ fi:
   activemodel:
     attributes:
       participatory_process:
+        announcement: Ilmoitus
         banner_image: Bannerikuva
         copy_categories: Kopioi aihepiirit
         copy_features: Kopioi toiminnot
@@ -21,6 +22,7 @@ fi:
         scope_id: Konteksti
         scopes_enabled: Kontekstit käytössä
         short_description: Lyhyt kuvaus
+        show_statistics: Näytä tilastot
         slug: URL-tunniste
         start_date: Aloitusaika
         subtitle: Alaotsikko
@@ -217,6 +219,7 @@ fi:
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
         participatory_processes:
           form:
+            announcement_help: Täällä kirjoitettu teksti näkyy käyttäjälle oikein prosessitietojen alapuolella.
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
       index:
         title: Osallistumisprosessit
@@ -259,8 +262,6 @@ fi:
         surveys_count: Kyselyt
         users_count: Osallistujat
         votes_count: Äänet
-    scopes:
-      global: Yleinen konteksti
   layouts:
     decidim:
       participatory_process_groups:

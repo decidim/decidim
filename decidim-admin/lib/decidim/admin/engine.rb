@@ -12,7 +12,6 @@ require "foundation-rails"
 require "foundation_rails_helper"
 require "autoprefixer-rails"
 require "rectify"
-require "select2-rails"
 
 module Decidim
   module Admin

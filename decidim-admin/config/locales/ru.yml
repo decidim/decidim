@@ -12,7 +12,7 @@ ru:
       feature:
         name: Имя
         weight: Вес
-      id: Идентификатор
+      id: Псевдоним
       newsletter:
         body: Основной текст
         subject: Тема
@@ -214,6 +214,7 @@ ru:
         dashboard: Панель управления
         managed_users: Управляемые участники
         newsletters: Рассылки новостей
+        officializations: Предоставления официального статуса
         scope_types: Типы охвата
         scopes: Охваты
         settings: Настройки
@@ -313,6 +314,33 @@ ru:
         update:
           error: При обновлении этой рассылки новостей произошла ошибка.
           success: Рассылка новостей успешно обновлена. Пожалуйста, просмотрите её перед отправкой.
+      officializations:
+        create:
+          success: Участнику успешно предоставлен официальный статус
+        destroy:
+          success: Официальный стату участника успешно отменен
+        index:
+          actions: Действия
+          badge: Знак отличия
+          created_at: 'Создано:'
+          filter:
+            all: Все
+            not_officialized: Не имеет официального статуса
+            officialized: Имеет официальный статус
+          filter_by: 'Отобрать по признаку:'
+          name: Имя
+          nickname: Псевдоним
+          not_officialized: Не имеет официального статуса
+          officialize: Предоставить официальный статус
+          officialized: Имеет официальный статус
+          reofficialize: Вновь предоставить официальный статус
+          search: Искать
+          status: Состояние
+          unofficialize: Отменить официальный статус
+        new:
+          badge: Знак отличия официального статуса
+          officialize: Предоставить официальный статус
+          title: Предоставить официальный статус участнику "%{name}"
       organization:
         edit:
           title: Редактировать организацию
@@ -390,6 +418,7 @@ ru:
         dashboard: Панель управления
         impersonations: Выступления в роли участника
         managed_users: Управляемые участники
+        officializations: Предоставления официального статуса
         scope_types: Типы охвата
         scopes: Охваты
         static_pages: Страницы

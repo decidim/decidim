@@ -41,14 +41,22 @@ module Decidim
       end
     end
 
+    describe "profilePath" do
+      let(:query) { "{ profilePath }" }
+
+      it "returns the empty string since user groups have no public profile yet" do
+        expect(response).to include("profilePath" => "")
+      end
+    end
+
     describe "badge" do
       let(:query) { "{ badge }" }
 
       context "when the user group is verified" do
         let(:model) { create(:user_group, :verified) }
 
-        it "returns the verification label" do
-          expect(response).to include("badge" => "Verified organization")
+        it "returns the icon to use for the verification badge" do
+          expect(response).to include("badge" => "verified-badge")
         end
       end
 

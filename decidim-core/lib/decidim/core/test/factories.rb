@@ -4,6 +4,7 @@ require "decidim/faker/localized"
 require "decidim/dev"
 
 require "decidim/participatory_processes/test/factories"
+require "decidim/assemblies/test/factories"
 require "decidim/comments/test/factories"
 
 FactoryBot.define do
@@ -142,6 +143,10 @@ FactoryBot.define do
       password { "" }
       password_confirmation { "" }
       managed { true }
+    end
+
+    trait :officialized do
+      officialized_at { Time.zone.now }
     end
   end
 

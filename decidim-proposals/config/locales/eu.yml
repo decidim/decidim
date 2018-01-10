@@ -4,6 +4,7 @@ eu:
       proposal:
         body: Testua
         category_id: Kategoria
+        has_address: Helbidea du
         scope_id: Esparrua
         title: Titulua
         user_group_id: 'Sortu proposamen bat honako hau gisa:'
@@ -81,6 +82,13 @@ eu:
       create:
         error: Erroreak gertatu dira proposamena gordetzean.
         success: Proposamena zuzen sortu da.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Kaixo, %{author_name} %{author_nickname}, jarraitzen ari zarenari, proposamen berri bat sortu du, egiaztatu eta lagundu:
+          email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: Proposamen berria %{author_nickname}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena <a href="%{author_path}">%{author_name} %{author_nickname}</a> sortu zen.
       models:
         proposal:
           fields:
@@ -97,8 +105,6 @@ eu:
         create:
           error: Erroreak gertatu dira proposamena bozkatzean.
       proposals:
-        author:
-          deleted: Erabiltzaile ezabatua
         count:
           proposals_count:
             one: 1 proposamen
@@ -120,8 +126,6 @@ eu:
           origin: Jatorria
           rejected: Ukatua
           related_to: Honekin lotuta
-          scope_prompt: Aukeratu esparru bat
-          scopes: Esparruak
           search: Bilatu
           state: Egoera
           voted: Bozkatuta
@@ -152,9 +156,9 @@ eu:
           random: Ausazkoa eran
           recent: Berrienak
         proposal:
+          creation_date: 'Sorkuntza: %{date}'
           view_proposal: Ikusi proposamena
         show:
-          contact: Harremanetarako
           edit_proposal: Editatu proposamena
           proposal_accepted_reason: 'Proposamen hau onartu da arrazoi hauengatik:'
           proposal_in_evaluation_reason: Proposamen hau ebaluatzen ari da

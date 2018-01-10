@@ -8,7 +8,7 @@ module Decidim
       class ParticipatoryProcessesController < Decidim::Admin::ApplicationController
         helper ProcessGroupsForSelectHelper
 
-        helper_method :current_participatory_process
+        helper_method :current_participatory_process, :current_participatory_space
 
         layout "decidim/admin/participatory_processes"
 
@@ -85,6 +85,8 @@ module Decidim
             collection.where(id: params[:slug])
           ).first
         end
+
+        alias current_participatory_space current_participatory_process
 
         def collection
           @collection ||= Decidim::ParticipatoryProcessesWithUserRole.for(current_user)

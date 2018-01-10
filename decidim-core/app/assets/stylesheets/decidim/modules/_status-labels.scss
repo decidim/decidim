@@ -1,9 +1,11 @@
 .label--basic{
   background-color: lighten($dark-gray, 60);
 }
+
 .label--highlight{
   background-color: $secondary;
 }
+
 .label--admin{
   background-color: $primary;
 }

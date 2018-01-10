@@ -2,14 +2,18 @@ $card-padding-small: 1rem;
 
 .card-title{
   @include smallcaps;
+
   font-size: 1rem;
+
   @include clearfix;
+
   width: 100%;
 }
 
 .card-footer{
   padding: $card-padding;
   border-top: 1px solid rgba(black, .1);
+
   .button--remove{
     margin-left: auto;
   }
@@ -18,14 +22,17 @@ $card-padding-small: 1rem;
 .card__icon-open{
   display: none;
 }
+
 .card--collapsed{
   .card-section,
   .card-footer{
     display: none;
   }
+
   .card__icon-close{
     display: none;
   }
+
   .card__icon-open{
     display: block;
   }
@@ -35,9 +42,11 @@ $card-padding-small: 1rem;
   display: flex;
   align-items: center;
   padding-left: $card-padding-small;
+
   .card--list--mini &{
     padding-left: $card-padding-small;
   }
+
   @include breakpoint(medium){
     padding-left: $card-padding;
   }
@@ -46,6 +55,7 @@ $card-padding-small: 1rem;
 .card--list__icon{
   display: none;
   fill: $anchor-color;
+
   @include breakpoint(medium){
     margin-right: 1rem;
     display: block;
@@ -62,9 +72,11 @@ $card-padding-small: 1rem;
   overflow: hidden;
   align-items: center;
   padding: 1rem 1rem 1rem 0;
+
   .card--list--mini &{
     padding: .5rem .5rem .5rem 0;
   }
+
   .author{
     margin-top: .3rem;
     margin-right: 1rem;

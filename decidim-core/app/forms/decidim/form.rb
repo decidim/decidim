@@ -7,6 +7,7 @@ module Decidim
     delegate :current_organization,
              :current_user,
              :current_feature,
+             :current_participatory_space,
              to: :context, prefix: false, allow_nil: true
 
     delegate :available_locales, to: :current_organization, allow_nil: true

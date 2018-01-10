@@ -1,15 +1,14 @@
 // Custom mixins and functions
 
 /// Slightly lighten a color
-@function tint($color, $percentage) {
+@function tint($color, $percentage){
   @return mix(white, $color, $percentage);
 }
 
 /// Slightly darken a color
-@function shade($color, $percentage) {
+@function shade($color, $percentage){
   @return mix(black, $color, $percentage);
 }
-
 
 //Small caps
 @mixin smallcaps{

@@ -78,6 +78,7 @@ fi:
         name: Foo-tunnistautuminen
       granted_at: Annettu osoitteessa %{timestamp}
       started_at: Aloitti %{timestamp}
+    contact: Ottaa yhteyttä
     core:
       actions:
         unauthorized: Sinua ei ole valtuutettu tämän toiminnon suorittamiseen
@@ -87,6 +88,7 @@ fi:
           email_already_exists: Toinen käyttäjätili käyttää samaa sähköpostiosoitetta
         new:
           complete_profile: Viimeistele profiilisi
+          nickname_help: Sinun yksilöllinen tunniste decidimissa.
           sign_up: Viimeistele profiilsi
           subtitle: Täytä seuraava lomake viimeistelläksesi rekisteröitymisesi
           username_help: Julkinen nimi, joka näkyy viesteissäsi. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
@@ -94,6 +96,7 @@ fi:
         new:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
           newsletter_notifications: Vastaanota tietoa viimeaikaisesta aktiviteetista
+          nickname_help: Sinun yksilöllinen tunniste decidimissa.
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           sign_up_as:
@@ -220,6 +223,8 @@ fi:
     pages:
       index:
         title: Lisätietoa
+    profiles:
+      default_officialization_text: Tämä osallistuja on julkisesti vahvistettu, hänen nimensä tai tehtävänsä on varmistettu vastaamaan hänen oikeaa nimeään ja tehtäväänsä
     reported_mailer:
       hide:
         hello: Hei %{name},
@@ -235,6 +240,14 @@ fi:
       create:
         error: Raportin luonnissa tapahtui virhe. Yritä uudestaan.
         success: Raportti on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
+    scopes:
+      global: Globaali soveltamisala
+      picker:
+        cancel: Peruuttaa
+        choose: valita
+        title: Valitse %{field}
+      prompt: Valitse soveltamisala
+      scopes: laajuudet
     shared:
       action_authorization_modal:
         expired:
@@ -259,6 +272,8 @@ fi:
           invalid: "%{field} on virheellinen."
           ok: Ok
           title: Ei varmennettu
+      author:
+        deleted: Poistettu käyttäjä
       embed_modal:
         close_window: Sulje ikkuna
         embed: Liitä tämä koodi sivullesi
@@ -287,11 +302,11 @@ fi:
         share_link: Jaa linkki
       version_author:
         deleted: Poistettu käyttäjä
-    verified_user_group: Vahvistettu organisaatio
   devise:
     invitations:
       edit:
         header: Aseta salasanasi
+        nickname_help: Sinun yksilöllinen tunniste decidimissa.
         submit_button: Tallenna
     mailer:
       invitation_instructions:
@@ -358,6 +373,7 @@ fi:
         conversations: keskustelut
         notifications: Ilmoitukset
         profile: Oma käyttäjätili
+        public_profile: Oma julkinen profiili
         sign_out: Kirjaudu ulos
       user_profile:
         account: Käyttäjätili
@@ -389,7 +405,7 @@ fi:
         participate: Osallistu
         welcome: Tervetuloa organisaatioon %{organization}!
       statistics:
-        answers_count: Vastaukset
+        answers_count: Valmistuneet tutkimukset
         assemblies_count: osat
         comments_count: Kommentit
         headline: Tämänhetkinen tila organisaatiolle %{organization}

@@ -13,6 +13,7 @@
   width: 2.5rem;
   text-align: center;
   color: $white;
+
   @include breakpoint(large){
     display: none;
   }
@@ -23,9 +24,11 @@
   padding: 1rem;
   display: block;
   background-color: $brand;
+
   @include breakpoint(large){
     max-width: 120px;
   }
+
   img{
     display: block;
   }

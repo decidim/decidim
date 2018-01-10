@@ -6,7 +6,7 @@ module Decidim
       # Controller that allows managing assemblies.
       #
       class AssembliesController < Decidim::Admin::ApplicationController
-        helper_method :current_assembly
+        helper_method :current_assembly, :current_participatory_space
 
         layout "decidim/admin/assemblies"
 
@@ -83,6 +83,8 @@ module Decidim
             collection.where(id: params[:slug])
           ).first
         end
+
+        alias current_participatory_space current_assembly
 
         def collection
           @collection ||= OrganizationAssemblies.new(current_user.organization).query

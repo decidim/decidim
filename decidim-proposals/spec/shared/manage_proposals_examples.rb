@@ -4,6 +4,8 @@ shared_examples "manage proposals" do
   let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
+  let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: participatory_process_scope) }
+  let(:participatory_process_scope) { nil }
 
   before do
     Geocoder::Lookup::Test.add_stub(
@@ -47,25 +49,22 @@ shared_examples "manage proposals" do
         end
 
         context "when process is not related to any scope" do
-          before do
-            participatory_process.update_attributes!(scope: nil)
-
-            click_link "New"
-          end
-
           it "can be related to a scope" do
+            click_link "New"
+
             within "form" do
               expect(page).to have_content(/Scope/i)
             end
           end
 
           it "creates a new proposal", :slow do
+            click_link "New"
+
             within ".new_proposal" do
               fill_in :proposal_title, with: "Make decidim great again"
               fill_in :proposal_body, with: "Decidim is great but it can be better"
               select translated(category.name), from: :proposal_category_id
-              select2 translated(scope.name), from: :proposal_scope_id
-
+              scope_pick scopes_picker_find(:proposal_scope_id), scope
               find("*[type=submit]").click
             end
 
@@ -83,11 +82,9 @@ shared_examples "manage proposals" do
         end
 
         context "when process is related to a scope" do
-          before do
-            participatory_process.update_attributes!(scope: scope)
-          end
+          let(:participatory_process_scope) { scope }
 
-          it "cannot be related to a scope" do
+          it "cannot be related to a scope, because it has no children" do
             click_link "New"
 
             within "form" do
@@ -114,6 +111,41 @@ shared_examples "manage proposals" do
               expect(proposal.body).to eq("Decidim is great but it can be better")
               expect(proposal.category).to eq(category)
               expect(proposal.scope).to eq(scope)
+            end
+          end
+
+          context "when the process scope has a child scope" do
+            let!(:child_scope) { create :scope, parent: scope }
+
+            it "can be related to a scope" do
+              click_link "New"
+
+              within "form" do
+                expect(page).to have_content(/Scope/i)
+              end
+            end
+
+            it "creates a new proposal related to a process scope child" do
+              click_link "New"
+
+              within ".new_proposal" do
+                fill_in :proposal_title, with: "Make decidim great again"
+                fill_in :proposal_body, with: "Decidim is great but it can be better"
+                select category.name["en"], from: :proposal_category_id
+                scope_repick scopes_picker_find(:proposal_scope_id), scope, child_scope
+                find("*[type=submit]").click
+              end
+
+              expect(page).to have_admin_callout("successfully")
+
+              within "table" do
+                proposal = Decidim::Proposals::Proposal.last
+
+                expect(page).to have_content("Make decidim great again")
+                expect(proposal.body).to eq("Decidim is great but it can be better")
+                expect(proposal.category).to eq(category)
+                expect(proposal.scope).to eq(child_scope)
+              end
             end
           end
 

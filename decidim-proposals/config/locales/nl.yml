@@ -4,6 +4,7 @@ nl:
       proposal:
         body: Body
         category_id: Categorie
+        has_address: Heeft adres
         scope_id: Reikwijdte
         title: Titel
         user_group_id: Maak een voorstel als
@@ -81,6 +82,13 @@ nl:
       create:
         error: Er zijn fouten geweest bij het opslaan van het voorstel.
         success: Voorstel is succesvol gemaakt.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Hallo, %{author_name} %{author_nickname}, wie je volgt, heeft een nieuw voorstel gemaakt, bekijk het en draag een bijdrage:
+          email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Nieuw voorstel van %{author_nickname}
+          notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is gemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         proposal:
           fields:
@@ -97,8 +105,6 @@ nl:
         create:
           error: Er zijn fouten geweest bij het stemmen van het voorstel.
       proposals:
-        author:
-          deleted: Verwijderde gebruiker
         count:
           proposals_count:
             one: 1 voorstel
@@ -120,8 +126,6 @@ nl:
           origin: Oorsprong
           rejected: Geweigerd
           related_to: Gerelateerd aan
-          scope_prompt: Selecteer een scope
-          scopes: Scopes
           search: Zoeken
           state: Status
           voted: Gestemd
@@ -152,9 +156,9 @@ nl:
           random: Willekeurig
           recent: Recentelijk
         proposal:
+          creation_date: 'Aangemaakt op: %{date}'
           view_proposal: Bekijk voorstel
         show:
-          contact: Contact
           edit_proposal: Bewerk voorstel
           proposal_accepted_reason: 'Dit voorstel is geaccepteerd omdat:'
           proposal_in_evaluation_reason: Dit voorstel wordt geëvalueerd

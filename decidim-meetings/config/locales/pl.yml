@@ -134,8 +134,6 @@ pl:
           category_prompt: Wybierz kategorię
           date: Data
           past: Przeszłe
-          scope_prompt: Wybierz zakres
-          scopes: Zakresy
           search: Szukaj
           upcoming: Nadchodzące
         filters_small_view:

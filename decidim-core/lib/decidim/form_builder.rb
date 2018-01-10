@@ -131,29 +131,28 @@ module Decidim
       select(name, @template.options_for_select(categories, selected: selected, disabled: disabled), options, html_options)
     end
 
-    # Public: Generates a select field with the scopes.
+    # Public: Generates a picker field for scope selection.
     #
-    # name       - The name of the field (usually scope_id)
-    # collection - A collection of scopes.
-    # options    - An optional Hash with options:
-    # - prompt   - An optional String with the text to display as prompt.
+    # name          - The name of the field (usually scope_id)
+    # options       - An optional Hash with options:
+    # - multiple    - Multiple mode, to allow multiple scopes selection.
+    # - label       - Show label?
+    #
+    # Also it should receive a block that returns a Hash with :url and :text for each selected scope (and for null scope for prompt)
     #
     # Returns a String.
-    def scopes_select(name, options = {})
-      selected = object.send(name)
-      if selected.present?
-        selected = selected.values if selected.is_a?(Hash)
-        selected = [selected] unless selected.is_a?(Array)
-        scopes = Decidim::Scope.where(id: selected.map(&:to_i)).map { |scope| [scope.name[I18n.locale.to_s], scope.id] }
-      else
-        scopes = []
-      end
-      prompt = options.delete(:prompt)
-      remote_path = options.delete(:remote_path) || false
-      multiple = options.delete(:multiple) || false
-      html_options = { multiple: multiple, class: "select2", "data-remote-path" => remote_path, "data-placeholder" => prompt }
+    def scopes_picker(attribute, options = {})
+      picker_options = { id: "#{@object_name}_#{attribute}", class: "picker-#{options[:multiple] ? "multiple" : "single"}",
+                         name: "#{@object_name}[#{attribute}]" }
+      picker_options[:class] += " is-invalid-input" if error?(attribute)
 
-      select(name, @template.options_for_select(scopes, selected: selected), options, html_options)
+      prompt_params = yield(nil)
+      scopes = selected_scopes(attribute).map { |scope| [scope, yield(scope)] }
+      template = ""
+      template += label(attribute, label_for(attribute) + required_for_attribute(attribute)) unless options[:label] == false
+      template += @template.render("decidim/scopes/scopes_picker_input", picker_options: picker_options, prompt_params: prompt_params, scopes: scopes)
+      template += error_and_help_text(attribute, options)
+      template.html_safe
     end
 
     # Public: Override so checkboxes are rendered before the label.
@@ -257,6 +256,17 @@ module Decidim
       end
 
       template.html_safe
+    end
+
+    # Public: Returns the translated name for the given attribute.
+    #
+    # attribute    - The String name of the attribute to return the name.
+    def label_for(attribute)
+      if object.class.respond_to?(:human_attribute_name)
+        object.class.human_attribute_name(attribute)
+      else
+        attribute.to_s.humanize
+      end
     end
 
     private
@@ -461,14 +471,6 @@ module Decidim
                    end
     end
 
-    def label_for(attribute)
-      if object.class.respond_to?(:human_attribute_name)
-        object.class.human_attribute_name(attribute)
-      else
-        attribute.to_s.humanize
-      end
-    end
-
     def name_with_locale(name, locale)
       "#{name}_#{locale.to_s.gsub("-", "__")}"
     end
@@ -505,6 +507,15 @@ module Decidim
                                        class: "label-required").html_safe
       end
       "".html_safe
+    end
+
+    # Private: Returns an array of scopes related to object attribute
+    def selected_scopes(attribute)
+      selected = object.send(attribute) || []
+      selected = selected.values if selected.is_a?(Hash)
+      selected = [selected] unless selected.is_a?(Array)
+      selected = Decidim::Scope.where(id: selected.map(&:to_i)) unless selected.first.is_a?(Decidim::Scope)
+      selected
     end
   end
 end

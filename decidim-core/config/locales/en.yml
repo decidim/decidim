@@ -79,6 +79,7 @@ en:
         name: Foo authorization
       granted_at: Granted at %{timestamp}
       started_at: Started at %{timestamp}
+    contact: Contact
     core:
       actions:
         unauthorized: You are not authorized to perform this action
@@ -223,6 +224,8 @@ en:
     pages:
       index:
         title: More information
+    profiles:
+      default_officialization_text: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
     reported_mailer:
       hide:
         hello: Hello %{name},
@@ -238,6 +241,14 @@ en:
       create:
         error: An error ocurred while creating the report. Please, try it again.
         success: The report has been created successfully and it will be reviewed by an admin.
+    scopes:
+      global: Global scope
+      picker:
+        cancel: Cancel
+        choose: Select
+        title: Select %{field}
+      prompt: Select a scope
+      scopes: Scopes
     shared:
       action_authorization_modal:
         expired:
@@ -262,6 +273,8 @@ en:
           invalid: "%{field} isn't valid."
           ok: Ok
           title: Not authorized
+      author:
+        deleted: Deleted user
       embed_modal:
         close_window: Close window
         embed: Please paste this code in your page
@@ -290,7 +303,6 @@ en:
         share_link: Share link
       version_author:
         deleted: Deleted user
-    verified_user_group: Verified organization
   devise:
     invitations:
       edit:
@@ -362,6 +374,7 @@ en:
         conversations: Conversations
         notifications: Notifications
         profile: My account
+        public_profile: My public profile
         sign_out: Sign out
       user_profile:
         account: Account
@@ -393,7 +406,7 @@ en:
         participate: Participate
         welcome: Welcome to %{organization}!
       statistics:
-        answers_count: Answers
+        answers_count: Completed Surveys
         assemblies_count: Assemblies
         comments_count: Comments
         headline: Current state of %{organization}

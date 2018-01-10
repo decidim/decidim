@@ -78,6 +78,7 @@ fr:
         name: Autorisation Truc
       granted_at: Accordé à %{timestamp}
       started_at: Commencé à %{timestamp}
+    contact: Contact
     core:
       actions:
         unauthorized: Vous n'êtes pas autorisé à effectuer cette action
@@ -87,6 +88,7 @@ fr:
           email_already_exists: Un autre compte utilise la même adresse de email
         new:
           complete_profile: Complétez votre profil
+          nickname_help: Votre identifiant unique pour Decidim.
           sign_up: Veuillez compléter votre profil
           subtitle: Remplissez le formulaire suivant pour compléter l'inscription
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
@@ -94,6 +96,7 @@ fr:
         new:
           already_have_an_account?: Vous avez déjà un compte?
           newsletter_notifications: Recevoir des lettres d'informations sur l'activité de la plateforme
+          nickname_help: Votre identifiant unique pour Decidim.
           sign_in: S'identifier
           sign_up: S'inscrire
           sign_up_as:
@@ -220,6 +223,8 @@ fr:
     pages:
       index:
         title: Plus d'information
+    profiles:
+      default_officialization_text: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
     reported_mailer:
       hide:
         hello: Bonjour %{name},
@@ -235,12 +240,20 @@ fr:
       create:
         error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
         success: Le contenu a été signalé, il sera examiné par un administrateur.
+    scopes:
+      global: Portée générale
+      picker:
+        cancel: Annuler
+        choose: Sélectionner
+        title: Sélectionnez %{field}
+      prompt: Sélectionnez un périmètre d'application
+      scopes: Périmètre d'application
     shared:
       action_authorization_modal:
         expired:
-          authorize: Redéterminer avec "%{authorization}"
-          explanation: Votre autorisation a expiré. Pour effectuer cette action, vous devez être autorisé à nouveau avec "%{authorization}".
-          title: L'autorisation a expiré
+          authorize: Autoriser de nouveau avec "%{authorization}"
+          explanation: Votre autorisation a expiré. Pour effectuer cette action, vous devez renouveler votre autorisation avec "%{authorization}".
+          title: Autorisation expirée
         incomplete:
           cancel: Annuler
           explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de vous réautoriser car nous ne disposons pas les données suivantes:'
@@ -259,6 +272,8 @@ fr:
           invalid: "%{field} n'est pas valide."
           ok: D'accord
           title: Non autorisé
+      author:
+        deleted: Utilisateur supprimé
       embed_modal:
         close_window: Fermer la fenêtre
         embed: Veuillez coller ce code dans votre page
@@ -287,11 +302,11 @@ fr:
         share_link: Lien de partage
       version_author:
         deleted: Utilisateur supprimé
-    verified_user_group: Organisation vérifiée
   devise:
     invitations:
       edit:
         header: Définir votre mot de passe
+        nickname_help: Votre identifiant unique pour Decidim.
         submit_button: sauvegarder
     mailer:
       invitation_instructions:
@@ -357,6 +372,7 @@ fr:
         conversations: Conversations
         notifications: Notifications
         profile: Mon compte
+        public_profile: Mon profil public
         sign_out: Déconnexion
       user_profile:
         account: Compte
@@ -388,7 +404,7 @@ fr:
         participate: Participez
         welcome: Bienvenue sur %{organization}!
       statistics:
-        answers_count: Réponses
+        answers_count: Enquêtes complétées
         assemblies_count: Assemblées
         comments_count: Commentaires
         headline: État actuel de %{organization}

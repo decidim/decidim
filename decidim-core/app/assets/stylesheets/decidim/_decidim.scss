@@ -1,11 +1,8 @@
 @import "variables";
 @import "utils/*";
-
 @import "foundation";
-@include foundation-everything($flex: false);
 
-@import "select2";
-@import "plugins/select2";
+@include foundation-everything($flex: false);
 
 @import "modules/modules";
 @import "layouts/*";

@@ -12,14 +12,16 @@
 // = require decidim/append_elements
 // = require decidim/user_registrations
 // = require decidim/account_form
-// = require decidim/select2
-// = require decidim/select2.field
+// = require decidim/data_picker
 
 /* globals svg4everybody */
 
 window.Decidim = window.Decidim || {};
 
 $(() => {
+  if (window.Decidim.DataPicker) {
+    window.theDataPicker = new window.Decidim.DataPicker($(".data-picker"));
+  }
   $(document).foundation();
   svg4everybody();
   if (window.Decidim.formDatePicker) {

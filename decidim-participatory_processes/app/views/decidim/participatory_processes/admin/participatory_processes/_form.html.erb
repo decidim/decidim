@@ -80,7 +80,7 @@
     </div>
 
     <div class="row column">
-      <%= form.scopes_select :scope_id, prompt: t("decidim.scopes.global"), remote_path: decidim.scopes_search_path %>
+      <%= scopes_picker_field form, :scope_id %>
     </div>
 
     <div class="row column">

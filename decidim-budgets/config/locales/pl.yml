@@ -74,8 +74,6 @@ pl:
         filters:
           category: Kategoria
           category_prompt: Wybierz kategorię
-          scope_prompt: Wybierz zakres
-          scopes: Zakresy
           search: Szukanie
         filters_small_view:
           close_modal: Zamknij modal

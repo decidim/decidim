@@ -26,7 +26,6 @@ Gem::Specification.new do |s|
   s.add_dependency "devise_invitable", "~> 1.7.0"
   s.add_dependency "jquery-rails", "~> 4.3.1"
   s.add_dependency "sassc-rails", "~> 1.3.0"
-  s.add_dependency "select2-rails", "~> 4.0.3"
 
   s.add_development_dependency "decidim-dev", Decidim::Admin.version
   s.add_development_dependency "decidim-participatory_processes", Decidim::Admin.version

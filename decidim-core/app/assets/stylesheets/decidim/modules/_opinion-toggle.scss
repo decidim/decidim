@@ -15,11 +15,13 @@
 .opinion-toggle--ok{
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+
   &:hover,
   &:focus,
   &.is-active{
     background-color: $success;
   }
+
   .icon{
     vertical-align: middle;
   }
@@ -28,11 +30,13 @@
 .opinion-toggle--ko{
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+
   &:hover,
   &:focus,
   &.is-active{
     background-color: $alert;
   }
+
   .icon{
     vertical-align: middle;
   }
@@ -42,6 +46,7 @@
   border-radius: 0;
   padding-left: .5em;
   padding-right: .5em;
+
   &:hover,
   &:focus,
   &.is-active{

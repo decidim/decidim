@@ -50,5 +50,14 @@ module Decidim
     def route_name
       super || model_class_name.demodulize.underscore
     end
+
+    # Public: A block that retrieves all the participatory spaces for the manifest.
+    # The block receives a `Decidim::Organization` as a parameter in order to filter.
+    # The block is expected to return an `ActiveRecord::Association`.
+    #
+    # Returns nothing.
+    def participatory_spaces(&block)
+      @participatory_spaces ||= block
+    end
   end
 end

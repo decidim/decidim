@@ -4,6 +4,7 @@ pt:
       proposal:
         body: Corpo
         category_id: Categoria
+        has_address: Tem endereço
         scope_id: Âmbito
         title: Título
         user_group_id: Criar proposta como
@@ -81,6 +82,13 @@ pt:
       create:
         error: Ocorreu erros ao salvar a proposta.
         success: Proposta criada com sucesso.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Oi, %{author_name} %{author_nickname}, quem você está seguindo, criou uma nova proposta, confira e contribui:
+          email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Nova proposta por %{author_nickname}
+          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi criada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         proposal:
           fields:
@@ -97,8 +105,6 @@ pt:
         create:
           error: Houve erros ao votar a proposta.
       proposals:
-        author:
-          deleted: Usuário deletado
         count:
           proposals_count:
             one: 1 proposta
@@ -120,8 +126,6 @@ pt:
           origin: Origem
           rejected: Rejeitado
           related_to: Relacionado a
-          scope_prompt: Selecione um âmbito
-          scopes: Âmbitos
           search: Pesquisa
           state: Estado
           voted: Votado
@@ -152,9 +156,9 @@ pt:
           random: Aleatória
           recent: Recente
         proposal:
+          creation_date: 'Criação: %{date}'
           view_proposal: Ver proposta
         show:
-          contact: Contato
           edit_proposal: Editar proposta
           proposal_accepted_reason: 'Esta proposta foi aceita porque:'
           proposal_in_evaluation_reason: Esta proposta está sendo avaliada

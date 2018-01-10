@@ -81,11 +81,19 @@ ru:
       create:
         error: При сохранении этого предложения произошли ошибки.
         success: Предложение успешно внесено.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Добрый день!
+            %{author_name} %{author_nickname}, за которым вы следите, внес новое предложение. Прочитайте его и внесите свой вклад:
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{author_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: Новое предложение от %{author_nickname}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> внес предложение <a href="%{resource_path}">%{resource_title}</a>.
       models:
         proposal:
           fields:
             category: Категория
-            id: Идентификатор
+            id: Псевдоним
             official_proposal: Официальное предложение
             scope: Охват
             state: Cостояние
@@ -97,8 +105,6 @@ ru:
         create:
           error: При голосовании по этому предложению произошли ошибки.
       proposals:
-        author:
-          deleted: Удаленный пользователь
         count:
           proposals_count:
             one: 1 предложение
@@ -122,8 +128,6 @@ ru:
           origin: Источник
           rejected: Отклонено
           related_to: Связано с
-          scope_prompt: Выбрать охват
-          scopes: Охваты
           search: Поиск
           state: Cостояние
           voted: Проголосованные
@@ -158,9 +162,9 @@ ru:
           random: Произвольно
           recent: Недавние
         proposal:
+          creation_date: 'Создано: %{date}'
           view_proposal: Просмотреть предложение
         show:
-          contact: Связной
           edit_proposal: Редактировать предложение
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'
           proposal_in_evaluation_reason: Это предложение сейчас рассматривается

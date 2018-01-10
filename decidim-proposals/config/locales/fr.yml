@@ -4,6 +4,7 @@ fr:
       proposal:
         body: Corps du texte
         category_id: Catégorie
+        has_address: A une adresse
         scope_id: Zone d'application
         title: Titre
         user_group_id: Créer une proposition en tant que
@@ -81,6 +82,13 @@ fr:
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Bonjour, %{author_name} %{author_nickname}, que vous suivez, a créé une nouvelle proposition. Prenez-en connaissance et contribuez :
+          email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle proposition par %{author_nickname}
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         proposal:
           fields:
@@ -97,8 +105,6 @@ fr:
         create:
           error: Des erreurs se sont produites lors du vote de la proposition.
       proposals:
-        author:
-          deleted: Utilisateur supprimé
         count:
           proposals_count:
             one: 1 proposition
@@ -120,8 +126,6 @@ fr:
           origin: Auteurs
           rejected: Refusée
           related_to: Liée à
-          scope_prompt: Sélectionnez un périmètre d'application
-          scopes: Zones d'application
           search: Rechercher
           state: État
           voted: Votées
@@ -152,9 +156,9 @@ fr:
           random: Aléatoire
           recent: Les plus récents
         proposal:
+          creation_date: 'Création: %{date}'
           view_proposal: Voir la proposition
         show:
-          contact: Contact
           edit_proposal: Modifier la proposition
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation

@@ -1,0 +1,69 @@
+pt-BR:
+  activemodel:
+    attributes:
+      survey_answer:
+        body: Resposta
+      survey_question:
+        mandatory: Obrigatório
+        question_type: Tipo
+  decidim:
+    features:
+      surveys:
+        actions:
+          answer: Responda
+        name: Pesquisa
+        settings:
+          global:
+            announcement: Anúncio
+          step:
+            allow_answers: Permitir respostas
+            announcement: Anúncio
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Avalie as respostas dos usuários
+        models:
+          components:
+            description: Descrição
+            tos: Termos de serviço
+        surveys:
+          answer_option:
+            answer_option: Opção de resposta
+            remove_answer_option: Eliminar opção de resposta
+            statement: Declaração
+          edit:
+            save: Salve 
+            title: Título
+          form:
+            add_question: Adicionar pergunta
+            already_answered_warning: A pesquisa já foi respondida por alguns usuários para que você não possa modificar suas perguntas.
+          question:
+            add_answer_option: Adicionar opção de resposta
+            question: Questão
+            remove_question: Remova a pergunta
+            statement: Declaração
+          update:
+            invalid: Houve erros ao salvar a pesquisa.
+            success: Pesquisa salva com sucesso.
+      question_types:
+        long_answer: Resposta longa
+        multiple_option: Opção múltipla
+        short_answer: Resposta curta
+        single_option: Opção única
+      surveys:
+        answer:
+          invalid: Houve erros ao responder a pesquisa.
+          success: Pesquisa respondida com sucesso.
+        show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Inscreva-se com sua conta</a> ou <a href="%{sign_up_link}">sign up</a> para responder a pesquisa.
+            title: Responda a pesquisa
+          are_you_sure: Esta ação não pode ser desfeita e você não poderá editar suas respostas. Você tem certeza?
+          submit: Enviar
+          survey_answered:
+            body: Você já respondeu esta pesquisa.
+            title: Pesquisa respondida
+          survey_closed:
+            body: A pesquisa está fechada e não pode ser respondida.
+            title: Pesquisa fechada
+          tos_agreement: Ao participar desta pesquisa você aceita seus Termos de Serviço

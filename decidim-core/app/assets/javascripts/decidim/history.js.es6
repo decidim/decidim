@@ -9,7 +9,7 @@
     if (event.isTrusted) {
       for (let callbackId in callbacks) {
         if (callbacks.hasOwnProperty(callbackId)) {
-          callbacks[callbackId]();
+          callbacks[callbackId](event.state);
         }
       }
     }
@@ -23,9 +23,9 @@
     callbacks[callbackId] = null;
   }
 
-  const pushState = (url) => {
+  const pushState = (url, state = null) => {
     if (window.history) {
-      window.history.pushState(null, null, url);
+      window.history.pushState(state, null, url);
     }
   };
 

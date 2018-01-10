@@ -10,7 +10,8 @@ module Decidim
     field :nickname, !types.String, "The author's nickname"
 
     field :avatarUrl, !types.String, "The author's avatar url"
-    field :badge, !types.String, "The author's badge"
+    field :profilePath, !types.String, "The author's profile path"
+    field :badge, !types.String, "The author's badge icon"
 
     field :deleted, !types.Boolean, "Whether the author's account has been deleted or not"
   end

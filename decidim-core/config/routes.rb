@@ -48,9 +48,11 @@ Decidim::Core::Engine.routes.draw do
     resources :own_user_groups, only: [:index]
   end
 
+  resources :profiles, only: [:show], param: :nickname
+
   resources :pages, only: [:index, :show], format: false
 
-  get "/scopes/search", to: "scopes#search", as: :scopes_search
+  get "/scopes/picker", to: "scopes#picker", as: :scopes_picker
 
   get "/static_map", to: "static_map#show", as: :static_map
   get "/cookies/accept", to: "cookie_policy#accept", as: :accept_cookies

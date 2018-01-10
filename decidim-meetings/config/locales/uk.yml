@@ -135,8 +135,6 @@ uk:
           category_prompt: Оберіть розділ
           date: Дата
           past: Минулі
-          scope_prompt: Оберіть терен
-          scopes: Терени
           search: Шукати
           upcoming: Майбутні
         filters_small_view:
