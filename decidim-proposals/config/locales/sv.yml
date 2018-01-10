@@ -93,6 +93,8 @@ sv:
         proposal:
           fields:
             category: Kategori
+            comments: kommentarer
+            created_at: Skapad vid
             id: ID
             official_proposal: Officiellt förslag
             scope: Omfattning
