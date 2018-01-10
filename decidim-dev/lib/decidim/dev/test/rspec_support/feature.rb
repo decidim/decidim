@@ -105,6 +105,14 @@ Decidim.register_feature(:dummy) do |feature|
     resource.template = "decidim/dummy_resource/linked_dummys"
   end
 
+  feature.register_stat :dummies_count_high, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, _start_at, _end_at|
+    features.count * 10
+  end
+
+  feature.register_stat :dummies_count_medium, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |features, _start_at, _end_at|
+    features.count * 100
+  end
+
   feature.exports :dummies do |exports|
     exports.collection do
       [1, 2, 3]
