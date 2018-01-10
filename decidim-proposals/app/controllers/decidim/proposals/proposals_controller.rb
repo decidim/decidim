@@ -102,7 +102,7 @@ module Decidim
             flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
           end
         end
-        redirect_to proposal_path(@proposal, feature_id: @proposal.feature.id, assembly_slug: )
+        redirect_to proposal_path(@proposal)
       end
 
       private
