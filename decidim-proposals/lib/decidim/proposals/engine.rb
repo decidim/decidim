@@ -12,7 +12,7 @@ module Decidim
       isolate_namespace Decidim::Proposals
 
       routes do
-        resources :proposal_wizard
+        resources :proposal_wizard, only: [:show, :update]
         get "proposal_wizard_exit", to: "proposal_wizard#exit"
 
         resources :proposals, except: [:destroy] do
