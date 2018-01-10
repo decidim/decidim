@@ -108,7 +108,9 @@ en:
           go_to_finish: Publish the proposal
           go_to_next_step: Next Step
           go_to_step_2: Search for similar proposals
-          go_to_step_3: None of the below matches mine, continue
+          go_to_step_3:
+            similars_blank: Continue to next step
+            similars_present: None of the below matches mine, continue
           go_to_step_4: Preview the proposal
         draft_created: Proposal saved as a draft successfully.
         draft_edit_link: You have a draft, edit the proposal
@@ -124,6 +126,7 @@ en:
         published: Proposal published successfully.
         step_2:
           similar_proposals: 'Similar proposals:'
+          no_similars_found: No similar proposals were found
         step_3:
           attachment_legend: "(Optional) Add an attachment"
           select_a_category: Please select a category

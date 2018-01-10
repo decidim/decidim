@@ -5,19 +5,26 @@
     <% if translated_attribute(feature_settings.proposal_wizard_step_2_help_text).present? %>
       <%= render partial: "decidim/shared/announcement", locals: { announcement: feature_settings.proposal_wizard_step_2_help_text } %>
     <% end %>
-    <h3 class="heading3"><%= t(".similar_proposals") %></h5>
 
-    <%= decidim_form_for(@form, url: wizard_path(:step_3), method: :put) do |form| %>
-      <%= form.hidden_field :title %>
-      <%= form.hidden_field :body %>
-
-      <%= proposal_wizard_actions form %>
-    <% end %>
-
-    <div class="row small-up-1 medium-up-2 card-grid">
-      <% @similar_proposals.each do |proposal| %>
-        <%= render partial: "proposal_similar", locals: {proposal: proposal} %>
+      <% if @similar_proposals.presence %>
+        <h3 class="heading3"><%= t(".similar_proposals") %></h5>
       <% end %>
-    </div>
+
+      <%= decidim_form_for(@form, url: wizard_path(:step_3), method: :put) do |form| %>
+        <%= form.hidden_field :title %>
+        <%= form.hidden_field :body %>
+
+        <%= proposal_wizard_actions form %>
+      <% end %>
+
+      <% if @similar_proposals.presence %>
+        <div class="row small-up-1 medium-up-2 card-grid">
+          <% @similar_proposals.each do |proposal| %>
+            <%= render partial: "proposal_similar", locals: {proposal: proposal} %>
+          <% end %>
+        </div>
+      <% else %>
+        <div class="success callout"><%= t(".no_similars_found") %></div>
+      <% end %>
   </div>
 </div>
