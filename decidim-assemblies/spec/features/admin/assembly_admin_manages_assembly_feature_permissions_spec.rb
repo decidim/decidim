@@ -2,13 +2,13 @@
 
 require "spec_helper"
 
-describe "Admin manages participatory process feature permissions", type: :feature do
+describe "Assembly admin manages assembly feature permissions", type: :feature do
   include_examples "Managing feature permissions" do
-    let(:participatory_space_engine) { decidim_admin_participatory_processes }
+    let(:participatory_space_engine) { decidim_admin_assemblies }
     let(:user) { create(:user, :admin, :confirmed, organization: organization) }
 
     let!(:participatory_space) do
-      create(:participatory_process, organization: organization)
+      create(:assembly, organization: organization)
     end
   end
 end

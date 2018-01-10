@@ -7,61 +7,6 @@ shared_examples "manage assemblies" do
     visit decidim_admin_assemblies.assemblies_path
   end
 
-  describe "creating an assembly" do
-    before do
-      within ".secondary-nav__actions" do
-        page.find("a.button").click
-      end
-    end
-
-    it "creates a new assembly" do
-      within ".new_assembly" do
-        fill_in_i18n(
-          :assembly_title,
-          "#assembly-title-tabs",
-          en: "My assembly",
-          es: "Mi proceso participativo",
-          ca: "El meu procés participatiu"
-        )
-        fill_in_i18n(
-          :assembly_subtitle,
-          "#assembly-subtitle-tabs",
-          en: "Subtitle",
-          es: "Subtítulo",
-          ca: "Subtítol"
-        )
-        fill_in_i18n_editor(
-          :assembly_short_description,
-          "#assembly-short_description-tabs",
-          en: "Short description",
-          es: "Descripción corta",
-          ca: "Descripció curta"
-        )
-        fill_in_i18n_editor(
-          :assembly_description,
-          "#assembly-description-tabs",
-          en: "A longer description",
-          es: "Descripción más larga",
-          ca: "Descripció més llarga"
-        )
-
-        fill_in :assembly_slug, with: "slug"
-        fill_in :assembly_hashtag, with: "#hashtag"
-        attach_file :assembly_hero_image, image1_path
-        attach_file :assembly_banner_image, image2_path
-
-        find("*[type=submit]").click
-      end
-
-      expect(page).to have_admin_callout("successfully")
-
-      within ".container" do
-        expect(page).to have_current_path decidim_admin_assemblies.assemblies_path
-        expect(page).to have_content("My assembly")
-      end
-    end
-  end
-
   describe "updating an assembly" do
     before do
       click_link translated(assembly.title)
@@ -92,40 +37,19 @@ shared_examples "manage assemblies" do
   end
 
   describe "updating an assembly without images" do
-    let!(:assembly3) { create(:assembly, organization: organization) }
-
     before do
       visit decidim_admin_assemblies.assemblies_path
     end
 
     it "update an assembly without images does not delete them" do
-      click_link translated(assembly3.title)
+      click_link translated(assembly.title)
       click_submenu_link "Info"
       click_button "Update"
 
       expect(page).to have_admin_callout("successfully")
 
-      expect(page).to have_css("img[src*='#{assembly3.hero_image.url}']")
-      expect(page).to have_css("img[src*='#{assembly3.banner_image.url}']")
-    end
-  end
-
-  describe "deleting an assembly" do
-    let!(:assembly2) { create(:assembly, organization: organization) }
-
-    before do
-      visit decidim_admin_assemblies.assemblies_path
-    end
-
-    it "deletes an assembly" do
-      click_link translated(assembly2.title)
-      accept_confirm { click_link "Destroy" }
-
-      expect(page).to have_admin_callout("successfully")
-
-      within "table" do
-        expect(page).not_to have_content(translated(assembly2.title))
-      end
+      expect(page).to have_css("img[src*='#{assembly.hero_image.url}']")
+      expect(page).to have_css("img[src*='#{assembly.banner_image.url}']")
     end
   end
 
