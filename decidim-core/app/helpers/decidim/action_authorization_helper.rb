@@ -36,7 +36,7 @@ module Decidim
       unless current_user_authorized?(action)
         html_options ||= {}
         html_options["onclick"] = "event.preventDefault();"
-        html_options["data-toggle"] = current_user ? "#{action.to_s.underscore}AuthorizationModal" : "loginModal"
+        html_options["data-open"] = current_user ? "#{action.to_s.underscore}AuthorizationModal" : "loginModal"
         url = ""
       end
 
@@ -67,7 +67,7 @@ module Decidim
       end
 
       unless current_user_authorized?(action)
-        html_options["data-toggle"] = current_user ? "#{action.to_s.underscore}AuthorizationModal" : "loginModal"
+        html_options["data-open"] = current_user ? "#{action.to_s.underscore}AuthorizationModal" : "loginModal"
         url = ""
       end
 
