@@ -8,8 +8,6 @@ module Decidim
         helper Proposals::ApplicationHelper
         helper_method :proposals, :query
 
-        def index; end
-
         def new
           authorize! :create, Proposal
           @form = form(Admin::ProposalForm).from_params(
@@ -37,7 +35,7 @@ module Decidim
         private
 
         def query
-          @q ||= Proposal.where(feature: current_feature).ransack(params[:q])
+          @query ||= Proposal.where(feature: current_feature).ransack(params[:q])
         end
 
         def proposals
