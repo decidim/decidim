@@ -155,7 +155,8 @@ module Decidim
             menu.item translated_attribute(navbar_link.title),
                       navbar_link.link,
                       position: 5,
-                      active: :exact
+                      active: :exact,
+                      target: navbar_link.target
           end
         end
 

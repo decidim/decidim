@@ -69,7 +69,11 @@ module Decidim
       private
 
       def navbar_link
-        navbar_link = NavbarLink.find(params[:id])
+        navbar_link = if params[:id]
+                        NavbarLink.find(params[:id])
+                      else
+                        NavbarLink.new
+                      end
       end
     end
   end
