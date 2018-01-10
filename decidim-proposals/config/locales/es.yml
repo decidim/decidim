@@ -93,6 +93,8 @@ es:
         proposal:
           fields:
             category: Categoría
+            comments: Comentarios
+            created_at: Creado en
             id: Identificador
             official_proposal: Propuesta oficial
             scope: Ámbito
