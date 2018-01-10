@@ -60,7 +60,7 @@ shared_examples "manage assembly admins examples" do
       end
     end
 
-    xcontext "when the user has not accepted the invitation" do
+    context "when the user has not accepted the invitation" do
       before do
         form = Decidim::Assemblies::Admin::AssemblyUserRoleForm.from_params(
           name: "test",
