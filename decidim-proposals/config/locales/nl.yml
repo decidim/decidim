@@ -93,6 +93,8 @@ nl:
         proposal:
           fields:
             category: Categorie
+            comments: Comments
+            created_at: Gemaakt bij
             id: ID
             official_proposal: Officieel voorstel
             scope: Scope
