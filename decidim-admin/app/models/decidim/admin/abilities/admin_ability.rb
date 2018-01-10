@@ -12,6 +12,7 @@ module Decidim
           can :manage, Category
           can :manage, ParticipatoryProcessUserRole
           can [:create, :update, :index, :new, :read], StaticPage
+          can [:create, :update, :index, :new, :destroy], NavbarLink
 
           can [:update_slug, :destroy], [StaticPage, StaticPageForm] do |page|
             !StaticPage.default?(page.slug)
@@ -36,6 +37,7 @@ module Decidim
           can :manage, Moderation
           can :manage, Attachment
           can :manage, Scope
+          can :manage, NavbarLink
           can :manage, ScopeType
           can :manage, Newsletter
           can [:create, :index, :new, :read, :invite], User
