@@ -93,6 +93,8 @@ ca:
         proposal:
           fields:
             category: Categoria
+            comments: Comentaris
+            created_at: Creat a
             id: ID
             official_proposal: Proposta oficial
             scope: Àmbit
