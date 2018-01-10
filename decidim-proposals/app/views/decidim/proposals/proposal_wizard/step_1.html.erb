@@ -8,7 +8,7 @@
       <% end %>
 
       <div class="card__content">
-        <%= decidim_form_for(@form, url: wizard_path(:step_2), method: :put, html: { class: 'form new_initiative_previous_form' }) do |form| %>
+        <%= decidim_form_for(@form, url: wizard_path(:step_2), method: :put) do |form| %>
 
           <div class="field">
             <%= form.text_field :title %>
@@ -20,9 +20,9 @@
 
           <%= proposal_wizard_actions form %>
 
-          <%# if @proposal.present? %>
-            <%#= link_to "You have a draft", wizard_path(:step_3, proposal_draft: @proposal.id ), class: "button clear" %>
-          <%# end %>
+          <% if @proposal.present? %>
+            <%= link_to t("decidim.proposals.proposal_wizard.draft_edit_link"), wizard_path(:step_3, proposal_draft: @proposal.id ), class: "button clear" %>
+          <% end %>
         <% end %>
       </div>
     </div>

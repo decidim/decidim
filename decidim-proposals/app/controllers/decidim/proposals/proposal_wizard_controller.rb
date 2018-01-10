@@ -31,7 +31,6 @@ module Decidim
       end
 
       def exit
-        session[:proposal] = {}
         flash[:notice] = I18n.t("proposals.proposal_wizard.exited", scope: "decidim")
         if params[:proposal_id].present?
           redirect_to proposal_path params[:proposal_id]
@@ -49,7 +48,6 @@ module Decidim
 
       def step_2_step
         @form = form(Decidim::Proposals::ProposalForm).from_params(params)
-        session[:proposal] = params[:proposal]
         if @form.valid?
           @similar_proposals ||= Decidim::Proposals::SimilarProposals
                                  .for(current_feature, @form)
@@ -68,25 +66,26 @@ module Decidim
           @proposal = proposal_draft
           @form = form(Decidim::Proposals::ProposalForm).from_model(@proposal)
         else
-          session[:proposal] = params[:proposal] if params[:proposal].present?
           @form = form(Decidim::Proposals::ProposalForm).from_params(
-            attachment: form(Decidim::AttachmentForm).from_params({})
+            params.merge(
+              attachment: form(Decidim::AttachmentForm).from_params({})
+            )
           )
         end
         render_wizard
       end
 
       def step_create_step
-        delete_proposal_draft
-        session[:proposal] = params[:proposal].except(:attachment)
         @form = form(Decidim::Proposals::ProposalForm).from_params(params)
+
+        @proposal.destroy if @proposal
 
         Decidim::Proposals::CreateProposal.call(@form, current_user) do
           on(:ok) do |proposal|
             flash.now[:notice] = I18n.t("proposals.proposal_wizard.draft_created", scope: "decidim")
-            session[:proposal][:proposal_id] = proposal.id
             redirect_to wizard_path(:step_4)
           end
+
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.create.error", scope: "decidim")
             @step = :step_3
@@ -96,14 +95,13 @@ module Decidim
       end
 
       def step_4_step
-        @form = form(ProposalForm).from_params(params)
+        @form = form(Decidim::Proposals::ProposalForm).from_model(@proposal)
       end
 
       def step_publish_step
         @proposal.published_at = Time.zone.now
 
         if @proposal.save
-          session[:proposal] = {}
           flash.now[:notice] = I18n.t("proposals.proposal_wizard.published", scope: "decidim")
           redirect_to proposal_path(@proposal)
         else
@@ -114,21 +112,11 @@ module Decidim
       end
 
       def current_proposal
-        session[:proposal] ||= {}
-
-        @proposal = proposal_draft if @step == :step_1
-
-        if session[:proposal]["proposal_id"].present?
-          @proposal = Decidim::Proposals::Proposal.where(feature: current_feature).find(session[:proposal]["proposal_id"])
-        end
-      end
-
-      def delete_proposal_draft
-        proposal_draft.try(:destroy)
+        @proposal = proposal_draft
       end
 
       def proposal_draft
-        Decidim::Proposals::Proposal.where(decidim_author_id: current_user).find_by(published_at: nil)
+        Decidim::Proposals::Proposal.where(decidim_author_id: current_user, feature: current_feature).find_by(published_at: nil)
       end
     end
   end

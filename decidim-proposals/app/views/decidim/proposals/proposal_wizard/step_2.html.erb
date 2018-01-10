@@ -7,7 +7,7 @@
     <% end %>
     <h3 class="heading3"><%= t(".similar_proposals") %></h5>
 
-    <%= decidim_form_for(@form, url: wizard_path(:step_3), method: :put, html: { class: 'form new_initiative_previous_form' }) do |form| %>
+    <%= decidim_form_for(@form, url: wizard_path(:step_3), method: :put) do |form| %>
       <%= form.hidden_field :title %>
       <%= form.hidden_field :body %>
 
