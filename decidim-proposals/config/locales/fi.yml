@@ -93,6 +93,8 @@ fi:
         proposal:
           fields:
             category: Aihepiiri
+            comments: Kommentit
+            created_at: Luotu osoitteessa
             id: ID
             official_proposal: Virallinen ehdotus
             scope: Konteksti
