@@ -2,19 +2,19 @@
   <h1 class="reveal__title"><%=t '.select_identity' %></h1>
 </div>
 <%= render partial: "decidim/proposals/proposals/endorsement_button", locals: { proposal: proposal, from_proposals_list: false, btn_label: current_user.name } %>
-<% current_user.user_groups.verified.each do |g| %>
+<% current_user.user_groups.verified.each do |user_group| %>
   <br/>
-  <% if @to_endorse_groups.include? g.id %>
+  <% if @to_endorse_groups.include? user_group.id %>
     <%= render partial: "decidim/proposals/proposals/endorsement_button",
       locals: {
         proposal: proposal, from_proposals_list: false,
-        btn_label: g.name, user_group: g
+        btn_label: user_group.name, user_group: user_group
       } %>
   <% else %>
     <%= render partial: "decidim/proposals/proposals/endorsement_button",
       locals: {
         proposal: proposal, from_proposals_list: false,
-        btn_label: g.name, user_group: g
+        btn_label: user_group.name, user_group: user_group
       } %>
   <% end %>
 <% end %>
