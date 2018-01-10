@@ -45,7 +45,7 @@ module Decidim
 
         def projects
           @projects ||= Decidim.find_resource_manifest(:projects).try(:resource_scope, current_feature)&.order(title: :asc)
-                               .select(:title, :id).map { |a| [a.title[I18n.locale.to_s], a.id] }
+                               &.select(:title, :id)&.map { |a| [a.title[I18n.locale.to_s], a.id] }
         end
 
         # Finds the Scope from the given decidim_scope_id, uses participatory space scope if missing.
