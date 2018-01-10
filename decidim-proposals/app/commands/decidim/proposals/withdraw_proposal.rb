@@ -20,7 +20,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if @proposal.votes.any? or unauthorized_user?
+        return broadcast(:invalid) if @proposal.votes.any?
 
         change_proposal_state_to_withdrawn
 
@@ -31,10 +31,6 @@ module Decidim
 
       def change_proposal_state_to_withdrawn
         @proposal.update_attributes state: 'withdrawn'
-      end
-
-      def unauthorized_user?
-        @proposal.decidim_author_id != @current_user.id
       end
 
     end

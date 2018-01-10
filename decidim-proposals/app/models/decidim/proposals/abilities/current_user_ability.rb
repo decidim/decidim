@@ -29,6 +29,10 @@ module Decidim
             proposal.editable_by?(user)
           end
 
+          can :withdraw, Proposal do |proposal|
+            can_withdraw?(proposal)
+          end
+
           can :report, Proposal
         end
 
@@ -77,6 +81,11 @@ module Decidim
 
           feature
         end
+
+        def can_withdraw?(proposal)
+          proposal.decidim_author_id == @user.id
+        end
+
       end
     end
   end

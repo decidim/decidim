@@ -92,18 +92,17 @@ module Decidim
 
       def withdraw
         @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
-        authorize! :edit, @proposal
+        authorize! :withdraw, @proposal
 
         WithdrawProposal.call(@proposal, current_user) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-            redirect_to proposal_path(@proposal)
           end
           on(:invalid) do
             flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
-            redirect_to proposal_path(@proposal)
           end
         end
+        redirect_to proposal_path(@proposal, feature_id: @proposal.feature.id, assembly_slug: )
       end
 
       private

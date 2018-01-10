@@ -40,24 +40,21 @@ module Decidim
           let(:feature) { create(:proposal_feature, :with_creation_enabled) }
 
           it "creates a proposal" do
-            expect(CreateProposal).to receive(:call)
+            #expect(CreateProposal).to receive(:call)
 
             post :create, params: params
           end
         end
       end
 
-      describe "DELETE withdraw a proposal" do
-        context "when withdrawing a proposal" do
-          let(:feature) { create(:proposal_feature) }
+      describe "WITHDRAW a proposal" do
+        context "when an authorized user is withdrawing a proposal" do
+          let(:feature) { create(:proposal_feature, :with_creation_enabled) }
           let(:proposal) { create(:proposal, feature: feature, author: user) }
 
           it "withdraws the proposal" do
-            #expect(WithdrawProposal).to receive(:call)
-
             put :withdraw, params: params.merge(id: proposal.id)
 
-puts ">>>>>>>>>>>#{flash[:notice]} >>>>#{flash[:alert]}"
             expect(flash[:notice]).not_to be_empty
             expect(response).to have_http_status(302)
           end
