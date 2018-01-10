@@ -14,7 +14,6 @@ module Decidim
       helper Decidim::AuthorizationFormHelper
 
       layout "layouts/decidim/user_profile", only: [:index]
-      skip_before_action :store_current_location
 
       def new; end
 
@@ -86,6 +85,12 @@ module Decidim
 
       def pending_authorizations
         Authorizations.new(user: current_user, granted: false)
+      end
+
+      def store_current_location
+        return if params[:redirect_url].blank?
+
+        store_location_for(:user, params[:redirect_url])
       end
     end
   end
