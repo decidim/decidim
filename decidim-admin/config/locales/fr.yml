@@ -135,10 +135,10 @@ fr:
           welcome: Bienvenue au Panneau Administrateur de Decidim.
       events:
         user_officialized_event:
-          email_intro: Le <a href="%{profile_path}">profile page</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
-          email_outro: Vous avez reçu cette notification, car vous suivez %{nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_intro: Le <a href="%{profile_path}">profil</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
+          email_outro: Vous recevez cette notification car vous suivez « %{nickname} ». Vous pouvez cesser de le suivre à partir du lien précédent.
           email_subject: "%{nickname} a mis à jour son profil"
-          notification_title: Le <a href="%{profile_path}">profile page</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
+          notification_title: Le <a href="%{profile_path}">profil</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
       exports:
         export_as: "%{name} comme %{export_format}"
         notice: Votre exportation est en cours. Vous recevrez un e-mail quand elle sera terminée.
