@@ -93,6 +93,8 @@ eu:
         proposal:
           fields:
             category: Kategoria
+            comments: Oharrak
+            created_at: Sortutako at
             id: NORTASUN AGIRIA
             official_proposal: Proposamen ofiziala
             scope: Esparrua
