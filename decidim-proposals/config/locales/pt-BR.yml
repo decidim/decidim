@@ -93,6 +93,8 @@ pt-BR:
         proposal:
           fields:
             category: Categoria
+            comments: Comentários
+            created_at: Criado em
             id: identidade
             official_proposal: Proposta oficial
             scope: Âmbito
