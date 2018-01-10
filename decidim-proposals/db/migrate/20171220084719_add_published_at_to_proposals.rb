@@ -5,6 +5,7 @@ class AddPublishedAtToProposals < ActiveRecord::Migration[5.1]
     add_column :decidim_proposals_proposals, :published_at, :datetime, index: true
     Decidim::Proposals::Proposal.update_all("published_at = updated_at")
   end
+
   def down
     remove_column :decidim_proposals_proposals, :published_at
   end
