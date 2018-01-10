@@ -214,6 +214,7 @@ ca:
         dashboard: Tauler de control
         managed_users: Usuaris gestionats
         newsletters: Butlletins
+        officializations: Oficialitzacions
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         settings: Configuració
@@ -313,6 +314,33 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquest butlletí.
           success: Butlletí actualitzat correctament. Si us plau, revisa'l abans d'enviar-lo.
+      officializations:
+        create:
+          success: L'usuari s'ha oficialitzat amb èxit
+        destroy:
+          success: L'usuari no ha estat oficialitzat amb èxit
+        index:
+          actions: Accions
+          badge: Insígnia
+          created_at: Creat a
+          filter:
+            all: Tots
+            not_officialized: No oficialitzat
+            officialized: Oficialitzat
+          filter_by: Filtra per
+          name: Nom
+          nickname: Sobrenom
+          not_officialized: No oficialitzat
+          officialize: Organitzar
+          officialized: Oficialitzat
+          reofficialize: Reofficeu-vos
+          search: Cerca
+          status: Estat
+          unofficialize: No s'ofereixen serveis
+        new:
+          badge: Insígnia d'oficialització
+          officialize: Organitzar
+          title: Classifica l'usuari "%{name}"
       organization:
         edit:
           title: Edita organització
@@ -390,6 +418,7 @@ ca:
         dashboard: Tauler de control
         impersonations: Suplantacions
         managed_users: Usuaris gestionats
+        officializations: Oficialitzacions
         scope_types: Tipus d'àmbit
         scopes: Àmbits
         static_pages: Pàgines

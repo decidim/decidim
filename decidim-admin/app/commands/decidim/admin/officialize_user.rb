@@ -22,6 +22,13 @@ module Decidim
 
         officialize_user
 
+        Decidim::EventsManager.publish(
+          event: "decidim.events.users.user_officialized",
+          event_class: Decidim::Admin::UserOfficializedEvent,
+          resource: form.user,
+          recipient_ids: form.user.followers.pluck(:id)
+        )
+
         broadcast(:ok, form.user)
       end
 
