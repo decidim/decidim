@@ -140,7 +140,7 @@ en:
             other: ENDORSEMENTS
         endorsements_listing:
           see_all: see all
-          title: Listing of Endorsements
+          title: List of Endorsements
         filters:
           accepted: Accepted
           activity: Activity
