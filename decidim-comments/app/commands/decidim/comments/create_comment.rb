@@ -48,7 +48,7 @@ module Decidim
           event: "decidim.events.comments.comment_created",
           event_class: Decidim::Comments::CommentCreatedEvent,
           resource: @comment.root_commentable,
-          recipient_ids: recipient_ids.uniq,
+          recipient_ids: (@commentable.users_to_notify_on_comment_created - [@author]).pluck(:id),
           extra: {
             comment_id: @comment.id,
             moderation_event: @comment.moderation.upstream_activated? ? true : false,
