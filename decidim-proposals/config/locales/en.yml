@@ -43,6 +43,7 @@ en:
       actions:
         answer: Answer
         new: New
+        private_notes: Private notes
         title: Actions
       admin:
         actions:
@@ -57,13 +58,9 @@ en:
           edit:
             accepted: Accepted
             answer_proposal: Answer
-            body: Body
-            created_at: Date creation
             evaluating: Evaluating
-            proposal_votes_count: Nº votes
             rejected: Rejected
             title: Answer for proposal %{title}
-            title_proposal: Title
         proposals:
           answer:
             invalid: There's been a problem answering this proposal
@@ -79,6 +76,15 @@ en:
           new:
             create: Create
             title: Create proposal
+        proposal_notes:
+          form:
+            submit: Submit
+        shared:
+          info_proposal:
+            body: Body
+            created_at: Date creation
+            proposal_votes_count: Nº votes
+            title_proposal: Title
       answers:
         accepted: Accepted
         evaluating: Evaluating

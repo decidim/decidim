@@ -18,6 +18,7 @@ module Decidim
       feature_manifest_name "proposals"
 
       has_many :votes, foreign_key: "decidim_proposal_id", class_name: "ProposalVote", dependent: :destroy, counter_cache: "proposal_votes_count"
+      has_many :notes, foreign_key: "decidim_proposal_id", class_name: "ProposalNote", dependent: :destroy, counter_cache: "proposal_notes_count"
 
       validates :title, :body, presence: true
 
