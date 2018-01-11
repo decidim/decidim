@@ -1,0 +1,9 @@
+pt-BR:
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Manequim
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Manequim relacionado

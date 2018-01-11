@@ -55,7 +55,7 @@ describe "Explore meetings", type: :feature do
         expect(page).to have_css(".card--meeting", count: 5)
       end
 
-      it "allows fitlering by scope" do
+      it "allows filtering by scope" do
         scope = create(:scope, organization: organization)
         meeting = meetings.first
         meeting.scope = scope
@@ -64,7 +64,7 @@ describe "Explore meetings", type: :feature do
         visit_feature
 
         within ".filters" do
-          select2(translated(scope.name), from: :filter_scope_id)
+          scope_pick scopes_picker_find(:filter_scope_id, multiple: true, global_value: "global"), scope
         end
 
         expect(page).to have_css(".card--meeting", count: 1)
@@ -188,7 +188,10 @@ describe "Explore meetings", type: :feature do
         within "ul.tags.tags--meeting" do
           click_link translated(meeting.scope.name)
         end
-        expect(page).to have_select("filter_scope_id", selected: translated(meeting.scope.name))
+
+        within ".filters" do
+          expect(scopes_picker_find(:filter_scope_id, multiple: true, global_value: "global")).to have_scope_picked(meeting.scope)
+        end
       end
     end
 
@@ -207,7 +210,7 @@ describe "Explore meetings", type: :feature do
         click_link translated(meeting.title)
         proposals.each do |proposal|
           expect(page).to have_content(proposal.title)
-          expect(page).to have_content(proposal.author_name)
+          expect(page).to have_content(proposal.author.name)
           expect(page).to have_content(proposal.votes.size)
         end
       end

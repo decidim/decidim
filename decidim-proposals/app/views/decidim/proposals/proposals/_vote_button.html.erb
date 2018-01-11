@@ -4,7 +4,7 @@
       <% if current_settings.votes_blocked? %>
         <%= action_authorized_button_to :vote, t('.votes_blocked'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), class: "card__button button #{vote_button_classes(from_proposals_list)} disabled", disabled: true %>
       <% else %>
-        <%= action_authorized_button_to :vote, t('.vote'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), class: "card__button button #{vote_button_classes(from_proposals_list)}" %>
+        <%= action_authorized_button_to :vote, t('.vote'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), class: "card__button button #{vote_button_classes(from_proposals_list)}", data: { disable: true } %>
       <% end %>
     <% else %>
       <% if @voted_proposals ? @voted_proposals.include?(proposal.id) : proposal.voted_by?(current_user) %>

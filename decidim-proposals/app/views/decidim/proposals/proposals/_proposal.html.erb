@@ -6,9 +6,12 @@
           <h5 class="card__title"><%= proposal.title %></h5>
         <% end %>
         <div class="card__author author-data author-data--small">
-          <%= render partial: "author", locals: { proposal: proposal } %>
+          <%= render partial: "decidim/shared/author_reference", locals: { author: present(proposal).author } %>
         </div>
-        <%= feature_reference(proposal, class: "reference--text-left") %>
+        <div class="tech-info tech-info--text-left">
+          <%= t(".creation_date", date: l(proposal.created_at, format: :decidim_short)) %>
+        </div>
+        <%= feature_reference(proposal, class: "tech-info--text-left") %>
       </div>
       <%= render partial: "proposal_badge", locals: { proposal: proposal } %>
       <p><%= truncate(proposal.body, length: 100) %></p>

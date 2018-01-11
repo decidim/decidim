@@ -1,0 +1,102 @@
+<div class="filters">
+  <div class="filters__section">
+    <form class="filters__search">
+      <div class="input-group">
+        <input class="input-group-field" type="search" placeholder="Buscar">
+        <div class="input-group-button">
+          <button type="submit" class="button button--muted">
+            <%= icon "magnifying-glass", aria_label: "Buscar", role: "img" %>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="filters__section">
+    <form>
+      <fieldset>
+        <legend>
+          <h6 class="heading6">
+            Origen 
+            <span class="help">
+              <%= icon "info", class: "icon--after" %>
+            </span>
+          </h6>
+        </legend>
+        <label><input id="" type="radio" name="author" checked>Tots</label>
+        <label><input id="" type="radio" name="author">Ajuntament</label>
+        <label><input id="" type="radio" name="author">Ciutadania</label>
+        <label><input id="" type="radio" name="author">Organitzacions</label>
+        <label><input id="" type="radio" name="author">Cites presencials</label>
+      </fieldset>
+    </form>
+  </div>
+  <div class="filters__section">
+    <form>
+      <fieldset>
+        <legend><h6 class="heading6">Resultat de la revisió</h6></legend>
+        <label><input id="" type="radio" name="revision" checked>Totes</label>
+        <label><input id="" type="radio" name="revision">Acceptades</label>
+        <label><input id="" type="radio" name="revision">Rebutjades</label>
+      </fieldset>
+    </form>
+  </div>
+  <div class="filters__section">
+    <form>
+      <fieldset>
+        <legend><h6 class="heading6">Tu actividad</h6></legend>
+        <label><input id="" type="checkbox">Creadas</label>
+        <label><input id="" type="checkbox">Comentadas</label>
+        <label><input id="" type="checkbox">Votadas</label>
+        <label><input id="" type="checkbox">Seguidas</label>
+      </fieldset>
+    </form>
+  </div>
+  <div class="filters__section">
+    <form>
+      <fieldset>
+        <legend><h6 class="heading6">Àmbit</h6></legend>
+          <select class="select2" multiple="multiple">
+            <option value="all">Tota la ciutat</option>
+            <option value="ciutatvella">Ciutat Vella</option>
+            <option value="eixample">Eixample</option>
+            <option value="sants">Sants Montjuïc</option>
+            <option value="corts">Les Corts</option>
+            <option value="sarria">Sarrià - Sant Gervasi</option>
+            <option value="gracia">Gràcia</option>
+            <option value="horta">Horta - Guinardó</option>
+            <option value="noubarris">Nou Barris</option>
+            <option value="standreu">Sant Andreu</option>
+            <option value="stmarti">Sant Martí</option>
+          </select>
+      </fieldset>
+    </form>
+  </div>
+  <div class="filters__section">
+    <form>
+      <fieldset>
+        <legend>
+          <h6 class="heading6">
+            Eix
+            <span class="help">
+              <%= icon "info", class: "icon--after" %>
+            </span>
+          </h6>
+        </legend>
+        <label><input id="" type="radio" name="eix" checked>Totes</label>
+        <label><input id="" type="radio" name="eix">Bon viure</label>
+        <label><input id="" type="radio" name="eix">Economia plural</label>
+        <label><input id="" type="radio" name="eix">Transició ecològica</label>
+        <label><input id="" type="radio" name="eix">Bon govern</label>
+        <label><input id="" type="radio" name="eix">Justícia global</label>
+      </fieldset>
+    </form>
+  </div>
+  <div class="filters__section">
+    <form>
+      <fieldset>
+        <legend><h6 class="heading6">Altres</h6></legend>
+        <label><input id="" type="checkbox">Debatudes a cites presencials</label>
+      </fieldset>
+    </form>
+  </div>
+</div>

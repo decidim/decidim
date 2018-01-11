@@ -7,8 +7,9 @@ describe "Proposals", type: :feature do
   let(:manifest_name) { "proposals" }
 
   let!(:category) { create :category, participatory_space: participatory_process }
-  let!(:scope) { create :scope, organization: participatory_process.organization }
-  let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
+  let!(:scope) { create :scope, organization: organization }
+  let!(:user) { create :user, :confirmed, organization: organization }
+  let(:scoped_participatory_process) { create(:participatory_process, :with_steps, organization: organization, scope: scope) }
 
   let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
   let(:latitude) { 40.1234 }
@@ -21,7 +22,14 @@ describe "Proposals", type: :feature do
     )
   end
 
+  matcher :have_author do |name|
+    match { |node| node.has_selector?(".author-data", text: name) }
+    match_when_negated { |node| node.has_no_selector?(".author-data", text: name) }
+  end
+
   context "when creating a new proposal" do
+    let(:scope_picker) { scopes_picker_find(:proposal_scope_id) }
+
     context "when the user is logged in" do
       before do
         login_as user, scope: :user
@@ -36,10 +44,6 @@ describe "Proposals", type: :feature do
         end
 
         context "when process is not related to any scope" do
-          before do
-            participatory_process.update_attributes!(scope: nil)
-          end
-
           it "can be related to a scope" do
             visit_feature
             click_link "New proposal"
@@ -50,10 +54,8 @@ describe "Proposals", type: :feature do
           end
         end
 
-        context "when process is related to any scope" do
-          before do
-            participatory_process.update_attributes!(scope: scope)
-          end
+        context "when process is related to a leaf scope" do
+          let(:participatory_process) { scoped_participatory_process }
 
           it "cannot be related to a scope" do
             visit_feature
@@ -65,7 +67,7 @@ describe "Proposals", type: :feature do
           end
         end
 
-        it "creates a new proposal" do
+        it "creates a new proposal", :slow do
           visit_feature
 
           click_link "New proposal"
@@ -74,7 +76,7 @@ describe "Proposals", type: :feature do
             fill_in :proposal_title, with: "Oriol for president"
             fill_in :proposal_body, with: "He will solve everything"
             select translated(category.name), from: :proposal_category_id
-            select2 translated(scope.name), from: :proposal_scope_id
+            scope_pick scope_picker, scope
 
             find("*[type=submit]").click
           end
@@ -84,7 +86,7 @@ describe "Proposals", type: :feature do
           expect(page).to have_content("He will solve everything")
           expect(page).to have_content(translated(category.name))
           expect(page).to have_content(translated(scope.name))
-          expect(page).to have_content(user.name)
+          expect(page).to have_author(user.name)
         end
 
         context "when geocoding is enabled", :serves_map do
@@ -96,7 +98,7 @@ describe "Proposals", type: :feature do
                    participatory_space: participatory_process)
           end
 
-          it "creates a new proposal" do
+          it "creates a new proposal", :slow do
             visit_feature
 
             click_link "New proposal"
@@ -109,7 +111,7 @@ describe "Proposals", type: :feature do
 
               fill_in :proposal_address, with: address
               select translated(category.name), from: :proposal_category_id
-              select2 translated(scope.name), from: :proposal_scope_id
+              scope_pick scope_picker, scope
 
               find("*[type=submit]").click
             end
@@ -120,7 +122,7 @@ describe "Proposals", type: :feature do
             expect(page).to have_content(address)
             expect(page).to have_content(translated(category.name))
             expect(page).to have_content(translated(scope.name))
-            expect(page).to have_content(user.name)
+            expect(page).to have_author(user.name)
           end
         end
 
@@ -131,7 +133,7 @@ describe "Proposals", type: :feature do
             create(:user_group_membership, user: user, user_group: user_group)
           end
 
-          it "creates a new proposal as a user group" do
+          it "creates a new proposal as a user group", :slow do
             visit_feature
             click_link "New proposal"
 
@@ -139,7 +141,7 @@ describe "Proposals", type: :feature do
               fill_in :proposal_title, with: "Oriol for president"
               fill_in :proposal_body, with: "He will solve everything"
               select translated(category.name), from: :proposal_category_id
-              select2 translated(scope.name), from: :proposal_scope_id
+              scope_pick scope_picker, scope
               select user_group.name, from: :proposal_user_group_id
 
               find("*[type=submit]").click
@@ -150,7 +152,7 @@ describe "Proposals", type: :feature do
             expect(page).to have_content("He will solve everything")
             expect(page).to have_content(translated(category.name))
             expect(page).to have_content(translated(scope.name))
-            expect(page).to have_content(user_group.name)
+            expect(page).to have_author(user_group.name)
           end
 
           context "when geocoding is enabled", :serves_map do
@@ -162,7 +164,7 @@ describe "Proposals", type: :feature do
                      participatory_space: participatory_process)
             end
 
-            it "creates a new proposal as a user group" do
+            it "creates a new proposal as a user group", :slow do
               visit_feature
               click_link "New proposal"
 
@@ -174,7 +176,7 @@ describe "Proposals", type: :feature do
 
                 fill_in :proposal_address, with: address
                 select translated(category.name), from: :proposal_category_id
-                select2 translated(scope.name), from: :proposal_scope_id
+                scope_pick scope_picker, scope
                 select user_group.name, from: :proposal_user_group_id
 
                 find("*[type=submit]").click
@@ -186,7 +188,7 @@ describe "Proposals", type: :feature do
               expect(page).to have_content(address)
               expect(page).to have_content(translated(category.name))
               expect(page).to have_content(translated(scope.name))
-              expect(page).to have_content(user_group.name)
+              expect(page).to have_author(user_group.name)
             end
           end
         end
@@ -302,16 +304,12 @@ describe "Proposals", type: :feature do
 
       expect(page).to have_content(proposal.title)
       expect(page).to have_content(proposal.body)
-      expect(page).to have_content(proposal.author.name)
+      expect(page).to have_author(proposal.author.name)
       expect(page).to have_content(proposal.reference)
     end
 
     context "when process is not related to any scope" do
       let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
-
-      before do
-        participatory_process.update_attributes!(scope: nil)
-      end
 
       it "can be filtered by scope" do
         visit_feature
@@ -320,12 +318,9 @@ describe "Proposals", type: :feature do
       end
     end
 
-    context "when process is related to a scope" do
+    context "when process is related to a child scope" do
       let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
-
-      before do
-        participatory_process.update_attributes!(scope: scope)
-      end
+      let(:participatory_process) { scoped_participatory_process }
 
       it "does not show the scope name" do
         visit_feature
@@ -647,6 +642,7 @@ describe "Proposals", type: :feature do
       end
 
       context "with scope" do
+        let(:scopes_picker) { scopes_picker_find(:filter_scope_id, multiple: true, global_value: "global") }
         let!(:scope2) { create :scope, organization: participatory_process.organization }
 
         before do
@@ -663,9 +659,9 @@ describe "Proposals", type: :feature do
         end
 
         context "when selecting the global scope" do
-          it "lists the filtered proposals" do
+          it "lists the filtered proposals", :slow do
             within ".filters" do
-              select2("Global scope", from: :filter_scope_id)
+              scope_pick scopes_picker, nil
             end
 
             expect(page).to have_css(".card--proposal", count: 1)
@@ -674,9 +670,9 @@ describe "Proposals", type: :feature do
         end
 
         context "when selecting one scope" do
-          it "lists the filtered proposals" do
+          it "lists the filtered proposals", :slow do
             within ".filters" do
-              select2(translated(scope.name), from: :filter_scope_id)
+              scope_pick scopes_picker, scope
             end
 
             expect(page).to have_css(".card--proposal", count: 2)
@@ -685,22 +681,46 @@ describe "Proposals", type: :feature do
         end
 
         context "when selecting the global scope and another scope" do
-          it "lists the filtered proposals" do
+          it "lists the filtered proposals", :slow do
             within ".filters" do
-              select2(translated(scope.name), from: :filter_scope_id)
-              select2("Global scope", from: :filter_scope_id)
+              scope_pick scopes_picker, scope
+              scope_pick scopes_picker, nil
             end
 
             expect(page).to have_css(".card--proposal", count: 3)
             expect(page).to have_content("3 PROPOSALS")
           end
         end
+
+        context "when modifying the selected scope" do
+          it "lists the filtered proposals" do
+            within ".filters" do
+              scope_pick scopes_picker, scope
+              scope_pick scopes_picker, nil
+              scope_repick scopes_picker, scope, scope2
+            end
+
+            expect(page).to have_css(".card--proposal", count: 2)
+            expect(page).to have_content("2 PROPOSALS")
+          end
+        end
+
+        context "when unselecting the selected scope" do
+          it "lists the filtered proposals" do
+            within ".filters" do
+              scope_pick scopes_picker, scope
+              scope_pick scopes_picker, nil
+              scope_unpick scopes_picker, scope
+            end
+
+            expect(page).to have_css(".card--proposal", count: 1)
+            expect(page).to have_content("1 PROPOSAL")
+          end
+        end
       end
 
       context "when process is related to a scope" do
-        before do
-          participatory_process.update_attributes!(scope: scope)
-        end
+        let(:participatory_process) { scoped_participatory_process }
 
         it "cannot be filtered by scope" do
           visit_feature

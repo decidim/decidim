@@ -70,6 +70,8 @@ es:
         name: Flujo de trabajo de autorización de ejemplo
       errors:
         duplicate_authorization: Un usuario ya está autorizado con los mismos datos.
+      expired_at: Caducado el %{timestamp}
+      expires_at: Caduca en %{timestamp}
       foo_authorization:
         fields:
           bar: Bar
@@ -77,6 +79,7 @@ es:
         name: Autorización foo
       granted_at: Concedida el %{timestamp}
       started_at: Comenzó el %{timestamp}
+    contact: Contacto
     core:
       actions:
         unauthorized: No tienes permiso para realizar esta acción.
@@ -86,6 +89,7 @@ es:
           email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
         new:
           complete_profile: Completar perfil
+          nickname_help: Su identificador único.
           sign_up: Por favor, completa tu perfil
           subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
@@ -93,6 +97,7 @@ es:
         new:
           already_have_an_account?: "¿Ya tienes una cuenta?"
           newsletter_notifications: Recibir información sobre la actividad relevante
+          nickname_help: Su identificador único.
           sign_in: Entra
           sign_up: Regístrate
           sign_up_as:
@@ -222,6 +227,8 @@ es:
     pages:
       index:
         title: Más información
+    profiles:
+      default_officialization_text: Este participante se verifica públicamente, se ha verificado que su nombre o cargo corresponde con su nombre real y rol
     reported_mailer:
       hide:
         hello: Hola %{name},
@@ -237,8 +244,20 @@ es:
       create:
         error: Se ha producido un error al denunciar el contenido. Por favor, inténtalo otra vez.
         success: La denuncia se ha creado correctament y será revisada por un administrador.
+    scopes:
+      global: Alcance global
+      picker:
+        cancel: Cancelar
+        choose: Seleccionar
+        title: Seleccione %{field}
+      prompt: Seleccione un ámbito
+      scopes: Ámbitos
     shared:
       action_authorization_modal:
+        expired:
+          authorize: Volver a autorizar con "%{authorization}"
+          explanation: Tu autorización ha expirado. Para realizar esta acción, debe volver a obtener la autorización con "%{authorization}".
+          title: La autorización ha expirado
         incomplete:
           cancel: Cancelar
           explanation: 'A pesar de que actualmente está autorizado con "%{authorization}", necesitamos que te vuelvas a autorizar porque carecemos de los datos siguientes:'
@@ -257,6 +276,8 @@ es:
           invalid: "%{field} no es válido."
           ok: De acuerdo
           title: No autorizado
+      author:
+        deleted: Usuario eliminado
       embed_modal:
         close_window: Cerrar ventana
         embed: Por favor, pega este código en tu página
@@ -289,6 +310,7 @@ es:
     invitations:
       edit:
         header: Escribe tu contraseña
+        nickname_help: Su identificador único.
         submit_button: Guardar
     mailer:
       invitation_instructions:
@@ -355,6 +377,7 @@ es:
         conversations: Conversaciones
         notifications: Notificaciones
         profile: Mi cuenta
+        public_profile: Mi perfil público
         sign_out: Sal
       user_profile:
         account: Cuenta
@@ -386,7 +409,7 @@ es:
         participate: Participar
         welcome: Bienvenido a %{organization}!
       statistics:
-        answers_count: Respuestas
+        assemblies_count: Asambleas
         comments_count: Comentarios
         headline: Estado actual de %{organization}
         meetings_count: Encuentros
@@ -394,6 +417,7 @@ es:
         pages_count: Páginas
         processes_count: Procesos
         projects_count: Proyectos
+        proposals_accepted: Propuestas aceptadas
         proposals_count: Propuestas
         results_count: Resultados
         surveys_count: Encuestas

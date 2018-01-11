@@ -60,7 +60,7 @@ fr:
           error: Une erreur s'est produite lors de la dépublication de cette assemblée.
           success: Assemblée dépubliée avec succès.
       menu:
-        assemblies: Assemblées
+        assemblies: Agora
         assemblies_submenu:
           attachments: Documents liés
           categories: Catégories
@@ -76,7 +76,7 @@ fr:
             title: Titre
           name: Assemblée
       titles:
-        assemblies: Assemblées
+        assemblies: Agora
     assemblies:
       admin:
         assemblies:
@@ -86,11 +86,11 @@ fr:
           form:
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
       index:
-        title: Assemblées
+        title: Agora
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Assemblées actives
+            active_assemblies: Agora actives
             see_all_assemblies: Voir toutes les assemblées
       show:
         developer_group: Groupe d'initiateurs
@@ -101,7 +101,7 @@ fr:
         target: Public visé
       statistics:
         answers_count: Réponses
-        assemblies_count: Assemblées
+        assemblies_count: Agora
         comments_count: Commentaires
         headline: Activité
         meetings_count: Réunions
@@ -114,14 +114,14 @@ fr:
         users_count: Participants
         votes_count: Votes
     menu:
-      assemblies: Assemblées
+      assemblies: Agora
   layouts:
     decidim:
       assemblies:
         assembly:
           take_part: Participer
         index:
-          promoted_assemblies: Assemblées mises en avant
+          promoted_assemblies: Agora mises en avant
         order_by_assemblies:
           assemblies:
             one: "%{count} assemblée"

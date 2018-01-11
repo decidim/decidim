@@ -124,7 +124,7 @@ ca:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Assumpte
+            subject: Invitació per participar en una reunió
         registration_mailer:
           confirmation:
             subject: La teva inscripció a la trobada ha estat confirmada
@@ -134,8 +134,6 @@ ca:
           category_prompt: Selecciona una categoria
           date: Data
           past: Passades
-          scope_prompt: Seleccioneu un àmbit
-          scopes: Àmbits
           search: Cerca
           upcoming: Properes
         filters_small_view:
@@ -192,4 +190,4 @@ ca:
   devise:
     mailer:
       join_meeting:
-        subject: Assumpte
+        subject: Invitació per participar en una reunió

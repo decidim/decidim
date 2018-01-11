@@ -8,45 +8,47 @@ module Decidim
       let(:form_klass) { ProposalForm }
 
       it_behaves_like "create a proposal", true
-      describe "call" do
-        let(:form_klass) { ProposalForm }
-        it_behaves_like "create a proposal", true
-        let(:organization) { create(:organization) }
-        let(:participatory_process) { create(:participatory_process, organization: organization) }
-        let(:feature) { create :feature, manifest_name: :proposals, participatory_space: participatory_process }
-        let(:author) { create(:user, organization: organization) }
-        let(:admin) {create(:user, :admin, organization: organization)}
-        let(:process_admin) {create(:user, :process_admin, organization: feature.organization, participatory_process: feature.participatory_space)}
-        let(:user_manager) {create(:user, :user_manager, organization: feature.organization)}
 
-        let(:body) { ::Faker::Lorem.sentences(3).join("\n") }
-        let(:title) { ::Faker::Lorem.sentence(3) }
-        let(:form_params) do
-          {
-            "proposal" => {
-              "body" => body,
-              "title" => title,
-            }
-          }
+      describe "events" do
+        subject do
+          described_class.new(form, author)
         end
 
+        let(:feature) { create(:proposal_feature) }
+        let(:organization) { feature.organization }
         let(:form) do
-          ProposalForm.from_params(
+          form_klass.from_params(
             form_params
+          ).with_context(
+            current_organization: organization,
+            current_feature: feature
           )
         end
-        let(:command) { described_class.new(form, author) }
+        let(:form_params) do
+          {
+            title: "A reasonable proposal title",
+            body: "A reasonable proposal body",
+            address: nil,
+            has_address: false,
+            attachment: nil,
+            user_group_id: nil
+          }
+        end
+        let(:author) { create(:user, organization: organization) }
+        let(:follower) { create(:user, organization: organization) }
+        let!(:follow) { create :follow, followable: author, user: follower }
 
-        it "creates a new proposal" do
-          expect(Proposal).to receive(:create!).with(
-            author: author,
-            body: body,
-            title: title
-          ).and_call_original
+        it "notifies the change" do
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .with(
+              event: "decidim.events.proposals.proposal_created",
+              event_class: Decidim::Proposals::CreateProposalEvent,
+              resource: kind_of(Decidim::Proposals::Proposal),
+              recipient_ids: [follower.id]
+            )
 
-          expect do
-            command.call
-          end.to change { Proposal.count }.by(1)
+          subject.call
         end
       end
     end

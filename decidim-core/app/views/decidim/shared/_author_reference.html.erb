@@ -1,0 +1,12 @@
+<div class="author-data__main">
+  <div class="author author--inline">
+    <% if author.profile_path.present? %>
+      <%= link_to author.profile_path do %>
+        <%= render "decidim/shared/author", author: author %>
+      <% end %>
+    <% else %>
+      <%= render "decidim/shared/author", author: author %>
+    <% end %>
+    </a>
+  </div>
+</div>

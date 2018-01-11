@@ -4,6 +4,7 @@ fr:
       proposal:
         body: Corps du texte
         category_id: Catégorie
+        has_address: A une adresse
         scope_id: Zone d'application
         title: Titre
         user_group_id: Créer une proposition en tant que
@@ -27,7 +28,7 @@ fr:
         name: Propositions
         settings:
           global:
-            announcement: Annonce
+            announcement: Message d'annonce
             attachments_allowed: Autoriser les pièces jointes
             comments_enabled: Commentaires activés
             geocoding_enabled: Géocodage activé
@@ -41,7 +42,7 @@ fr:
             upstream_moderation_enabled: Modération à priori des propositions activée
             comments_upstream_moderation_enabled: Modération à priori des commentaires activée
           step:
-            announcement: Annonce
+            announcement: Message d'annonce
             comments_blocked: Commentaires bloqués
             creation_enabled: Module propositions activé
             proposal_answering_enabled: '"Réponses aux propositions" activé'
@@ -85,13 +86,20 @@ fr:
             create: Créer
             title: Créer une proposition
       answers:
-        accepted: Retenues
+        accepted: Retenue
         evaluating: En cours d'évaluation
         not_answered: Resté sans réponse
         rejected: Refusée
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès. Elle sera publiée dès qu'un administrateur l'aura validée.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Bonjour, %{author_name} %{author_nickname}, que vous suivez, a créé une nouvelle proposition. Prenez-en connaissance et contribuez :
+          email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle proposition par %{author_nickname}
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         proposal:
           fields:
@@ -108,33 +116,27 @@ fr:
         create:
           error: Des erreurs se sont produites lors du vote de la proposition.
       proposals:
-        author:
-          deleted: Utilisateur supprimé
-          verified_user_group: Organisation vérifiée
         count:
           proposals_count:
             one: 1 proposition
             other: "%{count} propositions"
         edit:
-          attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           back: Retour
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Modifier la proposition
         filters:
-          accepted: Retenues
+          accepted: Retenue
           activity: Activité
           all: Toutes
           category: Catégorie
           category_prompt: Sélectionner une catégorie
-          citizens: Citoyens
+          citizens: Citoyens >> Propositions citoyennes
           evaluating: En cours d'évaluation
-          official: Elu-e-s
+          official: Elu-e-s >> Propositions officielles
           origin: Auteurs
           rejected: Refusée
           related_to: Liée à
-          scope_prompt: Sélectionnez un périmètre d'application
-          scopes: Zones d'application
           search: Rechercher
           state: État
           voted: Votées
@@ -165,9 +167,9 @@ fr:
           random: Aléatoire
           recent: Les plus récents
         proposal:
+          creation_date: 'Création: %{date}'
           view_proposal: Voir la proposition
         show:
-          contact: Contact
           edit_proposal: Modifier la proposition
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation

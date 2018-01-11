@@ -22,7 +22,7 @@
         </div>
         <% if !meeting.closed? && meeting.registrations_enabled? %>
           <% if meeting.has_registration_for? current_user %>
-            <%= action_authorized_button_to :leave, t('.going'), meeting_registration_path(meeting), method: :delete, class: "button expanded button--sc success" %>
+            <%= action_authorized_button_to :leave, t('.going'), meeting_registration_path(meeting), method: :delete, class: "button expanded button--sc success", data: { disable: true } %>
           <% else %>
             <%= action_authorized_button_to :join, meeting.has_available_slots? ? t('.join') : t('.no_slots_available'), "", class: "button expanded button--sc", disabled: !meeting.has_available_slots?, data: { toggle: current_user.present? ? "meeting-registration-confirm" : "loginModal" } %>
           <% end %>

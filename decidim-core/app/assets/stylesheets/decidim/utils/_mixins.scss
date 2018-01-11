@@ -2,15 +2,15 @@
 
 // Media queries, based on: http://alwaystwisted.com/post.php?s=2013-04-01-my-media-query-mixin
 
-@mixin mq($point, $query1: min, $query2: width) {
-  @media (#{$query1}-#{$query2}: $point) {
+@mixin mq($point, $query1: min, $query2: width){
+  @media (#{$query1}-#{$query2}: $point){
     @content;
   }
 }
 
 // Centered elements
 
-@mixin centered {
+@mixin centered{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -19,7 +19,7 @@
 
 // Drop Overlays
 
-@mixin drop-overlay {
+@mixin drop-overlay{
   content: "";
   position: absolute;
   z-index: $z2;
@@ -27,15 +27,15 @@
   left: 0;
   bottom: 0;
   right: 0;
-  background: rgba(#27353B, 0.6);
+  background: rgba(#27353b, .6);
 }
 
 /// Slightly lighten a color
-@function tint($color, $percentage) {
+@function tint($color, $percentage){
   @return mix(white, $color, $percentage);
 }
 
 /// Slightly darken a color
-@function shade($color, $percentage) {
+@function shade($color, $percentage){
   @return mix(black, $color, $percentage);
 }

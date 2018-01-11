@@ -23,11 +23,13 @@ shared_examples "comments" do
     end
   end
 
-  it "allows user to sort the comments" do
+  it "allows user to sort the comments", :slow do
     comment = create(:comment, commentable: commentable, body: "Most Rated Comment")
     create(:comment_vote, comment: comment, author: user, weight: 1)
 
     visit resource_path
+
+    expect(page).to have_no_content("Comments are disabled at this time")
 
     expect(page).to have_css(".comment", minimum: 1)
     page.find(".order-by .dropdown.menu .is-dropdown-submenu-parent").hover

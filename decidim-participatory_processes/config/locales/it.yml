@@ -2,16 +2,17 @@ it:
   activemodel:
     attributes:
       participatory_process:
-        banner_image: Immagine banner
-        copy_categories: Copiare le categorie
-        copy_features: Funzioni di copia
-        copy_steps: Copia passi
+        announcement: Annuncio
+        banner_image: Immagine del banner
+        copy_categories: Copia le categorie
+        copy_features: Copia le caratteristiche
+        copy_steps: Copia i passi
         description: Descrizione
-        developer_group: Gruppo promotore
+        developer_group: Gruppo sviluppatori
         domain: Dominio
         end_date: Data di fine
-        hashtag: hashtag
-        hero_image: Immagine sulla Home Page
+        hashtag: Hashtag
+        hero_image: Immagine della Home Page
         local_area: Municipi
         meta_scope: Metadati di ambito
         participatory_process_group_id: Gruppo di processi
@@ -21,6 +22,7 @@ it:
         scope_id: Objetivos
         scopes_enabled: Gli ambiti abilitati
         short_description: Descrizione breve
+        show_statistics: Mostra statistiche
         slug: URL slug
         start_date: Date di inizio
         subtitle: Sottotitolo
@@ -217,6 +219,7 @@ it:
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
         participatory_processes:
           form:
+            announcement_help: Il testo che inserisci qui verrà mostrato all'utente sotto le informazioni di processo.
             slug_help: 'Gli slug URL vengono utilizzati per generare gli URL che puntano a questo processo. Accetta solo lettere, numeri e trattini, e deve iniziare con una lettera. Esempio: %{url}'
       index:
         title: Processi partecipativi
@@ -259,8 +262,6 @@ it:
         surveys_count: indagini
         users_count: Partecipanti
         votes_count: Voti
-    scopes:
-      global: Ambito globale
   layouts:
     decidim:
       participatory_process_groups:

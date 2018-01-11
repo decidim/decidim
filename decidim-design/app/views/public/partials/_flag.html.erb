@@ -1,0 +1,26 @@
+<button type="button" data-open="flag-this" title="Reportar un problema">
+  <%= icon "flag", class: "icon--small", aria_label: "Reportar problema", role: "img" %>
+</button>
+<div class="reveal" id="flag-this" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title">Reportar un problema</h3>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <p>
+    ¿Este contenido es inapropiado?
+  </p>
+  <form>
+      <label>
+        <input type="radio" name="problem"> El contenido es inadecuado
+      </label>
+      <label>
+        <input type="radio" name="problem"> El contenido es ofensivo
+      </label>
+      <label>
+        <input type="radio" name="problem"> Otro problema
+      </label>
+      <button type="submit" class="button">Enviar</button>
+  </form>
+</div>

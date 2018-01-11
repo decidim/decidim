@@ -1,0 +1,44 @@
+<%
+@title = "Registro -- Decidim Barcelona"
+%>
+
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <div class="row collapse">
+    <div class="row collapse">
+      <div class="columns large-8 large-centered text-center page-title">
+        <h1 class="heading1">Formulario con Foundation Datepicker</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="columns large-6 medium-10 medium-centered">
+        <div class="card">
+          <div class="card__content">
+            <form class="register-form">
+              <p>
+                Lanzado con el atributo <code>data-datepicker</code> en un <code>&lt;input type="text"&gt;</code>.
+              </p>
+              <p>
+                Fecha inicial con el atributo <code>data-startdate</code>
+                 (dd-mm-yyyy), puede estar en blanco.
+              </p>
+              <p>
+                Idioma recogido con el atributo <code>lang</code> de la etiqueta
+                 <code>&lt;html&gt;</code> o inglés si falla.
+              </p>
+              <div>
+                <label>Fecha
+                  <input type="text" data-datepicker data-startdate="" required name="process-date" placeholder="dd/mm/aaaa" id="process-date">
+                </label>
+              </div>
+              <button type="submit" class="button expanded">Enviar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

@@ -8,8 +8,7 @@
 // = require foundation-datepicker
 // = require form_datepicker
 // = require moment.min
-// = require ./select2
-// = require ./scopes
+// = require decidim/data_picker
 // = require_self
 
 window.Decidim = window.Decidim || {};
@@ -38,6 +37,10 @@ const pageLoad = () => {
 };
 
 $(() => {
+  if (window.Decidim.DataPicker) {
+    window.theDataPicker = new window.Decidim.DataPicker($(".data-picker"));
+  }
+
   pageLoad();
 
   if (window.Decidim.formDatePicker) {

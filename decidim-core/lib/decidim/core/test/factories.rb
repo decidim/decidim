@@ -4,11 +4,16 @@ require "decidim/faker/localized"
 require "decidim/dev"
 
 require "decidim/participatory_processes/test/factories"
+require "decidim/assemblies/test/factories"
 require "decidim/comments/test/factories"
 
 FactoryBot.define do
   sequence(:name) do |n|
     "#{Faker::Name.name} #{n}"
+  end
+
+  sequence(:nickname) do |n|
+    "#{Faker::Lorem.characters(rand(10) + 1)}_#{n}"
   end
 
   sequence(:email) do |n|
@@ -65,6 +70,7 @@ FactoryBot.define do
     password "password1234"
     password_confirmation "password1234"
     name { generate(:name) }
+    nickname { generate(:nickname) }
     organization
     locale { organization.default_locale }
     tos_agreement "1"
@@ -137,6 +143,10 @@ FactoryBot.define do
       password { "" }
       password_confirmation { "" }
       managed { true }
+    end
+
+    trait :officialized do
+      officialized_at { Time.zone.now }
     end
   end
 

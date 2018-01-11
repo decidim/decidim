@@ -123,7 +123,7 @@ nl:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Onderwerp
+            subject: Uitnodiging om deel te nemen aan een vergadering
         registration_mailer:
           confirmation:
             subject: Registratie van uw vergadering is bevestigd
@@ -133,8 +133,6 @@ nl:
           category_prompt: Kies een categorie
           date: Datum
           past: Verleden
-          scope_prompt: Selecteer een scope
-          scopes: Scopes
           search: Zoeken
           upcoming: Aankomend
         filters_small_view:
@@ -191,4 +189,4 @@ nl:
   devise:
     mailer:
       join_meeting:
-        subject: Onderwerp
+        subject: Uitnodiging om deel te nemen aan een vergadering

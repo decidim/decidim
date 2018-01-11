@@ -1,6 +1,5 @@
 // Proposal, action, debate & meeting view
 
-
 //Styles
 
 .view-header{
@@ -17,6 +16,6 @@
   @include breakpoint(medium only){
     width: 50%;
     margin: 0 auto 2rem;
-    float: none
+    float: none;
   }
 }

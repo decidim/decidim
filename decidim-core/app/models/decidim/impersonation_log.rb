@@ -10,7 +10,8 @@ module Decidim
 
     validate :same_organization, :non_active_impersonation
 
-    scope :active, -> { where(ended_at: nil) }
+    scope :active, -> { where(ended_at: nil, expired_at: nil) }
+    scope :expired, -> { where(ended_at: nil).where.not(expired_at: nil) }
 
     def ended?
       ended_at.present?

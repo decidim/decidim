@@ -14,6 +14,10 @@ module Decidim
         add_workflow(manifest)
       end
 
+      def unregister_workflow(manifest)
+        workflow_collection.delete(manifest)
+      end
+
       def add_workflow(manifest)
         manifest.validate!
         workflow_collection.add(manifest)

@@ -56,8 +56,8 @@ module Decidim
     end
 
     def feature_stats(conditions)
-      Decidim.feature_manifests.map do |feature|
-        feature.stats.filter(conditions).with_context(published_features).map { |name, data| [name, data] }.flatten
+      Decidim.feature_manifests.flat_map do |feature|
+        feature.stats.filter(conditions).with_context(published_features).map { |name, data| [name, data] }
       end
     end
 
@@ -74,8 +74,14 @@ module Decidim
       end
     end
 
+    def public_participatory_spaces
+      @public_participatory_spaces ||= Decidim.participatory_space_manifests.flat_map do |manifest|
+        manifest.participatory_spaces.call(organization).public_spaces
+      end
+    end
+
     def published_features
-      @published_features ||= Feature.where(participatory_space: ParticipatoryProcesses::OrganizationPublishedParticipatoryProcesses.new(organization).query).published
+      @published_features ||= Feature.where(participatory_space: public_participatory_spaces).published
     end
   end
 end

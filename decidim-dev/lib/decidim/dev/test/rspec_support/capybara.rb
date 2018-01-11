@@ -46,7 +46,7 @@ module Capybara
     def wait_for_pending_requests
       Timeout.timeout(120) { sleep(0.01) while pending_requests? }
     rescue Timeout::Error
-      raise "Requests did not finish in 60 seconds"
+      raise "Requests did not finish in 120 seconds"
     end
   end
 end
@@ -69,6 +69,14 @@ RSpec.configure do |config|
   config.before :each, type: :feature do
     Capybara.current_session.driver.reset!
     switch_to_default_host
+  end
+
+  config.around :each, :slow do |example|
+    max_wait_time_for_slow_specs = 7
+
+    using_wait_time(max_wait_time_for_slow_specs) do
+      example.run
+    end
   end
 
   config.include Decidim::CapybaraTestHelpers, type: :feature

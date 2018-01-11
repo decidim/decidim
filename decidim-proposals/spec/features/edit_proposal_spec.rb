@@ -37,6 +37,24 @@ describe "Edit proposals", type: :feature do
       expect(page).to have_content(new_title)
       expect(page).to have_content(new_body)
     end
+
+    context "when updating with wrong data" do
+      let(:feature) { create(:proposal_feature, :with_creation_enabled, :with_attachments_allowed, participatory_space: participatory_process) }
+
+      it "returns an error message" do
+        visit_feature
+
+        click_link proposal.title
+        click_link "Edit proposal"
+
+        expect(page).to have_content "EDIT PROPOSAL"
+
+        fill_in "Body", with: "A"
+        click_button "Send"
+
+        expect(page).to have_content("Is using too much caps, Is too short, Is using too much caps, Is too short")
+      end
+    end
   end
 
   describe "editing someone else's proposal" do

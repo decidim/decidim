@@ -41,7 +41,7 @@ shared_examples "manage results" do
     end
   end
 
-  it "creates a new result" do
+  it "creates a new result", :slow do
     click_link "New Result", match: :first
 
     within ".new_result" do
@@ -60,7 +60,7 @@ shared_examples "manage results" do
         ca: "Descripció més llarga"
       )
 
-      select2 translated(scope.name), from: :result_decidim_scope_id
+      scope_pick scopes_picker_find(:result_decidim_scope_id), scope
       select translated(category.name), from: :result_decidim_category_id
 
       find("*[type=submit]").click

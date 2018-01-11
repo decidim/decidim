@@ -73,8 +73,6 @@ fr:
         filters:
           category: Catégorie
           category_prompt: Sélectionner une catégorie
-          scope_prompt: Sélectionnez un périmètre d'application
-          scopes: Zones d'application
           search: Rechercher
         filters_small_view:
           close_modal: Fermer la vue
@@ -108,13 +106,13 @@ fr:
         name: Budgets
         settings:
           global:
-            announcement: Annonce
+            announcement: Message d'annonce
             comments_enabled: Commentaires activés
             total_budget: Budget total
             vote_threshold_percent: Pourcentage de seuil de vote
             comments_upstream_moderation_enabled: Modération à priori des commentaires activée
           step:
-            announcement: Annonce
+            announcement: Message d'annonce
             comments_blocked: Commentaires bloqués
             show_votes: Afficher les votes
             votes_enabled: Votes activés

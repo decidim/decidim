@@ -4,6 +4,7 @@ pl:
       proposal:
         body: Ciało
         category_id: Kategoria
+        has_address: Ma adres
         scope_id: Zakres
         title: Tytuł
         user_group_id: Utwórz propozycję jako
@@ -81,6 +82,13 @@ pl:
       create:
         error: Podczas zapisywania propozycji wystąpiły błędy.
         success: Propozycja została pomyślnie utworzona.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Witaj, %{author_name} %{author_nickname}, którego obserwujesz, stworzył nową propozycję, sprawdź i pomóż:
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Nowa propozycja %{author_nickname}
+          notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została utworzona przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         proposal:
           fields:
@@ -97,16 +105,12 @@ pl:
         create:
           error: Podczas głosowania nad propozycją wystąpiły błędy.
       proposals:
-        author:
-          deleted: Usunięty użytkownik
-          verified_user_group: Zweryfikowana organizacja
         count:
           proposals_count:
             one: 1 propozycja
             few: "%{count} propozycje"
             other: "%{count} propozycje"
         edit:
-          attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           back: Plecy
           select_a_category: Proszę wybrać kategorię
           send: Wysłać
@@ -123,8 +127,6 @@ pl:
           origin: Pochodzenie
           rejected: Odrzucone
           related_to: Związany z
-          scope_prompt: Wybierz zakres
-          scopes: Zakresy
           search: Szukanie
           state: Stan
           voted: Głosował
@@ -157,9 +159,9 @@ pl:
           random: Losowy
           recent: Niedawny
         proposal:
+          creation_date: 'Tworzenie: %{date}'
           view_proposal: Wyświetl propozycję
         show:
-          contact: Kontakt
           edit_proposal: Edytuj propozycję
           proposal_accepted_reason: 'Niniejszy wniosek został zaakceptowany, ponieważ:'
           proposal_in_evaluation_reason: Niniejszy wniosek jest oceniany

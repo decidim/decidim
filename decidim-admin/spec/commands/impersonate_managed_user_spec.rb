@@ -6,7 +6,7 @@ module Decidim::Admin
   describe ImpersonateManagedUser do
     include ActiveSupport::Testing::TimeHelpers
 
-    subject { described_class.new(form, user, current_user) }
+    subject { described_class.new(form, user) }
 
     let(:organization) { create :organization }
     let(:current_user) { create :user, :admin, organization: organization }
@@ -23,7 +23,8 @@ module Decidim::Admin
       ImpersonateManagedUserForm.from_params(
         form_params
       ).with_context(
-        current_organization: organization
+        current_organization: organization,
+        current_user: current_user
       )
     end
     let(:user) { create :user, :managed, organization: organization }

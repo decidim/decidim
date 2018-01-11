@@ -1,0 +1,194 @@
+sv:
+  activemodel:
+    attributes:
+      proposal:
+        body: Kropp
+        category_id: Kategori
+        has_address: Har adress
+        scope_id: Omfattning
+        title: Titel
+        user_group_id: Skapa förslag som
+      proposal_answer:
+        answer: Svar
+  decidim:
+    features:
+      proposals:
+        actions:
+          create: Skapa
+          vote: Rösta
+        name: förslag
+        settings:
+          global:
+            announcement: Meddelande
+            attachments_allowed: Tillåt bilagor
+            comments_enabled: Kommentarer aktiverade
+            geocoding_enabled: Geocoding aktiverad
+            maximum_votes_per_proposal: Maximalt antal röster per förslag
+            new_proposal_help_text: Nytt förslag till hjälptext
+            official_proposals_enabled: Officiella förslag möjliga
+            proposal_answering_enabled: Förslagsvarning aktiverat
+            proposal_edit_before_minutes: Förslag kan redigeras av författare innan detta många minuter passerar
+            proposal_limit: Förslagsgräns per användare
+            vote_limit: Rösta per användare
+          step:
+            announcement: Meddelande
+            comments_blocked: Kommentarer blockerad
+            creation_enabled: Förslagstillverkning möjliggjorde
+            proposal_answering_enabled: Förslagsvarning aktiverat
+            votes_blocked: Röster blockerade
+            votes_enabled: Röster aktiverade
+            votes_hidden: Röster dolda (om röster är aktiverade, kommer detta att gömma antalet röster)
+    proposals:
+      actions:
+        answer: Svar
+        new: Ny
+        title: Handlingar
+      admin:
+        actions:
+          preview: Förhandsvisning
+        exports:
+          comments: kommentarer
+          proposals: förslag
+        models:
+          proposal:
+            name: Förslag
+        proposal_answers:
+          edit:
+            accepted: Accepterad
+            answer_proposal: Svar
+            evaluating: utvärdera
+            rejected: avvisade
+            title: Svar för förslag %{title}
+        proposals:
+          answer:
+            invalid: Det har varit ett problem att svara på detta förslag
+            success: Förslaget godkändes framgångsrikt
+          create:
+            invalid: Det här har uppstått ett problem med att skapa detta förslag
+            success: Förslag skapat med framgång
+          form:
+            attachment_legend: "(Valfritt) Lägg till en bilaga"
+            select_a_category: Välj en kategori
+          index:
+            title: förslag
+          new:
+            create: Skapa
+            title: Skapa förslag
+      answers:
+        accepted: Accepterad
+        evaluating: utvärdera
+        not_answered: Inte besvarad
+        rejected: avvisade
+      create:
+        error: Det har varit fel när du lagrade förslaget.
+        success: Förslaget skapades framgångsrikt.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Hej, %{author_name} %{author_nickname}, vem du följer har skapat ett nytt förslag, kolla in det och bidra med:
+          email_outro: Du har fått den här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: Nytt förslag av %{author_nickname}
+          notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      models:
+        proposal:
+          fields:
+            category: Kategori
+            id: ID
+            official_proposal: Officiellt förslag
+            scope: Omfattning
+            state: stat
+            title: Titel
+            votes: röster
+      new:
+        limit_reached: Du kan inte skapa nya förslag eftersom du har överskridit gränsen.
+      proposal_votes:
+        create:
+          error: Det har varit fel när man röstade förslaget.
+      proposals:
+        count:
+          proposals_count:
+            one: 1 förslag
+            other: "%{count} förslag"
+        edit:
+          back: Tillbaka
+          select_a_category: Var god välj en kategori
+          send: Skicka
+          title: Redigera förslag
+        filters:
+          accepted: Accepterad
+          activity: Aktivitet
+          all: Allt
+          category: Kategori
+          category_prompt: Välj en kategori
+          citizens: medborgare
+          evaluating: utvärdera
+          official: Officiell
+          origin: Ursprung
+          rejected: avvisade
+          related_to: Relaterat till
+          search: Sök
+          state: stat
+          voted: Framröstad
+        filters_small_view:
+          close_modal: Stäng modal
+          filter: Filtrera
+          filter_by: Filtrera efter
+          unfold: Veckla ut
+        index:
+          new_proposal: Nytt förslag
+          view_proposal: Visa förslag
+        linked_proposals:
+          proposal_votes:
+            one: rösta
+            other: röster
+        new:
+          attachment_legend: "(Valfritt) Lägg till en bilaga"
+          back: Tillbaka
+          proposal_edit_before_minutes:
+            one: Du kommer att kunna redigera detta förslag under den första minuten efter det att förslaget skapades. När det här gångfönstret passerar kommer du inte att kunna redigera förslaget.
+            other: Du kommer att kunna redigera detta förslag under de första %{count} minuter efter det att förslaget skapades. När det här gångfönstret passerar kommer du inte att kunna redigera förslaget.
+          select_a_category: Var god välj en kategori
+          send: Skicka
+          title: Nytt förslag
+        orders:
+          label: 'Beställ förslag av:'
+          most_voted: De flesta röstade
+          random: Slumpmässig
+          recent: Nyligen
+        proposal:
+          creation_date: 'Skapelse: %{date}'
+          view_proposal: Visa förslag
+        show:
+          edit_proposal: Redigera förslag
+          proposal_accepted_reason: 'Detta förslag har godkänts eftersom:'
+          proposal_in_evaluation_reason: Detta förslag utvärderas
+          proposal_rejected_reason: 'Detta förslag har avslagits på grund av att'
+          report: Rapportera
+        vote_button:
+          already_voted: Redan röstade
+          already_voted_hover: Unvote
+          maximum_votes_reached: Rösta gränsen uppnådd
+          no_votes_remaining: Inga röster kvar
+          vote: Rösta
+          votes_blocked: Röstning inaktiverad
+        votes_count:
+          count:
+            one: RÖSTA
+            other: RÖSTER
+        voting_rules:
+          maximum_votes_per_proposal:
+            description: Varje förslag får maximalt %{limit} röster.
+          proposal_limit:
+            description: Du kan skapa upp till %{limit} förslag.
+          title: 'Röstning är föremål för följande regler:'
+          vote_limit:
+            description: Du kan rösta upp till %{limit} förslag.
+            left: Återstående
+            votes: röster
+      update:
+        error: Det har varit fel när du lagrade förslaget.
+        success: Förslaget uppdateras framgångsrikt.
+    resource_links:
+      included_proposals:
+        proposal_projects: 'Förslag som framgår av dessa projekt:'
+        proposal_results: 'Förslag som visas i dessa resultat:'

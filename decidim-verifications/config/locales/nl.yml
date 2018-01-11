@@ -35,25 +35,25 @@ nl:
       multistep: Multi-Step
       name: Naam
       postal_letter:
-        explanation: We sturen u een brief met een code die u moet invoeren, zodat we uw adres kunnen verifiëren
-        name: Code per brief
+        explanation: We sturen u een post brief met een code die u zult moeten invoeren, zodat we uw adres kunnen verifiëren
+        name: Code per post brief
     verifications:
       authorizations:
         create:
           error: Er is een fout opgetreden bij het maken van de autorisatie.
-          success: Je bent succesvol geautoriseerd.
+          success: U bent geautoriseerd.
         first_login:
           actions:
             dummy_authorization_handler: Verifieer met het voorbeeld van de autorisatieaanduiding
-            dummy_authorization_workflow: Controleer aan de hand van de voorbeeldmachtigingsworkflow
+            dummy_authorization_workflow: Controleer aan de hand van het machtigingsworkflow voorbeeld
             id_documents: Wordt geverifieerd door uw identiteitsdocument te uploaden
             postal_letter: Wordt geverifieerd door een verificatiecode te ontvangen via de post
           title: Verifieer uw identiteit
           verify_with_these_options: 'Dit zijn de beschikbare opties om uw identiteit te verifiëren:'
         new:
-          authorize: sturen
+          authorize: Verzenden
           authorize_with: Verifieer met %{authorizer}
-        skip_verification: Je kunt dit voor nu overslaan en %{link}
+        skip_verification: U kunt dit overslaan voor nu en %{link}
         start_exploring: begin met verkennen
       id_documents:
         admin:
@@ -63,7 +63,7 @@ nl:
               success: Gebruiker succesvol geverifieerd
             new:
               introduce_user_data: Introduceer de gegevens in de afbeelding
-              reject: afwijzen
+              reject: Weigeren
               verify: Verifiëren
           pending_authorizations:
             index:
@@ -71,7 +71,7 @@ nl:
               verification_number: 'Verificatie # %{n}'
           rejections:
             create:
-              success: Verificatie afgewezen. De gebruiker wordt gevraagd om haar documenten te wijzigen
+              success: Verificatie gewijgerd. De gebruiker wordt gevraagd om haar documenten te wijzigen
         authorizations:
           create:
             error: Er is een probleem opgetreden bij het uploaden van uw document
@@ -96,19 +96,19 @@ nl:
           pending_authorizations:
             index:
               address: Adres
-              letter_sent_at: Brief verzonden naar
+              letter_sent_at: Brief verzonden op
               mark_as_sent: Markeren als verzonden
               not_yet_sent: nog niet verstuurd
-              title: Doorlopende controles
+              title: Doorlopende verificaties
               username: Gebruikersnaam
               verification_code: Verificatie code
           postages:
             create:
-              error: Fout bij het markeren van de letter zoals verzonden
+              error: Fout bij het markeren van brief als verzonden
               success: Brief succesvol gemarkeerd als verzonden
         authorizations:
           create:
-            error: Er was een probleem met je verzoek
+            error: Er was een probleem met uw verzoek
             success: Bedankt! We sturen een verificatiecode naar uw adres
           edit:
             send: Bevestigen

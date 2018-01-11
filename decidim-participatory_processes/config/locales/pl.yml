@@ -2,6 +2,7 @@ pl:
   activemodel:
     attributes:
       participatory_process:
+        announcement: Ogłoszenie
         banner_image: Obraz baneru
         copy_categories: Kopiuj kategorie
         copy_features: Kopiuj funkcje
@@ -21,6 +22,7 @@ pl:
         scope_id: Zakres
         scopes_enabled: Zakresy włączone
         short_description: Krótki opis
+        show_statistics: Pokaż statystyki
         slug: Ślimak URL
         start_date: Data rozpoczęcia
         subtitle: Podtytuł
@@ -217,6 +219,7 @@ pl:
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
         participatory_processes:
           form:
+            announcement_help: Wprowadzony tutaj tekst zostanie wyświetlony użytkownikowi tuż pod informacjami o procesie.
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten proces. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
       index:
         title: Procesy partycypacyjne
@@ -259,8 +262,6 @@ pl:
         surveys_count: Ankiety
         users_count: Uczestnicy
         votes_count: Głosowania
-    scopes:
-      global: Zakres globalny
   layouts:
     decidim:
       participatory_process_groups:

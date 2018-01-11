@@ -3,6 +3,7 @@
   right: 2rem;
   top: 50%;
   margin-top: -1.2em;
+
   a{
     color: $body-font-color;
   }
@@ -14,6 +15,7 @@
   .dropdown.menu > li.is-dropdown-submenu-parent > a{
     padding-right: 1rem;
   }
+
   .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
     border-top-color: $white;
     border-width: 4px;

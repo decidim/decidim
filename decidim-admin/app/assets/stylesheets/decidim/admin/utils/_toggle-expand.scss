@@ -2,6 +2,7 @@
 
 .toggle-show{
   display: none;
+
   &.is-expanded{
     display: block;
   }
