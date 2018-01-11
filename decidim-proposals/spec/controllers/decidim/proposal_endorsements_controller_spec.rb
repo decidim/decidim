@@ -71,13 +71,13 @@ module Decidim
           #
           # UTIL METHODS
           #
-          def create_user_groups(verified=false)
-           2.times do
-             ug = create(:user_group)
-             ug.verified_at = DateTime.current if verified
-             user.user_groups << ug
-           end
-           user.save!
+          def create_user_groups(verified = false)
+            2.times do
+              ug = create(:user_group)
+              ug.verified_at = DateTime.current if verified
+              user.user_groups << ug
+            end
+            user.save!
           end
         end
 

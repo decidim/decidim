@@ -25,11 +25,8 @@ module Decidim
 
         context "when the endorsement is not valid" do
           before do
-            # rubocop:disable RSpec/AnyInstance
-            allow_any_instance_of(ProposalEndorsement).to receive(:valid?).and_return(false)
-            # rubocop:enable RSpec/AnyInstance
+            proposal.update_attributes(answered_at: DateTime.current, state: 'rejected')
           end
-
           it "broadcasts invalid" do
             expect { command.call }.to broadcast(:invalid)
           end
@@ -65,9 +62,7 @@ module Decidim
 
         context "when the endorsement is not valid" do
           before do
-            # rubocop:disable RSpec/AnyInstance
-            allow_any_instance_of(ProposalEndorsement).to receive(:valid?).and_return(false)
-            # rubocop:enable RSpec/AnyInstance
+            proposal.update_attributes(answered_at: DateTime.current, state: 'rejected')
           end
           it "Do not increase the endorsements counter by one" do
             command.call

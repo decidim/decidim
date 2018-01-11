@@ -54,20 +54,20 @@ module Decidim
       # @params (mandatory): proposal, from_proposals_list
       # @params (optional) : user_group, btn_label
       # avoid "undefined local variable" error
-      def endorsement_button(proposal, from_proposals_list, btn_label=nil, user_group=nil)
-        current_endorsement_url= proposal_proposal_endorsement_path(
+      def endorsement_button(proposal, from_proposals_list, btn_label = nil, user_group = nil)
+        current_endorsement_url = proposal_proposal_endorsement_path(
           proposal_id: proposal,
           from_proposals_list: from_proposals_list,
           user_group_id: user_group&.id
-          )
+        )
         # to override the translation for both buttons: endorse and unendorse (use to be the name of the user/user_group)
-        endorse_label = btn_label || t('.endorse')
-        unendorse_label = btn_label || t('.already_endorsed')
+        endorse_label = btn_label || t(".endorse")
+        unendorse_label = btn_label || t(".already_endorsed")
 
-        render partial: "decidim/proposals/proposals/endorsement_button", locals: {proposal: proposal,
-          from_proposals_list: from_proposals_list, user_group: user_group, current_endorsement_url: current_endorsement_url,
-          endorse_label: endorse_label, unendorse_label: unendorse_label
-        }
+        render partial: "decidim/proposals/proposals/endorsement_button", locals: { proposal: proposal,
+                                                                                    from_proposals_list: from_proposals_list, user_group: user_group,
+                                                                                    current_endorsement_url: current_endorsement_url,
+                                                                                    endorse_label: endorse_label, unendorse_label: unendorse_label }
       end
     end
   end

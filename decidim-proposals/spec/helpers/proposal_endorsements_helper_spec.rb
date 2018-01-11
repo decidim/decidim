@@ -17,7 +17,8 @@ module Decidim
           let!(:endorsement) do
             build(:proposal_endorsement, proposal: proposal, author: author)
           end
-          it "should return the user author of the endorsement" do
+
+          it "returns the user author of the endorsement" do
             expect(helper.endorsement_identity(endorsement)).to eq author
           end
         end
@@ -26,12 +27,12 @@ module Decidim
             build(:proposal_endorsement, proposal: proposal, author: author,
                                          user_group: user_group)
           end
-          it "should return the user_group that endorsed" do
+
+          it "returns the user_group that endorsed" do
             expect(helper.endorsement_identity(endorsement)).to eq user_group
           end
         end
       end
-
     end
   end
 end
