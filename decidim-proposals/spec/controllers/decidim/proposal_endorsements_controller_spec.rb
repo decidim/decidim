@@ -9,7 +9,6 @@ module Decidim
 
       let(:proposal) { create(:proposal, feature: feature) }
       let(:user) { create(:user, :confirmed, organization: feature.organization) }
-
       let(:params) do
         {
           proposal_id: proposal.id,
@@ -48,6 +47,7 @@ module Decidim
               expect(subject).to render_template("decidim/proposals/proposal_endorsements/identities")
             end
           end
+
           context "when requesting user identities while belonging to UNverified user_groups" do
             it "only returns the user identity endorse button" do
               create_user_groups
@@ -58,6 +58,7 @@ module Decidim
               expect(subject).to render_template("decidim/proposals/proposal_endorsements/identities")
             end
           end
+
           context "when requesting user identities while belonging to verified user_groups" do
             it "returns the user's and user_groups's identities for the endorse button" do
               create_user_groups(true)
@@ -116,6 +117,7 @@ module Decidim
             expect(flash[:alert]).not_to be_empty
             expect(response).to have_http_status(302)
           end
+
           context "when requesting user identities" do
             it "does not allow it" do
               get :identities, params: params
@@ -124,10 +126,12 @@ module Decidim
           end
         end
       end
+
       describe "As User unendorsing a Proposal" do
         before do
           create(:proposal_endorsement, proposal: proposal, author: user)
         end
+
         context "when endorsements are enabled" do
           let(:feature) do
             create(:proposal_feature, :with_endorsements_enabled)
@@ -141,6 +145,7 @@ module Decidim
             expect(ProposalEndorsement.count).to eq(0)
           end
         end
+
         context "when endorsements are disabled" do
           let(:feature) do
             create(:proposal_feature, :with_endorsements_disabled)
@@ -167,6 +172,7 @@ module Decidim
           create(:user_group_membership, user: user, user_group: user_group)
           params[:user_group_id] = user_group.id
         end
+
         describe "endorsing a Proposal" do
           context "when endorsements are enabled" do
             let(:feature) do
@@ -214,10 +220,12 @@ module Decidim
             end
           end
         end
+
         describe "As User unendorsing a Proposal" do
           before do
             create(:proposal_endorsement, proposal: proposal, author: user, user_group: user_group)
           end
+
           context "when endorsements are enabled" do
             let(:feature) do
               create(:proposal_feature, :with_endorsements_enabled)
@@ -231,6 +239,7 @@ module Decidim
               expect(ProposalEndorsement.count).to eq(0)
             end
           end
+
           context "when endorsements are disabled" do
             let(:feature) do
               create(:proposal_feature, :with_endorsements_disabled)

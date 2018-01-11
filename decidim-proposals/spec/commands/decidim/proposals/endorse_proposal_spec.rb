@@ -34,7 +34,7 @@ module Decidim
           it "doesn't create a new endorsement for the proposal" do
             expect do
               command.call
-            end.to change { ProposalEndorsement.count }.by(0)
+            end.not_to change { ProposalEndorsement.count }
           end
         end
       end
