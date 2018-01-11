@@ -50,6 +50,7 @@ module Decidim
             expect(subject).to be_endorsed_by(user)
           end
         end
+
         context "with Organization endorsement" do
           let(:user_group) { create(:user_group, verified_at: DateTime.current) }
           let(:membership) { create(:user_group_membership, user: user, user_group: user_group) }
