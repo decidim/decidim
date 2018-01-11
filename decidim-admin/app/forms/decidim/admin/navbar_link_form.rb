@@ -12,7 +12,7 @@ module Decidim
       attribute :target, String
 
       validates :link, :format => { :with => URI::regexp(%w(http https)) }, presence: true
-      validates :title, translatable_presence: true
+      validates :title, translatable_presence: true, presence: true
       validates :organization_id, :link, presence: true
 
     end
