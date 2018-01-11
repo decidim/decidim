@@ -30,6 +30,10 @@ en:
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
             proposal_limit: Proposal limit per user
+            proposal_wizard_step_1_help_text: Proposal wizard step 1 help text
+            proposal_wizard_step_2_help_text: Proposal wizard step 2 help text
+            proposal_wizard_step_3_help_text: Proposal wizard step 3 help text
+            proposal_wizard_step_4_help_text: Proposal wizard step 4 help text
             vote_limit: Vote limit per user
           step:
             announcement: Announcement
@@ -108,6 +112,43 @@ en:
       proposal_votes:
         create:
           error: There's been errors when voting the proposal.
+      proposal_wizard:
+        actions:
+          exit_wizard: There are proposals similar to mine, I want to cancel the creation process
+          go_back_to_step_3: I want to correct my proposal
+          go_to_finish: Publish the proposal
+          go_to_next_step: Next Step
+          go_to_step_2: Search for similar proposals
+          go_to_step_3:
+            similars_blank: Continue to next step
+            similars_present: None of the below matches mine, continue
+          go_to_step_4: Preview the proposal
+        draft_created: Proposal saved as a draft successfully.
+        draft_edit_link: You have a draft, edit the proposal
+        exited: Cancelled the proposal creation process
+        header:
+          back: Back
+          title: Create proposal
+        proposal_preview_card_author:
+          verified_user_group: Verified organization
+        proposal_similar:
+          exit_wizard: This proposal coincides with mine, I want to cancel the creation process
+          view_proposal: View proposal
+        published: Proposal published successfully.
+        step_2:
+          similar_proposals: 'Similar proposals:'
+          no_similars_found: No similar proposals were found
+        step_3:
+          attachment_legend: "(Optional) Add an attachment"
+          select_a_category: Please select a category
+        show:
+          preview: Preview
+        stepper:
+          step_1: Start
+          step_2: Compare
+          step_3: Complete
+          step_4: Publish
+        validation_errors: 'Sorry, there''s been errors: '
       proposals:
         count:
           proposals_count:

@@ -1,27 +1,16 @@
-<div class="row columns">
-  <%= link_to :back, class: "muted-link" do %>
-    <%= icon "chevron-left", class: "icon--small" %>
-    <%= t(".back") %>
-  <% end %>
-  <h2 class="section-heading"><%= t(".title") %></h2>
-</div>
-
+<%= render partial: "header" %>
+<%= render partial: "stepper", locals: {current_step: step}%>
 <div class="row">
   <div class="columns large-6 medium-centered">
     <div class="card">
-      <% if translated_attribute(feature_settings.new_proposal_help_text).present? %>
-        <%= render partial: "decidim/shared/announcement", locals: { announcement: feature_settings.new_proposal_help_text } %>
+      <% if translated_attribute(feature_settings.proposal_wizard_step_3_help_text).present? %>
+        <%= render partial: "decidim/shared/announcement", locals: { announcement: feature_settings.proposal_wizard_step_3_help_text } %>
       <% end %>
 
-      <div class="row column">
-        <div class="callout warning">
-          <%= t(".proposal_edit_before_minutes", count: feature_settings.proposal_edit_before_minutes) %>
-        </div>
-      </div>
-
       <div class="card__content">
-        <%= decidim_form_for(@form) do |form| %>
-          <%= form.hidden_field :published_at, value: Time.zone.now %>
+        <%= decidim_form_for(@form, url: wizard_path(:step_create), method: :put) do |form| %>
+
+          <%= form.hidden_field :id if params[:proposal_draft].present? %>
 
           <div class="field">
             <%= form.text_field :title %>
@@ -58,7 +47,7 @@
             </div>
           <% end %>
 
-          <% if feature_settings.attachments_allowed? %>
+          <% if feature_settings.attachments_allowed? && action_name == "update"%>
             <fieldset>
               <legend><%= t('.attachment_legend') %></legend>
               <%= form.fields_for :attachment, @form.attachment do |form| %>
@@ -73,9 +62,7 @@
             </fieldset>
           <% end %>
 
-          <div class="actions">
-            <%= form.submit t(".send"), class: "button expanded", data: { disable: true } %>
-          </div>
+          <%= proposal_wizard_actions form %>
         <% end %>
       </div>
     </div>

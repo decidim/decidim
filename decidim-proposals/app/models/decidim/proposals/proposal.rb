@@ -26,6 +26,7 @@ module Decidim
       scope :accepted, -> { where(state: "accepted") }
       scope :rejected, -> { where(state: "rejected") }
       scope :evaluating, -> { where(state: "evaluating") }
+      scope :published, -> { where.not(published_at: nil) }
 
       def self.order_randomly(seed)
         transaction do
@@ -137,6 +138,11 @@ module Decidim
       # user - the user to check for authorship
       def editable_by?(user)
         authored_by?(user) && !answered? && within_edit_time_limit?
+      end
+
+      # Public: Whether the proposal is a draft or not.
+      def draft?
+        published_at.nil?
       end
 
       # method for sort_link by number of comments

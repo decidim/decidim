@@ -13,6 +13,9 @@ module Decidim
       isolate_namespace Decidim::Proposals
 
       routes do
+        resources :proposal_wizard, only: [:show, :update]
+        get "proposal_wizard_exit", to: "proposal_wizard#exit"
+
         resources :proposals, except: [:destroy] do
           resource :proposal_vote, only: [:create, :destroy]
           resource :proposal_widget, only: :show, path: "embed"

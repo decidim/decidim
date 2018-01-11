@@ -141,6 +141,30 @@ module Decidim
           it { is_expected.not_to be_editable_by(author) }
         end
       end
+
+      context "when saved as draft" do
+        let(:proposal) { build(:proposal, :draft) }
+
+        it "published_at returns nil" do
+          expect(proposal.published_at).to be_nil
+        end
+
+        it "draft? returns true" do
+          expect(proposal.draft?).to be true
+        end
+      end
+
+      context "when published" do
+        let(:proposal) { build(:proposal, :published) }
+
+        it "published_at returns a date" do
+          expect(proposal.published_at).to be_kind_of(Time)
+        end
+
+        it "draft? returns false" do
+          expect(proposal.draft?).to be false
+        end
+      end
     end
   end
 end

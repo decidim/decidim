@@ -124,6 +124,14 @@ FactoryBot.define do
       answer { Decidim::Faker::Localized.sentence }
       answered_at { Time.current }
     end
+
+    trait :draft do
+      published_at nil
+    end
+
+    trait :published do
+      published_at { Time.current }
+    end
   end
 
   factory :proposal_vote, class: "Decidim::Proposals::ProposalVote" do

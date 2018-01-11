@@ -1,0 +1,18 @@
+<%= render partial: "header" %>
+<%= render partial: "stepper", locals: {current_step: step}%>
+<div class="row">
+  <div class="columns large-6 medium-centered">
+    <h3 class="heading3"><%= t(".preview") %></h5>
+    <div class="card">
+      <% if translated_attribute(feature_settings.proposal_wizard_step_4_help_text).present? %>
+        <%= render partial: "decidim/shared/announcement", locals: { announcement: feature_settings.proposal_wizard_step_4_help_text } %>
+      <% end %>
+
+      <div class="card__content">
+        <%= render partial: "proposal_preview_card", locals: {proposal: @proposal}%>
+
+        <%= proposal_wizard_actions @proposal %>
+      </div>
+    </div>
+  </div>
+</div>
