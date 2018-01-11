@@ -25,8 +25,9 @@ module Decidim
 
       def create
         @form = form(RegistrationForm).from_params(params[:user])
+
         if @form.sign_up_as == "user_group"
-          @form.user_group_document_number = get_unique_random_user_group_document_number
+          @form.user_group_document_number = UserGroup.get_unique_random_user_group_document_number(current_organization)
         end
 
         CreateRegistration.call(@form) do
@@ -49,19 +50,6 @@ module Decidim
       end
 
       private
-
-      def get_unique_random_user_group_document_number
-          random_range = 99999
-          user_group_document_number = SecureRandom.random_number(random_range)
-          # While our random number is already picked, we picked an other one
-          while UserGroup.where(
-                  document_number: user_group_document_number,
-                  decidim_organization_id: current_organization.id
-                  ).first.present?
-              user_group_document_number = SecureRandom.random_number(random_range)
-          end
-          return user_group_document_number
-      end
 
       def terms_and_conditions_page
         @terms_and_conditions_page ||= Decidim::StaticPage.find_by(slug: "terms-and-conditions")
