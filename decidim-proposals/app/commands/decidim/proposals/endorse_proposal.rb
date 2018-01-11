@@ -22,22 +22,18 @@ module Decidim
       #
       # Returns nothing.
       def call
-        build_proposal_endorsement
-        return broadcast(:invalid) unless @endorsement.valid?
-        @endorsement.save!
-        broadcast(:ok, endorsement)
+        endorsement = build_proposal_endorsement
+        endorsement.save ? broadcast(:ok, endorsement) : broadcast(:invalid)
       end
-
-      attr_reader :endorsement
 
       private
 
       def build_proposal_endorsement
-        @endorsement = @proposal.endorsements.build(author: @current_user)
+        endorsement = @proposal.endorsements.build(author: @current_user)
         if @current_group_id.present?
-          @endorsement.user_group = @current_user.user_groups.verified.find(@current_group_id)
+          endorsement.user_group = @current_user.user_groups.verified.find(@current_group_id)
         end
-        @endorsement
+        endorsement
       end
     end
   end
