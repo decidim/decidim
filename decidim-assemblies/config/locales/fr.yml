@@ -26,10 +26,10 @@ fr:
     admin:
       assemblies:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle assemblée.
-          success: Assemblée créée avec succès.
+          error: Une erreur s'est produite lors de la création d'une nouvelle agora.
+          success: Agora créée avec succès.
         destroy:
-          success: Assemblée supprimée avec succès.
+          success: Agora supprimée avec succès.
         edit:
           update: Mettre à jour
         form:
@@ -39,28 +39,28 @@ fr:
           published: Publié
         new:
           create: Créer
-          title: Nouvelle assemblée
+          title: Nouvelle agora
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cet assemblée.
-          success: Assemblée mise à jour avec succès.
+          error: Une erreur s'est produite lors de la mise à jour de cet agora.
+          success: Agora mise à jour avec succès.
       assemblies_copies:
         create:
-          error: Une erreur s'est produite lors de la duplication de cet assemblée.
-          success: L'assemblée a été copiée avec succès.
+          error: Une erreur s'est produite lors de la duplication de cet agora.
+          success: L'agora a été copiée avec succès.
       assembly_copies:
         new:
           copy: Copier
           select: Sélectionnez les données que vous souhaitez dupliquer
-          title: Dupliquer l'assemblée
+          title: Dupliquer l'agora
       assembly_publications:
         create:
-          error: Une erreur s'est produite lors de la publication de cette assemblée.
-          success: Assemblée publiée avec succès.
+          error: Une erreur s'est produite lors de la publication de cette agora.
+          success: Agora publiée avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la dépublication de cette assemblée.
-          success: Assemblée dépubliée avec succès.
+          error: Une erreur s'est produite lors de la dépublication de cette agora.
+          success: Agora dépubliée avec succès.
       menu:
-        assemblies: Assemblées
+        assemblies: Agora
         assemblies_submenu:
           attachments: Documents liés
           categories: Catégories
@@ -74,24 +74,24 @@ fr:
             promoted: Mis en évidence
             published: Publié
             title: Titre
-          name: Assemblée
+          name: Agora
       titles:
-        assemblies: Assemblées
+        assemblies: Agora
     assemblies:
       admin:
         assemblies:
           form:
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_copies:
           form:
-            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
+            slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette agora. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
       index:
-        title: Assemblées
+        title: Agora
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Assemblées actives
-            see_all_assemblies: Voir toutes les assemblées
+            active_assemblies: Agora actives
+            see_all_assemblies: Voir toutes les Agora
       show:
         developer_group: Groupe d'initiateurs
         local_area: Localisation
@@ -101,7 +101,7 @@ fr:
         target: Public visé
       statistics:
         answers_count: Réponses
-        assemblies_count: Assemblées
+        assemblies_count: Agora
         comments_count: Commentaires
         headline: Activité
         meetings_count: Réunions
@@ -114,23 +114,23 @@ fr:
         users_count: Participants
         votes_count: Votes
     menu:
-      assemblies: Assemblées
+      assemblies: Agora
   layouts:
     decidim:
       assemblies:
         assembly:
           take_part: Participer
         index:
-          promoted_assemblies: Assemblées mises en avant
+          promoted_assemblies: Agora mises en avant
         order_by_assemblies:
           assemblies:
-            one: "%{count} assemblée"
-            other: "%{count} assemblées"
+            one: "%{count} agora"
+            other: "%{count} Agora"
         promoted_assembly:
           more_info: Plus d'informations
           take_part: Participer
       assembly_header:
-        assembly_menu_item: L'assemblée
+        assembly_menu_item: L'agora
         unfold: Déplier
       assembly_widgets:
         show:
