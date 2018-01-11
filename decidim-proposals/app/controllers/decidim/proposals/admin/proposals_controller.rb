@@ -17,8 +17,7 @@ module Decidim
 
         def create
           authorize! :create, Proposal
-          @form = form(Admin::ProposalForm).from_params(params)
-
+          @form = form(Admin::ProposalForm).from_params(params.merge(published_at: Time.zone.now))
           Admin::CreateProposal.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("proposals.create.success", scope: "decidim.proposals.admin")

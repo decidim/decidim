@@ -15,6 +15,7 @@ module Decidim
         attribute :category_id, Integer
         attribute :scope_id, Integer
         attribute :attachment, AttachmentForm
+        attribute :published_at, Time
 
         validates :title, :body, presence: true
         validates :address, geocoding: true, if: -> { current_feature.settings.geocoding_enabled? }
