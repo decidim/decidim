@@ -93,7 +93,7 @@ fr:
         proposal:
           fields:
             category: Catégorie
-            comments: commentaires
+            comments: Commentaires
             created_at: Créé à
             id: ID
             official_proposal: Proposition officielle
