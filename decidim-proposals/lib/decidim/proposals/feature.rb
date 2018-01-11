@@ -49,7 +49,7 @@ Decidim.register_feature(:proposals) do |feature|
   end
 
   feature.register_stat :proposals_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, start_at, end_at|
-    Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).not_hidden.count
+    Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).published.not_hidden.count
   end
 
   feature.register_stat :proposals_accepted, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, start_at, end_at|
@@ -57,7 +57,7 @@ Decidim.register_feature(:proposals) do |feature|
   end
 
   feature.register_stat :votes_count, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, start_at, end_at|
-    proposals = Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).not_hidden
+    proposals = Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).published.not_hidden
     Decidim::Proposals::ProposalVote.where(proposal: proposals).count
   end
 
