@@ -44,6 +44,10 @@ module Decidim
       def current_user_can_endorse?
         current_user && endorsements_enabled? && !endorsements_blocked?
       end
+
+      def endorsement_identity(endorsement)
+        endorsement.user_group ? endorsement.user_group : endorsement.author
+      end
     end
   end
 end
