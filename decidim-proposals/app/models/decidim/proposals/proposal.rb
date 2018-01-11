@@ -26,6 +26,7 @@ module Decidim
       scope :accepted, -> { where(state: "accepted") }
       scope :rejected, -> { where(state: "rejected") }
       scope :evaluating, -> { where(state: "evaluating") }
+      scope :published, -> { where.not(published_at: nil) }
 
       def self.order_randomly(seed)
         transaction do

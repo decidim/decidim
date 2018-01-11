@@ -16,6 +16,7 @@ module Decidim
       def index
         @proposals = search
                      .results
+                     .published
                      .not_hidden
                      .includes(:author)
                      .includes(:category)
@@ -35,7 +36,7 @@ module Decidim
       end
 
       def show
-        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        @proposal = Proposal.published.not_hidden.where(feature: current_feature).find(params[:id])
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
