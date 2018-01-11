@@ -33,6 +33,7 @@ module Decidim::Accountability
     let(:status) { create :status, feature: current_feature, key: "ongoing", name: { en: "Ongoing" } }
     let(:status_id) { status.id }
     let(:progress) { 89 }
+    let(:external_id) { "act-123" }
 
     let(:attributes) do
       {
@@ -44,7 +45,8 @@ module Decidim::Accountability
         start_date: start_date,
         end_date: end_date,
         decidim_accountability_status_id: status_id,
-        progress: progress
+        progress: progress,
+        external_id: external_id
       }
     end
 

@@ -20,6 +20,7 @@ module Decidim
         attribute :progress, Float
         attribute :decidim_accountability_status_id, Integer
         attribute :parent_id, Integer
+        attribute :external_id, String
 
         validates :title, translatable_presence: true
 
