@@ -32,7 +32,7 @@ module Decidim
       end
 
       describe "Organization unendorses proposal" do
-        let(:endorsement) { create(:organization_proposal_endorsement) }
+        let(:endorsement) { create(:user_group_proposal_endorsement) }
         let(:command) { described_class.new(endorsement.proposal, endorsement.author, endorsement.user_group) }
 
         it "broadcasts ok" do
