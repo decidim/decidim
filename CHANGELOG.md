@@ -16,7 +16,20 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-participatory_processes**: Add missinng translations for processes [\#2380](https://github.com/decidim/decidim/pull/2380)
 - **decidim-verifications**: Let developers specify for how long authorizations are valid. After this space of time passes, authorizations expire and users need to re-authorize [\#2311](https://github.com/decidim/decidim/pull/2311)
 
-**Changed**:
+**Changed
+
+- **decidim-core**: translated_attribute helper changes its default behaviour. Previously it was following these steps:
+  1. Return the current user locale translation if available.
+  2. Fallback to organization default locale in case the user locale translation is not available.
+  3. Otherwise return blank.
+
+
+  Now it follows these steps:
+
+  1. Return the current user locale translation if available.
+  2. Fallback to organization default locale in case the user locale translation is not available.
+  3. Fallback to the first available translation in case there was no user nor default organization locale translations.
+  4. Otherwise return blank.
 
 **Fixed**:
 
