@@ -102,6 +102,8 @@ en:
           name: Assembly User
           roles:
             admin: Administrator
+            collaborator: Collaborator
+            moderator: Moderator
       titles:
         assemblies: Assemblies
     assemblies:

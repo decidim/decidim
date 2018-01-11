@@ -7,7 +7,7 @@ module Decidim
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User", optional: true
     belongs_to :assembly, foreign_key: "decidim_assembly_id", class_name: "Decidim::Assembly", optional: true
 
-    ROLES = %w(admin).freeze
+    ROLES = %w(admin collaborator moderator).freeze
     validates :role, inclusion: { in: ROLES }, uniqueness: { scope: [:user, :assembly] }
     validate :user_and_assembly_same_organization
 
