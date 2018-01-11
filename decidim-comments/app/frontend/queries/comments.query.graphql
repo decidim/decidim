@@ -5,6 +5,7 @@ query GetComments($commentableId: String!, $commentableType: String!, $orderBy: 
   session {
     user {
       name
+      nickname
       avatarUrl
       organizationName
     }

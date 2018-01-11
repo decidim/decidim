@@ -25,10 +25,10 @@ fr:
         name: Rencontres
         settings:
           global:
-            announcement: Annonce
+            announcement: Message d'annonce
             comments_enabled: Commentaires activés
           step:
-            announcement: Annonce
+            announcement: Message d'annonce
             comments_blocked: Commentaires bloqués
     meetings:
       actions:
@@ -89,7 +89,7 @@ fr:
             available_slots_help: Laisser à 0 si le nombre de places disponibles n'est pas limité.
             invite_user: Inviter un utilisateur
             registrations_count:
-              one: Il y a eu 1 enregistrement.
+              one: Il y a eu 1 inscription.
               other: Il y a eu %{count} inscriptions.
           update:
             invalid: Il y a eu un problème lors de l'enregistrement des paramètres d'inscription.
@@ -123,7 +123,7 @@ fr:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Objet
+            subject: Invitation à participer à une réunion
         registration_mailer:
           confirmation:
             subject: Votre inscription a bien été enregistrée
@@ -133,8 +133,6 @@ fr:
           category_prompt: Sélectionner une catégorie
           date: Date
           past: Passées
-          scope_prompt: Sélectionnez un périmètre d'application
-          scopes: Périmètre d'application
           search: Rechercher
           upcoming: À venir
         filters_small_view:
@@ -191,4 +189,4 @@ fr:
   devise:
     mailer:
       join_meeting:
-        subject: Objet
+        subject: Invitation à participer à une réunion

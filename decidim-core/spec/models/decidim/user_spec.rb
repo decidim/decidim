@@ -51,6 +51,17 @@ module Decidim
         end
       end
 
+      context "when the nickname is empty" do
+        before do
+          user.nickname = ""
+        end
+
+        it "is not valid" do
+          expect(user).not_to be_valid
+          expect(user.errors[:nickname].length).to eq(1)
+        end
+      end
+
       context "when the file is too big" do
         before do
           expect(subject.avatar).to receive(:size).and_return(11.megabytes)

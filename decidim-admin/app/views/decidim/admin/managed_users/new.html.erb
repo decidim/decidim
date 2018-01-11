@@ -1,17 +1,17 @@
 <h2 class="process-title-summary">
   <%= t('.new_managed_user') %>
-  <% if more_than_one_authorization? %>
+  <% if more_than_one_authorization_handler? %>
     <span class="text-muted float-right"><%= t('.step', current: params[:handler_name].present? ? 2 : 1, total: 2) %></span>
   <% end %>
 </h2>
 
-<% if more_than_one_authorization? && params[:handler_name].nil? %>
+<% if select_authorization_handler_step? %>
   <div class="card card--list">
     <div class="card-divider">
       <h2 class="card-title"><%= t ".select_authorization_method" %></h2>
     </div>
     <div class="card-section">
-      <% available_authorizations.each do |handler_name| %>
+      <% available_authorization_handlers.each do |handler| %>
         <div class="card--list__item">
           <div class="card--list__text">
             <a href="#">
@@ -19,12 +19,12 @@
             </a>
             <div>
               <h5 class="card--list__heading">
-                <%= link_to t("#{handler_name}.name", scope: "decidim.authorization_handlers"), new_managed_user_path(handler_name: handler_name) %>
+                <%= link_to handler.fullname, new_managed_user_path(handler_name: handler.name) %>
               </h5>
             </div>
           </div>
           <div class="card--list__data">
-            <%= link_to new_managed_user_path(handler_name: handler_name), class: "card--list__data__icon" do %>
+            <%= link_to new_managed_user_path(handler_name: handler.name), class: "card--list__data__icon" do %>
               <%= icon "chevron-right" %>
             <% end %>
           </div>

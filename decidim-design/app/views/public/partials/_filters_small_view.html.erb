@@ -1,0 +1,37 @@
+<div class="filters-controls hide-for-mediumlarge">
+  <button data-open="filter-box" class="filters-controls__trigger">
+    Filtrar
+    <%= icon "caret-bottom", class: "icon--small float-right", aria_label: "Desplegar", role: "img" %>
+  </button>
+</div>
+<div class="reveal" id="filter-box" data-reveal>
+  <div class="reveal__header">
+    <h3 class="reveal__title">Filtrar por:</h3>
+    <button class="close-button" data-close aria-label="Close modal" type="button">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="filters">
+    <form class="filters__search">
+      <div class="input-group">
+        <input class="input-group-field" type="search" placeholder="Buscar">
+        <div class="input-group-button">
+          <button type="submit" class="button button--muted">
+            <%= icon "magnifying-glass", aria_label: "Buscar", role: "img" %>
+          </button>
+        </div>
+      </div>
+    </form>
+    <div class="filters__section">
+      <form>
+        <h6 class="heading6">Tu actividad</h6>
+        <fieldset>
+          <label><input id="" type="checkbox">Creadas</label>
+          <label><input id="" type="checkbox">Comentadas</label>
+          <label><input id="" type="checkbox">Votadas</label>
+          <label><input id="" type="checkbox">Seguidas</label>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+</div>

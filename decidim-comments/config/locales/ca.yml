@@ -50,7 +50,6 @@ ca:
             offensive: Conté racisme, sexisme, insults, atacs personals, amenaces de mort, peticions de suïcidi o qualsevol forma de discurs d'odi.
             spam: Conté "clickbait", publicitat o estafes.
           title: Denuncia un problema
-        verified_user_group: Organització verificada
       comment_order_selector:
         order:
           best_rated: Més ben valorats

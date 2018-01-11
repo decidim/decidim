@@ -3,12 +3,14 @@
 shared_examples "a proposal form" do
   subject { form }
 
-  let(:feature) { create(:proposal_feature) }
+  let(:organization) { create(:organization, available_locales: [:en]) }
+  let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization) }
+  let(:feature) { create(:proposal_feature, participatory_space: participatory_space) }
   let(:title) { "Oriol for president!" }
   let(:body) { "Everything would be better" }
-  let(:author) { create(:user, organization: feature.organization) }
-  let(:category) { create(:category, participatory_space: feature.participatory_space) }
-  let(:scope) { create(:scope, organization: feature.organization) }
+  let(:author) { create(:user, organization: organization) }
+  let(:category) { create(:category, participatory_space: participatory_space) }
+  let(:scope) { create(:scope, organization: organization) }
   let(:category_id) { category.try(:id) }
   let(:scope_id) { scope.try(:id) }
   let(:latitude) { 40.1234 }
@@ -32,7 +34,8 @@ shared_examples "a proposal form" do
   let(:form) do
     described_class.from_params(params).with_context(
       current_feature: feature,
-      current_organization: feature.organization
+      current_organization: feature.organization,
+      current_participatory_space: participatory_space
     )
   end
 
@@ -77,7 +80,7 @@ shared_examples "a proposal form" do
   end
 
   context "when geocoding is enabled" do
-    let(:feature) { create(:proposal_feature, :with_geocoding_enabled) }
+    let(:feature) { create(:proposal_feature, :with_geocoding_enabled, participatory_space: participatory_space) }
 
     context "when the has address checkbox is checked" do
       let(:has_address) { true }
@@ -142,6 +145,26 @@ shared_examples "a proposal form" do
       let(:scope_id) { create(:scope).id }
 
       it { is_expected.to eq(nil) }
+    end
+
+    context "when the participatory space has a scope" do
+      let(:parent_scope) { create(:scope, organization: organization) }
+      let(:participatory_space) { create(:participatory_process, :with_steps, organization: organization, scope: parent_scope) }
+      let(:scope) { create(:scope, organization: organization, parent: parent_scope) }
+
+      context "when the scope is descendant from participatory space scope" do
+        it { is_expected.to eq(scope) }
+      end
+
+      context "when the scope is not descendant from participatory space scope" do
+        let(:scope) { create(:scope, organization: organization) }
+
+        it { is_expected.to eq(scope) }
+
+        it "makes the form invalid" do
+          expect(form).to be_invalid
+        end
+      end
     end
   end
 

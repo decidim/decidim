@@ -5,6 +5,7 @@ en:
       proposal:
         body: Body
         category_id: Category
+        has_address: Has address
         scope_id: Scope
         title: Title
         user_group_id: Create proposal as
@@ -82,10 +83,20 @@ en:
       create:
         error: There's been errors when saving the proposal.
         success: Proposal created successfully.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Hi,
+            %{author_name} %{author_nickname}, who you are following, has created a new proposal, check it out and contribute:
+          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
+          email_subject: New proposal by %{author_nickname}
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         proposal:
           fields:
             category: Category
+            comments: Comments
+            created_at: Created at
             id: ID
             official_proposal: Official proposal
             scope: Scope
@@ -98,9 +109,6 @@ en:
         create:
           error: There's been errors when voting the proposal.
       proposals:
-        author:
-          deleted: Deleted user
-          verified_user_group: Verified organization
         count:
           proposals_count:
             one: 1 proposal
@@ -122,8 +130,6 @@ en:
           origin: Origin
           rejected: Rejected
           related_to: Related to
-          scope_prompt: Select a scope
-          scopes: Scopes
           search: Search
           state: State
           voted: Voted
@@ -154,9 +160,9 @@ en:
           random: Random
           recent: Recent
         proposal:
+          creation_date: 'Creation: %{date}'
           view_proposal: View proposal
         show:
-          contact: Contact
           edit_proposal: Edit proposal
           proposal_accepted_reason: 'This proposal has been accepted because:'
           proposal_in_evaluation_reason: This proposal is being evaluated

@@ -6,6 +6,10 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
   participatory_space.icon = "decidim/participatory_processes/icon.svg"
   participatory_space.model_class_name = "Decidim::ParticipatoryProcess"
 
+  participatory_space.participatory_spaces do |organization|
+    Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(organization).query
+  end
+
   participatory_space.seeds do
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
@@ -70,6 +74,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         user = Decidim::User.find_or_initialize_by(email: email)
         user.update!(
           name: Faker::Name.name,
+          nickname: Faker::Twitter.unique.screen_name,
           password: "decidim123456",
           password_confirmation: "decidim123456",
           organization: organization,

@@ -21,8 +21,8 @@ es:
         short_description: Descripción breve
         slug: Texto corto de URL
         subtitle: Subtítulo
-        target: "¿A quién va dirigido?"
-        title: Grupo de procesos participativos
+        target: '¿A quién va dirigido?'
+        title: Título
   decidim:
     admin:
       assemblies:
@@ -74,7 +74,7 @@ es:
             created_at: Fecha de creación
             promoted: Destacado
             published: Publicada
-            title: Grupo de procesos participativos
+            title: Título
           name: Asamblea
       titles:
         assemblies: Asambleas

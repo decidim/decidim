@@ -125,7 +125,7 @@ en:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Subject
+            subject: Invitation to join a meeting
         registration_mailer:
           confirmation:
             subject: Your meeting's registration has been confirmed
@@ -135,8 +135,6 @@ en:
           category_prompt: Select a category
           date: Date
           past: Past
-          scope_prompt: Select a scope
-          scopes: Scopes
           search: Search
           upcoming: Upcoming
         filters_small_view:
@@ -194,4 +192,4 @@ en:
   devise:
     mailer:
       join_meeting:
-        subject: Subject
+        subject: Invitation to join a meeting

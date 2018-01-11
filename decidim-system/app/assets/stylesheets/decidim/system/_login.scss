@@ -25,6 +25,7 @@ body.login{
 
     @include breakpoint(medium){
       @include flex-align(center, middle);
+
       transform: translateY(-8%);
     }
 

@@ -123,7 +123,7 @@ fi:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Otsikko
+            subject: Kutsu liittyä kokoukseen
         registration_mailer:
           confirmation:
             subject: Tapahtumailmoittautumisesi on vahvistettu
@@ -133,8 +133,6 @@ fi:
           category_prompt: Valitse aihepiiri
           date: Päivämäärä
           past: Menneet
-          scope_prompt: Valitse konteksti
-          scopes: Kontekstit
           search: Etsi
           upcoming: Tulevat
         filters_small_view:
@@ -191,4 +189,4 @@ fi:
   devise:
     mailer:
       join_meeting:
-        subject: Otsikko
+        subject: Kutsu liittyä kokoukseen

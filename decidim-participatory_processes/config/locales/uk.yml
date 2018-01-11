@@ -2,6 +2,7 @@ uk:
   activemodel:
     attributes:
       participatory_process:
+        announcement: Оголошення
         banner_image: Банерне зображення
         copy_categories: Скопіювати розділи
         copy_features: Скопіювати складові
@@ -21,6 +22,7 @@ uk:
         scope_id: Терен
         scopes_enabled: Ввімкнені терени
         short_description: Стислий опис
+        show_statistics: Показувати статистику
         slug: Скорочена URL-адреса
         start_date: Дата початку
         subtitle: Підзаголовок
@@ -217,6 +219,7 @@ uk:
             slug_help: 'Cкорочені URL-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
         participatory_processes:
           form:
+            announcement_help: Текст, який ви введете тут, буде показано учаснику трохи нижче опису руху.
             slug_help: 'Cкорочені URL-адреси використовуються для створення посилань на цей рух. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
       index:
         title: Рухи співучасті
@@ -259,8 +262,6 @@ uk:
         surveys_count: Опитування
         users_count: Учасники
         votes_count: Голоси
-    scopes:
-      global: Загальний терен
   layouts:
     decidim:
       participatory_process_groups:

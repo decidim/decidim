@@ -28,6 +28,7 @@ module Decidim
       attribute :engine, Rails::Engine
       attribute :admin_engine, Rails::Engine
       attribute :form, String
+      attribute :expires_in, ActiveSupport::Duration, default: 0.minutes
 
       validate :engine_or_form
 
@@ -45,7 +46,7 @@ module Decidim
       alias key name
 
       def fullname
-        I18n.t("#{key}.name", scope: "decidim.authorization_handlers")
+        I18n.t("#{key}.name", scope: "decidim.authorization_handlers", default: name.humanize)
       end
 
       def description

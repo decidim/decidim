@@ -3,6 +3,7 @@ en:
   activemodel:
     attributes:
       participatory_process:
+        announcement: Announcement
         banner_image: Banner image
         copy_categories: Copy categories
         copy_features: Copy features
@@ -22,6 +23,7 @@ en:
         scope_id: Scope
         scopes_enabled: Scopes enabled
         short_description: Short description
+        show_statistics: Show statistics
         slug: URL slug
         start_date: Start date
         subtitle: Subtitle
@@ -218,6 +220,7 @@ en:
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         participatory_processes:
           form:
+            announcement_help: The text you enter here will be shown to the user right below the process information.
             slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
       index:
         title: Participatory processes
@@ -260,8 +263,6 @@ en:
         surveys_count: Surveys
         users_count: Participants
         votes_count: Votes
-    scopes:
-      global: Global scope
   layouts:
     decidim:
       participatory_process_groups:

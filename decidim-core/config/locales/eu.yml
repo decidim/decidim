@@ -69,6 +69,8 @@ eu:
         name: Dummy baimena eragiketa
       errors:
         duplicate_authorization: Badago erabiltzaile bat, datu berberekin baimendua.
+      expired_at: '%{timestamp} iraungita dago'
+      expires_at: '%{timestamp} iraungitzen da'
       foo_authorization:
         fields:
           bar: Bar
@@ -76,6 +78,7 @@ eu:
         name: foo baimena
       granted_at: Onartua %{timestamp}
       started_at: Hasi zen %{timestamp}
+    contact: Harremanetarako
     core:
       actions:
         unauthorized: Ez duzu baimenik ekintza honi heltzeko.
@@ -85,6 +88,7 @@ eu:
           email_already_exists: Beste kontu batek erabiltzen du helbide elektroniko bera.
         new:
           complete_profile: Osatu profila
+          nickname_help: Zure identifikatzaile bakarra erabaki.
           sign_up: Mesedez, osatu zure profila
           subtitle: Mesedez, bete inprimaki hau izen-ematea osatzeko
           username_help: Izen publikoa, zuk argitaratutakoetan agertzekoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
@@ -92,6 +96,7 @@ eu:
         new:
           already_have_an_account?: Baduzu kontu bat?
           newsletter_notifications: Informazio eskuratzeko garrantzizko jarduerari buruz
+          nickname_help: Zure identifikatzaile bakarra erabaki.
           sign_in: Sartu
           sign_up: Erregistratu
           sign_up_as:
@@ -218,6 +223,8 @@ eu:
     pages:
       index:
         title: Argibide gehiago
+    profiles:
+      default_officialization_text: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
     reported_mailer:
       hide:
         hello: Kaixo, %{name},
@@ -233,8 +240,20 @@ eu:
       create:
         error: Errorea gertatu da edukia salatzean. Mesedez, saiatu berriro.
         success: Salaketa zuzen sortu da, eta administratzaile batek aztertuko du.
+    scopes:
+      global: Esparru orokorra
+      picker:
+        cancel: Utzi
+        choose: Aukeratu
+        title: Hautatu %{field}
+      prompt: Aukeratu esparrua
+      scopes: esparru
     shared:
       action_authorization_modal:
+        expired:
+          authorize: Errebokatu "%{authorization}" rekin
+          explanation: Zure baimena iraungi da. Ekintza hau burutzeko, "%{authorization}" berrantolatu behar duzu.
+          title: Baimena iraungi da
         incomplete:
           cancel: Utzi
           explanation: 'Nahiz eta orain baimenduta zauden honako "%{authorization}” honen bidez, behar dugu zuk berriz baimena eskuratzea, ez baititugu honako datu hauek:'
@@ -253,6 +272,8 @@ eu:
           invalid: "%{field} ez da baliozkoa."
           ok: Ados
           title: Ez dago baimenduta
+      author:
+        deleted: Erabiltzailea ezabatua
       embed_modal:
         close_window: Itxi leihoa
         embed: Mesedez, erantsi kode hau zure orrian
@@ -285,6 +306,7 @@ eu:
     invitations:
       edit:
         header: Idatzi zure pasahitza
+        nickname_help: Zure identifikatzaile bakarra erabaki.
         submit_button: Gorde
     mailer:
       invitation_instructions:
@@ -347,8 +369,10 @@ eu:
         title: jakinarazpenak
       user_menu:
         admin_dashboard: Administrazioko aginte-mahaia
+        conversations: Elkarrizketak
         notifications: jakinarazpenak
         profile: Nire kontua
+        public_profile: Nire profil publikoa
         sign_out: Irten
       user_profile:
         account: Kontua
@@ -380,7 +404,8 @@ eu:
         participate: Parte hartu
         welcome: Ongi etorri %{organization} erakundera!
       statistics:
-        answers_count: Erantzunak
+        answers_count: Amaitutako inkestak
+        assemblies_count: Batzar
         comments_count: Iruzkinak
         headline: '%{organization} erakundearen egungo egoera'
         meetings_count: Topaketak
@@ -388,6 +413,7 @@ eu:
         pages_count: Orriak
         processes_count: Prozesuak
         projects_count: Proiektuak
+        proposals_accepted: Onartutako proposamenak
         proposals_count: Proposamenak
         results_count: Emaitzak
         surveys_count: Inkestak

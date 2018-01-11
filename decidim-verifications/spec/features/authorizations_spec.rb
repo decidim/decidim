@@ -97,6 +97,22 @@ describe "Authorizations", type: :feature, with_authorization_workflows: ["dummy
           expect(page).to have_no_link("Example authorization")
         end
       end
+
+      it "checks if the given data is invalid" do
+        within_user_menu do
+          click_link "My account"
+        end
+
+        click_link "Authorizations"
+        click_link "Example authorization"
+
+        fill_in "Document number", with: "12345678"
+        page.execute_script("$('#date_field_authorization_handler_birthday').focus()")
+        page.find(".datepicker-dropdown .day", text: "12").click
+        click_button "Send"
+
+        expect(page).to have_content("There was an error creating the authorization.")
+      end
     end
 
     context "when the user has already been authorized" do
@@ -115,8 +131,49 @@ describe "Authorizations", type: :feature, with_authorization_workflows: ["dummy
 
         within ".authorizations-list" do
           expect(page).to have_content("Example authorization")
-          expect(page).to have_no_link("Example authorization")
-          expect(page).to have_content(I18n.localize(authorization.granted_at, format: :long))
+        end
+      end
+
+      context "when the authorization has not expired yet" do
+        let!(:authorization) do
+          create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.seconds.ago)
+        end
+
+        it "can't be renewed yet" do
+          within_user_menu do
+            click_link "My account"
+          end
+
+          click_link "Authorizations"
+
+          within ".authorizations-list" do
+            expect(page).to have_no_link("Example authorization")
+            expect(page).to have_content(I18n.localize(authorization.granted_at, format: :long))
+          end
+        end
+      end
+
+      context "when the authorization has expired" do
+        let!(:authorization) do
+          create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 2.months.ago)
+        end
+
+        it "can be renewed" do
+          within_user_menu do
+            click_link "My account"
+          end
+
+          click_link "Authorizations"
+
+          within ".authorizations-list" do
+            expect(page).to have_link("Example authorization")
+            click_link "Example authorization"
+          end
+
+          fill_in "Document number", with: "123456789X"
+          click_button "Send"
+
+          expect(page).to have_content("You've been successfully authorized")
         end
       end
     end

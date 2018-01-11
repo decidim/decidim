@@ -30,6 +30,8 @@ Decidim::Admin::Engine.routes.draw do
       end
     end
 
+    resources :officializations, only: [:new, :create, :index, :destroy], param: :user_id
+
     resources :managed_users, controller: "managed_users", except: [:edit, :update] do
       resources :promotions, controller: "managed_users/promotions", only: [:new, :create]
       resources :impersonations, controller: "managed_users/impersonations", only: [:index, :new, :create] do

@@ -47,7 +47,12 @@ describe("<Comment />", () => {
 
   it("should render author's name in a link with class author__name", () => {
     const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
-    expect(wrapper.find("a.author__name").text()).toEqual(comment.author.name);
+    expect(wrapper.find("span.author__name").text()).toEqual(comment.author.name);
+  });
+
+  it("should render author's nickname in a link with class author__nickname", () => {
+    const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
+    expect(wrapper.find("span.author__nickname").text()).toEqual(comment.author.nickname);
   });
 
   describe("when the author's account has been deleted", () => {
@@ -63,7 +68,7 @@ describe("<Comment />", () => {
 
   it("should render author's avatar as a image tag", () => {
     const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
-    expect(wrapper.find("a.author__avatar img").prop("src")).toEqual(comment.author.avatarUrl);
+    expect(wrapper.find(".author__avatar img").prop("src")).toEqual(comment.author.avatarUrl);
   });
 
   it("should render comment's body on a div with class comment__content", () => {

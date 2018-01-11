@@ -37,7 +37,7 @@ module Decidim
     #
     #   menu.item "My Resource", "/resources"
     #   menu.item I18n.t("menu.meetings"), decidim_meetings.root_path
-    #   menu.item current_user.username, decidim.profile_path
+    #   menu.item current_user.username, decidim.profile_path(current_user.nickname)
     #   menu.item "Gestor de Procesos", "/processes", active: :exact
     #   menu.item "Gestor de Procesos", "/processes", if: admin?
     #

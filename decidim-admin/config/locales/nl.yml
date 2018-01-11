@@ -12,7 +12,7 @@ nl:
       feature:
         name: Naam
         weight: Gewicht
-      id: ID kaart
+      id: ID
       newsletter:
         body: Body
         subject: Onderwerp
@@ -83,7 +83,7 @@ nl:
         title: Titel
   date:
     formats:
-      datepicker: "%m / %d / %Y"
+      datepicker: "%m/%d/%Y"
   decidim:
     admin:
       actions:
@@ -214,6 +214,7 @@ nl:
         dashboard: Dashboard
         managed_users: Beheerde gebruikers
         newsletters: Nieuwsbrieven
+        officializations: Officializations
         scope_types: Scope types
         scopes: Scopes
         settings: Instellingen
@@ -313,6 +314,33 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze nieuwsbrief.
           success: Nieuwsbrief is succesvol bijgewerkt. Controleer het voordat u verzendt.
+      officializations:
+        create:
+          success: Gebruiker officieel gelukt
+        destroy:
+          success: Gebruiker nietofficieel succesvol
+        index:
+          actions: acties
+          badge: insigne
+          created_at: Gemaakt bij
+          filter:
+            all: Alle
+            not_officialized: Niet officieel
+            officialized: geofficialiseerd
+          filter_by: Filteren op
+          name: Naam
+          nickname: Bijnaam
+          not_officialized: Niet officieel
+          officialize: officialiseren
+          officialized: geofficialiseerd
+          reofficialize: Reofficialize
+          search: Zoeken
+          status: staat
+          unofficialize: Unofficialize
+        new:
+          badge: Officificatiebadge
+          officialize: officialiseren
+          title: Officiëren gebruiker "%{name}"
       organization:
         edit:
           title: Organisatie bewerken
@@ -390,6 +418,7 @@ nl:
         dashboard: Dashboard
         impersonations: Nabootsingingen
         managed_users: Beheerde gebruikers
+        officializations: Officializations
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pagina's
@@ -467,5 +496,5 @@ nl:
           title: Gebruikers
   time:
     formats:
-      datepicker: "%m / %d / %Y"
+      datepicker: "%m/%d/%Y"
       timepicker: "%d/%m/%Y %H:%M"

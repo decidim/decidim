@@ -15,7 +15,9 @@ describe Decidim::Surveys::SurveyUserAnswers do
   it "returns the user answers for each user" do
     result = subject.query
 
-    expect(result[0]).to eq(survey_answers_user_1.sort { |answer| answer.question.position })
-    expect(result[1]).to eq(survey_answers_user_2.sort { |answer| answer.question.position })
+    expect(result).to contain_exactly(
+      survey_answers_user_1.sort { |answer| answer.question.position },
+      survey_answers_user_2.sort { |answer| answer.question.position }
+    )
   end
 end

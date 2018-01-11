@@ -33,7 +33,7 @@ module Decidim
 
           @form = form(ImpersonateManagedUserForm).from_params(params)
 
-          ImpersonateManagedUser.call(@form, user, current_user) do
+          ImpersonateManagedUser.call(@form, user) do
             on(:ok) do
               redirect_to decidim.root_path
             end

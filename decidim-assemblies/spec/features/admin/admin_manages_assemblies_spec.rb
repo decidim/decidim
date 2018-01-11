@@ -229,7 +229,8 @@ describe "Admin manages assemblies", type: :feature do
 
       uncheck :assembly_scopes_enabled
 
-      expect(page).to have_selector("select#assembly_scope_id[disabled]")
+      expect(page).to have_selector("#assembly_scope_id.disabled")
+      expect(page).to have_selector("#assembly_scope_id .picker-values div input[disabled]", visible: false)
 
       within ".edit_assembly" do
         find("*[type=submit]").click

@@ -5,6 +5,8 @@ module Decidim
     # Controller to manage Organizations (tenants).
     #
     class OrganizationsController < Decidim::System::ApplicationController
+      helper_method :current_organization
+
       def new
         @form = form(RegisterOrganizationForm).instance
       end
@@ -52,6 +54,13 @@ module Decidim
             render :edit
           end
         end
+      end
+
+      # The current organization for the request.
+      #
+      # Returns an Organization.
+      def current_organization
+        @organization
       end
     end
   end

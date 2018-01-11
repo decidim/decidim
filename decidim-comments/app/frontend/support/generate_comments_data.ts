@@ -11,17 +11,22 @@ const generateCommentsData = (num = 1) => {
   const commentsData: CommentFragment[] = [];
 
   for (let idx = 0; idx < num; idx += 1) {
+    const creationDate = date.recent();
+    const nickname = name.findName();
+
     commentsData.push({
       id: random.uuid(),
       type: "Decidim::Comments::Comment",
       body: lorem.words(),
-      createdAt: date.past().toISOString(),
+      createdAt: creationDate.toISOString(),
+      formattedCreatedAt: creationDate.toLocaleTimeString(),
       author: {
-        name: name.findName(),
+        name: `${name.firstName()} ${name.lastName()}`,
+        nickname: `@${nickname}`,
         avatarUrl: image.imageUrl(),
-        isVerified: Math.random() >= 0.5,
-        isUser: Math.random() >= 0.5,
+        profilePath: `/profiles/${nickname}`,
         deleted: false,
+        badge: "verified-badge",
       },
       hasComments: false,
       comments: [],
