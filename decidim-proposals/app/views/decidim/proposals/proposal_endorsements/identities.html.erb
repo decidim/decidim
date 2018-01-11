@@ -1,20 +1,7 @@
 <div class="reveal__header">
   <h1 class="reveal__title"><%=t '.select_identity' %></h1>
 </div>
-<%= render partial: "decidim/proposals/proposals/endorsement_button", locals: { proposal: proposal, from_proposals_list: false, btn_label: current_user.name } %>
-<% current_user.user_groups.verified.each do |user_group| %>
-  <br/>
-  <% if @to_endorse_groups.include? user_group.id %>
-    <%= render partial: "decidim/proposals/proposals/endorsement_button",
-      locals: {
-        proposal: proposal, from_proposals_list: false,
-        btn_label: user_group.name, user_group: user_group
-      } %>
-  <% else %>
-    <%= render partial: "decidim/proposals/proposals/endorsement_button",
-      locals: {
-        proposal: proposal, from_proposals_list: false,
-        btn_label: user_group.name, user_group: user_group
-      } %>
-  <% end %>
+<%= endorsement_button(proposal, false, current_user.name) %>
+<% @user_verified_groups.each do |user_group| %>
+  <br/><%= endorsement_button(proposal, false, user_group.name, user_group) %>
 <% end %>

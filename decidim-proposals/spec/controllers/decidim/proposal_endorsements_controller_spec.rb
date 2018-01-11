@@ -40,13 +40,44 @@ module Decidim
           end
 
           context "when requesting user identities without belonging to any user_group" do
-            it "onlies return the user identity endorse button" do
+            it "only returns the user identity endorse button" do
               get :identities, params: params
 
               expect(response).to have_http_status(:ok)
-              expect(assigns[:to_endorse_groups]).to be_empty
-              expect(assigns[:to_unendorse_groups]).to be_empty
+              expect(assigns[:user_verified_groups]).to be_empty
+              expect(subject).to render_template("decidim/proposals/proposal_endorsements/identities")
             end
+          end
+          context "when requesting user identities while belonging to UNverified user_groups" do
+            it "only returns the user identity endorse button" do
+              create_user_groups
+              get :identities, params: params
+
+              expect(response).to have_http_status(:ok)
+              expect(assigns[:user_verified_groups]).to be_empty
+              expect(subject).to render_template("decidim/proposals/proposal_endorsements/identities")
+            end
+          end
+          context "when requesting user identities while belonging to verified user_groups" do
+            it "returns the user's and user_groups's identities for the endorse button" do
+              create_user_groups(true)
+              get :identities, params: params
+
+              expect(response).to have_http_status(:ok)
+              expect(assigns[:user_verified_groups]).to eq user.user_groups
+              expect(subject).to render_template("decidim/proposals/proposal_endorsements/identities")
+            end
+          end
+          #
+          # UTIL METHODS
+          #
+          def create_user_groups(verified=false)
+           2.times do
+             ug = create(:user_group)
+             ug.verified_at = DateTime.current if verified
+             user.user_groups << ug
+           end
+           user.save!
           end
         end
 
@@ -215,86 +246,6 @@ module Decidim
             end
           end
         end
-      end
-
-      #
-      # Identity endorsements combinations
-      #
-      describe "When user has some of its user_groups endorsed" do
-        let(:feature) do
-          create(:proposal_feature, :with_endorsements_enabled)
-        end
-        let(:endorsed_groups) { [] }
-        let(:unendorsed_groups) { [] }
-
-        context "when user has no user_groups" do
-          it "returns only an endorse button for the user" do
-            get :identities, params: params
-
-            expect(response).to have_http_status(:ok)
-            expect(subject).to render_template("decidim/proposals/proposal_endorsements/identities")
-          end
-        end
-        context "when all user user_groups are endorsed" do
-          it "offers user_groups to unahere" do
-            create_endorsed_groups
-
-            get :identities, params: params
-
-            expect(response).to have_http_status(:ok)
-            expect(assigns[:to_endorse_groups]).to be_empty
-            expect(assigns[:to_unendorse_groups]).to eq(endorsed_groups)
-            expect(subject).to render_template("decidim/proposals/proposal_endorsements/identities")
-          end
-        end
-        context "when half user organizations are endorsed" do
-          it "offers the corresponding action to each organization" do
-            create_endorsed_groups
-            create_unendorsed_groups
-
-            get :identities, params: params
-
-            expect(response).to have_http_status(:ok)
-            expect(assigns[:to_endorse_groups]).to eq(unendorsed_groups)
-            expect(assigns[:to_unendorse_groups]).to eq(endorsed_groups)
-            expect(subject).to render_template("decidim/proposals/proposal_endorsements/identities")
-          end
-        end
-        context "when none of user's user_groups are endorsed" do
-          it "offers all user_groups to endorse" do
-            create_unendorsed_groups
-
-            get :identities, params: params
-
-            expect(response).to have_http_status(:ok)
-            expect(assigns[:to_endorse_groups]).to eq(unendorsed_groups)
-            expect(assigns[:to_unendorse_groups]).to be_empty
-            expect(subject).to render_template("decidim/proposals/proposal_endorsements/identities")
-          end
-        end
-      end
-
-      #
-      # ÚTIL METHODS
-      #
-      def create_endorsed_groups
-        2.times do
-          endorsement = create(:organization_proposal_endorsement,
-                               proposal: proposal, author: user)
-          ug = endorsement.user_group
-          ug.verified_at = DateTime.current
-          endorsed_groups << ug.id
-        end
-        user.save!
-      end
-
-      def create_unendorsed_groups
-        2.times do
-          ug = create(:user_group, verified_at: DateTime.current)
-          user.user_groups << ug
-          unendorsed_groups << ug.id
-        end
-        user.save!
       end
     end
   end

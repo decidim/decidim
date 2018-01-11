@@ -9,6 +9,6 @@
        data-reveal data-refresh-url="<%= identities_proposal_proposal_endorsement_path(proposal) %>">
   </div>
 <% else %>
-    <%= render partial: 'endorsement_button', locals: { proposal: proposal, from_proposals_list: false } %>
+    <%= endorsement_button(proposal, false) %>
 <% end %>
 <%= javascript_include_tag 'decidim/proposals/identity_selector_dialog' %>

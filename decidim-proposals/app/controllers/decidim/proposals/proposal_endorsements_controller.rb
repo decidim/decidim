@@ -44,8 +44,7 @@ module Decidim
       def identities
         authorize! :endorse, proposal
 
-        @to_unendorse_groups = UserGroupsThatCanUndoEndorsement.from(current_user, proposal)
-        @to_endorse_groups = UserGroupsThatCanEndorse.from(current_user, proposal)
+        @user_verified_groups = current_user.user_groups.verified
         render :identities, layout: false
       end
 
