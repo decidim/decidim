@@ -223,6 +223,8 @@ fr:
     pages:
       index:
         title: Plus d'information
+    profiles:
+      default_officialization_text: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
     reported_mailer:
       hide:
         hello: Bonjour %{name},
@@ -239,13 +241,13 @@ fr:
         error: Une erreur s'est produite lors de la création du rapport. Veuillez essayer à nouveau.
         success: Le contenu a été signalé, il sera examiné par un administrateur.
     scopes:
-      global: Portée mondiale
+      global: Portée générale
       picker:
         cancel: Annuler
         choose: Sélectionner
         title: Sélectionnez %{field}
-      prompt: Sélectionnez une portée
-      scopes: Scopes
+      prompt: Sélectionnez un périmètre d'application
+      scopes: Périmètre d'application
     shared:
       action_authorization_modal:
         expired:

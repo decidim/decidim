@@ -214,6 +214,7 @@ sv:
         dashboard: instrumentbräda
         managed_users: Administrerade användare
         newsletters: nyhetsbrev
+        officializations: Officializations
         scope_types: Omfattningstyper
         scopes: Scopes
         settings: inställningar
@@ -313,6 +314,33 @@ sv:
         update:
           error: Det har inträffat ett fel vid uppdatering av detta nyhetsbrev.
           success: Nyhetsbrev uppdateras framgångsrikt. Kontrollera det innan du skickar.
+      officializations:
+        create:
+          success: Användaren officiellt godkändes
+        destroy:
+          success: Användaren inofficiellt framgångsrikt
+        index:
+          actions: Handlingar
+          badge: Bricka
+          created_at: Skapad vid
+          filter:
+            all: Allt
+            not_officialized: Ej officiellt
+            officialized: Officialized
+          filter_by: Filtrera efter
+          name: namn
+          nickname: smeknamn
+          not_officialized: Ej officiellt
+          officialize: Officialize
+          officialized: Officialized
+          reofficialize: Reofficialize
+          search: Sök
+          status: Status
+          unofficialize: Unofficialize
+        new:
+          badge: Officiella märke
+          officialize: Officialize
+          title: Officiella användaren "%{name}"
       organization:
         edit:
           title: Redigera organisation
@@ -390,6 +418,7 @@ sv:
         dashboard: instrumentbräda
         impersonations: impersonations
         managed_users: Administrerade användare
+        officializations: Officializations
         scope_types: Omfattningstyper
         scopes: Scopes
         static_pages: sidor

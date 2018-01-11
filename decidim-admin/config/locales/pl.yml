@@ -214,6 +214,7 @@ pl:
         dashboard: Deska rozdzielcza
         managed_users: Zarządzane użytkownicy
         newsletters: Biuletyny
+        officializations: Oficjalizacje
         scope_types: Typy zakresów
         scopes: Zakresy
         settings: Ustawienia
@@ -313,6 +314,33 @@ pl:
         update:
           error: Podczas aktualizowania tego biuletynu wystąpił błąd.
           success: Biuletyn został zaktualizowany. Przeczytaj ją przed wysłaniem.
+      officializations:
+        create:
+          success: Użytkownik oficjalnie z powodzeniem
+        destroy:
+          success: Użytkownik nieoficjalizowany pomyślnie
+        index:
+          actions: działania
+          badge: Odznaka
+          created_at: Utworzono w
+          filter:
+            all: Wszystko
+            not_officialized: Nie oficjalny
+            officialized: Oficjalny
+          filter_by: Filtruj według
+          name: Nazwa
+          nickname: Przezwisko
+          not_officialized: Nie oficjalny
+          officialize: Oficjalizuj
+          officialized: Oficjalny
+          reofficialize: Reofficialize
+          search: Szukaj
+          status: Status
+          unofficialize: Nieoficjalne
+        new:
+          badge: Odznaka oficjalności
+          officialize: Oficjalizuj
+          title: Oficjalizuj użytkownika "%{name}"
       organization:
         edit:
           title: Edytuj organizację
@@ -390,6 +418,7 @@ pl:
         dashboard: Deska rozdzielcza
         impersonations: Impersonaty
         managed_users: Zarządzane użytkownicy
+        officializations: Oficjalizacje
         scope_types: Typy zakresów
         scopes: Zakresy
         static_pages: Strony

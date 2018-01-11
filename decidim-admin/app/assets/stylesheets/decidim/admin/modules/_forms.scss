@@ -15,6 +15,7 @@ textarea{
   select{
     height: 3rem;
   }
+
   input,
   select,
   textarea,
@@ -22,8 +23,10 @@ textarea{
   .input-field{
     margin-bottom: $input-margin;
   }
+
   .check-radio-group{
     margin-bottom: 1rem;
+
     .check-radio{
       margin-bottom: .5rem;
     }
@@ -36,6 +39,7 @@ textarea{
 
 .legend{
   @include smallcaps;
+
   margin-bottom: 1rem;
 }
 
@@ -44,7 +48,6 @@ textarea{
   padding: 1.5rem 1rem .5rem;
   margin-bottom: 1.5rem;
 }
-
 
 .form-submit .button{
   margin-bottom: 0;
@@ -61,6 +64,7 @@ textarea{
     display: inline-flex;
     align-items: center;
   }
+
   input{
     margin-bottom: 0;
   }

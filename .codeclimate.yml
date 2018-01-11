@@ -55,6 +55,12 @@ plugins:
           severity: minor
           categories: Style
 
+        no-tabs:
+          pattern: "	"
+          annotation: "Don't use hard tabs"
+          severity: minor
+          categories: Style
+
     exclude_paths:
       - "decidim-design/**/*"
 
@@ -70,6 +76,11 @@ plugins:
     enabled: true
     channel: rubocop-0-51
 
+  stylelint:
+    enabled: true
+    exclude_paths:
+      - "decidim-core/app/assets/stylesheets/decidim/email.css"
+
 exclude_patterns:
   - "**/vendor/"
   - "decidim-comments/app/assets/javascripts/decidim/comments/bundle.js"
@@ -79,3 +90,4 @@ exclude_patterns:
   - "spec/decidim_dummy_app/"
   - "coverage/"
   - "webpack.report.html"
+  - "yarn-error.log"
