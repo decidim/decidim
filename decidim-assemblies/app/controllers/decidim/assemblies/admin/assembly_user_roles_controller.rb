@@ -34,6 +34,30 @@ module Decidim
           end
         end
 
+        def edit
+          @user_role = collection.find(params[:id])
+          authorize! :update, @user_role
+          @form = form(AssemblyUserRoleForm).from_model(@user_role.user)
+        end
+
+        def update
+          @user_role = collection.find(params[:id])
+          authorize! :update, @user_role
+          @form = form(AssemblyUserRoleForm).from_params(params)
+
+          UpdateAssemblyAdmin.call(@form, @user_role) do
+            on(:ok) do
+              flash[:notice] = I18n.t("assembly_user_roles.update.success", scope: "decidim.admin")
+              redirect_to assembly_user_roles_path(current_assembly)
+            end
+
+            on(:invalid) do
+              flash.now[:alert] = I18n.t("assembly_user_roles.update.error", scope: "decidim.admin")
+              render :edit
+            end
+          end
+        end
+
         def destroy
           @assembly_user_role = collection.find(params[:id])
           authorize! :destroy, @assembly_user_role

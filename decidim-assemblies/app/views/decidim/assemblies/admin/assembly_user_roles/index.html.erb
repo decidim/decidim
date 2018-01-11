@@ -48,6 +48,10 @@
                   <%= icon_link_to "reload", resend_invitation_assembly_user_role_path(current_assembly, role), t("actions.resend_invitation", scope: "decidim.admin"), class: "resend-invitation", method: :post %>
                 <% end %>
 
+                <% if can? :update, role %>
+                  <%= icon_link_to "pencil", edit_assembly_user_role_path(current_assembly, role), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit" %>
+                <% end %>
+
                 <% if can? :destroy, role %>
                   <%= icon_link_to "circle-x", assembly_user_role_path(current_assembly, role), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
                 <% end %>

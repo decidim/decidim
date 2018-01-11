@@ -48,6 +48,26 @@ shared_examples "manage assembly admins examples" do
       visit current_path
     end
 
+    xit "updates a assembly admin" do
+      within "#assembly_admins" do
+        within find("#assembly_admins tr", text: other_user.email) do
+          click_link "Edit"
+        end
+      end
+
+      within ".edit_assembly_user_roles" do
+        select "Administrator", from: :assembly_user_role_role
+
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within "#assembly_admins table" do
+        expect(page).to have_content("Administrator")
+      end
+    end
+
     it "deletes a assembly_user_role" do
       within find("#assembly_admins tr", text: other_user.email) do
         accept_confirm { click_link "Destroy" }
