@@ -410,6 +410,7 @@ en:
         answers_count: Completed Surveys
         assemblies_count: Assemblies
         comments_count: Comments
+        endorsements_count: Endorsements
         headline: Current state of %{organization}
         meetings_count: Meetings
         orders_count: Votes
