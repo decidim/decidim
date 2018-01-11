@@ -11,7 +11,7 @@ module Decidim
           "decidim.comments.events.comment_created.#{comment_type}.email_subject",
           resource_title: resource_title,
           resource_url: resource_locator.url(url_params),
-          author_name: comment.author.name
+          author_name: author.name
         )
       end
 
@@ -41,7 +41,9 @@ module Decidim
           "decidim.comments.events.comment_created.#{comment_type}.notification_title",
           resource_title: resource_title,
           resource_path: resource_locator.path(url_params),
-          author_name: comment.author.name
+          author_nickname: author.nickname,
+          author_name: author.name,
+          author_path: author.profile_path
         ).html_safe
       end
 
@@ -69,6 +71,10 @@ module Decidim
       end
 
       private
+
+      def author
+        @author ||= Decidim::UserPresenter.new(comment.author)
+      end
 
       def comment
         @comment ||= Decidim::Comments::Comment.find(extra[:comment_id])

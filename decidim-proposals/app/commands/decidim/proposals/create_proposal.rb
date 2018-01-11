@@ -35,6 +35,7 @@ module Decidim
         transaction do
           create_proposal
           create_attachment if process_attachments?
+          send_notification
         end
 
         send_notification_to_moderators
@@ -42,6 +43,17 @@ module Decidim
       end
 
       private
+
+      def send_notification
+        return if proposal.author.blank?
+
+        Decidim::EventsManager.publish(
+          event: "decidim.events.proposals.proposal_created",
+          event_class: Decidim::Proposals::CreateProposalEvent,
+          resource: proposal,
+          recipient_ids: proposal.author.followers.pluck(:id)
+        )
+      end
 
       attr_reader :form, :proposal, :attachment
 

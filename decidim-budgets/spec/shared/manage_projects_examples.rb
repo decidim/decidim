@@ -63,7 +63,7 @@ shared_examples "manage projects" do
     end
   end
 
-  it "creates a new project" do
+  it "creates a new project", :slow do
     find(".card-title a.button").click
 
     within ".new_project" do
@@ -83,7 +83,7 @@ shared_examples "manage projects" do
       )
       fill_in :project_budget, with: 22_000_000
 
-      select2 translated(scope.name), from: :project_decidim_scope_id
+      scope_pick scopes_picker_find(:project_decidim_scope_id), scope
       select translated(category.name), from: :project_decidim_category_id
 
       find("*[type=submit]").click

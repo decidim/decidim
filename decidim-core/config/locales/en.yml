@@ -70,6 +70,8 @@ en:
         name: Dummy authorization workflow
       errors:
         duplicate_authorization: A user is already authorized with the same data.
+      expired_at: Expired at %{timestamp}
+      expires_at: Expires at %{timestamp}
       foo_authorization:
         fields:
           bar: Bar
@@ -77,6 +79,7 @@ en:
         name: Foo authorization
       granted_at: Granted at %{timestamp}
       started_at: Started at %{timestamp}
+    contact: Contact
     core:
       actions:
         unauthorized: You are not authorized to perform this action
@@ -86,6 +89,7 @@ en:
           email_already_exists: Another account is using the same email address
         new:
           complete_profile: Complete profile
+          nickname_help: Your unique identifier in decidim.
           sign_up: Please complete your profile
           subtitle: Please fill in the following form in order to complete the sign up
           username_help: Public name that appears on your posts. With the aim of guaranteeing the anonymity, can be any name.
@@ -93,6 +97,7 @@ en:
         new:
           already_have_an_account?: Already have an account?
           newsletter_notifications: Receive information about relevant activity
+          nickname_help: Your unique identifier in decidim.
           sign_in: Log in
           sign_up: Sign up
           sign_up_as:
@@ -222,6 +227,8 @@ en:
     pages:
       index:
         title: More information
+    profiles:
+      default_officialization_text: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
     reported_mailer:
       hide:
         hello: Hello %{name},
@@ -237,8 +244,20 @@ en:
       create:
         error: An error ocurred while creating the report. Please, try it again.
         success: The report has been created successfully and it will be reviewed by an admin.
+    scopes:
+      global: Global scope
+      picker:
+        cancel: Cancel
+        choose: Select
+        title: Select %{field}
+      prompt: Select a scope
+      scopes: Scopes
     shared:
       action_authorization_modal:
+        expired:
+          authorize: Reauthorize with "%{authorization}"
+          explanation: Your authorization has expired. In order to perform this action, you need to be reauthorized with "%{authorization}".
+          title: Authorization has expired
         incomplete:
           cancel: Cancel
           explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
@@ -257,6 +276,8 @@ en:
           invalid: "%{field} isn't valid."
           ok: Ok
           title: Not authorized
+      author:
+        deleted: Deleted user
       embed_modal:
         close_window: Close window
         embed: Please paste this code in your page
@@ -289,6 +310,7 @@ en:
     invitations:
       edit:
         header: Set your password
+        nickname_help: Your unique identifier in decidim.
         submit_button: Save
     mailer:
       invitation_instructions:
@@ -355,6 +377,7 @@ en:
         conversations: Conversations
         notifications: Notifications
         profile: My account
+        public_profile: My public profile
         sign_out: Sign out
       user_profile:
         account: Account
@@ -386,7 +409,8 @@ en:
         participate: Participate
         welcome: Welcome to %{organization}!
       statistics:
-        answers_count: Answers
+        answers_count: Completed Surveys
+        assemblies_count: Assemblies
         comments_count: Comments
         headline: Current state of %{organization}
         meetings_count: Meetings
@@ -394,6 +418,7 @@ en:
         pages_count: Pages
         processes_count: Processes
         projects_count: Projects
+        proposals_accepted: Accepted Proposals
         proposals_count: Proposals
         results_count: Results
         surveys_count: Surveys

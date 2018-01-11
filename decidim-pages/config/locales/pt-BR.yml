@@ -1,0 +1,22 @@
+pt-BR:
+  decidim:
+    features:
+      pages:
+        name: Página
+        settings:
+          global:
+            announcement: Anúncio
+          step:
+            announcement: Anúncio
+    pages:
+      admin:
+        models:
+          components:
+            body: Corpo
+        pages:
+          edit:
+            save: Atualizar
+            title: Editar página
+          update:
+            invalid: Ocorreu erros ao salvar a página.
+            success: Página salva com sucesso.

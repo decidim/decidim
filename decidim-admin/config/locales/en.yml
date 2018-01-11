@@ -134,6 +134,12 @@ en:
       dashboard:
         show:
           welcome: Welcome to the Decidim Admin Panel.
+      events:
+        user_officialized_event:
+          email_intro: The <a href="%{profile_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
+          email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
+          email_subject: "%{nickname} updated their profile"
+          notification_title: The <a href="%{profile_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
       exports:
         export_as: "%{name} as %{export_format}"
         notice: Your export is currently in progress. You'll receive an email when it's complete.
@@ -215,12 +221,14 @@ en:
         dashboard: Dashboard
         managed_users: Managed users
         newsletters: Newsletters
+        officializations: Officializations
         scope_types: Scope types
         scopes: Scopes
         settings: Settings
         static_pages: Pages
         user_groups: User groups
         users: Users
+        navbar_links: Navbar links
       models:
         attachment:
           fields:
@@ -277,6 +285,10 @@ en:
             phone: Phone
             state: State
             users_count: Users count
+        navbar_link:
+          fields:
+            title: Title
+            link: Link
       moderations:
         index:
           title:
@@ -318,6 +330,33 @@ en:
         update:
           error: There's been an error updating this newsletter.
           success: Newsletter updated successfully. Please review it before sending.
+      officializations:
+        create:
+          success: User officialized successfully
+        destroy:
+          success: User unofficialized successfully
+        index:
+          actions: Actions
+          badge: Badge
+          created_at: Created At
+          filter:
+            all: All
+            not_officialized: Not officialized
+            officialized: Officialized
+          filter_by: Filter by
+          name: Name
+          nickname: Nickname
+          not_officialized: Not officialized
+          officialize: Officialize
+          officialized: Officialized
+          reofficialize: Reofficialize
+          search: Search
+          status: Status
+          unofficialize: Unofficialize
+        new:
+          badge: Officialization badge
+          officialize: Officialize
+          title: Officialize user "%{name}"
       organization:
         edit:
           title: Edit organization
@@ -395,11 +434,13 @@ en:
         dashboard: Dashboard
         impersonations: Impersonations
         managed_users: Managed users
+        officializations: Officializations
         scope_types: Scope types
         scopes: Scopes
         static_pages: Pages
         user_groups: User groups
         users: Users
+        navbar_links: Navbar links
       user_group:
         reject:
           invalid: There was an error when rejecting this user group.
@@ -434,6 +475,22 @@ en:
         new:
           create: Invite
           title: Invite user as administrator
+      navbar_links:
+        no_links: No links created
+        new:
+          title: New navbar link
+          create: Create
+        edit:
+          title: Edit navbar link
+          update: Update
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
+        destroy:
+          success: Link successfully destroyed
     moderations:
       actions:
         hidden: Hidden

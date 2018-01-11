@@ -12,6 +12,7 @@ ru:
       feature:
         name: Имя
         weight: Вес
+      id: Псевдоним
       newsletter:
         body: Основной текст
         subject: Тема
@@ -82,7 +83,7 @@ ru:
         title: Название
   date:
     formats:
-      datepicker: "%d. %m. %Y"
+      datepicker: "%d.%m.%Y"
   decidim:
     admin:
       actions:
@@ -92,7 +93,7 @@ ru:
         manage: Управлять
         permissions: Права
         reject: Отклонить
-        verify: Проверить
+        verify: Подтвердить личность
       attachments:
         create:
           error: При создании нового вложенного файла произошла ошибка.
@@ -213,6 +214,7 @@ ru:
         dashboard: Панель управления
         managed_users: Управляемые участники
         newsletters: Рассылки новостей
+        officializations: Предоставления официального статуса
         scope_types: Типы охвата
         scopes: Охваты
         settings: Настройки
@@ -312,6 +314,33 @@ ru:
         update:
           error: При обновлении этой рассылки новостей произошла ошибка.
           success: Рассылка новостей успешно обновлена. Пожалуйста, просмотрите её перед отправкой.
+      officializations:
+        create:
+          success: Участнику успешно предоставлен официальный статус
+        destroy:
+          success: Официальный стату участника успешно отменен
+        index:
+          actions: Действия
+          badge: Знак отличия
+          created_at: 'Создано:'
+          filter:
+            all: Все
+            not_officialized: Не имеет официального статуса
+            officialized: Имеет официальный статус
+          filter_by: 'Отобрать по признаку:'
+          name: Имя
+          nickname: Псевдоним
+          not_officialized: Не имеет официального статуса
+          officialize: Предоставить официальный статус
+          officialized: Имеет официальный статус
+          reofficialize: Вновь предоставить официальный статус
+          search: Искать
+          status: Состояние
+          unofficialize: Отменить официальный статус
+        new:
+          badge: Знак отличия официального статуса
+          officialize: Предоставить официальный статус
+          title: Предоставить официальный статус участнику "%{name}"
       organization:
         edit:
           title: Редактировать организацию
@@ -385,9 +414,11 @@ ru:
           error: При обновлении этой страницы произошла ошибка.
           success: Страница успешно обновлена
       titles:
+        authorization_workflows: Методы подтверждения личности
         dashboard: Панель управления
         impersonations: Выступления в роли участника
         managed_users: Управляемые участники
+        officializations: Предоставления официального статуса
         scope_types: Типы охвата
         scopes: Охваты
         static_pages: Страницы
@@ -398,8 +429,8 @@ ru:
           invalid: При отказе от этой группы участников произошла ошибка.
           success: Группа участников успешно отклонена
         verify:
-          invalid: При проверке этой группы участников произошла ошибка.
-          success: Группа участников успешно проверена
+          invalid: При подтверждении этой группы участников произошла ошибка.
+          success: Группа участников успешно подтверждена
       user_groups:
         index:
           filter:
@@ -465,5 +496,5 @@ ru:
           title: Участники
   time:
     formats:
-      datepicker: "%d. %m. %Y"
+      datepicker: "%d.%m.%Y"
       timepicker: "%H:%M %d.%m.%Y"

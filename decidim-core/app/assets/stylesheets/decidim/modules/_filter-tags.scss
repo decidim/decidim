@@ -7,9 +7,11 @@ $filter-tags-padding: .2rem;
 .filter-tags__title{
   margin-right: $filter-tags-padding * 2;
 }
+
 .filter-tags{
   margin-bottom: 1rem - $filter-tags-padding;
 }
+
 .filter-tag{
   display: inline-block;
   background-color: $filter-tags-color;
@@ -18,6 +20,7 @@ $filter-tags-padding: .2rem;
   margin-right: $filter-tags-padding * 2;
   margin-bottom: $filter-tags-padding;
 }
+
 .filter-tag__close{
   padding-left: .5rem;
   color: $body-font-color;

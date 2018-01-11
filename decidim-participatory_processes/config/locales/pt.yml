@@ -2,6 +2,7 @@ pt:
   activemodel:
     attributes:
       participatory_process:
+        announcement: Anúncio
         banner_image: Imagem da bandeira
         copy_categories: Cópiar categorias
         copy_features: Recursos de cópia
@@ -13,17 +14,18 @@ pt:
         hashtag: Hashtag
         hero_image: Imagem inicial
         local_area: Área Local
-        meta_scope: Metadados do escopo
+        meta_scope: Metadados do âmbito
         participatory_process_group_id: Grupo de processos
-        participatory_scope: Escopo participativo
+        participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
-        promoted: Promovido
-        scope_id: Escopo
-        scopes_enabled: Escopos ativados
+        promoted: Destacado
+        scope_id: Âmbito
+        scopes_enabled: Âmbitos ativados
         short_description: Pequena descrição
+        show_statistics: Mostre estatisticas
         slug: Slug de URL
         start_date: Data de início
-        subtitle: Legenda
+        subtitle: Subtítulo
         target: Alvo
         title: Título
       participatory_process_group:
@@ -48,7 +50,7 @@ pt:
         configure: Configurar
         confirm_destroy: Confirmar destruir
         destroy: Destruir
-        duplicate: Duplicado
+        duplicate: Duplicar
         edit: Editar
         new: Novo
         preview: Visualização
@@ -102,7 +104,7 @@ pt:
         new:
           copy: cópia de
           select: Selecione os dados que você gostaria de duplicar
-          title: Processo participativo duplicado
+          title: Duplicar processo participativo
       participatory_process_groups:
         destroy:
           success: Grupo de processo participativo destruído com sucesso.
@@ -110,7 +112,7 @@ pt:
           title: Editar grupo de processos
           update: Atualizar
         new:
-          create: Crio
+          create: Criar
           title: Novo grupo de processos
         update:
           error: Ocorreu um erro ao atualizar este grupo de processos participativos.
@@ -142,7 +144,7 @@ pt:
         index:
           steps_title: Passos
         new:
-          create: Crio
+          create: Criar
           title: Nova etapa de processo participativo
         ordering:
           error: Ocorreu um erro ao reordenar as etapas do processo participativo.
@@ -161,7 +163,7 @@ pt:
         index:
           process_admins_title: Usuários do processo participativo
         new:
-          create: Crio
+          create: Criar
           title: Novo usuário do processo participativo.
         update:
           error: Ocorreu um erro ao atualizar um usuário para esse processo participativo.
@@ -180,7 +182,7 @@ pt:
           not_published: Não publicado
           published: Publicados
         new:
-          create: Crio
+          create: Criar
           title: Novo processo participativo
         update:
           error: Ocorreu um erro ao atualizar este processo participativo.
@@ -217,6 +219,7 @@ pt:
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
         participatory_processes:
           form:
+            announcement_help: O texto que você insere aqui será mostrado ao usuário logo abaixo das informações do processo.
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para esse processo. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
       index:
         title: Processos participativos
@@ -230,7 +233,7 @@ pt:
           highlighted_processes:
             active_processes: Processos ativos
             active_step: Passo ativo
-            see_all_processes: Veja todos os processos
+            see_all_processes: Ver todos os processos
       participatory_process_groups:
         none: Nenhum
       participatory_processes:
@@ -242,7 +245,7 @@ pt:
         local_area: Área de organização
         participatory_scope: O que é decidido
         participatory_structure: Como é decidido
-        scope: Escopo
+        scope: Âmbito
         start_date: Data de início
         target: Quem participa
       statistics:
@@ -259,8 +262,6 @@ pt:
         surveys_count: pesquisas
         users_count: Participantes
         votes_count: Votos
-    scopes:
-      global: Escopo global
   layouts:
     decidim:
       participatory_process_groups:
@@ -289,4 +290,4 @@ pt:
         unfold: Desdobrar
       process_header_steps:
         step: Passo %{current} de %{total}
-        view_steps: Veja os passos
+        view_steps: Ver as etapas

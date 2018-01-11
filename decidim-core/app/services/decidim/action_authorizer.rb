@@ -20,8 +20,15 @@ module Decidim
     # Public: Broadcasts different events given the status of the authentication.
     #
     # Broadcasts:
-    #   failed       - When no valid authorization can be found.
-    #   unauthorized - When an authorization was found, but didn't match the credentials.
+    #   ok           - When everything is OK and the user is correctly authorized.
+    #   missing      - When no valid authorization can be found.
+    #   expired      - The validity time for the given authorization has run out, and
+    #                  needs to be re-validated.
+    #   pending      - When an authorization was found, but is not complete (eg. is
+    #                  waiting for admin manual confirmation).
+    #   invalid      - When an authorization was found, but the value of some of its fields
+    #                  is not the expected one (eg. the user is authorized for scope A,
+    #                  but this action is only for users in scope B).
     #   incomplete   - An authorization was found, but lacks some required fields. User
     #                  should re-authenticate.
     #
@@ -41,6 +48,8 @@ module Decidim
         :ok
       elsif !authorization
         :missing
+      elsif authorization_expired?
+        :expired
       elsif !authorization.granted?
         :pending
       elsif unmatched_fields.any?
@@ -53,18 +62,22 @@ module Decidim
     end
 
     def status(status_code, data = {})
-      AuthorizationStatus.new(status_code, authorization_handler_name, data)
+      AuthorizationStatus.new(status_code, authorization_handler, data)
     end
 
     attr_reader :user, :feature, :action
 
     def authorization
       return nil unless user
+      return nil unless authorization_handler_name
 
-      handler = permission["authorization_handler_name"]
-      return nil unless handler
+      @authorization ||= Verifications::Authorizations.new(user: user, name: authorization_handler_name).first
+    end
 
-      @authorization ||= Verifications::Authorizations.new(user: user, name: handler).first
+    def authorization_handler
+      return unless authorization_handler_name
+
+      @authorization_handler ||= Verifications::Adapter.from_element(authorization_handler_name)
     end
 
     def unmatched_fields
@@ -96,35 +109,35 @@ module Decidim
       @permission ||= feature.permissions&.fetch(action, nil)
     end
 
+    def authorization_expired?
+      return false if authorization.expires_at.blank?
+
+      authorization.expired?
+    end
+
     class AuthorizationStatus
       attr_reader :code, :data
 
-      def initialize(code, handler_name, data)
+      def initialize(code, authorization_handler, data)
         @code = code.to_sym
-        @handler_name = handler_name
+        @authorization_handler = authorization_handler
         @data = data.symbolize_keys
       end
 
-      def auth_method
-        return unless @handler_name
-
-        @auth_method ||= Verifications::Adapter.from_element(@handler_name)
-      end
-
       def current_path(redirect_url: nil)
-        return unless auth_method
+        return unless @authorization_handler
 
         if pending?
-          auth_method.resume_authorization_path(redirect_url: redirect_url)
+          @authorization_handler.resume_authorization_path(redirect_url: redirect_url)
         else
-          auth_method.root_path(redirect_url: redirect_url)
+          @authorization_handler.root_path(redirect_url: redirect_url)
         end
       end
 
       def handler_name
-        return unless auth_method
+        return unless @authorization_handler
 
-        auth_method.key
+        @authorization_handler.key
       end
 
       def ok?

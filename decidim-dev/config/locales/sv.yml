@@ -1,0 +1,9 @@
+sv:
+  decidim:
+    dummy:
+      admin:
+        exports:
+          dummies: Dummies
+    resource_links:
+      test_link:
+        dummy_resource_dummy: Relaterad dummy

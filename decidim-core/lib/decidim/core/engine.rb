@@ -56,6 +56,7 @@ module Decidim
       end
 
       initializer "decidim.assets" do |app|
+        app.config.assets.paths << File.expand_path("../../../app/assets/stylesheets", __dir__)
         app.config.assets.precompile += %w(decidim_core_manifest.js)
 
         Decidim.feature_manifests.each do |feature|
@@ -151,7 +152,15 @@ module Decidim
                     decidim.pages_path,
                     position: 3,
                     active: :inclusive
+          current_organization.navbar_links.each do |navbar_link|
+            menu.item translated_attribute(navbar_link.title),
+                      navbar_link.link,
+                      position: 5,
+                      active: :exact,
+                      target: navbar_link.target
+          end
         end
+
       end
 
       initializer "decidim.user_menu" do

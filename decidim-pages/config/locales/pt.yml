@@ -16,7 +16,7 @@ pt:
         pages:
           edit:
             save: Atualizar
-            title: Editar Página
+            title: Editar página
           update:
             invalid: Ocorreu erros ao salvar a página.
             success: Página salva com sucesso.

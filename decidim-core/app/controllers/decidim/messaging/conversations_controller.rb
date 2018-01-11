@@ -8,7 +8,6 @@ module Decidim
       include FormFactory
 
       helper ConversationHelper
-      helper Decidim::DatetimeHelper
 
       before_action :authenticate_user!
 

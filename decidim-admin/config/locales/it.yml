@@ -83,7 +83,7 @@ it:
         title: Titolo
   date:
     formats:
-      datepicker: "%m / %d / %Y"
+      datepicker: "%m/%d/%Y"
   decidim:
     admin:
       actions:
@@ -214,6 +214,7 @@ it:
         dashboard: Cruscotto (Dashboard)
         managed_users: Utenti gestiti
         newsletters: Newsletters
+        officializations: Officializations
         scope_types: Tipi di ambito
         scopes: Visibilità/ambito (Scopes)
         settings: Impostazioni
@@ -313,6 +314,33 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa newsletter.
           success: OK, la Newsletter è stata aggiornata. Conviene controllarla prima di inviarla.
+      officializations:
+        create:
+          success: Utente ufficializzato con successo
+        destroy:
+          success: Utente non ufficiale con successo
+        index:
+          actions: Azioni
+          badge: Distintivo
+          created_at: Creato a
+          filter:
+            all: Tutti
+            not_officialized: Non ufficializzato
+            officialized: ufficializzato
+          filter_by: Filtra per
+          name: Nome
+          nickname: soprannome
+          not_officialized: Non ufficializzato
+          officialize: ufficializzare
+          officialized: ufficializzato
+          reofficialize: Reofficialize
+          search: Ricerca
+          status: Stato
+          unofficialize: Unofficialize
+        new:
+          badge: Distintivo di ufficializzazione
+          officialize: ufficializzare
+          title: Utente ufficiale "%{name}"
       organization:
         edit:
           title: Modifica l'organizzazione
@@ -390,6 +418,7 @@ it:
         dashboard: Cruscotto (Dashboard)
         impersonations: impersonations
         managed_users: Utenti gestiti
+        officializations: Officializations
         scope_types: Tipi di ambito
         scopes: Ambiti
         static_pages: Pagine
@@ -467,5 +496,5 @@ it:
           title: Utenti
   time:
     formats:
-      datepicker: "%m / %d / %Y"
-      timepicker: "%m / %d / %Y %H:%M"
+      datepicker: "%m/%d/%Y"
+      timepicker: "%m/%d/%Y %H:%M"

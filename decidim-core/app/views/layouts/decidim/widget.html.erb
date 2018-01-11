@@ -30,17 +30,22 @@
                 <h5 class="card__title"><%= content_for(:title) %></h5>
               <% end %>
               <% if model.try(:author) %>
-                <div class="card__author author-data author-data--small">
-                  <div class="author-data__main">
-                    <div class="author author--inline">
-                      <span class="author__avatar author__avatar--small">
-                        <%= image_tag model.author_avatar_url %>
-                      </span>
-                      <span class="author__name"><%= model.author_name %></span>
-                      <%= l model.created_at, format: "%d/%m/%Y" %>
+                <% present(model.author) do |user| %>
+                  <div class="card__author author-data author-data--small">
+                    <div class="author-data__main">
+                      <div class="author author--inline">
+                        <span class="author__avatar author__avatar--small">
+                          <%= image_tag user.avatar_url %>
+                        </span>
+                        <span class="author__name">
+                          <strong><%= user.name %></strong>
+                          <%= user.nickname %>
+                        </span>
+                        <%= l model.created_at, format: "%d/%m/%Y" %>
+                      </div>
                     </div>
                   </div>
-                </div>
+                <% end %>
               <% end %>
             </div>
             <%= yield %>

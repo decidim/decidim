@@ -5,9 +5,9 @@ fr:
         comment_created:
           comment:
             email_intro: '"%{resource_title}" a été commenté. Vous pouvez lire le commentaire de cette page:'
-            email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
+            email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre à partir du lien précédent.
             email_subject: Un nouveau commentaire a été publié par %{author_name} dans %{resource_title}
-            notification_title: Nouveau commentaire de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
+            notification_title: Il y a un nouveau commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
             url: "Url du commentaire : %{resource_url}"
             moderation:
               email_intro: "%{author_name} a publié un nouveau commentaire sur"
@@ -15,9 +15,9 @@ fr:
               moderation_url: "Vous pouvez modérer le contenu en suivant ce lien : %{moderation_url}"
           reply:
             email_intro: '"%{resource_title}" a reçu un commentaire'
-            email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
+            email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre à partir du lien précédent.
             email_subject: Votre commentaire a reçu une réponse de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Votre commentaire a reçu une réponse de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
+            notification_title: Il y a une nouvelle réponse à votre commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
             url: "Url du commentaire : %{resource_url}"
             moderation:
               email_intro: "%{author_name} a publié un nouveau commentaire sur"
@@ -59,7 +59,6 @@ fr:
             offensive: Contient des propos racistes, sexistes, des insultes, des attaques personnelles, des menaces de mort, des incitations au suicide ou toute forme de discours de haine.
             spam: Contient des piège-à-clic (clickbait), des publicités, des escroqueries ou des robots fonctionnant au script (script bots).
           title: Signaler un problème
-        verified_user_group: Organisation vérifiée
       comment_order_selector:
         order:
           best_rated: Les mieux notés

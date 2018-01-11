@@ -124,7 +124,7 @@ pl:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Przedmiot
+            subject: Zaproszenie do przyłączenia się do spotkania
         registration_mailer:
           confirmation:
             subject: Swoje spotkania rejestracja zostanie potwierdzona
@@ -134,8 +134,6 @@ pl:
           category_prompt: Wybierz kategorię
           date: Data
           past: Przeszłe
-          scope_prompt: Wybierz zakres
-          scopes: Zakresy
           search: Szukaj
           upcoming: Nadchodzące
         filters_small_view:
@@ -193,4 +191,4 @@ pl:
   devise:
     mailer:
       join_meeting:
-        subject: Przedmiot
+        subject: Zaproszenie do przyłączenia się do spotkania

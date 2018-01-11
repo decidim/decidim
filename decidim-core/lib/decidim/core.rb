@@ -29,6 +29,8 @@ module Decidim
   autoload :HasScope, "decidim/has_scope"
   autoload :HasCategory, "decidim/has_category"
   autoload :Followable, "decidim/followable"
+  autoload :FriendlyDates, "decidim/friendly_dates"
+  autoload :Nicknamizable, "decidim/nicknamizable"
   autoload :HasReference, "decidim/has_reference"
   autoload :Attributes, "decidim/attributes"
   autoload :StatsRegistry, "decidim/stats_registry"
@@ -87,7 +89,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ca es eu it fi fr nl uk ru)
+    %w(en ca es eu fi fr gl it nl pt pr-BR ru sv uk)
   end
 
   # Exposes a configuration option: The application default locale.
@@ -148,6 +150,43 @@ module Decidim
   # want to use the same uploads place for both staging and production
   # environments, but in different folders.
   config_accessor :base_uploads_path
+
+  # Public: Registers a global engine. This method is intended to be used
+  # by feature engines that also offer unscoped functionality
+  #
+  # name    - The name of the engine to register. Should be unique.
+  # engine  - The engine to register.
+  # options - Options to pass to the engine.
+  #           :at - The route to mount the engine to.
+  #
+  # Returns nothing.
+  def self.register_global_engine(name, engine, options = {})
+    return if global_engines.keys.include?(name)
+
+    options[:at] ||= "/#{name}"
+
+    global_engines[name.to_sym] = {
+      at: options[:at],
+      engine: engine
+    }
+  end
+
+  # Semiprivate: Removes a global engine from the registry. Mostly used on testing,
+  # no real reason to use this on production.
+  #
+  # name - The name of the global engine to remove.
+  #
+  # Returns nothing.
+  def self.unregister_global_engine(name)
+    global_engines.delete(name.to_sym)
+  end
+
+  # Public: Finds all registered engines via the 'register_global_engine' method.
+  #
+  # Returns an Array[::Rails::Engine]
+  def self.global_engines
+    @global_engines ||= {}
+  end
 
   # Public: Registers a feature, usually held in an external library or in a
   # separate folder in the main repository. Exposes a DSL defined by

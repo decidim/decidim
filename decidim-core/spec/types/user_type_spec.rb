@@ -12,24 +12,60 @@ module Decidim
     describe "name" do
       let(:query) { "{ name }" }
 
-      it "returns all the required fields" do
+      it "returns the user's name" do
         expect(response).to include("name" => model.name)
       end
     end
 
-    describe "isVerified" do
-      let(:query) { "{ isVerified }" }
+    describe "nickname" do
+      let(:query) { "{ nickname }" }
 
-      it "returns false" do
-        expect(response).to include("isVerified" => false)
+      it "returns a presentable user's nickname" do
+        expect(response).to include("nickname" => "@#{model.nickname}")
+      end
+    end
+
+    describe "badge" do
+      let(:query) { "{ badge }" }
+
+      context "when the user is officialized" do
+        let(:model) { create(:user, :officialized) }
+
+        it "returns the icon to use for the verification badge" do
+          expect(response).to include("badge" => "verified-badge")
+        end
+      end
+
+      context "the user is not officialized" do
+        let(:model) { create(:user) }
+
+        it "returns empty" do
+          expect(response).to include("badge" => "")
+        end
       end
     end
 
     describe "avatarUrl" do
       let(:query) { "{ avatarUrl }" }
 
-      it "returns the user avatar url" do
-        expect(response).to include("avatarUrl" => model.avatar.url)
+      it "returns the user avatar url (small version)" do
+        expect(response).to include("avatarUrl" => model.avatar.url(:thumb))
+      end
+    end
+
+    describe "profilePath" do
+      let(:query) { "{ profilePath }" }
+
+      it "returns the user profile path" do
+        expect(response).to include("profilePath" => "/profiles/#{model.nickname}")
+      end
+
+      context "when user is deleted" do
+        let(:model) { create(:user, :deleted) }
+
+        it "returns empty" do
+          expect(response).to include("profilePath" => "")
+        end
       end
     end
 

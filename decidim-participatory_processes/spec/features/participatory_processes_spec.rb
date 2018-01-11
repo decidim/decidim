@@ -118,7 +118,7 @@ describe "Participatory Processes", type: :feature do
     end
 
     context "and filtering processes" do
-      context "choosing 'active' processes" do
+      context "and choosing 'active' processes" do
         before do
           within ".order-by__tabs" do
             click_link "Active"
@@ -167,7 +167,7 @@ describe "Participatory Processes", type: :feature do
         end
       end
 
-      context "choosing 'all' processes" do
+      context "and choosing 'all' processes" do
         before do
           within ".order-by__tabs" do
             click_link "All"

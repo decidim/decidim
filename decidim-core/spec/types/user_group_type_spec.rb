@@ -25,6 +25,14 @@ module Decidim
       end
     end
 
+    describe "nickname" do
+      let(:query) { "{ nickname }" }
+
+      it "returns an empty string since user groups have no nickname yet" do
+        expect(response).to include("nickname" => "")
+      end
+    end
+
     describe "avatarUrl" do
       let(:query) { "{ avatarUrl }" }
 
@@ -33,22 +41,30 @@ module Decidim
       end
     end
 
-    describe "isVerified" do
-      let(:query) { "{ isVerified }" }
+    describe "profilePath" do
+      let(:query) { "{ profilePath }" }
+
+      it "returns the empty string since user groups have no public profile yet" do
+        expect(response).to include("profilePath" => "")
+      end
+    end
+
+    describe "badge" do
+      let(:query) { "{ badge }" }
 
       context "when the user group is verified" do
         let(:model) { create(:user_group, :verified) }
 
-        it "returns true" do
-          expect(response).to include("isVerified" => true)
+        it "returns the icon to use for the verification badge" do
+          expect(response).to include("badge" => "verified-badge")
         end
       end
 
       context "when the user group is not verified" do
         let(:model) { create(:user_group, :rejected) }
 
-        it "returns false" do
-          expect(response).to include("isVerified" => false)
+        it "returns empty" do
+          expect(response).to include("badge" => "")
         end
       end
     end

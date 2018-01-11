@@ -9,6 +9,7 @@ module Decidim
       include Decidim::Reportable
       include Decidim::Authorable
       include Decidim::Comments::Commentable
+      include Decidim::FriendlyDates
 
       # Limit the max depth of a comment tree. If C is a comment and R is a reply:
       # C          (depth 0)

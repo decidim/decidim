@@ -124,7 +124,7 @@ es:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Asunto
+            subject: Invitación a unirse a una reunión
         registration_mailer:
           confirmation:
             subject: La inscripción a tu encuentro ha sido confirmada
@@ -134,8 +134,6 @@ es:
           category_prompt: Selecciona una categoría
           date: Fecha
           past: Pasadas
-          scope_prompt: Seleccione un ámbito
-          scopes: Ámbitos
           search: Buscar
           upcoming: Próximas
         filters_small_view:
@@ -192,4 +190,4 @@ es:
   devise:
     mailer:
       join_meeting:
-        subject: Asunto
+        subject: Invitación a unirse a una reunión

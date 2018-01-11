@@ -3,19 +3,14 @@
     <% if @granted_authorizations.any? %>
       <div class="card card--list">
         <% @granted_authorizations.each do |authorization| %>
-          <div class="card--list__item">
-            <div class="card--list__text">
-              <%= icon "lock-unlocked", class: "card--list__icon" %>
-              <div>
-                <h5 class="card--list__heading">
-                  <%= t("#{authorization.name}.name", scope: "decidim.authorization_handlers") %>
-                </h5>
-                <span class="text-small">
-                  <%= t("granted_at", scope: "decidim.authorization_handlers", timestamp: l(authorization.granted_at, format: :long)) %>
-                </span>
-              </div>
-            </div>
-          </div>
+          <% if authorization.expired? %>
+            <% authorization_method = Decidim::Verifications::Adapter.from_element(authorization.name) %>
+            <%= link_to authorization_method.root_path do %>
+              <% render partial: "granted_authorization", locals: { authorization: authorization } %>
+            <% end %>
+          <% else %>
+            <%= render partial: "granted_authorization", locals: { authorization: authorization } %>
+          <% end %>
         <% end %>
       </div>
     <% end %>

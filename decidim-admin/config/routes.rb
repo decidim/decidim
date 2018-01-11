@@ -16,6 +16,8 @@ Decidim::Admin::Engine.routes.draw do
       resources :scopes, except: [:show]
     end
 
+    resources :navbar_links
+
     resources :authorization_workflows, only: :index
 
     Decidim.authorization_admin_engines.each do |manifest|
@@ -27,6 +29,8 @@ Decidim::Admin::Engine.routes.draw do
         post :resend_invitation, to: "users#resend_invitation"
       end
     end
+
+    resources :officializations, only: [:new, :create, :index, :destroy], param: :user_id
 
     resources :managed_users, controller: "managed_users", except: [:edit, :update] do
       resources :promotions, controller: "managed_users/promotions", only: [:new, :create]

@@ -11,7 +11,6 @@
       this.$form = $form;
       this.id = this.$form.attr('id') || this._getUID();
       this.mounted = false;
-      this.select2Filters = [];
 
       this._onFormChange = this._onFormChange.bind(this);
       this._onPopState = this._onPopState.bind(this);
@@ -32,10 +31,7 @@
     unmountComponent() {
       if (this.mounted) {
         this.mounted = false;
-        this.$form.off('change', 'input:not(.select2-search__field), select', this._onFormChange);
-        this.select2Filters.forEach((select) => {
-          select.destroy();
-        });
+        this.$form.off('change', 'input, select', this._onFormChange);
 
         exports.Decidim.History.unregisterCallback(`filters-${this.id}`)
       }
@@ -49,14 +45,10 @@
     mountComponent() {
       if (this.$form.length > 0 && !this.mounted) {
         this.mounted = true;
-        let select2Filters = this.select2Filters;
-        this.$form.find('select.select2').each(function(index, select) {
-          select2Filters.push(new window.Decidim.Select2Field(select));
-        });
-        this.$form.on('change', 'input:not(.select2-search__field), select', this._onFormChange);
+        this.$form.on('change', 'input, select', this._onFormChange);
 
-        exports.Decidim.History.registerCallback(`filters-${this.id}`, () => {
-          this._onPopState();
+        exports.Decidim.History.registerCallback(`filters-${this.id}`, (state) => {
+          this._onPopState(state);
         });
       }
     }
@@ -142,7 +134,9 @@
     _clearForm() {
       this.$form.find('input[type=checkbox]').attr('checked', false);
       this.$form.find('input[type=radio]').attr('checked', false);
-      this.$form.find('select.select2').val(null).trigger('change.select2');
+      this.$form.find('.data-picker').each((_index, picker) => {
+        exports.theDataPicker.clear(picker);
+      });
 
       // This ensure the form is reset in a valid state where a fieldset of
       // radio buttons has the first selected.
@@ -155,9 +149,10 @@
     /**
      * Handles the logic when going back to a previous state in the filter form.
      * @private
+     * @param {Object} state - state stored along with location URL
      * @returns {Void} - Returns nothing.
      */
-    _onPopState() {
+    _onPopState(state) {
       this._clearForm();
 
       const filterParams = this._parseLocationFilterValues();
@@ -184,15 +179,19 @@
             field = this.$form.find(`input#filter_${fieldId},select#filter_${fieldId}`);
 
             if (field.length > 0) {
-              if (field.hasClass("select2")) {
-                field.val(filterParams[fieldId]).trigger('change.select2');
-              } else {
-                field.val(filterParams[fieldId]);
-              }
+              field.val(filterParams[fieldId]);
             }
           }
         });
       }
+
+      // Retrieves picker information for selected values (value, text and link) from the state object
+      $(".data-picker", this.$form).each((_index, picker) => {
+        let pickerState = state[picker.id];
+        if (pickerState) {
+          exports.theDataPicker.load(picker, pickerState);
+        }
+      })
 
       // Only one instance should submit the form on browser history navigation
       if (this.popStateSubmiter) {
@@ -210,6 +209,7 @@
       const params = this.$form.serialize();
 
       let newUrl = '';
+      let newState = {};
 
       exports.Rails.fire(this.$form[0], 'submit');
 
@@ -219,7 +219,12 @@
         newUrl = `${formAction}&${params}`;
       }
 
-      exports.Decidim.History.pushState(newUrl);
+      // Stores picker information for selected values (value, text and link) in the state object
+      $(".data-picker", this.$form).each((_index, picker) => {
+        newState[picker.id] = exports.theDataPicker.save(picker);
+      })
+
+      exports.Decidim.History.pushState(newUrl, newState);
     }
 
     /**

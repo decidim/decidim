@@ -2,6 +2,67 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+**Upgrade notes**:
+
+Since uglifier `4.0.0`, we need to set `harmony: true` as options in uglifier. This means
+you need to change the following line in `config/environments/production.rb`:
+
+```diff
+- config.assets.js_compressor = :uglifier
++ config.assets.js_compressor = Uglifier.new(:harmony => true)
+```
+
+**Added**:
+- **decidim-proposals**: Improve proposals admin panel usability (sorting). [\2419](https://github.com/decidim/decidim/pull/2419)
+- **decidim-core**: Follow users and get notifications about their actions. [\2401](https://github.com/decidim/decidim/pull/2401) and [\2452](https://github.com/decidim/decidim/pull/2452)
+- **decidim-core**: Add unique nicknames for participants. [\2360](https://github.com/decidim/decidim/pull/2360)
+- **decidom-admin**: Let admins officialize certain users from the admin dashboard and specify custom officialization text for them. [\2405](https://github.com/decidim/decidim/pull/2405)
+- **decidim-core**: Public profile page for participants, including name, nickname, follow button, avatar and officialization badge & text. [\2391](https://github.com/decidim/decidim/pull/2391), [\2360](https://github.com/decidim/decidim/pull/2360), [\2401](https://github.com/decidim/decidim/pull/2401) and [\2405](https://github.com/decidim/decidim/pull/2405).
+- **decidim-core**: Add a way for space manifests to publicize how to retrieve public spaces for a given organization [\#2384](https://github.com/decidim/decidim/pull/2384)
+- **decidim-participatory_processes**: Add missinng translations for processes [\#2380](https://github.com/decidim/decidim/pull/2380)
+- **decidim-verifications**: Let developers specify for how long authorizations are valid. After this space of time passes, authorizations expire and users need to re-authorize [\#2311](https://github.com/decidim/decidim/pull/2311)
+- **decidim**: Scopes picker that allows hierarchical browsing scope to select them ([\#2330](https://github.com/decidim/decidim/pull/2330)).
+  This picker was used to replace all Select2 based scope selectors. Any module using the Select2 scope selector should replace this:
+  ```erb
+   <%= form.scopes_select :scope_id, prompt: t("decidim.scopes.global"), remote_path: decidim.scopes_search_path %>
+  ```
+  with this:
+  ```erb
+  <%= scopes_picker_field form, :scope_id %>
+  ```
+  or this, for filter scopes picker:
+  ```erb
+  <%= scopes_picker_filter form, :scope_id %>
+  ```
+
+**Changed**:
+
+**Fixed**:
+
+- **decidim-core**: Prevent many conversation with the same participants at the UI level. [\#2376](https://github.com/decidim/decidim/pull/2376)
+- **decidim-admin**: Admins no longer being able to impersonate a second time. [\#2372](https://github.com/decidim/decidim/pull/2372)
+- **decidim-admin**: User impersonation should only use authorization handlers and not authorization workflows. [\#2363](https://github.com/decidim/decidim/pull/2363)
+- **decidim-budgets**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
+- **decidim-core**: Impossible to access conversation page from mobile devices. [\#2364](https://github.com/decidim/decidim/pull/2364)
+- **decidim-core**: Update home page stat categories [\#2221](https://github.com/decidim/decidim/pull/2221)
+- **decidim-core**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
+- **decidim-core**: Clean conversations textarea after sending a private message [\#2379](https://github.com/decidim/decidim/pull/2379)
+- **decidim-meetings**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
+- **decidim-proposals**: Do not allow attachments on proposals edition [\#2221](https://github.com/decidim/decidim/pull/2221)
+- **decidim-proposals**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
+- **decidim-proposals**: Fix missing icon on proposal reply.
+- **decidim-proposals**: Fix missing icon on proposal admin index.
+- **decidim-surveys**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
+- **decidim-surveys**: Updated icon for surveys feature [\#2433](https://github.com/decidim/decidim/pull/2433)
+- **decidim-verifications**: Fixed a migration that broke feature permissions. If you already upgraded to `0.8.2` or less, please follow the instructions on the PR [\#2373](https://github.com/decidim/decidim/pull/2373)
+
+**Removed**
+- **decidim**: Select2 JS library and scope selector based on Select2.
+
+## [v0.8.0](https://github.com/decidim/decidim/tree/v0.8.0) (2017-12-4)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.7.0...v0.8.0)
+[Migration guide](https://github.com/decidim/decidim/blob/master/docs/migrate_to_0.8.0.md)
+
 **Added**:
 
 **Changed**:
@@ -54,6 +115,7 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-assemblies**: Show promoted assemblies in the homepage [\#2162](https://github.com/decidim/decidim/pull/2162)
 - **decidim-core**: Add support for extending the user profile menu. [\#2193](https://github.com/decidim/decidim/pull/2193)
 - **decidim-core**: Add view hooks so external engines can extend the homepage and other sections with their own code [\#2114](https://github.com/decidim/decidim/pull/2114)
+- **decidim-core**: Add the ability to register Global Engines that sit at the root of the project. [\#2194](https://github.com/decidim/decidim/pull/2194)
 - **decidim-core**: Private one to one conversations [\#2186](https://github.com/decidim/decidim/pull/2186)
 - **decidim-proposals**: Admins can set a minute window after the creation of a proposal in which the proposal can be edited by its author. Once the window has passed, it cannot be edited. [\#2171](https://github.com/decidim/decidim/pull/2171)
 - **decidim-verifications**: Support for deferred verification methods that require several steps in order to be granted. [\#2024](https://github.com/decidim/decidim/pull/2024)

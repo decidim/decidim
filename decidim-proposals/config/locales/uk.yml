@@ -81,11 +81,19 @@ uk:
       create:
         error: При збереженні цієї пропозиції сталися помилки.
         success: Пропозицію успішно додано.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Доброго дня! 
+            %{author_name} %{author_nickname}, за яким ви стежите, вніс нову пропозицію. Прочитайте її та зробіть свій внесок:
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: Нова пропозиція від %{author_nickname}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> вніс пропозицію <a href="%{resource_path}">%{resource_title}</a>.
       models:
         proposal:
           fields:
             category: Розділ
-            id: Ідентифікатор
+            id: Псевдонім
             official_proposal: Офіційна пропозиція
             scope: Терен
             state: Стан
@@ -97,9 +105,6 @@ uk:
         create:
           error: При голосуванні пропозиції сталися помилки.
       proposals:
-        author:
-          deleted: Видалений учасник
-          verified_user_group: Перевірена організація
         count:
           proposals_count:
             one: 1 пропозиція
@@ -107,7 +112,6 @@ uk:
             many: "%{count} пропозицій"
             other: "%{count} пропозицій"
         edit:
-          attachment_legend: "(Необов'язково) Додати вкладений файл"
           back: Назад
           select_a_category: Будь ласка, оберіть розділ
           send: Надіслати
@@ -124,8 +128,6 @@ uk:
           origin: Джерело
           rejected: Відхилено
           related_to: Пов'язане з
-          scope_prompt: Оберіть терен
-          scopes: Терени
           search: Шукати
           state: Стан
           voted: Проголосоване
@@ -160,6 +162,7 @@ uk:
           random: Довільно
           recent: Нещодавні
         proposal:
+          creation_date: 'Створено: %{date}'
           view_proposal: Переглянути пропозицію
         show:
           edit_proposal: Редагувати пропозицію

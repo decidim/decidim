@@ -1,0 +1,69 @@
+sv:
+  decidim:
+    comments:
+      events:
+        comment_created:
+          comment:
+            email_intro: '"%{resource_title}" har kommenterats. Du kan läsa kommentaren på den här sidan:'
+            email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
+            email_subject: Det finns en ny kommentar från %{author_name} på %{resource_title}
+            notification_title: Det finns en ny kommentar från %{author_name} i <a href="%{resource_path}">%{resource_title}</a>
+          reply:
+            email_intro: '"%{resource_title}" har kommenterats'
+            email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
+            email_subject: Det finns ett nytt svar på din kommentar från %{author_name} i <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Det finns ett nytt svar på din kommentar från %{author_name} i <a href="%{resource_path}">%{resource_title}</a>
+      votes:
+        create:
+          error: Det har varit fel när du röstar kommentaren.
+    components:
+      add_comment_form:
+        account_message: <a href="%{sign_in_url}"> Logga in med ditt konto</a> eller <a href="%{sign_up_url}">sign up</a> för att lägga till din kommentar.
+        form:
+          body:
+            label: Kommentar
+            placeholder: Vad tycker du om detta?
+          form_error: Texten är obligatorisk och den kan inte vara längre än %{length} tecken.
+          submit: Skicka
+          user_group_id:
+            label: Kommentera som
+        opinion:
+          neutral: Neutral
+        remaining_characters: "%{count} tecken kvar"
+        remaining_characters_1: "%{count} tecken kvar"
+        title: Lägg till din kommentar
+      comment:
+        alignment:
+          against: Mot
+          in_favor: Till förmån för
+        deleted_user: Ta bort användare
+        reply: Svar
+        report:
+          action: Rapportera
+          already_reported: Det här innehållet är redan rapporterat och det kommer att granskas av en administratör.
+          close: Stänga
+          description: Är detta innehåll olämpligt?
+          details: Ytterligare kommentarer
+          reasons:
+            does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tror inte hör hemma på %{organization_name}.
+            offensive: Innehåller rasism, sexism, slurkar, personliga attacker, dödshot, självmordsförfrågningar eller någon form av hattal.
+            spam: Innehåller clickbait, reklam, bedrägerier eller skriptrobotar.
+          title: Rapportera ett problem
+      comment_order_selector:
+        order:
+          best_rated: Bästa betyg
+          most_discussed: Mest diskuterat
+          older: Äldre
+          recent: Nyligen
+        title: 'Sortera efter:'
+      comment_thread:
+        title: Samtal med %{authorName}
+      comments:
+        blocked_comments_warning: Kommentarer är inaktiverade just nu, men du kan läsa de föregående.
+        loading: Laddar kommentarer ...
+        title: "%{count} kommentarer"
+      featured_comment:
+        title: Utvalda kommentarer
+  errors:
+    messages:
+      cannot_have_comments: kan inte ha kommentarer

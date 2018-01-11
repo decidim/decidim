@@ -4,7 +4,7 @@ uk:
       result:
         decidim_accountability_status_id: стан
         decidim_category_id: Розділ
-        decidim_scope_id: Обсяг
+        decidim_scope_id: Терен
         description: Опис
         end_date: Дата закінчення
         progress: Перебіг
@@ -121,7 +121,7 @@ uk:
         filters:
           all: Усі
           global: Загальний
-          scopes: Обсяги
+          scopes: Терени
         home:
           categories_label: Розділи
           subcategories_label: Підрозділи
@@ -146,12 +146,18 @@ uk:
             version_author: Автор версії
             version_created_at: 'Версію створено:'
             version_number: Номер версії
+            version_number_out_of_total: "%{current_version}-й крок з %{total_count} кроків"
             votes: Підтримує
         timeline:
           title: Розвиток проекту
       versions:
         index:
+          changes_at_title: Зміни в "%{title}"
           title: Версії
+        show:
+          changes_at_title: Зміни в "%{title}"
+        version:
+          version_index: Версія %{index}
     features:
       accountability:
         name: Звітність

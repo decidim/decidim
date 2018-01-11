@@ -32,8 +32,8 @@ it:
             title: Modifica il progetto
             update: Aggiorna
           index:
-            finished_orders: Voti conclusi
-            pending_orders: Voti in sospeso
+            finished_orders: Votazione finale
+            pending_orders: Votazione pendente
             title: Progetti
           new:
             create: Crea
@@ -73,8 +73,6 @@ it:
         filters:
           category: Categoria
           category_prompt: Scegli una categoria
-          scope_prompt: Selezionare un ambito
-          scopes: Visibilità/ambito
           search: Cerca
         filters_small_view:
           close_modal: Chiudi modalità

@@ -37,18 +37,6 @@ module Decidim
 
         it { is_expected.not_to be_valid }
       end
-
-      context "when the authorization already exists for another user" do
-        before do
-          Decidim::Authorization.create!(
-            user: create(:user, organization: organization),
-            name: authorization[:handler_name],
-            unique_id: authorization[:document_number]
-          )
-        end
-
-        it { is_expected.not_to be_valid }
-      end
     end
   end
 end

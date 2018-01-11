@@ -8,6 +8,8 @@ module Decidim
     # message, namely, the interlocutors of the sender in the conversation.
     #
     class Message < ApplicationRecord
+      include Decidim::FriendlyDates
+
       belongs_to :sender,
                  foreign_key: :decidim_sender_id,
                  class_name: "Decidim::User"

@@ -6,6 +6,7 @@ $margin-l: 5rem;
 //Sections
 .section{
   margin-bottom: $margin-sm;
+
   @include breakpoint(large){
     margin-bottom: $margin-m;
   }

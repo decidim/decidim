@@ -75,6 +75,7 @@ module Decidim
           provider: oauth_data[:provider],
           uid: oauth_data[:uid],
           name: oauth_data[:info][:name],
+          nickname: oauth_data[:info][:nickname],
           oauth_signature: OmniauthRegistrationForm.create_signature(oauth_data[:provider], oauth_data[:uid])
         }
       end

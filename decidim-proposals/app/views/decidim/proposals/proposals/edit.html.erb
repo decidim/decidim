@@ -40,7 +40,7 @@
 
           <% if current_participatory_space.has_subscopes? %>
             <div class="field">
-              <%= form.scopes_select :scope_id, prompt: I18n.t("decidim.scopes.global"), remote_path: decidim.scopes_search_path(root: current_participatory_space.scope) %>
+              <%= scopes_picker_field form, :scope_id %>
             </div>
           <% end %>
 
@@ -51,7 +51,7 @@
           <% end %>
 
           <div class="actions">
-            <%= form.submit t(".send"), class: "button expanded", "data-disable-with" => "#{t('.send')}..." %>
+            <%= form.submit t(".send"), class: "button expanded", data: { disable: true } %>
           </div>
         <% end %>
       </div>

@@ -125,7 +125,7 @@ uk:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Тема
+            subject: Запрошення приєднатися до зустрічі
         registration_mailer:
           confirmation:
             subject: Вашу реєстрацію на зустріч підтверджено
@@ -135,8 +135,6 @@ uk:
           category_prompt: Оберіть розділ
           date: Дата
           past: Минулі
-          scope_prompt: Оберіть терен
-          scopes: Терени
           search: Шукати
           upcoming: Майбутні
         filters_small_view:
@@ -195,4 +193,4 @@ uk:
   devise:
     mailer:
       join_meeting:
-        subject: Тема
+        subject: Запрошення приєднатися до зустрічі
