@@ -7,26 +7,25 @@
     <div class="card-section">
       <div class="comment-thread">
         <% proposal.notes.each do |note| %>
-          <article class="comment">
-            <div class="comment__header">
-              <div class="author-data">
-                <div class="author-data__main">
-                  <div class="author author--inline">
-                    <span class="author__avatar author__avatar--small">
-                      <%= image_tag note.author.avatar.url %>
-                    </span>
-                    <a href="#" class="author__name">
-                      <%= note.author.name %>
-                    </a>
-                    <time datetime="2016-08-01T19:47Z"><%= l note.created_at, format: :decidim_short %></time>
+          <div class="card">
+            <div class="card-divider">
+              <article class="comment">
+                <div class="comment__header">
+                  <div class="author-data">
+                    <div class="author-data__main">
+                      <div class="author author--inline">
+                        <span class="author__name"><%= note.author.name %></span>
+                        <time datetime="2016-08-01T19:47Z"><%= l note.created_at, format: :decidim_short %></time>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+                <div class="comment__content">
+                  <%= note.body %>
+                </div>
+              </article>
             </div>
-            <div class="comment__content">
-              <%= note.body %>
-            </div>
-          </article>
+          </div>
         <% end %>
       </div>
     </div>
