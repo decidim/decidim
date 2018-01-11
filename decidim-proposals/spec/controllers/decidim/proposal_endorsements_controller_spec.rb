@@ -74,9 +74,9 @@ module Decidim
           #
           def create_user_groups(verified = false)
             2.times do
-              ug = create(:user_group)
-              ug.verified_at = DateTime.current if verified
-              user.user_groups << ug
+              user_group = create(:user_group)
+              user_group.verified_at = DateTime.current if verified
+              user.user_groups << user_group
             end
             user.save!
           end
