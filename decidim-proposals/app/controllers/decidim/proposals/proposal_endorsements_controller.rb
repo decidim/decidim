@@ -44,15 +44,9 @@ module Decidim
       def identities
         authorize! :endorse, proposal
 
-        ShowEndorsementIdentities.call(proposal, current_user) do
-          on(:ok) do |groups_split|
-            expose(
-              to_endorse_groups: groups_split[:endorse],
-              to_unendorse_groups: groups_split[:unendorse]
-            )
-            render :identities, layout: false
-          end
-        end
+        @to_unendorse_groups = UserGroupsThatCanUndoEndorsement.from(current_user, proposal)
+        @to_endorse_groups = UserGroupsThatCanEndorse.from(current_user, proposal)
+        render :identities, layout: false
       end
 
       private
