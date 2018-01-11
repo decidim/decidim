@@ -56,12 +56,6 @@ module Decidim::Accountability
       it { is_expected.not_to be_valid }
     end
 
-    describe "when description is missing" do
-      let(:description) { { en: nil } }
-
-      it { is_expected.not_to be_valid }
-    end
-
     describe "when the scope does not exist" do
       let(:scope_id) { scope.id + 10 }
 
