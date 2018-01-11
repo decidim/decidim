@@ -252,6 +252,7 @@ en:
       statistics:
         answers_count: Answers
         comments_count: Comments
+        endorsements_count: Endorsements
         headline: Activity
         meetings_count: Meetings
         orders_count: Votes
