@@ -81,8 +81,8 @@ module Decidim
         @proposal.destroy if @proposal
 
         Decidim::Proposals::CreateProposal.call(@form, current_user) do
-          on(:ok) do |proposal|
-            flash.now[:notice] = I18n.t("proposals.proposal_wizard.draft_created", scope: "decidim")
+          on(:ok) do
+            flash[:notice] = I18n.t("proposals.proposal_wizard.draft_created", scope: "decidim")
             redirect_to wizard_path(:step_4)
           end
 
@@ -102,7 +102,7 @@ module Decidim
         @proposal.published_at = Time.zone.now
 
         if @proposal.save
-          flash.now[:notice] = I18n.t("proposals.proposal_wizard.published", scope: "decidim")
+          flash[:notice] = I18n.t("proposals.proposal_wizard.published", scope: "decidim")
           redirect_to proposal_path(@proposal)
         else
           flash.now[:alert] = I18n.t("proposals.create.error", scope: "decidim")

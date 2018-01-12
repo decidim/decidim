@@ -25,6 +25,7 @@ shared_examples "create a proposal" do |with_author|
   let(:latitude) { 40.1234 }
   let(:longitude) { 2.1234 }
   let(:attachment_params) { nil }
+  let(:published_at) { Time.now }
 
   describe "call" do
     let(:form_params) do
@@ -34,7 +35,8 @@ shared_examples "create a proposal" do |with_author|
         address: address,
         has_address: has_address,
         attachment: attachment_params,
-        user_group_id: (with_author ? user_group.try(:id) : nil)
+        user_group_id: (with_author ? user_group.try(:id) : nil),
+        published_at: published_at
       }
     end
 
