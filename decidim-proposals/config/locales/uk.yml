@@ -4,6 +4,7 @@ uk:
       proposal:
         body: Основний текст
         category_id: Розділ
+        has_address: Має адресу
         scope_id: Терен
         title: Назва
         user_group_id: Внести пропозицію як
@@ -93,6 +94,7 @@ uk:
         proposal:
           fields:
             category: Розділ
+            comments: Коментарі
             id: Псевдонім
             official_proposal: Офіційна пропозиція
             scope: Терен
