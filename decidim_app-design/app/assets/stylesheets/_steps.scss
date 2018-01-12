@@ -2,6 +2,10 @@
   list-style-type: none;
   margin-left: .25rem;
 
+  &.steps-toggle{
+    margin-top: 1rem;
+  }
+
   li{
     border: none;
     color: $primary;
