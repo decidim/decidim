@@ -45,7 +45,7 @@ $datetime-bg: $primary;
   }
 }
 
-.card__content--center {
+.card__content--center{
   text-align: center;
 }
 
@@ -58,7 +58,7 @@ $datetime-bg: $primary;
   @extend .heading5;
 }
 
-.card__title--strong {
+.card__title--strong{
   font-weight: bold;
   text-transform: uppercase;
 }
@@ -147,7 +147,7 @@ $datetime-bg: $primary;
   }
 }
 
-.card__footer--transparent {
+.card__footer--transparent{
   background: transparent;
 }
 
