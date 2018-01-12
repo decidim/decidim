@@ -21,7 +21,7 @@
           <a href="#">Más información</a>.
         </p>
       </div>
-      <div class="show-for-medium">
+      <div class="show-for-large">
         <!-- STEPS component: Set any kind of list with 'steps' class; Its children only require set the active element w/ 'step--active' class -->
         <ol class="steps">
           <li>Crea tu iniciativa</li>
@@ -40,6 +40,15 @@
         </p>
       </div>
       <h2 class="section-heading">Crea la comisión promotora</h2>
+      <div class="hide-for-large">
+        <span class="text-small">Paso 1 de 3 (<a data-toggle="steps">ver pasos</a>)</span>
+        <!-- STEPS component: Set any kind of list with 'steps' class; Its children only require set the active element w/ 'step--active' class -->
+        <ol id="steps" class="steps steps-toggle is-hidden" data-toggler=".is-hidden">
+          <li class="step--active">Crea tu iniciativa</li>
+          <li>Validación</li>
+          <li>Crea la comisión promotora</li>
+        </ol>
+      </div>
       <div class="card">
         <div class="card__content">
           <form class="initiatives-form">
