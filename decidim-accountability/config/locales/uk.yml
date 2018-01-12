@@ -8,6 +8,7 @@ uk:
         description: Опис
         end_date: Дата закінчення
         progress: Перебіг
+        project_ids: Включені проекти
         proposal_ids: Включені пропозиції
         start_date: Дата початку
         title: Назва
@@ -172,5 +173,7 @@ uk:
           step:
             comments_blocked: Коментарі вимкнено
     resource_links:
+      included_projects:
+        result_projects: Проекти, включені до цих підсумків
       included_proposals:
         result_proposals: Пропозиції, включені до цих підсумків
