@@ -571,26 +571,25 @@ $datetime-bg: $primary;
   }
 }
 
-
 /* Progress bars */
-.card__progress {
+.card__progress{
   flex: .8;
 
-  .card__progress__title {
+  .card__progress__title{
     color: $muted;
     text-transform: uppercase;
-    font-size: 0.875rem;
+    font-size: .875rem;
 
-    .card__progress__number {
+    .card__progress__number{
       @extend .card__support__number;
     }
   }
 
-  .card__progress__subtitle {
+  .card__progress__subtitle{
     display: none;
   }
 
-  .card__progress__bar {
+  .card__progress__bar{
     background-color: $card-bg;
     height: 6px;
     display: flex;
@@ -599,6 +598,7 @@ $datetime-bg: $primary;
       background-color: $card-action;
       height: 100%;
     }
+
     .card__progress__bar--incomplete{
       background-color: rgba($muted, .3);
       height: 100%;
@@ -606,29 +606,34 @@ $datetime-bg: $primary;
     }
   }
 
-  &.card__progress--vertical {
+  &.card__progress--vertical{
     text-align: center;
     width: 90%;
     margin: 0 auto;
 
-    .card__progress__title {
+    .card__progress__title{
       font-size: 1.5rem;
       margin-bottom: 1rem;
     }
-    .card__progress__subtitle {
+
+    .card__progress__subtitle{
       @extend .card__progress__title;
+
       display: block;
-      font-size: 0.875rem;
+      font-size: .875rem;
       margin: .5rem 0 1rem;
     }
-    .card__progress__number {
+
+    .card__progress__number{
       display: inline-block;
       font-weight: 400;
       font-size: 3rem;
       line-height: 1;
     }
-    .card__progress__text {
+
+    .card__progress__text{
       @extend .extra__suport-text;
+
       font-weight: 600;
     }
   }
