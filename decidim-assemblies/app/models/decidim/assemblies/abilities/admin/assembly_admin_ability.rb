@@ -49,7 +49,7 @@ module Decidim
             end
 
             can :manage, AssemblyUserRole do |role|
-              can_manage_assembly?(role.participatory_assembly) && role.user != @user
+              can_manage_assembly?(role.assembly) && role.user != @user
             end
 
             can :manage, Moderation do |moderation|

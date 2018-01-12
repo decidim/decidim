@@ -42,13 +42,12 @@ shared_examples "manage assembly admins examples" do
   end
 
   describe "when managing different users" do
-    let!(:user_role2) { create(:assembly_user_role, assembly: assembly, user: other_user) }
-
     before do
+      create(:assembly_user_role, assembly: assembly, user: other_user)
       visit current_path
     end
 
-    xit "updates a assembly admin" do
+    it "updates a assembly admin" do
       within "#assembly_admins" do
         within find("#assembly_admins tr", text: other_user.email) do
           click_link "Edit"
@@ -56,7 +55,7 @@ shared_examples "manage assembly admins examples" do
       end
 
       within ".edit_assembly_user_roles" do
-        select "Administrator", from: :assembly_user_role_role
+        select "Collaborator", from: :assembly_user_role_role
 
         find("*[type=submit]").click
       end
@@ -64,7 +63,7 @@ shared_examples "manage assembly admins examples" do
       expect(page).to have_admin_callout("successfully")
 
       within "#assembly_admins table" do
-        expect(page).to have_content("Administrator")
+        expect(page).to have_content("Collaborator")
       end
     end
 
