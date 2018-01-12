@@ -191,6 +191,8 @@ fi:
         error: Ehdotuksen tallentamisessa on tapahtunut virheitä.
         success: Ehdotus on päivitetty onnistuneesti.
     resource_links:
+      included_projects:
+        project_results: 'Tässä projektissa näkyvät tulokset:'
       included_proposals:
         proposal_projects: 'Ehdotus esiintyy näissä projekteissa:'
         proposal_results: 'Ehdotus esiintyy näissä tuloksissa:'
