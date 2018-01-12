@@ -200,6 +200,8 @@ uk:
         error: При збереженні цієї пропозиції сталися помилки.
         success: Пропозицію успішно оновлено.
     resource_links:
+      included_projects:
+        project_results: 'Підсумки, які є в цьому проекті:'
       included_proposals:
         proposal_projects: 'Пропозиція є в таких проектах:'
         proposal_results: 'Пропозиція є в таких підсумках:'
