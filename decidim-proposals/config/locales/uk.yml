@@ -95,6 +95,7 @@ uk:
           fields:
             category: Розділ
             comments: Коментарі
+            created_at: 'Створено:'
             id: Псевдонім
             official_proposal: Офіційна пропозиція
             scope: Терен
