@@ -191,6 +191,8 @@ ca:
         error: Hi ha hagut errors en desar la proposta.
         success: La proposta s'ha actualitzat correctament.
     resource_links:
+      included_projects:
+        project_results: 'Resultats que apareixen en aquest projecte:'
       included_proposals:
         proposal_projects: 'Proposta formulada en aquests projectes:'
         proposal_results: 'La proposta apareix en aquests resultats:'
