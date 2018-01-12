@@ -36,6 +36,14 @@ module Decidim
                 end
 
                 it { is_expected.to eq("/authorizations/first_login") }
+
+                context "when there's a pending redirection" do
+                  before do
+                    controller.store_location_for(user, account_path)
+                  end
+
+                  it { is_expected.to eq account_path }
+                end
               end
 
               context "otherwise", with_authorization_workflows: [] do

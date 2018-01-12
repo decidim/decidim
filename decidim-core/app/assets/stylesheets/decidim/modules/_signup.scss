@@ -5,7 +5,8 @@
   z-index: 1;
   font-style: italic;
   margin: 1rem 0 2rem;
-  &:before{
+
+  &::before{
     content: "";
     display: block;
     height: 1px;
@@ -25,14 +26,17 @@
 
 .register-form{
   margin-top: 2rem;
+
   input[type="text"],
   input[type="email"],
   input[type="password"]{
     height: 3rem;
   }
+
   .button{
     margin: 2rem 0;
   }
+
   legend{
     margin-bottom: 1rem;
   }

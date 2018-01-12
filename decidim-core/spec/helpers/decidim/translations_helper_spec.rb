@@ -32,11 +32,11 @@ module Decidim
         end
 
         context "when the default locale is not present" do
-          it "returns an empty string" do
+          it "returns the first available string" do
             attribute = { "ca" => "Hola" }
 
             I18n.with_locale(:'zh-CN') do
-              expect(helper.translated_attribute(attribute)).to eq("")
+              expect(helper.translated_attribute(attribute)).to eq("Hola")
             end
           end
         end

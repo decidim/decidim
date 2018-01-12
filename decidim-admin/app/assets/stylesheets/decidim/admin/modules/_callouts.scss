@@ -4,12 +4,15 @@
   background-color: $primary-color;
   font-weight: 600;
   color: $white;
+
   &.warning{
     background-color: $warning-color;
   }
+
   &.success{
     background-color: $success-color;
   }
+
   &.alert{
     background-color: $alert-color;
   }

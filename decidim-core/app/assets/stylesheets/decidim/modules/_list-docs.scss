@@ -13,6 +13,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+
   > li{
     margin-bottom: 1rem;
   }
@@ -21,9 +22,11 @@
 .list-check__icon{
   vertical-align: -.05rem;
   margin-right: .2rem;
+
   .list-check__ok &{
     color: $success;
   }
+
   .list-check__ko &{
     color: $alert;
   }

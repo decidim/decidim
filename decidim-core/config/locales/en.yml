@@ -415,7 +415,7 @@ en:
         participate: Participate
         welcome: Welcome to %{organization}!
       statistics:
-        answers_count: Answers
+        answers_count: Completed Surveys
         assemblies_count: Assemblies
         comments_count: Comments
         headline: Current state of %{organization}
