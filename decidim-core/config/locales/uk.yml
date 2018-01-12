@@ -404,6 +404,7 @@ uk:
         participate: Взяти участь
         welcome: Ласкаво просимо до %{organization}!
       statistics:
+        answers_count: Пройдено опитувань
         assemblies_count: Збори
         comments_count: Коментарі
         headline: Поточний стан %{organization}
