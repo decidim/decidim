@@ -9,8 +9,12 @@
 
 **Fixed**:
 
-* **decidim-accountability**: Fixed missing `diff.js` [#2344](https://github.com/decidim/decidim/pull/2344)
+- **decidim-accountability**: Fixed missing `diff.js` [#2344](https://github.com/decidim/decidim/pull/2344)
 - **decidim-accountability**: Keeps the current scope in the breadcumb links [\#2488](https://github.com/decidim/decidim/pull/2488)
+
+**Removed**:
+
+- **dedicim-accountability**: Removed the Global scope navigation option ([\#2486](https://github.com/decidim/decidim/pull/2486))
 
 ## [0.8.3](https://github.com/decidim/decidim/tree/v0.8.3)
 
