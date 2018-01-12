@@ -38,6 +38,7 @@ you need to change the following line in `config/environments/production.rb`:
 
 **Changed
 
+- **decidim-core**: Fixes the documentation regarding gems, libraries, plugins and modules. We should always use module, and use decidim-module-<engine_name> nomenclature for repositories naming [\#2481](https://github.com/decidim/decidim/pull/2481).
 - **decidim-core**: translated_attribute helper changes its default behaviour. Previously it was following these steps:
   1. Return the current user locale translation if available.
   2. Fallback to organization default locale in case the user locale translation is not available.
