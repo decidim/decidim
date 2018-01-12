@@ -130,4 +130,11 @@ FactoryBot.define do
     proposal { build(:proposal) }
     author { build(:user, organization: proposal.organization) }
   end
+
+  factory :proposal_note, class: "Decidim::Proposals::ProposalNote" do
+    body { Faker::Lorem.sentences(3).join("\n") }
+    proposal { build(:proposal) }
+    author { build(:user, organization: proposal.organization) }
+  end
+
 end
