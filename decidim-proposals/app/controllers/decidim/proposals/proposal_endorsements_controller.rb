@@ -4,8 +4,6 @@ module Decidim
   module Proposals
     # Exposes the proposal endorsement resource so that users can endorse proposals.
     class ProposalEndorsementsController < Decidim::Proposals::ApplicationController
-      include ProposalEndorsementsHelper
-      include Rectify::ControllerHelpers
       helper_method :proposal
 
       before_action :authenticate_user!
