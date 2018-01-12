@@ -55,6 +55,10 @@ fi:
           authorize_with: Vahvista %{authorizer}
         skip_verification: Voit ohittaa tämän nyt ja %{link}
         start_exploring: alkaa tutkia
+      dummy_authorization:
+        extra_explanation:
+          one: Osallistuminen on rajoitettu käyttäjiin, joilla on postinumero %{postal_codes}.
+          other: 'Osallistuminen on rajoitettu käyttäjille, joilla on jokin seuraavista postiosoitteista: %{postal_codes}.'
       id_documents:
         admin:
           confirmations:
