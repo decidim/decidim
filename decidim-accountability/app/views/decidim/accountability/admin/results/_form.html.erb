@@ -62,5 +62,15 @@
       <% end %>
     </div>
 
+    <div class="row column">
+      <% if @form.projects %>
+        <%= form.select :project_ids,
+                        @form.projects,
+                        {},
+                        { multiple: true, class: "chosen-select" }
+        %>
+      <% end %>
+    </div>
+
   </div>
 </div>

@@ -153,6 +153,30 @@ describe "Explore results", versioning: true, type: :feature do
       end
     end
 
+    context "with linked projects" do
+      let(:project_feature) do
+        create(:feature, manifest_name: :budgets, participatory_space: result.feature.participatory_space)
+      end
+      let(:budgets) { create_list(:project, 3, feature: project_feature) }
+      let(:project) { budgets.first }
+
+      before do
+        result.link_resources(budgets, "included_projects")
+        visit current_path
+      end
+
+      it "shows related projects" do
+        budgets.each do |project|
+          expect(page).to have_content(translated(project.title))
+        end
+      end
+
+      it "the result is mentioned in the project page" do
+        click_link translated(project.title)
+        expect(page).to have_i18n_content(result.title)
+      end
+    end
+
     context "with linked meetings" do
       let(:meeting_feature) do
         create(:feature, manifest_name: :meetings, participatory_space: result.feature.participatory_space)

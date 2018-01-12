@@ -20,12 +20,28 @@ module Decidim
     helper Decidim::FeaturePathHelper
     helper Decidim::ViewHooksHelper
 
+    # Saves the location before loading each page so we can return to the
+    # right page.
+    before_action :store_current_location
+
     protect_from_forgery with: :exception, prepend: true
     after_action :add_vary_header
 
     layout "layouts/decidim/application"
 
     private
+
+    # Stores the url where the user will be redirected after login.
+    #
+    # Uses the `redirect_url` param or the current url if there's no param.
+    # In Devise controllers we only store the URL if it's from the params, we don't
+    # want to overwrite the stored URL for a Devise one.
+    def store_current_location
+      return if devise_controller? && params[:redirect_url].blank?
+
+      value = params[:redirect_url] || request.url
+      store_location_for(:user, value)
+    end
 
     def user_not_authorized_path
       decidim.root_path
