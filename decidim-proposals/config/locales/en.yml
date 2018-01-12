@@ -114,6 +114,7 @@ en:
         identities:
           select_identity: Select identity
       proposal_endorsements_helper:
+        endorsement_button:
           already_endorsed: Already endorsed
           endorse: Endorse
       proposal_votes:
