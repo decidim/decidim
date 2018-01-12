@@ -16,7 +16,7 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-verifications**: Added action authorizers for authorization handlers. [\#2438](https://github.com/decidim/decidim/pull/2438)
 - **decidim-accountability**: Add feature to link projects with results [\#2467](https://github.com/decidim/decidim/pull/2467)
 - **decidim-proposals**: Improve proposals admin panel usability (sorting). [\#2419](https://github.com/decidim/decidim/pull/2419)
-- **decidim-core**: Follow users and get notifications about their actions. [\#2401](https://github.com/decidim/decidim/pull/2401)
+- **decidim-core**: Follow users and get notifications about their actions [\#2401](https://github.com/decidim/decidim/pull/2401) and [\#2452](https://github.com/decidim/decidim/pull/2452).
 - **decidim-core**: Add unique nicknames for participants. [\#2360](https://github.com/decidim/decidim/pull/2360)
 - **decidim-admin**: Let admins officialize certain users from the admin dashboard and specify custom officialization text for them. [\#2405](https://github.com/decidim/decidim/pull/2405)
 - **decidim-core**: Public profile page for participants, including name, nickname, follow button, avatar and officialization badge & text. [\#2391](https://github.com/decidim/decidim/pull/2391), [\#2360](https://github.com/decidim/decidim/pull/2360), [\#2401](https://github.com/decidim/decidim/pull/2401) and [\#2405](https://github.com/decidim/decidim/pull/2405).
