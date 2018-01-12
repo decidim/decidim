@@ -3,11 +3,11 @@
 module Decidim
   module Assemblies
     module Abilities
-      # Defines the abilities for an assembly admin user.
+      # Defines the abilities for an assembly moderator user
       # Intended to be used with `cancancan`.
-      class AssemblyAdminAbility < Decidim::Assemblies::Abilities::AssemblyRoleAbility
+      class AssemblyModeratorAbility < Decidim::Assemblies::Abilities::AssemblyRoleAbility
         def role
-          :admin
+          :moderator
         end
       end
     end

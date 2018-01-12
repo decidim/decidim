@@ -66,6 +66,8 @@ module Decidim
         Decidim.configure do |config|
           config.admin_abilities += [
             "Decidim::Assemblies::Abilities::Admin::AdminAbility",
+            "Decidim::Assemblies::Abilities::Admin::AssemblyModeratorAbility",
+            "Decidim::Assemblies::Abilities::Admin::AssemblyCollaboratorAbility",
             "Decidim::Assemblies::Abilities::Admin::AssemblyAdminAbility"
           ]
         end
