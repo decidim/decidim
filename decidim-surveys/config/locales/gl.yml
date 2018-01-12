@@ -1,0 +1,69 @@
+gl:
+  activemodel:
+    attributes:
+      survey_answer:
+        body: Resposta
+      survey_question:
+        mandatory: Obrigatorio
+        question_type: Tipo
+  decidim:
+    features:
+      surveys:
+        actions:
+          answer: Resposta
+        name: Enquisa
+        settings:
+          global:
+            announcement: Anuncio
+          step:
+            allow_answers: Permitir respostas
+            announcement: Anuncio
+    surveys:
+      admin:
+        exports:
+          survey_user_answers: Enquisas respostas dos usuarios
+        models:
+          components:
+            description: Descrición
+            tos: Condicións de servicio
+        surveys:
+          answer_option:
+            answer_option: Opción de resposta
+            remove_answer_option: Eliminar a opción de resposta
+            statement: Declaración
+          edit:
+            save: Gardar
+            title: Título
+          form:
+            add_question: Engadir pregunta
+            already_answered_warning: Algunha xente xa respondeu a enquisa para que non poida modificar as súas preguntas.
+          question:
+            add_answer_option: Engadir unha opción de resposta
+            question: Pregunta
+            remove_question: Elimina a pregunta
+            statement: Declaración
+          update:
+            invalid: Houbo erros ao gardar a enquisa.
+            success: A enquisa gardouse correctamente.
+      question_types:
+        long_answer: Resposta longa
+        multiple_option: Múltipla opción
+        short_answer: Resposta curta
+        single_option: Opción única
+      surveys:
+        answer:
+          invalid: Houbo erros ao responder a enquisa.
+          success: A enquisa respondeu con éxito.
+        show:
+          answer_survey:
+            anonymous_user_message: <a href="%{sign_in_link}">Inicia sesión coa túa conta</a> ou <a href="%{sign_up_link}">insigne</a> para responder á enquisa.
+            title: Responde a enquisa
+          are_you_sure: Non se pode desfacer esta acción e non poderá editar as túas respostas. Estás seguro?
+          submit: Enviar
+          survey_answered:
+            body: Xa contestou esta enquisa.
+            title: A enquisa respondeu
+          survey_closed:
+            body: A enquisa está pechada e non se pode responder.
+            title: Enquisa pechada
+          tos_agreement: Ao participar nesta enquisa aceptas as Condicións de servizo

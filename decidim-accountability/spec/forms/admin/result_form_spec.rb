@@ -10,7 +10,8 @@ module Decidim::Accountability
     let(:context) do
       {
         current_organization: organization,
-        current_feature: current_feature
+        current_feature: current_feature,
+        current_participatory_space: participatory_process
       }
     end
     let(:participatory_process) { create :participatory_process, organization: organization }
@@ -111,6 +112,37 @@ module Decidim::Accountability
         it "sets the proposal_ids correctly" do
           result.link_resources([proposal], "included_proposals")
           expect(subject.proposal_ids).to eq [proposal.id]
+          expect(subject.decidim_category_id).to eq category.id
+        end
+      end
+    end
+
+    context "with projects" do
+      let(:projects_feature) { create :feature, manifest_name: :budgets, participatory_space: participatory_process }
+      let!(:project) { create :project, feature: projects_feature }
+
+      describe "#projects" do
+        it "returns the available projects in a way suitable for the form" do
+          expect(subject.projects)
+            .to eq([[translated(project.title), project.id]])
+        end
+      end
+
+      describe "#map_model" do
+        subject { described_class.from_model(result).with_context(context) }
+
+        let(:result) do
+          create(
+            :result,
+            feature: current_feature,
+            scope: scope,
+            category: category
+          )
+        end
+
+        it "sets the project_ids correctly" do
+          result.link_resources([project], "included_projects")
+          expect(subject.project_ids).to eq [project.id]
           expect(subject.decidim_category_id).to eq category.id
         end
       end

@@ -1,12 +1,12 @@
-# decidim-design
+# decidim_app-design
 
-`decidim-design` is a full-fledged *application* that mounts the assets from `decidim`, thus allowing rapid prototyping of functionalities. It mounts the `decidim` gem present on this same repository so you can safely modify its assets and see changes real-time.
+`decidim_app-design` is a full-fledged *application* that mounts the assets from `decidim`, thus allowing rapid prototyping of functionalities. It mounts the `decidim` gem present on this same repository so you can safely modify its assets and see changes real-time.
 
 This approach has several benefits:
 
 * Tests will break if a style breaks an existing functionality, as the applications being tested use the same methods.
 
-* `Decidim::LayoutHelper` and others can be reused in `decidim-design` for extra consistency.
+* `Decidim::LayoutHelper` and others can be reused in `decidim_app-design` for extra consistency.
 
 * Gems that provide extra assets can also be used, ensuring we're always consistent with the prototypes.
 

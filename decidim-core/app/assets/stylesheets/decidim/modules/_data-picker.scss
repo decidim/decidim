@@ -1,29 +1,30 @@
 
-.data-picker {
-  &.picker-single .picker-values div a, .picker-prompt a {
+.data-picker{
+  &.picker-single .picker-values div a,
+  .picker-prompt a{
     background: white;
     cursor: pointer;
     display: block;
     width: 100%;
     margin-bottom: 1rem;
-    padding: 0.4rem 0.7rem;
+    padding: .4rem .7rem;
     border: 1px solid #e8e8e8;
     border-radius: 4px;
-    box-shadow: inset 0 1px 2px rgba(26, 24, 29, 0.1);
-    -webkit-box-shadow: inset 0 1px 2px rgba(26, 24, 29, 0.1);
+    box-shadow: inset 0 1px 2px rgba(26, 24, 29, .1);
+    -webkit-box-shadow: inset 0 1px 2px rgba(26, 24, 29, .1);
     color: #1a181d;
 
-    &:active {
+    &:active{
       outline: none;
       border: 1px solid #1a181d;
       background-color: #fff;
       box-shadow: 0 0 5px #adadad;
       -webkit-box-shadow: 0 0 5px #adadad;
-      transition: border-color 0.25s ease-in-out, -webkit-box-shadow 0.5s;
-      -webkit-transition: border-color 0.25s ease-in-out, -webkit-box-shadow 0.5s;
+      transition: border-color .25s ease-in-out, -webkit-box-shadow .5s;
+      -webkit-transition: border-color .25s ease-in-out, -webkit-box-shadow .5s;
     }
 
-    &::after {
+    &::after{
       display: block;
       width: 0;
       height: 0;
@@ -36,20 +37,22 @@
     }
   }
 
-  &.is-invalid-input.picker-single .picker-values div a, &.is-invalid-input .picker-prompt a {
+  &.is-invalid-input.picker-single .picker-values div a,
+  &.is-invalid-input .picker-prompt a{
     border-color: $alert-color;
     background-color: #fdeeec;
   }
 
-  &.picker-single .picker-values:not(:empty) + .picker-prompt {
+  &.picker-single .picker-values:not(:empty) + .picker-prompt{
     display: none;
   }
 
-  &.disabled.picker-single .picker-values div a, &.disabled .picker-prompt a {
+  &.disabled.picker-single .picker-values div a,
+  &.disabled .picker-prompt a{
     cursor: not-allowed;
     background: #eee;
 
-    &:active {
+    &:active{
       border: inherit !important;
       box-shadow: inherit !important;
       -webkit-box-shadow: inherit !important;
@@ -58,13 +61,13 @@
     }
   }
 
-  &.picker-multiple .picker-values {
-    div {
+  &.picker-multiple .picker-values{
+    div{
       display: block;
       margin: 0 0 2px;
-      font-size: 0.9rem;
+      font-size: .9rem;
 
-      input {
+      input{
         margin: 2px 8px 8px 2px;
         vertical-align: top;
       }
@@ -72,30 +75,30 @@
   }
 }
 
-#data_picker-modal {
+#data_picker-modal{
   height: 90%;
 
-  .data_picker-modal-content {
+  .data_picker-modal-content{
     display: flex;
     flex-direction: column;
     max-height: 100%;
     min-height: 100%;
 
-    .picker-footer {
-      .buttons {
+    .picker-footer{
+      .buttons{
         display: flex;
         justify-content: center;
-        padding: 10px 0px 50px; // bottom padding is needed to avoid hiding buttons on mobiles because of https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
+        padding: 10px 0 50px; // bottom padding is needed to avoid hiding buttons on mobiles because of https://stackoverflow.com/questions/37112218/css3-100vh-not-constant-in-mobile-browser
       }
     }
 
-    .picker-content {
+    .picker-content{
       flex-grow: 10;
       min-height: 100%;
       max-height: 100%;
       overflow: auto;
 
-      .picker-scrollable-content {
+      .picker-scrollable-content{
         max-height: 100%;
         overflow: auto;
       }
@@ -103,46 +106,51 @@
   }
 }
 
-.scope-picker {
-  ul {
+.scope-picker{
+  ul{
     margin-left: 0;
-    li {
+
+    li{
       list-style: none;
     }
   }
 
-  &.picker-header {
+  &.picker-header{
     padding: 5px;
-    li:hover {
+
+    li:hover{
       background: #ddd;
     }
 
-    li ~ li a:before {
+    li ~ li a::before{
       content: '';
       width: 10px;
       height: 2em;
       float: left;
     }
-    li:last-child a {
+
+    li:last-child a{
       color: #333;
     }
-    a {
+
+    a{
       display: block;
       padding: 2px;
     }
   }
 
-  &.picker-content {
-    .picker-scrollable-content {
+  &.picker-content{
+    .picker-scrollable-content{
       scroll-snap-type: mandatory;
 
-      a {
-        scroll-snap-coordinate: 0px 0px;
+      a{
+        scroll-snap-coordinate: 0 0;
         display: block;
         border-top: 1px solid #ddd;
         line-height: 1.5rem;
         padding: 5px;
-        &:hover {
+
+        &:hover{
           background: #ddd;
         }
       }

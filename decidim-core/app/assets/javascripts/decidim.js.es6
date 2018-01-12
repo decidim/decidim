@@ -13,6 +13,7 @@
 // = require decidim/user_registrations
 // = require decidim/account_form
 // = require decidim/data_picker
+// = require decidim/append_redirect_url_to_modals
 
 /* globals svg4everybody */
 
