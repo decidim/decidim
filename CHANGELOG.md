@@ -13,6 +13,7 @@ you need to change the following line in `config/environments/production.rb`:
 ```
 
 **Added**:
+- **decidim-accountability**: Add feature to link projects with results [\2467](https://github.com/decidim/decidim/pull/2467)
 - **decidim-proposals**: Improve proposals admin panel usability (sorting). [\2419](https://github.com/decidim/decidim/pull/2419)
 - **decidim-core**: Follow users and get notifications about their actions. [\2401](https://github.com/decidim/decidim/pull/2401) and [\2452](https://github.com/decidim/decidim/pull/2452)
 - **decidim-core**: Add unique nicknames for participants. [\2360](https://github.com/decidim/decidim/pull/2360)
@@ -35,10 +36,25 @@ you need to change the following line in `config/environments/production.rb`:
   <%= scopes_picker_filter form, :scope_id %>
   ```
 
-**Changed**:
+**Changed
+
+- **decidim-core**: translated_attribute helper changes its default behaviour. Previously it was following these steps:
+  1. Return the current user locale translation if available.
+  2. Fallback to organization default locale in case the user locale translation is not available.
+  3. Otherwise return blank.
+
+
+  Now it follows these steps:
+
+  1. Return the current user locale translation if available.
+  2. Fallback to organization default locale in case the user locale translation is not available.
+  3. Fallback to the first available translation in case there was no user nor default organization locale translations.
+  4. Otherwise return blank.
 
 **Fixed**:
 
+- **decidim-core**: Fix after login redirect. [\#2321](https://github.com/decidim/decidim/pull/2321)
+  With links or buttons that needs the user to be authorized or signed in you can now add a `data-redirect-url` attribute to redirect the user after they've signed in so they don't lose context.
 - **decidim-core**: Prevent many conversation with the same participants at the UI level. [\#2376](https://github.com/decidim/decidim/pull/2376)
 - **decidim-admin**: Admins no longer being able to impersonate a second time. [\#2372](https://github.com/decidim/decidim/pull/2372)
 - **decidim-admin**: User impersonation should only use authorization handlers and not authorization workflows. [\#2363](https://github.com/decidim/decidim/pull/2363)

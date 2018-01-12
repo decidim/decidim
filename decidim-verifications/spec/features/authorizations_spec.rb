@@ -38,6 +38,7 @@ describe "Authorizations", type: :feature, with_authorization_workflows: ["dummy
       it "allows the user to skip it" do
         click_link "start exploring"
         expect(page).to have_current_path decidim.account_path
+        expect(page).to have_content("User settings")
       end
     end
 
