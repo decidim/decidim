@@ -113,7 +113,7 @@ en:
           error: There's been errors when endorsing the proposal.
         identities:
           select_identity: Select identity
-      proposal_endorsements_button:
+      proposal_endorsements_helper:
           already_endorsed: Already endorsed
           endorse: Endorse
       proposal_votes:
@@ -133,7 +133,6 @@ en:
           already_endorsed: Already endorsed
           already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
-          already_endorsed: Already endorsed
           endorse: Endorse
         endorsements_count:
           count:
