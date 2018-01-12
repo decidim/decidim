@@ -116,7 +116,7 @@ fr:
           all: Toutes
           category: Catégorie
           category_prompt: Sélectionner une catégorie
-          citizens: Propositions citoyennes
+          citizens: Citoyens >> Propositions citoyennes
           evaluating: En cours d'évaluation
           official: Propositions officielles
           origin: Auteurs

@@ -3,7 +3,7 @@ module Decidim
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
-    validate :validate_link_regex
+    before_save :validate_link_regex
 
     def validate_link_regex
       link = URI.parse(self.link)

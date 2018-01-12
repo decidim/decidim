@@ -281,7 +281,7 @@ fr:
           fields:
             title: Titre
             link: Lien
-            weight: Poids
+            weight: Position
       moderations:
         index:
           title: Modérations
