@@ -25,7 +25,7 @@ module Decidim
 
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
-        validate { errors.add(:decidim_scope_id, :invalid) if current_space_scope && !current_space_scope.ancestor_of?(scope) }
+        validate { errors.add(:decidim_scope_id, :invalid) if current_participatory_space&.scope && !current_participatory_space&.scope&.ancestor_of?(scope) }
 
         validates :parent, presence: true, if: ->(form) { form.parent_id.present? }
         validates :status, presence: true, if: ->(form) { form.decidim_accountability_status_id.present? }
@@ -45,7 +45,7 @@ module Decidim
         #
         # Returns a Decidim::Scope
         def scope
-          @scope ||= @decidim_scope_id ? current_feature.scopes.find_by(id: @decidim_scope_id) : current_space_scope
+          @scope ||= @decidim_scope_id ? current_feature.scopes.find_by(id: @decidim_scope_id) : current_participatory_space&.scope
         end
 
         # Scope identifier

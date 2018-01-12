@@ -1,19 +1,21 @@
 /* Variables */
 
-
 /* Navigation */
 
 .process-nav{
   background-color: $white;
   border: $border;
   padding: .75rem $container-padding-y;
+
   ul{
     margin: 0;
     list-style: none;
   }
+
   .about-link{
     font-size: 80%;
   }
+
   @include breakpoint(medium){
     ul{
       overflow-x: auto;
@@ -22,13 +24,16 @@
       display: flex;
       align-items: center;
     }
+
     ul::-webkit-scrollbar{
       display: none;
     }
+
     li{
       display: inline-block;
       margin-right: 1.5rem;
     }
+
     .about-link{
       float: right;
       margin-right: 0;
@@ -54,6 +59,7 @@
   @include breakpoint(smallmedium down){
     display: none;
   }
+
   &.is-active{
     display: block;
   }
@@ -63,6 +69,7 @@
   @include breakpoint(smallmedium down){
     margin-top: 1rem;
   }
+
   &.is-active{
     @include breakpoint(smallmedium down){
       display: none;
@@ -71,7 +78,6 @@
 }
 
 .process-nav__link{
-  display: block;
   color: $muted;
   text-transform: uppercase;
   font-weight: 600;
@@ -100,6 +106,7 @@
   .process-nav__link:hover,
   .process-nav__link.is-active{
     color: $primary;
+
     svg{
       fill: $primary;
 

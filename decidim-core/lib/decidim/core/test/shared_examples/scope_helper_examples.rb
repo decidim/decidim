@@ -10,13 +10,13 @@ shared_examples "scope helpers" do
   let(:scope) { create(:scope, organization: organization) }
   let(:resource) { create(:dummy_resource, feature: feature, scope: scope) }
 
-  subject { helper.has_visible_scopes?(resource) }
-
   before do
     allow(helper).to receive(:current_participatory_space).and_return(participatory_space)
   end
 
   describe "has_visible_scopes?" do
+    subject { helper.has_visible_scopes?(resource) }
+
     context "when all conditions are met" do
       it { is_expected.to be_truthy }
     end
@@ -26,8 +26,13 @@ shared_examples "scope helpers" do
       it { is_expected.to be_falsey }
     end
 
-    context "when the process has a scope" do
+    context "when the process has a different scope than the organization" do
       let(:participatory_space_scope) { create(:scope, organization: organization) }
+      it { is_expected.to be_truthy }
+    end
+
+    context "when the process has the same scope as the organization" do
+      let(:participatory_space_scope) { scope }
       it { is_expected.to be_falsey }
     end
 

@@ -9,20 +9,25 @@ $author-data-color: $muted;
 
 .author-data{
   @include clearfix();
+
   color: $author-data-color;
   font-size: .9rem;
   padding-left: 30px;
   position: relative;
+
   a,
   button{
     color: $author-data-color;
+
     &:hover{
       color: $anchor-color;
     }
   }
+
   .author__name{
     color: $anchor-color;
   }
+
   .author__avatar{
     position: absolute;
     margin-left: -30px;
@@ -44,12 +49,14 @@ $author-data-color: $muted;
 
 .author-data__extra{
   display: inline-block;
-  >button,
-  >a{
+
+  > button,
+  > a{
     margin-right: 1rem;
   }
+
   @include breakpoint(large){
-    &:before{
+    &::before{
       content: "";
       margin-right: .8rem;
       border-right: $border;
@@ -64,7 +71,6 @@ $author-data-color: $muted;
   display: flex;
   font-size: .9rem;
 }
-
 
 .author--inline{
   display: inline-block;
@@ -86,16 +92,17 @@ a:hover .author__name{
   color: inherit;
 }
 
-
 .author__avatar{
   padding: 0 .5em 0 0;
   display: inline-block;
   display: flex;
   flex-direction: column;
   align-self: center;
+
   .author--inline &{
     display: inline-block;
   }
+
   img{
     border-radius: 50%;
     width: 100%;
@@ -108,6 +115,7 @@ a:hover .author__name{
   .author-data &{
     margin-left: -25px;
   }
+
   img{
     max-width: 20px;
     margin-top: -3px;

@@ -4,6 +4,7 @@ pt:
       proposal:
         body: Corpo
         category_id: Categoria
+        has_address: Tem endereço
         scope_id: Âmbito
         title: Título
         user_group_id: Criar proposta como
@@ -81,6 +82,13 @@ pt:
       create:
         error: Ocorreu erros ao salvar a proposta.
         success: Proposta criada com sucesso.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Oi, %{author_name} %{author_nickname}, quem você está seguindo, criou uma nova proposta, confira e contribui:
+          email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Nova proposta por %{author_nickname}
+          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi criada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         proposal:
           fields:

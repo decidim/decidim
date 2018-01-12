@@ -1,0 +1,192 @@
+pt-BR:
+  activemodel:
+    attributes:
+      close_meeting:
+        attendees_count: Número de Participantes
+        attending_organizations: Lista de organizações que participaram
+        closing_report: Relatório
+        contributions_count: Número de contribuições
+        proposal_ids: Propostas criadas na reunião
+      meeting:
+        address: Endereço
+        decidim_category_id: Categoria
+        decidim_scope_id: Âmbito
+        description: Descrição
+        end_time: Fim do tempo
+        location: Localização
+        location_hints: Dicas de localização
+        start_time: Hora de início
+        title: Título
+  decidim:
+    features:
+      meetings:
+        actions:
+          join: Junte-se
+        name: Reuniões
+        settings:
+          global:
+            announcement: Anúncio
+            comments_enabled: Comentários ativados
+          step:
+            announcement: Anúncio
+            comments_blocked: Comentários bloqueados
+    meetings:
+      actions:
+        attachments: Anexos
+        close: Fechar
+        confirm_destroy: Tem certeza de que deseja excluir esta reunião?
+        destroy: Excluir
+        edit: Editar
+        new: Novo
+        preview: Visualização
+        registrations: Inscrições
+        title: Ações
+      admin:
+        exports:
+          registrations: Inscrições
+        invite_join_meeting_mailer:
+          invite:
+            invited_you_to_join_a_meeting: "%{invited_by} convidou você a participar de uma reunião em %{application}. Você pode aceitá-lo através do link abaixo."
+            join: Junte-se à reunião '%{meeting_title}'
+        invites:
+          create:
+            error: Ocorreu um problema ao convidar o usuário a participar da reunião.
+            success: O usuário foi convidado para participar da reunião.
+          new:
+            explanation: O usuário será convidado a participar de uma reunião. Se o e-mail não estiver registrado, eles também serão convidados para a organização.
+            invite: Convite
+            new_invite: Convidar Usuário
+        meeting_closes:
+          edit:
+            close: Fechar
+            title: Reunião próxima
+        meetings:
+          close:
+            invalid: Tem havido um problema ao encerrar esta reunião
+            success: Reunião fechada com sucesso
+          create:
+            invalid: Tem havido um problema ao criar esta reunião
+            success: Reunião criada com sucesso
+          destroy:
+            success: Reunião excluída com êxito
+          edit:
+            update: Actualizar
+          index:
+            title: Reuniões
+          new:
+            create: Criar
+            title: Criar reunião
+          update:
+            invalid: Tem havido um problema ao atualizar esta reunião
+            success: Reunião atualizada com sucesso
+        models:
+          meeting:
+            name: encontro
+        registrations:
+          edit:
+            save: Salve 
+          form:
+            available_slots_help: Deixe-o para 0 se você tiver slots ilimitados disponíveis.
+            invite_user: Convidar Usuário
+            registrations_count:
+              one: Houve 1 registro.
+              other: Houve %{count} registos.
+          update:
+            invalid: Ocorreu um problema ao salvar as configurações de registro.
+            success: Configurações de registro de reunião salvas com sucesso.
+      events:
+        close_meeting_event:
+          email_intro: 'A reunião "%{resource_title}" foi encerrada. Você pode ler as conclusões da sua página:'
+          email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
+          email_subject: A reunião "%{resource_title}" foi fechada
+          notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi fechada.
+        meeting_registrations_enabled:
+          email_intro: 'A reunião "%{resource_title}" permitiu registos. Você pode se registrar em sua página:'
+          email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
+          email_subject: A reunião "%{resource_title}" permitiu registos.
+          notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> permitiu registos.
+        meeting_registrations_over_percentage:
+          email_intro: Os slots ocupados pela reunião "%{resource_title}" estão acima de %{percentage}%.
+          email_outro: Você recebeu esta notificação porque você é administrador do espaço participativo da reunião.
+          email_subject: Os espaços de ocupação ocupados com "%{resource_title}" estão acima de %{percentage}%
+          notification_title: Os <a href="%{resource_path}">%{resource_title}</a> atendimento ocupados são mais de %{percentage}%.
+        upcoming_meeting_event:
+          email_intro: A reunião "%{resource_title}" começará em menos de 48h.
+          email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
+          email_subject: A reunião "%{resource_title}" começará em menos de 48h.
+          notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> começará em menos de 48h.
+        update_meeting_event:
+          email_intro: 'A reunião "%{resource_title}" foi atualizada. Você pode ler a nova versão da sua página:'
+          email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
+          email_subject: A reunião "%{resource_title}" foi atualizada
+          notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi atualizada.
+      mailer:
+        invite_join_meeting_mailer:
+          invite:
+            subject: Convite para participar de uma reunião
+        registration_mailer:
+          confirmation:
+            subject: O registro da sua reunião foi confirmado
+      meetings:
+        filters:
+          category: Categoria
+          category_prompt: Selecione uma categoria
+          date: Encontro
+          past: Passado
+          search: Pesquisa
+          upcoming: próximos
+        filters_small_view:
+          close_modal: Fechar modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Desdobrar
+        index:
+          view_meeting: Ver reunião
+        meetings:
+          no_meetings_warning: Nenhuma reunião corresponde aos seus critérios de pesquisa ou não há nenhuma reunião agendada.
+          upcoming_meetings_warning: Atualmente, não há reuniões agendadas, mas aqui você pode encontrar todas as reuniões anteriores listadas.
+        registration_confirm:
+          cancel: Cancelar
+          confirm: confirme
+        show:
+          attendees: Contagem de participantes
+          contributions: Contagem de Contribuições
+          going: Indo
+          join: Participe da reunião
+          meeting_report: Relatório de reunião
+          no_slots_available: Não há slots disponíveis
+          organizations: Organizações participantes
+          remaining_slots:
+            one: 1 slot restante
+            other: "%{count} slots restantes"
+      models:
+        meeting:
+          fields:
+            closed: Fechadas
+            end_time: Data final
+            map: Mapa
+            start_time: Data de início
+            title: Título
+      read_more: "(consulte Mais informação)"
+      registration_mailer:
+        confirmation:
+          confirmed_html: Seu registro para a reunião <a href="%{url}">%{title}</a> foi confirmado.
+          details: Você encontrará os detalhes da reunião no anexo.
+      registrations:
+        create:
+          invalid: Houve um problema ao se juntar a essa reunião.
+          success: Você se juntou à reunião com sucesso.
+        destroy:
+          invalid: Tem havido um problema ao sair desta reunião.
+          success: Você saiu da reunião com sucesso.
+    resource_links:
+      meetings_through_proposals:
+        meeting_results: 'Resultados relacionados:'
+        result_meetings: 'Reuniões relacionadas:'
+      proposals_from_meeting:
+        meeting_proposals: 'Propostas relacionadas:'
+        proposal_meetings: 'Reuniões relacionadas:'
+  devise:
+    mailer:
+      join_meeting:
+        subject: Convite para participar de uma reunião
