@@ -10,7 +10,6 @@ module Decidim
         attribute :body, String
 
         validates :body, presence: true
-
       end
     end
   end

@@ -51,6 +51,12 @@
               </th>
             <% end %>
 
+            <% if can? :create, Decidim::Proposals::ProposalNote %>
+              <th>
+                <%= sort_link(query, :proposal_notes_count, t("models.proposal.fields.notes", scope: "decidim.proposals") ) %>
+              </th>
+            <% end %>
+            
             <th>
               <%= sort_link(query, :created_at, t("models.proposal.fields.created_at", scope: "decidim.proposals") ) %>
             </th>
@@ -99,14 +105,21 @@
                 </td>
               <% end %>
 
+              <% if can? :create, Decidim::Proposals::ProposalNote %>
+                <td>
+                  <%= proposal.proposal_notes_count %>
+                </td>
+              <% end %>
+
               <td>
                 <%= l proposal.created_at, format: :decidim_short %>
               </td>
 
               <td class="table-list__actions">
 
-                <%# TODO which users can make private notes? When always? Only when proposal answering enabled? %>
-                <%= icon_link_to "chat", proposal_proposal_notes_path(proposal_id: proposal.id), t("actions.private_notes", scope: "decidim.proposals"), class: "action-icon--index-notes" %>
+                <% if can? :create, Decidim::Proposals::ProposalNote %>
+                  <%= icon_link_to "chat", proposal_proposal_notes_path(proposal_id: proposal.id), t("actions.private_notes", scope: "decidim.proposals"), class: "action-icon--index-notes" %>
+                <% end %>
 
                 <% if can? :update, proposal %>
                   <%= icon_link_to "comment-square", edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id), t("actions.answer", scope: "decidim.proposals"), class: "action-icon--edit-answer" %>
