@@ -282,6 +282,7 @@ fr:
           fields:
             title: Titre
             link: Lien
+            weight: Position
       moderations:
         index:
           title:
@@ -470,6 +471,12 @@ fr:
           title: Inviter l'utilisateur en tant qu'administrateur
       navbar_links:
         no_links: Vous n'avez pas créé de lien
+        form:
+          title: Titre
+          link: Lien
+          weight: Poids
+          new_tab: Ouvrir sur un nouvel onglet
+          same_tab: Ouvrir dans le même onglet
         new:
           title: Nouveau lien de navigation
           create: Créer

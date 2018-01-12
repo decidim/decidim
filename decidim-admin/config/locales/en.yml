@@ -289,6 +289,7 @@ en:
           fields:
             title: Title
             link: Link
+            weight: Weight
       moderations:
         index:
           title:
@@ -477,6 +478,12 @@ en:
           title: Invite user as administrator
       navbar_links:
         no_links: No links created
+        form:
+          title: Title
+          link: Link
+          weight: Weight
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
         new:
           title: New navbar link
           create: Create
