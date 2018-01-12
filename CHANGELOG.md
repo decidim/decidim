@@ -73,6 +73,7 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-surveys**: Updated icon for surveys feature [\#2433](https://github.com/decidim/decidim/pull/2433)
 - **decidim-verifications**: Fixed a migration that broke feature permissions. If you already upgraded to `0.8.2` or less, please follow the instructions on the PR [\#2373](https://github.com/decidim/decidim/pull/2373)
 - **decidim-accountability**: Fix children results count [\#2483](https://github.com/decidim/decidim/pull/2483)
+- **decidim-accountability**: Keeps the current scope in the breadcumb links [\#2488](https://github.com/decidim/decidim/pull/2488)
 
 **Removed**
 - **decidim**: Select2 JS library and scope selector based on Select2.
