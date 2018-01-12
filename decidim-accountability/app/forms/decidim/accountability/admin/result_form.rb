@@ -14,6 +14,7 @@ module Decidim
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
         attribute :proposal_ids, Array[Integer]
+        attribute :project_ids, Array[Integer]
         attribute :start_date, Date
         attribute :end_date, Date
         attribute :progress, Float
@@ -34,11 +35,17 @@ module Decidim
 
         def map_model(model)
           self.proposal_ids = model.linked_resources(:proposals, "included_proposals").pluck(:id)
+          self.project_ids = model.linked_resources(:projects, "included_projects").pluck(:id)
           self.decidim_category_id = model.category.try(:id)
         end
 
         def proposals
           @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, current_feature)&.order(title: :asc)&.pluck(:title, :id)
+        end
+
+        def projects
+          @projects ||= Decidim.find_resource_manifest(:projects).try(:resource_scope, current_feature)&.order(title: :asc)
+                               &.select(:title, :id)&.map { |a| [a.title[I18n.locale.to_s], a.id] }
         end
 
         # Finds the Scope from the given decidim_scope_id, uses participatory space scope if missing.

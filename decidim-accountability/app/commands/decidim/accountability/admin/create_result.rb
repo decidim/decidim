@@ -20,6 +20,7 @@ module Decidim
             create_result
             link_meetings
             link_proposals
+            link_projects
           end
 
           broadcast(:ok)
@@ -50,6 +51,10 @@ module Decidim
           @proposals ||= result.sibling_scope(:proposals).where(id: @form.proposal_ids)
         end
 
+        def projects
+          @projects ||= result.sibling_scope(:projects).where(id: @form.project_ids)
+        end
+
         def meeting_ids
           @meeting_ids ||= proposals.flat_map do |proposal|
             proposal.linked_resources(:meetings, "proposals_from_meeting").pluck(:id)
@@ -62,6 +67,10 @@ module Decidim
 
         def link_proposals
           result.link_resources(proposals, "included_proposals")
+        end
+
+        def link_projects
+          result.link_resources(projects, "included_projects")
         end
 
         def link_meetings
