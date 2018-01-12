@@ -257,6 +257,7 @@ sv:
         incomplete:
           cancel: Annullera
           explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", behöver vi dig att reauthorize eftersom vi saknar följande data:'
+          invalid_field: "%{field}"
           reauthorize: reauthorize
           title: Vänligen reauthorize
         missing:
@@ -269,7 +270,7 @@ sv:
           title: Godkännandet är fortfarande på gång
         unauthorized:
           explanation: Tyvärr, du kan inte utföra den här åtgärden eftersom vissa av dina auktoriseringsuppgifter inte matchar.
-          invalid: "%{field} är inte giltigt."
+          invalid_field: "%{field} värde %{value} är inte giltigt."
           ok: Ok
           title: Inte behörig
       author:
