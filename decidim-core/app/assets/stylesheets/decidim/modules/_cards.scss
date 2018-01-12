@@ -571,61 +571,70 @@ $datetime-bg: $primary;
   }
 }
 
-
 // card--proposal status
-.card--proposal {
-  &.success {
+.card--proposal{
+  &.success{
     border-top-width: 8px;
     border-top-color: $success;
   }
-  &.warning {
+
+  &.warning{
     border-top-width: 8px;
     border-top-color: $warning;
   }
-  &.alert {
+
+  &.alert{
     border-top-width: 8px;
     border-top-color: $alert;
   }
-  &.muted {
+
+  &.muted{
     border-top-width: 8px;
     border-top-color: rgba($muted, .3);
   }
 
-  &:hover {
-    &.success {
+  &:hover{
+    &.success{
       border-color: $success;
     }
-    &.warning {
+
+    &.warning{
       border-color: $warning;
     }
-    &.alert {
+
+    &.alert{
       border-color: $alert;
     }
-    &.muted {
+
+    &.muted{
       border-color: rgba($muted, .3);
     }
   }
 }
 
 // card status
-.card__status {
-  .card-data__item {
+.card__status{
+  .card-data__item{
     flex-basis: initial;
     padding: 1em .5em;
   }
-  .card-status__text {
+
+  .card-status__text{
     font-weight: bold;
 
-    &.success {
+    &.success{
       color: $success;
     }
-    &.warning {
+
+    &.warning{
       color: $warning;
     }
-    &.alert {
+
+    &.alert{
       color: $alert;
     }
-    &.muted {
+
+    &.muted{
       color: $muted;
     }
   }
