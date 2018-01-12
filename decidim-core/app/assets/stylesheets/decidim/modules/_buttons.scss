@@ -1,10 +1,11 @@
-/* Foundation button overrides*/
+/* Foundation button overrides */
 
 .button{
   &.small{
     padding-top: .5rem;
     padding-bottom: .5rem;
   }
+
   &.tiny{
     padding-top: .25rem;
     padding-bottom: .25rem;
@@ -17,30 +18,34 @@
   background-color: transparent;
   border-color: inherit;
   color: $primary;
+
   &.secondary{
     color: $secondary;
   }
+
   &.success{
     color: $success;
   }
+
   &.alert{
     color: $alert;
   }
+
   &.warning{
     color: $warning;
   }
 }
 
-
-
-/*Extra buttons styles*/
+/* Extra buttons styles */
 
 .button--icon{
   display: flex;
   align-items: center;
+
   .icon{
     margin: 0 2px;
   }
+
   &.small{
     .icon{
       width: 12px;
@@ -56,9 +61,11 @@
 
 .button--muted{
   background-color: $muted;
+
   &:hover{
     background-color: $secondary;
   }
+
   &.hollow{
     border-color: $muted;
   }
@@ -68,6 +75,7 @@
   text-transform: uppercase;
   letter-spacing: .05em;
   font-weight: 600;
+
   &.large{
     font-size: 1rem;
   }
@@ -89,6 +97,7 @@
 .muted-link{
   font-weight: 600;
   color: $muted;
+
   &:hover{
     color: $anchor-color;
   }
@@ -99,7 +108,7 @@
   margin-bottom: $margin-s;
 }
 
-/*Social buttons*/
+/* Social buttons */
 
 .button--social{
   padding: 0 1.5rem 0 0;
@@ -111,8 +120,8 @@
 .button--social__icon{
   display: inline-block;
   vertical-align: middle;
-  padding: 0.85em 1rem;
-  border-right: 1px solid rgba(black,.075);
+  padding: .85em 1rem;
+  border-right: 1px solid rgba(black, .075);
   margin-right: .5rem;
   min-width: 3rem;
   text-align: center;
@@ -120,19 +129,24 @@
 
 .button--twitter{
   background-color: $twitter;
+
   &:hover{
-    background-color: lighten($twitter,5);
+    background-color: lighten($twitter, 5);
   }
 }
+
 .button--facebook{
   background-color: $facebook;
+
   &:hover{
-    background-color: lighten($facebook,5);
+    background-color: lighten($facebook, 5);
   }
 }
+
 .button--google{
   background-color: $google;
+
   &:hover{
-    background-color: lighten($google,5);
+    background-color: lighten($google, 5);
   }
 }

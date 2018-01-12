@@ -258,6 +258,7 @@ en:
         incomplete:
           cancel: Cancel
           explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
+          invalid_field: "%{field}"
           reauthorize: Reauthorize
           title: Please reauthorize
         missing:
@@ -270,7 +271,7 @@ en:
           title: Authorization is still in progress
         unauthorized:
           explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
-          invalid: "%{field} isn't valid."
+          invalid_field: "%{field} value %{value} isn't valid."
           ok: Ok
           title: Not authorized
       author:
@@ -406,7 +407,7 @@ en:
         participate: Participate
         welcome: Welcome to %{organization}!
       statistics:
-        answers_count: Answers
+        answers_count: Completed Surveys
         assemblies_count: Assemblies
         comments_count: Comments
         headline: Current state of %{organization}

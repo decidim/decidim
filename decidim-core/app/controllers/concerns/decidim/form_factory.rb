@@ -73,7 +73,8 @@ module Decidim
             {
               current_organization: @controller.try(:current_organization),
               current_feature: @controller.try(:current_feature),
-              current_user: @controller.try(:current_user)
+              current_user: @controller.try(:current_user),
+              current_participatory_space: @controller.try(:current_participatory_space)
             }
           end
         end.new(klass, self)

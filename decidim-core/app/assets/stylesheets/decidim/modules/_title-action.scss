@@ -1,5 +1,4 @@
 .title-action{
-  margin-bottom: 1rem;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -11,6 +10,7 @@
   margin-right: 1rem;
   vertical-align: middle;
   margin-bottom: 0;
+
   &.section-heading{
     margin-bottom: 0;
   }
@@ -20,6 +20,7 @@
   display: inline-block;
   vertical-align: middle;
   margin-bottom: 0;
+
   .icon{
     width: 11px;
     height: 11px;

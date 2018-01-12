@@ -214,6 +214,7 @@ fr:
         dashboard: Tableau de bord
         managed_users: Utilisateurs représentés
         newsletters: Bulletins d'information (newsletter)
+        officializations: Validations
         scope_types: Types de zone d'application
         scopes: Zones d’application
         settings: Paramètres
@@ -313,6 +314,33 @@ fr:
         update:
           error: Erreur lors de la mise à jour du bulletin d'information.
           success: Bulletin d'information mis à jour avec succès. Veuillez le vérifier avant de l'envoyer.
+      officializations:
+        create:
+          success: Utilisateur validé avec succès
+        destroy:
+          success: Utilisateur non validé avec succès
+        index:
+          actions: actes
+          badge: Badge
+          created_at: Créé à
+          filter:
+            all: Tout
+            not_officialized: Non validé
+            officialized: Validé
+          filter_by: Filtrer par
+          name: Nom
+          nickname: Pseudo
+          not_officialized: Non validé
+          officialize: Valider
+          officialized: Validé
+          reofficialize: De nouveau validé
+          search: Chercher
+          status: Statut
+          unofficialize: Invalider
+        new:
+          badge: Badge de validation
+          officialize: Valider
+          title: Valider l'utilisateur "%{name}"
       organization:
         edit:
           title: Modifier l'organisation
@@ -390,6 +418,7 @@ fr:
         dashboard: Tableau de bord
         impersonations: Représentations d'utilisateurs
         managed_users: Utilisateurs représentés
+        officializations: Validations
         scope_types: Types de zone d'application
         scopes: Zones d'application
         static_pages: Pages

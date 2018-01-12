@@ -19,7 +19,7 @@ module Decidim
       status = action_authorization(action_name)
 
       return if status.ok?
-      raise Unauthorized if status.code == :invalid
+      raise Unauthorized if status.code == :unauthorized
 
       redirect_to authorize_action_path(action_name, redirect_url: redirect_url)
     end

@@ -1,0 +1,194 @@
+gl:
+  activemodel:
+    attributes:
+      proposal:
+        body: Corpo
+        category_id: Categoría
+        has_address: Ten enderezo
+        scope_id: Alcance
+        title: Título
+        user_group_id: Crear proposta como
+      proposal_answer:
+        answer: Resposta
+  decidim:
+    features:
+      proposals:
+        actions:
+          create: Crear
+          vote: Vota
+        name: Propostas
+        settings:
+          global:
+            announcement: Anuncio
+            attachments_allowed: Permitir anexos
+            comments_enabled: Comentarios habilitados
+            geocoding_enabled: Geocoding habilitado
+            maximum_votes_per_proposal: Votos máximos por proposta
+            new_proposal_help_text: Nova proposta de axuda de texto
+            official_proposals_enabled: Propostas oficiais habilitadas
+            proposal_answering_enabled: Contestando a proposta habilitada
+            proposal_edit_before_minutes: As propostas poden ser editadas por autores antes de que pase moitos minutos
+            proposal_limit: Límite de proposta por usuario
+            vote_limit: Límite de voto por usuario
+          step:
+            announcement: Anuncio
+            comments_blocked: Comentarios bloqueados
+            creation_enabled: Creación de proposta habilitada
+            proposal_answering_enabled: Contestando a proposta habilitada
+            votes_blocked: Votos bloqueados
+            votes_enabled: Votos habilitados
+            votes_hidden: Votos ocultos (se os votos están habilitados, a comprobación ocultará o número de votos)
+    proposals:
+      actions:
+        answer: Resposta
+        new: Novo
+        title: Accións
+      admin:
+        actions:
+          preview: Vista previa
+        exports:
+          comments: Comentarios
+          proposals: Propostas
+        models:
+          proposal:
+            name: Proposta
+        proposal_answers:
+          edit:
+            accepted: Aceptada
+            answer_proposal: Resposta
+            evaluating: Avaliación
+            rejected: Rexeitado
+            title: Resposta á proposta %{title}
+        proposals:
+          answer:
+            invalid: Houbo un problema respondendo a esta proposta
+            success: A proposta respondeu con éxito
+          create:
+            invalid: Produciuse un problema ao crear esta proposta
+            success: Creouse a proposta correctamente
+          form:
+            attachment_legend: "(Opcional) Engada un anexo"
+            select_a_category: Selecciona unha categoría
+          index:
+            title: Propostas
+          new:
+            create: Crear
+            title: Crear proposta
+      answers:
+        accepted: Aceptada
+        evaluating: Avaliación
+        not_answered: Non respondeu
+        rejected: Rexeitado
+      create:
+        error: Produciuse un erro ao gardar a proposta.
+        success: Proposta creada con éxito.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Ola, %{author_name} %{author_nickname}, a quen estás seguindo, creou unha nova proposta, revisa e contribúe:
+          email_outro: Recibiches esta notificación porque estás seguindo %{author_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Nova proposta por %{author_nickname}
+          notification_title: A <a href="%{resource_path}">%{resource_title}</a> proposta foi creada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      models:
+        proposal:
+          fields:
+            category: Categoría
+            id: ID
+            official_proposal: Proposta oficial
+            scope: Alcance
+            state: Estado
+            title: Título
+            votes: Votos
+      new:
+        limit_reached: Non podes crear novas propostas xa que superaches o límite.
+      proposal_votes:
+        create:
+          error: Houbo erros ao votar a proposta.
+      proposals:
+        count:
+          proposals_count:
+            one: 1 proposta
+            other: "%{count} propostas"
+        edit:
+          back: De volta
+          select_a_category: Selecciona unha categoría
+          send: Enviar
+          title: Editar proposta
+        filters:
+          accepted: Aceptada
+          activity: Actividade
+          all: Todo
+          category: Categoría
+          category_prompt: Selecciona unha categoría
+          citizens: Cidadáns
+          evaluating: Avaliación
+          official: Oficial
+          origin: Orixe
+          rejected: Rexeitado
+          related_to: Relacionado con
+          search: Busca
+          state: Estado
+          voted: Votado
+        filters_small_view:
+          close_modal: Pechar modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Despregar
+        index:
+          new_proposal: Nova proposta
+          view_proposal: Ver proposta
+        linked_proposals:
+          proposal_votes:
+            one: votar
+            other: votos
+        new:
+          attachment_legend: "(Opcional) Engada un anexo"
+          back: De volta
+          proposal_edit_before_minutes:
+            one: Poderás editar esta proposta durante o primeiro minuto despois da creación da proposta. Unha vez que pase esta xanela de tempo, non poderás editar a proposta.
+            other: Poderás editar esta proposta durante os primeiros %{count} minutos despois da creación da proposta. Unha vez que pase esta xanela de tempo, non poderás editar a proposta.
+          select_a_category: Selecciona unha categoría
+          send: Enviar
+          title: Nova proposta
+        orders:
+          label: 'Solicitar propostas por:'
+          most_voted: A maioría votada
+          random: Aleatorio
+          recent: Recentes
+        proposal:
+          creation_date: 'Creación: %{date}'
+          view_proposal: Ver proposta
+        show:
+          edit_proposal: Editar proposta
+          proposal_accepted_reason: 'Esta proposta foi aceptada porque:'
+          proposal_in_evaluation_reason: Esta proposta está a ser avaliada
+          proposal_rejected_reason: 'Esta proposta foi rexeitada porque:'
+          report: Informe
+        vote_button:
+          already_voted: Xa votou
+          already_voted_hover: Unvocar
+          maximum_votes_reached: Límite de voto alcanzado
+          no_votes_remaining: Non hai votos restantes
+          vote: Vota
+          votes_blocked: Votación desactivada
+        votes_count:
+          count:
+            one: VOTAR
+            other: VOTOS
+        voting_rules:
+          maximum_votes_per_proposal:
+            description: Cada proposta pode recibir un máximo de %{limit} votos.
+          proposal_limit:
+            description: Podes crear ata %{limit} propostas.
+          title: 'A votación está suxeita ás seguintes regras:'
+          vote_limit:
+            description: Podes votar ata %{limit} propostas.
+            left: Permanecendo
+            votes: Votos
+      update:
+        error: Produciuse un erro ao gardar a proposta.
+        success: A proposta actualizouse con éxito.
+    resource_links:
+      included_proposals:
+        proposal_projects: 'Proposta que aparece nestes proxectos:'
+        proposal_results: 'Proposta que aparece nestes resultados:'
