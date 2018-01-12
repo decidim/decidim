@@ -91,18 +91,19 @@
   font-size: 90%;
 }
 
-.process-phase {
+.process-phase{
   @extend .process-header__phase;
+
   padding: 0;
 
-  .process-header__progress {
+  .process-header__progress{
     display: flex;
     align-items: center;
     margin-bottom: 0;
     border-bottom: 1px solid $muted;
     padding: .5rem 1rem;
 
-    ol {
+    ol{
       flex: 1;
     }
 
@@ -112,16 +113,16 @@
   }
 }
 
-.process-header__body {
+.process-header__body{
   padding: 1rem 1rem 1.5rem;
 
-  .process-header__link {
+  .process-header__link{
     margin-top: .5rem;
   }
 }
 
-.process-header__button {
-  .button {
+.process-header__button{
+  .button{
     border-color: $primary;
   }
 }
