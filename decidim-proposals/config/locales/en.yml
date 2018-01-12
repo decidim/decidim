@@ -134,6 +134,7 @@ en:
           already_endorsed: Already endorsed
           already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
+          already_endorsed: Already endorsed
           endorse: Endorse
         endorsements_count:
           count:
