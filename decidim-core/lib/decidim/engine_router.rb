@@ -50,7 +50,7 @@ module Decidim
     private
 
     def route_helper?(method_name)
-      method_name.to_s.match(/_(url|path)$/)
+      method_name.to_s.match?(/_(url|path)$/)
     end
   end
 end
