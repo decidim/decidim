@@ -86,6 +86,12 @@ module Decidim
       def pending_authorizations
         Authorizations.new(user: current_user, granted: false)
       end
+
+      def store_current_location
+        return if params[:redirect_url].blank?
+
+        store_location_for(:user, params[:redirect_url])
+      end
     end
   end
 end

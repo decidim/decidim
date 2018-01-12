@@ -84,7 +84,7 @@ module Decidim
 
         it "renders a regular link" do
           rendered = helper.action_authorized_link_to("foo", "Link", "fake_path")
-          expect(rendered).not_to include("data-toggle")
+          expect(rendered).not_to include("data-open")
           expect(rendered).to include("<a")
           expect(rendered).to include("Link")
         end
@@ -92,7 +92,7 @@ module Decidim
         it "renders with a block" do
           rendered = helper.action_authorized_link_to("foo", "fake_path") { "Link" }
 
-          expect(rendered).not_to include("data-toggle")
+          expect(rendered).not_to include("data-open")
           expect(rendered).to include("<a")
           expect(rendered).to include("Link")
         end
@@ -105,7 +105,7 @@ module Decidim
         it "renders a link toggling the modal" do
           rendered = helper.action_authorized_link_to("foo", "Link", "fake_path")
           expect(rendered).not_to include("fake_path")
-          expect(rendered).to include('data-toggle="fooAuthorizationModal"')
+          expect(rendered).to include('data-open="fooAuthorizationModal"')
           expect(rendered).to include("<a")
         end
       end
@@ -118,7 +118,7 @@ module Decidim
 
         it "renders a regular button" do
           rendered = helper.action_authorized_button_to("foo", "Link", "fake_path")
-          expect(rendered).not_to include("data-toggle")
+          expect(rendered).not_to include("data-open")
           expect(rendered).to include("<input")
           expect(rendered).to include("type=\"submit\"")
           expect(rendered).to include("Link")
@@ -127,7 +127,7 @@ module Decidim
         it "renders with a block" do
           rendered = helper.action_authorized_button_to("foo", "fake_path") { "Link" }
 
-          expect(rendered).not_to include("data-toggle")
+          expect(rendered).not_to include("data-open")
           expect(rendered).to include("<button")
           expect(rendered).to include("type=\"submit\"")
           expect(rendered).to include("Link")
@@ -143,7 +143,7 @@ module Decidim
           expect(rendered).to include("<input")
           expect(rendered).to include("type=\"submit\"")
           expect(rendered).not_to include("fake_path")
-          expect(rendered).to include('data-toggle="fooAuthorizationModal"')
+          expect(rendered).to include('data-open="fooAuthorizationModal"')
         end
       end
     end
