@@ -156,7 +156,12 @@
     Decidim::Dev.dummy_app_path = File.expand_path(File.join("..", "spec", "decidim_dummy_app"))
 
     require "decidim/dev/test/base_spec_helper"
+
     ```
+
+1. Upload to GitHub with the naming *decidim-module-<engine_name>*, so it's easier to find on
+the [dependency graph](https://github.com/decidim/decidim/network/dependents).
+
 
 ## Experimental way
 
