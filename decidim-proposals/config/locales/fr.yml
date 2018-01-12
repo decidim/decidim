@@ -191,6 +191,8 @@ fr:
         error: Des erreurs se sont produites lors de l'enregistrement de la proposition.
         success: Proposition mise à jour avec succès.
     resource_links:
+      included_projects:
+        project_results: 'Résultats apparaissant dans ce projet:'
       included_proposals:
         proposal_projects: 'Proposition figurant dans ces projets :'
         proposal_results: 'Proposition figurant dans ces résultats :'
