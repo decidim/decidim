@@ -55,6 +55,10 @@ nl:
           authorize_with: Verifieer met %{authorizer}
         skip_verification: U kunt dit overslaan voor nu en %{link}
         start_exploring: begin met verkennen
+      dummy_authorization:
+        extra_explanation:
+          one: Deelname is beperkt tot gebruikers met de postcode %{postal_codes}.
+          other: 'Deelname is beperkt tot gebruikers met een van de volgende postcodes: %{postal_codes}.'
       id_documents:
         admin:
           confirmations:
