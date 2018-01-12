@@ -8,6 +8,13 @@
 
 <main class="wrapper">
   <%= partial "process_header" %>
+  <div class="row column">
+    <div class="callout secondary callout-margin-2x">
+      <p>
+        Las iniciativas ciudadanas son un medio con el que la ciudadanía interviene a fin de que el Ayuntamiento lleve a cabo una determinada actuación de interés general y competencia municipal. ¿Qué iniciativa quieres impulsar? <a href="#">Más información</a>.
+      </p>
+    </div>
+  </div>
   <div class="row columns">
     <h2 class="section-heading">3 Iniciativas</h2>
   </div>
@@ -25,7 +32,7 @@
           <article class="card card--proposal">
             <div class="card__content">
               <div class="card__header">
-                <%= link_to page_path("proposal-view"), class: "card__link" do %>
+                <%= link_to page_path("initiatives/initiative-view"), class: "card__link" do %>
                   <h5 class="card__title">
                     Creació d'aules ambientals al Parc del Clot
                   </h5>
@@ -114,7 +121,7 @@
           <article class="card card--proposal">
             <div class="card__content">
               <div class="card__header">
-                <%= link_to page_path("proposal-view-rejected"), class: "card__link" do %>
+                <%= link_to page_path("initiatives/initiative-view-rejected"), class: "card__link" do %>
                   <h5 class="card__title">
                     Creació d'aules ambientals i d'estudi al Parc del Clot
                   </h5>
@@ -167,7 +174,7 @@
           <article class="card card--proposal">
             <div class="card__content">
               <div class="card__header">
-                <%= link_to page_path("proposal-view"), class: "card__link" do %>
+                <%= link_to page_path("initiatives/initiative-view"), class: "card__link" do %>
                   <h5 class="card__title">
                     Creació d'aules ambientals al Parc del Clot
                   </h5>
