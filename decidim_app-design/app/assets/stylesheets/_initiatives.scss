@@ -19,8 +19,6 @@
 }
 
 .initiative-adhesion-list{
-  height: 3.5rem;
-
   &.is-filtered{
     > div:nth-of-type(1n+8){
       display: none;
