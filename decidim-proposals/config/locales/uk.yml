@@ -4,6 +4,7 @@ uk:
       proposal:
         body: Основний текст
         category_id: Розділ
+        has_address: Має адресу
         scope_id: Терен
         title: Назва
         user_group_id: Внести пропозицію як
@@ -93,6 +94,8 @@ uk:
         proposal:
           fields:
             category: Розділ
+            comments: Коментарі
+            created_at: 'Створено:'
             id: Псевдонім
             official_proposal: Офіційна пропозиція
             scope: Терен
@@ -197,6 +200,8 @@ uk:
         error: При збереженні цієї пропозиції сталися помилки.
         success: Пропозицію успішно оновлено.
     resource_links:
+      included_projects:
+        project_results: 'Підсумки, які є в цьому проекті:'
       included_proposals:
         proposal_projects: 'Пропозиція є в таких проектах:'
         proposal_results: 'Пропозиція є в таких підсумках:'

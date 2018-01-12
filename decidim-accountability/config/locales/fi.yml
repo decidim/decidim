@@ -8,6 +8,7 @@ fi:
         description: Kuvaus
         end_date: Päättymisaika
         progress: Edistyminen
+        project_ids: Mukana olevat projektit
         proposal_ids: Sisällytetyt ehdotukset
         start_date: Aloitusaika
         title: Otsikko
@@ -170,5 +171,7 @@ fi:
           step:
             comments_blocked: Kommentointi estetty
     resource_links:
+      included_projects:
+        result_projects: Tähän tulokseen sisältyvät hankkeet
       included_proposals:
         result_proposals: Projektit, jotka sisältyvät tähän tulokseen

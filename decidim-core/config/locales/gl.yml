@@ -257,6 +257,7 @@ gl:
         incomplete:
           cancel: Cancelar
           explanation: 'Aínda que actualmente estás autorizado con "%{authorization}", necesitamos que reautoresas porque falta os seguintes datos:'
+          invalid_field: "%{field}"
           reauthorize: Reautorizar
           title: Reautoralizar
         missing:
@@ -269,7 +270,7 @@ gl:
           title: A autorización aínda está en progreso
         unauthorized:
           explanation: Non podes realizar esta acción porque algúns dos teus datos de autorización non coinciden.
-          invalid: "%{field} non é válido."
+          invalid_field: "O %{field} valor %{value} non é válido."
           ok: Ok
           title: Non autorizado
       author:

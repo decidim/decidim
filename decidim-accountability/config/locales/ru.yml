@@ -8,6 +8,7 @@ ru:
         description: Описание
         end_date: Дата завершения
         progress: Продвижение
+        project_ids: Включенные проекты
         proposal_ids: Включенные предложения
         start_date: Дата начала
         title: Название
@@ -172,5 +173,7 @@ ru:
           step:
             comments_blocked: Комментарии выключены
     resource_links:
+      included_projects:
+        result_projects: Проекты, включенные в эти итоги
       included_proposals:
         result_proposals: Предложения, включенные в этот итог

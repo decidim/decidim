@@ -133,6 +133,12 @@ eu:
       dashboard:
         show:
           welcome: Ongi etorri Decidim Admin Panelera.
+      events:
+        user_officialized_event:
+          email_intro: <a href="%{profile_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
+          email_outro: Jakinarazpena jaso duzu %{nickname} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: "%{nickname} profilean eguneratu dute"
+          notification_title: <a href="%{profile_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
       exports:
         export_as: "%{name} honako hau gisa: %{export_format}"
         notice: Zure esportazioa bidean da. Mezu elektroniko bat jasoko duzu bukatutakoan.

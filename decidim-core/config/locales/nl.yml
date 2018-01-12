@@ -257,6 +257,7 @@ nl:
         incomplete:
           cancel: Annuleer
           explanation: 'Ook al bent u momenteel geautoriseerd met "%{authorization}", moeten we u vragen opnieuw autoriseren omdat we niet beschikken over de volgende gegevens:'
+          invalid_field: "%{field}"
           reauthorize: Opnieuw autoriseren
           title: Autoriseert u opnieuw alstublieft
         missing:
@@ -269,7 +270,7 @@ nl:
           title: Autorisatie is nog bezig
         unauthorized:
           explanation: Excuus, u kunt deze actie niet uitvoeren; sommige gegevens kloppen niet.
-          invalid: "%{field} is niet geldig."
+          invalid_field: "%{field} waarde %{value} is niet geldig."
           ok: Ok
           title: Niet geautoriseerd
       author:

@@ -4,6 +4,17 @@ gl:
       admin:
         exports:
           dummies: Dummies
+    participatory_processes:
+      statistics:
+        dummies_count_high: Maniquís de alta
+        dummies_count_medium: Dummies medio
     resource_links:
       test_link:
         dummy_resource_dummy: Dummy relacionado
+  pages:
+    home:
+      statistics:
+        bar: Bar
+        dummies_count_high: Maniquís de alta
+        dummies_count_medium: Dummies medio
+        foo: Foo
