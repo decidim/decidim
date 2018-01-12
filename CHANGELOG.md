@@ -13,6 +13,7 @@ you need to change the following line in `config/environments/production.rb`:
 ```
 
 **Added**:
+- **decidim-core:** Improve Newsletter adding unsubscribe link, see on website, UTM GET codes [\2359](https://github.com/decidim/decidim/pull/2359)
 - **decidim-core**: Follow users and get notifications about their actions. [\2401](https://github.com/decidim/decidim/pull/2401)
 - **decidim-core**: Add unique nicknames for participants. [\2360](https://github.com/decidim/decidim/pull/2360)
 - **decidom-admin**: Let admins officialize certain users from the admin dashboard and specify custom officialization text for them. [\2405](https://github.com/decidim/decidim/pull/2405)
