@@ -191,6 +191,8 @@ sv:
         error: Det har varit fel när du lagrade förslaget.
         success: Förslaget uppdateras framgångsrikt.
     resource_links:
+      included_projects:
+        project_results: 'Resultat som visas i detta projekt:'
       included_proposals:
         proposal_projects: 'Förslag som framgår av dessa projekt:'
         proposal_results: 'Förslag som visas i dessa resultat:'
