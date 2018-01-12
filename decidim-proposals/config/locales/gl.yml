@@ -191,6 +191,8 @@ gl:
         error: Produciuse un erro ao gardar a proposta.
         success: A proposta actualizouse con éxito.
     resource_links:
+      included_projects:
+        project_results: 'Resultados que aparecen neste proxecto:'
       included_proposals:
         proposal_projects: 'Proposta que aparece nestes proxectos:'
         proposal_results: 'Proposta que aparece nestes resultados:'
