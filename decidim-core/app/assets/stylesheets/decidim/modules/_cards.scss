@@ -399,10 +399,11 @@ $datetime-bg: $primary;
     }
   }
 }
+
 .card--list__data__icon--lg{
   @extend .card--list__data__icon;
 
-  .icon {
+  .icon{
     width: 36px;
     height: 36px;
   }

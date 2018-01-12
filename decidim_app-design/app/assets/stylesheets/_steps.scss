@@ -1,19 +1,19 @@
-.steps {
+.steps{
   list-style-type: none;
-  margin-left: 0.25rem;
+  margin-left: .25rem;
 
-  li {
+  li{
     border: none;
     color: $primary;
     border-left: 2px solid $primary;
     box-sizing: border-box;
     border-radius: 0;
     padding: 1rem 0;
-    font-size: 0.875rem;
+    font-size: .875rem;
     cursor: pointer;
   }
 
-  li::before {
+  li::before{
     border-radius: 50%;
     background-color: $primary;
     content: "";
@@ -23,17 +23,17 @@
     line-height: 10px;
     text-align: center;
     width: 10px;
-    margin: 0.4rem 4px 0 -6px;
+    margin: .4rem 4px 0 -6px;
   }
 
-  .step--active {
+  .step--active{
     font-weight: bold;
 
-    & ~ li {
+    & ~ li{
       color: $secondary;
       border-left: 2px solid $secondary;
 
-      &::before {
+      &::before{
         background-color: $secondary;
       }
     }
