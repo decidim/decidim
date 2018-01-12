@@ -11,6 +11,7 @@
 
 - **decidim-accountability**: Fixed missing `diff.js` [#2344](https://github.com/decidim/decidim/pull/2344)
 - **decidim-accountability**: Keeps the current scope in the breadcumb links [\#2488](https://github.com/decidim/decidim/pull/2488)
+- **decidim-accountability**: Fix children results count [\#2483](https://github.com/decidim/decidim/pull/2483)
 
 **Removed**:
 
