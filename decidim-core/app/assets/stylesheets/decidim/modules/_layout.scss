@@ -1,8 +1,10 @@
 .wrapper{
   padding: 1.2rem 1rem;
+
   @include breakpoint(medium){
     padding: 5rem 1.5rem 3rem;
   }
+
   @include breakpoint(large){
     padding-left: 4rem;
     padding-right: 4rem;
@@ -24,6 +26,7 @@ body{
   flex-direction: column;
   height: auto;
   min-height: 100%;
+
   @include breakpoint(smallmedium down){
     background-color: $dark-gray;
   }
@@ -48,6 +51,7 @@ body{
 
 .off-canvas{
   background-color: $dark-gray;
+
   .close-button{
     color: $light-gray;
     padding: .2rem .5rem;

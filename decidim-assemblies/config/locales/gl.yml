@@ -1,0 +1,137 @@
+gl:
+  activemodel:
+    attributes:
+      assembly:
+        banner_image: Imaxe do banner
+        copy_categories: Copiar categorías
+        copy_features: Copiar funcións
+        description: Descrición
+        developer_group: Grupo de desenvolvedores
+        domain: Dominio
+        hashtag: Etiqueta
+        hero_image: Imaxe na casa
+        local_area: Área local
+        meta_scope: Metadatos de ámbito
+        participatory_scope: Alcance participativo
+        participatory_structure: Estrutura participativa
+        promoted: Promocionado
+        scope_id: Alcance
+        scopes_enabled: Ámbitos habilitados
+        short_description: Descrición curta
+        slug: URL slug
+        subtitle: Subtítulo
+        target: Obxectivo
+        title: Título
+  decidim:
+    admin:
+      assemblies:
+        create:
+          error: Produciuse un erro ao crear un novo conxunto.
+          success: Asemblea creada con éxito.
+        destroy:
+          success: Asemblea foi destruída con éxito.
+        edit:
+          update: Actualización
+        form:
+          title: Información xeral
+        index:
+          not_published: Non publicado
+          published: Publicado
+        new:
+          create: Crear
+          title: Nova montaxe
+        update:
+          error: Produciuse un erro ao actualizar este conxunto.
+          success: Asemblea actualizouse con éxito.
+      assemblies_copies:
+        create:
+          error: Produciuse un erro ao duplicar este conxunto.
+          success: Asemblea duplicouse con éxito.
+      assembly_copies:
+        new:
+          copy: Copiar
+          select: Seleccione os datos que desexa duplicar
+          title: Conxunto duplicado
+      assembly_publications:
+        create:
+          error: Produciuse un erro ao publicar esta asemblea.
+          success: Asemblea publicouse con éxito.
+        destroy:
+          error: Produciuse un erro ao publicar esta asemblea.
+          success: Asemblea non publicada con éxito.
+      menu:
+        assemblies: Asembleas
+        assemblies_submenu:
+          attachments: Anexos
+          categories: Categorías
+          features: características
+          info: Información
+          moderations: Moderacións
+      models:
+        assembly:
+          fields:
+            created_at: Creado en
+            promoted: Destacado
+            published: Publicado
+            title: Título
+          name: Asemblea
+      titles:
+        assemblies: Asembleas
+    assemblies:
+      admin:
+        assemblies:
+          form:
+            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
+        assembly_copies:
+          form:
+            slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
+      index:
+        title: Asembleas
+      pages:
+        home:
+          highlighted_assemblies:
+            active_assemblies: Asembleas activas
+            see_all_assemblies: Ver todos os conxuntos
+      show:
+        developer_group: Grupo de desenvolvedores
+        local_area: Área local
+        participatory_scope: Alcance participativo
+        participatory_structure: Estrutura participativa
+        scope: Alcance
+        target: Obxectivo
+      statistics:
+        answers_count: Respostas
+        assemblies_count: Asembleas
+        comments_count: Comentarios
+        headline: Actividade
+        meetings_count: Reunións
+        orders_count: Votos
+        pages_count: Páxinas
+        projects_count: Proxectos
+        proposals_count: Propostas
+        results_count: Resultados
+        surveys_count: Enquisas
+        users_count: Participantes
+        votes_count: Votos
+    menu:
+      assemblies: Asembleas
+  layouts:
+    decidim:
+      assemblies:
+        assembly:
+          take_part: Tomar parte en
+        index:
+          promoted_assemblies: Asembleas destacadas
+        order_by_assemblies:
+          assemblies:
+            one: "Asemblea %{count}"
+            other: "Asembleas %{count}"
+        promoted_assembly:
+          more_info: Máis información
+          take_part: Tomar parte en
+      assembly_header:
+        assembly_menu_item: A asemblea
+        unfold: Despregar
+      assembly_widgets:
+        show:
+          take_part: Tomar parte en

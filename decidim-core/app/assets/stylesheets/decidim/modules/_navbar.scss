@@ -1,8 +1,8 @@
 /* Variables */
 
 $navbar-bg: $dark-gray;
-$navbar-bg-hover: rgba(white,.02);
-$navbar-color: rgba(white,.5);
+$navbar-bg-hover: rgba(white, .02);
+$navbar-color: rgba(white, .5);
 $navbar-color-hover: $white;
 $navbar-active-color: $white;
 $navbar-active-bg: $navbar-bg-hover;
@@ -19,6 +19,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
 
 .title-bar{
   position: relative;
+
   @include breakpoint(smallmedium down){
     border-top: 2.125rem solid $dark-gray;
   }
@@ -31,6 +32,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   top: 0;
   margin-top: -1.95rem;
   text-align: right;
+
   img{
     width: auto;
     height: 22px !important;
@@ -39,12 +41,12 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   @include breakpoint(medium){
     top: 50%;
     margin-top: -19px;
+
     img{
       height: 38px !important;
     }
   }
 }
-
 
 /* Top bar */
 .topbar{
@@ -57,12 +59,15 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   display: inline-block;
   line-height: 0;
   flex-grow: 1;
+
   a{
     display: inline-block;
   }
+
   img{
     display: block;
     max-height: 33px;
+
     @include breakpoint(mediumlarge){
       max-height: 45px;
     }
@@ -75,13 +80,16 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   vertical-align: middle;
   padding-top: 0;
   margin-left: 2rem;
+
   .dropdown > li > a{
     padding-left: 0;
   }
+
   .dropdown{
     display: inline-block;
     vertical-align: middle;
   }
+
   .is-dropdown-submenu{
     z-index: 2;
     text-align: left;
@@ -90,10 +98,12 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
     border: 1px solid $light-gray;
     box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
     min-width: 150px;
+
     a{
       color: $body-font-color;
       padding: .5rem;
     }
+
     a:hover{
       color: lighten($body-font-color, 20);
     }
@@ -103,13 +113,12 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
 //Foundation overwrites
 .topbar__dropmenu > ul > li > a{
   color: $medium-gray;
-  &:after{
+
+  &::after{
     margin-top: -1px !important;
     border-top-color: $medium-gray !important;
   }
 }
-
-
 
 .language-choose{
   @include breakpoint(smallmedium down){
@@ -118,6 +127,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
     top: -2.2rem;
     left: .5rem;
     margin-left: 0;
+
     .dropdown.menu > li.is-dropdown-submenu-parent > a::after{
       border-width: 3px;
       right: 10px;
@@ -126,11 +136,11 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   }
 }
 
-
 .topbar__user{
   display: inline-block;
   padding-right: 2.5rem;
   margin-left: 2rem;
+
   @media (min-width: (1300 / 16) + em){
     padding-right: 0;
   }
@@ -140,23 +150,26 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   text-align: right;
   padding-right: 2.5rem;
   display: none;
+
   @include breakpoint(medium){
     display: block;
   }
+
   @media (min-width: (1300 / 16) + em){
     padding-right: 0;
   }
 }
 
-
 .topbar__notifications,
 .topbar__conversations{
   margin-right: .5rem;
   vertical-align: -4px;
+
   .icon{
     fill: $white;
     opacity: .3;
   }
+
   &.is-active .icon{
     fill: $warning;
     opacity: 1;
@@ -166,14 +179,17 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
 .topbar__user__login{
   text-align: right;
   line-height: 1.2;
+
   a{
     color: $medium-gray;
     font-weight: 600;
+
     &:hover{
       color: $anchor-color;
     }
   }
-  a:first-of-type:after{
+
+  a:first-of-type::after{
     content: "";
     margin-left: .5rem;
     margin-right: .5rem;
@@ -185,13 +201,13 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   }
 }
 
-
 /* Menu icon and off-canvas */
 .topbar__menu{
   text-align: right;
   font-size: 20px;
   margin-right: .1rem;
-  button {
+
+  button{
     color: inherit;
   }
 }
@@ -199,6 +215,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
 .usermenu-off-canvas-holder .usermenu-off-canvas{
   border-top: 1px solid;
   border-bottom: 1px solid;
+
   &.is-dropdown-submenu{
     display: block;
     position: static;
@@ -206,17 +223,18 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
     border-left: 0;
     border-right: 0;
   }
+
   a{
     display: block;
     padding: 1em 2em;
     color: $navbar-color;
+
     &:hover{
       background: $navbar-bg-hover;
       color: $navbar-color-hover;
     }
   }
 }
-
 
 .off-canvas .topbar__user__login{
   text-align: center;
@@ -227,7 +245,6 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   border-bottom: 1px solid;
 }
 
-
 /* Main nav */
 .main-nav ul{
   padding: 0;
@@ -235,11 +252,12 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   list-style: none;
   overflow-x: auto;
 
-  @include breakpoint(medium) {
+  @include breakpoint(medium){
     -webkit-overflow-scrolling: touch;
     white-space: nowrap;
     display: flex;
-    >li{
+
+    > li{
       display: inline-block;
       flex: 1;
       text-align: center;
@@ -251,6 +269,7 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   display: block;
   padding: 1em 2em;
   color: $navbar-color;
+
   &:hover{
     background: $navbar-bg-hover;
     color: $navbar-color-hover;
@@ -265,7 +284,8 @@ $navbar-active-shadow-medium: inset 0 4px 0 0 $primary;
   box-shadow: $navbar-active-shadow-small;
   color: $navbar-active-color;
   background: $navbar-active-bg;
-   @include breakpoint(medium) {
+
+  @include breakpoint(medium){
     box-shadow: $navbar-active-shadow-medium;
   }
 }

@@ -223,6 +223,8 @@ pl:
     pages:
       index:
         title: Więcej informacji
+    profiles:
+      default_officialization_text: Ten uczestnik jest publicznie weryfikowany, jego / jego nazwisko lub rola została zweryfikowana, aby odpowiadała jego / jej prawdziwemu imieniu i roli
     reported_mailer:
       hide:
         hello: Witaj %{name},
@@ -402,7 +404,7 @@ pl:
         participate: Uczestniczyć
         welcome: Witamy w %{organization}!
       statistics:
-        answers_count: Odpowiedzi
+        answers_count: Ankiety zakończone
         assemblies_count: Złożenia
         comments_count: Komentarze
         headline: Aktualny stan %{organization}

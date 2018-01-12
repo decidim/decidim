@@ -37,6 +37,16 @@ module Decidim::Accountability
         feature: proposal_feature
       )
     end
+    let(:project_feature) do
+      create(:feature, manifest_name: "budgets", participatory_space: participatory_process)
+    end
+    let(:projects) do
+      create_list(
+        :project,
+        2,
+        feature: project_feature
+      )
+    end
     let(:form) do
       double(
         invalid?: invalid,
@@ -44,6 +54,7 @@ module Decidim::Accountability
         title: { en: "title" },
         description: { en: "description" },
         proposal_ids: proposals.map(&:id),
+        project_ids: projects.map(&:id),
         scope: scope,
         category: category,
         start_date: start_date,
@@ -96,6 +107,12 @@ module Decidim::Accountability
         subject.call
         linked_proposals = result.linked_resources(:proposals, "included_proposals")
         expect(linked_proposals).to match_array(proposals)
+      end
+
+      it "links projects" do
+        subject.call
+        linked_projects = result.linked_resources(:projects, "included_projects")
+        expect(linked_projects).to match_array(projects)
       end
 
       it "links meetings" do

@@ -9,6 +9,7 @@ en:
         description: Description
         end_date: End date
         progress: Progress
+        project_ids: Included projects
         proposal_ids: Included proposals
         start_date: Start date
         title: Title
@@ -171,5 +172,7 @@ en:
           step:
             comments_blocked: Comments blocked
     resource_links:
+      included_projects:
+        result_projects: Projects included in this result
       included_proposals:
         result_proposals: Proposals included in this result

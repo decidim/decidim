@@ -19,18 +19,41 @@
       <table class="table-list">
         <thead>
           <tr>
-            <th><%= t("models.proposal.fields.id", scope: "decidim.proposals") %></th>
-            <th><%= t("models.proposal.fields.title", scope: "decidim.proposals") %></th>
-            <th><%= t("models.proposal.fields.category", scope: "decidim.proposals") %></th>
+            <th>
+              <%= sort_link(query, :id, t("models.proposal.fields.id", scope: "decidim.proposals"), default_order: :desc ) %>
+            </th>
+            <th>
+              <%= sort_link(query, :title, t("models.proposal.fields.title", scope: "decidim.proposals") ) %>
+            </th>
+            <th>
+              <%= sort_link(query, :category_name, t("models.proposal.fields.category", scope: "decidim.proposals") ) %>
+            </th>
+
             <% if scopes_enabled?(current_participatory_space) %>
-              <th><%= t("models.proposal.fields.scope", scope: "decidim.proposals") %></th>
+              <th>
+                <%= sort_link(query, :scope_name, t("models.proposal.fields.scope", scope: "decidim.proposals") ) %>
+              </th>
             <% end %>
 
-            <th><%= t("models.proposal.fields.state", scope: "decidim.proposals") %></th>
+            <th>
+              <%= sort_link(query, :state, t("models.proposal.fields.state", scope: "decidim.proposals") ) %>
+            </th>
 
             <% if current_settings.votes_enabled? %>
-              <th><%= t("models.proposal.fields.votes", scope: "decidim.proposals") %></th>
+              <th>
+                <%= sort_link(query, :proposal_votes_count, t("models.proposal.fields.votes", scope: "decidim.proposals") ) %>
+              </th>
             <% end %>
+
+            <% if current_feature.settings.comments_enabled? and !current_settings.comments_blocked? %>
+              <th>
+                <%= sort_link(query, :commentable_comments_count, t("models.proposal.fields.comments", scope: "decidim.proposals") ) %>
+              </th>
+            <% end %>
+
+            <th>
+              <%= sort_link(query, :created_at, t("models.proposal.fields.created_at", scope: "decidim.proposals") ) %>
+            </th>
 
             <th class="actions"><%= t("actions.title", scope: "decidim.proposals") %></th>
           </tr>
@@ -63,11 +86,23 @@
                   <%= humanize_proposal_state proposal.state %>
                 </strong>
               </td>
+
               <% if current_settings.votes_enabled? %>
                 <td>
-                  <%= proposal.votes.count %>
+                  <%= proposal.proposal_votes_count %>
                 </td>
               <% end %>
+
+              <% if current_feature.settings.comments_enabled? and !current_settings.comments_blocked? %>
+                <td>
+                  <%= proposal.comments.count %>
+                </td>
+              <% end %>
+
+              <td>
+                <%= l proposal.created_at, format: :decidim_short %>
+              </td>
+
               <td class="table-list__actions">
                 <% if can? :update, proposal %>
                   <%= icon_link_to "chat", edit_proposal_proposal_answer_path(proposal_id: proposal.id, id: proposal.id), t("actions.answer", scope: "decidim.proposals"), class: "action-icon--edit-answer" %>

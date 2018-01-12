@@ -4,11 +4,11 @@
       <% if current_settings.votes_blocked? %>
         <%= action_authorized_button_to :vote, t('.votes_blocked'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), class: "card__button button #{vote_button_classes(from_proposals_list)} disabled", disabled: true %>
       <% else %>
-        <%= action_authorized_button_to :vote, t('.vote'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), class: "card__button button #{vote_button_classes(from_proposals_list)}", data: { disable: true } %>
+        <%= action_authorized_button_to :vote, t('.vote'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), class: "card__button button #{vote_button_classes(from_proposals_list)}", data: { disable: true, "redirect-url": proposal_path(proposal) } %>
       <% end %>
     <% else %>
       <% if @voted_proposals ? @voted_proposals.include?(proposal.id) : proposal.voted_by?(current_user) %>
-        <%= action_authorized_button_to :vote, t('.already_voted'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), method: :delete, remote: true, data: { disable: true, original: t('.already_voted'), replace: t('.already_voted_hover') }, class: "card__button button #{vote_button_classes(from_proposals_list)} success", id: "vote_button" %>
+        <%= action_authorized_button_to :vote, t('.already_voted'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), method: :delete, remote: true, data: { disable: true, original: t('.already_voted'), replace: t('.already_voted_hover'), "redirect-url": proposal_path(proposal) }, class: "card__button button #{vote_button_classes(from_proposals_list)} success", id: "vote_button" %>
       <% else %>
         <% if proposal.maximum_votes_reached? %>
           <%= content_tag :span, t('.maximum_votes_reached'), class: "card__button button #{vote_button_classes(from_proposals_list)} disabled", disabled: true %>
@@ -18,7 +18,7 @@
           <% elsif current_settings.votes_blocked? %>
             <%= content_tag :span, t('.votes_blocked'), class: "card__button button #{vote_button_classes(from_proposals_list)} disabled", disabled: true %>
           <% else %>
-            <%= action_authorized_button_to :vote, t('.vote'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), remote: true, data: { disable: true }, class: "card__button button #{vote_button_classes(from_proposals_list)}" %>
+            <%= action_authorized_button_to :vote, t('.vote'), proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list), remote: true, data: { disable: true, "redirect-url": proposal_path(proposal) }, class: "card__button button #{vote_button_classes(from_proposals_list)}" %>
           <% end %>
         <% end %>
       <% end %>
