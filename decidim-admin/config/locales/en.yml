@@ -282,6 +282,7 @@ en:
           fields:
             title: Title
             link: Link
+            weight: Weight
       moderations:
         index:
           title: Moderations
@@ -441,6 +442,7 @@ en:
         form:
           title: Title
           link: Link
+          weight: Weight
           new_tab: Open in a new tab
           same_tab: Open in the same tab
         new:

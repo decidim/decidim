@@ -281,6 +281,7 @@ fr:
           fields:
             title: Titre
             link: Lien
+            weight: Poids
       moderations:
         index:
           title: Modérations
@@ -440,6 +441,7 @@ fr:
         form:
           title: Titre
           link: Lien
+          weight: Poids
           new_tab: Ouvrir sur un nouvel onglet
           same_tab: Ouvrir dans le même onglet
         new:

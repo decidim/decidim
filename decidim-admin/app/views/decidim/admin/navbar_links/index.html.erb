@@ -11,6 +11,7 @@
         <thead>
           <tr>
             <th><%= t("models.navbar_link.fields.title", scope: "decidim.admin") %></th>
+            <th><%= t("models.navbar_link.fields.weight", scope: "decidim.admin") %></th>
             <th><%= t("models.navbar_link.fields.link", scope: "decidim.admin") %></th>
             <th></th>
           </tr>
@@ -20,6 +21,9 @@
             <tr>
               <td>
                 <%= translated_attribute(navbar_link.title) %>
+              </td>
+              <td>
+                <%= navbar_link.weight %>
               </td>
               <td>
                 <%= link_to navbar_link.link, navbar_link.link, target: :blank %>
