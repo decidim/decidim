@@ -11,8 +11,12 @@ module Decidim
     #
     # Returns a String with the translation.
     def translated_attribute(attribute)
-      attribute.try(:[], I18n.locale.to_s).presence ||
-        attribute.try(:[], current_organization.default_locale).presence ||
+      return "" if attribute.nil?
+      return attribute unless attribute.is_a?(Hash)
+
+      attribute[I18n.locale.to_s].presence ||
+        attribute[current_organization.default_locale].presence ||
+        attribute[attribute.keys.first].presence ||
         ""
     end
 

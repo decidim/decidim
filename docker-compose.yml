@@ -5,6 +5,8 @@ services:
     entrypoint: []
     command: decidim
     working_dir: "/code"
+    ports:
+      - "3000:3000"
     volumes:
       - .:/code
       - bundle:/usr/local/bundle
