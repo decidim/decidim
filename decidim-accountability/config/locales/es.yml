@@ -8,6 +8,7 @@ es:
         description: Descripción
         end_date: Fin
         progress: Progreso
+        project_ids: Proyectos incluidos
         proposal_ids: Propuestas incluidas
         start_date: Inicio
         title: Título
@@ -170,5 +171,7 @@ es:
           step:
             comments_blocked: Comentarios bloqueados
     resource_links:
+      included_projects:
+        result_projects: Proyectos incluidos en este resultado
       included_proposals:
         result_proposals: Propuestas incluidas en este resultado
