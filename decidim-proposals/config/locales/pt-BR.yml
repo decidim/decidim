@@ -191,6 +191,8 @@ pt-BR:
         error: Ocorreu erros ao salvar a proposta.
         success: Proposta atualizada com sucesso.
     resource_links:
+      included_projects:
+        project_results: 'Resultados que aparecem neste projeto:'
       included_proposals:
         proposal_projects: 'Proposta que aparece nesses projetos:'
         proposal_results: 'Proposta que aparece nesses resultados:'
