@@ -160,48 +160,48 @@ pt-BR:
     follows:
       create:
         button: Seguir
-        error: Ocorreu um erro ao seguir este recurso.
+        error: Ocorreu um erro ao tentar seguir este recurso
       destroy:
         button: Parar de seguir
-        error: Ocorreu um erro ao seguir esse recurso.
+        error: Ocorreu um erro ao tentar de deixar de seguir esse recurso.
     forms:
-      current_file: Ficheiro atual
-      current_image: Imagem actual
-      default_image: Imagem por defeito
+      current_file: Arquivo atual
+      current_image: Imagem atual
+      default_image: Imagem (default)
       errors:
         error: Há um erro neste campo.
-      remove_this_file: Remover este ficheiro
+      remove_this_file: Remover este arquivo
     managed_users:
-      expired_session: A sessão de representação atual expirou.
+      expired_session: Esta sessão expirou.
     menu:
-      home: Inicio
+      home: Início
       more_information: Mais informação
     messaging:
       conversation_mailer:
         new_conversation:
           greeting: Olá, %{recipient}!
-          intro: "%{sender} iniciou uma nova conversa com você. Clique aqui para vê-lo:"
-          outro: Aproveite decidim!
+          intro: "%{sender} iniciou uma nova conversa com você. Clique aqui para vê-la:"
+          outro: Desfrute do decidim!
           subject: "%{sender} iniciou uma conversa com você"
         new_message:
           greeting: Olá, %{recipient}!
-          intro: "%{sender} publicou novas mensagens na sua conversa. Clique aqui para vê-los:"
-          outro: Aproveite decidim!
+          intro: "%{sender} publicou novas mensagens na sua conversa. Clique aqui para vê-las:"
+          outro: Desfrute do decidim!
           subject: Você tem novas mensagens de %{sender}
       conversations:
         create:
           error: Conversa não iniciada. Tente mais tarde
         index:
-          no_conversations: Ainda não há conversas
+          no_conversations: Você ainda não tem nenhuma conversa
           title: Conversas
         reply:
           send: Enviar
-          title: Resposta
+          title: Responder
         show:
           title: Conversa com %{usernames}
         start:
           send: Enviar
-          title: Comece uma conversa
+          title: Iniciar uma conversa
         update:
           error: Mensagem não enviada. Tente mais tarde
     newsletter_mailer:
