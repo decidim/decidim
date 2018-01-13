@@ -132,27 +132,27 @@ pt-BR:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
     export_mailer:
       export:
-        ready: Encontre em anexo uma versão com zíper da sua exportação.
-      subject: Sua exportação "%{name}" está pronta
+        ready: Uma versão comprimida do documento exportado está em anexo.
+      subject: Seu documento "%{name}" foi exportado
     features:
       dummy:
         actions:
           bar: Bar
           foo: Foo
-        name: Dummy Feature
+        name: Prova de funcionalidade
         settings:
           global:
             comments_enabled: Comentários ativados
-            dummy_global_attribute_1: Dummy Atributo 1
-            dummy_global_attribute_2: Dummy Attribute 2
+            dummy_global_attribute_1: Atributo de prova 1
+            dummy_global_attribute_2: Atributo de prova 2
           step:
             comments_blocked: Comentários bloqueados
-            dummy_step_attribute_1: Dummy Step Attribute 1
-            dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_attribute_1: Atributo de fase de prova 1
+            dummy_step_attribute_2: Atributo de fase de prova 2
     filters:
       linked_classes:
         all: Todos
-        dummyresource: Recursos falsos
+        dummyresource: Recursos de prova
         meeting: Reuniões
         project: Projetos
         proposal: Propostas
