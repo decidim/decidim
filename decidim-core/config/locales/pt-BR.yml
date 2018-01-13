@@ -98,9 +98,9 @@ pt-BR:
           newsletter_notifications: Receba informações sobre atividades relevantes
           nickname_help: Seu login no decidim.
           sign_in: Entrar
-          sign_up: Criar uma conta
+          sign_up: Inscrever-se
           sign_up_as:
-            legend: Inscreva-se como
+            legend: Inscrever-se como
             user: Pessoa física
             user_group: Organização / Coletivo
           subtitle: Inscreva-se para participar de discussões e apoiar propostas.
@@ -299,20 +299,20 @@ pt-BR:
         label: 'Resultados por página:'
       share_modal:
         close_window: Fechar janela
-        share: Partilhar
-        share_link: Partilhar link
+        share: Compartilhar
+        share_link: Compartilhar link
       version_author:
         deleted: Usuário deletado
   devise:
     invitations:
       edit:
         header: Coloque sua senha
-        nickname_help: Seu identificador exclusivo no decidim.
+        nickname_help: Seu login no decidim.
         submit_button: Salvar
     mailer:
       invitation_instructions:
         accept: Aceitar convite
-        accept_until: Este convite será devido em %{due_date}.
+        accept_until: Este convite expira em %{due_date}.
         hello: Olá %{email},
         ignore: |-
           Se você não quiser aceitar o convite, ignore este email.<br /> Sua conta não será criada até você acessar o link acima e definir sua senha.
