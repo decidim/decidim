@@ -6,24 +6,24 @@ pt-BR:
       report:
         details: Comentários adicionais
       user:
-        email: O seu email
+        email: Seu e-mail
         name: O seu nome
         password: Nova senha
         password_confirmation: Confirme a sua nova senha
         remove_avatar: Remover avatar
-        user_group_document_number: Número do documento de organização
+        user_group_document_number: Número de documento da organização
         user_group_name: Nome da organização
         user_group_phone: Telefone da organização
   activerecord:
     attributes:
       decidim/user:
         current_password: Senha atual
-        email: Email
+        email: E-mail
         name: Nome de usuário
         password: Senha
         password_confirmation: Confirmação da senha
-        remember_me: Recorde-me
-        user_group_document_number: Número do documento de organização
+        remember_me: Lembre-me
+        user_group_document_number: Número de documento da organização
         user_group_name: Nome da organização
         user_group_phone: Telefone da organização
   booleans:
@@ -31,27 +31,27 @@ pt-BR:
     'true': 'Sim'
   carrierwave:
     errors:
-      image_too_big: A imagem é demasiado grande
+      image_too_big: A imagem é muito grande
   decidim:
     account:
       delete:
-        alert: Esta ação não poderá ser desfeita. Se cancelar a sua conta não poderá voltar a fazer login.
+        alert: Esta ação não poderá ser desfeita. Se cancelar sua conta, não será possível fazer login novamente.
         confirm:
           close: Fechar janela
-          ok: Sim, eu quero cancelar a minha conta
-          question: Tem certeza de que deseja cancelar a sua conta?
-          title: Eliminar a minha conta
-        explanation: Por favor, preencha o motivo pelo qual deseja cancelar a sua conta (opcional).
+          ok: Sim, eu quero cancelar minha conta
+          question: Tem certeza de que deseja cancelar sua conta?
+          title: Eliminar minha conta
+        explanation: Por favor, preencha o motivo pelo qual deseja cancelar sua conta (opcional).
       destroy:
-        error: Ocorreu um erro ao cancelar a sua conta.
+        error: Ocorreu um erro ao cancelar sua conta.
         success: Sua conta foi cancelada com sucesso.
       show:
-        change_password: Mudar senha
+        change_password: Alterar senha
         update_account: Atualizar conta
       update:
-        error: Ocorreu um erro ao actualizar a sua conta.
-        success: A sua conta foi actualizada com sucesso.
-        success_with_email_confirmation: A sua conta foi actualizada com sucesso. Irá receber um e-mail de confirmação do seu novo endereço.
+        error: Ocorreu um erro ao atualizar sua conta.
+        success: A sua conta foi atualizada com sucesso.
+        success_with_email_confirmation: Sua conta foi atualizada com sucesso. Você receberá um e-mail de confirmação de seu novo endereço de e-mail.
     anonymous_user: Anônimo
     application:
       documents:
@@ -224,7 +224,7 @@ pt-BR:
       index:
         title: Mais informação
     profiles:
-      default_officialization_text: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
+      default_officialization_text: Este participante foi publicamente verificado. Seu nome e função foram verificados e correspondem a seu nome e função reais
     reported_mailer:
       hide:
         hello: Olá %{name},
@@ -405,7 +405,7 @@ pt-BR:
         participate: Participar
         welcome: Bem-vindo ao %{organization}!
       statistics:
-        answers_count: Inquéritos concluídos
+        answers_count: Formulário completo
         assemblies_count: Assembléias
         comments_count: Comentários
         headline: Estado atual de %{organization}
