@@ -206,36 +206,36 @@ pt-BR:
           error: Mensagem não enviada. Tente mais tarde
     newsletter_mailer:
       newsletter:
-        note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
+        note: Você recebeu este e-mail porque ativou o recebimento de newsletters em %{organization_name}. Você pode alterar suas configurações em <a href="%{link}">notifications page</a>.
     notifications_settings:
       show:
-        email_on_notification: Quero receber um email sempre que recebo uma notificação.
+        email_on_notification: Quero receber um email sempre que receber uma notificação.
         newsletter_notifications: Quero receber informações sobre atividades relevantes
-        update_notifications_settings: Guardar alterações
+        update_notifications_settings: Salvar alterações
       update:
         error: Ocorreu um erro ao atualizar suas configurações de notificações.
         success: Suas configurações de notificações foram atualizadas com sucesso.
     own_user_groups:
       index:
-        pending: Pendente
+        pending: Pendentes
         rejected: Rejeitadas
-        verified: Verificado
+        verified: Verificadas
     pages:
       index:
         title: Mais informação
     profiles:
-      default_officialization_text: Este participante foi publicamente verificado. Seu nome e função foram verificados e correspondem a seu nome e função reais
+      default_officialization_text: Este participante foi verificado publicamente. Seu nome e função foram verificados e correspondem a seu nome e função reais
     reported_mailer:
       hide:
         hello: Olá %{name},
-        manage_moderations: Gerenciar moderações
-        report_html: <p>O seguinte <a href="%{url}">content</a> foi ocultado automaticamente.</p>
-        subject: Um recurso foi escondido automaticamente
+        manage_moderations: Administrar moderações
+        report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi ocultado automaticamente.</p>
+        subject: Um recurso foi ocultado automaticamente
       report:
         hello: Olá %{name},
-        manage_moderations: Gerir moderações
-        report_html: <p>O seguinte <a href="%{url}">content</a> foi reportado.</p>
-        subject: Um recurso foi relatado
+        manage_moderations: Administrar moderações
+        report_html: <p>O seguinte <a href="%{url}">conteúdo</a> foi reportado.</p>
+        subject: Um recurso foi reportado
     reports:
       create:
         error: Ocorreu um erro ao criar o relatório. Por favor, tente novamente.
@@ -244,46 +244,46 @@ pt-BR:
       global: Âmbito global
       picker:
         cancel: Cancelar
-        choose: Selecione
-        title: Selecione %{field}
-      prompt: Selecione um escopo
+        choose: Selecionar
+        title: Selecionar %{field}
+      prompt: Selecionar um escopo
       scopes: Escopos
     shared:
       action_authorization_modal:
         expired:
-          authorize: Reautorize com "%{authorization}"
-          explanation: Sua autorização expirou. Para executar esta ação, você precisa ser reautorizado com "%{authorization}".
-          title: A autorização expirou
+          authorize: Autorizar novamente com "%{authorization}"
+          explanation: Sua autorização expirou. Para executar esta ação, você precisa ser autorizado(a) novamente com "%{authorization}".
+          title: Autorização expirada
         incomplete:
           cancel: Cancelar
-          explanation: 'Embora você esteja atualmente autorizado com "%{authorization}", precisamos que você reauthorize porque faltamos os seguintes dados:'
+          explanation: 'Embora você esteja atualmente autorizado com "%{authorization}", é necessário que autorize novamente porque faltam os seguintes dados:'
           invalid_field: "%{field}"
-          reauthorize: Reautorizar
-          title: Por favor reautorize
+          reauthorize: Autorizar novamente
+          title: Por favor, autorize novamente
         missing:
           authorize: Autorizar com "%{authorization}"
           explanation: Para executar esta ação, você precisa ser autorizado com "%{authorization}".
           title: Autorização necessária
         pending:
           explanation: Para realizar esta ação, você precisa ser autorizado com "%{authorization}", mas sua autorização ainda está em progresso
-          resume: Verifique o seu progresso de autorização "%{authorization}"
+          resume: Verifique o progresso de sua autorização "%{authorization}"
           title: A autorização ainda está em progresso
         unauthorized:
           explanation: Desculpe, você não pode executar esta ação porque alguns de seus dados de autorização não coincidem.
           invalid_field: "%{field} valor %{value} não é válido."
-          ok: OK
+          ok: Ok
           title: Não autorizado
       author:
         deleted: Usuário deletado
       embed_modal:
         close_window: Fechar janela
         embed: Cole este código na sua página
-        embed_link: Embutir
+        embed_link: Incorporar
       flag_modal:
-        already_reported: Este conteúdo já foi relatado e será revisto por um administrador.
+        already_reported: Este conteúdo já foi reportado e será revisto por um administrador.
         close: Fechar
         description: Este conteúdo é impróprio?
-        does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou qualquer outra coisa que você acha que não pertence ao %{organization_name}.
+        does_not_belong: Contém atividades ilegais, ameaças suicidas, informações pessoais ou qualquer outro aspecto que você acha que não pertence ao %{organization_name}.
         offensive: Contém racismo, sexismo, insultos, ataques pessoais, ameaças de morte, pedidos de suicídio ou qualquer tipo de discurso de ódio.
         report: Denunciar
         spam: Contém clickbait, publicidade, fraudes ou script bots.
