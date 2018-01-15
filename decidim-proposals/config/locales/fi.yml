@@ -4,7 +4,7 @@ fi:
       proposal:
         body: Runko
         category_id: Aihepiiri
-        has_address: Onko osoite
+        has_address: Ehdotuksella on osoite
         scope_id: Konteksti
         title: Otsikko
         user_group_id: Luo ehdotus käyttäjänä
@@ -27,7 +27,7 @@ fi:
             new_proposal_help_text: Uuden ehdotuksen ohjeteksti
             official_proposals_enabled: Viralliset ehdotukset sallittu
             proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
-            proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia ennen tämän monen minuutin kuluttua
+            proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän aikamääreen sisällä sen luonnista
             proposal_limit: Ehdotuksen raja käyttäjää kohden
             vote_limit: Äänestysraja käyttäjää kohden
           step:
@@ -141,8 +141,8 @@ fi:
           view_proposal: Näytä ehdotus
         linked_proposals:
           proposal_votes:
-            one: äänestä
-            other: äänet
+            one: ääni
+            other: ääntä
         new:
           attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
