@@ -87,7 +87,6 @@ en:
             body: Body
             created_at: Date creation
             proposal_votes_count: Nº votes
-            title_proposal: Title
       answers:
         accepted: Accepted
         evaluating: Evaluating

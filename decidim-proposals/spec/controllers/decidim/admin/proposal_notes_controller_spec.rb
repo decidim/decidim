@@ -39,7 +39,6 @@ module Decidim
           #   it "creates a proposal note" do
           #
           #     post :create, params: params
-          #     # TODO
           #     expect(response).to redirect_to(decidim_participatory_process_proposals.proposal_proposal_notes_path( feature.id, feature.participatory_space.slug,proposal))
           #   end
           # end

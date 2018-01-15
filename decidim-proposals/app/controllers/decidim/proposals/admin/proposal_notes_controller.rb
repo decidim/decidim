@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     module Admin
-      # This controller allows admins to answer proposals in a participatory process.
+      # This controller allows admins to make private notes on proposals in a participatory process.
       class ProposalNotesController < Admin::ApplicationController
         helper_method :proposal
 
