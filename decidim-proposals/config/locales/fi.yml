@@ -95,7 +95,7 @@ fi:
           fields:
             category: Aihepiiri
             comments: Kommentit
-            created_at: Luotu osoitteessa
+            created_at: Luontipäivämäärä
             id: ID
             official_proposal: Virallinen ehdotus
             scope: Konteksti
@@ -115,7 +115,7 @@ fi:
         edit:
           back: Takaisin
           select_a_category: Valitse kategoria
-          send: Lähettää
+          send: Lähetä
           title: Muokkaa ehdotusta
         filters:
           accepted: Hyväksytty
@@ -148,8 +148,8 @@ fi:
           attachment_legend: "(Valinnainen) Lisää liite"
           back: Takaisin
           proposal_edit_before_minutes:
-            one: Voit muokata tätä ehdotusta ensimmäisen minuutin kuluttua ehdotuksen luomisesta. Kun tämä aikaikkuna läpäisee, et pysty muokkaamaan ehdotusta.
-            other: Voit muokata tätä ehdotusta ensimmäisen %{count} minuutin kuluttua ehdotuksen luomisesta. Kun tämä aikaikkuna läpäisee, et pysty muokkaamaan ehdotusta.
+            one: Voit muokata tätä ehdotusta ensimmäisen minuutin aikana ehdotuksen luomisesta. Kun tämä aikaikkuna tulee päätökseensä, et pysty enää muokkaamaan ehdotusta.
+            other: Voit muokata tätä ehdotusta ensimmäisten %{count} minuutin aikana ehdotuksen luomisesta. Kun tämä aikaikkuna tulee päätökseensä, et pysty enää muokkaamaan ehdotusta.
           select_a_category: Valitse aihepiiri
           send: Lähetä
           title: Uusi ehdotus
@@ -159,7 +159,7 @@ fi:
           random: Satunnainen
           recent: Viimeisimmät
         proposal:
-          creation_date: 'Luominen: %{date}'
+          creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus
         show:
           edit_proposal: Muokkaa ehdotusta
