@@ -96,4 +96,49 @@ FactoryBot.define do
       active true
     end
   end
+
+  factory :process_admin, parent: :user, class: "Decidim::User" do
+    transient do
+      participatory_process { create(:participatory_process) }
+    end
+
+    organization { participatory_process.organization }
+
+    after(:create) do |user, evaluator|
+      create :participatory_process_user_role,
+             user: user,
+             participatory_process: evaluator.participatory_process,
+             role: :admin
+    end
+  end
+
+  factory :process_collaborator, parent: :user, class: "Decidim::User" do
+    transient do
+      participatory_process { create(:participatory_process) }
+    end
+
+    organization { participatory_process.organization }
+
+    after(:create) do |user, evaluator|
+      create :participatory_process_user_role,
+             user: user,
+             participatory_process: evaluator.participatory_process,
+             role: :collaborator
+    end
+  end
+
+  factory :process_moderator, parent: :user, class: "Decidim::User" do
+    transient do
+      participatory_process { create(:participatory_process) }
+    end
+
+    organization { participatory_process.organization }
+
+    after(:create) do |user, evaluator|
+      create :participatory_process_user_role,
+             user: user,
+             participatory_process: evaluator.participatory_process,
+             role: :moderator
+    end
+  end
 end

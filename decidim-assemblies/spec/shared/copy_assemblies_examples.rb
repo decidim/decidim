@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
-require "spec_helper"
-
-describe "Admin copies assembly", type: :feature do
-  include_context "when administrating an assembly"
-
+shared_examples "copy assemblies" do
   let!(:assembly) { create(:assembly, organization: organization) }
   let!(:feature) { create :feature, manifest_name: :dummy, participatory_space: assembly }
   let!(:category) do

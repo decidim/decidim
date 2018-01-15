@@ -93,51 +93,6 @@ FactoryBot.define do
       roles { ["user_manager"] }
     end
 
-    trait :process_admin do
-      transient do
-        participatory_process { create(:participatory_process) }
-      end
-
-      organization { participatory_process.organization }
-
-      after(:create) do |user, evaluator|
-        create :participatory_process_user_role,
-               user: user,
-               participatory_process: evaluator.participatory_process,
-               role: :admin
-      end
-    end
-
-    trait :process_collaborator do
-      transient do
-        participatory_process { create(:participatory_process) }
-      end
-
-      organization { participatory_process.organization }
-
-      after(:create) do |user, evaluator|
-        create :participatory_process_user_role,
-               user: user,
-               participatory_process: evaluator.participatory_process,
-               role: :collaborator
-      end
-    end
-
-    trait :process_moderator do
-      transient do
-        participatory_process { create(:participatory_process) }
-      end
-
-      organization { participatory_process.organization }
-
-      after(:create) do |user, evaluator|
-        create :participatory_process_user_role,
-               user: user,
-               participatory_process: evaluator.participatory_process,
-               role: :moderator
-      end
-    end
-
     trait :managed do
       email { "" }
       password { "" }

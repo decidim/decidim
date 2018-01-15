@@ -6,6 +6,9 @@ describe "Admin manages proposals", type: :feature do
   let(:manifest_name) { "proposals" }
   let!(:proposal) { create :proposal, feature: current_feature }
   let!(:reportables) { create_list(:proposal, 3, feature: current_feature) }
+  let(:participatory_space_path) do
+    decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
+  end
 
   include_context "when managing a feature as an admin"
 
