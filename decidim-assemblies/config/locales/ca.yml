@@ -59,9 +59,27 @@ ca:
         destroy:
           error: S'ha produït un error en despublicar aquesta assemblea.
           success: Assemblea despublicada amb èxit.
+      assembly_user_roles:
+        create:
+          error: S'ha produït un error en afegir un usuari per a aquest ensamblat.
+          success: L'usuari s'ha creat correctament per a aquest ensamblat.
+        destroy:
+          success: S'ha destruït l'usuari amb èxit per a aquest ensamblat.
+        edit:
+          title: Actualitza l'usuari del ensamblat.
+          update: Actualització
+        index:
+          assembly_admins_title: Usuaris de l'assemblea
+        new:
+          create: Crear
+          title: Nou usuari de muntatge.
+        update:
+          error: S'ha produït un error en l'actualització d'un usuari per a aquest ensamblat.
+          success: L'usuari s'ha actualitzat correctament per a aquest ensamblat.
       menu:
         assemblies: Assemblees
         assemblies_submenu:
+          assembly_admins: Usuaris de l'assemblea
           attachments: Adjunts
           categories: Categories
           features: Funcionalitats
@@ -75,6 +93,16 @@ ca:
             published: Publicat
             title: Grup de processos participatius
           name: Assemblea
+        assembly_user_role:
+          fields:
+            email: Correu electrònic
+            name: Nom
+            role: Paper
+          name: Usuari de l'assemblea
+          roles:
+            admin: Administrador
+            collaborator: Col·laborador
+            moderator: Moderador
       titles:
         assemblies: Assemblees
     assemblies:
