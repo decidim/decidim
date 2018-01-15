@@ -34,7 +34,7 @@ describe "Proposals", type: :feature do
              participatory_space: participatory_process)
     end
 
-    let!(:proposals) { create_list(:proposal, 3, feature: feature) }
+    let!(:proposals) { create_list(:proposal, 3, :published, feature: feature) }
 
     it "allows viewing a single proposal" do
       proposal = proposals.first
@@ -50,7 +50,7 @@ describe "Proposals", type: :feature do
     end
 
     context "when process is not related to any scope" do
-      let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
+      let!(:proposal) { create(:proposal, :published, feature: feature, scope: scope) }
 
       it "can be filtered by scope" do
         visit_feature
@@ -60,7 +60,7 @@ describe "Proposals", type: :feature do
     end
 
     context "when process is related to a child scope" do
-      let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
+      let!(:proposal) { create(:proposal, :published, feature: feature, scope: scope) }
       let(:participatory_process) { scoped_participatory_process }
 
       it "does not show the scope name" do
@@ -71,7 +71,7 @@ describe "Proposals", type: :feature do
     end
 
     context "when it is an official proposal" do
-      let!(:official_proposal) { create(:proposal, feature: feature, author: nil) }
+      let!(:official_proposal) { create(:proposal, :published, feature: feature, author: nil) }
 
       it "shows the author as official" do
         visit_feature
@@ -81,7 +81,7 @@ describe "Proposals", type: :feature do
     end
 
     context "when a proposal has comments" do
-      let(:proposal) { create(:proposal, feature: feature) }
+      let(:proposal) { create(:proposal, :published, feature: feature) }
       let(:author) { create(:user, :confirmed, organization: feature.organization) }
       let!(:comments) { create_list(:comment, 3, commentable: proposal) }
 
@@ -96,7 +96,7 @@ describe "Proposals", type: :feature do
     end
 
     context "when a proposal has been linked in a meeting" do
-      let(:proposal) { create(:proposal, feature: feature) }
+      let(:proposal) { create(:proposal, :published, feature: feature) }
       let(:meeting_feature) do
         create(:feature, manifest_name: :meetings, participatory_space: proposal.feature.participatory_space)
       end
@@ -115,7 +115,7 @@ describe "Proposals", type: :feature do
     end
 
     context "when a proposal has been linked in a result" do
-      let(:proposal) { create(:proposal, feature: feature) }
+      let(:proposal) { create(:proposal, :published, feature: feature) }
       let(:dummy_feature) do
         create(:feature, manifest_name: :dummy, participatory_space: proposal.feature.participatory_space)
       end
@@ -134,7 +134,7 @@ describe "Proposals", type: :feature do
     end
 
     context "when a proposal is in evaluation" do
-      let!(:proposal) { create(:proposal, :evaluating, :with_answer, feature: feature) }
+      let!(:proposal) { create(:proposal, :published, :evaluating, :with_answer, feature: feature) }
 
       it "shows a badge and an answer" do
         visit_feature
@@ -150,7 +150,7 @@ describe "Proposals", type: :feature do
     end
 
     context "when a proposal has been rejected" do
-      let!(:proposal) { create(:proposal, :rejected, :with_answer, feature: feature) }
+      let!(:proposal) { create(:proposal, :published, :rejected, :with_answer, feature: feature) }
 
       it "shows the rejection reason" do
         visit_feature
@@ -166,7 +166,7 @@ describe "Proposals", type: :feature do
     end
 
     context "when a proposal has been accepted" do
-      let!(:proposal) { create(:proposal, :accepted, :with_answer, feature: feature) }
+      let!(:proposal) { create(:proposal, :published, :accepted, :with_answer, feature: feature) }
 
       it "shows the acceptance reason" do
         visit_feature
@@ -204,7 +204,7 @@ describe "Proposals", type: :feature do
              manifest: manifest,
              participatory_space: participatory_process)
     end
-    let(:proposal) { create(:proposal, feature: feature) }
+    let(:proposal) { create(:proposal, :published, feature: feature) }
     let(:budget_feature) do
       create(:feature, manifest_name: :budgets, participatory_space: proposal.feature.participatory_space)
     end
@@ -224,8 +224,8 @@ describe "Proposals", type: :feature do
 
   context "when listing proposals in a participatory process" do
     shared_examples_for "a random proposal ordering" do
-      let!(:lucky_proposal) { create(:proposal, feature: feature) }
-      let!(:unlucky_proposal) { create(:proposal, feature: feature) }
+      let!(:lucky_proposal) { create(:proposal, :published, feature: feature) }
+      let!(:unlucky_proposal) { create(:proposal, :published, feature: feature) }
 
       it "lists the proposals ordered randomly by default" do
         visit_feature
@@ -242,7 +242,7 @@ describe "Proposals", type: :feature do
              manifest: manifest,
              participatory_space: participatory_process)
 
-      create_list(:proposal, 3, feature: feature)
+      create_list(:proposal, 3, :published, feature: feature)
 
       visit_feature
       expect(page).to have_css(".card--proposal", count: 3)
@@ -261,12 +261,12 @@ describe "Proposals", type: :feature do
       end
 
       let!(:most_voted_proposal) do
-        proposal = create(:proposal, feature: feature)
+        proposal = create(:proposal, :published, feature: feature)
         create_list(:proposal_vote, 3, proposal: proposal)
         proposal
       end
 
-      let!(:less_voted_proposal) { create(:proposal, feature: feature) }
+      let!(:less_voted_proposal) { create(:proposal, :published, feature: feature) }
 
       before { visit_feature }
 
@@ -295,7 +295,7 @@ describe "Proposals", type: :feature do
       end
 
       it "shows only links to full proposals" do
-        create_list(:proposal, 2, feature: feature)
+        create_list(:proposal, 2, :published, feature: feature)
 
         visit_feature
 
@@ -307,7 +307,7 @@ describe "Proposals", type: :feature do
 
     context "when there are a lot of proposals" do
       before do
-        create_list(:proposal, Decidim::Paginable::OPTIONS.first + 5, feature: feature)
+        create_list(:proposal, Decidim::Paginable::OPTIONS.first + 5, :published, feature: feature)
       end
 
       it "paginates them" do
@@ -339,8 +339,8 @@ describe "Proposals", type: :feature do
 
         context "with 'official' origin" do
           it "lists the filtered proposals" do
-            create_list(:proposal, 2, :official, feature: feature, scope: scope)
-            create(:proposal, feature: feature, scope: scope)
+            create_list(:proposal, 2, :official, :published, feature: feature, scope: scope)
+            create(:proposal, :published, feature: feature, scope: scope)
             visit_feature
 
             within ".filters" do
@@ -354,8 +354,8 @@ describe "Proposals", type: :feature do
 
         context "with 'citizens' origin" do
           it "lists the filtered proposals" do
-            create_list(:proposal, 2, feature: feature, scope: scope)
-            create(:proposal, :official, feature: feature, scope: scope)
+            create_list(:proposal, 2, :published, feature: feature, scope: scope)
+            create(:proposal, :published, :official, feature: feature, scope: scope)
             visit_feature
 
             within ".filters" do
@@ -387,9 +387,9 @@ describe "Proposals", type: :feature do
         let!(:scope2) { create :scope, organization: participatory_process.organization }
 
         before do
-          create_list(:proposal, 2, feature: feature, scope: scope)
-          create(:proposal, feature: feature, scope: scope2)
-          create(:proposal, feature: feature, scope: nil)
+          create_list(:proposal, 2, :published, feature: feature, scope: scope)
+          create(:proposal, :published, feature: feature, scope: scope2)
+          create(:proposal, :published, feature: feature, scope: nil)
           visit_feature
         end
 
@@ -497,7 +497,7 @@ describe "Proposals", type: :feature do
           end
 
           it "lists accepted proposals" do
-            create(:proposal, :accepted, feature: feature, scope: scope)
+            create(:proposal, :published, :accepted, feature: feature, scope: scope)
             visit_feature
 
             within ".filters" do
@@ -513,7 +513,7 @@ describe "Proposals", type: :feature do
           end
 
           it "lists the filtered proposals" do
-            create(:proposal, :rejected, feature: feature, scope: scope)
+            create(:proposal, :published, :rejected, feature: feature, scope: scope)
             visit_feature
 
             within ".filters" do
@@ -570,8 +570,8 @@ describe "Proposals", type: :feature do
         end
 
         it "can be filtered by category" do
-          create_list(:proposal, 3, feature: feature)
-          create(:proposal, feature: feature, category: category)
+          create_list(:proposal, 3, :published, feature: feature)
+          create(:proposal, :published, feature: feature, category: category)
 
           visit_feature
 
@@ -593,9 +593,9 @@ describe "Proposals", type: :feature do
       end
 
       it "lists the proposals ordered by votes" do
-        most_voted_proposal = create(:proposal, feature: feature)
+        most_voted_proposal = create(:proposal, :published, feature: feature)
         create_list(:proposal_vote, 3, proposal: most_voted_proposal)
-        less_voted_proposal = create(:proposal, feature: feature)
+        less_voted_proposal = create(:proposal, :published, feature: feature)
 
         visit_feature
 
@@ -612,8 +612,8 @@ describe "Proposals", type: :feature do
 
     context "when ordering by 'recent'" do
       it "lists the proposals ordered by created at" do
-        older_proposal = create(:proposal, feature: feature, created_at: 1.month.ago)
-        recent_proposal = create(:proposal, feature: feature)
+        older_proposal = create(:proposal, :published, feature: feature, created_at: 1.month.ago)
+        recent_proposal = create(:proposal, :published, feature: feature)
 
         visit_feature
 
@@ -629,7 +629,7 @@ describe "Proposals", type: :feature do
     end
 
     context "when paginating" do
-      let!(:collection) { create_list :proposal, collection_size, feature: feature }
+      let!(:collection) { create_list :proposal, collection_size, :published, feature: feature }
       let!(:resource_selector) { ".card--proposal" }
 
       it_behaves_like "a paginated resource"
