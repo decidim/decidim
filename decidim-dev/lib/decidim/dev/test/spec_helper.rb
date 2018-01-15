@@ -5,7 +5,6 @@ ENV["RAILS_ENV"] ||= "test"
 require "rails-controller-testing"
 require "rspec/rails"
 require "factory_bot_rails"
-require "database_cleaner"
 require "byebug"
 require "cancan/matchers"
 require "rectify/rspec"
@@ -23,11 +22,7 @@ RSpec.configure do |config|
   config.mock_with :rspec
   config.order = :random
   config.raise_errors_for_deprecations!
-
-  # If you're not using ActiveRecord, or you'd prefer not to run each of your
-  # examples within a transaction, comment the following line or assign false
-  # instead of true.
-  config.use_transactional_fixtures = false
+  config.use_transactional_fixtures = true
 
   config.include TranslationHelpers
   config.include Rectify::RSpec::Helpers
