@@ -8,11 +8,11 @@ fi:
         description: Kuvaus
         developer_group: Kehitysryhmä
         domain: Toimintaympäristö
-        hashtag: Hashtah
+        hashtag: Hashtag
         hero_image: Etusivun kuva
         local_area: Paikallisalue
         meta_scope: Kontekstin metadata
-        participatory_scope: Osallistumisprosessi
+        participatory_scope: Osallistumiskonteksti
         participatory_structure: Osallistumisprosessin rakenne
         promoted: Korostettu
         scope_id: Konteksti
@@ -26,8 +26,8 @@ fi:
     admin:
       assemblies:
         create:
-          error: Virhe uuden kokoonpanon luomisessa.
-          success: Kokoonpano onnistui.
+          error: Virhe luotaessa uutta kokousta.
+          success: Kokouksen luonti onnistui.
         destroy:
           success: Kokoonpano tuhoutui onnistuneesti
         edit:
