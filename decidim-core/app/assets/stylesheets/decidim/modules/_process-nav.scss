@@ -2,10 +2,10 @@
 
 /* Navigation */
 
-.process-nav{
+.process-nav {
   background-color: $white;
   border: $border;
-  padding: .75rem $container-padding-y;
+  padding: .75rem $container-padding-y 0;
 
   ul{
     margin: 0;
@@ -23,6 +23,7 @@
       white-space: nowrap;
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
     }
 
     ul::-webkit-scrollbar{
@@ -32,6 +33,7 @@
     li{
       display: inline-block;
       margin-right: 1.5rem;
+      margin-bottom: .75rem;
     }
 
     .about-link{
