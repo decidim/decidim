@@ -130,6 +130,11 @@ es:
         email_subject: Una actualización de %{resource_title}
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
+      profile_updated_event:
+        email_intro: La página <a href="%{profile_path}">profile</a> de %{name} (%{nickname}), a la que está siguiendo, se ha actualizado.
+        email_outro: Recibió esta notificación porque está siguiendo %{nickname}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+        email_subject: "%{nickname} actualizó su perfil"
+        notification_title: La página <a href="%{profile_path}">profile</a> de %{name} (%{nickname}), a la que está siguiendo, se ha actualizado.
     export_mailer:
       export:
         ready: Adjunto encontrará una versión comprimida de su exportación.
@@ -207,6 +212,15 @@ es:
     newsletter_mailer:
       newsletter:
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
+        see_on_website: '¿No puedes ver este correo electrónico correctamente? Véalo en el <a href="%{link}" target="_blank">sitio web</a>.'
+        unsubscribe: Para optar por no recibir este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Si desea cambiar sus preferencias, puede hacerlo en la página <a href="%{link}" target="_blank">configuración</a>
+        error: Ha habido un error al cancelar la suscripción
+        success: Usted se dio de baja exitosamente.
+        token_error: El enlace ha expirado
+        unsubscribe: Darse de baja
     notifications_settings:
       show:
         email_on_notification: Quiero recibir un correo electrónico cada vez que recibo una notificación.
@@ -225,6 +239,9 @@ es:
         title: Más información
     profiles:
       default_officialization_text: Esta persona participante está verifica públicamente, se ha verificado que su nombre o cargo corresponde con su nombre real y rol
+      show:
+        about_me: Sobre mi
+        personal_url: Sitio web personal
     reported_mailer:
       hide:
         hello: Hola %{name},
