@@ -2,19 +2,19 @@ fi:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: status
+        decidim_accountability_status_id: tila
         decidim_category_id: Aihepiiri
         decidim_scope_id: Konteksti
         description: Kuvaus
         end_date: Päättymisaika
         progress: Edistyminen
-        project_ids: Mukana olevat projektit
+        project_ids: Liitetyt projektit
         proposal_ids: Sisällytetyt ehdotukset
         start_date: Aloitusaika
         title: Otsikko
       status:
         description: Kuvaus
-        key: avain
+        key: Tunniste
         name: Nimi
         progress: Edistyminen
       timeline_entry:
@@ -28,7 +28,7 @@ fi:
         edit: Muokkaa
         new: Uusi %{name}
         preview: Esikatsele
-        timeline_entries: Projektin kehitys
+        timeline_entries: Projektin edistyminen
         title: Toiminnot
       admin:
         exports:
@@ -37,7 +37,7 @@ fi:
           result:
             name: Tulos
           status:
-            name: Status
+            name: Tila
           timeline_entry:
             name: Aikajanan merkintä
         results:
@@ -59,27 +59,27 @@ fi:
             success: Tulos päivitetty onnistuneesti
         shared:
           subnav:
-            statuses: tilat
+            statuses: Tilat
         statuses:
           create:
-            invalid: Ongelma tämän tilan luomisessa
-            success: Tila onnistuneesti luotu
+            invalid: Tilan luomisessa tapahtui virhe
+            success: Tila luotu onnistuneesti
           destroy:
-            success: Tilan poistaminen onnistui
+            success: Tilan poistettu onnistuneesti
           edit:
             title: Muokkaa tilaa
-            update: Päivitä status
+            update: Päivitä tila
           index:
-            title: tilat
+            title: Tilat
           new:
             create: Luo tila
             title: Uusi tila
           update:
-            invalid: On ollut ongelma tämän tilan päivittämisessä
+            invalid: Tilan päivittämisessä tapahtui virhe
             success: Tilan päivitys onnistui
         timeline_entries:
           create:
-            invalid: On tullut ongelma tämän merkinnän luomisesta
+            invalid: Merkinnän luomisessa tapahtui virhe
             success: Entry onnistuneesti luotu
           destroy:
             success: Merkintä poistettiin onnistuneesti
