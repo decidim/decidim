@@ -153,6 +153,7 @@ eu:
           success: Prozesu partizipatiboaren fasea zuzen eguneratu da.
       participatory_process_user_roles:
         create:
+          error: Errore bat gertatu da partaidetza prozesu honetan erabiltzailea gehitzea.
           success: Ongi sortu da erabiltzailea prozesu partizipatibo honetarako.
         destroy:
           success: Ongi deuseztatu da erabiltzailea prozesu partizipatibo honetarako.
@@ -165,6 +166,7 @@ eu:
           create: Sortu
           title: Prozesuaren erabiltzaile berria.
         update:
+          error: Errore bat gertatu da parte hartzaile prozesu honetarako erabiltzaile bat.
           success: Ongi eguneratu da erabiltzailea prozesu partizipatibo honetarako.
       participatory_processes:
         create:
