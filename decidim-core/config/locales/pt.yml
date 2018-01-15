@@ -130,6 +130,11 @@ pt:
         email_subject: Uma atualização para %{resource_title}
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
+      profile_updated_event:
+        email_intro: O <a href="%{profile_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
+        email_outro: Você recebeu esta notificação porque está seguindo %{nickname}. Você pode parar de receber notificações após o link anterior.
+        email_subject: "%{nickname} atualizaram seu perfil"
+        notification_title: O <a href="%{profile_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
     export_mailer:
       export:
         ready: Encontre em anexo uma versão com zíper da sua exportação.
@@ -207,6 +212,15 @@ pt:
     newsletter_mailer:
       newsletter:
         note: Você recebeu este e-mail porque está inscrito em boletins informativos em %{organization_name}. Você pode alterar suas configurações em suas <a href="%{link}">notifications page</a>.
+        see_on_website: Não é possível ver este email corretamente? Visualize-o no <a href="%{link}" target="_blank">website</a>.
+        unsubscribe: Para optar por não receber esse tipo de email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Se você deseja alterar suas preferências, você pode fazê-lo na seção <a href="%{link}" target="_blank">configuration</a>
+        error: Ocorreu um erro ao se desinscrever
+        success: Você está inscrito com sucesso.
+        token_error: O link expirou.
+        unsubscribe: Cancelar subscrição
     notifications_settings:
       show:
         email_on_notification: Quero receber um email sempre que recebo uma notificação.
@@ -225,6 +239,9 @@ pt:
         title: Mais informação
     profiles:
       default_officialization_text: Este participante é verificado publicamente, seu nome ou função foi verificada para corresponder com seu nome e função real
+      show:
+        about_me: Sobre mim
+        personal_url: Site pessoal
     reported_mailer:
       hide:
         hello: Olá %{name},
