@@ -416,7 +416,7 @@ fi:
         welcome: Tervetuloa organisaatioon %{organization}!
       statistics:
         answers_count: Valmistuneet kyselyt
-        assemblies_count: Kokoontumiset
+        assemblies_count: Kehitysryhmät
         comments_count: Kommentit
         headline: Tämänhetkinen tila organisaatiolle %{organization}
         meetings_count: Tapaamiset
