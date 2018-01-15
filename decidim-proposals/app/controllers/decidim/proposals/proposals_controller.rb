@@ -122,7 +122,7 @@ module Decidim
           origin: "all",
           activity: "",
           category_id: "",
-          state: "all",
+          state: "not_withdrawn",
           scope_id: nil,
           related_to: ""
         }

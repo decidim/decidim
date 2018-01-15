@@ -57,11 +57,11 @@ module Decidim
 
             put :withdraw, params: params.merge(id: proposal.id)
 
-            # TODO remove previous mocking of call method
+            # TODO: remove previous mocking of call method
             # and uncomment the following 2 lines
             # when issue https://github.com/decidim/decidim/issues/2471 is resolved
-            #expect(flash[:notice]).not_to be_empty
-            #expect(response).to have_http_status(302)
+            # expect(flash[:notice]).not_to be_empty
+            # expect(response).to have_http_status(302)
           end
         end
       end
