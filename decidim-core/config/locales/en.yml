@@ -208,6 +208,15 @@ en:
     newsletter_mailer:
       newsletter:
         note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
+        see_on_website: Can’t see this email correctly? View it on the <a href="%{link}" target="_blank">website</a>.
+        unsubscribe: To opt out of receiving this type of email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>
+        error: There's been an error unsubscribing
+        success: You are unsubscribed successfully.
+        token_error: The link has expired.
+        unsubscribe: Unsubscribe
     notifications_settings:
       show:
         email_on_notification: I want to receive an email every time I receive a notification.
