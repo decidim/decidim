@@ -153,7 +153,6 @@ sv:
           success: Deltagande processsteg uppdateras framgångsrikt.
       participatory_process_user_roles:
         create:
-          error: Det gick inte att lägga till en användare för den här deltagande processen.
           success: Användaren skapades framgångsrikt för denna deltagande process.
         destroy:
           success: Användaren förstördes framgångsrikt för denna deltagande process.
@@ -166,7 +165,6 @@ sv:
           create: Skapa
           title: Ny deltagande processanvändare.
         update:
-          error: Det uppstod ett fel som uppdaterade en användare för den här deltagande processen.
           success: Användaren uppdaterades framgångsrikt för denna deltagande process.
       participatory_processes:
         create:
