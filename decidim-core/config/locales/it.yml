@@ -207,6 +207,15 @@ it:
     newsletter_mailer:
       newsletter:
         note: Hai ricevuto questa email perché ti sei iscritto alla newsletter su %{organization_name}. Puoi modificare le impostazioni sulla tua <a href="%{link}">pagina di notifiche</a>.
+        see_on_website: Non riesci a vedere questa email correttamente? Visualizzalo su <a href="%{link}" target="_blank">website</a>.
+        unsubscribe: Per disattivare la ricezione di questo tipo di email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Se desideri modificare le tue preferenze, puoi farlo nella pagina di configurazione <a href="%{link}" target="_blank"></a>
+        error: Si è verificato un errore durante l'annullamento dell'iscrizione
+        success: Hai annullato l'iscrizione.
+        token_error: Il link è scaduto.
+        unsubscribe: Annulla l'iscrizione
     notifications_settings:
       show:
         email_on_notification: Voglio ricevere un'e-mail ogni volta che ricevo una notifica.
