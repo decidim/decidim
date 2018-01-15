@@ -134,12 +134,6 @@ en:
       dashboard:
         show:
           welcome: Welcome to the Decidim Admin Panel.
-      events:
-        user_officialized_event:
-          email_intro: The <a href="%{profile_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
-          email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
-          email_subject: "%{nickname} updated their profile"
-          notification_title: The <a href="%{profile_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
       exports:
         export_as: "%{name} as %{export_format}"
         notice: Your export is currently in progress. You'll receive an email when it's complete.

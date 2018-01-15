@@ -128,6 +128,37 @@ module Decidim
           expect { command.call }.to broadcast(:invalid)
         end
       end
+
+      describe "when updating the profile" do
+        it "notifies the user's followers" do
+          follower = create(:user, organization: user.organization)
+          create(:follow, followable: user, user: follower)
+
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .with(
+              event: "decidim.events.users.profile_updated",
+              event_class: Decidim::ProfileUpdatedEvent,
+              resource: kind_of(Decidim::User),
+              recipient_ids: [follower.id]
+            )
+
+          command.call
+        end
+
+        context "when updating other fields" do
+          before do
+            form.personal_url = user.personal_url
+            form.about = user.about
+          end
+
+          it "does not notify the followers" do
+            expect(Decidim::EventsManager).not_to receive(:publish)
+
+            command.call
+          end
+        end
+      end
     end
   end
 end
