@@ -98,8 +98,6 @@ en:
         proposal:
           fields:
             category: Category
-            comments: Comments
-            created_at: Created at
             id: ID
             official_proposal: Official proposal
             scope: Scope
@@ -218,8 +216,6 @@ en:
         error: There's been errors when saving the proposal.
         success: Proposal updated successfully.
     resource_links:
-      included_projects:
-        project_results: 'Results appearing in this project:'
       included_proposals:
         proposal_projects: 'Proposal appearing in these projects:'
         proposal_results: 'Proposal appearing in these results:'
