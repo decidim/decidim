@@ -130,6 +130,11 @@ it:
         email_subject: Un aggiornamento per %{resource_title}
       notification_event:
         notification_title: Si è verificato un evento di <a href="%{resource_path}">%{resource_title}</a>.
+      profile_updated_event:
+        email_intro: La pagina <a href="%{profile_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
+        email_outro: Hai ricevuto questa notifica perché stai seguendo %{nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+        email_subject: "%{nickname} ha aggiornato il proprio profilo"
+        notification_title: La pagina <a href="%{profile_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
     export_mailer:
       export:
         ready: In allegato una versione zippata (Zip) dei dati esportati.
@@ -207,6 +212,15 @@ it:
     newsletter_mailer:
       newsletter:
         note: Hai ricevuto questa email perché ti sei iscritto alla newsletter su %{organization_name}. Puoi modificare le impostazioni sulla tua <a href="%{link}">pagina di notifiche</a>.
+        see_on_website: Non riesci a vedere questa email correttamente? Visualizzalo su <a href="%{link}" target="_blank">website</a>.
+        unsubscribe: Per disattivare la ricezione di questo tipo di email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Se desideri modificare le tue preferenze, puoi farlo nella pagina di configurazione <a href="%{link}" target="_blank"></a>
+        error: Si è verificato un errore durante l'annullamento dell'iscrizione
+        success: Hai annullato l'iscrizione.
+        token_error: Il link è scaduto.
+        unsubscribe: Annulla l'iscrizione
     notifications_settings:
       show:
         email_on_notification: Voglio ricevere un'e-mail ogni volta che ricevo una notifica.
@@ -225,6 +239,9 @@ it:
         title: Informazione
     profiles:
       default_officialization_text: Questo partecipante è verificato pubblicamente, il suo nome o ruolo è stato verificato per corrispondere con il suo vero nome e ruolo
+      show:
+        about_me: A proposito di me
+        personal_url: Sito web personale
     reported_mailer:
       hide:
         hello: Ciao %{name},
