@@ -414,7 +414,6 @@ fi:
           title: Muokkaa sivua
           update: Päivitä
         new:
-          create: Uusi
           title: Uusi sivu
         update:
           error: Tämän sivun päivityksessä tapahtui virhe.
