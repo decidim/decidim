@@ -414,7 +414,6 @@ ca:
           title: Editar pàgina
           update: Actualitzar
         new:
-          create: Nova
           title: Nova pàgina
         update:
           error: S'ha produït un error en l'actualització d'aquests pàgina.
