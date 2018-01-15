@@ -5,7 +5,7 @@
 .process-nav {
   background-color: $white;
   border: $border;
-  padding: .75rem $container-padding-y 0;
+  padding: .75rem $container-padding-y;
 
   ul{
     margin: 0;
@@ -17,6 +17,8 @@
   }
 
   @include breakpoint(medium){
+    padding: .25rem;
+
     ul{
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
@@ -24,16 +26,22 @@
       display: flex;
       align-items: center;
       flex-wrap: wrap;
+      justify-content: space-between;
     }
 
     ul::-webkit-scrollbar{
       display: none;
     }
 
+    ul::after {
+      display: inline-block;
+      flex-grow: 1;
+      content: "";
+    }
+
     li{
       display: inline-block;
-      margin-right: 1.5rem;
-      margin-bottom: .75rem;
+      margin: .5rem .75rem;
     }
 
     .about-link{
