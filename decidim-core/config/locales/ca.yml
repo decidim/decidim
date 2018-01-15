@@ -130,6 +130,11 @@ ca:
         email_subject: Una actualització a %{resource_title}
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
+      profile_updated_event:
+        email_intro: El <a href="%{profile_path}">profile pàgina</a> de %{name} (%{nickname}), al qual estàs seguint, s'ha actualitzat.
+        email_outro: Heu rebut aquesta notificació perquè esteu seguint %{nickname}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+        email_subject: "%{nickname} ha actualitzat el seu perfil"
+        notification_title: El <a href="%{profile_path}">profile pàgina</a> de %{name} (%{nickname}), al qual estàs seguint, s'ha actualitzat.
     export_mailer:
       export:
         ready: S'adjunta una versió comprimida de l'exportació.
@@ -207,6 +212,15 @@ ca:
     newsletter_mailer:
       newsletter:
         note: Has rebut aquest missatge perquè estàs subscrit a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
+        see_on_website: No es pot veure correctament aquest missatge? Vegi-ho al <a href="%{link}" target="_blank"> lloc web</a>.
+        unsubscribe: Per desactivar la recepció d'aquest tipus de correu electrònic, <a href="%{link}" target="_blank" class="unsubscribe">Ususcriure</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Si voleu canviar les vostres preferències, podeu fer-ho a la pàgina <a href="%{link}" target="_blank">configuració</a>
+        error: S'ha produït un error en cancel·lar la subscripció
+        success: Has estat cancel·lat la subscripció amb èxit.
+        token_error: L'enllaç ha caducat.
+        unsubscribe: Anul·la la subscripció
     notifications_settings:
       show:
         email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
@@ -225,6 +239,9 @@ ca:
         title: Més informació
     profiles:
       default_officialization_text: Aquest participant es verifica públicament, el seu nom o la seva funció s'ha verificat perquè es correspongui amb el seu nom i funció reals
+      show:
+        about_me: Sobre mi
+        personal_url: Lloc web personal
     reported_mailer:
       hide:
         hello: Hola %{name},
