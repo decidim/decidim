@@ -58,72 +58,72 @@ fi:
       dummy_authorization:
         extra_explanation:
           one: Osallistuminen on rajoitettu niille käyttäjille, joilla on postinumero %{postal_codes}.
-          other: 'Osallistuminen on rajoitettu käyttäjille, joilla on jokin seuraavista postiosoitteista: %{postal_codes}.'
+          other: 'Osallistuminen on rajoitettu niille käyttäjille, joilla on jokin postinumeroista: %{postal_codes}.'
       id_documents:
         admin:
           confirmations:
             create:
               error: Vahvistus ei täsmää. Yritä uudelleen tai hylkää vahvistus, jotta käyttäjä voi muuttaa sitä
-              success: Käyttäjä onnistui
+              success: Käyttäjä vahvistettu onnistuneesti
             new:
-              introduce_user_data: Esitä tiedot kuvassa
-              reject: Hylätä
-              verify: tarkistaa
+              introduce_user_data: Syötä kuvassa näkyvät tiedot
+              reject: Hylkää
+              verify: Vahvista
           pending_authorizations:
             index:
-              title: Odottaa tarkistuksia
-              verification_number: 'Vahvistus # %{n}'
+              title: Odottavat vahvistukset
+              verification_number: 'Vahvistus #%{n}'
           rejections:
             create:
               success: Vahvistus hylätty. Käyttäjää pyydetään muuttamaan asiakirjojaan
         authorizations:
           create:
-            error: Dokumentin lataaminen tapahtui
-            success: Asiakirja on ladattu onnistuneesti
+            error: Asiakirjan lataamisessa tapahtui virhe
+            success: Asiakirja ladattu onnistuneesti
           edit:
-            being_reviewed: Tarkistamme asiakirjoja. Sinut tarkistetaan pian
-            rejection_clarity: Varmista, että tiedot näkyvät selvästi ladatussa kuvassa
+            being_reviewed: Tarkistamme asiakirjojasi. Tilisi vahvistetaan pian
+            rejection_clarity: Varmista, että kaikki tiedot näkyvät selvästi ladatussa kuvassa
             rejection_correctness: Varmista, että syötetyt tiedot ovat oikein
-            rejection_notice: Vahvistuksessa tapahtui ongelma. Yritä uudelleen
-            send: Pyydä vahvistus uudelleen
+            rejection_notice: Tilisi vahvistuksessa tapahtui ongelma. Yritä uudelleen
+            send: Pyydä vahvistusta uudelleen
           new:
-            send: Pyydä vahvistus
-            title: Lähetä henkilötodistusasi
+            send: Pyydä vahvistusta
+            title: Lähetä henkilöllisyystodistuksesi
           update:
-            error: Dokumentin uudelleen lataaminen tapahtui
+            error: Asiakirjan uudelleen lataaminen epäonnistui
             success: Asiakirjan uudelleen lataaminen onnistui
-        dni: DNI
-        nie: NIE
+        dni: Henkilökortti
+        nie: HETU
         passport: Passi
       postal_letter:
         admin:
           pending_authorizations:
             index:
               address: Osoite
-              letter_sent_at: Kirje lähetetty osoitteessa
-              mark_as_sent: Merkitse lähetetty
+              letter_sent_at: Kirje lähetetty osoitteeseen
+              mark_as_sent: Merkitse lähetetyksi
               not_yet_sent: Ei vielä lähetetty
-              title: Käynnissä olevat tarkistukset
+              title: Käynnissä olevat vahvistukset
               username: Käyttäjätunnus
               verification_code: Vahvistuskoodi
           postages:
             create:
-              error: Virhe merkittynä kirjeeksi lähetettynä
+              error: Virhe merkatessa kirjettä lähetetyksi
               success: Kirje onnistuneesti merkitty lähetetyksi
         authorizations:
           create:
             error: Pyynnössäsi oli ongelma
-            success: Kiitos! Lähetämme vahvistuskoodimme osoitteeseen
+            success: Kiitos! Lähetämme vahvistuskoodin osoiteeseesi
           edit:
-            send: Vahvistaa
-            title: Esittele vastaanottamasi vahvistuskoodi
-            waiting_for_letter: Lähetämme kirjeesi osoitteeseen vahvistuskoodisi pian
+            send: Vahvista
+            title: Syötä vastaanottamasi vahvistuskoodi
+            waiting_for_letter: Lähetämme vahvistuskoodin sisältävän kirjeen osoitteeseesi pian
           new:
-            send: Lähetä minulle kirje
+            send: Lähetä kirje minulle
             title: Pyydä vahvistuskoodia
           update:
-            error: Vahvistuskoodi ei vastaa meidän. Tarkista ensin lähettämäsi kirje
-            success: Onnea. Olet varmistunut
+            error: Vahvistuskoodi ei vastaa meidän koodiamme. Tarkista uudestaan kirje, jonka olemme lähettäneet sinulle
+            success: Onnittelut. Olet vahvistanut tilisi
   errors:
     messages:
-      uppercase_only_letters_numbers: on oltava isoja ja sisältävät vain kirjaimia ja / tai numeroita
+      uppercase_only_letters_numbers: sisällössä on sallttu ainoastaan isot kirjaimet ja numerot
