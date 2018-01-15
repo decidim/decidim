@@ -123,7 +123,7 @@ fi:
           scopes: Konteksti
         home:
           categories_label: Aihepiirit
-          subcategories_label: Alakategoriat
+          subcategories_label: Ala-aihepiiri
         home_header:
           global_status: Yleisen toteutuksen tila
         nav_breadcrumb:
@@ -167,7 +167,7 @@ fi:
             heading_leaf_level_results: Nimi kohteelle "Projektit"
             heading_parent_level_results: Nimi kohteelle "Tulokset"
             intro: Esittelyteksti
-            subcategories_label: Nimi kohteelle "Alakategoriat"
+            subcategories_label: Nimi kohteelle "Ala-aihepiirit"
           step:
             comments_blocked: Kommentointi estetty
     resource_links:
