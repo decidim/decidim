@@ -62,19 +62,19 @@ fi:
       assembly_user_roles:
         create:
           error: Virhe lisätessä käyttäjää tälle kokoukselle.
-          success: Käyttäjä on luotu onnistuneesti kokoonpanoon.
+          success: Käyttäjä on luotu onnistuneesti kehitysryhmään.
         destroy:
-          success: Käyttäjä tuhoutui onnistuneesti kokoonpanoon.
+          success: Käyttäjä tuhottu onnistuneesti kehitysryhmästä.
         edit:
-          title: Päivitä kokoonpanon käyttäjä.
-          update: Päivittää
+          title: Päivitä kehitysryhmän käyttäjän tietoja.
+          update: Päivitä
         index:
-          assembly_admins_title: Kokoonpanokäyttäjät
+          assembly_admins_title: Kehitysryhmän käyttäjät
         new:
-          create: Luoda
-          title: Uusi kokoonpanokäyttäjä.
+          create: Luo
+          title: Uusi kehitysryhmän käyttäjä.
         update:
-          error: Virhe päivitettiin tämän kokoonpanon käyttäjälle.
+          error: Kehitysryhmän käyttäjän päivityksessä tapahtui virhe.
           success: Käyttäjä on päivitetty onnistuneesti kokoonpanoon.
       menu:
         assemblies: osat
