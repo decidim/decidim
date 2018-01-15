@@ -59,9 +59,27 @@ gl:
         destroy:
           error: Produciuse un erro ao publicar esta asemblea.
           success: Asemblea non publicada con éxito.
+      assembly_user_roles:
+        create:
+          error: Produciuse un erro engadindo un usuario a este conxunto.
+          success: O usuario creouse con éxito para este conxunto.
+        destroy:
+          success: Usuario destruído con éxito para este conxunto.
+        edit:
+          title: Actualiza o usuario de montaxe.
+          update: Actualización
+        index:
+          assembly_admins_title: Usuarios da asemblea
+        new:
+          create: Crear
+          title: Novo usuario de montaxe.
+        update:
+          error: Houbo un erro actualizado por un usuario para este conxunto.
+          success: O usuario actualizouse con éxito para este conxunto.
       menu:
         assemblies: Asembleas
         assemblies_submenu:
+          assembly_admins: Usuarios da asemblea
           attachments: Anexos
           categories: Categorías
           features: características
@@ -75,6 +93,16 @@ gl:
             published: Publicado
             title: Título
           name: Asemblea
+        assembly_user_role:
+          fields:
+            email: Correo electrónico
+            name: Nome
+            role: Rol
+          name: Usuario da asemblea
+          roles:
+            admin: Administrador
+            collaborator: Colaborador
+            moderator: Moderador
       titles:
         assemblies: Asembleas
     assemblies:
