@@ -55,6 +55,10 @@ sv:
           authorize_with: Verifiera med %{authorizer}
         skip_verification: Du kan hoppa över det här för tillfället och %{link}
         start_exploring: börja utforska
+      dummy_authorization:
+        extra_explanation:
+          one: Deltagande är begränsat till användare med postnummer %{postal_codes}.
+          other: 'Deltagande är begränsat till användare med någon av följande postnummer: %{postal_codes}.'
       id_documents:
         admin:
           confirmations:

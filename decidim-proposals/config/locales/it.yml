@@ -93,6 +93,8 @@ it:
         proposal:
           fields:
             category: Categoria
+            comments: Commenti
+            created_at: Creato a
             id: ID
             official_proposal: Proposta ufficiale
             scope: Visibilità
@@ -189,6 +191,8 @@ it:
         error: Ci sono stati errori quando si salva la proposta.
         success: La proposta è stata aggiornata correttamente.
     resource_links:
+      included_projects:
+        project_results: 'Risultati che appaiono in questo progetto:'
       included_proposals:
         proposal_projects: 'Le proposte compaiono nei seguenti progetti:'
         proposal_results: 'Le proposte compaiono nei seguenti risultati:'

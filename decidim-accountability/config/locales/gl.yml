@@ -8,6 +8,7 @@ gl:
         description: Descrición
         end_date: Data de finalización
         progress: Progreso
+        project_ids: Proxectos incluídos
         proposal_ids: Propostas incluidas
         start_date: Data de inicio
         title: Título
@@ -170,5 +171,7 @@ gl:
           step:
             comments_blocked: Comentarios bloqueados
     resource_links:
+      included_projects:
+        result_projects: Proxectos incluídos neste resultado
       included_proposals:
         result_proposals: Propostas incluídas neste resultado

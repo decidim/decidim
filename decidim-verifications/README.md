@@ -1,7 +1,7 @@
 # Decidim::Verifications
 
 Decidim offers several methods for allowing participants to get authorization to
-perform certain privileged actions. This gem implements several of those methods
+perform certain privileged actions. This module implements several of those methods
 and also offers a way for installation to implement their custom verification
 methods.
 
@@ -74,6 +74,57 @@ Decidim implements two type of authorization methods:
 
   * `edit_authorization_path`: This is the entry point to resume an existing
     authorization process.
+
+## Custom action authorizers
+
+Custom action authorizers are an advanced feature that can be used in both types of
+authorization methods to customize some parts of the authorization process.
+These are particulary useful when used within verification options, which are
+set in the admin zone related to a feature action. As a result, a verification
+method will be allowed to change the authorization logic and the appearance based
+on the context where the authorization is being performed.
+
+For example, you can require authorization for supporting proposals in a participatory
+process, and also restrict it to users with postal codes 12345 and 12346. The
+[example authorization handler](https://github.com/decidim/decidim/blob/master/decidim-verifications/app/services/decidim/dummy_authorization_handler.rb)
+included in this module allows to do that. As an admin user, you should visit
+the proposals componenent permissions screen, choose the `Example authorization`
+as the authorization handler name for the `vote` action and type something like
+`{ allowed_postal_codes: ["12345", "12346"] }` in the `Options` field placed below.
+
+You can override default behavior implementing a class that inherits form
+`Decidim::Verifications::DefaultActionAuthorizer` and override some methods or that
+implement its public methods:
+
+* The `initialize` method receives the current authorization process context and
+saves it in local variables. This include the current authorization user state (an
+`Authorization` record) and permission `options` related to the action is trying to
+perform.
+
+* The `authorize` method is responsible of evaluating the authorization process
+context and determine if the user authorization is `:ok` or in any other status.
+
+* The `redirect_params` method allows to add additional query string parameters
+when redirecting to the authorization form. This is useful to send to the
+authorization form the permission `options` information that could be useful to
+adapt its behavior or appearance.
+
+To be used by the verification method, this class should be referenced by name in
+its workflow manifest:
+
+```ruby
+# config/initializers/decidim.rb
+
+Decidim::Verifications.register_workflow(:sms_verification) do |workflow|
+  workflow.engine = Decidim::Verifications::SmsVerification::Engine
+  workflow.admin_engine = Decidim::Verifications::SmsVerification::AdminEngine
+  workflow.action_authorizer = "Decidim::Verifications::SmsVerification::ActionAuthorizer"
+end
+```
+
+Check the [example authorization handler](https://github.com/decidim/decidim/blob/master/decidim-verifications/app/services/decidim/dummy_authorization_handler.rb)
+and the [DefaultActionAuthorizer class](https://github.com/decidim/decidim/blob/master/decidim-verifications/lib/decidim/verifications/default_action_authorizer.rb)
+for additional technical details.
 
 ## Installation
 

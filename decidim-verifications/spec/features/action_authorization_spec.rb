@@ -53,6 +53,30 @@ describe "Action Authorization", type: :feature do
       end
     end
 
+    context "and action authorized with custom action authorizer options" do
+      let(:permissions) do
+        { create: { authorization_handler_name: "dummy_authorization_handler", options: { allowed_postal_codes: %w(1234 4567) } } }
+      end
+
+      before do
+        visit main_feature_path(feature)
+        click_link "New proposal"
+      end
+
+      it "prompts user to authorize" do
+        expect(page).to have_content("Authorization required")
+        expect(page).to have_content("In order to perform this action, you need to be authorized with \"Example authorization\"")
+        expect(page).to have_content("Participation is restricted to users with any of the following postal codes: 1234, 4567.")
+      end
+
+      it "redirects to authorization when modal clicked" do
+        click_link "Authorize with \"Example authorization\""
+
+        expect(page).to have_selector("h1", text: "Verify with Example authorization")
+        expect(page).to have_content("Participation is restricted to users with any of the following postal codes: 1234, 4567.")
+      end
+    end
+
     context "and action authorized and authorization expired" do
       let(:permissions) do
         { create: { authorization_handler_name: "dummy_authorization_handler" } }

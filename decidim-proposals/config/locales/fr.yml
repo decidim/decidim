@@ -4,7 +4,7 @@ fr:
       proposal:
         body: Corps du texte
         category_id: Catégorie
-        has_address: A une adresse
+        has_address: Renseignez une adresse
         scope_id: Zone d'application
         title: Titre
         user_group_id: Créer une proposition en tant que
@@ -93,6 +93,8 @@ fr:
         proposal:
           fields:
             category: Catégorie
+            comments: Commentaires
+            created_at: Créé à
             id: ID
             official_proposal: Proposition officielle
             scope: Zone d'application
@@ -189,6 +191,8 @@ fr:
         error: Des erreurs se sont produites lors de l'enregistrement de la proposition.
         success: Proposition mise à jour avec succès.
     resource_links:
+      included_projects:
+        project_results: 'Résultats apparaissant dans ce projet:'
       included_proposals:
         proposal_projects: 'Proposition figurant dans ces projets :'
         proposal_results: 'Proposition figurant dans ces résultats :'

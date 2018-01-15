@@ -4,6 +4,7 @@ ru:
       proposal:
         body: Основной текст
         category_id: Категория
+        has_address: Имеет адрес
         scope_id: Охват
         title: Название
         user_group_id: Внести предложение как
@@ -93,6 +94,8 @@ ru:
         proposal:
           fields:
             category: Категория
+            comments: Комментарии
+            created_at: 'Создано:'
             id: Псевдоним
             official_proposal: Официальное предложение
             scope: Охват
@@ -197,6 +200,8 @@ ru:
         error: При сохранении этого предложения произошли ошибки.
         success: Предложение успешно обновлено.
     resource_links:
+      included_projects:
+        project_results: 'Итоги, представленные в этом проекте:'
       included_proposals:
         proposal_projects: 'Предложение представлено в проектах:'
         proposal_results: 'Предложения, представленные в этих итогах:'

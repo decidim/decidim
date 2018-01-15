@@ -133,6 +133,12 @@ ru:
       dashboard:
         show:
           welcome: Добро пожаловать в админ-панель Десидим!
+      events:
+        user_officialized_event:
+          email_intro: Страница <a href="%{profile_path}">профиля</a> участника %{name} (%{nickname}), за которым вы следите, была обновлена.
+          email_outro: Вы получили это уведомление, потому что вы следите за «%{nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
+          email_subject: "%{nickname} обновил свой профиль"
+          notification_title: Страница <a href="%{profile_path}">профиля</a> участника %{name} (%{nickname}), за которым вы следите, была обновлена.
       exports:
         export_as: "%{name} как %{export_format}"
         notice: Идет сохранение в виде файла. Вы получите электронное письмо, когда оно будет завершено.

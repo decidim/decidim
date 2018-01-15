@@ -13,15 +13,15 @@ module Decidim
     describe "metadata" do
       subject { handler.metadata }
 
-      let(:params) { { document_number: "123456" } }
+      let(:params) { { document_number: "123456", postal_code: "123456" } }
 
-      it { is_expected.to eq(document_number: "123456") }
+      it { is_expected.to eq(document_number: "123456", postal_code: "123456") }
     end
 
     describe "valid?" do
       subject { handler.valid? }
 
-      let(:params) { { document_number: document_number } }
+      let(:params) { { document_number: document_number, postal_code: "123456" } }
 
       context "when no document number" do
         let(:document_number) { nil }

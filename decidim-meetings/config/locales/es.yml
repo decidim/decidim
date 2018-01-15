@@ -22,7 +22,7 @@ es:
       meetings:
         actions:
           join: Unirse
-        name: Lista de encuentros
+        name: Encuentros
         settings:
           global:
             announcement: Aviso
@@ -72,7 +72,7 @@ es:
           edit:
             update: Actualizar
           index:
-            title: Lista de encuentros
+            title: Encuentros
           new:
             create: Crear
             title: Crear encuentro

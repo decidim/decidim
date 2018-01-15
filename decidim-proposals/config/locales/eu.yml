@@ -93,6 +93,8 @@ eu:
         proposal:
           fields:
             category: Kategoria
+            comments: Oharrak
+            created_at: Sortutako at
             id: NORTASUN AGIRIA
             official_proposal: Proposamen ofiziala
             scope: Esparrua
@@ -189,6 +191,8 @@ eu:
         error: Arazoak izan dira proposamena gordetzean.
         success: Proposamena ondo eguneratu da.
     resource_links:
+      included_projects:
+        project_results: 'Proiektu honetan agertzen diren emaitzak:'
       included_proposals:
         proposal_projects: 'Proiektu hauetatik sortutako proposamena:'
         proposal_results: 'Emaitza hauetatik sortutako proposamena:'

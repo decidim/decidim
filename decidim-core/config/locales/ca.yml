@@ -257,6 +257,7 @@ ca:
         incomplete:
           cancel: Cancel·lar
           explanation: 'Tot i que actualment estàs autoritzat amb "%{authorization}", necessitem que et tornis a autoritzar perquè no tenim les dades següents:'
+          invalid_field: "%{field}"
           reauthorize: Reautoritzar-se
           title: Si us plau, reautoritza't
         missing:
@@ -269,7 +270,7 @@ ca:
           title: L'autorització encara està en progrés
         unauthorized:
           explanation: No es pot realitzar aquesta acció ja que alguna de les seves dades d'autorització no coincideixen amb les requerides.
-          invalid: "%{field} no és vàlid."
+          invalid_field: "El valor %{field} %{value} no és vàlid."
           ok: D'acord
           title: Acció no autoritzada
       author:
