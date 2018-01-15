@@ -153,6 +153,7 @@ fr:
           success: Etape du processus participatif mise à jour avec succès.
       participatory_process_user_roles:
         create:
+          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour ce processus participatif.
           success: Utilisateur créé avec succès pour ce processus participatif.
         destroy:
           success: L'utilisateur a été supprimé avec succès pour ce processus participatif.
@@ -165,6 +166,7 @@ fr:
           create: Créer
           title: Nouvel utilisateur de processus participatif.
         update:
+          error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour ce processus participatif.
           success: L'utilisateur a été mis à jour avec succès pour ce processus participatif.
       participatory_processes:
         create:
