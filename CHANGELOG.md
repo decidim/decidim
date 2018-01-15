@@ -81,6 +81,7 @@ you need to change the following line in `config/environments/production.rb`:
 
 **Removed**
 - **decidim**: Select2 JS library and scope selector based on Select2.
+- **dedicim-accountability**: Removed the Global scope navigation option ([\#2486](https://github.com/decidim/decidim/pull/2486))
 
 ## [v0.8.0](https://github.com/decidim/decidim/tree/v0.8.0) (2017-12-4)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.7.0...v0.8.0)
