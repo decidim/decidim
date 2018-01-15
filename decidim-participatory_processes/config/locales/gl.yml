@@ -153,6 +153,7 @@ gl:
           success: Paso de proceso participativo actualizado con éxito.
       participatory_process_user_roles:
         create:
+          error: Houbo un erro engadindo un usuario a este proceso participativo.
           success: Usuario creado con éxito para este proceso participativo.
         destroy:
           success: Usuario destruído con éxito por este proceso participativo.
@@ -165,6 +166,7 @@ gl:
           create: Crear
           title: Novo usuario de proceso participativo.
         update:
+          error: Houbo un erro actualizado por un usuario para este proceso participativo.
           success: Usuario actualizado correctamente para este proceso participativo.
       participatory_processes:
         create:
