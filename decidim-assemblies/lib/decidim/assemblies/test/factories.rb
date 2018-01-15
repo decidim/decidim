@@ -59,4 +59,19 @@ FactoryBot.define do
              role: :admin
     end
   end
+
+  factory :assembly_moderator, parent: :user, class: "Decidim::User" do
+    transient do
+      assembly { create(:assembly) }
+    end
+
+    organization { assembly.organization }
+
+    after(:create) do |user, evaluator|
+      create :assembly_user_role,
+             user: user,
+             assembly: evaluator.assembly,
+             role: :moderator
+    end
+  end
 end

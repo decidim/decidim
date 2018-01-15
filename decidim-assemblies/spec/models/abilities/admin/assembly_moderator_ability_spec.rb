@@ -26,6 +26,7 @@ module Decidim
       it { is_expected.to be_able_to(:read, :admin_dashboard) }
 
       it { is_expected.to be_able_to(:read, user_assembly) }
+      it { is_expected.to be_able_to(:index, user_assembly) }
       it { is_expected.not_to be_able_to(:preview, user_assembly) }
       it { is_expected.not_to be_able_to(:destroy, user_assembly) }
       it { is_expected.not_to be_able_to(:create, Decidim::Assembly) }
@@ -34,6 +35,8 @@ module Decidim
 
       it { is_expected.to be_able_to(:manage, user_assembly_moderation) }
       it { is_expected.not_to be_able_to(:manage, unmanaged_assembly_moderation) }
+      it { is_expected.to be_able_to(:hide, dummy_resource) }
+      it { is_expected.to be_able_to(:unreport, dummy_resource) }
     end
   end
 end
