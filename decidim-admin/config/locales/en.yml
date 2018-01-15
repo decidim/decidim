@@ -415,7 +415,7 @@ en:
           title: Edit page
           update: Update
         new:
-          create: New
+          create: Create
           title: New page
         update:
           error: There was an error when updating this page.
