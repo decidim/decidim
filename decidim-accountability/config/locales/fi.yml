@@ -119,7 +119,6 @@ fi:
             other: "%{count} tulosta"
         filters:
           all: Kaikki
-          global: Yleinen
           scopes: Konteksti
         home:
           categories_label: Aihepiirit
