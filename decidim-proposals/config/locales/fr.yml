@@ -141,7 +141,7 @@ fr:
           view_proposal: Voir la proposition
         linked_proposals:
           proposal_votes:
-            one: voter
+            one: vote
             other: votes
         new:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
@@ -192,7 +192,7 @@ fr:
         success: Proposition mise à jour avec succès.
     resource_links:
       included_projects:
-        project_results: 'Résultats apparaissant dans ce projet:'
+        project_results: 'Résultats apparaissant dans ce projet :'
       included_proposals:
         proposal_projects: 'Proposition figurant dans ces projets :'
         proposal_results: 'Proposition figurant dans ces résultats :'

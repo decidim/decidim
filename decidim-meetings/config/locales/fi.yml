@@ -123,7 +123,7 @@ fi:
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Kutsu liittyä kokoukseen
+            subject: Kutsu tapaamiseen
         registration_mailer:
           confirmation:
             subject: Tapahtumailmoittautumisesi on vahvistettu
@@ -189,4 +189,4 @@ fi:
   devise:
     mailer:
       join_meeting:
-        subject: Kutsu liittyä kokoukseen
+        subject: Kutsu tapaamiseen

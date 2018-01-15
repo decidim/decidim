@@ -59,9 +59,27 @@ nl:
         destroy:
           error: Er is een fout opgetreden bij het publiceren van deze bijeenkomt.
           success: Bijeenkomt succesvol ongepubliceerd.
+      assembly_user_roles:
+        create:
+          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor deze assembly.
+          success: Gebruiker is succesvol gemaakt voor deze assembly.
+        destroy:
+          success: Gebruiker met succes vernietigd voor deze assembly.
+        edit:
+          title: Update assembly-gebruiker.
+          update: Bijwerken
+        index:
+          assembly_admins_title: Assemblage gebruikers
+        new:
+          create: creëren
+          title: Nieuwe assembly-gebruiker.
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van een gebruiker voor deze assembly.
+          success: Gebruiker is succesvol bijgewerkt voor deze assembly.
       menu:
         assemblies: Bijeenkomsten
         assemblies_submenu:
+          assembly_admins: Assemblage gebruikers
           attachments: Bijlagen
           categories: Categorieën
           features: Kenmerken
@@ -75,6 +93,16 @@ nl:
             published: Gepubliceerd
             title: Titel
           name: Bijeenkomst
+        assembly_user_role:
+          fields:
+            email: E-mail
+            name: Naam
+            role: Rol
+          name: Assemblage gebruiker
+          roles:
+            admin: Beheerder
+            collaborator: Medewerker
+            moderator: Moderator
       titles:
         assemblies: Bijeenkomsten
     assemblies:
