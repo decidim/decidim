@@ -17,7 +17,8 @@ module Decidim::Accountability
         :result,
         feature: current_feature,
         category: parent_category,
-        scope: scope1
+        scope: scope1,
+        parent: nil
       )
     end
     let!(:result2) do
@@ -25,7 +26,17 @@ module Decidim::Accountability
         :result,
         feature: current_feature,
         category: subcategory,
-        scope: scope2
+        scope: scope2,
+        parent: nil
+      )
+    end
+    let!(:result3) do
+      create(
+        :result,
+        feature: current_feature,
+        category: parent_category,
+        scope: scope1,
+        parent: result1
       )
     end
     let(:external_result) { create :result }
@@ -103,6 +114,24 @@ module Decidim::Accountability
 
           it "returns an empty array" do
             expect(subject.results).to eq []
+          end
+        end
+      end
+
+      describe "parent_id" do
+        context "when the parent_id is nil" do
+          let(:params) { default_params.merge(parent_id: nil) }
+
+          it "returns results all parent results" do
+            expect(subject.results).to match_array [result2, result1]
+          end
+        end
+
+        context "when the parent_id is result1" do
+          let(:params) { default_params.merge(parent_id: result1.id) }
+
+          it "returns results the children" do
+            expect(subject.results).to match_array [result3]
           end
         end
       end
