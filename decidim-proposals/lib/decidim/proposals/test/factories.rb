@@ -136,5 +136,4 @@ FactoryBot.define do
     proposal { build(:proposal) }
     author { build(:user, organization: proposal.organization) }
   end
-
 end

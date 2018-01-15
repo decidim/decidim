@@ -152,6 +152,16 @@ Decidim.register_feature(:proposals) do |feature|
         Decidim::Proposals::ProposalVote.create!(proposal: proposal, author: author) unless proposal.answered? && proposal.rejected?
       end
 
+      (n % 3).times do
+        author_admin = Decidim::User.where(organization: feature.organization, admin: true).all.sample
+
+        Decidim::Proposals::ProposalNote.create!(
+          proposal: proposal,
+          author: author_admin,
+          body: Faker::Lorem.paragraphs(2).join("\n")
+        )
+      end
+
       Decidim::Comments::Seed.comments_for(proposal)
     end
   end
