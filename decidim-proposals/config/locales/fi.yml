@@ -28,7 +28,7 @@ fi:
             official_proposals_enabled: Viralliset ehdotukset sallittu
             proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
             proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän aikamääreen sisällä sen luonnista
-            proposal_limit: Ehdotuksen raja käyttäjää kohden
+            proposal_limit: Ehdotuksien raja käyttäjää kohden
             vote_limit: Äänestysraja käyttäjää kohden
           step:
             announcement: Ilmoitus
@@ -85,10 +85,11 @@ fi:
       events:
         create_proposal_event:
           email_intro: |-
-            Hei, %{author_name} %{author_nickname}, jonka seuraat, on luonut uuden ehdotuksen, tarkista sen ja osallistuu siihen:
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: Uusi ehdotus %{author_nickname}
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> -ehdotus luotiin <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+            Hei,
+            %{author_name} %{author_nickname}, jota seuraat, on luonut uuden ehdotuksen. Tarkista se ja osallistuu siihen:
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen seuraamalla edellä olevaa linkkiä.
+          email_subject: Uusi ehdotus käyttäjältä %{author_nickname}
+          notification_title: Käyttäjä <a href="%{author_path}">%{author_name} %{author_nickname}</a> on luonut ehdotuksen <a href="%{resource_path}">%{resource_title}</a>.
       models:
         proposal:
           fields:
