@@ -2,12 +2,12 @@ fi:
   activemodel:
     attributes:
       id_document_information:
-        document_number: Asiakirjan numero (kirjaimella)
+        document_number: Asiakirjan numero (kirjeellä toimitettava)
         document_type: Asiakirjan tyyppi
       id_document_upload:
-        document_number: Asiakirjan numero (kirjaimella)
+        document_number: Asiakirjan numero (kirjeellä toimitettava)
         document_type: Asiakirjan tyyppi
-        user: käyttäjä
+        user: Käyttäjä
         verification_attachment: Asiakirjan skannattu kopio
   decidim:
     admin:
@@ -18,8 +18,8 @@ fi:
         id_documents:
           help:
             - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
-            - Täytä ladatun kuvan läsnä olevat tiedot.
-            - Tietojen tulisi vastata mitä tahansa käyttäjän täyttämää.
+            - Sinä täytät ladatussa kuvassa näkyvät tiedot.
+            - Tietojen tulisi vastata niitä tietoja, jotka käyttäjä on syöttänyt.
             - Jos et voi nähdä tietoja selvästi tai et voi saada sitä vahvistettua, voit hylätä pyynnön ja käyttäjä voi korjata sen.
         postal_letter:
           help:
