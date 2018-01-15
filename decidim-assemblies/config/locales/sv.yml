@@ -59,6 +59,10 @@ sv:
         destroy:
           error: Ett fel uppstod vid publicering av denna montering.
           success: Sammansättningen avpubliceras framgångsrikt.
+      assembly_user_roles:
+        create:
+          error: Det gick inte att lägga till en användare för den här enheten.
+          success: Användaren skapades framgångsrikt för den här enheten.
       menu:
         assemblies: Assemblies
         assemblies_submenu:
