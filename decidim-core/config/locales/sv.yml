@@ -130,6 +130,11 @@ sv:
         email_subject: En uppdatering till %{resource_title}
       notification_event:
         notification_title: En händelse uppstod till <a href="%{resource_path}">%{resource_title}</a>.
+      profile_updated_event:
+        email_intro: <a href="%{profile_path}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
+        email_outro: Du har fått den här meddelandet eftersom du följer %{nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
+        email_subject: "%{nickname} updated deras profile"
+        notification_title: <a href="%{profile_path}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
     export_mailer:
       export:
         ready: Vänligen se bifogad en zippad version av din export.
@@ -207,6 +212,15 @@ sv:
     newsletter_mailer:
       newsletter:
         note: Du har fått det här e-postmeddelandet eftersom du prenumererar på nyhetsbrev på %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">anmälningssidan</a>.
+        see_on_website: Kan du inte se det här e-postmeddelandet korrekt? Visa den på <a href="%{link}" target="_blank">webbplatsen</a>.
+        unsubscribe: För att välja bort den här typen av e-post, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Om du vill ändra dina inställningar kan du göra det på sidan <a href="%{link}" target="_blank">konfiguration</a>
+        error: Ett fel har avbrutits
+        success: Du är avstängd med framgång.
+        token_error: Länken har löpt ut.
+        unsubscribe: Säga upp
     notifications_settings:
       show:
         email_on_notification: Jag vill ta emot ett mail varje gång jag får ett meddelande.
@@ -225,6 +239,9 @@ sv:
         title: Mer information
     profiles:
       default_officialization_text: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
+      show:
+        about_me: Om mig
+        personal_url: Personlig hemsida
     reported_mailer:
       hide:
         hello: Hej %{name},
