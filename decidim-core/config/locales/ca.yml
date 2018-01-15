@@ -207,6 +207,15 @@ ca:
     newsletter_mailer:
       newsletter:
         note: Has rebut aquest missatge perquè estàs subscrit a butlletins de notícies a %{organization_name}. Pots canviar la configuració a la teva <a href="%{link}">pàgina de notificacions</a>.
+        see_on_website: No es pot veure correctament aquest missatge? Vegi-ho al <a href="%{link}" target="_blank"> lloc web</a>.
+        unsubscribe: Per desactivar la recepció d'aquest tipus de correu electrònic, <a href="%{link}" target="_blank" class="unsubscribe">Ususcriure</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Si voleu canviar les vostres preferències, podeu fer-ho a la pàgina <a href="%{link}" target="_blank">configuració</a>
+        error: S'ha produït un error en cancel·lar la subscripció
+        success: Has estat cancel·lat la subscripció amb èxit.
+        token_error: L'enllaç ha caducat.
+        unsubscribe: Anul·la la subscripció
     notifications_settings:
       show:
         email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
