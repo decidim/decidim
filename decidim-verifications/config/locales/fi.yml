@@ -20,44 +20,44 @@ fi:
             - Käyttäjät täyttävät henkilötietonsa ja lähettävät kopion asiakirjastaan.
             - Sinä täytät ladatussa kuvassa näkyvät tiedot.
             - Tietojen tulisi vastata niitä tietoja, jotka käyttäjä on syöttänyt.
-            - Jos et voi nähdä tietoja selvästi tai et voi saada sitä vahvistettua, voit hylätä pyynnön ja käyttäjä voi korjata sen.
+            - Jos et voi nähdä tietoja selvästi tai et voi saada niitä vahvistettua, voit hylätä pyynnön, jolloin käyttäjä voi korjata sen.
         postal_letter:
           help:
-            - Käyttäjät vaativat vahvistuskoodin lähettämistä osoitteeseen.
-            - Lähetät kirjeen osoitteeseen vahvistuskoodilla.
-            - Merkitään kirje lähetetyksi.
-            - Kun olet merkinnyt lähetetyn kirjeen, käyttäjä voi ottaa koodin käyttöön ja saada vahvistuksen.
+            - Käyttäjät pyytävät vahvistuskoodin lähettämistä heidän osoitteeseensa.
+            - Lähetät kirjeen heidän osoitteeseensa, mikä sisältää vahvistuskoodin.
+            - Sinä merkitset kirjeen lähetetyksi.
+            - Kun olet merkinnyt kirjeen lähetetyksi, käyttäjä voi ottaa syöttää koodin ja vahvistaa tilinsä.
       direct: Suoraan
-      help: auta
+      help: Ohjeet
       id_documents:
-        explanation: Lähetä henkilötodistuksesi, jotta voimme tarkistaa henkilöllisyytesi
-        name: Henkilötodistukset
+        explanation: Lataa henkilöllisyystodistuksesi, jotta voimme tarkistaa henkilöllisyytesi
+        name: Henkilöllisyystodistukset
       multistep: Monivaiheinen
       name: Nimi
       postal_letter:
-        explanation: Lähetämme sinulle postinumeron, jonka koodi on kirjoitettava, jotta voimme vahvistaa osoitteen
-        name: Koodi postikirjeellä
+        explanation: Lähetämme sinulle postissa kirjeen, joka sisältää koodin, jotta voimme vahvistaa osoitteesi
+        name: Koodi postissa lähetettävällä kirjeellä
     verifications:
       authorizations:
         create:
-          error: Luvalla luotiin virhe.
-          success: Sinulle on myönnetty lupa.
+          error: Vahvistuksen luonnissa tapahtui virhe.
+          success: Tilisi on onnistuneesti vahvistettu.
         first_login:
           actions:
-            dummy_authorization_handler: Varmista esimerkki valtuutuksen käsittelijältä
-            dummy_authorization_workflow: Varmista esimerkkitodennuksen työnkulku
-            id_documents: Tarkista, että lähetät henkilöllisyystodistuksesi
-            postal_letter: Tarkista, että saat vahvistuskoodin postipostin kautta
+            dummy_authorization_handler: Vahvista tili esimerkkivaltuuttajan avulla
+            dummy_authorization_workflow: Vahvista esimerkkivaltuutuksen työnkulkuprosessin kautta
+            id_documents: Vahvista tilisi lataamalla henkilöllisyystodistuksesi
+            postal_letter: Vahvista tilisi paperipostissa lähetettävän vahvistuskoodin avulla
           title: Vahvista henkilöllisyytesi
-          verify_with_these_options: 'Nämä ovat käytettävissä olevia vaihtoehtoja henkilöllisyytesi vahvistamiseksi:'
+          verify_with_these_options: 'Käytettävissä olevat tavat vahvistaa identiteettisi:'
         new:
-          authorize: Lähettää
-          authorize_with: Vahvista %{authorizer}
+          authorize: Lähetä
+          authorize_with: Vahvista palvelulla %{authorizer}
         skip_verification: Voit ohittaa tämän nyt ja %{link}
-        start_exploring: alkaa tutkia
+        start_exploring: aloittaa palveluun tutustumisen
       dummy_authorization:
         extra_explanation:
-          one: Osallistuminen on rajoitettu käyttäjiin, joilla on postinumero %{postal_codes}.
+          one: Osallistuminen on rajoitettu niille käyttäjille, joilla on postinumero %{postal_codes}.
           other: 'Osallistuminen on rajoitettu käyttäjille, joilla on jokin seuraavista postiosoitteista: %{postal_codes}.'
       id_documents:
         admin:
