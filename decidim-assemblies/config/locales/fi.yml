@@ -4,16 +4,16 @@ fi:
       assembly:
         banner_image: Bannerikuva
         copy_categories: Kopioi aihepiirit
-        copy_features: Kopioi toiminnot
+        copy_features: Kopioi ominaisuudet
         description: Kuvaus
-        developer_group: Kehitysryhmä
+        developer_group: Kehittäjäryhmä
         domain: Toimintaympäristö
         hashtag: Hashtag
         hero_image: Etusivun kuva
         local_area: Paikallisalue
         meta_scope: Kontekstin metadata
         participatory_scope: Osallistumiskonteksti
-        participatory_structure: Osallistumisprosessin rakenne
+        participatory_structure: Osallistumisen rakenne
         promoted: Korostettu
         scope_id: Konteksti
         scopes_enabled: Kontekstit käytössä
@@ -26,10 +26,10 @@ fi:
     admin:
       assemblies:
         create:
-          error: Virhe luotaessa uutta kokousta.
-          success: Kokouksen luonti onnistui.
+          error: Virhe luotaessa uutta kehitysryhmää.
+          success: Kehitysryhmän luonti onnistui.
         destroy:
-          success: Kokouksen tuhoaminen onnistui.
+          success: Kehitysryhmän tuhoaminen onnistui.
         edit:
           update: Päivitä
         form:
@@ -39,29 +39,29 @@ fi:
           published: Julkaistu
         new:
           create: Luo
-          title: Uusi kokous
+          title: Uusi kehitysryhmä
         update:
-          error: Kokousta päivitettäessä tapahtui virhe.
-          success: Kokous päivitettiin onnistuneesti.
+          error: Kehitysryhmää päivitettäessä tapahtui virhe.
+          success: Kehitysryhmä päivitettiin onnistuneesti.
       assemblies_copies:
         create:
-          error: Virhe kopioitaessa kokousta.
-          success: Kokous kopioitu onnistuneesti.
+          error: Virhe kopioitaessa kehitysryhmää.
+          success: Kehitysryhmä kopioitu onnistuneesti.
       assembly_copies:
         new:
           copy: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi kokous
+          title: Kopioi kehitysryhmä
       assembly_publications:
         create:
-          error: Kokouksen julkaisussa tapahtui virhe.
-          success: Kokous julkaistiin onnistuneesti.
+          error: Kehitysryhmän julkaisussa tapahtui virhe.
+          success: Kehitysryhmä julkaistiin onnistuneesti.
         destroy:
-          error: Kokouksen julkaisun lopettamisessa tapahtui virhe.
-          success: Kokouksen julkaisu lopetettu onnistuneesti.
+          error: Kehitysryhmän julkaisun lopettamisessa tapahtui virhe.
+          success: Kehitysryhmän julkaisu lopetettu onnistuneesti.
       assembly_user_roles:
         create:
-          error: Virhe lisätessä käyttäjää tälle kokoukselle.
+          error: Virhe lisätessä käyttäjää tälle kehitysryhmälle.
           success: Käyttäjä on luotu onnistuneesti kehitysryhmään.
         destroy:
           success: Käyttäjä tuhottu onnistuneesti kehitysryhmästä.
@@ -123,8 +123,8 @@ fi:
       show:
         developer_group: Kehittäjäryhmä
         local_area: Paikallisalue
-        participatory_scope: Osallistumisprosessin konteksti
-        participatory_structure: Osallistumisprosessin rakenne
+        participatory_scope: Osallistumiskonteksti
+        participatory_structure: Osallistumisen rakenne
         scope: Konteksti
         target: Kohde
       statistics:
