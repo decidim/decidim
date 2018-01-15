@@ -21,11 +21,11 @@ fi:
         name: Nimi
         reference_prefix: Viitteen etuliite
       organization_appearance:
-        cta_button_path: Call To Action -painikkeen polku
-        cta_button_text: Call To Action -painikkeen teksti
+        cta_button_path: Toimintopainikkeen (Call To Action) polku
+        cta_button_text: Toimintopainikkeen (Call To Action) teksti
         description: Kuvaus
         favicon: Ikoni
-        header_snippets: Yläosiot
+        header_snippets: Yläosion koodit
         homepage_image: Kotisivun kuva
         logo: Logo
         official_img_footer: Virallinen alapalkin logo
