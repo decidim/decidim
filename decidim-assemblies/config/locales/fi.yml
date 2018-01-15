@@ -59,9 +59,27 @@ fi:
         destroy:
           error: Kokoonpanon julkaisemisen epäonnistui virhe.
           success: Kokoonpano julkaisemattomasti onnistuneesti.
+      assembly_user_roles:
+        create:
+          error: Virhe lisäsi käyttäjää tälle kokoonpanolle.
+          success: Käyttäjä on luotu onnistuneesti kokoonpanoon.
+        destroy:
+          success: Käyttäjä tuhoutui onnistuneesti kokoonpanoon.
+        edit:
+          title: Päivitä kokoonpanon käyttäjä.
+          update: Päivittää
+        index:
+          assembly_admins_title: Kokoonpanokäyttäjät
+        new:
+          create: Luoda
+          title: Uusi kokoonpanokäyttäjä.
+        update:
+          error: Virhe päivitettiin tämän kokoonpanon käyttäjälle.
+          success: Käyttäjä on päivitetty onnistuneesti kokoonpanoon.
       menu:
         assemblies: osat
         assemblies_submenu:
+          assembly_admins: Kokoonpanokäyttäjät
           attachments: Liitteet
           categories: Aihepiirit
           features: Ominaisuudet
@@ -75,6 +93,16 @@ fi:
             published: Julkaistu
             title: Otsikko
           name: kokoonpano
+        assembly_user_role:
+          fields:
+            email: Sähköposti
+            name: Nimi
+            role: Rooli
+          name: Assembly Käyttäjä
+          roles:
+            admin: Järjestelmänvalvoja
+            collaborator: työtoveri
+            moderator: hidastin
       titles:
         assemblies: osat
     assemblies:
