@@ -132,13 +132,13 @@ fi:
           success: Aihepiiri päivitetty onnistuneesti.
       dashboard:
         show:
-          welcome: Tervetuloa Decidim Admin -paneeliin.
+          welcome: Tervetuloa Decidimin hallintapaneeliin.
       events:
         user_officialized_event:
-          email_intro: <a href="%{profile_path}">profile page</a> %{name} (%{nickname}), jonka seuraat, on päivitetty.
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: "%{nickname} päivitti profiilinsa"
-          notification_title: <a href="%{profile_path}">profile page</a> %{name} (%{nickname}), jonka seuraat, on päivitetty.
+          email_intro: Seuraamasi henkilön %{name} (%{nickname}) <a href="%{profile_path}">profiilisivua</a> on päivitetty.
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat käyttäjää %{nickname}. Voit lopettaa ilmoitusten vastaanottamisen seuraamalla edellä olevaa linkkiä.
+          email_subject: "Käyttäjä %{nickname} päivitti profiiliaan"
+          notification_title: Seuraamasi henkilön %{name} (%{nickname}) <a href="%{profile_path}">profiilisivua</a> on päivitetty.
       exports:
         export_as: "%{name} muodossa %{export_format}"
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
@@ -215,12 +215,12 @@ fi:
             promote: Korota oikeudet
       menu:
         admins: Ylläpitäjät
-        appearance: Ulkomuoto
-        configuration: kokoonpano
+        appearance: Ulkoasu
+        configuration: Asetukset
         dashboard: Hallintapaneeli
         managed_users: Hallinnoitavat käyttäjät
         newsletters: Uutiskirjeet
-        officializations: Officializations
+        officializations: Virallistamiset
         scope_types: Kontekstityypit
         scopes: Kontekstit
         settings: Asetukset
@@ -322,11 +322,11 @@ fi:
           success: Uutiskirje päivitetty onnistuneesti. Tarkasta se läpi ennen lähetystä.
       officializations:
         create:
-          success: Käyttäjä virallisesti onnistuneesti
+          success: Käyttäjä virallistettu onnistuneesti
         destroy:
-          success: Käyttäjä on epävirallinen onnistuneesti
+          success: Käyttäjän virallistaminen poistettu onnistuneesti
         index:
-          actions: Toimet
+          actions: Toiminnot
           badge: Kunniamerkki
           created_at: Luotu klo
           filter:
