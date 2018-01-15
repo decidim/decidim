@@ -46,6 +46,8 @@ module Decidim
 
       it { is_expected.to be_able_to(:manage, user_assembly_moderation) }
       it { is_expected.not_to be_able_to(:manage, unmanaged_assembly_moderation) }
+      it { is_expected.to be_able_to(:hide, dummy_resource) }
+      it { is_expected.to be_able_to(:unreport, dummy_resource) }
 
       it { is_expected.to be_able_to(:manage, user_assembly_category) }
       it { is_expected.not_to be_able_to(:manage, unmanaged_assembly_category) }

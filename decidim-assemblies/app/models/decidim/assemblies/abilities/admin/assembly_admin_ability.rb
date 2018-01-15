@@ -42,6 +42,10 @@ module Decidim
             can :manage, Moderation do |moderation|
               can_manage_assembly?(moderation.participatory_space)
             end
+
+            can [:unreport, :hide], Reportable do |reportable|
+              can_manage_assembly?(reportable.feature.participatory_space)
+            end
           end
         end
       end
