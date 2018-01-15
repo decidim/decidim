@@ -414,7 +414,6 @@ eu:
           title: Editatu orria
           update: Eguneratu
         new:
-          create: Berria
           title: Orri berria
         update:
           error: Errorea gertatu da orri hau eguneratzean.
