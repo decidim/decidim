@@ -97,12 +97,13 @@ module Decidim
         WithdrawProposal.call(@proposal, current_user) do
           on(:ok) do |_proposal|
             flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+            redirect_to proposal_path(@proposal)
           end
           on(:invalid) do
             flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+            redirect_to proposal_path(@proposal)
           end
         end
-        redirect_to proposal_path(@proposal)
       end
 
       private
