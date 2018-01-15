@@ -7,6 +7,8 @@
     <div class="columns large-8 end">
       <%= f.text_field :name %>
       <%= f.email_field :email %>
+      <%= f.url_field :personal_url %>
+      <%= f.text_area :about, rows: 5 %>
 
       <% if @account.errors[:password].any? || @account.errors[:password_confirmation].any? %>
         <%= render partial: "password_fields", locals: { form: f } %>

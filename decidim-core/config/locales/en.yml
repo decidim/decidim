@@ -235,6 +235,9 @@ en:
         title: More information
     profiles:
       default_officialization_text: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
+      show:
+        about_me: About me
+        personal_url: Personal website
     reported_mailer:
       hide:
         hello: Hello %{name},

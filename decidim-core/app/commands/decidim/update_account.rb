@@ -35,6 +35,8 @@ module Decidim
     def update_personal_data
       @user.name = @form.name
       @user.email = @form.email
+      @user.personal_url = @form.personal_url
+      @user.about = @form.about
     end
 
     def update_avatar

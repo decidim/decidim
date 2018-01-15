@@ -11,7 +11,9 @@ module Decidim
         password: password,
         password_confirmation: password_confirmation,
         avatar: avatar,
-        remove_avatar: remove_avatar
+        remove_avatar: remove_avatar,
+        personal_url: personal_url,
+        about: about
       ).with_context(
         current_organization: organization,
         current_user: user
@@ -27,6 +29,8 @@ module Decidim
     let(:password_confirmation) { password }
     let(:avatar) { File.open("spec/assets/avatar.jpg") }
     let(:remove_avatar) { false }
+    let(:personal_url) { "http://example.org" }
+    let(:about) { "This is a description about me" }
 
     context "with correct data" do
       it "is valid" do
@@ -62,8 +66,26 @@ module Decidim
       context "when it's already in use in another organization" do
         let!(:existing_user) { create(:user, email: email) }
 
-        it "is invalid" do
+        it "is valid" do
           expect(subject).to be_valid
+        end
+      end
+    end
+
+    describe "personal_url" do
+      context "when it doesn't start with http" do
+        let(:personal_url) { "example.org" }
+
+        it "adds it" do
+          expect(subject.personal_url).to eq("http://example.org")
+        end
+      end
+
+      context "when it's not a valid URL" do
+        let(:personal_url) { "foobar, aa" }
+
+        it "is invalid" do
+          expect(subject).not_to be_valid
         end
       end
     end
