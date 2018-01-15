@@ -130,6 +130,11 @@ pl:
         email_subject: Aktualizacja %{resource_title}
       notification_event:
         notification_title: Zdarzenie miało miejsce na <a href="%{resource_path}">%{resource_title}</a>.
+      profile_updated_event:
+        email_intro: Zmieniono <a href="%{profile_path}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
+        email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+        email_subject: "%{nickname} zaktualizował (a) swój profil"
+        notification_title: Zmieniono <a href="%{profile_path}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
     export_mailer:
       export:
         ready: Znajdź załączoną wersję eksportowanego pliku.
@@ -207,6 +212,15 @@ pl:
     newsletter_mailer:
       newsletter:
         note: Otrzymujesz ten e-mail, ponieważ subskrybujesz biuletyny %{organization_name}. Możesz zmienić swoje ustawienia <a href="%{link}">powiadomień</a>.
+        see_on_website: Nie widzę tego e-maila poprawnie? Wyświetl go na <a href="%{link}" target="_blank">stronie internetowej</a>.
+        unsubscribe: Aby zrezygnować z otrzymywania tego typu wiadomości e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Jeśli chcesz zmienić swoje preferencje, możesz to zrobić w <a href="%{link}" target="_blank">konfiguracji strona</a>
+        error: Wystąpił błąd podczas anulowania subskrypcji
+        success: Zyskujesz subskrypcję.
+        token_error: Link wygasł.
+        unsubscribe: Anuluj subskrypcję
     notifications_settings:
       show:
         email_on_notification: Chcę otrzymywać wiadomości e-mail za każdym razem otrzymuję powiadomienie.
@@ -225,6 +239,9 @@ pl:
         title: Więcej informacji
     profiles:
       default_officialization_text: Ten uczestnik jest publicznie weryfikowany, jego / jego nazwisko lub rola została zweryfikowana, aby odpowiadała jego / jej prawdziwemu imieniu i roli
+      show:
+        about_me: O mnie
+        personal_url: Osobista strona internetowa
     reported_mailer:
       hide:
         hello: Witaj %{name},
