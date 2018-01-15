@@ -414,7 +414,7 @@ es:
           title: Editar página
           update: Actualizar
         new:
-          create: Nueva
+          create: Crear
           title: Nueva página
         update:
           error: Se ha producido un error en la actualización de ésta página.
