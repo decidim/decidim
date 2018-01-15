@@ -130,6 +130,11 @@ nl:
         email_subject: Een update voor %{resource_title}
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
+      profile_updated_event:
+        email_intro: De <a href="%{profile_path}">profile page</a> of %{name} (%{nickname}), die u volgt, is bijgewerkt.
+        email_outro: Je hebt deze melding ontvangen omdat je %{nickname} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+        email_subject: "%{nickname} heeft hun profiel bijgewerkt"
+        notification_title: De <a href="%{profile_path}">profile page</a> of %{name} (%{nickname}), die u volgt, is bijgewerkt.
     export_mailer:
       export:
         ready: In de bijlage vindt u een versie van uw export.
@@ -207,6 +212,15 @@ nl:
     newsletter_mailer:
       newsletter:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
+        see_on_website: Kan deze e-mail niet correct worden weergegeven? Bekijk het op de <a href="%{link}" target="_blank">website</a>.
+        unsubscribe: Om u af te melden voor het ontvangen van dit type e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Als u uw voorkeuren wilt wijzigen, kunt u dat doen op de <a href="%{link}" target="_blank">configuratiepagina</a>
+        error: Er is een fout opgetreden bij het afmelden
+        success: Je bent succesvol afgemeld.
+        token_error: De link is verlopen.
+        unsubscribe: Afmelden
     notifications_settings:
       show:
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
@@ -225,6 +239,9 @@ nl:
         title: Meer informatie
     profiles:
       default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn / haar naam of rol is geverifieerd om overeen te komen met zijn / haar echte naam en rol
+      show:
+        about_me: Over mij
+        personal_url: Persoonlijke website
     reported_mailer:
       hide:
         hello: Hallo %{name},
