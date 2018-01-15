@@ -59,6 +59,10 @@ es:
         destroy:
           error: Se produjo un error al despublicar esta asamblea.
           success: Asamblea despublicada con éxito.
+      assembly_user_roles:
+        create:
+          error: Se produjo un error al agregar un usuario para este ensamblaje.
+          success: Usuario creado con éxito para este ensamblaje.
       menu:
         assemblies: Asambleas
         assemblies_submenu:
