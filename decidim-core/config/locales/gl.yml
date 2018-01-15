@@ -130,6 +130,11 @@ gl:
         email_subject: Unha actualización a %{resource_title}
       notification_event:
         notification_title: Un evento ocorreu en <a href="%{resource_path}">%{resource_title}</a>.
+      profile_updated_event:
+        email_intro: O <a href="%{profile_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
+        email_outro: Recibiches esta notificación porque estás seguindo %{nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+        email_subject: "%{nickname} actualizou o seu perfil"
+        notification_title: O <a href="%{profile_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
     export_mailer:
       export:
         ready: Atopa unha versión comprimida da túa exportación.
@@ -207,6 +212,15 @@ gl:
     newsletter_mailer:
       newsletter:
         note: Recibiches este correo electrónico porque estás subscrito a boletíns en %{organization_name}. Podes cambiar a configuración nas túas <a href="%{link}"> notificacións páxina</a>.
+        see_on_website: Non se pode ver este correo electrónico correctamente? Vénseo no <a href="%{link}" target="_blank"> sitio web</a>.
+        unsubscribe: Para desactivar a recepción deste tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">Subscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Se queres cambiar as túas preferencias, podes facelo na <a href="%{link}" target="_blank">configuración páxina</a>
+        error: Produciuse un erro ao cancelar a subscrición
+        success: Estás desubscrito con éxito.
+        token_error: A ligazón caducou.
+        unsubscribe: Anular a suscripción
     notifications_settings:
       show:
         email_on_notification: Quero recibir un correo electrónico cada vez que recibo unha notificación.
@@ -225,6 +239,9 @@ gl:
         title: Máis información
     profiles:
       default_officialization_text: Este participante está verificado públicamente, verificouse o seu nome ou o seu papel para corresponder co seu nome e rol real
+      show:
+        about_me: Sobre min
+        personal_url: Sitio web persoal
     reported_mailer:
       hide:
         hello: Ola %{name},
