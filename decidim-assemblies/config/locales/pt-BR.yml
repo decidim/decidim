@@ -59,6 +59,9 @@ pt-BR:
         destroy:
           error: Ocorreu um erro ao atualizar esta assembléia.
           success: Assembléia não publicada com sucesso.
+      assembly_user_roles:
+        create:
+          error: Ocorreu um erro ao adicionar um usuário para esta montagem.
       menu:
         assemblies: Assembléias
         assemblies_submenu:
