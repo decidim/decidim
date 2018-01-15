@@ -207,6 +207,15 @@ pl:
     newsletter_mailer:
       newsletter:
         note: Otrzymujesz ten e-mail, ponieważ subskrybujesz biuletyny %{organization_name}. Możesz zmienić swoje ustawienia <a href="%{link}">powiadomień</a>.
+        see_on_website: Nie widzę tego e-maila poprawnie? Wyświetl go na <a href="%{link}" target="_blank">stronie internetowej</a>.
+        unsubscribe: Aby zrezygnować z otrzymywania tego typu wiadomości e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Jeśli chcesz zmienić swoje preferencje, możesz to zrobić w <a href="%{link}" target="_blank">konfiguracji strona</a>
+        error: Wystąpił błąd podczas anulowania subskrypcji
+        success: Zyskujesz subskrypcję.
+        token_error: Link wygasł.
+        unsubscribe: Anuluj subskrypcję
     notifications_settings:
       show:
         email_on_notification: Chcę otrzymywać wiadomości e-mail za każdym razem otrzymuję powiadomienie.

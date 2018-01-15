@@ -207,6 +207,15 @@ es:
     newsletter_mailer:
       newsletter:
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
+        see_on_website: '¿No puedes ver este correo electrónico correctamente? Véalo en el <a href="%{link}" target="_blank">sitio web</a>.'
+        unsubscribe: Para optar por no recibir este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Si desea cambiar sus preferencias, puede hacerlo en la página <a href="%{link}" target="_blank">configuración</a>
+        error: Ha habido un error al cancelar la suscripción
+        success: Usted se dio de baja exitosamente.
+        token_error: El enlace ha expirado
+        unsubscribe: Darse de baja
     notifications_settings:
       show:
         email_on_notification: Quiero recibir un correo electrónico cada vez que recibo una notificación.

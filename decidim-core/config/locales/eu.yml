@@ -207,6 +207,15 @@ eu:
     newsletter_mailer:
       newsletter:
         note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'
+        see_on_website: Ezin da mezu hau zuzenean ikusi? Ikusi <a href="%{link}" target="_blank">website</a> orrian.
+        unsubscribe: Mezu mota hau jasotzeko ez onartzeko, <a href="%{link}" target="_blank" class="unsubscribe"> Harpidetu</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Zure hobespenak aldatu nahi badituzu, <a href="%{link}" target="_blank">configurazio orriko 1233_4_1_321 orrian egin dezakezu.
+        error: Errore bat gertatu da harpidetza kentzean
+        success: Harpidetuta zaude ondo.
+        token_error: Lotura iraungi da.
+        unsubscribe: Baja eman
     notifications_settings:
       show:
         email_on_notification: Mezu elektroniko bat jaso nahi dut jakinarazpen bat jasotzen dudan bakoitzean.

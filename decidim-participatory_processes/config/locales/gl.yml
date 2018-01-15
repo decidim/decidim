@@ -166,7 +166,7 @@ gl:
           create: Crear
           title: Novo usuario de proceso participativo.
         update:
-          error: Houbo un erro actualizado por un usuario deste proceso participativo.
+          error: Houbo un erro actualizado por un usuario para este proceso participativo.
           success: Usuario actualizado correctamente para este proceso participativo.
       participatory_processes:
         create:

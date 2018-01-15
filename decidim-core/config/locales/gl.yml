@@ -207,6 +207,15 @@ gl:
     newsletter_mailer:
       newsletter:
         note: Recibiches este correo electrónico porque estás subscrito a boletíns en %{organization_name}. Podes cambiar a configuración nas túas <a href="%{link}"> notificacións páxina</a>.
+        see_on_website: Non se pode ver este correo electrónico correctamente? Vénseo no <a href="%{link}" target="_blank"> sitio web</a>.
+        unsubscribe: Para desactivar a recepción deste tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">Subscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Se queres cambiar as túas preferencias, podes facelo na <a href="%{link}" target="_blank">configuración páxina</a>
+        error: Produciuse un erro ao cancelar a subscrición
+        success: Estás desubscrito con éxito.
+        token_error: A ligazón caducou.
+        unsubscribe: Anular a suscripción
     notifications_settings:
       show:
         email_on_notification: Quero recibir un correo electrónico cada vez que recibo unha notificación.

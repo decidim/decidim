@@ -207,6 +207,15 @@ nl:
     newsletter_mailer:
       newsletter:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
+        see_on_website: Kan deze e-mail niet correct worden weergegeven? Bekijk het op de <a href="%{link}" target="_blank">website</a>.
+        unsubscribe: Om u af te melden voor het ontvangen van dit type e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Als u uw voorkeuren wilt wijzigen, kunt u dat doen op de <a href="%{link}" target="_blank">configuratiepagina</a>
+        error: Er is een fout opgetreden bij het afmelden
+        success: Je bent succesvol afgemeld.
+        token_error: De link is verlopen.
+        unsubscribe: Afmelden
     notifications_settings:
       show:
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.

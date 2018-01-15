@@ -153,7 +153,7 @@ fi:
           success: Osallistumisprosessin vaihe päivitetty onnistuneesti.
       participatory_process_user_roles:
         create:
-          error: Käyttäjän lisäyksessä osallistumisprosessiin tapahtui virhe.
+          error: Tapahtui virhe lisätessä käyttäjää osallistumisprosessiin.
           success: Käyttäjä luotu onnistuneesti tähän osallistumisprosessiin.
         destroy:
           success: Käyttäjä poistettu onnistuneesti tästä osallistumisprosessista.
@@ -166,7 +166,7 @@ fi:
           create: Luo
           title: Uusi osallistumisprosessin käyttäjä.
         update:
-          error: Tämän osallistumisprosessin käyttäjän päivityksessä tapahtui virhe.
+          error: Tapahtui virhe päivitettäessä käyttäjää tälle osallistumisprosessille.
           success: Tämän osallistumisprosessin käyttäjä päivitetty onnistuneesti.
       participatory_processes:
         create:
@@ -207,7 +207,7 @@ fi:
     participatory_process_groups:
       show:
         group_participatory_processes: Prosessit ryhmälle %{group}
-        title: Osallistuvat prosessiryhmät
+        title: Osallistumisprosessiryhmät
     participatory_process_steps:
       index:
         process_steps: Prosessin vaiheet
@@ -219,7 +219,7 @@ fi:
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
         participatory_processes:
           form:
-            announcement_help: Täällä kirjoitettu teksti näkyy käyttäjälle oikein prosessitietojen alapuolella.
+            announcement_help: Tähän kirjoitettu teksti näkyy käyttäjälle heti prosessitietojen alapuolella.
             slug_help: 'URL-tunnisteita käytetään tuottamaan URL-tunnisteet, jotka viittaavat tähän prosessiin. Hyväksyy vain kirjaimia, numeroita ja viivoja. Arvon on alettava kirjaimella. Esimerkki: %{url}'
       index:
         title: Osallistumisprosessit
@@ -233,7 +233,7 @@ fi:
           highlighted_processes:
             active_processes: Aktiiviset prosessit
             active_step: Aktiivinen vaihe
-            see_all_processes: Katso kaikki prosessit
+            see_all_processes: Näytä kaikki prosessit
       participatory_process_groups:
         none: Ei ryhmää
       participatory_processes:
