@@ -153,7 +153,6 @@ nl:
           success: Participatief procesgroep is succesvol bijgewerkt.
       participatory_process_user_roles:
         create:
-          error: Er is een fout opgetreden bij het toevoegen van een gebruiker voor dit participatief proces.
           success: Gebruiker is succesvol aangemaakt voor dit participatieproces.
         destroy:
           success: Gebruiker met succes vernietigd voor dit participatieproces.
@@ -166,7 +165,6 @@ nl:
           create: creëren
           title: Nieuwe participatieve procesgebruiker.
         update:
-          error: Er is een fout opgetreden die een gebruiker bijgewerkt heeft voor dit participatief proces.
           success: Gebruiker is succesvol bijgewerkt voor dit participatief proces.
       participatory_processes:
         create:
