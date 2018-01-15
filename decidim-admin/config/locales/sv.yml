@@ -414,7 +414,6 @@ sv:
           title: Redigera sida
           update: Uppdatering
         new:
-          create: Ny
           title: Ny sida
         update:
           error: Det uppstod ett fel vid uppdateringen av den här sidan.
