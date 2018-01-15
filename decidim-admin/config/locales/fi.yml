@@ -21,11 +21,11 @@ fi:
         name: Nimi
         reference_prefix: Viitteen etuliite
       organization_appearance:
-        cta_button_path: Call To Action -painikkeen polku
-        cta_button_text: Call To Action -painikkeen teksti
+        cta_button_path: Toimintopainikkeen (Call To Action) polku
+        cta_button_text: Toimintopainikkeen (Call To Action) teksti
         description: Kuvaus
         favicon: Ikoni
-        header_snippets: Yläosiot
+        header_snippets: Yläosion koodit
         homepage_image: Kotisivun kuva
         logo: Logo
         official_img_footer: Virallinen alapalkin logo
@@ -132,13 +132,7 @@ fi:
           success: Aihepiiri päivitetty onnistuneesti.
       dashboard:
         show:
-          welcome: Tervetuloa Decidim Admin -paneeliin.
-      events:
-        user_officialized_event:
-          email_intro: <a href="%{profile_path}">profile page</a> %{name} (%{nickname}), jonka seuraat, on päivitetty.
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
-          email_subject: "%{nickname} päivitti profiilinsa"
-          notification_title: <a href="%{profile_path}">profile page</a> %{name} (%{nickname}), jonka seuraat, on päivitetty.
+          welcome: Tervetuloa Decidimin hallintapaneeliin.
       exports:
         export_as: "%{name} muodossa %{export_format}"
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
@@ -215,12 +209,12 @@ fi:
             promote: Korota oikeudet
       menu:
         admins: Ylläpitäjät
-        appearance: Ulkomuoto
-        configuration: kokoonpano
+        appearance: Ulkoasu
+        configuration: Asetukset
         dashboard: Hallintapaneeli
         managed_users: Hallinnoitavat käyttäjät
         newsletters: Uutiskirjeet
-        officializations: Officializations
+        officializations: Virallistamiset
         scope_types: Kontekstityypit
         scopes: Kontekstit
         settings: Asetukset
@@ -322,31 +316,31 @@ fi:
           success: Uutiskirje päivitetty onnistuneesti. Tarkasta se läpi ennen lähetystä.
       officializations:
         create:
-          success: Käyttäjä virallisesti onnistuneesti
+          success: Käyttäjä virallistettu onnistuneesti
         destroy:
-          success: Käyttäjä on epävirallinen onnistuneesti
+          success: Käyttäjän virallistaminen poistettu onnistuneesti
         index:
-          actions: Toimet
+          actions: Toiminnot
           badge: Kunniamerkki
-          created_at: Luotu klo
+          created_at: Luontihetki
           filter:
             all: Kaikki
-            not_officialized: Ei virallista
-            officialized: Officialized
+            not_officialized: Ei virallistettu
+            officialized: Virallistettu
           filter_by: Suodata
           name: Nimi
           nickname: Nimimerkki
-          not_officialized: Ei virallista
-          officialize: Officialize
-          officialized: Officialized
-          reofficialize: Reofficialize
+          not_officialized: Ei virallistettu
+          officialize: Virallista
+          officialized: Virallistettu
+          reofficialize: Virallista uudestaan
           search: Hae
-          status: Status
-          unofficialize: Unofficialize
+          status: Tila
+          unofficialize: Poista virallistaminen
         new:
-          badge: Virkistysmerkki
-          officialize: Officialize
-          title: Virallinen käyttäjä "%{name}"
+          badge: Virallistamismerkki
+          officialize: Virallista
+          title: Virallista käyttäjä "%{name}"
       organization:
         edit:
           title: Muokkaa organisaatiota
@@ -366,11 +360,11 @@ fi:
         edit:
           update: Päivitä
         form:
-          cta_button_path_help: 'Voit korvata, missä etusivun Call To Action -painike linkittää. Käytä osittaisia ​​polkuja, ei täysiä URL-osoitteita. Hyväksyy kirjaimet, numerot, viivat ja viivat, ja sen täytyy alkaa kirjaimella. Puhelutoiminto -painike näkyy kotisivulla tervetullut tekstin ja kuvauksen välillä. Esimerkki: %{url}'
-          cta_button_text_help: Voit korvata Call to Action -painikkeen tekstin kotisivuillesi organisaatiosi käytettävissä olevista kielistä. Jos asetusta ei ole asetettu, käytetään oletusarvoa. Puhelutoiminto -painike näkyy kotisivulla tervetullut tekstin ja kuvauksen välillä.
+          cta_button_path_help: 'Voit määrittää, mihin kotisivun toimintopainike (Call To Action) linkkaa. Käytä tässä osoitepolkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, viivat ja kauttaviivat. Arvon on alettava kirjaimella. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä. Esimerkki: %{url}'
+          cta_button_text_help: Voit korvata toimintopainikkeen (Call to Action) tekstin kotisivulla jokaiselle organisaatiosi kielelle. Mikäli tätä ei ole asetettu, oletusarvoa käytetään. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä.
           header_snippets_help: Käytä tätä kenttää lisätäksesi HTML-koodia sivun alkuun. Yleisin käyttötarve on sellaisten kolmannen osapuolen palveluiden integrointi, jotka vaativat JavaScript- tai CSS-koodin lisäystä sivun HTML-koodiin. Huomioi, että tämä lisätään ainoastaan julkisille sivuille, ei hallinnointisivuille.
-          homepage_appearance_title: Muokkaa kotisivua
-          layout_appearance_title: Muokkaa ulkoasun ulkoasua
+          homepage_appearance_title: Muokkaa kotisivun ulkoasua
+          layout_appearance_title: Muokkaa sivupohjan ulkoasua
       scope_types:
         create:
           error: Uuden kontekstityypin luomisessa tapahtui virhe.
@@ -414,7 +408,7 @@ fi:
           title: Muokkaa sivua
           update: Päivitä
         new:
-          create: Uusi
+          create: Luoda
           title: Uusi sivu
         update:
           error: Tämän sivun päivityksessä tapahtui virhe.
@@ -424,7 +418,7 @@ fi:
         dashboard: Hallintapaneeli
         impersonations: Esiintymiset käyttäjinä
         managed_users: Hallinnoitavat käyttäjät
-        officializations: Officializations
+        officializations: Virallistamiset
         scope_types: Kontekstityypit
         scopes: Kontekstit
         static_pages: Sivut
@@ -487,7 +481,7 @@ fi:
             reportable: Raportoitava
             reported_content_url: Raportoidun sisällön URL
             reports: Raportit
-            visit_url: Käy URL-osoitteessa
+            visit_url: Vieraile URL-osoitteessa
   errors:
     messages:
       invalid_json: Virheellinen JSON
