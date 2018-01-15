@@ -207,6 +207,7 @@ es:
     newsletter_mailer:
       newsletter:
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
+        see_on_website: '¿No puedes ver este correo electrónico correctamente? Véalo en el <a href="%{link}" target="_blank">sitio web</a>.'
     notifications_settings:
       show:
         email_on_notification: Quiero recibir un correo electrónico cada vez que recibo una notificación.
