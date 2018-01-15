@@ -414,7 +414,7 @@ pt:
           title: Editar Página
           update: Actualizar
         new:
-          create: Novo
+          create: Crio
           title: Nova página
         update:
           error: Ocorreu um erro ao atualizar esta página.
