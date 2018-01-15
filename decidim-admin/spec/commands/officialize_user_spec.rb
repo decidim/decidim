@@ -54,7 +54,7 @@ module Decidim::Admin
           .to receive(:publish)
           .with(
             event: "decidim.events.users.user_officialized",
-            event_class: Decidim::Admin::UserOfficializedEvent,
+            event_class: Decidim::ProfileUpdatedEvent,
             resource: kind_of(Decidim::User),
             recipient_ids: [follower.id]
           )

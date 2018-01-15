@@ -75,6 +75,8 @@ FactoryBot.define do
     locale { organization.default_locale }
     tos_agreement "1"
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+    personal_url { Faker::Internet.url }
+    about { Faker::Lorem.paragraph(2) }
 
     trait :confirmed do
       confirmed_at { Time.current }

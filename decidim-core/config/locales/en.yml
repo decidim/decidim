@@ -131,6 +131,11 @@ en:
         email_subject: An update to %{resource_title}
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
+      profile_updated_event:
+        email_intro: The <a href="%{profile_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
+        email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
+        email_subject: "%{nickname} updated their profile"
+        notification_title: The <a href="%{profile_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
       export:
         ready: Please find attached a zipped version of your export.
@@ -235,6 +240,9 @@ en:
         title: More information
     profiles:
       default_officialization_text: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
+      show:
+        about_me: About me
+        personal_url: Personal website
     reported_mailer:
       hide:
         hello: Hello %{name},

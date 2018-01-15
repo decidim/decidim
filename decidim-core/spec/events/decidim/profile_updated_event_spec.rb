@@ -2,14 +2,14 @@
 
 require "spec_helper"
 
-describe Decidim::Admin::UserOfficializedEvent do
+describe Decidim::ProfileUpdatedEvent do
   subject do
     described_class.new(resource: user, event_name: event_name, user: follower, extra: {})
   end
 
   let(:organization) { follower.organization }
   let(:follower) { create :user }
-  let(:event_name) { "decidim.events.users.user_officialized" }
+  let(:event_name) { "decidim.events.users.profile_updated" }
   let(:user) { create :user, organization: organization }
 
   describe "types" do
