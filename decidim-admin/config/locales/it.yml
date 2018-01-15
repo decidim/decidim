@@ -414,7 +414,6 @@ it:
           title: Modifica la pagina
           update: Aggiorna
         new:
-          create: Nuovo
           title: Nuova pagina
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa pagina.
