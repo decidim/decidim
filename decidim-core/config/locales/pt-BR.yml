@@ -207,6 +207,15 @@ pt-BR:
     newsletter_mailer:
       newsletter:
         note: Você recebeu este e-mail porque ativou o recebimento de newsletters em %{organization_name}. Você pode alterar suas configurações em <a href="%{link}">notifications page</a>.
+        see_on_website: Não é possível ver este email corretamente? Visualize-o no <a href="%{link}" target="_blank">website</a>.
+        unsubscribe: Para optar por não receber esse tipo de email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Se você deseja alterar suas preferências, você pode fazê-lo na seção <a href="%{link}" target="_blank">configuration</a>
+        error: Ocorreu um erro ao se desinscrever
+        success: Você está inscrito com sucesso.
+        token_error: O link expirou.
+        unsubscribe: Cancelar subscrição
     notifications_settings:
       show:
         email_on_notification: Quero receber um email sempre que receber uma notificação.
