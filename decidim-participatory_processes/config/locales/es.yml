@@ -153,6 +153,7 @@ es:
           success: La fase de proceso participativo se ha actualizado correctamente.
       participatory_process_user_roles:
         create:
+          error: Hubo un error al agregar un usuario para este proceso participativo.
           success: Usuario creado con éxito para este proceso participativo.
         destroy:
           success: Usuario eliminado con éxito para este proceso participativo.
@@ -165,6 +166,7 @@ es:
           create: Crear
           title: Nuevo usuario del proceso
         update:
+          error: Hubo un error al actualizar un usuario para este proceso participativo.
           success: Usuario actualizado correctamente para este proceso participativo.
       participatory_processes:
         create:
