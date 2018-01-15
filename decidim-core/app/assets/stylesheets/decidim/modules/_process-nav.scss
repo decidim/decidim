@@ -2,7 +2,7 @@
 
 /* Navigation */
 
-.process-nav {
+.process-nav{
   background-color: $white;
   border: $border;
   padding: .75rem $container-padding-y;
@@ -33,7 +33,7 @@
       display: none;
     }
 
-    ul::after {
+    ul::after{
       display: inline-block;
       flex-grow: 1;
       content: "";
