@@ -328,25 +328,25 @@ fi:
         index:
           actions: Toiminnot
           badge: Kunniamerkki
-          created_at: Luotu klo
+          created_at: Luontihetki
           filter:
             all: Kaikki
-            not_officialized: Ei virallista
-            officialized: Officialized
+            not_officialized: Ei virallistettu
+            officialized: Virallistettu
           filter_by: Suodata
           name: Nimi
           nickname: Nimimerkki
-          not_officialized: Ei virallista
-          officialize: Officialize
-          officialized: Officialized
-          reofficialize: Reofficialize
+          not_officialized: Ei virallistettu
+          officialize: Virallista
+          officialized: Virallistettu
+          reofficialize: Virallista uudestaan
           search: Hae
-          status: Status
-          unofficialize: Unofficialize
+          status: Tila
+          unofficialize: Poista virallistaminen
         new:
-          badge: Virkistysmerkki
-          officialize: Officialize
-          title: Virallinen käyttäjä "%{name}"
+          badge: Virallistamismerkki
+          officialize: Virallista
+          title: Virallista käyttäjä "%{name}"
       organization:
         edit:
           title: Muokkaa organisaatiota
@@ -366,11 +366,11 @@ fi:
         edit:
           update: Päivitä
         form:
-          cta_button_path_help: 'Voit korvata, missä etusivun Call To Action -painike linkittää. Käytä osittaisia ​​polkuja, ei täysiä URL-osoitteita. Hyväksyy kirjaimet, numerot, viivat ja viivat, ja sen täytyy alkaa kirjaimella. Puhelutoiminto -painike näkyy kotisivulla tervetullut tekstin ja kuvauksen välillä. Esimerkki: %{url}'
-          cta_button_text_help: Voit korvata Call to Action -painikkeen tekstin kotisivuillesi organisaatiosi käytettävissä olevista kielistä. Jos asetusta ei ole asetettu, käytetään oletusarvoa. Puhelutoiminto -painike näkyy kotisivulla tervetullut tekstin ja kuvauksen välillä.
+          cta_button_path_help: 'Voit määrittää, mihin kotisivun toimintopainike (Call To Action) linkkaa. Käytä tässä osoitepolkuja, ei kokonaisia URL-osoitteita. Hyväksyy kirjaimet, numerot, viivat ja kauttaviivat. Arvon on alettava kirjaimella. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä. Esimerkki: %{url}'
+          cta_button_text_help: Voit korvata toimintopainikkeen (Call to Action) tekstin kotisivulla jokaiselle organisaatiosi kielelle. Mikäli tätä ei ole asetettu, oletusarvoa käytetään. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä.
           header_snippets_help: Käytä tätä kenttää lisätäksesi HTML-koodia sivun alkuun. Yleisin käyttötarve on sellaisten kolmannen osapuolen palveluiden integrointi, jotka vaativat JavaScript- tai CSS-koodin lisäystä sivun HTML-koodiin. Huomioi, että tämä lisätään ainoastaan julkisille sivuille, ei hallinnointisivuille.
-          homepage_appearance_title: Muokkaa kotisivua
-          layout_appearance_title: Muokkaa ulkoasun ulkoasua
+          homepage_appearance_title: Muokkaa kotisivun ulkoasua
+          layout_appearance_title: Muokkaa sivupohjan ulkoasua
       scope_types:
         create:
           error: Uuden kontekstityypin luomisessa tapahtui virhe.
@@ -424,7 +424,7 @@ fi:
         dashboard: Hallintapaneeli
         impersonations: Esiintymiset käyttäjinä
         managed_users: Hallinnoitavat käyttäjät
-        officializations: Officializations
+        officializations: Virallistamiset
         scope_types: Kontekstityypit
         scopes: Kontekstit
         static_pages: Sivut
@@ -487,7 +487,7 @@ fi:
             reportable: Raportoitava
             reported_content_url: Raportoidun sisällön URL
             reports: Raportit
-            visit_url: Käy URL-osoitteessa
+            visit_url: Vieraile URL-osoitteessa
   errors:
     messages:
       invalid_json: Virheellinen JSON
