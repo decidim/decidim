@@ -80,7 +80,7 @@ module Decidim
                     icon_name: "dial",
                     position: 3.5,
                     active: :inclusive,
-                    if: can?(:manage, Decidim::Assembly)
+                    if: can?(:read, Decidim::Assembly)
         end
       end
     end
