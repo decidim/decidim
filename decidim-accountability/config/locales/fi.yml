@@ -80,32 +80,32 @@ fi:
         timeline_entries:
           create:
             invalid: Merkinnän luomisessa tapahtui virhe
-            success: Entry onnistuneesti luotu
+            success: Merkintä luotu onnistuneesti
           destroy:
-            success: Merkintä poistettiin onnistuneesti
+            success: Merkintä poistettu onnistuneesti
           edit:
             title: Muokkaa merkintää
             update: Päivitä merkintä
           index:
-            title: Projekti aikajanalla merkinnät
+            title: Projektin aikajanan merkinnät
           new:
             create: Luo merkintä
             title: Uusi merkintä
           update:
-            invalid: On tapahtunut ongelma, joka päivitti tämän merkinnän
-            success: Ilmoituksen päivitys onnistui
+            invalid: Merkinnän päivityksessä tapahtui virhe
+            success: Merkinnän päivitys onnistui
       models:
         result:
           fields:
             end_date: Päättymisaika
             progress: Edistyminen
             start_date: Aloitusaika
-            status: Status
+            status: Tila
             title: Otsikko
         status:
           fields:
             description: Kuvaus
-            key: avain
+            key: Tunniste
             name: Nimi
             progress: Edistyminen
         timeline_entry:
@@ -119,15 +119,15 @@ fi:
             other: "%{count} tulosta"
         filters:
           all: Kaikki
-          global: maailmanlaajuinen
+          global: Yleinen
           scopes: Konteksti
         home:
           categories_label: Aihepiirit
-          subcategories_label: alaluokat
+          subcategories_label: Alakategoriat
         home_header:
-          global_status: Globaalin toteutuksen tila
+          global_status: Yleisen toteutuksen tila
         nav_breadcrumb:
-          global: Maailmanlaajuinen toteutus
+          global: Yleinen toteutus
         search:
           search: Hae toimintoja
         show:
@@ -135,26 +135,26 @@ fi:
             attendees: Osallistujat
             back_to_result: Palaa tulokseen
             comments: Kommentit
-            contributions: Kontribuutiot
+            contributions: Osallistumiset
             last_edited_by: Viimeksi muokannut
             last_updated_at: Päivitetty viimeksi
             meetings: Tapaamiset
-            number_of_versions: versiot
+            number_of_versions: Versiot
             proposals: Ehdotukset
             show_all_versions: Näytä kaikki versiot
-            version_author: Versio kirjoittaja
-            version_created_at: Versio luotu osoitteessa
-            version_number: Versiomäärä
+            version_author: Versio luoja
+            version_created_at: Version luontihetki
+            version_number: Version numero
             version_number_out_of_total: "%{current_version} / %{total_count}"
             votes: Kannatukset
         timeline:
           title: Projektin kehitys
       versions:
         index:
-          changes_at_title: Muutokset osoitteessa "%{title}"
-          title: versiot
+          changes_at_title: Muutokset kohteessa "%{title}"
+          title: Versiot
         show:
-          changes_at_title: Muutokset osoitteessa "%{title}"
+          changes_at_title: Muutokset kohteessa "%{title}"
         version:
           version_index: Versio %{index}
     features:
@@ -162,16 +162,16 @@ fi:
         name: Tulokset
         settings:
           global:
-            categories_label: Nimi "Luokat"
+            categories_label: Nimi kohteelle "Luokat"
             comments_enabled: Kommentointi sallittu
-            heading_leaf_level_results: Nimi "Projektit"
-            heading_parent_level_results: Nimi "Tulokset"
-            intro: intro
-            subcategories_label: Nimi "Alaluokat"
+            heading_leaf_level_results: Nimi kohteelle "Projektit"
+            heading_parent_level_results: Nimi kohteelle "Tulokset"
+            intro: Esittelyteksti
+            subcategories_label: Nimi kohteelle "Alakategoriat"
           step:
             comments_blocked: Kommentointi estetty
     resource_links:
       included_projects:
-        result_projects: Tähän tulokseen sisältyvät hankkeet
+        result_projects: Tähän tulokseen liittyvät hankkeet
       included_proposals:
-        result_proposals: Projektit, jotka sisältyvät tähän tulokseen
+        result_proposals: Tähän tulokseen liittyvät ehdotukset
