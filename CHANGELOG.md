@@ -21,6 +21,7 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-core**: Add a way for space manifests to publicize how to retrieve public spaces for a given organization [\#2384](https://github.com/decidim/decidim/pull/2384)
 - **decidim-participatory_processes**: Add missinng translations for processes [\#2380](https://github.com/decidim/decidim/pull/2380)
 - **decidim-verifications**: Let developers specify for how long authorizations are valid. After this space of time passes, authorizations expire and users need to re-authorize [\#2311](https://github.com/decidim/decidim/pull/2311)
+- **decidim-assemblies**: Add user roles for assemblies. [\2463](https://github.com/decidim/decidim/pull/2463)
 - **decidim**: Scopes picker that allows hierarchical browsing scope to select them ([\#2330](https://github.com/decidim/decidim/pull/2330)).
   This picker was used to replace all Select2 based scope selectors. Any module using the Select2 scope selector should replace this:
   ```erb
