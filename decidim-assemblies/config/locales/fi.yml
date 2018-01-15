@@ -75,11 +75,11 @@ fi:
           title: Uusi kehitysryhmän käyttäjä.
         update:
           error: Kehitysryhmän käyttäjän päivityksessä tapahtui virhe.
-          success: Käyttäjä on päivitetty onnistuneesti kokoonpanoon.
+          success: Kehitysryhmän käyttäjä päivitetty onnistuneesti.
       menu:
-        assemblies: osat
+        assemblies: Kehitysryhmät
         assemblies_submenu:
-          assembly_admins: Kokoonpanokäyttäjät
+          assembly_admins: Kehitysryhmän käyttäjät
           attachments: Liitteet
           categories: Aihepiirit
           features: Ominaisuudet
@@ -92,44 +92,44 @@ fi:
             promoted: Korostettu
             published: Julkaistu
             title: Otsikko
-          name: kokoonpano
+          name: Kehitysryhmä
         assembly_user_role:
           fields:
             email: Sähköposti
             name: Nimi
             role: Rooli
-          name: Assembly Käyttäjä
+          name: Kehitysryhmän käyttäjä
           roles:
-            admin: Järjestelmänvalvoja
-            collaborator: työtoveri
-            moderator: hidastin
+            admin: Hallinnointikäyttäjä
+            collaborator: Osallistumiskäyttäjä
+            moderator: Moderaattori
       titles:
-        assemblies: osat
+        assemblies: Kehitysryhmät
     assemblies:
       admin:
         assemblies:
           form:
-            slug_help: 'URL-osoittimia käytetään tuottamaan tämän kokoonpanon osoittavat URL-osoitteet. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
+            slug_help: 'URL-tunnisteita käytetään tähän kehitysryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_copies:
           form:
-            slug_help: 'URL-osoittimia käytetään tuottamaan tämän kokoonpanon osoittavat URL-osoitteet. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
+            slug_help: 'URL-tunnisteita käytetään tähän kehitysryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
       index:
-        title: osat
+        title: Kehitysryhmät
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktiiviset kokoonpanot
-            see_all_assemblies: Katso kaikki kokoonpanot
+            active_assemblies: Aktiiviset kehitysryhmät
+            see_all_assemblies: Näytä kaikki kehitysryhmät
       show:
-        developer_group: Kehitysryhmä
+        developer_group: Kehittäjäryhmä
         local_area: Paikallisalue
-        participatory_scope: Osallistumisprosessi
+        participatory_scope: Osallistumisprosessin konteksti
         participatory_structure: Osallistumisprosessin rakenne
         scope: Konteksti
         target: Kohde
       statistics:
         answers_count: Vastaukset
-        assemblies_count: osat
+        assemblies_count: Kehitysryhmät
         comments_count: Kommentit
         headline: Tilastot
         meetings_count: Tapaamiset
@@ -142,23 +142,23 @@ fi:
         users_count: Osallistujat
         votes_count: Äänet
     menu:
-      assemblies: osat
+      assemblies: Kehitysryhmät
   layouts:
     decidim:
       assemblies:
         assembly:
           take_part: Osallistu
         index:
-          promoted_assemblies: Korostetut kokoonpanot
+          promoted_assemblies: Korostetut kehitysryhmät
         order_by_assemblies:
           assemblies:
-            one: "%{count} kokoonpano"
-            other: "%{count} kokoonpanot"
+            one: "%{count} kehitysryhmä"
+            other: "%{count} kehitysryhmää"
         promoted_assembly:
-          more_info: Lisätietoja
+          more_info: Lisätiedot
           take_part: Osallistu
       assembly_header:
-        assembly_menu_item: Kokoonpano
+        assembly_menu_item: Kehitysryhmä
         unfold: Avaa
       assembly_widgets:
         show:
