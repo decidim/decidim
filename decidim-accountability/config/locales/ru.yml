@@ -121,7 +121,6 @@ ru:
             other: "%{count} итога"
         filters:
           all: Все
-          global: Всеобщий
           scopes: Охваты
         home:
           categories_label: Категории
