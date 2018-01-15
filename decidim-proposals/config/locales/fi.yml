@@ -164,12 +164,12 @@ fi:
         show:
           edit_proposal: Muokkaa ehdotusta
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'
-          proposal_in_evaluation_reason: Tätä ehdotusta arvioidaan
+          proposal_in_evaluation_reason: Tämä ehdotus on arvioitavana
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
           report: Ilmoita
         vote_button:
           already_voted: Jo äänestetty
-          already_voted_hover: Unvote
+          already_voted_hover: Peru äänesi
           maximum_votes_reached: Äänestysraja saavutettu
           no_votes_remaining: Ei ääniä jäljellä
           vote: Äänestä
@@ -180,16 +180,16 @@ fi:
             other: ÄÄNTÄ
         voting_rules:
           maximum_votes_per_proposal:
-            description: Jokainen ehdotus saa enintään %{limit} ääntä.
+            description: Jokainen ehdotus voi saada enintään %{limit} ääntä.
           proposal_limit:
             description: Voit luoda enintään %{limit} ehdotusta.
           title: 'Äänestykseen sovelletaan seuraavia sääntöjä:'
           vote_limit:
             description: Voit äänestää enintään %{limit} ehdotusta.
             left: Jäljellä
-            votes: Äänet
+            votes: Ääntä
       update:
-        error: Ehdotuksen tallentamisessa on tapahtunut virheitä.
+        error: Ehdotuksen tallentamisessa tapahtui virheitä.
         success: Ehdotus on päivitetty onnistuneesti.
     resource_links:
       included_projects:
