@@ -15,7 +15,7 @@ module Decidim
 
     context "when the user is an admin for some assembly" do
       let!(:user_role) { create :assembly_user_role, user: user, assembly: user_assembly, role: :moderator }
-      
+
       it { is_expected.to be_able_to(:read, :admin_dashboard) }
     end
   end

@@ -20,9 +20,9 @@ module Decidim
       let(:dummy_resource) { create(:dummy_resource, feature: feature) }
       let(:user_assembly_moderation) { create(:moderation, reportable: dummy_resource) }
       let(:unmanaged_assembly_moderation) { create(:moderation) }
-      
+
       let!(:user_role) { create :assembly_user_role, user: user, assembly: user_assembly, role: :moderator }
-      
+
       it { is_expected.to be_able_to(:read, :admin_dashboard) }
 
       it { is_expected.to be_able_to(:read, user_assembly) }
