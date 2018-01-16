@@ -83,10 +83,6 @@ module Decidim
 
         private
 
-        def current_participatory_space
-          current_participatory_process
-        end
-
         def current_participatory_process
           @current_participatory_process ||= collection.where(slug: params[:slug]).or(
             collection.where(id: params[:slug])

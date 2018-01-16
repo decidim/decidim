@@ -7,7 +7,7 @@ module Decidim
     class CategoriesController < Decidim::Admin::ApplicationController
       include ParticipatorySpaceAdminContext
       participatory_space_admin_layout
-      
+
       def index
         authorize! :read, Decidim::Category
       end

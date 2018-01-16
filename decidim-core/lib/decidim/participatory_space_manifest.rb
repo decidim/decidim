@@ -37,7 +37,7 @@ module Decidim
     #       context.layout "layouts/decidim/some_layout"
     #     end
     #
-    #     context(:public).layout 
+    #     context(:public).layout
     #     # => "layouts/decidim/some_layout"
     #
     # Returns Nothing.

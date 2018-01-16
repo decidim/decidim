@@ -8,8 +8,7 @@ module Decidim
       include ParticipatorySpaceContext
       participatory_space_layout only: :index
 
-      def index
-      end
+      def index; end
 
       private
 

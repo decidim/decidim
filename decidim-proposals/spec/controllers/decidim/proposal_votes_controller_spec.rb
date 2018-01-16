@@ -13,7 +13,7 @@ module Decidim
       let(:params) do
         {
           proposal_id: proposal.id,
-          feature_id: feature.id,
+          feature_id: feature.id
         }
       end
 

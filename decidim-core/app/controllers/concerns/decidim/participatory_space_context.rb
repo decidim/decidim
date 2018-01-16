@@ -49,7 +49,7 @@ module Decidim
 
     def ability_context
       super.merge(
-        current_participatory_space: current_participatory_space,
+        current_participatory_space: current_participatory_space
       )
     end
 

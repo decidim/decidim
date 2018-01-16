@@ -8,7 +8,7 @@ module Decidim
       class BaseController < Admin::ApplicationController
         skip_authorize_resource
         include Settings
-        
+
         include Decidim::Admin::ParticipatorySpaceAdminContext
         participatory_space_admin_layout
 
