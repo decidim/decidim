@@ -9,6 +9,7 @@ PATH
       decidim-budgets (= 0.9.0.pre)
       decidim-comments (= 0.9.0.pre)
       decidim-core (= 0.9.0.pre)
+      decidim-debates (= 0.9.0.pre)
       decidim-meetings (= 0.9.0.pre)
       decidim-pages (= 0.9.0.pre)
       decidim-participatory_processes (= 0.9.0.pre)
@@ -80,6 +81,13 @@ PATH
       uglifier (~> 4.0.0)
       valid_email2 (~> 2.1.1)
       wisper (~> 2.0.0)
+    decidim-debates (0.9.0.pre)
+      date_validator (~> 0.9)
+      decidim-comments
+      decidim-core
+      kaminari (~> 1.0.0.rc1)
+      rectify (~> 0.8)
+      searchlight (~> 4.1.0)
     decidim-dev (0.9.0.pre)
       byebug
       capybara (~> 2.15)

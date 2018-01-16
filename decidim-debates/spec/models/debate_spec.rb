@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 require "spec_helper"
-require "decidim/core/test"
 
 describe Decidim::Debates::Debate do
   let(:debate) { build :debate }
