@@ -83,6 +83,11 @@ fi:
         error: Ehdotuksen tallennuksessa tapahtui virhe.
         success: Ehdotus luotu onnistuneesti.
       events:
+        accepted_proposal_event:
+          email_intro: 'Ehdotus "%{resource_title}" on hyväksytty. Voit lukea vastauksen tällä sivulla:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
+          email_subject: Seuraava ehdotus on hyväksytty
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus on hyväksytty.
         create_proposal_event:
           email_intro: |-
             Hei,
@@ -90,6 +95,14 @@ fi:
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen seuraamalla edellä olevaa linkkiä.
           email_subject: Uusi ehdotus käyttäjältä %{author_nickname}
           notification_title: Käyttäjä <a href="%{author_path}">%{author_name} %{author_nickname}</a> on luonut ehdotuksen <a href="%{resource_path}">%{resource_title}</a>.
+        evaluating_proposal_event:
+          email_intro: 'Ehdotusta "%{resource_title}" arvioidaan parhaillaan. Voit tarkistaa vastauksen tällä sivulla:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
+          email_subject: Seuraava ehdotus arvioidaan
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotusta arvioidaan.
+        rejected_proposal_event:
+          email_intro: 'Ehdotus "%{resource_title}" on hylätty. Voit lukea vastauksen tällä sivulla:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
       models:
         proposal:
           fields:
