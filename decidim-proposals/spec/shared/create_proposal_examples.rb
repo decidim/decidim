@@ -115,7 +115,7 @@ shared_examples "create a proposal" do |with_author|
             end
 
             before do
-              create_list(:proposal, 2, feature: feature, author: author)
+              create_list(:proposal, 2, :published, feature: feature, author: author)
             end
 
             it "checks the user group doesn't exceed the amount of proposals independently of the author" do
