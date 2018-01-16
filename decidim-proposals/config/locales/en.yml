@@ -146,6 +146,7 @@ en:
           unfold: Unfold
         index:
           new_proposal: New proposal
+          see_all_withdrawn: See all withdrawn proposals
           view_proposal: View proposal
         linked_proposals:
           proposal_votes:
