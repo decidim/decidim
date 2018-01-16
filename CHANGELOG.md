@@ -44,6 +44,7 @@ you need to change the following line in `config/environments/production.rb`:
   ```erb
   <%= scopes_picker_filter form, :scope_id %>
   ```
+- **decidim-debates**: New Debates component available for all spaces [\#2506](https://github.com/decidim/decidim/pull/2506)
 
 **Changed
 
