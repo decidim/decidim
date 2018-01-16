@@ -17,6 +17,20 @@ module Decidim
 
       validates :title, presence: true
 
+      # Public: Calculates whether the current debate is an AMA-styled one or not.
+      #
+      # Returns a Boolean.
+      def ama?
+        start_time.present? && end_time.present?
+      end
+
+      # Public: Checks whether the debate is an AMA-styled one and is open.
+      #
+      # Returns a boolean.
+      def open_ama?
+        ama? && Time.current.between?(start_time, end_time)
+      end
+
       # Public: Overrides the `commentable?` Commentable concern method.
       def commentable?
         feature.settings.comments_enabled?
@@ -24,7 +38,8 @@ module Decidim
 
       # Public: Overrides the `accepts_new_comments?` Commentable concern method.
       def accepts_new_comments?
-        commentable? && !feature.current_settings.comments_blocked
+        return false unless open_ama?
+        commentable? && !comments_blocked?
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.
@@ -50,6 +65,12 @@ module Decidim
       # Public: Overrides the `users_to_notify` Notifiable concern method.
       def users_to_notify
         []
+      end
+
+      private
+
+      def comments_blocked?
+        feature.current_settings.comments_blocked
       end
     end
   end

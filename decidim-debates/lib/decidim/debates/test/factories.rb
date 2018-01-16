@@ -8,6 +8,11 @@ FactoryBot.define do
     start_time { 1.day.from_now }
     end_time { start_time.advance(hours: 2) }
     feature { build(:feature, manifest_name: "debates") }
+
+    trait :open_ama do
+      start_time { 1.day.ago }
+      end_time { 1.day.from_now }
+    end
   end
 
   factory :debates_feature, parent: :feature do
