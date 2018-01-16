@@ -4,8 +4,8 @@ require "spec_helper"
 
 describe "Process admin manages proposals", type: :feature do
   let(:manifest_name) { "proposals" }
-  let!(:proposal) { create :proposal, feature: current_feature }
-  let!(:reportables) { create_list(:proposal, 3, feature: current_feature) }
+  let!(:proposal) { create :proposal, :published, feature: current_feature }
+  let!(:reportables) { create_list(:proposal, 3, :published, feature: current_feature) }
 
   include_context "when managing a feature as a process admin"
 
