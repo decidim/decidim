@@ -8,7 +8,7 @@ describe "Edit proposals", type: :feature do
 
   let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
   let!(:another_user) { create :user, :confirmed, organization: participatory_process.organization }
-  let!(:proposal) { create :proposal, author: user, feature: feature }
+  let!(:proposal) { create :proposal, :published, author: user, feature: feature }
 
   before do
     switch_to_host user.organization.host
