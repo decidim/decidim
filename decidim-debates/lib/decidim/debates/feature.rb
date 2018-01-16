@@ -23,33 +23,30 @@ Decidim.register_feature(:debates) do |feature|
     resource.model_class_name = "Decidim::Debates::Debate"
   end
 
-  feature.seeds do
-    Decidim::ParticipatoryProcess.all.each do |process|
-      next unless process.steps.any?
+  feature.seeds do |participatory_space|
+    feature = Decidim::Feature.create!(
+      name: Decidim::Features::Namer.new(participatory_space.organization.available_locales, :debates).i18n_name,
+      manifest_name: :debates,
+      published_at: Time.current,
+      participatory_space: participatory_space
+    )
 
-      feature = Decidim::Feature.create!(
-        name: Decidim::Features::Namer.new(process.organization.available_locales, :debates).i18n_name,
-        manifest_name: :debates,
-        participatory_space: process
+    3.times do
+      debate = Decidim::Debates::Debate.create!(
+        feature: feature,
+        category: participatory_space.categories.sample,
+        title: Decidim::Faker::Localized.sentence(2),
+        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(3)
+        end,
+        instructions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+          Decidim::Faker::Localized.paragraph(3)
+        end,
+        start_time: 3.weeks.from_now,
+        end_time: 3.weeks.from_now + 4.hours
       )
 
-      3.times do
-        debate = Decidim::Debates::Debate.create!(
-          feature: feature,
-          category: process.categories.sample,
-          title: Decidim::Faker::Localized.sentence(2),
-          description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(3)
-          end,
-          instructions: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-            Decidim::Faker::Localized.paragraph(3)
-          end,
-          start_time: 3.weeks.from_now,
-          end_time: 3.weeks.from_now + 4.hours
-        )
-
-        Decidim::Comments::Seed.comments_for(debate)
-      end
+      Decidim::Comments::Seed.comments_for(debate)
     end
   end
 end
