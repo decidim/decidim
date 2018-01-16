@@ -46,6 +46,24 @@ module Decidim
 
               expect(proposal.reload).to be_answered
             end
+
+            context "when the state changes" do
+              it "notifies the proposal followers" do
+                follower = create(:user, organization: proposal.organization)
+                create(:follow, followable: proposal, user: follower)
+
+                expect(Decidim::EventsManager)
+                  .to receive(:publish)
+                  .with(
+                    event: "decidim.events.proposals.proposal_rejected",
+                    event_class: Decidim::Proposals::RejectedProposalEvent,
+                    resource: proposal,
+                    recipient_ids: [follower.id]
+                  )
+
+                command.call
+              end
+            end
           end
         end
       end
