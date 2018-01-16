@@ -62,7 +62,7 @@ fr:
       assembly_user_roles:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet assembly.
-          success: Utilisateur créé avec succès pour cet assembly.
+          success: Utilisateur créé avec succès pour cette assemblée.
         destroy:
           success: Utilisateur détruit avec succès pour cet assembly.
         edit:
