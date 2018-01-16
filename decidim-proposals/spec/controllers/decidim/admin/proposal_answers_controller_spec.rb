@@ -9,7 +9,7 @@ module Decidim
         routes { Decidim::Proposals::AdminEngine.routes }
 
         let(:feature) { proposal.feature }
-        let(:proposal) { create(:proposal) }
+        let(:proposal) { create(:proposal, :published) }
         let(:user) { create(:user, :confirmed, :admin, organization: feature.organization) }
 
         let(:params) do
