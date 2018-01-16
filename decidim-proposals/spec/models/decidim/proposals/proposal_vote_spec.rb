@@ -11,7 +11,7 @@ module Decidim
       let!(:feature) { create(:feature, organization: organization, manifest_name: "proposals") }
       let!(:participatory_process) { create(:participatory_process, organization: organization) }
       let!(:author) { create(:user, organization: organization) }
-      let!(:proposal) { create(:proposal, feature: feature, author: author) }
+      let!(:proposal) { create(:proposal, :published, feature: feature, author: author) }
       let!(:proposal_vote) { build(:proposal_vote, proposal: proposal, author: author) }
 
       it "is valid" do
@@ -51,7 +51,7 @@ module Decidim
 
       context "when proposal and author have different organization" do
         let(:other_author) { create(:user) }
-        let(:other_proposal) { create(:proposal) }
+        let(:other_proposal) { create(:proposal, :published) }
 
         it "is invalid" do
           proposal_vote = build(:proposal_vote, proposal: other_proposal, author: other_author)
@@ -60,7 +60,7 @@ module Decidim
       end
 
       context "when proposal is rejected" do
-        let!(:proposal) { create(:proposal, :rejected, feature: feature, author: author) }
+        let!(:proposal) { create(:proposal, :published, :rejected, feature: feature, author: author) }
 
         it { is_expected.to be_invalid }
       end
