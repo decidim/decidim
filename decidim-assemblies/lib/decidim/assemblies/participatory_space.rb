@@ -15,6 +15,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
 
   participatory_space.context(:admin) do |context|
     context.engine = Decidim::Assemblies::AdminEngine
+    context.layout = "layouts/decidim/admin/assembly"
   end
 
   participatory_space.seeds do
