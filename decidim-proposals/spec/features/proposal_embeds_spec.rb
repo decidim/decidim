@@ -6,7 +6,7 @@ describe "Proposal embeds", type: :feature do
   include_context "with a feature"
   let(:manifest_name) { "proposals" }
 
-  let!(:proposal) { create(:proposal, feature: feature) }
+  let!(:proposal) { create(:proposal, :published, feature: feature) }
 
   context "when visiting the embed page for a proposal" do
     before do
