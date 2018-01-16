@@ -83,12 +83,22 @@ ca:
         error: Hi ha hagut errors en desar la proposta.
         success: Proposta creada correctament.
       events:
+        accepted_proposal_event:
+          email_intro: 'S''ha acceptat la proposta "%{resource_title}". Podeu llegir la resposta d''aquesta pàgina:'
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint "%{resource_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
+          email_subject: S'ha acceptat una proposta que sigueu
+          notification_title: S'ha acceptat la proposta <a href="%{resource_path}">%{resource_title}</a>.
         create_proposal_event:
           email_intro: |-
             Hola, %{author_name} %{author_nickname}, a qui sigueu, ha creat una nova proposta, revisa-la i contribueix:
           email_outro: Heu rebut aquesta notificació perquè esteu seguint %{author_nickname}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Nova proposta de %{author_nickname}
           notification_title: La <a href="%{resource_path}">%{resource_title}</a> proposta va ser creada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        evaluating_proposal_event:
+          email_intro: 'La proposta "%{resource_title}" s''està avaluant actualment. Podeu consultar una resposta en aquesta pàgina:'
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint "%{resource_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
+          email_subject: S'està avaluant una proposta que seguiu
+          notification_title: S'ha avaluat la proposta <a href="%{resource_path}">%{resource_title}</a>.
       models:
         proposal:
           fields:
