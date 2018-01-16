@@ -48,10 +48,10 @@ module Decidim
       end
 
       describe "WITHDRAW a proposal" do
-        context "when an authorized user is withdrawing a proposal" do
-          let(:feature) { create(:proposal_feature, :with_creation_enabled) }
-          let(:proposal) { create(:proposal, feature: feature, author: user) }
+        let(:feature) { create(:proposal_feature, :with_creation_enabled) }
 
+        context "when an authorized user is withdrawing a proposal" do
+          let(:proposal) { create(:proposal, feature: feature, author: user) }
           it "withdraws the proposal" do
             expect(WithdrawProposal).to receive(:call)
 
@@ -62,6 +62,21 @@ module Decidim
             # when issue https://github.com/decidim/decidim/issues/2471 is resolved
             # expect(flash[:notice]).not_to be_empty
             # expect(response).to have_http_status(302)
+          end
+        end
+
+        describe "when current user is NOT the author of the proposal" do
+          let(:current_user) { create(:user, organization: feature.organization) }
+          let(:proposal) { create(:proposal, feature: feature, author: current_user) }
+          context "and the proposal has no supports" do
+            it "is not able to withdraw the proposal" do
+              expect(WithdrawProposal).not_to receive(:call)
+
+              put :withdraw, params: params.merge(id: proposal.id)
+
+              expect(flash[:alert]).not_to be_empty
+              expect(response).to have_http_status(302)
+            end
           end
         end
       end

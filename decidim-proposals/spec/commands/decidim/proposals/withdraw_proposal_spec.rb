@@ -35,27 +35,6 @@ module Decidim
           end
         end
       end
-      describe "when current user is NOT the author of the proposal" do
-        let(:current_user) { create(:user, organization: proposal.feature.organization) }
-        let(:command) { described_class.new(proposal, current_user) }
-
-        context "and the proposal has no supports" do
-          it "is not able to withdraw the proposal" do
-            expect do
-              expect { command.call }.to broadcast(:invalid)
-            end.to change { Decidim::Proposals::Proposal.count }.by(0)
-            expect(proposal.state).not_to eq("withdrawn")
-          end
-        end
-        context "and the proposal has some supports" do
-          it "is not able to withdraw the proposal" do
-            expect do
-              expect { command.call }.to broadcast(:invalid)
-            end.to change { Decidim::Proposals::Proposal.count }.by(0)
-            expect(proposal.state).not_to eq("withdrawn")
-          end
-        end
-      end
     end
   end
 end
