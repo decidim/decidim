@@ -13,7 +13,6 @@ you need to change the following line in `config/environments/production.rb`:
 ```
 
 **Added**:
-- **decidim-proposals**: Add private notes by admins to proposal [\2490](https://github.com/decidim/decidim/pull/2490)
 - **decidim-proposals**: Improve proposals admin panel usability (sorting). [\2419](https://github.com/decidim/decidim/pull/2419)
 - **decidim-core**: Follow users and get notifications about their actions. [\2401](https://github.com/decidim/decidim/pull/2401) and [\2452](https://github.com/decidim/decidim/pull/2452)
 - **decidim-core**: Add unique nicknames for participants. [\2360](https://github.com/decidim/decidim/pull/2360)

@@ -14,9 +14,9 @@ module Decidim
 
         def create
           authorize! :create, ProposalNote
-          @form = form(ProposalNoteForm).from_params(params.merge(proposal: proposal, current_user: current_user))
+          @form = form(ProposalNoteForm).from_params(params)
 
-          CreateNoteProposal.call(@form, proposal, current_user) do
+          CreateProposalNote.call(@form, proposal, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
               redirect_to proposal_proposal_notes_path(proposal_id: proposal.id)

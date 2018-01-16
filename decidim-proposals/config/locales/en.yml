@@ -61,6 +61,12 @@ en:
             evaluating: Evaluating
             rejected: Rejected
             title: Answer for proposal %{title}
+        proposal_notes:
+          form:
+            note: Note
+            submit: Submit
+          leave_your_note: Leave your note
+          title: Private notes
         proposals:
           answer:
             invalid: There's been a problem answering this proposal
@@ -76,17 +82,12 @@ en:
           new:
             create: Create
             title: Create proposal
-        proposal_notes:
-          form:
-            comment: Comment
-            submit: Submit
-          leave_your_comment: Leave your comment
-          title: Private notes
         shared:
           info_proposal:
             body: Body
-            created_at: Date creation
-            proposal_votes_count: Nº votes
+            created_at: Creation date
+            proposal_votes_count: Votes count
+            proposals: Proposals
       answers:
         accepted: Accepted
         evaluating: Evaluating
@@ -206,6 +207,8 @@ en:
         error: There's been errors when saving the proposal.
         success: Proposal updated successfully.
     resource_links:
+      included_projects:
+        project_results: 'Results appearing in this project:'
       included_proposals:
         proposal_projects: 'Proposal appearing in these projects:'
         proposal_results: 'Proposal appearing in these results:'

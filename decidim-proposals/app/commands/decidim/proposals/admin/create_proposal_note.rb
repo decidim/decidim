@@ -4,11 +4,12 @@ module Decidim
   module Proposals
     module Admin
       # A command with all the business logic when an admin creates a private note proposal.
-      class CreateNoteProposal < Rectify::Command
+      class CreateProposalNote < Rectify::Command
         # Public: Initializes the command.
         #
-        # proposal     - A Decidim::Proposals::Proposal object.
+        # form         - A form object with the params.
         # current_user - The current user.
+        # proposal - the proposal to relate.
         def initialize(form, proposal, current_user)
           @form = form
           @proposal = proposal
@@ -24,19 +25,17 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          transaction do
-            create_note_proposal
-          end
+          create_proposal_note
 
-          broadcast(:ok, note_proposal)
+          broadcast(:ok, proposal_note)
         end
 
         private
 
-        attr_reader :form, :proposal, :note_proposal
+        attr_reader :form, :proposal_note
 
-        def create_note_proposal
-          @note_proposal = ProposalNote.create!(
+        def create_proposal_note
+          @proposal_note = ProposalNote.create!(
             body: form.body,
             proposal: @proposal,
             author: @current_user
