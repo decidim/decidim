@@ -37,7 +37,7 @@ module Decidim
     # In Devise controllers we only store the URL if it's from the params, we don't
     # want to overwrite the stored URL for a Devise one.
     def store_current_location
-      return if devise_controller? && params[:redirect_url].blank?
+      return if (devise_controller? && params[:redirect_url].blank?) || !request.format.html?
 
       value = params[:redirect_url] || request.url
       store_location_for(:user, value)
