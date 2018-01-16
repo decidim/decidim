@@ -56,7 +56,7 @@ module Decidim
 
       describe "#remaining_votes_count_for" do
         it "returns the remaining votes for a user based on the feature votes limit" do
-          proposal = create(:proposal, feature: proposal_feature)
+          proposal = create(:proposal, :published, feature: proposal_feature)
           create(:proposal_vote, author: user, proposal: proposal)
 
           expect(helper.remaining_votes_count_for(user)).to eq(9)
