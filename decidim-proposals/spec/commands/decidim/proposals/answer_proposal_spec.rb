@@ -7,7 +7,7 @@ module Decidim
     module Admin
       describe AnswerProposal do
         describe "call" do
-          let(:proposal) { create(:proposal) }
+          let(:proposal) { create(:proposal, :published) }
           let(:form) { ProposalAnswerForm.from_params(form_params) }
           let(:form_params) do
             {
