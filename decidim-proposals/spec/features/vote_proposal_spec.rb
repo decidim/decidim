@@ -6,7 +6,7 @@ describe "Vote Proposal", type: :feature do
   include_context "with a feature"
   let(:manifest_name) { "proposals" }
 
-  let!(:proposals) { create_list(:proposal, 3, feature: feature) }
+  let!(:proposals) { create_list(:proposal, 3, :published, feature: feature) }
   let!(:proposal) { Decidim::Proposals::Proposal.where(feature: feature).first }
   let!(:user) { create :user, :confirmed, organization: organization }
 
@@ -269,7 +269,7 @@ describe "Vote Proposal", type: :feature do
     end
 
     context "when the proposal is rejected" do
-      let!(:rejected_proposal) { create(:proposal, :rejected, feature: feature) }
+      let!(:rejected_proposal) { create(:proposal, :published, :rejected, feature: feature) }
 
       before do
         feature.update_attributes!(settings: { proposal_answering_enabled: true })
