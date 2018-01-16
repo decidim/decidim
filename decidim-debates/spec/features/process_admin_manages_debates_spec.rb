@@ -13,6 +13,5 @@ describe "Process admin manages debates", type: :feature do
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
-    visit_feature_admin
   end
 end
