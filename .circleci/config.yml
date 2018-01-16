@@ -427,6 +427,6 @@ workflows:
       - verifications:
           requires:
             - build_test_app
-      - verifications:
+      - debates:
           requires:
             - build_test_app
