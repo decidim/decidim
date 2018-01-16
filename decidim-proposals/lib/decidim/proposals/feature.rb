@@ -146,7 +146,9 @@ Decidim.register_feature(:proposals) do |feature|
           nickname: Faker::Twitter.unique.screen_name,
           organization: feature.organization,
           tos_agreement: "1",
-          confirmed_at: Time.current
+          confirmed_at: Time.current,
+          personal_url: Faker::Internet.url,
+          about: Faker::Lorem.paragraph(2)
         )
 
         Decidim::Proposals::ProposalVote.create!(proposal: proposal, author: author) unless proposal.answered? && proposal.rejected?

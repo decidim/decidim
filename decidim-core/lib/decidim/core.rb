@@ -45,6 +45,7 @@ module Decidim
   autoload :EngineRouter, "decidim/engine_router"
   autoload :Events, "decidim/events"
   autoload :ViewHooks, "decidim/view_hooks"
+  autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
 
   include ActiveSupport::Configurable
 
@@ -142,6 +143,11 @@ module Decidim
 
   # Allow organization's administrators to inject custom HTML into the frontend
   config_accessor :enable_html_header_snippets do
+    true
+  end
+
+  # Allow organization's administrators to track newsletter links
+  config_accessor :track_newsletter_links do
     true
   end
 

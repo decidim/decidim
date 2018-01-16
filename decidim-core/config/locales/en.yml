@@ -131,6 +131,11 @@ en:
         email_subject: An update to %{resource_title}
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
+      profile_updated_event:
+        email_intro: The <a href="%{profile_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
+        email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
+        email_subject: "%{nickname} updated their profile"
+        notification_title: The <a href="%{profile_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
       export:
         ready: Please find attached a zipped version of your export.
@@ -208,6 +213,15 @@ en:
     newsletter_mailer:
       newsletter:
         note: You received this email because you're subscribed to newsletters on %{organization_name}. You can change your settings on your <a href="%{link}">notifications page</a>.
+        see_on_website: Can’t see this email correctly? View it on the <a href="%{link}" target="_blank">website</a>.
+        unsubscribe: To opt out of receiving this type of email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: If you want to change your preferences, you can do so in the <a href="%{link}" target="_blank">configuration page</a>
+        error: There's been an error unsubscribing
+        success: You are unsubscribed successfully.
+        token_error: The link has expired.
+        unsubscribe: Unsubscribe
     notifications_settings:
       show:
         email_on_notification: I want to receive an email every time I receive a notification.
@@ -226,6 +240,9 @@ en:
         title: More information
     profiles:
       default_officialization_text: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
+      show:
+        about_me: About me
+        personal_url: Personal website
     reported_mailer:
       hide:
         hello: Hello %{name},
@@ -258,6 +275,7 @@ en:
         incomplete:
           cancel: Cancel
           explanation: 'Even though you''re currently authorized with "%{authorization}", we need you to reauthorize because we lack the following data:'
+          invalid_field: "%{field}"
           reauthorize: Reauthorize
           title: Please reauthorize
         missing:
@@ -270,7 +288,7 @@ en:
           title: Authorization is still in progress
         unauthorized:
           explanation: Sorry, you can't perform this action as some of your authorization data doesn't match.
-          invalid: "%{field} isn't valid."
+          invalid_field: "%{field} value %{value} isn't valid."
           ok: Ok
           title: Not authorized
       author:

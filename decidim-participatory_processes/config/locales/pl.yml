@@ -153,7 +153,7 @@ pl:
           success: Uczęszczający krok procesu został pomyślnie zaktualizowany.
       participatory_process_user_roles:
         create:
-          error: Wystąpił błąd podczas dodawania użytkownika do tego procesu partycypacyjnego.
+          error: Wystąpił błąd podczas dodawania użytkownika do tego procesu uczestnictwa.
           success: Użytkownik utworzony z powodzeniem dla tego procesu partycypacyjnego.
         destroy:
           success: Użytkownik z powodzeniem zniszczył ten proces uczestnictwa.
@@ -166,7 +166,7 @@ pl:
           create: Utwórz
           title: Nowy użytkownik procesu partycypacyjnego.
         update:
-          error: Podczas procesu uczestnictwa wystąpił błąd.
+          error: Wystąpił błąd podczas aktualizacji użytkownika dla tego procesu uczestnictwa.
           success: Użytkownik zaktualizował się pomyślnie dla tego procesu partycypacyjnego.
       participatory_processes:
         create:

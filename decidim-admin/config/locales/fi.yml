@@ -133,6 +133,12 @@ fi:
       dashboard:
         show:
           welcome: Tervetuloa Decidim Admin -paneeliin.
+      events:
+        user_officialized_event:
+          email_intro: <a href="%{profile_path}">profile page</a> %{name} (%{nickname}), jonka seuraat, on päivitetty.
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_subject: "%{nickname} päivitti profiilinsa"
+          notification_title: <a href="%{profile_path}">profile page</a> %{name} (%{nickname}), jonka seuraat, on päivitetty.
       exports:
         export_as: "%{name} muodossa %{export_format}"
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.

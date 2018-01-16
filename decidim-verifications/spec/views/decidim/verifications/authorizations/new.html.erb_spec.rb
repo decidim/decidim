@@ -17,23 +17,20 @@ module Decidim
       allow(view).to receive(:handler).and_return(handler)
       allow(view).to receive(:params).and_return(handler: "dummy_authorization_handler")
       allow(view).to receive(:authorizations_path).and_return("/authorizations")
+      allow(view).to receive(:stored_location).and_return("/processes")
     end
 
-    context "when there's a partial to render the form" do
-      around do |example|
-        filepath = File.join(Dir.pwd, "/app/views/", handler.to_partial_path).split("/")
-        filename = "_" + filepath.pop + ".html.erb"
-        filepath = filepath.join("/")
-        FileUtils.mkdir_p(filepath)
-        File.open(File.join(filepath, "/", filename), "w") { |file| file.write("Custom partial") }
+    it "renders the form the partial" do
+      expect(render).to include("partial-demo")
+    end
 
-        example.run
-
-        FileUtils.rm_rf(filepath)
+    context "when there's not a partial to render the form" do
+      before do
+        allow(handler).to receive(:to_partial_path).and_return("inexisting_partial")
       end
 
-      it "renders the form with the partial" do
-        expect(render).to include("Custom partial")
+      it "renders the form without the partial" do
+        expect(render).not_to include("partial-demo")
       end
     end
   end

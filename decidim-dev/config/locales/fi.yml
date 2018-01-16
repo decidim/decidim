@@ -4,6 +4,17 @@ fi:
       admin:
         exports:
           dummies: Esimerkkitiedot
+    participatory_processes:
+      statistics:
+        dummies_count_high: Dummies korkea
+        dummies_count_medium: Dummies medium
     resource_links:
       test_link:
         dummy_resource_dummy: Liittyvät esimerkkitiedot
+  pages:
+    home:
+      statistics:
+        bar: Baari
+        dummies_count_high: Dummies korkea
+        dummies_count_medium: Dummies medium
+        foo: foo

@@ -55,6 +55,10 @@ it:
           authorize_with: Verifica con %{authorizer}
         skip_verification: Puoi saltare questo per ora e %{link}
         start_exploring: comincia ad esplorare
+      dummy_authorization:
+        extra_explanation:
+          one: La partecipazione è riservata agli utenti con il codice postale %{postal_codes}.
+          other: 'La partecipazione è riservata agli utenti con uno dei seguenti codici postali: %{postal_codes}.'
       id_documents:
         admin:
           confirmations:

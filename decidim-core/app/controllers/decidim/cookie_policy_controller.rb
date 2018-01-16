@@ -5,6 +5,8 @@ module Decidim
   class CookiePolicyController < Decidim::ApplicationController
     skip_authorization_check
 
+    skip_before_action :store_current_location
+
     def accept
       response.set_cookie "decidim-cc", value: "true",
                                         path: "/",

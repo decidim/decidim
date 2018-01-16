@@ -18,13 +18,28 @@
               </span>
             </div>
 
-          <% if current_user && current_user != user %>
-            <%= render partial: "decidim/shared/follow_button", locals: { followable: user } %>
-          <% end %>
+            <% if current_user && current_user != user %>
+              <%= render partial: "decidim/shared/follow_button", locals: { followable: user } %>
+            <% end %>
           </h1>
+
         </div>
       </div>
     </div>
+
+    <% if profile_user.about.present? %>
+      <div class="row">
+        <strong><%= t(".about_me") %></strong>
+        <p><%= profile_user.about %></p>
+      </div>
+    <% end %>
+
+    <% if profile_user.personal_url.present? %>
+      <div class="row">
+        <strong><%= t(".personal_url") %></strong>
+        <p><%= link_to profile_user.personal_url, profile_user.personal_url %></p>
+      </div>
+    <% end %>
 
     <% if profile_user.officialized? %>
       <div class="row">

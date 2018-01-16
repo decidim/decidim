@@ -133,6 +133,12 @@ ca:
       dashboard:
         show:
           welcome: Benvingut al tauler d'administració de Decidim.
+      events:
+        user_officialized_event:
+          email_intro: El <a href="%{profile_path}">profile pàgina</a> de %{name} (%{nickname}), al qual estàs seguint, s'ha actualitzat.
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{nickname}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: "%{nickname} ha actualitzat el seu perfil"
+          notification_title: El <a href="%{profile_path}">profile pàgina</a> de %{name} (%{nickname}), al qual estàs seguint, s'ha actualitzat.
       exports:
         export_as: "%{name} com a %{export_format}"
         notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.

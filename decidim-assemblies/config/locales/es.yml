@@ -59,9 +59,27 @@ es:
         destroy:
           error: Se produjo un error al despublicar esta asamblea.
           success: Asamblea despublicada con éxito.
+      assembly_user_roles:
+        create:
+          error: Se produjo un error al agregar un usuario para este ensamblaje.
+          success: Usuario creado con éxito para este ensamblaje.
+        destroy:
+          success: Usuario destruido con éxito para este ensamblaje.
+        edit:
+          title: Actualizar el usuario de ensamblaje.
+          update: Actualizar
+        index:
+          assembly_admins_title: Usuarios de la Asamblea
+        new:
+          create: Crear
+          title: Nuevo usuario de ensamblaje.
+        update:
+          error: Hubo un error al actualizar un usuario para este ensamblaje.
+          success: Usuario actualizado con éxito para este ensamblaje.
       menu:
         assemblies: Asambleas
         assemblies_submenu:
+          assembly_admins: Usuarios de la Asamblea
           attachments: Archivos adjuntos
           categories: Categorías
           features: Funcionalidades
@@ -75,6 +93,16 @@ es:
             published: Publicada
             title: Título
           name: Asamblea
+        assembly_user_role:
+          fields:
+            email: Email
+            name: Nombre
+            role: Papel
+          name: Usuario de la Asamblea
+          roles:
+            admin: Administrador
+            collaborator: Colaborador
+            moderator: Moderador
       titles:
         assemblies: Asambleas
     assemblies:

@@ -59,9 +59,27 @@ fr:
         destroy:
           error: Une erreur s'est produite lors de la dépublication de cette assemblée.
           success: Assemblée dépubliée avec succès.
+      assembly_user_roles:
+        create:
+          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet assembly.
+          success: Utilisateur créé avec succès pour cet assembly.
+        destroy:
+          success: Utilisateur détruit avec succès pour cet assembly.
+        edit:
+          title: Mettre à jour l'utilisateur de l'assembly
+          update: Mettre à jour
+        index:
+          assembly_admins_title: Utilisateurs de l'assemblage
+        new:
+          create: Créer
+          title: Nouvel utilisateur d'assemblage.
+        update:
+          error: Une erreur s'est produite lors de la mise à jour d'un utilisateur pour cet assembly.
+          success: Utilisateur mis à jour avec succès pour cet assembly.
       menu:
         assemblies: Assemblées
         assemblies_submenu:
+          assembly_admins: Utilisateurs de l'assemblage
           attachments: Documents liés
           categories: Catégories
           features: Fonctions
@@ -75,6 +93,16 @@ fr:
             published: Publié
             title: Titre
           name: Assemblée
+        assembly_user_role:
+          fields:
+            email: Email
+            name: prénom
+            role: Rôle
+          name: Utilisateur d'assemblage
+          roles:
+            admin: Administrateur
+            collaborator: Collaborateur
+            moderator: Modérateur
       titles:
         assemblies: Assemblées
     assemblies:

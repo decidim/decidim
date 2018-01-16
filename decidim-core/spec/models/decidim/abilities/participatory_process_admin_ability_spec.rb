@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Abilities::ParticipatoryProcessAdminAbility do
   subject { described_class.new(user, current_participatory_process: user_process) }
 
-  let!(:user) { create(:user, :process_admin, participatory_process: user_process) }
+  let!(:user) { create(:process_admin, participatory_process: user_process) }
 
   let(:user_process) { create :participatory_process }
 

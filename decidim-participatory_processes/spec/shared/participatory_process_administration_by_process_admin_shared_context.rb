@@ -2,8 +2,7 @@
 
 shared_context "when process admin administrating a participatory process" do
   let!(:user) do
-    create(:user,
-           :process_admin,
+    create(:process_admin,
            :confirmed,
            organization: organization,
            participatory_process: participatory_process)

@@ -93,6 +93,8 @@ pl:
         proposal:
           fields:
             category: Kategoria
+            comments: Komentarze
+            created_at: Utworzono w
             id: ID
             official_proposal: Oficjalny wniosek
             scope: Zakres
@@ -193,6 +195,8 @@ pl:
         error: Podczas zapisywania propozycji wystąpiły błędy.
         success: Wniosek zaktualizowano pomyślnie.
     resource_links:
+      included_projects:
+        project_results: 'Wyniki pojawiające się w tym projekcie:'
       included_proposals:
         proposal_projects: 'Propozycja występująca w tych projektach:'
         proposal_results: 'Propozycja pojawiająca się w tych wynikach:'

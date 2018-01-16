@@ -43,6 +43,38 @@ describe "Explore results", versioning: true, type: :feature do
         expect(page).to have_content(translated(result.title))
       end
     end
+
+    context "with a category and a scope" do
+      let!(:category) { create :category, participatory_space: participatory_process }
+      let!(:scope) { create :scope, organization: organization }
+      let!(:result) do
+        result = results.first
+        result.category = category
+        result.scope = scope
+        result.save
+        result
+      end
+
+      let(:path) do
+        decidim_participatory_process_accountability.results_path(
+          participatory_process_slug: participatory_process.slug, feature_id: feature.id, filter: { category_id: category.id, scope_id: scope.id }
+        )
+      end
+
+      it "shows current scope active" do
+        within "ul.tags.tags--action li.active" do
+          expect(page).to have_content(translated(scope.name))
+        end
+      end
+
+      it "maintains scope filter" do
+        click_link translated(category.name)
+
+        within "ul.tags.tags--action li.active" do
+          expect(page).to have_content(translated(scope.name))
+        end
+      end
+    end
   end
 
   describe "show" do
@@ -149,6 +181,30 @@ describe "Explore results", versioning: true, type: :feature do
 
       it "the result is mentioned in the proposal page" do
         click_link proposal.title
+        expect(page).to have_i18n_content(result.title)
+      end
+    end
+
+    context "with linked projects" do
+      let(:project_feature) do
+        create(:feature, manifest_name: :budgets, participatory_space: result.feature.participatory_space)
+      end
+      let(:budgets) { create_list(:project, 3, feature: project_feature) }
+      let(:project) { budgets.first }
+
+      before do
+        result.link_resources(budgets, "included_projects")
+        visit current_path
+      end
+
+      it "shows related projects" do
+        budgets.each do |project|
+          expect(page).to have_content(translated(project.title))
+        end
+      end
+
+      it "the result is mentioned in the project page" do
+        click_link translated(project.title)
         expect(page).to have_i18n_content(result.title)
       end
     end

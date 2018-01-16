@@ -133,6 +133,12 @@ nl:
       dashboard:
         show:
           welcome: Welkom bij het Decidim Admin Panel.
+      events:
+        user_officialized_event:
+          email_intro: De <a href="%{profile_path}">profile page</a> of %{name} (%{nickname}), die u volgt, is bijgewerkt.
+          email_outro: Je hebt deze melding ontvangen omdat je %{nickname} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: "%{nickname} heeft hun profiel bijgewerkt"
+          notification_title: De <a href="%{profile_path}">profile page</a> of %{name} (%{nickname}), die u volgt, is bijgewerkt.
       exports:
         export_as: "%{name} als %{export_format}"
         notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.

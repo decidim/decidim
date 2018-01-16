@@ -57,13 +57,7 @@ module Decidim
         let(:participatory_space) { subject.feature.participatory_space }
         let(:organization) { participatory_space.organization }
         let!(:participatory_process_admin) do
-          user = create(:user, :confirmed, organization: organization)
-          Decidim::ParticipatoryProcessUserRole.create!(
-            role: :admin,
-            user: user,
-            participatory_process: participatory_space
-          )
-          user
+          create(:process_admin, participatory_process: participatory_space)
         end
 
         context "when the proposal is official" do

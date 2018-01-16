@@ -8,6 +8,7 @@ eu:
         description: Deskribapena
         end_date: Bukaera-data
         progress: ' Aurrerapena '
+        project_ids: Proiektu barne
         proposal_ids: Sartutako proposamenak
         start_date: Hasiera-data
         title: Izenburua
@@ -170,5 +171,7 @@ eu:
           step:
             comments_blocked: Iruzkinak blokeatuta
     resource_links:
+      included_projects:
+        result_projects: Emaitza honetan sartutako proiektuak
       included_proposals:
         result_proposals: Emaitza honetan jasotako proposamenak

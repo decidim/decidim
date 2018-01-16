@@ -257,6 +257,7 @@ eu:
         incomplete:
           cancel: Utzi
           explanation: 'Nahiz eta orain baimenduta zauden honako "%{authorization}” honen bidez, behar dugu zuk berriz baimena eskuratzea, ez baititugu honako datu hauek:'
+          invalid_field: "%{field}"
           reauthorize: Berriz eskuratu baimena
           title: Mesedez, eskura ezazu berriz baimena
         missing:
@@ -269,7 +270,7 @@ eu:
           title: Baimena oraindik ere egiten ari da
         unauthorized:
           explanation: Ezin diozu heldu ekintza honi, baimen-datuetako batzuk ez direlako behar direnak.
-          invalid: "%{field} ez da baliozkoa."
+          invalid_field: "%{field} balio %{value} ez da baliozkoa."
           ok: Ados
           title: Ez dago baimenduta
       author:

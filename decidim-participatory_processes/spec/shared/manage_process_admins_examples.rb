@@ -4,8 +4,7 @@ shared_examples "manage process admins examples" do
   let(:other_user) { create :user, organization: organization, email: "my_email@example.org" }
 
   let!(:process_admin) do
-    create :user,
-           :process_admin,
+    create :process_admin,
            :confirmed,
            organization: organization,
            participatory_process: participatory_process

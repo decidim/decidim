@@ -133,6 +133,12 @@ uk:
       dashboard:
         show:
           welcome: Ласкаво просимо до адмін-панелі Десідім!
+      events:
+        user_officialized_event:
+          email_intro: Сторінка <a href="%{profile_path}">профілю</a> учасника %{name} (%{nickname}), за яким ви стежите, була оновлена.
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: "%{nickname} оновив свій профіль"
+          notification_title: Сторінка <a href="%{profile_path}">профілю</a> учасника %{name} (%{nickname}), за яким ви стежите, була оновлена.
       exports:
         export_as: "%{name} як %{export_format}"
         notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.

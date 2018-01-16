@@ -62,7 +62,7 @@ plugins:
           categories: Style
 
     exclude_paths:
-      - "decidim-design/**/*"
+      - "decidim_app-design/**/*"
 
   markdownlint:
     enabled: true
@@ -86,7 +86,6 @@ exclude_patterns:
   - "decidim-comments/app/assets/javascripts/decidim/comments/bundle.js"
   - "node_modules/"
   - "development_app/"
-  - "docker_development_app/"
   - "spec/decidim_dummy_app/"
   - "coverage/"
   - "webpack.report.html"

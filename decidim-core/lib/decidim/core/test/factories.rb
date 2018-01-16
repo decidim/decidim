@@ -75,6 +75,8 @@ FactoryBot.define do
     locale { organization.default_locale }
     tos_agreement "1"
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+    personal_url { Faker::Internet.url }
+    about { Faker::Lorem.paragraph(2) }
 
     trait :confirmed do
       confirmed_at { Time.current }
@@ -91,51 +93,6 @@ FactoryBot.define do
 
     trait :user_manager do
       roles { ["user_manager"] }
-    end
-
-    trait :process_admin do
-      transient do
-        participatory_process { create(:participatory_process) }
-      end
-
-      organization { participatory_process.organization }
-
-      after(:create) do |user, evaluator|
-        create :participatory_process_user_role,
-               user: user,
-               participatory_process: evaluator.participatory_process,
-               role: :admin
-      end
-    end
-
-    trait :process_collaborator do
-      transient do
-        participatory_process { create(:participatory_process) }
-      end
-
-      organization { participatory_process.organization }
-
-      after(:create) do |user, evaluator|
-        create :participatory_process_user_role,
-               user: user,
-               participatory_process: evaluator.participatory_process,
-               role: :collaborator
-      end
-    end
-
-    trait :process_moderator do
-      transient do
-        participatory_process { create(:participatory_process) }
-      end
-
-      organization { participatory_process.organization }
-
-      after(:create) do |user, evaluator|
-        create :participatory_process_user_role,
-               user: user,
-               participatory_process: evaluator.participatory_process,
-               role: :moderator
-      end
     end
 
     trait :managed do
