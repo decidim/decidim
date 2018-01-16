@@ -18,7 +18,7 @@ describe "Proposals feature" do # rubocop:disable RSpec/DescribeClass
 
     context "when there are proposals for the feature" do
       before do
-        create(:proposal, feature: feature)
+        create(:proposal, :published, feature: feature)
       end
 
       it "raises an error" do
