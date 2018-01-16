@@ -6,7 +6,7 @@ describe "Follow proposals", type: :feature do
   let(:manifest_name) { "proposals" }
 
   let!(:followable) do
-    create(:proposal, feature: feature)
+    create(:proposal, :published, feature: feature)
   end
 
   include_examples "follows"
