@@ -1,7 +1,10 @@
 # frozen_string_literal: true
+
 require "spec_helper"
 
 describe Decidim::Debates::Admin::UpdateDebate do
+  subject { described_class.new(form, debate) }
+
   let(:debate) { create :debate }
   let(:organization) { debate.feature.organization }
   let(:category) { create :category, participatory_space: debate.feature.participatory_space }
@@ -17,8 +20,6 @@ describe Decidim::Debates::Admin::UpdateDebate do
     )
   end
   let(:invalid) { false }
-
-  subject { described_class.new(form, debate) }
 
   context "when the form is not valid" do
     let(:invalid) { true }

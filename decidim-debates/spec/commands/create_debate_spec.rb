@@ -1,9 +1,11 @@
-# encoding: utf-8
 # frozen_string_literal: true
+
 require "spec_helper"
 
 describe Decidim::Debates::Admin::CreateDebate do
-  let(:organization) { create :organization, available_locales: %i(en ca es), default_locale: :en }
+  subject { described_class.new(form) }
+
+  let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "debates" }
   let(:category) { create :category, participatory_space: participatory_process }
@@ -20,8 +22,6 @@ describe Decidim::Debates::Admin::CreateDebate do
     )
   end
   let(:invalid) { false }
-
-  subject { described_class.new(form) }
 
   context "when the form is not valid" do
     let(:invalid) { true }

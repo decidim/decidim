@@ -7,5 +7,6 @@ describe "Comments", type: :feature, perform_enqueued: true do
   let!(:commentable) { create(:debate, feature: feature) }
 
   let(:resource_path) { resource_locator(commentable).path }
+
   include_examples "comments"
 end

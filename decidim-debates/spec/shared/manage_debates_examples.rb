@@ -1,9 +1,9 @@
-# -*- coding: utf-8 -*-
 # frozen_string_literal: true
+
 RSpec.shared_examples "manage debates" do
   it "updates a debate" do
     within find("tr", text: translated(debate.title)) do
-      page.find('.action-icon--edit').click
+      page.find(".action-icon--edit").click
     end
 
     within ".edit_debate" do
@@ -41,7 +41,7 @@ RSpec.shared_examples "manage debates" do
 
   it "creates a new debate" do
     within ".card-title" do
-      page.find('.button.button--title').click
+      page.find(".button.button--title").click
     end
 
     within ".new_debate" do
@@ -69,14 +69,14 @@ RSpec.shared_examples "manage debates" do
     end
 
     page.execute_script("$('#datetime_field_debate_start_time').focus()")
-    page.find('.datepicker-dropdown .day', text: '12').click
-    page.find('.datepicker-dropdown .hour', text: '10:00').click
-    page.find('.datepicker-dropdown .minute', text: '10:50').click
+    page.find(".datepicker-dropdown .day", text: "12").click
+    page.find(".datepicker-dropdown .hour", text: "10:00").click
+    page.find(".datepicker-dropdown .minute", text: "10:50").click
 
     page.execute_script("$('#datetime_field_debate_end_time').focus()")
-    page.find('.datepicker-dropdown .day', text: '12').click
-    page.find('.datepicker-dropdown .hour', text: '12:00').click
-    page.find('.datepicker-dropdown .minute', text: '12:50').click
+    page.find(".datepicker-dropdown .day", text: "12").click
+    page.find(".datepicker-dropdown .hour", text: "12:00").click
+    page.find(".datepicker-dropdown .minute", text: "12:50").click
 
     within ".new_debate" do
       select translated(category.name), from: :debate_decidim_category_id
@@ -103,7 +103,7 @@ RSpec.shared_examples "manage debates" do
     it "deletes a debate" do
       within find("tr", text: translated(debate2.title)) do
         accept_confirm do
-          page.find('.action-icon--remove').click
+          page.find(".action-icon--remove").click
         end
       end
 
@@ -112,7 +112,7 @@ RSpec.shared_examples "manage debates" do
       end
 
       within "table" do
-        expect(page).to_not have_content(translated(debate2.title))
+        expect(page).not_to have_content(translated(debate2.title))
       end
     end
   end

@@ -1,7 +1,10 @@
 # frozen_string_literal: true
+
 require "spec_helper"
 
 describe Decidim::Debates::DebateSearch do
+  subject { described_class.new(params) }
+
   let(:current_feature) { create :feature, manifest_name: "debates" }
   let(:parent_category) { create :category, participatory_space: current_feature.participatory_space }
   let(:subcategory) { create :subcategory, parent: parent_category }
@@ -17,7 +20,7 @@ describe Decidim::Debates::DebateSearch do
     create(
       :debate,
       feature: current_feature,
-      start_time: 2.day.from_now,
+      start_time: 2.days.from_now,
       category: subcategory
     )
   end
@@ -26,8 +29,6 @@ describe Decidim::Debates::DebateSearch do
   let(:organization_id) { current_feature.organization.id }
   let(:default_params) { { feature: current_feature } }
   let(:params) { default_params }
-
-  subject { described_class.new(params) }
 
   describe "base query" do
     context "when no feature is passed" do

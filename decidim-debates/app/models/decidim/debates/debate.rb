@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Debates
     # The data store for a Debate in the Decidim::Debates component. It stores a

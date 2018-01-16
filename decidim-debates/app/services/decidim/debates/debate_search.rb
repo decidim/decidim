@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Decidim
   module Debates
     # This class handles search and filtering of debates. Needs a

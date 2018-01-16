@@ -3,6 +3,8 @@
 require "spec_helper"
 
 describe Decidim::Debates::Admin::DebateForm do
+  subject { described_class.from_params(attributes).with_context(context) }
+
   let(:organization) { create(:organization) }
   let(:context) do
     {
@@ -35,8 +37,6 @@ describe Decidim::Debates::Admin::DebateForm do
       end_time: end_time
     }
   end
-
-  subject { described_class.from_params(attributes).with_context(context) }
 
   it { is_expected.to be_valid }
 

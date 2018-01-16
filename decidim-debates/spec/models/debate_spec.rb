@@ -1,9 +1,11 @@
 # frozen_string_literal: true
+
 require "spec_helper"
 
 describe Decidim::Debates::Debate do
-  let(:debate) { build :debate }
   subject { debate }
+
+  let(:debate) { build :debate }
 
   it { is_expected.to be_valid }
 

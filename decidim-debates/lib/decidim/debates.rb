@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "decidim/debates/admin"
 require "decidim/debates/engine"
 require "decidim/debates/admin_engine"
