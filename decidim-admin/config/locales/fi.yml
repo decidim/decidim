@@ -408,7 +408,7 @@ fi:
           title: Muokkaa sivua
           update: Päivitä
         new:
-          create: Luoda
+          create: Luo
           title: Uusi sivu
         update:
           error: Tämän sivun päivityksessä tapahtui virhe.
