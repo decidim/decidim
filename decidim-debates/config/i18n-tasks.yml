@@ -1,6 +1,0 @@
-base_locale: ca 
-locales: [ca,es]
-ignore_unused:
-- "decidim.features.debates.name"
-- "decidim.features.debates.settings.*"
-- "decidim.debates.*"

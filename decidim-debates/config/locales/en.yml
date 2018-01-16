@@ -37,21 +37,18 @@ en:
           descendent: Descendent
           scopes: Scopes
         index:
-          open_debates: Open debates
           participate: Participate
-          title: Debates
+          title: Open debates
         share:
           close_window: Close window
           share: Share
           share_link: Share link
         show:
           comments: Comments
-          debate_description: Description
       models:
         debate:
           fields:
             end_time: End date
-            official_debate: Official debate
             start_time: Start date
             title: Title
     features:
