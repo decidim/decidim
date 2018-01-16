@@ -97,7 +97,7 @@ fr:
       models:
         result:
           fields:
-            end_date: Date et heure de fin
+            end_date: Date de fin
             progress: Avancement
             start_date: Date de début
             status: Statut
