@@ -1,0 +1,64 @@
+---
+en:
+  decidim:
+    debates:
+      actions:
+        confirm_destroy: Are you sure?
+        destroy: Delete
+        edit: Edit
+        new: New %{name}
+        title: Actions
+      admin:
+        debates:
+          create:
+            invalid: There has been a problem while creating the debate.
+            success: Debate created successfully.
+          destroy:
+            success: Debate deleted successfully.
+          edit:
+            title: Edit debate
+            update: Update debate
+          index:
+            title: Debates
+          new:
+            create: Create debate
+            title: New debate
+          update:
+            invalid: There has been a problem while updating this debate.
+            success: Debate updated successfully.
+        models:
+          debate:
+            name: Debate
+      debates:
+        filters:
+          ascendent: Ascendent
+          category: Category
+          date: Date
+          descendent: Descendent
+          scopes: Scopes
+        index:
+          open_debates: Open debates
+          participate: Participate
+          title: Debates
+        share:
+          close_window: Close window
+          share: Share
+          share_link: Share link
+        show:
+          comments: Comments
+          debate_description: Description
+      models:
+        debate:
+          fields:
+            end_time: End date
+            official_debate: Official debate
+            start_time: Start date
+            title: Title
+    features:
+      debates:
+        name: Debates
+        settings:
+          global:
+            comments_enabled: Comments enabled
+          step:
+            comments_blocked: Comments blocked

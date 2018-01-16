@@ -1,0 +1,64 @@
+---
+es:
+  decidim:
+    debates:
+      actions:
+        confirm_destroy: ¿Seguro que quieres borrar este debate?
+        destroy: Borrar
+        edit: Editar
+        new: Nuevo %{name}
+        title: Acciones
+      admin:
+        debates:
+          create:
+            invalid: Ha habido un problema creando este debate.
+            success: Debate creado correctamente.
+          destroy:
+            success: Debate eliminado correctamente.
+          edit:
+            title: Editar debate
+            update: Actualizar debate
+          index:
+            title: Debates
+          new:
+            create: Crear debate
+            title: Nuevo debate
+          update:
+            invalid: Ha habido un problema actualizando este debate.
+            success: Debate actualizado correctamente.
+        models:
+          debate:
+            name: Debate
+      debates:
+        filters:
+          ascendent: Ascendente
+          category: Categoría
+          date: Fecha
+          descendent: Descendiente
+          scopes: Ámbitos 
+        index:
+          title: Debates
+          open_debates: Debates abiertos
+          participate: Participa
+        show:
+          comments: Comentarios
+          debate_description: Descripción
+        share:
+          close_window: Cerrar ventana
+          share: Compartir
+          share_link: Enlace para compartir
+      models:
+        debate:
+          fields:
+            end_time: Fecha de finalización
+            start_time: Fecha de inicio
+            title: Título
+            official_debate: Debate oficial
+    features:
+      debates:
+        name: Debates
+        settings:
+          global:
+            comments_enabled: Comentarios habilitados
+          step:
+            comments_blocked: Comentarios bloqueados

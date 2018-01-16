@@ -1,0 +1,64 @@
+---
+ca:
+  decidim:
+    debates:
+      actions:
+        confirm_destroy: Segur que vols esborrar aquest debat?
+        destroy: Esborrar
+        edit: Editar
+        new: Nou %{name}
+        title: Accions
+      admin:
+        debates:
+          create:
+            invalid: Hi ha hagut un problema creant aquest debat.
+            success: Debat creat correctament.
+          destroy:
+            success: Debat eliminat correctament.
+          edit:
+            title: Editar debat
+            update: Actualitzar debat
+          index:
+            title: Debats
+          new:
+            create: Crear debate
+            title: Nou debat
+          update:
+            invalid: Hi ha hagut un problema actualitzant aquest debat.
+            success: Debat actualitzat correctament.
+        models:
+          debate:
+            name: Debat
+      debates:
+        filters:
+          ascendent: Ascendent
+          category: Categoria
+          date: Data
+          descendent: Descendent
+          scopes: Àmbits
+        index:
+          open_debates: Debats oberts
+          participate: Participa
+          title: Debats
+        share:
+          close_window: Tancar finesta
+          share: Compartir
+          share_link: Enllaç per compartir
+        show:
+          comments: Comentaris
+          debate_description: Descripció
+      models:
+        debate:
+          fields:
+            end_time: Data de finalització
+            official_debate: Debat oficial
+            start_time: Data d'inici
+            title: Títol
+    features:
+      debates:
+        name: Debats
+        settings:
+          global:
+            comments_enabled: Comentaris habilitats
+          step:
+            comments_blocked: Comentaris bloquejats
