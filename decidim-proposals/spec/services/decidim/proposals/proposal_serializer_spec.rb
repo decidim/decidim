@@ -9,7 +9,7 @@ module Decidim
         described_class.new(proposal)
       end
 
-      let!(:proposal) { create(:proposal) }
+      let!(:proposal) { create(:proposal, :published) }
       let!(:category) { create(:category, participatory_space: feature.participatory_space) }
       let!(:scope) { create(:scope, organization: feature.participatory_space.organization) }
       let(:participatory_process) { feature.participatory_space }
