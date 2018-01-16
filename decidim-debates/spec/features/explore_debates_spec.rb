@@ -12,8 +12,8 @@ describe "Explore debates", type: :feature do
       :debate,
       debates_count,
       feature: current_feature,
-      start_time: DateTime.new(2016, 12, 13, 14, 15),
-      end_time: DateTime.new(2016, 12, 13, 16, 17)
+      start_time: Time.zone.local(2016, 12, 13, 14, 15),
+      end_time: Time.zone.local(2016, 12, 13, 16, 17)
     )
   end
 
@@ -22,7 +22,7 @@ describe "Explore debates", type: :feature do
     visit path
   end
 
-  context "index" do
+  describe "index" do
     let(:path) { decidim_participatory_process_debates.debates_path(participatory_process_slug: participatory_process.slug, feature_id: current_feature.id) }
 
     it "shows all debates for the given process" do
@@ -34,7 +34,7 @@ describe "Explore debates", type: :feature do
     end
   end
 
-  context "show" do
+  describe "show" do
     let(:path) { decidim_participatory_process_debates.debate_path(id: debate.id, participatory_process_slug: participatory_process.slug, feature_id: current_feature.id) }
     let(:debates_count) { 1 }
     let(:debate) { debates.first }

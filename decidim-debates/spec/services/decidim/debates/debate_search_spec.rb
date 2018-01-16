@@ -41,7 +41,7 @@ describe Decidim::Debates::DebateSearch do
   end
 
   describe "filters" do
-    context "feature_id" do
+    describe "feature_id" do
       it "only returns debates from the given feature" do
         external_debate = create(:debate)
 
@@ -49,10 +49,10 @@ describe Decidim::Debates::DebateSearch do
       end
     end
 
-    context "order_start_time" do
+    describe "order_start_time" do
       let(:params) { default_params.merge(order_start_time: order) }
 
-      context "is :asc" do
+      context "when it is :asc" do
         let(:order) { :asc }
 
         it "sorts the debates by start_time asc" do
@@ -60,7 +60,7 @@ describe Decidim::Debates::DebateSearch do
         end
       end
 
-      context "is :desc" do
+      context "when it is :desc" do
         let(:order) { :desc }
 
         it "sorts the debates by start_time desc" do
@@ -69,7 +69,7 @@ describe Decidim::Debates::DebateSearch do
       end
     end
 
-    context "category_id" do
+    describe "category_id" do
       context "when the given category has no subcategories" do
         let(:params) { default_params.merge(category_id: subcategory.id) }
 

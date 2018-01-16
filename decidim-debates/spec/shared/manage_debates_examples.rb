@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 RSpec.shared_examples "manage debates" do
+  let!(:debate) { create :debate, category: category, feature: current_feature }
+
   it "updates a debate" do
     within find("tr", text: translated(debate.title)) do
       page.find(".action-icon--edit").click
@@ -27,7 +29,7 @@ RSpec.shared_examples "manage debates" do
     end
   end
 
-  context "previewing debates" do
+  describe "previewing debates" do
     it "links the debate correctly" do
       link = find("a", text: translated(debate.title))
       expect(link[:href]).to include(resource_locator(debate).path)
@@ -93,7 +95,7 @@ RSpec.shared_examples "manage debates" do
     end
   end
 
-  context "deleting a debate" do
+  describe "deleting a debate" do
     let!(:debate2) { create(:debate, feature: current_feature) }
 
     before do

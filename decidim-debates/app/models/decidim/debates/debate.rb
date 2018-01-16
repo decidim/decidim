@@ -15,8 +15,6 @@ module Decidim
 
       feature_manifest_name "debates"
 
-      has_many :comments, as: :decidim_commentable, class_name: "Decidim::Comments::Comment"
-
       validates :title, presence: true
 
       # Public: Overrides the `commentable?` Commentable concern method.
