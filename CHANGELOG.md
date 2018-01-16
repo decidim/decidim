@@ -13,6 +13,7 @@ you need to change the following line in `config/environments/production.rb`:
 ```
 
 **Added**:
+- **decidim-proposals**: Add private notes by admins to proposal [\#2490](https://github.com/decidim/decidim/pull/2490)
 - **decidim-core:** Extends public profile with personal URL and about text. Receive notifications when a profile is updated. [\2494](https://github.com/decidim/decidim/pull/2494)
 - **decidim-core:** Improve Newsletter adding unsubscribe link, see on website, UTM GET codes [\2359](https://github.com/decidim/decidim/pull/2359)
 - **decidim-verifications**: Added action authorizers for authorization handlers. [\#2438](https://github.com/decidim/decidim/pull/2438)
