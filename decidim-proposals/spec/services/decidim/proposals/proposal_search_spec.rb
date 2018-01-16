@@ -11,7 +11,7 @@ module Decidim
       let(:subscope1) { create :scope, organization: feature.organization, parent: scope1 }
       let(:participatory_process) { feature.participatory_space }
       let(:user) { create(:user, organization: feature.organization) }
-      let!(:proposal) { create(:proposal, feature: feature, scope: scope1) }
+      let!(:proposal) { create(:proposal, :published, feature: feature, scope: scope1) }
 
       describe "results" do
         subject do
@@ -35,7 +35,7 @@ module Decidim
         let(:scope_id) { nil }
 
         it "only includes proposals from the given feature" do
-          other_proposal = create(:proposal)
+          other_proposal = create(:proposal, :published)
 
           expect(subject).to include(proposal)
           expect(subject).not_to include(other_proposal)
@@ -45,9 +45,9 @@ module Decidim
           let(:search_text) { "dog" }
 
           it "returns the proposals containing the search in the title or the body" do
-            create_list(:proposal, 3, feature: feature)
-            create(:proposal, title: "A dog", feature: feature)
-            create(:proposal, body: "There is a dog in the office", feature: feature)
+            create_list(:proposal, 3, :published, feature: feature)
+            create(:proposal, :published, title: "A dog", feature: feature)
+            create(:proposal, :published, body: "There is a dog in the office", feature: feature)
 
             expect(subject.size).to eq(2)
           end
@@ -57,7 +57,7 @@ module Decidim
           let(:activity) { ["voted"] }
 
           it "returns the proposals voted by the user" do
-            create_list(:proposal, 3, feature: feature)
+            create_list(:proposal, 3, :published, feature: feature)
             create(:proposal_vote, proposal: Proposal.first, author: user)
 
             expect(subject.size).to eq(1)
@@ -69,8 +69,8 @@ module Decidim
             let(:origin) { "official" }
 
             it "returns only official proposals" do
-              official_proposals = create_list(:proposal, 3, :official, feature: feature)
-              create_list(:proposal, 3, feature: feature)
+              official_proposals = create_list(:proposal, 3, :published, :official, feature: feature)
+              create_list(:proposal, 3, :published, feature: feature)
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(official_proposals)
@@ -81,8 +81,8 @@ module Decidim
             let(:origin) { "citizens" }
 
             it "returns only citizen proposals" do
-              create_list(:proposal, 3, :official, feature: feature)
-              citizen_proposals = create_list(:proposal, 2, feature: feature)
+              create_list(:proposal, 3, :published, :official, feature: feature)
+              citizen_proposals = create_list(:proposal, 2, :published, feature: feature)
               citizen_proposals << proposal
 
               expect(subject.size).to eq(3)
@@ -96,8 +96,8 @@ module Decidim
             let(:state) { "accepted" }
 
             it "returns only accepted proposals" do
-              accepted_proposals = create_list(:proposal, 3, :accepted, feature: feature)
-              create_list(:proposal, 3, feature: feature)
+              accepted_proposals = create_list(:proposal, 3, :published, :accepted, feature: feature)
+              create_list(:proposal, 3, :published, feature: feature)
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(accepted_proposals)
@@ -108,8 +108,8 @@ module Decidim
             let(:state) { "rejected" }
 
             it "returns only rejected proposals" do
-              create_list(:proposal, 3, feature: feature)
-              rejected_proposals = create_list(:proposal, 3, :rejected, feature: feature)
+              create_list(:proposal, 3, :published, feature: feature)
+              rejected_proposals = create_list(:proposal, 3, :published, :rejected, feature: feature)
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(rejected_proposals)
@@ -118,8 +118,8 @@ module Decidim
         end
 
         describe "scope_id filter" do
-          let!(:proposal2) { create(:proposal, feature: feature, scope: scope2) }
-          let!(:proposal3) { create(:proposal, feature: feature, scope: subscope1) }
+          let!(:proposal2) { create(:proposal, :published, feature: feature, scope: scope2) }
+          let!(:proposal3) { create(:proposal, :published, feature: feature, scope: subscope1) }
 
           context "when a parent scope id is being sent" do
             let(:scope_id) { scope1.id }
@@ -146,7 +146,7 @@ module Decidim
           end
 
           context "when `global` is being sent" do
-            let!(:resource_without_scope) { create(:proposal, feature: feature, scope: nil) }
+            let!(:resource_without_scope) { create(:proposal, :published, feature: feature, scope: nil) }
             let(:scope_id) { ["global"] }
 
             it "returns proposals without a scope" do
@@ -155,7 +155,7 @@ module Decidim
           end
 
           context "when `global` and some ids is being sent" do
-            let!(:resource_without_scope) { create(:proposal, feature: feature, scope: nil) }
+            let!(:resource_without_scope) { create(:proposal, :published, feature: feature, scope: nil) }
             let(:scope_id) { ["global", scope2.id, scope1.id] }
 
             it "returns proposals without a scope and with selected scopes" do
@@ -171,9 +171,9 @@ module Decidim
             let(:meeting) { create :meeting, feature: meetings_feature }
 
             it "returns only proposals related to meetings" do
-              related_proposal = create(:proposal, :accepted, feature: feature)
-              related_proposal2 = create(:proposal, :accepted, feature: feature)
-              create_list(:proposal, 3, feature: feature)
+              related_proposal = create(:proposal, :published, :accepted, feature: feature)
+              related_proposal2 = create(:proposal, :published, :accepted, feature: feature)
+              create_list(:proposal, 3, :published, feature: feature)
               meeting.link_resources([related_proposal], "proposals_from_meeting")
               related_proposal2.link_resources([meeting], "proposals_from_meeting")
 
@@ -187,9 +187,9 @@ module Decidim
             let(:dummy_resource) { create :dummy_resource, feature: dummy_feature }
 
             it "returns only proposals related to results" do
-              related_proposal = create(:proposal, :accepted, feature: feature)
-              related_proposal2 = create(:proposal, :accepted, feature: feature)
-              create_list(:proposal, 3, feature: feature)
+              related_proposal = create(:proposal, :published, :accepted, feature: feature)
+              related_proposal2 = create(:proposal, :published, :accepted, feature: feature)
+              create_list(:proposal, 3, :published, feature: feature)
               dummy_resource.link_resources([related_proposal], "included_proposals")
               related_proposal2.link_resources([dummy_resource], "included_proposals")
 
