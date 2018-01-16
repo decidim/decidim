@@ -52,6 +52,7 @@ module Decidim
 
         context "when an authorized user is withdrawing a proposal" do
           let(:proposal) { create(:proposal, feature: feature, author: user) }
+
           it "withdraws the proposal" do
             expect(WithdrawProposal).to receive(:call)
 
@@ -68,6 +69,7 @@ module Decidim
         describe "when current user is NOT the author of the proposal" do
           let(:current_user) { create(:user, organization: feature.organization) }
           let(:proposal) { create(:proposal, feature: feature, author: current_user) }
+
           context "and the proposal has no supports" do
             it "is not able to withdraw the proposal" do
               expect(WithdrawProposal).not_to receive(:call)
