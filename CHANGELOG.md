@@ -5,6 +5,7 @@
 **Added**:
 
 **Changed**:
+- **decidim-core**: [Breaking change] Changes the participatory space's contracts introducing `context`. This was done to fix a bug caused by dynamically extending some controllers. [\#2465](https://github.com/decidim/decidim/pull/2465)
 
 **Fixed**:
 

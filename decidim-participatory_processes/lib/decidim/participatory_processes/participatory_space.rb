@@ -1,10 +1,19 @@
 # frozen_string_literal: true
 
 Decidim.register_participatory_space(:participatory_processes) do |participatory_space|
-  participatory_space.engine = Decidim::ParticipatoryProcesses::Engine
-  participatory_space.admin_engine = Decidim::ParticipatoryProcesses::AdminEngine
   participatory_space.icon = "decidim/participatory_processes/icon.svg"
   participatory_space.model_class_name = "Decidim::ParticipatoryProcess"
+
+  participatory_space.context(:public) do |context|
+    context.engine = Decidim::ParticipatoryProcesses::Engine
+    context.layout = "layouts/decidim/participatory_process"
+    context.helper = "Decidim::ParticipatoryProcesses::ParticipatoryProcessHelper"
+  end
+
+  participatory_space.context(:admin) do |context|
+    context.engine = Decidim::ParticipatoryProcesses::AdminEngine
+    context.layout = "layouts/decidim/admin/participatory_process"
+  end
 
   participatory_space.seeds do
     organization = Decidim::Organization.first

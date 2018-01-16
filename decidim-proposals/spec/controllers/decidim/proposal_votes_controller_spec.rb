@@ -14,12 +14,12 @@ module Decidim
         {
           proposal_id: proposal.id,
           feature_id: feature.id,
-          participatory_process_slug: feature.participatory_space.slug
         }
       end
 
       before do
         request.env["decidim.current_organization"] = feature.organization
+        request.env["decidim.current_participatory_space"] = feature.participatory_space
         request.env["decidim.current_feature"] = feature
         sign_in user
       end
