@@ -74,7 +74,7 @@ describe "Edit proposals", type: :feature do
   end
 
   describe "editing my proposal outside the time limit" do
-    let!(:proposal) { create :proposal, author: user, feature: feature, created_at: 1.hour.ago }
+    let!(:proposal) { create :proposal, :published, author: user, feature: feature, created_at: 1.hour.ago }
 
     before do
       login_as another_user, scope: :user
