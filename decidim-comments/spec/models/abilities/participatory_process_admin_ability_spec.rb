@@ -9,7 +9,7 @@ module Decidim::Comments
     let(:user) { build(:user) }
     let(:user_process) { create :participatory_process, organization: user.organization }
     let!(:user_role) { create :participatory_process_user_role, user: user, participatory_process: user_process, role: :admin }
-    let(:context) { { current_participatory_process: user_process } }
+    let(:context) { { current_participatory_space: user_process } }
 
     context "when the user is an admin" do
       let(:user) { build(:user, :admin) }

@@ -13,11 +13,21 @@ module Decidim
           extend ActiveSupport::Concern
 
           included do
-            include NeedsAssembly
+            include Decidim::Admin::ParticipatorySpaceAdminContext
+            participatory_space_admin_layout
 
-            layout "decidim/admin/assembly"
-
+            helper_method :current_assembly
             alias_method :current_participatory_space, :current_assembly
+          end
+
+          def current_assembly
+            @current_assembly ||= organization_assemblies.find_by!(
+              slug: params[:assembly_slug] || params[:slug]
+            )
+          end
+
+          def organization_assemblies
+            @organization_assemblies ||= OrganizationAssemblies.new(current_organization).query
           end
         end
       end

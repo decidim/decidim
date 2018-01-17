@@ -58,7 +58,7 @@ module Decidim
           end
 
           def current_assembly
-            @current_assembly ||= @context[:current_assembly]
+            @current_assembly ||= @context[:current_participatory_space]
           end
         end
       end
