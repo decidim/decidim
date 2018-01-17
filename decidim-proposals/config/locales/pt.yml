@@ -103,6 +103,7 @@ pt:
           email_intro: 'A proposta "%{resource_title}" foi rejeitada. Você pode ler a resposta nesta página:'
           email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
           email_subject: Uma proposta que você está seguindo foi rejeitada
+          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi rejeitada.
       models:
         proposal:
           fields:
