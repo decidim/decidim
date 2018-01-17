@@ -84,10 +84,10 @@ fi:
         success: Ehdotus luotu onnistuneesti.
       events:
         accepted_proposal_event:
-          email_intro: 'Ehdotus "%{resource_title}" on hyväksytty. Voit lukea vastauksen tällä sivulla:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
-          email_subject: Seuraava ehdotus on hyväksytty
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus on hyväksytty.
+          email_intro: 'Ehdotus "%{resource_title}" on hyväksytty. Voit lukea vastauksen täältä:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta "%{resource_title}". Voit lopettaa seuraamisen edellä esitetystä linkistä.
+          email_subject: Seuraamasi ehdotus on hyväksytty
+          notification_title: Ehdotus otsikolla <a href="%{resource_path}">%{resource_title}</a> on hyväksytty.
         create_proposal_event:
           email_intro: |-
             Hei,
@@ -96,15 +96,15 @@ fi:
           email_subject: Uusi ehdotus käyttäjältä %{author_nickname}
           notification_title: Käyttäjä <a href="%{author_path}">%{author_name} %{author_nickname}</a> on luonut ehdotuksen <a href="%{resource_path}">%{resource_title}</a>.
         evaluating_proposal_event:
-          email_intro: 'Ehdotusta "%{resource_title}" arvioidaan parhaillaan. Voit tarkistaa vastauksen tällä sivulla:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
-          email_subject: Seuraava ehdotus arvioidaan
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotusta arvioidaan.
+          email_intro: 'Ehdotusta otsikolla "%{resource_title}" arvioidaan parhaillaan. Voit tarkistaa vastauksen täältä:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta "%{resource_title}". Voit lopettaa seuraamisen sen edellä esitetystä linkistä.
+          email_subject: Seuraamasi ehdotus on arvioitavana
+          notification_title: Ehdotus otsikolla <a href="%{resource_path}">%{resource_title}</a> on arvioitavana.
         rejected_proposal_event:
-          email_intro: 'Ehdotus "%{resource_title}" on hylätty. Voit lukea vastauksen tällä sivulla:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
-          email_subject: Seuraava ehdotus on hylätty
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus on hylätty.
+          email_intro: 'Ehdotus otsikolla "%{resource_title}" on hylätty. Voit lukea vastauksen täältä:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta "%{resource_title}". Voit lopettaa seuraamisen sen edellä esitetystä linkistä.
+          email_subject: Seuraamasi ehdotus on hylätty
+          notification_title: Ehdotus otsikolla <a href="%{resource_path}">%{resource_title}</a> on hylätty.
       models:
         proposal:
           fields:
