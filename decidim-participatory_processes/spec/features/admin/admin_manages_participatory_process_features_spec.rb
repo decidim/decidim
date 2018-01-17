@@ -277,6 +277,17 @@ describe "Admin manages participatory process features", type: :feature do
           expect(page).to have_css(".action-icon--unpublish")
         end
       end
+
+      it "notifies its followers" do
+        follower = create(:user, organization: participatory_process.organization)
+        create(:follow, followable: participatory_process, user: follower)
+
+        within ".feature-#{feature.id}" do
+          click_link "Publish"
+        end
+
+        expect(enqueued_jobs.last[:args]).to include("decidim.events.features.feature_published")
+      end
     end
 
     context "when the feature is published" do
