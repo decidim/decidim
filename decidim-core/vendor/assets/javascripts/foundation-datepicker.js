@@ -386,9 +386,13 @@
 
         place: function() {
             if (this.isInline) return;
-            var zIndex = parseInt(this.element.parents().filter(function() {
-                return $(this).css('z-index') != 'auto';
-            }).first().css('z-index')) + 10;
+            var zIndexes = [];
+            this.element.parents().map(function() {
+                if ($(this).css('z-index') != 'auto') {
+                    zIndexes.push(parseInt($(this).css('z-index')));
+                }
+            });
+            var zIndex = zIndexes.sort(function(a, b) { return a - b; }).pop() + 10;
             var textbox = this.component ? this.component : this.element;
             var offset = textbox.offset();
             var height = textbox.outerHeight() + parseInt(textbox.css('margin-top'));
@@ -396,12 +400,17 @@
             var fullOffsetTop = offset.top + height;
             var offsetLeft = offset.left;
             this.picker.removeClass('datepicker-top datepicker-bottom');
-            // if the datepicker is going to be below the window, show it on top of the input
-            if ((fullOffsetTop + this.picker.outerHeight()) >= $(window).scrollTop() + $(window).height()) {
+            // can we show it on top?
+            var canShowTop = ($(window).scrollTop() < offset.top - this.picker.outerHeight());
+            var canShowBottom = (fullOffsetTop + this.picker.outerHeight()) < $(window).scrollTop() + $(window).height();
+            // If the datepicker is going to be below the window, show it on top of the input if it fits
+            if (!canShowBottom && canShowTop) {
                 fullOffsetTop = offset.top - this.picker.outerHeight();
                 this.picker.addClass('datepicker-top');
             }
             else {
+                // Scroll up if we cannot show it on bottom or top (for mobile devices)
+                if (!canShowBottom) $(window).scrollTop(offset.top);
                 this.picker.addClass('datepicker-bottom');
             }
 
@@ -498,7 +507,7 @@
                 today = new Date(),
                 titleFormat = dates[this.language].titleFormat || dates['en'].titleFormat;
             // this.picker.find('.datepicker-days thead th.date-switch')
-            // 			.text(DPGlobal.formatDate(new UTCDate(year, month), titleFormat, this.language));
+            //          .text(DPGlobal.formatDate(new UTCDate(year, month), titleFormat, this.language));
 
             this.picker.find('.datepicker-days thead th:eq(1)')
                 .text(dates[this.language].months[month] + ' ' + year);
@@ -1090,25 +1099,25 @@
                 }
             }
             /*
-            	vitalets: fixing bug of very special conditions:
-            	jquery 1.7.1 + webkit + show inline datepicker in bootstrap popover.
-            	Method show() does not set display css correctly and datepicker is not shown.
-            	Changed to .css('display', 'block') solve the problem.
-            	See https://github.com/vitalets/x-editable/issues/37
+                vitalets: fixing bug of very special conditions:
+                jquery 1.7.1 + webkit + show inline datepicker in bootstrap popover.
+                Method show() does not set display css correctly and datepicker is not shown.
+                Changed to .css('display', 'block') solve the problem.
+                See https://github.com/vitalets/x-editable/issues/37
 
-            	In jquery 1.7.2+ everything works fine.
+                In jquery 1.7.2+ everything works fine.
             */
             //this.picker.find('>div').hide().filter('.datepicker-'+DPGlobal.modes[this.viewMode].clsName).show();
             this.picker.find('>div').hide().filter('.datepicker-' + DPGlobal.modes[this.viewMode].clsName).css('display', 'block');
             this.updateNavArrows();
         },
-		
-		changeViewDate: function(date) {
-			this.date = date;
-			this.viewDate = date;
-			this.fill();
-		},
-		
+
+        changeViewDate: function(date) {
+            this.date = date;
+            this.viewDate = date;
+            this.fill();
+        },
+
         reset: function(e) {
             this._setDate(null, 'date');
         }
