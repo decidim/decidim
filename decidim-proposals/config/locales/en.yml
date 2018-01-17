@@ -28,8 +28,7 @@ en:
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
-            proposal_edit_before_minutes: Proposals can be edited by authors before
-              this many minutes passes
+            proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
             proposal_limit: Proposal limit per user
             vote_limit: Vote limit per user
           step:
@@ -39,8 +38,7 @@ en:
             proposal_answering_enabled: Proposal answering enabled
             votes_blocked: Votes blocked
             votes_enabled: Votes enabled
-            votes_hidden: Votes hidden (if votes are enabled, checking this will hide
-              the number of votes)
+            votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
     proposals:
       actions:
         answer: Answer
@@ -91,12 +89,9 @@ en:
           email_intro: |-
             Hi,
             %{author_name} %{author_nickname}, who you are following, has created a new proposal, check it out and contribute:
-          email_outro: You have received this notification because you are following
-            %{author_nickname}. You can stop receiving notifications following the
-            previous link.
+          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
           email_subject: New proposal by %{author_nickname}
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a>
-            proposal was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         proposal:
           fields:
@@ -156,12 +151,8 @@ en:
           attachment_legend: "(Optional) Add an attachment"
           back: Back
           proposal_edit_before_minutes:
-            one: You will be able to edit this proposal during the first minute after
-              the proposal was created. Once this time window passes, you will not
-              be able to edit the proposal.
-            other: You will be able to edit this proposal during the first %{count}
-              minutes after the proposal was created. Once this time window passes,
-              you will not be able to edit the proposal.
+            one: You will be able to edit this proposal during the first minute after the proposal was created. Once this time window passes, you will not be able to edit the proposal.
+            other: You will be able to edit this proposal during the first %{count} minutes after the proposal was created. Once this time window passes, you will not be able to edit the proposal.
           select_a_category: Please select a category
           send: Send
           title: New proposal
