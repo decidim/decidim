@@ -1,5 +1,14 @@
 ---
 en:
+  activemodel:
+    attributes:
+      debate:
+        decidim_category_id: Category
+        description: Description
+        instructions: Instructions to participate
+        end_time: Ends at
+        start_time: Starts at
+        title: Title
   decidim:
     debates:
       actions:
