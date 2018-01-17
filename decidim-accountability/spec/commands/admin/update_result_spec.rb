@@ -20,6 +20,7 @@ module Decidim::Accountability
     let(:end_date) { Date.tomorrow }
     let(:status) { create :status, feature: result.feature, key: "finished", name: { en: "Finished" } }
     let(:progress) { 95 }
+    let(:external_id) { "act-123" }
 
     let(:meeting) do
       create(
@@ -61,7 +62,8 @@ module Decidim::Accountability
         decidim_accountability_status_id: status.id,
         progress: progress,
         current_user: user,
-        parent_id: nil
+        parent_id: nil,
+        external_id: external_id
       )
     end
     let(:invalid) { false }

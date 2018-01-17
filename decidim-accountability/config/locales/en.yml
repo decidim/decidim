@@ -8,6 +8,7 @@ en:
         decidim_scope_id: Scope
         description: Description
         end_date: End date
+        external_id: External Identifier
         progress: Progress
         project_ids: Included projects
         proposal_ids: Included proposals

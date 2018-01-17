@@ -17,6 +17,7 @@ module Decidim::Accountability
     let(:end_date) { Date.tomorrow }
     let(:status) { create :status, feature: current_feature, key: "ongoing", name: { en: "Ongoing" } }
     let(:progress) { 89 }
+    let(:external_id) { "act-123" }
 
     let(:meeting_feature) do
       create(:feature, manifest_name: "meetings", participatory_space: participatory_process)
@@ -62,7 +63,8 @@ module Decidim::Accountability
         decidim_accountability_status_id: status.id,
         progress: progress,
         current_user: user,
-        parent_id: nil
+        parent_id: nil,
+        external_id: external_id
       )
     end
     let(:invalid) { false }
