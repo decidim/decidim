@@ -103,6 +103,8 @@ fi:
         rejected_proposal_event:
           email_intro: 'Ehdotus "%{resource_title}" on hylätty. Voit lukea vastauksen tällä sivulla:'
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
+          email_subject: Seuraava ehdotus on hylätty
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus on hylätty.
       models:
         proposal:
           fields:
