@@ -173,6 +173,11 @@
         this.setDaysOfWeekDisabled(options.daysOfWeekDisabled || this.element.data('date-days-of-week-disabled'));
         this.setDatesDisabled(options.datesDisabled || this.element.data('dates-disabled'));
 
+        if (this.initialDate != null) {
+            this.date = this.viewDate = DPGlobal.parseDate(this.initialDate, this.format, this.language);
+            this.setValue();
+        }
+
         this.fillDow();
         this.fillMonths();
         this.update();
@@ -432,14 +437,10 @@
             if (arguments && arguments.length && (typeof arguments[0] === 'string' || arguments[0] instanceof Date)) {
                 date = arguments[0];
                 fromArgs = true;
-            } 
-            else if (!currentVal && this.initialDate != null) { // If value is not set, set it to the initialDate 
-                date = this.initialDate
             }
             else {
                 date = this.isInput ? this.element.val() : this.element.data('date') || this.element.find('input').val();
             }
-    
             if (date && date.length > this.formatText.length) {
                     $(this.picker).addClass('is-invalid')
                     $(this.element).addClass('is-invalid-input')
@@ -447,12 +448,18 @@
             } else {
                 $(this.picker).removeClass('is-invalid')
                 $(this.element).removeClass('is-invalid-input')
-                  
             }
         
-            this.date = DPGlobal.parseDate(date, this.format, this.language);  
+            this.date = DPGlobal.parseDate(date, this.format, this.language);
 
-            if (fromArgs || this.initialDate != null) this.setValue();
+            if (fromArgs) {
+                this.setValue();
+            } else if (currentVal == "") {
+                this.element.trigger({
+                    type: 'changeDate',
+                    date: null
+                });
+            }
 
             if (this.date < this.startDate) {
                 this.viewDate = new Date(this.startDate.valueOf());
