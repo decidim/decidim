@@ -103,6 +103,7 @@ pl:
           email_intro: 'Wniosek "%{resource_title}" został odrzucony. Możesz przeczytać odpowiedź na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
           email_subject: Propozycja, którą obserwujesz, została odrzucona
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> propozycja została odrzucona.
       models:
         proposal:
           fields:
