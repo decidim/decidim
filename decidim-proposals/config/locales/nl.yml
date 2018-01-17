@@ -101,6 +101,9 @@ nl:
           notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> wordt beoordeeld.
         rejected_proposal_event:
           email_intro: 'Het voorstel "%{resource_title}" is afgewezen. U kunt het antwoord op deze pagina lezen:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_subject: Een voorstel dat u volgt, is afgewezen
+          notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is afgewezen.
       models:
         proposal:
           fields:
