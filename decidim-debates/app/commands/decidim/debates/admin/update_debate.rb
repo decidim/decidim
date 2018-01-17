@@ -19,7 +19,7 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          return broadcast(:invalid) if @form.invalid?
+          return broadcast(:invalid) if form.invalid?
 
           update_debate
           broadcast(:ok)
@@ -27,14 +27,17 @@ module Decidim
 
         private
 
+        attr_reader :debate, :form
+
         def update_debate
-          @debate.update_attributes!(
-            category: @form.category,
-            title: @form.title,
-            description: @form.description,
-            instructions: @form.instructions,
-            end_time: @form.end_time,
-            start_time: @form.start_time
+          debate.update_attributes!(
+            category: form.category,
+            title: form.title,
+            description: form.description,
+            information_updates: form.information_updates,
+            instructions: form.instructions,
+            end_time: form.end_time,
+            start_time: form.start_time
           )
         end
       end

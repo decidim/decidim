@@ -5,8 +5,9 @@ en:
       debate:
         decidim_category_id: Category
         description: Description
-        instructions: Instructions to participate
         end_time: Ends at
+        information_updates: Information updates
+        instructions: Instructions to participate
         start_time: Starts at
         title: Title
   decidim:

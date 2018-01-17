@@ -13,6 +13,7 @@ describe Decidim::Debates::Admin::UpdateDebate do
       invalid?: invalid,
       title: { en: "title" },
       description: { en: "description" },
+      information_updates: { en: "information_updates" },
       instructions: { en: "instructions" },
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
@@ -33,6 +34,9 @@ describe Decidim::Debates::Admin::UpdateDebate do
     it "updates the debate" do
       subject.call
       expect(translated(debate.title)).to eq "title"
+      expect(translated(debate.description)).to eq "description"
+      expect(translated(debate.information_updates)).to eq "information_updates"
+      expect(translated(debate.instructions)).to eq "instructions"
     end
 
     it "sets the category" do

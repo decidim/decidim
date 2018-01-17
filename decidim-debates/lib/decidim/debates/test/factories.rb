@@ -4,6 +4,7 @@ FactoryBot.define do
   factory :debate, class: "Decidim::Debates::Debate" do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+    information_updates { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     instructions { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     start_time { 1.day.from_now }
     end_time { start_time.advance(hours: 2) }

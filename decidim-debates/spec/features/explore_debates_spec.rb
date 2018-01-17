@@ -42,6 +42,7 @@ describe "Explore debates", type: :feature do
     it "shows all debate info" do
       expect(page).to have_i18n_content(debate.title)
       expect(page).to have_i18n_content(debate.description)
+      expect(page).to have_i18n_content(debate.information_updates)
       expect(page).to have_i18n_content(debate.instructions)
 
       within ".section.view-side" do

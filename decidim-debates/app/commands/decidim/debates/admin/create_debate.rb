@@ -14,7 +14,7 @@ module Decidim
         #
         # Broadcasts :ok if successful, :invalid otherwise.
         def call
-          return broadcast(:invalid) if @form.invalid?
+          return broadcast(:invalid) if form.invalid?
 
           create_debate
           broadcast(:ok)
@@ -22,15 +22,18 @@ module Decidim
 
         private
 
+        attr_reader :form
+
         def create_debate
           Debate.create!(
-            category: @form.category,
-            title: @form.title,
-            description: @form.description,
-            instructions: @form.instructions,
-            end_time: @form.end_time,
-            start_time: @form.start_time,
-            feature: @form.current_feature
+            category: form.category,
+            title: form.title,
+            description: form.description,
+            information_updates: form.information_updates,
+            instructions: form.instructions,
+            end_time: form.end_time,
+            start_time: form.start_time,
+            feature: form.current_feature
           )
         end
       end

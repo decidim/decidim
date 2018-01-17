@@ -36,6 +36,11 @@
           <%== translated_attribute debate.instructions %>
         </div>
       <% end %>
+      <% if translated_attribute(debate.information_updates).present? %>
+        <div class="callout success">
+          <%== translated_attribute debate.information_updates %>
+        </div>
+      <% end %>
       <% if debate.category %>
         <ul class="tags tags--debate">
           <li><%= link_to translated_attribute(debate.category.name), debates_path(filter: { category_id: debate.category.id }) %></li>

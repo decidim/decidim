@@ -10,6 +10,7 @@ module Decidim
         translatable_attribute :title, String
         translatable_attribute :description, String
         translatable_attribute :instructions, String
+        translatable_attribute :information_updates, String
         attribute :start_time, DateTime
         attribute :end_time, DateTime
         attribute :decidim_category_id, Integer
