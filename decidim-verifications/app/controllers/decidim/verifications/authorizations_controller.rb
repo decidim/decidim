@@ -88,7 +88,7 @@ module Decidim
       end
 
       def store_current_location
-        return if params[:redirect_url].blank?
+        return if params[:redirect_url].blank? || !request.format.html?
 
         store_location_for(:user, params[:redirect_url])
       end

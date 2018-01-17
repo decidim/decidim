@@ -24,7 +24,7 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-admin**: Let admins officialize certain users from the admin dashboard and specify custom officialization text for them. [\#2405](https://github.com/decidim/decidim/pull/2405)
 - **decidim-core**: Public profile page for participants, including name, nickname, follow button, avatar and officialization badge & text. [\#2391](https://github.com/decidim/decidim/pull/2391), [\#2360](https://github.com/decidim/decidim/pull/2360), [\#2401](https://github.com/decidim/decidim/pull/2401) and [\#2405](https://github.com/decidim/decidim/pull/2405).
 - **decidim-core**: Add a way for space manifests to publicize how to retrieve public spaces for a given organization [\#2384](https://github.com/decidim/decidim/pull/2384)
-- **decidim-participatory_processes**: Add missinng translations for processes [\#2380](https://github.com/decidim/decidim/pull/2380)
+- **decidim-participatory_processes**: Add missing translations for processes [\#2380](https://github.com/decidim/decidim/pull/2380)
 - **decidim-verifications**: Let developers specify for how long authorizations are valid. After this space of time passes, authorizations expire and users need to re-authorize [\#2311](https://github.com/decidim/decidim/pull/2311)
 - **decidim-assemblies**: Add user roles for assemblies. [\2463](https://github.com/decidim/decidim/pull/2463)
 - **decidim**: Scopes picker that allows hierarchical browsing scope to select them ([\#2330](https://github.com/decidim/decidim/pull/2330)).
@@ -61,7 +61,7 @@ you need to change the following line in `config/environments/production.rb`:
 **Fixed**:
 
 - **decidim-admin**: Properly save features weight on creation [\#2499](https://github.com/decidim/decidim/pull/2499)
-- **decidim-core**: Fix after login redirect. [\#2321](https://github.com/decidim/decidim/pull/2321)
+- **decidim-core**: Fix after login redirect. [\#2321](https://github.com/decidim/decidim/pull/2321) [\#2504](https://github.com/decidim/decidim/pull/2504)
   With links or buttons that needs the user to be authorized or signed in you can now add a `data-redirect-url` attribute to redirect the user after they've signed in so they don't lose context.
 - **decidim-core**: Prevent many conversation with the same participants at the UI level. [\#2376](https://github.com/decidim/decidim/pull/2376)
 - **decidim-admin**: Admins no longer being able to impersonate a second time. [\#2372](https://github.com/decidim/decidim/pull/2372)
