@@ -5,7 +5,8 @@ module Decidim
     # Controller that allows managing categories.
     #
     class CategoriesController < Decidim::Admin::ApplicationController
-      helper_method :current_participatory_space
+      include ParticipatorySpaceAdminContext
+      participatory_space_admin_layout
 
       def index
         authorize! :read, Decidim::Category

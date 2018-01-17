@@ -5,15 +5,19 @@ module Decidim
     # A controller that holds the logic to show ParticipatoryProcessSteps in a
     # public layout.
     class ParticipatoryProcessStepsController < Decidim::ApplicationController
-      helper_method :participatory_process, :current_participatory_process
-      layout "layouts/decidim/participatory_process", only: [:index]
-      include NeedsParticipatoryProcess
+      include ParticipatorySpaceContext
+      participatory_space_layout only: :index
 
-      helper ParticipatoryProcessHelper
-      helper Decidim::IconHelper
+      def index; end
 
-      def index
-        authorize! :read, ParticipatoryProcess
+      private
+
+      def organization_participatory_processes
+        @organization_participatory_processes ||= OrganizationParticipatoryProcesses.new(current_organization).query
+      end
+
+      def current_participatory_space
+        @current_participatory_space ||= organization_participatory_processes.find_by(slug: params[:participatory_process_slug])
       end
     end
   end
