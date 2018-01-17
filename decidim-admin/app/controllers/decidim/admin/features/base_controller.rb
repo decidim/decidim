@@ -9,16 +9,15 @@ module Decidim
         skip_authorize_resource
         include Settings
 
+        include Decidim::Admin::ParticipatorySpaceAdminContext
+        participatory_space_admin_layout
+
         helper Decidim::ResourceHelper
         helper Decidim::Admin::ExportsHelper
 
         helper_method :current_feature,
                       :current_participatory_space,
                       :parent_path
-
-        before_action do
-          extend current_participatory_space.admin_extension_module
-        end
 
         before_action except: [:index, :show] do
           authorize! :manage, current_feature

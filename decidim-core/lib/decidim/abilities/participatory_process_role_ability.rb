@@ -55,7 +55,7 @@ module Decidim
       end
 
       def current_participatory_process
-        @current_participatory_process ||= @context[:current_participatory_process]
+        @current_participatory_process ||= @context[:current_participatory_space]
       end
     end
   end
