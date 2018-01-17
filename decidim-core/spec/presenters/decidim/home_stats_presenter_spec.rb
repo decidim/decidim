@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "spec_helper"
+require "decidim/assemblies/test/factories"
 
 module Decidim
   describe HomeStatsPresenter do
