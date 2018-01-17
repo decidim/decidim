@@ -102,6 +102,8 @@ gl:
         rejected_proposal_event:
           email_intro: 'A proposta "%{resource_title}" foi rexeitada. Podes ler a resposta nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
+          email_subject: A proposta que segues foi rexeitada
+          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi rexeitada.
       models:
         proposal:
           fields:
