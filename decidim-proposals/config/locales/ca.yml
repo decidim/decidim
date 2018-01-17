@@ -99,6 +99,11 @@ ca:
           email_outro: Heu rebut aquesta notificació perquè esteu seguint "%{resource_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
           email_subject: S'està avaluant una proposta que seguiu
           notification_title: S'ha avaluat la proposta <a href="%{resource_path}">%{resource_title}</a>.
+        rejected_proposal_event:
+          email_intro: 'La proposta "%{resource_title}" ha estat rebutjada. Podeu llegir la resposta d''aquesta pàgina:'
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint "%{resource_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
+          email_subject: S'ha rebutjat una proposta que sigueu
+          notification_title: S'ha rebutjat la proposta <a href="%{resource_path}">%{resource_title}</a>.
       models:
         proposal:
           fields:
