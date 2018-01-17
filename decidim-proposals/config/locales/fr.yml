@@ -103,6 +103,7 @@ fr:
           email_intro: 'La proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse dans cette page:'
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez le retirer du lien précédent.
           email_subject: Une proposition que vous suivez a été rejetée
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été rejetée.
       models:
         proposal:
           fields:
