@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages participatory process features", type: :feature do
+describe "Admin manages participatory process features", type: :system do
   let(:organization) { create(:organization) }
   let(:user) { create(:user, :admin, :confirmed, organization: organization) }
 

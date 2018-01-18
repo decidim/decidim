@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Manage admins", type: :feature do
+describe "Manage admins", type: :system do
   let(:admin) { create(:admin) }
   let!(:admin2) { create(:admin) }
 

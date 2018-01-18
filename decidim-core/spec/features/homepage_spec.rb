@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Homepage", type: :feature do
+describe "Homepage", type: :system do
   context "when there's no organization" do
     before do
       visit decidim.root_path

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages user groups", type: :feature do
+describe "Admin manages user groups", type: :system do
   let(:organization) { create(:organization) }
 
   let!(:user) { create(:user, :admin, :confirmed, organization: organization) }

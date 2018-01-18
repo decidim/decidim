@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Report Comment", type: :feature do
+describe "Report Comment", type: :system do
   include_context "with a feature"
 
   let(:manifest_name) { "dummy" }

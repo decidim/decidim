@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "GraphiQL", type: :feature do
+describe "GraphiQL", type: :system do
   let!(:organization) { create(:organization) }
 
   let!(:participatory_process) do

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Notifications", type: :feature do
+describe "Notifications", type: :system do
   let(:resource) { create :dummy_resource }
   let(:participatory_space) { resource.feature.participatory_space }
   let(:organization) { participatory_space.organization }

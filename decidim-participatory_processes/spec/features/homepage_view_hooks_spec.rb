@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Highlighted Processes", type: :feature do
+describe "Highlighted Processes", type: :system do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
   let!(:promoted_process) { create(:participatory_process, :promoted, organization: organization) }

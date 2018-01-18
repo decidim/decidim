@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Orders", type: :feature do
+describe "Orders", type: :system do
   include_context "with a feature"
   let(:manifest_name) { "budgets" }
 

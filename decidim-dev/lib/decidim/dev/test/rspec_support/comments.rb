@@ -15,5 +15,5 @@ module CommentsHelpers
 end
 
 RSpec.configure do |config|
-  config.include CommentsHelpers, type: :feature
+  config.include CommentsHelpers, type: :system
 end

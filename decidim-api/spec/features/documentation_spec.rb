@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Documentation", type: :feature do
+describe "Documentation", type: :system do
   let(:organization) { create(:organization) }
 
   before do

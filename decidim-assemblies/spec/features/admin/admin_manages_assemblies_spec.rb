@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages assemblies", type: :feature do
+describe "Admin manages assemblies", type: :system do
   include_context "when admin administrating an assembly"
 
   it_behaves_like "manage assemblies"

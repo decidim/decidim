@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Authentication", type: :feature do
+describe "Authentication", type: :system do
   let(:organization) { create(:organization) }
   let(:last_user) { Decidim::User.last }
 

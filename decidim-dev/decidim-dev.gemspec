@@ -21,8 +21,6 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "capybara", "~> 2.15"
-  s.add_dependency "capybara-screenshot", "~> 1.0"
-  s.add_dependency "database_cleaner", "~> 1.6"
   s.add_dependency "decidim", Decidim::Dev.version
   s.add_dependency "factory_bot_rails", "~> 4.8"
 

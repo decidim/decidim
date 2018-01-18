@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Postal letter code request", type: :feature do
+describe "Postal letter code request", type: :system do
   let!(:organization) do
     create(:organization, available_authorizations: ["postal_letter"])
   end

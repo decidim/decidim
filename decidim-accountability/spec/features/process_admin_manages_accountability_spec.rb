@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Process admin manages accountability", type: :feature do
+describe "Process admin manages accountability", type: :system do
   let(:manifest_name) { "accountability" }
   let(:user) { process_admin }
 

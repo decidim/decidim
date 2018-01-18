@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages surveys", type: :feature do
+describe "Admin manages surveys", type: :system do
   let(:manifest_name) { "surveys" }
   let!(:survey) { create :survey, feature: feature }
 

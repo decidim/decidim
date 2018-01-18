@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Participatory Process Groups", type: :feature do
+describe "Participatory Process Groups", type: :system do
   let(:organization) { create(:organization) }
   let(:other_organization) { create(:organization) }
   let!(:participatory_process_group) do

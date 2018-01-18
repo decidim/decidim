@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Process admin manages projects", type: :feature do
+describe "Process admin manages projects", type: :system do
   let(:manifest_name) { "budgets" }
   let!(:project) { create :project, scope: scope, feature: current_feature }
 

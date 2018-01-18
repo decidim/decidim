@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Process embeds", type: :feature do
+describe "Process embeds", type: :system do
   let!(:process) { create(:participatory_process) }
 
   context "when visiting the embed page for a process" do

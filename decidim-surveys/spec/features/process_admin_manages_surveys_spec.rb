@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Process admin manages surveys", type: :feature do
+describe "Process admin manages surveys", type: :system do
   let(:manifest_name) { "surveys" }
   let!(:survey) { create :survey, feature: feature }
 

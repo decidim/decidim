@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Invite process collaborator", type: :feature do
+describe "Invite process collaborator", type: :system do
   include_context "when inviting process users"
   let(:role) { "Collaborator" }
 

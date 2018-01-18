@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Comments", type: :feature do
+describe "Comments", type: :system do
   let!(:feature) { create(:feature, manifest_name: :dummy, organization: organization) }
   let!(:author) { create(:user, :confirmed, organization: organization) }
   let!(:commentable) { create(:dummy_resource, feature: feature, author: author) }

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Highlighted Assemblies", type: :feature do
+describe "Highlighted Assemblies", type: :system do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
   let!(:promoted_assembly) { create(:assembly, :promoted, organization: organization) }

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Meeting embeds", type: :feature do
+describe "Meeting embeds", type: :system do
   include_context "with a feature"
   let(:manifest_name) { "meetings" }
 

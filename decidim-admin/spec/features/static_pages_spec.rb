@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Content pages", type: :feature do
+describe "Content pages", type: :system do
   include ActionView::Helpers::SanitizeHelper
 
   let(:admin) { create :user, :admin, :confirmed }

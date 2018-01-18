@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Assembly admin manages assembly attachments", type: :feature do
+describe "Assembly admin manages assembly attachments", type: :system do
   include_context "when assembly admin administrating an assembly"
 
   let(:attached_to) { assembly }

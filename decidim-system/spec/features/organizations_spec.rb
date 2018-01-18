@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Organizations", type: :feature do
+describe "Organizations", type: :system do
   let(:admin) { create(:admin) }
 
   context "when an admin authenticated" do

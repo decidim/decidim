@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Vote Proposal", type: :feature do
+describe "Vote Proposal", type: :system do
   include_context "with a feature"
   let(:manifest_name) { "proposals" }
 

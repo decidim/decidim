@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Cookies", type: :feature do
+describe "Cookies", type: :system do
   let(:organization) { create(:organization) }
   let(:last_user) { Decidim::User.last }
 

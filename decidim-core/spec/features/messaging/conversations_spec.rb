@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Conversations", type: :feature do
+describe "Conversations", type: :system do
   let(:organization) { create(:organization) }
   let(:user) { create :user, :confirmed, organization: organization }
 

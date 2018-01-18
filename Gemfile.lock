@@ -91,9 +91,7 @@ PATH
     decidim-dev (0.9.0.pre)
       byebug
       capybara (~> 2.15)
-      capybara-screenshot (~> 1.0)
       codecov (~> 0.1.9)
-      database_cleaner (~> 1.6)
       db-query-matchers (~> 0.9.0)
       decidim (= 0.9.0.pre)
       factory_bot_rails (~> 4.8)
@@ -211,9 +209,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (>= 2.0, < 4.0)
-    capybara-screenshot (1.0.18)
-      capybara (>= 1.0, < 3)
-      launchy
     carrierwave (1.1.0)
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
@@ -239,7 +234,6 @@ GEM
     crass (1.0.3)
     css_parser (1.6.0)
       addressable
-    database_cleaner (1.6.2)
     date_validator (0.9.0)
       activemodel
       activesupport

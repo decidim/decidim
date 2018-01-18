@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Identity document upload", type: :feature do
+describe "Identity document upload", type: :system do
   let!(:organization) do
     create(:organization, available_authorizations: ["id_documents"])
   end

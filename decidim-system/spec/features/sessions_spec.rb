@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Sessions", type: :feature do
+describe "Sessions", type: :system do
   let!(:admin) do
     create(:admin, email: "admin@example.org",
                    password: "123456",

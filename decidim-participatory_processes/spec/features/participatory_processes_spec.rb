@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Participatory Processes", type: :feature do
+describe "Participatory Processes", type: :system do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
   let(:base_process) do

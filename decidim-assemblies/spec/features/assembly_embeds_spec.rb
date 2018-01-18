@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Assembly embeds", type: :feature do
+describe "Assembly embeds", type: :system do
   let!(:assembly) { create(:assembly) }
 
   context "when visiting the embed page for an assembly" do

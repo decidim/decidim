@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages officializations", type: :feature do
+describe "Admin manages officializations", type: :system do
   let(:organization) { create(:organization) }
 
   let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages managed users", type: :feature do
+describe "Admin manages managed users", type: :system do
   let(:user) { create(:user, :admin, :confirmed, organization: organization) }
 
   def navigate_to_managed_users_page

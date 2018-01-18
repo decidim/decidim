@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Assemblies", type: :feature do
+describe "Assemblies", type: :system do
   let(:organization) { create(:organization) }
   let(:show_statistics) { true }
   let(:base_assembly) do

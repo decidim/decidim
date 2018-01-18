@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Scopes picker", type: :feature do
+describe "Scopes picker", type: :system do
   let(:organization) { create(:organization) }
   let!(:scopes) { create_list(:scope, 3, organization: organization) }
   let!(:subscope) { create(:subscope, parent: scopes.first) }
