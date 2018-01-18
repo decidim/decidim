@@ -96,6 +96,7 @@ sv:
         new:
           already_have_an_account?: Har du redan ett konto?
           nickname_help: Din unika identifierare i decidim.
+          notifications: Ta emot information om relevant aktivitet
           sign_in: Logga in
           sign_up: Bli Medlem
           sign_up_as:
@@ -223,6 +224,7 @@ sv:
     notifications_settings:
       show:
         email_on_notification: Jag vill ta emot ett mail varje gång jag får ett meddelande.
+        newsletter_notifications: Jag vill få nyhetsbrev
         update_notifications_settings: Spara ändringar
       update:
         error: Det har uppstått ett fel vid uppdatering av dina anmälningsinställningar.
