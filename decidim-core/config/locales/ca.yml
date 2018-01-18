@@ -95,8 +95,8 @@ ca:
       registrations:
         new:
           already_have_an_account?: Ja tens un compte?
-          newsletter_notifications: Rebre informació sobre activitat rellevant
           nickname_help: El teu identificador únic.
+          notifications: Rebeu informació sobre l'activitat rellevant
           sign_in: Entra
           sign_up: Registra't
           sign_up_as:
@@ -224,7 +224,7 @@ ca:
     notifications_settings:
       show:
         email_on_notification: Vull rebre un correu electrònic cada vegada que rebi una notificació.
-        newsletter_notifications: Vull rebre informació sobre activitat rellevant
+        newsletter_notifications: Vull rebre butlletins
         update_notifications_settings: Guardar canvis
       update:
         error: Hi ha hagut un error en actualitzar la configuració de les notificacions.
