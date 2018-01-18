@@ -52,6 +52,7 @@ you need to change the following line in `config/environments/production.rb`:
   1. Return the current user locale translation if available.
   2. Fallback to organization default locale in case the user locale translation is not available.
   3. Otherwise return blank.
+- **decidim-core**: Forced order in covnersations (newest on top) and conversation messages (oldest on top). [\#2520](https://github.com/decidim/decidim/pull/2520)
 
 
   Now it follows these steps:
