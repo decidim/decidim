@@ -95,8 +95,8 @@ nl:
       registrations:
         new:
           already_have_an_account?: U heeft al een account?
-          newsletter_notifications: Stuur me informatie over relevante activiteiten
           nickname_help: Uw unieke ID in decidim.
+          notifications: Ontvang informatie over relevante activiteiten
           sign_in: Aanmelden
           sign_up: Registratie
           sign_up_as:
@@ -224,7 +224,7 @@ nl:
     notifications_settings:
       show:
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
-        newsletter_notifications: Ik wil informatie ontvangen over relevante activiteiten
+        newsletter_notifications: Ik wil nieuwsbrieven ontvangen
         update_notifications_settings: Wijzigingen opslaan
       update:
         error: Er is een fout opgetreden bij het bijwerken van uw notificatie instellingen.
