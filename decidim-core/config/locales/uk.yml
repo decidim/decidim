@@ -95,7 +95,6 @@ uk:
       registrations:
         new:
           already_have_an_account?: Вже маєте обліковий запис?
-          newsletter_notifications: Отримувати повідомлення про пов'язані події
           nickname_help: Ваш унікальний псевдонім в Десідім.
           sign_in: Увійти
           sign_up: Зареєструватися
@@ -210,7 +209,6 @@ uk:
     notifications_settings:
       show:
         email_on_notification: Я хочу отримувати листа електронною поштою кожного разу, коли отримую сповіщення.
-        newsletter_notifications: Я хочу отримувати повідомлення про пов'язані з цим події
         update_notifications_settings: Зберегти зміни
       update:
         error: При оновленні налаштувань сповіщень сталася помилка.
