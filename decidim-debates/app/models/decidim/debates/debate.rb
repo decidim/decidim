@@ -31,6 +31,10 @@ module Decidim
         ama? && Time.current.between?(start_time, end_time)
       end
 
+      def open?
+        (ama? && open_ama?) || !ama?
+      end
+
       # Public: Overrides the `commentable?` Commentable concern method.
       def commentable?
         feature.settings.comments_enabled?
@@ -38,7 +42,7 @@ module Decidim
 
       # Public: Overrides the `accepts_new_comments?` Commentable concern method.
       def accepts_new_comments?
-        return false unless open_ama?
+        return false unless open?
         commentable? && !comments_blocked?
       end
 

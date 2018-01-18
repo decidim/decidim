@@ -59,15 +59,13 @@ describe Decidim::Debates::Debate do
   describe "accepts_new_comments?" do
     subject { debate.accepts_new_comments? }
 
-    context "when it is not an open AMA debate" do
-      before do
-        allow(debate).to receive(:open_ama?).and_return(false)
-      end
+    context "when it is not an open debate" do
+      let(:debate) { build :debate, start_time: 2.days.ago, end_time: 1.day.ago }
 
       it { is_expected.to be_falsey }
     end
 
-    context "when it is an open AMA debate" do
+    context "when it is an open debate" do
       let(:debate) { build :debate, :open_ama }
 
       context "when it is not commentable" do
