@@ -73,6 +73,8 @@ en:
             title: Title
     features:
       debates:
+        actions:
+          create: Create
         name: Debates
         settings:
           global:

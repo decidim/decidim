@@ -23,6 +23,8 @@ Decidim.register_feature(:debates) do |feature|
     resource.model_class_name = "Decidim::Debates::Debate"
   end
 
+  feature.actions = %w(create)
+
   feature.seeds do |participatory_space|
     feature = Decidim::Feature.create!(
       name: Decidim::Features::Namer.new(participatory_space.organization.available_locales, :debates).i18n_name,
