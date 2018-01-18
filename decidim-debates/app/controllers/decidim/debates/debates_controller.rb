@@ -8,7 +8,7 @@ module Decidim
       helper Decidim::Messaging::ConversationHelper
       include FormFactory
 
-      helper_method :debates, :debate
+      helper_method :debates, :debate, :report_form
 
       def new
         authorize! :create, Debate
@@ -34,11 +34,15 @@ module Decidim
       end
 
       def debates
-        @debates ||= Debate.where(feature: current_feature)
+        @debates ||= Debate.where(feature: current_feature).not_hidden
       end
 
       def debate
         @debate ||= debates.find(params[:id])
+      end
+
+      def report_form
+        @report_form ||= form(Decidim::ReportForm).from_params(reason: "spam")
       end
     end
   end

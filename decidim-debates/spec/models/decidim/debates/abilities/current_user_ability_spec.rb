@@ -29,5 +29,6 @@ describe Decidim::Debates::Abilities::CurrentUserAbility do
 
   describe "proposal creation" do
     it { is_expected.to be_able_to(:create, Decidim::Debates::Debate) }
+    it { is_expected.to be_able_to(:report, Decidim::Debates::Debate) }
   end
 end

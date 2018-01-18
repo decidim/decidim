@@ -17,6 +17,7 @@ module Decidim
           @context = context
 
           can :create, Debate if authorized?(:create) && creation_enabled?
+          can :report, Debate
         end
 
         private

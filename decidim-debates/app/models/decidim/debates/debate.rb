@@ -13,6 +13,7 @@ module Decidim
       include Decidim::Comments::Commentable
       include Decidim::HasScope
       include Decidim::Authorable
+      include Decidim::Reportable
 
       feature_manifest_name "debates"
 
@@ -23,6 +24,11 @@ module Decidim
       # Returns a boolean.
       def official?
         author.blank?
+      end
+
+      # Public: Overrides the `reported_content_url` Reportable concern method.
+      def reported_content_url
+        ResourceLocatorPresenter.new(self).url
       end
 
       # Public: Calculates whether the current debate is an AMA-styled one or not.

@@ -36,6 +36,22 @@ describe "Explore debates", type: :feature do
         expect(page).to have_content(translated(debate.title))
       end
     end
+
+    context "with hidden debates" do
+      let(:debate) { debates.last }
+
+      before do
+        create :moderation, :hidden, reportable: debate
+      end
+
+      it "does not show the hidden debates" do
+        visit path
+
+        expect(page).to have_selector("article.card", count: debates_count - 1)
+
+        expect(page).to have_no_content(translated(debate.title))
+      end
+    end
   end
 
   describe "show" do

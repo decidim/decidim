@@ -11,6 +11,9 @@
   <div class="author-data">
     <%= render partial: "decidim/shared/author_reference", locals: { author: Decidim::Debates::DebatePresenter.new(debate).author } %>
     <div class="author-data__extra">
+      <button type="button" data-open="<%= current_user.present? ? 'flagModal' : 'loginModal' %>" title="<%= t('.report') %>" aria-controls="<%= current_user.present? ? 'flagModal' : 'loginModal' %>" aria-haspopup="true" tabindex="0">
+        <%= icon "flag", aria_label: t('.report'), class: 'icon--small' %>
+      </button>
       <% unless debate.official? %>
         <%= link_to_current_or_new_conversation_with(debate.author) %>
       <% end %>
@@ -65,3 +68,11 @@
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>
 <%= stylesheet_link_tag "decidim/proposals/social_share" %>
+
+<%=
+  render partial: "decidim/shared/flag_modal", locals: {
+    reportable: debate,
+    form: report_form,
+    url: decidim.report_path(sgid: debate.to_sgid.to_s)
+  }
+%>
