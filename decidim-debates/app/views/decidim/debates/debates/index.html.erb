@@ -1,6 +1,10 @@
 <div class="row columns">
   <div class="title-action">
     <h2 class="title-action__title section-heading"><%= t(".title") %></h2>
+    <%= action_authorized_link_to :create, new_debate_path, class: "title-action__action button small hollow", data: { "redirect_url" => new_debate_path } do %>
+      <%= t(".new_debate") %>
+      <%= icon "plus" %>
+    <% end %>
     </a>
   </div>
 </div>

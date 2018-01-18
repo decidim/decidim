@@ -3,6 +3,9 @@
 require "spec_helper"
 
 describe "Explore debates", type: :feature do
+  include_context "with a feature"
+  let(:manifest_name) { "debates" }
+
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
   let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "debates" }
@@ -19,13 +22,14 @@ describe "Explore debates", type: :feature do
 
   before do
     switch_to_host(organization.host)
-    visit path
   end
 
   describe "index" do
     let(:path) { decidim_participatory_process_debates.debates_path(participatory_process_slug: participatory_process.slug, feature_id: current_feature.id) }
 
     it "shows all debates for the given process" do
+      visit path
+
       expect(page).to have_selector("article.card", count: debates_count)
 
       debates.each do |debate|
@@ -35,9 +39,19 @@ describe "Explore debates", type: :feature do
   end
 
   describe "show" do
-    let(:path) { decidim_participatory_process_debates.debate_path(id: debate.id, participatory_process_slug: participatory_process.slug, feature_id: current_feature.id) }
+    let(:path) do
+      decidim_participatory_process_debates.debate_path(
+        id: debate.id,
+        participatory_process_slug: participatory_process.slug,
+        feature_id: current_feature.id
+      )
+    end
     let(:debates_count) { 1 }
     let(:debate) { debates.first }
+
+    before do
+      visit path
+    end
 
     it "shows all debate info" do
       expect(page).to have_i18n_content(debate.title)

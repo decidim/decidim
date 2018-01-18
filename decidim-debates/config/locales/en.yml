@@ -40,6 +40,9 @@ en:
           debate:
             name: Debate
       debates:
+        create:
+          invalid: There has been a problem while creating the debate.
+          success: Debate created successfully.
         filters:
           ascendent: Ascendent
           category: Category
@@ -47,8 +50,14 @@ en:
           descendent: Descendent
           scopes: Scopes
         index:
+          new_debate: New debate
           participate: Participate
           title: Open debates
+        new:
+          back: Back
+          create: Create
+          select_a_category: Please select a category
+          title: New debate
         share:
           close_window: Close window
           share: Share
