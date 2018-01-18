@@ -50,6 +50,7 @@ module Decidim
       end
 
       # Public: Renders a button to endorse the given proposal.
+      # To override the translation for both buttons: endorse and unendorse (use to be the name of the user/user_group).
       #
       # @params (mandatory): proposal, from_proposals_list
       # @params (optional) : user_group, btn_label
@@ -59,7 +60,6 @@ module Decidim
           from_proposals_list: from_proposals_list,
           user_group_id: user_group&.id
         )
-        # to override the translation for both buttons: endorse and unendorse (use to be the name of the user/user_group)
         endorse_label = btn_label || t(".endorse")
         unendorse_label = btn_label || t("decidim.proposals.proposal_endorsements_helper.endorsement_button.already_endorsed")
 
