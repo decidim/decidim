@@ -1,0 +1,23 @@
+<div class="author-data">
+  <div class="author-data__main">
+    <div class="author author--inline">
+      <% if model.profile_path.present? %>
+        <%= link_to model.profile_path do %>
+          <%= render :author %>
+        <% end %>
+      <% else %>
+        <%= render :author %>
+      <% end %>
+
+      <% if model.profile_path %>
+        <%= link_to_current_or_new_conversation_with(model) %>
+      <% end %>
+      </a>
+    </div>
+  </div>
+  <% if @options[:extra] %>
+    <div class="author-data__extra">
+      <%= options[:extra] %>
+    </div>
+  <% end %>
+</div>
