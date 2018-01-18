@@ -56,8 +56,12 @@ Capybara.asset_host = "http://localhost:3000"
 
 RSpec.configure do |config|
   config.before :each, type: :system do
-    driven_by :headless_chrome
+    driven_by(:headless_chrome)
     switch_to_default_host
+  end
+
+  config.before :each, driver: :rack_test do
+    driven_by(:rack_test)
   end
 
   config.around :each, :slow do |example|
