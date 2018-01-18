@@ -95,8 +95,8 @@ pt:
       registrations:
         new:
           already_have_an_account?: Já tem uma conta?
-          newsletter_notifications: Receba informações sobre atividades relevantes
           nickname_help: Seu identificador exclusivo no decidim.
+          notifications: Receba informações sobre atividades relevantes
           sign_in: Entrar
           sign_up: Inscreva-se
           sign_up_as:
@@ -224,7 +224,7 @@ pt:
     notifications_settings:
       show:
         email_on_notification: Quero receber um email sempre que recebo uma notificação.
-        newsletter_notifications: Quero receber informações sobre atividades relevantes
+        newsletter_notifications: Quero receber boletins informativos
         update_notifications_settings: Guardar alterações
       update:
         error: Ocorreu um erro ao atualizar suas configurações de notificações.
