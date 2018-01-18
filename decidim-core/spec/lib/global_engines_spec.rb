@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable RSpec/DescribeClass
+
 require "spec_helper"
 
 describe "global engines", type: :system do
