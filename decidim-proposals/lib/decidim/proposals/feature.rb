@@ -160,9 +160,9 @@ Decidim.register_feature(:proposals) do |feature|
       end
 
       unless proposal.answered? && proposal.rejected?
-        (n * 2).times do |idx|
-          email = "endorsement-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-endr#{idx}@example.org"
-          name = "#{Faker::Name.name} #{participatory_space.id} #{n} endr#{idx}"
+        (n * 2).times do |index|
+          email = "endorsement-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-endr#{index}@example.org"
+          name = "#{Faker::Name.name} #{participatory_space.id} #{n} endr#{index}"
 
           author = Decidim::User.find_or_initialize_by(email: email)
           author.update!(
@@ -174,7 +174,7 @@ Decidim.register_feature(:proposals) do |feature|
             tos_agreement: "1",
             confirmed_at: Time.current
           )
-          if idx.even?
+          if index.even?
             group = Decidim::UserGroup.create!(
               name: Faker::Name.name,
               document_number: Faker::Code.isbn,
