@@ -53,7 +53,6 @@ module Decidim
       #
       # @params (mandatory): proposal, from_proposals_list
       # @params (optional) : user_group, btn_label
-      # avoid "undefined local variable" error
       def endorsement_button(proposal, from_proposals_list, btn_label = nil, user_group = nil)
         current_endorsement_url = proposal_proposal_endorsement_path(
           proposal_id: proposal,
