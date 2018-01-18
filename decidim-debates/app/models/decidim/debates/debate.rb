@@ -12,10 +12,18 @@ module Decidim
       include Decidim::Followable
       include Decidim::Comments::Commentable
       include Decidim::HasScope
+      include Decidim::Authorable
 
       feature_manifest_name "debates"
 
       validates :title, presence: true
+
+      # Public: Checks whether the debate is official or not.
+      #
+      # Returns a boolean.
+      def official?
+        author.blank?
+      end
 
       # Public: Calculates whether the current debate is an AMA-styled one or not.
       #
@@ -31,6 +39,9 @@ module Decidim
         ama? && Time.current.between?(start_time, end_time)
       end
 
+      # Public: Checks if the debate is open or not.
+      #
+      # Returns a boolean.
       def open?
         (ama? && open_ama?) || !ama?
       end

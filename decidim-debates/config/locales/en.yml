@@ -59,6 +59,7 @@ en:
         debate:
           fields:
             end_time: End date
+            official_debate: Official debate
             start_time: Start date
             title: Title
     features:
