@@ -95,7 +95,6 @@ es:
       registrations:
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
-          newsletter_notifications: Recibir información sobre la actividad relevante
           nickname_help: Su identificador único.
           sign_in: Entra
           sign_up: Regístrate
@@ -224,7 +223,6 @@ es:
     notifications_settings:
       show:
         email_on_notification: Quiero recibir un correo electrónico cada vez que recibo una notificación.
-        newsletter_notifications: Quiero recibir información acerca de actividad relevante
         update_notifications_settings: Guardar cambios
       update:
         error: Ha habido un error al actualizar la configuración de las notificaciones.
