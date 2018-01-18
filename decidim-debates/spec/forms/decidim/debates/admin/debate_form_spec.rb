@@ -70,6 +70,13 @@ describe Decidim::Debates::Admin::DebateForm do
     it { is_expected.not_to be_valid }
   end
 
+  describe "when both end_time and start_time are missing" do
+    let(:end_time) { nil }
+    let(:start_time) { nil }
+
+    it { is_expected.to be_valid }
+  end
+
   describe "when current_feature is missing" do
     let(:current_feature) { nil }
 

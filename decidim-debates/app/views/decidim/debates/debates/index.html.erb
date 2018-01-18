@@ -14,14 +14,16 @@
               <h5 class="card__title"><%= translated_attribute debate.title %></h5>
             <% end %>
           </div>
-          <div class="card__datetime">
-            <div class="card__datetime__date">
-              <%= l debate.start_time, format: "%d" %> <span class="card__datetime__month"><%= l debate.start_time, format: "%B" %></span>
+          <% if debate.start_time.present? && debate.end_time.present? %>
+            <div class="card__datetime">
+              <div class="card__datetime__date">
+                <%= l debate.start_time, format: "%d" %> <span class="card__datetime__month"><%= l debate.start_time, format: "%B" %></span>
+              </div>
+              <div class="card__datetime__time">
+                <%= l debate.start_time, format: "%H:%M" %> - <%= l debate.end_time, format: "%H:%M" %>
+              </div>
             </div>
-            <div class="card__datetime__time">
-              <%= l debate.start_time, format: "%H:%M" %> - <%= l debate.end_time, format: "%H:%M" %>
-            </div>
-          </div>
+          <% end %>
           <p class="card__desc">
             <%== html_truncate(translated_attribute(debate.description), length: 630, separator: "...") %>
           </p>

@@ -18,8 +18,8 @@ module Decidim
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
         validates :instructions, translatable_presence: true
-        validates :start_time, presence: true, date: { before: :end_time }
-        validates :end_time, presence: true, date: { after: :start_time }
+        validates :start_time, presence: { if: ->(object) { object.end_time.present? } }, date: { before: :end_time, allow_blank: true }
+        validates :end_time, presence: { if: ->(object) { object.start_time.present? } }, date: { after: :start_time, allow_blank: true }
 
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
 
