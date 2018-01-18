@@ -69,4 +69,5 @@ RSpec.configure do |config|
   end
 
   config.include Decidim::CapybaraTestHelpers, type: :system
+  config.include Devise::Test::IntegrationHelpers, type: :system
 end
