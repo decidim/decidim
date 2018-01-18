@@ -95,8 +95,8 @@ fr:
       registrations:
         new:
           already_have_an_account?: Vous avez déjà un compte?
-          newsletter_notifications: Recevoir des lettres d'informations sur l'activité de la plateforme
           nickname_help: Votre identifiant unique pour Decidim.
+          notifications: Recevoir des informations sur l'activité pertinente
           sign_in: S'identifier
           sign_up: S'inscrire
           sign_up_as:
@@ -224,7 +224,7 @@ fr:
     notifications_settings:
       show:
         email_on_notification: Je veux recevoir un courriel chaque fois que je reçois une notification.
-        newsletter_notifications: Je souhaite recevoir des lettres d'informations sur l'activité de la plateforme
+        newsletter_notifications: Je veux recevoir des newsletters
         update_notifications_settings: Enregistrer les modifications
       update:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
