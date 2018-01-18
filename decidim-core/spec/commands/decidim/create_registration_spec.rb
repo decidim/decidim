@@ -31,7 +31,7 @@ module Decidim
               "password" => password,
               "password_confirmation" => password_confirmation,
               "tos_agreement" => tos_agreement,
-              "notifications" => newsletter_notifications,
+              "notifications" => notifications,
               "user_group_name" => user_group_name,
               "user_group_document_number" => user_group_document_number,
               "user_group_phone" => user_group_phone
