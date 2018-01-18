@@ -28,7 +28,7 @@ module Decidim
 
       it "trims very long usernames" do
         nickname = subject.nicknamize("Felipe Juan Froilan de todos los Santos")
-        expect(nickname).to eq("felipe_juan_froilan_d")
+        expect(nickname).to eq("felipe_juan_froilan_")
         expect(nickname.length).to eq(20)
       end
 
