@@ -27,8 +27,9 @@ module Decidim
       end
 
       it "trims very long usernames" do
-        expect(subject.nicknamize("Felipe Juan Froilan de todos los Santos"))
-          .to eq("felipe_juan_froilan_d")
+        nickname = subject.nicknamize("Felipe Juan Froilan de todos los Santos")
+        expect(nickname).to eq("felipe_juan_froilan_d")
+        expect(nickname.length).to eq(20)
       end
 
       it "resolves conflicts with current nicknames" do
@@ -40,7 +41,7 @@ module Decidim
       it "resolves conflicts with long current nicknames" do
         create(:user, nickname: "felipe_rocks_so_much")
 
-        expect(subject.nicknamize("Felipe Rocks So Much")).to eq("felipe_rocks_so_muc_2")
+        expect(subject.nicknamize("Felipe Rocks So Much")).to eq("felipe_rocks_so_mu_2")
       end
     end
   end
