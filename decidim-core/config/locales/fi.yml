@@ -95,8 +95,8 @@ fi:
       registrations:
         new:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
-          newsletter_notifications: Vastaanota tietoa viimeaikaisesta aktiviteetista
           nickname_help: Yksilöllinen tunnisteesi decidimissä.
+          notifications: Hanki tietoa asiaan liittyvästä toiminnasta
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           sign_up_as:
@@ -224,7 +224,7 @@ fi:
     notifications_settings:
       show:
         email_on_notification: Haluan saada sähköpostia aina, kun saan ilmoituksen.
-        newsletter_notifications: Haluan vastaanottaa tietoa relevantista aktiviteetista
+        newsletter_notifications: Haluan vastaanottaa uutiskirjeitä
         update_notifications_settings: Tallenna muutokset
       update:
         error: Ilmoitusasetustesi päivityksessä tapahtui virhe.
