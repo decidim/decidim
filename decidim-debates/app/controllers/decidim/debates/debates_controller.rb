@@ -7,7 +7,6 @@ module Decidim
       helper Decidim::ApplicationHelper
       helper Decidim::Messaging::ConversationHelper
       include FormFactory
-      include FilterResource
 
       helper_method :debates, :debate
 
@@ -34,32 +33,12 @@ module Decidim
         end
       end
 
-      private
-
       def debates
-        @debates ||= search.results
+        @debates ||= Debate.where(feature: current_feature)
       end
 
       def debate
         @debate ||= debates.find(params[:id])
-      end
-
-      def search_klass
-        DebateSearch
-      end
-
-      def default_search_params
-        {
-          page: params[:page],
-          per_page: 12
-        }
-      end
-
-      def default_filter_params
-        {
-          order_start_time: "asc",
-          category_id: ""
-        }
       end
     end
   end
