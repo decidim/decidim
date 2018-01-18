@@ -15,6 +15,12 @@ module Decidim
         resources :debates, only: [:index, :show]
         root to: "debates#index"
       end
+
+      initializer "decidim_debates.inject_abilities_to_user" do |_app|
+        Decidim.configure do |config|
+          config.abilities += ["Decidim::Debates::Abilities::CurrentUserAbility"]
+        end
+      end
     end
   end
 end
