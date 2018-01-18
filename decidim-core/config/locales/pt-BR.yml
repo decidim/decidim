@@ -224,6 +224,7 @@ pt-BR:
     notifications_settings:
       show:
         email_on_notification: Quero receber um email sempre que receber uma notificação.
+        newsletter_notifications: Quero receber boletins informativos
         update_notifications_settings: Salvar alterações
       update:
         error: Ocorreu um erro ao atualizar suas configurações de notificações.
