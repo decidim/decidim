@@ -1,7 +1,8 @@
-<% content_for :meta_description, translated_attribute(debate.description) %>
-<% content_for :meta_title, translated_attribute(debate.title) %>
-<% content_for :meta_url, debate_url(debate.id) %>
-<% content_for :twitter_handler, current_organization.twitter_handler %>
+<% add_decidim_meta_tags({
+  description: translated_attribute(debate.description),
+  title: translated_attribute(debate.title),
+  url: debate_url(debate.id)
+}) %>
 
 <div class="row column view-header">
   <h2 class="heading2">
