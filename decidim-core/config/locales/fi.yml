@@ -96,7 +96,7 @@ fi:
         new:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
           nickname_help: Yksilöllinen tunnisteesi decidimissä.
-          notifications: Hanki tietoa asiaan liittyvästä toiminnasta
+          notifications: Vastaanota tietoa viimeaikaisesta toiminnasta
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           sign_up_as:
