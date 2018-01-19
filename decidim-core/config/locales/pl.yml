@@ -128,6 +128,11 @@ pl:
         email_intro: 'Nastąpiła aktualizacja do "%{resource_title}". Widać go z tej strony:'
         email_outro: Otrzymałeś powiadomienie, ponieważ są po "%{resource_title}". Możesz przestać obserwować go od poprzedniego łącza.
         email_subject: Aktualizacja %{resource_title}
+      feature_published_event:
+        email_intro: 'Komponent %{resource_title} jest teraz aktywny dla %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
+        email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+        email_subject: Aktualizacja do %{participatory_space_title}
+        notification_title: Komponent %{resource_title} jest teraz aktywny dla <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Zdarzenie miało miejsce na <a href="%{resource_path}">%{resource_title}</a>.
       profile_updated_event:
