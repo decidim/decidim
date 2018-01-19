@@ -43,6 +43,38 @@ describe "Explore results", versioning: true, type: :feature do
         expect(page).to have_content(translated(result.title))
       end
     end
+
+    context "with a category and a scope" do
+      let!(:category) { create :category, participatory_space: participatory_process }
+      let!(:scope) { create :scope, organization: organization }
+      let!(:result) do
+        result = results.first
+        result.category = category
+        result.scope = scope
+        result.save
+        result
+      end
+
+      let(:path) do
+        decidim_participatory_process_accountability.results_path(
+          participatory_process_slug: participatory_process.slug, feature_id: feature.id, filter: { category_id: category.id, scope_id: scope.id }
+        )
+      end
+
+      it "shows current scope active" do
+        within "ul.tags.tags--action li.active" do
+          expect(page).to have_content(translated(scope.name))
+        end
+      end
+
+      it "maintains scope filter" do
+        click_link translated(category.name)
+
+        within "ul.tags.tags--action li.active" do
+          expect(page).to have_content(translated(scope.name))
+        end
+      end
+    end
   end
 
   describe "show" do
