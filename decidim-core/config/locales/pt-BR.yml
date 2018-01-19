@@ -128,6 +128,9 @@ pt-BR:
         email_intro: 'Houve uma atualização em "%{resource_title}". Você pode vê-la nesta página:'
         email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Se desejar parar de segui-la, clique no link anterior.
         email_subject: Há uma atualização em %{resource_title}
+      feature_published_event:
+        email_intro: 'O componente %{resource_title} agora está ativo para %{participatory_space_title}. Você pode vê-lo a partir desta página:'
+        email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
       profile_updated_event:
