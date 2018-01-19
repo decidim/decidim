@@ -128,6 +128,10 @@ nl:
         email_intro: 'Er is een update voor ''%{resource_title}''. Je kunt het vanaf deze pagina bekijken:'
         email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kan stoppen met deze te volgen via vorige link.
         email_subject: Een update voor %{resource_title}
+      feature_published_event:
+        email_intro: 'Het %{resource_title}-onderdeel is nu actief voor %{participatory_space_title}. Je kunt het vanaf deze pagina bekijken:'
+        email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+        email_subject: Een update naar %{participatory_space_title}
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
       profile_updated_event:
