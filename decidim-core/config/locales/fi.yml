@@ -132,6 +132,7 @@ fi:
         email_intro: '%{resource_title} -komponentti on nyt käytössä %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
         email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
         email_subject: Päivitys %{participatory_space_title}
+        notification_title: '%{resource_title} -komponentti on nyt aktiivinen <a href="%{resource_path}">%{participatory_space_title}</a>'
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
       profile_updated_event:
