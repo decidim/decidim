@@ -173,6 +173,17 @@ shared_examples "manage assembly features" do
           expect(page).to have_css(".action-icon--unpublish")
         end
       end
+
+      it "notifies its followers" do
+        follower = create(:user, organization: assembly.organization)
+        create(:follow, followable: assembly, user: follower)
+
+        within ".feature-#{feature.id}" do
+          click_link "Publish"
+        end
+
+        expect(enqueued_jobs.last[:args]).to include("decidim.events.features.feature_published")
+      end
     end
 
     context "when the feature is published" do
