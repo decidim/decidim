@@ -1,5 +1,5 @@
 <div class="row">
-  <%= decidim_form_for(@account, url: account_path, method: :put, class: "user-form") do |f| %>
+  <%= decidim_form_for(@account, url: account_path, method: :put, class: "user-form", autocomplete: "nope") do |f| %>
     <div class="columns large-4">
       <%= f.upload :avatar %>
     </div>
