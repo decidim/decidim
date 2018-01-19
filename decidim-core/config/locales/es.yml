@@ -130,6 +130,9 @@ es:
         email_subject: Una actualización de %{resource_title}
       feature_published_event:
         email_intro: 'El componente %{resource_title} ahora está activo para %{participatory_space_title}. Puedes verlo desde esta página:'
+        email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+        email_subject: Una actualización de %{participatory_space_title}
+        notification_title: El componente %{resource_title} ahora está activo para <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
       profile_updated_event:
