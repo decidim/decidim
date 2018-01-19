@@ -3,6 +3,7 @@
 module Decidim
   # A controller to allow users switching their locale.
   class LocalesController < Decidim::ApplicationController
+    skip_before_action :store_current_location
     authorize_resource :locales, class: false
 
     def create
