@@ -14,6 +14,12 @@ FactoryBot.define do
       start_time { 1.day.ago }
       end_time { 1.day.from_now }
     end
+
+    trait :with_author do
+      author do
+        build(:user, organization: feature.organization) if feature
+      end
+    end
   end
 
   factory :debates_feature, parent: :feature do

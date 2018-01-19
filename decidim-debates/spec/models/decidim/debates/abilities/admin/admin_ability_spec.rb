@@ -20,4 +20,10 @@ describe Decidim::Debates::Abilities::Admin::AdminAbility do
   it { is_expected.to be_able_to(:manage, Decidim::Debates::Debate) }
   it { is_expected.to be_able_to(:hide, Decidim::Debates::Debate) }
   it { is_expected.to be_able_to(:unreport, Decidim::Debates::Debate) }
+
+  context "when the debate is from a user" do
+    let(:debate) { build :debate, :with_author }
+
+    it { is_expected.not_to be_able_to(:manage, debate) }
+  end
 end

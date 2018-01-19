@@ -3,31 +3,45 @@
 RSpec.shared_examples "manage debates" do
   let!(:debate) { create :debate, category: category, feature: current_feature }
 
-  it "updates a debate" do
-    visit_feature_admin
+  describe "updating a debate" do
+    it "updates a debate" do
+      visit_feature_admin
 
-    within find("tr", text: translated(debate.title)) do
-      page.find(".action-icon--edit").click
+      within find("tr", text: translated(debate.title)) do
+        page.find(".action-icon--edit").click
+      end
+
+      within ".edit_debate" do
+        fill_in_i18n(
+          :debate_title,
+          "#debate-title-tabs",
+          en: "My new title",
+          es: "Mi nuevo título",
+          ca: "El meu nou títol"
+        )
+
+        find("*[type=submit]").click
+      end
+
+      within ".callout-wrapper" do
+        expect(page).to have_content("successfully")
+      end
+
+      within "table" do
+        expect(page).to have_content("My new title")
+      end
     end
 
-    within ".edit_debate" do
-      fill_in_i18n(
-        :debate_title,
-        "#debate-title-tabs",
-        en: "My new title",
-        es: "Mi nuevo título",
-        ca: "El meu nou títol"
-      )
+    context "when the debate has an author" do
+      let!(:debate) { create(:debate, :with_author, feature: current_feature) }
 
-      find("*[type=submit]").click
-    end
+      it "cannot edit the debate" do
+        visit_feature_admin
 
-    within ".callout-wrapper" do
-      expect(page).to have_content("successfully")
-    end
-
-    within "table" do
-      expect(page).to have_content("My new title")
+        within find("tr", text: translated(debate.title)) do
+          expect(page).to have_no_selector(".action-icon--edit")
+        end
+      end
     end
   end
 
@@ -123,6 +137,16 @@ RSpec.shared_examples "manage debates" do
 
       within "table" do
         expect(page).not_to have_content(translated(debate2.title))
+      end
+    end
+
+    context "when the debate has an author" do
+      let!(:debate2) { create(:debate, :with_author, feature: current_feature) }
+
+      it "cannot delete the debate" do
+        within find("tr", text: translated(debate2.title)) do
+          expect(page).to have_no_selector(".action-icon--remove")
+        end
       end
     end
   end

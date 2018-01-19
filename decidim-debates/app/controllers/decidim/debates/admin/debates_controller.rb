@@ -8,11 +8,11 @@ module Decidim
         helper_method :debates
 
         def new
-          @form = form(DebateForm).instance
+          @form = form(Decidim::Debates::Admin::DebateForm).instance
         end
 
         def create
-          @form = form(DebateForm).from_params(params, current_feature: current_feature)
+          @form = form(Decidim::Debates::Admin::DebateForm).from_params(params, current_feature: current_feature)
 
           CreateDebate.call(@form) do
             on(:ok) do
@@ -28,10 +28,12 @@ module Decidim
         end
 
         def edit
+          authorize! :edit, debate
           @form = form(DebateForm).from_model(debate)
         end
 
         def update
+          authorize! :edit, debate
           @form = form(DebateForm).from_params(params, current_feature: current_feature)
 
           UpdateDebate.call(@form, debate) do
@@ -48,6 +50,7 @@ module Decidim
         end
 
         def destroy
+          authorize! :destroy, debate
           debate.destroy!
 
           flash[:notice] = I18n.t("debates.destroy.success", scope: "decidim.debates.admin")

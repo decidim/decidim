@@ -35,11 +35,11 @@
                 <%  end%>
               </td>
               <td class="table-list__actions">
-                <% if can? :update, current_feature %>
+                <% if can? :update, debate %>
                   <%= icon_link_to "pencil", edit_debate_path(debate), t("actions.edit", scope: "decidim.debates"), class: "action-icon--edit" %>
                 <% end %>
 
-                <% if can? :destroy, current_feature %>
+                <% if can? :destroy, debate %>
                   <%= icon_link_to "circle-x", debate_path(debate), t("actions.destroy", scope: "decidim.debates"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.debates") } %>
                 <% end %>
               </td>
