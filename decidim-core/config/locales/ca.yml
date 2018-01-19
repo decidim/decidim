@@ -132,6 +132,7 @@ ca:
         email_intro: 'El component %{resource_title} ja està actiu per %{participatory_space_title}. Podeu veure-ho des d''aquesta pàgina:'
         email_outro: Heu rebut aquesta notificació perquè esteu seguint %{participatory_space_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
         email_subject: Una actualització a %{participatory_space_title}
+        notification_title: El component %{resource_title} ja està actiu per <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       profile_updated_event:
