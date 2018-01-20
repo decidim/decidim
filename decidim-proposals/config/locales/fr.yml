@@ -137,9 +137,9 @@ fr:
           all: Toutes
           category: Catégorie
           category_prompt: Sélectionner une catégorie
-          citizens: Citoyens
+          citizens: Propositions citoyennes
           evaluating: En cours d'évaluation
-          official: Elu-e-s
+          official: Propositions officielles
           origin: Auteurs
           rejected: Refusée
           related_to: Liée à
