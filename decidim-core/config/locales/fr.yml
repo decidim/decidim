@@ -136,10 +136,10 @@ fr:
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
       profile_updated_event:
-        email_intro: Le <a href="%{profile_path}">profile page</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
-        email_outro: Vous avez reçu cette notification, car vous suivez %{nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+        email_intro: Le <a href="%{profile_path}">profile</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
+        email_outro: Vous recevez cette notification car vous suivez « %{nickname} ». Vous pouvez cesser de le suivre à partir du lien précédent.
         email_subject: "%{nickname} a mis à jour son profil"
-        notification_title: Le <a href="%{profile_path}">profile page</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
+        notification_title: Le <a href="%{profile_path}">profile</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
     export_mailer:
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
@@ -217,19 +217,19 @@ fr:
     newsletter_mailer:
       newsletter:
         note: Vous avez reçu ce courrier électronique parce que vous êtes abonné aux bulletins d'information de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
-        see_on_website: Vous ne pouvez pas voir cet e-mail correctement? Voir sur le <a href="%{link}" target="_blank">website</a>.
-        unsubscribe: Pour ne plus recevoir ce type d'e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+        see_on_website: Vous ne pouvez pas voir cet e-mail correctement? Consultez la <a href="%{link}" target="_blank">version web</a>.
+        unsubscribe: Pour ne plus recevoir ce type d'e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
     newsletters:
       unsubscribe:
-        check_subscription: Si vous souhaitez modifier vos préférences, vous pouvez le faire dans la <a href="%{link}" target="_blank">configuration page</a>
-        error: Il y a eu une erreur de désinscription
-        success: Vous êtes désabonné avec succès.
+        check_subscription: Si vous souhaitez modifier vos préférences, vous pouvez le faire dans la <a href="%{link}" target="_blank">page configuration</a>
+        error: Il y a eu une erreur lors de votre désabonnement
+        success: Vous vous êtes désabonné avec succès.
         token_error: Le lien a expiré.
         unsubscribe: Se désabonner
     notifications_settings:
       show:
         email_on_notification: Je veux recevoir un courriel chaque fois que je reçois une notification.
-        newsletter_notifications: Je veux recevoir des newsletters
+        newsletter_notifications: Je souhaite recevoir les lettres d'informations
         update_notifications_settings: Enregistrer les modifications
       update:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
