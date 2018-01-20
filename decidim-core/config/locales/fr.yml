@@ -96,7 +96,7 @@ fr:
         new:
           already_have_an_account?: Vous avez déjà un compte?
           nickname_help: Votre identifiant unique pour Decidim.
-          notifications: Recevoir des informations sur l'activité pertinente
+          notifications: Recevoir des lettres d'informations sur l'activité de la plateforme
           sign_in: S'identifier
           sign_up: S'inscrire
           sign_up_as:
