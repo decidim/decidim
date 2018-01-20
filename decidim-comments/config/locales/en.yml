@@ -2,6 +2,12 @@
 en:
   decidim:
     comments:
+      events:
+        user_mentioned:
+          email_intro: You has been mentioned
+          email_outro: You have received this notification because you has been mentioned in "%{resource_title}".
+          email_subject: You has been mentioned in %{resource_title}
+          notification_title: You has been mentioned in <a href="%{resource_path}">%{resource_title}</a> by <a href="%{author_path}">%{author_name} %{author_nickname}</a>
       votes:
         create:
           error: There's been errors when voting the comment.

@@ -114,6 +114,29 @@ module Decidim
 
             command.call
           end
+
+          context "and comment contains a user mention" do
+            let(:mentioned_user) { create(:user, organization: organization) }
+            let(:body) { ::Faker::Lorem.paragraph + " @#{mentioned_user.nickname}" }
+
+            it "sends a notification to the mentioned users" do
+              expect(command).to receive(:send_notification).and_return false
+
+              expect(Decidim::EventsManager)
+                .to receive(:publish)
+                .with(
+                  event: "decidim.events.comments.user_mentioned",
+                  event_class: Decidim::Comments::UserMentionedEvent,
+                  resource: commentable,
+                  recipient_ids: [mentioned_user.id],
+                  extra: {
+                    comment_id: 1
+                  }
+                )
+
+              command.call
+            end
+          end
         end
       end
     end
