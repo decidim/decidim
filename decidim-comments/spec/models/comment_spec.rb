@@ -101,6 +101,14 @@ module Decidim
           comment.users_to_notify_on_comment_created
         end
       end
+
+      describe "#formatted_body" do
+        let(:comment) { create(:comment, commentable: commentable, author: author, body: "<b>bold text</b> <a href='https://example.com'>link</a>") }
+
+        it "sanitizes user input striping html tags" do
+          expect(comment.formatted_body).to eq("bold text link")
+        end
+      end
     end
   end
 end

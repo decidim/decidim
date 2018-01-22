@@ -65,7 +65,8 @@ module Decidim
 
       # Public: Returns the comment body ready to display it
       def formatted_body
-        Decidim::ContentProcessor.render(body)
+        sanitized_body = Rails::Html::Sanitizer.full_sanitizer.new.sanitize(body)
+        Decidim::ContentProcessor.render(sanitized_body)
       end
 
       private
