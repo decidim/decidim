@@ -318,11 +318,11 @@ ca:
         create:
           success: L'usuari s'ha oficialitzat amb èxit
         destroy:
-          success: L'usuari no ha estat oficialitzat amb èxit
+          success: La oficialització de l'usuari ha estat inhabilitada correctament
         index:
           actions: Accions
           badge: Insígnia
-          created_at: Creat a
+          created_at: Creat el
           filter:
             all: Tots
             not_officialized: No oficialitzat
@@ -331,16 +331,16 @@ ca:
           name: Nom
           nickname: Sobrenom
           not_officialized: No oficialitzat
-          officialize: Organitzar
+          officialize: Oficialitza
           officialized: Oficialitzat
-          reofficialize: Reofficeu-vos
+          reofficialize: Torna a oficialitzar
           search: Cerca
           status: Estat
-          unofficialize: No s'ofereixen serveis
+          unofficialize: Inhabilita la oficialització
         new:
           badge: Insígnia d'oficialització
-          officialize: Organitzar
-          title: Classifica l'usuari "%{name}"
+          officialize: Oficialitza
+          title: Oficialitza l'usuari "%{name}"
       organization:
         edit:
           title: Edita organització
@@ -408,7 +408,7 @@ ca:
           title: Editar pàgina
           update: Actualitzar
         new:
-          create: Crear
+          create: Crea
           title: Nova pàgina
         update:
           error: S'ha produït un error en l'actualització d'aquests pàgina.
