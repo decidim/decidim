@@ -39,6 +39,7 @@ module Decidim
 
       def paginated_debates
         @paginated_debates ||= paginate(debates)
+                               .includes(:category)
       end
 
       def debates
@@ -66,7 +67,9 @@ module Decidim
 
       def default_filter_params
         {
+          search_text: "",
           order_start_time: "asc",
+          origin: "all",
           category_id: ""
         }
       end

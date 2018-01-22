@@ -14,6 +14,26 @@ module Decidim
         super(Debate.not_hidden, options)
       end
 
+      # Handle the search_text filter. We have to cast the JSONB columns
+      # into a `text` type so that we can search.
+      def search_search_text
+        query
+          .where("title::text ILIKE ?", "%#{search_text}%")
+          .or(query.where("description::text ILIKE ?", "%#{search_text}%"))
+      end
+
+      # Handle the origin filter
+      # The 'official' proposals doesn't have an author id
+      def search_origin
+        if origin == "official"
+          query.where(decidim_author_id: nil)
+        elsif origin == "citizens"
+          query.where.not(decidim_author_id: nil)
+        else # Assume 'all'
+          query
+        end
+      end
+
       # Handle the order_start_time filter
       def search_order_start_time
         query.order(start_time: order_start_time)

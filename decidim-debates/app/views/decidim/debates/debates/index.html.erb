@@ -1,6 +1,8 @@
 <div class="row columns">
   <div class="title-action">
-    <h2 class="title-action__title section-heading"><%= t(".title") %></h2>
+    <h2 id="debates-count" class="title-action__title section-heading">
+      <%= render partial: "count" %>
+    </h2>
     <% if current_settings.creation_enabled? %>
       <%= action_authorized_link_to :create, new_debate_path, class: "title-action__action button small hollow", data: { "redirect_url" => new_debate_path } do %>
         <%= t(".new_debate") %>
@@ -10,50 +12,16 @@
     </a>
   </div>
 </div>
-<div class="row small-up-1 medium-up-2 large-up-3 card-grid">
-  <% paginated_debates.each do |debate| %>
-    <div class="column">
-      <article class="card card--debate">
-        <div class="card__content">
-          <div class="card__header">
-            <%= link_to debate_path(debate), class: "card__link" do %>
-              <h5 class="card__title"><%= translated_attribute debate.title %></h5>
-            <% end %>
-          </div>
-          <% if debate.start_time.present? && debate.end_time.present? %>
-            <div class="card__datetime">
-              <div class="card__datetime__date">
-                <%= l debate.start_time, format: "%d" %> <span class="card__datetime__month"><%= l debate.start_time, format: "%B" %></span>
-              </div>
-              <div class="card__datetime__time">
-                <%= l debate.start_time, format: "%H:%M" %> - <%= l debate.end_time, format: "%H:%M" %>
-              </div>
-            </div>
-          <% end %>
-          <p class="card__desc">
-            <%== html_truncate(translated_attribute(debate.description), length: 630, separator: "...") %>
-          </p>
-          <% if debate.category.present? %>
-            <ul class="tags tags--debate" >
-              <li><%= link_to translated_attribute(debate.category.name), debates_path(filter: { category_id: debate.category.id }) %></li>
-            </ul>
-          <% end %>
-        </div>
-        <div class="card__footer">
-          <div class="card__support">
-            <div id="debate-<%= debate.id %>-votes-count" class="card__support__data">
-              <span class="card__support__number">
-                <%= debate.comments.count %>
-              </span>
-              <span>
-                <%= t('.comments', count: debate.comments.count) %>
-              </span>
-            </div>
-            <%= link_to t('.participate'), debate_path(debate), class: "button small secondary card__button" %>
-          </div>
-        </div>
-      </article>
+<div class="row">
+  <div class="columns mediumlarge-4 large-3">
+    <%= render partial: "filters_small_view" %>
+    <div class="card card--secondary show-for-mediumlarge" >
+      <%= render partial: "filters" %>
     </div>
-  <% end %>
+  </div>
+  <div id="debates" class="columns mediumlarge-8 large-9">
+    <%= render partial: "debates" %>
+  </div>
 </div>
-<%= decidim_paginate paginated_debates %>
+
+<%= javascript_include_tag("decidim/filters") %>

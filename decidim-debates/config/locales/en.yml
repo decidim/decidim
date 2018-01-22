@@ -41,22 +41,33 @@ en:
           debate:
             name: Debate
       debates:
+        count:
+          debates_count:
+            one: "%{count} debate"
+            other: "%{count} debates"
         create:
           invalid: There has been a problem while creating the debate.
           success: Debate created successfully.
-        filters:
-          ascendent: Ascendent
-          category: Category
-          date: Date
-          descendent: Descendent
-          scopes: Scopes
-        index:
+        debate:
           comments:
             one: Comment
             other: Comments
-          new_debate: New debate
           participate: Participate
-          title: Open debates
+        filters:
+          all: All
+          category: Category
+          category_prompt: Select a category
+          citizens: Citizens
+          official: Official
+          origin: Origin
+          search: Search
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        index:
+          new_debate: New debate
         new:
           back: Back
           create: Create
