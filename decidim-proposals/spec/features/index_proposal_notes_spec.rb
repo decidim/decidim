@@ -35,17 +35,33 @@ describe "Index Proposal Notes", type: :feature do
     expect(page).to have_selector("form")
   end
 
-  it "creates a new proposal note ", :slow do
-    within ".new_proposal_note" do
-      fill_in :proposal_note_body, with: body
+  context "when the form is valid" do
+    it "creates a new proposal note ", :slow do
+      within ".new_proposal_note" do
+        fill_in :proposal_note_body, with: body
 
-      find("*[type=submit]").click
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      within ".comment-thread .card:last-child" do
+        expect(page).to have_content("New awesome body")
+      end
     end
+  end
 
-    expect(page).to have_admin_callout("successfully")
+  context "when the form is not valid" do
+    let(:body) { nil }
 
-    within ".comment-thread .card:last-child" do
-      expect(page).to have_content("New awesome body")
+    it "not creates a new proposal note", :slow do
+      within ".new_proposal_note" do
+        fill_in :proposal_note_body, with: body
+
+        find("*[type=submit]").click
+      end
+
+      expect(page).to have_content("There's an error in this field.")
     end
   end
 end
