@@ -119,6 +119,21 @@ module Decidim
             let(:mentioned_user) { create(:user, organization: organization) }
             let(:body) { ::Faker::Lorem.paragraph + " @#{mentioned_user.nickname}" }
 
+            it "creates a new comment with user mention replaced" do
+              expect(Comment).to receive(:create!).with(
+                author: author,
+                commentable: commentable,
+                root_commentable: commentable,
+                body: Decidim::ContentProcessor.parse(body).rewrite,
+                alignment: alignment,
+                decidim_user_group_id: user_group_id
+              ).and_call_original
+
+              expect do
+                command.call
+              end.to change { Comment.count }.by(1)
+            end
+
             it "sends a notification to the mentioned users" do
               expect(command).to receive(:send_notification).and_return false
 

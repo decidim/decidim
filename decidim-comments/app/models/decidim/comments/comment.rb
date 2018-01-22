@@ -63,6 +63,11 @@ module Decidim
         ResourceLocatorPresenter.new(root_commentable).url(anchor: "comment_#{id}")
       end
 
+      # Public: Returns the comment body ready to display it
+      def formatted_body
+        Decidim::ContentProcessor.render(body)
+      end
+
       private
 
       # Private: Check if commentable can have comments and if not adds
