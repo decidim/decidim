@@ -13,6 +13,7 @@ you need to change the following line in `config/environments/production.rb`:
 ```
 
 **Added**:
+- **decidim-admin**: Notify participatory space followers when a new feature is published. [\#2515](https://github.com/decidim/decidim/pull/2515)
 - **decidim**: Add `decidim-assemblies` to the `decidim` metagem. [\#2495](https://github.com/decidim/decidim/pull/2510)
 - **decidim-proposals**: Notify proposal followers when it gets answered. [\#2508](https://github.com/decidim/decidim/pull/2508)
 - **decidim-proposals**: Add private notes by admins to proposal [\#2490](https://github.com/decidim/decidim/pull/2490)
@@ -48,10 +49,12 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-core**: [Breaking change] Changes the participatory space's contracts introducing `context`. This was done to fix a bug caused by dynamically extending some controllers. [\#2465](https://github.com/decidim/decidim/pull/2465)
 - **decidim-core**: Removed horizontal scroll from process navigation bar. [\#2495](https://github.com/decidim/decidim/pull/2495)
 - **decidim-core**: Fixes the documentation regarding gems, libraries, plugins and modules. We should always use module, and use decidim-module-<engine_name> nomenclature for repositories naming [\#2481](https://github.com/decidim/decidim/pull/2481).
+- **decidim-core**: Users have notifications enabled by default unless they explicitly uncheck it during registration. [\#2517](https://github.com/decidim/decidim/pull/2517)
 - **decidim-core**: translated_attribute helper changes its default behaviour. Previously it was following these steps:
   1. Return the current user locale translation if available.
   2. Fallback to organization default locale in case the user locale translation is not available.
   3. Otherwise return blank.
+- **decidim-core**: Forced order in covnersations (newest on top) and conversation messages (oldest on top). [\#2520](https://github.com/decidim/decidim/pull/2520)
 
 
   Now it follows these steps:
@@ -63,10 +66,12 @@ you need to change the following line in `config/environments/production.rb`:
 
 **Fixed**:
 
+- **decidim-core**: Fix editing features in assemblies. [\#2524](https://github.com/decidim/decidim/pull/2524)
 - **decidim-admin**: Properly save features weight on creation [\#2499](https://github.com/decidim/decidim/pull/2499)
 - **decidim-core**: Fix after login redirect. [\#2321](https://github.com/decidim/decidim/pull/2321) [\#2504](https://github.com/decidim/decidim/pull/2504)
   With links or buttons that needs the user to be authorized or signed in you can now add a `data-redirect-url` attribute to redirect the user after they've signed in so they don't lose context.
 - **decidim-core**: Prevent many conversation with the same participants at the UI level. [\#2376](https://github.com/decidim/decidim/pull/2376)
+- **decidim-core**: Order conversation messages by creation. [\#2520](https://github.com/decidim/decidim/pull/2520)
 - **decidim-admin**: Admins no longer being able to impersonate a second time. [\#2372](https://github.com/decidim/decidim/pull/2372)
 - **decidim-admin**: User impersonation should only use authorization handlers and not authorization workflows. [\#2363](https://github.com/decidim/decidim/pull/2363)
 - **decidim-budgets**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
