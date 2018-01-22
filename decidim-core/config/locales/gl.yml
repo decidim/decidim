@@ -8,6 +8,7 @@ gl:
       user:
         email: O teu correo electrónico
         name: O teu nome
+        nickname: O teu identificador breve e único en decidir
         password: Novo contrasinal
         password_confirmation: Confirma o teu novo contrasinal
         remove_avatar: Eliminar avatar
@@ -88,14 +89,14 @@ gl:
           email_already_exists: Outra conta usa o mesmo enderezo de correo electrónico
         new:
           complete_profile: Perfil completo
-          nickname_help: O teu identificador único en decidir.
+          nickname_help: O teu identificador breve e único en decidir
           sign_up: Completa o teu perfil
           subtitle: Encha o seguinte formulario para completar o rexistro
           username_help: Nome público que aparece nas túas publicacións. Co obxectivo de garantir o anonimato, pode ser calquera nome.
       registrations:
         new:
           already_have_an_account?: Xa ten unha conta?
-          nickname_help: O teu identificador único en decidir.
+          nickname_help: O teu identificador breve e único en decidir
           notifications: Recibir información sobre a actividade relevante
           sign_in: Iniciar sesión
           sign_up: Rexistrarse
