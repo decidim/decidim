@@ -44,6 +44,9 @@ module Decidim
 
     has_many :features, as: :participatory_space, dependent: :destroy
 
+    has_many :participatory_process_users, class_name: "Decidim::ParticipatoryProcessUser", foreign_key: "decidim_participatory_process_id", dependent: :destroy
+    has_many :users, through: :participatory_process_users, class_name: "Decidim::User", foreign_key: "decidim_user_id"
+
     attr_readonly :active_step
 
     validates :slug, uniqueness: { scope: :organization }
@@ -69,6 +72,14 @@ module Decidim
 
     def to_param
       slug
+    end
+
+    def private_process?
+      self.private_process
+    end
+
+    def self.public_process
+      where(private_process: false)
     end
   end
 end

@@ -11,6 +11,7 @@
           <tr>
             <th><%= t("models.participatory_process.fields.title", scope: "decidim.admin") %></th>
             <th><%= t("models.participatory_process.fields.created_at", scope: "decidim.admin") %></th>
+            <th><%= t("models.participatory_process.fields.private", scope: "decidim.admin") %></th>
             <th class="table-list__actions"><%= t("models.participatory_process.fields.published", scope: "decidim.admin") %></th>
             <th></th>
           </tr>
@@ -36,6 +37,13 @@
               </td>
               <td>
                 <%= l process.created_at, format: :short %>
+              </td>
+              <td class="table-list__state">
+                <% if process.private_process? %>
+                  <strong class="text-alert"><%= t('participatory_processes.index.private', scope: "decidim.admin") %></strong>
+                <% else %>
+                  <strong class="text-success"><%= t('participatory_processes.index.public', scope: "decidim.admin") %></strong>
+                <% end %>
               </td>
               <td class="table-list__state">
                 <% if process.published? %>

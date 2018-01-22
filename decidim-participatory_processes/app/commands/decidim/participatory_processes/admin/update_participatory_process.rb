@@ -24,6 +24,7 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
           update_participatory_process
+          update_participatory_process_users(@participatory_process)
 
           if @participatory_process.valid?
             broadcast(:ok, @participatory_process)
@@ -58,6 +59,7 @@ module Decidim
             short_description: form.short_description,
             scopes_enabled: form.scopes_enabled,
             scope: form.scope,
+            private_process: form.private_process,
             developer_group: form.developer_group,
             local_area: form.local_area,
             target: form.target,
@@ -71,6 +73,19 @@ module Decidim
             announcement: form.announcement
           }
         end
+
+        def update_participatory_process_users(process)
+          process.participatory_process_users.delete_all
+          if form.private_process
+            form.users.each do |user|
+              ParticipatoryProcessUser.create!(
+                participatory_process: process,
+                user: user
+              )
+            end
+          end
+        end
+
       end
     end
   end

@@ -84,6 +84,14 @@
     </div>
 
     <div class="row column">
+      <%= form.check_box :private_process %>
+    </div>
+
+    <div class="row column">
+      <%= form.select :user_ids, options_for_select(process_users_for_select, selected: process_users_selected),  {}, { multiple: true, class: "chosen-select" } %>
+    </div>
+
+    <div class="row column">
       <%= form.translated :text_field, :participatory_scope %>
     </div>
 
