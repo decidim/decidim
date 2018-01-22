@@ -8,6 +8,7 @@ fi:
       user:
         email: Sähköpostiosoitteesi
         name: Nimesi
+        nickname: Sinun lyhyt, ainutlaatuinen tunniste decidimissä
         password: Salasanasi
         password_confirmation: Vahvista salasanasi
         remove_avatar: Poista profiilikuva
@@ -88,14 +89,14 @@ fi:
           email_already_exists: Toinen käyttäjätili käyttää samaa sähköpostiosoitetta
         new:
           complete_profile: Viimeistele profiilisi
-          nickname_help: Yksilöllinen tunnisteesi decidimissä.
+          nickname_help: Sinun lyhyt, ainutlaatuinen tunniste decidimissä
           sign_up: Viimeistele profiilsi
           subtitle: Täytä seuraava lomake viimeistelläksesi rekisteröitymisesi
           username_help: Julkinen nimi, joka näkyy viesteissäsi. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
       registrations:
         new:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
-          nickname_help: Yksilöllinen tunnisteesi decidimissä.
+          nickname_help: Sinun lyhyt, ainutlaatuinen tunniste decidimissä
           notifications: Vastaanota tietoa viimeaikaisesta toiminnasta
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
