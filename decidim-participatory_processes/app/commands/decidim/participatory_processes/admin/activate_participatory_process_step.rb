@@ -25,7 +25,9 @@ module Decidim
           Decidim::ParticipatoryProcessStep.transaction do
             deactivate_active_steps
             activate_step
+            notify_followers
           end
+
           broadcast(:ok)
         end
 
@@ -41,6 +43,17 @@ module Decidim
 
         def activate_step
           step.update_attributes!(active: true)
+        end
+
+        def notify_followers
+          return unless step.participatory_process.published?
+
+          Decidim::EventsManager.publish(
+            event: "decidim.events.participatory_process.step_activated",
+            event_class: Decidim::ParticipatoryProcessStepActivatedEvent,
+            resource: step,
+            recipient_ids: step.participatory_process.followers.pluck(:id)
+          )
         end
       end
     end

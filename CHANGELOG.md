@@ -13,6 +13,7 @@ you need to change the following line in `config/environments/production.rb`:
 ```
 
 **Added**:
+- **decidim-admin**: Notify participatory process followers when a step becomes active. [\#2544](https://github.com/decidim/decidim/pull/2544)
 - **decidim-admin**: Notify participatory space followers when a new feature is published. [\#2515](https://github.com/decidim/decidim/pull/2515)
 - **decidim**: Add `decidim-assemblies` to the `decidim` metagem. [\#2495](https://github.com/decidim/decidim/pull/2510)
 - **decidim-proposals**: Notify proposal followers when it gets answered. [\#2508](https://github.com/decidim/decidim/pull/2508)
@@ -53,7 +54,7 @@ you need to change the following line in `config/environments/production.rb`:
   1. Return the current user locale translation if available.
   2. Fallback to organization default locale in case the user locale translation is not available.
   3. Otherwise return blank.
-- **decidim-core**: Forced order in covnersations (newest on top) and conversation messages (oldest on top). [\#2520](https://github.com/decidim/decidim/pull/2520)
+- **decidim-core**: Forced order in conversations (newest on top) and conversation messages (oldest on top). [\#2520](https://github.com/decidim/decidim/pull/2520)
 
 
   Now it follows these steps:
