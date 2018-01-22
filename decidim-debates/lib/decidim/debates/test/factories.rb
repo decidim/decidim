@@ -40,5 +40,13 @@ FactoryBot.define do
         comments_enabled: true
       }
     end
+
+    trait :with_creation_enabled do
+      step_settings do
+        {
+          participatory_space.active_step.id => { creation_enabled: true }
+        }
+      end
+    end
   end
 end

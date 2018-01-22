@@ -28,7 +28,13 @@ describe Decidim::Debates::Abilities::CurrentUserAbility do
   let(:current_settings) { double(settings.merge(extra_settings)) }
 
   describe "proposal creation" do
-    it { is_expected.to be_able_to(:create, Decidim::Debates::Debate) }
+    it { is_expected.not_to be_able_to(:create, Decidim::Debates::Debate) }
     it { is_expected.to be_able_to(:report, Decidim::Debates::Debate) }
+
+    context "when creation is enabled" do
+      let(:extra_settings) { { creation_enabled: true } }
+
+      it { is_expected.not_to be_able_to(:create, Decidim::Debates::Debate) }
+    end
   end
 end

@@ -29,7 +29,8 @@ module Decidim
         end
 
         def creation_enabled?
-          true
+          return unless current_settings
+          current_settings.creation_enabled?
         end
 
         def current_settings

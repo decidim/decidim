@@ -8,7 +8,7 @@ describe "Explore debates", type: :feature do
 
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
-  let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "debates" }
+  let(:current_feature) { create :debates_feature, participatory_space: participatory_process }
   let(:debates_count) { 5 }
   let!(:debates) do
     create_list(
@@ -116,6 +116,12 @@ describe "Explore debates", type: :feature do
       end
 
       context "with creation enabled" do
+        let!(:feature) do
+          create(:debates_feature,
+                 :with_creation_enabled,
+                 participatory_space: participatory_process)
+        end
+
         it "creates a new debate", :slow do
           visit_feature
 
@@ -181,6 +187,13 @@ describe "Explore debates", type: :feature do
             click_link "New debate"
             expect(page).to have_content("Authorization required")
           end
+        end
+      end
+
+      context "when creation is not enabled" do
+        it "does not show the creation button" do
+          visit_feature
+          expect(page).to have_no_link("New debate")
         end
       end
     end
