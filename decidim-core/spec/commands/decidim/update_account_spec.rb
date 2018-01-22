@@ -55,7 +55,7 @@ module Decidim
       end
 
       it "updates the users's nickname" do
-        form.name = "pepito"
+        form.nickname = "pepito"
         expect { command.call }.to broadcast(:ok)
         expect(user.reload.nickname).to eq("pepito")
       end
