@@ -10,6 +10,7 @@ en:
         instructions: Instructions to participate
         start_time: Starts at
         title: Title
+        user_group_id: Create debate as
   decidim:
     debates:
       actions:

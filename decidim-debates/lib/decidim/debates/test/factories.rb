@@ -20,6 +20,15 @@ FactoryBot.define do
         build(:user, organization: feature.organization) if feature
       end
     end
+
+    trait :with_user_group_author do
+      author do
+        build(:user, organization: feature.organization) if feature
+      end
+      user_group do
+        build(:user_group, :verified, organization: feature.organization, users: [author]) if feature
+      end
+    end
   end
 
   factory :debates_feature, parent: :feature do

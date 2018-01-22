@@ -10,6 +10,7 @@ module Decidim
       attribute :description, String
       attribute :instructions, String
       attribute :category_id, Integer
+      attribute :user_group_id, Integer
 
       validates :title, presence: true
       validates :description, presence: true

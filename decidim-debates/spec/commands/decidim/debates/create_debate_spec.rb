@@ -16,6 +16,7 @@ describe Decidim::Debates::CreateDebate do
       title: "title",
       description: "description",
       instructions: "instructions",
+      user_group_id: nil,
       category: category,
       current_user: user,
       current_feature: current_feature

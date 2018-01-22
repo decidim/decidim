@@ -2,8 +2,8 @@
 
 module Decidim
   module Debates
-    # This command is executed when the user creates a Debate from the admin
-    # panel.
+    # This command is executed when the user creates a Debate from the public
+    # views.
     class CreateDebate < Rectify::Command
       def initialize(form)
         @form = form
@@ -36,6 +36,7 @@ module Decidim
       def create_debate
         @debate = Debate.create!(
           author: form.current_user,
+          decidim_user_group_id: form.user_group_id,
           category: form.category,
           title: i18n_field(form.title),
           description: i18n_field(form.description),

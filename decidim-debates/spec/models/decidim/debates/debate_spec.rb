@@ -18,6 +18,24 @@ describe Decidim::Debates::Debate do
     it { is_expected.not_to be_valid }
   end
 
+  describe "official?" do
+    context "when no author is set" do
+      it { is_expected.to be_official }
+    end
+
+    context "when author is set" do
+      let(:debate) { build :debate, :with_author }
+
+      it { is_expected.not_to be_official }
+    end
+
+    context "when it is authored by a user group" do
+      let(:debate) { build :debate, :with_user_group_author }
+
+      it { is_expected.not_to be_official }
+    end
+  end
+
   describe "ama?" do
     context "when it has both start_time and end_time set" do
       let(:debate) { build :debate, title: nil }
