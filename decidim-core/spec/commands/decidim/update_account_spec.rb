@@ -9,6 +9,7 @@ module Decidim
     let(:data) do
       {
         name: user.name,
+        nickname: user.nickname,
         email: user.email,
         password: nil,
         password_confirmation: nil,
@@ -22,6 +23,7 @@ module Decidim
     let(:form) do
       AccountForm.from_params(
         name: data[:name],
+        nickname: data[:nickname],
         email: data[:email],
         password: data[:password],
         password_confirmation: data[:password_confirmation],
@@ -50,6 +52,12 @@ module Decidim
         form.name = "Pepito de los palotes"
         expect { command.call }.to broadcast(:ok)
         expect(user.reload.name).to eq("Pepito de los palotes")
+      end
+
+      it "updates the users's nickname" do
+        form.nickname = "pepito"
+        expect { command.call }.to broadcast(:ok)
+        expect(user.reload.nickname).to eq("pepito")
       end
 
       it "updates the personal url" do
