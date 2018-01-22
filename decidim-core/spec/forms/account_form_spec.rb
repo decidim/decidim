@@ -8,6 +8,7 @@ module Decidim
       described_class.new(
         name: name,
         email: email,
+        nickname: nickname,
         password: password,
         password_confirmation: password_confirmation,
         avatar: avatar,
@@ -25,6 +26,7 @@ module Decidim
 
     let(:name) { "Lord of the Foo" }
     let(:email) { "depths@ofthe.bar" }
+    let(:nickname) { "foo_bar" }
     let(:password) { "abcde123" }
     let(:password_confirmation) { password }
     let(:avatar) { File.open("spec/assets/avatar.jpg") }
@@ -65,6 +67,32 @@ module Decidim
 
       context "when it's already in use in another organization" do
         let!(:existing_user) { create(:user, email: email) }
+
+        it "is valid" do
+          expect(subject).to be_valid
+        end
+      end
+    end
+
+    describe "nickname" do
+      context "with an empty nickname" do
+        let(:nickname) { "" }
+
+        it "is invalid" do
+          expect(subject).not_to be_valid
+        end
+      end
+
+      context "when it's already in use in the same organization" do
+        let!(:existing_user) { create(:user, nickname: nickname, organization: organization) }
+
+        it "is invalid" do
+          expect(subject).not_to be_valid
+        end
+      end
+
+      context "when it's already in use in another organization" do
+        let!(:existing_user) { create(:user, nickname: nickname) }
 
         it "is valid" do
           expect(subject).to be_valid
