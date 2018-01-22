@@ -8,6 +8,7 @@ it:
       user:
         email: La tua email
         name: Il tuo nome
+        nickname: Il tuo identificatore breve e univoco in decidim
         password: Nuova password
         password_confirmation: Conferma la nuova password
         remove_avatar: Rimuovi avatar
@@ -88,14 +89,14 @@ it:
           email_already_exists: Questo indirizzo email è già utilizzato per un altro account
         new:
           complete_profile: Completa il profilo
-          nickname_help: Il tuo identificatore univoco in decidim.
+          nickname_help: Il tuo identificatore breve e univoco in decidim
           sign_up: Si prega di completare il profilo
           subtitle: Si prega di compilare il seguente modulo per completare la registrazione
           username_help: Nome pubblico che appare suoi tuoi post. Con l'obiettivo di garantire l'anonimato, può essere qualsiasi nome.
       registrations:
         new:
           already_have_an_account?: Hai già un account?
-          nickname_help: Il tuo identificatore univoco in decidim.
+          nickname_help: Il tuo identificatore breve e univoco in decidim
           notifications: Ricevi informazioni sull'attività rilevante
           sign_in: Accedi
           sign_up: Iscriviti
