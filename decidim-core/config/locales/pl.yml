@@ -8,6 +8,7 @@ pl:
       user:
         email: Twój email
         name: Twoje imię
+        nickname: Twój krótki, niepowtarzalny identyfikator w decidimie
         password: Nowe hasło
         password_confirmation: Potwierdź swoje nowe hasło
         remove_avatar: Usuń awatar
@@ -88,14 +89,14 @@ pl:
           email_already_exists: Inne konto korzysta z tego samego adresu e-mail
         new:
           complete_profile: Pełny profil
-          nickname_help: Twój unikalny identyfikator w decidim.
+          nickname_help: Twój krótki, niepowtarzalny identyfikator w decidimie
           sign_up: Proszę wypełnić swój profil
           subtitle: Proszę wypełnić poniższy formularz, aby dokończyć rejestrację
           username_help: Publiczne nazwisko wyświetlane na Twoich postów. W celu zagwarantowania anonimowości może być dowolna nazwa.
       registrations:
         new:
           already_have_an_account?: Posiadasz już konto?
-          nickname_help: Twój unikalny identyfikator w decidim.
+          nickname_help: Twój krótki, niepowtarzalny identyfikator w decidimie
           notifications: Otrzymuj informacje o odpowiedniej aktywności
           sign_in: Zaloguj Się
           sign_up: Zapisz się
