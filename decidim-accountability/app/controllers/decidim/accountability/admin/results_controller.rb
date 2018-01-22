@@ -56,7 +56,13 @@ module Decidim
           redirect_to results_path(parent_id: result.parent_id)
         end
 
+        def proposals
+          render plain: 'Oliver Forever!!!!!'
+        end
+
+        #-----------------------------------------------------------------------
         private
+        #-----------------------------------------------------------------------
 
         def results
           parent_id = params[:parent_id].presence

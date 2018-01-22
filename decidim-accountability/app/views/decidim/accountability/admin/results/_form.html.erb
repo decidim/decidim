@@ -54,6 +54,22 @@
 
     <div class="row column">
       <% if @form.proposals %>
+<!-- testing ------------------------------------------------- -->
+<% 
+# { id: "#{@object_name}_#{attribute}", class: "picker-#{options[:multiple] ? "multiple" : "single"}", name: "#{@object_name}[#{attribute}]" }
+picker_options= { id: "participatory_process_scope_id", class: "picker-multiple", name: 'decidim_accountability[proposals_ids]' }
+prompt_params= { url: 'proposals', text: "Prompt text!!!!!!!!!!!!!!!"}
+%>
+<div id="<%=picker_options[:id]%>" class="data-picker <%=picker_options[:class]%>" data-picker-name="<%=picker_options[:name]%>">
+  <div class="picker-values"><% @form.proposals.each do |proposal, params| %>
+    <% puts("FORM: #{@form}") %>
+    <% puts("propoasl: #{proposal}"); puts("params:#{params}") %>
+    <div><a href="<%="params[:url]"%>" data-picker-value="<%=proposal%>"><%=proposal%></a></div>
+  <% end %></div>
+  <div class="picker-prompt"><a href="<%= prompt_params[:url] %>"><%= prompt_params[:text] %></a></div>
+</div>
+<!-- testing ------------------------------------------------- -->
+
         <%= form.select :proposal_ids,
                         @form.proposals,
                         {},
