@@ -8,6 +8,7 @@ ca:
       user:
         email: El teu email
         name: El teu nom
+        nickname: El vostre identificador curt i únic a la decisió
         password: Contrasenya
         password_confirmation: Confirma la teva contrasenya
         remove_avatar: Elimina la imatge d'usuari
@@ -88,14 +89,14 @@ ca:
           email_already_exists: Un altre compte està utilitzant la mateixa adreça de correu electrònic
         new:
           complete_profile: Completa el perfil
-          nickname_help: El teu identificador únic.
+          nickname_help: El vostre identificador curt i únic a la decisió
           sign_up: Si us plau completa el teu perfil
           subtitle: Si us plau, omple el següent formulari per tal de completar la teva inscripció
           username_help: Nom públic que apareix en els teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
       registrations:
         new:
           already_have_an_account?: Ja tens un compte?
-          nickname_help: El teu identificador únic.
+          nickname_help: El vostre identificador curt i únic a la decisió
           notifications: Vull rebre informació sobre activitat rellevant
           sign_in: Entra
           sign_up: Registra't
