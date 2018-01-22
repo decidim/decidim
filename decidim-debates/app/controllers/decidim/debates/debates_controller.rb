@@ -8,8 +8,9 @@ module Decidim
       helper Decidim::Messaging::ConversationHelper
       include FormFactory
       include FilterResource
+      include Paginable
 
-      helper_method :debates, :debate, :report_form
+      helper_method :debates, :debate, :paginated_debates, :report_form
 
       def new
         authorize! :create, Debate
@@ -35,6 +36,10 @@ module Decidim
       end
 
       private
+
+      def paginated_debates
+        @paginated_debates ||= paginate(debates)
+      end
 
       def debates
         @debates ||= search.results

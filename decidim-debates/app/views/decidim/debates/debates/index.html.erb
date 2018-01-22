@@ -11,7 +11,7 @@
   </div>
 </div>
 <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
-  <% debates.each do |debate| %>
+  <% paginated_debates.each do |debate| %>
     <div class="column">
       <article class="card card--debate">
         <div class="card__content">
@@ -56,3 +56,4 @@
     </div>
   <% end %>
 </div>
+<%= decidim_paginate paginated_debates %>
