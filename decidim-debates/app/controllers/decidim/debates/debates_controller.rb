@@ -7,6 +7,7 @@ module Decidim
       helper Decidim::ApplicationHelper
       helper Decidim::Messaging::ConversationHelper
       include FormFactory
+      include FilterResource
 
       helper_method :debates, :debate, :report_form
 
@@ -33,8 +34,10 @@ module Decidim
         end
       end
 
+      private
+
       def debates
-        @debates ||= Debate.where(feature: current_feature).not_hidden
+        @debates ||= search.results
       end
 
       def debate
@@ -43,6 +46,24 @@ module Decidim
 
       def report_form
         @report_form ||= form(Decidim::ReportForm).from_params(reason: "spam")
+      end
+
+      def search_klass
+        DebateSearch
+      end
+
+      def default_search_params
+        {
+          page: params[:page],
+          per_page: 12
+        }
+      end
+
+      def default_filter_params
+        {
+          order_start_time: "asc",
+          category_id: ""
+        }
       end
     end
   end
