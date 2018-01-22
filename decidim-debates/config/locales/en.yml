@@ -51,6 +51,9 @@ en:
           descendent: Descendent
           scopes: Scopes
         index:
+          comments:
+            one: Comment
+            other: Comments
           new_debate: New debate
           participate: Participate
           title: Open debates
