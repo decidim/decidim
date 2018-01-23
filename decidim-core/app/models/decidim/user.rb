@@ -23,6 +23,9 @@ module Decidim
     has_many :user_groups, through: :memberships, class_name: "Decidim::UserGroup", foreign_key: :decidim_user_group_id
     has_many :notifications, foreign_key: "decidim_user_id", class_name: "Decidim::Notification", dependent: :destroy
 
+    has_many :participatory_process_users, class_name: "Decidim::ParticipatoryProcessUser", foreign_key: "decidim_user_id", dependent: :destroy
+    has_many :participatory_processes, through: :participatory_process_users, class_name: "Decidim::ParticipatoryProcess", foreign_key: "decidim_participatory_process_id"
+
     validates :name, presence: true, unless: -> { deleted? }
     validates :nickname, presence: true, unless: -> { deleted? || managed? }
     validates :locale, inclusion: { in: :available_locales }, allow_blank: true

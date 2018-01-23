@@ -25,7 +25,9 @@ module Decidim
         authorize! :read, ParticipatoryProcessGroup
       end
 
-      def show; end
+      def show
+        redirect_to "/404" unless current_participatory_space.private_process? and current_participatory_space.users.any? { current_user }
+      end
 
       private
 
@@ -42,7 +44,7 @@ module Decidim
       end
 
       def published_processes
-        @published_processes ||= OrganizationPublishedParticipatoryProcesses.new(current_organization)
+        @published_processes ||= OrganizationPublishedParticipatoryProcesses.new(current_organization, current_user)
       end
 
       def collection
@@ -50,7 +52,7 @@ module Decidim
       end
 
       def filtered_participatory_processes(filter = default_filter)
-        OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter)
+        OrganizationPrioritizedParticipatoryProcesses.new(current_organization, filter, current_user)
       end
 
       def participatory_processes

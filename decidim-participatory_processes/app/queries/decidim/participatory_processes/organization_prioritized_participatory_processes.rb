@@ -5,14 +5,15 @@ module Decidim
     # This query class filters public processes given an organization and a
     # filter in a meaningful prioritized order.
     class OrganizationPrioritizedParticipatoryProcesses < Rectify::Query
-      def initialize(organization, filter = "active")
+      def initialize(organization, filter = "active", user)
         @organization = organization
         @filter = filter
+        @user = user
       end
 
       def query
         Rectify::Query.merge(
-          OrganizationPublishedParticipatoryProcesses.new(@organization),
+          OrganizationPublishedParticipatoryProcesses.new(@organization, @user),
           # PublicParticipatoryProcesses.new,
           PrioritizedParticipatoryProcesses.new,
           FilteredParticipatoryProcesses.new(@filter)

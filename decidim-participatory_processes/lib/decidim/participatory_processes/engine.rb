@@ -65,7 +65,7 @@ module Decidim
       initializer "decidim_participatory_processes.view_hooks" do
         Decidim.view_hooks.register(:highlighted_elements, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
           highlighted_processes =
-            OrganizationPublishedParticipatoryProcesses.new(view_context.current_organization) |
+            OrganizationPublishedParticipatoryProcesses.new(view_context.current_organization, view_context.current_user) |
             HighlightedParticipatoryProcesses.new |
             FilteredParticipatoryProcesses.new("active")
 

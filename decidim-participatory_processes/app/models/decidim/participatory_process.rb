@@ -78,6 +78,10 @@ module Decidim
       self.private_process
     end
 
+    def self.private_process
+      where(private_process: true)
+    end
+
     def self.public_process
       where(private_process: false)
     end
