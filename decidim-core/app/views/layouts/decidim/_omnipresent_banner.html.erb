@@ -1,0 +1,14 @@
+<% if current_organization.enable_banner_omnipresent %>
+  <div class="omnipresent-banner">
+    <%= link_to current_organization.banner_omnipresent_url do %>
+      <span class="omnipresent-banner-title">
+        <%= translated_attribute current_organization.banner_omnipresent_title %>
+      </span>
+      -
+      <span class="omnipresent-banner-short-description">
+        <%= translated_attribute current_organization.banner_omnipresent_short_description %>
+      </span>
+      <%= icon "media-play" %>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+.omnipresent-banner {
+  padding: .5em 1em;
+  text-align: center;
+  background-color: #FF414D;
+  font-size: 1.2em;
+
+  .omnipresent-banner-title {
+    font-weight: bold;
+    margin-right: 1em;
+  }
+
+  .omnipresent-banner-short-description {
+    margin: 0 0.5em 0 1em;
+  }
+
+  a {
+    color: #FFF;
+  }
+}
