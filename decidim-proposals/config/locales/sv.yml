@@ -79,6 +79,7 @@ sv:
         evaluating: utvärdera
         not_answered: Inte besvarad
         rejected: avvisade
+        withdrawn: kallas
       create:
         error: Det har varit fel när du lagrade förslaget.
         success: Förslaget skapades framgångsrikt.
@@ -153,6 +154,7 @@ sv:
           unfold: Veckla ut
         index:
           new_proposal: Nytt förslag
+          see_all_withdrawn: Se alla återtagna förslag
           view_proposal: Visa förslag
         linked_proposals:
           proposal_votes:
@@ -181,6 +183,8 @@ sv:
           proposal_in_evaluation_reason: Detta förslag utvärderas
           proposal_rejected_reason: 'Detta förslag har avslagits på grund av att'
           report: Rapportera
+          withdraw_confirmation: Är du säker på att dra tillbaka detta förslag?
+          withdraw_proposal: Dra ut förslaget
         vote_button:
           already_voted: Redan röstade
           already_voted_hover: Unvote
