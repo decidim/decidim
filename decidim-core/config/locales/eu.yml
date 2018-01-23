@@ -136,6 +136,8 @@ eu:
         notification_title: '%{resource_title} osagaia aktibo dago orain <a href="%{resource_path}">%{participatory_space_title}</a>'
       notification_event:
         notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
+      participatory_process_step_activated_event:
+        email_intro: '%{resource_title} urratsa aktibo dago %{participatory_space_title}-ra. Orrialde hau ikusi dezakezu:'
       profile_updated_event:
         email_intro: <a href="%{profile_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
         email_outro: Jakinarazpena jaso duzu %{nickname} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
