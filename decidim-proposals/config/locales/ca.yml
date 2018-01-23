@@ -79,6 +79,7 @@ ca:
         evaluating: En avaluació
         not_answered: No resposta
         rejected: Rebutjada
+        withdrawn: Retirat
       create:
         error: Hi ha hagut errors en desar la proposta.
         success: Proposta creada correctament.
@@ -153,6 +154,7 @@ ca:
           unfold: Desplegar
         index:
           new_proposal: Nova proposta
+          see_all_withdrawn: Vegeu totes les propostes retirades
           view_proposal: Veure proposta
         linked_proposals:
           proposal_votes:
@@ -181,6 +183,8 @@ ca:
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
           report: Informe
+          withdraw_confirmation: Estàs segur de retirar aquesta proposta?
+          withdraw_proposal: Proposta d'extracció
         vote_button:
           already_voted: Ja li has donat suport
           already_voted_hover: Retirar suport
