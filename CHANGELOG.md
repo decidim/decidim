@@ -17,6 +17,7 @@ you need to change the following line in `config/environments/production.rb`:
 [\#2547](https://github.com/decidim/decidim/pull/2547)
 - **decidim-admin**: Added administration interface for omnipresent banner.
 [\#2547](https://github.com/decidim/decidim/pull/2547)
+- **decidim-admin**: Notify participatory process followers when a step becomes active. [\#2544](https://github.com/decidim/decidim/pull/2544)
 - **decidim-admin**: Notify participatory space followers when a new feature is published. [\#2515](https://github.com/decidim/decidim/pull/2515)
 - **decidim**: Add `decidim-assemblies` to the `decidim` metagem. [\#2495](https://github.com/decidim/decidim/pull/2510)
 - **decidim-proposals**: Notify proposal followers when it gets answered. [\#2508](https://github.com/decidim/decidim/pull/2508)
@@ -24,6 +25,7 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-core:** Improve Newsletter adding unsubscribe link, see on website, UTM GET codes [\2359](https://github.com/decidim/decidim/pull/2359)
 - **decidim-verifications**: Added action authorizers for authorization handlers. [\#2438](https://github.com/decidim/decidim/pull/2438)
 - **decidim-accountability**: Add feature to link projects with results [\#2467](https://github.com/decidim/decidim/pull/2467)
+- **decidim-proposals**: Withdrawing of proposals [\#2289](https://github.com/decidim/decidim/issues/2289).
 - **decidim-proposals**: Improve proposals admin panel usability (sorting). [\#2419](https://github.com/decidim/decidim/pull/2419)
 - **decidim-core**: Follow users and get notifications about their actions [\#2401](https://github.com/decidim/decidim/pull/2401) and [\#2452](https://github.com/decidim/decidim/pull/2452).
 - **decidim-core**: Add unique nicknames for participants. [\#2360](https://github.com/decidim/decidim/pull/2360)
@@ -57,7 +59,7 @@ you need to change the following line in `config/environments/production.rb`:
   1. Return the current user locale translation if available.
   2. Fallback to organization default locale in case the user locale translation is not available.
   3. Otherwise return blank.
-- **decidim-core**: Forced order in covnersations (newest on top) and conversation messages (oldest on top). [\#2520](https://github.com/decidim/decidim/pull/2520)
+- **decidim-core**: Forced order in conversations (newest on top) and conversation messages (oldest on top). [\#2520](https://github.com/decidim/decidim/pull/2520)
 
 
   Now it follows these steps:

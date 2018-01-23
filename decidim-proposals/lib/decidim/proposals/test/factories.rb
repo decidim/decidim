@@ -120,6 +120,10 @@ FactoryBot.define do
       answered_at { Time.current }
     end
 
+    trait :withdrawn do
+      state "withdrawn"
+    end
+
     trait :with_answer do
       answer { Decidim::Faker::Localized.sentence }
       answered_at { Time.current }
