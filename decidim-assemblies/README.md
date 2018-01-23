@@ -9,7 +9,7 @@ can be fully managed via an administration UI.
 
 ## Usage
 
-This plugin provides:
+This module provides:
 
 * A CRUD engine to manage assemblies.
 

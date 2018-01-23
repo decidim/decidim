@@ -269,7 +269,6 @@ ru:
           title: Подтверждение личности еще не проведено
         unauthorized:
           explanation: Извините, вы не можете выполнить это действие, поскольку некоторые данные вашего подтверждения личности не сходятся.
-          invalid: "Содержимое поля %{field} недопустимо."
           ok: Хорошо
           title: Не подтвердили свою личность
       author:
@@ -404,6 +403,7 @@ ru:
         participate: Принять участие
         welcome: Добро пожаловать в %{organization}!
       statistics:
+        answers_count: Завершенные опросы
         assemblies_count: Собрания
         comments_count: Комментарии
         headline: Текущее состояние %{organization}

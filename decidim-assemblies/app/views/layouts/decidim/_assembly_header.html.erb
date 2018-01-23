@@ -1,27 +1,27 @@
 <div class="process-header row column">
   <div class="row column process-header__main"
-       style="background-image:url(<%= current_assembly.banner_image.url %>);">
+       style="background-image:url(<%= current_participatory_space.banner_image.url %>);">
     <div class="process-header__container row">
       <div class="columns mediumlarge-9 process-header__info">
         <div>
           <h1 class="text-highlight heading2">
-            <%= translated_attribute(current_assembly.title) %>
+            <%= translated_attribute(current_participatory_space.title) %>
           </h1>
         </div>
         <div>
           <h2 class="text-highlight heading-small">
-            <% if current_assembly.hashtag.present? %>
+            <% if current_participatory_space.hashtag.present? %>
               <span class="process-header__hashtag">
-                <%= link_to "##{current_assembly.hashtag}", "https://twitter.com/hashtag/#{current_assembly.hashtag}" %>
+                <%= link_to "##{current_participatory_space.hashtag}", "https://twitter.com/hashtag/#{current_participatory_space.hashtag}" %>
               </span>
             <% end %>
-            <%= translated_attribute(current_assembly.subtitle) %>
+            <%= translated_attribute(current_participatory_space.subtitle) %>
           </h2>
         </div>
       </div>
     </div>
   </div>
-  <% if current_assembly.features.any? %>
+  <% if current_participatory_space.features.any? %>
     <div class="row column">
       <div class="process-nav">
         <button class="process-nav__trigger hide-for-medium"  data-toggle="process-nav-content">
@@ -38,14 +38,14 @@
         </button>
         <div class="row column process-nav__content is-active" id="process-nav-content" data-toggler=".is-active">
           <ul>
-            <li class="<%= "is-active" if is_active_link?(decidim_assemblies.assembly_path(current_assembly), :exclusive) %>">
-              <%= active_link_to decidim_assemblies.assembly_path(current_assembly), active: :exclusive, class: "process-nav__link", class_active: "is-active" do %>
+            <li class="<%= "is-active" if is_active_link?(decidim_assemblies.assembly_path(current_participatory_space), :exclusive) %>">
+              <%= active_link_to decidim_assemblies.assembly_path(current_participatory_space), active: :exclusive, class: "process-nav__link", class_active: "is-active" do %>
                 <%= external_icon "decidim/assemblies/assembly.svg" %>
                 <%= t ".assembly_menu_item" %>
               <% end %>
             </li>
 
-            <% current_assembly.features.each do |feature| %>
+            <% current_participatory_space.features.each do |feature| %>
               <% if feature.published? || feature == self.try(:current_feature) %>
                 <li class="<%= "is-active" if is_active_link?(main_feature_path(feature), :inclusive) %>">
                   <%= active_link_to main_feature_path(feature), class: "process-nav__link", active: :inclusive, class_active: "is-active" do %>

@@ -133,6 +133,12 @@ sv:
       dashboard:
         show:
           welcome: Välkommen till Decidim Admin Panel.
+      events:
+        user_officialized_event:
+          email_intro: <a href="%{profile_path}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
+          email_outro: Du har fått den här meddelandet eftersom du följer %{nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: "%{nickname} updated deras profile"
+          notification_title: <a href="%{profile_path}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
       exports:
         export_as: "%{name} som %{export_format}"
         notice: Din export är pågående. Du får ett mail när det är klart.

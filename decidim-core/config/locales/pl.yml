@@ -257,6 +257,7 @@ pl:
         incomplete:
           cancel: Anuluj
           explanation: 'Pomimo tego, że obecnie masz autoryzację "%{authorization}", musisz ponownie autoryzować, ponieważ brakuje nam następujących danych:'
+          invalid_field: "%{field}"
           reauthorize: Ponów autoryzację
           title: Proszę ponownie autoryzować
         missing:
@@ -269,7 +270,7 @@ pl:
           title: Autoryzacja jest nadal w toku
         unauthorized:
           explanation: Niestety, nie można wykonać tej czynności, ponieważ niektóre z Twoich danych autoryzacyjnych nie są zgodne.
-          invalid: "%{field} jest nieprawidłowy."
+          invalid_field: "%{field} wartość %{value} jest nieprawidłowa."
           ok: Ok
           title: Nieautoryzowany
       author:

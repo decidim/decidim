@@ -21,6 +21,7 @@ module Decidim
 
       if @user.valid?
         @user.save!
+        notify_followers
         broadcast(:ok, @user.unconfirmed_email.present?)
       else
         if @user.errors.has_key? :avatar
@@ -34,7 +35,10 @@ module Decidim
 
     def update_personal_data
       @user.name = @form.name
+      @user.nickname = @form.nickname
       @user.email = @form.email
+      @user.personal_url = @form.personal_url
+      @user.about = @form.about
     end
 
     def update_avatar
@@ -47,6 +51,17 @@ module Decidim
 
       @user.password = @form.password
       @user.password_confirmation = @form.password_confirmation
+    end
+
+    def notify_followers
+      return if (@user.previous_changes.keys & %w(about personal_url)).empty?
+
+      Decidim::EventsManager.publish(
+        event: "decidim.events.users.profile_updated",
+        event_class: Decidim::ProfileUpdatedEvent,
+        resource: @user,
+        recipient_ids: @user.followers.pluck(:id)
+      )
     end
   end
 end

@@ -133,6 +133,12 @@ es:
       dashboard:
         show:
           welcome: Bienvenido al panel de administración de Decidim.
+      events:
+        user_officialized_event:
+          email_intro: La página <a href="%{profile_path}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
+          email_outro: Has recibido esta notificación porque estás siguiendo a %{nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: "%{nickname} actualizó su perfil"
+          notification_title: La página <a href="%{profile_path}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
       exports:
         export_as: "%{name} como %{export_format}"
         notice: Su exportación está actualmente en curso. Recibirá un correo electrónico cuando esté completo.
@@ -214,7 +220,7 @@ es:
         dashboard: Panel de control
         managed_users: Usuarios gestionados
         newsletters: Boletines
-        officializations: Funcionalizaciones
+        officializations: Oficializaciones
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         settings: Configuración
@@ -318,7 +324,7 @@ es:
         create:
           success: Usuario oficializado con éxito
         destroy:
-          success: Usuario no oficializado con éxito
+          success: Usuario des-oficializado con éxito
         index:
           actions: Comportamiento
           badge: Distintivo
@@ -333,10 +339,10 @@ es:
           not_officialized: No oficializado
           officialize: Oficializar
           officialized: Oficializado
-          reofficialize: Reoficializar
+          reofficialize: Re-oficializar
           search: Buscar
           status: Estado
-          unofficialize: Desoficializar
+          unofficialize: Des-oficializar
         new:
           badge: Insignia de oficialización
           officialize: Oficializar
@@ -418,7 +424,7 @@ es:
         dashboard: Panel de control
         impersonations: Suplantaciones
         managed_users: Usuarios gestionados
-        officializations: Funcionalizaciones
+        officializations: Oficializaciones
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         static_pages: Páginas

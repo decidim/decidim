@@ -4,6 +4,17 @@ es:
       admin:
         exports:
           dummies: Maniquíes
+    participatory_processes:
+      statistics:
+        dummies_count_high: Dummies alta
+        dummies_count_medium: Dummies medium
     resource_links:
       test_link:
         dummy_resource_dummy: Ficticio relacionado
+  pages:
+    home:
+      statistics:
+        bar: Bar
+        dummies_count_high: Dummies alta
+        dummies_count_medium: Dummies medium
+        foo: Foo

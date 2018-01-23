@@ -1,6 +1,6 @@
 # Decidim::Api
 
-This library exposes a [GraphQL](https://facebook.github.io/graphql/) API to programatically interact with the Decidim platform via HTTP.
+Exposes a [GraphQL](https://facebook.github.io/graphql/) API to programatically interact with the Decidim platform via HTTP.
 
 ## Usage
 

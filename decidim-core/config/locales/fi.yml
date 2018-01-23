@@ -60,7 +60,7 @@ fi:
         related_photos: Liittyvät kuvat
     authorization_handlers:
       dummy_authorization_handler:
-        explanation: Vahvistetaan esittämällä asiakirjan numero, joka päättyy "X"
+        explanation: Varmenna itsesi esittämällä asiakirjan numero, joka päättyy merkkiin "X"
         fields:
           document_number: Asiakirjan numero
           postal_code: Postinumero
@@ -69,16 +69,16 @@ fi:
         name: Dummy-valtuutuksen työnkulku
       errors:
         duplicate_authorization: Käyttäjätili on jo varmennettu samoilla tiedoilla.
-      expired_at: Loppunut %{timestamp}
-      expires_at: Vanhentuu %{timestamp}
+      expired_at: Umpeutuu %{timestamp}
+      expires_at: Umpeutuu %{timestamp}
       foo_authorization:
         fields:
           bar: Bar
           foo: Foo
         name: Foo-tunnistautuminen
-      granted_at: Annettu osoitteessa %{timestamp}
-      started_at: Aloitti %{timestamp}
-    contact: Ottaa yhteyttä
+      granted_at: Myönnetty %{timestamp}
+      started_at: Aloitettu %{timestamp}
+    contact: Ota yhteyttä
     core:
       actions:
         unauthorized: Sinua ei ole valtuutettu tämän toiminnon suorittamiseen
@@ -88,7 +88,7 @@ fi:
           email_already_exists: Toinen käyttäjätili käyttää samaa sähköpostiosoitetta
         new:
           complete_profile: Viimeistele profiilisi
-          nickname_help: Sinun yksilöllinen tunniste decidimissa.
+          nickname_help: Yksilöllinen tunnisteesi decidimissä.
           sign_up: Viimeistele profiilsi
           subtitle: Täytä seuraava lomake viimeistelläksesi rekisteröitymisesi
           username_help: Julkinen nimi, joka näkyy viesteissäsi. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
@@ -96,7 +96,7 @@ fi:
         new:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
           newsletter_notifications: Vastaanota tietoa viimeaikaisesta aktiviteetista
-          nickname_help: Sinun yksilöllinen tunniste decidimissa.
+          nickname_help: Yksilöllinen tunnisteesi decidimissä.
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           sign_up_as:
@@ -152,7 +152,7 @@ fi:
     filters:
       linked_classes:
         all: Kaikki
-        dummyresource: Dummy resursseja
+        dummyresource: Dummy-resurssit
         meeting: Tapaamiset
         project: Projektit
         proposal: Ehdotukset
@@ -180,27 +180,27 @@ fi:
       conversation_mailer:
         new_conversation:
           greeting: Hei, %{recipient}!
-          intro: "%{sender} on alkanut uuden keskustelun kanssasi. Napsauta tätä nähdäksesi:"
-          outro: Nauti decidimista!
-          subject: "%{sender} on alkanut keskustella kanssasi"
+          intro: "%{sender} on aloittanut uuden keskustelun kanssasi. Napsauta tätä linkkiä nähdäksesi keskustelun:"
+          outro: Nauti decidimistä!
+          subject: "%{sender} on aloittanut keskustelun kanssasi"
         new_message:
           greeting: Hei, %{recipient}!
-          intro: "%{sender} on lähettänyt uusia viestejä keskusteluusi. Klikkaa tästä nähdäksesi ne:"
-          outro: Nauti decidimista!
-          subject: Sinulla on uusia viestejä %{sender}
+          intro: "%{sender} on lähettänyt uusia viestejä keskusteluusi. Klikkaa tästä linkistä nähdäksesi ne:"
+          outro: Nauti decidimistä!
+          subject: Sinulla on uusia viestejä lähettäjältä %{sender}
       conversations:
         create:
-          error: Keskustelu ei käynnisty. Yritä myöhemmin uudelleen
+          error: Keskustelua ei aloitettu. Yritä myöhemmin uudelleen
         index:
           no_conversations: Sinulla ei vielä ole keskusteluja
-          title: keskustelut
+          title: Keskustelut
         reply:
-          send: Lähettää
+          send: Lähetä
           title: Vastaa
         show:
-          title: Keskustelu %{usernames} kanssa
+          title: Keskustelu käyttäjän %{usernames} kanssa
         start:
-          send: Lähettää
+          send: Lähetä
           title: Aloita keskustelu
         update:
           error: Viestiä ei lähetetty. Yritä myöhemmin uudelleen
@@ -224,7 +224,7 @@ fi:
       index:
         title: Lisätietoa
     profiles:
-      default_officialization_text: Tämä osallistuja on julkisesti vahvistettu, hänen nimensä tai tehtävänsä on varmistettu vastaamaan hänen oikeaa nimeään ja tehtäväänsä
+      default_officialization_text: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
     reported_mailer:
       hide:
         hello: Hei %{name},
@@ -241,22 +241,23 @@ fi:
         error: Raportin luonnissa tapahtui virhe. Yritä uudestaan.
         success: Raportti on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
     scopes:
-      global: Globaali soveltamisala
+      global: Yleinen konteksti
       picker:
-        cancel: Peruuttaa
-        choose: valita
+        cancel: Peruuta
+        choose: Valitse
         title: Valitse %{field}
-      prompt: Valitse soveltamisala
-      scopes: laajuudet
+      prompt: Valitse konteksti
+      scopes: Kontekstit
     shared:
       action_authorization_modal:
         expired:
-          authorize: Reauthorize with "%{authorization}"
+          authorize: Varmenna uudestaan palvelulla "%{authorization}"
           explanation: Valtuutuksesi on vanhentunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettu uudelleen "%{authorization}".
           title: Valtuutus on vanhentunut
         incomplete:
           cancel: Peruuta
           explanation: 'Vaikka kirjautumisesi on tällä hetkellä varmennettu varmennustavalla "%{authorization}", tarvitsemme uuden varmennuksen, koska seuraavat tiedot puuttuvat:'
+          invalid_field: "%{field}"
           reauthorize: Varmenna uudestaan
           title: Varmenna uudestaan
         missing:
@@ -269,7 +270,7 @@ fi:
           title: Valtuutus on edelleen käynnissä
         unauthorized:
           explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
-          invalid: "%{field} on virheellinen."
+          invalid_field: "%{field} arvo %{value} ei ole kelvollinen."
           ok: Ok
           title: Ei varmennettu
       author:

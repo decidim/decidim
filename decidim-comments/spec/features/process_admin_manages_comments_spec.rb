@@ -11,6 +11,9 @@ describe "Process admin manages comments", type: :feature do
       create(:comment, commentable: resource)
     end
   end
+  let(:participatory_space_path) do
+    decidim_admin_participatory_processes.edit_participatory_process_path(participatory_process)
+  end
 
   include_context "when managing a feature as a process admin"
 

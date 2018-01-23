@@ -257,6 +257,7 @@ pt:
         incomplete:
           cancel: Cancelar
           explanation: 'Embora você esteja atualmente autorizado com "%{authorization}", precisamos que você reauthorize porque faltamos os seguintes dados:'
+          invalid_field: "%{field}"
           reauthorize: Reautorizar
           title: Por favor reautorize
         missing:
@@ -269,7 +270,7 @@ pt:
           title: A autorização ainda está em progresso
         unauthorized:
           explanation: Desculpe, você não pode executar esta ação porque alguns de seus dados de autorização não coincidem.
-          invalid: "%{field} não é válido."
+          invalid_field: "%{field} valor %{value} não é válido."
           ok: OK
           title: Não autorizado
       author:

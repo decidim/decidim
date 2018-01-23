@@ -71,8 +71,7 @@ shared_context "when managing a feature as a process admin" do
   include_context "when managing a feature"
 
   let(:user) do
-    create :user,
-           :process_admin,
+    create :process_admin,
            :confirmed,
            organization: organization,
            participatory_process: participatory_process

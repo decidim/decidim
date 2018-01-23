@@ -13,7 +13,11 @@ module Decidim
       #          methods. (Default {})
       #          * feature - A Decidim::Feature to get the results from.
       #          * organization - A Decidim::Organization object.
+      #          * parent_id - The parent ID of the result. The value is forced to false to force
+      #                        the filter execution when the value is nil
       def initialize(options = {})
+        options[:parent_id] = false if options[:parent_id].nil?
+
         super(Result.all, options)
       end
 
@@ -22,6 +26,15 @@ module Decidim
         query
           .where(localized_search_text_in(:title), text: "%#{search_text}%")
           .or(query.where(localized_search_text_in(:description), text: "%#{search_text}%"))
+      end
+
+      # Handle parent_id filter
+      def search_parent_id
+        if options[:parent_id] == false
+          query.where(parent_id: nil)
+        else
+          query.where(parent_id: options[:parent_id])
+        end
       end
 
       private
