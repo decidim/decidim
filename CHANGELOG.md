@@ -20,6 +20,7 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-core:** Improve Newsletter adding unsubscribe link, see on website, UTM GET codes [\2359](https://github.com/decidim/decidim/pull/2359)
 - **decidim-verifications**: Added action authorizers for authorization handlers. [\#2438](https://github.com/decidim/decidim/pull/2438)
 - **decidim-accountability**: Add feature to link projects with results [\#2467](https://github.com/decidim/decidim/pull/2467)
+- **decidim-proposals**: Withdrawing of proposals [\#2289](https://github.com/decidim/decidim/issues/2289).
 - **decidim-proposals**: Improve proposals admin panel usability (sorting). [\#2419](https://github.com/decidim/decidim/pull/2419)
 - **decidim-core**: Follow users and get notifications about their actions [\#2401](https://github.com/decidim/decidim/pull/2401) and [\#2452](https://github.com/decidim/decidim/pull/2452).
 - **decidim-core**: Add unique nicknames for participants. [\#2360](https://github.com/decidim/decidim/pull/2360)
