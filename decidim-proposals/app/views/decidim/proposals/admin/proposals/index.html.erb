@@ -19,14 +19,14 @@
       <div id="js-recategorize-proposals-actions" class="row invisible">
         <div class="grid-x grid-margin-x">
           <div class="shrink cell">
-            <span id="js-recategorize-proposals-count"></span> selected
+            <span id="js-recategorize-proposals-count"></span> <%= t(".selected") %>
           </div>
           <div class="auto cell">
-            <%= label_tag 'category_id', "Apply category:" %>
+            <%= label_tag 'category_id', t(".apply_category") %>
             <%= select_tag 'category_id', options_for_select(@categories.collect{ |c| [translated_attribute(c.name), c.id] }, prompt: "select_a_category" ) %>
           </div>
           <div class="shrink cell" style="padding-top: 1rem">
-            <%= submit_tag("Change selected", id: "js-submit-edit-category", class: "button small button--simple float-left") %>
+            <%= submit_tag(t(".update_selected"), id: "js-submit-edit-category", class: "button small button--simple float-left") %>
           </div>
         </div>
       </div>

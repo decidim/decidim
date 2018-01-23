@@ -37,15 +37,35 @@ module Decidim
         end
 
         def update_category
-          if params[:proposal_ids].present? and params[:category_id].present?
-            category = Decidim::Category.find_by_id params[:category_id]
-            proposals = Proposal.where(id: params[:proposal_ids])
-            proposals.update(category: category)
-            flash[:notice] = "Updated category for proposals"
+          authorize! :update, Proposal
+          if params[:proposal_ids].present? && params[:category_id].present?
+            category = Decidim::Category.find_by id: params[:category_id]
+            updated = { oks: [], invalids: [] }
+
+            Proposal.where(id: params[:proposal_ids]).find_each do |proposal|
+              Admin::UpdateProposal.call(category, proposal) do
+                on(:ok) { updated[:oks] << proposal.title }
+
+                on(:invalid) { updated[:invalids] << proposal.title }
+              end
+            end
+
+            if updated[:oks].present?
+              flash[:notice] = I18n.t(
+                "proposals.update_category.success",
+                proposals: updated[:oks].to_sentence,
+                scope: "decidim.proposals.admin"
+              )
+            end
+
+            if updated[:invalids].present?
+              flash[:alert] = I18n.t(
+                "proposals.update_category.invalid",
+                proposals: updated[:invalids].to_sentence,
+                scope: "decidim.proposals.admin"
+              )
+            end
             redirect_to proposals_path
-          else
-            flash.now[:alert] = "something failed"
-            redirect_to edit_category_proposals_path
           end
         end
 
