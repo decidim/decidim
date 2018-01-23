@@ -20,7 +20,9 @@ module Decidim
     # Returns a string
     def scope_name_for_picker(scope, global_name)
       if scope
-        "#{translated_attribute(scope.name)} (#{translated_attribute(scope.scope_type.name)})"
+        name = translated_attribute(scope.name)
+        name << " (#{translated_attribute(scope.scope_type.name)})" if scope.scope_type
+        name
       else
         global_name
       end
