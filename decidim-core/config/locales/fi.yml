@@ -140,6 +140,7 @@ fi:
         email_intro: '%{resource_title} vaihe on nyt käytössä %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
         email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
         email_subject: Päivitys %{participatory_space_title}
+        notification_title: '%{resource_title} vaihe on nyt käytössä <a href="%{resource_path}">%{participatory_space_title}</a>'
       profile_updated_event:
         email_intro: Seuraamasi henkilön %{name} (%{nickname}) <a href="%{profile_path}">profiilisivua</a> on päivitetty.
         email_outro: Olet saanut tämän ilmoituksen, koska seuraat käyttäjää %{nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin avulla.
