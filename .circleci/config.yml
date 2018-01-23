@@ -91,7 +91,7 @@ jobs:
           name: Run core RSpec
           command: cd decidim-core && rake
       - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/screenshots
   assemblies:
     <<: *defaults
     steps:
@@ -110,7 +110,7 @@ jobs:
           name: Run assemblies RSpec
           command: cd decidim-assemblies && rake
       - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/screenshots
   api:
     <<: *defaults
     steps:
@@ -129,7 +129,7 @@ jobs:
           name: Run api RSpec
           command: cd decidim-api && rake
       - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/screenshots
   processes:
     <<: *defaults
     steps:
@@ -148,7 +148,7 @@ jobs:
           name: Run participatory_processes RSpec
           command: cd decidim-participatory_processes && rake
       - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/screenshots
   admin:
     <<: *defaults
     steps:
@@ -167,7 +167,7 @@ jobs:
           name: Run admin RSpec
           command: cd decidim-admin && rake
       - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/screenshots
   system:
     <<: *defaults
     steps:
@@ -186,7 +186,7 @@ jobs:
           name: Run system RSpec
           command: cd decidim-system && rake
       - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/screenshots
   proposals:
     <<: *defaults
     steps:
@@ -205,7 +205,7 @@ jobs:
           name: Run proposals RSpec
           command: cd decidim-proposals && rake
       - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/screenshots
   comments:
     <<: *defaults
     steps:
@@ -237,7 +237,7 @@ jobs:
           name: Run comments RSpec
           command: cd decidim-comments && rake
       - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/screenshots
   meetings:
     <<: *defaults
     steps:
@@ -256,7 +256,7 @@ jobs:
           name: Run meetings RSpec
           command: cd decidim-meetings && rake
       - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/screenshots
   pages:
     <<: *defaults
     steps:
@@ -275,7 +275,7 @@ jobs:
           name: Run pages RSpec
           command: cd decidim-pages && rake
       - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/screenshots
   accountability:
     <<: *defaults
     steps:
@@ -294,7 +294,7 @@ jobs:
           name: Run accountability RSpec
           command: cd decidim-accountability && rake
       - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/screenshots
   budgets:
     <<: *defaults
     steps:
@@ -313,7 +313,7 @@ jobs:
           name: Run budgets RSpec
           command: cd decidim-budgets && rake
       - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/screenshots
   surveys:
     <<: *defaults
     steps:
@@ -332,7 +332,7 @@ jobs:
           name: Run surveys RSpec
           command: cd decidim-surveys && rake
       - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/screenshots
   verifications:
     <<: *defaults
     steps:
@@ -352,7 +352,7 @@ jobs:
           name: Run verifications RSpec
           command: cd decidim-verifications && rake
       - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/screenshots
   debates:
     <<: *defaults
     steps:
@@ -372,7 +372,7 @@ jobs:
           name: Run debates RSpec
           command: cd decidim-debates && rake
       - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/capybara
+          path: /app/spec/decidim_dummy_app/tmp/screenshots
 workflows:
   version: 2
   build_and_test:
