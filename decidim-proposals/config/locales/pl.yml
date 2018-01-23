@@ -79,6 +79,7 @@ pl:
         evaluating: Ocena
         not_answered: Bez odpowiedzi
         rejected: Odrzucone
+        withdrawn: Wycofane
       create:
         error: Podczas zapisywania propozycji wystąpiły błędy.
         success: Propozycja została pomyślnie utworzona.
@@ -154,6 +155,7 @@ pl:
           unfold: Rozwijać się
         index:
           new_proposal: Nowa propozycja
+          see_all_withdrawn: Zobacz wszystkie wycofane propozycje
           view_proposal: Wyświetl propozycję
         linked_proposals:
           proposal_votes:
@@ -184,6 +186,8 @@ pl:
           proposal_in_evaluation_reason: Niniejszy wniosek jest oceniany
           proposal_rejected_reason: 'Niniejszy wniosek został odrzucony, ponieważ:'
           report: Raport
+          withdraw_confirmation: Czy na pewno chcesz wycofać tę propozycję?
+          withdraw_proposal: Wycofaj propozycję
         vote_button:
           already_voted: Już głosował
           already_voted_hover: Unvote
