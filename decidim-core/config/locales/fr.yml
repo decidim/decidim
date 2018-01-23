@@ -8,7 +8,7 @@ fr:
       user:
         email: Votre email
         name: Votre nom
-        nickname: Votre identifiant unique et court en decidim
+        nickname: Votre identifiant court et unique pour Decidim
         password: Nouveau mot de passe
         password_confirmation: Confirmez votre nouveau mot de passe
         remove_avatar: Supprimer l'avatar
@@ -89,14 +89,14 @@ fr:
           email_already_exists: Un autre compte utilise la même adresse de email
         new:
           complete_profile: Complétez votre profil
-          nickname_help: Votre identifiant unique et court en decidim
+          nickname_help: Votre identifiant court et unique pour Decidim
           sign_up: Veuillez compléter votre profil
           subtitle: Remplissez le formulaire suivant pour compléter l'inscription
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       registrations:
         new:
           already_have_an_account?: Vous avez déjà un compte?
-          nickname_help: Votre identifiant unique et court en decidim
+          nickname_help: Votre identifiant court et unique pour Decidim
           notifications: Recevoir des lettres d'informations sur l'activité de la plateforme
           sign_in: S'identifier
           sign_up: S'inscrire
