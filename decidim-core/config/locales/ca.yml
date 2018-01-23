@@ -138,6 +138,9 @@ ca:
         notification_title: S'ha produït un esdeveniment a <a href="%{resource_path}">%{resource_title}</a>.
       participatory_process_step_activated_event:
         email_intro: 'El pas %{resource_title} ja està actiu per %{participatory_space_title}. Podeu veure-ho des d''aquesta pàgina:'
+        email_outro: Heu rebut aquesta notificació perquè esteu seguint %{participatory_space_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+        email_subject: Una actualització a %{participatory_space_title}
+        notification_title: El pas %{resource_title} ja està actiu per <a href="%{resource_path}">%{participatory_space_title}</a>
       profile_updated_event:
         email_intro: El <a href="%{profile_path}">profile pàgina</a> de %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
         email_outro: Has rebut aquesta notificació perquè estàs seguint en/na %{nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
