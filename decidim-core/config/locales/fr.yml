@@ -136,6 +136,11 @@ fr:
         notification_title: Le composant %{resource_title} est maintenant actif pour <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_process_step_activated_event:
+        email_intro: 'L''étape %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
+        email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+        email_subject: Une mise à jour de %{participatory_space_title}
+        notification_title: L'étape %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       profile_updated_event:
         email_intro: Le <a href="%{profile_path}">profile</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
         email_outro: Vous recevez cette notification car vous suivez « %{nickname} ». Vous pouvez cesser de le suivre à partir du lien précédent.
