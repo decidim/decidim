@@ -136,6 +136,11 @@ pt:
         notification_title: O componente %{resource_title} agora está ativo para <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_process_step_activated_event:
+        email_intro: 'O passo %{resource_title} agora está ativo para %{participatory_space_title}. Você pode vê-lo a partir desta página:'
+        email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
+        email_subject: Uma atualização para %{participatory_space_title}
+        notification_title: O passo %{resource_title} agora está ativo para <a href="%{resource_path}">%{participatory_space_title}</a>
       profile_updated_event:
         email_intro: O <a href="%{profile_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
         email_outro: Você recebeu esta notificação porque está seguindo %{nickname}. Você pode parar de receber notificações após o link anterior.
