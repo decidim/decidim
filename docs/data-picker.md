@@ -13,3 +13,39 @@ Data Picker is composed by 2 visual artifacts, plus the javascript and one contr
 - **controller ajax action**: An ajax action will send the content of the popup in an html partial.
 
 ## How to
+### Placing the Data Picker widget:
+The Data Picker widget structure is as follows:
+TODO: Review picker-values!
+```html
+<div id="some-unique-id" class="data-picker <%= picker_options[:class]%>" data-picker-name="<%=picker_options[:name]%>">
+  <div class="picker-values"><% @form.proposals.each do |proposal, params| %>
+    <div><a href="<%= prompt_params[:url] %>" data-picker-value="<%=proposal%>"><%=proposal%></a></div>
+  <% end %></div>
+  <div class="picker-prompt"><a href="<%= prompt_params[:url] %>"><%= prompt_params[:text] %></a></div>
+</div>
+```
+
+Placing the widget in a form requires two steps:
+
+It is a good way to implement the widget to think that it is a component that takes parameters.
+1. Prepare Data Picker parameters
+Data Picker takes two arguments the `picker_params` hash (to fill the main div) and the `prompt_params` hash (for the `picker-prompt` div).
+  - `picker_params.id`: the html unique id of the widget instance, required by the JavaScript.
+  - `picker_params.name`: the html name of the widget which will be sent by the form.
+  - `picker_params.class`: one of `picker-multiple`, when user can select multiple data, or `picker-single`, when only one data is to be selected.
+
+2. Html for the Data Picker widget
+
+### Selector popup content
+
+Anchors in the selector can have the following attributes:
+data-close: this anchor will be ignored
+href: the url to be used for choosing
+picker-choose: when 'undefined' will load the given href url. Otherwise a choose action in the component is invoked with params: `url: href, value: picker-value, text: picker-text`.
+picker-value: the selected value
+picker-text (optional): 
+
+
+
+### Returning the selection to the widget
+To return the selection to the widget in the main page.
