@@ -320,9 +320,9 @@ es:
         destroy:
           success: Usuario des-oficializado con éxito
         index:
-          actions: Comportamiento
+          actions: Acciones
           badge: Distintivo
-          created_at: Creado en
+          created_at: Creado el
           filter:
             all: Todas
             not_officialized: No oficializado
