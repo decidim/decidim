@@ -79,6 +79,7 @@ fi:
         evaluating: Arvioitavana
         not_answered: Vastaamaton
         rejected: Hylätty
+        withdrawn: peruutettu
       create:
         error: Ehdotuksen tallennuksessa tapahtui virhe.
         success: Ehdotus luotu onnistuneesti.
@@ -154,6 +155,7 @@ fi:
           unfold: Avaa
         index:
           new_proposal: Uusi ehdotus
+          see_all_withdrawn: Katso kaikki peruutetut ehdotukset
           view_proposal: Näytä ehdotus
         linked_proposals:
           proposal_votes:
@@ -182,6 +184,8 @@ fi:
           proposal_in_evaluation_reason: Tämä ehdotus on arvioitavana
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
           report: Ilmoita
+          withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?
+          withdraw_proposal: Vedä ehdotus
         vote_button:
           already_voted: Jo äänestetty
           already_voted_hover: Peru äänesi
