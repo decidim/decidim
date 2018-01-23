@@ -79,6 +79,7 @@ es:
         evaluating: En evaluación
         not_answered: No contestada
         rejected: Rechazada
+        withdrawn: Retirado
       create:
         error: Ha habido errores al guardar la propuesta.
         success: Propuesta creada correctamente.
@@ -153,6 +154,7 @@ es:
           unfold: Desplegar
         index:
           new_proposal: Nueva propuesta
+          see_all_withdrawn: Ver todas las propuestas retiradas
           view_proposal: Ver propuesta
         linked_proposals:
           proposal_votes:
@@ -181,6 +183,7 @@ es:
           proposal_in_evaluation_reason: Esta propuesta está siendo evaluada
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
           report: Denunciar
+          withdraw_confirmation: '¿Estás seguro de retirar esta propuesta?'
         vote_button:
           already_voted: Ya votado
           already_voted_hover: Retirar voto
