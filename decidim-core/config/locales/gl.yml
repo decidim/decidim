@@ -140,6 +140,7 @@ gl:
         email_intro: 'O paso %{resource_title} está agora activo para %{participatory_space_title}. Podes velo desde esta páxina:'
         email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
         email_subject: Unha actualización a %{participatory_space_title}
+        notification_title: O paso %{resource_title} está agora activo para <a href="%{resource_path}">%{participatory_space_title}</a>
       profile_updated_event:
         email_intro: O <a href="%{profile_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
         email_outro: Recibiches esta notificación porque estás seguindo %{nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
