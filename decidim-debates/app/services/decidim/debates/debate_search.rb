@@ -23,7 +23,7 @@ module Decidim
       end
 
       # Handle the origin filter
-      # The 'official' proposals doesn't have an author id
+      # The 'official' debates don't have an author ID
       def search_origin
         if origin == "official"
           query.where(decidim_author_id: nil)
@@ -32,16 +32,6 @@ module Decidim
         else # Assume 'all'
           query
         end
-      end
-
-      # Handle the order_start_time filter
-      def search_order_start_time
-        query.order(start_time: order_start_time)
-      end
-
-      # Handle the scope_id filter
-      def search_scope_id
-        query.where(decidim_scope_id: scope_id)
       end
     end
   end

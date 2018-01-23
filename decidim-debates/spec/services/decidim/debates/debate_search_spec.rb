@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Debates::DebateSearch do
-  subject { described_class.new(params) }
+  subject { described_class.new(params).results }
 
   let(:current_feature) { create :feature, manifest_name: "debates" }
   let(:parent_category) { create :category, participatory_space: current_feature.participatory_space }
@@ -19,6 +19,7 @@ describe Decidim::Debates::DebateSearch do
   let!(:debate2) do
     create(
       :debate,
+      :with_author,
       feature: current_feature,
       start_time: 2.days.from_now,
       category: subcategory
@@ -35,7 +36,7 @@ describe Decidim::Debates::DebateSearch do
       let(:default_params) { { feature: nil } }
 
       it "raises an error" do
-        expect { subject.results }.to raise_error(StandardError, "Missing feature")
+        expect { subject }.to raise_error(StandardError, "Missing feature")
       end
     end
   end
@@ -45,26 +46,40 @@ describe Decidim::Debates::DebateSearch do
       it "only returns debates from the given feature" do
         external_debate = create(:debate)
 
-        expect(subject.results).not_to include(external_debate)
+        expect(subject).not_to include(external_debate)
       end
     end
 
-    describe "order_start_time" do
-      let(:params) { default_params.merge(order_start_time: order) }
+    describe "search_text filter" do
+      let(:params) { default_params.merge(search_text: search_text) }
+      let(:search_text) { "dog" }
 
-      context "when it is :asc" do
-        let(:order) { :asc }
+      before do
+        debate1.title["en"] = "Do you like my dog?"
+        debate1.save
+      end
 
-        it "sorts the debates by start_time asc" do
-          expect(subject.results).to eq [debate1, debate2]
+      it "searches the title or the description in i18n" do
+        expect(subject).to eq [debate1]
+      end
+    end
+
+    describe "origin filter" do
+      let(:params) { default_params.merge(origin: origin) }
+
+      context "when filtering official debates" do
+        let(:origin) { "official" }
+
+        it "returns only official debates" do
+          expect(subject).to eq [debate1]
         end
       end
 
-      context "when it is :desc" do
-        let(:order) { :desc }
+      context "when filtering citizen debates" do
+        let(:origin) { "citizens" }
 
-        it "sorts the debates by start_time desc" do
-          expect(subject.results).to eq [debate2, debate1]
+        it "returns only citizen debates" do
+          expect(subject).to eq [debate2]
         end
       end
     end
@@ -74,7 +89,7 @@ describe Decidim::Debates::DebateSearch do
         let(:params) { default_params.merge(category_id: subcategory.id) }
 
         it "returns only debates from the given category" do
-          expect(subject.results).to eq [debate2]
+          expect(subject).to eq [debate2]
         end
       end
 
@@ -82,7 +97,7 @@ describe Decidim::Debates::DebateSearch do
         let(:params) { default_params.merge(category_id: parent_category.id) }
 
         it "returns debates from this category and its children's" do
-          expect(subject.results).to match_array [debate2, debate1]
+          expect(subject).to match_array [debate2, debate1]
         end
       end
 
@@ -91,7 +106,7 @@ describe Decidim::Debates::DebateSearch do
         let(:params) { default_params.merge(category_id: external_category.id) }
 
         it "returns an empty array" do
-          expect(subject.results).to eq []
+          expect(subject).to eq []
         end
       end
     end
