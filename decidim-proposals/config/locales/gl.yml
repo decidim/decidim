@@ -79,6 +79,7 @@ gl:
         evaluating: Avaliación
         not_answered: Non respondeu
         rejected: Rexeitado
+        withdrawn: Retirada
       create:
         error: Produciuse un erro ao gardar a proposta.
         success: Proposta creada con éxito.
@@ -153,6 +154,7 @@ gl:
           unfold: Despregar
         index:
           new_proposal: Nova proposta
+          see_all_withdrawn: Ver todas as propostas retiradas
           view_proposal: Ver proposta
         linked_proposals:
           proposal_votes:
@@ -181,6 +183,8 @@ gl:
           proposal_in_evaluation_reason: Esta proposta está a ser avaliada
           proposal_rejected_reason: 'Esta proposta foi rexeitada porque:'
           report: Informe
+          withdraw_confirmation: '¿Estás seguro de retirar esta proposta?'
+          withdraw_proposal: Retire a proposta
         vote_button:
           already_voted: Xa votou
           already_voted_hover: Unvocar
