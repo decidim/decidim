@@ -61,10 +61,10 @@ es:
           success: Asamblea despublicada con éxito.
       assembly_user_roles:
         create:
-          error: Se produjo un error al agregar un usuario para este ensamblaje.
-          success: Usuario creado con éxito para este ensamblaje.
+          error: Se ha producido un error al agregar un usuario para esta asamblea.
+          success: Usuario creado con éxito para esta asamblea.
         destroy:
-          success: Usuario destruido con éxito para este ensamblaje.
+          success: Usuario destruido con éxito para esta asamblea.
         edit:
           title: Actualizar el usuario de ensamblaje.
           update: Actualizar
