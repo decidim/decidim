@@ -27,13 +27,84 @@ describe "Explore debates", type: :feature do
   describe "index" do
     let(:path) { decidim_participatory_process_debates.debates_path(participatory_process_slug: participatory_process.slug, feature_id: current_feature.id) }
 
-    it "shows all debates for the given process" do
+    it "lists all debates for the given process" do
       visit path
 
       expect(page).to have_selector("article.card", count: debates_count)
 
       debates.each do |debate|
         expect(page).to have_content(translated(debate.title))
+      end
+    end
+
+    context "when there are a lot of debates" do
+      before do
+        create_list(:debate, Decidim::Paginable::OPTIONS.first + 5, feature: feature)
+      end
+
+      it "paginates them" do
+        visit_feature
+
+        expect(page).to have_css(".card--debate", count: Decidim::Paginable::OPTIONS.first)
+
+        click_link "Next"
+
+        expect(page).to have_selector(".pagination .current", text: "2")
+
+        expect(page).to have_css(".card--debate", count: 5)
+      end
+    end
+
+    context "when filtering" do
+      context "when filtering by origin" do
+        context "with 'official' origin" do
+          it "lists the filtered debates" do
+            create_list(:debate, 2, feature: feature)
+            create(:debate, :with_author, feature: feature)
+            visit_feature
+
+            within ".filters" do
+              choose "Official"
+            end
+
+            expect(page).to have_css(".card--debate", count: 2)
+            expect(page).to have_content("2 DEBATES")
+          end
+        end
+
+        context "with 'citizens' origin" do
+          it "lists the filtered debates" do
+            create_list(:debate, 2, :with_author, feature: feature)
+            create(:debate, feature: feature)
+            visit_feature
+
+            within ".filters" do
+              choose "Citizens"
+            end
+
+            expect(page).to have_css(".card--debate", count: 2)
+            expect(page).to have_content("2 DEBATES")
+          end
+        end
+      end
+
+      context "when filtering by category" do
+        before do
+          login_as user, scope: :user
+        end
+
+        it "can be filtered by category" do
+          create_list(:debate, 3, feature: feature)
+          create(:debate, feature: feature, category: category)
+
+          visit_feature
+
+          within "form.new_filter" do
+            select category.name[I18n.locale.to_s], from: :filter_category_id
+          end
+
+          expect(page).to have_css(".card--debate", count: 1)
+        end
       end
     end
 
@@ -44,7 +115,7 @@ describe "Explore debates", type: :feature do
         create :moderation, :hidden, reportable: debate
       end
 
-      it "does not show the hidden debates" do
+      it "does not list the hidden debates" do
         visit path
 
         expect(page).to have_selector("article.card", count: debates_count - 1)
@@ -101,99 +172,6 @@ describe "Explore debates", type: :feature do
 
         within "ul.tags.tags--debate" do
           expect(page).to have_content(translated(debate.category.name))
-        end
-      end
-    end
-  end
-
-  context "when creating a new debate" do
-    let(:user) { create :user, :confirmed, organization: organization }
-    let!(:category) { create :category, participatory_space: participatory_space }
-
-    context "when the user is logged in" do
-      before do
-        login_as user, scope: :user
-      end
-
-      context "with creation enabled" do
-        let!(:feature) do
-          create(:debates_feature,
-                 :with_creation_enabled,
-                 participatory_space: participatory_process)
-        end
-
-        it "creates a new debate", :slow do
-          visit_feature
-
-          click_link "New debate"
-
-          within ".new_debate" do
-            fill_in :debate_title, with: "Should Oriol be president?"
-            fill_in :debate_description, with: "Would he solve everything?"
-            fill_in :debate_instructions, with: "Please behave"
-            select translated(category.name), from: :debate_category_id
-
-            find("*[type=submit]").click
-          end
-
-          expect(page).to have_content("successfully")
-          expect(page).to have_content("Should Oriol be president?")
-          expect(page).to have_content("Would he solve everything?")
-          expect(page).to have_content("Please behave")
-          expect(page).to have_content(translated(category.name))
-          expect(page).to have_selector(".author-data", text: user.name)
-        end
-
-        context "when creating as a user group" do
-          let!(:user_group) { create :user_group, :verified, organization: organization, users: [user] }
-
-          it "creates a new debate", :slow do
-            visit_feature
-
-            click_link "New debate"
-
-            within ".new_debate" do
-              fill_in :debate_title, with: "Should Oriol be president?"
-              fill_in :debate_description, with: "Would he solve everything?"
-              fill_in :debate_instructions, with: "Please behave"
-              select translated(category.name), from: :debate_category_id
-              select user_group.name, from: :debate_user_group_id
-
-              find("*[type=submit]").click
-            end
-
-            expect(page).to have_content("successfully")
-            expect(page).to have_content("Should Oriol be president?")
-            expect(page).to have_content("Would he solve everything?")
-            expect(page).to have_content("Please behave")
-            expect(page).to have_content(translated(category.name))
-            expect(page).to have_selector(".author-data", text: user_group.name)
-          end
-        end
-
-        context "when the user isn't authorized" do
-          before do
-            permissions = {
-              create: {
-                authorization_handler_name: "dummy_authorization_handler"
-              }
-            }
-
-            feature.update_attributes!(permissions: permissions)
-          end
-
-          it "shows a modal dialog" do
-            visit_feature
-            click_link "New debate"
-            expect(page).to have_content("Authorization required")
-          end
-        end
-      end
-
-      context "when creation is not enabled" do
-        it "does not show the creation button" do
-          visit_feature
-          expect(page).to have_no_link("New debate")
         end
       end
     end
