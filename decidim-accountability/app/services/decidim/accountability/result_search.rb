@@ -16,8 +16,6 @@ module Decidim
       #          * parent_id - The parent ID of the result. The value is forced to false to force
       #                        the filter execution when the value is nil
       def initialize(options = {})
-        options[:parent_id] = false if options[:parent_id].nil?
-
         super(Result.all, options)
       end
 
@@ -30,10 +28,10 @@ module Decidim
 
       # Handle parent_id filter
       def search_parent_id
-        if options[:parent_id] == false
-          query.where(parent_id: nil)
-        else
+        if options[:parent_id].present?
           query.where(parent_id: options[:parent_id])
+        else
+          query
         end
       end
 

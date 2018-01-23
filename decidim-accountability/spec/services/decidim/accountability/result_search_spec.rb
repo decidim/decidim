@@ -122,15 +122,15 @@ module Decidim::Accountability
         context "when the parent_id is nil" do
           let(:params) { default_params.merge(parent_id: nil) }
 
-          it "returns results all parent results" do
-            expect(subject.results).to match_array [result2, result1]
+          it "returns the search on all results" do
+            expect(subject.results).to match_array [result1, result2, result3]
           end
         end
 
         context "when the parent_id is result1" do
           let(:params) { default_params.merge(parent_id: result1.id) }
 
-          it "returns results the children" do
+          it "returns the search on the children of result``" do
             expect(subject.results).to match_array [result3]
           end
         end
