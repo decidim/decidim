@@ -26,6 +26,14 @@ $datetime-bg: $primary;
   border: $card-border;
   border-radius: $card-border-radius;
   overflow: hidden;
+
+  @include modifiers(border-top-color, (muted: rgba($muted, .3))){
+    border-top-width: 8px;
+  }
+
+  &:hover{
+    @include modifiers(border-color, (muted: rgba($muted, .3)));
+  }
 }
 
 .card--nomargin{
@@ -571,47 +579,6 @@ $datetime-bg: $primary;
   }
 }
 
-// card--proposal status
-.card--proposal{
-  &.success{
-    border-top-width: 8px;
-    border-top-color: $success;
-  }
-
-  &.warning{
-    border-top-width: 8px;
-    border-top-color: $warning;
-  }
-
-  &.alert{
-    border-top-width: 8px;
-    border-top-color: $alert;
-  }
-
-  &.muted{
-    border-top-width: 8px;
-    border-top-color: rgba($muted, .3);
-  }
-
-  &:hover{
-    &.success{
-      border-color: $success;
-    }
-
-    &.warning{
-      border-color: $warning;
-    }
-
-    &.alert{
-      border-color: $alert;
-    }
-
-    &.muted{
-      border-color: rgba($muted, .3);
-    }
-  }
-}
-
 // card status
 .card__status{
   .card-data__item{
@@ -622,20 +589,6 @@ $datetime-bg: $primary;
   .card-status__text{
     font-weight: bold;
 
-    &.success{
-      color: $success;
-    }
-
-    &.warning{
-      color: $warning;
-    }
-
-    &.alert{
-      color: $alert;
-    }
-
-    &.muted{
-      color: $muted;
-    }
+    @include modifiers(color, (muted: $muted));
   }
 }

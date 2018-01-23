@@ -39,3 +39,20 @@
 @function shade($color, $percentage){
   @return mix(black, $color, $percentage);
 }
+
+// Status modifier mixin
+$palette: $foundation-palette;
+
+@mixin modifiers($vars, $colors: $palette){
+  $map: map-merge($palette, $colors);
+
+  @each $key, $value in $map{
+    &.#{$key}{
+      @content;
+
+      @each $property in $vars{
+        #{$property}: map-get($map, $key);
+      }
+    }
+  }
+}
