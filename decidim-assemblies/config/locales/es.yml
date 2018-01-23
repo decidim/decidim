@@ -66,20 +66,20 @@ es:
         destroy:
           success: Usuario destruido con éxito para esta asamblea.
         edit:
-          title: Actualizar el usuario de ensamblaje.
+          title: Actualizar el usuario de la asamblea.
           update: Actualizar
         index:
           assembly_admins_title: Usuarios de la Asamblea
         new:
           create: Crear
-          title: Nuevo usuario de ensamblaje.
+          title: Nuevo usuario de la asamblea.
         update:
-          error: Hubo un error al actualizar un usuario para este ensamblaje.
-          success: Usuario actualizado con éxito para este ensamblaje.
+          error: Ha habido un error al actualizar un usuario para esta asamblea.
+          success: Usuario actualizado con éxito para esta asamblea.
       menu:
         assemblies: Asambleas
         assemblies_submenu:
-          assembly_admins: Usuarios de la Asamblea
+          assembly_admins: Usuarios de la asamblea
           attachments: Archivos adjuntos
           categories: Categorías
           features: Funcionalidades
@@ -95,10 +95,10 @@ es:
           name: Asamblea
         assembly_user_role:
           fields:
-            email: Email
+            email: Correo electrónico
             name: Nombre
-            role: Papel
-          name: Usuario de la Asamblea
+            role: Rol
+          name: Usuario de la asamblea
           roles:
             admin: Administrador
             collaborator: Colaborador
