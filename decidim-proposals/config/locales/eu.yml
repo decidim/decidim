@@ -79,6 +79,7 @@ eu:
         evaluating: Ebaluatzen
         not_answered: Erantzun gabe
         rejected: Ukatua
+        withdrawn: kendu
       create:
         error: Erroreak gertatu dira proposamena gordetzean.
         success: Proposamena zuzen sortu da.
@@ -153,6 +154,7 @@ eu:
           unfold: Zabaldu
         index:
           new_proposal: Proposamen berria
+          see_all_withdrawn: Ikusi guztiak kendutako proposamenak
           view_proposal: Ikusi proposamena
         linked_proposals:
           proposal_votes:
@@ -181,6 +183,8 @@ eu:
           proposal_in_evaluation_reason: Proposamen hau ebaluatzen ari da
           proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'
           report: Salatu
+          withdraw_confirmation: Ziur al zaude proposamen hau kendu nahi duzula?
+          withdraw_proposal: Ezabatu proposamena
         vote_button:
           already_voted: Bozkatuta duzu
           already_voted_hover: Unvote
