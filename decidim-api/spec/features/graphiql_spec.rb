@@ -17,7 +17,7 @@ describe "GraphiQL", type: :system do
   it "is able to execute the default query" do
     find(".execute-button").click
     within ".result-window" do
-      expect(page).to have_content("\"id\": \"#{organization.id}\"")
+      expect(page).to have_content("\"id\": \"#{participatory_process.id}\"")
     end
   end
 end
