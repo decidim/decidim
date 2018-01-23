@@ -8,7 +8,7 @@ es:
       user:
         email: Tu correo electrónico
         name: Tu nombre
-        nickname: Su identificador corto y único en decidim
+        nickname: Su identificador corto y único
         password: Contraseña
         password_confirmation: Confirma tu contraseña
         remove_avatar: Eliminar imagen de perfil
@@ -89,14 +89,14 @@ es:
           email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
         new:
           complete_profile: Completar perfil
-          nickname_help: Su identificador corto y único en decidim
+          nickname_help: Su identificador corto y único
           sign_up: Por favor, completa tu perfil
           subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
-          nickname_help: Su identificador corto y único en decidim
+          nickname_help: Su identificador corto y único
           notifications: Recibir información sobre la actividad relevante
           sign_in: Entra
           sign_up: Regístrate
@@ -131,7 +131,7 @@ es:
         email_subject: Una actualización de %{resource_title}
       feature_published_event:
         email_intro: 'El componente %{resource_title} ahora está activo para %{participatory_space_title}. Puedes verlo desde esta página:'
-        email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+        email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
         email_subject: Una actualización de %{participatory_space_title}
         notification_title: El componente %{resource_title} ahora está activo para <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
