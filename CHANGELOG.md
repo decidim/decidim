@@ -88,8 +88,10 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-verifications**: Fixed a migration that broke feature permissions. If you already upgraded to `0.8.2` or less, please follow the instructions on the PR [\#2373](https://github.com/decidim/decidim/pull/2373)
 - **decidim-accountability**: Fix children results count [\#2483](https://github.com/decidim/decidim/pull/2483)
 - **decidim-accountability**: Keeps the current scope in the breadcumb links [\#2488](https://github.com/decidim/decidim/pull/2488)
+- **decidim-accountability**: Top level search searches on all results (not only the first level) [\#2545](https://github.com/decidim/decidim/pull/2545)
 
 **Removed**
+
 - **decidim**: Select2 JS library and scope selector based on Select2.
 - **dedicim-accountability**: Removed the Global scope navigation option ([\#2486](https://github.com/decidim/decidim/pull/2486))
 
