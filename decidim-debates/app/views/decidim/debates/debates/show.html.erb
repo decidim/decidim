@@ -28,18 +28,19 @@
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
     large-3 large-push-9">
-    <% if debate.start_time.present? && debate.end_time.present? %>
-      <div class="card extra">
-        <div class="card__content">
+    <div class="card extra">
+      <div class="card__content">
+        <% if debate.start_time.present? && debate.end_time.present? %>
           <div class="extra__date">
             <%= l debate.start_time, format: "%d" %> <span class="extra__month"><%= l debate.start_time, format: "%B" %></span>
           </div>
           <div class="extra__time">
             <%= l debate.start_time, format: "%H:%M" %> - <%= l debate.end_time, format: "%H:%M" %>
           </div>
-        </div>
+        <% end %>
+        <%= render partial: "decidim/shared/follow_button", locals: { followable: debate } %>
       </div>
-    <% end %>
+    </div>
     <%= feature_reference(debate) %>
     <%= render partial: "share", locals: { debate: debate } %>
   </div>

@@ -84,9 +84,10 @@ module Decidim
         false
       end
 
-      # Public: Overrides the `users_to_notify` Notifiable concern method.
-      def users_to_notify
-        []
+      # Public: Override Commentable concern method `users_to_notify_on_comment_created`
+      def users_to_notify_on_comment_created
+        return (followers | feature.participatory_space.admins).uniq if official?
+        followers
       end
 
       private
