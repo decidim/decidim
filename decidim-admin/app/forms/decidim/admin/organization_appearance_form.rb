@@ -24,10 +24,14 @@ module Decidim
       attribute :show_statistics, Boolean
       attribute :header_snippets, String
       attribute :cta_button_path, String
+      attribute :enable_banner_omnipresent, Boolean
+      attribute :banner_omnipresent_url, String
 
       translatable_attribute :cta_button_text, String
       translatable_attribute :description, String
       translatable_attribute :welcome_text, String
+      translatable_attribute :banner_omnipresent_title, String
+      translatable_attribute :banner_omnipresent_short_description, String
 
       validates :cta_button_path, format: { with: %r{\A[a-zA-Z]+[a-zA-Z0-9\-/]+\z} }, allow_blank: true
       validates :official_img_header,
@@ -36,6 +40,16 @@ module Decidim
                 :logo,
                 file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
                 file_content_type: { allow: ["image/jpeg", "image/png"] }
+
+      validates :banner_omnipresent_url, presence: true, if: :enable_banner_omnipresent?
+      validates :banner_omnipresent_title, translatable_presence: true, if: :enable_banner_omnipresent?
+      validates :banner_omnipresent_short_description, translatable_presence: true, if: :enable_banner_omnipresent?
+
+      private
+
+      def enable_banner_omnipresent?
+        enable_banner_omnipresent
+      end
     end
   end
 end

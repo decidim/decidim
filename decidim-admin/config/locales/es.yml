@@ -33,6 +33,10 @@ es:
         official_url: URL oficial de la organización
         show_statistics: Mostrar estadísticas
         welcome_text: Texto de bienvenida
+        enable_banner_omnipresent: Mostrar banner omnipresente
+        banner_omnipresent_url: URL
+        banner_omnipresent_title: Título
+        banner_omnipresent_short_description: Descripción corta
       scope:
         code: Código
         name: Nombre
@@ -370,6 +374,7 @@ es:
           cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
           header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
           homepage_appearance_title: Editar apariencia de página de inicio
+          banner_omnipresent_appearance_title: Editar los detalles del banner omnipresente
           layout_appearance_title: Editar apariencia de diseño global
       scope_types:
         create:
