@@ -2,12 +2,13 @@ fi:
   activemodel:
     attributes:
       account:
-        delete_reason: Syytä tilisi poistoon
+        delete_reason: Syy tilisi poistoon
       report:
         details: Lisätiedot
       user:
         email: Sähköpostiosoitteesi
         name: Nimesi
+        nickname: Sinun lyhyt, ainutlaatuinen tunniste decidimissä
         password: Salasanasi
         password_confirmation: Vahvista salasanasi
         remove_avatar: Poista profiilikuva
@@ -88,15 +89,15 @@ fi:
           email_already_exists: Toinen käyttäjätili käyttää samaa sähköpostiosoitetta
         new:
           complete_profile: Viimeistele profiilisi
-          nickname_help: Yksilöllinen tunnisteesi decidimissä.
+          nickname_help: Sinun lyhyt, ainutlaatuinen tunniste decidimissä
           sign_up: Viimeistele profiilsi
           subtitle: Täytä seuraava lomake viimeistelläksesi rekisteröitymisesi
           username_help: Julkinen nimi, joka näkyy viesteissäsi. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
       registrations:
         new:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
-          newsletter_notifications: Vastaanota tietoa viimeaikaisesta aktiviteetista
-          nickname_help: Yksilöllinen tunnisteesi decidimissä.
+          nickname_help: Sinun lyhyt, ainutlaatuinen tunniste decidimissä
+          notifications: Vastaanota tietoa viimeaikaisesta toiminnasta
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           sign_up_as:
@@ -128,8 +129,23 @@ fi:
         email_intro: 'Kohteeseen ”%{resource_title}” on tehty päivitys. Näet sen tältä sivulta:'
         email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta ”%{resource_title}”. Voit lopettaa seuraamisen edellisestä linkistä.
         email_subject: Kohteen %{resource_title} päivitys
+      feature_published_event:
+        email_intro: '%{resource_title} -komponentti on nyt käytössä %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
+        email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+        email_subject: Päivitys %{participatory_space_title}
+        notification_title: '%{resource_title} -komponentti on nyt aktiivinen <a href="%{resource_path}">%{participatory_space_title}</a>'
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
+      participatory_process_step_activated_event:
+        email_intro: '%{resource_title} vaihe on nyt käytössä %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
+        email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+        email_subject: Päivitys %{participatory_space_title}
+        notification_title: '%{resource_title} vaihe on nyt käytössä <a href="%{resource_path}">%{participatory_space_title}</a>'
+      profile_updated_event:
+        email_intro: Seuraamasi henkilön %{name} (%{nickname}) <a href="%{profile_path}">profiilisivua</a> on päivitetty.
+        email_outro: Olet saanut tämän ilmoituksen, koska seuraat käyttäjää %{nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin avulla.
+        email_subject: "%{nickname} päivitti profiiliaan"
+        notification_title: Seuraamasi henkilön %{name} (%{nickname}) <a href="%{profile_path}">profiilisivua</a> on päivitetty.
     export_mailer:
       export:
         ready: Tähän viestiin on liitetty palvelusta löytyvät tiedot zip-pakettina.
@@ -207,10 +223,19 @@ fi:
     newsletter_mailer:
       newsletter:
         note: Tämä viesti on lähetetty sinulle, koska olet tilannut uutiskirjeet organisaatiolta %{organization_name}. Voit muuttaa asetuksiasi <a href="%{link}">ilmoitusten sivulla</a>.
+        see_on_website: Etkö näe tätä sähköpostia oikein? Avaa sähköposti <a href="%{link}" target="_blank">selaimessasi</a>.
+        unsubscribe: Voit lopettaa tämäntyyppisten sähköpostien vastaanottamisen <a href="%{link}" target="_blank" class="unsubscribe">poistumalla sähköpostilistalta</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Jos haluat muuttaa asetuksiasi, voit tehdä sen <a href="%{link}" target="_blank">asetussivulla</a>
+        error: Tilauksen peruuttamisessa tapahtui virhe
+        success: Tilauksen peruuttaminen onnistui.
+        token_error: Linkki on vanhentunut.
+        unsubscribe: Peruuta tilaus
     notifications_settings:
       show:
         email_on_notification: Haluan saada sähköpostia aina, kun saan ilmoituksen.
-        newsletter_notifications: Haluan vastaanottaa tietoa relevantista aktiviteetista
+        newsletter_notifications: Haluan vastaanottaa uutiskirjeitä
         update_notifications_settings: Tallenna muutokset
       update:
         error: Ilmoitusasetustesi päivityksessä tapahtui virhe.
@@ -225,6 +250,9 @@ fi:
         title: Lisätietoa
     profiles:
       default_officialization_text: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
+      show:
+        about_me: Minusta
+        personal_url: Henkilökohtainen verkkosivusto
     reported_mailer:
       hide:
         hello: Hei %{name},
@@ -251,9 +279,9 @@ fi:
     shared:
       action_authorization_modal:
         expired:
-          authorize: Varmenna uudestaan palvelulla "%{authorization}"
-          explanation: Valtuutuksesi on vanhentunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettu uudelleen "%{authorization}".
-          title: Valtuutus on vanhentunut
+          authorize: Valtuuta uudestaan palvelulla "%{authorization}"
+          explanation: Valtuutuksesi on umpeutunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettava itsesi uudestaan palvelulla "%{authorization}".
+          title: Valtuutus on umpeutunut
         incomplete:
           cancel: Peruuta
           explanation: 'Vaikka kirjautumisesi on tällä hetkellä varmennettu varmennustavalla "%{authorization}", tarvitsemme uuden varmennuksen, koska seuraavat tiedot puuttuvat:'
@@ -265,16 +293,16 @@ fi:
           explanation: Suorittaaksesi tämän toiminnon, sinun tulee varmentaa tilisi varmennustavalla "%{authorization}".
           title: Varmennus vaaditaan
         pending:
-          explanation: Tämän toiminnan suorittamiseksi sinun on oltava valtuutettu "%{authorization}", mutta valtuutuksesi on edelleen käynnissä
+          explanation: Tämän toiminnon suorittamiseksi sinun valtuutettava itsesi palvelulla "%{authorization}", mutta valtuutuksesi on edelleen kesken
           resume: Tarkista "%{authorization}" valtuutuksen eteneminen
-          title: Valtuutus on edelleen käynnissä
+          title: Valtuutus on edelleen kesken
         unauthorized:
           explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
-          invalid_field: "%{field} arvo %{value} ei ole kelvollinen."
+          invalid_field: "Kentän %{field} arvo %{value} ei ole kelvollinen."
           ok: Ok
           title: Ei varmennettu
       author:
-        deleted: Poistettu käyttäjä
+        deleted: Käyttäjä poistettu
       embed_modal:
         close_window: Sulje ikkuna
         embed: Liitä tämä koodi sivullesi
@@ -302,12 +330,12 @@ fi:
         share: Jaa
         share_link: Jaa linkki
       version_author:
-        deleted: Poistettu käyttäjä
+        deleted: Käyttäjä poistettu
   devise:
     invitations:
       edit:
         header: Aseta salasanasi
-        nickname_help: Sinun yksilöllinen tunniste decidimissa.
+        nickname_help: Yksilöllinen tunnisteesi decidimissä.
         submit_button: Tallenna
     mailer:
       invitation_instructions:
@@ -319,7 +347,7 @@ fi:
           Sinulle ei luoda tiliä, mikäli et seuraa linkkiä ja aseta salasanaasi.
         invited_you_as_admin: "%{invited_by} on kutsunut sinut hallinnoimaan kohdetta %{application}. Voit hyväksyä sen alla olevan linkin kautta."
         someone_invited_you: Joku on kutsunut sinut kohteeseen %{application}. Voit hyväksyä sen alla olevan linkin kautta.
-        someone_invited_you_as_admin: Joku on kutsunut sinut ylläpitäjänä %{application}, voit hyväksyä sen alla olevan linkin kautta.
+        someone_invited_you_as_admin: Joku on kutsunut sinut ylläpitämään palvelua %{application}. Voit hyväksyä kutsun alla olevan linkin avulla.
       invite_admin:
         subject: Sinut on kutsuttu hallinnoimaan organisaatiota %{organization}
       invite_collaborator:
@@ -371,7 +399,7 @@ fi:
         title: Ilmoitukset
       user_menu:
         admin_dashboard: Hallintapaneeli
-        conversations: keskustelut
+        conversations: Keskustelut
         notifications: Ilmoitukset
         profile: Oma käyttäjätili
         public_profile: Oma julkinen profiili
@@ -406,8 +434,8 @@ fi:
         participate: Osallistu
         welcome: Tervetuloa organisaatioon %{organization}!
       statistics:
-        answers_count: Valmistuneet tutkimukset
-        assemblies_count: osat
+        answers_count: Valmistuneet kyselyt
+        assemblies_count: Kehitysryhmät
         comments_count: Kommentit
         headline: Tämänhetkinen tila organisaatiolle %{organization}
         meetings_count: Tapaamiset
@@ -448,7 +476,7 @@ fi:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
-      decidim_short: "%d/%m/%Y %H:%M"
+      decidim_short: "%d.%m.%Y %H:%M"
       time_of_day: "%H:%M"
   views:
     pagination:
