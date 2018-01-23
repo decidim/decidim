@@ -79,6 +79,7 @@ fr:
         evaluating: En cours d'évaluation
         not_answered: Resté sans réponse
         rejected: Refusée
+        withdrawn: Retiré
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès.
@@ -153,6 +154,7 @@ fr:
           unfold: Déplier
         index:
           new_proposal: Nouvelle proposition
+          see_all_withdrawn: Voir toutes les propositions retirées
           view_proposal: Voir la proposition
         linked_proposals:
           proposal_votes:
@@ -181,6 +183,8 @@ fr:
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition a été refusée parce que:'
           report: Signaler
+          withdraw_confirmation: Êtes-vous sûr de retirer cette proposition?
+          withdraw_proposal: Retirer la proposition
         vote_button:
           already_voted: Déjà voté
           already_voted_hover: Retirer le vote
