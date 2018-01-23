@@ -13,6 +13,10 @@ you need to change the following line in `config/environments/production.rb`:
 ```
 
 **Added**:
+- **decidim-core**: Added support for omnipresent banner.
+[\#2547](https://github.com/decidim/decidim/pull/2547)
+- **decidim-admin**: Added administration interface for omnipresent banner.
+[\#2547](https://github.com/decidim/decidim/pull/2547)
 - **decidim-admin**: Notify participatory space followers when a new feature is published. [\#2515](https://github.com/decidim/decidim/pull/2515)
 - **decidim**: Add `decidim-assemblies` to the `decidim` metagem. [\#2495](https://github.com/decidim/decidim/pull/2510)
 - **decidim-proposals**: Notify proposal followers when it gets answered. [\#2508](https://github.com/decidim/decidim/pull/2508)
