@@ -72,4 +72,22 @@ describe Decidim::Debates::CreateDebate do
       expect(debate.instructions.keys).to match_array organization.available_locales
     end
   end
+
+  describe "events" do
+    let(:follower) { create(:user, organization: organization) }
+    let!(:follow) { create :follow, followable: user, user: follower }
+
+    it "notifies the change" do
+      expect(Decidim::EventsManager)
+        .to receive(:publish)
+        .with(
+          event: "decidim.events.debates.debate_created",
+          event_class: Decidim::Debates::CreateDebateEvent,
+          resource: kind_of(Decidim::Debates::Debate),
+          recipient_ids: [follower.id]
+        )
+
+      subject.call
+    end
+  end
 end

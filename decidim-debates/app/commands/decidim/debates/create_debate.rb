@@ -15,7 +15,10 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
-        create_debate
+        transaction do
+          create_debate
+          send_notification
+        end
         broadcast(:ok, debate)
       end
 
@@ -42,6 +45,17 @@ module Decidim
           description: i18n_field(form.description),
           instructions: i18n_field(form.instructions),
           feature: form.current_feature
+        )
+      end
+
+      def send_notification
+        return if debate.author.blank?
+
+        Decidim::EventsManager.publish(
+          event: "decidim.events.debates.debate_created",
+          event_class: Decidim::Debates::CreateDebateEvent,
+          resource: debate,
+          recipient_ids: debate.author.followers.pluck(:id)
         )
       end
     end
