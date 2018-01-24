@@ -12,10 +12,3 @@ karma-*
 yarn-error.log
 coverage
 webpack.report.html
-
-.bundle
-.cache
-.bash_history
-.yarnrc
-.local
-.pki
