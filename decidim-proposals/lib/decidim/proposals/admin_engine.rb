@@ -11,6 +11,7 @@ module Decidim
       routes do
         resources :proposals, only: [:index, :new, :create] do
           resources :proposal_answers, only: [:edit, :update]
+          resources :proposal_notes, only: [:index, :create]
         end
 
         root to: "proposals#index"

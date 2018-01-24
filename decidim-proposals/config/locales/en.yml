@@ -43,6 +43,7 @@ en:
       actions:
         answer: Answer
         new: New
+        private_notes: Private notes
         title: Actions
       admin:
         actions:
@@ -60,6 +61,12 @@ en:
             evaluating: Evaluating
             rejected: Rejected
             title: Answer for proposal %{title}
+        proposal_notes:
+          form:
+            note: Note
+            submit: Submit
+          leave_your_note: Leave your note
+          title: Private notes
         proposals:
           answer:
             invalid: There's been a problem answering this proposal
@@ -75,6 +82,12 @@ en:
           new:
             create: Create
             title: Create proposal
+        shared:
+          info_proposal:
+            body: Body
+            created_at: Creation date
+            proposal_votes_count: Votes count
+            proposals: Proposals
       answers:
         accepted: Accepted
         evaluating: Evaluating
@@ -114,6 +127,7 @@ en:
             comments: Comments
             created_at: Created at
             id: ID
+            notes: Notes
             official_proposal: Official proposal
             scope: Scope
             state: State
