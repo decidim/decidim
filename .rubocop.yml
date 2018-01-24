@@ -1094,6 +1094,8 @@ Metrics/MethodLength:
 Metrics/ParameterLists:
   Max: 5
   CountKeywordArgs: true
+  Exclude:
+    - 'decidim-core/lib/decidim/filter_form_builder.rb'
 
 Metrics/PerceivedComplexity:
   Max: 10
@@ -1295,6 +1297,10 @@ RSpec/DescribeClass:
     - spec/i18n_spec.rb
     - spec/generator_spec.rb
     - decidim-comments/spec/bundle_spec.rb
+
+RSpec/EmptyExampleGroup:
+  Exclude:
+    - decidim-core/spec/lib/participatory_space_manifest_spec.rb
 
 RSpec/ExampleLength:
   Max: 49

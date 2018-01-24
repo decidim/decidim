@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# rubocop:disable RSpec/EmptyExampleGroup
-
 require "spec_helper"
 
 module Decidim
