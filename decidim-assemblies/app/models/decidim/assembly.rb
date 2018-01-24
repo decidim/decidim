@@ -32,6 +32,9 @@ module Decidim
 
     has_many :features, as: :participatory_space, dependent: :destroy
 
+    has_many :assembly_users, class_name: "Decidim::AssemblyUser", foreign_key: "decidim_assembly_id", dependent: :destroy
+    has_many :users, through: :assembly_users, class_name: "Decidim::User", foreign_key: "decidim_user_id"
+
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
 

@@ -23,6 +23,8 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
           assembly = create_assembly
 
+          create_assembly_users(assembly)
+
           if assembly.persisted?
             broadcast(:ok, assembly)
           else
@@ -51,6 +53,7 @@ module Decidim
             scopes_enabled: form.scopes_enabled,
             scope: form.scope,
             area: form.area,
+            private_assembly: form.private_assembly,
             developer_group: form.developer_group,
             local_area: form.local_area,
             target: form.target,
@@ -62,6 +65,16 @@ module Decidim
           return assembly unless assembly.valid?
           assembly.save!
           assembly
+        end
+
+        def create_assembly_users(assembly)
+          return unless form.private_assembly
+          form.users.each do |user|
+            AssemblyUser.create!(
+              assembly: assembly,
+              user: user
+            )
+          end
         end
       end
     end

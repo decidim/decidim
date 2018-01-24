@@ -26,6 +26,9 @@ module Decidim
     has_many :participatory_process_users, class_name: "Decidim::ParticipatoryProcessUser", foreign_key: "decidim_user_id", dependent: :destroy
     has_many :participatory_processes, through: :participatory_process_users, class_name: "Decidim::ParticipatoryProcess", foreign_key: "decidim_participatory_process_id"
 
+    has_many :assembly_users, class_name: "Decidim::AssemblyUser", foreign_key: "decidim_user_id", dependent: :destroy
+    has_many :assemblies, through: :assembly_users, class_name: "Decidim::Assembly", foreign_key: "decidim_assembly_id"
+
     validates :name, presence: true, unless: -> { deleted? }
     validates :nickname, presence: true, unless: -> { deleted? || managed? }
     validates :locale, inclusion: { in: :available_locales }, allow_blank: true
