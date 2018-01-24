@@ -83,6 +83,7 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-core**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
 - **decidim-core**: Clean conversations textarea after sending a private message [\#2379](https://github.com/decidim/decidim/pull/2379)
 - **decidim-meetings**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
+- **decidim-participatory_processes**: Fix the processes filter [\#2552](https://github.com/decidim/decidim/pull/2552)
 - **decidim-proposals**: Do not allow attachments on proposals edition [\#2221](https://github.com/decidim/decidim/pull/2221)
 - **decidim-proposals**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
 - **decidim-proposals**: Fix missing icon on proposal reply.
