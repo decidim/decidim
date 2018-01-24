@@ -25,8 +25,9 @@ module Decidim
         @results ||= ResultSearch.new(
           feature: feature,
           scope_id: scope_id,
-          category_id: category_id
-        ).where(parent_id: nil).results
+          category_id: category_id,
+          deep_search: false
+        ).results
       end
     end
   end

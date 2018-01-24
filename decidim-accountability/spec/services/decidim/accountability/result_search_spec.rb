@@ -43,7 +43,9 @@ module Decidim::Accountability
     let(:external_result) { create :result }
     let(:feature_id) { current_feature.id }
     let(:organization_id) { current_feature.organization.id }
-    let(:default_params) { { feature: current_feature } }
+    let(:default_params) do
+      { feature: current_feature, deep_search: true }
+    end
     let(:params) { default_params }
 
     describe "base query" do
@@ -120,27 +122,47 @@ module Decidim::Accountability
       end
 
       describe "parent_id" do
-        context "when the parent_id is nil" do
-          let(:params) { default_params.merge(parent_id: nil) }
+        context "when deep searching" do
+          context "when the parent_id is nil" do
+            let(:params) { default_params.merge(parent_id: nil) }
 
-          it "returns the search on all results" do
-            expect(subject.results).to match_array [result1, result2, result3]
+            it "returns the search on all results" do
+              expect(subject.results).to match_array [result1, result2, result3]
+            end
+          end
+
+          context "when the parent_id is result1" do
+            let(:params) { default_params.merge(parent_id: result1.id) }
+
+            it "returns the search on the children of result" do
+              expect(subject.results).to match_array [result2, result3]
+            end
+          end
+
+          context "when the parent_id is result2" do
+            let(:params) { default_params.merge(parent_id: result2.id) }
+
+            it "returns the search on the children of result" do
+              expect(subject.results).to match_array [result3]
+            end
           end
         end
 
-        context "when the parent_id is result1" do
-          let(:params) { default_params.merge(parent_id: result1.id) }
+        context "when not deep searching" do
+          context "when the parent_id is nil" do
+            let(:params) { default_params.merge(parent_id: nil, deep_search: false) }
 
-          it "returns the search on the children of result" do
-            expect(subject.results).to match_array [result2, result3]
+            it "returns the search on the result without parent" do
+              expect(subject.results).to match_array [result1]
+            end
           end
-        end
 
-        context "when the parent_id is result1" do
-          let(:params) { default_params.merge(parent_id: result2.id) }
+          context "when the parent_id is result1" do
+            let(:params) { default_params.merge(parent_id: result1.id, deep_search: false) }
 
-          it "returns the search on the children of result" do
-            expect(subject.results).to match_array [result3]
+            it "returns the search on the children of result" do
+              expect(subject.results).to match_array [result2]
+            end
           end
         end
       end
