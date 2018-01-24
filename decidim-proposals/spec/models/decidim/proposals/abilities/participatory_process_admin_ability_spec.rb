@@ -11,7 +11,7 @@ describe Decidim::Proposals::Abilities::ParticipatoryProcessAdminAbility do
   let(:feature) { create :proposal_feature, participatory_space: user_process }
   let(:proposals) { create_list :proposal, 3, feature: feature }
   let(:other_proposals) { create_list :proposal, 3 }
-  let(:context) { { current_participatory_process: user_process } }
+  let(:context) { { current_participatory_space: user_process } }
 
   context "when the user is an admin" do
     let(:user) { build(:user, :admin) }
@@ -27,7 +27,7 @@ describe Decidim::Proposals::Abilities::ParticipatoryProcessAdminAbility do
   context "when creation is disabled" do
     let(:context) do
       {
-        current_participatory_process: user_process,
+        current_participatory_space: user_process,
         current_settings: double(creation_enabled?: false),
         feature_settings: double(official_proposals_enabled: true)
       }
@@ -39,7 +39,7 @@ describe Decidim::Proposals::Abilities::ParticipatoryProcessAdminAbility do
   context "when official proposals are disabled" do
     let(:context) do
       {
-        current_participatory_process: user_process,
+        current_participatory_space: user_process,
         current_settings: double(creation_enabled?: true),
         feature_settings: double(official_proposals_enabled: false)
       }
@@ -51,7 +51,7 @@ describe Decidim::Proposals::Abilities::ParticipatoryProcessAdminAbility do
   context "when proposal_answering is disabled in step level" do
     let(:context) do
       {
-        current_participatory_process: user_process,
+        current_participatory_space: user_process,
         current_settings: double(proposal_answering_enabled: false)
       }
     end
@@ -62,7 +62,7 @@ describe Decidim::Proposals::Abilities::ParticipatoryProcessAdminAbility do
   context "when proposal_answering is disabled in feature level" do
     let(:context) do
       {
-        current_participatory_process: user_process,
+        current_participatory_space: user_process,
         feature_settings: double(proposal_answering_enabled: false)
       }
     end

@@ -13,9 +13,13 @@ module Decidim
         let(:start_date) { Date.civil(2016, 1, 1) }
         let(:end_date) { Date.civil(2016, 2, 5) }
 
+        before do
+          helper.extend ParticipatoryProcessHelper
+        end
+
         describe "when both dates are present" do
           it "returns the formatted dates" do
-            result = helper.participatory_process_step_dates(participatory_process)
+            result = helper.step_dates(participatory_process)
             expect(result).to eq("2016-01-01 - 2016-02-05")
           end
         end
@@ -24,7 +28,7 @@ module Decidim
           let(:start_date) { nil }
 
           it "fills it in with an interrogation mark" do
-            result = helper.participatory_process_step_dates(participatory_process)
+            result = helper.step_dates(participatory_process)
             expect(result).to eq("? - 2016-02-05")
           end
         end
@@ -33,7 +37,7 @@ module Decidim
           let(:end_date) { nil }
 
           it "fills it in with an interrogation mark" do
-            result = helper.participatory_process_step_dates(participatory_process)
+            result = helper.step_dates(participatory_process)
             expect(result).to eq("2016-01-01 - ?")
           end
         end

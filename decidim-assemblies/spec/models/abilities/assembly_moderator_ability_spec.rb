@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe Assemblies::Abilities::AssemblyModeratorAbility do
-    subject { described_class.new(user, current_assembly: user_assembly) }
+    subject { described_class.new(user, current_participatory_space: user_assembly) }
 
     let(:user) { build(:user) }
     let(:user_assembly) { create :assembly, organization: user.organization }

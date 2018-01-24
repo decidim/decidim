@@ -90,6 +90,22 @@ module Decidim
         end
       end
 
+      def withdraw
+        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        authorize! :withdraw, @proposal
+
+        WithdrawProposal.call(@proposal, current_user) do
+          on(:ok) do |_proposal|
+            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+            redirect_to proposal_path(@proposal)
+          end
+          on(:invalid) do
+            flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+            redirect_to proposal_path(@proposal)
+          end
+        end
+      end
+
       private
 
       def geocoded_proposals
@@ -106,7 +122,7 @@ module Decidim
           origin: "all",
           activity: "",
           category_id: "",
-          state: "all",
+          state: "not_withdrawn",
           scope_id: nil,
           related_to: ""
         }
