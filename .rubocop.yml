@@ -55,7 +55,7 @@ AllCops:
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.4.2
 
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:
@@ -526,8 +526,8 @@ Style/HashSyntax:
   # Do not suggest { a?: 1 } over { :a? => 1 } in ruby19 style
   PreferHashRocketsForNonAlnumEndingSymbols: false
 
-Style/IfUnlessModifier:
-  MaxLineLength: 80
+Metrics/LineLength:
+  Max: 80
 
 Layout/IndentationConsistency:
   # The difference between `rails` and `normal` is that the `rails` style
@@ -1035,9 +1035,6 @@ Naming/VariableNumber:
     - snake_case
     - normalcase
     - non_integer
-
-Style/WhileUntilModifier:
-  MaxLineLength: 80
 
 # WordArray enforces how array literals of word-like strings should be expressed.
 Style/WordArray:
