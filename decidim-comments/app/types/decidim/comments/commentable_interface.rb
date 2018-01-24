@@ -39,7 +39,7 @@ module Decidim
         type !types.Int
         description "The number of comments in all levels this resource holds"
 
-        resolve lambda { |obj, args, _ctx|
+        resolve lambda { |obj, _args, _ctx|
           obj.comments.count
         }
       end
