@@ -42,6 +42,7 @@ fi:
       actions:
         answer: Vastaa
         new: Uusi
+        private_notes: Yksityiset muistiinpanot
         title: Toiminnot
       admin:
         actions:
@@ -59,6 +60,12 @@ fi:
             evaluating: Arvioitavana
             rejected: Hylätty
             title: 'Vastaa ehdotukseen: %{title}'
+        proposal_notes:
+          form:
+            note: Huomautus
+            submit: Lähetä
+          leave_your_note: Jätä huomautuksesi
+          title: Yksityiset muistiinpanot
         proposals:
           answer:
             invalid: Ehdotukseen vastaamisessa esiintyi virhe
@@ -74,6 +81,12 @@ fi:
           new:
             create: Luo
             title: Luo ehdotus
+        shared:
+          info_proposal:
+            body: ruumis
+            created_at: Luomispäivä
+            proposal_votes_count: Äänet lasketaan
+            proposals: ehdotukset
       answers:
         accepted: Hyväksytty
         evaluating: Arvioitavana
@@ -113,6 +126,7 @@ fi:
             comments: Kommentit
             created_at: Luontipäivämäärä
             id: ID
+            notes: Huomautuksia
             official_proposal: Virallinen ehdotus
             scope: Konteksti
             state: Tila
