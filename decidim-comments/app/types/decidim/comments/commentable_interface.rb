@@ -35,6 +35,15 @@ module Decidim
         }
       end
 
+      field :totalCommentsCount do
+        type !types.Int
+        description "The number of comments in all levels this resource holds"
+
+        resolve lambda { |obj, args, _ctx|
+          obj.comments.count
+        }
+      end
+
       field :hasComments, !types.Boolean, "Check if the commentable has comments" do
         resolve lambda { |obj, _args, _ctx|
           obj.comment_threads.size.positive?

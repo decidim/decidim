@@ -433,6 +433,7 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
                   ...prev,
                   commentable: {
                     ...prev.commentable,
+                    totalCommentsCount: prev.commentable.totalCommentsCount + 1,
                     comments,
                   },
                 },

@@ -12,3 +12,5 @@ karma-*
 yarn-error.log
 coverage
 webpack.report.html
+.graphqlconfig
+schema.json
