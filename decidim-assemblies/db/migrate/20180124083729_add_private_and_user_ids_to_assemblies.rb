@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddPrivateAndUserIdsToAssemblies < ActiveRecord::Migration[5.1]
   def change
     add_column :decidim_assemblies, :private_assembly, :boolean, default: false

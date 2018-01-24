@@ -5,7 +5,7 @@ module Decidim
     # This query class filters public assemblies given an organization in a
     # meaningful prioritized order.
     class OrganizationPrioritizedAssemblies < Rectify::Query
-      def initialize(organization, user)
+      def initialize(organization, user = nil)
         @organization = organization
         @user = user
       end

@@ -22,7 +22,11 @@ module Decidim
         authorize! :read, Assembly
       end
 
-      def show; end
+      def show
+        redirect_to "/404" unless (current_participatory_space.private_assembly? &&
+                           current_participatory_space.users.any? { current_user }) ||
+                                  !current_participatory_space.private_assembly?
+      end
 
       private
 

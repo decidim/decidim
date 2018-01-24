@@ -11,7 +11,6 @@ module Decidim
         helper_method :current_assembly, :current_participatory_space
         layout "decidim/admin/assemblies"
 
-
         def index
           authorize! :index, Decidim::Assembly
           @assemblies = collection
