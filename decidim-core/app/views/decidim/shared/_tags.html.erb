@@ -1,6 +1,9 @@
 <% if resource.category.present? || has_visible_scopes?(resource) %>
   <ul class="tags <%= tags_class_extra %>" >
     <% if resource.category.present? %>
+      <% if resource.previous_category.present? %>
+        <span style="text-decoration: line-through"><%= resource.previous_category.translated_name %></span>
+      <% end %>
       <li><%= link_to translated_attribute(resource.category.name), resource_locator(resource).index(filter: { category_id: resource.category.id }) %></li>
     <% end %>
     <% if has_visible_scopes?(resource) %>
