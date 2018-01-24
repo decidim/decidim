@@ -23,7 +23,7 @@
       s.email = ["your_eamail@example.org"]
       s.license = "AGPL-3.0"
       s.homepage = "https://github.com/decidim/decidim"
-      s.required_ruby_version = ">= 2.4.2"
+      s.required_ruby_version = "2.5.0"
 
       s.name = "decidim-<engine_name>"
       s.summary = "<engine_description>"
