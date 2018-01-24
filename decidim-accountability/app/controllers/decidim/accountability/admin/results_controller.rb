@@ -57,7 +57,20 @@ module Decidim
         end
 
         def proposals
-          render plain: 'Oliver Forever!!!!!'
+          respond_to do |format|
+            format.html do
+              render partial: 'proposals'
+            end
+            format.json do
+              proposals= Decidim::Proposals::Proposal.all.limit(10)
+              #html+= proposals.collect {|p| 
+              #  %Q[<li><input type="checkbox" name="decidim_accountability[proposals_ids]" value="#{p.id}"/> #{p.title}</li>]
+              #}.join
+              #html+= %Q[<a data-close="true">Close</a></ul>]
+              render json: proposals
+            end
+          end
+
         end
 
         #-----------------------------------------------------------------------

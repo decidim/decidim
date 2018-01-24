@@ -1,5 +1,6 @@
 @import "decidim";
 @import "extra/*";
+@import "jquery.atwho"
 
 <% Decidim.feature_manifests.map(&:admin_stylesheet).compact.each do |stylesheet| %>
 @import "<%= stylesheet %>";
