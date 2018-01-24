@@ -42,6 +42,7 @@ nl:
       actions:
         answer: Antwoord
         new: nieuwe
+        private_notes: Privé notities
         title: Acties
       admin:
         actions:
@@ -59,6 +60,12 @@ nl:
             evaluating: Aan het beoordelen
             rejected: Verworpen
             title: Antwoord voor voorstel %{title}
+        proposal_notes:
+          form:
+            note: Notitie
+            submit: voorleggen
+          leave_your_note: Laat je briefje achter
+          title: Privé notities
         proposals:
           answer:
             invalid: Er is een probleem opgetreden bij het beantwoorden van dit voorstel
@@ -74,6 +81,12 @@ nl:
           new:
             create: Creëren
             title: Maak een voorstel
+        shared:
+          info_proposal:
+            body: Lichaam
+            created_at: Aanmaakdatum
+            proposal_votes_count: Stemmen tellen
+            proposals: voorstellen
       answers:
         accepted: Aanvaard
         evaluating: Aan het beoordelen
@@ -112,6 +125,7 @@ nl:
             comments: Comments
             created_at: Gemaakt bij
             id: ID
+            notes: Notes
             official_proposal: Officieel voorstel
             scope: Scope
             state: Staat
