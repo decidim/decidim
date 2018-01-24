@@ -32,10 +32,10 @@ describe "Homepage", type: :feature do
       let(:organization) do
         create(:organization,
                official_url: official_url,
-               enable_banner_omnipresent: true,
-               banner_omnipresent_url: "#{official_url}/processes",
-               banner_omnipresent_title: Decidim::Faker::Localized.sentence(3),
-               banner_omnipresent_short_description: Decidim::Faker::Localized.sentence(3))
+               enable_omnipresent_banner: true,
+               omnipresent_banner_url: "#{official_url}/processes",
+               omnipresent_banner_title: Decidim::Faker::Localized.sentence(3),
+               omnipresent_banner_short_description: Decidim::Faker::Localized.sentence(3))
       end
 
       before do
@@ -44,11 +44,11 @@ describe "Homepage", type: :feature do
       end
 
       it "shows the omnipresent banner's title" do
-        expect(page).to have_i18n_content(organization.banner_omnipresent_title)
+        expect(page).to have_i18n_content(organization.omnipresent_banner_title)
       end
 
       it "shows the omnipresent banner's short description" do
-        expect(page).to have_i18n_content(organization.banner_omnipresent_short_description)
+        expect(page).to have_i18n_content(organization.omnipresent_banner_short_description)
       end
     end
 

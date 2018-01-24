@@ -34,10 +34,10 @@ en:
         official_url: Official organization URL
         show_statistics: Show statistics
         welcome_text: Welcome text
-        enable_banner_omnipresent: Show omnipresent banner
-        banner_omnipresent_url: URL
-        banner_omnipresent_title: Title
-        banner_omnipresent_short_description: Short description
+        enable_omnipresent_banner: Show omnipresent banner
+        omnipresent_banner_url: URL
+        omnipresent_banner_title: Title
+        omnipresent_banner_short_description: Short description
       scope:
         code: Code
         name: Name
@@ -369,7 +369,7 @@ en:
           cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
           header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
           homepage_appearance_title: Edit homepage appearance
-          banner_omnipresent_appearance_title: Edit omnipresent banner's details
+          omnipresent_banner_appearance_title: Edit omnipresent banner's details
           layout_appearance_title: Edit layout appearance
       scope_types:
         create:

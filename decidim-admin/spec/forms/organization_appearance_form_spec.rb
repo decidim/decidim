@@ -29,13 +29,13 @@ module Decidim
       let(:organization) { create(:organization) }
       let(:cta_button_path) { nil }
       let(:homepage_image_path) { Decidim::Dev.asset("city.jpeg") }
-      let(:enable_banner_omnipresent) { false }
-      let(:banner_omnipresent_url) { nil }
+      let(:enable_omnipresent_banner) { false }
+      let(:omnipresent_banner_url) { nil }
       let(:empty_traslatable_attribute) do
         { en: "", es: "", ca: "" }
       end
-      let(:banner_omnipresent_title) { empty_traslatable_attribute }
-      let(:banner_omnipresent_short_description) { empty_traslatable_attribute }
+      let(:omnipresent_banner_title) { empty_traslatable_attribute }
+      let(:omnipresent_banner_short_description) { empty_traslatable_attribute }
       let(:attributes) do
         {
           "organization_appearance" => {
@@ -49,14 +49,14 @@ module Decidim
             "show_statics" => false,
             "cta_button_path" => cta_button_path,
             "header_snippets" => header_snippets,
-            "enable_banner_omnipresent" => enable_banner_omnipresent,
-            "banner_omnipresent_url" => banner_omnipresent_url,
-            "banner_omnipresent_title_en" => banner_omnipresent_title[:en],
-            "banner_omnipresent_title_es" => banner_omnipresent_title[:es],
-            "banner_omnipresent_title_ca" => banner_omnipresent_title[:ca],
-            "banner_omnipresent_short_description_en" => banner_omnipresent_short_description[:en],
-            "banner_omnipresent_short_description_es" => banner_omnipresent_short_description[:es],
-            "banner_omnipresent_short_description_ca" => banner_omnipresent_short_description[:ca]
+            "enable_omnipresent_banner" => enable_omnipresent_banner,
+            "omnipresent_banner_url" => omnipresent_banner_url,
+            "omnipresent_banner_title_en" => omnipresent_banner_title[:en],
+            "omnipresent_banner_title_es" => omnipresent_banner_title[:es],
+            "omnipresent_banner_title_ca" => omnipresent_banner_title[:ca],
+            "omnipresent_banner_short_description_en" => omnipresent_banner_short_description[:en],
+            "omnipresent_banner_short_description_es" => omnipresent_banner_short_description[:es],
+            "omnipresent_banner_short_description_ca" => omnipresent_banner_short_description[:ca]
           }
         }
       end
@@ -83,32 +83,32 @@ module Decidim
         it { is_expected.to be_valid }
       end
 
-      context "when enable_banner_omnipresent is true" do
-        let(:enable_banner_omnipresent) { true }
-        let(:banner_omnipresent_url) { "http://www.example.org/random_url" }
-        let(:banner_omnipresent_title) do
+      context "when enable_omnipresent_banner is true" do
+        let(:enable_omnipresent_banner) { true }
+        let(:omnipresent_banner_url) { "http://www.example.org/random_url" }
+        let(:omnipresent_banner_title) do
           { en: "title", es: "título", ca: "títol" }
         end
-        let(:banner_omnipresent_short_description) do
+        let(:omnipresent_banner_short_description) do
           { en: "description", es: "descripción", ca: "descripció" }
         end
 
         it { is_expected.to be_valid }
 
-        context "and banner_omnipresent_url is blank" do
-          let(:banner_omnipresent_url) { nil }
+        context "and omnipresent_banner_url is blank" do
+          let(:omnipresent_banner_url) { nil }
 
           it { is_expected.not_to be_valid }
         end
 
-        context "and banner_omnipresent_title is blank" do
-          let(:banner_omnipresent_title) { empty_traslatable_attribute }
+        context "and omnipresent_banner_title is blank" do
+          let(:omnipresent_banner_title) { empty_traslatable_attribute }
 
           it { is_expected.not_to be_valid }
         end
 
-        context "and banner_omnipresent_short_description is blank" do
-          let(:banner_omnipresent_short_description) { empty_traslatable_attribute }
+        context "and omnipresent_banner_short_description is blank" do
+          let(:omnipresent_banner_short_description) { empty_traslatable_attribute }
 
           it { is_expected.not_to be_valid }
         end

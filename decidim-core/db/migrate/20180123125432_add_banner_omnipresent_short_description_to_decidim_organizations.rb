@@ -2,6 +2,6 @@
 
 class AddBannerOmnipresentShortDescriptionToDecidimOrganizations < ActiveRecord::Migration[5.1]
   def change
-    add_column :decidim_organizations, :banner_omnipresent_short_description, :jsonb
+    add_column :decidim_organizations, :omnipresent_banner_short_description, :jsonb
   end
 end
