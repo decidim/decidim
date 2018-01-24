@@ -6,7 +6,7 @@ describe Decidim::NotificationGeneratorForRecipient do
   subject { described_class.new(event, event_class, resource, recipient.id, extra) }
 
   let(:event) { "decidim.events.dummy.dummy_resource_updated" }
-  let(:resource) { create(:dummy_resource) }
+  let(:resource) { create(:dummy_resource, published_at: Time.current) }
   let(:follow) { create(:follow, followable: resource, user: recipient) }
   let(:recipient) { resource.author }
   let(:extra) { double }

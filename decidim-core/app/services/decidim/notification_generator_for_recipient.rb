@@ -29,6 +29,7 @@ module Decidim
       return unless event_class
       return unless resource
       return unless recipient
+      return unless event.notifiable?
 
       Notification.create!(
         user: recipient,
