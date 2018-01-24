@@ -22,7 +22,11 @@ module Decidim
       attr_reader :feature, :scope_id, :category_id
 
       def results
-        @results ||= ResultSearch.new(feature: feature, scope_id: scope_id, category_id: category_id).results
+        @results ||= ResultSearch.new(
+          feature: feature,
+          scope_id: scope_id,
+          category_id: category_id
+        ).where(parent_id: nil).results
       end
     end
   end
