@@ -48,5 +48,24 @@ describe Decidim::Debates::Admin::CreateDebate do
       subject.call
       expect(debate.feature).to eq current_feature
     end
+
+    describe "events" do
+      let(:space_follower) { create(:user, organization: organization) }
+      let!(:space_follow) { create :follow, followable: participatory_process, user: space_follower }
+
+      it "notifies the change to the author followers" do
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.debates.debate_created",
+            event_class: Decidim::Debates::CreateDebateEvent,
+            resource: kind_of(Decidim::Debates::Debate),
+            recipient_ids: [space_follower.id],
+            extra: { type: "participatory_space" }
+          )
+
+        subject.call
+      end
+    end
   end
 end

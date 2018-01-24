@@ -67,17 +67,29 @@ describe Decidim::Debates::CreateDebate do
   end
 
   describe "events" do
-    let(:follower) { create(:user, organization: organization) }
-    let!(:follow) { create :follow, followable: user, user: follower }
+    let(:author_follower) { create(:user, organization: organization) }
+    let!(:author_follow) { create :follow, followable: user, user: author_follower }
+    let(:space_follower) { create(:user, organization: organization) }
+    let!(:space_follow) { create :follow, followable: participatory_process, user: space_follower }
 
-    it "notifies the change" do
+    it "notifies the change to the author followers" do
       expect(Decidim::EventsManager)
         .to receive(:publish)
         .with(
           event: "decidim.events.debates.debate_created",
           event_class: Decidim::Debates::CreateDebateEvent,
           resource: kind_of(Decidim::Debates::Debate),
-          recipient_ids: [follower.id]
+          recipient_ids: [author_follower.id],
+          extra: { type: "user" }
+        )
+      expect(Decidim::EventsManager)
+        .to receive(:publish)
+        .with(
+          event: "decidim.events.debates.debate_created",
+          event_class: Decidim::Debates::CreateDebateEvent,
+          resource: kind_of(Decidim::Debates::Debate),
+          recipient_ids: [space_follower.id],
+          extra: { type: "participatory_space" }
         )
 
       subject.call

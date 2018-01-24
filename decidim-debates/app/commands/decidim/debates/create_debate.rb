@@ -17,7 +17,7 @@ module Decidim
 
         transaction do
           create_debate
-          send_notification
+          send_notifications
         end
         broadcast(:ok, debate)
       end
@@ -47,14 +47,20 @@ module Decidim
         )
       end
 
-      def send_notification
-        return if debate.author.blank?
+      def send_notifications
+        send_notification(debate.author.followers.pluck(:id), :user)
+        send_notification(debate.participatory_space.followers.pluck(:id), :participatory_space)
+      end
 
+      def send_notification(recipient_ids, type)
         Decidim::EventsManager.publish(
           event: "decidim.events.debates.debate_created",
           event_class: Decidim::Debates::CreateDebateEvent,
           resource: debate,
-          recipient_ids: debate.author.followers.pluck(:id)
+          recipient_ids: recipient_ids,
+          extra: {
+            type: type.to_s
+          }
         )
       end
     end

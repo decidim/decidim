@@ -16,16 +16,19 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          create_debate
+          transaction do
+            create_debate
+            send_notification_to_space_followers
+          end
           broadcast(:ok)
         end
 
         private
 
-        attr_reader :form
+        attr_reader :debate, :form
 
         def create_debate
-          Debate.create!(
+          @debate = Debate.create!(
             category: form.category,
             title: form.title,
             description: form.description,
@@ -34,6 +37,18 @@ module Decidim
             end_time: form.end_time,
             start_time: form.start_time,
             feature: form.current_feature
+          )
+        end
+
+        def send_notification_to_space_followers
+          Decidim::EventsManager.publish(
+            event: "decidim.events.debates.debate_created",
+            event_class: Decidim::Debates::CreateDebateEvent,
+            resource: debate,
+            recipient_ids: form.current_feature.participatory_space.followers.pluck(:id),
+            extra: {
+              type: "participatory_space"
+            }
           )
         end
       end
