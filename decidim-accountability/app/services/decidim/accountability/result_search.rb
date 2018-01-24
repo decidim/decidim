@@ -15,8 +15,8 @@ module Decidim
       #          * organization - A Decidim::Organization object.
       #          * parent_id - The parent ID of the result. The value is forced to false to force
       #                        the filter execution when the value is nil
-      #          * deep_search - Wether to perform the search on all children levels or just the
-      #                          first one.
+      #          * deep_search - Whether to perform the search on all children levels or just the
+      #                          first one. True by default.
       def initialize(options = {})
         options = options.dup
         options[:deep_search] = true if options[:deep_search].nil?
