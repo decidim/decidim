@@ -133,12 +133,6 @@ gl:
       dashboard:
         show:
           welcome: Benvido ao Panel de administración de decisións.
-      events:
-        user_officialized_event:
-          email_intro: O <a href="%{profile_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
-          email_outro: Recibiches esta notificación porque estás seguindo %{nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
-          email_subject: "%{nickname} actualizou o seu perfil"
-          notification_title: O <a href="%{profile_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
       exports:
         export_as: "%{name} como %{export_format}"
         notice: A súa exportación está en progreso. Recibirás un correo electrónico cando finalice.
@@ -414,7 +408,7 @@ gl:
           title: Editar páxina
           update: Actualización
         new:
-          create: Novo
+          create: Crear
           title: Nova páxina
         update:
           error: Produciuse un erro ao actualizar esta páxina.

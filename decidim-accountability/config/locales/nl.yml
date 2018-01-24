@@ -119,7 +119,6 @@ nl:
             other: "%{count} resultaten"
         filters:
           all: Alle
-          global: Globaal
           scopes: scopes
         home:
           categories_label: Categorieën

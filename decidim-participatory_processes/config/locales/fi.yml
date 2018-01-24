@@ -5,7 +5,7 @@ fi:
         announcement: Ilmoitus
         banner_image: Bannerikuva
         copy_categories: Kopioi aihepiirit
-        copy_features: Kopioi toiminnot
+        copy_features: Kopioi ominaisuudet
         copy_steps: Kopioi vaiheet
         description: Kuvaus
         developer_group: Kehitysryhmä

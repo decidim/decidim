@@ -8,6 +8,7 @@ es:
       user:
         email: Tu correo electrónico
         name: Tu nombre
+        nickname: Su identificador corto y único
         password: Contraseña
         password_confirmation: Confirma tu contraseña
         remove_avatar: Eliminar imagen de perfil
@@ -88,15 +89,15 @@ es:
           email_already_exists: Otra cuenta utiliza la misma dirección de correo electrónico
         new:
           complete_profile: Completar perfil
-          nickname_help: Su identificador único.
+          nickname_help: Su identificador corto y único
           sign_up: Por favor, completa tu perfil
           subtitle: Por favor, rellena el siguiente formulario con el fin de completar la inscripción
           username_help: Nombre público que aparece en tus mensajes. Con el objetivo de garantizar el anonimato, puede ser cualquier nombre.
       registrations:
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
-          newsletter_notifications: Recibir información sobre la actividad relevante
-          nickname_help: Su identificador único.
+          nickname_help: Su identificador corto y único
+          notifications: Recibir información sobre la actividad relevante
           sign_in: Entra
           sign_up: Regístrate
           sign_up_as:
@@ -128,8 +129,18 @@ es:
         email_intro: 'Ha habido una actualización de "%{resource_title}". Se puede ver en esta página:'
         email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
         email_subject: Una actualización de %{resource_title}
+      feature_published_event:
+        email_intro: 'El componente %{resource_title} ahora está activo para %{participatory_space_title}. Puedes verlo desde esta página:'
+        email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+        email_subject: Una actualización de %{participatory_space_title}
+        notification_title: El componente %{resource_title} ahora está activo para <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
+      profile_updated_event:
+        email_intro: La <a href="%{profile_path}">página de perfil</a> de %{name} (%{nickname}), a quien sigues, se ha actualizado.
+        email_outro: Has recibido esta notificación porque estás siguiendo a %{nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+        email_subject: "%{nickname} ha actualizado su perfil"
+        notification_title: La página <a href="%{profile_path}">perfil</a> de %{name} (%{nickname}), a quien sigues, se ha actualizado.
     export_mailer:
       export:
         ready: Adjunto encontrará una versión comprimida de su exportación.
@@ -207,10 +218,19 @@ es:
     newsletter_mailer:
       newsletter:
         note: Has recibido este mensaje porque estás suscrito a boletines de noticias en %{organization_name}. Puedes cambiar la configuración en tu <a href="%{link}">página de notificaciones</a>.
+        see_on_website: '¿No puedes ver este correo electrónico correctamente? Accede a su <a href="%{link}" target="_blank">versión web</a>.'
+        unsubscribe: Si no quieres recibir este tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">unsubscríbete</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Si deseas cambiar tus preferencias, puedes hacerlo en la <a href="%{link}" target="_blank">página de configuración</a>
+        error: Ha habido un error al cancelar la suscripción
+        success: Te has dado de baja exitosamente.
+        token_error: El enlace ha expirado.
+        unsubscribe: Darse de baja
     notifications_settings:
       show:
         email_on_notification: Quiero recibir un correo electrónico cada vez que recibo una notificación.
-        newsletter_notifications: Quiero recibir información acerca de actividad relevante
+        newsletter_notifications: Quiero recibir boletines informativos
         update_notifications_settings: Guardar cambios
       update:
         error: Ha habido un error al actualizar la configuración de las notificaciones.
@@ -225,6 +245,9 @@ es:
         title: Más información
     profiles:
       default_officialization_text: Esta persona participante está verifica públicamente, se ha verificado que su nombre o cargo corresponde con su nombre real y rol
+      show:
+        about_me: Sobre mi
+        personal_url: Sitio web personal
     reported_mailer:
       hide:
         hello: Hola %{name},
