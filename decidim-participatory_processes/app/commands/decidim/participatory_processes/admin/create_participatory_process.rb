@@ -95,13 +95,12 @@ module Decidim
         end
 
         def create_participatory_process_users(process)
-          if form.private_process
-            form.users.each do |user|
-              ParticipatoryProcessUser.create!(
-                participatory_process: process,
-                user: user
-              )
-            end
+          return unless form.private_process
+          form.users.each do |user|
+            ParticipatoryProcessUser.create!(
+              participatory_process: process,
+              user: user
+            )
           end
         end
       end

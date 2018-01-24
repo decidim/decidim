@@ -76,16 +76,14 @@ module Decidim
 
         def update_participatory_process_users(process)
           process.participatory_process_users.delete_all
-          if form.private_process
-            form.users.each do |user|
-              ParticipatoryProcessUser.create!(
-                participatory_process: process,
-                user: user
-              )
-            end
+          return unless form.private_process
+          form.users.each do |user|
+            ParticipatoryProcessUser.create!(
+              participatory_process: process,
+              user: user
+            )
           end
         end
-
       end
     end
   end

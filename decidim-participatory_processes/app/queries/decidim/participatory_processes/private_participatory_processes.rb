@@ -12,26 +12,10 @@ module Decidim
         processes = Decidim::ParticipatoryProcess.all
 
         if @current_user
-          processes.joins("LEFT JOIN decidim_participatory_process_users ON
-            decidim_participatory_process_users.decidim_participatory_process_id =
-            decidim_participatory_processes.id")
-            .where("(private_process = true and decidim_participatory_process_users.decidim_user_id
-              = #{ @current_user.id}) or private_process = false")
+          processes.user_process(@current_user.id)
         else
           processes.public_process
         end
-        # processes = Decidim::ParticipatoryProcess.all
-        #
-        # case @filter
-        # when "all"
-        #   processes
-        # when "past"
-        #   processes.past
-        # when "upcoming"
-        #   processes.upcoming
-        # else
-        #   processes.active
-        # end
       end
     end
   end
