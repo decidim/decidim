@@ -96,6 +96,7 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-accountability**: Fix children results count [\#2483](https://github.com/decidim/decidim/pull/2483)
 - **decidim-accountability**: Keeps the current scope in the breadcumb links [\#2488](https://github.com/decidim/decidim/pull/2488)
 - **decidim-accountability**: Top level search searches on all results (not only the first level) [\#2545](https://github.com/decidim/decidim/pull/2545)
+- **decidim-admin**: Visual bug in quilljs editor misleading admins into introducing blank lines to separate paragraphs. [\#2565](https://github.com/decidim/decidim/pull/2565).
 
 **Removed**
 
