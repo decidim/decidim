@@ -61,9 +61,7 @@ module Decidim
             organization: participatory_process.organization
           ).first
 
-          if @existing_user && !@existing_user.invitation_accepted?
-            InviteUserAgain.call(@existing_user, invitation_instructions)
-          end
+          InviteUserAgain.call(@existing_user, invitation_instructions) if @existing_user && !@existing_user.invitation_accepted?
 
           @existing_user
         end

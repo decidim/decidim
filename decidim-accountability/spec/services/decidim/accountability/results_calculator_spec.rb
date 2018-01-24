@@ -26,7 +26,6 @@ module Decidim::Accountability
         category: category,
         scope: scope,
         parent: parent_result
-
       )
     end
     let!(:child_result2) do

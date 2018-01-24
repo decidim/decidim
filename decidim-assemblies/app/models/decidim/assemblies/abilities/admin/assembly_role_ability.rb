@@ -17,9 +17,7 @@ module Decidim
             if not_admin? && has_manageable_assemblies?
               define_abilities
 
-              if current_assembly && can_manage_assembly?(current_assembly)
-                define_assembly_abilities
-              end
+              define_assembly_abilities if current_assembly && can_manage_assembly?(current_assembly)
             end
           end
 

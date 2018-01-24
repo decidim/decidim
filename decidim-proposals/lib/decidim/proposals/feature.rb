@@ -8,9 +8,7 @@ Decidim.register_feature(:proposals) do |feature|
   feature.icon = "decidim/proposals/icon.svg"
 
   feature.on(:before_destroy) do |instance|
-    if Decidim::Proposals::Proposal.where(feature: instance).any?
-      raise "Can't destroy this feature when there are proposals"
-    end
+    raise "Can't destroy this feature when there are proposals" if Decidim::Proposals::Proposal.where(feature: instance).any?
   end
 
   feature.actions = %w(vote create withdraw)

@@ -104,9 +104,7 @@ module Decidim
       end
 
       def add_ignore_uploads
-        unless options["skip_git"]
-          append_file ".gitignore", "\n# Ignore public uploads\npublic/uploads"
-        end
+        append_file ".gitignore", "\n# Ignore public uploads\npublic/uploads" unless options["skip_git"]
       end
 
       def remove_default_error_pages
@@ -117,9 +115,7 @@ module Decidim
       def authorization_handler
         template "initializer.rb", "config/initializers/decidim.rb"
 
-        if options[:demo]
-          template "example_authorization_handler.rb", "app/services/example_authorization_handler.rb"
-        end
+        template "example_authorization_handler.rb", "app/services/example_authorization_handler.rb" if options[:demo]
       end
 
       def install

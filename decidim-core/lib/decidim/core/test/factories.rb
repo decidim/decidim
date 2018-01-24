@@ -12,7 +12,7 @@ FactoryBot.define do
   end
 
   sequence(:nickname) do |n|
-    "#{Faker::Lorem.characters(rand(10) + 1)}_#{n}"
+    "#{Faker::Lorem.characters(rand(1..10))}_#{n}"
   end
 
   sequence(:email) do |n|

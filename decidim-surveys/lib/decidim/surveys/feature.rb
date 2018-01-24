@@ -15,9 +15,7 @@ Decidim.register_feature(:surveys) do |feature|
   end
 
   feature.on(:before_destroy) do |instance|
-    if Decidim::Surveys::Survey.where(feature: instance).any?
-      raise "Can't destroy this feature when there are surveys"
-    end
+    raise "Can't destroy this feature when there are surveys" if Decidim::Surveys::Survey.where(feature: instance).any?
   end
 
   feature.register_stat :surveys_count do |features, start_at, end_at|
