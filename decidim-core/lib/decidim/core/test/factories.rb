@@ -184,6 +184,8 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     attached_to { build(:participatory_process) }
+    content_type { "image/jpeg" }
+    file_size { 108_908 }
 
     trait :with_image do
       file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
@@ -191,6 +193,8 @@ FactoryBot.define do
 
     trait :with_pdf do
       file { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
+      content_type { "application/pdf" }
+      file_size { 17_525 }
     end
   end
 

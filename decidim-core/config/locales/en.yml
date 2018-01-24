@@ -125,6 +125,12 @@ en:
         content_doesnt_exist: This address is incorrect or has been removed.
         title: The page you're looking for can't be found
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{resource_title}
+          notification_title: A <a href="%{resource_path}">new document</a> has been added to <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Hello %{user_name},
         email_intro: 'There has been an update to "%{resource_title}". You can see it from this page:'

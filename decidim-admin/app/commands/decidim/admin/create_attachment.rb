@@ -27,6 +27,7 @@ module Decidim
 
         if @attachment.valid?
           @attachment.save!
+          notify_followers
           broadcast(:ok)
         else
           if @attachment.errors.has_key? :file
@@ -46,6 +47,17 @@ module Decidim
           description: form.description,
           file: form.file,
           attached_to: @attached_to
+        )
+      end
+
+      def notify_followers
+        return unless @attachment.attached_to.is_a?(Decidim::Followable)
+
+        Decidim::EventsManager.publish(
+          event: "decidim.events.attachments.attachment_created",
+          event_class: Decidim::AttachmentCreatedEvent,
+          resource: @attachment,
+          recipient_ids: @attachment.attached_to.followers.pluck(:id)
         )
       end
     end
