@@ -119,7 +119,6 @@ es:
             other: "%{count} resultados"
         filters:
           all: Todos
-          global: Global
           scopes: Ámbitos
         home:
           categories_label: Categorías

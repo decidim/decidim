@@ -6,8 +6,8 @@ ca:
           dummies: Maniquins
     participatory_processes:
       statistics:
-        dummies_count_high: Maniquís alts
-        dummies_count_medium: Dummies mitjà
+        dummies_count_high: Prova alt
+        dummies_count_medium: Prova mig
     resource_links:
       test_link:
         dummy_resource_dummy: Fictici relacionat
@@ -15,6 +15,6 @@ ca:
     home:
       statistics:
         bar: Bar
-        dummies_count_high: Maniquís alts
-        dummies_count_medium: Dummies mitjà
+        dummies_count_high: Prova alt
+        dummies_count_medium: Prova mig
         foo: Foo

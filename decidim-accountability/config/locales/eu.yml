@@ -119,7 +119,6 @@ eu:
             other: "%{count} emaitza"
         filters:
           all: Guztiak
-          global: Global
           scopes: Esparruak
         home:
           categories_label: Kategoriak

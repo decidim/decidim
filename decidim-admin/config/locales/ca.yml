@@ -133,12 +133,6 @@ ca:
       dashboard:
         show:
           welcome: Benvingut al tauler d'administració de Decidim.
-      events:
-        user_officialized_event:
-          email_intro: El <a href="%{profile_path}">profile pàgina</a> de %{name} (%{nickname}), al qual estàs seguint, s'ha actualitzat.
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{nickname}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: "%{nickname} ha actualitzat el seu perfil"
-          notification_title: El <a href="%{profile_path}">profile pàgina</a> de %{name} (%{nickname}), al qual estàs seguint, s'ha actualitzat.
       exports:
         export_as: "%{name} com a %{export_format}"
         notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
@@ -324,11 +318,11 @@ ca:
         create:
           success: L'usuari s'ha oficialitzat amb èxit
         destroy:
-          success: L'usuari no ha estat oficialitzat amb èxit
+          success: La oficialització de l'usuari ha estat inhabilitada correctament
         index:
           actions: Accions
           badge: Insígnia
-          created_at: Creat a
+          created_at: Creat el
           filter:
             all: Tots
             not_officialized: No oficialitzat
@@ -337,16 +331,16 @@ ca:
           name: Nom
           nickname: Sobrenom
           not_officialized: No oficialitzat
-          officialize: Organitzar
+          officialize: Oficialitza
           officialized: Oficialitzat
-          reofficialize: Reofficeu-vos
+          reofficialize: Torna a oficialitzar
           search: Cerca
           status: Estat
-          unofficialize: No s'ofereixen serveis
+          unofficialize: Inhabilita la oficialització
         new:
           badge: Insígnia d'oficialització
-          officialize: Organitzar
-          title: Classifica l'usuari "%{name}"
+          officialize: Oficialitza
+          title: Oficialitza l'usuari "%{name}"
       organization:
         edit:
           title: Edita organització
@@ -414,7 +408,7 @@ ca:
           title: Editar pàgina
           update: Actualitzar
         new:
-          create: Nova
+          create: Crea
           title: Nova pàgina
         update:
           error: S'ha produït un error en l'actualització d'aquests pàgina.

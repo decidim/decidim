@@ -133,12 +133,6 @@ pl:
       dashboard:
         show:
           welcome: Witamy w Decidim Admin Panel.
-      events:
-        user_officialized_event:
-          email_intro: Zmieniono <a href="%{profile_path}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-          email_subject: "%{nickname} zaktualizował (a) swój profil"
-          notification_title: Zmieniono <a href="%{profile_path}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
       exports:
         export_as: "%{name} jako %{export_format}"
         notice: Twój eksport jest obecnie w toku. Po jego zakończeniu otrzymasz e-maila.
@@ -414,7 +408,7 @@ pl:
           title: Edytuj stronę
           update: Aktualizacja
         new:
-          create: Nowy
+          create: Stwórz
           title: Nowa strona
         update:
           error: Podczas aktualizowania tej strony wystąpił błąd.
