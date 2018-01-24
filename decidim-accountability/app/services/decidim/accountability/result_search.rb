@@ -28,14 +28,17 @@ module Decidim
 
       # Handle parent_id filter
       def search_parent_id
-        if options[:parent_id].present?
-          query.where(parent_id: options[:parent_id])
-        else
-          query
-        end
+        return query if options[:parent_id].blank?
+        query.where(parent_id: children_ids(options[:parent_id]))
       end
 
       private
+
+      def children_ids(parent_id)
+        [parent_id] + Result.where(parent_id: parent_id).pluck(:id).flat_map do |child_id|
+          children_ids(child_id)
+        end
+      end
 
       # Internal: builds the needed query to search for a text in the organization's
       # available locales. Note that it is intended to be used as follows:

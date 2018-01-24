@@ -28,7 +28,7 @@ module Decidim::Accountability
         feature: current_feature,
         category: subcategory,
         scope: scope2,
-        parent: nil
+        parent: result1
       )
     end
     let!(:result3) do
@@ -37,7 +37,7 @@ module Decidim::Accountability
         feature: current_feature,
         category: parent_category,
         scope: scope3,
-        parent: result1
+        parent: result2
       )
     end
     let(:external_result) { create :result }
@@ -105,7 +105,7 @@ module Decidim::Accountability
           let(:params) { default_params.merge(category_id: parent_category.id) }
 
           it "returns results from this category and its children's" do
-            expect(subject.results).to match_array [result2, result1]
+            expect(subject.results).to match_array [result1, result2, result3]
           end
         end
 
@@ -131,7 +131,15 @@ module Decidim::Accountability
         context "when the parent_id is result1" do
           let(:params) { default_params.merge(parent_id: result1.id) }
 
-          it "returns the search on the children of result``" do
+          it "returns the search on the children of result" do
+            expect(subject.results).to match_array [result2, result3]
+          end
+        end
+
+        context "when the parent_id is result1" do
+          let(:params) { default_params.merge(parent_id: result2.id) }
+
+          it "returns the search on the children of result" do
             expect(subject.results).to match_array [result3]
           end
         end
