@@ -15,7 +15,6 @@ describe Decidim::Debates::CreateDebate do
       invalid?: invalid,
       title: "title",
       description: "description",
-      instructions: "instructions",
       user_group_id: nil,
       category: category,
       current_user: user,
@@ -64,12 +63,6 @@ describe Decidim::Debates::CreateDebate do
       subject.call
       expect(debate.description.values.uniq).to eq ["description"]
       expect(debate.description.keys).to match_array organization.available_locales
-    end
-
-    it "sets the instructions with i18n" do
-      subject.call
-      expect(debate.instructions.values.uniq).to eq ["instructions"]
-      expect(debate.instructions.keys).to match_array organization.available_locales
     end
   end
 

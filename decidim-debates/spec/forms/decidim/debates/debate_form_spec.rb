@@ -16,15 +16,13 @@ describe Decidim::Debates::DebateForm do
   let(:current_feature) { create :feature, participatory_space: participatory_process }
   let(:title) { "My title" }
   let(:description) { "My description" }
-  let(:instructions) { "My instructions" }
   let(:category) { create :category, participatory_space: participatory_process }
   let(:category_id) { category.id }
   let(:attributes) do
     {
       category_id: category_id,
       title: title,
-      description: description,
-      instructions: instructions
+      description: description
     }
   end
 
@@ -38,12 +36,6 @@ describe Decidim::Debates::DebateForm do
 
   describe "when description is missing" do
     let(:description) { nil }
-
-    it { is_expected.not_to be_valid }
-  end
-
-  describe "when instructions is missing" do
-    let(:instructions) { nil }
 
     it { is_expected.not_to be_valid }
   end

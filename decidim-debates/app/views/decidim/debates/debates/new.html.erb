@@ -19,10 +19,6 @@
             <%= form.text_area :description, rows: 10 %>
           </div>
 
-          <div class="field">
-            <%= form.text_area :instructions, rows: 10 %>
-          </div>
-
           <% if current_participatory_space.categories&.any? %>
             <div class="field">
               <%= form.categories_select :category_id, current_participatory_space.categories, prompt: t(".select_a_category"), disable_parents: false %>

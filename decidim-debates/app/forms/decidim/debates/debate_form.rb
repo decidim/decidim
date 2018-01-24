@@ -8,13 +8,11 @@ module Decidim
 
       attribute :title, String
       attribute :description, String
-      attribute :instructions, String
       attribute :category_id, Integer
       attribute :user_group_id, Integer
 
       validates :title, presence: true
       validates :description, presence: true
-      validates :instructions, presence: true
 
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
 

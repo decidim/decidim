@@ -48,7 +48,6 @@ describe "User creates debate", type: :feature do
           within ".new_debate" do
             fill_in :debate_title, with: "Should Oriol be president?"
             fill_in :debate_description, with: "Would he solve everything?"
-            fill_in :debate_instructions, with: "Please behave"
             select translated(category.name), from: :debate_category_id
 
             find("*[type=submit]").click
@@ -57,7 +56,6 @@ describe "User creates debate", type: :feature do
           expect(page).to have_content("successfully")
           expect(page).to have_content("Should Oriol be president?")
           expect(page).to have_content("Would he solve everything?")
-          expect(page).to have_content("Please behave")
           expect(page).to have_content(translated(category.name))
           expect(page).to have_selector(".author-data", text: user.name)
         end
@@ -73,7 +71,6 @@ describe "User creates debate", type: :feature do
             within ".new_debate" do
               fill_in :debate_title, with: "Should Oriol be president?"
               fill_in :debate_description, with: "Would he solve everything?"
-              fill_in :debate_instructions, with: "Please behave"
               select translated(category.name), from: :debate_category_id
               select user_group.name, from: :debate_user_group_id
 
@@ -83,7 +80,6 @@ describe "User creates debate", type: :feature do
             expect(page).to have_content("successfully")
             expect(page).to have_content("Should Oriol be president?")
             expect(page).to have_content("Would he solve everything?")
-            expect(page).to have_content("Please behave")
             expect(page).to have_content(translated(category.name))
             expect(page).to have_selector(".author-data", text: user_group.name)
           end

@@ -43,7 +43,6 @@ module Decidim
           category: form.category,
           title: i18n_field(form.title),
           description: i18n_field(form.description),
-          instructions: i18n_field(form.instructions),
           feature: form.current_feature
         )
       end

@@ -33,6 +33,9 @@ module Decidim
       end
 
       # Public: Calculates whether the current debate is an AMA-styled one or not.
+      # AMA-styled debates are those that have a start and end time set, and comments
+      # are only open during that timelapse. AMA stands for Ask Me Anything, a type
+      # of debate inspired by Reddit.
       #
       # Returns a Boolean.
       def ama?
