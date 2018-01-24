@@ -42,6 +42,7 @@ es:
       actions:
         answer: Respuesta
         new: Nueva
+        private_notes: Notas privadas
         title: Acciones
       admin:
         actions:
@@ -59,6 +60,12 @@ es:
             evaluating: En evaluación
             rejected: Rechazada
             title: Responder a la propuesta %{title}
+        proposal_notes:
+          form:
+            note: Nota
+            submit: Enviar
+          leave_your_note: Deje su nota
+          title: Notas privadas
         proposals:
           answer:
             invalid: Ha habido un problema al responder a esta propuesta
@@ -74,6 +81,12 @@ es:
           new:
             create: Crear
             title: Crear propuesta
+        shared:
+          info_proposal:
+            body: Cuerpo
+            created_at: Fecha de creación
+            proposal_votes_count: Votos cuentan
+            proposals: Propuestas
       answers:
         accepted: Aceptadas
         evaluating: En evaluación
@@ -112,6 +125,7 @@ es:
             comments: Comentarios
             created_at: Creado el
             id: Identificador
+            notes: Notas
             official_proposal: Propuesta oficial
             scope: Ámbito
             state: Estado
