@@ -73,14 +73,16 @@ en:
           index:
             title: Proposals
             selected: selected
+            select_a_category: Select a category
             apply_category: Apply category
             update_selected: Update selected
           new:
             create: Create
             title: Create proposal
           update_category:
-            success: "Proposals successfully updated: %{proposals}."
-            invalid: "Something went wrong updating proposals: %{proposals}."
+            success: "Proposals successfully updated to the %{category} category: %{proposals}."
+            invalid: "Theese proposals already had the %{category} category: %{proposals}."
+            select_a_category: Please select a category
       answers:
         accepted: Accepted
         evaluating: Evaluating

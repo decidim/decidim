@@ -20,6 +20,14 @@ module Decidim
       where(parent_id: nil)
     end
 
+    def descendants
+      Category.where(parent_id: self.id)
+    end
+
+    def translated_name
+      self.name[I18n.locale.to_s]
+    end
+
     def unused?
       categorizations.empty?
     end

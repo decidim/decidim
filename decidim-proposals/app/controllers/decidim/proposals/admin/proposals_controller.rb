@@ -8,10 +8,6 @@ module Decidim
         helper Proposals::ApplicationHelper
         helper_method :proposals, :query
 
-        def index
-          @categories = current_feature.categories
-        end
-
         def new
           authorize! :create, Proposal
           @form = form(Admin::ProposalForm).from_params(
@@ -38,8 +34,8 @@ module Decidim
 
         def update_category
           authorize! :update, Proposal
-          if params[:proposal_ids].present? && params[:category_id].present?
-            category = Decidim::Category.find_by id: params[:category_id]
+          if params[:proposal_ids].present? && params[:category][:id].present?
+            category = Decidim::Category.find_by id: params[:category][:id]
             updated = { oks: [], invalids: [] }
 
             Proposal.where(id: params[:proposal_ids]).find_each do |proposal|
@@ -49,10 +45,10 @@ module Decidim
                 on(:invalid) { updated[:invalids] << proposal.title }
               end
             end
-
             if updated[:oks].present?
               flash[:notice] = I18n.t(
                 "proposals.update_category.success",
+                category: category.translated_name,
                 proposals: updated[:oks].to_sentence,
                 scope: "decidim.proposals.admin"
               )
@@ -61,12 +57,18 @@ module Decidim
             if updated[:invalids].present?
               flash[:alert] = I18n.t(
                 "proposals.update_category.invalid",
+                category: category.translated_name,
                 proposals: updated[:invalids].to_sentence,
                 scope: "decidim.proposals.admin"
               )
             end
-            redirect_to proposals_path
+          else
+            flash[:alert] = I18n.t(
+              "proposals.update_category.select_a_category",
+              scope: "decidim.proposals.admin"
+            )
           end
+          redirect_to proposals_path
         end
 
         private
