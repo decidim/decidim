@@ -36,7 +36,7 @@ module Decidim
         end
       end
 
-      context "the user is not officialized" do
+      context "when the user is not officialized" do
         let(:model) { create(:user) }
 
         it "returns empty" do

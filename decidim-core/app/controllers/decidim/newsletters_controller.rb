@@ -16,9 +16,7 @@ module Decidim
       @organization = current_organization
 
       if newsletter.sent?
-        if @user.present?
-          @encrypted_token = Decidim::NewsletterEncryptor.sent_at_encrypted(@user.id, newsletter.sent_at)
-        end
+        @encrypted_token = Decidim::NewsletterEncryptor.sent_at_encrypted(@user.id, newsletter.sent_at) if @user.present?
         @body = parse_interpolations(newsletter.body[I18n.locale.to_s], @user, newsletter.id)
       else
         redirect_to "/404"
