@@ -6,6 +6,9 @@ module Decidim
     # add more logic to a `Decidim::Notification` and are used to render them in the
     # notifications dashboard and to generate other notifications (emails, for example).
     class BaseEvent
+      class_attribute :types
+      self.types = []
+
       # Public: Stores all the notification types this event can create. Please, do not
       # overwrite this method, consider it final. Instead, add values to the array via
       # modules, take the `NotificationEvent` module as an example:
@@ -16,7 +19,7 @@ module Decidim
       #     extend ActiveSupport::Concern
       #
       #     included do
-      #       types << :web_push_notifications
+      #       type :web_push_notifications
       #     end
       #   end
       #
@@ -25,8 +28,8 @@ module Decidim
       #   end
       #
       #   MyEvent.types # => [:web_push_notifications]
-      def self.types
-        @types ||= []
+      def self.type(type)
+        self.types += Array(type)
       end
 
       # Initializes the class.
