@@ -25,6 +25,7 @@ en:
         cta_button_path: Call To Action button path
         cta_button_text: Call To Action button text
         description: Description
+        enable_omnipresent_banner: Show omnipresent banner
         favicon: Icon
         header_snippets: Header snippets
         homepage_image: Homepage image
@@ -32,12 +33,11 @@ en:
         official_img_footer: Official logo footer
         official_img_header: Official logo header
         official_url: Official organization URL
+        omnipresent_banner_short_description: Short description
+        omnipresent_banner_title: Title
+        omnipresent_banner_url: URL
         show_statistics: Show statistics
         welcome_text: Welcome text
-        enable_omnipresent_banner: Show omnipresent banner
-        omnipresent_banner_url: URL
-        omnipresent_banner_title: Title
-        omnipresent_banner_short_description: Short description
       scope:
         code: Code
         name: Name
@@ -369,8 +369,8 @@ en:
           cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
           header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
           homepage_appearance_title: Edit homepage appearance
-          omnipresent_banner_appearance_title: Edit omnipresent banner's details
           layout_appearance_title: Edit layout appearance
+          omnipresent_banner_appearance_title: Edit omnipresent banner's details
       scope_types:
         create:
           error: There was an error creating a new scope type.
