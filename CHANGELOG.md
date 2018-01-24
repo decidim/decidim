@@ -53,6 +53,7 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-core**: Removed horizontal scroll from process navigation bar. [\#2495](https://github.com/decidim/decidim/pull/2495)
 - **decidim-core**: Fixes the documentation regarding gems, libraries, plugins and modules. We should always use module, and use decidim-module-<engine_name> nomenclature for repositories naming [\#2481](https://github.com/decidim/decidim/pull/2481).
 - **decidim-core**: Users have notifications enabled by default unless they explicitly uncheck it during registration. [\#2517](https://github.com/decidim/decidim/pull/2517)
+- **decidim-core**: Decidim now requires Ruby 2.5.0 [\#2550](https://github.com/decidim/decidim/pull/2550)
 - **decidim-core**: translated_attribute helper changes its default behaviour. Previously it was following these steps:
   1. Return the current user locale translation if available.
   2. Fallback to organization default locale in case the user locale translation is not available.
