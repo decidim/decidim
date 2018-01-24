@@ -9,6 +9,7 @@ module Decidim::Accountability
     let(:current_feature) { create :accountability_feature }
     let(:scope1) { create :scope, organization: current_feature.organization }
     let(:scope2) { create :scope, organization: current_feature.organization }
+    let(:scope3) { create :scope, organization: current_feature.organization }
     let(:participatory_space) { current_feature.participatory_space }
     let(:parent_category) { create :category, participatory_space: participatory_space }
     let(:subcategory) { create :subcategory, parent: parent_category }
@@ -35,7 +36,7 @@ module Decidim::Accountability
         :result,
         feature: current_feature,
         category: parent_category,
-        scope: scope1,
+        scope: scope3,
         parent: result1
       )
     end
