@@ -11,6 +11,7 @@
           <tr>
             <th><%= t("models.assembly.fields.title", scope: "decidim.admin") %></th>
             <th><%= t("models.assembly.fields.created_at", scope: "decidim.admin") %></th>
+            <th><%= t("models.assembly.fields.private", scope: "decidim.admin") %></th>
             <th class="table-list__actions"><%= t("models.assembly.fields.published", scope: "decidim.admin") %></th>
             <th></th>
           </tr>
@@ -36,6 +37,13 @@
               </td>
               <td>
                 <%= l assembly.created_at, format: :short %>
+              </td>
+              <td class="table-list__state">
+                <% if assembly.private_assembly? %>
+                  <strong class="text-alert"><%= t('assemblies.index.private', scope: "decidim.admin") %></strong>
+                <% else %>
+                  <strong class="text-success"><%= t('assemblies.index.public', scope: "decidim.admin") %></strong>
+                <% end %>
               </td>
               <td class="table-list__state">
                 <% if assembly.published? %>

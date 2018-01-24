@@ -35,11 +35,11 @@ module Decidim
       end
 
       def published_assemblies
-        @published_assemblies ||= OrganizationPublishedAssemblies.new(current_organization)
+        @published_assemblies ||= OrganizationPublishedAssemblies.new(current_organization, current_user)
       end
 
       def assemblies
-        @assemblies ||= OrganizationPrioritizedAssemblies.new(current_organization)
+        @assemblies ||= OrganizationPrioritizedAssemblies.new(current_organization, current_user)
       end
 
       alias collection assemblies

@@ -37,6 +37,8 @@ en:
           title: General Information
         index:
           not_published: Not published
+          private: Private
+          public: Public
           published: Published
         new:
           create: Create
@@ -92,6 +94,7 @@ en:
         assembly:
           fields:
             created_at: Created at
+            private: Private
             promoted: Highlighted
             published: Published
             title: Title

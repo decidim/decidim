@@ -41,6 +41,12 @@ module Decidim
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::BannerImageUploader
 
+    scope :user_assembly, -> (user) { joins("LEFT JOIN decidim_assembly_users ON
+                     decidim_assembly_users.decidim_assembly_id =
+                     decidim_assemblies.id")
+             .where("(private_assembly = true and decidim_assembly_users.decidim_user_id
+                    = #{user} ) or private_assembly = false") }
+
     # Scope to return only the promoted assemblies.
     #
     # Returns an ActiveRecord::Relation.
@@ -54,6 +60,18 @@ module Decidim
 
     def to_param
       slug
+    end
+
+    def private_assembly?
+      private_assembly
+    end
+
+    def self.private_assembly
+      where(private_assembly: true)
+    end
+
+    def self.public_assembly
+      where(private_assembly: false)
     end
   end
 end
