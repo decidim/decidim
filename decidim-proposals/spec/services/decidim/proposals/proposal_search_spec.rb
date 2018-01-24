@@ -31,7 +31,7 @@ module Decidim
         let(:search_text) { nil }
         let(:origin) { nil }
         let(:related_to) { nil }
-        let(:state) { nil }
+        let(:state) { "not_withdrawn" }
         let(:scope_id) { nil }
 
         it "only includes proposals from the given feature" do
@@ -92,6 +92,17 @@ module Decidim
         end
 
         describe "state filter" do
+          context "when filtering for default states" do
+            it "returns all except withdrawn proposals" do
+              create_list(:proposal, 3, :withdrawn, feature: feature)
+              other_proposals = create_list(:proposal, 3, feature: feature)
+              other_proposals << proposal
+
+              expect(subject.size).to eq(4)
+              expect(subject).to match_array(other_proposals)
+            end
+          end
+
           context "when filtering accpeted proposals" do
             let(:state) { "accepted" }
 
@@ -113,6 +124,18 @@ module Decidim
 
               expect(subject.size).to eq(3)
               expect(subject).to match_array(rejected_proposals)
+            end
+          end
+
+          context "when filtering withdrawn proposals" do
+            let(:state) { "withdrawn" }
+
+            it "returns only withdrawn proposals" do
+              create_list(:proposal, 3, feature: feature)
+              withdrawn_proposals = create_list(:proposal, 3, :withdrawn, feature: feature)
+
+              expect(subject.size).to eq(3)
+              expect(subject).to match_array(withdrawn_proposals)
             end
           end
         end

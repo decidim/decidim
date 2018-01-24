@@ -91,7 +91,7 @@ module Decidim
 
         @feature.publish!
 
-        if current_participatory_space.is_a?(Decidim::Followable)
+        if current_participatory_space.published? && current_participatory_space.is_a?(Decidim::Followable)
           Decidim::EventsManager.publish(
             event: "decidim.events.features.feature_published",
             event_class: Decidim::FeaturePublishedEvent,

@@ -135,6 +135,19 @@ module Decidim
           it { is_expected.not_to be_editable_by(author) }
         end
       end
+
+      describe "#withdrawn?" do
+        context "when proposal is withdrawn" do
+          let(:proposal) { build :proposal, :withdrawn }
+
+          it { is_expected.to be_withdrawn }
+        end
+        context "when proposal is not withdrawn" do
+          let(:proposal) { build :proposal }
+
+          it { is_expected.not_to be_withdrawn }
+        end
+      end
     end
   end
 end

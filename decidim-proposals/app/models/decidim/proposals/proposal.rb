@@ -26,6 +26,8 @@ module Decidim
       scope :accepted, -> { where(state: "accepted") }
       scope :rejected, -> { where(state: "rejected") }
       scope :evaluating, -> { where(state: "evaluating") }
+      scope :withdrawn, -> { where(state: "withdrawn") }
+      scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
 
       def self.order_randomly(seed)
         transaction do
@@ -67,6 +69,13 @@ module Decidim
       # Returns Boolean.
       def evaluating?
         answered? && state == "evaluating"
+      end
+
+      # Public: Checks if the author has withdrawn the proposal.
+      #
+      # Returns Boolean.
+      def withdrawn?
+        state == "withdrawn"
       end
 
       # Public: Overrides the `commentable?` Commentable concern method.

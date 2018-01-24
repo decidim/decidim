@@ -79,16 +79,32 @@ fr:
         evaluating: En cours d'évaluation
         not_answered: Resté sans réponse
         rejected: Refusée
+        withdrawn: Retiré
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès.
       events:
+        accepted_proposal_event:
+          email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse en allant sur cette page :'
+          email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
+          email_subject: Une proposition que vous suivez a été acceptée
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
         create_proposal_event:
           email_intro: |-
             Bonjour, %{author_name} %{author_nickname}, que vous suivez, a créé une nouvelle proposition. Prenez-en connaissance et contribuez :
           email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: Nouvelle proposition par %{author_nickname}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        evaluating_proposal_event:
+          email_intro: 'La proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez consulter cette page pour s''il une réponse a été formulée :'
+          email_outro: Vous recevez cette notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
+          email_subject: Une proposition que vous suivez est en cours d'évaluation
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
+        rejected_proposal_event:
+          email_intro: 'La proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse en allant sur cette page :'
+          email_outro: Vous recevez cette notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
+          email_subject: Une proposition que vous suivez a été rejetée
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été rejetée.
       models:
         proposal:
           fields:
@@ -122,9 +138,9 @@ fr:
           all: Toutes
           category: Catégorie
           category_prompt: Sélectionner une catégorie
-          citizens: Citoyens
+          citizens: Propositions citoyennes
           evaluating: En cours d'évaluation
-          official: Elu-e-s
+          official: Propositions officielles
           origin: Auteurs
           rejected: Refusée
           related_to: Liée à
@@ -138,6 +154,7 @@ fr:
           unfold: Déplier
         index:
           new_proposal: Nouvelle proposition
+          see_all_withdrawn: Voir toutes les propositions retirées
           view_proposal: Voir la proposition
         linked_proposals:
           proposal_votes:
@@ -166,6 +183,8 @@ fr:
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition a été refusée parce que:'
           report: Signaler
+          withdraw_confirmation: Êtes-vous sûr de retirer cette proposition?
+          withdraw_proposal: Retirer la proposition
         vote_button:
           already_voted: Déjà voté
           already_voted_hover: Retirer le vote

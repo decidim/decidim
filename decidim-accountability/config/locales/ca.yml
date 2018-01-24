@@ -119,7 +119,6 @@ ca:
             other: "%{count} resultats"
         filters:
           all: Tots
-          global: Global
           scopes: Àmbits
         home:
           categories_label: Categories
