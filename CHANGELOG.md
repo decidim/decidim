@@ -12,7 +12,9 @@ you need to change the following line in `config/environments/production.rb`:
 + config.assets.js_compressor = Uglifier.new(:harmony => true)
 ```
 
-**Added**:
+**Added
+- **decidim**: Rubocop has been upgraded. Ruby version in gem specs now fits with ruby version that rubocop uses. 
+[\#2548](https://github.com/decidim/decidim/pull/2548)
 - **decidim-admin**: Notify participatory space followers when a new feature is published. [\#2515](https://github.com/decidim/decidim/pull/2515)
 - **decidim**: Add `decidim-assemblies` to the `decidim` metagem. [\#2495](https://github.com/decidim/decidim/pull/2510)
 - **decidim-proposals**: Notify proposal followers when it gets answered. [\#2508](https://github.com/decidim/decidim/pull/2508)
