@@ -9,12 +9,15 @@ fr:
         proposal_ids: Propositions soumises lors de la rencontre
       meeting:
         address: Adresse
+        available_slots: Emplacements disponibles pour cette réunion
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
         description: Description
         end_time: Heure de fin
         location: Lieu
         location_hints: Données de localisation
+        registration_terms: Conditions d'inscription
+        registrations_enabled: Inscriptions activées
         start_time: Heure de début
         title: Titre
   decidim:
