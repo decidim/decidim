@@ -124,6 +124,12 @@ es:
         content_doesnt_exist: Esta dirección es incorrecta o ha sido eliminada.
         title: No se ha encontrado la página que buscas
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'Se ha agregado un nuevo documento a %{resource_title}. Puedes verlo desde esta página:'
+          email_outro: Recibió esta notificación porque está siguiendo %{resource_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: Una actualización de %{resource_title}
+          notification_title: Se ha agregado un <a href="%{resource_path}">nuevo documento</a> a <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Hola %{user_name},
         email_intro: 'Ha habido una actualización de "%{resource_title}". Se puede ver en esta página:'
