@@ -90,7 +90,7 @@ shared_examples "comments" do
       end
     end
 
-    context "when a user replies to a comment" do
+    context "when a user replies to a comment", :slow do
       let!(:comment_author) { create(:user, :confirmed, organization: organization) }
       let!(:comment) { create(:comment, commentable: commentable, author: comment_author) }
 
