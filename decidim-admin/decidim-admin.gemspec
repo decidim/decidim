@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.3"
 
   s.name = "decidim-admin"
-  s.summary = "Organization administration"
+  s.summary = "Decidim organization administration"
   s.description = "Organization administration to manage a single organization."
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 

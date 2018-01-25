@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
 
   s.name = "decidim-assemblies"
   s.summary = "Decidim assemblies plugin"
-  s.description = "Assemblies plugin for decidim"
+  s.description = "Assemblies component for decidim."
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 

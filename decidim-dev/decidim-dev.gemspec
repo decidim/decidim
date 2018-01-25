@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.3"
 
   s.name = "decidim-dev"
-  s.summary = "Decidim Dev tools"
+  s.summary = "Decidim dev tools"
   s.description = "Utilities and tools we need to develop Decidim"
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]

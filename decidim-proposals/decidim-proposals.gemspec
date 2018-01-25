@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
 
   s.name = "decidim-proposals"
   s.summary = "Decidim proposals plugin"
-  s.description = "A proposals component for decidim's participatory processes."
+  s.description = "A proposals component for decidim's participatory spaces."
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
