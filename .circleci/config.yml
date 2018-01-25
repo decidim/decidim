@@ -353,6 +353,26 @@ jobs:
           command: cd decidim-verifications && rake
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/capybara
+  debates:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: /app
+      - restore_cache:
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
+      - run: export CODECOV_FLAG=debates
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
+          name: Create test DB
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
+      - run:
+          name: Run debates RSpec
+          command: cd decidim-debates && rake
+      - store_artifacts:
+          path: /app/spec/decidim_dummy_app/tmp/capybara
 workflows:
   version: 2
   build_and_test:
@@ -405,5 +425,8 @@ workflows:
           requires:
             - build_test_app
       - verifications:
+          requires:
+            - build_test_app
+      - debates:
           requires:
             - build_test_app

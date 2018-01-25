@@ -257,6 +257,10 @@ FactoryBot.define do
   factory :moderation, class: "Decidim::Moderation" do
     reportable { build(:dummy_resource) }
     participatory_space { reportable.feature.participatory_space }
+
+    trait :hidden do
+      hidden_at { 1.day.ago }
+    end
   end
 
   factory :report, class: "Decidim::Report" do
