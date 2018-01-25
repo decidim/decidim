@@ -8,6 +8,7 @@ eu:
       user:
         email: Zure helbide elektronikoa
         name: Zure izena
+        nickname: Zure erabakitzaile identifikatzaile labur eta berezia
         password: Pasahitza
         password_confirmation: Baieztatu zure pasahitz berria
         remove_avatar: Kendu avatar-a
@@ -88,15 +89,15 @@ eu:
           email_already_exists: Beste kontu batek erabiltzen du helbide elektroniko bera.
         new:
           complete_profile: Osatu profila
-          nickname_help: Zure identifikatzaile bakarra erabaki.
+          nickname_help: Zure erabakitzaile identifikatzaile labur eta berezia
           sign_up: Mesedez, osatu zure profila
           subtitle: Mesedez, bete inprimaki hau izen-ematea osatzeko
           username_help: Izen publikoa, zuk argitaratutakoetan agertzekoa. Anonimatua bermatze aldera, edozein izen izan daiteke.
       registrations:
         new:
           already_have_an_account?: Baduzu kontu bat?
-          newsletter_notifications: Informazio eskuratzeko garrantzizko jarduerari buruz
-          nickname_help: Zure identifikatzaile bakarra erabaki.
+          nickname_help: Zure erabakitzaile identifikatzaile labur eta berezia
+          notifications: Jaso jarduera garrantzitsuei buruzko informazioa
           sign_in: Sartu
           sign_up: Erregistratu
           sign_up_as:
@@ -128,8 +129,18 @@ eu:
         email_intro: 'Eguneratze da "%{resource_title}". Orri honetan ikus daiteke:'
         email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
         email_subject: '%{resource_title} eguneratzea'
+      feature_published_event:
+        email_intro: '%{resource_title} osagaia %{participatory_space_title} da aktibo dagoenean. Orrialde hau ikusi dezakezu:'
+        email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+        email_subject: '%{participatory_space_title} eguneratze bat'
+        notification_title: '%{resource_title} osagaia aktibo dago orain <a href="%{resource_path}">%{participatory_space_title}</a>'
       notification_event:
         notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
+      profile_updated_event:
+        email_intro: <a href="%{profile_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
+        email_outro: Jakinarazpena jaso duzu %{nickname} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+        email_subject: "%{nickname} profilean eguneratu dute"
+        notification_title: <a href="%{profile_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
     export_mailer:
       export:
         ready: Atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
@@ -207,10 +218,19 @@ eu:
     newsletter_mailer:
       newsletter:
         note: 'Mezu hau jaso duzu albiste-buletinean harpidetuta zaudelako hemen: %{organization_name}. Ezarpenak aldatu ditzakezu zure <a href="%{link}">jakinarazpen-orrian</a>.'
+        see_on_website: Ezin da mezu hau zuzenean ikusi? Ikusi <a href="%{link}" target="_blank">website</a> orrian.
+        unsubscribe: Mezu mota hau jasotzeko ez onartzeko, <a href="%{link}" target="_blank" class="unsubscribe"> Harpidetu</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Zure hobespenak aldatu nahi badituzu, <a href="%{link}" target="_blank">configurazio orriko 1233_4_1_321 orrian egin dezakezu.
+        error: Errore bat gertatu da harpidetza kentzean
+        success: Harpidetuta zaude ondo.
+        token_error: Lotura iraungi da.
+        unsubscribe: Baja eman
     notifications_settings:
       show:
         email_on_notification: Mezu elektroniko bat jaso nahi dut jakinarazpen bat jasotzen dudan bakoitzean.
-        newsletter_notifications: Informazioa jaso nahi dut garrantzizko jarduerari buruz
+        newsletter_notifications: Buletinak jaso nahi ditut
         update_notifications_settings: Gorde aldaketak
       update:
         error: Errore bat gertatu da jakinarazpenen konfigurazioa eguneratzean.
@@ -225,6 +245,9 @@ eu:
         title: Argibide gehiago
     profiles:
       default_officialization_text: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
+      show:
+        about_me: Niri buruz
+        personal_url: Webgune pertsonala
     reported_mailer:
       hide:
         hello: Kaixo, %{name},

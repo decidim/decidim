@@ -13,6 +13,12 @@ shared_examples "scope helpers" do
   before do
     allow(helper).to receive(:current_participatory_space).and_return(participatory_space)
   end
+  let(:helper) do
+    Class.new.tap do |v|
+      v.extend(Decidim::ScopesHelper)
+      v.extend(Decidim::TranslationsHelper)
+    end
+  end
 
   describe "has_visible_scopes?" do
     subject { helper.has_visible_scopes?(resource) }
@@ -39,6 +45,32 @@ shared_examples "scope helpers" do
     context "when the resource has not a scope" do
       let(:scope) { nil }
       it { is_expected.to be_falsey }
+    end
+  end
+
+  describe "scope_name_for_picker" do
+    let(:global_name) { "Global name" }
+    subject { helper.scope_name_for_picker(scope, global_name) }
+
+    context "when a scope is given" do
+      context "when the scope has a scope type" do
+        it { is_expected.to include(scope.name["en"]) }
+        it { is_expected.to include(scope.scope_type.name["en"]) }
+      end
+
+      context "when the scope has no type" do
+        before do
+          scope.scope_type = nil
+        end
+
+        it { is_expected.to eq(scope.name["en"]) }
+      end
+    end
+
+    context "when no scope is given" do
+      let(:scope) { nil }
+
+      it { is_expected.to eq("Global name") }
     end
   end
 end

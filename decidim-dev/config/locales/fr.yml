@@ -14,7 +14,7 @@ fr:
   pages:
     home:
       statistics:
-        bar: Bar
+        bar: Machin
         dummies_count_high: Dummies haute
         dummies_count_medium: Dummies moyen
-        foo: Foo
+        foo: Truc

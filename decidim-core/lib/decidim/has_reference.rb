@@ -9,7 +9,7 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      after_commit :store_reference
+      after_commit :store_reference, only: [:create, :update]
 
       validates :reference, presence: true, on: :update
 

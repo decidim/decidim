@@ -54,8 +54,10 @@ module Decidim
           query.rejected
         when "evaluating"
           query.evaluating
-        else # Assume 'all'
-          query
+        when "withdrawn"
+          query.withdrawn
+        else # Assume 'not_withdrawn'
+          query.except_withdrawn
         end
       end
 

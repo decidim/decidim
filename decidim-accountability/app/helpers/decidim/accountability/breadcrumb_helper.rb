@@ -18,9 +18,7 @@ module Decidim
       end
 
       def category
-        if params[:filter] && params[:filter][:category_id].present?
-          current_participatory_space.categories.find(params[:filter][:category_id])
-        end
+        current_participatory_space.categories.find(params[:filter][:category_id]) if params[:filter] && params[:filter][:category_id].present?
       end
     end
   end

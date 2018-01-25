@@ -62,9 +62,7 @@ module Decidim
           official_url: form.official_url,
           show_statistics: form.show_statistics
         }.tap do |attributes|
-          if Decidim.enable_html_header_snippets
-            attributes[:header_snippets] = form.header_snippets
-          end
+          attributes[:header_snippets] = form.header_snippets if Decidim.enable_html_header_snippets
         end
       end
     end

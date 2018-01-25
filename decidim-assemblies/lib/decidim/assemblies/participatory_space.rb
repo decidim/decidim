@@ -22,7 +22,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
-    2.times do
+    2.times do |n|
       assembly = Decidim::Assembly.create!(
         title: Decidim::Faker::Localized.sentence(5),
         slug: Faker::Internet.unique.slug(nil, "-"),
@@ -45,7 +45,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         target: Decidim::Faker::Localized.sentence(3),
         participatory_scope: Decidim::Faker::Localized.sentence(1),
         participatory_structure: Decidim::Faker::Localized.sentence(2),
-        scope: Faker::Boolean.boolean(0.5) ? nil : Decidim::Scope.reorder("RANDOM()").first
+        scope: n.positive? ? Decidim::Scope.reorder("RANDOM()").first : nil
       )
 
       Decidim::Attachment.create!(

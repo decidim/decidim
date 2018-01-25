@@ -7,12 +7,12 @@ ca:
             email_intro: 'S''ha comentat "%{resource_title}". Pots llegir-lo en aquesta pàgina:'
             email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
             email_subject: Hi ha un nou comentari de %{author_name} a %{resource_title}
-            notification_title: Hi ha un nou comentari de %{author_name} a <a href="%{resource_path}">%{resource_title}</a>
+            notification_title: Hi ha un nou comentari de <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>
           reply:
             email_intro: S'ha comentat "%{resource_title}"
-            email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
+            email_outro: Has rebut aquesta notificació perquè segueixes "%{resource_title}". Pots deixar-ho de seguir al link anterior.
             email_subject: Hi ha una nova resposta del vostre comentari de %{author_name} a <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Hi ha una nova resposta del teu comentari de %{author_name} a <a href="%{resource_path}">%{resource_title}</a>
+            notification_title: Hi ha una nova resposta al teu comentari de <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: Hi ha hagut errors en votar el comentari.

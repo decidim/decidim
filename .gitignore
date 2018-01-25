@@ -18,3 +18,5 @@ webpack.report.html
 .yarnrc
 .local
 .pki
+.graphqlconfig
+schema.json

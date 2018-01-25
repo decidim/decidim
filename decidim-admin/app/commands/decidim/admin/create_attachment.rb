@@ -29,9 +29,7 @@ module Decidim
           @attachment.save!
           broadcast(:ok)
         else
-          if @attachment.errors.has_key? :file
-            @form.errors.add :file, @attachment.errors[:file]
-          end
+          @form.errors.add :file, @attachment.errors[:file] if @attachment.errors.has_key? :file
           broadcast(:invalid)
         end
       end

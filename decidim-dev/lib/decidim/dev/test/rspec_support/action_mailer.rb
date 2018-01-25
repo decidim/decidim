@@ -42,9 +42,7 @@ module MailerHelpers
     options[:max_attempts] ||= 3
     attempts = 0
     loop do
-      if attempts >= options[:max_attempts]
-        raise StandardError, "An email with subject containing '#{options[:subject]}' wasn't sent.'"
-      end
+      raise StandardError, "An email with subject containing '#{options[:subject]}' wasn't sent.'" if attempts >= options[:max_attempts]
 
       return if last_email&.subject&.include? options[:subject]
 
