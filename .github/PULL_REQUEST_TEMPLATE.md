@@ -11,6 +11,3 @@
 
 ### :camera: Screenshots (optional)
 ![Description](URL)
-
-#### :ghost: GIF
-![]()
