@@ -10,12 +10,15 @@ en:
         proposal_ids: Proposals created in the meeting
       meeting:
         address: Address
+        available_slots: Available slots for this meeting
         decidim_category_id: Category
         decidim_scope_id: Scope
         description: Description
         end_time: End Time
         location: Location
         location_hints: Location hints
+        registration_terms: Registration terms
+        registrations_enabled: Registrations enabled
         start_time: Start Time
         title: Title
   decidim:
