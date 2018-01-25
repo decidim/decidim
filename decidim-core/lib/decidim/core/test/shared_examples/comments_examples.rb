@@ -90,7 +90,7 @@ shared_examples "comments" do
       end
     end
 
-    context "when a user replies to a comment" do
+    context "when a user replies to a comment", :slow do
       let!(:comment_author) { create(:user, :confirmed, organization: organization) }
       let!(:comment) { create(:comment, commentable: commentable, author: comment_author) }
 
@@ -101,6 +101,7 @@ shared_examples "comments" do
 
         within "#comments #comment_#{comment.id}" do
           click_button "Reply"
+          expect(page).to have_selector(".add-comment")
           fill_in "add-comment-Decidim::Comments::Comment-#{comment.id}", with: "This is a reply"
           click_button "Send"
         end

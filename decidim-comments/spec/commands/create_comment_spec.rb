@@ -89,7 +89,7 @@ module Decidim
                 resource: commentable,
                 recipient_ids: [follower.id],
                 extra: {
-                  comment_id: 1
+                  comment_id: a_kind_of(Integer)
                 }
               )
 
@@ -108,7 +108,7 @@ module Decidim
                 resource: commentable,
                 recipient_ids: [follower.id],
                 extra: {
-                  comment_id: 1
+                  comment_id: a_kind_of(Integer)
                 }
               )
 

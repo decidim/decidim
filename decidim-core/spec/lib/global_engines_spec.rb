@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
+# rubocop:disable RSpec/DescribeClass
+
 require "spec_helper"
 
-describe "global engines", type: :feature do
+describe "global engines", type: :system do
   let(:organization) { create(:organization) }
   let(:mount_at) { nil }
 
