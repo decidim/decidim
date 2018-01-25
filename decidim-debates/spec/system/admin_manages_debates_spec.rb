@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages debates", type: :feature do
+describe "Admin manages debates", type: :system do
   let(:manifest_name) { "debates" }
 
   include_context "when managing a feature as an admin"

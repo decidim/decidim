@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Index Proposal Notes", type: :feature do
+describe "Index Proposal Notes", type: :system do
   let(:feature) { create(:proposal_feature) }
   let(:organization) { feature.organization }
 
