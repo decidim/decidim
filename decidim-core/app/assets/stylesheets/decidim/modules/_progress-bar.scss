@@ -20,6 +20,7 @@
     background-color: $white;
     height: 6px;
     display: flex;
+    margin-bottom: 0;
 
     .progress__bar__bar--complete{
       border-radius: 0;
