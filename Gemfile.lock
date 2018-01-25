@@ -82,7 +82,6 @@ PATH
       valid_email2 (~> 2.1.1)
       wisper (~> 2.0.0)
     decidim-debates (0.9.0.pre)
-      date_validator (~> 0.9)
       decidim-comments
       decidim-core
       kaminari (~> 1.0.0.rc1)
@@ -109,7 +108,6 @@ PATH
       webmock (~> 3.0)
       wisper-rspec (~> 0.0.3)
     decidim-meetings (0.9.0.pre)
-      date_validator (~> 0.9)
       decidim-core (= 0.9.0.pre)
       httparty (~> 0.15.0)
       icalendar (~> 2.4.1)

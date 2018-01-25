@@ -20,7 +20,6 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
-  s.add_dependency "date_validator", "~> 0.9"
   s.add_dependency "decidim-core", Decidim::Meetings.version
   s.add_dependency "httparty", "~> 0.15.0"
   s.add_dependency "icalendar", "~> 2.4.1"
