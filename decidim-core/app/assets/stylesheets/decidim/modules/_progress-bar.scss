@@ -22,6 +22,7 @@
     display: flex;
 
     .progress__bar__bar--complete{
+      border-radius: 0;
       background-color: $actions;
       height: 100%;
     }
