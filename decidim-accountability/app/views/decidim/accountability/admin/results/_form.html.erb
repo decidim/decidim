@@ -73,6 +73,7 @@ $(function() {
     $('#data_picker-autocomplete').atwho({
       at: "",
       data: <%= Decidim::Proposals::Proposal.all.collect {|p| {id: p.id, title: p.title}}.to_json.html_safe %>,
+      // data: 'proposals.json',
       displayTpl: "<li data-id=\"${id}\">${title}</li>",
       insertTpl: "${title}"
     })

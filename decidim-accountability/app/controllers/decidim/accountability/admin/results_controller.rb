@@ -62,7 +62,7 @@ module Decidim
               render partial: 'proposals'
             end
             format.json do
-              proposals= Decidim::Proposals::Proposal.all.limit(10)
+              proposals= Decidim::Proposals::Proposal.all.collect {|p| {id: p.id, title: p.title}}
               #html+= proposals.collect {|p| 
               #  %Q[<li><input type="checkbox" name="decidim_accountability[proposals_ids]" value="#{p.id}"/> #{p.title}</li>]
               #}.join
