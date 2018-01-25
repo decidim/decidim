@@ -42,6 +42,7 @@ it:
       actions:
         answer: Risposta
         new: Nuovo
+        private_notes: Note private
         title: Azioni
       admin:
         actions:
@@ -59,6 +60,12 @@ it:
             evaluating: Valutare
             rejected: Rifiutata
             title: Risposta per la proposta %{title}
+        proposal_notes:
+          form:
+            note: Nota
+            submit: Sottoscrivi
+          leave_your_note: Lascia il tuo messaggio
+          title: Note private
         proposals:
           answer:
             invalid: E' stato riscontrato un problema nella risposta per questa proposta
@@ -74,6 +81,12 @@ it:
           new:
             create: Crea
             title: Crea una proposta
+        shared:
+          info_proposal:
+            body: Corpo
+            created_at: Data di creazione
+            proposal_votes_count: Contare i voti
+            proposals: proposte
       answers:
         accepted: Accettata
         evaluating: Valutare
@@ -112,6 +125,7 @@ it:
             comments: Commenti
             created_at: Creato a
             id: ID
+            notes: Gli appunti
             official_proposal: Proposta ufficiale
             scope: Visibilità
             state: Stato
