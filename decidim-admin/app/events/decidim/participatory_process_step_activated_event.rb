@@ -44,12 +44,16 @@ module Decidim
 
     private
 
+    def participatory_space
+      resource.participatory_process
+    end
+
     def resource_path
-      @resource_path ||= decidim_participatory_processes.participatory_process_participatory_process_steps_path(resource.participatory_process)
+      @resource_path ||= decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_space)
     end
 
     def participatory_space_title
-      resource.participatory_process.title[I18n.locale.to_s]
+      participatory_space.title[I18n.locale.to_s]
     end
   end
 end
