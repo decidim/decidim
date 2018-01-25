@@ -124,6 +124,11 @@ pl:
         content_doesnt_exist: Ten adres jest nieprawidłowy lub został usunięty.
         title: Szukana strona nie została znaleziona
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'Nowy dokument został dodany do %{resource_title}. Możesz go zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Aktualizacja do %{resource_title}
       email_event:
         email_greeting: Witam %{user_name},
         email_intro: 'Nastąpiła aktualizacja do "%{resource_title}". Widać go z tej strony:'
