@@ -124,6 +124,12 @@ nl:
         content_doesnt_exist: Dit adres is onjuist of is verwijderd.
         title: De opgevraagde pagina kan niet gevonden worden
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'Er is een nieuw document toegevoegd aan %{resource_title}. Je kunt het vanaf deze pagina bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{resource_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Een update voor %{resource_title}
+          notification_title: Een <a href="%{resource_path}">nieuw document</a> is toegevoegd aan <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Hallo %{user_name},
         email_intro: 'Er is een update voor ''%{resource_title}''. Je kunt het vanaf deze pagina bekijken:'
