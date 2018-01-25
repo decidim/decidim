@@ -9,12 +9,15 @@ nl:
         proposal_ids: Voorstellen die in de vergadering zijn gemaakt
       meeting:
         address: Adres
+        available_slots: Beschikbare slots voor deze vergadering
         decidim_category_id: Categorie
         decidim_scope_id: Scope
         description: Beschrijving
         end_time: Eindtijd
         location: Plaats
         location_hints: Locatie hints
+        registration_terms: Registratie voorwaarden
+        registrations_enabled: Registraties ingeschakeld
         start_time: Starttijd
         title: Titel
   decidim:

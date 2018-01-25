@@ -124,6 +124,9 @@ sv:
         content_doesnt_exist: Den här adressen är felaktig eller har tagits bort.
         title: Sidan du söker kan inte hittas
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'Ett nytt dokument har lagts till %{resource_title}. Du kan se den från den här sidan:'
       email_event:
         email_greeting: Hej %{user_name},
         email_intro: 'Det har skett en uppdatering till "%{resource_title}". Du kan se den från den här sidan:'
@@ -136,6 +139,11 @@ sv:
         notification_title: Komponenten %{resource_title} är nu aktiv för <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: En händelse uppstod till <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_process_step_activated_event:
+        email_intro: '%{resource_title}-steget är nu aktivt för %{participatory_space_title}. Du kan se den från den här sidan:'
+        email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+        email_subject: En uppdatering till %{participatory_space_title}
+        notification_title: '%{resource_title}-steget är nu aktivt för <a href="%{resource_path}">%{participatory_space_title}</a>'
       profile_updated_event:
         email_intro: <a href="%{profile_path}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
         email_outro: Du har fått den här meddelandet eftersom du följer %{nickname}. Du kan sluta ta emot meddelanden efter föregående länk.

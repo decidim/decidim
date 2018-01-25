@@ -42,6 +42,7 @@ eu:
       actions:
         answer: Erantzuna
         new: Berria
+        private_notes: Ohar pribatuak
         title: Ekintzak
       admin:
         actions:
@@ -59,6 +60,12 @@ eu:
             evaluating: Ebaluatzen
             rejected: Ukatua
             title: 'Erantzun proposamen honi: %{title}'
+        proposal_notes:
+          form:
+            note: Ohar
+            submit: Bidali
+          leave_your_note: Utzi zure oharra
+          title: Ohar pribatuak
         proposals:
           answer:
             invalid: Arazo bat izan da proposamen honi erantzutean.
@@ -74,6 +81,12 @@ eu:
           new:
             create: Sortu
             title: Sortu proposamena
+        shared:
+          info_proposal:
+            body: Gorputzeko
+            created_at: Sortze data
+            proposal_votes_count: Botoen zenbaketa
+            proposals: proposamenak
       answers:
         accepted: Onartuta
         evaluating: Ebaluatzen
@@ -112,6 +125,7 @@ eu:
             comments: Oharrak
             created_at: Sortutako at
             id: NORTASUN AGIRIA
+            notes: Oharrak
             official_proposal: Proposamen ofiziala
             scope: Esparrua
             state: Egoera

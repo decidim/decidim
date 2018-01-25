@@ -124,6 +124,11 @@ gl:
         content_doesnt_exist: Este enderezo non é correcto ou se eliminou.
         title: Non se pode atopar a páxina que buscas
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'Engadiuse un novo documento a %{resource_title}. Podes velo desde esta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo %{resource_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Unha actualización a %{resource_title}
       email_event:
         email_greeting: Ola %{user_name},
         email_intro: 'Houbo unha actualización a "%{resource_title}". Podes velo desde esta páxina:'
@@ -136,6 +141,11 @@ gl:
         notification_title: O compoñente %{resource_title} está agora activo para <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un evento ocorreu en <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_process_step_activated_event:
+        email_intro: 'O paso %{resource_title} está agora activo para %{participatory_space_title}. Podes velo desde esta páxina:'
+        email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+        email_subject: Unha actualización a %{participatory_space_title}
+        notification_title: O paso %{resource_title} está agora activo para <a href="%{resource_path}">%{participatory_space_title}</a>
       profile_updated_event:
         email_intro: O <a href="%{profile_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
         email_outro: Recibiches esta notificación porque estás seguindo %{nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.

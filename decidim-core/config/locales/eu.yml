@@ -124,6 +124,10 @@ eu:
         content_doesnt_exist: Helbide hau okerra da edo ezabatua izan da.
         title: Ez dugu aurkitu bilatzen duzun orria!
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'Dokumentu berri bat gehitu zaio %{resource_title}. Orrialde hau ikusi dezakezu:'
+          email_outro: Jakinarazpen hau jaso duzulako %{resource_title} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
       email_event:
         email_greeting: Kaixo, %{user_name},
         email_intro: 'Eguneratze da "%{resource_title}". Orri honetan ikus daiteke:'
@@ -136,6 +140,11 @@ eu:
         notification_title: '%{resource_title} osagaia aktibo dago orain <a href="%{resource_path}">%{participatory_space_title}</a>'
       notification_event:
         notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
+      participatory_process_step_activated_event:
+        email_intro: '%{resource_title} urratsa aktibo dago %{participatory_space_title}-ra. Orrialde hau ikusi dezakezu:'
+        email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+        email_subject: '%{participatory_space_title} eguneratze bat'
+        notification_title: '%{resource_title} urratsa dago aktiboa orain <a href="%{resource_path}">%{participatory_space_title}</a>'
       profile_updated_event:
         email_intro: <a href="%{profile_path}">profile orriaren 1233_4_1_321 %{name} (%{nickname}) jarraitzen ari zarenean, eguneratu egin da.
         email_outro: Jakinarazpena jaso duzu %{nickname} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.

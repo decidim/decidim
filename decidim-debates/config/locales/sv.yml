@@ -1,0 +1,113 @@
+sv:
+  activemodel:
+    attributes:
+      debate:
+        decidim_category_id: Kategori
+        description: Beskrivning
+        end_time: Slutar vid
+        information_updates: Informationsuppdateringar
+        instructions: Anvisningar att delta
+        start_time: Börjar vid
+        title: Titel
+        user_group_id: Skapa debatt som
+  decidim:
+    debates:
+      actions:
+        confirm_destroy: Är du säker?
+        destroy: Radera
+        edit: Redigera
+        new: Ny %{name}
+        title: Handlingar
+      admin:
+        debates:
+          create:
+            invalid: Det har varit ett problem under debatten.
+            success: Debatt skapades framgångsrikt.
+          destroy:
+            success: Debatten raderas framgångsrikt.
+          edit:
+            title: Redigera debatt
+            update: Uppdatera debatt
+          index:
+            title: debatter
+          new:
+            create: Skapa debatt
+            title: Ny debatt
+          update:
+            invalid: Det har varit ett problem under uppdateringen av denna debatt.
+            success: Debatten uppdateras framgångsrikt.
+        models:
+          debate:
+            name: Debatt
+      debates:
+        count:
+          debates_count:
+            one: "%{count} debatt"
+            other: "%{count} debatter"
+        create:
+          invalid: Det har varit ett problem under debatten.
+          success: Debatt skapades framgångsrikt.
+        debate:
+          comments:
+            one: Kommentar
+            other: kommentarer
+          participate: Delta
+        filters:
+          all: Allt
+          category: Kategori
+          category_prompt: Välj en kategori
+          citizens: medborgare
+          official: Officiell
+          origin: Ursprung
+          search: Sök
+        filters_small_view:
+          close_modal: Stäng modal
+          filter: Filtrera
+          filter_by: Filtrera efter
+          unfold: Veckla ut
+        index:
+          new_debate: Ny debatt
+        new:
+          back: Tillbaka
+          create: Skapa
+          select_a_category: Var god välj en kategori
+          title: Ny debatt
+        share:
+          close_window: Stäng fönstret
+          share: Dela med sig
+          share_link: Dela länk
+        show:
+          comments: kommentarer
+          report: Rapportera
+      events:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hej, En ny debatt har skapats på %{space_title} deltagande rymden, kolla in det och bidra:
+            email_outro: Du har fått den här meddelandet eftersom du följer %{space_title} deltagande rymden. Du kan sluta ta emot meddelanden efter föregående länk.
+            email_subject: Ny debatt om %{space_title}
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> debatten skapades på <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Hej, %{author_name} %{author_nickname}, vem du följer har skapat en ny debatt, kolla in den och bidra med:
+            email_outro: Du har fått den här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
+            email_subject: Ny debatt av %{author_nickname}
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> debatten skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      models:
+        debate:
+          fields:
+            end_time: Slutdatum
+            official_debate: Officiell debatt
+            start_time: Start datum
+            title: Titel
+    features:
+      debates:
+        actions:
+          create: Skapa
+        name: debatter
+        settings:
+          global:
+            comments_enabled: Kommentarer aktiverade
+          step:
+            comments_blocked: Kommentarer blockerad
+            creation_enabled: Debatt skapande av användare aktiverat

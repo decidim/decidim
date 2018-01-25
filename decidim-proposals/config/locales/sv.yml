@@ -42,6 +42,7 @@ sv:
       actions:
         answer: Svar
         new: Ny
+        private_notes: Privata anteckningar
         title: Handlingar
       admin:
         actions:
@@ -59,6 +60,12 @@ sv:
             evaluating: utvärdera
             rejected: avvisade
             title: Svar för förslag %{title}
+        proposal_notes:
+          form:
+            note: Notera
+            submit: Lämna
+          leave_your_note: Lämna din anteckning
+          title: Privata anteckningar
         proposals:
           answer:
             invalid: Det har varit ett problem att svara på detta förslag
@@ -74,6 +81,12 @@ sv:
           new:
             create: Skapa
             title: Skapa förslag
+        shared:
+          info_proposal:
+            body: Kropp
+            created_at: Skapelsedagen
+            proposal_votes_count: Röster räknas
+            proposals: förslag
       answers:
         accepted: Accepterad
         evaluating: utvärdera
@@ -112,6 +125,7 @@ sv:
             comments: kommentarer
             created_at: Skapad vid
             id: ID
+            notes: anteckningar
             official_proposal: Officiellt förslag
             scope: Omfattning
             state: stat
