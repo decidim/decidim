@@ -9,7 +9,7 @@ services:
       - "3000:3000"
     volumes:
       - .:/code
-      - gems:/gems
+      - gems:/gems:cached
     environment:
       - DATABASE_HOST=pg
       - DATABASE_USERNAME=postgres
