@@ -124,6 +124,12 @@ pt-BR:
         content_doesnt_exist: Este endereço está incorreto ou foi apagado.
         title: A página que você busca não foi encontrada
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'Um novo documento foi adicionado a %{resource_title}. Você pode vê-lo a partir desta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo o %{resource_title}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Uma atualização para %{resource_title}
+          notification_title: Um <a href="%{resource_path}">new document</a> foi adicionado a <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Olá %{user_name},
         email_intro: 'Houve uma atualização em "%{resource_title}". Você pode vê-la nesta página:'
