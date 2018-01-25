@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.3"
 
   s.name = "decidim-budgets"
-  s.summary = "Decidim budgets plugin"
+  s.summary = "Decidim budgets module"
   s.description = "A budgets component for decidim's participatory spaces."
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]

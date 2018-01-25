@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.3"
 
   s.name = "decidim-accountability"
-  s.summary = "Decidim accountability plugin"
+  s.summary = "Decidim accountability module"
   s.description = "An accountability component for decidim's participatory spaces."
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]

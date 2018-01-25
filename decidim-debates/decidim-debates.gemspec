@@ -7,7 +7,7 @@ require "decidim/debates/version"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name = "decidim-debates"
-  s.summary = "Decidim debates plugin"
+  s.summary = "Decidim debates module"
   s.description = "A debates component for decidim's participatory spaces."
   s.version = Decidim::Debates.version
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva", "Genís Matutes Pujol"]
