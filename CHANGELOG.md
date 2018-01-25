@@ -62,6 +62,9 @@ you need to change the following line in `config/environments/production.rb`:
   2. Fallback to organization default locale in case the user locale translation is not available.
   3. Otherwise return blank.
 - **decidim-core**: Forced order in conversations (newest on top) and conversation messages (oldest on top). [\#2520](https://github.com/decidim/decidim/pull/2520)
+- **decidim-dev**: Decidim now uses Rails' system tests instead of feature tests [\#2516](https://github.com/decidim/decidim/pull/2516)
+  1. Move your tests from `spec/features/` to `spec/system/`
+  2. Change `type: :feature` to `type: :system`
 
 
   Now it follows these steps:
