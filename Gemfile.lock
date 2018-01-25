@@ -85,7 +85,6 @@ PATH
       decidim-comments
       decidim-core
       kaminari (~> 1.0.0.rc1)
-      rectify (~> 0.8)
       searchlight (~> 4.1.0)
     decidim-dev (0.9.0.pre)
       byebug
