@@ -16,7 +16,7 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim**: Rubocop has been upgraded. Ruby version in gem specs now fits with ruby version that rubocop uses. [\#2548](https://github.com/decidim/decidim/pull/2548)
 - **decidim-admin**: Notify participatory process followers when a step becomes active. [\#2544](https://github.com/decidim/decidim/pull/2544)
 - **decidim-admin**: Notify participatory space followers when a new feature is published. [\#2515](https://github.com/decidim/decidim/pull/2515)
-- **decidim**: Add `decidim-assemblies` to the `decidim` metagem. [\#2495](https://github.com/decidim/decidim/pull/2510)
+- **decidim**: Add `decidim-assemblies` to the `decidim` metagem. [\#2510](https://github.com/decidim/decidim/pull/2510)
 - **decidim-proposals**: Notify proposal followers when it gets answered. [\#2508](https://github.com/decidim/decidim/pull/2508)
 - **decidim-proposals**: Add private notes by admins to proposal [\#2490](https://github.com/decidim/decidim/pull/2490)
 - **decidim-core:** Extends public profile with personal URL and about text. Receive notifications when a profile is updated. [\2494](https://github.com/decidim/decidim/pull/2494)
