@@ -124,6 +124,12 @@ ca:
         content_doesnt_exist: Aquesta adreça és incorrecta o ha estat eliminada.
         title: No s'ha trobat la pàgina que busques
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'S''ha afegit un nou document a %{resource_title}. Podeu veure-ho des d''aquesta pàgina:'
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{resource_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una actualització a %{resource_title}
+          notification_title: S'ha afegit un <a href="%{resource_path}"> nou document</a> a <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Hola %{user_name},
         email_intro: 'Hi ha hagut una actualització a "%{resource_title}". Es pot veure en aquesta pàgina:'
