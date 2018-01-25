@@ -28,7 +28,7 @@
         <li class="is-dropdown-submenu-parent">
           <a href="#"><%= current_user.email %></a>
           <ul class="menu is-dropdown-submenu">
-            <li><%= link_to('Logout', decidim.destroy_user_session_path, method: :delete) %></li>
+            <li><%= link_to(t("layouts.decidim.user_menu.sign_out"), decidim.destroy_user_session_path, method: :delete) %></li>
           </ul>
         </li>
       </ul>
