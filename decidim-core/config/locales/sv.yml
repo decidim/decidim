@@ -124,6 +124,9 @@ sv:
         content_doesnt_exist: Den här adressen är felaktig eller har tagits bort.
         title: Sidan du söker kan inte hittas
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'Ett nytt dokument har lagts till %{resource_title}. Du kan se den från den här sidan:'
       email_event:
         email_greeting: Hej %{user_name},
         email_intro: 'Det har skett en uppdatering till "%{resource_title}". Du kan se den från den här sidan:'
