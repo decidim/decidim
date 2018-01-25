@@ -12,6 +12,7 @@ module Decidim
       helper Decidim::IconHelper
       helper Decidim::WidgetUrlsHelper
       helper Decidim::SanitizeHelper
+      helper Decidim::ResourceReferenceHelper
 
       helper_method :collection, :promoted_assemblies, :assemblies, :stats
 
