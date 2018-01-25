@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.3"
 
   s.name = "decidim-api"
-  s.summary = "API engine for decidim"
+  s.summary = "Decidim API plugin"
   s.description = "API engine for decidim"
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]

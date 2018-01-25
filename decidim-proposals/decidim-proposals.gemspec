@@ -15,8 +15,8 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.3"
 
   s.name = "decidim-proposals"
-  s.summary = "A proposals component for decidim's participatory processes."
-  s.description = s.summary
+  s.summary = "Decidim proposals plugin"
+  s.description = "A proposals component for decidim's participatory processes."
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
