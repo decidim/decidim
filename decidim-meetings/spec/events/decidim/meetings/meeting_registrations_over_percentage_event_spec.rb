@@ -3,15 +3,11 @@
 require "spec_helper"
 
 describe Decidim::Meetings::MeetingRegistrationsOverPercentageEvent do
-  describe "types" do
-    subject { described_class }
+  include_context "extended event"
 
-    it "supports the notification type" do
-      expect(subject.types).to include :notification
-    end
+  let(:resource) { create :meeting }
+  let(:event_name) { "decidim.events.meetings.meeting_registrations_over_percentage" }
+  let(:extra) { { percentage: 1.1 } }
 
-    it "supports the email type" do
-      expect(subject.types).to include :email
-    end
-  end
+  it_behaves_like "an extended event"
 end

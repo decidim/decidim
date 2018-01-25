@@ -3,15 +3,9 @@
 require "spec_helper"
 
 describe Decidim::Meetings::UpcomingMeetingEvent do
-  describe "types" do
-    subject { described_class }
+  let(:resource) { create :meeting }
+  let(:event_name) { "decidim.events.meetings.upcoming_meeting" }
 
-    it "supports the notification type" do
-      expect(subject.types).to include :notification
-    end
-
-    it "supports the email type" do
-      expect(subject.types).to include :email
-    end
-  end
+  include_context "extended event"
+  it_behaves_like "an extended event"
 end
