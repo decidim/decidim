@@ -124,6 +124,11 @@ gl:
         content_doesnt_exist: Este enderezo non é correcto ou se eliminou.
         title: Non se pode atopar a páxina que buscas
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'Engadiuse un novo documento a %{resource_title}. Podes velo desde esta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo %{resource_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Unha actualización a %{resource_title}
       email_event:
         email_greeting: Ola %{user_name},
         email_intro: 'Houbo unha actualización a "%{resource_title}". Podes velo desde esta páxina:'
