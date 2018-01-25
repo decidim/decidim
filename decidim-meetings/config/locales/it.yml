@@ -9,12 +9,15 @@ it:
         proposal_ids: Proposte create nell'incontro
       meeting:
         address: Indirizzo
+        available_slots: Posti disponibili per questo incontro
         decidim_category_id: Categoria
         decidim_scope_id: Visibilità
         description: Descrizione
         end_time: Orario fine
         location: Luogo
         location_hints: Informazione sul luogo
+        registration_terms: Termini di registrazione
+        registrations_enabled: Registrazioni abilitate
         start_time: Orario inizio
         title: Titolo
   decidim:
