@@ -8,6 +8,7 @@ pt-BR:
       user:
         email: Seu e-mail
         name: O seu nome
+        nickname: Seu identificador curto e exclusivo em decidim
         password: Nova senha
         password_confirmation: Confirme a sua nova senha
         remove_avatar: Remover avatar
@@ -88,15 +89,15 @@ pt-BR:
           email_already_exists: Este endereço de e-mail já está registrado em outra contra
         new:
           complete_profile: Perfil completo
-          nickname_help: Seu login no decidim.
+          nickname_help: Seu identificador curto e exclusivo em decidim
           sign_up: Por favor, complete seu perfil
           subtitle: Por favor, preencha o formulário seguinte para completar a inscrição
           username_help: Nome público que aparece em suas publicações. Para garantir o anonimato, você pode escolher qualquer nome.
       registrations:
         new:
           already_have_an_account?: Você já tem uma conta?
-          newsletter_notifications: Receba informações sobre atividades relevantes
-          nickname_help: Seu login no decidim.
+          nickname_help: Seu identificador curto e exclusivo em decidim
+          notifications: Receba informações sobre atividades relevantes
           sign_in: Entrar
           sign_up: Inscrever-se
           sign_up_as:
@@ -128,8 +129,23 @@ pt-BR:
         email_intro: 'Houve uma atualização em "%{resource_title}". Você pode vê-la nesta página:'
         email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Se desejar parar de segui-la, clique no link anterior.
         email_subject: Há uma atualização em %{resource_title}
+      feature_published_event:
+        email_intro: 'O componente %{resource_title} agora está ativo para %{participatory_space_title}. Você pode vê-lo a partir desta página:'
+        email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
+        email_subject: Uma atualização para %{participatory_space_title}
+        notification_title: O componente %{resource_title} agora está ativo para <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_process_step_activated_event:
+        email_intro: 'O passo %{resource_title} agora está ativo para %{participatory_space_title}. Você pode vê-lo a partir desta página:'
+        email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
+        email_subject: Uma atualização para %{participatory_space_title}
+        notification_title: O passo %{resource_title} agora está ativo para <a href="%{resource_path}">%{participatory_space_title}</a>
+      profile_updated_event:
+        email_intro: O <a href="%{profile_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
+        email_outro: Você recebeu esta notificação porque está seguindo %{nickname}. Você pode parar de receber notificações após o link anterior.
+        email_subject: "%{nickname} atualizaram seu perfil"
+        notification_title: O <a href="%{profile_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
     export_mailer:
       export:
         ready: Uma versão comprimida do documento exportado está em anexo.
@@ -207,10 +223,19 @@ pt-BR:
     newsletter_mailer:
       newsletter:
         note: Você recebeu este e-mail porque ativou o recebimento de newsletters em %{organization_name}. Você pode alterar suas configurações em <a href="%{link}">notifications page</a>.
+        see_on_website: Não é possível ver este email corretamente? Visualize-o no <a href="%{link}" target="_blank">website</a>.
+        unsubscribe: Para optar por não receber esse tipo de email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Se você deseja alterar suas preferências, você pode fazê-lo na seção <a href="%{link}" target="_blank">configuration</a>
+        error: Ocorreu um erro ao se desinscrever
+        success: Você está inscrito com sucesso.
+        token_error: O link expirou.
+        unsubscribe: Cancelar subscrição
     notifications_settings:
       show:
         email_on_notification: Quero receber um email sempre que receber uma notificação.
-        newsletter_notifications: Quero receber informações sobre atividades relevantes
+        newsletter_notifications: Quero receber boletins informativos
         update_notifications_settings: Salvar alterações
       update:
         error: Ocorreu um erro ao atualizar suas configurações de notificações.
@@ -225,6 +250,9 @@ pt-BR:
         title: Mais informação
     profiles:
       default_officialization_text: Este participante foi verificado publicamente. Seu nome e função foram verificados e correspondem a seu nome e função reais
+      show:
+        about_me: Sobre mim
+        personal_url: Site pessoal
     reported_mailer:
       hide:
         hello: Olá %{name},

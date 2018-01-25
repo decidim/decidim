@@ -9,12 +9,15 @@ sv:
         proposal_ids: Förslag som skapats i mötet
       meeting:
         address: Adress
+        available_slots: Tillgängliga slots för detta möte
         decidim_category_id: Kategori
         decidim_scope_id: Omfattning
         description: Beskrivning
         end_time: Sluttid
         location: Plats
         location_hints: Plats tips
+        registration_terms: Registreringsvillkor
+        registrations_enabled: Registreringar aktiverade
         start_time: Starttid
         title: Titel
   decidim:

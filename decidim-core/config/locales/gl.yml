@@ -8,6 +8,7 @@ gl:
       user:
         email: O teu correo electrónico
         name: O teu nome
+        nickname: O teu identificador breve e único en decidir
         password: Novo contrasinal
         password_confirmation: Confirma o teu novo contrasinal
         remove_avatar: Eliminar avatar
@@ -88,15 +89,15 @@ gl:
           email_already_exists: Outra conta usa o mesmo enderezo de correo electrónico
         new:
           complete_profile: Perfil completo
-          nickname_help: O teu identificador único en decidir.
+          nickname_help: O teu identificador breve e único en decidir
           sign_up: Completa o teu perfil
           subtitle: Encha o seguinte formulario para completar o rexistro
           username_help: Nome público que aparece nas túas publicacións. Co obxectivo de garantir o anonimato, pode ser calquera nome.
       registrations:
         new:
           already_have_an_account?: Xa ten unha conta?
-          newsletter_notifications: Recibir información sobre a actividade relevante
-          nickname_help: O teu identificador único en decidir.
+          nickname_help: O teu identificador breve e único en decidir
+          notifications: Recibir información sobre a actividade relevante
           sign_in: Iniciar sesión
           sign_up: Rexistrarse
           sign_up_as:
@@ -128,8 +129,23 @@ gl:
         email_intro: 'Houbo unha actualización a "%{resource_title}". Podes velo desde esta páxina:'
         email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
         email_subject: Unha actualización a %{resource_title}
+      feature_published_event:
+        email_intro: 'O compoñente %{resource_title} está agora activo para %{participatory_space_title}. Podes velo desde esta páxina:'
+        email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+        email_subject: Unha actualización a %{participatory_space_title}
+        notification_title: O compoñente %{resource_title} está agora activo para <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un evento ocorreu en <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_process_step_activated_event:
+        email_intro: 'O paso %{resource_title} está agora activo para %{participatory_space_title}. Podes velo desde esta páxina:'
+        email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+        email_subject: Unha actualización a %{participatory_space_title}
+        notification_title: O paso %{resource_title} está agora activo para <a href="%{resource_path}">%{participatory_space_title}</a>
+      profile_updated_event:
+        email_intro: O <a href="%{profile_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
+        email_outro: Recibiches esta notificación porque estás seguindo %{nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+        email_subject: "%{nickname} actualizou o seu perfil"
+        notification_title: O <a href="%{profile_path}">profile páxina</a> de %{name} (%{nickname}), quen está a seguir, foi actualizado.
     export_mailer:
       export:
         ready: Atopa unha versión comprimida da túa exportación.
@@ -207,10 +223,19 @@ gl:
     newsletter_mailer:
       newsletter:
         note: Recibiches este correo electrónico porque estás subscrito a boletíns en %{organization_name}. Podes cambiar a configuración nas túas <a href="%{link}"> notificacións páxina</a>.
+        see_on_website: Non se pode ver este correo electrónico correctamente? Vénseo no <a href="%{link}" target="_blank"> sitio web</a>.
+        unsubscribe: Para desactivar a recepción deste tipo de correo electrónico, <a href="%{link}" target="_blank" class="unsubscribe">Subscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Se queres cambiar as túas preferencias, podes facelo na <a href="%{link}" target="_blank">configuración páxina</a>
+        error: Produciuse un erro ao cancelar a subscrición
+        success: Estás desubscrito con éxito.
+        token_error: A ligazón caducou.
+        unsubscribe: Anular a suscripción
     notifications_settings:
       show:
         email_on_notification: Quero recibir un correo electrónico cada vez que recibo unha notificación.
-        newsletter_notifications: Quero recibir información sobre a actividade relevante
+        newsletter_notifications: Quero recibir boletíns
         update_notifications_settings: Gardar cambios
       update:
         error: Produciuse un erro ao actualizar a configuración das notificacións.
@@ -225,6 +250,9 @@ gl:
         title: Máis información
     profiles:
       default_officialization_text: Este participante está verificado públicamente, verificouse o seu nome ou o seu papel para corresponder co seu nome e rol real
+      show:
+        about_me: Sobre min
+        personal_url: Sitio web persoal
     reported_mailer:
       hide:
         hello: Ola %{name},

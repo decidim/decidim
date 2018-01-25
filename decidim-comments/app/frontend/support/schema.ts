@@ -779,6 +779,8 @@ export interface GetCommentsQuery {
     commentsHaveAlignment: boolean,
     // Whether the object comments have votes or not
     commentsHaveVotes: boolean,
+    // The number of comments in all levels this resource holds
+    totalCommentsCount: number,
     comments:  Array< {
       // The Comment's unique ID
       id: string,

@@ -17,6 +17,12 @@
         <%= link_to_current_or_new_conversation_with(@proposal.author) %>
       <% end %>
     </div>
+    <% unless @proposal.withdrawn? %>
+      <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), method: :put, class: "title-action__action button small hollow", data: {confirm: t('.withdraw_confirmation')}  do %>
+        <%= t('.withdraw_proposal') %>
+        <%= icon "x" %>
+      <% end %>
+    <% end %>
   </div>
 </div>
 <div class="row">

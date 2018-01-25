@@ -133,12 +133,6 @@ pt:
       dashboard:
         show:
           welcome: Bem-vindo ao Decidim Admin Panel.
-      events:
-        user_officialized_event:
-          email_intro: O <a href="%{profile_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
-          email_outro: Você recebeu esta notificação porque está seguindo %{nickname}. Você pode parar de receber notificações após o link anterior.
-          email_subject: "%{nickname} atualizaram seu perfil"
-          notification_title: O <a href="%{profile_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
       exports:
         export_as: "%{name} como %{export_format}"
         notice: Sua exportação está atualmente em andamento. Você receberá um e-mail quando estiver completo.
@@ -414,7 +408,7 @@ pt:
           title: Editar Página
           update: Actualizar
         new:
-          create: Novo
+          create: Crio
           title: Nova página
         update:
           error: Ocorreu um erro ao atualizar esta página.

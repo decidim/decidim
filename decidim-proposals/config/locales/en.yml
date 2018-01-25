@@ -43,6 +43,7 @@ en:
       actions:
         answer: Answer
         new: New
+        private_notes: Private notes
         title: Actions
       admin:
         actions:
@@ -60,6 +61,12 @@ en:
             evaluating: Evaluating
             rejected: Rejected
             title: Answer for proposal %{title}
+        proposal_notes:
+          form:
+            note: Note
+            submit: Submit
+          leave_your_note: Leave your note
+          title: Private notes
         proposals:
           answer:
             invalid: There's been a problem answering this proposal
@@ -75,11 +82,18 @@ en:
           new:
             create: Create
             title: Create proposal
+        shared:
+          info_proposal:
+            body: Body
+            created_at: Creation date
+            proposal_votes_count: Votes count
+            proposals: Proposals
       answers:
         accepted: Accepted
         evaluating: Evaluating
         not_answered: Not answered
         rejected: Rejected
+        withdrawn: Withdrawn
       create:
         error: There's been errors when saving the proposal.
         success: Proposal created successfully.
@@ -113,6 +127,7 @@ en:
             comments: Comments
             created_at: Created at
             id: ID
+            notes: Notes
             official_proposal: Official proposal
             scope: Scope
             state: State
@@ -155,6 +170,7 @@ en:
           unfold: Unfold
         index:
           new_proposal: New proposal
+          see_all_withdrawn: See all withdrawn proposals
           view_proposal: View proposal
         linked_proposals:
           proposal_votes:
@@ -183,6 +199,8 @@ en:
           proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: 'This proposal has been rejected because:'
           report: Report
+          withdraw_confirmation: Are you sure to withdraw this proposal?
+          withdraw_proposal: Withdraw proposal
         vote_button:
           already_voted: Already voted
           already_voted_hover: Unvote

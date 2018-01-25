@@ -125,6 +125,12 @@ en:
         content_doesnt_exist: This address is incorrect or has been removed.
         title: The page you're looking for can't be found
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{resource_title}
+          notification_title: A <a href="%{resource_path}">new document</a> has been added to <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Hello %{user_name},
         email_intro: 'There has been an update to "%{resource_title}". You can see it from this page:'
@@ -137,6 +143,11 @@ en:
         notification_title: The %{resource_title} component is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: An event occured to <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_process_step_activated_event:
+        email_intro: 'The %{resource_title} step is now active for %{participatory_space_title}. You can see it from this page:'
+        email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+        email_subject: An update to %{participatory_space_title}
+        notification_title: The %{resource_title} step is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
       profile_updated_event:
         email_intro: The <a href="%{profile_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
         email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.

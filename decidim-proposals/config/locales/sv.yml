@@ -42,6 +42,7 @@ sv:
       actions:
         answer: Svar
         new: Ny
+        private_notes: Privata anteckningar
         title: Handlingar
       admin:
         actions:
@@ -59,6 +60,12 @@ sv:
             evaluating: utvärdera
             rejected: avvisade
             title: Svar för förslag %{title}
+        proposal_notes:
+          form:
+            note: Notera
+            submit: Lämna
+          leave_your_note: Lämna din anteckning
+          title: Privata anteckningar
         proposals:
           answer:
             invalid: Det har varit ett problem att svara på detta förslag
@@ -74,21 +81,43 @@ sv:
           new:
             create: Skapa
             title: Skapa förslag
+        shared:
+          info_proposal:
+            body: Kropp
+            created_at: Skapelsedagen
+            proposal_votes_count: Röster räknas
+            proposals: förslag
       answers:
         accepted: Accepterad
         evaluating: utvärdera
         not_answered: Inte besvarad
         rejected: avvisade
+        withdrawn: kallas
       create:
         error: Det har varit fel när du lagrade förslaget.
         success: Förslaget skapades framgångsrikt.
       events:
+        accepted_proposal_event:
+          email_intro: 'Förslaget "%{resource_title}" har godkänts. Du kan läsa svaret på den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
+          email_subject: Ett förslag som du följer är godkänt
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> förslaget har godkänts.
         create_proposal_event:
           email_intro: |-
             Hej, %{author_name} %{author_nickname}, vem du följer har skapat ett nytt förslag, kolla in det och bidra med:
           email_outro: Du har fått den här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
           email_subject: Nytt förslag av %{author_nickname}
           notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        evaluating_proposal_event:
+          email_intro: 'Förslaget "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
+          email_subject: Ett förslag som du följer utvärderas
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> förslaget utvärderas.
+        rejected_proposal_event:
+          email_intro: 'Förslaget "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
+          email_subject: Ett förslag som du följer är avvisat
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> förslaget har avslagits.
       models:
         proposal:
           fields:
@@ -96,6 +125,7 @@ sv:
             comments: kommentarer
             created_at: Skapad vid
             id: ID
+            notes: anteckningar
             official_proposal: Officiellt förslag
             scope: Omfattning
             state: stat
@@ -138,6 +168,7 @@ sv:
           unfold: Veckla ut
         index:
           new_proposal: Nytt förslag
+          see_all_withdrawn: Se alla återtagna förslag
           view_proposal: Visa förslag
         linked_proposals:
           proposal_votes:
@@ -166,6 +197,8 @@ sv:
           proposal_in_evaluation_reason: Detta förslag utvärderas
           proposal_rejected_reason: 'Detta förslag har avslagits på grund av att'
           report: Rapportera
+          withdraw_confirmation: Är du säker på att dra tillbaka detta förslag?
+          withdraw_proposal: Dra ut förslaget
         vote_button:
           already_voted: Redan röstade
           already_voted_hover: Unvote

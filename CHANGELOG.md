@@ -12,14 +12,19 @@ you need to change the following line in `config/environments/production.rb`:
 + config.assets.js_compressor = Uglifier.new(:harmony => true)
 ```
 
-**Added**:
+**Added
+- **decidim**: Rubocop has been upgraded. Ruby version in gem specs now fits with ruby version that rubocop uses.
+[\#2548](https://github.com/decidim/decidim/pull/2548)
+- **decidim-admin**: Notify participatory process followers when a step becomes active. [\#2544](https://github.com/decidim/decidim/pull/2544)
 - **decidim-admin**: Notify participatory space followers when a new feature is published. [\#2515](https://github.com/decidim/decidim/pull/2515)
 - **decidim**: Add `decidim-assemblies` to the `decidim` metagem. [\#2495](https://github.com/decidim/decidim/pull/2510)
 - **decidim-proposals**: Notify proposal followers when it gets answered. [\#2508](https://github.com/decidim/decidim/pull/2508)
+- **decidim-proposals**: Add private notes by admins to proposal [\#2490](https://github.com/decidim/decidim/pull/2490)
 - **decidim-core:** Extends public profile with personal URL and about text. Receive notifications when a profile is updated. [\2494](https://github.com/decidim/decidim/pull/2494)
 - **decidim-core:** Improve Newsletter adding unsubscribe link, see on website, UTM GET codes [\2359](https://github.com/decidim/decidim/pull/2359)
 - **decidim-verifications**: Added action authorizers for authorization handlers. [\#2438](https://github.com/decidim/decidim/pull/2438)
 - **decidim-accountability**: Add feature to link projects with results [\#2467](https://github.com/decidim/decidim/pull/2467)
+- **decidim-proposals**: Withdrawing of proposals [\#2289](https://github.com/decidim/decidim/issues/2289).
 - **decidim-proposals**: Improve proposals admin panel usability (sorting). [\#2419](https://github.com/decidim/decidim/pull/2419)
 - **decidim-core**: Follow users and get notifications about their actions [\#2401](https://github.com/decidim/decidim/pull/2401) and [\#2452](https://github.com/decidim/decidim/pull/2452).
 - **decidim-core**: Add unique nicknames for participants. [\#2360](https://github.com/decidim/decidim/pull/2360)
@@ -42,18 +47,24 @@ you need to change the following line in `config/environments/production.rb`:
   ```erb
   <%= scopes_picker_filter form, :scope_id %>
   ```
+- **decidim-debates**: New Debates component available for all spaces [\#2506](https://github.com/decidim/decidim/pull/2506)
 
 **Changed
 
+- **decidim-comments**: Changed the counters to count all comments from all levels instead of only the top-level ones [\#2551](https://github.com/decidim/decidim/pull/2551)
 - **decidim-core**: [Breaking change] Changes the participatory space's contracts introducing `context`. This was done to fix a bug caused by dynamically extending some controllers. [\#2465](https://github.com/decidim/decidim/pull/2465)
 - **decidim-core**: Removed horizontal scroll from process navigation bar. [\#2495](https://github.com/decidim/decidim/pull/2495)
 - **decidim-core**: Fixes the documentation regarding gems, libraries, plugins and modules. We should always use module, and use decidim-module-<engine_name> nomenclature for repositories naming [\#2481](https://github.com/decidim/decidim/pull/2481).
 - **decidim-core**: Users have notifications enabled by default unless they explicitly uncheck it during registration. [\#2517](https://github.com/decidim/decidim/pull/2517)
+- **decidim-core**: Decidim now runs on Ruby 2.5.0 by default, although 2.3+ is expected to work well. [\#2550](https://github.com/decidim/decidim/pull/2550)
 - **decidim-core**: translated_attribute helper changes its default behaviour. Previously it was following these steps:
   1. Return the current user locale translation if available.
   2. Fallback to organization default locale in case the user locale translation is not available.
   3. Otherwise return blank.
-- **decidim-core**: Forced order in covnersations (newest on top) and conversation messages (oldest on top). [\#2520](https://github.com/decidim/decidim/pull/2520)
+- **decidim-core**: Forced order in conversations (newest on top) and conversation messages (oldest on top). [\#2520](https://github.com/decidim/decidim/pull/2520)
+- **decidim-dev**: Decidim now uses Rails' system tests instead of feature tests [\#2516](https://github.com/decidim/decidim/pull/2516)
+  1. Move your tests from `spec/features/` to `spec/system/`
+  2. Change `type: :feature` to `type: :system`
 
 
   Now it follows these steps:
@@ -79,6 +90,7 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-core**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
 - **decidim-core**: Clean conversations textarea after sending a private message [\#2379](https://github.com/decidim/decidim/pull/2379)
 - **decidim-meetings**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
+- **decidim-participatory_processes**: Fix the processes filter [\#2552](https://github.com/decidim/decidim/pull/2552)
 - **decidim-proposals**: Do not allow attachments on proposals edition [\#2221](https://github.com/decidim/decidim/pull/2221)
 - **decidim-proposals**: Prevent double-click form submissions [\#2379](https://github.com/decidim/decidim/pull/2379)
 - **decidim-proposals**: Fix missing icon on proposal reply.
@@ -88,8 +100,11 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-verifications**: Fixed a migration that broke feature permissions. If you already upgraded to `0.8.2` or less, please follow the instructions on the PR [\#2373](https://github.com/decidim/decidim/pull/2373)
 - **decidim-accountability**: Fix children results count [\#2483](https://github.com/decidim/decidim/pull/2483)
 - **decidim-accountability**: Keeps the current scope in the breadcumb links [\#2488](https://github.com/decidim/decidim/pull/2488)
+- **decidim-accountability**: Top level search searches on all results (not only the first level) [\#2545](https://github.com/decidim/decidim/pull/2545)
+- **decidim-admin**: Visual bug in quilljs editor misleading admins into introducing blank lines to separate paragraphs. [\#2565](https://github.com/decidim/decidim/pull/2565).
 
 **Removed**
+
 - **decidim**: Select2 JS library and scope selector based on Select2.
 - **dedicim-accountability**: Removed the Global scope navigation option ([\#2486](https://github.com/decidim/decidim/pull/2486))
 

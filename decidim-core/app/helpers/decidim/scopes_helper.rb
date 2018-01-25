@@ -20,7 +20,9 @@ module Decidim
     # Returns a string
     def scope_name_for_picker(scope, global_name)
       if scope
-        "#{translated_attribute(scope.name)} (#{translated_attribute(scope.scope_type.name)})"
+        name = translated_attribute(scope.name)
+        name << " (#{translated_attribute(scope.scope_type.name)})" if scope.scope_type
+        name
       else
         global_name
       end
@@ -31,9 +33,10 @@ module Decidim
     # name - attribute name
     #
     # Returns nothing.
-    def scopes_picker_field(form, name)
+    def scopes_picker_field(form, name, root: false)
+      root = try(:current_participatory_space)&.scope if root == false
       form.scopes_picker name do |scope|
-        { url: decidim.scopes_picker_path(root: try(:current_participatory_space)&.scope, current: scope&.id, field: form.label_for(name)),
+        { url: decidim.scopes_picker_path(root: root, current: scope&.id, field: form.label_for(name)),
           text: scope_name_for_picker(scope, I18n.t("decidim.scopes.global")) }
       end
     end

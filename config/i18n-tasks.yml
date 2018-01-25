@@ -111,6 +111,8 @@ ignore_unused:
   - decidim.features.accountability.name
   - decidim.features.accountability.settings.*
   - decidim.accountability.models.project.valid_statuses.*
+  - decidim.debates.debates.filters.*
+  - decidim.debates.events.create_debate_event.{space_followers,user_followers}.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

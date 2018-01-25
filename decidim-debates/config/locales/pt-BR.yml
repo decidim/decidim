@@ -1,0 +1,113 @@
+pt-BR:
+  activemodel:
+    attributes:
+      debate:
+        decidim_category_id: Categoria
+        description: Descrição
+        end_time: Termina em
+        information_updates: Atualizações de informações
+        instructions: Instruções para participar
+        start_time: Começa em
+        title: Título
+        user_group_id: Criar debate como
+  decidim:
+    debates:
+      actions:
+        confirm_destroy: Você tem certeza?
+        destroy: Excluir
+        edit: Editar
+        new: Novo %{name}
+        title: Ações
+      admin:
+        debates:
+          create:
+            invalid: Houve um problema ao criar o debate.
+            success: Debate criado com sucesso.
+          destroy:
+            success: Debate excluído com sucesso.
+          edit:
+            title: Editar debate
+            update: Atualização do debate
+          index:
+            title: Debates
+          new:
+            create: Criar debate
+            title: Novo debate
+          update:
+            invalid: Ocorreu um problema ao atualizar esse debate.
+            success: Debate atualizado com sucesso.
+        models:
+          debate:
+            name: Debate
+      debates:
+        count:
+          debates_count:
+            one: "%{count} debate"
+            other: "%{count} debates"
+        create:
+          invalid: Houve um problema ao criar o debate.
+          success: Debate criado com sucesso.
+        debate:
+          comments:
+            one: Comente
+            other: Comentários
+          participate: Participar
+        filters:
+          all: Todos
+          category: Categoria
+          category_prompt: Selecione uma categoria
+          citizens: Cidadãos
+          official: Oficial
+          origin: Origem
+          search: Pesquisa
+        filters_small_view:
+          close_modal: Fechar modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Desdobrar
+        index:
+          new_debate: Novo debate
+        new:
+          back: Costas
+          create: Crio
+          select_a_category: Por favor, selecione uma categoria
+          title: Novo debate
+        share:
+          close_window: Janela fechada
+          share: Compartilhar
+          share_link: Compartilhar link
+        show:
+          comments: Comentários
+          report: Relatório
+      events:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Oi, um novo debate foi criado no espaço participativo %{space_title}, confira e contribui:
+            email_outro: Você recebeu esta notificação porque está seguindo o espaço participativo %{space_title}. Você pode parar de receber notificações após o link anterior.
+            email_subject: Novo debate sobre %{space_title}
+            notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate foi criado em <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Oi, %{author_name} %{author_nickname}, quem você está seguindo, criou um novo debate, confira e contribui:
+            email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}. Você pode parar de receber notificações após o link anterior.
+            email_subject: Novo debate por %{author_nickname}
+            notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate foi criado por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      models:
+        debate:
+          fields:
+            end_time: Data final
+            official_debate: Debate oficial
+            start_time: Data de início
+            title: Título
+    features:
+      debates:
+        actions:
+          create: Crio
+        name: Debates
+        settings:
+          global:
+            comments_enabled: Comentários ativados
+          step:
+            comments_blocked: Comentários bloqueados
+            creation_enabled: Criação de debate por usuários habilitado

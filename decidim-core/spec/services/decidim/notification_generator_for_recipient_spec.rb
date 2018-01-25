@@ -6,7 +6,7 @@ describe Decidim::NotificationGeneratorForRecipient do
   subject { described_class.new(event, event_class, resource, recipient.id, extra) }
 
   let(:event) { "decidim.events.dummy.dummy_resource_updated" }
-  let(:resource) { create(:dummy_resource) }
+  let(:resource) { create(:dummy_resource, published_at: Time.current) }
   let(:follow) { create(:follow, followable: resource, user: recipient) }
   let(:recipient) { resource.author }
   let(:extra) { double }
@@ -22,6 +22,21 @@ describe Decidim::NotificationGeneratorForRecipient do
       expect(notification.user).to eq recipient
       expect(notification.event_name).to eq event
       expect(notification.resource).to eq resource
+    end
+
+    context "when the event is not notifiable" do
+      class NonNotifiableEvent < Decidim::Events::BaseEvent
+        def notifiable?
+          false
+        end
+      end
+      let(:event_class) { NonNotifiableEvent }
+
+      it "does not create the notification" do
+        expect do
+          subject.generate
+        end.not_to change(Decidim::Notification, :count)
+      end
     end
   end
 end

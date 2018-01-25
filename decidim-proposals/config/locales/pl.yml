@@ -42,6 +42,7 @@ pl:
       actions:
         answer: Odpowiedź
         new: Nowy
+        private_notes: Prywatne notatki
         title: działania
       admin:
         actions:
@@ -59,6 +60,12 @@ pl:
             evaluating: Ocena
             rejected: Odrzucone
             title: Odpowiedź na wniosek %{title}
+        proposal_notes:
+          form:
+            note: Uwaga
+            submit: Zatwierdź
+          leave_your_note: Zostaw swoją notatkę
+          title: Prywatne notatki
         proposals:
           answer:
             invalid: Wystąpił problem z odpowiedzią na tę propozycję
@@ -74,21 +81,43 @@ pl:
           new:
             create: Stwórz
             title: Utwórz propozycję
+        shared:
+          info_proposal:
+            body: Ciało
+            created_at: Data utworzenia
+            proposal_votes_count: Liczenie głosów
+            proposals: Propozycje
       answers:
         accepted: Przyjęty
         evaluating: Ocena
         not_answered: Bez odpowiedzi
         rejected: Odrzucone
+        withdrawn: Wycofane
       create:
         error: Podczas zapisywania propozycji wystąpiły błędy.
         success: Propozycja została pomyślnie utworzona.
       events:
+        accepted_proposal_event:
+          email_intro: 'Wniosek "%{resource_title}" został zaakceptowany. Możesz przeczytać odpowiedź na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_subject: Propozycja, którą obserwujesz, została zaakceptowana
+          notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została zaakceptowana.
         create_proposal_event:
           email_intro: |-
             Witaj, %{author_name} %{author_nickname}, którego obserwujesz, stworzył nową propozycję, sprawdź i pomóż:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Nowa propozycja %{author_nickname}
           notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została utworzona przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        evaluating_proposal_event:
+          email_intro: 'Propozycja "%{resource_title}" jest obecnie oceniana. Możesz sprawdzić odpowiedź na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_subject: Propozycja, którą obserwujesz, jest oceniana
+          notification_title: Trwa ocena oferty <a href="%{resource_path}">%{resource_title}</a>.
+        rejected_proposal_event:
+          email_intro: 'Wniosek "%{resource_title}" został odrzucony. Możesz przeczytać odpowiedź na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_subject: Propozycja, którą obserwujesz, została odrzucona
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> propozycja została odrzucona.
       models:
         proposal:
           fields:
@@ -96,6 +125,7 @@ pl:
             comments: Komentarze
             created_at: Utworzono w
             id: ID
+            notes: Uwagi
             official_proposal: Oficjalny wniosek
             scope: Zakres
             state: Stan
@@ -139,6 +169,7 @@ pl:
           unfold: Rozwijać się
         index:
           new_proposal: Nowa propozycja
+          see_all_withdrawn: Zobacz wszystkie wycofane propozycje
           view_proposal: Wyświetl propozycję
         linked_proposals:
           proposal_votes:
@@ -169,6 +200,8 @@ pl:
           proposal_in_evaluation_reason: Niniejszy wniosek jest oceniany
           proposal_rejected_reason: 'Niniejszy wniosek został odrzucony, ponieważ:'
           report: Raport
+          withdraw_confirmation: Czy na pewno chcesz wycofać tę propozycję?
+          withdraw_proposal: Wycofaj propozycję
         vote_button:
           already_voted: Już głosował
           already_voted_hover: Unvote

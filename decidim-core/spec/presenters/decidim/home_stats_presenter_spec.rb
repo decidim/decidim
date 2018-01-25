@@ -33,7 +33,7 @@ module Decidim
 
     describe "#highlighted" do
       it "renders a collection of high priority stats including users and proceses" do
-        expect(subject.highlighted).to eq(
+        a =
           "<div class=\"home-pam__highlight\">" \
             "<div class=\"home-pam__data\">" \
               "<h4 class=\"home-pam__title\">Participants</h4>" \
@@ -60,7 +60,7 @@ module Decidim
               "<span class=\"home-pam__number dummies_count_high\"> 20</span>" \
             "</div>" \
           "</div>"
-        )
+        expect(subject.highlighted).to eq(a)
       end
     end
 

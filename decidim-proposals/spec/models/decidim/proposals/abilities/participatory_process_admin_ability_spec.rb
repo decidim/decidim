@@ -23,6 +23,7 @@ describe Decidim::Proposals::Abilities::ParticipatoryProcessAdminAbility do
   end
 
   it { is_expected.to be_able_to(:manage, Decidim::Proposals::Proposal) }
+  it { is_expected.to be_able_to(:create, Decidim::Proposals::ProposalNote) }
 
   context "when creation is disabled" do
     let(:context) do

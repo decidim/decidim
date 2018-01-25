@@ -59,7 +59,7 @@ if !Rails.env.production? || ENV["SEED"]
 
   admin.update!(
     name: Faker::Name.name,
-    nickname: Faker::Lorem.unique.characters(rand(20) + 1),
+    nickname: Faker::Lorem.unique.characters(rand(1..20)),
     password: "decidim123456",
     password_confirmation: "decidim123456",
     organization: organization,
@@ -75,7 +75,7 @@ if !Rails.env.production? || ENV["SEED"]
 
   regular_user.update!(
     name: Faker::Name.name,
-    nickname: Faker::Lorem.unique.characters(rand(20) + 1),
+    nickname: Faker::Lorem.unique.characters(rand(1..20)),
     password: "decidim123456",
     password_confirmation: "decidim123456",
     confirmed_at: Time.current,

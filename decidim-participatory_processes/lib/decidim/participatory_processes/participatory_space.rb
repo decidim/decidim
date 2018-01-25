@@ -35,7 +35,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
       )
     end
 
-    2.times do
+    2.times do |n|
       process = Decidim::ParticipatoryProcess.create!(
         title: Decidim::Faker::Localized.sentence(5),
         slug: Faker::Internet.unique.slug(nil, "-"),
@@ -61,7 +61,7 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         start_date: Time.current,
         end_date: 2.months.from_now.at_midnight,
         participatory_process_group: process_groups.sample,
-        scope: Faker::Boolean.boolean(0.5) ? nil : Decidim::Scope.reorder("RANDOM()").first
+        scope: n.positive? ? nil : Decidim::Scope.reorder("RANDOM()").first
       )
 
       Decidim::ParticipatoryProcessStep.find_or_initialize_by(
