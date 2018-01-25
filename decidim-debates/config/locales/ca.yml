@@ -1,0 +1,113 @@
+ca:
+  activemodel:
+    attributes:
+      debate:
+        decidim_category_id: Categoria
+        description: Descripció
+        end_time: Finalitza a
+        information_updates: Actualitzacions d'informació
+        instructions: Instruccions per participar
+        start_time: Comença a
+        title: Títol
+        user_group_id: Crea un debat com
+  decidim:
+    debates:
+      actions:
+        confirm_destroy: Estàs segur?
+        destroy: Suprimeix
+        edit: Edita
+        new: Nou %{name}
+        title: Accions
+      admin:
+        debates:
+          create:
+            invalid: Hi ha hagut un problema en crear el debat.
+            success: Debat creat correctament.
+          destroy:
+            success: Debat s'ha suprimit correctament.
+          edit:
+            title: Editeu el debat
+            update: Actualitza el debat
+          index:
+            title: Debats
+          new:
+            create: Crea un debat
+            title: Nou debat
+          update:
+            invalid: Hi ha hagut un problema mentre s'actualitza aquest debat.
+            success: El debat s'ha actualitzat correctament.
+        models:
+          debate:
+            name: Debat
+      debates:
+        count:
+          debates_count:
+            one: "%{count} debat"
+            other: "%{count} debats"
+        create:
+          invalid: Hi ha hagut un problema en crear el debat.
+          success: Debat creat correctament.
+        debate:
+          comments:
+            one: Comentari
+            other: Comentaris
+          participate: Participa
+        filters:
+          all: Tots
+          category: Categoria
+          category_prompt: Selecciona una categoria
+          citizens: Ciutadans
+          official: Oficial
+          origin: Origen
+          search: Cerca
+        filters_small_view:
+          close_modal: Tanca el modal
+          filter: Filtre
+          filter_by: Filtra per
+          unfold: Desplegar
+        index:
+          new_debate: Nou debat
+        new:
+          back: esquena
+          create: Crear
+          select_a_category: Seleccioneu una categoria
+          title: Nou debat
+        share:
+          close_window: Tanca la finestra
+          share: Compartir
+          share_link: Compartir Enllaç
+        show:
+          comments: Comentaris
+          report: Informe
+      events:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hola, S'ha creat un nou debat sobre el %{space_title} espai participatiu, comprovar i contribuir:
+            email_outro: Heu rebut aquesta notificació perquè esteu seguint l'espai participatiu %{space_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+            email_subject: Nou debat sobre %{space_title}
+            notification_title: El <a href="%{resource_path}">%{resource_title}</a> debat es va crear el <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Hola, %{author_name} %{author_nickname}, a qui sigueu, ha creat un nou debat, comprovar i contribuir:
+            email_outro: Heu rebut aquesta notificació perquè esteu seguint %{author_nickname}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+            email_subject: Nou debat per %{author_nickname}
+            notification_title: El <a href="%{resource_path}">%{resource_title}</a> debat va ser creat per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      models:
+        debate:
+          fields:
+            end_time: Data de finalització
+            official_debate: Debat oficial
+            start_time: Data d'inici
+            title: Títol
+    features:
+      debates:
+        actions:
+          create: Crear
+        name: Debats
+        settings:
+          global:
+            comments_enabled: Comentaris habilitats
+          step:
+            comments_blocked: Comentaris bloquejats
+            creation_enabled: Debat creat pels usuaris activat
