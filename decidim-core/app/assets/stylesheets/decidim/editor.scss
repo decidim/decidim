@@ -1,9 +1,10 @@
 @import "quill.snow";
+@import "utils/settings";
 
-.editor-container{
+.editor-container {
   margin-bottom: 1.5rem;
 
-  p{
+  p {
     line-height: $paragraph-lineheight;
     margin-bottom: $paragraph-margin-bottom;
     text-rendering: $paragraph-text-rendering;
