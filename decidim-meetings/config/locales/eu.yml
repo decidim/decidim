@@ -9,12 +9,15 @@ eu:
         proposal_ids: Topaketan sortutako proposamenak
       meeting:
         address: Helbidea
+        available_slots: Bilera honetarako zirrikitu erabilgarriak
         decidim_category_id: Kategoria
         decidim_scope_id: Esparrua
         description: Deskribapena
         end_time: Amaiera-ordua
         location: Kokapena
         location_hints: Kokapen-argibideak
+        registration_terms: Izen-emateak
+        registrations_enabled: Erregistroak gaituta
         start_time: Hasiera-ordua
         title: Titulua
   decidim:

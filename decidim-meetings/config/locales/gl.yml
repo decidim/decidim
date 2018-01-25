@@ -9,12 +9,15 @@ gl:
         proposal_ids: Propostas creadas na reunión
       meeting:
         address: Enderezo
+        available_slots: Slots dispoñibles para esta reunión
         decidim_category_id: Categoría
         decidim_scope_id: Alcance
         description: Descrición
         end_time: Hora de finalización
         location: Localización
         location_hints: Consellos de localización
+        registration_terms: Termos de rexistro
+        registrations_enabled: Rexistros habilitados
         start_time: Hora de inicio
         title: Título
   decidim:

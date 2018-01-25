@@ -42,6 +42,7 @@ ca:
       actions:
         answer: Respondre
         new: Nova
+        private_notes: Notes privades
         title: Accions
       admin:
         actions:
@@ -59,6 +60,12 @@ ca:
             evaluating: En avaluació
             rejected: Rebutjada
             title: Respondre a la proposta %{title}
+        proposal_notes:
+          form:
+            note: Nota
+            submit: Presentar
+          leave_your_note: Deixa la teva nota
+          title: Notes privades
         proposals:
           answer:
             invalid: Hi ha hagut un problema en respondre a aquesta proposta
@@ -74,6 +81,12 @@ ca:
           new:
             create: Crear
             title: Crear proposta
+        shared:
+          info_proposal:
+            body: Cos
+            created_at: Data de creació
+            proposal_votes_count: Recompte de vots
+            proposals: Propostes
       answers:
         accepted: Acceptada
         evaluating: En avaluació
@@ -112,6 +125,7 @@ ca:
             comments: Comentaris
             created_at: Creat el
             id: ID
+            notes: Notes
             official_proposal: Proposta oficial
             scope: Àmbit
             state: Estat

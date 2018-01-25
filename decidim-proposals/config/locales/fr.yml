@@ -42,6 +42,7 @@ fr:
       actions:
         answer: Répondre
         new: Nouvelle
+        private_notes: Notes privées
         title: Actions
       admin:
         actions:
@@ -59,6 +60,12 @@ fr:
             evaluating: En cours d'évaluation
             rejected: Refusée
             title: Réponse à la proposition %{title}
+        proposal_notes:
+          form:
+            note: Remarque
+            submit: Soumettre
+          leave_your_note: Laissez votre note
+          title: Notes privées
         proposals:
           answer:
             invalid: Il y a eu un problème concernant la réponse à cette proposition
@@ -74,6 +81,12 @@ fr:
           new:
             create: Créer
             title: Créer une proposition
+        shared:
+          info_proposal:
+            body: Corps
+            created_at: Date de création
+            proposal_votes_count: Les votes comptent
+            proposals: Les propositions
       answers:
         accepted: Retenue
         evaluating: En cours d'évaluation
@@ -112,6 +125,7 @@ fr:
             comments: Commentaires
             created_at: Créé à
             id: ID
+            notes: Remarques
             official_proposal: Proposition officielle
             scope: Zone d'application
             state: Etat
