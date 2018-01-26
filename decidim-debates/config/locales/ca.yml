@@ -4,16 +4,16 @@ ca:
       debate:
         decidim_category_id: Categoria
         description: Descripció
-        end_time: Finalitza a
+        end_time: Data de finalització
         information_updates: Actualitzacions d'informació
         instructions: Instruccions per participar
-        start_time: Comença a
+        start_time: Data d'inici
         title: Títol
         user_group_id: Crea un debat com
   decidim:
     debates:
       actions:
-        confirm_destroy: Estàs segur?
+        confirm_destroy: N'estàs segur?
         destroy: Suprimeix
         edit: Edita
         new: Nou %{name}
@@ -24,10 +24,10 @@ ca:
             invalid: Hi ha hagut un problema en crear el debat.
             success: Debat creat correctament.
           destroy:
-            success: Debat s'ha suprimit correctament.
+            success: Debat suprimit correctament.
           edit:
-            title: Editeu el debat
-            update: Actualitza el debat
+            title: Editar debat
+            update: Actualitzar debat
           index:
             title: Debats
           new:
@@ -56,42 +56,44 @@ ca:
           all: Tots
           category: Categoria
           category_prompt: Selecciona una categoria
-          citizens: Ciutadans
+          citizens: Ciutadania
           official: Oficial
           origin: Origen
           search: Cerca
         filters_small_view:
-          close_modal: Tanca el modal
-          filter: Filtre
+          close_modal: Tancar finestra
+          filter: Filtra
           filter_by: Filtra per
-          unfold: Desplegar
+          unfold: Desplega
         index:
           new_debate: Nou debat
         new:
-          back: esquena
+          back: Enrere
           create: Crear
-          select_a_category: Seleccioneu una categoria
+          select_a_category: Si us plau, selecciona una categoria
           title: Nou debat
         share:
           close_window: Tanca la finestra
           share: Compartir
-          share_link: Compartir Enllaç
+          share_link: Comparteix l'enllaç
         show:
           comments: Comentaris
-          report: Informe
+          report: Denuncia
       events:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Hola, S'ha creat un nou debat sobre el %{space_title} espai participatiu, comprovar i contribuir:
-            email_outro: Heu rebut aquesta notificació perquè esteu seguint l'espai participatiu %{space_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
-            email_subject: Nou debat sobre %{space_title}
+              Hola, 
+              S'ha creat un nou debat a l'espai participatiu %{space_title}, fes-hi un cop d'ull i contribueix:
+            email_outro: Has rebut aquesta notificació perquè estàs seguint %{space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+            email_subject: Nou debat a %{space_title}
             notification_title: El <a href="%{resource_path}">%{resource_title}</a> debat es va crear el <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
-              Hola, %{author_name} %{author_nickname}, a qui sigueu, ha creat un nou debat, comprovar i contribuir:
-            email_outro: Heu rebut aquesta notificació perquè esteu seguint %{author_nickname}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
-            email_subject: Nou debat per %{author_nickname}
+              Hola, 
+              %{author_name} %{author_nickname}, a qui segueixes, ha creat un nou debat. Revisa'l i contribueix:
+            email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+            email_subject: Nou debat de %{author_nickname}
             notification_title: El <a href="%{resource_path}">%{resource_title}</a> debat va ser creat per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         debate:
@@ -110,4 +112,4 @@ ca:
             comments_enabled: Comentaris habilitats
           step:
             comments_blocked: Comentaris bloquejats
-            creation_enabled: Debat creat pels usuaris activat
+            creation_enabled: Habilitar la creació de debats pels usuaris
