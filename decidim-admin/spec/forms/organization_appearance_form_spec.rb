@@ -71,7 +71,7 @@ module Decidim
             "highlighted_content_banner_action_subtitle_es" => highlighted_content_banner_action_subtitle[:es],
             "highlighted_content_banner_action_subtitle_ca" => highlighted_content_banner_action_subtitle[:ca],
             "highlighted_content_banner_action_url" => highlighted_content_banner_action_url,
-            "highlighted_content_banner_image" => highlighted_content_banner_image
+            "highlighted_content_banner_image" => highlighted_content_banner_image,
             "enable_omnipresent_banner" => enable_omnipresent_banner,
             "omnipresent_banner_url" => omnipresent_banner_url,
             "omnipresent_banner_title_en" => omnipresent_banner_title[:en],
@@ -131,23 +131,23 @@ module Decidim
 
         context "and highlighted_content_banner_action_title is blank" do
           let(:highlighted_content_banner_action_title) { empty_translatable }
-          
+
           it { is_expected.not_to be_valid }
         end
-        
+
         context "and highlighted_content_banner_action_url is blank" do
           let(:highlighted_content_banner_action_url) { "" }
-          
+
           it { is_expected.not_to be_valid }
         end
-        
+
         context "and highlighted_content_banner_image is blank" do
           let(:highlighted_content_banner_image) { "" }
-          
+
           it { is_expected.not_to be_valid }
         end
       end
-          
+
       context "when enable_omnipresent_banner is true" do
         let(:enable_omnipresent_banner) { true }
         let(:omnipresent_banner_url) { "http://www.example.org/random_url" }

@@ -72,7 +72,6 @@ module Decidim
           show_statistics: form.show_statistics
         }
       end
-      
 
       def highlighted_content_banner_attributes
         {
@@ -86,7 +85,7 @@ module Decidim
           highlighted_content_banner_action_subtitle: form.highlighted_content_banner_action_subtitle
         }
       end
-    
+
       def omnipresent_banner_attributes
         {
           enable_omnipresent_banner: form.enable_omnipresent_banner,

@@ -67,7 +67,7 @@ module Decidim
       validates :highlighted_content_banner_action_title,
                 translatable_presence: true,
                 if: :highlighted_content_banner_enabled?
-      
+
       validates :omnipresent_banner_url, presence: true, if: :enable_omnipresent_banner?
       validates :omnipresent_banner_title, translatable_presence: true, if: :enable_omnipresent_banner?
       validates :omnipresent_banner_short_description, translatable_presence: true, if: :enable_omnipresent_banner?
@@ -77,7 +77,7 @@ module Decidim
       def highlighted_content_banner_enabled?
         highlighted_content_banner_enabled
       end
-      
+
       def enable_omnipresent_banner?
         enable_omnipresent_banner
       end
