@@ -24,6 +24,7 @@ fi:
         cta_button_path: Toimintopainikkeen (Call To Action) polku
         cta_button_text: Toimintopainikkeen (Call To Action) teksti
         description: Kuvaus
+        enable_omnipresent_banner: Näytä kaikkialla näkyvä banneri
         favicon: Ikoni
         header_snippets: Yläosion koodit
         homepage_image: Kotisivun kuva
@@ -31,6 +32,9 @@ fi:
         official_img_footer: Virallinen alapalkin logo
         official_img_header: Virallinen yläpalkin logo
         official_url: Virallinen organisaation URL-osoite
+        omnipresent_banner_short_description: Lyhyt kuvaus
+        omnipresent_banner_title: otsikko
+        omnipresent_banner_url: URL-
         show_statistics: Näytä tilastot
         welcome_text: Tervetuloa-teksti
       scope:
@@ -365,6 +369,7 @@ fi:
           header_snippets_help: Käytä tätä kenttää lisätäksesi HTML-koodia sivun alkuun. Yleisin käyttötarve on sellaisten kolmannen osapuolen palveluiden integrointi, jotka vaativat JavaScript- tai CSS-koodin lisäystä sivun HTML-koodiin. Huomioi, että tämä lisätään ainoastaan julkisille sivuille, ei hallinnointisivuille.
           homepage_appearance_title: Muokkaa kotisivun ulkoasua
           layout_appearance_title: Muokkaa sivupohjan ulkoasua
+          omnipresent_banner_appearance_title: Muokkaa kaikkialla
       scope_types:
         create:
           error: Uuden kontekstityypin luomisessa tapahtui virhe.
