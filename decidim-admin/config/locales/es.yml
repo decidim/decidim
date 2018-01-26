@@ -24,6 +24,7 @@ es:
         cta_button_path: Ruta del botón de acción principal
         cta_button_text: Texto del botón de acción principal
         description: Descripción
+        enable_omnipresent_banner: Mostrar banner omnipresente
         favicon: Icono
         header_snippets: Snippets de encabezado
         homepage_image: Imagen de portada
@@ -31,6 +32,9 @@ es:
         official_img_footer: Logotipo oficial de pie de página
         official_img_header: Logotipo oficial de cabecera
         official_url: URL oficial de la organización
+        omnipresent_banner_short_description: Breve descripción
+        omnipresent_banner_title: Título
+        omnipresent_banner_url: URL
         show_statistics: Mostrar estadísticas
         welcome_text: Texto de bienvenida
       scope:
@@ -365,6 +369,7 @@ es:
           header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
           homepage_appearance_title: Editar apariencia de página de inicio
           layout_appearance_title: Editar apariencia de diseño global
+          omnipresent_banner_appearance_title: Editar omnipresente
       scope_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de ámbito.
