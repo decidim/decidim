@@ -63,7 +63,7 @@ ca:
         proposal_notes:
           form:
             note: Nota
-            submit: Presentar
+            submit: Enviar
           leave_your_note: Deixa la teva nota
           title: Notes privades
         proposals:
@@ -85,14 +85,14 @@ ca:
           info_proposal:
             body: Cos
             created_at: Data de creació
-            proposal_votes_count: Recompte de vots
+            proposal_votes_count: Nombre de suports
             proposals: Propostes
       answers:
         accepted: Acceptada
         evaluating: En avaluació
         not_answered: No resposta
         rejected: Rebutjada
-        withdrawn: Retirat
+        withdrawn: Retirada
       create:
         error: Hi ha hagut errors en desar la proposta.
         success: Proposta creada correctament.
@@ -168,7 +168,7 @@ ca:
           unfold: Desplegar
         index:
           new_proposal: Nova proposta
-          see_all_withdrawn: Vegeu totes les propostes retirades
+          see_all_withdrawn: Veure totes les propostes retirades
           view_proposal: Veure proposta
         linked_proposals:
           proposal_votes:
@@ -197,8 +197,8 @@ ca:
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
           report: Informe
-          withdraw_confirmation: Estàs segur de retirar aquesta proposta?
-          withdraw_proposal: Proposta d'extracció
+          withdraw_confirmation: Estàs segur que vols retirar aquesta proposta?
+          withdraw_proposal: Retirar proposta
         vote_button:
           already_voted: Ja li has donat suport
           already_voted_hover: Retirar suport
