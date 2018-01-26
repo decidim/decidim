@@ -25,6 +25,7 @@ en:
         cta_button_path: Call To Action button path
         cta_button_text: Call To Action button text
         description: Description
+        enable_omnipresent_banner: Show omnipresent banner
         favicon: Icon
         header_snippets: Header snippets
         homepage_image: Homepage image
@@ -32,6 +33,9 @@ en:
         official_img_footer: Official logo footer
         official_img_header: Official logo header
         official_url: Official organization URL
+        omnipresent_banner_short_description: Short description
+        omnipresent_banner_title: Title
+        omnipresent_banner_url: URL
         show_statistics: Show statistics
         welcome_text: Welcome text
       scope:
@@ -366,6 +370,7 @@ en:
           header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
           homepage_appearance_title: Edit homepage appearance
           layout_appearance_title: Edit layout appearance
+          omnipresent_banner_appearance_title: Edit omnipresent
       scope_types:
         create:
           error: There was an error creating a new scope type.
