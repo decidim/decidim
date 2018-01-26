@@ -39,5 +39,5 @@ Gem::Specification.new do |s|
   s.add_dependency "selenium-webdriver", "~> 3.7"
   s.add_dependency "simplecov", "~> 0.13"
   s.add_dependency "webmock", "~> 3.0"
-  s.add_dependency "wisper-rspec", "~> 0.0.3"
+  s.add_dependency "wisper-rspec", "~> 1.0"
 end
