@@ -126,7 +126,7 @@ ca:
     events:
       attachments:
         attachment_created:
-          email_intro: 'S''ha afegit un nou document a %{resource_title}. Podeu veure-ho des d''aquesta pàgina:'
+          email_intro: 'S''ha afegit un nou document a %{resource_title}. Pots veure-ho des d''aquesta pàgina:'
           email_outro: Heu rebut aquesta notificació perquè esteu seguint %{resource_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una actualització a %{resource_title}
           notification_title: S'ha afegit un <a href="%{resource_path}"> nou document</a> a <a href="%{attached_to_url}">%{resource_title}</a>
