@@ -28,6 +28,13 @@ en:
         enable_omnipresent_banner: Show omnipresent banner
         favicon: Icon
         header_snippets: Header snippets
+        highlighted_content_banner_action_subtitle: Action button subtitle
+        highlighted_content_banner_action_title: Action button title
+        highlighted_content_banner_action_url: Action button URL
+        highlighted_content_banner_enabled: Show the highlighted content banner
+        highlighted_content_banner_image: Image
+        highlighted_content_banner_short_description: Short description
+        highlighted_content_banner_title: Title
         homepage_image: Homepage image
         logo: Logo
         official_img_footer: Official logo footer
@@ -38,13 +45,6 @@ en:
         omnipresent_banner_url: URL
         show_statistics: Show statistics
         welcome_text: Welcome text
-        highlighted_content_banner_action_subtitle: Action button subtitle
-        highlighted_content_banner_action_title: Action button title
-        highlighted_content_banner_action_url: Action button URL
-        highlighted_content_banner_enabled: Show the highlighted content banner
-        highlighted_content_banner_image: Image
-        highlighted_content_banner_short_description: Short description
-        highlighted_content_banner_title: Title
       scope:
         code: Code
         name: Name
@@ -376,8 +376,8 @@ en:
           cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
           header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
           homepage_appearance_title: Edit homepage appearance
-          layout_appearance_title: Edit layout appearance
           homepage_highlighted_content_banner_title: Highligted content banner
+          layout_appearance_title: Edit layout appearance
           omnipresent_banner_appearance_title: Edit omnipresent
       scope_types:
         create:
