@@ -77,7 +77,7 @@ module Decidim
       def upstream_moderations
         @upstream_moderations ||= begin
           if params[:moderated] && params[:moderation_type] == "upstream"
-            filtered_upstream_moderations.where.not(upstream_moderation: "unmoderate").order("created_at").reverse
+            filtered_upstream_moderations.where("upstream_moderation = ? OR upstream_moderation = ?", "refused", "authorized").order("created_at").reverse
           elsif params[:moderation_type] == "upstream"
             filtered_upstream_moderations.where(upstream_moderation: "unmoderate").order("created_at").reverse
           end
