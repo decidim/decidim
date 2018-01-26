@@ -62,6 +62,7 @@ FactoryBot.define do
     official_img_header { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_img_footer { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_url { Faker::Internet.url }
+    highlighted_content_banner_enabled false
   end
 
   factory :user, class: "Decidim::User" do

@@ -13,6 +13,8 @@ you need to change the following line in `config/environments/production.rb`:
 ```
 
 **Added
+**decidim-admin**: Adds administration interface for highlighted content banner [\#2572](https://github.com/decidim/decidim/pull/2572)
+**decidim-core**: Adds support for highlighted content banner.[\#2572](https://github.com/decidim/decidim/pull/2572)
 - **decidim**: Rubocop has been upgraded. Ruby version in gem specs now fits with ruby version that rubocop uses.
 [\#2548](https://github.com/decidim/decidim/pull/2548)
 - **decidim-admin**: Notify participatory process followers when a step becomes active. [\#2544](https://github.com/decidim/decidim/pull/2544)
