@@ -78,6 +78,9 @@ en:
             attachment_legend: "(Optional) Add an attachment"
             select_a_category: Select a category
           index:
+            title: Proposals
+            selected: selected
+            select_a_category: Select a category
             apply_category: Apply category
             selected: selected
             title: Proposals
@@ -92,6 +95,9 @@ en:
             proposal_votes_count: Votes count
             proposals: Proposals
           update_category:
+            success: "Proposals successfully updated to the %{category} category: %{proposals}."
+            invalid: "Theese proposals already had the %{category} category: %{proposals}."
+            select_a_category: Please select a category
             invalid: 'Something went wrong updating proposals: %{proposals}.'
             success: 'Proposals successfully updated: %{proposals}.'
       answers:
