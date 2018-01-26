@@ -4,8 +4,8 @@ module Decidim
   #
   # Handles a decidim components.
   #
-  # Allows to perform custom operations on all plugins in a given folder, or on
-  # specific plugin folders.
+  # Allows to perform custom operations on all modules in a given folder, or on
+  # specific module folders.
   #
   # Potential operations are:
   #
