@@ -52,7 +52,7 @@ module Decidim
       it do
         is_expected.to \
           have_link(user.nickname, href: "/profiles/#{user.nickname}") &
-          have_selector('.user-mention')
+          have_selector(".user-mention")
       end
     end
   end

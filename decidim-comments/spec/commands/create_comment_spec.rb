@@ -145,7 +145,7 @@ module Decidim
                   resource: commentable,
                   recipient_ids: [mentioned_user.id],
                   extra: {
-                    comment_id: 1
+                    comment_id: a_kind_of(Integer)
                   }
                 )
 

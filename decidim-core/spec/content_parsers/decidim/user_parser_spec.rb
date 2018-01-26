@@ -11,11 +11,12 @@ module Decidim
       let(:content) { "This text contains a valid user mention: @#{user.nickname}" }
 
       it "rewrites the mention" do
-        expect(parser.rewrite).to include(user.to_global_id.to_s)
+        expect(parser.rewrite).to eq("This text contains a valid user mention: #{user.to_global_id}")
       end
 
       it "returns the correct metadata" do
-        expect(parser.metadata).to eq(users: [user])
+        expect(parser.metadata).to be_a(Decidim::ContentParsers::UserParser::Metadata)
+        expect(parser.metadata.users).to eq([user])
       end
     end
 
@@ -24,12 +25,12 @@ module Decidim
       let(:content) { "This text contains multiple valid user mentions: @#{user.nickname} and @#{user2.nickname}" }
 
       it "rewrites all mentions" do
-        expect(parser.rewrite).to include(user.to_global_id.to_s, user2.to_global_id.to_s)
-        expect(parser.rewrite).not_to include("@#{user.nickname}", "@#{user2.nickname}")
+        expect(parser.rewrite).to include("This text contains multiple valid user mentions: #{user.to_global_id} and #{user2.to_global_id}")
       end
 
       it "returns the correct metadata" do
-        expect(parser.metadata).to eq(users: [user, user2])
+        expect(parser.metadata).to be_a(Decidim::ContentParsers::UserParser::Metadata)
+        expect(parser.metadata.users).to eq([user, user2])
       end
     end
 
@@ -37,11 +38,12 @@ module Decidim
       let(:content) { "This text mentions a non @ueee valid user: @unvalid" }
 
       it "ignores the mention" do
-        expect(parser.rewrite).not_to include("gid:")
+        expect(parser.rewrite).to eq("This text mentions a non @ueee valid user: @unvalid")
       end
 
-      it "returns correct metada" do
-        expect(parser.metadata).to eq(users: [])
+      it "returns correct metadata" do
+        expect(parser.metadata).to be_a(Decidim::ContentParsers::UserParser::Metadata)
+        expect(parser.metadata.users.size).to eq(0)
       end
     end
   end

@@ -9,23 +9,21 @@ module Decidim
     end
 
     let(:processor) { ContentProcessor }
-    let(:initial_text) { "This text contains foo and bar and another foo" }
-    let(:final_text) { "This text contains _foo_ and _bar_ and another _foo_" }
 
     describe "#parse" do
-      subject { processor.parse(initial_text) }
+      subject { processor.parse("This text contains foo and bar and another foo") }
 
       it "executes all registered parsers" do
-        expect(subject.rewrite).to eq(final_text)
+        expect(subject.rewrite).to eq("This text contains *lorem* and *ipsum* and another *lorem*")
         expect(subject.metadata).to eq(dummy_foo: 2, dummy_bar: 1)
       end
     end
 
     describe "#render" do
-      subject { processor.render(final_text) }
+      subject { processor.render("This text contains *lorem* and *ipsum* and another *lorem*") }
 
       it "executes all registered parsers" do
-        expect(subject).to eq(initial_text)
+        expect(subject).to eq("This text contains <em>neque dicta enim quasi</em> and <em>illo qui voluptas</em> and another <em>neque dicta enim quasi</em>")
       end
     end
   end

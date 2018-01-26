@@ -2,27 +2,56 @@
 
 module Decidim
   module ContentParsers
+    # Abstract base class for content parsers, so they have the same contract
+    #
+    # @example How to use a content parser class
+    #   parser = Decidim::ContentParsers::CustomParser.new(content)
+    #   parser.rewrite # returns the content rewritten
+    #   parser.metadata # returns a Metadata object
+    #
+    # @abstract Subclass and override {#rewrite} and {#metadata} to implement a content parser
     class BaseParser
+      # Class used as a container for metadata
+      Metadata = Class.new
+
+      # @return [String] the content to be rewritten
       attr_reader :content
 
-      # Gets initialized with the `content` to parse. It can either receive
-      # already rewritten content or regular content.
+      # Gets initialized with the `content` to parse
+      #
+      # @param content [String] already rewritten content or regular content
       def initialize(content)
         @content = content || ""
       end
 
-      # Parse the the `content` and return it modified
+      # Parse the `content` and return it modified
+      #
+      # @example Implementation for search and mark prohibited words
+      #   def rewrite
+      #     content.gsub('foo', '~~foo~~')
+      #   end
+      #
+      # @abstract Subclass is expected to implement it
+      # @return [String] the content rewritten
       def rewrite
-        raise NotImplementedError
+        content
       end
 
-      # Returns a hash with metadata (potentially the found entities). This metadata is
-      # accessible at parsing time so it can be acted upon (sending emails to the users)
-      # or maybe even stored at the DB for later consultation.
+      # Collects and returns metadata. This metadata is accessible at parsing time
+      # so it can be acted upon (sending emails to the users) or maybe even stored
+      # at the DB for later consultation.
       #
-      # Override this method in your content parser class if you need to return any data
+      # @example Implementation for return a counter of prohibited words found
+      #   Metadata = Struct.new(:count)
+      #
+      #   def metadata
+      #     Metadata.new(content.scan('foo').size)
+      #   end
+      #
+      # @abstract Subclass is expected to implement it
+      # @return [Metadata] a Metadata object that holds extra information
       def metadata
-        {}
+        Metadata.new
       end
     end
   end

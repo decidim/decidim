@@ -3,7 +3,7 @@
 module Decidim
   class ContentParsers::DummyFooParser < ContentParsers::BaseParser
     def rewrite
-      content.gsub("foo", "_foo_")
+      content.gsub("foo", "*lorem*")
     end
 
     def metadata
@@ -13,13 +13,13 @@ module Decidim
 
   class ContentRenderers::DummyFooRenderer < ContentRenderers::BaseRenderer
     def render
-      content.gsub("_foo_", "foo")
+      content.gsub("*lorem*", "<em>neque dicta enim quasi</em>")
     end
   end
 
   class ContentParsers::DummyBarParser < ContentParsers::BaseParser
     def rewrite
-      content.gsub("bar", "_bar_")
+      content.gsub("bar", "*ipsum*")
     end
 
     def metadata
@@ -29,7 +29,7 @@ module Decidim
 
   class ContentRenderers::DummyBarRenderer < ContentRenderers::BaseRenderer
     def render
-      content.gsub("_bar_", "bar")
+      content.gsub("*ipsum*", "<em>illo qui voluptas</em>")
     end
   end
 end
