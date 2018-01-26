@@ -10,7 +10,7 @@ class CreateUniqueNicknames < ActiveRecord::Migration[5.1]
   def up
     add_column :decidim_users, :nickname, :string, limit: 20
 
-    User.find_each do |user|
+    User.where.not(name: nil).find_each do |user|
       user.update!(nickname: User.nicknamize(user.name))
     end
 

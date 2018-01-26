@@ -1291,10 +1291,11 @@ RSpec/ContextWording:
 
 RSpec/DescribeClass:
   Exclude:
-    - "**/*/spec/system/**/*"
+    - "**/*/spec/system/**/*" # TODO: Fixed in rubocop-rspec 1.22.0, remove when bumping to it
     - spec/i18n_spec.rb
     - spec/generator_spec.rb
     - decidim-comments/spec/bundle_spec.rb
+    - decidim-core/spec/lib/global_engines_spec.rb
 
 RSpec/EmptyExampleGroup:
   Exclude:

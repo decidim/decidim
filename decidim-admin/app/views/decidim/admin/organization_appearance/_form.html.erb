@@ -73,6 +73,29 @@
     </div>
   </div>
 </div>
+    
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title"><%= t ".omnipresent_banner_appearance_title" %></h2>
+  </div>
+  <div class="card-section">
+    <div class="row column">
+      <%= form.check_box :enable_omnipresent_banner %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :text_field, :omnipresent_banner_title %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :text_field, :omnipresent_banner_short_description %>
+    </div>
+
+    <div class="row column">
+      <%= form.url_field :omnipresent_banner_url %>
+    </div>
+  </div>
+</div>
 
 <div class="card">
   <div class="card-divider">

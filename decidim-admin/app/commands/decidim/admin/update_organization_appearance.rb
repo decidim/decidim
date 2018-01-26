@@ -46,6 +46,7 @@ module Decidim
       def attributes
         appearance_attributes
           .merge(highlighted_content_banner_attributes)
+          .merge(omnipresent_banner_attributes)
           .tap do |attributes|
             attributes[:header_snippets] = form.header_snippets if Decidim.enable_html_header_snippets
           end
@@ -71,6 +72,7 @@ module Decidim
           show_statistics: form.show_statistics
         }
       end
+      
 
       def highlighted_content_banner_attributes
         {
@@ -82,6 +84,15 @@ module Decidim
           highlighted_content_banner_short_description: form.highlighted_content_banner_short_description,
           highlighted_content_banner_action_title: form.highlighted_content_banner_action_title,
           highlighted_content_banner_action_subtitle: form.highlighted_content_banner_action_subtitle
+        }
+      end
+    
+      def omnipresent_banner_attributes
+        {
+          enable_omnipresent_banner: form.enable_omnipresent_banner,
+          omnipresent_banner_url: form.omnipresent_banner_url,
+          omnipresent_banner_short_description: form.omnipresent_banner_short_description,
+          omnipresent_banner_title: form.omnipresent_banner_title
         }
       end
     end

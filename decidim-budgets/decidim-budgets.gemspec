@@ -15,15 +15,15 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.3"
 
   s.name = "decidim-budgets"
-  s.summary = "A budgets component for decidim's participatory processes."
-  s.description = s.summary
+  s.summary = "Decidim budgets module"
+  s.description = "A budgets component for decidim's participatory spaces."
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-comments", Decidim::Budgets.version
   s.add_dependency "decidim-core", Decidim::Budgets.version
-  s.add_dependency "kaminari", "~> 1.0.1"
-  s.add_dependency "searchlight", "~> 4.1.0"
+  s.add_dependency "kaminari", "~> 1.0"
+  s.add_dependency "searchlight", "~> 4.1"
 
   s.add_development_dependency "decidim-admin", Decidim::Budgets.version
   s.add_development_dependency "decidim-dev", Decidim::Budgets.version

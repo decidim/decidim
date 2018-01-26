@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.3"
 
   s.name = "decidim-comments"
-  s.summary = "Pluggable comments system for some components."
+  s.summary = "Decidim comments module"
   s.description = "Pluggable comments system for some components."
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 

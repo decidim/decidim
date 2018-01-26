@@ -25,6 +25,7 @@ en:
         cta_button_path: Call To Action button path
         cta_button_text: Call To Action button text
         description: Description
+        enable_omnipresent_banner: Show omnipresent banner
         favicon: Icon
         header_snippets: Header snippets
         homepage_image: Homepage image
@@ -32,6 +33,9 @@ en:
         official_img_footer: Official logo footer
         official_img_header: Official logo header
         official_url: Official organization URL
+        omnipresent_banner_short_description: Short description
+        omnipresent_banner_title: Title
+        omnipresent_banner_url: URL
         show_statistics: Show statistics
         welcome_text: Welcome text
         highlighted_content_banner_action_subtitle: Action button subtitle
@@ -374,6 +378,7 @@ en:
           homepage_appearance_title: Edit homepage appearance
           layout_appearance_title: Edit layout appearance
           homepage_highlighted_content_banner_title: Highligted content banner
+          omnipresent_banner_appearance_title: Edit omnipresent
       scope_types:
         create:
           error: There was an error creating a new scope type.
