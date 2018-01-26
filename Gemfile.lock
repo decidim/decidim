@@ -523,7 +523,7 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
-    social-share-button (1.0.0)
+    social-share-button (1.1.0)
       coffee-rails
     spreadsheet (1.1.5)
       ruby-ole (>= 1.0)
