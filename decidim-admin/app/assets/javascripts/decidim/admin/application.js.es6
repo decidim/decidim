@@ -9,7 +9,7 @@
 // = require form_datepicker
 // = require moment.min
 // = require decidim/data_picker
-// = require jquery.atwho
+// = require ./jquery.auto-complete
 // = require_self
 
 window.Decidim = window.Decidim || {};

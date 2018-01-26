@@ -55,14 +55,17 @@
     <div class="row column">
       <% if @form.proposals %>
 <!-- testing ------------------------------------------------- -->
+<%= form.label(:proposal_ids) %>
 <% 
 # { id: "#{@object_name}_#{attribute}", class: "picker-#{options[:multiple] ? "multiple" : "single"}", name: "#{@object_name}[#{attribute}]" }
-picker_options= { id: "decidim_accountability_proposals", class: "picker-multiple", name: 'decidim_accountability[proposals_ids]' }
+picker_options= { id: "decidim_accountability_proposals", class: "picker-multiple", name: 'result[proposal_ids]' }
 prompt_params= { url: 'proposals', text: "Add proposal"}
 %>
 <div id="<%=picker_options[:id]%>" class="data-picker <%=picker_options[:class]%>" data-picker-name="<%=picker_options[:name]%>">
-  <div class="picker-values"><% @form.proposals.each do |title, proposal_id| %>
-    <div><a href="<%= prompt_params[:url] %>" data-picker-value="<%= proposal_id %>"><%=title%></a></div>
+  <div class="picker-values"><% @form.proposals.each do |title, proposal_id|
+    next unless @form.proposal_ids.include?(proposal_id)
+    %>
+    <div><a href="<%= prompt_params[:url] %>" data-picker-value="<%= proposal_id %>"><%="##{proposal_id}- #{title}"%></a></div>
   <% end %></div>
   <div class="picker-prompt"><a href="<%= prompt_params[:url] %>"><%= prompt_params[:text] %></a></div>
 </div>
@@ -70,26 +73,43 @@ prompt_params= { url: 'proposals', text: "Add proposal"}
 $(function() {
   // autocomplete
   $(document).on("open.zf.reveal", "#data_picker-modal", function () {
-    $('#data_picker-autocomplete').atwho({
-      at: "",
-      data: <%= Decidim::Proposals::Proposal.all.collect {|p| {id: p.id, title: p.title}}.to_json.html_safe %>,
-      // data: 'proposals.json',
-      displayTpl: "<li data-id=\"${id}\">${title}</li>",
-      insertTpl: "${title}"
+    $('#data_picker-autocomplete').autoComplete({
+      minChars: 2,
+      // source: function(term, suggest){
+      //     term = term.toLowerCase();
+      //     var choices = <%= Decidim::Proposals::Proposal.all.collect {|p| [p.title, p.id]}.to_json.html_safe %>
+      //     var matches = [];
+      //     for (i=0; i<choices.length; i++)
+      //         if (~choices[i][0].toLowerCase().indexOf(term)) matches.push(choices[i]);
+      //     suggest(matches);
+      // },
+      source: function(term, response){
+        try { xhr.abort(); } catch(e){}
+        $.getJSON('proposals.json', { q: term }, function(data){ console.log(data); response(data); });
+      },
+      renderItem: function (item, search){
+        search = search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+        var re = new RegExp("(" + search.split(' ').join('|') + ")", "gi");
+        var title= item[0]
+        var modelId= item[1]
+        var val= '#' + modelId + '- ' + title;
+        return '<div class="autocomplete-suggestion" data-model-id="' + modelId + '" data-val="'+title+'">' + val.replace(re, "<b>$1</b>") + '</div>';
+      },
+      onSelect: function(e, term, item){
+        let choose= $('#proposal-picker-choose')
+        var modelId= item.data('modelId')
+        var val= '#' + modelId + '- ' + item.data('val');
+        choose.data('picker-value', modelId)
+        choose.data('picker-text', val )
+        choose.data('picker-choose', '')
+      }
     })
-  } );
-  $(document).on("inserted.atwho", "#data_picker-autocomplete", function (awEvent, li, evt) {
-    console.log("INSERTED::", li.data(), li.data('id'), li.data('itemData'))
-    let choose= $('#proposal-picker-choose')
-    choose.data('picker-value', li.data('id'))
-    choose.data('picker-text', li.data('itemData').title )
-    choose.data('picker-choose', '')
   } );
 })
 </script>
 <!-- testing ------------------------------------------------- -->
 
-        <%= form.select :proposal_ids,
+        <%#= form.select :proposal_ids,
                         @form.proposals,
                         {},
                         { multiple: true, class: "chosen-select" }

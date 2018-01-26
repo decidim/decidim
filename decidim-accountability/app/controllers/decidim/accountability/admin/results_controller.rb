@@ -62,15 +62,19 @@ module Decidim
               render partial: 'proposals'
             end
             format.json do
-              proposals= Decidim::Proposals::Proposal.all.collect {|p| {id: p.id, title: p.title}}
-              #html+= proposals.collect {|p| 
-              #  %Q[<li><input type="checkbox" name="decidim_accountability[proposals_ids]" value="#{p.id}"/> #{p.title}</li>]
-              #}.join
-              #html+= %Q[<a data-close="true">Close</a></ul>]
-              render json: proposals
+              # query= Decidim::Proposals::Proposal
+              query= Decidim.find_resource_manifest(:proposals)
+                .try(:resource_scope, current_feature)&.order(title: :asc)
+              term= params[:q]
+              if term&.start_with?('#')
+                term.gsub!('#', '')
+                query= query.where("CAST(id AS TEXT) LIKE ?", "#{term}%")
+              else
+                query= query.where("title ilike ?", "%#{params[:q]}%")
+              end
+              render json: query.all.collect {|p| [p.title, p.id]}
             end
           end
-
         end
 
         #-----------------------------------------------------------------------
