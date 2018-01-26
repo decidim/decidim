@@ -67,13 +67,18 @@ describe "Identity document review", type: :system do
       end
 
       it "allows the verificator to review the amended request" do
-        submit_reupload_form(doc_type: "NIE", doc_number: "XXXXXXXY")
+        submit_reupload_form(
+          doc_type: "DNI",
+          doc_number: "XXXXXXXY",
+          file_name: "dni.jpg"
+        )
         expect(page).to have_content("Document reuploaded successfully")
 
         relogin_as admin, scope: :user
         visit decidim_admin_id_documents.root_path
         click_link "Verification #1"
-        submit_verification_form(doc_type: "NIE", doc_number: "XXXXXXXY")
+        expect(page).to have_css("img[src*='dni.jpg']")
+        submit_verification_form(doc_type: "DNI", doc_number: "XXXXXXXY")
         expect(page).to have_content("User successfully verified")
       end
 
@@ -94,9 +99,10 @@ describe "Identity document review", type: :system do
     click_button "Verify"
   end
 
-  def submit_reupload_form(doc_type:, doc_number:)
+  def submit_reupload_form(doc_type:, doc_number:, file_name:)
     select doc_type, from: "Type of your document"
     fill_in "Document number (with letter)", with: doc_number
+    attach_file "Scanned copy of your document", Decidim::Dev.asset(file_name)
 
     click_button "Request verification again"
   end
