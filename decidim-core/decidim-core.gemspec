@@ -43,7 +43,7 @@ Gem::Specification.new do |s|
   s.add_dependency "rails", "~> 5.1", "< 5.2"
   s.add_dependency "rails-i18n", "~> 5.0"
   s.add_dependency "rectify", "~> 0.10.0"
-  s.add_dependency "redis", "~> 3.2"
+  s.add_dependency "redis", "~> 4.0"
   s.add_dependency "rubyzip", "~> 1.2"
   s.add_dependency "sassc-rails", "~> 1.3"
   s.add_dependency "spreadsheet", "~> 1.1"
