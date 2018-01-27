@@ -4,20 +4,20 @@ es:
       debate:
         decidim_category_id: Categoría
         description: Descripción
-        end_time: Termina en
+        end_time: Fecha de fin
         information_updates: Actualizaciones de información
         instructions: Instrucciones para participar
-        start_time: Empieza a
+        start_time: Fecha de inicio
         title: Título
         user_group_id: Crear debate como
   decidim:
     debates:
       actions:
-        confirm_destroy: '¿Estás seguro?'
+        confirm_destroy: '¿Seguro que quieres borrar el debate?'
         destroy: Borrar
         edit: Editar
         new: Nuevo %{name}
-        title: Comportamiento
+        title: Acciones
       admin:
         debates:
           create:
@@ -27,7 +27,7 @@ es:
             success: El debate se borró con éxito.
           edit:
             title: Editar debate
-            update: Actualizar el debate
+            update: Actualizar debate
           index:
             title: Debates
           new:
@@ -53,24 +53,24 @@ es:
             other: Comentarios
           participate: Participar
         filters:
-          all: Todas
+          all: Todos
           category: Categoría
-          category_prompt: Seleccione una categoría
-          citizens: Los ciudadanos
+          category_prompt: Selecciona una categoría
+          citizens: Ciudadanía
           official: Oficial
           origin: Origen
           search: Buscar
         filters_small_view:
-          close_modal: Cierre modal
+          close_modal: Cerrar ventana
           filter: Filtrar
-          filter_by: Filtrado por
+          filter_by: Filtrar por
           unfold: Desplegar
         index:
           new_debate: Nuevo debate
         new:
-          back: Espalda
+          back: Atrás
           create: Crear
-          select_a_category: Porfavor seleccione una categoría
+          select_a_category: Por favor, selecciona una categoría
           title: Nuevo debate
         share:
           close_window: Cerrar ventana
@@ -83,20 +83,22 @@ es:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Hola, se ha creado un nuevo debate en el espacio participativo %{space_title}, compruébalo y contribuye:
-            email_outro: Recibió esta notificación porque está siguiendo el espacio participativo %{space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
-            email_subject: Nuevo debate sobre %{space_title}
+              Hola, 
+              Se ha creado un nuevo debate en el espacio participativo %{space_title}, compruébalo y contribuye:
+            email_outro: Has recibido esta notificación porque estás siguiendo a %{space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+            email_subject: Nuevo debate en %{space_title}
             notification_title: El debate <a href="%{resource_path}">%{resource_title}</a> fue creado el <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
-              Hola, %{author_name} %{author_nickname}, a quién sigues, ha creado un nuevo debate, compruébalo y contribuye:
-            email_outro: Recibió esta notificación porque está siguiendo %{author_nickname}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
-            email_subject: Nuevo debate por %{author_nickname}
+              Hola, 
+              %{author_name} %{author_nickname}, a quién sigues, ha creado un nuevo debate, compruébalo y contribuye:
+            email_outro: Has recibido esta notificación porque estás siguiendo a %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+            email_subject: Nuevo debate de %{author_nickname}
             notification_title: El debate <a href="%{resource_path}">%{resource_title}</a> fue creado por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         debate:
           fields:
-            end_time: Fecha final
+            end_time: Fecha de finalización
             official_debate: Debate oficial
             start_time: Fecha de inicio
             title: Título
@@ -110,4 +112,4 @@ es:
             comments_enabled: Comentarios habilitados
           step:
             comments_blocked: Comentarios bloqueados
-            creation_enabled: Creación de debate por usuarios habilitados
+            creation_enabled: Habilitar la creación de debates por los usuarios
