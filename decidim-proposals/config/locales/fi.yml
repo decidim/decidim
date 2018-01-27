@@ -42,7 +42,7 @@ fi:
       actions:
         answer: Vastaa
         new: Uusi
-        private_notes: Yksityiset muistiinpanot
+        private_notes: Omat muistiinpanot
         title: Toiminnot
       admin:
         actions:
@@ -65,7 +65,7 @@ fi:
             note: Huomautus
             submit: Lähetä
           leave_your_note: Jätä huomautuksesi
-          title: Yksityiset muistiinpanot
+          title: Omat muistiinpanot
         proposals:
           answer:
             invalid: Ehdotukseen vastaamisessa esiintyi virhe
@@ -83,16 +83,16 @@ fi:
             title: Luo ehdotus
         shared:
           info_proposal:
-            body: ruumis
-            created_at: Luomispäivä
-            proposal_votes_count: Äänet lasketaan
-            proposals: ehdotukset
+            body: Tekstin runko
+            created_at: Luonnin ajankohta
+            proposal_votes_count: Äänten määrä
+            proposals: Ehdotukset
       answers:
         accepted: Hyväksytty
         evaluating: Arvioitavana
         not_answered: Vastaamaton
         rejected: Hylätty
-        withdrawn: peruutettu
+        withdrawn: Peruutettu
       create:
         error: Ehdotuksen tallennuksessa tapahtui virhe.
         success: Ehdotus luotu onnistuneesti.
@@ -169,7 +169,7 @@ fi:
           unfold: Avaa
         index:
           new_proposal: Uusi ehdotus
-          see_all_withdrawn: Katso kaikki peruutetut ehdotukset
+          see_all_withdrawn: Näytä kaikki peruutetut ehdotukset
           view_proposal: Näytä ehdotus
         linked_proposals:
           proposal_votes:
@@ -199,7 +199,7 @@ fi:
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
           report: Ilmoita
           withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?
-          withdraw_proposal: Vedä ehdotus
+          withdraw_proposal: Peruuta ehdotus
         vote_button:
           already_voted: Jo äänestetty
           already_voted_hover: Peru äänesi
