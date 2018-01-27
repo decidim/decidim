@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "Admin manages meetings attachment collections", type: :feature do
+describe "Admin manages meetings attachment collections", type: :system do
   let(:manifest_name) { "meetings" }
   let!(:meeting) { create :meeting, scope: scope, feature: current_feature }
 
