@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "decidim/admin/test/manage_attachment_collections_examples"
-
 shared_examples "manage projects attachment collections" do
   let(:collection_for) { project }
 

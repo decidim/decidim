@@ -2,8 +2,8 @@
 
 require "spec_helper"
 
-describe "Admin manages assembly attachment collections examples", type: :system do
-  include_context "when admin administrating an assembly"
+describe "Assembly admin manages assembly attachment collections", type: :system do
+  include_context "when assembly admin administrating an assembly"
 
   let(:collection_for) { assembly }
 
