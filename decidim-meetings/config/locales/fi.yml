@@ -9,15 +9,15 @@ fi:
         proposal_ids: Ehdotusta luotu tapaamisessa
       meeting:
         address: Osoite
-        available_slots: Tämän kokouksen käytettävissä olevat lähtöajat
+        available_slots: Tämän tapahtuman vapaiden paikkojen määrä
         decidim_category_id: Aihepiiri
         decidim_scope_id: Konteksti
         description: Kuvaus
         end_time: Lopetusaika
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
-        registration_terms: Rekisteröintiehdot
-        registrations_enabled: Rekisteröinnit ovat käytössä
+        registration_terms: Ilmoittautumisehdot
+        registrations_enabled: Ilmoittautumiset ovat käytössä
         start_time: Aloitusaika
         title: Otsikko
   decidim:
