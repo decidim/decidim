@@ -21,7 +21,7 @@ bundle exec rake
 You can test the engines using docker-compose, just run this replacing `decidim-[engine]` with the proper decidim engine to test, ex: `decidim-verifications`:
 
 ```bash
-docker-compose run --rm decidim bundle
+docker-compose run --rm decidim bundle update
 docker-compose run --rm decidim bundle exec rake test_app
 docker-compose run --rm decidim bash -c "cd decidim-[engine] && bundle exec rake"
 ```
