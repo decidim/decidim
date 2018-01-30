@@ -11,6 +11,28 @@ pl:
       proposal_answer:
         answer: Odpowiedź
   decidim:
+    events:
+      proposals:
+        proposal_accepted:
+          email_intro: 'Wniosek "%{resource_title}" został zaakceptowany. Możesz przeczytać odpowiedź na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_subject: Propozycja, którą obserwujesz, została zaakceptowana
+          notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została zaakceptowana.
+        proposal_created:
+          email_intro: "%{author_name} %{author_nickname}, którego obserwujesz, stworzył nową propozycję, sprawdź i pomóż:"
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Nowa propozycja %{author_nickname}
+          notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została utworzona przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_evaluating:
+          email_intro: 'Propozycja "%{resource_title}" jest obecnie oceniana. Możesz sprawdzić odpowiedź na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_subject: Propozycja, którą obserwujesz, jest oceniana
+          notification_title: Trwa ocena oferty <a href="%{resource_path}">%{resource_title}</a>.
+        proposal_rejected:
+          email_intro: 'Wniosek "%{resource_title}" został odrzucony. Możesz przeczytać odpowiedź na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_subject: Propozycja, którą obserwujesz, została odrzucona
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> propozycja została odrzucona.
     features:
       proposals:
         actions:
