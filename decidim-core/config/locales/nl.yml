@@ -147,6 +147,12 @@ nl:
         email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
         email_subject: Een update naar %{participatory_space_title}
         notification_title: De stap %{resource_title} is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
+      users:
+        profile_updated:
+          email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die u volgt, is bijgewerkt.
+          email_outro: Je hebt deze melding ontvangen omdat je %{nickname} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: "%{nickname} heeft hun profiel bijgewerkt"
+          notification_title: De <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), die u volgt, is bijgewerkt.
     export_mailer:
       export:
         ready: In de bijlage vindt u een versie van uw export.
