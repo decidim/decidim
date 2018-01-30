@@ -147,6 +147,12 @@ fi:
         email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
         email_subject: Päivitys kohteeseen %{participatory_space_title}
         notification_title: '%{resource_title} -vaihe on nyt aktiivinen osallistumistilalle <a href="%{resource_path}">%{participatory_space_title}</a>'
+      users:
+        profile_updated:
+          email_intro: <a href="%{resource_url}">profile page</a> %{name} (%{nickname}), jonka seuraat, on päivitetty.
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_subject: "%{nickname} päivitti profiilinsa"
+          notification_title: <a href="%{resource_path}">profile sivu</a> %{name} (%{nickname}), jota seuraat, on päivitetty.
     export_mailer:
       export:
         ready: Tähän viestiin on liitetty palvelusta löytyvät tiedot zip-pakettina.
