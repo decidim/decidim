@@ -86,6 +86,21 @@ nl:
             official_debate: Officieel debat
             start_time: Begin datum
             title: Titel
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hallo, Er is een nieuw debat gestart op de %{space_title} participatieve ruimte, bekijk het en draag bij:
+            email_outro: Je hebt deze melding ontvangen omdat je de %{space_title} participatorische ruimte volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+            email_subject: Nieuw debat op %{space_title}
+            notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is gemaakt op <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Hallo, %{author_name} %{author_nickname}, wie je volgt, heeft een nieuw debat gemaakt, bekijk het en draag bij:
+            email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+            email_subject: Nieuw debat door %{author_nickname}
+            notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is gemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
     features:
       debates:
         actions:
