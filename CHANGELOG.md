@@ -78,6 +78,7 @@ you need to change the following line in `config/environments/production.rb`:
 **Fixed**:
 
 - **decidim-core**: Fix editing features in assemblies. [\#2524](https://github.com/decidim/decidim/pull/2524)
+- **decidim-core**: Fix the texts of 'New Message' email notifications. [\#2588](https://github.com/decidim/decidim/pull/2588)
 - **decidim-admin**: Properly save features weight on creation [\#2499](https://github.com/decidim/decidim/pull/2499)
 - **decidim-core**: Fix after login redirect. [\#2321](https://github.com/decidim/decidim/pull/2321) [\#2504](https://github.com/decidim/decidim/pull/2504)
   With links or buttons that needs the user to be authorized or signed in you can now add a `data-redirect-url` attribute to redirect the user after they've signed in so they don't lose context.
