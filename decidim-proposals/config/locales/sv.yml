@@ -11,6 +11,28 @@ sv:
       proposal_answer:
         answer: Svar
   decidim:
+    events:
+      proposals:
+        proposal_accepted:
+          email_intro: 'Förslaget "%{resource_title}" har godkänts. Du kan läsa svaret på den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
+          email_subject: Ett förslag som du följer är godkänt
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> förslaget har godkänts.
+        proposal_created:
+          email_intro: "%{author_name} %{author_nickname}, vem du följer har skapat ett nytt förslag, kolla in det och bidra med:"
+          email_outro: Du har fått den här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: Nytt förslag av %{author_nickname}
+          notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_evaluating:
+          email_intro: 'Förslaget "%{resource_title}" utvärderas för närvarande. Du kan söka efter ett svar på den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
+          email_subject: Ett förslag som du följer utvärderas
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> förslaget utvärderas.
+        proposal_rejected:
+          email_intro: 'Förslaget "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
+          email_subject: Ett förslag som du följer är avvisat
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> förslaget har avslagits.
     features:
       proposals:
         actions:
