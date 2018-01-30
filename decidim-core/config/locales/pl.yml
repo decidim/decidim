@@ -147,6 +147,12 @@ pl:
         email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
         email_subject: Aktualizacja do %{participatory_space_title}
         notification_title: Krok %{resource_title} jest teraz aktywny dla <a href="%{resource_path}">%{participatory_space_title}</a>
+      users:
+        profile_updated:
+          email_intro: Zmieniono <a href="%{resource_url}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: "%{nickname} zaktualizował (a) swój profil"
+          notification_title: Zmieniono <a href="%{resource_path}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
     export_mailer:
       export:
         ready: Znajdź załączoną wersję eksportowanego pliku.
