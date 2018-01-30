@@ -1,7 +1,7 @@
 # frozen-string_literal: true
 
 module Decidim
-  class FeaturePublishedEvent < Decidim::Events::ExtendedEvent
+  class FeaturePublishedEvent < Decidim::Events::SimpleEvent
     include Decidim::FeaturePathHelper
 
     i18n_attributes :participatory_space_title

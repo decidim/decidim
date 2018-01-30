@@ -3,13 +3,13 @@
 require "spec_helper"
 
 describe Decidim::ProfileUpdatedEvent do
-  include_context "extended event"
+  include_context "simple event"
 
   let(:event_name) { "decidim.events.users.profile_updated" }
   let(:resource) { create :user }
   let(:author) { resource }
 
-  it_behaves_like "an extended event"
+  it_behaves_like "an simple event"
 
   describe "email_subject" do
     it "is generated correctly" do

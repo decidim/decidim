@@ -1,7 +1,7 @@
 # frozen-string_literal: true
 
 module Decidim
-  class ProfileUpdatedEvent < Decidim::Events::ExtendedEvent
+  class ProfileUpdatedEvent < Decidim::Events::SimpleEvent
     i18n_attributes :nickname, :name
 
     delegate :profile_path, :profile_url, :nickname, :name, to: :updated_user

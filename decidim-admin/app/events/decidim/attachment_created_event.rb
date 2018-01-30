@@ -1,7 +1,7 @@
 # frozen-string_literal: true
 
 module Decidim
-  class AttachmentCreatedEvent < Decidim::Events::ExtendedEvent
+  class AttachmentCreatedEvent < Decidim::Events::SimpleEvent
     i18n_attributes :attached_to_url
 
     def resource_path

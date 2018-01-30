@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::AttachmentCreatedEvent do
-  include_context "extended event"
+  include_context "simple event"
 
   let(:event_name) { "decidim.events.attachments.attachment_created" }
   let(:resource) { create(:attachment) }
@@ -11,7 +11,7 @@ describe Decidim::AttachmentCreatedEvent do
   let(:resource_title) { resource.attached_to.title["en"] }
   let(:resource_path) { resource.url }
 
-  it_behaves_like "an extended event"
+  it_behaves_like "an simple event"
 
   describe "email_subject" do
     it "is generated correctly" do

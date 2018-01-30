@@ -6,6 +6,6 @@ describe Decidim::Meetings::UpdateMeetingEvent do
   let(:resource) { create :meeting }
   let(:event_name) { "decidim.events.meetings.meeting_updated" }
 
-  include_context "extended event"
-  it_behaves_like "an extended event"
+  include_context "simple event"
+  it_behaves_like "an simple event"
 end

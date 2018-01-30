@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Debates::CreateDebateEvent do
-  include_context "extended event"
+  include_context "simple event"
 
   let(:resource) { create :debate, :with_author }
   let(:space) { resource.participatory_space }
@@ -14,7 +14,7 @@ describe Decidim::Debates::CreateDebateEvent do
   context "when the notification is for user followers" do
     let(:type) { :user }
 
-    it_behaves_like "an extended event"
+    it_behaves_like "an simple event"
 
     describe "email_subject" do
       it "is generated correctly" do
@@ -50,7 +50,7 @@ describe Decidim::Debates::CreateDebateEvent do
   context "when the notification is for space followers" do
     let(:type) { :space }
 
-    it_behaves_like "an extended event"
+    it_behaves_like "an simple event"
 
     describe "email_subject" do
       it "is generated correctly" do

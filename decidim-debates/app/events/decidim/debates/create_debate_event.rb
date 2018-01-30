@@ -9,7 +9,7 @@ module Decidim
     #          author
     # "participatory_space" - The event is being sento to the followers
     #                         of the event's participatory space.
-    class CreateDebateEvent < Decidim::Events::ExtendedEvent
+    class CreateDebateEvent < Decidim::Events::SimpleEvent
       include Decidim::Events::AuthorEvent
 
       i18n_attributes :space_title, :space_path

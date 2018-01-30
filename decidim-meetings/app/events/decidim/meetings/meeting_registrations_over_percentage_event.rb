@@ -2,7 +2,7 @@
 
 module Decidim
   module Meetings
-    class MeetingRegistrationsOverPercentageEvent < Decidim::Events::ExtendedEvent
+    class MeetingRegistrationsOverPercentageEvent < Decidim::Events::SimpleEvent
       i18n_attributes :percentage
 
       def percentage

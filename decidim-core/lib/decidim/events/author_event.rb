@@ -2,7 +2,7 @@
 
 module Decidim
   module Events
-    # This module is used to be included in event classes inheriting from ExtendedEvent
+    # This module is used to be included in event classes inheriting from SimpleEvent
     # whose resource has an author.
     #
     # It adds the author_name, author_nickname, author_path and author_url to the i18n interpolations.

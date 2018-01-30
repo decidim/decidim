@@ -7,7 +7,7 @@ module Decidim
     #
     # The only convention you need to keep in mind is that the event name will be
     # used as the i18n scope to search for the keys.
-    class ExtendedEvent < BaseEvent
+    class SimpleEvent < BaseEvent
       include Decidim::Events::EmailEvent
       include Decidim::Events::NotificationEvent
 
@@ -22,7 +22,7 @@ module Decidim
       #
       # Example:
       #
-      #   class MyEvent < Decidim::Events::ExtendedEvent
+      #   class MyEvent < Decidim::Events::SimpleEvent
       #     i18n_attributes :participatory_space_title
       #   end
       def self.i18n_attributes(*attributes)

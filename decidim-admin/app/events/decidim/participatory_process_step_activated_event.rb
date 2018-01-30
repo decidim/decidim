@@ -1,7 +1,7 @@
 # frozen-string_literal: true
 
 module Decidim
-  class ParticipatoryProcessStepActivatedEvent < Decidim::Events::ExtendedEvent
+  class ParticipatoryProcessStepActivatedEvent < Decidim::Events::SimpleEvent
     include Rails.application.routes.mounted_helpers
 
     i18n_attributes :participatory_space_title

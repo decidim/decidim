@@ -2,7 +2,7 @@
 
 module Decidim
   module Meetings
-    class UpcomingMeetingEvent < Decidim::Events::ExtendedEvent
+    class UpcomingMeetingEvent < Decidim::Events::SimpleEvent
     end
   end
 end

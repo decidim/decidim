@@ -2,7 +2,7 @@
 
 module Decidim
   module Proposals
-    class RejectedProposalEvent < Decidim::Events::ExtendedEvent
+    class RejectedProposalEvent < Decidim::Events::SimpleEvent
       include Decidim::Events::AuthorEvent
     end
   end

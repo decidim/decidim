@@ -2,7 +2,7 @@
 
 module Decidim
   module Comments
-    class CommentCreatedEvent < Decidim::Events::ExtendedEvent
+    class CommentCreatedEvent < Decidim::Events::SimpleEvent
       include Decidim::Events::AuthorEvent
 
       private

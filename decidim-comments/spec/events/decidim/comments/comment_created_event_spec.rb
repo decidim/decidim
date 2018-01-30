@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Comments::CommentCreatedEvent do
-  include_context "extended event"
+  include_context "simple event"
 
   let(:resource) { comment.commentable }
   let(:comment) { create :comment }
@@ -11,7 +11,7 @@ describe Decidim::Comments::CommentCreatedEvent do
   let(:event_name) { "decidim.events.comments.comment_created" }
   let(:extra) { { comment_id: comment.id } }
 
-  it_behaves_like "an extended event"
+  it_behaves_like "an simple event"
 
   describe "email_subject" do
     it "is generated correctly" do

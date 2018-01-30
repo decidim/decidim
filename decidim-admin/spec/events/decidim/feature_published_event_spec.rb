@@ -5,14 +5,14 @@ require "spec_helper"
 describe Decidim::FeaturePublishedEvent do
   include Decidim::FeaturePathHelper
 
-  include_context "extended event"
+  include_context "simple event"
 
   let(:event_name) { "decidim.events.feature_published_event" }
   let(:resource) { create(:feature) }
   let(:participatory_space) { resource.participatory_space }
   let(:resource_path) { main_feature_path(resource) }
 
-  it_behaves_like "an extended event"
+  it_behaves_like "an simple event"
 
   describe "email_subject" do
     it "is generated correctly" do

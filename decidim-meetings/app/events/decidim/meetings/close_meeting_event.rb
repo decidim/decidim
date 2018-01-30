@@ -2,7 +2,7 @@
 
 module Decidim
   module Meetings
-    class CloseMeetingEvent < Decidim::Events::ExtendedEvent
+    class CloseMeetingEvent < Decidim::Events::SimpleEvent
     end
   end
 end

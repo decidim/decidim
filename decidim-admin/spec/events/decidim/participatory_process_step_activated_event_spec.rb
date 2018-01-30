@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::ParticipatoryProcessStepActivatedEvent do
   include Rails.application.routes.mounted_helpers
 
-  include_context "extended event"
+  include_context "simple event"
 
   let(:event_name) { "decidim.events.participatory_process_step_activated_event" }
   let(:participatory_process) { resource.participatory_process }
@@ -15,7 +15,7 @@ describe Decidim::ParticipatoryProcessStepActivatedEvent do
       .participatory_process_participatory_process_steps_path(participatory_process)
   end
 
-  it_behaves_like "an extended event"
+  it_behaves_like "an simple event"
 
   describe "email_subject" do
     it "is generated correctly" do

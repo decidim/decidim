@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-shared_context "extended event" do
+shared_context "simple event" do
   subject do
     described_class.new(
       resource: resource,
@@ -28,7 +28,7 @@ shared_context "extended event" do
   let(:author_presenter) { Decidim::UserPresenter.new(author) }
 end
 
-shared_examples_for "an extended event" do
+shared_examples_for "an simple event" do
   describe "types" do
     subject { described_class }
 
