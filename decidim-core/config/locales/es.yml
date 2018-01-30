@@ -124,6 +124,12 @@ es:
         content_doesnt_exist: Esta dirección es incorrecta o ha sido eliminada.
         title: No se ha encontrado la página que buscas
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'Se ha agregado un nuevo documento a %{resource_title}. Puedes verlo desde esta página:'
+          email_outro: Has recibido esta notificación porque estás siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: Un evento ha ocurrido en %{resource_title}
+          notification_title: Se ha agregado un <a href="%{resource_path}">nuevo documento</a> a <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Hola %{user_name},
         email_intro: 'Ha habido una actualización de "%{resource_title}". Se puede ver en esta página:'
@@ -137,15 +143,10 @@ es:
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
       participatory_process_step_activated_event:
-        email_intro: 'El paso %{resource_title} ahora está activo para %{participatory_space_title}. Puedes verlo desde esta página:'
-        email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
-        email_subject: Una actualización de %{participatory_space_title}
-        notification_title: El paso %{resource_title} ahora está activo para <a href="%{resource_path}">%{participatory_space_title}</a>
-      profile_updated_event:
-        email_intro: La <a href="%{profile_path}">página de perfil</a> de %{name} (%{nickname}), a quien sigues, se ha actualizado.
-        email_outro: Has recibido esta notificación porque estás siguiendo a %{nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-        email_subject: "%{nickname} ha actualizado su perfil"
-        notification_title: La página <a href="%{profile_path}">perfil</a> de %{name} (%{nickname}), a quien sigues, se ha actualizado.
+        email_intro: 'La fase %{resource_title} ahora está activa para %{participatory_space_title}. Puedes verla desde esta página:'
+        email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+        email_subject: Un evento ha ocurrido en %{participatory_space_title}
+        notification_title: La fase %{resource_title} ahora está activa para <a href="%{resource_path}">%{participatory_space_title}</a>
     export_mailer:
       export:
         ready: Adjunto encontrará una versión comprimida de su exportación.
