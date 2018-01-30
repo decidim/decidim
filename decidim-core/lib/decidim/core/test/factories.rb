@@ -316,4 +316,23 @@ FactoryBot.define do
       }
     end
   end
+
+  factory :action_log, class: "Decidim::ActionLog" do
+    organization
+    user do
+      build(
+        :user,
+        organization: organization || build(:organization)
+      )
+    end
+    participatory_space { build :participatory_process, organization: organization || build(:organization) }
+    feature { build :feature, participatory_space: participatory_space }
+    resource { build(:dummy_resource, feature: feature) }
+    action { "create" }
+    extra do
+      {
+        some_extra_data: "1"
+      }
+    end
+  end
 end
