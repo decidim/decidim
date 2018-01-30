@@ -52,6 +52,19 @@ fr:
         title: "%{count} commentaires"
       featured_comment:
         title: Commentaire vedette
+    events:
+      comments:
+        comment_created:
+          comment:
+            email_intro: '"%{resource_title}" a été commenté. Vous pouvez lire le commentaire sur cette page:'
+            email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez le retirer du lien précédent.
+            email_subject: Il y a un nouveau commentaire de %{author_name} dans %{resource_title}
+            notification_title: Il y a un nouveau commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
+          reply:
+            email_intro: Le "%{resource_title}" a été commenté
+            email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez le retirer du lien précédent.
+            email_subject: Il y a une nouvelle réponse de votre commentaire de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Il y a une nouvelle réponse de votre commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
   errors:
     messages:
       cannot_have_comments: ne peut pas être commenté
