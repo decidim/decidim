@@ -138,7 +138,7 @@ module Decidim
       #
       # user - the user to check for authorship
       def editable_by?(user)
-        authored_by?(user) && !answered? && within_edit_time_limit?
+        authored_by?(user) && !answered? && within_edit_time_limit? && !copied_from_other_component?
       end
 
       # Checks whether the user can withdraw the given proposal.
@@ -167,6 +167,10 @@ module Decidim
       def within_edit_time_limit?
         limit = created_at + feature.settings.proposal_edit_before_minutes.minutes
         Time.current < limit
+      end
+
+      def copied_from_other_component?
+        linked_resources(:proposals, "copied_from_component").any?
       end
     end
   end

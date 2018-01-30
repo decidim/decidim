@@ -4,6 +4,8 @@
 
 **Added**:
 
+- **decidim-proposals**: Copy proposals to another component [\#2619](https://github.com/decidim/decidim/issues/2619).
+
 **Changed**:
 
 **Fixed**:
@@ -20,7 +22,8 @@ you need to change the following line in `config/environments/production.rb`:
 + config.assets.js_compressor = Uglifier.new(:harmony => true)
 ```
 
-**Added**:
+
+**Added
 
 - **decidim-admin**: Adds administration interface for highlighted content banner [\#2572](https://github.com/decidim/decidim/pull/2572)
 - **decidim-core**: Adds support for highlighted content banner.[\#2572](https://github.com/decidim/decidim/pull/2572)
