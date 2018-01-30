@@ -171,6 +171,12 @@ module Decidim
 
           it { is_expected.not_to be_withdrawable_by(someone_else) }
         end
+
+        context "when proposal is already withdrawn" do
+          let(:proposal) { build :proposal, :withdrawn, feature: feature, author: author, created_at: Time.current }
+
+          it { is_expected.not_to be_withdrawable_by(author) }
+        end
       end
     end
   end
