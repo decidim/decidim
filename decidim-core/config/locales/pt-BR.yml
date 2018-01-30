@@ -124,6 +124,12 @@ pt-BR:
         content_doesnt_exist: Este endereço está incorreto ou foi apagado.
         title: A página que você busca não foi encontrada
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'Um novo documento foi adicionado a %{resource_title}. Você pode vê-lo a partir desta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo o %{resource_title}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Uma atualização para %{resource_title}
+          notification_title: Um <a href="%{resource_path}">new document</a> foi adicionado a <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Olá %{user_name},
         email_intro: 'Houve uma atualização em "%{resource_title}". Você pode vê-la nesta página:'
@@ -141,11 +147,6 @@ pt-BR:
         email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
         email_subject: Uma atualização para %{participatory_space_title}
         notification_title: O passo %{resource_title} agora está ativo para <a href="%{resource_path}">%{participatory_space_title}</a>
-      profile_updated_event:
-        email_intro: O <a href="%{profile_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
-        email_outro: Você recebeu esta notificação porque está seguindo %{nickname}. Você pode parar de receber notificações após o link anterior.
-        email_subject: "%{nickname} atualizaram seu perfil"
-        notification_title: O <a href="%{profile_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
     export_mailer:
       export:
         ready: Uma versão comprimida do documento exportado está em anexo.
