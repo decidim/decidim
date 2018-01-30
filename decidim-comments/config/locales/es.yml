@@ -52,6 +52,19 @@ es:
         title: "%{count} comentarios"
       featured_comment:
         title: Comentario destacado
+    events:
+      comments:
+        comment_created:
+          comment:
+            email_intro: '"%{resource_title}" ha sido comentado. Puedes leer el comentario en esta página:'
+            email_outro: Recibió esta notificación porque está siguiendo "%{resource_title}" o su autor. Puedes dejar de seguirlo desde el enlace anterior.
+            email_subject: Hay un nuevo comentario de %{author_name} en %{resource_title}
+            notification_title: Hay un nuevo comentario desde <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
+          reply:
+            email_intro: El "%{resource_title}" ha sido comentado
+            email_outro: Recibió esta notificación porque está siguiendo "%{resource_title}" o su autor. Puedes dejar de seguirlo desde el enlace anterior.
+            email_subject: Hay una nueva respuesta de tu comentario de %{author_name} en <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Hay una nueva respuesta de tu comentario de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
   errors:
     messages:
       cannot_have_comments: no puede tener comentarios
