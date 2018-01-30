@@ -11,6 +11,28 @@ es:
       proposal_answer:
         answer: Respuesta
   decidim:
+    events:
+      proposals:
+        proposal_accepted:
+          email_intro: 'La propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
+          email_outro: Recibió esta notificación porque está siguiendo "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+          email_subject: Una propuesta que estás siguiendo ha sido aceptada
+          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido aceptada.
+        proposal_created:
+          email_intro: "%{author_name} %{author_nickname}, a quien sigues, ha creado una nueva propuesta, compruébalo y contribuye:"
+          email_outro: Recibió esta notificación porque está siguiendo %{author_nickname}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: Nueva propuesta de %{author_nickname}
+          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> fue creada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_evaluating:
+          email_intro: 'La propuesta "%{resource_title}" se está evaluando actualmente. Puedes buscar una respuesta en esta página:'
+          email_outro: Recibió esta notificación porque está siguiendo "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+          email_subject: Una propuesta que estás siguiendo está siendo evaluada
+          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
+        proposal_rejected:
+          email_intro: 'La propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
+          email_outro: Recibió esta notificación porque está siguiendo "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+          email_subject: Una propuesta que estás siguiendo ha sido rechazada
+          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
     features:
       proposals:
         actions:
