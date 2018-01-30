@@ -3,30 +3,15 @@
 require "spec_helper"
 
 describe Decidim::Comments::UserMentionedEvent do
-  subject do
-    described_class.new(resource: resource, event_name: event_name, user: user, extra: extra)
-  end
+  include_context "simple event"
 
   let(:resource) { comment.commentable }
-  let(:organization) { resource.organization }
   let(:comment) { create :comment }
   let(:comment_author) { comment.author }
   let(:event_name) { "decidim.events.comments.user_mentioned" }
-  let(:user) { create :user, organization: organization }
   let(:extra) { { comment_id: comment.id } }
-  let(:resource_path) { resource_locator(resource).path }
 
-  describe "types" do
-    subject { described_class }
-
-    it "supports notifications" do
-      expect(subject.types).to include :notification
-    end
-
-    it "supports emails" do
-      expect(subject.types).to include :email
-    end
-  end
+  it_behaves_like "an simple event"
 
   describe "email_subject" do
     it "is generated correctly" do
