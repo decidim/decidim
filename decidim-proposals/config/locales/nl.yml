@@ -11,6 +11,28 @@ nl:
       proposal_answer:
         answer: Antwoord
   decidim:
+    events:
+      proposals:
+        proposal_accepted:
+          email_intro: 'Het voorstel "%{resource_title}" is geaccepteerd. U kunt het antwoord op deze pagina lezen:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_subject: Een voorstel dat u volgt, is geaccepteerd
+          notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
+        proposal_created:
+          email_intro: "%{author_name} %{author_nickname}, wie je volgt, heeft een nieuw voorstel gemaakt, bekijk het en draag bij:"
+          email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Nieuw voorstel van %{author_nickname}
+          notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is gemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_evaluating:
+          email_intro: 'Het voorstel "%{resource_title}" wordt momenteel geëvalueerd. U kunt op deze pagina zoeken naar een antwoord:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_subject: Een voorstel dat u volgt, wordt geëvalueerd
+          notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> wordt beoordeeld.
+        proposal_rejected:
+          email_intro: 'Het voorstel "%{resource_title}" is afgewezen. U kunt het antwoord op deze pagina lezen:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_subject: Een voorstel dat u volgt, is afgewezen
+          notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is afgewezen.
     features:
       proposals:
         actions:
