@@ -153,7 +153,7 @@ module Decidim
       #
       # user - the user to check for withdrawability.
       def withdrawable_by?(user)
-        authored_by?(user)
+        user && authored_by?(user)
       end
 
       # method for sort_link by number of comments
