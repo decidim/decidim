@@ -86,6 +86,21 @@ ca:
             official_debate: Debat oficial
             start_time: Data d'inici
             title: Títol
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hola, S'ha creat un nou debat sobre el %{space_title} espai participatiu, comprovar i contribuir:
+            email_outro: Heu rebut aquesta notificació perquè esteu seguint l'espai participatiu %{space_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+            email_subject: Nou debat sobre %{space_title}
+            notification_title: El <a href="%{resource_path}">%{resource_title}</a> debat es va crear el <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Hola, %{author_name} %{author_nickname}, a qui sigueu, ha creat un nou debat, comprovar i contribuir:
+            email_outro: Heu rebut aquesta notificació perquè esteu seguint %{author_nickname}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+            email_subject: Nou debat per %{author_nickname}
+            notification_title: El <a href="%{resource_path}">%{resource_title}</a> debat va ser creat per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
     features:
       debates:
         actions:
