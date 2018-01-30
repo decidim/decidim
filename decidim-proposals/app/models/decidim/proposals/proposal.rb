@@ -149,6 +149,13 @@ module Decidim
         authored_by?(user) && !answered? && within_edit_time_limit?
       end
 
+      # Checks whether the user can withdraw the given proposal.
+      #
+      # user - the user to check for withdrawability.
+      def withdrawable_by?(user)
+        authored_by?(user)
+      end
+
       # method for sort_link by number of comments
       ransacker :commentable_comments_count do
         query = <<-SQL
