@@ -52,6 +52,19 @@ nl:
         title: "%{count} reacties"
       featured_comment:
         title: Aanbevolen reactie
+    events:
+      comments:
+        comment_created:
+          comment:
+            email_intro: '"%{resource_title}" is becommentarieerd. U kunt de opmerking op deze pagina lezen:'
+            email_outro: Je hebt deze melding ontvangen omdat je '%{resource_title}' of de auteur ervan volgt. Je kunt het niet meer volgen vanaf de vorige link.
+            email_subject: Er is een nieuwe reactie van %{author_name} in %{resource_title}
+            notification_title: Er is een nieuwe reactie van <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>
+          reply:
+            email_intro: De "%{resource_title}" is becommentarieerd
+            email_outro: Je hebt deze melding ontvangen omdat je '%{resource_title}' of de auteur ervan volgt. Je kunt het niet meer volgen vanaf de vorige link.
+            email_subject: Er is een nieuw antwoord van je reactie van %{author_name} in <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Er is een nieuw antwoord van je reactie van <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>
   errors:
     messages:
       cannot_have_comments: Kan geen reacties hebben
