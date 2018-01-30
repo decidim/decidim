@@ -21,6 +21,33 @@ es:
         start_time: Hora de inicio
         title: Título
   decidim:
+    events:
+      meetings:
+        meeting_closed:
+          email_intro: 'La reunión "%{resource_title}" se cerró. Puedes leer las conclusiones de su página:'
+          email_outro: Recibió esta notificación porque está siguiendo la reunión "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+          email_subject: La reunión "%{resource_title}" se cerró
+          notification_title: La reunión <a href="%{resource_path}">%{resource_title}</a> se cerró.
+        meeting_registrations_over_percentage:
+          email_intro: Las ranuras ocupadas de la reunión "%{resource_title}" son más de %{percentage}%.
+          email_outro: Recibió esta notificación porque usted es administrador del espacio participativo de la reunión.
+          email_subject: Las ranuras ocupadas de la reunión "%{resource_title}" son más de %{percentage}%
+          notification_title: Los espacios ocupados de la reunión <a href="%{resource_path}">%{resource_title}</a> superan el %{percentage}%.
+        meeting_updated:
+          email_intro: 'La reunión "%{resource_title}" se actualizó. Puedes leer la nueva versión desde su página:'
+          email_outro: Recibió esta notificación porque está siguiendo la reunión "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+          email_subject: La reunión "%{resource_title}" se actualizó
+          notification_title: La reunión <a href="%{resource_path}">%{resource_title}</a> fue actualizada.
+        registrations_enabled:
+          email_intro: 'La reunión "%{resource_title}" ha habilitado los registros. Puedes registrarte en su página:'
+          email_outro: Recibió esta notificación porque está siguiendo la reunión "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+          email_subject: La reunión "%{resource_title}" ha habilitado los registros.
+          notification_title: La reunión <a href="%{resource_path}">%{resource_title}</a> ha habilitado los registros.
+        upcoming_meeting:
+          email_intro: La reunión "%{resource_title}" comenzará en menos de 48 h.
+          email_outro: Recibió esta notificación porque está siguiendo la reunión "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
+          email_subject: La reunión "%{resource_title}" comenzará en menos de 48 h.
+          notification_title: La reunión <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48 h.
     features:
       meetings:
         actions:
