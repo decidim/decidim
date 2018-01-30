@@ -1,51 +1,19 @@
 # frozen-string_literal: true
 
 module Decidim
-  class FeaturePublishedEvent < Decidim::Events::BaseEvent
-    include Decidim::Events::EmailEvent
-    include Decidim::Events::NotificationEvent
+  class FeaturePublishedEvent < Decidim::Events::SimpleEvent
     include Decidim::FeaturePathHelper
 
-    def email_subject
-      I18n.t(
-        "decidim.events.feature_published_event.email_subject",
-        resource_title: resource_title,
-        resource_path: resource_path,
-        participatory_space_title: participatory_space_title
-      )
-    end
-
-    def email_intro
-      I18n.t(
-        "decidim.events.feature_published_event.email_intro",
-        resource_title: resource_title,
-        resource_path: resource_path,
-        participatory_space_title: participatory_space_title
-      )
-    end
-
-    def email_outro
-      I18n.t(
-        "decidim.events.feature_published_event.email_outro",
-        resource_title: resource_title,
-        resource_path: resource_path,
-        participatory_space_title: participatory_space_title
-      )
-    end
-
-    def notification_title
-      I18n.t(
-        "decidim.events.feature_published_event.notification_title",
-        resource_title: resource_title,
-        resource_path: resource_path,
-        participatory_space_title: participatory_space_title
-      ).html_safe
-    end
+    i18n_attributes :participatory_space_title
 
     private
 
     def resource_path
       @resource_path ||= main_feature_path(resource)
+    end
+
+    def resource_url
+      @resource_url ||= main_feature_url(resource)
     end
 
     def participatory_space_title

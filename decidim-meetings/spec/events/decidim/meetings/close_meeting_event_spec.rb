@@ -3,15 +3,9 @@
 require "spec_helper"
 
 describe Decidim::Meetings::CloseMeetingEvent do
-  describe "types" do
-    subject { described_class }
+  let(:resource) { create :meeting }
+  let(:event_name) { "decidim.events.meetings.meeting_closed" }
 
-    it "supports notifications" do
-      expect(subject.types).to include :notification
-    end
-
-    it "supports emails" do
-      expect(subject.types).to include :email
-    end
-  end
+  include_context "simple event"
+  it_behaves_like "an simple event"
 end
