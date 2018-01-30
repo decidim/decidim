@@ -13,6 +13,7 @@ you need to change the following line in `config/environments/production.rb`:
 ```
 
 **Added
+- **decidim**: Refactor and DRY Decidim events. [\#2582](https://github.com/decidim/decidim/pull/2582)
 - **decidim-core**: Added support for omnipresent banner. [\#2547](https://github.com/decidim/decidim/pull/2547)
 - **decidim-admin**: Added administration interface for omnipresent banner. [\#2547](https://github.com/decidim/decidim/pull/2547)
 - **decidim**: Rubocop has been upgraded. Ruby version in gem specs now fits with ruby version that rubocop uses. [\#2548](https://github.com/decidim/decidim/pull/2548)
