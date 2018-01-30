@@ -97,32 +97,6 @@ sv:
           update:
             invalid: Det har varit ett problem att spara registreringsinställningarna.
             success: Mötesregistreringsinställningarna har sparats.
-      events:
-        close_meeting_event:
-          email_intro: '"%{resource_title}" mötet stängdes. Du kan läsa slutsatserna från sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan följa det från föregående länk.
-          email_subject: '"%{resource_title}" mötet stängdes'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> mötet stängdes.
-        meeting_registrations_enabled:
-          email_intro: '"%{resource_title}" mötet har aktiverat registreringar. Du kan registrera dig själv på sin sida:'
-          email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan följa det från föregående länk.
-          email_subject: '"%{resource_title}" mötet har aktiverat registreringar.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> mötet har aktiverat registreringar.
-        meeting_registrations_over_percentage:
-          email_intro: De upptagna platserna "%{resource_title}" är över %{percentage}%.
-          email_outro: Du har fått den här meddelandet eftersom du är en administratör för mötes deltagande utrymme.
-          email_subject: De upptagna platserna "%{resource_title}" är över %{percentage}%
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> mötesplatserna är över %{percentage}%.
-        upcoming_meeting_event:
-          email_intro: '"%{resource_title}" -mötet börjar på mindre än 48 timmar.'
-          email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan följa det från föregående länk.
-          email_subject: '"%{resource_title}" -mötet börjar på mindre än 48 timmar.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> mötet startar inom mindre än 48 timmar.
-        update_meeting_event:
-          email_intro: '"%{resource_title}" mötet uppdaterades. Du kan läsa den nya versionen från sin sida:'
-          email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan följa det från föregående länk.
-          email_subject: '"%{resource_title}" mötet uppdaterades'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> mötet uppdaterades.
       mailer:
         invite_join_meeting_mailer:
           invite:
