@@ -147,6 +147,12 @@ fr:
         email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
         email_subject: Une mise à jour de %{participatory_space_title}
         notification_title: L'étape %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
+      users:
+        profile_updated:
+          email_intro: Le <a href="%{resource_url}">profile page</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
+          email_outro: Vous avez reçu cette notification, car vous suivez %{nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: "%{nickname} a mis à jour son profil"
+          notification_title: Le <a href="%{resource_path}">profile page</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
     export_mailer:
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
