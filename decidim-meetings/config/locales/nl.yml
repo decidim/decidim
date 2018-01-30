@@ -21,6 +21,33 @@ nl:
         start_time: Starttijd
         title: Titel
   decidim:
+    events:
+      meetings:
+        meeting_closed:
+          email_intro: 'De vergadering "%{resource_title}" is gesloten. U kunt de conclusies lezen op de pagina:'
+          email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_subject: De vergadering "%{resource_title}" is gesloten
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering was gesloten.
+        meeting_registrations_over_percentage:
+          email_intro: De "%{resource_title}" vergadering bezet slots zijn meer dan %{percentage}%.
+          email_outro: U hebt deze melding ontvangen omdat u een beheerder bent van de participatieruimte van de vergadering.
+          email_subject: De "%{resource_title}" vergadering bezet slots zijn meer dan %{percentage}%
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> ontmoetingen over bezette slots zijn meer dan %{percentage}%.
+        meeting_updated:
+          email_intro: 'De vergadering "%{resource_title}" is bijgewerkt. U kunt de nieuwe versie van de pagina lezen:'
+          email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_subject: De vergadering "%{resource_title}" is bijgewerkt
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering is bijgewerkt.
+        registrations_enabled:
+          email_intro: 'De vergadering ''%{resource_title}'' heeft registraties ingeschakeld. U kunt uzelf registreren op zijn pagina:'
+          email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_subject: De vergadering '%{resource_title}' heeft registraties ingeschakeld.
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering heeft registraties ingeschakeld.
+        upcoming_meeting:
+          email_intro: De "%{resource_title}" -vergadering start in minder dan 48 uur.
+          email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_subject: De "%{resource_title}" -vergadering start in minder dan 48 uur.
+          notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering begint over minder dan 48 uur.
     features:
       meetings:
         actions:
