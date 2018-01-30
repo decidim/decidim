@@ -160,14 +160,14 @@ module Decidim
 
         context "when user is admin" do
           let(:admin) { build(:user, :admin, organization: organization) }
-          let(:proposal) { build :proposal, feature: feature, author: author, created_at: Time.current}
+          let(:proposal) { build :proposal, feature: feature, author: author, created_at: Time.current }
 
           it { is_expected.not_to be_withdrawable_by(admin) }
         end
 
         context "when user is not the author" do
           let(:someone_else) { build(:user, organization: organization) }
-          let(:proposal) { build :proposal, feature: feature, author: author, created_at: Time.current}
+          let(:proposal) { build :proposal, feature: feature, author: author, created_at: Time.current }
 
           it { is_expected.not_to be_withdrawable_by(someone_else) }
         end
