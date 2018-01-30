@@ -24,6 +24,7 @@ gl:
         cta_button_path: Camiño do botón de chamada a acción
         cta_button_text: Texto do botón de chamada a acción
         description: Descrición
+        enable_omnipresent_banner: Mostrar o banner omnipresente
         favicon: Ícona
         header_snippets: Fragmentos de cabeceira
         homepage_image: Imaxe da páxina de inicio
@@ -31,6 +32,9 @@ gl:
         official_img_footer: Footer do logotipo oficial
         official_img_header: Cabeceira do logotipo oficial
         official_url: URL da organización oficial
+        omnipresent_banner_short_description: Descrición curta
+        omnipresent_banner_title: Título
+        omnipresent_banner_url: URL
         show_statistics: Amosar estatísticas
         welcome_text: Texto de benvida
       scope:
@@ -365,6 +369,7 @@ gl:
           header_snippets_help: Use este campo para engadir cousas ao título HTML. O uso máis común é integrar servizos de terceiros que requiren algún JavaScript ou CSS adicional. Ademais, podes usalo para engadir etiquetas metais extra ao HTML. Ten en conta que isto só se renderá en páxinas públicas, non na sección de administración.
           homepage_appearance_title: Editar o aspecto da páxina de inicio
           layout_appearance_title: Editar aspecto de deseño
+          omnipresent_banner_appearance_title: Editar omnipresente
       scope_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de alcance.
