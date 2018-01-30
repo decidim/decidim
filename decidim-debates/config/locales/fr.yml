@@ -79,20 +79,6 @@ fr:
         show:
           comments: commentaires
           report: rapport
-      events:
-        create_debate_event:
-          space_followers:
-            email_intro: |-
-              Bonjour, Un nouveau débat a été créé sur l'espace participatif %{space_title}, consultez-le et contribuez:
-            email_outro: Vous avez reçu cette notification parce que vous suivez l'espace participatif %{space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-            email_subject: Nouveau débat sur %{space_title}
-            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé le <a href="%{space_path}">%{space_title}</a>.
-          user_followers:
-            email_intro: |-
-              Bonjour, %{author_name} %{author_nickname}, qui vous suivez, a créé un nouveau débat, vérifiez-le et contribuez:
-            email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-            email_subject: Nouveau débat par %{author_nickname}
-            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         debate:
           fields:
