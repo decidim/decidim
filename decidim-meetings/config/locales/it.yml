@@ -21,6 +21,33 @@ it:
         start_time: Orario inizio
         title: Titolo
   decidim:
+    events:
+      meetings:
+        meeting_closed:
+          email_intro: 'La riunione "%{resource_title}" è stata chiusa. Puoi leggere le conclusioni dalla sua pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
+          email_subject: La riunione "%{resource_title}" è stata chiusa
+          notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> è stata chiusa.
+        meeting_registrations_over_percentage:
+          email_intro: Gli spazi occupati della riunione "%{resource_title}" sono superiori a %{percentage}%.
+          email_outro: Hai ricevuto questa notifica perché sei un amministratore dello spazio partecipativo della riunione.
+          email_subject: Gli spazi occupati della riunione "%{resource_title}" sono superiori a %{percentage}%
+          notification_title: Gli spazi occupati della riunione <a href="%{resource_path}">%{resource_title}</a> sono oltre %{percentage}%.
+        meeting_updated:
+          email_intro: 'La riunione "%{resource_title}" è stata aggiornata. Puoi leggere la nuova versione dalla sua pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
+          email_subject: La riunione "%{resource_title}" è stata aggiornata
+          notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> è stata aggiornata.
+        registrations_enabled:
+          email_intro: 'La riunione "%{resource_title}" ha abilitato le registrazioni. Puoi registrarti sulla sua pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
+          email_subject: La riunione "%{resource_title}" ha abilitato le registrazioni.
+          notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> ha abilitato le registrazioni.
+        upcoming_meeting:
+          email_intro: La riunione "%{resource_title}" inizierà tra meno di 48 ore.
+          email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
+          email_subject: La riunione "%{resource_title}" inizierà tra meno di 48 ore.
+          notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> inizierà tra meno di 48 ore.
     features:
       meetings:
         actions:
