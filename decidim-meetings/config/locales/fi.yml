@@ -21,6 +21,33 @@ fi:
         start_time: Aloitusaika
         title: Otsikko
   decidim:
+    events:
+      meetings:
+        meeting_closed:
+          email_intro: '"%{resource_title}" -kokous oli suljettu. Voit lukea johtopäätökset sivulta:'
+          email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
+          email_subject: '"%{resource_title}" -kokous oli suljettu'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous oli suljettu.
+        meeting_registrations_over_percentage:
+          email_intro: '"%{resource_title}" -kokouksen käyttämät lähtöajat ovat yli %{percentage}%.'
+          email_outro: Olet saanut tämän ilmoituksen, koska olet hallintasi kokouksen osallistumistilasta.
+          email_subject: '"%{resource_title}" -kokouksen käytössä olevat lähtöajat ovat yli %{percentage}%'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokouksessa käyttämät lähtöajat ovat yli %{percentage}%.
+        meeting_updated:
+          email_intro: '"%{resource_title}" -kokous päivitettiin. Voit lukea uuden version sivulta:'
+          email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
+          email_subject: '"%{resource_title}" -kokous päivitettiin'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous päivitettiin.
+        registrations_enabled:
+          email_intro: '"%{resource_title}" kokous on mahdollistanut rekisteröinnit. Voit rekisteröityä itsellesi sivuillasi:'
+          email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
+          email_subject: '"%{resource_title}" kokous on mahdollistanut rekisteröinnit.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous on mahdollistanut rekisteröinnit.
+        upcoming_meeting:
+          email_intro: Kokous "%{resource_title}" alkaa alle 48 tunnissa.
+          email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
+          email_subject: Kokous "%{resource_title}" alkaa alle 48 tunnissa.
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous alkaa alle 48 tuntia.
     features:
       meetings:
         actions:
