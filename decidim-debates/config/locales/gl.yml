@@ -86,6 +86,21 @@ gl:
             official_debate: Debate oficial
             start_time: Data de inicio
             title: Título
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Ola, creouse un novo debate sobre o espazo participativo %{space_title}, verifícalo e contribuír:
+            email_outro: Recibiches esta notificación porque estás seguindo o %{space_title} espazo participativo. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+            email_subject: Novo debate sobre %{space_title}
+            notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate foi creado en <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Ola, %{author_name} %{author_nickname}, a quen estás seguindo, creou un novo debate, revisádeo e contribuíu:
+            email_outro: Recibiches esta notificación porque estás seguindo %{author_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+            email_subject: Novo debate por %{author_nickname}
+            notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate foi creado por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
     features:
       debates:
         actions:
