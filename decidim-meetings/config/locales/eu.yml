@@ -21,6 +21,33 @@ eu:
         start_time: Hasiera-ordua
         title: Titulua
   decidim:
+    events:
+      meetings:
+        meeting_closed:
+          email_intro: '"%{resource_title}" bilera itxita zegoen. Bere orriko ondorioak irakur ditzakezu:'
+          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: '"%{resource_title}" bilera itxita zegoen'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera itxita zegoen.
+        meeting_registrations_over_percentage:
+          email_intro: '"%{resource_title}" bilera okupatutako zirrikituak %{percentage} baino gehiagokoak dira.'
+          email_outro: Jakinarazpen hau jaso duzu bileraren parte hartzaileen gunea delako.
+          email_subject: '"%{resource_title}" bilera okupatutako zirrikituak %{percentage} baino gehiago dira.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilerako slot okupatuak %{percentage} baino gehiagokoak dira.
+        meeting_updated:
+          email_intro: '"%{resource_title}" bilera eguneratu da. Bertsio berria irakur dezakezu bere orritik:'
+          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: '"%{resource_title}" bilera eguneratu da'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera eguneratu da.
+        registrations_enabled:
+          email_intro: '"%{resource_title}" topaketak erregistroak gaitu ditu. Zeure burua erregistratu dezakezu bere orrialdean:'
+          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: '"%{resource_title}" topaketak erregistroak gaitu ditu.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera erregistratzeak gaitu du.
+        upcoming_meeting:
+          email_intro: '"%{resource_title}" topaketa 48 ordu baino gutxiagotan hasiko da.'
+          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: '"%{resource_title}" topaketa 48 ordu baino gutxiagotan hasiko da.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa 48 ordu baino gutxiagoan hasiko da.
     features:
       meetings:
         actions:
