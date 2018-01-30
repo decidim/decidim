@@ -107,8 +107,8 @@ module Decidim
   #
   # we must declare the following classes:
   #
-  #   Decidim::ContentParsers::UserParser
-  #   Decidim::ContentRenderers::UserRenderer
+  #   Decidim::ContentParsers::UserParser < BaseParser
+  #   Decidim::ContentRenderers::UserRenderer < BaseRenderer
   config_accessor :content_processors do
     []
   end
