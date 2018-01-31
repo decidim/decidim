@@ -86,16 +86,16 @@ en:
           new:
             create: Create
             title: Create proposal
+          update_category:
+            invalid: 'Theese proposals already had the %{category} category: %{proposals}.'
+            select_a_category: Please select a category
+            success: 'Proposals successfully updated to the %{category} category: %{proposals}.'
         shared:
           info_proposal:
             body: Body
             created_at: Creation date
             proposal_votes_count: Votes count
             proposals: Proposals
-          update_category:
-            invalid: 'Theese proposals already had the %{category} category: %{proposals}.'
-            select_a_category: Please select a category
-            success: 'Proposals successfully updated to the %{category} category: %{proposals}.'
       answers:
         accepted: Accepted
         evaluating: Evaluating
