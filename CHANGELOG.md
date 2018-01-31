@@ -13,6 +13,8 @@ you need to change the following line in `config/environments/production.rb`:
 ```
 
 **Added
+- **decidim-core**: Added support for content processors. [\#2491](https://github.com/decidim/decidim/pull/2491)
+- **decidim-comments**: Added support to mention other users and notify them. [\#2491](https://github.com/decidim/decidim/pull/2491)
 - **decidim**: Refactor and DRY Decidim events. [\#2582](https://github.com/decidim/decidim/pull/2582)
 - **decidim-core**: Added support for omnipresent banner. [\#2547](https://github.com/decidim/decidim/pull/2547)
 - **decidim-admin**: Added administration interface for omnipresent banner. [\#2547](https://github.com/decidim/decidim/pull/2547)

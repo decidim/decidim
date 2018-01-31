@@ -71,9 +71,9 @@ describe("<Comment />", () => {
     expect(wrapper.find(".author__avatar img").prop("src")).toEqual(comment.author.avatarUrl);
   });
 
-  it("should render comment's body on a div with class comment__content", () => {
+  it("should render formatted comment's body on a div with class comment__content", () => {
     const wrapper = shallow(<Comment comment={comment} session={session} rootCommentable={rootCommentable} orderBy={orderBy} />);
-    expect(wrapper.find("div.comment__content").text()).toEqual(comment.body);
+    expect(wrapper.find("div.comment__content").html()).toContain(comment.formattedBody);
   });
 
   it("should initialize with a state property showReplyForm as false", () => {

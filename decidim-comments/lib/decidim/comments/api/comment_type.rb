@@ -21,6 +21,8 @@ module Decidim
 
       field :body, !types.String, "The comment message"
 
+      field :formattedBody, !types.String, "The comment message ready to display (it is expected to include HTML)", property: :formatted_body
+
       field :createdAt, !types.String, "The creation date of the comment" do
         resolve lambda { |obj, _args, _ctx|
           obj.created_at.iso8601
