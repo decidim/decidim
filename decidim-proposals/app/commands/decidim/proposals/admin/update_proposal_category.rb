@@ -43,16 +43,9 @@ module Decidim
         end
 
         def notify_author
-          publish_event(
-            "decidim.events.proposals.proposal_update_category",
-            Decidim::Proposals::Admin::UpdateProposalCategoryEvent
-          )
-        end
-
-        def publish_event(event, event_class)
           Decidim::EventsManager.publish(
-            event: event,
-            event_class: event_class,
+            event: "decidim.events.proposals.proposal_update_category",
+            event_class: Decidim::Proposals::Admin::UpdateProposalCategoryEvent,
             resource: proposal,
             recipient_ids: [proposal.decidim_author_id]
           )
