@@ -55,34 +55,17 @@
     <div class="row column">
       <% if @form.proposals %>
 <!-- testing ------------------------------------------------- -->
-<%= form.label(:proposal_ids) %>
 <% 
 # { id: "#{@object_name}_#{attribute}", class: "picker-#{options[:multiple] ? "multiple" : "single"}", name: "#{@object_name}[#{attribute}]" }
-picker_options= { id: "decidim_accountability_proposals", class: "picker-multiple", name: 'result[proposal_ids]' }
+picker_options= { id: "decidim_accountability_proposals", class: "picker-multiple", name: 'result[proposal_ids]', multiple: true }
 prompt_params= { url: 'proposals', text: "Add proposal"}
 %>
-<div id="<%=picker_options[:id]%>" class="data-picker <%=picker_options[:class]%>" data-picker-name="<%=picker_options[:name]%>">
-  <div class="picker-values"><% @form.proposals.each do |title, proposal_id|
-    next unless @form.proposal_ids.include?(proposal_id)
-    %>
-    <div><a href="<%= prompt_params[:url] %>" data-picker-value="<%= proposal_id %>"><%="##{proposal_id}- #{title}"%></a></div>
-  <% end %></div>
-  <div class="picker-prompt"><a href="<%= prompt_params[:url] %>"><%= prompt_params[:text] %></a></div>
-</div>
+<%= form.data_picker(:proposal_objs, picker_options, prompt_params) {|item| { url: 'proposals', text: "##{item.id}- #{item.title}" }} %>
 <script type="application/javascript">
 $(function() {
-  // autocomplete
   $(document).on("open.zf.reveal", "#data_picker-modal", function () {
     $('#data_picker-autocomplete').autoComplete({
       minChars: 2,
-      // source: function(term, suggest){
-      //     term = term.toLowerCase();
-      //     var choices = <%= Decidim::Proposals::Proposal.all.collect {|p| [p.title, p.id]}.to_json.html_safe %>
-      //     var matches = [];
-      //     for (i=0; i<choices.length; i++)
-      //         if (~choices[i][0].toLowerCase().indexOf(term)) matches.push(choices[i]);
-      //     suggest(matches);
-      // },
       source: function(term, response){
         try { xhr.abort(); } catch(e){}
         $.getJSON('proposals.json', { q: term }, function(data){ console.log(data); response(data); });

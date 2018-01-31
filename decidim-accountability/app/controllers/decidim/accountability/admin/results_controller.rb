@@ -62,7 +62,6 @@ module Decidim
               render partial: 'proposals'
             end
             format.json do
-              # query= Decidim::Proposals::Proposal
               query= Decidim.find_resource_manifest(:proposals)
                 .try(:resource_scope, current_feature)&.order(title: :asc)
               term= params[:q]
