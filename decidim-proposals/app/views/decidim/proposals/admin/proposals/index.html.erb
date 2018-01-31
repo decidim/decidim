@@ -35,7 +35,9 @@
         <table class="table-list">
           <thead>
             <tr>
-              <th></th>
+              <th>
+                <%= check_box_tag "proposals_recategorize", "all", false, class: "js-check-all" %>
+              </th>
               <th>
                 <%= sort_link(query, :id, t("models.proposal.fields.id", scope: "decidim.proposals"), default_order: :desc ) %>
               </th>
