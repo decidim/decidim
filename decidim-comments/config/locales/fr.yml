@@ -65,6 +65,11 @@ fr:
             email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez le retirer du lien précédent.
             email_subject: Il y a une nouvelle réponse de votre commentaire de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
             notification_title: Il y a une nouvelle réponse de votre commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
+        user_mentioned:
+          email_intro: Vous avez été mentionné
+          email_outro: Vous avez reçu cette notification parce que vous avez été mentionné dans "%{resource_title}".
+          email_subject: Vous avez été mentionné dans %{resource_title}
+          notification_title: Vous avez été mentionné dans <a href="%{resource_path}">%{resource_title}</a> par <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:
     messages:
       cannot_have_comments: ne peut pas être commenté
