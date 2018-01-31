@@ -11,6 +11,7 @@ module Decidim
 
             can :manage, Assembly
             can :manage, Decidim::AssemblyUserRole
+            can :manage, AssemblyPrivateUser
           end
         end
       end

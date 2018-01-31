@@ -26,9 +26,9 @@ module Decidim
       end
 
       def show
-        redirect_to "/404" unless (current_participatory_space.private_process? &&
+        redirect_to "/404" unless (current_participatory_space.private_space? &&
                                    current_participatory_space.users.any? { current_user }) ||
-                                  !current_participatory_space.private_process?
+                                  !current_participatory_space.private_space?
       end
 
       private

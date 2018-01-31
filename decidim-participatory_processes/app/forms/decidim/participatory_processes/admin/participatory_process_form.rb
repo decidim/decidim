@@ -36,8 +36,7 @@ module Decidim
         attribute :remove_banner_image
         attribute :participatory_process_group_id, Integer
         attribute :show_statistics, Boolean
-        attribute :private_process, Boolean
-        attribute :user_ids, Integer
+        attribute :private_space, Boolean
 
         validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true

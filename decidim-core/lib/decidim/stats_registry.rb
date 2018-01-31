@@ -29,7 +29,6 @@ module Decidim
 
       options[:primary] ||= false
       options[:priority] ||= LOW_PRIORITY
-
       @stats.push(name: name,
                   primary: options[:primary],
                   priority: options[:priority],

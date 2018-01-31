@@ -27,7 +27,16 @@ Decidim.register_feature(:accountability) do |feature|
   end
 
   feature.register_stat :results_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, _start_at, _end_at|
-    Decidim::Accountability::Result.where(feature: features).count
+    if features.is_a?(ActiveRecord::Relation)
+    features_public = features.where("(participatory_space_id in (
+                    #{Decidim::ParticipatoryProcess.where(private_space: false).ids.join(",")})
+                    and participatory_space_type = 'Decidim::ParticipatoryProcess') or (
+                    participatory_space_id in (#{Decidim::Assembly.where(private_space: false).ids.join(",")}) and
+                    participatory_space_type = 'Decidim::Assembly')")
+    else
+      features_public = features
+    end
+    Decidim::Accountability::Result.where(feature: features_public).count
   end
 
   feature.settings(:step) do |settings|

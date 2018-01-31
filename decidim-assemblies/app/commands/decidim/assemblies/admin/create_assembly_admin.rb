@@ -28,7 +28,8 @@ module Decidim
 
           ActiveRecord::Base.transaction do
             create_or_invite_user
-            create_role
+            create_role if form.class == Decidim::Assemblies::Admin::AssemblyUserRoleForm
+            create_private_user if form.class == Decidim::Assemblies::Admin::AssemblyPrivateUserForm
           end
 
           broadcast(:ok)
@@ -44,6 +45,13 @@ module Decidim
         def create_role
           Decidim::AssemblyUserRole.find_or_create_by!(
             role: form.role.to_sym,
+            user: user,
+            assembly: @assembly
+          )
+        end
+
+        def create_private_user
+          Decidim::AssemblyPrivateUser.find_or_create_by!(
             user: user,
             assembly: @assembly
           )
@@ -84,8 +92,12 @@ module Decidim
         end
 
         def invitation_instructions
-          return "invite_admin" if form.role == "admin"
-          "invite_collaborator"
+          if form.class == Decidim::Assemblies::Admin::AssemblyUserRoleForm
+            return "invite_admin" if form.role == "admin"
+            "invite_collaborator"
+          else
+            "invite_private_user"
+          end
         end
       end
     end

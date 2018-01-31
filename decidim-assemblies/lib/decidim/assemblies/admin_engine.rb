@@ -26,6 +26,11 @@ module Decidim
 
           resources :attachment_collections, controller: "assembly_attachment_collections"
           resources :attachments, controller: "assembly_attachments"
+          resources :private_users, controller: "assembly_private_users" do
+            member do
+              post :resend_invitation, to: "assembly_private_users#resend_invitation"
+            end
+          end
         end
 
         scope "/assemblies/:assembly_slug" do

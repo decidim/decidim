@@ -4,7 +4,7 @@ module Decidim
   module ParticipatoryProcesses
     # This query class filters published processes given an organization.
     class OrganizationPublishedParticipatoryProcesses < Rectify::Query
-      def initialize(organization, user)
+      def initialize(organization, user = nil)
         @organization = organization
         @user = user
       end

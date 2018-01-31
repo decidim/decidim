@@ -15,7 +15,11 @@ module Decidim
       private
 
       def participatory_processes
-        @participatory_processes ||= group.participatory_processes.user_process(current_user.id).published
+        @participatory_processes ||= if current_user
+                                       group.participatory_processes.user_process(current_user.id).published
+                                     else
+                                       group.participatory_processes.published
+                                     end
       end
       alias collection participatory_processes
 

@@ -39,7 +39,7 @@
                 <%= l assembly.created_at, format: :short %>
               </td>
               <td class="table-list__state">
-                <% if assembly.private_assembly? %>
+                <% if assembly.private_space? %>
                   <strong class="text-alert"><%= t('assemblies.index.private', scope: "decidim.admin") %></strong>
                 <% else %>
                   <strong class="text-success"><%= t('assemblies.index.public', scope: "decidim.admin") %></strong>

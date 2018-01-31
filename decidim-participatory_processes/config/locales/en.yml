@@ -70,6 +70,7 @@ en:
           features: Features
           info: Info
           moderations: Moderations
+          private_users: Private users
           process_admins: Process users
           steps: Steps
       models:
@@ -91,6 +92,8 @@ en:
             start_date: Start date
             title: Title
           name: Participatory process step
+        participatory_process_private_user:
+          name: Participatory Process Private User
         participatory_process_user_role:
           fields:
             email: Email
@@ -122,6 +125,17 @@ en:
         update:
           error: There was en error updating this participatory process group.
           success: Participatory process group updated successfully.
+      participatory_process_private_users:
+        destroy:
+          success: Participatory process private user destroyed successfully.
+        edit:
+          title: Edit private user process
+          update: Update
+        index:
+          process_admins_title: Participatory Process Private Users
+        new:
+          create: Create
+          title: New private user process
       participatory_process_publications:
         create:
           error: There was an error publishing this participatory process.
@@ -261,7 +275,7 @@ en:
         local_area: Organization Area
         participatory_scope: What is decided
         participatory_structure: How is it decided
-        private_process: This is a private process
+        private_space: This is a private process
         scope: Scope
         start_date: Start date
         target: Who participates

@@ -9,7 +9,7 @@ module Decidim
         include Decidim::Admin::ParticipatorySpaceAdminContext
         participatory_space_admin_layout only: [:edit]
 
-        helper ProcessGroupsForSelectHelper, ProcessUsersForSelectHelper
+        helper ProcessGroupsForSelectHelper
 
         helper_method :current_participatory_process, :current_participatory_space
 

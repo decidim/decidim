@@ -44,8 +44,8 @@ module Decidim
 
     has_many :features, as: :participatory_space, dependent: :destroy
 
-    has_many :participatory_process_users, class_name: "Decidim::ParticipatoryProcessUser", foreign_key: "decidim_participatory_process_id", dependent: :destroy
-    has_many :users, through: :participatory_process_users, class_name: "Decidim::User", foreign_key: "decidim_user_id"
+    has_many :participatory_process_private_users, class_name: "Decidim::ParticipatoryProcessPrivateUser", foreign_key: "decidim_participatory_process_id", dependent: :destroy
+    has_many :users, through: :participatory_process_private_users, class_name: "Decidim::User", foreign_key: "decidim_user_id"
 
     attr_readonly :active_step
 
@@ -60,11 +60,12 @@ module Decidim
     scope :active, -> { where(arel_table[:start_date].lteq(Time.current).and(arel_table[:end_date].gt(Time.current).or(arel_table[:end_date].eq(nil)))) }
 
     scope :user_process, lambda { |user|
-      joins("LEFT JOIN decidim_participatory_process_users ON
-             decidim_participatory_process_users.decidim_participatory_process_id = decidim_participatory_processes.id")
-        .where("(private_process = true and decidim_participatory_process_users.decidim_user_id
-             = #{user} ) or private_process = false")
+      joins("LEFT JOIN decidim_participatory_process_private_users ON
+             decidim_participatory_process_private_users.decidim_participatory_process_id = decidim_participatory_processes.id")
+        .where("(private_space = true and decidim_participatory_process_private_users.decidim_user_id
+             = #{user} ) or private_space = false")
     }
+
     # Scope to return only the promoted processes.
     #
     # Returns an ActiveRecord::Relation.
@@ -80,16 +81,16 @@ module Decidim
       slug
     end
 
-    def private_process?
-      private_process
+    def private_space?
+      private_space
     end
 
-    def self.private_process
-      where(private_process: true)
+    def self.private_space
+      where(private_space: true)
     end
 
     def self.public_process
-      where(private_process: false)
+      where(private_space: false)
     end
   end
 end

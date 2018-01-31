@@ -39,7 +39,7 @@
                 <%= l process.created_at, format: :short %>
               </td>
               <td class="table-list__state">
-                <% if process.private_process? %>
+                <% if process.private_space? %>
                   <strong class="text-alert"><%= t('participatory_processes.index.private', scope: "decidim.admin") %></strong>
                 <% else %>
                   <strong class="text-success"><%= t('participatory_processes.index.public', scope: "decidim.admin") %></strong>

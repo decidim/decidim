@@ -32,8 +32,8 @@ module Decidim
 
     has_many :features, as: :participatory_space, dependent: :destroy
 
-    has_many :assembly_users, class_name: "Decidim::AssemblyUser", foreign_key: "decidim_assembly_id", dependent: :destroy
-    has_many :users, through: :assembly_users, class_name: "Decidim::User", foreign_key: "decidim_user_id"
+    has_many :assembly_private_users, class_name: "Decidim::AssemblyPrivateUser", foreign_key: "decidim_assembly_id", dependent: :destroy
+    has_many :users, through: :assembly_private_users, class_name: "Decidim::User", foreign_key: "decidim_user_id"
 
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
@@ -42,10 +42,10 @@ module Decidim
     mount_uploader :banner_image, Decidim::BannerImageUploader
 
     scope :user_assembly, lambda { |user|
-      joins("LEFT JOIN decidim_assembly_users ON
-             decidim_assembly_users.decidim_assembly_id = decidim_assemblies.id")
-        .where("(private_assembly = true and decidim_assembly_users.decidim_user_id
-             = #{user} ) or private_assembly = false")
+      joins("LEFT JOIN decidim_assembly_private_users ON
+             decidim_assembly_private_users.decidim_assembly_id = decidim_assemblies.id")
+        .where("(private_space = true and decidim_assembly_private_users.decidim_user_id
+             = #{user} ) or private_space = false")
     }
     # Scope to return only the promoted assemblies.
     #
@@ -62,16 +62,16 @@ module Decidim
       slug
     end
 
-    def private_assembly?
-      private_assembly
+    def private_space?
+      private_space
     end
 
-    def self.private_assembly
-      where(private_assembly: true)
+    def self.private_space
+      where(private_space: true)
     end
 
     def self.public_assembly
-      where(private_assembly: false)
+      where(private_space: false)
     end
   end
 end
