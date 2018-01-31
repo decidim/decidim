@@ -57,7 +57,6 @@ module Decidim
             recipient_ids: [proposal.decidim_author_id]
           )
         end
-
       end
     end
   end
