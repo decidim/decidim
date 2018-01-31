@@ -25,7 +25,10 @@ module Decidim
     end
 
     context "when content has an invalid Decidim::User Global ID" do
-      let(:content) { "This text contains a invalid gid for removed user: #{user.to_global_id.to_s.gsub(/\d$/, "0")}" }
+      let(:user) { create(:user, :confirmed) }
+      let(:content) { "This text contains a invalid gid for removed user: #{user.to_global_id}" }
+
+      before { user.destroy }
 
       it "removes the Global ID" do
         expect(renderer.render).to eq("This text contains a invalid gid for removed user: ")
