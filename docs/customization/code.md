@@ -1,11 +1,11 @@
 # Code
 
-Decidim is multiple things: 
+Decidim is multiple things:
 
-* A command line utility, which can create an application 
-* A set of libraries, that the application can use 
+* A command line utility, which can create an application
+* A set of libraries, that the application can use
 
-Most of the time, you should work with the generated application. That application (development_app on this docs) should be named as your project, for instance for Barcelona City Council is `DecidimBarcelona`, so for creating it should be: 
+Most of the time, you should work with the generated application. That application (development_app on this docs) should be named as your project, for instance for Barcelona City Council is `DecidimBarcelona`, so for creating it should be:
 
 ```
 decidim DecidimBarcelona
@@ -26,4 +26,3 @@ gem "decidim-consultations", git: "https://github.com/decidim/decidim-module-con
 ```
 
 * Publishing it on rubygems.org
-

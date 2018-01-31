@@ -7,4 +7,3 @@ $(function(){
   alert('foobar');
 });
 ```
-
