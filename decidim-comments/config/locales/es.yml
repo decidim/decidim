@@ -65,6 +65,11 @@ es:
             email_outro: Recibió esta notificación porque está siguiendo "%{resource_title}" o su autor. Puedes dejar de seguirlo desde el enlace anterior.
             email_subject: Hay una nueva respuesta de tu comentario de %{author_name} en <a href="%{resource_url}">%{resource_title}</a>
             notification_title: Hay una nueva respuesta de tu comentario de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
+        user_mentioned:
+          email_intro: Usted ha sido mencionado
+          email_outro: Recibió esta notificación porque se le ha mencionado en "%{resource_title}".
+          email_subject: Usted ha sido mencionado en %{resource_title}
+          notification_title: Has sido mencionado en <a href="%{resource_path}">%{resource_title}</a> por <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:
     messages:
       cannot_have_comments: no puede tener comentarios
