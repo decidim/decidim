@@ -3,4 +3,11 @@
 </h2>
 <div class="content">
   <p><%= t ".welcome" %></p>
+  <div class="row">
+    <ul>
+      <% Decidim::ActionLog.order(id: :desc).first(20).each do |log| %>
+        <%= render_log(log) %>
+      <% end %>
+    </ul>
+  </div>
 </div>
