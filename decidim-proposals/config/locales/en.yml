@@ -129,9 +129,7 @@ en:
         success: Proposal created successfully.
       events:
         update_proposal_category_event:
-          email_intro: |-
-            Hi,
-            %{author_name} %{author_nickname}, an admin has updated your proposal %{resource_title}, check it out:
+          email_intro: "%{author_name} %{author_nickname}, an admin has updated your proposal %{resource_title}, check it out:"
           email_outro: You have received this notification because you are the author of the proposal. You can stop receiving notifications following the previous link.
           email_subject: The %{resource_title} proposal category has been updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been updated by an admin.
