@@ -24,10 +24,10 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim", Decidim::Dev.version
   s.add_dependency "factory_bot_rails", "~> 4.8"
 
-  s.add_dependency "byebug", "~> 9.0"
+  s.add_dependency "byebug", "~> 10.0"
   s.add_dependency "codecov", "~> 0.1.9"
   s.add_dependency "db-query-matchers", "~> 0.9.0"
-  s.add_dependency "i18n-tasks", "0.9.18"
+  s.add_dependency "i18n-tasks", "~> 0.9.18"
   s.add_dependency "listen", "~> 3.1"
   s.add_dependency "nokogiri", "~> 1.8"
   s.add_dependency "puma", "~> 3.10"
@@ -39,5 +39,5 @@ Gem::Specification.new do |s|
   s.add_dependency "selenium-webdriver", "~> 3.7"
   s.add_dependency "simplecov", "~> 0.13"
   s.add_dependency "webmock", "~> 3.0"
-  s.add_dependency "wisper-rspec", "~> 0.0.3"
+  s.add_dependency "wisper-rspec", "~> 1.0"
 end

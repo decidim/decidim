@@ -1,0 +1,17 @@
+<% progress ||= 0 %>
+<% total ||= 100 %>
+<% percent = (progress.to_f/total) * 100 %>
+<% vertical ||= false %>
+<div class="progress__bar<%= (vertical) ? ' progress__bar--vertical' : '' %>">
+  <div class="progress__bar__title">
+    <span class="progress__bar__number"><%= progress %></span>/<%= total %>
+    <span class="progress__bar__text">Apoyos</span>
+  </div>
+  <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="<%= percent %>" aria-valuemin="0" aria-valuetext="<%= percent %> percent" aria-valuemax="100">
+    <div class="progress-meter progress__bar__bar--complete" style="width: <%= percent %>%"></div>
+    <div class="progress__bar__bar--incomplete" style="width:calc(100% - <%= percent %>%);"></div>
+  </div>
+  <div class="progress__bar__subtitle">
+    Proposta molt popular <%= partial "help" %>
+  </div>
+</div>

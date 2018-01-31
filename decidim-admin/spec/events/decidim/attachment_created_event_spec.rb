@@ -3,28 +3,15 @@
 require "spec_helper"
 
 describe Decidim::AttachmentCreatedEvent do
-  subject do
-    described_class.new(resource: attachment, event_name: event_name, user: follower, extra: {})
-  end
+  include_context "simple event"
 
-  let(:follower) { create :user }
-  let(:event_name) { "decidim.events.attachment_created_event" }
-  let(:attachment) { create(:attachment) }
-  let(:attached_to_url) { Decidim::ResourceLocatorPresenter.new(attachment.attached_to).url }
-  let(:resource_title) { attachment.attached_to.title["en"] }
-  let(:resource_path) { attachment.url }
+  let(:event_name) { "decidim.events.attachments.attachment_created" }
+  let(:resource) { create(:attachment) }
+  let(:attached_to_url) { resource_locator(resource.attached_to).url }
+  let(:resource_title) { resource.attached_to.title["en"] }
+  let(:resource_path) { resource.url }
 
-  describe "types" do
-    subject { described_class }
-
-    it "supports notifications" do
-      expect(subject.types).to include :notification
-    end
-
-    it "supports emails" do
-      expect(subject.types).to include :email
-    end
-  end
+  it_behaves_like "an simple event"
 
   describe "email_subject" do
     it "is generated correctly" do

@@ -17,7 +17,7 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        types << :notification
+        type :notification
 
         def notification_title
           I18n.t(

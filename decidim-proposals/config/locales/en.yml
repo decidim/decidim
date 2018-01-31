@@ -12,6 +12,28 @@ en:
       proposal_answer:
         answer: Answer
   decidim:
+    events:
+      proposals:
+        proposal_accepted:
+          email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
+          email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+          email_subject: A proposal you're following has been accepted
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been accepted.
+        proposal_created:
+          email_intro: "%{author_name} %{author_nickname}, who you are following, has created a new proposal, check it out and contribute:"
+          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
+          email_subject: New proposal by %{author_nickname}
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_evaluating:
+          email_intro: 'The proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
+          email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+          email_subject: A proposal you're following is being evaluated
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is being evaluated.
+        proposal_rejected:
+          email_intro: 'The proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
+          email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+          email_subject: A proposal you're following has been rejected
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been rejected.
     features:
       proposals:
         actions:
@@ -106,28 +128,6 @@ en:
         error: There's been errors when saving the proposal.
         success: Proposal created successfully.
       events:
-        accepted_proposal_event:
-          email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
-          email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
-          email_subject: A proposal you're following has been accepted
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been accepted.
-        create_proposal_event:
-          email_intro: |-
-            Hi,
-            %{author_name} %{author_nickname}, who you are following, has created a new proposal, check it out and contribute:
-          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
-          email_subject: New proposal by %{author_nickname}
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        evaluating_proposal_event:
-          email_intro: 'The proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
-          email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
-          email_subject: A proposal you're following is being evaluated
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is being evaluated.
-        rejected_proposal_event:
-          email_intro: 'The proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
-          email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
-          email_subject: A proposal you're following has been rejected
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been rejected.
         update_proposal_category_event:
           email_intro: |-
             Hi,

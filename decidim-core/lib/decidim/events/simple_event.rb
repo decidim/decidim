@@ -1,0 +1,79 @@
+# frozen_string_literal: true
+
+module Decidim
+  module Events
+    # Extends the BaseEvent to add common features to most events so you don't
+    # need to write each time the same code.
+    #
+    # The only convention you need to keep in mind is that the event name will be
+    # used as the i18n scope to search for the keys.
+    class SimpleEvent < BaseEvent
+      include Decidim::Events::EmailEvent
+      include Decidim::Events::NotificationEvent
+
+      class_attribute :i18n_interpolations
+      self.i18n_interpolations = []
+
+      # Public: A method to add values to pass as interpolations to the I18n.t method.
+      #
+      # By default the resource_path, resource_title and resource_url are already included.
+      #
+      # attribute - A Symbol of the method name (and interpolation value) to add.
+      #
+      # Example:
+      #
+      #   class MyEvent < Decidim::Events::SimpleEvent
+      #     i18n_attributes :participatory_space_title
+      #   end
+      def self.i18n_attributes(*attributes)
+        self.i18n_interpolations += Array(attributes)
+      end
+
+      def email_subject
+        I18n.t("email_subject", i18n_options).html_safe
+      end
+
+      def email_intro
+        I18n.t("email_intro", i18n_options).html_safe
+      end
+
+      def email_outro
+        I18n.t("email_outro", i18n_options).html_safe
+      end
+
+      def notification_title
+        I18n.t("notification_title", i18n_options).html_safe
+      end
+
+      # Public: The String to use as scope to search for the keys
+      # when using I18n.t
+      #
+      # By default is the same value as the event name.
+      def i18n_scope
+        event_name
+      end
+
+      # Public: The Hash of options to pass to the I18.t method.
+      def i18n_options
+        default_i18n_options.merge(event_interpolations)
+      end
+
+      private
+
+      def event_interpolations
+        Array(self.class.i18n_interpolations).inject({}) do |all, attribute|
+          all.update(attribute => send(attribute))
+        end
+      end
+
+      def default_i18n_options
+        {
+          resource_path: resource_path,
+          resource_title: resource_title,
+          resource_url: resource_url,
+          scope: i18n_scope
+        }
+      end
+    end
+  end
+end
