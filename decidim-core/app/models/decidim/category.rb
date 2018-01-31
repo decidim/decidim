@@ -25,7 +25,7 @@ module Decidim
     end
 
     def translated_name
-      self.name[I18n.locale.to_s]
+      Decidim::CategoryPresenter.new(self).translated_name
     end
 
     def unused?
