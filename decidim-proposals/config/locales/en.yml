@@ -114,7 +114,7 @@ en:
             create: Create
             title: Create proposal
           update_category:
-            invalid: 'Theese proposals already had the %{category} category: %{proposals}.'
+            invalid: 'These proposals already had the %{category} category: %{proposals}.'
             select_a_category: Please select a category
             success: 'Proposals successfully updated to the %{category} category: %{proposals}.'
         shared:
