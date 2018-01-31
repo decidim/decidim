@@ -65,6 +65,11 @@ ca:
             email_outro: Heu rebut aquesta notificació perquè esteu seguint "%{resource_title}" o el seu autor. Podeu deixar de seguir-lo des de l'enllaç anterior.
             email_subject: Hi ha una nova resposta del vostre comentari des de %{author_name} a <a href="%{resource_url}">%{resource_title}</a>
             notification_title: Hi ha una nova resposta del vostre comentari des de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
+        user_mentioned:
+          email_intro: Has estat esmentat
+          email_outro: Heu rebut aquesta notificació perquè heu esmentat a "%{resource_title}".
+          email_subject: Has estat esmentat a %{resource_title}
+          notification_title: Has estat esmentat a <a href="%{resource_path}">%{resource_title}</a> per <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:
     messages:
       cannot_have_comments: no pot tenir comentaris
