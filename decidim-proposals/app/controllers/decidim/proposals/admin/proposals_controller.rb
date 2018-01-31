@@ -39,7 +39,7 @@ module Decidim
             updated = { oks: [], invalids: [] }
 
             Proposal.where(id: params[:proposal_ids]).find_each do |proposal|
-              Admin::UpdateProposal.call(category, proposal) do
+              Admin::UpdateProposalCategory.call(category, proposal) do
                 on(:ok) { updated[:oks] << proposal.title }
 
                 on(:invalid) { updated[:invalids] << proposal.title }

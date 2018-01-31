@@ -4,7 +4,7 @@ module Decidim
   module Proposals
     module Admin
       #  A command with all the business logic when an admin updates a proposal.
-      class UpdateProposal < Rectify::Command
+      class UpdateProposalCategory < Rectify::Command
         # Public: Initializes the command.
         #
         # category     - the category to update
