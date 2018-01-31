@@ -35,9 +35,7 @@
         <table class="table-list">
           <thead>
             <tr>
-              <th>
-                <%= check_box_tag "proposals_recategorize", "all", false, class: "js-check-all" %>
-              </th>
+              <th></th>
               <th>
                 <%= sort_link(query, :id, t("models.proposal.fields.id", scope: "decidim.proposals"), default_order: :desc ) %>
               </th>
@@ -47,16 +45,6 @@
               <th>
                 <%= sort_link(query, :category_name, t("models.proposal.fields.category", scope: "decidim.proposals") ) %>
               </th>
-
-            <% if can? :create, Decidim::Proposals::ProposalNote %>
-              <th>
-                <%= sort_link(query, :proposal_notes_count, t("models.proposal.fields.notes", scope: "decidim.proposals") ) %>
-              </th>
-            <% end %>
-
-            <th>
-              <%= sort_link(query, :created_at, t("models.proposal.fields.created_at", scope: "decidim.proposals") ) %>
-            </th>
 
               <% if scopes_enabled?(current_participatory_space) %>
                 <th>
@@ -77,6 +65,12 @@
               <% if current_feature.settings.comments_enabled? and !current_settings.comments_blocked? %>
                 <th>
                   <%= sort_link(query, :commentable_comments_count, t("models.proposal.fields.comments", scope: "decidim.proposals") ) %>
+                </th>
+              <% end %>
+
+              <% if can? :create, Decidim::Proposals::ProposalNote %>
+                <th>
+                  <%= sort_link(query, :proposal_notes_count, t("models.proposal.fields.notes", scope: "decidim.proposals") ) %>
                 </th>
               <% end %>
 
