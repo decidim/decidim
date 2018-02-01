@@ -80,6 +80,7 @@ you need to change the following line in `config/environments/production.rb`:
 
 **Fixed**:
 
+- **decidim-core**: Fix user re-invite. [\#2626](https://github.com/decidim/decidim/pull/2626)
 - **decidim-core**: Fix editing features in assemblies. [\#2524](https://github.com/decidim/decidim/pull/2524)
 - **decidim-core**: Fix the texts of 'New Message' email notifications. [\#2588](https://github.com/decidim/decidim/pull/2588)
 - **decidim-admin**: Properly save features weight on creation [\#2499](https://github.com/decidim/decidim/pull/2499)
