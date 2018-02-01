@@ -24,14 +24,14 @@ ca:
           email_subject: Nova proposta de %{author_nickname}
           notification_title: La proposta "<a href="%{resource_path}">%{resource_title}</a>" ha estat creada per en/na <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_evaluating:
-          email_intro: 'La proposta "%{resource_title}" s''està avaluant actualment. Podeu consultar una resposta en aquesta pàgina:'
+          email_intro: 'La proposta "%{resource_title}" s''està avaluant actualment. Pots consultar una resposta en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
           email_subject: S'està avaluant una proposta que segueixes
           notification_title: S'ha avaluat la proposta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_rejected:
           email_intro: 'La proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta des d''aquesta pàgina:'
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint "%{resource_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
-          email_subject: S'ha rebutjat una proposta que sigueu
+          email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
+          email_subject: S'ha rebutjat una proposta que segueixes
           notification_title: S'ha rebutjat la proposta <a href="%{resource_path}">%{resource_title}</a>.
     features:
       proposals:
