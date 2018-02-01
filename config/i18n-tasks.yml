@@ -56,6 +56,7 @@ search:
       <%= "- #{path}/app/helpers\n" %>
       <%= "- #{path}/app/mailers\n" %>
       <%= "- #{path}/app/presenters\n" %>
+      <%= "- #{path}/app/services\n" %>
       <%= "- #{path}/app/views\n" %>
     <% end -%>
 
