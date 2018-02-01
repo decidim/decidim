@@ -3,48 +3,60 @@
 module Decidim
   module Proposals
     module Admin
-      #  A command with all the business logic when an admin updates a proposal category.
+      #  A command with all the business logic when an admin batch updates proposals category.
       class UpdateProposalCategory < Rectify::Command
         # Public: Initializes the command.
         #
-        # category - the category to update
-        # proposal - the proposal to update.
-        def initialize(category, proposal)
-          @category = category
-          @proposal = proposal
+        # category_id - the category id to update
+        # proposal_ids - the proposals ids to update.
+        def initialize(category_id, proposal_ids)
+          @category = Decidim::Category.find_by id: category_id
+          @proposal_ids = proposal_ids
+          @response = { category_name: '', oks: [], kos: [] }
         end
 
         # Executes the command. Broadcasts these events:
         #
-        # - :ok when everything is valid, together with the proposal.
-        # - :invalid if the category is blank or the same.
+        # - :update_proposals_category - when everything is ok, returns @response.
+        # - :invalid_category - if the category is blank.
+        # - :invalid_proposal_ids - if the proposal_ids is blank.
         #
-        # Returns nothing.
+        # Returns @response hash:
+        #
+        # - :category_name - the translated_name of the category assigned
+        # - :oks - Array of names of the updated proposals
+        # - :kos - Array of names of the proposals not updated because they already had the category assigned
         def call
-          return broadcast(:invalid) if category.blank?
-          return broadcast(:invalid) if category == proposal.category
+          return broadcast(:invalid_category) if @category.blank?
+          return broadcast(:invalid_proposal_ids) if @proposal_ids.blank?
 
-          transaction do
-            update_proposal_category
-            notify_author
+          @response[:category_name] = @category.translated_name
+          Proposal.where(id: @proposal_ids).find_each do |proposal|
+            if @category == proposal.category
+              @response[:kos] << proposal.title
+            else
+              transaction do
+                update_proposal_category proposal
+                notify_author proposal
+              end
+              @response[:oks] << proposal.title
+            end
           end
 
-          broadcast(:ok)
+          broadcast(:update_proposals_category, @response)
         end
 
         private
 
-        attr_reader :category, :proposal
-
-        def update_proposal_category
+        def update_proposal_category(proposal)
           proposal.update_attributes!(
-            category: category
+            category: @category
           )
         end
 
-        def notify_author
+        def notify_author(proposal)
           Decidim::EventsManager.publish(
-            event: "decidim.events.proposals.proposal_update_category",
+            event: 'decidim.events.proposals.proposal_update_category',
             event_class: Decidim::Proposals::Admin::UpdateProposalCategoryEvent,
             resource: proposal,
             recipient_ids: [proposal.decidim_author_id]

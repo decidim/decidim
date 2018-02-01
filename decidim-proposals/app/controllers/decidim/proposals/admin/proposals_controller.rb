@@ -21,53 +21,56 @@ module Decidim
 
           Admin::CreateProposal.call(@form) do
             on(:ok) do
-              flash[:notice] = I18n.t("proposals.create.success", scope: "decidim.proposals.admin")
+              flash[:notice] = I18n.t('proposals.create.success', scope: 'decidim.proposals.admin')
               redirect_to proposals_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("proposals.create.invalid", scope: "decidim.proposals.admin")
-              render action: "new"
+              flash.now[:alert] = I18n.t('proposals.create.invalid', scope: 'decidim.proposals.admin')
+              render action: 'new'
             end
           end
         end
 
         def update_category
           authorize! :update, Proposal
-          if params[:proposal_ids].present? && params[:category][:id].present?
-            category = Decidim::Category.find_by id: params[:category][:id]
-            updated = { oks: [], invalids: [] }
 
-            Proposal.where(id: params[:proposal_ids]).find_each do |proposal|
-              Admin::UpdateProposalCategory.call(category, proposal) do
-                on(:ok) { updated[:oks] << proposal.title }
+          Admin::UpdateProposalCategory.call(params[:category][:id], params[:proposal_ids]) do
+            on(:invalid_category) do
+              flash[:alert] = I18n.t(
+                'proposals.update_category.select_a_category',
+                scope: 'decidim.proposals.admin'
+              )
+            end
 
-                on(:invalid) { updated[:invalids] << proposal.title }
+            on(:invalid_proposal_ids) do
+              flash[:alert] = I18n.t(
+                'proposals.update_category.select_a_proposal',
+                scope: 'decidim.proposals.admin'
+              )
+            end
+
+            on(:update_proposals_category) do
+              if @response[:oks].present?
+                flash[:notice] = I18n.t(
+                  'proposals.update_category.success',
+                  category: @response[:category_name],
+                  proposals: @response[:oks].to_sentence,
+                  scope: 'decidim.proposals.admin'
+                )
+              end
+
+              if @response[:kos].present?
+                flash[:alert] = I18n.t(
+                  'proposals.update_category.invalid',
+                  category: @response[:category_name],
+                  proposals: @response[:kos].to_sentence,
+                  scope: 'decidim.proposals.admin'
+                )
               end
             end
-            if updated[:oks].present?
-              flash[:notice] = I18n.t(
-                "proposals.update_category.success",
-                category: category.translated_name,
-                proposals: updated[:oks].to_sentence,
-                scope: "decidim.proposals.admin"
-              )
-            end
-
-            if updated[:invalids].present?
-              flash[:alert] = I18n.t(
-                "proposals.update_category.invalid",
-                category: category.translated_name,
-                proposals: updated[:invalids].to_sentence,
-                scope: "decidim.proposals.admin"
-              )
-            end
-          else
-            flash[:alert] = I18n.t(
-              "proposals.update_category.select_a_category",
-              scope: "decidim.proposals.admin"
-            )
           end
+
           redirect_to proposals_path
         end
 

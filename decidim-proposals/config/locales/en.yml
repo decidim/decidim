@@ -116,6 +116,7 @@ en:
           update_category:
             invalid: 'These proposals already had the %{category} category: %{proposals}.'
             select_a_category: Please select a category
+            select_a_proposal: Please select a proposal
             success: 'Proposals successfully updated to the %{category} category: %{proposals}.'
         shared:
           info_proposal:
