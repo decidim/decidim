@@ -1,43 +1,55 @@
 # frozen_string_literal: true
 
-require "spec_helper"
+require 'spec_helper'
 
 module Decidim
   module Proposals
     module Admin
-      describe UpdateProposal do
-        describe "call" do
+      describe UpdateProposalCategory do
+        describe 'call' do
           let(:organization) { create(:organization) }
-          let(:participatory_process) { create(:participatory_process, organization: organization) }
-          let(:feature) { create(:proposal_feature, participatory_space: participatory_process) }
-          let!(:category_one) { create :category, participatory_space: participatory_process }
-          let!(:category) { create :category, participatory_space: participatory_process }
-          let!(:proposal) { create :proposal, feature: feature, category: category_one }
 
-          describe "when the category is not valid" do
+          let!(:proposal) { create :proposal }
+          let!(:proposals) { create_list(:proposal, 3, feature: proposal.feature) }
+          let!(:category_one) { create :category, participatory_space: proposal.feature.participatory_space }
+          let!(:category) { create :category, participatory_space: proposal.feature.participatory_space }
 
-            it "broadcasts invalid" do
-              expect { described_class.call(proposal.category, proposal) }.to broadcast(:invalid)
-              expect { described_class.call(nil, proposal) }.to broadcast(:invalid)
-            end
-
-            it "doesn't update the proposal" do
-              expect(proposal).not_to receive(:update_attributes!)
-
-              described_class.call(proposal.category, proposal).call
+          context 'with no category' do
+            it 'broadcasts invalid_category' do
+              expect { described_class.call(nil, proposal.id) }.to broadcast(:invalid_category)
             end
           end
 
-          describe "when the category is valid" do
-
-            it "broadcasts ok" do
-              expect { described_class.call(category, proposal) }.to broadcast(:ok)
+          context 'with no proposals' do
+            it 'broadcasts invalid_proposal_ids' do
+              expect { described_class.call(category.id, nil) }.to broadcast(:invalid_proposal_ids)
             end
+          end
 
-            it "updates the proposal" do
-              described_class.call(category, proposal)
+          describe 'with a category and proposals' do
+            context "when the category is the same as the proposal's category" do
+              before do
+                proposal.update_attributes!(category: category)
+              end
 
-              expect(proposal.reload.category).to eq(category)
+              it "doesn't update the proposal" do
+                described_class.call(proposal.category.id, proposal.id).call
+                expect(proposal).not_to receive(:update_attributes!)
+              end
+            end
+            context "when the category is diferent from the proposal's category" do
+              before do
+                proposals.each { |p| p.update_attributes!(category: category_one) }
+              end
+              it 'broadcasts update_proposals_category' do
+                expect { described_class.call(category.id, proposals.pluck(:id)) }.to broadcast(:update_proposals_category)
+              end
+
+              it 'updates the proposal' do
+                described_class.call(category.id, proposal.id)
+
+                expect(proposal.reload.category).to eq(category)
+              end
             end
           end
         end
