@@ -30,5 +30,4 @@ Decidim::Comments::Comment.class_eval do
   prepend(CommentExtend)
   after_create :create_comment_moderation
   after_create :update_moderation
-  delegate :users_to_notify_on_comment_created, to: :root_commentable
 end

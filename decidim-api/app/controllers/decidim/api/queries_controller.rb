@@ -17,13 +17,6 @@ module Decidim
 
       private
 
-      def store_current_user
-        Thread.current[:current_user] = current_user
-        yield
-        ensure
-        Thread.current[:current_user] = nil
-      end
-
       def context
         {
           current_organization: current_organization,
@@ -39,6 +32,13 @@ module Decidim
         else
           query_variables
         end
+      end
+
+      def store_current_user
+        Thread.current[:current_user] = current_user
+        yield
+        ensure
+        Thread.current[:current_user] = nil
       end
     end
   end

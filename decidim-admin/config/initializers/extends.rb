@@ -1,1 +1,0 @@
-require "extends/moderations_controller.rb"
