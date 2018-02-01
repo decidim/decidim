@@ -208,10 +208,6 @@ $datetime-bg: $primary;
   flex-wrap: wrap;
 }
 
-.card-data--blog{
-  justify-content: flex-end;
-}
-
 .card-data__item{
   display: inline-block;
   flex-basis: 33.33%;
@@ -235,11 +231,6 @@ $datetime-bg: $primary;
   font-size: rem-calc(20);
   color: $body-font-color;
   margin-bottom: .2rem;
-}
-
-.card-data__item--blog{
-  padding: 1.25em 2em;
-  flex: 0 0 auto;
 }
 
 /* Card popularity */
@@ -606,6 +597,14 @@ $datetime-bg: $primary;
   .card-data__item{
     flex-basis: initial;
     padding: 1em .5em;
+
+    &:empty{
+      border-right: 0;
+
+      & + .card-data__item:not(:empty){
+        border-left: $border;
+      }
+    }
   }
 
   .card-status__text{
