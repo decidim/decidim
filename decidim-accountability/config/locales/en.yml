@@ -95,6 +95,9 @@ en:
           update:
             invalid: There's been a problem updating this entry
             success: Entry successfully updated
+      admin_log:
+        result:
+          create: "%{user_name} created result %{result_name} in %{space_name}"
       models:
         result:
           fields:
