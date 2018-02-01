@@ -8,6 +8,7 @@ it:
         description: Descrizione
         end_date: Data finale
         progress: Progresso
+        project_ids: Progetti inclusi
         proposal_ids: Proposte incluse
         start_date: Date di inizio
         title: Nome
@@ -118,7 +119,6 @@ it:
             other: "%{count} risultati"
         filters:
           all: Tutto
-          global: Globale
           scopes: Visibilità
         home:
           categories_label: Categorie
@@ -170,5 +170,7 @@ it:
           step:
             comments_blocked: Commenti bloccati
     resource_links:
+      included_projects:
+        result_projects: Progetti inclusi in questo risultato
       included_proposals:
         result_proposals: Proposte incluse in questo risultato

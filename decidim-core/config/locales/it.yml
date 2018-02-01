@@ -8,6 +8,7 @@ it:
       user:
         email: La tua email
         name: Il tuo nome
+        nickname: Il tuo identificatore breve e univoco in decidim
         password: Nuova password
         password_confirmation: Conferma la nuova password
         remove_avatar: Rimuovi avatar
@@ -88,15 +89,15 @@ it:
           email_already_exists: Questo indirizzo email è già utilizzato per un altro account
         new:
           complete_profile: Completa il profilo
-          nickname_help: Il tuo identificatore univoco in decidim.
+          nickname_help: Il tuo identificatore breve e univoco in decidim
           sign_up: Si prega di completare il profilo
           subtitle: Si prega di compilare il seguente modulo per completare la registrazione
           username_help: Nome pubblico che appare suoi tuoi post. Con l'obiettivo di garantire l'anonimato, può essere qualsiasi nome.
       registrations:
         new:
           already_have_an_account?: Hai già un account?
-          newsletter_notifications: Ricevi informazioni sulle attività rilevanti
-          nickname_help: Il tuo identificatore univoco in decidim.
+          nickname_help: Il tuo identificatore breve e univoco in decidim
+          notifications: Ricevi informazioni sull'attività rilevante
           sign_in: Accedi
           sign_up: Iscriviti
           sign_up_as:
@@ -128,8 +129,23 @@ it:
         email_intro: 'C''è stato un aggiornamento a "%{resource_title}". Si può vedere da questa pagina:'
         email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
         email_subject: Un aggiornamento per %{resource_title}
+      feature_published_event:
+        email_intro: 'Il componente %{resource_title} è ora attivo per %{participatory_space_title}. Puoi vederlo da questa pagina:'
+        email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+        email_subject: Un aggiornamento a %{participatory_space_title}
+        notification_title: Il componente %{resource_title} è ora attivo per <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Si è verificato un evento di <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_process_step_activated_event:
+        email_intro: 'Il passaggio %{resource_title} è ora attivo per %{participatory_space_title}. Puoi vederlo da questa pagina:'
+        email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+        email_subject: Un aggiornamento a %{participatory_space_title}
+        notification_title: Il passaggio %{resource_title} è ora attivo per <a href="%{resource_path}">%{participatory_space_title}</a>
+      profile_updated_event:
+        email_intro: La pagina <a href="%{profile_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
+        email_outro: Hai ricevuto questa notifica perché stai seguendo %{nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+        email_subject: "%{nickname} ha aggiornato il proprio profilo"
+        notification_title: La pagina <a href="%{profile_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
     export_mailer:
       export:
         ready: In allegato una versione zippata (Zip) dei dati esportati.
@@ -207,10 +223,19 @@ it:
     newsletter_mailer:
       newsletter:
         note: Hai ricevuto questa email perché ti sei iscritto alla newsletter su %{organization_name}. Puoi modificare le impostazioni sulla tua <a href="%{link}">pagina di notifiche</a>.
+        see_on_website: Non riesci a vedere questa email correttamente? Visualizzalo su <a href="%{link}" target="_blank">website</a>.
+        unsubscribe: Per disattivare la ricezione di questo tipo di email, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Se desideri modificare le tue preferenze, puoi farlo nella pagina di configurazione <a href="%{link}" target="_blank"></a>
+        error: Si è verificato un errore durante l'annullamento dell'iscrizione
+        success: Hai annullato l'iscrizione.
+        token_error: Il link è scaduto.
+        unsubscribe: Annulla l'iscrizione
     notifications_settings:
       show:
         email_on_notification: Voglio ricevere un'e-mail ogni volta che ricevo una notifica.
-        newsletter_notifications: Desidero ricevere informazioni sulle attività rilevanti.
+        newsletter_notifications: Voglio ricevere le newsletter
         update_notifications_settings: Salva le modifiche
       update:
         error: Si è verificato un errore durante l'aggiornamento delle impostazioni di notifica.
@@ -225,6 +250,9 @@ it:
         title: Informazione
     profiles:
       default_officialization_text: Questo partecipante è verificato pubblicamente, il suo nome o ruolo è stato verificato per corrispondere con il suo vero nome e ruolo
+      show:
+        about_me: A proposito di me
+        personal_url: Sito web personale
     reported_mailer:
       hide:
         hello: Ciao %{name},
@@ -257,6 +285,7 @@ it:
         incomplete:
           cancel: Annulla
           explanation: 'Nonostante già sei autorizzato con "%{authorization}", abbiamo bisogno che tu richieda una nuova autorizzazione poiché risultano mancanti i seguenti dati:'
+          invalid_field: "%{field}"
           reauthorize: Ri-autorizzare
           title: Per favore, occorre una nuova autorizzazione
         missing:
@@ -269,7 +298,7 @@ it:
           title: L'autorizzazione è ancora in corso
         unauthorized:
           explanation: Non puoi eseguire questa azione poiché alcuni dei tuoi dati di autorizzazione non corrispondono.
-          invalid: "%{field} non è valido."
+          invalid_field: "%{field} valore %{value} non è valido."
           ok: Ok
           title: Non autorizzato
       author:

@@ -12,11 +12,11 @@ Gem::Specification.new do |s|
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/decidim/decidim"
-  s.required_ruby_version = ">= 2.3.1"
+  s.required_ruby_version = ">= 2.3"
 
   s.name = "decidim-pages"
-  s.summary = "A pages component for decidim's participatory processes."
-  s.description = s.summary
+  s.summary = "Decidim pages module"
+  s.description = "A pages component for decidim's participatory processes."
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 

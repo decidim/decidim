@@ -4,7 +4,6 @@ require "spec_helper"
 
 shared_examples "Managing feature permissions" do
   let(:organization) { create(:organization, available_authorizations: ["dummy_authorization_handler"]) }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
 
   let!(:feature) do
     create(:feature, participatory_space: participatory_space)

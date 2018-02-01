@@ -18,6 +18,7 @@ const generateCommentsData = (num = 1) => {
       id: random.uuid(),
       type: "Decidim::Comments::Comment",
       body: lorem.words(),
+      formattedBody: lorem.words(),
       createdAt: creationDate.toISOString(),
       formattedCreatedAt: creationDate.toLocaleTimeString(),
       author: {

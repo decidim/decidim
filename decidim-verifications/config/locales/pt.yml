@@ -55,6 +55,10 @@ pt:
           authorize_with: Verifique com %{authorizer}
         skip_verification: Você pode ignorar isso por enquanto e %{link}
         start_exploring: comece a explorar
+      dummy_authorization:
+        extra_explanation:
+          one: A participação é restrita aos usuários com o código postal %{postal_codes}.
+          other: 'A participação é restrita aos usuários com qualquer um dos seguintes códigos postais: %{postal_codes}.'
       id_documents:
         admin:
           confirmations:

@@ -10,7 +10,7 @@ categories, and are fully manageable via an administration UI.
 
 ## Usage
 
-This plugin provides:
+This module provides:
 
 * A CRUD engine to manage participatory processes.
 

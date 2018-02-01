@@ -10,7 +10,7 @@ module Decidim::Meetings
     let(:available_slots) { 10 }
     let(:organization) { create :organization }
     let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:process_admin) { create :user, :process_admin, participatory_process: participatory_process }
+    let(:process_admin) { create :process_admin, participatory_process: participatory_process }
     let(:feature) { create :feature, manifest_name: :meetings, participatory_space: participatory_process }
     let(:meeting) { create :meeting, feature: feature, registrations_enabled: registrations_enabled, available_slots: available_slots }
     let(:user) { create :user, :confirmed, organization: organization }

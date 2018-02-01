@@ -59,9 +59,27 @@ sv:
         destroy:
           error: Ett fel uppstod vid publicering av denna montering.
           success: Sammansättningen avpubliceras framgångsrikt.
+      assembly_user_roles:
+        create:
+          error: Det gick inte att lägga till en användare för den här enheten.
+          success: Användaren skapades framgångsrikt för den här enheten.
+        destroy:
+          success: Användaren förstördes framgångsrikt för denna montering.
+        edit:
+          title: Uppdatera monteringsanvändaren.
+          update: Uppdatering
+        index:
+          assembly_admins_title: Monteringsanvändare
+        new:
+          create: Skapa
+          title: Ny monteringsanvändare.
+        update:
+          error: Det uppstod ett fel som uppdaterade en användare för den här enheten.
+          success: Användaren uppdaterades framgångsrikt för denna montering.
       menu:
         assemblies: Assemblies
         assemblies_submenu:
+          assembly_admins: Monteringsanvändare
           attachments: bilagor
           categories: kategorier
           features: Funktioner
@@ -75,6 +93,16 @@ sv:
             published: Publicerad
             title: Titel
           name: hopsättning
+        assembly_user_role:
+          fields:
+            email: E-post
+            name: namn
+            role: Roll
+          name: Monteringsanvändare
+          roles:
+            admin: Administratör
+            collaborator: Medarbetare
+            moderator: moderator
       titles:
         assemblies: Assemblies
     assemblies:

@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 Decidim.register_participatory_space(:assemblies) do |participatory_space|
-  participatory_space.engine = Decidim::Assemblies::Engine
-  participatory_space.admin_engine = Decidim::Assemblies::AdminEngine
   participatory_space.icon = "decidim/assemblies/icon.svg"
   participatory_space.model_class_name = "Decidim::Assembly"
 
@@ -10,11 +8,21 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
     Decidim::Assemblies::OrganizationAssemblies.new(organization).query
   end
 
+  participatory_space.context(:public) do |context|
+    context.engine = Decidim::Assemblies::Engine
+    context.layout = "layouts/decidim/assembly"
+  end
+
+  participatory_space.context(:admin) do |context|
+    context.engine = Decidim::Assemblies::AdminEngine
+    context.layout = "layouts/decidim/admin/assembly"
+  end
+
   participatory_space.seeds do
     organization = Decidim::Organization.first
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
 
-    2.times do
+    2.times do |n|
       assembly = Decidim::Assembly.create!(
         title: Decidim::Faker::Localized.sentence(5),
         slug: Faker::Internet.unique.slug(nil, "-"),
@@ -37,7 +45,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         target: Decidim::Faker::Localized.sentence(3),
         participatory_scope: Decidim::Faker::Localized.sentence(1),
         participatory_structure: Decidim::Faker::Localized.sentence(2),
-        scope: Faker::Boolean.boolean(0.5) ? nil : Decidim::Scope.reorder("RANDOM()").first
+        scope: n.positive? ? Decidim::Scope.reorder("RANDOM()").first : nil
       )
 
       Decidim::Attachment.create!(

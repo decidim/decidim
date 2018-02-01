@@ -60,11 +60,13 @@ module Decidim
           official_img_footer: form.official_img_footer,
           remove_official_img_footer: form.remove_official_img_footer,
           official_url: form.official_url,
-          show_statistics: form.show_statistics
+          show_statistics: form.show_statistics,
+          enable_omnipresent_banner: form.enable_omnipresent_banner,
+          omnipresent_banner_url: form.omnipresent_banner_url,
+          omnipresent_banner_short_description: form.omnipresent_banner_short_description,
+          omnipresent_banner_title: form.omnipresent_banner_title
         }.tap do |attributes|
-          if Decidim.enable_html_header_snippets
-            attributes[:header_snippets] = form.header_snippets
-          end
+          attributes[:header_snippets] = form.header_snippets if Decidim.enable_html_header_snippets
         end
       end
     end

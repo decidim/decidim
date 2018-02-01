@@ -42,10 +42,6 @@ module Decidim
         }
       end
 
-      def extension_module
-        "#{module_name}::#{demodulized_name}Context".constantize
-      end
-
       def admin_extension_module
         "#{admin_module_name}::#{demodulized_name}Context".constantize
       end

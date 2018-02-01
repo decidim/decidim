@@ -59,9 +59,27 @@ pl:
         destroy:
           error: Podczas publikowania tego wystąpienia wystąpił błąd.
           success: Zgromadzenie nie zostało pomyślnie opublikowane.
+      assembly_user_roles:
+        create:
+          error: Wystąpił błąd podczas dodawania użytkownika do tego zestawu.
+          success: Użytkownik został pomyślnie utworzony dla tego zespołu.
+        destroy:
+          success: Użytkownik został pomyślnie zniszczony dla tego zespołu.
+        edit:
+          title: Zaktualizuj użytkownika złożenia.
+          update: Aktualizacja
+        index:
+          assembly_admins_title: Użytkownicy montażu
+        new:
+          create: Stwórz
+          title: Nowy użytkownik złożenia.
+        update:
+          error: Wystąpił błąd podczas aktualizacji użytkownika dla tego zespołu.
+          success: Użytkownik zaktualizowany pomyślnie dla tego zespołu.
       menu:
         assemblies: Zespoły
         assemblies_submenu:
+          assembly_admins: Użytkownicy montażu
           attachments: Załączniki
           categories: Kategorie
           features: cechy
@@ -75,6 +93,16 @@ pl:
             published: Opublikowany
             title: Tytuł
           name: Montaż
+        assembly_user_role:
+          fields:
+            email: E-mail
+            name: Nazwa
+            role: Rola
+          name: Użytkownik złożenia
+          roles:
+            admin: Administrator
+            collaborator: Współpracownik
+            moderator: Moderator
       titles:
         assemblies: Zespoły
     assemblies:

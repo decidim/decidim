@@ -1,0 +1,113 @@
+fi:
+  activemodel:
+    attributes:
+      debate:
+        decidim_category_id: Kategoria
+        description: Kuvaus
+        end_time: Päättyy klo
+        information_updates: Tietojen päivitykset
+        instructions: Osallistumisohjeet
+        start_time: Alkaa
+        title: otsikko
+        user_group_id: Luo keskustelu nimellä
+  decidim:
+    debates:
+      actions:
+        confirm_destroy: Oletko varma?
+        destroy: Poistaa
+        edit: Muokata
+        new: Uusi %{name}
+        title: Toimet
+      admin:
+        debates:
+          create:
+            invalid: Keskustelun aikana on ollut ongelma.
+            success: Keskustelu onnistui.
+          destroy:
+            success: Keskustelu poistettiin onnistuneesti.
+          edit:
+            title: Muokkaa keskustelua
+            update: Päivitä keskustelu
+          index:
+            title: keskustelut
+          new:
+            create: Luo keskustelu
+            title: Uusi keskustelu
+          update:
+            invalid: Keskustelun päivittämisessä on ollut ongelma.
+            success: Keskustelu onnistui.
+        models:
+          debate:
+            name: Keskustelu
+      debates:
+        count:
+          debates_count:
+            one: "%{count} keskustelu"
+            other: "%{count} keskustelut"
+        create:
+          invalid: Keskustelun aikana on ollut ongelma.
+          success: Keskustelu onnistui.
+        debate:
+          comments:
+            one: Kommentti
+            other: Kommentit
+          participate: Osallistua
+        filters:
+          all: Kaikki
+          category: Kategoria
+          category_prompt: Valitse kategoria
+          citizens: Kansalaiset
+          official: Virallinen
+          origin: alkuperä
+          search: Hae
+        filters_small_view:
+          close_modal: Sulje modeemi
+          filter: Suodattaa
+          filter_by: Suodata
+          unfold: avautua
+        index:
+          new_debate: Uusi keskustelu
+        new:
+          back: Takaisin
+          create: Luoda
+          select_a_category: Valitse kategoria
+          title: Uusi keskustelu
+        share:
+          close_window: Sulje ikkuna
+          share: Jaa
+          share_link: Jaa linkki
+        show:
+          comments: Kommentit
+          report: raportti
+      events:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hei, %{space_title} osallistuvaan tilaan on luotu uusi keskustelu, tarkista se ja osallistu:
+            email_outro: Olet saanut tämän ilmoituksen, koska noudatat %{space_title} osallistumistilaa. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+            email_subject: Uusi keskustelu %{space_title}
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> keskustelu luotiin <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Hei, %{author_name} %{author_nickname}, jonka seuraat, on luonut uuden keskustelun, tarkista sen ja edistä:
+            email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+            email_subject: Uusi keskustelu %{author_nickname}
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> keskustelu luotiin <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      models:
+        debate:
+          fields:
+            end_time: Päättymispäivä
+            official_debate: Virallinen keskustelu
+            start_time: Aloituspäivämäärä
+            title: otsikko
+    features:
+      debates:
+        actions:
+          create: Luoda
+        name: keskustelut
+        settings:
+          global:
+            comments_enabled: Kommentit ovat käytössä
+          step:
+            comments_blocked: Kommentit on estetty
+            creation_enabled: Keskustelujen luominen käyttäjien toimesta

@@ -9,7 +9,8 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        has_many :comments, as: :commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", class_name: "Decidim::Comments::Comment"
+        has_many :comment_threads, as: :root_commentable, foreign_key: "decidim_commentable_id", foreign_type: "decidim_commentable_type", class_name: "Decidim::Comments::Comment"
+        has_many :comments, as: :commentable, foreign_key: "decidim_root_commentable_id", foreign_type: "decidim_root_commentable_type", class_name: "Decidim::Comments::Comment"
 
         # Public: Whether the object's comments are visible or not.
         def commentable?

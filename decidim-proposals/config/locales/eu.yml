@@ -42,6 +42,7 @@ eu:
       actions:
         answer: Erantzuna
         new: Berria
+        private_notes: Ohar pribatuak
         title: Ekintzak
       admin:
         actions:
@@ -59,6 +60,12 @@ eu:
             evaluating: Ebaluatzen
             rejected: Ukatua
             title: 'Erantzun proposamen honi: %{title}'
+        proposal_notes:
+          form:
+            note: Ohar
+            submit: Bidali
+          leave_your_note: Utzi zure oharra
+          title: Ohar pribatuak
         proposals:
           answer:
             invalid: Arazo bat izan da proposamen honi erantzutean.
@@ -74,26 +81,51 @@ eu:
           new:
             create: Sortu
             title: Sortu proposamena
+        shared:
+          info_proposal:
+            body: Gorputzeko
+            created_at: Sortze data
+            proposal_votes_count: Botoen zenbaketa
+            proposals: proposamenak
       answers:
         accepted: Onartuta
         evaluating: Ebaluatzen
         not_answered: Erantzun gabe
         rejected: Ukatua
+        withdrawn: kendu
       create:
         error: Erroreak gertatu dira proposamena gordetzean.
         success: Proposamena zuzen sortu da.
       events:
+        accepted_proposal_event:
+          email_intro: '"%{resource_title}" proposamena onartu da. Orri honetan erantzun dezakezu:'
+          email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: Ondorengo proposamen bat onartu da
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena onartu da.
         create_proposal_event:
           email_intro: |-
             Kaixo, %{author_name} %{author_nickname}, jarraitzen ari zarenari, proposamen berri bat sortu du, egiaztatu eta lagundu:
           email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Proposamen berria %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena <a href="%{author_path}">%{author_name} %{author_nickname}</a> sortu zen.
+        evaluating_proposal_event:
+          email_intro: '"%{resource_title}" proposamena ebaluatzen ari da. Orri honetan erantzun dezakezu:'
+          email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: Jarraitzen ari zaren proposamena ebaluatzen ari da
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena ebaluatzen ari da.
+        rejected_proposal_event:
+          email_intro: '"%{resource_title}" proposamena baztertu egin da. Orri honetan erantzun dezakezu:'
+          email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: Ondorengo proposamen bat baztertu egin da
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena baztertu da.
       models:
         proposal:
           fields:
             category: Kategoria
+            comments: Oharrak
+            created_at: Sortutako at
             id: NORTASUN AGIRIA
+            notes: Oharrak
             official_proposal: Proposamen ofiziala
             scope: Esparrua
             state: Egoera
@@ -136,6 +168,7 @@ eu:
           unfold: Zabaldu
         index:
           new_proposal: Proposamen berria
+          see_all_withdrawn: Ikusi guztiak kendutako proposamenak
           view_proposal: Ikusi proposamena
         linked_proposals:
           proposal_votes:
@@ -164,6 +197,8 @@ eu:
           proposal_in_evaluation_reason: Proposamen hau ebaluatzen ari da
           proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'
           report: Salatu
+          withdraw_confirmation: Ziur al zaude proposamen hau kendu nahi duzula?
+          withdraw_proposal: Ezabatu proposamena
         vote_button:
           already_voted: Bozkatuta duzu
           already_voted_hover: Unvote
@@ -189,6 +224,8 @@ eu:
         error: Arazoak izan dira proposamena gordetzean.
         success: Proposamena ondo eguneratu da.
     resource_links:
+      included_projects:
+        project_results: 'Proiektu honetan agertzen diren emaitzak:'
       included_proposals:
         proposal_projects: 'Proiektu hauetatik sortutako proposamena:'
         proposal_results: 'Emaitza hauetatik sortutako proposamena:'

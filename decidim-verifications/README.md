@@ -1,7 +1,7 @@
 # Decidim::Verifications
 
 Decidim offers several methods for allowing participants to get authorization to
-perform certain privileged actions. This gem implements several of those methods
+perform certain privileged actions. This module implements several of those methods
 and also offers a way for installation to implement their custom verification
 methods.
 

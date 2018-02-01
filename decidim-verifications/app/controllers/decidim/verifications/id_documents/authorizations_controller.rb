@@ -47,7 +47,7 @@ module Decidim
           @form = UploadForm.from_params(
             params.merge(
               user: current_user,
-              verification_attachment: @authorization.verification_attachment
+              verification_attachment: params[:id_document_upload][:verification_attachment] || @authorization.verification_attachment
             )
           )
 

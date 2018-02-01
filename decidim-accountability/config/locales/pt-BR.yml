@@ -8,6 +8,7 @@ pt-BR:
         description: Descrição
         end_date: Data final
         progress: Progresso
+        project_ids: Projetos incluídos
         proposal_ids: Propostas incluídas
         start_date: Data de início
         title: Título
@@ -118,7 +119,6 @@ pt-BR:
             other: "%{count} resultados"
         filters:
           all: Todos
-          global: Global
           scopes: Âmbitos
         home:
           categories_label: Categorias
@@ -170,5 +170,7 @@ pt-BR:
           step:
             comments_blocked: Comentários bloqueados
     resource_links:
+      included_projects:
+        result_projects: Projetos incluídos neste resultado
       included_proposals:
         result_proposals: Propostas incluídas neste resultado

@@ -18,7 +18,7 @@ module Decidim
       #
       # Returns nothing.
       def map_model(model)
-        self.question_id = model.id
+        self.question_id = model.decidim_survey_question_id
       end
 
       private

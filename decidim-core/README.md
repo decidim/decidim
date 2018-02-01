@@ -4,7 +4,7 @@ Short description and motivation.
 
 ## Usage
 
-How to use my plugin.
+How to use my module.
 
 ## Installation
 

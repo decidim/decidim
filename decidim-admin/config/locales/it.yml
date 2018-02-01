@@ -408,7 +408,7 @@ it:
           title: Modifica la pagina
           update: Aggiorna
         new:
-          create: Nuovo
+          create: Creare
           title: Nuova pagina
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa pagina.

@@ -7,7 +7,6 @@ module Decidim
       #
       class AssembliesController < Decidim::Admin::ApplicationController
         helper_method :current_assembly, :current_participatory_space
-
         layout "decidim/admin/assemblies"
 
         def index
@@ -91,7 +90,7 @@ module Decidim
         end
 
         def ability_context
-          super.merge(current_assembly: current_assembly)
+          super.merge(current_participatory_space: current_assembly)
         end
 
         def assembly_params

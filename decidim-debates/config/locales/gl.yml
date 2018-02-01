@@ -1,0 +1,113 @@
+gl:
+  activemodel:
+    attributes:
+      debate:
+        decidim_category_id: Categoría
+        description: Descrición
+        end_time: Remata a
+        information_updates: Actualizacións de información
+        instructions: Instrucións para participar
+        start_time: Comeza en
+        title: Título
+        user_group_id: Crear debate como
+  decidim:
+    debates:
+      actions:
+        confirm_destroy: Estás seguro?
+        destroy: Eliminar
+        edit: Editar
+        new: Novo %{name}
+        title: Accións
+      admin:
+        debates:
+          create:
+            invalid: Produciuse un problema ao crear o debate.
+            success: Debate creouse con éxito.
+          destroy:
+            success: Debate eliminado con éxito.
+          edit:
+            title: Editar debate
+            update: Actualizar debate
+          index:
+            title: Debates
+          new:
+            create: Crear debate
+            title: Novo debate
+          update:
+            invalid: Houbo un problema ao actualizar este debate.
+            success: Debate actualizado con éxito.
+        models:
+          debate:
+            name: Debate
+      debates:
+        count:
+          debates_count:
+            one: "Debate %{count}"
+            other: "%{count} debates"
+        create:
+          invalid: Produciuse un problema ao crear o debate.
+          success: Debate creouse con éxito.
+        debate:
+          comments:
+            one: Comentario
+            other: Comentarios
+          participate: Participar
+        filters:
+          all: Todo
+          category: Categoría
+          category_prompt: Selecciona unha categoría
+          citizens: Cidadáns
+          official: Oficial
+          origin: Orixe
+          search: Busca
+        filters_small_view:
+          close_modal: Pechar modal
+          filter: Filtro
+          filter_by: Filtrar por
+          unfold: Despregar
+        index:
+          new_debate: Novo debate
+        new:
+          back: De volta
+          create: Crear
+          select_a_category: Selecciona unha categoría
+          title: Novo debate
+        share:
+          close_window: Pechar ventá
+          share: Comparte
+          share_link: Compartir a ligazón
+        show:
+          comments: Comentarios
+          report: Informe
+      events:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Ola, creouse un novo debate sobre o espazo participativo %{space_title}, verifícalo e contribuír:
+            email_outro: Recibiches esta notificación porque estás seguindo o %{space_title} espazo participativo. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+            email_subject: Novo debate sobre %{space_title}
+            notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate foi creado en <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Ola, %{author_name} %{author_nickname}, a quen estás seguindo, creou un novo debate, revisádeo e contribuíu:
+            email_outro: Recibiches esta notificación porque estás seguindo %{author_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+            email_subject: Novo debate por %{author_nickname}
+            notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate foi creado por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      models:
+        debate:
+          fields:
+            end_time: Data de finalización
+            official_debate: Debate oficial
+            start_time: Data de inicio
+            title: Título
+    features:
+      debates:
+        actions:
+          create: Crear
+        name: Debates
+        settings:
+          global:
+            comments_enabled: Comentarios habilitados
+          step:
+            comments_blocked: Comentarios bloqueados
+            creation_enabled: Debate creado polos usuarios activado

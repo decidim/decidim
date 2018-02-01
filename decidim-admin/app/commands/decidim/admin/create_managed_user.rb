@@ -22,9 +22,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         transaction do
-          unless managed_user.persisted?
-            managed_user.update!(admin: false, tos_agreement: true)
-          end
+          managed_user.update!(admin: false, tos_agreement: true) unless managed_user.persisted?
 
           raise ActiveRecord::Rollback unless authorized_user? && impersonation_ok?
 

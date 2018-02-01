@@ -57,13 +57,7 @@ module Decidim
         let(:participatory_space) { subject.feature.participatory_space }
         let(:organization) { participatory_space.organization }
         let!(:participatory_process_admin) do
-          user = create(:user, :confirmed, organization: organization)
-          Decidim::ParticipatoryProcessUserRole.create!(
-            role: :admin,
-            user: user,
-            participatory_process: participatory_space
-          )
-          user
+          create(:process_admin, participatory_process: participatory_space)
         end
 
         context "when the proposal is official" do
@@ -139,6 +133,49 @@ module Decidim
           let(:proposal) { build :proposal, created_at: 10.minutes.ago, feature: feature, author: author }
 
           it { is_expected.not_to be_editable_by(author) }
+        end
+      end
+
+      describe "#withdrawn?" do
+        context "when proposal is withdrawn" do
+          let(:proposal) { build :proposal, :withdrawn }
+
+          it { is_expected.to be_withdrawn }
+        end
+        context "when proposal is not withdrawn" do
+          let(:proposal) { build :proposal }
+
+          it { is_expected.not_to be_withdrawn }
+        end
+      end
+
+      describe "#withdrawable_by" do
+        let(:author) { build(:user, organization: organization) }
+
+        context "when user is author" do
+          let(:proposal) { build :proposal, feature: feature, author: author, created_at: Time.current }
+
+          it { is_expected.to be_withdrawable_by(author) }
+        end
+
+        context "when user is admin" do
+          let(:admin) { build(:user, :admin, organization: organization) }
+          let(:proposal) { build :proposal, feature: feature, author: author, created_at: Time.current }
+
+          it { is_expected.not_to be_withdrawable_by(admin) }
+        end
+
+        context "when user is not the author" do
+          let(:someone_else) { build(:user, organization: organization) }
+          let(:proposal) { build :proposal, feature: feature, author: author, created_at: Time.current }
+
+          it { is_expected.not_to be_withdrawable_by(someone_else) }
+        end
+
+        context "when proposal is already withdrawn" do
+          let(:proposal) { build :proposal, :withdrawn, feature: feature, author: author, created_at: Time.current }
+
+          it { is_expected.not_to be_withdrawable_by(author) }
         end
       end
     end

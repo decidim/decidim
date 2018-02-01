@@ -19,7 +19,7 @@ module Decidim
           from: sender,
           to: user,
           conversation: conversation,
-          action: "new_conversation"
+          action: "new_message"
         )
       end
 

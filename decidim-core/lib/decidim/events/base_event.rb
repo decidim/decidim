@@ -6,6 +6,9 @@ module Decidim
     # add more logic to a `Decidim::Notification` and are used to render them in the
     # notifications dashboard and to generate other notifications (emails, for example).
     class BaseEvent
+      class_attribute :types
+      self.types = []
+
       # Public: Stores all the notification types this event can create. Please, do not
       # overwrite this method, consider it final. Instead, add values to the array via
       # modules, take the `NotificationEvent` module as an example:
@@ -16,7 +19,7 @@ module Decidim
       #     extend ActiveSupport::Concern
       #
       #     included do
-      #       types << :web_push_notifications
+      #       type :web_push_notifications
       #     end
       #   end
       #
@@ -25,8 +28,8 @@ module Decidim
       #   end
       #
       #   MyEvent.types # => [:web_push_notifications]
-      def self.types
-        @types ||= []
+      def self.type(type)
+        self.types += Array(type)
       end
 
       # Initializes the class.
@@ -58,9 +61,31 @@ module Decidim
         @resource_url ||= resource_locator.url
       end
 
+      # Whether this event should be notified or not. Useful when you want the
+      # event to decide based on the params.
+      #
+      # It returns false when the resource or any element in the chain is a
+      # `Decidim::Publicable` and it isn't published.
+      def notifiable?
+        return false if resource.is_a?(Decidim::Publicable) && !resource.published?
+        return false if participatory_space.is_a?(Decidim::Publicable) && !participatory_space&.published?
+        return false unless feature&.published?
+
+        true
+      end
+
       private
 
       attr_reader :event_name, :resource, :user, :extra
+
+      def feature
+        return resource.feature if resource.is_a?(Decidim::HasFeature)
+        return resource if resource.is_a?(Decidim::Feature)
+      end
+
+      def participatory_space
+        return feature.participatory_space if feature
+      end
 
       def resource_title
         resource.title.is_a?(Hash) ? resource.title[I18n.locale.to_s] : resource.title

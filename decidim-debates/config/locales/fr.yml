@@ -1,0 +1,113 @@
+fr:
+  activemodel:
+    attributes:
+      debate:
+        decidim_category_id: Catégorie
+        description: La description
+        end_time: Fini à
+        information_updates: Informations mises à jour
+        instructions: Instructions pour participer
+        start_time: Commence à
+        title: Titre
+        user_group_id: Créer un débat en tant que
+  decidim:
+    debates:
+      actions:
+        confirm_destroy: Êtes-vous sûr?
+        destroy: Effacer
+        edit: modifier
+        new: Nouveau %{name}
+        title: actes
+      admin:
+        debates:
+          create:
+            invalid: Il y a eu un problème lors de la création du débat.
+            success: Débat créé avec succès.
+          destroy:
+            success: Débat supprimé avec succès.
+          edit:
+            title: Modifier le débat
+            update: Actualiser le débat
+          index:
+            title: Débats
+          new:
+            create: Créer un débat
+            title: Nouveau débat
+          update:
+            invalid: Il y a eu un problème lors de la mise à jour de ce débat.
+            success: Débat mis à jour avec succès.
+        models:
+          debate:
+            name: Débat
+      debates:
+        count:
+          debates_count:
+            one: "%{count} débat"
+            other: "%{count} débats"
+        create:
+          invalid: Il y a eu un problème lors de la création du débat.
+          success: Débat créé avec succès.
+        debate:
+          comments:
+            one: Commentaire
+            other: commentaires
+          participate: Participer
+        filters:
+          all: Tout
+          category: Catégorie
+          category_prompt: Choisir une catégorie
+          citizens: Citoyens
+          official: Officiel
+          origin: Origine
+          search: Chercher
+        filters_small_view:
+          close_modal: Fermer modal
+          filter: Filtre
+          filter_by: Filtrer par
+          unfold: Se dérouler
+        index:
+          new_debate: Nouveau débat
+        new:
+          back: Arrière
+          create: Créer
+          select_a_category: Veuillez sélectionner une catégorie
+          title: Nouveau débat
+        share:
+          close_window: Fermer la fenêtre
+          share: Partager
+          share_link: Lien de partage
+        show:
+          comments: commentaires
+          report: rapport
+      events:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Bonjour, Un nouveau débat a été créé sur l'espace participatif %{space_title}, consultez-le et contribuez:
+            email_outro: Vous avez reçu cette notification parce que vous suivez l'espace participatif %{space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+            email_subject: Nouveau débat sur %{space_title}
+            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé le <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Bonjour, %{author_name} %{author_nickname}, qui vous suivez, a créé un nouveau débat, vérifiez-le et contribuez:
+            email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+            email_subject: Nouveau débat par %{author_nickname}
+            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      models:
+        debate:
+          fields:
+            end_time: Date de fin
+            official_debate: Débat officiel
+            start_time: Date de début
+            title: Titre
+    features:
+      debates:
+        actions:
+          create: Créer
+        name: Débats
+        settings:
+          global:
+            comments_enabled: Commentaires activés
+          step:
+            comments_blocked: Commentaires bloqués
+            creation_enabled: Création de débat par les utilisateurs activés

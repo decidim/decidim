@@ -23,7 +23,7 @@ Decidim::Core::Engine.routes.draw do
   resource :locale, only: [:create]
 
   Decidim.participatory_space_manifests.each do |manifest|
-    mount manifest.engine, at: "/", as: "decidim_#{manifest.name}"
+    mount manifest.context(:public).engine, at: "/", as: "decidim_#{manifest.name}"
   end
 
   mount Decidim::Verifications::Engine, at: "/", as: "decidim_verifications"
@@ -62,6 +62,10 @@ Decidim::Core::Engine.routes.draw do
 
   resource :follow, only: [:create, :destroy]
   resource :report, only: [:create]
+
+  resources :newsletters, only: [:show] do
+    get :unsubscribe, on: :collection
+  end
 
   root to: "pages#show", id: "home"
 end

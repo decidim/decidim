@@ -8,17 +8,10 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      validates :nickname, length: { in: nickname_length_range }, allow_blank: true
+      validates :nickname, length: { maximum: nickname_max_length }, allow_blank: true
     end
 
     class_methods do
-      #
-      # Allowed range for nickname length
-      #
-      def nickname_length_range
-        (0..nickname_max_length)
-      end
-
       #
       # Maximum allowed nickname length
       #
@@ -39,6 +32,10 @@ module Decidim
 
       private
 
+      def nickname_length_range
+        (0...nickname_max_length)
+      end
+
       def disambiguate(name)
         candidate = name
 
@@ -52,7 +49,7 @@ module Decidim
       def numbered_variation_of(name, number)
         appendix = "_#{number}"
 
-        "#{name[0..(nickname_max_length - appendix.length)]}#{appendix}"
+        "#{name[0...(nickname_max_length - appendix.length)]}#{appendix}"
       end
     end
   end
