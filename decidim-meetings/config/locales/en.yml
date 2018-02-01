@@ -10,15 +10,45 @@ en:
         proposal_ids: Proposals created in the meeting
       meeting:
         address: Address
+        available_slots: Available slots for this meeting
         decidim_category_id: Category
         decidim_scope_id: Scope
         description: Description
         end_time: End Time
         location: Location
         location_hints: Location hints
+        registration_terms: Registration terms
+        registrations_enabled: Registrations enabled
         start_time: Start Time
         title: Title
   decidim:
+    events:
+      meetings:
+        meeting_closed:
+          email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting was closed
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
+        meeting_registrations_over_percentage:
+          email_intro: The "%{resource_title}" meeting occupied slots are over %{percentage}%.
+          email_outro: You have received this notification because you are an admin of the meeting's participatory space.
+          email_subject: The "%{resource_title}" meeting occupied slots are over %{percentage}%
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting occupied slots are over %{percentage}%.
+        meeting_updated:
+          email_intro: 'The "%{resource_title}" meeting was updated. You can read the new version from its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting was updated
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
+        registrations_enabled:
+          email_intro: 'The "%{resource_title}" meeting has enabled registrations. You can register yourself on its page:'
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting has enabled registrations.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting has enabled registrations.
+        upcoming_meeting:
+          email_intro: The "%{resource_title}" meeting will start in less than 48h.
+          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
+          email_subject: The "%{resource_title}" meeting will start in less than 48h.
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
     features:
       meetings:
         actions:
@@ -96,32 +126,6 @@ en:
           update:
             invalid: There's been a problem saving the registration settings.
             success: Meeting registrations settings successfully saved.
-      events:
-        close_meeting_event:
-          email_intro: 'The "%{resource_title}" meeting was closed. You can read the conclusions from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" meeting was closed
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
-        meeting_registrations_enabled:
-          email_intro: 'The "%{resource_title}" meeting has enabled registrations. You can register yourself on its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" meeting has enabled registrations.
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting has enabled registrations.
-        meeting_registrations_over_percentage:
-          email_intro: The "%{resource_title}" meeting occupied slots are over %{percentage}%.
-          email_outro: You have received this notification because you are an admin of the meeting's participatory space.
-          email_subject: The "%{resource_title}" meeting occupied slots are over %{percentage}%
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting occupied slots are over %{percentage}%.
-        upcoming_meeting_event:
-          email_intro: The "%{resource_title}" meeting will start in less than 48h.
-          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" meeting will start in less than 48h.
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
-        update_meeting_event:
-          email_intro: 'The "%{resource_title}" meeting was updated. You can read the new version from its page:'
-          email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
-          email_subject: The "%{resource_title}" meeting was updated
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was updated.
       mailer:
         invite_join_meeting_mailer:
           invite:

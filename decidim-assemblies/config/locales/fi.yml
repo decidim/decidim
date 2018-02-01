@@ -4,16 +4,16 @@ fi:
       assembly:
         banner_image: Bannerikuva
         copy_categories: Kopioi aihepiirit
-        copy_features: Kopioi toiminnot
+        copy_features: Kopioi ominaisuudet
         description: Kuvaus
-        developer_group: Kehitysryhmä
+        developer_group: Kehittäjäryhmä
         domain: Toimintaympäristö
-        hashtag: Hashtah
+        hashtag: Hashtag
         hero_image: Etusivun kuva
         local_area: Paikallisalue
         meta_scope: Kontekstin metadata
-        participatory_scope: Osallistumisprosessi
-        participatory_structure: Osallistumisprosessin rakenne
+        participatory_scope: Osallistumiskonteksti
+        participatory_structure: Osallistumisen rakenne
         promoted: Korostettu
         scope_id: Konteksti
         scopes_enabled: Kontekstit käytössä
@@ -26,42 +26,60 @@ fi:
     admin:
       assemblies:
         create:
-          error: Virhe uuden kokoonpanon luomisessa.
-          success: Kokoonpano onnistui.
+          error: Virhe luotaessa uutta kehitysryhmää.
+          success: Kehitysryhmän luonti onnistui.
         destroy:
-          success: Kokoonpano tuhoutui onnistuneesti
+          success: Kehitysryhmän tuhoaminen onnistui.
         edit:
           update: Päivitä
         form:
-          title: Yleistä tietoa
+          title: Yleiset tiedot
         index:
           not_published: Ei julkaistu
           published: Julkaistu
         new:
           create: Luo
-          title: Uusi kokoonpano
+          title: Uusi kehitysryhmä
         update:
-          error: Kokoonpanoa päivitettäessä tapahtui virhe.
-          success: Kokoonpano päivitettiin onnistuneesti.
+          error: Kehitysryhmää päivitettäessä tapahtui virhe.
+          success: Kehitysryhmä päivitettiin onnistuneesti.
       assemblies_copies:
         create:
-          error: Virhe kopioi kokoa.
-          success: Asennus kopioitiin onnistuneesti.
+          error: Virhe kopioitaessa kehitysryhmää.
+          success: Kehitysryhmä kopioitu onnistuneesti.
       assembly_copies:
         new:
-          copy: Kopio
+          copy: Kopioi
           select: Valitse, mitkä tiedot haluat kopioida
-          title: Kopioi kokoonpano
+          title: Kopioi kehitysryhmä
       assembly_publications:
         create:
-          error: Kokoonpanoa julkaistiin virhe.
-          success: Kokoonpano julkaistiin onnistuneesti.
+          error: Kehitysryhmän julkaisussa tapahtui virhe.
+          success: Kehitysryhmä julkaistiin onnistuneesti.
         destroy:
-          error: Kokoonpanon julkaisemisen epäonnistui virhe.
-          success: Kokoonpano julkaisemattomasti onnistuneesti.
+          error: Kehitysryhmän julkaisun lopettamisessa tapahtui virhe.
+          success: Kehitysryhmän julkaisu lopetettu onnistuneesti.
+      assembly_user_roles:
+        create:
+          error: Virhe lisätessä käyttäjää tälle kehitysryhmälle.
+          success: Käyttäjä on luotu onnistuneesti kehitysryhmään.
+        destroy:
+          success: Käyttäjä tuhottu onnistuneesti kehitysryhmästä.
+        edit:
+          title: Päivitä kehitysryhmän käyttäjän tietoja.
+          update: Päivitä
+        index:
+          assembly_admins_title: Kehitysryhmän käyttäjät
+        new:
+          create: Luo
+          title: Uusi kehitysryhmän käyttäjä.
+        update:
+          error: Kehitysryhmän käyttäjän päivityksessä tapahtui virhe.
+          success: Kehitysryhmän käyttäjä päivitetty onnistuneesti.
       menu:
-        assemblies: osat
+        assemblies: Kehitysryhmät
         assemblies_submenu:
+          assembly_admins: Kehitysryhmän käyttäjät
           attachments: Liitteet
           categories: Aihepiirit
           features: Ominaisuudet
@@ -74,34 +92,44 @@ fi:
             promoted: Korostettu
             published: Julkaistu
             title: Otsikko
-          name: kokoonpano
+          name: Kehitysryhmä
+        assembly_user_role:
+          fields:
+            email: Sähköposti
+            name: Nimi
+            role: Rooli
+          name: Kehitysryhmän käyttäjä
+          roles:
+            admin: Hallinnointikäyttäjä
+            collaborator: Osallistumiskäyttäjä
+            moderator: Moderaattori
       titles:
-        assemblies: osat
+        assemblies: Kehitysryhmät
     assemblies:
       admin:
         assemblies:
           form:
-            slug_help: 'URL-osoittimia käytetään tuottamaan tämän kokoonpanon osoittavat URL-osoitteet. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
+            slug_help: 'URL-tunnisteita käytetään tähän kehitysryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_copies:
           form:
-            slug_help: 'URL-osoittimia käytetään tuottamaan tämän kokoonpanon osoittavat URL-osoitteet. Hyväksyy vain kirjeet, numerot ja viivat, ja se on aloitettava kirjaimella. Esimerkki: %{url}'
+            slug_help: 'URL-tunnisteita käytetään tähän kehitysryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
       index:
-        title: osat
+        title: Kehitysryhmät
       pages:
         home:
           highlighted_assemblies:
-            active_assemblies: Aktiiviset kokoonpanot
-            see_all_assemblies: Katso kaikki kokoonpanot
+            active_assemblies: Aktiiviset kehitysryhmät
+            see_all_assemblies: Näytä kaikki kehitysryhmät
       show:
-        developer_group: Kehitysryhmä
+        developer_group: Kehittäjäryhmä
         local_area: Paikallisalue
-        participatory_scope: Osallistumisprosessi
-        participatory_structure: Osallistumisprosessin rakenne
+        participatory_scope: Osallistumiskonteksti
+        participatory_structure: Osallistumisen rakenne
         scope: Konteksti
         target: Kohde
       statistics:
         answers_count: Vastaukset
-        assemblies_count: osat
+        assemblies_count: Kehitysryhmät
         comments_count: Kommentit
         headline: Tilastot
         meetings_count: Tapaamiset
@@ -114,23 +142,23 @@ fi:
         users_count: Osallistujat
         votes_count: Äänet
     menu:
-      assemblies: osat
+      assemblies: Kehitysryhmät
   layouts:
     decidim:
       assemblies:
         assembly:
           take_part: Osallistu
         index:
-          promoted_assemblies: Korostetut kokoonpanot
+          promoted_assemblies: Korostetut kehitysryhmät
         order_by_assemblies:
           assemblies:
-            one: "%{count} kokoonpano"
-            other: "%{count} kokoonpanot"
+            one: "%{count} kehitysryhmä"
+            other: "%{count} kehitysryhmää"
         promoted_assembly:
-          more_info: Lisätietoja
+          more_info: Lisätiedot
           take_part: Osallistu
       assembly_header:
-        assembly_menu_item: Kokoonpano
+        assembly_menu_item: Kehitysryhmä
         unfold: Avaa
       assembly_widgets:
         show:

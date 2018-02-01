@@ -408,7 +408,7 @@ pl:
           title: Edytuj stronę
           update: Aktualizacja
         new:
-          create: Nowy
+          create: Stwórz
           title: Nowa strona
         update:
           error: Podczas aktualizowania tej strony wystąpił błąd.

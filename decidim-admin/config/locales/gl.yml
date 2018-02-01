@@ -408,7 +408,7 @@ gl:
           title: Editar páxina
           update: Actualización
         new:
-          create: Novo
+          create: Crear
           title: Nova páxina
         update:
           error: Produciuse un erro ao actualizar esta páxina.

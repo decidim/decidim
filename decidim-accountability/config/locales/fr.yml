@@ -8,6 +8,7 @@ fr:
         description: Description
         end_date: Date et heure de fin
         progress: Avancement
+        project_ids: Projets inclus
         proposal_ids: Propositions incluses
         start_date: Date de début
         title: Titre
@@ -96,7 +97,7 @@ fr:
       models:
         result:
           fields:
-            end_date: Date et heure de fin
+            end_date: Date de fin
             progress: Avancement
             start_date: Date de début
             status: Statut
@@ -118,7 +119,6 @@ fr:
             other: "%{count} résultats"
         filters:
           all: Tous
-          global: Global
           scopes: Périmètre d'application
         home:
           categories_label: Catégories
@@ -170,5 +170,7 @@ fr:
           step:
             comments_blocked: Commentaires bloqués
     resource_links:
+      included_projects:
+        result_projects: Projets inclus dans ce résultat
       included_proposals:
         result_proposals: Propositions incluses dans ce résultat

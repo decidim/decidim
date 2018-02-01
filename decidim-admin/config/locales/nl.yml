@@ -408,7 +408,7 @@ nl:
           title: Pagina bewerken
           update: Bijwerken
         new:
-          create: nieuwe
+          create: creëren
           title: Nieuwe pagina
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze pagina.

@@ -120,7 +120,6 @@ en:
             other: "%{count} results"
         filters:
           all: All
-          global: Global
           scopes: Scopes
         home:
           categories_label: Categories

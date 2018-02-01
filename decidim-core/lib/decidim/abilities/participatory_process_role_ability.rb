@@ -14,9 +14,7 @@ module Decidim
         if not_admin? && has_manageable_processes?
           define_abilities
 
-          if current_participatory_process && can_manage_process?(current_participatory_process)
-            define_participatory_process_abilities
-          end
+          define_participatory_process_abilities if current_participatory_process && can_manage_process?(current_participatory_process)
         end
       end
 
@@ -55,7 +53,7 @@ module Decidim
       end
 
       def current_participatory_process
-        @current_participatory_process ||= @context[:current_participatory_process]
+        @current_participatory_process ||= @context[:current_participatory_space]
       end
     end
   end

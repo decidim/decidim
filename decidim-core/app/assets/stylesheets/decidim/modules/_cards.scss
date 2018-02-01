@@ -26,6 +26,14 @@ $datetime-bg: $primary;
   border: $card-border;
   border-radius: $card-border-radius;
   overflow: hidden;
+
+  @include modifiers(border-top-color, (muted: rgba($muted, .3))){
+    border-top-width: 8px;
+  }
+
+  &:hover{
+    @include modifiers(border-color, (muted: rgba($muted, .3)));
+  }
 }
 
 .card--nomargin{
@@ -590,5 +598,19 @@ $datetime-bg: $primary;
 
   .card--process__small{
     margin-top: auto;
+  }
+}
+
+// card status
+.card__status{
+  .card-data__item{
+    flex-basis: initial;
+    padding: 1em .5em;
+  }
+
+  .card-status__text{
+    font-weight: bold;
+
+    @include modifiers(color, (muted: $muted));
   }
 }

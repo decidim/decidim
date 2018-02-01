@@ -17,21 +17,31 @@
   }
 
   @include breakpoint(medium){
+    padding: .25rem;
+
     ul{
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       white-space: nowrap;
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
+      justify-content: space-between;
     }
 
     ul::-webkit-scrollbar{
       display: none;
     }
 
+    ul::after{
+      display: inline-block;
+      flex-grow: 1;
+      content: "";
+    }
+
     li{
       display: inline-block;
-      margin-right: 1.5rem;
+      margin: .5rem .75rem;
     }
 
     .about-link{

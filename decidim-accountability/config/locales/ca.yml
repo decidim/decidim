@@ -8,6 +8,7 @@ ca:
         description: Descripció
         end_date: Fi
         progress: Progrés
+        project_ids: Projectes inclosos
         proposal_ids: Propostes incloses
         start_date: Inici
         title: Títol
@@ -118,7 +119,6 @@ ca:
             other: "%{count} resultats"
         filters:
           all: Tots
-          global: Global
           scopes: Àmbits
         home:
           categories_label: Categories
@@ -170,5 +170,7 @@ ca:
           step:
             comments_blocked: Comentaris bloquejats
     resource_links:
+      included_projects:
+        result_projects: Projectes inclosos en aquest resultat
       included_proposals:
         result_proposals: Propostes incloses en aquest resultat

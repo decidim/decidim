@@ -14,6 +14,7 @@ module Decidim
           can :hide, Proposal
           cannot :create, Proposal unless can_create_proposal?
           cannot :update, Proposal unless can_update_proposal?
+          can :create, ProposalNote
         end
 
         private

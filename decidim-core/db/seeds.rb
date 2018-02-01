@@ -59,27 +59,31 @@ if !Rails.env.production? || ENV["SEED"]
 
   admin.update!(
     name: Faker::Name.name,
-    nickname: Faker::Lorem.unique.characters(rand(20) + 1),
+    nickname: Faker::Lorem.unique.characters(rand(1..20)),
     password: "decidim123456",
     password_confirmation: "decidim123456",
     organization: organization,
     confirmed_at: Time.current,
     locale: I18n.default_locale,
     admin: true,
-    tos_agreement: true
+    tos_agreement: true,
+    personal_url: Faker::Internet.url,
+    about: Faker::Lorem.paragraph(2)
   )
 
   regular_user = Decidim::User.find_or_initialize_by(email: "user@example.org")
 
   regular_user.update!(
     name: Faker::Name.name,
-    nickname: Faker::Lorem.unique.characters(rand(20) + 1),
+    nickname: Faker::Lorem.unique.characters(rand(1..20)),
     password: "decidim123456",
     password_confirmation: "decidim123456",
     confirmed_at: Time.current,
     locale: I18n.default_locale,
     organization: organization,
-    tos_agreement: true
+    tos_agreement: true,
+    personal_url: Faker::Internet.url,
+    about: Faker::Lorem.paragraph(2)
   )
 
   Decidim::Messaging::Conversation.start!(

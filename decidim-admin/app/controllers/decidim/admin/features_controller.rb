@@ -91,6 +91,13 @@ module Decidim
 
         @feature.publish!
 
+        Decidim::EventsManager.publish(
+          event: "decidim.events.features.feature_published",
+          event_class: Decidim::FeaturePublishedEvent,
+          resource: @feature,
+          recipient_ids: current_participatory_space.followers.pluck(:id)
+        )
+
         flash[:notice] = I18n.t("features.publish.success", scope: "decidim.admin")
         redirect_to action: :index
       end

@@ -1,0 +1,113 @@
+nl:
+  activemodel:
+    attributes:
+      debate:
+        decidim_category_id: Categorie
+        description: Beschrijving
+        end_time: Eindigt bij
+        information_updates: Informatie-updates
+        instructions: Instructies om deel te nemen
+        start_time: Begint om
+        title: Titel
+        user_group_id: Maak een debat als
+  decidim:
+    debates:
+      actions:
+        confirm_destroy: Weet je het zeker?
+        destroy: Verwijder
+        edit: Bewerk
+        new: Nieuwe %{name}
+        title: acties
+      admin:
+        debates:
+          create:
+            invalid: Er is een probleem geweest tijdens het maken van het debat.
+            success: Debat succesvol aangemaakt.
+          destroy:
+            success: Debat succesvol verwijderd.
+          edit:
+            title: Bewerk debat
+            update: Update debat
+          index:
+            title: debatten
+          new:
+            create: Maak een debat
+            title: Nieuw debat
+          update:
+            invalid: Er is een probleem geweest bij het bijwerken van dit debat.
+            success: Debat succesvol bijgewerkt.
+        models:
+          debate:
+            name: Debat
+      debates:
+        count:
+          debates_count:
+            one: "%{count} debat"
+            other: "%{count} debatten"
+        create:
+          invalid: Er is een probleem geweest tijdens het maken van het debat.
+          success: Debat succesvol aangemaakt.
+        debate:
+          comments:
+            one: Commentaar
+            other: Comments
+          participate: Deelnemen
+        filters:
+          all: Alle
+          category: Categorie
+          category_prompt: Kies een categorie
+          citizens: burgers
+          official: Officieel
+          origin: Oorsprong
+          search: Zoeken
+        filters_small_view:
+          close_modal: Modal sluiten
+          filter: Filter
+          filter_by: Filteren op
+          unfold: Ontvouwen
+        index:
+          new_debate: Nieuw debat
+        new:
+          back: Terug
+          create: creëren
+          select_a_category: Selecteer een categorie
+          title: Nieuw debat
+        share:
+          close_window: Venster sluiten
+          share: Delen
+          share_link: Deel link
+        show:
+          comments: Comments
+          report: Verslag doen van
+      events:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hallo, Er is een nieuw debat gestart op de %{space_title} participatieve ruimte, bekijk het en draag bij:
+            email_outro: Je hebt deze melding ontvangen omdat je de %{space_title} participatorische ruimte volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+            email_subject: Nieuw debat op %{space_title}
+            notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is gemaakt op <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Hallo, %{author_name} %{author_nickname}, wie je volgt, heeft een nieuw debat gemaakt, bekijk het en draag bij:
+            email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+            email_subject: Nieuw debat door %{author_nickname}
+            notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is gemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+      models:
+        debate:
+          fields:
+            end_time: Einddatum
+            official_debate: Officieel debat
+            start_time: Begin datum
+            title: Titel
+    features:
+      debates:
+        actions:
+          create: creëren
+        name: debatten
+        settings:
+          global:
+            comments_enabled: Reacties ingeschakeld
+          step:
+            comments_blocked: Reacties geblokkeerd
+            creation_enabled: Debatcreatie door gebruikers ingeschakeld

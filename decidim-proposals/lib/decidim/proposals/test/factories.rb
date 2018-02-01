@@ -120,6 +120,10 @@ FactoryBot.define do
       answered_at { Time.current }
     end
 
+    trait :withdrawn do
+      state "withdrawn"
+    end
+
     trait :with_answer do
       answer { Decidim::Faker::Localized.sentence }
       answered_at { Time.current }
@@ -127,6 +131,12 @@ FactoryBot.define do
   end
 
   factory :proposal_vote, class: "Decidim::Proposals::ProposalVote" do
+    proposal { build(:proposal) }
+    author { build(:user, organization: proposal.organization) }
+  end
+
+  factory :proposal_note, class: "Decidim::Proposals::ProposalNote" do
+    body { Faker::Lorem.sentences(3).join("\n") }
     proposal { build(:proposal) }
     author { build(:user, organization: proposal.organization) }
   end

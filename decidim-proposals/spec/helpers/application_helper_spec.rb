@@ -31,6 +31,12 @@ module Decidim
 
           it { is_expected.to eq("Not answered") }
         end
+
+        context "when it is withdrawn" do
+          let(:state) { "withdrawn" }
+
+          it { is_expected.to eq("Withdrawn") }
+        end
       end
     end
   end

@@ -24,7 +24,7 @@ module Decidim
 
         Decidim::EventsManager.publish(
           event: "decidim.events.users.user_officialized",
-          event_class: Decidim::Admin::UserOfficializedEvent,
+          event_class: Decidim::ProfileUpdatedEvent,
           resource: form.user,
           recipient_ids: form.user.followers.pluck(:id)
         )

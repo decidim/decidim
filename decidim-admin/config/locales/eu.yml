@@ -408,7 +408,7 @@ eu:
           title: Editatu orria
           update: Eguneratu
         new:
-          create: Berria
+          create: Sortu
           title: Orri berria
         update:
           error: Errorea gertatu da orri hau eguneratzean.

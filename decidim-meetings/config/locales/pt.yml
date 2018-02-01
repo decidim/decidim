@@ -9,12 +9,15 @@ pt:
         proposal_ids: Propostas criadas na reunião
       meeting:
         address: Endereço
+        available_slots: Slots disponíveis para esta reunião
         decidim_category_id: Categoria
         decidim_scope_id: Âmbito
         description: Descrição
         end_time: Fim do tempo
         location: Localização
         location_hints: Dicas de localização
+        registration_terms: Termos de registro
+        registrations_enabled: Registos habilitados
         start_time: Hora de início
         title: Título
   decidim:

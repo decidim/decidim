@@ -42,6 +42,7 @@ module Decidim
       include Decidim::Comments::Commentable
       include Followable
       include Traceable
+      include Publicable
 
       feature_manifest_name "dummy"
 
@@ -131,6 +132,7 @@ RSpec.configure do |config|
           t.text :address
           t.float :latitude
           t.float :longitude
+          t.datetime :published_at
 
           t.references :decidim_feature, index: true
           t.references :decidim_author, index: true
