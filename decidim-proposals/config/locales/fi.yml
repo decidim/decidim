@@ -11,6 +11,28 @@ fi:
       proposal_answer:
         answer: Vastaa
   decidim:
+    events:
+      proposals:
+        proposal_accepted:
+          email_intro: 'Ehdotus "%{resource_title}" on hyväksytty. Voit lukea vastauksen tällä sivulla:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
+          email_subject: Seuraava ehdotus on hyväksytty
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus on hyväksytty.
+        proposal_created:
+          email_intro: "%{author_name} %{author_nickname}, jota seuraat, on luonut uuden ehdotuksen, tarkistamalla sen ja osallistumalla:"
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_subject: Uusi ehdotus %{author_nickname}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> -ehdotus luotiin <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_evaluating:
+          email_intro: 'Ehdotusta "%{resource_title}" arvioidaan parhaillaan. Voit tarkistaa vastauksen tällä sivulla:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
+          email_subject: Seuraava ehdotus arvioidaan
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotusta arvioidaan.
+        proposal_rejected:
+          email_intro: 'Ehdotus "%{resource_title}" on hylätty. Voit lukea vastauksen tällä sivulla:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
+          email_subject: Seuraava ehdotus on hylätty
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus on hylätty.
     features:
       proposals:
         actions:
@@ -42,7 +64,7 @@ fi:
       actions:
         answer: Vastaa
         new: Uusi
-        private_notes: Yksityiset muistiinpanot
+        private_notes: Omat muistiinpanot
         title: Toiminnot
       admin:
         actions:
@@ -65,7 +87,7 @@ fi:
             note: Huomautus
             submit: Lähetä
           leave_your_note: Jätä huomautuksesi
-          title: Yksityiset muistiinpanot
+          title: Omat muistiinpanot
         proposals:
           answer:
             invalid: Ehdotukseen vastaamisessa esiintyi virhe
@@ -83,42 +105,19 @@ fi:
             title: Luo ehdotus
         shared:
           info_proposal:
-            body: ruumis
-            created_at: Luomispäivä
-            proposal_votes_count: Äänet lasketaan
-            proposals: ehdotukset
+            body: Tekstin runko
+            created_at: Luonnin ajankohta
+            proposal_votes_count: Äänten määrä
+            proposals: Ehdotukset
       answers:
         accepted: Hyväksytty
         evaluating: Arvioitavana
         not_answered: Vastaamaton
         rejected: Hylätty
-        withdrawn: peruutettu
+        withdrawn: Peruutettu
       create:
         error: Ehdotuksen tallennuksessa tapahtui virhe.
         success: Ehdotus luotu onnistuneesti.
-      events:
-        accepted_proposal_event:
-          email_intro: 'Ehdotus "%{resource_title}" on hyväksytty. Voit lukea vastauksen täältä:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta "%{resource_title}". Voit lopettaa seuraamisen edellä esitetystä linkistä.
-          email_subject: Seuraamasi ehdotus on hyväksytty
-          notification_title: Ehdotus otsikolla <a href="%{resource_path}">%{resource_title}</a> on hyväksytty.
-        create_proposal_event:
-          email_intro: |-
-            Hei,
-            %{author_name} %{author_nickname}, jota seuraat, on luonut uuden ehdotuksen. Tarkista se ja osallistuu siihen:
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat käyttäjää %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen seuraamalla edellä olevaa linkkiä.
-          email_subject: Uusi ehdotus käyttäjältä %{author_nickname}
-          notification_title: Käyttäjä <a href="%{author_path}">%{author_name} %{author_nickname}</a> on luonut ehdotuksen <a href="%{resource_path}">%{resource_title}</a>.
-        evaluating_proposal_event:
-          email_intro: 'Ehdotusta otsikolla "%{resource_title}" arvioidaan parhaillaan. Voit tarkistaa vastauksen täältä:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta "%{resource_title}". Voit lopettaa seuraamisen sen edellä esitetystä linkistä.
-          email_subject: Seuraamasi ehdotus on arvioitavana
-          notification_title: Ehdotus otsikolla <a href="%{resource_path}">%{resource_title}</a> on arvioitavana.
-        rejected_proposal_event:
-          email_intro: 'Ehdotus otsikolla "%{resource_title}" on hylätty. Voit lukea vastauksen täältä:'
-          email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta "%{resource_title}". Voit lopettaa seuraamisen sen edellä esitetystä linkistä.
-          email_subject: Seuraamasi ehdotus on hylätty
-          notification_title: Ehdotus otsikolla <a href="%{resource_path}">%{resource_title}</a> on hylätty.
       models:
         proposal:
           fields:
@@ -169,7 +168,7 @@ fi:
           unfold: Avaa
         index:
           new_proposal: Uusi ehdotus
-          see_all_withdrawn: Katso kaikki peruutetut ehdotukset
+          see_all_withdrawn: Näytä kaikki peruutetut ehdotukset
           view_proposal: Näytä ehdotus
         linked_proposals:
           proposal_votes:
@@ -199,7 +198,7 @@ fi:
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
           report: Ilmoita
           withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?
-          withdraw_proposal: Vedä ehdotus
+          withdraw_proposal: Peruuta ehdotus
         vote_button:
           already_voted: Jo äänestetty
           already_voted_hover: Peru äänesi

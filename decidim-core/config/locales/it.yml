@@ -124,6 +124,12 @@ it:
         content_doesnt_exist: Questo indirizzo non è corretto oppure è stato rimosso.
         title: La pagina che stai cercando non è stata trovata
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'Un nuovo documento è stato aggiunto a %{resource_title}. Puoi vederlo da questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_subject: Un aggiornamento a %{resource_title}
+          notification_title: È stato aggiunto un <a href="%{resource_path}">nuovo documento</a> a <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Ciao %{user_name},
         email_intro: 'C''è stato un aggiornamento a "%{resource_title}". Si può vedere da questa pagina:'
@@ -141,11 +147,12 @@ it:
         email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
         email_subject: Un aggiornamento a %{participatory_space_title}
         notification_title: Il passaggio %{resource_title} è ora attivo per <a href="%{resource_path}">%{participatory_space_title}</a>
-      profile_updated_event:
-        email_intro: La pagina <a href="%{profile_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
-        email_outro: Hai ricevuto questa notifica perché stai seguendo %{nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
-        email_subject: "%{nickname} ha aggiornato il proprio profilo"
-        notification_title: La pagina <a href="%{profile_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
+      users:
+        profile_updated:
+          email_intro: La pagina <a href="%{resource_url}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{nickname}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_subject: "%{nickname} ha aggiornato il proprio profilo"
+          notification_title: La pagina <a href="%{resource_path}">profilo</a> di %{name} (%{nickname}), che stai seguendo, è stata aggiornata.
     export_mailer:
       export:
         ready: In allegato una versione zippata (Zip) dei dati esportati.
