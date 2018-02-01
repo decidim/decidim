@@ -19,12 +19,12 @@ module SortedCommentsExtend
   end
   def filter_comments
     if admin_or_moderator?
-      Comment
+      Decidim::Comments::Comment
         .where(commentable: commentable)
         .not_hidden
         .includes(:author, :up_votes, :down_votes)
     else
-      Comment
+      Decidim::Comments::Comment
         .where(commentable: commentable)
         .authorized
         .not_hidden

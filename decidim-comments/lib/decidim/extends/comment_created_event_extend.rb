@@ -22,6 +22,15 @@ module CommentCreatedEventExtend
       moderation_url: moderation_url
     ).html_safe
   end
+
+  def email_url
+    I18n.t(
+      "decidim.comments.events.comment_created.#{comment_type}.url",
+      resource_url: resource_locator.url(url_params)
+    ).html_safe
+  end
+
+
 end
 
 Decidim::Comments::CommentCreatedEvent.class_eval do
