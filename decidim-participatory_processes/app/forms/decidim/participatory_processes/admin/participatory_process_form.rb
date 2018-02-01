@@ -56,10 +56,6 @@ module Decidim
           @scope ||= current_organization.scopes.where(id: scope_id).first
         end
 
-        def users
-          @users ||= current_organization.users.where(id: user_ids)
-        end
-
         def participatory_process_group
           Decidim::ParticipatoryProcessGroup.where(id: participatory_process_group_id).first
         end
