@@ -33,7 +33,8 @@ module Decidim::ParticipatoryProcesses
             scope: my_process.scope,
             errors: my_process.errors,
             participatory_process_group: my_process.participatory_process_group,
-            show_statistics: my_process.show_statistics
+            show_statistics: my_process.show_statistics,
+            private_space: my_process.private_space
           }
         }
       end

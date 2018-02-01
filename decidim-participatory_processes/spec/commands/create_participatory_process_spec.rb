@@ -35,6 +35,7 @@ module Decidim::ParticipatoryProcesses
         current_user: current_user,
         current_organization: organization,
         scopes_enabled: true,
+        private_space: false,
         scope: scope,
         errors: errors,
         participatory_process_group: participatory_process_group
