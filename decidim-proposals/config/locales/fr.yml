@@ -92,7 +92,9 @@ fr:
         rejected: Refusée
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
-        success: Proposition créée avec succès. Elle sera publiée dès qu'un administrateur l'aura validée.
+        success: Proposition créée avec succès.
+        moderation:
+          success: Proposition créée avec succès. Elle sera publiée dès qu'un administrateur l'aura validée.
       events:
         create_proposal_event:
           email_intro: |-

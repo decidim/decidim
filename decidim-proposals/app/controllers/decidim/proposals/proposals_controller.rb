@@ -58,7 +58,11 @@ module Decidim
 
         CreateProposal.call(@form, current_user) do
           on(:ok) do |proposal|
-            flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
+            if proposal.feature.settings.upstream_moderation_enabled
+              flash[:notice] = I18n.t("proposals.create.moderation.success", scope: "decidim")
+            else
+              flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
+            end
             redirect_to proposal_path(proposal)
           end
 
