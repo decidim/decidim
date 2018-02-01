@@ -13,11 +13,10 @@ module Decidim
       helper_method :geocoded_proposals
       before_action :authenticate_user!, only: [:new, :create]
 
-      def index
+      def index # this method has been extended
         @proposals = search
                       .results
                       .not_hidden
-                      .authorized
                       .includes(:author)
                       .includes(:category)
                       .includes(:scope)
@@ -95,18 +94,6 @@ module Decidim
       end
 
       private
-
-      def get_user_with_process_role(participatory_process_id)
-        Decidim::ParticipatoryProcessUserRole.where(decidim_participatory_process_id: participatory_process_id).map(&:user)
-      end
-
-
-      def admin_or_moderator?
-        current_user && (current_user.admin? ||
-          current_organization.users_with_any_role.include?(current_user) ||
-          get_user_with_process_role(current_participatory_process.id).include?(current_user)
-        )
-      end
 
       def geocoded_proposals
         @geocoded_proposals ||= search.results.not_hidden.select(&:geocoded?)

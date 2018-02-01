@@ -8,6 +8,8 @@ module Decidim
     helper Decidim::TranslationsHelper
 
     def event_received(event, event_class_name, resource, user, extra)
+      binding.pry
+
       with_user(user) do
         @organization = resource.organization
         event_class = event_class_name.constantize

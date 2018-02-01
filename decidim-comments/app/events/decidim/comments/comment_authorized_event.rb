@@ -2,7 +2,7 @@
 
 module Decidim
   module Comments
-    class CommentCreatedEvent < Decidim::Events::BaseEvent
+    class CommentAuthorizedEvent < Decidim::Events::BaseEvent
       include Decidim::Events::EmailEvent
       include Decidim::Events::NotificationEvent
 

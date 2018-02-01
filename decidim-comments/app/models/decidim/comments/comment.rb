@@ -33,9 +33,6 @@ module Decidim
       validate :commentable_can_have_comments
 
       before_save :compute_depth
-      after_create :create_comment_moderation
-      after_create :update_moderation
-
 
       delegate :organization, :feature, to: :commentable
 
@@ -44,9 +41,6 @@ module Decidim
       def accepts_new_comments?
         depth < MAX_DEPTH
       end
-
-      # Public: Override Commentable concern method `users_to_notify_on_comment_created`
-      delegate :users_to_notify_on_comment_created, to: :root_commentable
 
       # Public: Check if the user has upvoted the comment
       #
@@ -66,32 +60,6 @@ module Decidim
       def reported_content_url
         ResourceLocatorPresenter.new(root_commentable).url(anchor: "comment_#{id}")
       end
-
-      def send_notification
-        Decidim::EventsManager.publish(
-          event: "decidim.events.comments.comment_created",
-          event_class: Decidim::Comments::CommentCreatedEvent,
-          resource: self.root_commentable,
-          recipient_ids: (self.root_commentable.users_to_notify_on_comment_authorized - [author]).pluck(:id),
-          extra: {
-            comment_id: self.id
-          }
-        )
-      end
-
-      private
-
-      def create_comment_moderation
-        participatory_space = self.root_commentable.feature.participatory_space
-        self.create_moderation!(participatory_space: participatory_space)
-      end
-
-      def update_moderation
-        unless moderation.upstream_activated?
-          moderation.authorize!
-        end
-      end
-
 
       # Private: Check if commentable can have comments and if not adds
       # a validation error to the model
