@@ -79,7 +79,15 @@ sv:
         show:
           comments: kommentarer
           report: Rapportera
-      events:
+      models:
+        debate:
+          fields:
+            end_time: Slutdatum
+            official_debate: Officiell debatt
+            start_time: Start datum
+            title: Titel
+    events:
+      debates:
         create_debate_event:
           space_followers:
             email_intro: |-
@@ -93,13 +101,6 @@ sv:
             email_outro: Du har fått den här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
             email_subject: Ny debatt av %{author_nickname}
             notification_title: <a href="%{resource_path}">%{resource_title}</a> debatten skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-      models:
-        debate:
-          fields:
-            end_time: Slutdatum
-            official_debate: Officiell debatt
-            start_time: Start datum
-            title: Titel
     features:
       debates:
         actions:

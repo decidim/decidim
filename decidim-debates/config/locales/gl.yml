@@ -79,7 +79,15 @@ gl:
         show:
           comments: Comentarios
           report: Informe
-      events:
+      models:
+        debate:
+          fields:
+            end_time: Data de finalización
+            official_debate: Debate oficial
+            start_time: Data de inicio
+            title: Título
+    events:
+      debates:
         create_debate_event:
           space_followers:
             email_intro: |-
@@ -93,13 +101,6 @@ gl:
             email_outro: Recibiches esta notificación porque estás seguindo %{author_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
             email_subject: Novo debate por %{author_nickname}
             notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate foi creado por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-      models:
-        debate:
-          fields:
-            end_time: Data de finalización
-            official_debate: Debate oficial
-            start_time: Data de inicio
-            title: Título
     features:
       debates:
         actions:

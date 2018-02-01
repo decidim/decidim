@@ -24,6 +24,7 @@ pt:
         cta_button_path: Link do botão principal
         cta_button_text: Texto do botão principal
         description: Descrição
+        enable_omnipresent_banner: Mostrar bandeira omnipresente
         favicon: Ícone
         header_snippets: Snippets de cabeçalho
         homepage_image: Imagem da página principal
@@ -31,6 +32,9 @@ pt:
         official_img_footer: Logotipo oficial no rodapé
         official_img_header: Logotipo oficial no cabeçalho
         official_url: URL oficial da organização
+        omnipresent_banner_short_description: Pequena descrição
+        omnipresent_banner_title: Título
+        omnipresent_banner_url: URL
         show_statistics: Mostrar estatísticas
         welcome_text: Texto de boas-vindas
       scope:
@@ -365,6 +369,7 @@ pt:
           header_snippets_help: Use este campo para adicionar coisas ao cabeçalho HTML. O uso mais comum é integrar serviços de terceiros que exigem algum JavaScript ou CSS extra. Além disso, você pode usá-lo para adicionar meta tags adicionais ao HTML. Observe que isso só será exibido em páginas públicas, não na seção de administração.
           homepage_appearance_title: Editar a aparência da página inicial
           layout_appearance_title: Editar aparência do layout
+          omnipresent_banner_appearance_title: Editar omnipresente
       scope_types:
         create:
           error: Ocorreu um erro ao criar um novo tipo de âmbito.

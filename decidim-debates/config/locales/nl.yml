@@ -79,7 +79,15 @@ nl:
         show:
           comments: Comments
           report: Verslag doen van
-      events:
+      models:
+        debate:
+          fields:
+            end_time: Einddatum
+            official_debate: Officieel debat
+            start_time: Begin datum
+            title: Titel
+    events:
+      debates:
         create_debate_event:
           space_followers:
             email_intro: |-
@@ -93,13 +101,6 @@ nl:
             email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
             email_subject: Nieuw debat door %{author_nickname}
             notification_title: Het <a href="%{resource_path}">%{resource_title}</a> debat is gemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-      models:
-        debate:
-          fields:
-            end_time: Einddatum
-            official_debate: Officieel debat
-            start_time: Begin datum
-            title: Titel
     features:
       debates:
         actions:
