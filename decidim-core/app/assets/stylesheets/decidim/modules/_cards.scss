@@ -297,6 +297,10 @@ $datetime-bg: $primary;
 .card__link{
   color: inherit;
 
+  @include breakpoint(small only){
+    word-break: break-all;
+  }
+
   &:hover{
     color: $anchor-color;
   }
