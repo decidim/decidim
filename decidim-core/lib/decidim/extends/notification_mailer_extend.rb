@@ -13,6 +13,16 @@ Decidim::NotificationMailer.class_eval do
       @body = body(event_class, resource, extra)
       @moderation_url = moderation_url
       @is_comment = is_comment?(event_class)
+      @translatable =
+        if resource.is_a?(Decidim::Budgets::Project) || resource.is_a?(Decidim::Meetings::Meeting)
+          true
+        elsif resource.is_a?(Decidim::Proposals::Proposal)
+          if event_class_name == "Decidim::Proposals::ProposalCreatedEvent"
+            true
+          else
+            false
+          end
+        end
       mail(to: user.email, subject: subject)
     end
   end
