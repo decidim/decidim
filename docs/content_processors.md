@@ -12,6 +12,24 @@ Register the content processor in an `initializer`:
 Decidim.content_processors += [:special_words]
 ```
 
+This symbol will be used to instantiate parsers and processors using the following convention:
+- "Decidim::ContentParsers::#{type.to_s.camelize}Parser"
+- "Decidim::ContentRenderers::#{type.to_s.camelize}Renderer"
+
+Autoload parser and renderer if in the lib/ dir. For example if in proposals module edit `lib/decidim/proposals.rb`:
+```rb
+module Decidim
+  ...
+  module ContentParsers
+    autoload :ProposalParser, "decidim/content_parsers/proposal_parser"
+  end
+  module ContentRenderers
+    autoload :ProposalRenderer, "decidim/content_renderers/proposal_renderer"
+  end
+  ...
+end
+```
+
 Declare the parser class:
 
 ```rb

@@ -32,6 +32,12 @@ module Decidim
           config.abilities += ["Decidim::Proposals::Abilities::CurrentUserAbility"]
         end
       end
+
+      initializer "decidim.content_processors" do |_app|
+        Decidim.configure do |config|
+          config.content_processors += [:proposal]
+        end
+      end
     end
   end
 end

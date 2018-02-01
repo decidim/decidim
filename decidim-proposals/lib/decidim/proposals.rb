@@ -11,4 +11,10 @@ module Decidim
   module Proposals
     autoload :ProposalSerializer, "decidim/proposals/proposal_serializer"
   end
+  module ContentParsers
+    autoload :ProposalParser, "decidim/content_parsers/proposal_parser"
+  end
+  module ContentRenderers
+    autoload :ProposalRenderer, "decidim/content_renderers/proposal_renderer"
+  end
 end
