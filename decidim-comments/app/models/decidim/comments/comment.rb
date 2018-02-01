@@ -42,6 +42,9 @@ module Decidim
         depth < MAX_DEPTH
       end
 
+      # Public: Override Commentable concern method `users_to_notify_on_comment_created`
+      delegate :users_to_notify_on_comment_created, to: :root_commentable
+
       # Public: Check if the user has upvoted the comment
       #
       # Returns a bool value to indicate if the condition is truthy or not
@@ -60,6 +63,8 @@ module Decidim
       def reported_content_url
         ResourceLocatorPresenter.new(root_commentable).url(anchor: "comment_#{id}")
       end
+
+      private
 
       # Private: Check if commentable can have comments and if not adds
       # a validation error to the model

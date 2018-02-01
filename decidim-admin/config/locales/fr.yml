@@ -285,6 +285,7 @@ fr:
             weight: Position
       moderations:
         index:
+          title: Modérations
           title:
             upstream: Modération à priori
             downstream: Modération à postériori

@@ -292,6 +292,7 @@ en:
             weight: Weight
       moderations:
         index:
+          title: Moderations
           title:
             upstream: Upstream moderation
             downstream: Downstream moderation

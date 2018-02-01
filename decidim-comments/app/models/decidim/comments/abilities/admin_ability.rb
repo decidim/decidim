@@ -12,7 +12,6 @@ module Decidim
           can :manage, Comment
           can :unreport, Comment
           can :hide, Comment
-          can :authorize, Comment
         end
       end
     end

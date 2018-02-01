@@ -8,6 +8,5 @@ module Decidim
     has_many :reports, foreign_key: "decidim_moderation_id", class_name: "Decidim::Report", dependent: :destroy
 
     delegate :feature, :organization, to: :reportable
-
   end
 end
