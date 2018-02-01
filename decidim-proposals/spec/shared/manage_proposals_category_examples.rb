@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-shared_examples "manage proposals category" do
+shared_examples "when managing proposals category" do
   let!(:proposals) { create_list :proposal, 3, feature: current_feature }
   let!(:my_category) { current_feature.categories.last }
 

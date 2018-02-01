@@ -12,7 +12,7 @@ module Decidim
         def initialize(category_id, proposal_ids)
           @category = Decidim::Category.find_by id: category_id
           @proposal_ids = proposal_ids
-          @response = { category_name: '', oks: [], kos: [] }
+          @response = { category_name: "", oks: [], kos: [] }
         end
 
         # Executes the command. Broadcasts these events:
@@ -56,7 +56,7 @@ module Decidim
 
         def notify_author(proposal)
           Decidim::EventsManager.publish(
-            event: 'decidim.events.proposals.proposal_update_category',
+            event: "decidim.events.proposals.proposal_update_category",
             event_class: Decidim::Proposals::Admin::UpdateProposalCategoryEvent,
             resource: proposal,
             recipient_ids: [proposal.decidim_author_id]
