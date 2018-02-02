@@ -16,10 +16,9 @@ module Decidim
       attribute :user_group_id, Integer
       attribute :has_address, Boolean
       attribute :attachment, AttachmentForm
-
       validates :title, :body, presence: true, etiquette: true
       validates :title, length: { maximum: 150 }
-      validates :body, length: { maximum: 500 }, etiquette: true
+      validate :proposal_length
       validates :address, geocoding: true, if: ->(form) { Decidim.geocoder.present? && form.has_address? }
       validates :address, presence: true, if: ->(form) { form.has_address? }
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
@@ -35,7 +34,6 @@ module Decidim
       end
 
       alias feature current_feature
-
       # Finds the Category from the category_id.
       #
       # Returns a Decidim::Category
@@ -60,6 +58,12 @@ module Decidim
       def has_address?
         current_feature.settings.geocoding_enabled? && has_address
       end
+
+      def proposal_length
+        length = current_feature.settings.proposal_length
+        errors.add(:body, :too_long, count: length) if body.length > length
+      end
+
     end
   end
 end
