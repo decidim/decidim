@@ -318,6 +318,10 @@ FactoryBot.define do
   end
 
   factory :action_log, class: "Decidim::ActionLog" do
+    transient do
+      extra_data { {} }
+    end
+
     organization
     user do
       build(
@@ -331,8 +335,23 @@ FactoryBot.define do
     action { "create" }
     extra do
       {
-        some_extra_data: "1"
-      }
+        feature: {
+          manifest_name: feature.try(:manifest_name),
+          title: feature.try(:name) || feature.try(:title)
+        }.compact,
+        participatory_space: {
+          manifest_name: participatory_space.try(:class).try(:participatory_space_manifest).try(:name),
+          title: participatory_space.try(:name) || participatory_space.try(:title)
+        }.compact,
+        resource: {
+          title: resource.try(:name) || resource.try(:title)
+        }.compact,
+        user: {
+          ip: user.current_sign_in_ip,
+          name: user.name,
+          nickname: user.nickname
+        }.compact
+      }.deep_merge(extra_data)
     end
   end
 end

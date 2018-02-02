@@ -62,7 +62,8 @@ module Decidim
     end
 
     def participatory_space
-      feature.participatory_space if resource.respond_to?(:participatory_space)
+      return feature.participatory_space if feature.respond_to?(:participatory_space)
+      resource.participatory_space if resource.respond_to?(:participatory_space)
     end
 
     def get_title(resource)

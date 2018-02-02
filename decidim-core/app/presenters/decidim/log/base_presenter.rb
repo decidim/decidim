@@ -64,12 +64,14 @@ module Decidim
         h.link_to(present_space_name, space_path)
       end
 
-      # Private: Presents the resource of the action. If the space is found
-      # in the database, it links to it. Otherwise it only shows the name.
+      # Private: Presents the resource of the action. If the resource and the
+      # space are found in the database, it links to it. Otherwise it only
+      # shows the resource name.
       #
       # Returns an HTML-safe String.
       def present_resource
-        return present_resource_name if resource.blank?
+        return present_resource_name if resource.blank? || resource_path.blank?
+        return present_resource_name if resource_path.blank?
 
         h.link_to(present_resource_name, resource_path)
       end
@@ -83,9 +85,14 @@ module Decidim
 
       # Private: Finds the link for the given resource.
       #
-      # Returns an HTML-safe String.
+      # Returns an HTML-safe String. If the resource space is not
+      # present, it returns `nil`.
       def resource_path
-        Decidim::ResourceLocatorPresenter.new(resource).path
+        @resource_path ||= begin
+                             Decidim::ResourceLocatorPresenter.new(resource).path
+                           rescue NoMethodError
+                             nil
+                           end
       end
 
       # Private: Presents a space. If the space is found in the database, it
