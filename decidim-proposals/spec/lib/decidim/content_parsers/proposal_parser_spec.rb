@@ -53,7 +53,14 @@ module Decidim
         end
 
         context "when proposal in content does not exist" do
-          it { raise "TODO" }
+          let(:proposal) { create(:proposal) }
+          let(:url) { proposal_url(proposal) }
+          let(:content) do
+            proposal.destroy
+            "This content references proposal #{url}."
+          end
+
+          it { is_expected.to eq("This content references proposal #{url}.") }
         end
       end
 

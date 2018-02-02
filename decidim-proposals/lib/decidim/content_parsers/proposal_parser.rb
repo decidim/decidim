@@ -25,7 +25,7 @@ module Decidim
           if proposal
             proposal.to_global_id
           else
-            match[1]
+            match
           end
         end
       end
@@ -38,7 +38,7 @@ module Decidim
       def proposal_from_match(match)
         uri = URI.parse(match)
         proposal_id = uri.path.split("/").last
-        Decidim::Proposals::Proposal.find(proposal_id) if proposal_id.present?
+        Decidim::Proposals::Proposal.find_by_id(proposal_id) if proposal_id.present?
       end
     end
   end
