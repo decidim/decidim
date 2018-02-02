@@ -30,19 +30,14 @@ module Decidim
         # view_helpers - An object holding the view helpers at the render time.
         #   Most probably should come automatically from the views.
         def render
-          case action
-          when "create"
-            h.content_tag(:li) do
-              I18n.t(
-                "decidim.accountability.admin_log.result.create",
-                user_name: render_user,
-                result_name: render_resource,
-                space_name: render_space
-              ).html_safe +
-                " (#{h.localize(action_log.created_at, format: :decidim_short)})"
-            end
-          when "update"
-            "TBD"
+          h.content_tag(:li) do
+            I18n.t(
+              action_string,
+              user_name: render_user,
+              result_name: render_resource,
+              space_name: render_space
+            ).html_safe +
+              " (#{h.localize(action_log.created_at, format: :decidim_short)})"
           end
         end
 
@@ -90,6 +85,15 @@ module Decidim
           name = action_log.extra["user"]["name"]
           nickname = action_log.extra["user"]["nickname"]
           "#{name} @#{nickname}"
+        end
+
+        def action_string
+          case action
+          when "create"
+            "decidim.accountability.admin_log.result.create"
+          when "update"
+            "decidim.accountability.admin_log.result.update"
+          end
         end
       end
     end
