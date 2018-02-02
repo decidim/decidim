@@ -80,6 +80,7 @@ you need to change the following line in `config/environments/production.rb`:
 
 **Fixed**:
 
+- **decidim-accountability**: Calculate progress average considering all items [\#2638](https://github.com/decidim/decidim/pull/2638)
 - **decidim-proposals**: Fix test redirect. [\#2633](https://github.com/decidim/decidim/pull/2633)
 - **decidim-core**: Don't allow conversations between the same user. [\#2630](https://github.com/decidim/decidim/pull/2630)
 - **decidim-core**: Remove Sendgrid and Heroku references. [\#2634](https://github.com/decidim/decidim/pull/2634)
