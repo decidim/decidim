@@ -201,7 +201,7 @@ es:
         new:
           create: Crear
           new_managed_user: Nuevo usuario gestionado
-          no_authorization_handlers: No hay controladores de autorización disponibles para administrar usuarios. Por favor, póngase en contacto con el administrador del sistema.
+          no_authorization_handlers: No hay autorizaciones disponibles para gestionar usuarios. Por favor, póngase en contacto con el administrador del sistema.
           select_authorization_method: Seleccione un método de autorización
           step: Fase %{current} de %{total}
         promotion:
