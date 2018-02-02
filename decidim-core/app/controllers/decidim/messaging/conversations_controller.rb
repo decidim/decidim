@@ -17,8 +17,9 @@ module Decidim
         authorize! :create, Conversation
         @form = form(ConversationForm).from_params(params)
 
-        conversation = conversation_between(current_user, @form.recipient)
+        redirect_back(fallback_location: profile_path(current_user.nickname)) && return unless @form.recipient
 
+        conversation = conversation_between(current_user, @form.recipient)
         redirect_to conversation_path(conversation) if conversation
       end
 
