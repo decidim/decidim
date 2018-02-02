@@ -201,6 +201,7 @@ nl:
         new:
           create: creëren
           new_managed_user: Nieuwe beheerde gebruiker
+          no_authorization_handlers: Er zijn geen beschikbare autorisatiehandlers om gebruikers te beheren. Neem contact op met uw systeembeheerder.
           select_authorization_method: Selecteer een autorisatie methode
           step: Stap %{current} van %{total}
         promotion:
