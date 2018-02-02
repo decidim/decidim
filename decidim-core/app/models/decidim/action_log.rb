@@ -54,7 +54,7 @@ module Decidim
       presenter_klass_name << "::AdminLog::"
       presenter_klass_name << resource_type.demodulize
       presenter_klass_name << "Presenter"
-      presenter_klass_name.constantize.new(self, view_helpers).render
+      presenter_klass_name.constantize.new(self, view_helpers).present
     end
   end
 end
