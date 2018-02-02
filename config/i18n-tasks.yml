@@ -116,6 +116,7 @@ ignore_unused:
   - decidim.features.accountability.name
   - decidim.features.accountability.settings.*
   - decidim.accountability.models.project.valid_statuses.*
+  - decidim.accountability.admin_log.*
   - decidim.debates.debates.filters.*
   - decidim.events.*
 
