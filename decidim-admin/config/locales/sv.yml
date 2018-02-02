@@ -201,6 +201,7 @@ sv:
         new:
           create: Skapa
           new_managed_user: Ny hanterad användare
+          no_authorization_handlers: Det finns inga tillgängliga behörighetshanterare för att hantera användare. Kontakta din systemadministratör.
           select_authorization_method: Välj en auktoriseringsmetod
           step: Steg %{current} av %{total}
         promotion:
