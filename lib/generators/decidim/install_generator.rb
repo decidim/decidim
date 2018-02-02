@@ -76,17 +76,6 @@ module Decidim
             |    :enable_starttls_auto => Rails.application.secrets.smtp_starttls_auto,
             |    :openssl_verify_mode => 'none'
             |  }
-            |
-            |  if Rails.application.secrets.sendgrid
-            |    config.action_mailer.default_options = {
-            |      "X-SMTPAPI" => {
-            |        filters:  {
-            |          clicktrack: { settings: { enable: 0 } },
-            |          opentrack:  { settings: { enable: 0 } }
-            |        }
-            |      }.to_json
-            |    }
-            |  end
           RUBY
         end
       end
