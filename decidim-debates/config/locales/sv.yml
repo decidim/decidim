@@ -2,7 +2,7 @@ sv:
   activemodel:
     attributes:
       debate:
-        decidim_category_id: Kategori
+        category_id: Kategori
         description: Beskrivning
         end_time: Slutar vid
         information_updates: Informationsuppdateringar
