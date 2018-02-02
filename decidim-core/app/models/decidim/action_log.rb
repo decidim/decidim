@@ -27,7 +27,7 @@ module Decidim
 
     validates :organization, :user, :action, :resource, presence: true
 
-    # Renders the action log instance. Assumes the existence of the presenter
+    # Public: Renders the action log instance. Assumes the existence of the presenter
     # class for the related `resource`, which will be in charge of the actual
     # rendering of the data.
     #
@@ -50,11 +50,18 @@ module Decidim
     #
     # Returns an HTML-safe String.
     def render_log(view_helpers)
-      presenter_klass_name = resource_type.deconstantize
-      presenter_klass_name << "::AdminLog::"
-      presenter_klass_name << resource_type.demodulize
-      presenter_klass_name << "Presenter"
-      presenter_klass_name.constantize.new(self, view_helpers).present
+      log_presenter_class_name.constantize.new(self, view_helpers).present
+    end
+
+    # Public: Calculates the name of the presenter class that will be used to present
+    # the action in the given log. Currently only handles the admin log.
+    #
+    # Returns a String.
+    def log_presenter_class_name
+      klass_name = resource_type.deconstantize
+      klass_name << "::AdminLog::"
+      klass_name << resource_type.demodulize
+      klass_name << "Presenter"
     end
   end
 end
