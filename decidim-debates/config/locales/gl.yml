@@ -2,7 +2,7 @@ gl:
   activemodel:
     attributes:
       debate:
-        decidim_category_id: Categoría
+        category_id: Categoría
         description: Descrición
         end_time: Remata a
         information_updates: Actualizacións de información
