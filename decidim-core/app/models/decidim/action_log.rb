@@ -45,12 +45,21 @@ module Decidim
     # presentations, with the same data. We currently assume only one log is present
     # (`AdminLog`), but we have a structure that enables multiple logs in the future.
     #
+    # If the presenter class cannot be found automatically, it will use the
+    # `Decidim::Log::BasePresenter` class as a fallback.
+    #
     # view_helpers - an object that holds all the view helpers accessible at the render
     #   time.
     #
     # Returns an HTML-safe String.
     def render_log(view_helpers)
-      log_presenter_class_name.constantize.new(self, view_helpers).present
+      presenter_klass = begin
+                          log_presenter_class_name.constantize
+                        rescue NameError
+                          Decidim::Log::BasePresenter
+                        end
+
+      presenter_klass.new(self, view_helpers).present
     end
 
     # Public: Calculates the name of the presenter class that will be used to present

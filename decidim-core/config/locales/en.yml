@@ -200,6 +200,11 @@ en:
       errors:
         error: There's an error in this field.
       remove_this_file: Remove this file
+    log:
+      base_presenter:
+        create: "%{user_name} created %{result_name} in %{space_name}"
+        unknown_action: "%{user_name} performed some action on %{result_name} in %{space_name}"
+        update: "%{user_name} updated %{result_name} in %{space_name}"
     managed_users:
       expired_session: The current impersonation session has expired.
     menu:
