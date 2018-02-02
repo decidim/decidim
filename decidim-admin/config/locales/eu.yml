@@ -201,6 +201,7 @@ eu:
         new:
           create: Sortu
           new_managed_user: Erabiltzaile kudeatu berria
+          no_authorization_handlers: Ez dago baimendutako baimendun erabilgarririk erabiltzaileak kudeatzeko. Mesedez, jarri harremanetan sistemaren administratzailearekin.
           select_authorization_method: Hautatu autorizazio metodoa
           step: '%{total} fasetatik %{current}.a'
         promotion:
