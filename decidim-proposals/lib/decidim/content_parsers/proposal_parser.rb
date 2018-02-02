@@ -11,15 +11,8 @@ module Decidim
     #
     # @see BaseParser Examples of how to use a content parser
     class ProposalParser < BaseParser
-      # Class used as a container for metadata
-      #
-      # @!attribute users
-      #   @return [Array] an array of Decidim::User mentioned in content
-      Metadata = Struct.new(:users)
-
-      # Matches a nickname if they start with a letter or number
-      # and only contains letters, numbers or underscores.
-      MENTION_REGEX = /(^|\s)@([a-zA-Z0-9]\w*)/
+      # Matches a URL
+      URL_REGEX = /(?i)\b((?:[a-z][\w-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))/i
 
       # Replaces found mentions matching a nickname of an existing
       # user with a global id. Other mentions found that doesn't
@@ -27,20 +20,25 @@ module Decidim
       #
       # @return [String] the content with the valid mentions replaced by a global id
       def rewrite
-        content.gsub(MENTION_REGEX) do |match|
-#          if (user = Decidim::User.find_by(nickname: Regexp.last_match[2]))
-#            Regexp.last_match[1] + user.to_global_id.to_s
-#          else
-            match
-#          end
+        content.gsub(URL_REGEX) do |match|
+          proposal = proposal_from_match(match)
+          if proposal
+            proposal.to_global_id
+          else
+            match[1]
+          end
         end
       end
 
       # (see BaseParser#metadata)
       def metadata
-        Metadata.new(
-         # Decidim::User.where(nickname: content.scan(MENTION_REGEX).flatten)
-        )
+        Metadata.new
+      end
+
+      def proposal_from_match(match)
+        uri = URI.parse(match)
+        proposal_id = uri.path.split("/").last
+        Decidim::Proposals::Proposal.find(proposal_id) if proposal_id.present?
       end
     end
   end

@@ -10,7 +10,7 @@ module Decidim
     # @see BaseRenderer Examples of how to use a content renderer
     class ProposalRenderer < BaseRenderer
       # Matches a global id representing a Decidim::User
-      GLOBAL_ID_REGEX = %r{gid://.*/Decidim::Proposals::Proposal/\d+}
+      GLOBAL_ID_REGEX = /gid:\/\/([\w-]*\/Decidim::Proposals::Proposal\/(\d+))/i
 
       # Replaces found Global IDs matching an existing proposal with
       # a link to their profile. The Global IDs representing an
@@ -18,17 +18,14 @@ module Decidim
       #
       # @return [String] the content ready to display (contains HTML)
       def render
-=begin
-        content.gsub(GLOBAL_ID_REGEX) do |user_gid|
+        content.gsub(GLOBAL_ID_REGEX) do |proposal_gid|
           begin
-            user = GlobalID::Locator.locate(user_gid)
-            Decidim::UserPresenter.new(user).display_mention
-          rescue ActiveRecord::RecordNotFound => _ex
-            ""
+            proposal = GlobalID::Locator.locate(proposal_gid)
+            Decidim::Proposals::ProposalPresenter.new(proposal).display_mention
+          rescue ActiveRecord::RecordNotFound => e
+            "<???>"
           end
         end
-=end
-        content
       end
     end
   end
