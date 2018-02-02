@@ -149,10 +149,10 @@ ca:
         notification_title: La fase %{resource_title} ja està activa per <a href="%{resource_path}">%{participatory_space_title}</a>
       users:
         profile_updated:
-          email_intro: El <a href="%{resource_url}">profile pàgina</a> de %{name} (%{nickname}), al qual estàs seguint, s'ha actualitzat.
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{nickname}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: "%{nickname} ha actualitzat el seu perfil"
-          notification_title: El <a href="%{resource_path}">profile pàgina</a> de %{name} (%{nickname}), al qual estàs seguint, s'ha actualitzat.
+          email_intro: El <a href="%{resource_url}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint en/na %{nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: "En/na %{nickname} ha actualitzat el seu perfil"
+          notification_title: El <a href="%{resource_path}">perfil</a> d'en/na %{name} (%{nickname}), a qui estàs seguint, s'ha actualitzat.
     export_mailer:
       export:
         ready: S'adjunta una versió comprimida de l'exportació.

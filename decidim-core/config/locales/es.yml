@@ -149,10 +149,10 @@ es:
         notification_title: La fase %{resource_title} ahora está activa para <a href="%{resource_path}">%{participatory_space_title}</a>
       users:
         profile_updated:
-          email_intro: La página <a href="%{resource_url}">profile</a> de %{name} (%{nickname}), a la que está siguiendo, se ha actualizado.
-          email_outro: Recibió esta notificación porque está siguiendo %{nickname}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: "%{nickname} actualizó su perfil"
-          notification_title: El <a href="%{resource_path}"> perfil página</a> de %{name} (%{nickname}), a quien está siguiendo, se ha actualizado.
+          email_intro: La página <a href="%{resource_url}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
+          email_outro: Has recibido esta notificación porque estás siguiendo a %{nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: "%{nickname} ha actualizado su perfil"
+          notification_title: La página <a href="%{resource_path}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
     export_mailer:
       export:
         ready: Adjunto encontrará una versión comprimida de su exportación.
