@@ -27,7 +27,7 @@ describe "Conversations", type: :system do
   end
 
   context "when starting a conversation" do
-    let(:recipient) { create(:user) }
+    let(:recipient) { create(:user, organization: organization) }
 
     before do
       visit decidim.new_conversation_path(recipient_id: recipient.id)
@@ -52,7 +52,7 @@ describe "Conversations", type: :system do
   end
 
   context "when user has conversations" do
-    let(:interlocutor) { create(:user, :confirmed) }
+    let(:interlocutor) { create(:user, :confirmed, organization: organization) }
 
     let!(:conversation) do
       Decidim::Messaging::Conversation.start!(
