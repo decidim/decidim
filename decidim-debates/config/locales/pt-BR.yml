@@ -2,7 +2,7 @@ pt-BR:
   activemodel:
     attributes:
       debate:
-        decidim_category_id: Categoria
+        category_id: Categoria
         description: Descrição
         end_time: Termina em
         information_updates: Atualizações de informações
