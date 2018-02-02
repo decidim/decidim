@@ -134,14 +134,6 @@ module Decidim
         votes.count >= maximum_votes
       end
 
-      # Checks whether the user is author of the given proposal, either directly
-      # authoring it or via a user group.
-      #
-      # user - the user to check for authorship
-      def authored_by?(user)
-        author == user || user.user_groups.include?(user_group)
-      end
-
       # Checks whether the user can edit the given proposal.
       #
       # user - the user to check for authorship
