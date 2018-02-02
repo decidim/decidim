@@ -3,7 +3,7 @@ en:
   activemodel:
     attributes:
       debate:
-        decidim_category_id: Category
+        category_id: Category
         description: Description
         end_time: Ends at
         information_updates: Information updates
