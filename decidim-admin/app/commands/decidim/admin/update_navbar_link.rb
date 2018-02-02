@@ -37,6 +37,7 @@ module Decidim
         {
           title: form.title,
           link: form.link,
+          weight: form.weight,
           target: form.target,
           decidim_organization_id: form.organization_id
         }

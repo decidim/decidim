@@ -1,12 +1,12 @@
 <p><%= @event_instance.email_moderation_intro %>
-  <% if @is_proposal %>
-    <em><%= translated_attribute(@parent_title) %></em> <!-- Translate title if object is a proposal -->
+  <% if @translatable %>
+    <em><%= translated_attribute(@parent_title) %></em> <!-- Translate title if object is a proposal a meeting or a project -->
   <% else %>
-   <em><%= @parent_title %></em>
+    <em><%= @parent_title %></em>
   <% end %>
 </p>
 <div class="email-card">
-  <h6 class="content-title"> <%= @resource_title %> </h6>
+  <h6 class="content-title"> <%= @resource_title unless @is_comment %> </h6>
 
   <p> <%= @body %> </p>
 </div>

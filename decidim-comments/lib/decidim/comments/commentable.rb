@@ -38,10 +38,14 @@ module Decidim
           self.class.name
         end
 
-        # Public: Defines which users will receive a notification when a comment is created.
+         # Public: Defines which users will receive a notification when a comment is created.
         # This method can be overridden at each resource model to include or exclude
         # other users, eg. admins.
         # Returns: a relation of Decidim::User objects.
+        # def users_to_notify_on_comment_created
+        #   Decidim::User.none
+        # end
+
         def users_to_notify_on_comment_created
           get_all_users_with_role
         end

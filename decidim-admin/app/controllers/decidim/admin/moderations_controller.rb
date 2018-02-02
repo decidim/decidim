@@ -4,8 +4,10 @@ module Decidim
   module Admin
     # This controller allows admins to manage moderations in a participatory process.
     class ModerationsController < Decidim::Admin::ApplicationController
+      helper_method :moderations
       helper_method :downstream_moderations
       helper_method :upstream_moderations
+
 
       def index
         authorize! :read, Decidim::Moderation
@@ -20,6 +22,22 @@ module Decidim
         moderated = params[:moderated]
         @moderation.authorize!
         redirect_to moderations_path(moderation_type: "upstream", moderated: moderated)
+      end
+
+      def unreport
+        authorize! :unreport, reportable
+
+        Admin::UnreportResource.call(reportable) do
+          on(:ok) do
+            flash[:notice] = I18n.t("reportable.unreport.success", scope: "decidim.moderations.admin")
+            redirect_to moderations_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("reportable.unreport.invalid", scope: "decidim.moderations.admin")
+            redirect_to moderations_path
+          end
+        end
       end
 
       # This action is use to hide or to set as refused moderated object
@@ -45,24 +63,25 @@ module Decidim
         end
       end
 
-      def unreport
-        authorize! :unreport, reportable
+      private
 
-        Admin::UnreportResource.call(reportable) do
-          on(:ok) do
-            flash[:notice] = I18n.t("reportable.unreport.success", scope: "decidim.moderations.admin")
-            redirect_to moderations_path
-          end
-
-          on(:invalid) do
-            flash.now[:alert] = I18n.t("reportable.unreport.invalid", scope: "decidim.moderations.admin")
-            redirect_to moderations_path
+      def moderations
+        @moderations ||= begin
+          if params[:hidden]
+            participatory_space_moderations.where.not(hidden_at: nil)
+          else
+            participatory_space_moderations.where(hidden_at: nil)
           end
         end
       end
 
-      private
+      def reportable
+        @reportable ||= participatory_space_moderations.find(params[:id]).reportable
+      end
 
+      def participatory_space_moderations
+        @participatory_space_moderations ||= Decidim::Moderation.where(participatory_space: current_participatory_space)
+      end
 
       def downstream_moderations
         @downstream_moderations ||= begin
@@ -77,7 +96,7 @@ module Decidim
       def upstream_moderations
         @upstream_moderations ||= begin
           if params[:moderated] && params[:moderation_type] == "upstream"
-            filtered_upstream_moderations.where.not(upstream_moderation: "unmoderate").order("created_at").reverse
+            filtered_upstream_moderations.where("upstream_moderation = ? OR upstream_moderation = ?", "refused", "authorized").order("created_at").reverse
           elsif params[:moderation_type] == "upstream"
             filtered_upstream_moderations.where(upstream_moderation: "unmoderate").order("created_at").reverse
           end
@@ -100,14 +119,6 @@ module Decidim
         features.uniq!
 
         features = Decidim::Feature.where(id: features.map(&:id), participatory_space: current_participatory_space)
-      end
-
-      def reportable
-        @reportable ||= participatory_space_moderations.find(params[:id]).reportable
-      end
-
-      def participatory_space_moderations
-        @participatory_space_moderations ||= Decidim::Moderation.where(participatory_space: current_participatory_space)
       end
     end
   end

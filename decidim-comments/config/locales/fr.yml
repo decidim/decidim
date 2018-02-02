@@ -9,20 +9,12 @@ fr:
             email_subject: Un nouveau commentaire a été publié par %{author_name} dans %{resource_title}
             notification_title: Il y a un nouveau commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
             url: "Url du commentaire : %{resource_url}"
-            moderation:
-              email_intro: "%{author_name} a publié un nouveau commentaire sur"
-              email_subject: 'Nouveau commentaire de %{author_name} en attente de modération'
-              moderation_url: "Vous pouvez modérer le contenu en suivant ce lien : %{moderation_url}"
           reply:
             email_intro: '"%{resource_title}" a reçu un commentaire'
             email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre à partir du lien précédent.
             email_subject: Votre commentaire a reçu une réponse de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
             notification_title: Il y a une nouvelle réponse à votre commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
             url: "Url du commentaire : %{resource_url}"
-            moderation:
-              email_intro: "%{author_name} a publié un nouveau commentaire sur"
-              email_subject: 'Nouveau commentaire de %{author_name} en attente de modération'
-              moderation_url: Vous pouvez modérer le contenu en suivant ce lien %{moderation_url}
       votes:
         create:
           error: Une erreur s'est produite lors du vote sur le commentaire.
@@ -77,3 +69,31 @@ fr:
   errors:
     messages:
       cannot_have_comments: ne peut pas être commenté
+# moderation
+    comments:
+      events:
+        comment_created:
+          comment:
+            moderation:
+              email_intro: "%{author_name} a publié un nouveau commentaire sur"
+              email_subject: 'Nouveau commentaire de %{author_name} en attente de modération'
+              moderation_url: "Vous pouvez modérer le contenu en suivant ce lien : %{moderation_url}"
+          reply:
+            moderation:
+              email_intro: "%{author_name} a publié un nouveau commentaire sur"
+              email_subject: 'Nouveau commentaire de %{author_name} en attente de modération'
+              moderation_url: Vous pouvez modérer le contenu en suivant ce lien %{moderation_url}
+        comment_authorized:
+          comment:
+            email_intro: '"%{resource_title}" a été commenté. Vous pouvez lire le commentaire de cette page:'
+            email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre à partir du lien précédent.
+            email_subject: Un nouveau commentaire a été publié par %{author_name} dans %{resource_title}
+            notification_title: Il y a un nouveau commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
+            url: "Url du commentaire : %{resource_url}"
+          reply:
+            email_intro: '"%{resource_title}" a reçu un commentaire'
+            email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre à partir du lien précédent.
+            email_subject: Votre commentaire a reçu une réponse de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Il y a une nouvelle réponse à votre commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
+            url: "Url du commentaire : %{resource_url}"
+

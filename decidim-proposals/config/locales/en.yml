@@ -93,7 +93,9 @@ en:
         rejected: Rejected
       create:
         error: There's been errors when saving the proposal.
-        success: Proposal successfully created. It will be published as soon as an administrator will have authorized it.
+        success: Proposal successfully created.
+        moderation:
+          success: Proposal successfully created. It will be published as soon as an administrator will have authorized it.
       events:
         create_proposal_event:
           email_intro: |-
