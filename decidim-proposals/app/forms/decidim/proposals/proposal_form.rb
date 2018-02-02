@@ -63,7 +63,6 @@ module Decidim
         length = current_feature.settings.proposal_length
         errors.add(:body, :too_long, count: length) if body.length > length
       end
-
     end
   end
 end
