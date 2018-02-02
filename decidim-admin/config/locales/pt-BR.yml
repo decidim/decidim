@@ -201,6 +201,7 @@ pt-BR:
         new:
           create: Criar
           new_managed_user: Novo usuário gerenciado
+          no_authorization_handlers: Não há manipuladores de autorização disponíveis para gerenciar usuários. Entre em contato com o administrador do sistema.
           select_authorization_method: Selecione um método de autorização
           step: Passo %{current} de %{total}
         promotion:
