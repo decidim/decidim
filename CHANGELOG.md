@@ -80,6 +80,7 @@ you need to change the following line in `config/environments/production.rb`:
 
 **Fixed**:
 
+- **decidim-proposals**: Fix test redirect. [\#2633](https://github.com/decidim/decidim/pull/2633)
 - **decidim-core**: Fix user re-invite. [\#2626](https://github.com/decidim/decidim/pull/2626)
 - **decidim-core**: Allow underscores at CTA button path. [\#2625](https://github.com/decidim/decidim/pull/2625)
 - **decidim-core**: Fix editing features in assemblies. [\#2524](https://github.com/decidim/decidim/pull/2524)
