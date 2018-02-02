@@ -297,7 +297,7 @@ fr:
           error: Erreur lors de l'envoi de ce bulletin d'information.
           success: Bulletin d'information envoyé avec succès.
         destroy:
-          error_already_sent: Suppression impossible car le bulletin d'information a déjà été envoyé.
+          error_already_sent: 'Suppression impossible car le bulletin d''information a déjà été envoyé.'
           success: Bulletin d'information supprimé avec succès.
         edit:
           save_and_preview: Enregistrer et prévisualiser
