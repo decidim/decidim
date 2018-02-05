@@ -14,18 +14,33 @@ module Decidim
           let(:content) { nil }
 
           it { is_expected.to eq("") }
+          it "should have empty metadata" do
+            subject
+            expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
+            expect(parser.metadata.proposals).to eq([])
+          end
         end
 
         context "when content is empty string" do
           let(:content) { "" }
 
           it { is_expected.to eq("") }
+          it "should have empty metadata" do
+            subject
+            expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
+            expect(parser.metadata.proposals).to eq([])
+          end
         end
 
         context "when conent has no links" do
           let(:content) { "whatever content with @mentions and #hashes but no links." }
 
           it { is_expected.to eq(content) }
+          it "should have empty metadata" do
+            subject
+            expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
+            expect(parser.metadata.proposals).to eq([])
+          end
         end
 
         context "when content has one link" do
@@ -36,6 +51,11 @@ module Decidim
           end
 
           it { is_expected.to eq("This content references proposal #{proposal.to_global_id}.") }
+          it "should have metadata with the proposal" do
+            subject
+            expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
+            expect(parser.metadata.proposals).to eq([proposal])
+          end
         end
 
         context "when content has many links" do
@@ -50,6 +70,11 @@ module Decidim
           end
 
           it { is_expected.to eq("This content references the following proposals: #{proposal_1.to_global_id}, #{proposal_2.to_global_id} and #{proposal_3.to_global_id}. Great?I like them!") }
+          it "should have metadata with all linked proposals" do
+            subject
+            expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
+            expect(parser.metadata.proposals).to eq([proposal_1, proposal_2, proposal_3])
+          end
         end
 
         context "when proposal in content does not exist" do
@@ -61,6 +86,11 @@ module Decidim
           end
 
           it { is_expected.to eq("This content references proposal #{url}.") }
+          it "should have empty metadata" do
+            subject
+            expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
+            expect(parser.metadata.proposals).to eq([])
+          end
         end
       end
 
