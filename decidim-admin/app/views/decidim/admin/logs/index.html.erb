@@ -1,0 +1,13 @@
+<div class="content">
+  <div class="row">
+    <h3 class="card-title">
+      <%= t "decidim.admin.titles.admin_log" %>
+    </h3>
+    <ul>
+      <% logs.each do |log| %>
+        <%= render_log(log) %>
+      <% end %>
+    </ul>
+    <%= paginate logs, theme: "decidim" %>
+  </div>
+</div>

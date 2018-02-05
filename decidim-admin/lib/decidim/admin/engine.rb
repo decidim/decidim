@@ -78,10 +78,10 @@ module Decidim
                     if: can?(:read, current_organization)
 
           menu.item I18n.t("menu.admin_log", scope: "decidim.admin"),
-                    decidim_admin.root_path,
+                    decidim_admin.logs_path,
                     icon_name: "dashboard",
                     position: 10,
-                    active: [%w(decidim/admin/admin_log), []],
+                    active: [%w(decidim/admin/logs), []],
                     if: can?(:read, :admin_log)
         end
       end

@@ -9,7 +9,7 @@
         <%= t "decidim.admin.titles.admin_log" %>
       </h3>
       <ul>
-        <% Decidim::ActionLog.order(created_at: :desc).first(20).each do |log| %>
+        <% latest_action_logs.each do |log| %>
           <%= render_log(log) %>
         <% end %>
       </ul>
