@@ -201,6 +201,7 @@ fi:
         new:
           create: Luo
           new_managed_user: Uusi hallittu käyttäjä
+          no_authorization_handlers: Käyttäjien hallintaan ei ole käytettävissä valtuutusten käsittelijöitä. Ota yhteyttä järjestelmänvalvojaan.
           select_authorization_method: Valitse tunnistautumistapa
           step: Vaihe %{current} / %{total}
         promotion:

@@ -201,6 +201,7 @@ gl:
         new:
           create: Crear
           new_managed_user: Novo usuario xestor
+          no_authorization_handlers: Non hai controladores de autorización dispoñibles para xestionar usuarios. Póñase en contacto co administrador do sistema.
           select_authorization_method: Seleccione un método de autorización
           step: Paso %{current} de %{total}
         promotion:

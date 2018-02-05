@@ -201,6 +201,7 @@ pl:
         new:
           create: Utwórz
           new_managed_user: Nowy użytkownik zarządzany
+          no_authorization_handlers: Nie ma dostępnych programów do obsługi upoważnień do zarządzania użytkownikami. Skontaktuj się z administratorem systemu.
           select_authorization_method: Wybierz metodę autoryzacji
           step: Krok %{current} z %{total}
         promotion:
