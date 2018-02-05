@@ -1,0 +1,8 @@
+  <ul class="tags <%= tags_class_extra %>" >
+    <% if @proposal.category.present? %>
+      <li><%= link_to translated_attribute(@proposal.category.name), "#" %></li>
+    <% end %>
+    <% if has_visible_scopes?(@proposal) %>
+      <li><%= link_to translated_attribute(@proposal.scope.name), resource_locator(resource).index(filter: { scope_id: [@proposal.scope.id] }) %></li>
+    <% end %>
+  </ul>

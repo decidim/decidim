@@ -1,0 +1,36 @@
+<div class="column">
+  <article class="card card--proposal">
+    <div class="card__content">
+      <div class="card__header">
+        <div class="card__header">
+          <%= link_to proposal do%>
+            <h5 class="card__title"><%= proposal.title %></h5>
+          <% end %>
+          <div class="card__author author-data author-data--small">
+            <%= render partial: "decidim/shared/author_reference", locals: { author: present(proposal).author } %>
+          </div>
+          <div class="tech-info tech-info--text-left">
+            <%= t("decidim.proposals.proposals.proposal.creation_date", date: l(proposal.created_at, format: :decidim_short)) %>
+          </div>
+          <%= feature_reference(proposal, class: "tech-info--text-left") %>
+        </div>
+      </div>
+      <p><%= truncate(proposal.body, length: 100) %></p>
+      <%= render partial: "proposal_preview_card_tags", locals: { proposal: proposal, tags_class_extra: "tags--proposal" } %>
+    </div>
+    <div class="card__footer">
+      <div class="card__support">
+        <div class="card__support__data">
+          <span class="card__support__number">0</span>
+          <span class="">
+            <%= t('decidim.proposals.proposals.votes_count.count', count: 0) %>
+          </span>
+        </div>
+
+        <button class="card__button button small" type="button">
+          <%= t('decidim.proposals.proposals.vote_button.vote') %>
+        </button>
+      </div>
+    </div>
+  </article>
+</div>

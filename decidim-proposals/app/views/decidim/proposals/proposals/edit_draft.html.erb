@@ -22,8 +22,9 @@
     <h2 class="section-heading"><%= t(".title") %></h2>
 
     <div class="card">
+
       <div class="card__content">
-        <%= decidim_form_for(@form) do |form| %>
+        <%= decidim_form_for(@form, url: update_draft_proposal_path(@proposal), method: :patch) do |form| %>
           <div class="field">
             <%= form.text_field :title %>
           </div>
@@ -43,7 +44,7 @@
 
           <% if @form.categories&.any? %>
             <div class="field">
-              <%= form.categories_select :category_id, @form.categories, prompt: t(".select_a_category") %>
+              <%= form.categories_select :category_id, @form.categories, prompt: t("decidim.proposals.proposals.edit.select_a_category") %>
             </div>
           <% end %>
 
@@ -57,21 +58,6 @@
             <div class="field">
               <%= form.select :user_group_id, current_user.user_groups.verified.map{|g| [g.name, g.id]}, prompt: current_user.name %>
             </div>
-          <% end %>
-
-          <% if feature_settings.attachments_allowed? %>
-            <fieldset>
-              <legend><%= t('.attachment_legend') %></legend>
-              <%= form.fields_for :attachment, @form.attachment do |form| %>
-                <div class="field">
-                  <%= form.text_field :title %>
-                </div>
-
-                <div class="field">
-                  <%= form.upload :file, optional: false %>
-                </div>
-              <% end %>
-            </fieldset>
           <% end %>
 
           <div class="actions">

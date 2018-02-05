@@ -30,6 +30,9 @@ en:
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
             proposal_limit: Proposal limit per user
+            proposal_wizard_step_1_help_text: Proposal wizard "Create" help text
+            proposal_wizard_step_2_help_text: Proposal wizard "Compare" help text
+            proposal_wizard_step_3_help_text: Proposal wizard "Publish" help text
             vote_limit: Vote limit per user
           step:
             announcement: Announcement
@@ -96,7 +99,7 @@ en:
         withdrawn: Withdrawn
       create:
         error: There's been errors when saving the proposal.
-        success: Proposal created successfully.
+        success: Proposal created successfully. Saved as a Draft.
       events:
         accepted_proposal_event:
           email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
@@ -139,6 +142,11 @@ en:
         create:
           error: There's been errors when voting the proposal.
       proposals:
+        compare:
+          back: Back
+          mine_is_different: My proposal is different
+          no_similars_found: Well done! No similar proposals found
+          title: Similar Proposals
         count:
           proposals_count:
             one: 1 proposal
@@ -148,6 +156,10 @@ en:
           select_a_category: Please select a category
           send: Send
           title: Edit proposal
+        edit_draft:
+          back: Back
+          send: Preview
+          title: Edit Proposal Draft
         filters:
           accepted: Accepted
           activity: Activity
@@ -179,20 +191,29 @@ en:
         new:
           attachment_legend: "(Optional) Add an attachment"
           back: Back
-          proposal_edit_before_minutes:
-            one: You will be able to edit this proposal during the first minute after the proposal was created. Once this time window passes, you will not be able to edit the proposal.
-            other: You will be able to edit this proposal during the first %{count} minutes after the proposal was created. Once this time window passes, you will not be able to edit the proposal.
           select_a_category: Please select a category
-          send: Send
-          title: New proposal
+          send: Continue
+          title: Create Your Proposal
         orders:
           label: 'Order proposals by:'
           most_voted: Most voted
           random: Random
           recent: Recent
+        preview:
+          back: Back
+          modify: Modify the proposal
+          title: Publish your proposal
+          proposal_edit_before_minutes:
+            one: You will be able to edit this proposal during the first minute after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
+            other: You will be able to edit this proposal during the first %{count} minutes after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
+          publish: Publish
         proposal:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
+        proposal_wizard_stepper:
+          step_1: Create your proposal
+          step_2: Compare
+          step_3: Publish your proposal
         show:
           edit_proposal: Edit proposal
           proposal_accepted_reason: 'This proposal has been accepted because:'
@@ -222,6 +243,9 @@ en:
             description: You can vote up to %{limit} proposals.
             left: Remaining
             votes: Votes
+      publish:
+        error: There's been errors when publishing the proposal.
+        success: Proposal published successfully.
       update:
         error: There's been errors when saving the proposal.
         success: Proposal updated successfully.

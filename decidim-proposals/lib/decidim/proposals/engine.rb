@@ -15,6 +15,11 @@ module Decidim
       routes do
         resources :proposals, except: [:destroy] do
           member do
+            get :compare
+            get :edit_draft
+            patch :update_draft
+            get :preview
+            post :publish
             put :withdraw
           end
           resource :proposal_vote, only: [:create, :destroy]

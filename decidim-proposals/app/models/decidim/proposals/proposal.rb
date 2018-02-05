@@ -29,6 +29,7 @@ module Decidim
       scope :evaluating, -> { where(state: "evaluating") }
       scope :withdrawn, -> { where(state: "withdrawn") }
       scope :except_withdrawn, -> { where.not(state: "withdrawn").or(where(state: nil)) }
+      scope :published, -> { where.not(published_at: nil) }
 
       def self.order_randomly(seed)
         transaction do
@@ -149,6 +150,11 @@ module Decidim
         authored_by?(user) && !answered? && within_edit_time_limit?
       end
 
+      # Public: Whether the proposal is a draft or not.
+      def draft?
+        published_at.nil?
+      end
+
       # method for sort_link by number of comments
       ransacker :commentable_comments_count do
         query = <<-SQL
@@ -164,9 +170,10 @@ module Decidim
 
       private
 
-      # Checks whether the proposal is inside the time window to be editable or not.
+      # Checks whether the proposal is inside the time window to be editable or not once published.
       def within_edit_time_limit?
-        limit = created_at + feature.settings.proposal_edit_before_minutes.minutes
+        return true if self.draft?
+        limit = updated_at + feature.settings.proposal_edit_before_minutes.minutes
         Time.current < limit
       end
     end

@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="columns large-3">
+    <%= link_to :back, class: "muted-link" do %>
+      <%= icon "chevron-left", class: "icon--small" %>
+      <%= t(".back") %>
+    <% end %>
+
+    <%= render partial: "proposal_wizard_stepper" %>
+  </div>
+
+  <div class="columns large-9">
+    <% if translated_attribute(feature_settings.new_proposal_help_text).present? %>
+      <%= render partial: "decidim/shared/announcement", locals: { announcement: feature_settings.new_proposal_help_text } %>
+    <% end %>
+
+    <% if translated_attribute(feature_settings.proposal_wizard_step_2_help_text).present? %>
+      <div class="proposal_wizard_help_text">
+        <div class="callout warning">
+          <%= decidim_sanitize translated_attribute feature_settings.proposal_wizard_step_2_help_text %>
+        </div>
+      </div>
+    <% end %>
+
+
+    <h2 class="section-heading">
+      <%= t(".title") %>
+      (<%= @similar_proposals.count %>)
+    </h2>
+
+    <% if @similar_proposals.presence %>
+      <div class="row small-up-1 card-grid">
+        <% @similar_proposals.each do |proposal| %>
+          <%= render partial: "proposal_similar", locals: {proposal: proposal} %>
+        <% end %>
+      </div>
+    <% end %>
+
+    <%= link_to t(".mine_is_different"), preview_proposal_path(@proposal), class: "button" %>
+  </div>
+</div>

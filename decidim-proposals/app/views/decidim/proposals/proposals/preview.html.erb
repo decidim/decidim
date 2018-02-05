@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="columns large-3">
+    <%= link_to :back, class: "muted-link" do %>
+      <%= icon "chevron-left", class: "icon--small" %>
+      <%= t(".back") %>
+    <% end %>
+
+    <%= render partial: "proposal_wizard_stepper" %>
+  </div>
+
+  <div class="columns large-9">
+    <div class="row column">
+      <div class="callout warning">
+        <%= t(".proposal_edit_before_minutes", count: feature_settings.proposal_edit_before_minutes) %>
+      </div>
+    </div>
+
+    <% if translated_attribute(feature_settings.proposal_wizard_step_3_help_text).present? %>
+      <div class="proposal_wizard_help_text">
+        <%= render partial: "decidim/shared/announcement", locals: { announcement: feature_settings.proposal_wizard_step_3_help_text } %>
+      </div>
+    <% end %>
+
+    <h2 class="section-heading"><%= t(".title") %></h2>
+
+    <div class="card">
+
+      <div class="card__content">
+        <%= render partial: "proposal_preview_card", locals: {proposal: @proposal}%>
+        <%= link_to t(".modify"), edit_draft_proposal_path(@proposal) %>
+        <%= button_to t(".publish"), publish_proposal_path(@proposal), method: :post, class: "button" %>
+      </div>
+    </div>
+  </div>
+</div>
