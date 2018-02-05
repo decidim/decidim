@@ -51,23 +51,7 @@ module Decidim
             end
 
             on(:update_proposals_category) do
-              if @response[:oks].present?
-                flash[:notice] = I18n.t(
-                  "proposals.update_category.success",
-                  category: @response[:category_name],
-                  proposals: @response[:oks].to_sentence,
-                  scope: "decidim.proposals.admin"
-                )
-              end
-
-              if @response[:kos].present?
-                flash[:alert] = I18n.t(
-                  "proposals.update_category.invalid",
-                  category: @response[:category_name],
-                  proposals: @response[:kos].to_sentence,
-                  scope: "decidim.proposals.admin"
-                )
-              end
+              update_proposals_category_response @response
             end
           end
 
@@ -86,6 +70,26 @@ module Decidim
 
         def proposal
           @proposal ||= Proposal.where(feature: current_feature).find(params[:id])
+        end
+
+        def update_proposals_category_response response
+          if response[:oks].present?
+            flash[:notice] = I18n.t(
+              "proposals.update_category.success",
+              category: response[:category_name],
+              proposals: response[:oks].to_sentence,
+              scope: "decidim.proposals.admin"
+            )
+          end
+
+          if response[:kos].present?
+            flash[:alert] = I18n.t(
+              "proposals.update_category.invalid",
+              category: response[:category_name],
+              proposals: response[:kos].to_sentence,
+              scope: "decidim.proposals.admin"
+            )
+          end
         end
       end
     end
