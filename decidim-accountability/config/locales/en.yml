@@ -97,8 +97,8 @@ en:
             success: Entry successfully updated
       admin_log:
         result:
-          create: "%{user_name} created result %{result_name} in %{space_name}"
-          update: "%{user_name} updated result %{result_name} in %{space_name}"
+          create: "%{user_name} created result %{resource_name} in %{space_name}"
+          update: "%{user_name} updated result %{resource_name} in %{space_name}"
       models:
         result:
           fields:

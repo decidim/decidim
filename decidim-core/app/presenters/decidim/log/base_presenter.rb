@@ -135,7 +135,7 @@ module Decidim
       #
       # Returns a String.
       def action_string
-        case action
+        case action.to_s
         when "create"
           "decidim.log.base_presenter.create"
         when "update"
@@ -148,7 +148,7 @@ module Decidim
       def i18n_params
         {
           user_name: present_user,
-          result_name: present_resource,
+          resource_name: present_resource,
           space_name: present_space
         }
       end

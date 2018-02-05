@@ -66,7 +66,7 @@ module Decidim
       resource.participatory_space if resource.respond_to?(:participatory_space)
     end
 
-    def get_title(resource)
+    def title_for(resource)
       resource.try(:title) || resource.try(:name)
     end
 
@@ -78,14 +78,14 @@ module Decidim
       {
         feature: {
           manifest_name: feature.try(:manifest_name),
-          title: get_title(feature)
+          title: title_for(feature)
         }.compact,
         participatory_space: {
           manifest_name: participatory_space_manifest_name,
-          title: get_title(participatory_space)
+          title: title_for(participatory_space)
         }.compact,
         resource: {
-          title: get_title(resource)
+          title: title_for(resource)
         }.compact,
         user: {
           ip: user.current_sign_in_ip,
