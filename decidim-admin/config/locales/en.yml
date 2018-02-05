@@ -243,6 +243,7 @@ en:
             new_managed_user_promotion: New managed user promotion
             promote: Promote
       menu:
+        admin_log: Admin activity log
         admins: Admins
         appearance: Appearance
         configuration: Configuration
