@@ -17,5 +17,5 @@ describe "Admin manages proposals", type: :system do
   it_behaves_like "export proposals"
   it_behaves_like "manage announcements"
   it_behaves_like "manage proposals help texts"
-  it_behaves_like "manage proposals category"
+  it_behaves_like "when managing proposals category as an admin"
 end
