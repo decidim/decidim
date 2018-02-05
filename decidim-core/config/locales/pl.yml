@@ -96,8 +96,8 @@ pl:
       registrations:
         new:
           already_have_an_account?: Posiadasz już konto?
+          newsletter: Odbieraj okazjonalne biuletyny z odpowiednimi informacjami
           nickname_help: Twój krótki, niepowtarzalny identyfikator w decidimie
-          notifications: Otrzymuj informacje o odpowiedniej aktywności
           sign_in: Zaloguj Się
           sign_up: Zapisz się
           sign_up_as:
