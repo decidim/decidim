@@ -191,6 +191,20 @@ module Decidim
 
           it { is_expected.not_to be_withdrawable_by(author) }
         end
+
+        context "when the proposal has been linked to another one" do
+          let(:proposal) { create :proposal, feature: feature, author: author, created_at: Time.current }
+          let(:original_proposal) do
+            original_feature = create(:proposal_feature, organization: organization, participatory_space: feature.participatory_space)
+            create(:proposal, feature: original_feature)
+          end
+
+          before do
+            proposal.link_resources([original_proposal], "copied_from_component")
+          end
+
+          it { is_expected.not_to be_withdrawable_by(author) }
+        end
       end
     end
   end
