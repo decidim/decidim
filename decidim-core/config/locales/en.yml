@@ -97,8 +97,8 @@ en:
       registrations:
         new:
           already_have_an_account?: Already have an account?
-          nickname_help: Your short, unique identifier in decidim
           newsletter: Receive an occasional newsletter with relevant information
+          nickname_help: Your short, unique identifier in decidim
           sign_in: Log in
           sign_up: Sign up
           sign_up_as:
