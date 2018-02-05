@@ -107,7 +107,7 @@ module Decidim::Accountability
           let(:params) { default_params.merge(category_id: parent_category.id) }
 
           it "returns results from this category and its children's" do
-            expect(subject.results).to match_array [result1, result2, result3]
+            expect(subject.results).to match_array [result1, result2]
           end
         end
 
