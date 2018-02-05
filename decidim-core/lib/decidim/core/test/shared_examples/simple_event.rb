@@ -24,6 +24,8 @@ shared_context "simple event" do
   let(:resource_path) { resource_locator(resource).path }
   let(:resource_url) { resource_locator(resource).url }
   let(:resource_title) { resource.title["en"] }
+  let(:participatory_space) { resource.participatory_space }
+  let(:participatory_space_title) { participatory_space.title["en"] }
   let(:author) { resource.author }
   let(:author_presenter) { Decidim::UserPresenter.new(author) }
 end

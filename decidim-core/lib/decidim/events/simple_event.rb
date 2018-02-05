@@ -71,8 +71,15 @@ module Decidim
           resource_path: resource_path,
           resource_title: resource_title,
           resource_url: resource_url,
+          participatory_space_title: participatory_space_title,
           scope: i18n_scope
         }
+      end
+
+      def participatory_space_title
+        return unless participatory_space
+
+        participatory_space.title[I18n.locale.to_s]
       end
     end
   end
