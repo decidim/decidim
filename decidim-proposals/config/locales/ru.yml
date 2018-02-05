@@ -82,14 +82,6 @@ ru:
       create:
         error: При сохранении этого предложения произошли ошибки.
         success: Предложение успешно внесено.
-      events:
-        create_proposal_event:
-          email_intro: |-
-            Добрый день!
-            %{author_name} %{author_nickname}, за которым вы следите, внес новое предложение. Прочитайте его и внесите свой вклад:
-          email_outro: Вы получили это уведомление, потому что вы следите за «%{author_nickname}». Вы можете отписаться от уведомлений, перейдя по приведенной выше ссылке.
-          email_subject: Новое предложение от %{author_nickname}
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> внес предложение <a href="%{resource_path}">%{resource_title}</a>.
       models:
         proposal:
           fields:

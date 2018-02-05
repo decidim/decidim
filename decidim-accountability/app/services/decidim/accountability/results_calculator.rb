@@ -14,7 +14,7 @@ module Decidim
       delegate :count, to: :results
 
       def progress
-        results.average(:progress)
+        results.average("COALESCE(progress, 0)")
       end
 
       private

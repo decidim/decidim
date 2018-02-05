@@ -2,7 +2,7 @@ pt-BR:
   activemodel:
     attributes:
       debate:
-        decidim_category_id: Categoria
+        category_id: Categoria
         description: Descrição
         end_time: Termina em
         information_updates: Atualizações de informações
@@ -79,7 +79,15 @@ pt-BR:
         show:
           comments: Comentários
           report: Relatório
-      events:
+      models:
+        debate:
+          fields:
+            end_time: Data final
+            official_debate: Debate oficial
+            start_time: Data de início
+            title: Título
+    events:
+      debates:
         create_debate_event:
           space_followers:
             email_intro: |-
@@ -93,13 +101,6 @@ pt-BR:
             email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}. Você pode parar de receber notificações após o link anterior.
             email_subject: Novo debate por %{author_nickname}
             notification_title: O <a href="%{resource_path}">%{resource_title}</a> debate foi criado por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-      models:
-        debate:
-          fields:
-            end_time: Data final
-            official_debate: Debate oficial
-            start_time: Data de início
-            title: Título
     features:
       debates:
         actions:

@@ -83,6 +83,12 @@ module Decidim
         it { is_expected.to be_valid }
       end
 
+      context "when cta_button_path is a valid path with underscore" do
+        let(:cta_button_path) { "processes/my_process/" }
+
+        it { is_expected.to be_valid }
+      end
+
       context "when enable_omnipresent_banner is true" do
         let(:enable_omnipresent_banner) { true }
         let(:omnipresent_banner_url) { "http://www.example.org/random_url" }
