@@ -27,6 +27,13 @@ fr:
         enable_omnipresent_banner: Montrer une bannière omniprésente
         favicon: Icône
         header_snippets: Eléments à ajouter entre les balises <head></head>
+        highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
+        highlighted_content_banner_action_title: Titre du bouton d'action
+        highlighted_content_banner_action_url: URL du bouton d'action
+        highlighted_content_banner_enabled: Afficher la bannière de contenu en surbrillance
+        highlighted_content_banner_image: Image
+        highlighted_content_banner_short_description: Brève description
+        highlighted_content_banner_title: Titre
         homepage_image: Image de la page d'accueil
         logo: Logo
         official_img_footer: Logo officiel - pied de page
@@ -369,6 +376,7 @@ fr:
           cta_button_text_help: Vous pouvez remplacer le texte du bouton d'Appel à action dans la page d'accueil pour chaque langue disponible dans votre organisation. Si elle n'est pas définie, la valeur par défaut sera utilisée. Le bouton d'Appel à action apparaît sur la page d'accueil entre le texte de bienvenue et la description.
           header_snippets_help: Utilisez ce champ pour ajouter des éléments entre les balises HTML <head> </head>. L'utilisation la plus courante de champs consiste à intégrer des services tiers nécessitant du JavaScript ou du CSS supplémentaire. Vous pouvez aussi l'utiliser pour ajouter des méta-tags supplémentaires au code HTML. Notez que cela ne fonctionnera que dans sur les pages publiques, et non dans la section admin.
           homepage_appearance_title: Modifier l'apparence de la page d'accueil
+          homepage_highlighted_content_banner_title: Bannière de contenu Highligted
           layout_appearance_title: Modifier l’aspect de la mise en page
           omnipresent_banner_appearance_title: Modifier omniprésent
       scope_types:
