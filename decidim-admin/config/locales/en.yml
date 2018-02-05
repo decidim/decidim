@@ -455,6 +455,7 @@ en:
           error: There was an error when updating this page.
           success: Page updated successfully
       titles:
+        admin_log: Admin log
         authorization_workflows: Verification methods
         dashboard: Dashboard
         impersonations: Impersonations
