@@ -21,7 +21,7 @@ module Decidim
     end
 
     def descendants
-      @descendants ||= Category.where(parent_id: self.id)
+      @descendants ||= Category.where(parent_id: id)
     end
 
     def translated_name

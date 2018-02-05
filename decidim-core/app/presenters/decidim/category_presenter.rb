@@ -8,7 +8,7 @@ module Decidim
     include Decidim::TranslationsHelper
 
     def translated_name
-      @translated_name ||= translated_attribute self.name
+      @translated_name ||= translated_attribute name
     end
   end
 end
