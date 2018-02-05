@@ -3,7 +3,7 @@ fr:
     attributes:
       debate:
         category_id: Catégorie
-        description: La description
+        description: Description
         end_time: Fini à
         information_updates: Informations mises à jour
         instructions: Instructions pour participer
