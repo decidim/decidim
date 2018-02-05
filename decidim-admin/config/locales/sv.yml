@@ -27,6 +27,7 @@ sv:
         enable_omnipresent_banner: Visa omnipresent banner
         favicon: Ikon
         header_snippets: Rubrikrubriker
+        highlighted_content_banner_action_subtitle: Åtgärdsknapp textning
         homepage_image: Hemsida bild
         logo: Logotyp
         official_img_footer: Officiell logo footer
