@@ -4,7 +4,7 @@ fr:
       debate:
         category_id: Catégorie
         description: Description
-        end_time: Fini à
+        end_time: Prend fin à
         information_updates: Informations mises à jour
         instructions: Instructions pour participer
         start_time: Commence à
@@ -13,11 +13,11 @@ fr:
   decidim:
     debates:
       actions:
-        confirm_destroy: Êtes-vous sûr?
+        confirm_destroy: Êtes-vous certain ?
         destroy: Effacer
-        edit: modifier
+        edit: Modifier
         new: Nouveau %{name}
-        title: actes
+        title: Actions
       admin:
         debates:
           create:
@@ -50,7 +50,7 @@ fr:
         debate:
           comments:
             one: Commentaire
-            other: commentaires
+            other: Commentaires
           participate: Participer
         filters:
           all: Tout
@@ -61,14 +61,14 @@ fr:
           origin: Origine
           search: Chercher
         filters_small_view:
-          close_modal: Fermer modal
+          close_modal: Fermer
           filter: Filtre
           filter_by: Filtrer par
-          unfold: Se dérouler
+          unfold: Déplier
         index:
           new_debate: Nouveau débat
         new:
-          back: Arrière
+          back: Retour
           create: Créer
           select_a_category: Veuillez sélectionner une catégorie
           title: Nouveau débat
@@ -77,8 +77,8 @@ fr:
           share: Partager
           share_link: Lien de partage
         show:
-          comments: commentaires
-          report: rapport
+          comments: Commentaires
+          report: Rapport
       models:
         debate:
           fields:
