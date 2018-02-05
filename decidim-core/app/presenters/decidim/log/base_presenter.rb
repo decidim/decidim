@@ -52,7 +52,44 @@ module Decidim
       attr_reader :action_log, :view_helpers
       alias h view_helpers
 
-      delegate :action, :user, :resource, :feature, :participatory_space, to: :action_log
+      delegate :action, to: :action_log
+
+      # Private: Caches the relation. If we `delegate` the relation directly
+      # (without caching it at the Ruby level), then we get a lot of `CACHE`
+      # queries in the logs, so this reduces the noise.
+      #
+      # Returns the Decidim::User that performed the action.
+      def user
+        @user ||= action_log.user
+      end
+
+      # Private: Caches the relation. If we `delegate` the relation directly
+      # (without caching it at the Ruby level), then we get a lot of `CACHE`
+      # queries in the logs, so this reduces the noise.
+      #
+      # Returns the resource on which the action was performed.
+      def resource
+        @resource ||= action_log.resource
+      end
+
+      # Private: Caches the relation. If we `delegate` the relation directly
+      # (without caching it at the Ruby level), then we get a lot of `CACHE`
+      # queries in the logs, so this reduces the noise.
+      #
+      # Returns the Decidim::Feature of the resource, if any.
+      def feature
+        @feature ||= action_log.feature
+      end
+
+      # Private: Caches the relation. If we `delegate` the relation directly
+      # (without caching it at the Ruby level), then we get a lot of `CACHE`
+      # queries in the logs, so this reduces the noise.
+      #
+      # Returns the participatory space (Decidim::Participable) of the
+      # resource, if any.
+      def participatory_space
+        @participatory_space ||= action_log.participatory_space
+      end
 
       # Private: Presents a space. If the space is found in the database, it
       # links to it. Otherwise it only shows the name.
