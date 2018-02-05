@@ -11,7 +11,7 @@ describe Decidim::ActionLog do
 
   describe "validations" do
     context "when no user is given" do
-      let(:action_log) { build :action_log, user: nil }
+      let(:action_log) { build :action_log, user: nil, organization: build(:organization) }
 
       it { is_expected.not_to be_valid }
     end
@@ -23,7 +23,7 @@ describe Decidim::ActionLog do
     end
 
     context "when no organization is given" do
-      let(:action_log) { build :action_log, organization: nil }
+      let(:action_log) { build :action_log, organization: nil, participatory_space: build(:participatory_process) }
 
       it { is_expected.not_to be_valid }
     end

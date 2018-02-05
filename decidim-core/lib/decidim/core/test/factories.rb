@@ -322,14 +322,9 @@ FactoryBot.define do
       extra_data { {} }
     end
 
-    organization
-    user do
-      build(
-        :user,
-        organization: organization || build(:organization)
-      )
-    end
-    participatory_space { build :participatory_process, organization: organization || build(:organization) }
+    organization { user.organization }
+    user
+    participatory_space { build :participatory_process, organization: organization }
     feature { build :feature, participatory_space: participatory_space }
     resource { build(:dummy_resource, feature: feature) }
     action { "create" }
