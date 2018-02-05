@@ -96,8 +96,8 @@ it:
       registrations:
         new:
           already_have_an_account?: Hai già un account?
+          newsletter: Ricevi una newsletter occasionale con informazioni pertinenti
           nickname_help: Il tuo identificatore breve e univoco in decidim
-          notifications: Ricevi informazioni sull'attività rilevante
           sign_in: Accedi
           sign_up: Iscriviti
           sign_up_as:

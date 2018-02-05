@@ -96,8 +96,8 @@ sv:
       registrations:
         new:
           already_have_an_account?: Har du redan ett konto?
+          newsletter: Få ett tillfälligt nyhetsbrev med relevant information
           nickname_help: Din korta, unika identifierare i decidim
-          notifications: Ta emot information om relevant aktivitet
           sign_in: Logga in
           sign_up: Bli Medlem
           sign_up_as:
