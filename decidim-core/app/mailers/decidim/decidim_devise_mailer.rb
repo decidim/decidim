@@ -33,6 +33,11 @@ module Decidim
     def devise_mail(user, action, opts = {}, &block)
       with_user(user) do
         @organization = user.organization
+        Rails.logger.debug('--- devise_mail ---')
+        if !opts[:from]
+          Rails.logger.debug('--- missing :from ---')
+          opts[:from] = Decidim.config.mailer_sender
+        end
         super
       end
     end
