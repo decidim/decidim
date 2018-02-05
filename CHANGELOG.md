@@ -2,6 +2,14 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+** Added
+
+** Changed
+
+** Fixed
+
+## [v0.9.0](https://github.com/decidim/decidim/tree/v0.9.0) (2018-2-5)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.8.0...v0.9.0)
 **Upgrade notes**:
 
 Since uglifier `4.0.0`, we need to set `harmony: true` as options in uglifier. This means
