@@ -366,6 +366,7 @@ const AddCommentFormWithMutation = graphql<addCommentMutation, AddCommentFormPro
                 type: "Decidim::Comments::Comment",
                 createdAt: new Date().toISOString(),
                 body,
+                formattedBody: body,
                 alignment,
                 author: {
                   __typename: "User",

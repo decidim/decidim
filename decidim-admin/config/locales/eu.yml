@@ -24,6 +24,7 @@ eu:
         cta_button_path: Deitu ekintza botoiaren bideora
         cta_button_text: Deitu ekintza botoiaren testura
         description: Descripción
+        enable_omnipresent_banner: Erakutsi omnipresent banner
         favicon: Ikonoa
         header_snippets: Izenburu-snippets-ak
         homepage_image: Orri nagusiko irudia
@@ -31,6 +32,9 @@ eu:
         official_img_footer: Orri-oineko logotipo ofiziala
         official_img_header: Goiburuko logotipo ofiziala
         official_url: Erakundearen URL ofiziala
+        omnipresent_banner_short_description: Deskribapen laburra
+        omnipresent_banner_title: Izenburua
+        omnipresent_banner_url: URL
         show_statistics: Erakutsi estatistikak
         welcome_text: Ongietorri-testua
       scope:
@@ -365,6 +369,7 @@ eu:
           header_snippets_help: Erabili eremu hau HTML goiburuari gauzak gehitzeko. Erabilerarik ohikoena da JavaScript edo CSS gehigarriak behar dituzten hirugarrenen zerbitzuak txertatzea. Gainera, HTMLari meta-etiketa gehigarriak gehitzeko erabil dezakezu. Kontuan hartu orri publikoetan baino ez dela erakutsiko, ez administrazio atalean.
           homepage_appearance_title: Editatu orriaren itxura
           layout_appearance_title: Editatu itxura diseinua
+          omnipresent_banner_appearance_title: Editatu omnipresent
       scope_types:
         create:
           error: Errore bat gertatu da esparru mota berri bat sortzean.

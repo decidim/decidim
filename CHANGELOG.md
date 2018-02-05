@@ -15,6 +15,8 @@ you need to change the following line in `config/environments/production.rb`:
 **Added
 - **decidim-admin**: Adds administration interface for highlighted content banner [\#2572](https://github.com/decidim/decidim/pull/2572)
 - **decidim-core**: Adds support for highlighted content banner.[\#2572](https://github.com/decidim/decidim/pull/2572)
+- **decidim-core**: Added support for content processors. [\#2491](https://github.com/decidim/decidim/pull/2491)
+- **decidim-comments**: Added support to mention other users and notify them. [\#2491](https://github.com/decidim/decidim/pull/2491)
 - **decidim**: Refactor and DRY Decidim events. [\#2582](https://github.com/decidim/decidim/pull/2582)
 - **decidim-core**: Added support for omnipresent banner. [\#2547](https://github.com/decidim/decidim/pull/2547)
 - **decidim-admin**: Added administration interface for omnipresent banner. [\#2547](https://github.com/decidim/decidim/pull/2547)
@@ -80,6 +82,12 @@ you need to change the following line in `config/environments/production.rb`:
 
 **Fixed**:
 
+- **decidim-proposals**: Fix test redirect. [\#2633](https://github.com/decidim/decidim/pull/2633)
+- **decidim-core**: Don't allow conversations between the same user. [\#2630](https://github.com/decidim/decidim/pull/2630)
+- **decidim-core**: Remove Sendgrid and Heroku references. [\#2634](https://github.com/decidim/decidim/pull/2634)
+- **decidim-core**: Notify admins when no valid authorization handlers are available to create managed users. [\#2631](https://github.com/decidim/decidim/pull/2631)
+- **decidim-core**: Fix user re-invite. [\#2626](https://github.com/decidim/decidim/pull/2626)
+- **decidim-core**: Allow underscores at CTA button path. [\#2625](https://github.com/decidim/decidim/pull/2625)
 - **decidim-core**: Fix editing features in assemblies. [\#2524](https://github.com/decidim/decidim/pull/2524)
 - **decidim-core**: Fix the texts of 'New Message' email notifications. [\#2588](https://github.com/decidim/decidim/pull/2588)
 - **decidim-admin**: Properly save features weight on creation [\#2499](https://github.com/decidim/decidim/pull/2499)

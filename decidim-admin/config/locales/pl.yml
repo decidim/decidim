@@ -24,6 +24,7 @@ pl:
         cta_button_path: Ścieżka przycisku wezwania do działania
         cta_button_text: Tekst przycisku przycisku wezwania do działania
         description: Opis
+        enable_omnipresent_banner: Pokaż wszechobecny baner
         favicon: Ikona
         header_snippets: Fragmenty nagłówków
         homepage_image: Obraz strony głównej
@@ -31,6 +32,9 @@ pl:
         official_img_footer: Oficjalny stopka logo
         official_img_header: Oficjalny nagłówek logo
         official_url: Oficjalna witryna organizacji
+        omnipresent_banner_short_description: Krótki opis
+        omnipresent_banner_title: Tytuł
+        omnipresent_banner_url: URL
         show_statistics: Pokaż statystyki
         welcome_text: Tekst powitalny
       scope:
@@ -365,6 +369,7 @@ pl:
           header_snippets_help: Użyj tego pola, aby dodać elementy do głowicy HTML. Najczęstszym sposobem jest zintegrowanie usług innych firm, które wymagają dodatkowego kodu JavaScript lub CSS. Można również użyć go do dodawania dodatkowych znaczników meta do HTML. Należy zauważyć, że będzie to widoczne tylko na stronach publicznych, a nie w sekcji administracyjnej.
           homepage_appearance_title: Edytuj wygląd strony głównej
           layout_appearance_title: Edytuj wygląd układu
+          omnipresent_banner_appearance_title: Edytuj wszechobecny
       scope_types:
         create:
           error: Podczas tworzenia nowego typu zakresu wystąpił błąd.

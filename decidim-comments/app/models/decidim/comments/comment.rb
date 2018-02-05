@@ -63,6 +63,11 @@ module Decidim
         ResourceLocatorPresenter.new(root_commentable).url(anchor: "comment_#{id}")
       end
 
+      # Public: Returns the comment message ready to display (it is expected to include HTML)
+      def formatted_body
+        @formatted_body ||= Decidim::ContentProcessor.render(sanitized_body)
+      end
+
       private
 
       # Private: Check if commentable can have comments and if not adds
@@ -74,6 +79,11 @@ module Decidim
       # Private: Compute comment depth inside the current comment tree
       def compute_depth
         self.depth = commentable.depth + 1 if commentable.respond_to?(:depth)
+      end
+
+      # Private: Returns the comment body sanitized, stripping HTML tags
+      def sanitized_body
+        Rails::Html::Sanitizer.full_sanitizer.new.sanitize(body)
       end
     end
   end

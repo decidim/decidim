@@ -66,6 +66,11 @@ en:
             email_outro: You have received this notification because you are following "%{resource_title}" or its author. You can unfollow it from the previous link.
             email_subject: There is a new reply of your comment from %{author_name} in <a href="%{resource_url}">%{resource_title}</a>
             notification_title: There is a new reply of your comment from <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>
+        user_mentioned:
+          email_intro: You have been mentioned
+          email_outro: You have received this notification because you have been mentioned in "%{resource_title}".
+          email_subject: You have been mentioned in %{resource_title}
+          notification_title: You have been mentioned in <a href="%{resource_path}">%{resource_title}</a> by <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:
     messages:
       cannot_have_comments: can't have comments

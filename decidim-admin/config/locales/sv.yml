@@ -24,6 +24,7 @@ sv:
         cta_button_path: Call to Action-knappsökväg
         cta_button_text: Ring till handlingsknapptext
         description: Beskrivning
+        enable_omnipresent_banner: Visa omnipresent banner
         favicon: Ikon
         header_snippets: Rubrikrubriker
         homepage_image: Hemsida bild
@@ -31,6 +32,9 @@ sv:
         official_img_footer: Officiell logo footer
         official_img_header: Officiell logotyphuvud
         official_url: Officiell organisationsadress
+        omnipresent_banner_short_description: Kort beskrivning
+        omnipresent_banner_title: Titel
+        omnipresent_banner_url: URL
         show_statistics: Visa statistik
         welcome_text: Välkommen text
       scope:
@@ -365,6 +369,7 @@ sv:
           header_snippets_help: Använd det här fältet för att lägga till saker i HTML-huvudet. Den vanligaste användningen är att integrera tjänster från tredje part som kräver lite extra JavaScript eller CSS. Du kan också använda den för att lägga till extra metataggar i HTML-koden. Observera att detta endast kommer att göras på offentliga sidor, inte i administratörsdelen.
           homepage_appearance_title: Redigera startsidans utseende
           layout_appearance_title: Ändra layoututseende
+          omnipresent_banner_appearance_title: Ändra allmänt
       scope_types:
         create:
           error: Ett fel uppstod med att skapa en ny räckviddstyp.

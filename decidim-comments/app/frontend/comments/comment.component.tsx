@@ -87,7 +87,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
   public getNodeReference = (commentNode: HTMLElement) => this.commentNode = commentNode;
 
   public render(): JSX.Element {
-    const { session, comment: { id, author, body, createdAt, formattedCreatedAt }, articleClassName } = this.props;
+    const { session, comment: { id, author, formattedBody, createdAt, formattedCreatedAt }, articleClassName } = this.props;
     let modalName = "loginModal";
 
     if (session && session.user) {
@@ -113,7 +113,7 @@ class Comment extends React.Component<CommentProps, CommentState> {
         <div className="comment__content">
           <p>
             {this._renderAlignmentBadge()}
-            {body}
+            <span dangerouslySetInnerHTML={{__html: formattedBody}} />
           </p>
         </div>
         <div className="comment__footer">
