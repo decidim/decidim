@@ -127,7 +127,7 @@ module Decidim::Accountability
             let(:params) { default_params.merge(parent_id: nil) }
 
             it "returns the search on all results" do
-              expect(subject.results).to match_array [result1, result2, result3]
+              expect(subject.results).to match_array [result1, result2]
             end
           end
 
