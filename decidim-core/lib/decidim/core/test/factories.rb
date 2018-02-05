@@ -347,9 +347,9 @@ FactoryBot.define do
           title: resource.try(:name) || resource.try(:title)
         }.compact,
         user: {
-          ip: user.current_sign_in_ip,
-          name: user.name,
-          nickname: user.nickname
+          ip: user.try(:current_sign_in_ip),
+          name: user.try(:name),
+          nickname: user.try(:nickname)
         }.compact
       }.deep_merge(extra_data)
     end
