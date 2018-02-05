@@ -28,7 +28,7 @@ shared_context "simple event" do
   let(:author_presenter) { Decidim::UserPresenter.new(author) }
 end
 
-shared_examples_for "an simple event" do
+shared_examples_for "a simple event" do
   describe "types" do
     subject { described_class }
 

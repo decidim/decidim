@@ -15,7 +15,7 @@ describe Decidim::ParticipatoryProcessStepActivatedEvent do
       .participatory_process_participatory_process_steps_path(participatory_process)
   end
 
-  it_behaves_like "an simple event"
+  it_behaves_like "a simple event"
 
   describe "email_subject" do
     it "is generated correctly" do
