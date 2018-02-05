@@ -101,6 +101,7 @@ module Decidim
 
     def log(action, user, resource)
       return unless user.is_a?(Decidim::User)
+      return unless resource.is_a?(Decidim::Traceable)
 
       Decidim::ActionLogger.log(
         action,
