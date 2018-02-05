@@ -742,6 +742,59 @@
                     </div>
                   </div>
 
+                  <h2 class="section-heading">Card de blog</h2>
+                  <div class="row">
+                    <div class="small-12 medium-6">
+                      <article class="card card--blog">
+                        <div class="card__content">
+                          <div class="card__header">
+                            <%= link_to page_path("blog-view"), class: "card__link" do %>
+                              <h5 class="card__title">
+                                Exercitationem qui, error ad quas aut ea veritatis eligendi doloribus nobis, quam.
+                              </h5>
+                            <% end %>
+                            <div class="card__author author-data author-data--small">
+                              <div class="author-data__main">
+                                <div class="author author--inline">
+                                  <a href="#" class="author__avatar author__avatar--small">
+                                    <%= image_tag "demo-avatar.jpg" %>
+                                  </a>
+                                  <a href="#" class="author__name">
+                                    Autor
+                                  </a>
+                                  <a href="#" class="author__nickname">
+                                    @autor
+                                  </a>
+                                  <%= icon "verified-badge", class: "author__verified" %>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing
+                            elit, sed do eiusmod tempor incididunt ut labore et
+                            dolore magna aliqua. Ut enim ad minim veniam…</p>
+                            <a href="#">Economia col·laborativa i gestió</a>
+                        </div>
+                        <div class="card__status">
+                          <ul class="card-data">
+                            <li class="card-data__item"></li>
+                            <li class="card-data__item"></li>
+                            <li class="card-data__item">
+                              01/08/2556
+                            </li>
+                            <li class="card-data__item">
+                              <a href="#comments" title="Comentarios">
+                                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+                                23
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </article>
+                    </div>
+                  </div>
+
 
                   <h2 class="section-heading">Card list</h2>
                   <div class="row">
@@ -972,9 +1025,7 @@
                     </span>
                   </p>
                   <p>Usuaria Verificada
-                    <span class="label label--small label--basic">
-                      <%= icon "check", class: "icon--small" %>
-                    </span>
+                    <%= icon "verified-badge", class: "author__verified" %>
                   </p>
                 </div>
 

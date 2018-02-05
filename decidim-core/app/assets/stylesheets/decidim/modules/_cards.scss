@@ -53,6 +53,10 @@ $datetime-bg: $primary;
   }
 }
 
+.card__content--center{
+  text-align: center;
+}
+
 .card__extra{
   background: $card-secondary-bg;
   padding: $card-padding-small;
@@ -60,6 +64,11 @@ $datetime-bg: $primary;
 
 .card__title{
   @extend .heading5;
+}
+
+.card__title--strong{
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .card__header{
@@ -144,6 +153,10 @@ $datetime-bg: $primary;
   .card__content{
     display: flex;
   }
+}
+
+.card__footer--transparent{
+  background: transparent;
 }
 
 .card__footer--data{
@@ -584,6 +597,14 @@ $datetime-bg: $primary;
   .card-data__item{
     flex-basis: initial;
     padding: 1em .5em;
+
+    &:empty{
+      border-right: 0;
+
+      & + .card-data__item:not(:empty){
+        border-left: $border;
+      }
+    }
   }
 
   .card-status__text{
