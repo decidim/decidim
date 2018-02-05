@@ -127,9 +127,9 @@ fr:
       attachments:
         attachment_created:
           email_intro: 'Un nouveau document a été ajouté à %{resource_title}. Vous pouvez le voir sur cette page:'
-          email_outro: Vous avez reçu cette notification, car vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_outro: Vous avez reçu cette notification, car vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
           email_subject: Une mise à jour de %{resource_title}
-          notification_title: Un <a href="%{resource_path}">ne nouveau document</a> a été ajouté à <a href="%{attached_to_url}">%{resource_title}</a>
+          notification_title: Un <a href="%{resource_path}"> nouveau document</a> a été ajouté à <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Bonjour %{user_name},
         email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez le voir sur cette page :'
@@ -143,14 +143,14 @@ fr:
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
       participatory_process_step_activated_event:
-        email_intro: 'L''étape %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
-        email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+        email_intro: 'L''étape %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez y accéder sur cette page:'
+        email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
         email_subject: Une mise à jour de %{participatory_space_title}
         notification_title: L'étape %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       users:
         profile_updated:
           email_intro: Le <a href="%{resource_url}">profile page</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
-          email_outro: Vous avez reçu cette notification, car vous suivez %{nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_outro: Vous recevez cette notification car vous suivez « %{nickname} ». Vous pouvez cesser de le suivre à partir du lien précédent.
           email_subject: "%{nickname} a mis à jour son profil"
           notification_title: Le <a href="%{resource_path}">profile page</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
     export_mailer:
