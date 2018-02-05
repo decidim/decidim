@@ -27,6 +27,7 @@ es:
         enable_omnipresent_banner: Mostrar banner omnipresente
         favicon: Icono
         header_snippets: Snippets de encabezado
+        highlighted_content_banner_action_subtitle: Subtítulo del botón de acción
         homepage_image: Imagen de portada
         logo: Logotipo
         official_img_footer: Logotipo oficial de pie de página
