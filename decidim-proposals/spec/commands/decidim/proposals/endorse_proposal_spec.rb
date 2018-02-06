@@ -8,6 +8,10 @@ module Decidim
       let(:proposal) { create(:proposal) }
       let(:current_user) { create(:user, organization: proposal.feature.organization) }
 
+      before do
+        proposal.update_attributes author: current_user
+      end
+
       describe "User endorses Proposal" do
         let(:command) { described_class.new(proposal, current_user) }
 
@@ -20,6 +24,25 @@ module Decidim
             expect do
               command.call
             end.to change { ProposalEndorsement.count }.by(1)
+          end
+
+          it "notifies all followers of the endorser that the proposal has been endorsed" do
+            follower = create(:user, organization: proposal.organization)
+            follow= create(:follow, followable: current_user, user: follower)
+
+            expect(Decidim::EventsManager)
+              .to receive(:publish)
+              .with(
+                event: "decidim.events.proposals.proposal_endorsed",
+                event_class: Decidim::Proposals::ProposalEndorsedEvent,
+                resource: proposal,
+                recipient_ids: [follower.id],
+#                extra: {
+#                  proposal_id: 
+#                }
+              )
+
+            command.call
           end
         end
 

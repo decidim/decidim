@@ -23,7 +23,12 @@ module Decidim
       # Returns nothing.
       def call
         endorsement = build_proposal_endorsement
-        endorsement.save ? broadcast(:ok, endorsement) : broadcast(:invalid)
+        if endorsement.save
+          notify_endorser_followers
+          broadcast(:ok, endorsement)
+        else
+          broadcast(:invalid)
+        end
       end
 
       private
@@ -34,6 +39,19 @@ module Decidim
           endorsement.user_group = @current_user.user_groups.verified.find(@current_group_id)
         end
         endorsement
+      end
+
+      def notify_endorser_followers
+        recipient_ids = @proposal.author.followers.pluck(:id)
+        Decidim::EventsManager.publish(
+          event: "decidim.events.proposals.proposal_endorsed",
+          event_class: Decidim::Proposals::ProposalEndorsedEvent,
+          resource: @proposal,
+          recipient_ids: recipient_ids.uniq,
+#            extra: {
+#              comment_id: @comment.id
+#            }
+        )
       end
     end
   end
