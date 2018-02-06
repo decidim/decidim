@@ -4,8 +4,8 @@ require "spec_helper"
 
 describe Decidim::Proposals::ProposalEndorsedEvent do
   subject do
-    extra= {
-      endorser: endorsement_author,
+    extra = {
+      endorser: endorsement_author
     }
     described_class.new(resource: proposal, event_name: event_name, user: follower, extra: extra)
   end

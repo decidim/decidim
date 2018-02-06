@@ -48,9 +48,9 @@ module Decidim
           event_class: Decidim::Proposals::ProposalEndorsedEvent,
           resource: @proposal,
           recipient_ids: recipient_ids.uniq,
-#            extra: {
-#              comment_id: @comment.id
-#            }
+          #            extra: {
+          #              comment_id: @comment.id
+          #            }
         )
       end
     end

@@ -9,7 +9,7 @@ module Decidim
       def email_subject
         I18n.t(
           "decidim.proposals.events.proposal_endorsed_event.email_subject",
-          endorser_nickname: endorser.nickname,
+          endorser_nickname: endorser.nickname
         )
       end
 
@@ -17,7 +17,7 @@ module Decidim
         I18n.t(
           "decidim.proposals.events.proposal_endorsed_event.email_intro",
           endorser_nickname: endorser.nickname,
-          endorser_name: endorser.name,
+          endorser_name: endorser.name
         )
       end
 
@@ -42,7 +42,7 @@ module Decidim
       private
 
       def endorser
-        @endorser||= Decidim::UserPresenter.new(extra[:endorser])
+        @endorser ||= Decidim::UserPresenter.new(extra[:endorser])
       end
     end
   end
