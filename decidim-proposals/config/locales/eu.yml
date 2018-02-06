@@ -114,6 +114,7 @@ eu:
             create: Inportatzeko proposamenak
             no_features: Proposamenen inportazioa inportatzeko espazio parte hartzaile honetan ez dago proposamenrik.
             select_feature: Hautatu osagaia
+            select_states: Egiaztatu inportatzeko proposamenen egoera
         shared:
           info_proposal:
             body: Gorputzeko
@@ -235,6 +236,8 @@ eu:
         error: Arazoak izan dira proposamena gordetzean.
         success: Proposamena ondo eguneratu da.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Lotutako proposamenak
       included_projects:
         project_results: 'Proiektu honetan agertzen diren emaitzak:'
       included_proposals:
