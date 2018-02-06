@@ -8,6 +8,8 @@
 
 **Changed**:
 
+- **decidim-core**: Organizes docs on three folders: advanced, customization and services.
+
 **Fixed**:
 
 ## [v0.9.0](https://github.com/decidim/decidim/tree/v0.9.0) (2018-2-5)
@@ -137,7 +139,7 @@ you need to change the following line in `config/environments/production.rb`:
 
 ## [v0.8.0](https://github.com/decidim/decidim/tree/v0.8.0) (2017-12-4)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.7.0...v0.8.0)
-[Migration guide](https://github.com/decidim/decidim/blob/master/docs/migrate_to_0.8.0.md)
+[Migration guide](https://github.com/decidim/decidim/blob/master/docs/advanced/migrate_to_0.8.0.md)
 
 **Added**:
 
@@ -361,7 +363,7 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim**: Add a flag for users so they can enable/disable emails on notifications. [\#1812](https://https://github.com/decidim/decidim/pull/1812)
 - **decidim**: Added Ukrainian language. [\#1804](https://https://github.com/decidim/decidim/pull/1804)
 - **decidim-assemblies**: New optional beta plugin to manage participatory organs A.K.A. assemblies. [\#1659](https://https://github.com/decidim/decidim/pull/1659)
-- **decidim-comments**: Deprecate old comment notifications system in favor of the new one. Read [create_followers_from_resource_authors.md](https://github.com/decidim/decidim/blob/master/docs/create_followers_from_resource_authors.md) and [create_followers_from_comment_authors.md](https://github.com/decidim/decidim/blob/master/docs/create_followers_from_comment_authors.md) to create resource followers so they are notified when a comment is created. [\#1831](https://github.com/decidim/decidim/pull/1831)
+- **decidim-comments**: Deprecate old comment notifications system in favor of the new one. Read [followers.md](https://github.com/decidim/decidim/blob/master/docs/advanced/followers.md) to create resource followers so they are notified when a comment is created. [\#1831](https://github.com/decidim/decidim/pull/1831)
 - **decidim-meetings**: Let users follow meetings. Updating or closing a meeting will send a notification and an email to the users following that meeting. [\#1784](https://https://github.com/decidim/decidim/pull/1784)
 - **decidim-meetings**: When joining a meeting the user receives an email with its calendar information. [\#1803](https://https://github.com/decidim/decidim/pull/1803)
 - **decidim-meetings**: Users following a meeting receives a notification 48h before it starts. [\#1811](https://https://github.com/decidim/decidim/pull/1811)

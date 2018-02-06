@@ -73,9 +73,9 @@ Decidim comes pre-configured with some safe defaults, but can be changed through
 
 We also have other guides on how to configure some extra features:
 
-- [Social providers integration](https://github.com/decidim/decidim/blob/master/docs/social_providers.md): Enable sign up from social networks.
-- [Analytics](https://github.com/decidim/decidim/blob/master/docs/analytics.md): How to enable analytics
-- [Geocoding](https://github.com/decidim/decidim/blob/master/docs/geocoding.md): How to enable geocoding for proposals and meetings
+- [Social providers integration](https://github.com/decidim/decidim/blob/master/docs/services/social_providers.md): Enable sign up from social networks.
+- [Analytics](https://github.com/decidim/decidim/blob/master/docs/services/analytics.md): How to enable analytics
+- [Geocoding](https://github.com/decidim/decidim/blob/master/docs/services/geocoding.md): How to enable geocoding for proposals and meetings
 
 ## Deploy
 

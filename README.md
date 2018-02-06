@@ -42,7 +42,6 @@ Project management [[See on Waffle.io]](https://waffle.io/decidim/decidim)
 * [Get started with Decidim](#getting-started-with-decidim)
 * [Contribute to the project](#how-to-contribute)
 * [Officially supported modules](#officially-supported-modules)
-* [How to test Decidim engines](docs/testing.md)
 * [Create & browse development app](#browse-decidim)
 * [Technical tradeoffs](#technical-tradeoffs)
 
