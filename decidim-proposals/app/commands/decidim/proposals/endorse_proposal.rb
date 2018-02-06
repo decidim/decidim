@@ -35,9 +35,7 @@ module Decidim
 
       def build_proposal_endorsement
         endorsement = @proposal.endorsements.build(author: @current_user)
-        if @current_group_id.present?
-          endorsement.user_group = @current_user.user_groups.verified.find(@current_group_id)
-        end
+        endorsement.user_group = @current_user.user_groups.verified.find(@current_group_id) if @current_group_id.present?
         endorsement
       end
 
