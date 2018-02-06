@@ -70,4 +70,17 @@ shared_examples_for "an simple event" do
       expect(subject.notification_title).to be_kind_of(String)
     end
   end
+
+  describe "resource_path" do
+    it "is generated correctly" do
+      expect(subject.resource_path).to be_kind_of(String)
+    end
+  end
+
+  describe "resource_url" do
+    it "is generated correctly" do
+      expect(subject.resource_url).to be_kind_of(String)
+      expect(subject.resource_url).to start_with("http")
+    end
+  end
 end
