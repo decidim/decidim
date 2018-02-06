@@ -2,9 +2,9 @@
   <fieldset>
     <legend><h6 class="heading6">TAGS</h6></legend>
     <input type="text" name="" value="" placeholder="Add words separated by commas">
-      <span class="button button--muted tiny">
-        tag1 <%= icon "x", class: "icon--small" %>
-      </span>
+      <%= render layout: "public/components/tag" do %>
+        tag1
+      <% end %>
     </input>
   </fieldset>
 </form>
