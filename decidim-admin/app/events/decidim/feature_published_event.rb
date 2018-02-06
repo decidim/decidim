@@ -6,8 +6,6 @@ module Decidim
 
     i18n_attributes :participatory_space_title
 
-    private
-
     def resource_path
       @resource_path ||= main_feature_path(resource)
     end

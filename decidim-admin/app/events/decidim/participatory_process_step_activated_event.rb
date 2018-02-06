@@ -6,12 +6,6 @@ module Decidim
 
     i18n_attributes :participatory_space_title
 
-    private
-
-    def participatory_space
-      resource.participatory_process
-    end
-
     def resource_path
       @resource_path ||= decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_space)
     end
@@ -24,8 +18,14 @@ module Decidim
                         )
     end
 
+    private
+
     def participatory_space_title
       participatory_space.title[I18n.locale.to_s]
+    end
+
+    def participatory_space
+      resource.participatory_process
     end
   end
 end
