@@ -10,6 +10,9 @@ pt-BR:
         user_group_id: Criar proposta como
       proposal_answer:
         answer: Responder
+      proposals_copy:
+        copy_proposals: Eu entendo que isso irá importar todas as propostas do componente selecionado para o atual e que esta ação não pode ser revertida.
+        origin_feature_id: Componente para copiar as propostas de
   decidim:
     events:
       proposals:
@@ -63,6 +66,7 @@ pt-BR:
     proposals:
       actions:
         answer: Responda
+        import: Importar de outro componente
         new: Novo
         private_notes: Notas privadas
         title: Ações
@@ -103,6 +107,14 @@ pt-BR:
           new:
             create: Criar
             title: Criar proposta
+        proposals_imports:
+          create:
+            invalid: Tem havido um problema ao importar as propostas
+          new:
+            create: Propostas de importação
+            no_features: Não há outros recursos de proposta neste espaço participativo para importar as propostas.
+            select_feature: Selecione um componente
+            select_states: Verifique os estados das propostas para importar
         shared:
           info_proposal:
             body: Corpo
@@ -224,6 +236,8 @@ pt-BR:
         error: Ocorreu erros ao salvar a proposta.
         success: Proposta atualizada com sucesso.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Propostas relacionadas
       included_projects:
         project_results: 'Resultados que aparecem neste projeto:'
       included_proposals:
