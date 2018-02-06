@@ -25,9 +25,7 @@ en:
           email_subject: New proposal by %{author_nickname}
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
         proposal_endorsed:
-          email_intro: |-
-            Hi,
-            %{endorser_name} %{endorser_nickname}, who you are following, has just endorsed a proposal that may be interesting to you, check it out and contribute:
+          email_intro: "%{endorser_name} %{endorser_nickname}, who you are following, has just endorsed a proposal that may be interesting to you, check it out and contribute:"
           email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.
           email_subject: "%{endorser_nickname} has endorsed a new proposal"
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been endorsed by <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
