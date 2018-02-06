@@ -140,14 +140,6 @@ en:
       create:
         error: There's been errors when saving the proposal.
         success: Proposal created successfully.
-      events:
-        create_proposal_event:
-          email_intro: |-
-            Hi,
-            %{author_name} %{author_nickname}, who you are following, has created a new proposal, check it out and contribute:
-          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
-          email_subject: New proposal by %{author_nickname}
-          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         proposal:
           fields:
