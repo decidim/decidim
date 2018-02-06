@@ -236,6 +236,8 @@ fi:
         error: Ehdotuksen tallentamisessa tapahtui virheitä.
         success: Ehdotus on päivitetty onnistuneesti.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Vastaavat ehdotukset
       included_projects:
         project_results: 'Tässä projektissa näkyvät tulokset:'
       included_proposals:
