@@ -13,7 +13,7 @@ module Decidim
       include Decidim::Reportable
       include Decidim::HasAttachments
       include Decidim::Followable
-      include Decidim::Comments::Commentable
+      include Decidim::Proposals::CommentableProposal
 
       feature_manifest_name "proposals"
 
@@ -85,32 +85,6 @@ module Decidim
       # Returns Boolean.
       def withdrawn?
         state == "withdrawn"
-      end
-
-      # Public: Overrides the `commentable?` Commentable concern method.
-      def commentable?
-        feature.settings.comments_enabled?
-      end
-
-      # Public: Overrides the `accepts_new_comments?` Commentable concern method.
-      def accepts_new_comments?
-        commentable? && !feature.current_settings.comments_blocked
-      end
-
-      # Public: Overrides the `comments_have_alignment?` Commentable concern method.
-      def comments_have_alignment?
-        true
-      end
-
-      # Public: Overrides the `comments_have_votes?` Commentable concern method.
-      def comments_have_votes?
-        true
-      end
-
-      # Public: Override Commentable concern method `users_to_notify_on_comment_created`
-      def users_to_notify_on_comment_created
-        return (followers | feature.participatory_space.admins).uniq if official?
-        followers
       end
 
       # Public: Overrides the `reported_content_url` Reportable concern method.
