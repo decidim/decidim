@@ -137,6 +137,20 @@ module Decidim
           let(:proposal) { build :proposal, feature: feature, author: author, created_at: Time.current }
 
           it { is_expected.to be_editable_by(author) }
+
+          context "when the proposal has been linked to another one" do
+            let(:proposal) { create :proposal, feature: feature, author: author, created_at: Time.current }
+            let(:original_proposal) do
+              original_feature = create(:proposal_feature, organization: organization, participatory_space: feature.participatory_space)
+              create(:proposal, feature: original_feature)
+            end
+
+            before do
+              proposal.link_resources([original_proposal], "copied_from_component")
+            end
+
+            it { is_expected.not_to be_editable_by(author) }
+          end
         end
 
         context "when proposal is from user group and user is admin" do
@@ -203,6 +217,20 @@ module Decidim
 
         context "when proposal is already withdrawn" do
           let(:proposal) { build :proposal, :withdrawn, feature: feature, author: author, created_at: Time.current }
+
+          it { is_expected.not_to be_withdrawable_by(author) }
+        end
+
+        context "when the proposal has been linked to another one" do
+          let(:proposal) { create :proposal, feature: feature, author: author, created_at: Time.current }
+          let(:original_proposal) do
+            original_feature = create(:proposal_feature, organization: organization, participatory_space: feature.participatory_space)
+            create(:proposal, feature: original_feature)
+          end
+
+          before do
+            proposal.link_resources([original_proposal], "copied_from_component")
+          end
 
           it { is_expected.not_to be_withdrawable_by(author) }
         end

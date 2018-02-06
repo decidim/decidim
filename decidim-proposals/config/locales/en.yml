@@ -11,6 +11,9 @@ en:
         user_group_id: Create proposal as
       proposal_answer:
         answer: Answer
+      proposals_copy:
+        copy_proposals: I understand that this will import all proposals from the selected component to the current one and that this action can't be reversed.
+        origin_feature_id: Component to copy the proposals from
   decidim:
     events:
       proposals:
@@ -72,6 +75,7 @@ en:
     proposals:
       actions:
         answer: Answer
+        import: Import from another component
         new: New
         private_notes: Private notes
         title: Actions
@@ -112,6 +116,15 @@ en:
           new:
             create: Create
             title: Create proposal
+        proposals_imports:
+          create:
+            invalid: There's been a problem importing the proposals
+            success: "%{number} proposals successfully imported"
+          new:
+            create: Import proposals
+            no_features: There are no other proposal features in this participatory space to import the proposals from.
+            select_feature: Please select a component
+            select_states: Check the states of the proposals to import
         shared:
           info_proposal:
             body: Body
@@ -263,6 +276,8 @@ en:
         error: There's been errors when saving the proposal.
         success: Proposal updated successfully.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Related proposals
       included_projects:
         project_results: 'Results appearing in this project:'
       included_proposals:
