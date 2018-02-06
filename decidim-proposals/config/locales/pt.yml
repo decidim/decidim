@@ -113,6 +113,8 @@ pt:
           new:
             create: Propostas de importação
             no_features: Não há outros recursos de proposta neste espaço participativo para importar as propostas.
+            select_feature: Selecione um componente
+            select_states: Verifique os estados das propostas para importar
         shared:
           info_proposal:
             body: Corpo
@@ -234,6 +236,8 @@ pt:
         error: Ocorreu erros ao salvar a proposta.
         success: Proposta atualizada com sucesso.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Propostas relacionadas
       included_projects:
         project_results: 'Resultados que aparecem neste projeto:'
       included_proposals:
