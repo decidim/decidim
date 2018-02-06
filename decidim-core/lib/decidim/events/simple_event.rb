@@ -77,9 +77,7 @@ module Decidim
       end
 
       def participatory_space_title
-        return unless participatory_space
-
-        participatory_space.title[I18n.locale.to_s]
+        translated_attribute(participatory_space.try(:title))
       end
     end
   end

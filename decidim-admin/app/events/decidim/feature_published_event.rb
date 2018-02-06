@@ -11,9 +11,5 @@ module Decidim
     def resource_url
       @resource_url ||= main_feature_url(resource)
     end
-
-    def resource_title
-      @resource_title ||= resource.name[I18n.locale.to_s]
-    end
   end
 end
