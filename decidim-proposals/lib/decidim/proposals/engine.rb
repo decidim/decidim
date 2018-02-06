@@ -17,6 +17,9 @@ module Decidim
           resource :proposal_endorsement, only: [:create, :destroy] do
             get :identities, on: :collection
           end
+          member do
+            put :withdraw
+          end
           resource :proposal_vote, only: [:create, :destroy]
           resource :proposal_widget, only: :show, path: "embed"
         end

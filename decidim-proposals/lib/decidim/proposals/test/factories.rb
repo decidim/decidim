@@ -147,6 +147,10 @@ FactoryBot.define do
       answered_at { Time.current }
     end
 
+    trait :withdrawn do
+      state "withdrawn"
+    end
+
     trait :with_answer do
       answer { Decidim::Faker::Localized.sentence }
       answered_at { Time.current }
@@ -170,5 +174,11 @@ FactoryBot.define do
     after(:create) do |support|
       create(:user_group_membership, user: support.author, user_group: Decidim::UserGroup.find(support.decidim_user_group_id))
     end
+  end
+
+  factory :proposal_note, class: "Decidim::Proposals::ProposalNote" do
+    body { Faker::Lorem.sentences(3).join("\n") }
+    proposal { build(:proposal) }
+    author { build(:user, organization: proposal.organization) }
   end
 end

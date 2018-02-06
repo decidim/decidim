@@ -4,7 +4,6 @@ require "decidim/faker/localized"
 require "decidim/dev"
 
 require "decidim/participatory_processes/test/factories"
-require "decidim/assemblies/test/factories"
 require "decidim/comments/test/factories"
 
 FactoryBot.define do
@@ -13,7 +12,7 @@ FactoryBot.define do
   end
 
   sequence(:nickname) do |n|
-    "#{Faker::Lorem.characters(rand(10) + 1)}_#{n}"
+    "#{Faker::Lorem.characters(rand(1..10))}_#{n}"
   end
 
   sequence(:email) do |n|
@@ -63,6 +62,8 @@ FactoryBot.define do
     official_img_header { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_img_footer { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_url { Faker::Internet.url }
+    highlighted_content_banner_enabled false
+    enable_omnipresent_banner false
   end
 
   factory :user, class: "Decidim::User" do
@@ -75,6 +76,8 @@ FactoryBot.define do
     locale { organization.default_locale }
     tos_agreement "1"
     avatar { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+    personal_url { Faker::Internet.url }
+    about { Faker::Lorem.paragraph(2) }
 
     trait :confirmed do
       confirmed_at { Time.current }
@@ -91,51 +94,6 @@ FactoryBot.define do
 
     trait :user_manager do
       roles { ["user_manager"] }
-    end
-
-    trait :process_admin do
-      transient do
-        participatory_process { create(:participatory_process) }
-      end
-
-      organization { participatory_process.organization }
-
-      after(:create) do |user, evaluator|
-        create :participatory_process_user_role,
-               user: user,
-               participatory_process: evaluator.participatory_process,
-               role: :admin
-      end
-    end
-
-    trait :process_collaborator do
-      transient do
-        participatory_process { create(:participatory_process) }
-      end
-
-      organization { participatory_process.organization }
-
-      after(:create) do |user, evaluator|
-        create :participatory_process_user_role,
-               user: user,
-               participatory_process: evaluator.participatory_process,
-               role: :collaborator
-      end
-    end
-
-    trait :process_moderator do
-      transient do
-        participatory_process { create(:participatory_process) }
-      end
-
-      organization { participatory_process.organization }
-
-      after(:create) do |user, evaluator|
-        create :participatory_process_user_role,
-               user: user,
-               participatory_process: evaluator.participatory_process,
-               role: :moderator
-      end
     end
 
     trait :managed do
@@ -228,6 +186,8 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     attached_to { build(:participatory_process) }
+    content_type { "image/jpeg" }
+    file_size { 108_908 }
 
     trait :with_image do
       file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
@@ -235,6 +195,8 @@ FactoryBot.define do
 
     trait :with_pdf do
       file { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
+      content_type { "application/pdf" }
+      file_size { 17_525 }
     end
   end
 
@@ -301,6 +263,10 @@ FactoryBot.define do
   factory :moderation, class: "Decidim::Moderation" do
     reportable { build(:dummy_resource) }
     participatory_space { reportable.feature.participatory_space }
+
+    trait :hidden do
+      hidden_at { 1.day.ago }
+    end
   end
 
   factory :report, class: "Decidim::Report" do

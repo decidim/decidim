@@ -119,7 +119,6 @@ it:
             other: "%{count} risultati"
         filters:
           all: Tutto
-          global: Globale
           scopes: Visibilità
         home:
           categories_label: Categorie

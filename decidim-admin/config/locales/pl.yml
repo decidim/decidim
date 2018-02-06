@@ -24,13 +24,24 @@ pl:
         cta_button_path: Ścieżka przycisku wezwania do działania
         cta_button_text: Tekst przycisku przycisku wezwania do działania
         description: Opis
+        enable_omnipresent_banner: Pokaż wszechobecny baner
         favicon: Ikona
         header_snippets: Fragmenty nagłówków
+        highlighted_content_banner_action_subtitle: Podtytuł przycisku czynności
+        highlighted_content_banner_action_title: Tytuł przycisku akcji
+        highlighted_content_banner_action_url: URL przycisku czynności
+        highlighted_content_banner_enabled: Pokaż podświetlony baner treści
+        highlighted_content_banner_image: Obraz
+        highlighted_content_banner_short_description: Krótki opis
+        highlighted_content_banner_title: Tytuł
         homepage_image: Obraz strony głównej
         logo: Logo
         official_img_footer: Oficjalny stopka logo
         official_img_header: Oficjalny nagłówek logo
         official_url: Oficjalna witryna organizacji
+        omnipresent_banner_short_description: Krótki opis
+        omnipresent_banner_title: Tytuł
+        omnipresent_banner_url: URL
         show_statistics: Pokaż statystyki
         welcome_text: Tekst powitalny
       scope:
@@ -133,12 +144,6 @@ pl:
       dashboard:
         show:
           welcome: Witamy w Decidim Admin Panel.
-      events:
-        user_officialized_event:
-          email_intro: Zmieniono <a href="%{profile_path}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-          email_subject: "%{nickname} zaktualizował (a) swój profil"
-          notification_title: Zmieniono <a href="%{profile_path}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
       exports:
         export_as: "%{name} jako %{export_format}"
         notice: Twój eksport jest obecnie w toku. Po jego zakończeniu otrzymasz e-maila.
@@ -203,6 +208,7 @@ pl:
         new:
           create: Utwórz
           new_managed_user: Nowy użytkownik zarządzany
+          no_authorization_handlers: Nie ma dostępnych programów do obsługi upoważnień do zarządzania użytkownikami. Skontaktuj się z administratorem systemu.
           select_authorization_method: Wybierz metodę autoryzacji
           step: Krok %{current} z %{total}
         promotion:
@@ -370,7 +376,9 @@ pl:
           cta_button_text_help: Można zastąpić tekst przycisku Żądanie do działania na stronie głównej dla każdego dostępnego języka w organizacji. Jeśli nie zostanie ustawiona, zostanie użyta wartość domyślna. Przycisk Zadzwoń do Działania zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem.
           header_snippets_help: Użyj tego pola, aby dodać elementy do głowicy HTML. Najczęstszym sposobem jest zintegrowanie usług innych firm, które wymagają dodatkowego kodu JavaScript lub CSS. Można również użyć go do dodawania dodatkowych znaczników meta do HTML. Należy zauważyć, że będzie to widoczne tylko na stronach publicznych, a nie w sekcji administracyjnej.
           homepage_appearance_title: Edytuj wygląd strony głównej
+          homepage_highlighted_content_banner_title: Baner treści o wysokim priorytecie
           layout_appearance_title: Edytuj wygląd układu
+          omnipresent_banner_appearance_title: Edytuj wszechobecny
       scope_types:
         create:
           error: Podczas tworzenia nowego typu zakresu wystąpił błąd.
@@ -414,7 +422,7 @@ pl:
           title: Edytuj stronę
           update: Aktualizacja
         new:
-          create: Nowy
+          create: Stwórz
           title: Nowa strona
         update:
           error: Podczas aktualizowania tej strony wystąpił błąd.

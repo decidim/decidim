@@ -1,18 +1,6 @@
 it:
   decidim:
     comments:
-      events:
-        comment_created:
-          comment:
-            email_intro: '"%{resource_title}" è stato commentato. Puoi leggere il commento in questa pagina:'
-            email_outro: Hai ricevuto questa notifica perché state seguendo "%{resource_title}". Puoi disconnetterlo dal link precedente.
-            email_subject: C'è un nuovo commento da parte di %{author_name} al link %{resource_title}
-            notification_title: C'è un nuovo commento da %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
-          reply:
-            email_intro: Il "%{resource_title}" è stato commentato
-            email_outro: Hai ricevuto questa notifica perché state seguendo "%{resource_title}". Puoi disconnetterlo dal link precedente.
-            email_subject: Vi è una nuova risposta del tuo commento da %{author_name} in <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Vi è una nuova risposta del tuo commento da %{author_name} in <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: Ci sono stati errori durante la votazione del commento.
@@ -64,6 +52,24 @@ it:
         title: "%{count} commenti"
       featured_comment:
         title: Commento in primo piano
+    events:
+      comments:
+        comment_created:
+          comment:
+            email_intro: '"%{resource_title}" è stato commentato. Puoi leggere il commento in questa pagina:'
+            email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}" o il suo autore. Puoi smettere di seguirlo dal link precedente.
+            email_subject: C'è un nuovo commento da %{author_name} in %{resource_title}
+            notification_title: C'è un nuovo commento da <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>
+          reply:
+            email_intro: Il "%{resource_title}" è stato commentato
+            email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}" o il suo autore. Puoi smettere di seguirlo dal link precedente.
+            email_subject: C'è una nuova risposta del tuo commento da %{author_name} in <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: C'è una nuova risposta del tuo commento da <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>
+        user_mentioned:
+          email_intro: Sei stato menzionato
+          email_outro: Hai ricevuto questa notifica perché sei stato citato in "%{resource_title}".
+          email_subject: Sei stato menzionato in %{resource_title}
+          notification_title: Sei stato citato in <a href="%{resource_path}">%{resource_title}</a> di <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:
     messages:
       cannot_have_comments: non si possono fare commenti

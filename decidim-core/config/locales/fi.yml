@@ -2,12 +2,13 @@ fi:
   activemodel:
     attributes:
       account:
-        delete_reason: Syytä tilisi poistoon
+        delete_reason: Syy tilisi poistoon
       report:
         details: Lisätiedot
       user:
         email: Sähköpostiosoitteesi
         name: Nimesi
+        nickname: Oma lyhyt ja yksilöllinen tunniste decidimissä
         password: Salasanasi
         password_confirmation: Vahvista salasanasi
         remove_avatar: Poista profiilikuva
@@ -60,7 +61,7 @@ fi:
         related_photos: Liittyvät kuvat
     authorization_handlers:
       dummy_authorization_handler:
-        explanation: Vahvistetaan esittämällä asiakirjan numero, joka päättyy "X"
+        explanation: Varmenna itsesi esittämällä asiakirjan numero, joka päättyy merkkiin "X"
         fields:
           document_number: Asiakirjan numero
           postal_code: Postinumero
@@ -69,16 +70,16 @@ fi:
         name: Dummy-valtuutuksen työnkulku
       errors:
         duplicate_authorization: Käyttäjätili on jo varmennettu samoilla tiedoilla.
-      expired_at: Loppunut %{timestamp}
-      expires_at: Vanhentuu %{timestamp}
+      expired_at: Umpeutuu %{timestamp}
+      expires_at: Umpeutuu %{timestamp}
       foo_authorization:
         fields:
           bar: Bar
           foo: Foo
         name: Foo-tunnistautuminen
-      granted_at: Annettu osoitteessa %{timestamp}
-      started_at: Aloitti %{timestamp}
-    contact: Ottaa yhteyttä
+      granted_at: Myönnetty %{timestamp}
+      started_at: Aloitettu %{timestamp}
+    contact: Ota yhteyttä
     core:
       actions:
         unauthorized: Sinua ei ole valtuutettu tämän toiminnon suorittamiseen
@@ -88,15 +89,15 @@ fi:
           email_already_exists: Toinen käyttäjätili käyttää samaa sähköpostiosoitetta
         new:
           complete_profile: Viimeistele profiilisi
-          nickname_help: Sinun yksilöllinen tunniste decidimissa.
+          nickname_help: Oma lyhyt ja yksilöllinen tunniste decidimissä
           sign_up: Viimeistele profiilsi
           subtitle: Täytä seuraava lomake viimeistelläksesi rekisteröitymisesi
           username_help: Julkinen nimi, joka näkyy viesteissäsi. Anonyymiteetin taataksemme, voi olla mikä tahansa nimi.
       registrations:
         new:
           already_have_an_account?: Onko sinulla jo käyttäjätili?
-          newsletter_notifications: Vastaanota tietoa viimeaikaisesta aktiviteetista
-          nickname_help: Sinun yksilöllinen tunniste decidimissa.
+          newsletter: Saada satunnaisen uutiskirjeen, jossa on tarvittavat tiedot
+          nickname_help: Oma lyhyt ja yksilöllinen tunniste decidimissä
           sign_in: Kirjaudu sisään
           sign_up: Rekisteröidy
           sign_up_as:
@@ -123,13 +124,35 @@ fi:
         content_doesnt_exist: Tämä osoite on virheellinen tai käytöstä poistunut.
         title: Etsimääsi sivua ei löydy
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'Uusi asiakirja on lisätty kohteeseen %{resource_title}. Voit nähdä sen täältä:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta %{resource_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: Päivitys kohteeseen %{resource_title}
+          notification_title: <a href="%{resource_path}">Uusi dokumentti</a> on lisätty kohteeseen <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Hei %{user_name},
         email_intro: 'Kohteeseen ”%{resource_title}” on tehty päivitys. Näet sen tältä sivulta:'
         email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta ”%{resource_title}”. Voit lopettaa seuraamisen edellisestä linkistä.
         email_subject: Kohteen %{resource_title} päivitys
+      feature_published_event:
+        email_intro: '%{resource_title} -komponentti on nyt käytössä osallistumistilalle %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
+        email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+        email_subject: Päivitys kohteeseen %{participatory_space_title}
+        notification_title: '%{resource_title} -komponentti on nyt aktiivinen osallistumistilassa <a href="%{resource_path}">%{participatory_space_title}</a>'
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
+      participatory_process_step_activated_event:
+        email_intro: '%{resource_title} -vaihe on nyt aktiivinen osallistumistilalle %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
+        email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+        email_subject: Päivitys kohteeseen %{participatory_space_title}
+        notification_title: '%{resource_title} -vaihe on nyt aktiivinen osallistumistilalle <a href="%{resource_path}">%{participatory_space_title}</a>'
+      users:
+        profile_updated:
+          email_intro: <a href="%{resource_url}">profile page</a> %{name} (%{nickname}), jonka seuraat, on päivitetty.
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_subject: "%{nickname} päivitti profiilinsa"
+          notification_title: <a href="%{resource_path}">profile sivu</a> %{name} (%{nickname}), jota seuraat, on päivitetty.
     export_mailer:
       export:
         ready: Tähän viestiin on liitetty palvelusta löytyvät tiedot zip-pakettina.
@@ -152,7 +175,7 @@ fi:
     filters:
       linked_classes:
         all: Kaikki
-        dummyresource: Dummy resursseja
+        dummyresource: Dummy-resurssit
         meeting: Tapaamiset
         project: Projektit
         proposal: Ehdotukset
@@ -180,37 +203,46 @@ fi:
       conversation_mailer:
         new_conversation:
           greeting: Hei, %{recipient}!
-          intro: "%{sender} on alkanut uuden keskustelun kanssasi. Napsauta tätä nähdäksesi:"
-          outro: Nauti decidimista!
-          subject: "%{sender} on alkanut keskustella kanssasi"
+          intro: "%{sender} on aloittanut uuden keskustelun kanssasi. Napsauta tätä linkkiä nähdäksesi keskustelun:"
+          outro: Nauti decidimistä!
+          subject: "%{sender} on aloittanut keskustelun kanssasi"
         new_message:
           greeting: Hei, %{recipient}!
-          intro: "%{sender} on lähettänyt uusia viestejä keskusteluusi. Klikkaa tästä nähdäksesi ne:"
-          outro: Nauti decidimista!
-          subject: Sinulla on uusia viestejä %{sender}
+          intro: "%{sender} on lähettänyt uusia viestejä keskusteluusi. Klikkaa tästä linkistä nähdäksesi ne:"
+          outro: Nauti decidimistä!
+          subject: Sinulla on uusia viestejä lähettäjältä %{sender}
       conversations:
         create:
-          error: Keskustelu ei käynnisty. Yritä myöhemmin uudelleen
+          error: Keskustelua ei aloitettu. Yritä myöhemmin uudelleen
         index:
           no_conversations: Sinulla ei vielä ole keskusteluja
-          title: keskustelut
+          title: Keskustelut
         reply:
-          send: Lähettää
+          send: Lähetä
           title: Vastaa
         show:
-          title: Keskustelu %{usernames} kanssa
+          title: Keskustelu käyttäjän %{usernames} kanssa
         start:
-          send: Lähettää
+          send: Lähetä
           title: Aloita keskustelu
         update:
           error: Viestiä ei lähetetty. Yritä myöhemmin uudelleen
     newsletter_mailer:
       newsletter:
         note: Tämä viesti on lähetetty sinulle, koska olet tilannut uutiskirjeet organisaatiolta %{organization_name}. Voit muuttaa asetuksiasi <a href="%{link}">ilmoitusten sivulla</a>.
+        see_on_website: Etkö näe tätä sähköpostia oikein? Avaa sähköposti <a href="%{link}" target="_blank">selaimessasi</a>.
+        unsubscribe: Voit lopettaa tämäntyyppisten sähköpostien vastaanottamisen <a href="%{link}" target="_blank" class="unsubscribe">poistumalla sähköpostilistalta</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Jos haluat muuttaa asetuksiasi, voit tehdä sen <a href="%{link}" target="_blank">asetussivulla</a>
+        error: Tilauksen peruuttamisessa tapahtui virhe
+        success: Tilauksen peruuttaminen onnistui.
+        token_error: Linkki on vanhentunut.
+        unsubscribe: Peruuta tilaus
     notifications_settings:
       show:
         email_on_notification: Haluan saada sähköpostia aina, kun saan ilmoituksen.
-        newsletter_notifications: Haluan vastaanottaa tietoa relevantista aktiviteetista
+        newsletter_notifications: Haluan vastaanottaa uutiskirjeitä
         update_notifications_settings: Tallenna muutokset
       update:
         error: Ilmoitusasetustesi päivityksessä tapahtui virhe.
@@ -224,7 +256,10 @@ fi:
       index:
         title: Lisätietoa
     profiles:
-      default_officialization_text: Tämä osallistuja on julkisesti vahvistettu, hänen nimensä tai tehtävänsä on varmistettu vastaamaan hänen oikeaa nimeään ja tehtäväänsä
+      default_officialization_text: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
+      show:
+        about_me: Minusta
+        personal_url: Henkilökohtainen verkkosivusto
     reported_mailer:
       hide:
         hello: Hei %{name},
@@ -241,19 +276,19 @@ fi:
         error: Raportin luonnissa tapahtui virhe. Yritä uudestaan.
         success: Raportti on luotu onnistuneesti ja hallintakäyttäjä tarkastaa sen.
     scopes:
-      global: Globaali soveltamisala
+      global: Yleinen konteksti
       picker:
-        cancel: Peruuttaa
-        choose: valita
+        cancel: Peruuta
+        choose: Valitse
         title: Valitse %{field}
-      prompt: Valitse soveltamisala
-      scopes: laajuudet
+      prompt: Valitse konteksti
+      scopes: Kontekstit
     shared:
       action_authorization_modal:
         expired:
-          authorize: Reauthorize with "%{authorization}"
-          explanation: Valtuutuksesi on vanhentunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettu uudelleen "%{authorization}".
-          title: Valtuutus on vanhentunut
+          authorize: Valtuuta uudestaan palvelulla "%{authorization}"
+          explanation: Valtuutuksesi on umpeutunut. Jotta voit suorittaa tämän toiminnon, sinun on oltava valtuutettava itsesi uudestaan palvelulla "%{authorization}".
+          title: Valtuutus on umpeutunut
         incomplete:
           cancel: Peruuta
           explanation: 'Vaikka kirjautumisesi on tällä hetkellä varmennettu varmennustavalla "%{authorization}", tarvitsemme uuden varmennuksen, koska seuraavat tiedot puuttuvat:'
@@ -265,16 +300,16 @@ fi:
           explanation: Suorittaaksesi tämän toiminnon, sinun tulee varmentaa tilisi varmennustavalla "%{authorization}".
           title: Varmennus vaaditaan
         pending:
-          explanation: Tämän toiminnan suorittamiseksi sinun on oltava valtuutettu "%{authorization}", mutta valtuutuksesi on edelleen käynnissä
+          explanation: Tämän toiminnon suorittamiseksi sinun valtuutettava itsesi palvelulla "%{authorization}", mutta valtuutuksesi on edelleen kesken
           resume: Tarkista "%{authorization}" valtuutuksen eteneminen
-          title: Valtuutus on edelleen käynnissä
+          title: Valtuutus on edelleen kesken
         unauthorized:
           explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
-          invalid_field: "%{field} arvo %{value} ei ole kelvollinen."
+          invalid_field: "Kentän %{field} arvo %{value} ei ole kelvollinen."
           ok: Ok
           title: Ei varmennettu
       author:
-        deleted: Poistettu käyttäjä
+        deleted: Käyttäjä poistettu
       embed_modal:
         close_window: Sulje ikkuna
         embed: Liitä tämä koodi sivullesi
@@ -302,12 +337,12 @@ fi:
         share: Jaa
         share_link: Jaa linkki
       version_author:
-        deleted: Poistettu käyttäjä
+        deleted: Käyttäjä poistettu
   devise:
     invitations:
       edit:
         header: Aseta salasanasi
-        nickname_help: Sinun yksilöllinen tunniste decidimissa.
+        nickname_help: Yksilöllinen tunnisteesi decidimissä.
         submit_button: Tallenna
     mailer:
       invitation_instructions:
@@ -319,7 +354,7 @@ fi:
           Sinulle ei luoda tiliä, mikäli et seuraa linkkiä ja aseta salasanaasi.
         invited_you_as_admin: "%{invited_by} on kutsunut sinut hallinnoimaan kohdetta %{application}. Voit hyväksyä sen alla olevan linkin kautta."
         someone_invited_you: Joku on kutsunut sinut kohteeseen %{application}. Voit hyväksyä sen alla olevan linkin kautta.
-        someone_invited_you_as_admin: Joku on kutsunut sinut ylläpitäjänä %{application}, voit hyväksyä sen alla olevan linkin kautta.
+        someone_invited_you_as_admin: Joku on kutsunut sinut ylläpitämään palvelua %{application}. Voit hyväksyä kutsun alla olevan linkin avulla.
       invite_admin:
         subject: Sinut on kutsuttu hallinnoimaan organisaatiota %{organization}
       invite_collaborator:
@@ -371,7 +406,7 @@ fi:
         title: Ilmoitukset
       user_menu:
         admin_dashboard: Hallintapaneeli
-        conversations: keskustelut
+        conversations: Keskustelut
         notifications: Ilmoitukset
         profile: Oma käyttäjätili
         public_profile: Oma julkinen profiili
@@ -406,8 +441,8 @@ fi:
         participate: Osallistu
         welcome: Tervetuloa organisaatioon %{organization}!
       statistics:
-        answers_count: Valmistuneet tutkimukset
-        assemblies_count: osat
+        answers_count: Valmistuneet kyselyt
+        assemblies_count: Kehitysryhmät
         comments_count: Kommentit
         headline: Tämänhetkinen tila organisaatiolle %{organization}
         meetings_count: Tapaamiset
@@ -448,7 +483,7 @@ fi:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
-      decidim_short: "%d/%m/%Y %H:%M"
+      decidim_short: "%d.%m.%Y %H:%M"
       time_of_day: "%H:%M"
   views:
     pagination:

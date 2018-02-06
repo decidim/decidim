@@ -9,6 +9,13 @@
   <body>
     <!-- <style> -->
     <table class="body">
+      <% if content_for?(:see_on_website) %>
+        <table class="container">
+          <th class="small-12 first columns headnote float-right">
+            <%= yield(:see_on_website) %>
+          </th>
+        </table>
+      <% end %>
       <tr>
         <td class="float-center" align="center" valign="top">
           <center>
@@ -86,7 +93,11 @@
                       <th class="expander"></th>
                       <th class="small-12 first columns cityhall-bar">
                         <div class="decidim-logo" style="float: right; text-align: right; padding-right: 16px">
-                          <%= link_to @organization.name, decidim.root_url(host: @organization.host) %>
+                          <% if @custom_url_for_mail_root.present? %>
+                            <%= link_to @organization.name, @custom_url_for_mail_root %>
+                          <% else %>
+                            <%= link_to @organization.name, decidim.root_url(host: @organization.host) %>
+                          <% end %>
                         </div>
                       </th>
                     </tr>
@@ -95,15 +106,16 @@
               </tr>
             </table>
 
-            <% if content_for?(:note) %>
+            <% if content_for?(:note) or content_for?(:unsubscribe)%>
               <table class="container">
                 <tr>
                   <td>
                     <table class="row">
                       <th class="expander"></th>
-                      <th class="small-12 first columns footnote">
+                      <th class="small-12 first last columns footnote">
                         <center>
-                          <%= yield(:note) %>
+                          <%= yield(:note) if content_for?(:note) %>
+                          <%= yield(:unsubscribe) if content_for?(:unsubscribe) %>
                         </center>
                       </th>
                     </table>

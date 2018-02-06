@@ -121,7 +121,6 @@ uk:
             other: "%{count} підсумків"
         filters:
           all: Усі
-          global: Загальний
           scopes: Терени
         home:
           categories_label: Розділи

@@ -12,9 +12,9 @@ module Decidim
           expect(helper)
             .to receive(:react_comments_component)
             .with(
-              "comments-for-DummyResource-1",
+              "comments-for-DummyResource-#{dummy_resource.id}",
               commentableType: "Decidim::DummyResources::DummyResource",
-              commentableId: "1",
+              commentableId: dummy_resource.id.to_s,
               locale: I18n.locale
             ).and_call_original
 

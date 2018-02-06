@@ -14,7 +14,7 @@ module Decidim
       delegate :count, to: :results
 
       def progress
-        results.average(:progress)
+        results.average("COALESCE(progress, 0)")
       end
 
       private
@@ -22,7 +22,12 @@ module Decidim
       attr_reader :feature, :scope_id, :category_id
 
       def results
-        @results ||= ResultSearch.new(feature: feature, scope_id: scope_id, category_id: category_id, parent_id: nil).results
+        @results ||= ResultSearch.new(
+          feature: feature,
+          scope_id: scope_id,
+          category_id: category_id,
+          deep_search: false
+        ).results
       end
     end
   end

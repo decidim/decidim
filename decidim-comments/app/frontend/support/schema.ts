@@ -24,6 +24,8 @@ export interface addCommentMutation {
       type: string,
       // The comment message
       body: string,
+      // The comment message ready to display (it is expected to include HTML)
+      formattedBody: string,
       // The creation date of the comment
       createdAt: string,
       // The creation date of the comment in relative format
@@ -80,6 +82,8 @@ export interface addCommentMutation {
         type: string,
         // The comment message
         body: string,
+        // The comment message ready to display (it is expected to include HTML)
+        formattedBody: string,
         // The creation date of the comment
         createdAt: string,
         // The creation date of the comment in relative format
@@ -138,6 +142,8 @@ export interface addCommentMutation {
           type: string,
           // The comment message
           body: string,
+          // The comment message ready to display (it is expected to include HTML)
+          formattedBody: string,
           // The creation date of the comment
           createdAt: string,
           // The creation date of the comment in relative format
@@ -196,6 +202,8 @@ export interface addCommentMutation {
             type: string,
             // The comment message
             body: string,
+            // The comment message ready to display (it is expected to include HTML)
+            formattedBody: string,
             // The creation date of the comment
             createdAt: string,
             // The creation date of the comment in relative format
@@ -268,6 +276,8 @@ export interface DownVoteMutation {
       type: string,
       // The comment message
       body: string,
+      // The comment message ready to display (it is expected to include HTML)
+      formattedBody: string,
       // The creation date of the comment
       createdAt: string,
       // The creation date of the comment in relative format
@@ -326,6 +336,8 @@ export interface DownVoteMutation {
         type: string,
         // The comment message
         body: string,
+        // The comment message ready to display (it is expected to include HTML)
+        formattedBody: string,
         // The creation date of the comment
         createdAt: string,
         // The creation date of the comment in relative format
@@ -384,6 +396,8 @@ export interface DownVoteMutation {
           type: string,
           // The comment message
           body: string,
+          // The comment message ready to display (it is expected to include HTML)
+          formattedBody: string,
           // The creation date of the comment
           createdAt: string,
           // The creation date of the comment in relative format
@@ -442,6 +456,8 @@ export interface DownVoteMutation {
             type: string,
             // The comment message
             body: string,
+            // The comment message ready to display (it is expected to include HTML)
+            formattedBody: string,
             // The creation date of the comment
             createdAt: string,
             // The creation date of the comment in relative format
@@ -514,6 +530,8 @@ export interface UpVoteMutation {
       type: string,
       // The comment message
       body: string,
+      // The comment message ready to display (it is expected to include HTML)
+      formattedBody: string,
       // The creation date of the comment
       createdAt: string,
       // The creation date of the comment in relative format
@@ -572,6 +590,8 @@ export interface UpVoteMutation {
         type: string,
         // The comment message
         body: string,
+        // The comment message ready to display (it is expected to include HTML)
+        formattedBody: string,
         // The creation date of the comment
         createdAt: string,
         // The creation date of the comment in relative format
@@ -630,6 +650,8 @@ export interface UpVoteMutation {
           type: string,
           // The comment message
           body: string,
+          // The comment message ready to display (it is expected to include HTML)
+          formattedBody: string,
           // The creation date of the comment
           createdAt: string,
           // The creation date of the comment in relative format
@@ -688,6 +710,8 @@ export interface UpVoteMutation {
             type: string,
             // The comment message
             body: string,
+            // The comment message ready to display (it is expected to include HTML)
+            formattedBody: string,
             // The creation date of the comment
             createdAt: string,
             // The creation date of the comment in relative format
@@ -779,6 +803,8 @@ export interface GetCommentsQuery {
     commentsHaveAlignment: boolean,
     // Whether the object comments have votes or not
     commentsHaveVotes: boolean,
+    // The number of comments in all levels this resource holds
+    totalCommentsCount: number,
     comments:  Array< {
       // The Comment's unique ID
       id: string,
@@ -790,6 +816,8 @@ export interface GetCommentsQuery {
       type: string,
       // The comment message
       body: string,
+      // The comment message ready to display (it is expected to include HTML)
+      formattedBody: string,
       // The creation date of the comment
       createdAt: string,
       // The creation date of the comment in relative format
@@ -846,6 +874,8 @@ export interface GetCommentsQuery {
         type: string,
         // The comment message
         body: string,
+        // The comment message ready to display (it is expected to include HTML)
+        formattedBody: string,
         // The creation date of the comment
         createdAt: string,
         // The creation date of the comment in relative format
@@ -904,6 +934,8 @@ export interface GetCommentsQuery {
           type: string,
           // The comment message
           body: string,
+          // The comment message ready to display (it is expected to include HTML)
+          formattedBody: string,
           // The creation date of the comment
           createdAt: string,
           // The creation date of the comment in relative format
@@ -962,6 +994,8 @@ export interface GetCommentsQuery {
             type: string,
             // The comment message
             body: string,
+            // The comment message ready to display (it is expected to include HTML)
+            formattedBody: string,
             // The creation date of the comment
             createdAt: string,
             // The creation date of the comment in relative format
@@ -1048,6 +1082,8 @@ export interface CommentFragment {
   type: string,
   // The comment message
   body: string,
+  // The comment message ready to display (it is expected to include HTML)
+  formattedBody: string,
   // The creation date of the comment
   createdAt: string,
   // The creation date of the comment in relative format
@@ -1106,6 +1142,8 @@ export interface CommentFragment {
     type: string,
     // The comment message
     body: string,
+    // The comment message ready to display (it is expected to include HTML)
+    formattedBody: string,
     // The creation date of the comment
     createdAt: string,
     // The creation date of the comment in relative format
@@ -1164,6 +1202,8 @@ export interface CommentFragment {
       type: string,
       // The comment message
       body: string,
+      // The comment message ready to display (it is expected to include HTML)
+      formattedBody: string,
       // The creation date of the comment
       createdAt: string,
       // The creation date of the comment in relative format
@@ -1222,6 +1262,8 @@ export interface CommentFragment {
         type: string,
         // The comment message
         body: string,
+        // The comment message ready to display (it is expected to include HTML)
+        formattedBody: string,
         // The creation date of the comment
         createdAt: string,
         // The creation date of the comment in relative format
@@ -1285,6 +1327,8 @@ export interface CommentDataFragment {
   type: string,
   // The comment message
   body: string,
+  // The comment message ready to display (it is expected to include HTML)
+  formattedBody: string,
   // The creation date of the comment
   createdAt: string,
   // The creation date of the comment in relative format
@@ -1347,6 +1391,8 @@ export interface CommentThreadFragment {
   type: string,
   // The comment message
   body: string,
+  // The comment message ready to display (it is expected to include HTML)
+  formattedBody: string,
   // The creation date of the comment
   createdAt: string,
   // The creation date of the comment in relative format
@@ -1403,6 +1449,8 @@ export interface CommentThreadFragment {
     type: string,
     // The comment message
     body: string,
+    // The comment message ready to display (it is expected to include HTML)
+    formattedBody: string,
     // The creation date of the comment
     createdAt: string,
     // The creation date of the comment in relative format
@@ -1461,6 +1509,8 @@ export interface CommentThreadFragment {
       type: string,
       // The comment message
       body: string,
+      // The comment message ready to display (it is expected to include HTML)
+      formattedBody: string,
       // The creation date of the comment
       createdAt: string,
       // The creation date of the comment in relative format
@@ -1519,6 +1569,8 @@ export interface CommentThreadFragment {
         type: string,
         // The comment message
         body: string,
+        // The comment message ready to display (it is expected to include HTML)
+        formattedBody: string,
         // The creation date of the comment
         createdAt: string,
         // The creation date of the comment in relative format

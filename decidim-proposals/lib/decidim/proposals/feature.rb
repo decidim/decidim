@@ -8,12 +8,10 @@ Decidim.register_feature(:proposals) do |feature|
   feature.icon = "decidim/proposals/icon.svg"
 
   feature.on(:before_destroy) do |instance|
-    if Decidim::Proposals::Proposal.where(feature: instance).any?
-      raise "Can't destroy this feature when there are proposals"
-    end
+    raise "Can't destroy this feature when there are proposals" if Decidim::Proposals::Proposal.where(feature: instance).any?
   end
 
-  feature.actions = %w(endorse vote create)
+  feature.actions = %w(endorse vote create withdraw)
 
   feature.settings(:global) do |settings|
     settings.attribute :vote_limit, type: :integer, default: 0
@@ -153,7 +151,9 @@ Decidim.register_feature(:proposals) do |feature|
           nickname: Faker::Twitter.unique.screen_name,
           organization: feature.organization,
           tos_agreement: "1",
-          confirmed_at: Time.current
+          confirmed_at: Time.current,
+          personal_url: Faker::Internet.url,
+          about: Faker::Lorem.paragraph(2)
         )
 
         Decidim::Proposals::ProposalVote.create!(proposal: proposal, author: author) unless proposal.answered? && proposal.rejected?
@@ -188,6 +188,17 @@ Decidim.register_feature(:proposals) do |feature|
           Decidim::Proposals::ProposalEndorsement.create!(proposal: proposal, author: author, user_group: author.user_groups.first)
         end
       end
+
+      (n % 3).times do
+        author_admin = Decidim::User.where(organization: feature.organization, admin: true).all.sample
+
+        Decidim::Proposals::ProposalNote.create!(
+          proposal: proposal,
+          author: author_admin,
+          body: Faker::Lorem.paragraphs(2).join("\n")
+        )
+      end
+
       Decidim::Comments::Seed.comments_for(proposal)
     end
   end

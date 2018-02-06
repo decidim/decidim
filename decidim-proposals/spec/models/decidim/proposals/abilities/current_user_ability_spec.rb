@@ -121,6 +121,21 @@ describe Decidim::Proposals::Abilities::CurrentUserAbility do
 
       it { is_expected.not_to be_able_to(:edit, proposal) }
     end
+
+    describe "withdrawing" do
+      context "when user IS the same that created the proposal" do
+        let(:proposal) { build :proposal, feature: proposal_feature, author: user }
+
+        it { is_expected.to be_able_to(:withdraw, Decidim::Proposals::Proposal) }
+      end
+
+      context "when user is NOT the same that created the proposal" do
+        let(:other_user) { create(:user, organization: proposal_feature.organization) }
+        let(:proposal) { build :proposal, feature: proposal_feature, author: other_user }
+
+        it { is_expected.not_to be_able_to(:withdraw, proposal) }
+      end
+    end
   end
 
   describe "endorsing" do

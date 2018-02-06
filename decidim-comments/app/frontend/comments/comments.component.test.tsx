@@ -35,6 +35,7 @@ describe("<Comments />", () => {
           acceptsNewComments: true,
           commentsHaveAlignment: true,
           commentsHaveVotes: true,
+          totalCommentsCount: 15,
           comments: commentsData,
         },
       },

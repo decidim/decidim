@@ -1,0 +1,5 @@
+ru:
+  activemodel:
+    attributes:
+      debate:
+        decidim_category_id: Категория

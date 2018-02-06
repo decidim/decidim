@@ -59,9 +59,27 @@ pt-BR:
         destroy:
           error: Ocorreu um erro ao atualizar esta assembléia.
           success: Assembléia não publicada com sucesso.
+      assembly_user_roles:
+        create:
+          error: Ocorreu um erro ao adicionar um usuário para esta montagem.
+          success: Usuário criado com sucesso para esta montagem.
+        destroy:
+          success: Usuário destruído com sucesso para esta montagem.
+        edit:
+          title: Atualize o usuário da montagem.
+          update: Atualizar
+        index:
+          assembly_admins_title: Usuários da assembléia
+        new:
+          create: Crio
+          title: Novo usuário de montagem.
+        update:
+          error: Ocorreu um erro ao atualizar um usuário para esta montagem.
+          success: Usuário atualizado com sucesso para esta montagem.
       menu:
         assemblies: Assembléias
         assemblies_submenu:
+          assembly_admins: Usuários da assembléia
           attachments: Anexos
           categories: Categorias
           features: Características
@@ -75,6 +93,16 @@ pt-BR:
             published: Publicados
             title: Título
           name: Assembléia
+        assembly_user_role:
+          fields:
+            email: O email
+            name: Nome
+            role: Função
+          name: Usuário de montagem
+          roles:
+            admin: Administrador
+            collaborator: Colaborador
+            moderator: Moderador
       titles:
         assemblies: Assembléias
     assemblies:

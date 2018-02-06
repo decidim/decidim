@@ -42,5 +42,5 @@ module Decidim::FeatureTestHelpers
 end
 
 RSpec.configure do |config|
-  config.include Decidim::FeatureTestHelpers, type: :feature
+  config.include Decidim::FeatureTestHelpers, type: :system
 end

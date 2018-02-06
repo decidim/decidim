@@ -8,6 +8,7 @@ nl:
       user:
         email: Uw e-mailadres
         name: Uw naam
+        nickname: Uw korte unieke ID in decidim
         password: Nieuw wachtwoord
         password_confirmation: Bevestig uw nieuwe wachtwoord
         remove_avatar: Verwijder avatar
@@ -88,15 +89,15 @@ nl:
           email_already_exists: Er is een ander account met hetzelfde e-mailadres
         new:
           complete_profile: Volledig profiel
-          nickname_help: Uw unieke ID in decidim.
+          nickname_help: Uw korte unieke ID in decidim
           sign_up: Gelieve uw profiel te voltooien
           subtitle: Vul onderstaand formulier in om de aanmelding te voltooien
           username_help: Publieke naam die op uw berichten verschijnt. Met het oog op het waarborgen van de anonimiteit hoeft dit niet uw echte naam te zijn.
       registrations:
         new:
           already_have_an_account?: U heeft al een account?
-          newsletter_notifications: Stuur me informatie over relevante activiteiten
-          nickname_help: Uw unieke ID in decidim.
+          newsletter: Ontvang af en toe een nieuwsbrief met relevante informatie
+          nickname_help: Uw korte unieke ID in decidim
           sign_in: Aanmelden
           sign_up: Registratie
           sign_up_as:
@@ -123,13 +124,35 @@ nl:
         content_doesnt_exist: Dit adres is onjuist of is verwijderd.
         title: De opgevraagde pagina kan niet gevonden worden
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'Er is een nieuw document toegevoegd aan %{resource_title}. Je kunt het vanaf deze pagina bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{resource_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Een update voor %{resource_title}
+          notification_title: Een <a href="%{resource_path}">nieuw document</a> is toegevoegd aan <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Hallo %{user_name},
         email_intro: 'Er is een update voor ''%{resource_title}''. Je kunt het vanaf deze pagina bekijken:'
         email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kan stoppen met deze te volgen via vorige link.
         email_subject: Een update voor %{resource_title}
+      feature_published_event:
+        email_intro: 'Het %{resource_title}-onderdeel is nu actief voor %{participatory_space_title}. Je kunt het vanaf deze pagina bekijken:'
+        email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+        email_subject: Een update naar %{participatory_space_title}
+        notification_title: De %{resource_title} component is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_process_step_activated_event:
+        email_intro: 'De stap %{resource_title} is nu actief voor %{participatory_space_title}. Je kunt het vanaf deze pagina bekijken:'
+        email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+        email_subject: Een update naar %{participatory_space_title}
+        notification_title: De stap %{resource_title} is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
+      users:
+        profile_updated:
+          email_intro: De <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), die u volgt, is bijgewerkt.
+          email_outro: Je hebt deze melding ontvangen omdat je %{nickname} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: "%{nickname} heeft hun profiel bijgewerkt"
+          notification_title: De <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), die u volgt, is bijgewerkt.
     export_mailer:
       export:
         ready: In de bijlage vindt u een versie van uw export.
@@ -207,10 +230,19 @@ nl:
     newsletter_mailer:
       newsletter:
         note: U ontvangt deze e-mail omdat u bent geabonneerd op nieuwsbrieven van %{organization_name}. U kunt uw instellingen op uw <a href="%{link}">notificatiepagina</a> veranderen.
+        see_on_website: Kan deze e-mail niet correct worden weergegeven? Bekijk het op de <a href="%{link}" target="_blank">website</a>.
+        unsubscribe: Om u af te melden voor het ontvangen van dit type e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Als u uw voorkeuren wilt wijzigen, kunt u dat doen op de <a href="%{link}" target="_blank">configuratiepagina</a>
+        error: Er is een fout opgetreden bij het afmelden
+        success: Je bent succesvol afgemeld.
+        token_error: De link is verlopen.
+        unsubscribe: Afmelden
     notifications_settings:
       show:
         email_on_notification: Ik wil een e-mail ontvangen telkens als ik een melding krijg.
-        newsletter_notifications: Ik wil informatie ontvangen over relevante activiteiten
+        newsletter_notifications: Ik wil nieuwsbrieven ontvangen
         update_notifications_settings: Wijzigingen opslaan
       update:
         error: Er is een fout opgetreden bij het bijwerken van uw notificatie instellingen.
@@ -225,6 +257,9 @@ nl:
         title: Meer informatie
     profiles:
       default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn / haar naam of rol is geverifieerd om overeen te komen met zijn / haar echte naam en rol
+      show:
+        about_me: Over mij
+        personal_url: Persoonlijke website
     reported_mailer:
       hide:
         hello: Hallo %{name},

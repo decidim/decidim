@@ -38,6 +38,7 @@ module Decidim
           manifest_name: manifest.name,
           name: form.name,
           participatory_space: participatory_space,
+          weight: form.weight,
           settings: form.settings,
           default_step_settings: form.default_step_settings,
           step_settings: form.step_settings

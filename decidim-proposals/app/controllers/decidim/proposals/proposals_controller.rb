@@ -55,7 +55,7 @@ module Decidim
         CreateProposal.call(@form, current_user) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
-            redirect_to proposal_path(proposal)
+            redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path
           end
 
           on(:invalid) do
@@ -80,12 +80,28 @@ module Decidim
         UpdateProposal.call(@form, current_user, @proposal) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
-            redirect_to proposal_path(proposal)
+            redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path
           end
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.update.error", scope: "decidim")
             render :edit
+          end
+        end
+      end
+
+      def withdraw
+        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        authorize! :withdraw, @proposal
+
+        WithdrawProposal.call(@proposal, current_user) do
+          on(:ok) do |_proposal|
+            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
+          end
+          on(:invalid) do
+            flash[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+            redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path
           end
         end
       end
@@ -106,7 +122,7 @@ module Decidim
           origin: "all",
           activity: "",
           category_id: "",
-          state: "all",
+          state: "not_withdrawn",
           scope_id: nil,
           related_to: ""
         }

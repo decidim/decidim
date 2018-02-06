@@ -10,6 +10,7 @@ module Decidim
             super
 
             can :manage, Assembly
+            can :manage, Decidim::AssemblyUserRole
           end
         end
       end

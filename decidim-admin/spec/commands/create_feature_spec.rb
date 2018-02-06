@@ -15,6 +15,7 @@ module Decidim::Admin
         },
         invalid?: !valid,
         valid?: valid,
+        weight: 2,
         settings: {
           dummy_global_attribute_1: true,
           dummy_global_attribute_2: false
@@ -50,6 +51,7 @@ module Decidim::Admin
         feature = participatory_process.features.first
         expect(feature.settings.dummy_global_attribute_1).to eq(true)
         expect(feature.settings.dummy_global_attribute_2).to eq(false)
+        expect(feature.weight).to eq 2
 
         step_settings = feature.step_settings[step.id.to_s]
         expect(step_settings.dummy_step_attribute_1).to eq(true)

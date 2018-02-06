@@ -9,12 +9,7 @@ require "decidim/version"
 require "decidim/verifications"
 
 require "decidim/participatory_processes"
-
-begin
-  require "decidim/assemblies"
-rescue LoadError
-  nil
-end
+require "decidim/assemblies"
 
 require "decidim/pages"
 require "decidim/comments"
@@ -23,6 +18,7 @@ require "decidim/proposals"
 require "decidim/budgets"
 require "decidim/surveys"
 require "decidim/accountability"
+require "decidim/debates"
 
 # Module declaration.
 module Decidim
