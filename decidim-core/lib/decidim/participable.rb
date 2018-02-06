@@ -80,7 +80,7 @@ module Decidim
       #
       # Returns an `ActiveRecord::Association`.
       def public_spaces
-        published
+        published.where(private_space: false)
       end
     end
   end

@@ -27,21 +27,10 @@ module Decidim
       # Finds the Proposals scoped to an array of features and filtered
       # by a range of dates.
       def query
-        if @features.is_a?(ActiveRecord::Relation)
-        features_public = @features.where("(participatory_space_id in (
-                        #{Decidim::ParticipatoryProcess.where(private_space: false).ids.join(",")})
-                        and participatory_space_type = 'Decidim::ParticipatoryProcess') or (
-                        participatory_space_id in (#{Decidim::Assembly.where(private_space: false).ids.join(",")}) and
-                        participatory_space_type = 'Decidim::Assembly')")
-        else
-          features_public = @features
-        end
-        proposals = Decidim::Proposals::Proposal.where(feature: features_public)
+        proposals = Decidim::Proposals::Proposal.where(feature: @features)
         proposals = proposals.where("created_at >= ?", @start_at) if @start_at.present?
         proposals = proposals.where("created_at <= ?", @end_at) if @end_at.present?
         proposals
-
-
       end
     end
   end

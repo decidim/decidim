@@ -10,7 +10,7 @@ module Decidim
 
       def query
         if @user
-          Decidim::Assembly.user_assembly(@user.id)
+          Decidim::Assembly.private_spaces_user(@user.id)
         else
           Decidim::Assembly.public_assembly
         end

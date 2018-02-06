@@ -32,6 +32,7 @@ module Decidim
       before_action do
         authorize! :read, current_feature
       end
+      before_action :redirect_unless_feature_private
 
       def current_participatory_space
         request.env["decidim.current_participatory_space"]
@@ -51,6 +52,12 @@ module Decidim
           current_settings: current_settings,
           feature_settings: feature_settings
         )
+      end
+
+      def redirect_unless_feature_private
+        redirect_to "/404" unless (current_participatory_space.private_space? &&
+                                   current_participatory_space.users.any? { current_user }) ||
+                                  !current_participatory_space.private_space?
       end
     end
   end

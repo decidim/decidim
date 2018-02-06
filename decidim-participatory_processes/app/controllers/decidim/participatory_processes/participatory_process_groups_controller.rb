@@ -16,7 +16,7 @@ module Decidim
 
       def participatory_processes
         @participatory_processes ||= if current_user
-                                       group.participatory_processes.user_process(current_user.id).published
+                                       group.participatory_processes.private_spaces_user(current_user.id).published
                                      else
                                        group.participatory_processes.published
                                      end

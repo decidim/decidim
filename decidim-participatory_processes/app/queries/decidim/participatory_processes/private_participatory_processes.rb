@@ -12,7 +12,7 @@ module Decidim
         processes = Decidim::ParticipatoryProcess.all
 
         if @current_user
-          processes.user_process(@current_user.id)
+          processes.private_spaces_user(@current_user.id)
         else
           processes.public_process
         end

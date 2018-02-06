@@ -17,16 +17,7 @@ Decidim.register_feature(:meetings) do |feature|
   end
 
   feature.register_stat :meetings_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |features, start_at, end_at|
-    if features.is_a?(ActiveRecord::Relation)
-    features_public = features.where("(participatory_space_id in (
-                    #{Decidim::ParticipatoryProcess.where(private_space: false).ids.join(",")})
-                    and participatory_space_type = 'Decidim::ParticipatoryProcess') or (
-                    participatory_space_id in (#{Decidim::Assembly.where(private_space: false).ids.join(",")}) and
-                    participatory_space_type = 'Decidim::Assembly')")
-    else
-      features_public = features
-    end
-    meetings = Decidim::Meetings::Meeting.where(feature: features_public)
+    meetings = Decidim::Meetings::Meeting.where(feature: features)
     meetings = meetings.where("created_at >= ?", start_at) if start_at.present?
     meetings = meetings.where("created_at <= ?", end_at) if end_at.present?
     meetings.count

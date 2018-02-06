@@ -59,7 +59,7 @@ module Decidim
     scope :upcoming, -> { where(arel_table[:start_date].gt(Time.current)) }
     scope :active, -> { where(arel_table[:start_date].lteq(Time.current).and(arel_table[:end_date].gt(Time.current).or(arel_table[:end_date].eq(nil)))) }
 
-    scope :user_process, lambda { |user|
+    scope :private_spaces_user, lambda { |user|
       joins("LEFT JOIN decidim_participatory_process_private_users ON
              decidim_participatory_process_private_users.decidim_participatory_process_id = decidim_participatory_processes.id")
         .where("(private_space = true and decidim_participatory_process_private_users.decidim_user_id
