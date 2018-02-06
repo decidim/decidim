@@ -236,6 +236,8 @@ nl:
         error: Er zijn fouten opgetreden bij het opslaan van het voorstel.
         success: Voorstel succesvol bijgewerkt.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Gerelateerde voorstellen
       included_projects:
         project_results: 'Resultaten die in dit project verschijnen:'
       included_proposals:
