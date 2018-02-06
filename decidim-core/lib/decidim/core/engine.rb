@@ -199,6 +199,12 @@ module Decidim
         end
       end
 
+      initializer "decidim.content_processors" do |_app|
+        Decidim.configure do |config|
+          config.content_processors += [:user]
+        end
+      end
+
       initializer "paper_trail" do
         PaperTrail.config.track_associations = false
       end

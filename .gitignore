@@ -20,3 +20,4 @@ webpack.report.html
 .pki
 .graphqlconfig
 schema.json
+.yardoc

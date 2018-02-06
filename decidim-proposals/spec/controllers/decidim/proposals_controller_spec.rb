@@ -27,12 +27,9 @@ module Decidim
           let(:feature) { create(:proposal_feature) }
 
           it "raises an error" do
-            expect(CreateProposal).not_to receive(:call)
-
             post :create, params: params
 
             expect(flash[:alert]).not_to be_empty
-            expect(response).to have_http_status(302)
           end
         end
 
@@ -40,29 +37,28 @@ module Decidim
           let(:feature) { create(:proposal_feature, :with_creation_enabled) }
 
           it "creates a proposal" do
-            expect(CreateProposal).to receive(:call)
+            post :create, params: params.merge(
+              title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+              body: "Ut sed dolor vitae purus volutpat venenatis. Donec sit amet sagittis sapien. Curabitur rhoncus ullamcorper feugiat. Aliquam et magna metus."
+            )
 
-            post :create, params: params
+            expect(flash[:notice]).not_to be_empty
+            expect(response).to have_http_status(302)
           end
         end
       end
 
-      describe "WITHDRAW a proposal" do
+      describe "withdraw a proposal" do
         let(:feature) { create(:proposal_feature, :with_creation_enabled) }
 
         context "when an authorized user is withdrawing a proposal" do
           let(:proposal) { create(:proposal, feature: feature, author: user) }
 
           it "withdraws the proposal" do
-            expect(WithdrawProposal).to receive(:call)
-
             put :withdraw, params: params.merge(id: proposal.id)
 
-            # TO DO: remove previous mocking of call method
-            # and uncomment the following 2 lines
-            # when issue https://github.com/decidim/decidim/issues/2471 is resolved
-            # expect(flash[:notice]).not_to be_empty
-            # expect(response).to have_http_status(302)
+            expect(flash[:notice]).not_to be_empty
+            expect(response).to have_http_status(302)
           end
         end
 

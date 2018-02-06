@@ -24,13 +24,24 @@ ca:
         cta_button_path: Camí del botó d'acció principal
         cta_button_text: Text del botó d'acció principal
         description: Descripció
+        enable_omnipresent_banner: Bàner omnipresent
         favicon: Icona
         header_snippets: Fragments de capçalera
+        highlighted_content_banner_action_subtitle: Subtítol del botó d'acció
+        highlighted_content_banner_action_title: Títol del botó d'acció
+        highlighted_content_banner_action_url: URL del botó d'acció
+        highlighted_content_banner_enabled: Mostra el bàner de contingut ressaltat
+        highlighted_content_banner_image: Imatge
+        highlighted_content_banner_short_description: Descripció breu
+        highlighted_content_banner_title: Títol
         homepage_image: Imatge de la portada
         logo: Logotip
         official_img_footer: Logotip oficial del peu de pàgina
         official_img_header: Logotip oficial de la capçalera
         official_url: URL de l'organització oficial
+        omnipresent_banner_short_description: Descripció breu
+        omnipresent_banner_title: Títol
+        omnipresent_banner_url: URL
         show_statistics: Mostra estadístiques
         welcome_text: Text de benvinguda
       scope:
@@ -197,6 +208,7 @@ ca:
         new:
           create: Crear
           new_managed_user: Nou usuari gestionat
+          no_authorization_handlers: No hi ha autoritzacions disponibles per gestionar usuaris. Poseu-vos en contacte amb l'administrador del sistema.
           select_authorization_method: Seleccioneu un mètode d'autorització
           step: Fase %{current} de %{total}
         promotion:
@@ -364,7 +376,9 @@ ca:
           cta_button_text_help: Pots sobreescriure el text del botó d'acció principal a la pàgina d'inici per cada idioma disponible a la teva organització. Si no s'omple, s'utilitzarà el valor predeterminat. El botó d'acció principal es mostra a la pàgina d'inici entre el text de benvinguda i la descripció.
           header_snippets_help: Utilitza aquest camp per afegir coses al head d'HTML. L'ús més habitual és integrar serveis de tercers que requereixen codi JavaScript o CSS addicional. A més, pots utilitzar-lo per afegir etiquetes meta addicionals a l'HTML. Tingues en compte que això només es mostrarà a les pàgines públiques, no a la secció d'administració.
           homepage_appearance_title: Edita l'aparença de la pàgina d'inici
+          homepage_highlighted_content_banner_title: Bàner de contingut ressaltat
           layout_appearance_title: Edita l'aparença del disseny global
+          omnipresent_banner_appearance_title: Edita bàner omnipresent
       scope_types:
         create:
           error: S'ha produït un error en crear un nou tipus d'àmbit.

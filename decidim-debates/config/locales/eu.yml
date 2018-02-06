@@ -2,7 +2,7 @@ eu:
   activemodel:
     attributes:
       debate:
-        decidim_category_id: Kategoria
+        category_id: Kategoria
         description: deskribapena
         end_time: Amaitzen du
         information_updates: Informazioaren eguneratzeak
@@ -79,7 +79,15 @@ eu:
         show:
           comments: Oharrak
           report: txostena
-      events:
+      models:
+        debate:
+          fields:
+            end_time: Amaiera data
+            official_debate: Ofizial eztabaida
+            start_time: Hasiera data
+            title: Izenburua
+    events:
+      debates:
         create_debate_event:
           space_followers:
             email_intro: |-
@@ -93,13 +101,6 @@ eu:
             email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
             email_subject: Eztabaida berria %{author_nickname}-ri
             notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu zen <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-      models:
-        debate:
-          fields:
-            end_time: Amaiera data
-            official_debate: Ofizial eztabaida
-            start_time: Hasiera data
-            title: Izenburua
     features:
       debates:
         actions:

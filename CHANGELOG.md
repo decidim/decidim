@@ -2,6 +2,14 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+**Added**:
+
+**Changed**:
+
+**Fixed**:
+
+## [v0.9.0](https://github.com/decidim/decidim/tree/v0.9.0) (2018-2-5)
+[Full Changelog](https://github.com/decidim/decidim/compare/v0.8.0...v0.9.0)
 **Upgrade notes**:
 
 Since uglifier `4.0.0`, we need to set `harmony: true` as options in uglifier. This means
@@ -12,7 +20,13 @@ you need to change the following line in `config/environments/production.rb`:
 + config.assets.js_compressor = Uglifier.new(:harmony => true)
 ```
 
-**Added
+**Added**:
+
+- **decidim-admin**: Adds administration interface for highlighted content banner [\#2572](https://github.com/decidim/decidim/pull/2572)
+- **decidim-core**: Adds support for highlighted content banner.[\#2572](https://github.com/decidim/decidim/pull/2572)
+- **decidim-core**: Added support for content processors. [\#2491](https://github.com/decidim/decidim/pull/2491)
+- **decidim-comments**: Added support to mention other users and notify them. [\#2491](https://github.com/decidim/decidim/pull/2491)
+- **decidim**: Refactor and DRY Decidim events. [\#2582](https://github.com/decidim/decidim/pull/2582)
 - **decidim-core**: Added support for omnipresent banner. [\#2547](https://github.com/decidim/decidim/pull/2547)
 - **decidim-admin**: Added administration interface for omnipresent banner. [\#2547](https://github.com/decidim/decidim/pull/2547)
 - **decidim**: Rubocop has been upgraded. Ruby version in gem specs now fits with ruby version that rubocop uses. [\#2548](https://github.com/decidim/decidim/pull/2548)
@@ -50,7 +64,7 @@ you need to change the following line in `config/environments/production.rb`:
   ```
 - **decidim-debates**: New Debates component available for all spaces [\#2506](https://github.com/decidim/decidim/pull/2506)
 
-**Changed
+**Changed**:
 
 - **decidim-comments**: Changed the counters to count all comments from all levels instead of only the top-level ones [\#2551](https://github.com/decidim/decidim/pull/2551)
 - **decidim-core**: [Breaking change] Changes the participatory space's contracts introducing `context`. This was done to fix a bug caused by dynamically extending some controllers. [\#2465](https://github.com/decidim/decidim/pull/2465)
@@ -77,7 +91,15 @@ you need to change the following line in `config/environments/production.rb`:
 
 **Fixed**:
 
+- **decidim-accountability**: Calculate progress average considering all items [\#2638](https://github.com/decidim/decidim/pull/2638)
+- **decidim-proposals**: Fix test redirect. [\#2633](https://github.com/decidim/decidim/pull/2633)
+- **decidim-core**: Don't allow conversations between the same user. [\#2630](https://github.com/decidim/decidim/pull/2630)
+- **decidim-core**: Remove Sendgrid and Heroku references. [\#2634](https://github.com/decidim/decidim/pull/2634)
+- **decidim-core**: Notify admins when no valid authorization handlers are available to create managed users. [\#2631](https://github.com/decidim/decidim/pull/2631)
+- **decidim-core**: Fix user re-invite. [\#2626](https://github.com/decidim/decidim/pull/2626)
+- **decidim-core**: Allow underscores at CTA button path. [\#2625](https://github.com/decidim/decidim/pull/2625)
 - **decidim-core**: Fix editing features in assemblies. [\#2524](https://github.com/decidim/decidim/pull/2524)
+- **decidim-core**: Fix the texts of 'New Message' email notifications. [\#2588](https://github.com/decidim/decidim/pull/2588)
 - **decidim-admin**: Properly save features weight on creation [\#2499](https://github.com/decidim/decidim/pull/2499)
 - **decidim-core**: Fix after login redirect. [\#2321](https://github.com/decidim/decidim/pull/2321) [\#2504](https://github.com/decidim/decidim/pull/2504)
   With links or buttons that needs the user to be authorized or signed in you can now add a `data-redirect-url` attribute to redirect the user after they've signed in so they don't lose context.
@@ -103,8 +125,9 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-accountability**: Keeps the current scope in the breadcumb links [\#2488](https://github.com/decidim/decidim/pull/2488)
 - **decidim-accountability**: Top level search searches on all results (not only the first level) [\#2545](https://github.com/decidim/decidim/pull/2545)
 - **decidim-admin**: Visual bug in quilljs editor misleading admins into introducing blank lines to separate paragraphs. [\#2565](https://github.com/decidim/decidim/pull/2565).
+- **decidim-admin**: Properly highlight the Settings admin menu item when visiting the scope types section. [\#2642](https://github.com/decidim/decidim/pull/2642)
 
-**Removed**
+**Removed**:
 
 - **decidim**: Select2 JS library and scope selector based on Select2.
 - **dedicim-accountability**: Removed the Global scope navigation option ([\#2486](https://github.com/decidim/decidim/pull/2486))

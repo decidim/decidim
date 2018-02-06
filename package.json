@@ -1,7 +1,7 @@
 {
   "name": "decidim",
   "description": "The participatory democracy framework",
-  "version": "0.9.0-pre",
+  "version": "0.10.0-pre",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git"
@@ -21,7 +21,7 @@
     "test": "jest",
     "test:watch": "yarn test -- --watch",
     "test:ci": "yarn run lint && yarn test",
-    "graphql:download_schema": "apollo-codegen download-schema http://localhost:3000/api --output schema.json",
+    "graphql:download_schema": "apollo-codegen download-schema http://${DECIDIM_HOST:-localhost:3000}/api --output schema.json",
     "pregraphql:generate_schema_types": "yarn run graphql:download_schema",
     "graphql:generate_schema_types": "apollo-codegen generate decidim-comments/**/*.graphql --schema schema.json --target typescript --output decidim-comments/app/frontend/support/schema.ts"
   },

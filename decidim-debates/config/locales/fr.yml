@@ -2,9 +2,9 @@ fr:
   activemodel:
     attributes:
       debate:
-        decidim_category_id: Catégorie
-        description: La description
-        end_time: Fini à
+        category_id: Catégorie
+        description: Description
+        end_time: Prend fin à
         information_updates: Informations mises à jour
         instructions: Instructions pour participer
         start_time: Commence à
@@ -13,11 +13,11 @@ fr:
   decidim:
     debates:
       actions:
-        confirm_destroy: Êtes-vous sûr?
+        confirm_destroy: Êtes-vous certain ?
         destroy: Effacer
-        edit: modifier
+        edit: Modifier
         new: Nouveau %{name}
-        title: actes
+        title: Actions
       admin:
         debates:
           create:
@@ -50,7 +50,7 @@ fr:
         debate:
           comments:
             one: Commentaire
-            other: commentaires
+            other: Commentaires
           participate: Participer
         filters:
           all: Tout
@@ -61,14 +61,14 @@ fr:
           origin: Origine
           search: Chercher
         filters_small_view:
-          close_modal: Fermer modal
+          close_modal: Fermer
           filter: Filtre
           filter_by: Filtrer par
-          unfold: Se dérouler
+          unfold: Déplier
         index:
           new_debate: Nouveau débat
         new:
-          back: Arrière
+          back: Retour
           create: Créer
           select_a_category: Veuillez sélectionner une catégorie
           title: Nouveau débat
@@ -77,22 +77,8 @@ fr:
           share: Partager
           share_link: Lien de partage
         show:
-          comments: commentaires
-          report: rapport
-      events:
-        create_debate_event:
-          space_followers:
-            email_intro: |-
-              Bonjour, Un nouveau débat a été créé sur l'espace participatif %{space_title}, consultez-le et contribuez:
-            email_outro: Vous avez reçu cette notification parce que vous suivez l'espace participatif %{space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-            email_subject: Nouveau débat sur %{space_title}
-            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé le <a href="%{space_path}">%{space_title}</a>.
-          user_followers:
-            email_intro: |-
-              Bonjour, %{author_name} %{author_nickname}, qui vous suivez, a créé un nouveau débat, vérifiez-le et contribuez:
-            email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-            email_subject: Nouveau débat par %{author_nickname}
-            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+          comments: Commentaires
+          report: Rapport
       models:
         debate:
           fields:
@@ -100,6 +86,21 @@ fr:
             official_debate: Débat officiel
             start_time: Date de début
             title: Titre
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Bonjour, un nouveau débat a été créé sur l'espace participatif %{space_title}, consultez-le et contribuez :
+            email_outro: Vous avez reçu cette notification parce que vous suivez l'espace participatif %{space_title}. Vous pouvez cesser de recevoir des notifications à partir le lien précédent.
+            email_subject: Nouveau débat sur %{space_title}
+            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé le <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Bonjour, %{author_name} %{author_nickname}, que vous suivez, a créé un nouveau débat, prenez-en connaissance et contribuez :
+            email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez cesser de recevoir des notifications à partir du lien précédent.
+            email_subject: Nouveau débat par %{author_nickname}
+            notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
     features:
       debates:
         actions:
@@ -110,4 +111,4 @@ fr:
             comments_enabled: Commentaires activés
           step:
             comments_blocked: Commentaires bloqués
-            creation_enabled: Création de débat par les utilisateurs activés
+            creation_enabled: Création de débats par les utilisateurs activés

@@ -5,28 +5,14 @@ require "spec_helper"
 describe Decidim::FeaturePublishedEvent do
   include Decidim::FeaturePathHelper
 
-  subject do
-    described_class.new(resource: feature, event_name: event_name, user: follower, extra: {})
-  end
+  include_context "simple event"
 
-  let(:organization) { follower.organization }
-  let(:follower) { create :user }
   let(:event_name) { "decidim.events.feature_published_event" }
-  let(:feature) { create(:feature, organization: organization) }
-  let(:participatory_space) { feature.participatory_space }
-  let(:resource_path) { main_feature_path(feature) }
+  let(:resource) { create(:feature) }
+  let(:participatory_space) { resource.participatory_space }
+  let(:resource_path) { main_feature_path(resource) }
 
-  describe "types" do
-    subject { described_class }
-
-    it "supports notifications" do
-      expect(subject.types).to include :notification
-    end
-
-    it "supports emails" do
-      expect(subject.types).to include :email
-    end
-  end
+  it_behaves_like "an simple event"
 
   describe "email_subject" do
     it "is generated correctly" do
@@ -37,7 +23,7 @@ describe Decidim::FeaturePublishedEvent do
   describe "email_intro" do
     it "is generated correctly" do
       expect(subject.email_intro)
-        .to eq("The #{feature.name["en"]} component is now active for #{participatory_space.title["en"]}. You can see it from this page:")
+        .to eq("The #{resource.name["en"]} component is now active for #{participatory_space.title["en"]}. You can see it from this page:")
     end
   end
 
@@ -51,7 +37,7 @@ describe Decidim::FeaturePublishedEvent do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to eq("The #{feature.name["en"]} component is now active for <a href=\"#{resource_path}\">#{participatory_space.title["en"]}</a>")
+        .to eq("The #{resource.name["en"]} component is now active for <a href=\"#{resource_path}\">#{participatory_space.title["en"]}</a>")
     end
   end
 end

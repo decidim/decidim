@@ -24,13 +24,24 @@ it:
         cta_button_path: Percorso del pulsante di Appello all'azione
         cta_button_text: Percorso del pulsante di Appello all'azione
         description: Descrizione
+        enable_omnipresent_banner: Mostra banner onnipresente
         favicon: Icona
         header_snippets: Frammenti dell'intestazione
+        highlighted_content_banner_action_subtitle: Sottotitolo del pulsante di azione
+        highlighted_content_banner_action_title: Titolo del pulsante di azione
+        highlighted_content_banner_action_url: URL del pulsante di azione
+        highlighted_content_banner_enabled: Mostra il banner dei contenuti evidenziato
+        highlighted_content_banner_image: Immagine
+        highlighted_content_banner_short_description: Breve descrizione
+        highlighted_content_banner_title: Titolo
         homepage_image: Immagine per la Homepage
         logo: Logo
         official_img_footer: Logo ufficiale nel piè di pagina
         official_img_header: Logo ufficiale nell'intestazione
         official_url: URL dell'organizzazione ufficiale
+        omnipresent_banner_short_description: Breve descrizione
+        omnipresent_banner_title: Titolo
+        omnipresent_banner_url: URL
         show_statistics: Mostrare le statistiche
         welcome_text: Testo di Benvenuto
       scope:
@@ -197,6 +208,7 @@ it:
         new:
           create: Crea
           new_managed_user: Nuovo utente gestito
+          no_authorization_handlers: Non ci sono gestori di autorizzazioni disponibili per la gestione degli utenti. Si prega di contattare l'amministratore di sistema.
           select_authorization_method: Selezionare un metodo di autorizzazione
           step: Fase %{current} di %{total}
         promotion:
@@ -364,7 +376,9 @@ it:
           cta_button_text_help: Puoi sovrascrivere il testo del pulsante Chiamata a azione nella home page per ogni lingua disponibile nell'organizzazione. Se non è impostato, verrà utilizzato il valore predefinito. Il pulsante Chiamata all'azione è mostrato nella homepage tra il testo di benvenuto e la descrizione.
           header_snippets_help: Utilizza questo campo per aggiungere le cose alla testa HTML. L'uso più comune è quello di integrare i servizi di terze parti che richiedono JavaScript o CSS extra. Inoltre, è possibile utilizzarlo per aggiungere meta tag extra all'HTML. Tieni presente che questo sarà reso solo nelle pagine pubbliche, non nella sezione admin.
           homepage_appearance_title: Modifica l'aspetto della home page
+          homepage_highlighted_content_banner_title: Banner con contenuti Highligted
           layout_appearance_title: Modifica aspetto del layout
+          omnipresent_banner_appearance_title: Modifica onnipresente
       scope_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di ambito.

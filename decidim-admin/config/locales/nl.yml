@@ -24,13 +24,24 @@ nl:
         cta_button_path: Call to Action knop pad
         cta_button_text: Oproep naar actie knop tekst
         description: Beschrijving
+        enable_omnipresent_banner: Toon alomtegenwoordige banner
         favicon: Icoon
         header_snippets: Header snippets
+        highlighted_content_banner_action_subtitle: Actieknop ondertitel
+        highlighted_content_banner_action_title: Actieknop titel
+        highlighted_content_banner_action_url: Actieknop URL
+        highlighted_content_banner_enabled: Toon de gemarkeerde inhoudsbanner
+        highlighted_content_banner_image: Beeld
+        highlighted_content_banner_short_description: Korte beschrijving
+        highlighted_content_banner_title: Titel
         homepage_image: Homepage afbeelding
         logo: Logo
         official_img_footer: Officiële logo voettekst
         official_img_header: Officiële logo header
         official_url: URL van de officiële organisatie
+        omnipresent_banner_short_description: Korte beschrijving
+        omnipresent_banner_title: Titel
+        omnipresent_banner_url: URL
         show_statistics: Toon statistieken
         welcome_text: Welkom tekst
       scope:
@@ -197,6 +208,7 @@ nl:
         new:
           create: creëren
           new_managed_user: Nieuwe beheerde gebruiker
+          no_authorization_handlers: Er zijn geen beschikbare autorisatiehandlers om gebruikers te beheren. Neem contact op met uw systeembeheerder.
           select_authorization_method: Selecteer een autorisatie methode
           step: Stap %{current} van %{total}
         promotion:
@@ -364,7 +376,9 @@ nl:
           cta_button_text_help: U kunt de tekst voor "Call To Action" overschrijven op de homepage voor elke beschikbare taal in uw organisatie. Indien niet ingesteld, wordt de standaardwaarde gebruikt. De knop Call to Action wordt weergegeven op de homepage tussen de welkomsttekst en de omschrijving.
           header_snippets_help: Gebruik dit veld om dingen toe te voegen aan de HTML-kop. Het meest voorkomende gebruik is het integreren van diensten van derden die extra JavaScript of CSS nodig hebben. U kunt het ook gebruiken om extra metatags toe te voegen aan de HTML. Houd er rekening mee dat dit alleen op openbare pagina's wordt weergegeven, niet in de beheerdersafdeling.
           homepage_appearance_title: Bewerk de startpagina-weergave
+          homepage_highlighted_content_banner_title: Highligted inhoudsbanner
           layout_appearance_title: Weergave van de lay-out bewerken
+          omnipresent_banner_appearance_title: Bewerken alomtegenwoordig
       scope_types:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe scope type.

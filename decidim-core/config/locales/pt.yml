@@ -96,8 +96,8 @@ pt:
       registrations:
         new:
           already_have_an_account?: Já tem uma conta?
+          newsletter: Receba um boletim informativo ocasional com informações relevantes
           nickname_help: Seu identificador curto e exclusivo em decidim
-          notifications: Receba informações sobre atividades relevantes
           sign_in: Entrar
           sign_up: Inscreva-se
           sign_up_as:
@@ -124,6 +124,12 @@ pt:
         content_doesnt_exist: Este endereço está incorreto ou foi apagado.
         title: A página que você procura não pode ser encontrada
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'Um novo documento foi adicionado a %{resource_title}. Você pode vê-lo a partir desta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo o %{resource_title}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Uma atualização para %{resource_title}
+          notification_title: Um <a href="%{resource_path}">new document</a> foi adicionado a <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Olá %{user_name},
         email_intro: 'Houve uma atualização para "%{resource_title}". Você pode vê-lo a partir desta página:'
@@ -141,11 +147,12 @@ pt:
         email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
         email_subject: Uma atualização para %{participatory_space_title}
         notification_title: O passo %{resource_title} agora está ativo para <a href="%{resource_path}">%{participatory_space_title}</a>
-      profile_updated_event:
-        email_intro: O <a href="%{profile_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
-        email_outro: Você recebeu esta notificação porque está seguindo %{nickname}. Você pode parar de receber notificações após o link anterior.
-        email_subject: "%{nickname} atualizaram seu perfil"
-        notification_title: O <a href="%{profile_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
+      users:
+        profile_updated:
+          email_intro: O <a href="%{resource_url}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
+          email_outro: Você recebeu esta notificação porque está seguindo %{nickname}. Você pode parar de receber notificações após o link anterior.
+          email_subject: "%{nickname} atualizaram seu perfil"
+          notification_title: O <a href="%{resource_path}">profile page</a> de %{name} (%{nickname}), quem você está seguindo, foi atualizado.
     export_mailer:
       export:
         ready: Encontre em anexo uma versão com zíper da sua exportação.

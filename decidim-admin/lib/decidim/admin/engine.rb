@@ -74,7 +74,7 @@ module Decidim
                     decidim_admin.edit_organization_path,
                     icon_name: "wrench",
                     position: 7,
-                    active: [%w(decidim/admin/organization decidim/admin/scopes), []],
+                    active: [%w(decidim/admin/organization decidim/admin/scopes decidim/admin/scope_types), []],
                     if: can?(:read, current_organization)
         end
       end
