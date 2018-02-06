@@ -38,7 +38,7 @@ module Decidim
                 resource: proposal,
                 recipient_ids: [follower.id],
                 extra: {
-                  endorser: current_user,
+                  endorser: current_user
                 }
               )
 

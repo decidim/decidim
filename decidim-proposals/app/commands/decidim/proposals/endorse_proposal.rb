@@ -47,7 +47,7 @@ module Decidim
           resource: @proposal,
           recipient_ids: recipient_ids.uniq,
           extra: {
-            endorser: @current_user,
+            endorser: @current_user
           }
         )
       end
