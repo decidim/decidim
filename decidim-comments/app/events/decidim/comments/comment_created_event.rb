@@ -5,7 +5,7 @@ module Decidim
     class CommentCreatedEvent < Decidim::Events::SimpleEvent
       include Decidim::Events::AuthorEvent
 
-      private
+      delegate :author, to: :comment
 
       def i18n_scope
         "decidim.events.comments.comment_created.#{comment_type}"
@@ -19,9 +19,7 @@ module Decidim
         resource_locator.url(url_params)
       end
 
-      def author
-        comment.author
-      end
+      private
 
       def comment
         @comment ||= Decidim::Comments::Comment.find(extra[:comment_id])
