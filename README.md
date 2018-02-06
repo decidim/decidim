@@ -41,54 +41,32 @@ Project management [[See on Waffle.io]](https://waffle.io/decidim/decidim)
 
 * [Get started with Decidim](#getting-started-with-decidim)
 * [Contribute to the project](#how-to-contribute)
-* [Officially supported modules](#officially-supported-modules)
+* [Modules](#modules)
 * [Create & browse development app](#browse-decidim)
-* [Technical tradeoffs](#technical-tradeoffs)
 
 ---
 
 ## Getting started with Decidim
 
+TLDR: install gem, generate a Ruby on Rails app, enjoy.
+
+```
+gem install decidim
+decidim decidim_application
+```
+
 We've set up a guide on how to install, set up and upgrade Decidim. See the [Getting started guide](https://github.com/decidim/decidim/blob/master/docs/getting_started.md).
 
 ## How to contribute
 
-### As a Translator
+See [Contributing](CONTRIBUTING.md).
 
-Decidim is already translated on multiple languages (English, Spanish, Catalan, Basque, Galician, Italian, Finnish, Dutch, French, Portuguese (and Brazilian Portuguese), Swedish, Russian and Ukrainian). You can help us at [Crowdin, the translation service](https://crowdin.com/project/decidim), reviewing these translations or proposing a new language to add to the platform.
 
-### As a Developer
+### Browse Decidim
 
-In order to develop on decidim, you'll need:
+After you create a development app (`bundle exec decidim decidim_application`):
 
-* **Git** 2.15+
-* **PostgreSQL** 9.4+
-* **Ruby** 2.5.0 (2.3+ should work just fine, but that's the version we test against)
-* **NodeJS** 9.x.x (with `yarn` as a package manager)
-* **ImageMagick**
-* **Chrome** browser and [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/).
-
-The easiest way to work on decidim is to clone decidim's repository and install its dependencies
-
-```bash
-git clone git@github.com:decidim/decidim.git
-cd decidim
-bundle install
-yarn install
-```
-
-You have several rake tasks available:
-
-* `bundle exec rake development_app`: Creates a development app which you can use to run an application with the gems in your path.
-* `bundle exec rake test_app`: Generates a dummy application to be used for testing.
-* `bundle exec rake test_all`: Runs the tests of every engine using the dummy
-  application
-
-#### Browse Decidim
-
-After you create a development app (`bundle exec rake development_app`):
-
-* `cd development_app`
+* `cd decidim_application`
 * `bundle exec rails s`
 * Go to 'http://localhost:3000'
 
@@ -96,11 +74,11 @@ Optionally, you can log in as: user@example.org | decidim123456
 
 Also, if you want to verify yourself against the default authorization handler use a document number ended with "X".
 
-#### Browse Admin Interface
+### Browse Admin Interface
 
-After you create a development app (`bundle exec rake development_app`):
+After you create a development app (`bundle exec rake decidim_application`):
 
-* `cd development_app`
+* `cd decidim_application`
 * `bundle exec rails s`
 * Go to 'http://localhost:3000/admin'
 * Login data: admin@example.org | decidim123456
@@ -148,22 +126,6 @@ After you create a development app (`bundle exec rake development_app`):
 | [Verification DIBA Census API](https://github.com/diputacioBCN/decidim-diba/tree/master/decidim-diba_census_api)                                     | A decidim package to provice user authorizations agains the Diputació of Barcelona census API                     |
 | [Verification Podemos Census API](https://github.com/podemos-info/decidim-module-census_connector)        | A decidim package to provice user authorizations against the Podemos census API                                                                              |
 | [Votings](https://github.com/podemos-info/decidim-module-votings)                                         | An administrator can add one or more votings to a participatory process or assambly                                                                          |
-
-
-## Technical tradeoffs
-
-### Architecture
-
-This is not your typical Ruby on Rails Vanilla App. We've tried using [Consul](http://decide.es) but we found some problems on reutilization, adaptation, modularization and configuration. You can read more about that on "[Propuesta de Cambios de Arquitectura de Consul](https://www.gitbook.com/book/alabs/propuesta-de-cambios-en-la-arquitectura-de-consul/details)".
-
-### Turbolinks
-
-Decidim doesn't support `turbolinks` so it isn't included on our generated apps and it's removed for existing Rails applications which install the Decidim engine.
-
-The main reason is we are injecting some scripts into the body for some individual pages and Turbolinks loads the scripts in parallel. For some libraries like [leaflet](http://leafletjs.com/) it's very inconvenient because its plugins extend an existing global object.
-
-The support of Turbolinks was dropped in [d8c7d9f](https://github.com/decidim/decidim/commit/d8c7d9f63e4d75307e8f7a0360bef977fab209b6). If you're interested in bringing turbolinks back, further discussion is welcome.
-
 ## Following our license
 
 If you plan to release your application you'll need to publish it using the same license: GPL Affero 3. We recommend doing that on GitHub before publishing, you can read more on "[Being Open Source From Day One is Especially Important for Government Projects](http://producingoss.com/en/governments-and-open-source.html#starting-open-for-govs)". If you have any trouble you can contact us on [Gitter](https://gitter.im/decidim/decidim).
