@@ -166,6 +166,7 @@ en:
           success: Category updated successfully.
       dashboard:
         show:
+          view_more_logs: View more logs
           welcome: Welcome to the Decidim Admin Panel.
       exports:
         export_as: "%{name} as %{export_format}"
