@@ -27,6 +27,16 @@ module Decidim
 
     validates :organization, :user, :action, :resource, presence: true
 
+    # To ensure records can't be deleted
+    before_destroy { |_record| raise ActiveRecord::ReadOnlyRecord }
+
+    # Overwrites the method so that records cannot be modified.
+    #
+    # Returns a Boolean.
+    def readonly?
+      !new_record?
+    end
+
     # Public: Renders the action log instance. Assumes the existence of the presenter
     # class for the related `resource`, which will be in charge of the actual
     # rendering of the data.

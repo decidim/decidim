@@ -34,4 +34,23 @@ describe Decidim::ActionLog do
       it { is_expected.not_to be_valid }
     end
   end
+
+  describe "readonly" do
+    it "cannot be modified once saved" do
+      action_log.save
+      action_log.action = :my_new_action
+
+      expect do
+        action_log.save
+      end.to raise_error(ActiveRecord::ReadOnlyRecord)
+    end
+
+    it "cannot be deleted" do
+      action_log.save
+
+      expect do
+        action_log.destroy
+      end.to raise_error(ActiveRecord::ReadOnlyRecord)
+    end
+  end
 end
