@@ -11,6 +11,8 @@
 **Fixed**:
 
 - **decidim-comments**: Fix comment notifications listing. [\#2652](https://github.com/decidim/decidim/pull/2652)
+- **decidim-participatory_processes**: Fix editing a process after an error.[\#2653](https://github.com/decidim/decidim/pull/2653)
+- **decidim-assemblies**: Fix editing a process after an error.[\#2653](https://github.com/decidim/decidim/pull/2653)
 
 ## [v0.9.0](https://github.com/decidim/decidim/tree/v0.9.0) (2018-2-5)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.8.0...v0.9.0)
