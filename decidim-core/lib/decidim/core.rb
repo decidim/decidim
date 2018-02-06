@@ -126,13 +126,14 @@ module Decidim
   # Default: Calculates a unique reference for the model in
   # the following format:
   #
-  # "BCN-DPP-2017-02-6589" which in this example translates to:
+  # "BCN-PROP-2017-02-6589" which in this example translates to:
   #
   # BCN: A setting configured at the organization to be prepended to each reference.
-  # PROP: Unique name identifier for a resource: Decidim::Proposals::Proposal (MEET for meetings or PROJ for projects).
+  # PROP: Unique name identifier for a resource: Decidim::Proposals::Proposal
+  #       (MEET for meetings or PROJ for projects).
   # 2017-02: Year-Month of the resource creation date
   # 6589: ID of the resource
-  config_accessor :resource_reference_generator do
+  config_accessor :reference_generator do
     lambda do |resource, feature|
       ref = ""
 

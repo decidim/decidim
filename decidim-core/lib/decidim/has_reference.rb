@@ -25,7 +25,7 @@ module Decidim
       #
       # Returns a String.
       def calculate_reference
-        Decidim.resource_reference_generator.call(self, respond_to?(:feature) ? feature : nil)
+        Decidim.reference_generator.call(self, respond_to?(:feature) ? feature : nil)
       end
 
       # Internal: Sets the unique reference to the model. Note that if the resource

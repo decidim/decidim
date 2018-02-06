@@ -17,6 +17,7 @@
 
 - **decidim-core**: General improvements on documentation [\#2656](https://github.com/decidim/decidim/pull/2656).
 - **decidim-core**: `FeatureReferenceHelper#feature_reference` has been moved to `ResourceReferenceHelper#resource_reference` to clarify its use. [\#2557](https://github.com/decidim/decidim/pull/2557)
+- **decidim-core**: `Decidim.resource_reference_generator` has been moved to `Decidim.reference_generator` to clarify its use. [\#2557](https://github.com/decidim/decidim/pull/2557)
 
 **Fixed**:
 
