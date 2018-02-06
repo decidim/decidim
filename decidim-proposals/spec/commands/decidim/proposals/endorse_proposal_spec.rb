@@ -28,7 +28,7 @@ module Decidim
 
           it "notifies all followers of the endorser that the proposal has been endorsed" do
             follower = create(:user, organization: proposal.organization)
-            follow = create(:follow, followable: current_user, user: follower)
+            create(:follow, followable: current_user, user: follower)
 
             expect(Decidim::EventsManager)
               .to receive(:publish)
@@ -37,9 +37,9 @@ module Decidim
                 event_class: Decidim::Proposals::ProposalEndorsedEvent,
                 resource: proposal,
                 recipient_ids: [follower.id],
-                #                extra: {
-                #                  proposal_id:
-                #                }
+                extra: {
+                  endorser: current_user,
+                }
               )
 
             command.call
