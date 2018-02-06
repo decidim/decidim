@@ -2,11 +2,11 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
-** Added
+**Added**:
 
-** Changed
+**Changed**:
 
-** Fixed
+**Fixed**:
 
 ## [v0.9.0](https://github.com/decidim/decidim/tree/v0.9.0) (2018-2-5)
 [Full Changelog](https://github.com/decidim/decidim/compare/v0.8.0...v0.9.0)
@@ -20,7 +20,8 @@ you need to change the following line in `config/environments/production.rb`:
 + config.assets.js_compressor = Uglifier.new(:harmony => true)
 ```
 
-**Added
+**Added**:
+
 - **decidim-admin**: Adds administration interface for highlighted content banner [\#2572](https://github.com/decidim/decidim/pull/2572)
 - **decidim-core**: Adds support for highlighted content banner.[\#2572](https://github.com/decidim/decidim/pull/2572)
 - **decidim-core**: Added support for content processors. [\#2491](https://github.com/decidim/decidim/pull/2491)
@@ -63,7 +64,7 @@ you need to change the following line in `config/environments/production.rb`:
   ```
 - **decidim-debates**: New Debates component available for all spaces [\#2506](https://github.com/decidim/decidim/pull/2506)
 
-**Changed
+**Changed**:
 
 - **decidim-comments**: Changed the counters to count all comments from all levels instead of only the top-level ones [\#2551](https://github.com/decidim/decidim/pull/2551)
 - **decidim-core**: [Breaking change] Changes the participatory space's contracts introducing `context`. This was done to fix a bug caused by dynamically extending some controllers. [\#2465](https://github.com/decidim/decidim/pull/2465)
@@ -126,7 +127,7 @@ you need to change the following line in `config/environments/production.rb`:
 - **decidim-admin**: Visual bug in quilljs editor misleading admins into introducing blank lines to separate paragraphs. [\#2565](https://github.com/decidim/decidim/pull/2565).
 - **decidim-admin**: Properly highlight the Settings admin menu item when visiting the scope types section. [\#2642](https://github.com/decidim/decidim/pull/2642)
 
-**Removed**
+**Removed**:
 
 - **decidim**: Select2 JS library and scope selector based on Select2.
 - **dedicim-accountability**: Removed the Global scope navigation option ([\#2486](https://github.com/decidim/decidim/pull/2486))
