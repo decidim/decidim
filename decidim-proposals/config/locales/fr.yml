@@ -10,6 +10,9 @@ fr:
         user_group_id: Créer une proposition en tant que
       proposal_answer:
         answer: Répondre
+      proposals_copy:
+        copy_proposals: Je comprends que cela va importer toutes les propositions du composant sélectionné à l'actuel et que cette action ne peut pas être inversée.
+        origin_feature_id: Composant pour copier les propositions de
   decidim:
     events:
       proposals:
@@ -63,6 +66,7 @@ fr:
     proposals:
       actions:
         answer: Répondre
+        import: Importer depuis un autre composant
         new: Nouvelle
         private_notes: Notes privées
         title: Actions
@@ -103,6 +107,14 @@ fr:
           new:
             create: Créer
             title: Créer une proposition
+        proposals_imports:
+          create:
+            invalid: Un problème est survenu lors de l'importation des propositions
+          new:
+            create: Importer des propositions
+            no_features: Il n'y a pas d'autres fonctionnalités de proposition dans cet espace participatif pour importer les propositions.
+            select_feature: Veuillez sélectionner un composant
+            select_states: Vérifiez les états des propositions à importer
         shared:
           info_proposal:
             body: Corps
@@ -224,6 +236,8 @@ fr:
         error: Des erreurs se sont produites lors de l'enregistrement de la proposition.
         success: Proposition mise à jour avec succès.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Propositions associées
       included_projects:
         project_results: 'Résultats apparaissant dans ce projet :'
       included_proposals:
