@@ -2,41 +2,13 @@
 
 module Decidim
   module Proposals
-    class ProposalEndorsedEvent < Decidim::Events::BaseEvent
-      include Decidim::Events::EmailEvent
-      include Decidim::Events::NotificationEvent
+    class ProposalEndorsedEvent < Decidim::Events::SimpleEvent
+      i18n_attributes :endorser_nickname, :endorser_name, :endorser_path
 
-      def email_subject
-        I18n.t(
-          "decidim.proposals.events.proposal_endorsed_event.email_subject",
-          endorser_nickname: endorser.nickname
-        )
-      end
+      delegate :nickname, :name, to: :endorser, prefix: true
 
-      def email_intro
-        I18n.t(
-          "decidim.proposals.events.proposal_endorsed_event.email_intro",
-          endorser_nickname: endorser.nickname,
-          endorser_name: endorser.name
-        )
-      end
-
-      def email_outro
-        I18n.t(
-          "decidim.proposals.events.proposal_endorsed_event.email_outro",
-          endorser_nickname: endorser.nickname
-        )
-      end
-
-      def notification_title
-        I18n.t(
-          "decidim.proposals.events.proposal_endorsed_event.notification_title",
-          resource_title: resource_title,
-          resource_path: resource_path,
-          endorser_nickname: endorser.nickname,
-          endorser_name: endorser.name,
-          endorser_path: endorser.profile_path
-        ).html_safe
+      def endorser_path
+        endorser.profile_path
       end
 
       private
