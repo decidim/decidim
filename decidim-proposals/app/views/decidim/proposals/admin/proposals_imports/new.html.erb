@@ -1,4 +1,4 @@
-<%= decidim_form_for(@form, url: proposals_copy_path, html: { class: "form copy_proposals" }) do |f| %>
+<%= decidim_form_for(@form, url: proposals_import_path, html: { class: "form import_proposals" }) do |f| %>
   <% if @form.origin_features.any? %>
     <div class="card">
       <div class="card-divider">
@@ -14,7 +14,7 @@
           <%= f.collection_check_boxes :states, @form.states_collection, :value, :name %>
         </div>
         <div class="row column">
-          <%= f.check_box :copy_proposals %>
+          <%= f.check_box :import_proposals %>
         </div>
       </div>
     </div>

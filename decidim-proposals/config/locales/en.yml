@@ -108,7 +108,7 @@ en:
           new:
             create: Create
             title: Create proposal
-        proposals_copies:
+        proposals_imports:
           create:
             invalid: There's been a problem importing the proposals
             success: "%{number} proposals successfully imported"

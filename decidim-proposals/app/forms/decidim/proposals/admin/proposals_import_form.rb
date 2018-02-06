@@ -3,17 +3,17 @@
 module Decidim
   module Proposals
     module Admin
-      # A form object to be used when admin users want to copy a collection of proposals
-      # to another component.
-      class ProposalsCopyForm < Decidim::Form
-        mimic :proposals_copy
+      # A form object to be used when admin users want to import a collection of proposals
+      # from another component.
+      class ProposalsImportForm < Decidim::Form
+        mimic :proposals_import
 
         attribute :origin_feature_id, Integer
-        attribute :copy_proposals, Boolean
+        attribute :import_proposals, Boolean
         attribute :states, Array
 
         validates :origin_feature_id, :origin_feature, :states, :current_feature, presence: true
-        validates :copy_proposals, allow_nil: false, acceptance: true
+        validates :import_proposals, allow_nil: false, acceptance: true
         validate :valid_states
 
         VALID_STATES = %w(accepted not_answered evaluating rejected withdrawn).freeze

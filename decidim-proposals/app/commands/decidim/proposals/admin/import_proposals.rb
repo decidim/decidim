@@ -3,9 +3,9 @@
 module Decidim
   module Proposals
     module Admin
-      # A command with all the business logic when an admin copies proposals from
+      # A command with all the business logic when an admin imports proposals from
       # one component to another.
-      class CopyProposals < Rectify::Command
+      class ImportProposals < Rectify::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -22,14 +22,14 @@ module Decidim
         def call
           return broadcast(:invalid) unless form.valid?
 
-          broadcast(:ok, copy_proposals)
+          broadcast(:ok, import_proposals)
         end
 
         private
 
         attr_reader :form
 
-        def copy_proposals
+        def import_proposals
           proposals.map do |original_proposal|
             origin_attributes = original_proposal.attributes.except(
               "id",

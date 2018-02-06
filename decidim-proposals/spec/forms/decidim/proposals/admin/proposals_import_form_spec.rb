@@ -5,19 +5,19 @@ require "spec_helper"
 module Decidim
   module Proposals
     module Admin
-      describe ProposalsCopyForm do
+      describe ProposalsImportForm do
         subject { form }
 
         let(:proposal) { create(:proposal) }
         let(:feature) { proposal.feature }
         let(:origin_feature) { create(:proposal_feature, participatory_space: feature.participatory_space) }
         let(:states) { %w(accepted) }
-        let(:copy_proposals) { true }
+        let(:import_proposals) { true }
         let(:params) do
           {
             states: states,
             origin_feature_id: origin_feature.try(:id),
-            copy_proposals: copy_proposals
+            import_proposals: import_proposals
           }
         end
 
@@ -50,8 +50,8 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when the copy proposals is not accepted" do
-          let(:copy_proposals) { false }
+        context "when the import proposals is not accepted" do
+          let(:import_proposals) { false }
 
           it { is_expected.to be_invalid }
         end

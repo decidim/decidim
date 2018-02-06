@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   module Proposals
     module Admin
-      describe CopyProposals do
+      describe ImportProposals do
         describe "call" do
           let!(:proposal) { create(:proposal, :accepted) }
           let(:current_feature) do
@@ -16,7 +16,7 @@ module Decidim
           end
           let(:form) do
             instance_double(
-              ProposalsCopyForm,
+              ProposalsImportForm,
               origin_feature: proposal.feature,
               current_feature: current_feature,
               states: states,
@@ -62,7 +62,7 @@ module Decidim
               expect(linked).to include(new_proposal)
             end
 
-            it "only copies wanted attributes" do
+            it "only imports wanted attributes" do
               command.call
 
               new_proposal = Proposal.where(feature: current_feature).last
@@ -86,7 +86,7 @@ module Decidim
                 create(:proposal, feature: proposal.feature)
               end
 
-              it "only copies proposals from the selected states" do
+              it "only imports proposals from the selected states" do
                 expect do
                   command.call
                 end.to change { Proposal.where(feature: current_feature).count }.by(2)
