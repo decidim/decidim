@@ -1,17 +1,27 @@
-.input__tags__container{
-  // > *{
-  //   margin: 0 auto;
-  // }
+@import "tagsinput";
 
-  .input__tag{
-    background-color: rgba($medium-gray, .5);
-    border-radius: 2px;
-    padding: .25rem;
-    display: inline-block;
-    cursor: pointer;
+.input__tag{
+  background-color: rgba($medium-gray, .5);
+  border-radius: $input-radius;
+  padding: .25rem;
+  margin: 0 .2rem .2rem 0;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 
-    span{
-      color: $secondary;
-    }
+  span{
+    color: $secondary;
+  }
+}
+
+// Override defaults
+.bootstrap-tagsinput{
+  width: 100%;
+
+  .tag{
+    color: inherit;
   }
 }
