@@ -8,7 +8,11 @@ module Decidim
       private
 
       def model
-        @model ||= ParticipatoryProcess.where(slug: params[:participatory_process_slug]).first
+        return unless params[:participatory_process_slug]
+
+        @model ||= ParticipatoryProcess.where(slug: params[:participatory_process_slug]).or(
+          ParticipatoryProcess.where(id: params[:participatory_process_slug])
+        ).first!
       end
 
       def current_participatory_space

@@ -26,7 +26,11 @@ module Decidim
       private
 
       def current_participatory_space
-        @current_participatory_space ||= OrganizationAssemblies.new(current_organization).query.find_by(slug: params[:slug])
+        return unless params[:slug]
+
+        @current_participatory_space ||= OrganizationAssemblies.new(current_organization).query.where(slug: params[:slug]).or(
+          OrganizationAssemblies.new(current_organization).query.where(id: params[:slug])
+        ).first!
       end
 
       def published_assemblies
