@@ -11,6 +11,9 @@ module Decidim
       routes do
         resources :proposals, only: [:index, :new, :create] do
           post :update_category, on: :collection
+          collection do
+            resource :proposals_import, only: [:new, :create]
+          end
           resources :proposal_answers, only: [:edit, :update]
           resources :proposal_notes, only: [:index, :create]
         end

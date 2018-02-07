@@ -50,7 +50,7 @@ end
 
 desc "Makes sure all official locales are complete and clean."
 task :check_locale_completeness do
-  system({ "ENFORCED_LOCALES" => "en,ca,es" }, "rspec spec/i18n_spec.rb")
+  system({ "ENFORCED_LOCALES" => "en,ca,es", "SKIP_NORMALIZATION" => "true" }, "rspec spec/i18n_spec.rb")
 end
 
 desc "Generates a dummy app for testing"

@@ -4,12 +4,15 @@
       <%= t(".title") %>
 
       <div class="button--title">
-
         <% if can? :create, Decidim::Proposals::Proposal %>
           <%= link_to t("actions.new", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposal_path, class: 'button tiny button--simple' if can? :manage, current_feature %>
         <% end %>
 
-        <%= export_dropdown %>
+        <% if proposals.any? %>
+          <%= link_to t("actions.import", scope: "decidim.proposals", name: t("models.proposal.name", scope: "decidim.proposals.admin")), new_proposals_import_path, class: 'button tiny button--simple' if can? :manage, current_feature %>
+
+          <%= export_dropdown %>
+        <% end %>
       </div>
     </h2>
   </div>
@@ -127,6 +130,7 @@
                   </td>
                 <% end %>
 
+              <td class="table-list__actions">
                 <% if can? :create, Decidim::Proposals::ProposalNote %>
                   <td>
                     <%= proposal.proposal_notes_count %>

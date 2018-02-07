@@ -11,11 +11,18 @@ describe Decidim::ParticipatoryProcessStepActivatedEvent do
   let(:participatory_process) { resource.participatory_process }
   let(:resource) { create :participatory_process_step }
   let(:resource_path) do
-    decidim_participatory_processes
-      .participatory_process_participatory_process_steps_path(participatory_process)
+    decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process_slug: participatory_process.slug)
   end
 
-  it_behaves_like "an simple event"
+  let(:resource_url) do
+    decidim_participatory_processes
+      .participatory_process_participatory_process_steps_url(
+        participatory_process_slug: participatory_process.slug,
+        host: participatory_process.organization.host
+      )
+  end
+
+  it_behaves_like "a simple event"
 
   describe "email_subject" do
     it "is generated correctly" do
