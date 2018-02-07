@@ -1,28 +1,10 @@
 <div class="row">
-  <div class="columns large-3">
-    <%= link_to :back, class: "muted-link" do %>
-      <%= icon "chevron-left", class: "icon--small" %>
-      <%= t(".back") %>
-    <% end %>
+  <%= render partial: "wizard_aside" %>
 
-    <%= render partial: "proposal_wizard_stepper" %>
-  </div>
-
-  <div class="columns large-9">
-    <% if translated_attribute(feature_settings.new_proposal_help_text).present? %>
-      <%= render partial: "decidim/shared/announcement", locals: { announcement: feature_settings.new_proposal_help_text } %>
-    <% end %>
-
-    <% if translated_attribute(feature_settings.proposal_wizard_step_1_help_text).present? %>
-      <div class="proposal_wizard_help_text">
-        <%= render partial: "decidim/shared/announcement", locals: { announcement: feature_settings.proposal_wizard_step_1_help_text } %>
-      </div>
-    <% end %>
-
-    <h2 class="section-heading"><%= t(".title") %></h2>
+  <div class="columns large-6">
+    <%= render partial: "wizard_header" %>
 
     <div class="card">
-
       <div class="card__content">
         <%= decidim_form_for(@form, url: update_draft_proposal_path(@proposal), method: :patch) do |form| %>
           <div class="field">
@@ -67,6 +49,7 @@
       </div>
     </div>
   </div>
+  <div class="columns large-3"></div>
 </div>
 
 <%= javascript_include_tag "decidim/proposals/add_proposal" %>

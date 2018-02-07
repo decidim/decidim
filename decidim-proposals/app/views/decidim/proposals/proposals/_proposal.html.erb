@@ -19,7 +19,7 @@
     </div>
     <div class="card__footer">
       <div class="card__support">
-        <% if current_settings.votes_enabled? %>
+        <% if current_settings.votes_enabled? && !proposal.draft? %>
           <%= render partial: "votes_count", locals: { proposal: proposal, from_proposals_list: true } %>
           <%= render partial: "vote_button", locals: { proposal: proposal, from_proposals_list: true } %>
         <% else %>

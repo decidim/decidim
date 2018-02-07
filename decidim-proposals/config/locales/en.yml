@@ -60,9 +60,9 @@ en:
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
             proposal_limit: Proposal limit per user
-            proposal_wizard_step_1_help_text: Proposal wizard "Create" help text
-            proposal_wizard_step_2_help_text: Proposal wizard "Compare" help text
-            proposal_wizard_step_3_help_text: Proposal wizard "Publish" help text
+            proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
+            proposal_wizard_step_2_help_text: Proposal wizard "Compare" step help text
+            proposal_wizard_step_3_help_text: Proposal wizard "Publish" step help text
             vote_limit: Vote limit per user
           step:
             announcement: Announcement
@@ -219,18 +219,14 @@ en:
         preview:
           back: Back
           modify: Modify the proposal
-          title: Publish your proposal
           proposal_edit_before_minutes:
             one: You will be able to edit this proposal during the first minute after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
             other: You will be able to edit this proposal during the first %{count} minutes after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
           publish: Publish
+          title: Publish your proposal
         proposal:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
-        proposal_wizard_stepper:
-          step_1: Create your proposal
-          step_2: Compare
-          step_3: Publish your proposal
         show:
           edit_proposal: Edit proposal
           proposal_accepted_reason: 'This proposal has been accepted because:'
@@ -260,6 +256,16 @@ en:
             description: You can vote up to %{limit} proposals.
             left: Remaining
             votes: Votes
+        wizard_aside:
+          back: Back
+          info: You are creating a <strong>proposal</strong>.
+          more_info: More info
+        wizard_steps:
+          see_steps: see steps
+          step_1: Create your proposal
+          step_2: Compare
+          step_3: Publish your proposal
+          step_of: Step %{current_step_num} of %{total_steps}
       publish:
         error: There's been errors when publishing the proposal.
         success: Proposal published successfully.

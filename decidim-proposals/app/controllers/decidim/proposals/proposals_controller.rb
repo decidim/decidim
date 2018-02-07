@@ -55,7 +55,7 @@ module Decidim
 
       def create
         authorize! :create, Proposal
-
+        @step = :step_1
         @form = form(ProposalForm).from_params(params)
 
         CreateProposal.call(@form, current_user) do
@@ -75,10 +75,10 @@ module Decidim
         @step = :step_2
         @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
         @similar_proposals ||= Decidim::Proposals::SimilarProposals
-                                 .for(current_feature, @proposal)
-                                 .all
+                               .for(current_feature, @proposal)
+                               .all
 
-        unless @similar_proposals.present?
+        if @similar_proposals.blank?
           flash[:notice] = I18n.t("proposals.proposals.compare.no_similars_found", scope: "decidim")
           redirect_to preview_proposal_path(@proposal)
         end
