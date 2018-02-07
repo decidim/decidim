@@ -10,6 +10,9 @@ nl:
         user_group_id: Maak een voorstel als
       proposal_answer:
         answer: Antwoord
+      proposals_copy:
+        copy_proposals: Ik begrijp dat dit alle voorstellen van het geselecteerde onderdeel zal importeren naar het huidige en dat deze actie niet ongedaan kan worden gemaakt.
+        origin_feature_id: Component om de voorstellen van te kopiëren
   decidim:
     events:
       proposals:
@@ -63,6 +66,7 @@ nl:
     proposals:
       actions:
         answer: Antwoord
+        import: Importeren vanuit een ander onderdeel
         new: nieuwe
         private_notes: Privé notities
         title: Acties
@@ -103,6 +107,14 @@ nl:
           new:
             create: Creëren
             title: Maak een voorstel
+        proposals_imports:
+          create:
+            invalid: Er is een probleem opgetreden bij het importeren van de voorstellen
+          new:
+            create: Voorstellen importeren
+            no_features: Er zijn geen andere voorstelfuncties in deze participatieruimte om de voorstellen van te importeren.
+            select_feature: Selecteer een component
+            select_states: Controleer de toestanden van de voorstellen om te importeren
         shared:
           info_proposal:
             body: Lichaam
@@ -224,6 +236,8 @@ nl:
         error: Er zijn fouten opgetreden bij het opslaan van het voorstel.
         success: Voorstel succesvol bijgewerkt.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Gerelateerde voorstellen
       included_projects:
         project_results: 'Resultaten die in dit project verschijnen:'
       included_proposals:
