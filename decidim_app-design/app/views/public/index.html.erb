@@ -28,7 +28,7 @@
           </li>
           <li><%= link_to "Debates - Lista", page_path("debates") %></li>
           <li>
-            <%= link_to "Popuestas - Lista (voto habilitado)", page_path("proposals") %>
+            <%= link_to "Propuestas - Lista (voto habilitado)", page_path("proposals") %>
             <ul>
               <li><%= link_to "Propuestas - Lista (voto no habilitado)", page_path("proposals-no-vote") %></li>
               <li><%= link_to "Propuestas con contador de votos", page_path("proposals_2") %></li>
@@ -57,6 +57,20 @@
             </ul>
           </li>
           <li><%= link_to "Resultado", page_path("action-view") %></li>
+        </ul>
+        <h2 class="section-heading">Iniciativas</h2>
+        <ul>
+          <li><%= link_to "Iniciativa", page_path("initiatives/initiative-view") %></li>
+          <li>
+            <%= link_to "Iniciativas - Lista", page_path("initiatives/initiatives") %>
+            <ul>
+              <li><%= link_to "Apoyo a iniciativas - paso 1", page_path("initiatives/initiatives-support-step-1") %></li>
+              <li><%= link_to "Apoyo a iniciativas - paso 2", page_path("initiatives/initiatives-support-step-2") %></li>
+              <li><%= link_to "Apoyo a iniciativas - paso 3", page_path("initiatives/initiatives-support-step-3") %></li>
+              <li><%= link_to "Apoyo a iniciativas - paso 4", page_path("initiatives/initiatives-support-step-4") %></li>
+              <li><%= link_to "Apoyo a iniciativas - paso 5", page_path("initiatives/initiatives-support-step-5") %></li>
+            </ul>
+          </li>
         </ul>
         <h2 class="section-heading">Usuario</h2>
         <ul>

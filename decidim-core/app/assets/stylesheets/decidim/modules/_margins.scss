@@ -15,3 +15,42 @@ $margin-l: 5rem;
 .m-bottom{
   margin-bottom: $margin-s;
 }
+
+// helpers
+$size:(
+  none: 0,
+  s: $margin-s,
+  sm: $margin-sm,
+  m: $margin-m,
+  l: $margin-l
+) !default;
+
+$property:(
+  p: padding,
+  m: margin
+) !default;
+
+$side:(
+  t: top,
+  r: right,
+  b: bottom,
+  l: left
+) !default;
+
+@mixin make-spaces(){
+  @each $p-key, $prop in $property{
+    @each $v-key, $value in $size{
+      .#{$p-key}-#{$v-key}{
+        #{$prop}: #{$value};
+      }
+
+      @each $s-key, $side in $side{
+        .#{$p-key}#{$s-key}-#{$v-key}{
+          #{$prop}-#{$side}: #{$value};
+        }
+      }
+    }
+  }
+}
+
+@include make-spaces()

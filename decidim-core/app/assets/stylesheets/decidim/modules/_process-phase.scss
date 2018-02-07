@@ -90,3 +90,16 @@
   font-weight: 600;
   font-size: 90%;
 }
+
+.phase-title--initiatives{
+  @extend .phase-title;
+
+  font-size: 1.125rem;
+  margin: 0 0 .5rem;
+}
+
+.phase-subtitle--initiatives{
+  @extend .phase-title;
+
+  font-size: rem-calc(15);
+}
