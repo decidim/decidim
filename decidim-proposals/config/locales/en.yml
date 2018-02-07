@@ -266,6 +266,9 @@ en:
       update:
         error: There's been errors when saving the proposal.
         success: Proposal updated successfully.
+      update_draft:
+        error: There's been errors when saving the proposal draft.
+        success: Proposal draft updated successfully.
     resource_links:
       copied_from_component:
         proposal_proposals: Related proposals

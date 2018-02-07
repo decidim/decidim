@@ -62,7 +62,6 @@ module Decidim
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
             redirect_to compare_proposal_path(proposal)
-            # redirect_to Decidim::ResourceLocatorPresenter.new(proposal).path
           end
 
           on(:invalid) do
@@ -91,6 +90,7 @@ module Decidim
       end
 
       def publish
+        @step = :step_3
         @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
         PublishProposal.call(@proposal, current_user) do
           on(:ok) do |proposal|
@@ -114,18 +114,19 @@ module Decidim
       end
 
       def update_draft
+        @step = :step_1
         @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
-        # authorize! :edit, @proposal
+        authorize! :edit, @proposal
 
         @form = form(ProposalForm).from_params(params)
         UpdateProposal.call(@form, current_user, @proposal) do
           on(:ok) do |proposal|
-            flash[:notice] = I18n.t("proposals.update.success", scope: "decidim")
+            flash[:notice] = I18n.t("proposals.update_draft.success", scope: "decidim")
             redirect_to preview_proposal_path(proposal)
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("proposals.update.error", scope: "decidim")
+            flash.now[:alert] = I18n.t("proposals.update_draft.error", scope: "decidim")
             render :edit_draft
           end
         end

@@ -6,7 +6,7 @@ module Decidim
     class PublishProposal < Rectify::Command
       # Public: Initializes the command.
       #
-      # proposal     - The proposal to withdraw.
+      # proposal     - The proposal to publish.
       # current_user - The current user.
       def initialize(proposal, current_user)
         @proposal = proposal

@@ -47,6 +47,7 @@ describe "Proposals feature" do # rubocop:disable RSpec/DescribeClass
     let!(:proposal) { create :proposal }
     let(:feature) { proposal.feature }
     let!(:hidden_proposal) { create :proposal, feature: feature }
+    let!(:draft_proposal) { create :proposal, :draft, feature: feature }
     let!(:moderation) { create :moderation, reportable: hidden_proposal, hidden_at: 1.day.ago }
 
     let(:current_stat) { stats.find { |stat| stat[1] == stats_name } }
@@ -54,8 +55,8 @@ describe "Proposals feature" do # rubocop:disable RSpec/DescribeClass
     describe "proposals_count" do
       let(:stats_name) { :proposals_count }
 
-      it "only counts not hidden proposals" do
-        expect(Decidim::Proposals::Proposal.where(feature: feature).count).to eq 2
+      it "only counts published and not hidden proposals" do
+        expect(Decidim::Proposals::Proposal.where(feature: feature).count).to eq 3
         expect(subject).to eq 1
       end
     end
