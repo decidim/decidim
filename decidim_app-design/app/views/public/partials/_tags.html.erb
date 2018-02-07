@@ -1,10 +1,6 @@
 <form>
   <fieldset>
     <legend><h6 class="heading6">TAGS</h6></legend>
-    <input type="text" name="" value="" placeholder="Add words separated by commas">
-      <%= render layout: "public/components/tag" do %>
-        tag1
-      <% end %>
-    </input>
+    <div class="input__tags__container" type="text" contenteditable="true" placeholder="Add words separated by commas" style="height:100%"><% 10.times do |i| %><%= render layout: "public/components/tag" do %>tag<%= i %><% end %><% end %></div>
   </fieldset>
 </form>

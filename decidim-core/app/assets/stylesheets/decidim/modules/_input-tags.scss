@@ -1,0 +1,17 @@
+.input__tags__container{
+  // > *{
+  //   margin: 0 auto;
+  // }
+
+  .input__tag{
+    background-color: rgba($medium-gray, .5);
+    border-radius: 2px;
+    padding: .25rem;
+    display: inline-block;
+    cursor: pointer;
+
+    span{
+      color: $secondary;
+    }
+  }
+}
