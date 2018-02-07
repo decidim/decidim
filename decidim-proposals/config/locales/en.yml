@@ -216,6 +216,7 @@ en:
           proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: 'This proposal has been rejected because:'
           report: Report
+          withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any support. The proposal is not deleted, it will appear in the list of withdrawn proposals.
           withdraw_confirmation: Are you sure to withdraw this proposal?
           withdraw_proposal: Withdraw proposal
         vote_button:

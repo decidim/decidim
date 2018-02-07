@@ -18,7 +18,7 @@
       <% end %>
     </div>
     <% if @proposal.withdrawable_by?(current_user) %>
-      <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), method: :put, class: "title-action__action button small hollow", data: {confirm: t('.withdraw_confirmation')}  do %>
+      <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), method: :put, class: "title-action__action button small hollow", title: t('.withdraw_btn_hint'), data: {confirm: t('.withdraw_confirmation')}  do %>
         <%= t('.withdraw_proposal') %>
         <%= icon "x" %>
       <% end %>
