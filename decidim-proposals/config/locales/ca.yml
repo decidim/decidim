@@ -10,6 +10,9 @@ ca:
         user_group_id: Crear proposta
       proposal_answer:
         answer: Resposta
+      proposals_copy:
+        copy_proposals: Entenc que això importarà totes les propostes del component seleccionat a l'actual i que aquesta acció no es pot invertir.
+        origin_feature_id: Component per copiar les propostes de
   decidim:
     events:
       proposals:
@@ -63,6 +66,7 @@ ca:
     proposals:
       actions:
         answer: Respondre
+        import: Importar des d'un altre component
         new: Nova
         private_notes: Notes privades
         title: Accions
@@ -103,6 +107,14 @@ ca:
           new:
             create: Crear
             title: Crear proposta
+        proposals_imports:
+          create:
+            invalid: Hi ha hagut un problema en importar les propostes
+          new:
+            create: Importa propostes
+            no_features: No hi ha altres característiques de proposta en aquest espai participatiu per importar les propostes.
+            select_feature: Seleccioneu un component
+            select_states: Consulteu els estats de les propostes per importar
         shared:
           info_proposal:
             body: Cos
@@ -224,6 +236,8 @@ ca:
         error: Hi ha hagut errors en desar la proposta.
         success: La proposta s'ha actualitzat correctament.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Propostes relacionades
       included_projects:
         project_results: 'Resultats que apareixen en aquest projecte:'
       included_proposals:

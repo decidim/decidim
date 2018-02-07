@@ -10,6 +10,9 @@ eu:
         user_group_id: 'Sortu proposamen bat honako hau gisa:'
       proposal_answer:
         answer: Erantzuna
+      proposals_copy:
+        copy_proposals: Honek hautatutako osagaiaren unekoaren proposamen guztiak inportatuko ditu eta ekintza hori ezin da alderantzikatu.
+        origin_feature_id: Proposamenen kopia egiteko osagaia
   decidim:
     events:
       proposals:
@@ -63,6 +66,7 @@ eu:
     proposals:
       actions:
         answer: Erantzuna
+        import: Inportatu beste osagai batetik
         new: Berria
         private_notes: Ohar pribatuak
         title: Ekintzak
@@ -103,6 +107,14 @@ eu:
           new:
             create: Sortu
             title: Sortu proposamena
+        proposals_imports:
+          create:
+            invalid: Arazo bat izan da proposamenak inportatzea
+          new:
+            create: Inportatzeko proposamenak
+            no_features: Proposamenen inportazioa inportatzeko espazio parte hartzaile honetan ez dago proposamenrik.
+            select_feature: Hautatu osagaia
+            select_states: Egiaztatu inportatzeko proposamenen egoera
         shared:
           info_proposal:
             body: Gorputzeko
@@ -224,6 +236,8 @@ eu:
         error: Arazoak izan dira proposamena gordetzean.
         success: Proposamena ondo eguneratu da.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Lotutako proposamenak
       included_projects:
         project_results: 'Proiektu honetan agertzen diren emaitzak:'
       included_proposals:
