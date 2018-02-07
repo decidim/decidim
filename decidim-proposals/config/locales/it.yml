@@ -10,6 +10,9 @@ it:
         user_group_id: Crea proposta come
       proposal_answer:
         answer: Risposta
+      proposals_copy:
+        copy_proposals: Capisco che questo importerà tutte le proposte dal componente selezionato a quello corrente e che questa azione non può essere annullata.
+        origin_feature_id: Componente per copiare le proposte da
   decidim:
     events:
       proposals:
@@ -63,6 +66,7 @@ it:
     proposals:
       actions:
         answer: Risposta
+        import: Importa da un altro componente
         new: Nuovo
         private_notes: Note private
         title: Azioni
@@ -103,6 +107,14 @@ it:
           new:
             create: Crea
             title: Crea una proposta
+        proposals_imports:
+          create:
+            invalid: C'è stato un problema nell'importazione delle proposte
+          new:
+            create: Importa proposte
+            no_features: Non ci sono altre funzionalità di proposta in questo spazio partecipativo per importare le proposte da.
+            select_feature: Si prega di selezionare un componente
+            select_states: Controlla gli stati delle proposte da importare
         shared:
           info_proposal:
             body: Corpo
@@ -224,6 +236,8 @@ it:
         error: Ci sono stati errori quando si salva la proposta.
         success: La proposta è stata aggiornata correttamente.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Proposte correlate
       included_projects:
         project_results: 'Risultati che appaiono in questo progetto:'
       included_proposals:

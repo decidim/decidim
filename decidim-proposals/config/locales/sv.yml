@@ -10,6 +10,9 @@ sv:
         user_group_id: Skapa förslag som
       proposal_answer:
         answer: Svar
+      proposals_copy:
+        copy_proposals: Jag förstår att detta kommer att importera alla förslag från den valda komponenten till den nuvarande och att den här åtgärden inte kan reverseras.
+        origin_feature_id: Komponent för att kopiera förslagen från
   decidim:
     events:
       proposals:
@@ -63,6 +66,7 @@ sv:
     proposals:
       actions:
         answer: Svar
+        import: Importera från en annan komponent
         new: Ny
         private_notes: Privata anteckningar
         title: Handlingar
@@ -103,6 +107,14 @@ sv:
           new:
             create: Skapa
             title: Skapa förslag
+        proposals_imports:
+          create:
+            invalid: Det har varit ett problem att importera förslagen
+          new:
+            create: Importera förslag
+            no_features: Det finns inga andra förslagsfunktioner i detta deltagande utrymme för att importera förslagen från.
+            select_feature: Var god välj en komponent
+            select_states: Kontrollera tillstånden för de förslag som ska importeras
         shared:
           info_proposal:
             body: Kropp
@@ -224,6 +236,8 @@ sv:
         error: Det har varit fel när du lagrade förslaget.
         success: Förslaget uppdateras framgångsrikt.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Relaterade förslag
       included_projects:
         project_results: 'Resultat som visas i detta projekt:'
       included_proposals:

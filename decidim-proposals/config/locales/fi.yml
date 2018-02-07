@@ -10,6 +10,9 @@ fi:
         user_group_id: Luo ehdotus käyttäjänä
       proposal_answer:
         answer: Vastaa
+      proposals_copy:
+        copy_proposals: Ymmärrän, että tämä tuo kaikki valitun komponentin ehdotukset nykyiseen ja että tätä toimintaa ei voi peruuttaa.
+        origin_feature_id: Komponentti kopioida ehdotukset osoitteesta
   decidim:
     events:
       proposals:
@@ -63,6 +66,7 @@ fi:
     proposals:
       actions:
         answer: Vastaa
+        import: Tuo toisesta komponentista
         new: Uusi
         private_notes: Omat muistiinpanot
         title: Toiminnot
@@ -103,6 +107,14 @@ fi:
           new:
             create: Luo
             title: Luo ehdotus
+        proposals_imports:
+          create:
+            invalid: Ehdotuksia tuodaan ongelmana
+          new:
+            create: Tuo ehdotuksia
+            no_features: Ehdotuksessa tuodaan ehdotusominaisuuksiltaan muita ehdotusominaisuuksia.
+            select_feature: Valitse komponentti
+            select_states: Tarkista tuontiehdotusten tilat
         shared:
           info_proposal:
             body: Tekstin runko
@@ -224,6 +236,8 @@ fi:
         error: Ehdotuksen tallentamisessa tapahtui virheitä.
         success: Ehdotus on päivitetty onnistuneesti.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Vastaavat ehdotukset
       included_projects:
         project_results: 'Tässä projektissa näkyvät tulokset:'
       included_proposals:

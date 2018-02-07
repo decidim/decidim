@@ -10,6 +10,9 @@ pl:
         user_group_id: Utwórz propozycję jako
       proposal_answer:
         answer: Odpowiedź
+      proposals_copy:
+        copy_proposals: Rozumiem, że spowoduje to zaimportowanie wszystkich propozycji z wybranego komponentu do bieżącego i że tego działania nie można cofnąć.
+        origin_feature_id: Komponent do skopiowania propozycji z
   decidim:
     events:
       proposals:
@@ -63,6 +66,7 @@ pl:
     proposals:
       actions:
         answer: Odpowiedź
+        import: Importuj z innego komponentu
         new: Nowy
         private_notes: Prywatne notatki
         title: działania
@@ -103,6 +107,14 @@ pl:
           new:
             create: Stwórz
             title: Utwórz propozycję
+        proposals_imports:
+          create:
+            invalid: Podczas importowania propozycji wystąpił problem
+          new:
+            create: Importuj propozycje
+            no_features: W tej przestrzeni partycypacyjnej nie ma innych funkcji propozycji do importowania propozycji.
+            select_feature: Wybierz komponent
+            select_states: Sprawdź stany propozycji do zaimportowania
         shared:
           info_proposal:
             body: Ciało
@@ -228,6 +240,8 @@ pl:
         error: Podczas zapisywania propozycji wystąpiły błędy.
         success: Wniosek zaktualizowano pomyślnie.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Powiązane propozycje
       included_projects:
         project_results: 'Wyniki pojawiające się w tym projekcie:'
       included_proposals:

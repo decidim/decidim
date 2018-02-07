@@ -46,15 +46,15 @@
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
-      <p><%== translated_attribute debate.description %></p>
+      <p><%= simple_format(translated_attribute(debate.description)) %></p>
       <% if translated_attribute(debate.instructions).present? %>
         <div class="callout secondary">
-          <%== translated_attribute debate.instructions %>
+          <%= simple_format(translated_attribute(debate.instructions)) %>
         </div>
       <% end %>
       <% if translated_attribute(debate.information_updates).present? %>
         <div class="callout success">
-          <%== translated_attribute debate.information_updates %>
+          <%= simple_format(translated_attribute(debate.information_updates)) %>
         </div>
       <% end %>
       <% if debate.category %>

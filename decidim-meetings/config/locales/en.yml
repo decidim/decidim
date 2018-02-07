@@ -29,6 +29,11 @@ en:
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting was closed
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting was closed.
+        meeting_created:
+          email_intro: The meeting "%{resource_title}" has been added to "%{participatory_space_title}" that you are following.
+          email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
+          email_subject: New meeting added to %{participatory_space_title}
+          notification_title: The meeting <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
         meeting_registrations_over_percentage:
           email_intro: The "%{resource_title}" meeting occupied slots are over %{percentage}%.
           email_outro: You have received this notification because you are an admin of the meeting's participatory space.
