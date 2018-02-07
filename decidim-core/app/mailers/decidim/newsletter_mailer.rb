@@ -13,7 +13,7 @@ module Decidim
         @subject = parse_interpolations(@newsletter.subject[I18n.locale.to_s], user)
         @body = parse_interpolations(@newsletter.body[I18n.locale.to_s], user)
 
-        mail(to: "#{user.name} <#{user.email}>", subject: @subject)
+        mail(from: Decidim.config.mailer_sender, to: "#{user.name} <#{user.email}>", subject: @subject)
       end
     end
 
