@@ -1,5 +1,4 @@
 /* Foundation button overrides */
-
 .button{
   &.small{
     padding-top: .5rem;
@@ -56,6 +55,11 @@
 .button-group--collapse{
   text-align: left;
   margin-bottom: 0;
+  display: flex;
+
+  > :last-child{
+    flex: 1;
+  }
 
   .button{
     margin-right: 0;
@@ -76,9 +80,18 @@
   }
 }
 
+// buttons layout
+.buttons__row{
+  @include flexgap(.5rem);
+}
+
+.buttons__column{
+  @include flexgap(.5rem, column);
+}
+
+
 /* Extra buttons styles */
 
-// Shadows
 .button--shadow{
   $shadows:(
     primary: shade($primary, 50),
