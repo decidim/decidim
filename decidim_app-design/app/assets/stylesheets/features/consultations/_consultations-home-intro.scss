@@ -1,8 +1,8 @@
 .consultations-home-intro{
   margin-top: $margin-s;
+
   > :first-child{
     margin-bottom: $margin-s;
-
   }
 
   @include breakpoint(medium){
@@ -24,7 +24,7 @@
     align-items: center;
   }
 
-  .heading6 {
+  .heading6{
     margin-bottom: 0;
   }
 }

@@ -4,6 +4,7 @@
   margin-right: auto;
   text-align: center;
   margin-bottom: $margin-s;
+
   @include breakpoint(medium){
     margin-bottom: $margin-sm;
   }

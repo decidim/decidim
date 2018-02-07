@@ -1,8 +1,10 @@
 .card--process__column .consultations-card__image{
   min-height: 0;
+
   &::after{
     display: none;
   }
+
   > div{
     height: 100%;
     display: flex;
