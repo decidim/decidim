@@ -3,8 +3,8 @@
 module Decidim
   module Assemblies
     module Admin
-      # A command with all the business logic when creating a new participatory
-      # process admin in the system.
+      # A command with all the business logic when creating a new assembly
+      # private user in the system.
       class CreateAssemblyAdmin < Rectify::Command
         # Public: Initializes the command.
         #
@@ -28,7 +28,7 @@ module Decidim
 
           ActiveRecord::Base.transaction do
             create_or_invite_user
-            create_role
+            create_private_user
           end
 
           broadcast(:ok)
@@ -41,9 +41,8 @@ module Decidim
 
         attr_reader :form, :assembly, :current_user, :user
 
-        def create_role
-          Decidim::AssemblyUserRole.find_or_create_by!(
-            role: form.role.to_sym,
+        def create_private_user
+          Decidim::AssemblyPrivateUser.find_or_create_by!(
             user: user,
             assembly: @assembly
           )
@@ -84,8 +83,7 @@ module Decidim
         end
 
         def invitation_instructions
-          return "invite_admin" if form.role == "admin"
-          "invite_collaborator"
+          "invite_private_user"
         end
       end
     end

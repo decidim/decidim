@@ -61,20 +61,12 @@ module Decidim
           )
         end
 
-<<<<<<< HEAD
         def existing_role
           Decidim::ParticipatoryProcessUserRole.where(
             role: form.role.to_sym,
             user: user,
             participatory_process: @participatory_process
           ).first
-=======
-        def create_private_user
-          Decidim::ParticipatoryProcessPrivateUser.find_or_create_by!(
-            user: user,
-            participatory_process: @participatory_process
-          )
->>>>>>> Refactor all system of private users, pending improve stats and tests
         end
 
         def create_or_invite_user
@@ -112,12 +104,8 @@ module Decidim
         end
 
         def invitation_instructions
-          if form.class == Decidim::ParticipatoryProcesses::Admin::ParticipatoryProcessUserRoleForm
-            return "invite_admin" if form.role == "admin"
-            "invite_collaborator"
-          else
-            "invite_private_user"
-          end
+          return "invite_admin" if form.role == "admin"
+          "invite_collaborator"
         end
       end
     end

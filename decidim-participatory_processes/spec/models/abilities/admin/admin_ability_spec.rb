@@ -10,5 +10,6 @@ module Decidim::ParticipatoryProcesses
 
     it { is_expected.to be_able_to(:manage, Decidim::ParticipatoryProcess) }
     it { is_expected.to be_able_to(:manage, Decidim::ParticipatoryProcessStep) }
+    it { is_expected.to be_able_to(:manage, Decidim::ParticipatoryProcessPrivateUser) }
   end
 end

@@ -1,7 +1,7 @@
 <%= decidim_form_for(@form, html: { class: "form new_participatory_process_user_role" }) do |f| %>
-  <%= render partial: 'form', object: f, locals: { title: t('participatory_process_private_users.new.title', scope: "decidim.admin") } %>
+  <%= render partial: 'form', object: f, locals: { title: t('assembly_private_users.new.title', scope: "decidim.admin") } %>
 
   <div class="button--double form-general-submit">
-    <%= f.submit t("participatory_process_private_users.new.create", scope: "decidim.admin") %>
+    <%= f.submit t("assembly_private_users.new.create", scope: "decidim.admin") %>
   </div>
 <% end %>

@@ -22,7 +22,7 @@ module Decidim
           authorize! :create, Decidim::ParticipatoryProcessPrivateUser
           @form = form(ParticipatoryProcessPrivateUserForm).from_params(params)
 
-          CreateParticipatoryProcessAdmin.call(@form, current_user, current_participatory_process) do
+          CreateParticipatoryProcessPrivateUser.call(@form, current_user, current_participatory_process) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_process_user_roles.create.success", scope: "decidim.admin")
             end

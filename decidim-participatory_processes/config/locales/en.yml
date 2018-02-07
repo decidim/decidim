@@ -128,9 +128,6 @@ en:
       participatory_process_private_users:
         destroy:
           success: Participatory process private user destroyed successfully.
-        edit:
-          title: Edit private user process
-          update: Update
         index:
           process_admins_title: Participatory Process Private Users
         new:
