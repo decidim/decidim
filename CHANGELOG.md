@@ -155,6 +155,8 @@ you need to change the following line in `config/environments/production.rb`:
 
 **Changed**:
 
+- **decidim-core**: General improvements on documentation [\#2656](https://github.com/decidim/decidim/pull/2656).
+
 **Fixed**:
 
 - **decidim-core**: Fix notification mailer when a resource doesn't have an organization. [\#2661](https://github.com/decidim/decidim/pull/2661)
