@@ -16,6 +16,7 @@ RSpec.shared_context "when in a proposal" do
   before do
     request.env["decidim.current_organization"] = feature.organization
     request.env["decidim.current_feature"] = feature
+    request.env["decidim.current_participatory_space"] = feature.participatory_space
     sign_in user
   end
 end
