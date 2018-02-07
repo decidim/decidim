@@ -86,14 +86,14 @@ en:
           fields:
             name: Name
           name: Process group
+        participatory_process_private_user:
+          name: Participatory Process Private User
         participatory_process_step:
           fields:
             end_date: End date
             start_date: Start date
             title: Title
           name: Participatory process step
-        participatory_process_private_user:
-          name: Participatory Process Private User
         participatory_process_user_role:
           fields:
             email: Email
@@ -243,11 +243,16 @@ en:
       admin:
         participatory_process_copies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help: 'URL slugs are used to generate the URLs that point to this
+              process. Only accepts letters, numbers and dashes, and must start with
+              a letter. Example: %{url}'
         participatory_processes:
           form:
-            announcement_help: The text you enter here will be shown to the user right below the process information.
-            slug_help: 'URL slugs are used to generate the URLs that point to this process. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            announcement_help: The text you enter here will be shown to the user right
+              below the process information.
+            slug_help: 'URL slugs are used to generate the URLs that point to this
+              process. Only accepts letters, numbers and dashes, and must start with
+              a letter. Example: %{url}'
       index:
         title: Participatory processes
       order_by_processes:
