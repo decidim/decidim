@@ -46,8 +46,6 @@ module Decidim
         end
 
         def notify_followers
-          return unless step.participatory_process.published?
-
           Decidim::EventsManager.publish(
             event: "decidim.events.participatory_process.step_activated",
             event_class: Decidim::ParticipatoryProcessStepActivatedEvent,

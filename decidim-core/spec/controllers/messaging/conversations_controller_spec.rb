@@ -22,6 +22,16 @@ module Decidim
       sign_in user
     end
 
+    describe "GET new" do
+      context "when is the same user" do
+        subject { get :new, params: { recipient_id: user.id } }
+
+        it "redirects to the profile path" do
+          expect(subject).to redirect_to profile_path(user.nickname)
+        end
+      end
+    end
+
     describe "POST create" do
       context "when invalid" do
         it "renders an error message" do

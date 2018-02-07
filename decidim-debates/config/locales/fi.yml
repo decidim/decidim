@@ -1,0 +1,114 @@
+fi:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Kategoria
+        description: Kuvaus
+        end_time: Päättymisaika
+        information_updates: Tietojen päivitykset
+        instructions: Osallistumisohjeet
+        start_time: Alkamisaika
+        title: Otsikko
+        user_group_id: Luo keskustelu käyttäjänä
+  decidim:
+    debates:
+      actions:
+        confirm_destroy: Oletko varma?
+        destroy: Poista
+        edit: Muokkaa
+        new: Uusi %{name}
+        title: Toiminnot
+      admin:
+        debates:
+          create:
+            invalid: Luotaessa keskustelua tapahtui virhe.
+            success: Keskustelu luotu onnistuneesti.
+          destroy:
+            success: Keskustelu poistettu onnistuneesti.
+          edit:
+            title: Muokkaa keskustelua
+            update: Päivitä keskustelu
+          index:
+            title: Keskustelut
+          new:
+            create: Luo keskustelu
+            title: Uusi keskustelu
+          update:
+            invalid: Keskustelun päivittämisessä tapahtui virhe.
+            success: Keskustelu päivitetty onnistuneesti.
+        models:
+          debate:
+            name: Keskustelu
+      debates:
+        count:
+          debates_count:
+            one: "%{count} keskustelu"
+            other: "%{count} keskustelua"
+        create:
+          invalid: Luotaessa keskustelua tapahtui virhe.
+          success: Keskustelu luotu onnistuneesti.
+        debate:
+          comments:
+            one: Kommentti
+            other: Kommenttia
+          participate: Osallistu
+        filters:
+          all: Kaikki
+          category: Kategoria
+          category_prompt: Valitse kategoria
+          citizens: Kansalaiset
+          official: Virallinen
+          origin: Alkuperä
+          search: Hae
+        filters_small_view:
+          close_modal: Sulje ikkuna
+          filter: Suodata
+          filter_by: Suodata
+          unfold: Avaa
+        index:
+          new_debate: Uusi keskustelu
+        new:
+          back: Takaisin
+          create: Luo
+          select_a_category: Valitse kategoria
+          title: Uusi keskustelu
+        share:
+          close_window: Sulje ikkuna
+          share: Jaa
+          share_link: Jaa linkki
+        show:
+          comments: Kommentit
+          report: Raportti
+      models:
+        debate:
+          fields:
+            end_time: Päättymispäivä
+            official_debate: Virallinen keskustelu
+            start_time: Aloituspäivämäärä
+            title: Otsikko
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Hei, %{space_title} osallistuvaan tilaan on luotu uusi keskustelu, tarkista se ja osallistu:
+            email_outro: Olet saanut tämän ilmoituksen, koska noudatat %{space_title} osallistumistilaa. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+            email_subject: Uusi keskustelu %{space_title}
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> keskustelu luotiin <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Hei, %{author_name} %{author_nickname}, jonka seuraat, on luonut uuden keskustelun, tarkista sen ja edistä:
+            email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+            email_subject: Uusi keskustelu %{author_nickname}
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> keskustelu luotiin <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+    features:
+      debates:
+        actions:
+          create: Luo
+        name: Keskustelut
+        settings:
+          global:
+            comments_enabled: Kommentointi käytössä
+          step:
+            comments_blocked: Kommentointi estetty
+            creation_enabled: Keskustelujen luominen käyttäjien toimesta sallittu

@@ -44,6 +44,15 @@ module Decidim
       end
 
       def attributes
+        appearance_attributes
+          .merge(highlighted_content_banner_attributes)
+          .merge(omnipresent_banner_attributes)
+          .tap do |attributes|
+            attributes[:header_snippets] = form.header_snippets if Decidim.enable_html_header_snippets
+          end
+      end
+
+      def appearance_attributes
         {
           cta_button_path: form.cta_button_path,
           cta_button_text: form.cta_button_text,
@@ -61,9 +70,29 @@ module Decidim
           remove_official_img_footer: form.remove_official_img_footer,
           official_url: form.official_url,
           show_statistics: form.show_statistics
-        }.tap do |attributes|
-          attributes[:header_snippets] = form.header_snippets if Decidim.enable_html_header_snippets
-        end
+        }
+      end
+
+      def highlighted_content_banner_attributes
+        {
+          highlighted_content_banner_enabled: form.highlighted_content_banner_enabled,
+          highlighted_content_banner_action_url: form.highlighted_content_banner_action_url,
+          highlighted_content_banner_image: form.highlighted_content_banner_image,
+          remove_highlighted_content_banner_image: form.remove_highlighted_content_banner_image,
+          highlighted_content_banner_title: form.highlighted_content_banner_title,
+          highlighted_content_banner_short_description: form.highlighted_content_banner_short_description,
+          highlighted_content_banner_action_title: form.highlighted_content_banner_action_title,
+          highlighted_content_banner_action_subtitle: form.highlighted_content_banner_action_subtitle
+        }
+      end
+
+      def omnipresent_banner_attributes
+        {
+          enable_omnipresent_banner: form.enable_omnipresent_banner,
+          omnipresent_banner_url: form.omnipresent_banner_url,
+          omnipresent_banner_short_description: form.omnipresent_banner_short_description,
+          omnipresent_banner_title: form.omnipresent_banner_title
+        }
       end
     end
   end

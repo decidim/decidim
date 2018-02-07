@@ -1,0 +1,114 @@
+eu:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Kategoria
+        description: deskribapena
+        end_time: Amaitzen du
+        information_updates: Informazioaren eguneratzeak
+        instructions: Parte hartzeko argibideak
+        start_time: Hasi da
+        title: Izenburua
+        user_group_id: Sortu eztabaida gisa
+  decidim:
+    debates:
+      actions:
+        confirm_destroy: Ziur zaude?
+        destroy: ezabatu
+        edit: Editatu
+        new: '%{name} berria'
+        title: Ekintzak
+      admin:
+        debates:
+          create:
+            invalid: Arazo bat izan da eztabaida sortzen ari den bitartean.
+            success: Debate sortu da behar bezala.
+          destroy:
+            success: Debata zuzen ezabatu da.
+          edit:
+            title: Editatu eztabaida
+            update: Eguneratu eztabaida
+          index:
+            title: eztabaidak
+          new:
+            create: Sortu eztabaida
+            title: Berri eztabaida
+          update:
+            invalid: Arazo bat izan da eztabaida hau eguneratzean.
+            success: Debate arrakastaz eguneratu da.
+        models:
+          debate:
+            name: Debate
+      debates:
+        count:
+          debates_count:
+            one: "%{count} eztabaida"
+            other: "%{count} eztabaidak"
+        create:
+          invalid: Arazo bat izan da eztabaida sortzen ari den bitartean.
+          success: Debate sortu da behar bezala.
+        debate:
+          comments:
+            one: Iruzkina
+            other: Oharrak
+          participate: Parte hartu
+        filters:
+          all: guztiak
+          category: Kategoria
+          category_prompt: Aukeratu kategoria bat
+          citizens: Hiritarrak
+          official: Ofiziala
+          origin: Origin
+          search: Search
+        filters_small_view:
+          close_modal: Itxi modal
+          filter: Filter
+          filter_by: Iragazi arabera
+          unfold: Zabaldu
+        index:
+          new_debate: Berri eztabaida
+        new:
+          back: Back
+          create: Sortu
+          select_a_category: Hautatu kategoria bat
+          title: Berri eztabaida
+        share:
+          close_window: Itxi leihoa
+          share: Share
+          share_link: Partekatu esteka
+        show:
+          comments: Oharrak
+          report: txostena
+      models:
+        debate:
+          fields:
+            end_time: Amaiera data
+            official_debate: Ofizial eztabaida
+            start_time: Hasiera data
+            title: Izenburua
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              Kaixo, %{space_title} partaidetzako espazioan eztabaida berria sortu da, egiaztatu eta lagundu:
+            email_outro: Jakinarazpen hori jaso duzu %{space_title} partaidetzazko espazioa jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_subject: Eztabaida berria %{space_title}
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu zen <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              Kaixo, %{author_name} %{author_nickname}, jarraitzen ari zarenak, eztabaida berri bat sortu du, egiaztatu eta lagundu:
+            email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+            email_subject: Eztabaida berria %{author_nickname}-ri
+            notification_title: <a href="%{resource_path}">%{resource_title}</a> eztabaida sortu zen <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+    features:
+      debates:
+        actions:
+          create: Sortu
+        name: eztabaidak
+        settings:
+          global:
+            comments_enabled: Iruzkinak gaituta
+          step:
+            comments_blocked: Iruzkinak blokeatuta
+            creation_enabled: Erabiltzaileek gaitutako eztabaida sortzea

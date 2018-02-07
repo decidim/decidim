@@ -15,16 +15,16 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.3"
 
   s.name = "decidim-proposals"
-  s.summary = "A proposals component for decidim's participatory processes."
-  s.description = s.summary
+  s.summary = "Decidim proposals module"
+  s.description = "A proposals component for decidim's participatory spaces."
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-comments", Decidim::Proposals.version
   s.add_dependency "decidim-core", Decidim::Proposals.version
-  s.add_dependency "kaminari", "~> 1.0.1"
-  s.add_dependency "ransack"
-  s.add_dependency "social-share-button", "~> 1.0.0"
+  s.add_dependency "kaminari", "~> 1.0"
+  s.add_dependency "ransack", "~> 1.8"
+  s.add_dependency "social-share-button", "~> 1.0"
 
   s.add_development_dependency "decidim-admin", Decidim::Proposals.version
   s.add_development_dependency "decidim-assemblies", Decidim::Proposals.version

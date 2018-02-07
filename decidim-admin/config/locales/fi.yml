@@ -24,13 +24,24 @@ fi:
         cta_button_path: Toimintopainikkeen (Call To Action) polku
         cta_button_text: Toimintopainikkeen (Call To Action) teksti
         description: Kuvaus
+        enable_omnipresent_banner: Näytä kaikkialla näkyvä banneri
         favicon: Ikoni
         header_snippets: Yläosion koodit
+        highlighted_content_banner_action_subtitle: Toiminnon painikkeen tekstitys
+        highlighted_content_banner_action_title: Toiminnon painikkeen otsikko
+        highlighted_content_banner_action_url: Toimintonäppäimen URL-osoite
+        highlighted_content_banner_enabled: Näytä korostettu sisältöbanneri
+        highlighted_content_banner_image: Kuva
+        highlighted_content_banner_short_description: Lyhyt kuvaus
+        highlighted_content_banner_title: otsikko
         homepage_image: Kotisivun kuva
         logo: Logo
         official_img_footer: Virallinen alapalkin logo
         official_img_header: Virallinen yläpalkin logo
         official_url: Virallinen organisaation URL-osoite
+        omnipresent_banner_short_description: Lyhyt kuvaus
+        omnipresent_banner_title: Otsikko
+        omnipresent_banner_url: URL-
         show_statistics: Näytä tilastot
         welcome_text: Tervetuloa-teksti
       scope:
@@ -197,6 +208,7 @@ fi:
         new:
           create: Luo
           new_managed_user: Uusi hallittu käyttäjä
+          no_authorization_handlers: Käyttäjien hallintaan ei ole käytettävissä valtuutusten käsittelijöitä. Ota yhteyttä järjestelmänvalvojaan.
           select_authorization_method: Valitse tunnistautumistapa
           step: Vaihe %{current} / %{total}
         promotion:
@@ -364,7 +376,9 @@ fi:
           cta_button_text_help: Voit korvata toimintopainikkeen (Call to Action) tekstin kotisivulla jokaiselle organisaatiosi kielelle. Mikäli tätä ei ole asetettu, oletusarvoa käytetään. Toimintopainike näytetään kotisivulla Tervetuloa-tekstin ja kuvauksen välissä.
           header_snippets_help: Käytä tätä kenttää lisätäksesi HTML-koodia sivun alkuun. Yleisin käyttötarve on sellaisten kolmannen osapuolen palveluiden integrointi, jotka vaativat JavaScript- tai CSS-koodin lisäystä sivun HTML-koodiin. Huomioi, että tämä lisätään ainoastaan julkisille sivuille, ei hallinnointisivuille.
           homepage_appearance_title: Muokkaa kotisivun ulkoasua
+          homepage_highlighted_content_banner_title: Korkeatasoinen sisältöbanneri
           layout_appearance_title: Muokkaa sivupohjan ulkoasua
+          omnipresent_banner_appearance_title: Muokkaa kaikkialla näkyvää banneria
       scope_types:
         create:
           error: Uuden kontekstityypin luomisessa tapahtui virhe.

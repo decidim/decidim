@@ -96,8 +96,8 @@ sv:
       registrations:
         new:
           already_have_an_account?: Har du redan ett konto?
+          newsletter: Få ett tillfälligt nyhetsbrev med relevant information
           nickname_help: Din korta, unika identifierare i decidim
-          notifications: Ta emot information om relevant aktivitet
           sign_in: Logga in
           sign_up: Bli Medlem
           sign_up_as:
@@ -124,6 +124,12 @@ sv:
         content_doesnt_exist: Den här adressen är felaktig eller har tagits bort.
         title: Sidan du söker kan inte hittas
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'Ett nytt dokument har lagts till %{resource_title}. Du kan se den från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: En uppdatering till %{resource_title}
+          notification_title: Ett <a href="%{resource_path}"> nytt dokument</a> har lagts till <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Hej %{user_name},
         email_intro: 'Det har skett en uppdatering till "%{resource_title}". Du kan se den från den här sidan:'
@@ -136,11 +142,17 @@ sv:
         notification_title: Komponenten %{resource_title} är nu aktiv för <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: En händelse uppstod till <a href="%{resource_path}">%{resource_title}</a>.
-      profile_updated_event:
-        email_intro: <a href="%{profile_path}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
-        email_outro: Du har fått den här meddelandet eftersom du följer %{nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
-        email_subject: "%{nickname} updated deras profile"
-        notification_title: <a href="%{profile_path}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
+      participatory_process_step_activated_event:
+        email_intro: '%{resource_title}-steget är nu aktivt för %{participatory_space_title}. Du kan se den från den här sidan:'
+        email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+        email_subject: En uppdatering till %{participatory_space_title}
+        notification_title: '%{resource_title}-steget är nu aktivt för <a href="%{resource_path}">%{participatory_space_title}</a>'
+      users:
+        profile_updated:
+          email_intro: <a href="%{resource_url}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
+          email_outro: Du har fått den här meddelandet eftersom du följer %{nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: "%{nickname} updated deras profile"
+          notification_title: <a href="%{resource_path}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
     export_mailer:
       export:
         ready: Vänligen se bifogad en zippad version av din export.

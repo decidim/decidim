@@ -3,7 +3,7 @@ en:
   activemodel:
     attributes:
       debate:
-        decidim_category_id: Category
+        category_id: Category
         description: Description
         end_time: Ends at
         information_updates: Information updates
@@ -80,7 +80,15 @@ en:
         show:
           comments: Comments
           report: Report
-      events:
+      models:
+        debate:
+          fields:
+            end_time: End date
+            official_debate: Official debate
+            start_time: Start date
+            title: Title
+    events:
+      debates:
         create_debate_event:
           space_followers:
             email_intro: |-
@@ -96,13 +104,6 @@ en:
             email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
             email_subject: New debate by %{author_nickname}
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> debate was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-      models:
-        debate:
-          fields:
-            end_time: End date
-            official_debate: Official debate
-            start_time: Start date
-            title: Title
     features:
       debates:
         actions:

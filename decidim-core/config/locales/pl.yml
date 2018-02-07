@@ -96,8 +96,8 @@ pl:
       registrations:
         new:
           already_have_an_account?: Posiadasz już konto?
+          newsletter: Odbieraj okazjonalne biuletyny z odpowiednimi informacjami
           nickname_help: Twój krótki, niepowtarzalny identyfikator w decidimie
-          notifications: Otrzymuj informacje o odpowiedniej aktywności
           sign_in: Zaloguj Się
           sign_up: Zapisz się
           sign_up_as:
@@ -124,6 +124,12 @@ pl:
         content_doesnt_exist: Ten adres jest nieprawidłowy lub został usunięty.
         title: Szukana strona nie została znaleziona
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'Nowy dokument został dodany do %{resource_title}. Możesz go zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{resource_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Aktualizacja do %{resource_title}
+          notification_title: <a href="%{resource_path}">nowy dokument</a> został dodany do <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Witam %{user_name},
         email_intro: 'Nastąpiła aktualizacja do "%{resource_title}". Widać go z tej strony:'
@@ -136,11 +142,17 @@ pl:
         notification_title: Komponent %{resource_title} jest teraz aktywny dla <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Zdarzenie miało miejsce na <a href="%{resource_path}">%{resource_title}</a>.
-      profile_updated_event:
-        email_intro: Zmieniono <a href="%{profile_path}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
-        email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-        email_subject: "%{nickname} zaktualizował (a) swój profil"
-        notification_title: Zmieniono <a href="%{profile_path}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
+      participatory_process_step_activated_event:
+        email_intro: 'Krok %{resource_title} jest teraz aktywny dla %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
+        email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+        email_subject: Aktualizacja do %{participatory_space_title}
+        notification_title: Krok %{resource_title} jest teraz aktywny dla <a href="%{resource_path}">%{participatory_space_title}</a>
+      users:
+        profile_updated:
+          email_intro: Zmieniono <a href="%{resource_url}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: "%{nickname} zaktualizował (a) swój profil"
+          notification_title: Zmieniono <a href="%{resource_path}">profil strony</a> z %{name} (%{nickname}), którego obserwujesz.
     export_mailer:
       export:
         ready: Znajdź załączoną wersję eksportowanego pliku.

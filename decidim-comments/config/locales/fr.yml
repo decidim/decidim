@@ -1,18 +1,6 @@
 fr:
   decidim:
     comments:
-      events:
-        comment_created:
-          comment:
-            email_intro: '"%{resource_title}" a été commenté. Vous pouvez lire le commentaire de cette page:'
-            email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre à partir du lien précédent.
-            email_subject: Un nouveau commentaire a été publié par %{author_name} dans %{resource_title}
-            notification_title: Il y a un nouveau commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
-          reply:
-            email_intro: '"%{resource_title}" a reçu un commentaire'
-            email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre à partir du lien précédent.
-            email_subject: Votre commentaire a reçu une réponse de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Il y a une nouvelle réponse à votre commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: Une erreur s'est produite lors du vote sur le commentaire.
@@ -64,6 +52,24 @@ fr:
         title: "%{count} commentaires"
       featured_comment:
         title: Commentaire vedette
+    events:
+      comments:
+        comment_created:
+          comment:
+            email_intro: '"%{resource_title}" a été commenté. Vous pouvez lire le commentaire sur cette page:'
+            email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez annuler ces notifications à partir du lien précédent.
+            email_subject: Un nouveau commentaire a été publié par %{author_name} dans %{resource_title}
+            notification_title: Un nouveau commentaire a été publié par <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
+          reply:
+            email_intro: '"%{resource_title}" a été commenté'
+            email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez annuler ces notifications à partir du lien précédent.
+            email_subject: Il y a une nouvelle réponse à votre commentaire de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Il y a une nouvelle réponse de votre commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
+        user_mentioned:
+          email_intro: Vous avez été mentionné
+          email_outro: Vous avez reçu cette notification parce que vous avez été mentionné dans "%{resource_title}".
+          email_subject: Vous avez été mentionné dans %{resource_title}
+          notification_title: Vous avez été mentionné dans <a href="%{resource_path}">%{resource_title}</a> par <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:
     messages:
       cannot_have_comments: ne peut pas être commenté

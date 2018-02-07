@@ -11,6 +11,28 @@ ca:
       proposal_answer:
         answer: Resposta
   decidim:
+    events:
+      proposals:
+        proposal_accepted:
+          email_intro: 'S''ha acceptat la proposta "%{resource_title}". Pots llegir la resposta des d''aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
+          email_subject: Una proposta que segueixes ha estat acceptada
+          notification_title: S'ha acceptat la proposta <a href="%{resource_path}">%{resource_title}</a>.
+        proposal_created:
+          email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha creat una nova proposta. Revisa-la i contribueix:"
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Nova proposta de %{author_nickname}
+          notification_title: La proposta "<a href="%{resource_path}">%{resource_title}</a>" ha estat creada per en/na <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_evaluating:
+          email_intro: 'La proposta "%{resource_title}" s''està avaluant actualment. Pots consultar una resposta en aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
+          email_subject: S'està avaluant una proposta que segueixes
+          notification_title: S'ha avaluat la proposta <a href="%{resource_path}">%{resource_title}</a>.
+        proposal_rejected:
+          email_intro: 'La proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta des d''aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
+          email_subject: S'ha rebutjat una proposta que segueixes
+          notification_title: S'ha rebutjat la proposta <a href="%{resource_path}">%{resource_title}</a>.
     features:
       proposals:
         actions:
@@ -42,6 +64,7 @@ ca:
       actions:
         answer: Respondre
         new: Nova
+        private_notes: Notes privades
         title: Accions
       admin:
         actions:
@@ -59,6 +82,12 @@ ca:
             evaluating: En avaluació
             rejected: Rebutjada
             title: Respondre a la proposta %{title}
+        proposal_notes:
+          form:
+            note: Nota
+            submit: Enviar
+          leave_your_note: Deixa la teva nota
+          title: Notes privades
         proposals:
           answer:
             invalid: Hi ha hagut un problema en respondre a aquesta proposta
@@ -74,37 +103,21 @@ ca:
           new:
             create: Crear
             title: Crear proposta
+        shared:
+          info_proposal:
+            body: Cos
+            created_at: Data de creació
+            proposal_votes_count: Nombre de suports
+            proposals: Propostes
       answers:
         accepted: Acceptada
         evaluating: En avaluació
         not_answered: No resposta
         rejected: Rebutjada
-        withdrawn: Retirat
+        withdrawn: Retirada
       create:
         error: Hi ha hagut errors en desar la proposta.
         success: Proposta creada correctament.
-      events:
-        accepted_proposal_event:
-          email_intro: 'S''ha acceptat la proposta "%{resource_title}". Pots llegir la resposta d''aquesta pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
-          email_subject: Una proposta que segueixes ha estat acceptada
-          notification_title: S'ha acceptat la proposta <a href="%{resource_path}">%{resource_title}</a>.
-        create_proposal_event:
-          email_intro: |-
-            Hola, %{author_name} %{author_nickname}, a qui segueixes, ha creat una nova proposta. Revisa-la i contribueix:
-          email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: Nova proposta de %{author_nickname}
-          notification_title: La proposta "<a href="%{resource_path}">%{resource_title}</a>" va ser creada per <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        evaluating_proposal_event:
-          email_intro: 'La proposta "%{resource_title}" s''està avaluant actualment. Pots consultar una resposta en aquesta pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
-          email_subject: S'està avaluant una proposta que segueixes
-          notification_title: S'ha avaluat la proposta <a href="%{resource_path}">%{resource_title}</a>.
-        rejected_proposal_event:
-          email_intro: 'La proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta en aquesta pàgina:'
-          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{resource_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
-          email_subject: S'ha rebutjat una proposta que segueixes
-          notification_title: S'ha rebutjat la proposta <a href="%{resource_path}">%{resource_title}</a>.
       models:
         proposal:
           fields:
@@ -112,6 +125,7 @@ ca:
             comments: Comentaris
             created_at: Creat el
             id: ID
+            notes: Notes
             official_proposal: Proposta oficial
             scope: Àmbit
             state: Estat
@@ -154,7 +168,7 @@ ca:
           unfold: Desplegar
         index:
           new_proposal: Nova proposta
-          see_all_withdrawn: Vegeu totes les propostes retirades
+          see_all_withdrawn: Veure totes les propostes retirades
           view_proposal: Veure proposta
         linked_proposals:
           proposal_votes:
@@ -183,8 +197,8 @@ ca:
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
           report: Informe
-          withdraw_confirmation: Estàs segur de retirar aquesta proposta?
-          withdraw_proposal: Proposta d'extracció
+          withdraw_confirmation: Estàs segur que vols retirar aquesta proposta?
+          withdraw_proposal: Retirar proposta
         vote_button:
           already_voted: Ja li has donat suport
           already_voted_hover: Retirar suport

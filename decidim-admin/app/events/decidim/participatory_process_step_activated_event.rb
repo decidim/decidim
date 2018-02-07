@@ -1,55 +1,23 @@
 # frozen-string_literal: true
 
 module Decidim
-  class ParticipatoryProcessStepActivatedEvent < Decidim::Events::BaseEvent
-    include Decidim::Events::EmailEvent
-    include Decidim::Events::NotificationEvent
+  class ParticipatoryProcessStepActivatedEvent < Decidim::Events::SimpleEvent
     include Rails.application.routes.mounted_helpers
 
-    def email_subject
-      I18n.t(
-        "decidim.events.participatory_process_step_activated_event.email_subject",
-        resource_title: resource_title,
-        resource_path: resource_path,
-        participatory_space_title: participatory_space_title
-      )
-    end
-
-    def email_intro
-      I18n.t(
-        "decidim.events.participatory_process_step_activated_event.email_intro",
-        resource_title: resource_title,
-        resource_path: resource_path,
-        participatory_space_title: participatory_space_title
-      )
-    end
-
-    def email_outro
-      I18n.t(
-        "decidim.events.participatory_process_step_activated_event.email_outro",
-        resource_title: resource_title,
-        resource_path: resource_path,
-        participatory_space_title: participatory_space_title
-      )
-    end
-
-    def notification_title
-      I18n.t(
-        "decidim.events.participatory_process_step_activated_event.notification_title",
-        resource_title: resource_title,
-        resource_path: resource_path,
-        participatory_space_title: participatory_space_title
-      ).html_safe
-    end
-
-    private
-
     def resource_path
-      @resource_path ||= decidim_participatory_processes.participatory_process_participatory_process_steps_path(resource.participatory_process)
+      @resource_path ||= decidim_participatory_processes.participatory_process_participatory_process_steps_path(participatory_process_slug: participatory_space.slug)
     end
 
-    def participatory_space_title
-      resource.participatory_process.title[I18n.locale.to_s]
+    def resource_url
+      @resource_url ||= decidim_participatory_processes
+                        .participatory_process_participatory_process_steps_url(
+                          participatory_process_slug: participatory_space.slug,
+                          host: participatory_space.organization.host
+                        )
+    end
+
+    def participatory_space
+      resource.participatory_process
     end
   end
 end

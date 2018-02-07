@@ -1,44 +1,21 @@
 # frozen-string_literal: true
 
 module Decidim
-  class ProfileUpdatedEvent < Decidim::Events::BaseEvent
-    include Decidim::Events::EmailEvent
-    include Decidim::Events::NotificationEvent
+  class ProfileUpdatedEvent < Decidim::Events::SimpleEvent
+    i18n_attributes :nickname, :name
 
-    def email_subject
-      I18n.t(
-        "decidim.events.profile_updated_event.email_subject",
-        profile_path: updated_user.profile_path,
-        nickname: updated_user.nickname,
-        name: updated_user.name
-      )
+    delegate :profile_path, :profile_url, :nickname, :name, to: :updated_user
+
+    def resource_path
+      profile_path
     end
 
-    def email_intro
-      I18n.t(
-        "decidim.events.profile_updated_event.email_intro",
-        profile_path: updated_user.profile_path,
-        nickname: updated_user.nickname,
-        name: updated_user.name
-      )
+    def resource_title
+      name
     end
 
-    def email_outro
-      I18n.t(
-        "decidim.events.profile_updated_event.email_outro",
-        profile_path: updated_user.profile_path,
-        nickname: updated_user.nickname,
-        name: updated_user.name
-      )
-    end
-
-    def notification_title
-      I18n.t(
-        "decidim.events.profile_updated_event.notification_title",
-        profile_path: updated_user.profile_path,
-        nickname: updated_user.nickname,
-        name: updated_user.name
-      ).html_safe
+    def resource_url
+      profile_url
     end
 
     private

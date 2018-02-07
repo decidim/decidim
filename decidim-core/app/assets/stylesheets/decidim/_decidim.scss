@@ -1,6 +1,6 @@
 @import "variables";
-@import "utils/*";
 @import "foundation";
+@import "utils/*";
 
 @include foundation-everything($flex: false);
 

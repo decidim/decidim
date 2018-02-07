@@ -62,6 +62,8 @@ FactoryBot.define do
     official_img_header { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_img_footer { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_url { Faker::Internet.url }
+    highlighted_content_banner_enabled false
+    enable_omnipresent_banner false
   end
 
   factory :user, class: "Decidim::User" do
@@ -184,6 +186,8 @@ FactoryBot.define do
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
     attached_to { build(:participatory_process) }
+    content_type { "image/jpeg" }
+    file_size { 108_908 }
 
     trait :with_image do
       file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
@@ -191,6 +195,8 @@ FactoryBot.define do
 
     trait :with_pdf do
       file { Decidim::Dev.test_file("Exampledocument.pdf", "application/pdf") }
+      content_type { "application/pdf" }
+      file_size { 17_525 }
     end
   end
 

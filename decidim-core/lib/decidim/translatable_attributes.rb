@@ -49,6 +49,27 @@ module Decidim
       end
     end
 
+    included do
+      # Public: Returns the translation of an attribute using the current locale,
+      # if available. Checks for the organization default locale as fallback.
+      #
+      # attribute - A Hash where keys (strings) are locales, and their values are
+      #             the translation for each locale.
+      #
+      # Returns a String with the translation.
+      def translated_attribute(attribute)
+        return "" if attribute.nil?
+        return attribute unless attribute.is_a?(Hash)
+
+        current_organization_locale = try(:current_organization).try(:default_locale)
+
+        attribute[I18n.locale.to_s].presence ||
+          attribute[current_organization_locale].presence ||
+          attribute[attribute.keys.first].presence ||
+          ""
+      end
+    end
+
     private
 
     def translatable_attribute_setter(name, locale, value)

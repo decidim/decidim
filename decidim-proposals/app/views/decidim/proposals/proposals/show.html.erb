@@ -17,7 +17,7 @@
         <%= link_to_current_or_new_conversation_with(@proposal.author) %>
       <% end %>
     </div>
-    <% unless @proposal.withdrawn? %>
+    <% if @proposal.withdrawable_by?(current_user) %>
       <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), method: :put, class: "title-action__action button small hollow", data: {confirm: t('.withdraw_confirmation')}  do %>
         <%= t('.withdraw_proposal') %>
         <%= icon "x" %>
@@ -83,6 +83,7 @@
     <%= linked_resources_for @proposal, :results, "included_proposals" %>
     <%= linked_resources_for @proposal, :projects, "included_proposals" %>
     <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
+    <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
   </div>
 </div>
 <%= attachments_for @proposal %>

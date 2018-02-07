@@ -97,8 +97,8 @@ en:
       registrations:
         new:
           already_have_an_account?: Already have an account?
+          newsletter: Receive an occasional newsletter with relevant information
           nickname_help: Your short, unique identifier in decidim
-          notifications: Receive information about relevant activity
           sign_in: Log in
           sign_up: Sign up
           sign_up_as:
@@ -125,6 +125,12 @@ en:
         content_doesnt_exist: This address is incorrect or has been removed.
         title: The page you're looking for can't be found
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'A new document has been added to %{resource_title}. You can see it from this page:'
+          email_outro: You have received this notification because you are following %{resource_title}. You can stop receiving notifications following the previous link.
+          email_subject: An update to %{resource_title}
+          notification_title: A <a href="%{resource_path}">new document</a> has been added to <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Hello %{user_name},
         email_intro: 'There has been an update to "%{resource_title}". You can see it from this page:'
@@ -142,11 +148,12 @@ en:
         email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
         email_subject: An update to %{participatory_space_title}
         notification_title: The %{resource_title} step is now active for <a href="%{resource_path}">%{participatory_space_title}</a>
-      profile_updated_event:
-        email_intro: The <a href="%{profile_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
-        email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
-        email_subject: "%{nickname} updated their profile"
-        notification_title: The <a href="%{profile_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
+      users:
+        profile_updated:
+          email_intro: The <a href="%{resource_url}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
+          email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
+          email_subject: "%{nickname} updated their profile"
+          notification_title: The <a href="%{resource_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
     export_mailer:
       export:
         ready: Please find attached a zipped version of your export.

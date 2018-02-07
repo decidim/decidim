@@ -11,6 +11,28 @@ es:
       proposal_answer:
         answer: Respuesta
   decidim:
+    events:
+      proposals:
+        proposal_accepted:
+          email_intro: 'La propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
+          email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+          email_subject: Una propuesta que estás siguiendo ha sido aceptada
+          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido aceptada.
+        proposal_created:
+          email_intro: "%{author_name} %{author_nickname}, a quien sigues, ha creado una nueva propuesta, compruébalo y contribuye:"
+          email_outro: Has recibido esta notificación porque estás siguiendo a %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: Nueva propuesta de %{author_nickname}
+          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> fue creada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_evaluating:
+          email_intro: 'La propuesta "%{resource_title}" se está evaluando actualmente. Puedes encontrar la respuesta en esta página:'
+          email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+          email_subject: Una propuesta que estás siguiendo está siendo evaluada
+          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
+        proposal_rejected:
+          email_intro: 'La propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
+          email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+          email_subject: Una propuesta que estás siguiendo ha sido rechazada
+          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
     features:
       proposals:
         actions:
@@ -42,6 +64,7 @@ es:
       actions:
         answer: Respuesta
         new: Nueva
+        private_notes: Notas privadas
         title: Acciones
       admin:
         actions:
@@ -59,6 +82,12 @@ es:
             evaluating: En evaluación
             rejected: Rechazada
             title: Responder a la propuesta %{title}
+        proposal_notes:
+          form:
+            note: Nota
+            submit: Enviar
+          leave_your_note: Deja tu nota
+          title: Notas privadas
         proposals:
           answer:
             invalid: Ha habido un problema al responder a esta propuesta
@@ -74,6 +103,12 @@ es:
           new:
             create: Crear
             title: Crear propuesta
+        shared:
+          info_proposal:
+            body: Cuerpo
+            created_at: Fecha de creación
+            proposal_votes_count: Número de votos
+            proposals: Propuestas
       answers:
         accepted: Aceptadas
         evaluating: En evaluación
@@ -83,28 +118,6 @@ es:
       create:
         error: Ha habido errores al guardar la propuesta.
         success: Propuesta creada correctamente.
-      events:
-        accepted_proposal_event:
-          email_intro: 'La propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
-          email_outro: Has recibido esta notificación porque estás siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: Una propuesta que estás siguiendo ha sido aceptada
-          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido aceptada.
-        create_proposal_event:
-          email_intro: |-
-            Hola, %{author_name} %{author_nickname}, a quién sigues, ha creado una nueva propuesta, compruébala y contribuye:
-          email_outro: Has recibido esta notificación porque estás siguiendo a %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: Nueva propuesta de %{author_nickname}
-          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> fue creada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        evaluating_proposal_event:
-          email_intro: 'La propuesta "%{resource_title}" se está evaluando actualmente. Puedes encontrar la respuesta en esta página:'
-          email_outro: Has recibido esta notificación porque estás siguiendo "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
-          email_subject: Una propuesta que estás siguiendo está siendo evaluada
-          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> está siendo evaluada.
-        rejected_proposal_event:
-          email_intro: 'La propuesta "%{resource_title}" ha sido rechazada. Puedes leer la respuesta en esta página:'
-          email_outro: Recibió esta notificación porque está siguiendo "%{resource_title}". Puedes dejar de seguirlo desde el enlace anterior.
-          email_subject: Una propuesta que estás siguiendo ha sido rechazada
-          notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
       models:
         proposal:
           fields:
@@ -112,6 +125,7 @@ es:
             comments: Comentarios
             created_at: Creado el
             id: Identificador
+            notes: Notas
             official_proposal: Propuesta oficial
             scope: Ámbito
             state: Estado
@@ -183,7 +197,7 @@ es:
           proposal_in_evaluation_reason: Esta propuesta está siendo evaluada
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
           report: Denunciar
-          withdraw_confirmation: '¿Estás seguro de retirar esta propuesta?'
+          withdraw_confirmation: '¿Seguro que quieres retirar esta propuesta?'
           withdraw_proposal: Retirar propuesta
         vote_button:
           already_voted: Ya votado

@@ -7,11 +7,11 @@ module Decidim::Messaging
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :confirmed, organization: organization) }
     let!(:command) { described_class.new(form) }
-    let(:interlocutor) { create(:user) }
+    let(:interlocutor) { create(:user, organization: organization) }
 
     context "when the form is invalid" do
       let(:form) do
-        ConversationForm.from_params(body: "", recipient_id: interlocutor.id)
+        ConversationForm.from_params(body: "", recipient_id: interlocutor.id).with_context(current_user: user)
       end
 
       it "does not create a conversation" do

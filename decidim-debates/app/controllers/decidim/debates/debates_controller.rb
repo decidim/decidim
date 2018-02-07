@@ -25,7 +25,7 @@ module Decidim
         CreateDebate.call(@form) do
           on(:ok) do |debate|
             flash[:notice] = I18n.t("debates.create.success", scope: "decidim.debates")
-            redirect_to debate_path(debate)
+            redirect_to Decidim::ResourceLocatorPresenter.new(debate).path
           end
 
           on(:invalid) do
