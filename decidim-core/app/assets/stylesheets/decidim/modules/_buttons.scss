@@ -4,11 +4,23 @@
   &.small{
     padding-top: .5rem;
     padding-bottom: .5rem;
+
+    &.compact{
+      padding-left: .5rem;
+      padding-right: .5rem;
+      letter-spacing: 0;
+    }
   }
 
   &.tiny{
     padding-top: .25rem;
     padding-bottom: .25rem;
+
+    &.compact{
+      padding-left: .25rem;
+      padding-right: .25rem;
+      letter-spacing: 0;
+    }
   }
 }
 
@@ -36,7 +48,51 @@
   }
 }
 
+.button.light:not(.hollow){
+  @include modifiers(color, (success: $white, secondary: $white));
+}
+
+// Button groups
+.button-group--collapse{
+  text-align: left;
+  margin-bottom: 0;
+
+  .button{
+    margin-right: 0;
+
+    &:first-child{
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:last-child{
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:not(:first-child):not(:last-child){
+      border-radius: 0;
+    }
+  }
+}
+
 /* Extra buttons styles */
+
+// Shadows
+.button--shadow{
+  $shadows:(
+    primary: shade($primary, 50),
+    secondary: shade($secondary, 50),
+    success: shade($success, 50),
+    warning: shade($warning, 50),
+    alert: shade($alert, 50),
+    muted: shade($muted, 50)
+  );
+
+  @include modifiers(background-color, $shadows){
+    color: $white;
+  }
+}
 
 .button--icon{
   display: flex;
@@ -52,6 +108,10 @@
       height: 12px;
     }
   }
+}
+
+.button--nomargin{
+  margin: 0;
 }
 
 .button--frosted{
