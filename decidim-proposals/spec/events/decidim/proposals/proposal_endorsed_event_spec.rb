@@ -16,7 +16,7 @@ describe Decidim::Proposals::ProposalEndorsedEvent do
   let(:follower) { create(:user, organization: proposal.organization) }
   let(:follow) { create(:follow, followable: author, user: follower) }
 
-  it_behaves_like "an simple event"
+  it_behaves_like "a simple event"
 
   describe "types" do
     subject { described_class }
