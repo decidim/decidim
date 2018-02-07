@@ -5,7 +5,7 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a new assembly
       # private user in the system.
-      class CreateAssemblyAdmin < Rectify::Command
+      class CreateAssemblyPrivateUser < Rectify::Command
         # Public: Initializes the command.
         #
         # form - A form object with the params.

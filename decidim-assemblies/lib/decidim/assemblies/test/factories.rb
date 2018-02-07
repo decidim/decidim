@@ -75,4 +75,16 @@ FactoryBot.define do
              role: :moderator
     end
   end
+
+  factory :private_user, parent: :user, class: "Decdim::User" do
+    transient do
+      assembly { create(:assembly) }
+    end
+
+    organization { assembly.organization }
+
+    after(:create) do |user, evaluator|
+      create :assembly_private_user, user: user,assembly: evaluator.assembly
+    end
+  end
 end
