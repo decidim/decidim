@@ -99,7 +99,8 @@ module Decidim
                          "\"#{Decidim.version}\""
                        end
 
-        gsub_file "Gemfile", /gem "decidim([^"]*)".*/, "gem \"decidim\\1\", #{gem_modifier}"
+        gsub_file "Gemfile", /gem "decidim".*/, "gem \"decidim\", #{gem_modifier}"
+        gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
         run "BUNDLE_GEMFILE=Gemfile bundle install"
       end
 
