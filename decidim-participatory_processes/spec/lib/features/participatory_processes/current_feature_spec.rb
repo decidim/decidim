@@ -26,7 +26,7 @@ module Decidim
 
       context "when the params contain a participatory_process id" do
         before do
-          params["participatory_process_id"] = current_participatory_process.id.to_s
+          params["participatory_process_slug"] = current_participatory_process.id.to_s
         end
 
         context "when the params don't contain a feature id" do
@@ -66,7 +66,7 @@ module Decidim
 
       context "when the params contain a non existing participatory process id" do
         before do
-          params["participatory_process_id"] = "99999999"
+          params["participatory_process_slug"] = "99999999"
         end
 
         context "when there's no feature" do
