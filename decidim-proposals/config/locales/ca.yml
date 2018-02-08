@@ -71,7 +71,7 @@ ca:
     proposals:
       actions:
         answer: Respondre
-        import: Importaa des d'un altre component
+        import: Importa des d'un altre component
         new: Nova
         private_notes: Notes privades
         title: Accions
