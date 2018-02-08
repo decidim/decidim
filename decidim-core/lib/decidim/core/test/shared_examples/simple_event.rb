@@ -24,11 +24,13 @@ shared_context "simple event" do
   let(:resource_path) { resource_locator(resource).path }
   let(:resource_url) { resource_locator(resource).url }
   let(:resource_title) { resource.title["en"] }
+  let(:participatory_space) { resource.participatory_space }
+  let(:participatory_space_title) { participatory_space.title["en"] }
   let(:author) { resource.author }
   let(:author_presenter) { Decidim::UserPresenter.new(author) }
 end
 
-shared_examples_for "an simple event" do
+shared_examples_for "a simple event" do
   describe "types" do
     subject { described_class }
 
@@ -68,6 +70,19 @@ shared_examples_for "an simple event" do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title).to be_kind_of(String)
+    end
+  end
+
+  describe "resource_path" do
+    it "is generated correctly" do
+      expect(subject.resource_path).to be_kind_of(String)
+    end
+  end
+
+  describe "resource_url" do
+    it "is generated correctly" do
+      expect(subject.resource_url).to be_kind_of(String)
+      expect(subject.resource_url).to start_with("http")
     end
   end
 end

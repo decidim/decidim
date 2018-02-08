@@ -96,7 +96,7 @@ es:
       registrations:
         new:
           already_have_an_account?: '¿Ya tienes una cuenta?'
-          newsletter: Reciba un boletín ocasional con información relevante
+          newsletter: Quiro recibir un boletín ocasional con información relevante
           nickname_help: Su identificador corto y único
           sign_in: Entra
           sign_up: Regístrate

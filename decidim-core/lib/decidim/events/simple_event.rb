@@ -71,8 +71,13 @@ module Decidim
           resource_path: resource_path,
           resource_title: resource_title,
           resource_url: resource_url,
+          participatory_space_title: participatory_space_title,
           scope: i18n_scope
         }
+      end
+
+      def participatory_space_title
+        translated_attribute(participatory_space.try(:title))
       end
     end
   end

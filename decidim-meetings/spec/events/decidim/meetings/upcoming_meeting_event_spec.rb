@@ -7,5 +7,5 @@ describe Decidim::Meetings::UpcomingMeetingEvent do
   let(:event_name) { "decidim.events.meetings.upcoming_meeting" }
 
   include_context "simple event"
-  it_behaves_like "an simple event"
+  it_behaves_like "a simple event"
 end

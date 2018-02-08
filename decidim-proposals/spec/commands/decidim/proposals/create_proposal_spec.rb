@@ -39,6 +39,10 @@ module Decidim
         let!(:follow) { create :follow, followable: author, user: follower }
 
         it "notifies the change" do
+          other_follower = create(:user, organization: organization)
+          create(:follow, followable: feature.participatory_space, user: follower)
+          create(:follow, followable: feature.participatory_space, user: other_follower)
+
           expect(Decidim::EventsManager)
             .to receive(:publish)
             .with(
@@ -46,7 +50,19 @@ module Decidim
               event_class: Decidim::Proposals::CreateProposalEvent,
               resource: kind_of(Decidim::Proposals::Proposal),
               recipient_ids: [follower.id]
-            )
+            ).ordered
+
+          expect(Decidim::EventsManager)
+            .to receive(:publish)
+            .with(
+              event: "decidim.events.proposals.proposal_created",
+              event_class: Decidim::Proposals::CreateProposalEvent,
+              resource: kind_of(Decidim::Proposals::Proposal),
+              recipient_ids: [other_follower.id],
+              extra: {
+                participatory_space: true
+              }
+            ).ordered
 
           subject.call
         end

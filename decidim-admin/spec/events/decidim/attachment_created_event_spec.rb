@@ -11,7 +11,11 @@ describe Decidim::AttachmentCreatedEvent do
   let(:resource_title) { resource.attached_to.title["en"] }
   let(:resource_path) { resource.url }
 
-  it_behaves_like "an simple event"
+  before do
+    resource.file.class.configure { |config| config.asset_host = "http://example.org" }
+  end
+
+  it_behaves_like "a simple event"
 
   describe "email_subject" do
     it "is generated correctly" do
