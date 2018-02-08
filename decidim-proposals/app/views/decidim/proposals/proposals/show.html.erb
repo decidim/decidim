@@ -43,7 +43,7 @@
         </div>
       </div>
     <% end %>
-    <%= feature_reference(@proposal) %>
+    <%= resource_reference(@proposal) %>
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>
   </div>

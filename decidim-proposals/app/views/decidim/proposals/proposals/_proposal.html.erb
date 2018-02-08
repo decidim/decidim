@@ -11,7 +11,7 @@
         <div class="tech-info tech-info--text-left">
           <%= t(".creation_date", date: l(proposal.created_at, format: :decidim_short)) %>
         </div>
-        <%= feature_reference(proposal, class: "tech-info--text-left") %>
+        <%= resource_reference(proposal, class: "tech-info--text-left") %>
       </div>
       <%= render partial: "proposal_badge", locals: { proposal: proposal } %>
       <p><%= truncate(proposal.body, length: 100) %></p>
