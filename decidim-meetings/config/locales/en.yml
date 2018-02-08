@@ -192,6 +192,16 @@ en:
         destroy:
           invalid: There's been a problem leaving this meeting.
           success: You have left the meeting successfully.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Past meetings
+          upcoming_meetings: Upcoming meetings
+      participatory_processes:
+        highlighted_meetings:
+          past_meetings: Past meetings
+          see_all_meetings: See all meetings
+          upcoming_meetings: Upcoming meetings
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Related results:'

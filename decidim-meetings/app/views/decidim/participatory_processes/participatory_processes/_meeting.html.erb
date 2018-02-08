@@ -1,0 +1,15 @@
+<div class="card--list__item">
+  <div class="card--list__text">
+    <div>
+      <a href="<%= resource_locator(meeting).path %>" class="card__link">
+        <h6 class="card--list__heading heading6">
+          <%= translated_attribute meeting.title %>
+        </h6>
+        <span class="text-medium">
+          <%= l meeting.start_time, format: "%d" %> <%= l meeting.start_time, format: "%B %Y" %> -
+          <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
