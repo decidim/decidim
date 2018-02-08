@@ -27,7 +27,7 @@ module Decidim
         build(
           :assembly_private_user,
           user: user,
-          assembly: assembly,
+          assembly: assembly
         )
       end
 

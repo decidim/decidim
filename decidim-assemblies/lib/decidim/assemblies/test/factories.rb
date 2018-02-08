@@ -50,7 +50,7 @@ FactoryBot.define do
     user
     assembly { create :assembly, organization: user.organization }
   end
-  
+
   factory :assembly_admin, parent: :user, class: "Decidim::User" do
     transient do
       assembly { create(:assembly) }
