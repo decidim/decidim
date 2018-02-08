@@ -4,13 +4,13 @@ require "spec_helper"
 
 module Decidim::Assemblies
   describe Admin::CreateAssemblyPrivateUser do
-    subject { described_class.new(form, current_user, my_process) }
+    subject { described_class.new(form, current_user, my_assembly) }
 
-    let(:my_process) { create :participatory_process }
+    let(:my_assembly) { create :assembly }
     let!(:email) { "my_email@example.org" }
     let!(:name) { "Weird Guy" }
-    let!(:user) { create :user, email: "my_email@example.org", organization: my_process.organization }
-    let!(:current_user) { create :user, email: "some_email@example.org", organization: my_process.organization }
+    let!(:user) { create :user, email: "my_email@example.org", organization: my_assembly.organization }
+    let!(:current_user) { create :user, email: "some_email@example.org", organization: my_assembly.organization }
     let(:form) do
       double(
         invalid?: invalid,

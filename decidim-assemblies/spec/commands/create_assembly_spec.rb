@@ -33,6 +33,7 @@ module Decidim::Assemblies
         scopes_enabled: true,
         scope: scope,
         area: area,
+        private_space: false,
         errors: errors
       )
     end

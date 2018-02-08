@@ -3,7 +3,7 @@
 module Decidim
   module Assemblies
     module Admin
-      # Controller that allows managing participatory process user roles.
+      # Controller that allows managing assembly private users.
       #
       class AssemblyPrivateUsersController < Decidim::Admin::ApplicationController
         include Concerns::AssemblyAdmin

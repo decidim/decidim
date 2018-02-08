@@ -55,13 +55,6 @@ en:
           copy: Copy
           select: Select which data you would like to duplicate
           title: Duplicate assembly
-      assembly_publications:
-        create:
-          error: There was an error publishing this assembly.
-          success: Assembly published successfully.
-        destroy:
-          error: There was an error unpublishing this assembly.
-          success: Assembly unpublished successfully.
       assembly_private_users:
         create:
           error: There was an error adding a private user for this assembly.
@@ -73,6 +66,13 @@ en:
         new:
           create: Create
           title: New assembly private user.
+      assembly_publications:
+        create:
+          error: There was an error publishing this assembly.
+          success: Assembly published successfully.
+        destroy:
+          error: There was an error unpublishing this assembly.
+          success: Assembly unpublished successfully.
       assembly_user_roles:
         create:
           error: There was an error adding a user for this assembly.
