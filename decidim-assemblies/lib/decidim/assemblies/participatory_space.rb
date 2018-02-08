@@ -50,17 +50,22 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
 
       attachment_collection = Decidim::AttachmentCollection.create!(
         name: Decidim::Faker::Localized.word,
-        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(2)
-        end,
+        description: Decidim::Faker::Localized.sentence(5),
         collection_for: assembly
       )
 
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(2),
         description: Decidim::Faker::Localized.sentence(5),
-        file: File.new(File.join(seeds_root, "city.jpeg")),
+        file: File.new(File.join(seeds_root, "Exampledocument.pdf")),
         attachment_collection: attachment_collection,
+        attached_to: assembly
+      )
+
+      Decidim::Attachment.create!(
+        title: Decidim::Faker::Localized.sentence(2),
+        description: Decidim::Faker::Localized.sentence(5),
+        file: File.new(File.join(seeds_root, "city.jpeg")),
         attached_to: assembly
       )
 
