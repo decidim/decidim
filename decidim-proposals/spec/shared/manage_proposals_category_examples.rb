@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 shared_examples "when managing proposals category as an admin" do
-  let!(:proposals) { create_list :proposal, 3, feature: current_feature }
-  let!(:my_category) { current_feature.categories.last }
+  let(:parent_category) { create :category, participatory_space: participatory_process }
+  let(:category) { create :category, participatory_space: participatory_process, parent_id: parent_category.id }
+  let!(:my_category) { create :category, participatory_space: participatory_process, parent_id: parent_category.id  }
+  let!(:proposal_first) { reportables.first }
+  let!(:proposal_last) { reportables.last }
 
   context "Proposals list page" do
     it "shows a checkbox to select each proposal" do
@@ -32,18 +35,14 @@ shared_examples "when managing proposals category as an admin" do
 
       context "when submiting form" do
         before do
-          within "#js-recategorize-proposals-actions" do
-            page.select my_category.name["en"], from: :category_id
+          within "#js-form-recategorize-proposals" do
+            select translated(category.name), from: :category_id
             page.find("button#js-submit-edit-category").click
           end
         end
 
-        xit "changes to selected category" do
-          proposal_first = proposal
-          proposal_last = proposals.last
-
-          expect(proposal_first.category).to eq(my_category)
-          expect(proposal_last.category).to eq(my_category)
+        it "changes to selected category" do
+          expect(page).to have_selector(".success")
         end
       end
     end
