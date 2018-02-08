@@ -56,7 +56,7 @@
         </div>
       <% end %>
     </div>
-    <%= feature_reference(meeting) %>
+    <%= resource_reference(meeting) %>
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for meeting_meeting_widget_url(meeting, format: :js) %>
   </div>

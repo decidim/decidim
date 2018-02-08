@@ -17,7 +17,11 @@ module Decidim
       end
 
       def current_participatory_space
-        @current_participatory_space ||= organization_participatory_processes.find_by(slug: params[:participatory_process_slug])
+        return unless params[:participatory_process_slug]
+
+        @current_participatory_space ||= organization_participatory_processes.where(slug: params[:participatory_process_slug]).or(
+          organization_participatory_processes.where(id: params[:participatory_process_slug])
+        ).first!
       end
     end
   end
