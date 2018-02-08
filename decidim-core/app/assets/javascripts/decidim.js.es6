@@ -15,6 +15,7 @@
 // = require decidim/data_picker
 // = require decidim/append_redirect_url_to_modals
 // = require decidim/input_tags
+// = require decidim/input_mentions
 
 /* globals svg4everybody */
 

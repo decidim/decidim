@@ -36,6 +36,9 @@
                 <li class="tabs-title">
                   <a href="#patternBars">Barras</a>
                 </li>
+                <li class="tabs-title">
+                  <a href="#patternJavascripts">Javascript</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -205,7 +208,7 @@
                       <a href="http://useiconic.com/open" target="_blank">useiconic.com/open</a>.
                   </p>
                 </div>
-                <div class="tabs-panel is-active" id="patternCards">
+                <div class="tabs-panel" id="patternCards">
                   <h2 class="section-heading">Card básico</h2>
                   <div class="row">
                     <div class="columns small-12 medium-6">
@@ -1105,6 +1108,31 @@
                       <%= partial "progress_bar", { vertical: true, progress: 27, total: 50 } %>
                       <%= partial "progress_bar", { vertical: true, progress: 678, total: 1000 } %>
 
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="tabs-panel is-active" id="patternJavascripts">
+                  <h2 class="section-heading">Tags</h2>
+                  <div class="row">
+                    <div class="columns medium-6">
+                      <pre>.js-tags-container</pre>
+                      <input class="js-tags-container" type="text" placeholder="Add tags"/>
+                    </div>
+                    <div class="columns medium-6">
+                      <span>input element is expandible</span>
+                      <input class="js-tags-container" type="text" value="a,couple of,tags" placeholder="Add tags"/>
+                    </div>
+                  </div>
+                  <br>
+                  <h2 class="section-heading">Mentions</h2>
+                  <div class="row">
+                    <div class="columns medium-6">
+                      <pre>.js-mentions-container input</pre>
+                      <input class="js-mentions-container" type="text" placeholder="Add tags"/>
+                      <pre>.js-mentions-container textarea</pre>
+                      <textarea class="js-mentions-container" placeholder="Use mentions typing @ sign" rows="8" cols="80"></textarea>
                     </div>
                   </div>
 
