@@ -3,7 +3,7 @@
 shared_examples "when managing proposals category as an admin" do
   let(:parent_category) { create :category, participatory_space: participatory_process }
   let(:category) { create :category, participatory_space: participatory_process, parent_id: parent_category.id }
-  let!(:my_category) { create :category, participatory_space: participatory_process, parent_id: parent_category.id  }
+  let!(:my_category) { create :category, participatory_space: participatory_process, parent_id: parent_category.id }
   let!(:proposal_first) { reportables.first }
   let!(:proposal_last) { reportables.last }
 
