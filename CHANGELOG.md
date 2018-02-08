@@ -1,5 +1,15 @@
 # Change Log
 
+## Unreleased
+
+**Added**:
+
+**Changed**:
+
+**Fixed**:
+
+**decidim-core**: Fix notifications list when the resource is a User. [\#2692](https://github.com/decidim/decidim/pull/2692)
+
 ## [v0.9.1](https://github.com/decidim/decidim/tree/v0.9.1) (2018-2-8)
 
 **Added**:
