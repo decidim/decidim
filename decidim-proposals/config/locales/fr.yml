@@ -209,6 +209,7 @@ fr:
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition a été refusée parce que:'
           report: Signaler
+          withdraw_btn_hint: Vous pouvez retirer votre proposition si vous changez d'avis, tant que vous n'avez reçu aucun support. La proposition n'est pas supprimée, elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation: Êtes-vous sûr de retirer cette proposition?
           withdraw_proposal: Retirer la proposition
         vote_button:
