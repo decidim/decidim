@@ -31,7 +31,7 @@ module Decidim
 
       def detect_current_participatory_process(params)
         organization_processes.where(slug: params["participatory_process_slug"]).or(
-          organization_processes.where(id: params["participatory_process_id"])
+          organization_processes.where(id: params["participatory_process_slug"])
         ).first!
       end
 
