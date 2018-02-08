@@ -96,7 +96,7 @@ ca:
       registrations:
         new:
           already_have_an_account?: Ja tens un compte?
-          newsletter: Rebeu un butlletí ocasional amb informació rellevant
+          newsletter: Vull rebre un butlletí ocasional amb informació rellevant
           nickname_help: El vostre identificador curt i únic
           sign_in: Entra
           sign_up: Registra't
