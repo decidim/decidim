@@ -30,7 +30,12 @@ end
 desc "Installs all gems locally."
 task :install_all do
   Decidim::ComponentManager.run_all(
-    "rake install:local"
+    "gem build %name && mv %name-%version.gem ..",
+    include_root: false
+  )
+
+  Decidim::ComponentManager.new(__dir__).run(
+    "gem build %name && gem install *.gem"
   )
 end
 
@@ -38,6 +43,10 @@ desc "Uninstalls all gems locally."
 task :uninstall_all do
   Decidim::ComponentManager.run_all(
     "gem uninstall %name -v %version --executables --force"
+  )
+
+  Decidim::ComponentManager.new(__dir__).run(
+    "rm decidim-*.gem"
   )
 end
 

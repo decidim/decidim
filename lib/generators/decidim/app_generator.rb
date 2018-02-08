@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "bundler"
 require "rails/generators"
 require "rails/generators/rails/app/app_generator"
 require "decidim/version"
@@ -101,7 +102,8 @@ module Decidim
 
         gsub_file "Gemfile", /gem "decidim".*/, "gem \"decidim\", #{gem_modifier}"
         gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
-        run "BUNDLE_GEMFILE=Gemfile bundle install"
+
+        Bundler.with_original_env { run "bundle install" }
       end
 
       def add_ignore_uploads
