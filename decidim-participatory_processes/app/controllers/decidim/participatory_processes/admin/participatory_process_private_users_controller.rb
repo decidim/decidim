@@ -4,7 +4,6 @@ module Decidim
   module ParticipatoryProcesses
     module Admin
       # Controller that allows managing participatory process user roles.
-      #
       class ParticipatoryProcessPrivateUsersController < Decidim::Admin::ApplicationController
         include Concerns::ParticipatoryProcessAdmin
 
