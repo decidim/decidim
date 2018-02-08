@@ -37,7 +37,7 @@ module Decidim
             else
               transaction do
                 update_proposal_category proposal
-                notify_author proposal
+                notify_author proposal if proposal.author.present?
               end
               @response[:oks] << proposal.title
             end
