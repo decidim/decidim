@@ -1,29 +1,14 @@
 <% unless attachment_collection.unused? %>
-  <div class="section documents">
-    <h4 class="section-heading"><%= translated_attribute(attachment_collection.name) %></h4>
-    <p><%= translated_attribute(attachment_collection.description)  %></p>
-    <div class="card card--list">
-      <% documents.each do |document| %>
-        <div class="card--list__item">
-          <div class="card--list__text">
-            <div>
-              <a href="<%= document.url %>" class="card__link">
-                <h6 class="card--list__heading heading6">
-                  <%= attachment_title(document) %> <small><%= document.file_type %> <%= number_to_human_size(document.file_size) %></small>
-                </h6>
-                <% if document.description.present? %>
-                  <span class="text-small"><%= translated_attribute(document.description) %></span>
-                <% end %>
-              </a>
-            </div>
-          </div>
-          <div class="card--list__data">
-            <%= link_to document.url, class: "card--list__data__icon" do %>
-              <%= icon "cloud-download" %>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
+  <div class="docs__container">
+    <h6 data-toggle="docs-collection-<%= attachment_collection.id %>"><%= icon "caret-right", class: "icon--small" %>&nbsp
+      <strong><%= translated_attribute(attachment_collection.name) %></strong>
+      <small>(<%= attachment_collection.attachments.count %> <%= t(".documents", count: attachment_collection.attachments.count) %>)</small>
+    </h6>
+    <div id="docs-collection-<%= attachment_collection.id %>" class="docs__content hide" data-toggler=".hide">
+      <p><%= translated_attribute(attachment_collection.description)  %></p>
+      <div class="card card--list">
+        <%= render partial: "document", collection: documents %>
+      </div>
     </div>
   </div>
 <% end %>
