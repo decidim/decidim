@@ -7,6 +7,6 @@ class AddReferenceToDebates < ActiveRecord::Migration[5.1]
 
   def change
     add_column :decidim_debates_debates, :reference, :string
-    Debate.find_each(&:save)
+    Debate.find_each(&:touch)
   end
 end

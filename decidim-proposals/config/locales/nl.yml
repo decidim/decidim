@@ -209,6 +209,7 @@ nl:
           proposal_in_evaluation_reason: Dit voorstel wordt geëvalueerd
           proposal_rejected_reason: 'Dit voorstel is afgewezen omdat:'
           report: Rapporteren
+          withdraw_btn_hint: U kunt uw voorstel intrekken als u van gedachten verandert, zolang u geen ondersteuning hebt ontvangen. Het voorstel wordt niet verwijderd; het wordt weergegeven in de lijst met ingetrokken voorstellen.
           withdraw_confirmation: Weet je zeker dat je dit voorstel wilt intrekken?
           withdraw_proposal: Voorstel intrekken
         vote_button:

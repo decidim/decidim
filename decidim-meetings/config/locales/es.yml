@@ -28,6 +28,11 @@ es:
           email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: Se ha cerrado el encuentro "%{resource_title}"
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
+        meeting_created:
+          email_intro: Se ha añadido el encuentro "%{resource_title}" al espacio "%{participatory_space_title}" que estás siguiendo.
+          email_outro: Has recibido esta notificación porque sigues "%{participatory_space_title}". Puedes dejar de seguirlo en el enlace anterior.
+          email_subject: Nuevo encuentro añadido a %{participatory_space_title}
+          notification_title: Se ha añadido el encuentro <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
         meeting_registrations_over_percentage:
           email_intro: Las inscripciones ocupadas en "%{resource_title}" son %{percentage}%.
           email_outro: Has recibido esta notificación porque eres es un administrador del espacio participativo de la reunión.

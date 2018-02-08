@@ -12,6 +12,7 @@ module Decidim
       helper Decidim::IconHelper
       helper Decidim::WidgetUrlsHelper
       helper Decidim::SanitizeHelper
+      helper Decidim::ResourceReferenceHelper
 
       helper ParticipatoryProcessHelper
 
@@ -33,7 +34,11 @@ module Decidim
       end
 
       def current_participatory_space
-        @current_participatory_space ||= organization_participatory_processes.find_by(slug: params[:slug])
+        return unless params["slug"]
+
+        @current_participatory_space ||= organization_participatory_processes.where(slug: params["slug"]).or(
+          organization_participatory_processes.where(id: params["slug"])
+        ).first!
       end
 
       def published_processes
