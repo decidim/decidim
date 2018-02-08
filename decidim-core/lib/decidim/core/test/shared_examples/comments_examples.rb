@@ -94,20 +94,22 @@ shared_examples "comments" do
       let!(:comment_author) { create(:user, :confirmed, organization: organization) }
       let!(:comment) { create(:comment, commentable: commentable, author: comment_author) }
 
-      before do
+      it "shows reply to the user" do
         visit resource_path
 
         expect(page).to have_selector(".comment__reply")
 
         within "#comments #comment_#{comment.id}" do
           click_button "Reply"
-          expect(page).to have_selector(".add-comment")
-          fill_in "add-comment-Decidim::Comments::Comment-#{comment.id}", with: "This is a reply"
+        end
+
+        expect(page).to have_selector("#comment_#{comment.id} .add-comment")
+        fill_in "add-comment-Decidim::Comments::Comment-#{comment.id}", with: "This is a reply"
+        within ".comment-thread .add-comment" do
           click_button "Send"
         end
-      end
 
-      it "shows reply to the user" do
+        expect(page).to have_selector(".comment-thread .comment--nested")
         expect(page).to have_reply_to(comment, "This is a reply")
       end
     end

@@ -28,6 +28,11 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
           email_subject: S'ha tancat la trobada "%{resource_title}"
           notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
+        meeting_created:
+          email_intro: S'ha afegit la trobada "%{resource_title}" a l'espai "%{participatory_space_title}" que estàs seguint.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
+          email_subject: Nova trobada a %{participatory_space_title}
+          notification_title: S'ha afegit la trobada <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
         meeting_registrations_over_percentage:
           email_intro: La disponibilitat d'espais a la trobada "%{resource_title}" està per sobre del %{percentage}%.
           email_outro: Has rebut aquesta notificació perquè ets un administrador de l'espai participatiu d'aquesta trobada.

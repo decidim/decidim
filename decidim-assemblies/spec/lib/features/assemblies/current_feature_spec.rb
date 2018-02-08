@@ -23,7 +23,7 @@ module Decidim
 
       context "when the params contain an assembly id" do
         before do
-          params["assembly_id"] = current_assembly.id.to_s
+          params["assembly_slug"] = current_assembly.id.to_s
         end
 
         context "when the params don't contain a feature id" do
@@ -63,7 +63,7 @@ module Decidim
 
       context "when the params contain a non existing assembly id" do
         before do
-          params["assembly_id"] = "99999999"
+          params["assembly_slug"] = "99999999"
         end
 
         context "when there's no feature" do

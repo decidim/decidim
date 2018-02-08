@@ -310,6 +310,10 @@ $datetime-bg: $primary;
 .card__link{
   color: inherit;
 
+  @include breakpoint(small only){
+    word-break: break-all;
+  }
+
   &:hover{
     color: $anchor-color;
   }
@@ -418,6 +422,15 @@ $datetime-bg: $primary;
     .icon{
       fill: $anchor-color;
     }
+  }
+}
+
+.card--list__data__icon--lg{
+  @extend .card--list__data__icon;
+
+  .icon{
+    width: 36px;
+    height: 36px;
   }
 }
 
