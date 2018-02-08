@@ -76,7 +76,7 @@ FactoryBot.define do
     end
   end
 
-  factory :private_user, parent: :user, class: "Decdim::User" do
+  factory :assembly_private_user, parent: :user, class: "Decdim::User" do
     transient do
       assembly { create(:assembly) }
     end
@@ -84,7 +84,7 @@ FactoryBot.define do
     organization { assembly.organization }
 
     after(:create) do |user, evaluator|
-      create :assembly_private_user, user: user,assembly: evaluator.assembly
+      create :assembly_private_user, user: user, assembly: evaluator.assembly
     end
   end
 end

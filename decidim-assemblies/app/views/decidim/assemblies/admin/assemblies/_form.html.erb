@@ -76,10 +76,6 @@
     </div>
 
     <div class="row column">
-      <%= form.check_box :private_assembly %>
-    </div>
-
-    <div class="row column">
       <%= form.select :area_id, option_groups_from_collection_for_select(current_organization.area_types, :areas, :translated_name, :id, :translated_name, current_assembly.try(:decidim_area_id)), include_blank: t(".select_an_area")  %>
     </div>
 

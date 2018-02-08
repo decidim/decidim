@@ -32,9 +32,9 @@ module Decidim::ParticipatoryProcesses
       it "creates the private user" do
         subject.call
 
-        private_users = Decidim::ParticipatoryProcessPrivateUser.where(user: user)
+        participatory_process_private_users = Decidim::ParticipatoryProcessPrivateUser.where(user: user)
 
-        expect(private_users.count).to eq 1
+        expect(participatory_process_private_users.count).to eq 1
       end
 
       it "creates a new user with no application admin privileges" do
@@ -64,9 +64,9 @@ module Decidim::ParticipatoryProcesses
         it "doesn't get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
-          private_users = Decidim::ParticipatoryProcessPrivateUser.where(user: user)
+          participatory_process_private_users = Decidim::ParticipatoryProcessPrivateUser.where(user: user)
 
-          expect(private_users.count).to eq 1
+          expect(participatory_process_private_users.count).to eq 1
         end
       end
 

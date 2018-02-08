@@ -32,9 +32,9 @@ module Decidim::Assemblies
       it "creates the private user" do
         subject.call
 
-        private_users = Decidim::AssemblyPrivateUser.where(user: user)
+        assembly_private_users = Decidim::AssemblyPrivateUser.where(user: user)
 
-        expect(private_users.count).to eq 1
+        expect(assembly_private_users.count).to eq 1
       end
 
       it "creates a new user with no application admin privileges" do
@@ -64,9 +64,9 @@ module Decidim::Assemblies
         it "doesn't get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
-          private_users = Decidim::AssemblyPrivateUser.where(user: user)
+          assembly_private_users = Decidim::AssemblyPrivateUser.where(user: user)
 
-          expect(private_users.count).to eq 1
+          expect(assembly_private_users.count).to eq 1
         end
       end
 
