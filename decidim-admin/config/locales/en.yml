@@ -3,9 +3,13 @@ en:
   activemodel:
     attributes:
       attachment:
+        attachment_collection_id: Collection
         description: Description
         file: File
         title: Title
+      attachment_collection:
+        description: Description
+        name: Name
       category:
         description: Description
         name: Name
@@ -106,6 +110,24 @@ en:
         permissions: Permissions
         reject: Reject
         verify: Verify
+      attachment_collections:
+        create:
+          error: There was an error creating a new collection.
+          success: Collection created successfully.
+        destroy:
+          success: Collection destroyed successfully.
+        edit:
+          title: Edit collection
+          update: Update
+        index:
+          attachment_collection_used: This collection cannot be removed because it is in use.
+          attachment_collections_title: Attachment collections
+        new:
+          create: Create
+          title: New collection
+        update:
+          error: There was an error when updating this collection.
+          success: Collection updated successfully.
       attachments:
         create:
           error: There was an error creating a new attachment.
@@ -237,9 +259,13 @@ en:
       models:
         attachment:
           fields:
+            collection: Collection
             content_type: Type
+            file_size: Size
             title: Title
           name: Attachment
+        attachment_collection:
+          name: Collection
         category:
           name: Category
         impersonation_log:

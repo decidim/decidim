@@ -241,6 +241,11 @@ describe "Participatory Processes", type: :system do
       let(:attached_to) { participatory_process }
     end
 
+    it_behaves_like "has attachment collections" do
+      let(:attached_to) { participatory_process }
+      let(:collection_for) { participatory_process }
+    end
+
     context "and the process has some features" do
       it "shows the features" do
         within ".process-nav" do

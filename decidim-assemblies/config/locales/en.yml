@@ -81,6 +81,8 @@ en:
         assemblies: Assemblies
         assemblies_submenu:
           assembly_admins: Assembly users
+          attachment_collections: Collections
+          attachment_files: Files
           attachments: Attachments
           categories: Categories
           features: Features

@@ -99,6 +99,20 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
         )
       end
 
+      attachment_collection = Decidim::AttachmentCollection.create!(
+        name: Decidim::Faker::Localized.word,
+        description: Decidim::Faker::Localized.sentence(5),
+        collection_for: process
+      )
+
+      Decidim::Attachment.create!(
+        title: Decidim::Faker::Localized.sentence(2),
+        description: Decidim::Faker::Localized.sentence(5),
+        file: File.new(File.join(seeds_root, "Exampledocument.pdf")),
+        attachment_collection: attachment_collection,
+        attached_to: process
+      )
+
       Decidim::Attachment.create!(
         title: Decidim::Faker::Localized.sentence(2),
         description: Decidim::Faker::Localized.sentence(5),

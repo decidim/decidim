@@ -62,6 +62,8 @@ en:
         participatory_process_groups: Process groups
         participatory_processes: Processes
         participatory_processes_submenu:
+          attachment_collections: Collections
+          attachment_files: Files
           attachments: Attachments
           categories: Categories
           features: Features

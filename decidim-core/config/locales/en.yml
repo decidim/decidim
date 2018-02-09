@@ -56,6 +56,10 @@ en:
         success_with_email_confirmation: Your account was updated successfully. You'll receive an email to confirm your new email address.
     anonymous_user: Anonymous
     application:
+      collection:
+        documents:
+          one: Document
+          other: Documents
       documents:
         related_documents: Related documents
       photos:

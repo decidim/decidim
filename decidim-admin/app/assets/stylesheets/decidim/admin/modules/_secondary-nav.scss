@@ -79,6 +79,13 @@ $process-title-height: 3rem;
   margin-top: 2rem;
 }
 
+.secondary-nav__subtitle{
+  display: block;
+  padding: .5rem 1rem;
+  margin: 0 .5rem;
+  color: $body-font-color;
+}
+
 .process-title{
   @include breakpoint(large){
     margin-bottom: $process-title-height;

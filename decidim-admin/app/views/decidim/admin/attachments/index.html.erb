@@ -15,7 +15,9 @@
           <thead>
             <tr>
               <th><%= t("models.attachment.fields.title", scope: "decidim.admin") %></th>
+              <th><%= t("models.attachment.fields.collection", scope: "decidim.admin") %></th>
               <th><%= t("models.attachment.fields.content_type", scope: "decidim.admin") %></th>
+              <th><%= t("models.attachment.fields.file_size", scope: "decidim.admin") %></th>
               <th class="actions"></th>
             </tr>
           </thead>
@@ -26,7 +28,13 @@
                   <%= link_to translated_attribute(attachment.title), edit_polymorphic_path([attached_to, attachment]) %><br />
                 </td>
                 <td>
+                  <%= translated_attribute(attachment.attachment_collection&.name) %>
+                </td>
+                <td>
                   <%= attachment.file_type %>
+                </td>
+                <td>
+                  <%= number_to_human_size(attachment.file_size) %>
                 </td>
                 <td class="table-list__actions">
                   <% if can? :update, authorization_object %>
