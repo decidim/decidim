@@ -62,6 +62,7 @@ eu:
             comments_blocked: Iruzkinak blokeatuta
     meetings:
       actions:
+        attachment_collections: Bilduma
         attachments: Eranskinak
         close: Itxi
         confirm_destroy: Ziur zaude topaketa hau ezabatu nahi duzula?
