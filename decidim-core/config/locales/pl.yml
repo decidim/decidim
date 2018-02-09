@@ -55,6 +55,11 @@ pl:
         success_with_email_confirmation: Twoje konto zostało pomyślnie zaktualizowane. W celu potwierdzenia Twojego nowego adresu e-mail otrzymasz na niego wiadomość.
     anonymous_user: Anonim
     application:
+      collection:
+        documents:
+          one: Dokument
+          few: Dokumenty
+          other: Dokumenty
       documents:
         related_documents: Powiązane dokumenty
       photos:
