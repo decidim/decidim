@@ -1,18 +1,6 @@
 ca:
   decidim:
     comments:
-      events:
-        comment_created:
-          comment:
-            email_intro: 'S''ha comentat "%{resource_title}". Pots llegir-lo en aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
-            email_subject: Hi ha un nou comentari de %{author_name} a %{resource_title}
-            notification_title: Hi ha un nou comentari de %{author_name} a <a href="%{resource_path}">%{resource_title}</a>
-          reply:
-            email_intro: S'ha comentat "%{resource_title}"
-            email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
-            email_subject: Hi ha una nova resposta del vostre comentari de %{author_name} a <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Hi ha una nova resposta del teu comentari de %{author_name} a <a href="%{resource_path}">%{resource_title}</a>
       votes:
         create:
           error: Hi ha hagut errors en votar el comentari.
@@ -64,6 +52,24 @@ ca:
         title: "%{count} comentaris"
       featured_comment:
         title: Comentari destacat
+    events:
+      comments:
+        comment_created:
+          comment:
+            email_intro: 'S''ha comentat "%{resource_title}". Podeu llegir el comentari d''aquesta pàgina:'
+            email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}" or el seu autor/a. El pots deixar de seguir al link anterior.
+            email_subject: Hi ha un nou comentari de %{author_name} a %{resource_title}
+            notification_title: Hi ha un nou comentari de <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>
+          reply:
+            email_intro: S'ha comentat "%{resource_title}"
+            email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}" o el seu autor/a. El pots deixar de seguir al link anterior.
+            email_subject: Hi ha una nova resposta del teu comentari d'en/na %{author_name} a <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Hi ha una nova resposta al teu comentari d'en/na <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>
+        user_mentioned:
+          email_intro: Has estat esmentat
+          email_outro: Has rebut aquesta notificació perquè has estat esmentat a "%{resource_title}".
+          email_subject: Has estat esmentat a %{resource_title}
+          notification_title: Has estat esmentat a <a href="%{resource_path}">%{resource_title}</a> per <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:
     messages:
       cannot_have_comments: no pot tenir comentaris

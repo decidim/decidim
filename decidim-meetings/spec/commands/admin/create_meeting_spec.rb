@@ -84,6 +84,22 @@ module Decidim::Meetings
 
         subject.call
       end
+
+      it "sends a notification to the participatory space followers" do
+        follower = create(:user, organization: organization)
+        create(:follow, followable: participatory_process, user: follower)
+
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.meetings.meeting_created",
+            event_class: Decidim::Meetings::CreateMeetingEvent,
+            resource: kind_of(Meeting),
+            recipient_ids: [follower.id]
+          )
+
+        subject.call
+      end
     end
   end
 end

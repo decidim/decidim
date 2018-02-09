@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email = ["deivid.rodriguez@riseup.net"]
   s.homepage = "https://github.com/decidim/decidim"
 
-  s.summary = "Verifications plugin for decidim"
+  s.summary = "Decidim verifications module"
   s.description = "Several verification methods for your decidim instance"
   s.license = "AGPL-3.0"
 

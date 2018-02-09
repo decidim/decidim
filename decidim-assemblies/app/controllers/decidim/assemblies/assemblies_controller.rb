@@ -5,14 +5,14 @@ module Decidim
     # A controller that holds the logic to show Assemblies in a
     # public layout.
     class AssembliesController < Decidim::ApplicationController
-      layout "layouts/decidim/assembly", only: [:show]
-
-      before_action -> { extend NeedsAssembly }, only: [:show]
+      include ParticipatorySpaceContext
+      participatory_space_layout only: :show
 
       helper Decidim::AttachmentsHelper
       helper Decidim::IconHelper
       helper Decidim::WidgetUrlsHelper
       helper Decidim::SanitizeHelper
+      helper Decidim::ResourceReferenceHelper
 
       helper_method :collection, :promoted_assemblies, :assemblies, :stats
 
@@ -22,11 +22,17 @@ module Decidim
         authorize! :read, Assembly
       end
 
-      def show
-        authorize! :read, current_assembly
-      end
+      def show; end
 
       private
+
+      def current_participatory_space
+        return unless params[:slug]
+
+        @current_participatory_space ||= OrganizationAssemblies.new(current_organization).query.where(slug: params[:slug]).or(
+          OrganizationAssemblies.new(current_organization).query.where(id: params[:slug])
+        ).first!
+      end
 
       def published_assemblies
         @published_assemblies ||= OrganizationPublishedAssemblies.new(current_organization)
@@ -43,7 +49,7 @@ module Decidim
       end
 
       def stats
-        @stats ||= AssemblyStatsPresenter.new(assembly: current_assembly)
+        @stats ||= AssemblyStatsPresenter.new(assembly: current_participatory_space)
       end
     end
   end

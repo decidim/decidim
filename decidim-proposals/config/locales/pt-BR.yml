@@ -10,7 +10,32 @@ pt-BR:
         user_group_id: Criar proposta como
       proposal_answer:
         answer: Responder
+      proposals_copy:
+        copy_proposals: Eu entendo que isso irá importar todas as propostas do componente selecionado para o atual e que esta ação não pode ser revertida.
+        origin_feature_id: Componente para copiar as propostas de
   decidim:
+    events:
+      proposals:
+        proposal_accepted:
+          email_intro: 'A proposta "%{resource_title}" foi aceita. Você pode ler a resposta nesta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
+          email_subject: Uma proposta que você está seguindo foi aceita
+          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi aceita.
+        proposal_created:
+          email_intro: "%{author_name} %{author_nickname}, quem você está seguindo, criou uma nova proposta, confira e contribui:"
+          email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Nova proposta por %{author_nickname}
+          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi criada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_evaluating:
+          email_intro: 'A proposta "%{resource_title}" está sendo avaliada atualmente. Você pode verificar uma resposta nesta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
+          email_subject: Uma proposta que você está seguindo está sendo avaliada
+          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> está sendo avaliada.
+        proposal_rejected:
+          email_intro: 'A proposta "%{resource_title}" foi rejeitada. Você pode ler a resposta nesta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Você pode ignorá-lo do link anterior.
+          email_subject: Uma proposta que você está seguindo foi rejeitada
+          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi rejeitada.
     features:
       proposals:
         actions:
@@ -41,7 +66,9 @@ pt-BR:
     proposals:
       actions:
         answer: Responda
+        import: Importar de outro componente
         new: Novo
+        private_notes: Notas privadas
         title: Ações
       admin:
         actions:
@@ -59,6 +86,12 @@ pt-BR:
             evaluating: Avaliando
             rejected: Rejeitado
             title: Resposta para a proposta %{title}
+        proposal_notes:
+          form:
+            note: Nota
+            submit: Enviar
+          leave_your_note: Deixe sua nota
+          title: Notas privadas
         proposals:
           answer:
             invalid: Tem havido um problema na resposta a esta proposta
@@ -74,26 +107,37 @@ pt-BR:
           new:
             create: Criar
             title: Criar proposta
+        proposals_imports:
+          create:
+            invalid: Tem havido um problema ao importar as propostas
+          new:
+            create: Propostas de importação
+            no_features: Não há outros recursos de proposta neste espaço participativo para importar as propostas.
+            select_feature: Selecione um componente
+            select_states: Verifique os estados das propostas para importar
+        shared:
+          info_proposal:
+            body: Corpo
+            created_at: Data de criação
+            proposal_votes_count: Contagem de votos
+            proposals: Propostas
       answers:
         accepted: Aceitaram
         evaluating: Avaliando
         not_answered: Não respondido
         rejected: Rejeitado
+        withdrawn: Retirado
       create:
         error: Ocorreu erros ao salvar a proposta.
         success: Proposta criada com sucesso.
-      events:
-        create_proposal_event:
-          email_intro: |-
-            Oi, %{author_name} %{author_nickname}, quem você está seguindo, criou uma nova proposta, confira e contribui:
-          email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}. Você pode parar de receber notificações após o link anterior.
-          email_subject: Nova proposta por %{author_nickname}
-          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi criada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         proposal:
           fields:
             category: Categoria
+            comments: Comentários
+            created_at: Criado em
             id: identidade
+            notes: Notas
             official_proposal: Proposta oficial
             scope: Âmbito
             state: Estado
@@ -136,6 +180,7 @@ pt-BR:
           unfold: Desdobrar
         index:
           new_proposal: Nova proposta
+          see_all_withdrawn: Veja todas as propostas retiradas
           view_proposal: Ver proposta
         linked_proposals:
           proposal_votes:
@@ -164,6 +209,9 @@ pt-BR:
           proposal_in_evaluation_reason: Esta proposta está sendo avaliada
           proposal_rejected_reason: 'Esta proposta foi rejeitada porque:'
           report: Relatório
+          withdraw_btn_hint: Você pode retirar sua proposta se mudar de idéia, desde que não tenha recebido nenhum suporte. A proposta não é excluída, ela aparecerá na lista de propostas retiradas.
+          withdraw_confirmation: Tem certeza de retirar essa proposta?
+          withdraw_proposal: Retirar proposta
         vote_button:
           already_voted: Já votou
           already_voted_hover: Unvote
@@ -189,6 +237,10 @@ pt-BR:
         error: Ocorreu erros ao salvar a proposta.
         success: Proposta atualizada com sucesso.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Propostas relacionadas
+      included_projects:
+        project_results: 'Resultados que aparecem neste projeto:'
       included_proposals:
         proposal_projects: 'Proposta que aparece nesses projetos:'
         proposal_results: 'Proposta que aparece nesses resultados:'

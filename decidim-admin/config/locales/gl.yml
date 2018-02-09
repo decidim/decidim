@@ -24,13 +24,24 @@ gl:
         cta_button_path: Camiño do botón de chamada a acción
         cta_button_text: Texto do botón de chamada a acción
         description: Descrición
+        enable_omnipresent_banner: Mostrar o banner omnipresente
         favicon: Ícona
         header_snippets: Fragmentos de cabeceira
+        highlighted_content_banner_action_subtitle: Subtítulo do botón de acción
+        highlighted_content_banner_action_title: Título do botón de acción
+        highlighted_content_banner_action_url: URL do botón de acción
+        highlighted_content_banner_enabled: Mostrar a bandeira de contido resaltada
+        highlighted_content_banner_image: Imaxe
+        highlighted_content_banner_short_description: Descrición curta
+        highlighted_content_banner_title: Título
         homepage_image: Imaxe da páxina de inicio
         logo: Logo
         official_img_footer: Footer do logotipo oficial
         official_img_header: Cabeceira do logotipo oficial
         official_url: URL da organización oficial
+        omnipresent_banner_short_description: Descrición curta
+        omnipresent_banner_title: Título
+        omnipresent_banner_url: URL
         show_statistics: Amosar estatísticas
         welcome_text: Texto de benvida
       scope:
@@ -197,6 +208,7 @@ gl:
         new:
           create: Crear
           new_managed_user: Novo usuario xestor
+          no_authorization_handlers: Non hai controladores de autorización dispoñibles para xestionar usuarios. Póñase en contacto co administrador do sistema.
           select_authorization_method: Seleccione un método de autorización
           step: Paso %{current} de %{total}
         promotion:
@@ -364,7 +376,9 @@ gl:
           cta_button_text_help: Pode sobrescribir o texto do botón de chamada a acción na páxina de inicio para cada idioma dispoñible na súa organización. Se non se establece, empregarase o valor predeterminado. O botón de chamada a acción amósase na páxina de inicio entre o texto de benvida ea descrición.
           header_snippets_help: Use este campo para engadir cousas ao título HTML. O uso máis común é integrar servizos de terceiros que requiren algún JavaScript ou CSS adicional. Ademais, podes usalo para engadir etiquetas metais extra ao HTML. Ten en conta que isto só se renderá en páxinas públicas, non na sección de administración.
           homepage_appearance_title: Editar o aspecto da páxina de inicio
+          homepage_highlighted_content_banner_title: Banner de contido de alto nivel
           layout_appearance_title: Editar aspecto de deseño
+          omnipresent_banner_appearance_title: Editar omnipresente
       scope_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de alcance.
@@ -408,7 +422,7 @@ gl:
           title: Editar páxina
           update: Actualización
         new:
-          create: Novo
+          create: Crear
           title: Nova páxina
         update:
           error: Produciuse un erro ao actualizar esta páxina.

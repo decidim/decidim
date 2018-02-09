@@ -26,6 +26,24 @@ module Decidim
       end
     end
 
+    describe "main_feature_url" do
+      it "resolves the root url for the feature" do
+        expect(helper.main_feature_url(feature)).to start_with("http://")
+        expect(helper.main_feature_url(feature)).to include("/processes/my-process/f/21/")
+      end
+
+      context "when a secondary locale is set" do
+        before do
+          params[:locale] = "ca"
+        end
+
+        it "adds the locale to the url" do
+          expect(helper.main_feature_url(feature)).to start_with("http://")
+          expect(helper.main_feature_url(feature)).to include("/processes/my-process/f/21/?locale=ca")
+        end
+      end
+    end
+
     describe "manage_feature_path" do
       it "resolves the admin root path for the feature" do
         expect(helper.manage_feature_path(feature))

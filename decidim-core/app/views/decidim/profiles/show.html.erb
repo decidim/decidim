@@ -13,18 +13,35 @@
             <strong><%= profile_user.name %></strong>
             <div class="user-nickname">
               <%= profile_user.nickname %>
-              <span class="user-contact_link">
-                <%= link_to_current_or_new_conversation_with(user) %>
-              </span>
+              <% if !current_user || (current_user && current_user != user) %>
+                <span class="user-contact_link">
+                  <%= link_to_current_or_new_conversation_with(user) %>
+                </span>
+              <% end %>
             </div>
 
-          <% if current_user && current_user != user %>
-            <%= render partial: "decidim/shared/follow_button", locals: { followable: user } %>
-          <% end %>
+            <% if current_user && current_user != user %>
+              <%= render partial: "decidim/shared/follow_button", locals: { followable: user } %>
+            <% end %>
           </h1>
+
         </div>
       </div>
     </div>
+
+    <% if profile_user.about.present? %>
+      <div class="row">
+        <strong><%= t(".about_me") %></strong>
+        <p><%= profile_user.about %></p>
+      </div>
+    <% end %>
+
+    <% if profile_user.personal_url.present? %>
+      <div class="row">
+        <strong><%= t(".personal_url") %></strong>
+        <p><%= link_to profile_user.personal_url, profile_user.personal_url %></p>
+      </div>
+    <% end %>
 
     <% if profile_user.officialized? %>
       <div class="row">

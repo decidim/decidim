@@ -17,6 +17,12 @@
         <%= link_to_current_or_new_conversation_with(@proposal.author) %>
       <% end %>
     </div>
+    <% if @proposal.withdrawable_by?(current_user) %>
+      <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), method: :put, class: "title-action__action button small hollow", title: t('.withdraw_btn_hint'), data: {confirm: t('.withdraw_confirmation')}  do %>
+        <%= t('.withdraw_proposal') %>
+        <%= icon "x" %>
+      <% end %>
+    <% end %>
   </div>
 </div>
 <div class="row">
@@ -37,7 +43,7 @@
         </div>
       </div>
     <% end %>
-    <%= feature_reference(@proposal) %>
+    <%= resource_reference(@proposal) %>
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>
   </div>
@@ -77,6 +83,7 @@
     <%= linked_resources_for @proposal, :results, "included_proposals" %>
     <%= linked_resources_for @proposal, :projects, "included_proposals" %>
     <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
+    <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
   </div>
 </div>
 <%= attachments_for @proposal %>

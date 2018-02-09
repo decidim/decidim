@@ -36,10 +36,11 @@ shared_examples "manage announcements" do
 
     it "customize an announcement for the current step and it has more priority" do
       visit edit_feature_path(current_feature)
+      step_id = current_feature.participatory_space.steps.first.id
 
       fill_in_i18n_editor(
-        :feature_step_settings_1_announcement,
-        "#step-1-settings-announcement-tabs",
+        :"feature_step_settings_#{step_id}_announcement",
+        "#step-#{step_id}-settings-announcement-tabs",
         en: "An announcement for this step",
         es: "Un aviso para esta fase",
         ca: "Un avís per a aquesta fase"

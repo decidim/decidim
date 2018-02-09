@@ -9,15 +9,45 @@ eu:
         proposal_ids: Topaketan sortutako proposamenak
       meeting:
         address: Helbidea
+        available_slots: Bilera honetarako zirrikitu erabilgarriak
         decidim_category_id: Kategoria
         decidim_scope_id: Esparrua
         description: Deskribapena
         end_time: Amaiera-ordua
         location: Kokapena
         location_hints: Kokapen-argibideak
+        registration_terms: Izen-emateak
+        registrations_enabled: Erregistroak gaituta
         start_time: Hasiera-ordua
         title: Titulua
   decidim:
+    events:
+      meetings:
+        meeting_closed:
+          email_intro: '"%{resource_title}" bilera itxita zegoen. Bere orriko ondorioak irakur ditzakezu:'
+          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: '"%{resource_title}" bilera itxita zegoen'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera itxita zegoen.
+        meeting_registrations_over_percentage:
+          email_intro: '"%{resource_title}" bilera okupatutako zirrikituak %{percentage} baino gehiagokoak dira.'
+          email_outro: Jakinarazpen hau jaso duzu bileraren parte hartzaileen gunea delako.
+          email_subject: '"%{resource_title}" bilera okupatutako zirrikituak %{percentage} baino gehiago dira.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilerako slot okupatuak %{percentage} baino gehiagokoak dira.
+        meeting_updated:
+          email_intro: '"%{resource_title}" bilera eguneratu da. Bertsio berria irakur dezakezu bere orritik:'
+          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: '"%{resource_title}" bilera eguneratu da'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera eguneratu da.
+        registrations_enabled:
+          email_intro: '"%{resource_title}" topaketak erregistroak gaitu ditu. Zeure burua erregistratu dezakezu bere orrialdean:'
+          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: '"%{resource_title}" topaketak erregistroak gaitu ditu.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera erregistratzeak gaitu du.
+        upcoming_meeting:
+          email_intro: '"%{resource_title}" topaketa 48 ordu baino gutxiagotan hasiko da.'
+          email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
+          email_subject: '"%{resource_title}" topaketa 48 ordu baino gutxiagotan hasiko da.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa 48 ordu baino gutxiagoan hasiko da.
     features:
       meetings:
         actions:
@@ -94,32 +124,6 @@ eu:
           update:
             invalid: Arazo bat izan da izen-ematearen konfigurazioa gordetzean.
             success: Topaketen izen-emateen konfigurazioak zuzen gorde dira.
-      events:
-        close_meeting_event:
-          email_intro: '%{resource_title}” bilera itxi da. Ondorioak orrian bertan irakur ditzakezu:'
-          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” bilera jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
-          email_subject: '%{resource_title}” bilera itxi da'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera itxi da.
-        meeting_registrations_enabled:
-          email_intro: '“%{resource_title}” bilerak izen-emateak aktibatu ditu. Izena eman dezakezu orrian bertan:'
-          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” topaketa jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
-          email_subject: '“%{resource_title}” topaketak izen-emateak aktibatu ditu.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketak izen-emateak aktibatu ditu.
-        meeting_registrations_over_percentage:
-          email_intro: '"%{resource_title}" (e)an beteta dauden izen-emateak honako hauek dira: %{percentage}%.'
-          email_outro: Jakinarazpen hau jaso duzu bileraren gune partizipatiboko administratzaile bat zarelako.
-          email_subject: '"%{resource_title}" (e)an beteta dauden izen-emateak honako hauek dira: %{percentage}%'
-          notification_title: '<a href="%{resource_path}">%{resource_title}</a>-ko izen-emateak honako hauek dira: %{percentage}%.'
-        upcoming_meeting_event:
-          email_intro: '"%{resource_title}" bilera 48 ordu baino lehenago hasiko da.'
-          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” bilera jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
-          email_subject: '"%{resource_title}" bilera 48 ordu baino lehenago hasiko da.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera 48 ordu baino lehenago hasiko da.
-        update_meeting_event:
-          email_intro: '"%{resource_title}" bilera eguneratua izan zen. Bertsio berria orrian bertan irakur dezakezu:'
-          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” bilera jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
-          email_subject: '"%{resource_title}" bilera eguneratua izan da'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> eguneratua izan da.
       mailer:
         invite_join_meeting_mailer:
           invite:

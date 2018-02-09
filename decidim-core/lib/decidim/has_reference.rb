@@ -9,7 +9,7 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      after_commit :store_reference
+      after_commit :store_reference, on: [:create, :update]
 
       validates :reference, presence: true, on: :update
 
@@ -20,12 +20,12 @@ module Decidim
       private
 
       # Public: Calculates a unique reference for the model using the function
-      # provided by configuration
+      # provided by configuration. Works for both feature resources and
+      # participatory spaces.
       #
       # Returns a String.
       def calculate_reference
-        return unless feature
-        Decidim.resource_reference_generator.call(self, feature)
+        Decidim.reference_generator.call(self, respond_to?(:feature) ? feature : nil)
       end
 
       # Internal: Sets the unique reference to the model. Note that if the resource

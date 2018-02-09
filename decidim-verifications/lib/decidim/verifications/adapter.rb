@@ -58,9 +58,7 @@ module Decidim
       # process. Otherwise it rises
       #
       def resume_authorization_path(redirect_url: nil)
-        if manifest.type == "direct"
-          raise InvalidDirectVerificationRoute.new(route: "edit_authorization_path")
-        end
+        raise InvalidDirectVerificationRoute.new(route: "edit_authorization_path") if manifest.type == "direct"
 
         main_engine.send(:edit_authorization_path, redirect_params(redirect_url: redirect_url))
       end
@@ -69,9 +67,7 @@ module Decidim
       # Administrational entry point for the verification engine
       #
       def admin_root_path
-        if manifest.type == "direct"
-          raise InvalidDirectVerificationRoute.new(route: "admin_route_path")
-        end
+        raise InvalidDirectVerificationRoute.new(route: "admin_route_path") if manifest.type == "direct"
 
         public_send(:"decidim_admin_#{name}").send(:root_path, redirect_params)
       end

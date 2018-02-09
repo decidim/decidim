@@ -2,18 +2,19 @@ fi:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: status
+        decidim_accountability_status_id: tila
         decidim_category_id: Aihepiiri
         decidim_scope_id: Konteksti
         description: Kuvaus
         end_date: Päättymisaika
         progress: Edistyminen
+        project_ids: Liitetyt projektit
         proposal_ids: Sisällytetyt ehdotukset
         start_date: Aloitusaika
         title: Otsikko
       status:
         description: Kuvaus
-        key: avain
+        key: Tunniste
         name: Nimi
         progress: Edistyminen
       timeline_entry:
@@ -27,7 +28,7 @@ fi:
         edit: Muokkaa
         new: Uusi %{name}
         preview: Esikatsele
-        timeline_entries: Projektin kehitys
+        timeline_entries: Projektin edistyminen
         title: Toiminnot
       admin:
         exports:
@@ -36,7 +37,7 @@ fi:
           result:
             name: Tulos
           status:
-            name: Status
+            name: Tila
           timeline_entry:
             name: Aikajanan merkintä
         results:
@@ -58,53 +59,53 @@ fi:
             success: Tulos päivitetty onnistuneesti
         shared:
           subnav:
-            statuses: tilat
+            statuses: Tilat
         statuses:
           create:
-            invalid: Ongelma tämän tilan luomisessa
-            success: Tila onnistuneesti luotu
+            invalid: Tilan luomisessa tapahtui virhe
+            success: Tila luotu onnistuneesti
           destroy:
-            success: Tilan poistaminen onnistui
+            success: Tilan poistettu onnistuneesti
           edit:
             title: Muokkaa tilaa
-            update: Päivitä status
+            update: Päivitä tila
           index:
-            title: tilat
+            title: Tilat
           new:
             create: Luo tila
             title: Uusi tila
           update:
-            invalid: On ollut ongelma tämän tilan päivittämisessä
+            invalid: Tilan päivittämisessä tapahtui virhe
             success: Tilan päivitys onnistui
         timeline_entries:
           create:
-            invalid: On tullut ongelma tämän merkinnän luomisesta
-            success: Entry onnistuneesti luotu
+            invalid: Merkinnän luomisessa tapahtui virhe
+            success: Merkintä luotu onnistuneesti
           destroy:
-            success: Merkintä poistettiin onnistuneesti
+            success: Merkintä poistettu onnistuneesti
           edit:
             title: Muokkaa merkintää
             update: Päivitä merkintä
           index:
-            title: Projekti aikajanalla merkinnät
+            title: Projektin aikajanan merkinnät
           new:
             create: Luo merkintä
             title: Uusi merkintä
           update:
-            invalid: On tapahtunut ongelma, joka päivitti tämän merkinnän
-            success: Ilmoituksen päivitys onnistui
+            invalid: Merkinnän päivityksessä tapahtui virhe
+            success: Merkinnän päivitys onnistui
       models:
         result:
           fields:
             end_date: Päättymisaika
             progress: Edistyminen
             start_date: Aloitusaika
-            status: Status
+            status: Tila
             title: Otsikko
         status:
           fields:
             description: Kuvaus
-            key: avain
+            key: Tunniste
             name: Nimi
             progress: Edistyminen
         timeline_entry:
@@ -118,15 +119,14 @@ fi:
             other: "%{count} tulosta"
         filters:
           all: Kaikki
-          global: maailmanlaajuinen
           scopes: Konteksti
         home:
           categories_label: Aihepiirit
-          subcategories_label: alaluokat
+          subcategories_label: Ala-aihepiiri
         home_header:
-          global_status: Globaalin toteutuksen tila
+          global_status: Yleisen toteutuksen tila
         nav_breadcrumb:
-          global: Maailmanlaajuinen toteutus
+          global: Yleinen toteutus
         search:
           search: Hae toimintoja
         show:
@@ -134,26 +134,26 @@ fi:
             attendees: Osallistujat
             back_to_result: Palaa tulokseen
             comments: Kommentit
-            contributions: Kontribuutiot
+            contributions: Osallistumiset
             last_edited_by: Viimeksi muokannut
             last_updated_at: Päivitetty viimeksi
             meetings: Tapaamiset
-            number_of_versions: versiot
+            number_of_versions: Versiot
             proposals: Ehdotukset
             show_all_versions: Näytä kaikki versiot
-            version_author: Versio kirjoittaja
-            version_created_at: Versio luotu osoitteessa
-            version_number: Versiomäärä
+            version_author: Versio luoja
+            version_created_at: Version luontihetki
+            version_number: Version numero
             version_number_out_of_total: "%{current_version} / %{total_count}"
             votes: Kannatukset
         timeline:
           title: Projektin kehitys
       versions:
         index:
-          changes_at_title: Muutokset osoitteessa "%{title}"
-          title: versiot
+          changes_at_title: Muutokset kohteessa "%{title}"
+          title: Versiot
         show:
-          changes_at_title: Muutokset osoitteessa "%{title}"
+          changes_at_title: Muutokset kohteessa "%{title}"
         version:
           version_index: Versio %{index}
     features:
@@ -161,14 +161,16 @@ fi:
         name: Tulokset
         settings:
           global:
-            categories_label: Nimi "Luokat"
+            categories_label: Nimi kohteelle "Luokat"
             comments_enabled: Kommentointi sallittu
-            heading_leaf_level_results: Nimi "Projektit"
-            heading_parent_level_results: Nimi "Tulokset"
-            intro: intro
-            subcategories_label: Nimi "Alaluokat"
+            heading_leaf_level_results: Nimi kohteelle "Projektit"
+            heading_parent_level_results: Nimi kohteelle "Tulokset"
+            intro: Esittelyteksti
+            subcategories_label: Nimi kohteelle "Ala-aihepiirit"
           step:
             comments_blocked: Kommentointi estetty
     resource_links:
+      included_projects:
+        result_projects: Tähän tulokseen liittyvät hankkeet
       included_proposals:
-        result_proposals: Projektit, jotka sisältyvät tähän tulokseen
+        result_proposals: Tähän tulokseen liittyvät ehdotukset

@@ -10,7 +10,20 @@ If you want to start your own installation of Decidim, you don't need to clone t
 
 ## Creating your Decidim app
 
-### Using Docker [experimental]
+### A. Using installation script [experimental]
+
+> *Please note that this is **experimental***
+
+We've made an script for Ubuntu 16.04 LTS and macos sierra 10.2. It's a BETA and as such you should be aware that this could break your environment (if you have any). It'll install rbenv, postgresql, nodejs and install decidim on this directory. It should take 15 minutes depending on your network connection.
+
+```
+wget http://get.decidim.org -O install_decidim.bash
+bash install_decidim.bash
+```
+
+Read more about the [installation script](https://github.com/alabs/decidim-install).
+
+### B. Using Docker [experimental]
 
 > *Please note that this is **experimental***
 
@@ -22,23 +35,25 @@ docker run --rm -v $(pwd):/tmp codegram/decidim bash -c "bundle exec decidim /tm
 
 This will create a `decidim_application` Ruby on Rails app using Decidim in the current folder. It will install the latest released version of the gem.
 
-### Step by step
+
+### C. Step by step
 
 First of all, you need to install the `decidim` gem:
 
 ```
-$ gem install decidim
+gem install decidim
 ```
 
-Afterwards, you can create an application with the nice `decidim` executable:
+afterwards, you can create an application with the nice `decidim` executable:
 
 ```
-$ decidim decidim_application
-$ cd decidim_application
-$ bundle install
+decidim decidim_application
+cd decidim_application
+bundle install
+rails server
 ```
 
-### Initializing your app for local development
+## Initializing your app for local development
 
 You should now setup your database:
 
@@ -52,12 +67,7 @@ This will also create some default data so you can start testing the app:
 * A `Decidim::Organization` named `Decidim Staging`. You probably want to change its name and hostname to match your needs.
 * A `Decidim::User` acting as an admin for the organization, with email `admin@example.org` and password `decidim123456`.
 * A `Decidim::User` that also belongs to the organization but it's a regular user, with email `user@example.org` and password `decidim123456`.
-
-This data won't be created in production environments, if you still want to do it, run:
-
-```
-$ SEED=true rails db:setup
-```
+This data won't be created in production environments, if you still want to do it, run: ``` $ SEED=true rails db:setup ```
 
 You can now start your server!
 
@@ -73,13 +83,11 @@ Decidim comes pre-configured with some safe defaults, but can be changed through
 
 We also have other guides on how to configure some extra features:
 
-- [Social providers integration](https://github.com/decidim/decidim/blob/master/docs/social_providers.md): Enable sign up from social networks.
-- [Analytics](https://github.com/decidim/decidim/blob/master/docs/analytics.md): How to enable analytics
-- [Geocoding](https://github.com/decidim/decidim/blob/master/docs/geocoding.md): How to enable geocoding for proposals and meetings
+- [Social providers integration](https://github.com/decidim/decidim/blob/master/docs/services/social_providers.md): Enable sign up from social networks.
+- [Analytics](https://github.com/decidim/decidim/blob/master/docs/services/analytics.md): How to enable analytics
+- [Geocoding](https://github.com/decidim/decidim/blob/master/docs/services/geocoding.md): How to enable geocoding for proposals and meetings
 
 ## Deploy
-
-Once you've generated the Decidim app you might need to do some changes in order to deploy it. You can check [`codegram/decidim-deploy-heroku`](https://github.com/codegram/decidim-deploy-heroku) for an opinionated example of things to do before deploying to Heroku, for example.
 
 Once you've successfully deployed your app to your favorite platform, you'll need to create your `System` user. First you'll need to create your `Decidim::System` user in your production Ruby on Rails console:
 
@@ -104,7 +112,7 @@ If you want, you can create seed data in production. Run this command in your pr
 $ SEED=true rails db:seed
 ```
 
-If you used Codegram's [`decidim-deploy-heroku`](https://github.com/codegram/decidim-deploy-heroku), then you're all set. Otherwise you'll need to login as system user and edit the host for the organization. Set it to you production host, without the protocol and the port (so if your host is `https://my.host:3001`, you need to write `my.host`).
+You'll need to login as system user and edit the host for the organization. Set it to you production host, without the protocol and the port (so if your host is `https://my.host:3001`, you need to write `my.host`).
 
 ## Keeping your app up-to-date
 

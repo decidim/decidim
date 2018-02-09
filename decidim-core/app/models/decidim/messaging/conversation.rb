@@ -26,6 +26,8 @@ module Decidim
         joins(:receipts).merge(Receipt.unread_by(user)).distinct
       }
 
+      default_scope { order(updated_at: :desc) }
+
       delegate :mark_as_read, to: :receipts
 
       #

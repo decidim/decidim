@@ -9,15 +9,45 @@ fi:
         proposal_ids: Ehdotusta luotu tapaamisessa
       meeting:
         address: Osoite
+        available_slots: Tämän tapahtuman vapaiden paikkojen määrä
         decidim_category_id: Aihepiiri
         decidim_scope_id: Konteksti
         description: Kuvaus
         end_time: Lopetusaika
         location: Paikka
         location_hints: Paikan tarkemmat tiedot
+        registration_terms: Ilmoittautumisehdot
+        registrations_enabled: Ilmoittautumiset ovat käytössä
         start_time: Aloitusaika
         title: Otsikko
   decidim:
+    events:
+      meetings:
+        meeting_closed:
+          email_intro: '"%{resource_title}" -kokous oli suljettu. Voit lukea johtopäätökset sivulta:'
+          email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
+          email_subject: '"%{resource_title}" -kokous oli suljettu'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous oli suljettu.
+        meeting_registrations_over_percentage:
+          email_intro: '"%{resource_title}" -kokouksen käyttämät lähtöajat ovat yli %{percentage}%.'
+          email_outro: Olet saanut tämän ilmoituksen, koska olet hallintasi kokouksen osallistumistilasta.
+          email_subject: '"%{resource_title}" -kokouksen käytössä olevat lähtöajat ovat yli %{percentage}%'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokouksessa käyttämät lähtöajat ovat yli %{percentage}%.
+        meeting_updated:
+          email_intro: '"%{resource_title}" -kokous päivitettiin. Voit lukea uuden version sivulta:'
+          email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
+          email_subject: '"%{resource_title}" -kokous päivitettiin'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous päivitettiin.
+        registrations_enabled:
+          email_intro: '"%{resource_title}" kokous on mahdollistanut rekisteröinnit. Voit rekisteröityä itsellesi sivuillasi:'
+          email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
+          email_subject: '"%{resource_title}" kokous on mahdollistanut rekisteröinnit.'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous on mahdollistanut rekisteröinnit.
+        upcoming_meeting:
+          email_intro: Kokous "%{resource_title}" alkaa alle 48 tunnissa.
+          email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
+          email_subject: Kokous "%{resource_title}" alkaa alle 48 tunnissa.
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous alkaa alle 48 tuntia.
     features:
       meetings:
         actions:
@@ -94,36 +124,10 @@ fi:
           update:
             invalid: Ilmoittautumisasetusten tallentamisessa on ollut ongelma.
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.
-      events:
-        close_meeting_event:
-          email_intro: '”%{resource_title}” tapahtuma oli suljettu. Voit lukea yhteenvedon sen sivulla:'
-          email_outro: Olet saanut ilmoituksen, koska seuraat tapahtumaa ”%{resource_title}”. Voit lopettaa seuraamisen edellisestä linkistä.
-          email_subject: '”%{resource_title}”-tapahtuma oli suljettu'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> -tapahtuma oli suljettu.
-        meeting_registrations_enabled:
-          email_intro: '”%{resource_title}” -tapahtuman ilmoittautumiset ovat sallittuja. Ilmoittaudu tapahtumaan sen sivulla:'
-          email_outro: Olet saanut ilmoituksen, koska seuraat tapahtumaa ”%{resource_title}”. Voit lopettaa seuraamisen edellisestä linkistä.
-          email_subject: '”%{resource_title}” -tapahtuman ilmoittautumiset on sallittu.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> -tapahtuman ilmoittautumiset on sallittu.
-        meeting_registrations_over_percentage:
-          email_intro: '”%{resource_title}” -tapahtuman varattuja paikkoja on yli %{percentage} prosenttia.'
-          email_outro: Olet saanut ilmoituksen, koska olet tapahtuman tapahtumatilan hallinnoija.
-          email_subject: '”%{resource_title}” -tapahtuman varattuja paikkoja on yli %{percentage} prosenttia'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> -tapahtuman varattuja paikkoja on yli %{percentage} prosenttia.
-        upcoming_meeting_event:
-          email_intro: '”%{resource_title}” -tapahtuma alkaa alle 48 tunnin kuluttua.'
-          email_outro: Olet saanut ilmoituksen, koska seuraat tapahtumaa ”%{resource_title}”. Voit lopettaa seuraamisen edellisestä linkistä.
-          email_subject: '”%{resource_title}” -tapahtuma alkaa alle 48 tunnin kuluttua.'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> -tapahtuma alkaa alle 48 tunnin kuluttua.
-        update_meeting_event:
-          email_intro: '”%{resource_title}” -tapahtumaa päivitettiin. Voit lukea uuden version tapahtuman sivulta:'
-          email_outro: Olet saanut ilmoituksen, koska seuraat tapahtumaa ”%{resource_title}”. Voit lopettaa seuraamisen edellisestä linkistä.
-          email_subject: '”%{resource_title}” -tapahtumaa päivitettiin'
-          notification_title: <a href="%{resource_path}">%{resource_title}</a> -tapahtumaa päivitettiin.
       mailer:
         invite_join_meeting_mailer:
           invite:
-            subject: Kutsu liittyä kokoukseen
+            subject: Kutsu tapaamiseen
         registration_mailer:
           confirmation:
             subject: Tapahtumailmoittautumisesi on vahvistettu
@@ -189,4 +193,4 @@ fi:
   devise:
     mailer:
       join_meeting:
-        subject: Kutsu liittyä kokoukseen
+        subject: Kutsu tapaamiseen

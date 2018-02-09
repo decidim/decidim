@@ -8,6 +8,7 @@ sv:
       user:
         email: Din email
         name: Ditt namn
+        nickname: Din korta, unika identifierare i decidim
         password: Nytt lösenord
         password_confirmation: Bekräfta ditt nya lösenord
         remove_avatar: Ta bort avatar
@@ -88,15 +89,15 @@ sv:
           email_already_exists: Ett annat konto använder samma e-postadress
         new:
           complete_profile: Komplett profil
-          nickname_help: Din unika identifierare i decidim.
+          nickname_help: Din korta, unika identifierare i decidim
           sign_up: Vänligen fyll i din profil
           subtitle: Vänligen fyll i följande formulär för att slutföra registreringen
           username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymitet kan det vara något namn.
       registrations:
         new:
           already_have_an_account?: Har du redan ett konto?
-          newsletter_notifications: Ta emot information om relevant aktivitet
-          nickname_help: Din unika identifierare i decidim.
+          newsletter: Få ett tillfälligt nyhetsbrev med relevant information
+          nickname_help: Din korta, unika identifierare i decidim
           sign_in: Logga in
           sign_up: Bli Medlem
           sign_up_as:
@@ -123,13 +124,35 @@ sv:
         content_doesnt_exist: Den här adressen är felaktig eller har tagits bort.
         title: Sidan du söker kan inte hittas
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'Ett nytt dokument har lagts till %{resource_title}. Du kan se den från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: En uppdatering till %{resource_title}
+          notification_title: Ett <a href="%{resource_path}"> nytt dokument</a> har lagts till <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Hej %{user_name},
         email_intro: 'Det har skett en uppdatering till "%{resource_title}". Du kan se den från den här sidan:'
         email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
         email_subject: En uppdatering till %{resource_title}
+      feature_published_event:
+        email_intro: 'Komponenten %{resource_title} är nu aktiv för %{participatory_space_title}. Du kan se den från den här sidan:'
+        email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+        email_subject: En uppdatering till %{participatory_space_title}
+        notification_title: Komponenten %{resource_title} är nu aktiv för <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: En händelse uppstod till <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_process_step_activated_event:
+        email_intro: '%{resource_title}-steget är nu aktivt för %{participatory_space_title}. Du kan se den från den här sidan:'
+        email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+        email_subject: En uppdatering till %{participatory_space_title}
+        notification_title: '%{resource_title}-steget är nu aktivt för <a href="%{resource_path}">%{participatory_space_title}</a>'
+      users:
+        profile_updated:
+          email_intro: <a href="%{resource_url}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
+          email_outro: Du har fått den här meddelandet eftersom du följer %{nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: "%{nickname} updated deras profile"
+          notification_title: <a href="%{resource_path}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
     export_mailer:
       export:
         ready: Vänligen se bifogad en zippad version av din export.
@@ -207,10 +230,19 @@ sv:
     newsletter_mailer:
       newsletter:
         note: Du har fått det här e-postmeddelandet eftersom du prenumererar på nyhetsbrev på %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">anmälningssidan</a>.
+        see_on_website: Kan du inte se det här e-postmeddelandet korrekt? Visa den på <a href="%{link}" target="_blank">webbplatsen</a>.
+        unsubscribe: För att välja bort den här typen av e-post, <a href="%{link}" target="_blank" class="unsubscribe">Unsubscribe</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Om du vill ändra dina inställningar kan du göra det på sidan <a href="%{link}" target="_blank">konfiguration</a>
+        error: Ett fel har avbrutits
+        success: Du är avstängd med framgång.
+        token_error: Länken har löpt ut.
+        unsubscribe: Säga upp
     notifications_settings:
       show:
         email_on_notification: Jag vill ta emot ett mail varje gång jag får ett meddelande.
-        newsletter_notifications: Jag vill få information om relevant verksamhet
+        newsletter_notifications: Jag vill få nyhetsbrev
         update_notifications_settings: Spara ändringar
       update:
         error: Det har uppstått ett fel vid uppdatering av dina anmälningsinställningar.
@@ -225,6 +257,9 @@ sv:
         title: Mer information
     profiles:
       default_officialization_text: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
+      show:
+        about_me: Om mig
+        personal_url: Personlig hemsida
     reported_mailer:
       hide:
         hello: Hej %{name},
@@ -257,6 +292,7 @@ sv:
         incomplete:
           cancel: Annullera
           explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", behöver vi dig att reauthorize eftersom vi saknar följande data:'
+          invalid_field: "%{field}"
           reauthorize: reauthorize
           title: Vänligen reauthorize
         missing:
@@ -269,7 +305,7 @@ sv:
           title: Godkännandet är fortfarande på gång
         unauthorized:
           explanation: Tyvärr, du kan inte utföra den här åtgärden eftersom vissa av dina auktoriseringsuppgifter inte matchar.
-          invalid: "%{field} är inte giltigt."
+          invalid_field: "%{field} värde %{value} är inte giltigt."
           ok: Ok
           title: Inte behörig
       author:
@@ -404,6 +440,7 @@ sv:
         participate: Delta
         welcome: Välkommen till %{organization}!
       statistics:
+        answers_count: Avslutade undersökningar
         assemblies_count: Assemblies
         comments_count: kommentarer
         headline: Aktuellt tillstånd %{organization}

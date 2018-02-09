@@ -41,6 +41,7 @@ module Decidim
             attending_organizations: form.attending_organizations,
             closed_at: form.closed_at
           )
+
           Decidim::EventsManager.publish(
             event: "decidim.events.meetings.meeting_closed",
             event_class: Decidim::Meetings::CloseMeetingEvent,

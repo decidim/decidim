@@ -4,13 +4,38 @@ fr:
       proposal:
         body: Corps du texte
         category_id: Catégorie
-        has_address: A une adresse
+        has_address: Renseignez une adresse
         scope_id: Zone d'application
         title: Titre
         user_group_id: Créer une proposition en tant que
       proposal_answer:
         answer: Répondre
+      proposals_copy:
+        copy_proposals: Je comprends que cela va importer toutes les propositions du composant sélectionné à l'actuel et que cette action ne peut pas être inversée.
+        origin_feature_id: Composant pour copier les propositions de
   decidim:
+    events:
+      proposals:
+        proposal_accepted:
+          email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse dans cette page:'
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez le retirer du lien précédent.
+          email_subject: Une proposition que vous suivez a été acceptée
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
+        proposal_created:
+          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a créé une nouvelle proposition, vérifiez-la et contribuez:"
+          email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Nouvelle proposition par %{author_nickname}
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_evaluating:
+          email_intro: 'La proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez vérifier une réponse dans cette page:'
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez le retirer du lien précédent.
+          email_subject: Une proposition que vous suivez est en cours d'évaluation
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
+        proposal_rejected:
+          email_intro: 'La proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse dans cette page:'
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez le retirer du lien précédent.
+          email_subject: Une proposition que vous suivez a été rejetée
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été rejetée.
     features:
       proposals:
         actions:
@@ -41,7 +66,9 @@ fr:
     proposals:
       actions:
         answer: Répondre
+        import: Importer depuis un autre composant
         new: Nouvelle
+        private_notes: Notes privées
         title: Actions
       admin:
         actions:
@@ -59,6 +86,12 @@ fr:
             evaluating: En cours d'évaluation
             rejected: Refusée
             title: Réponse à la proposition %{title}
+        proposal_notes:
+          form:
+            note: Remarque
+            submit: Soumettre
+          leave_your_note: Laissez votre note
+          title: Notes privées
         proposals:
           answer:
             invalid: Il y a eu un problème concernant la réponse à cette proposition
@@ -74,26 +107,37 @@ fr:
           new:
             create: Créer
             title: Créer une proposition
+        proposals_imports:
+          create:
+            invalid: Un problème est survenu lors de l'importation des propositions
+          new:
+            create: Importer des propositions
+            no_features: Il n'y a pas d'autres fonctionnalités de proposition dans cet espace participatif pour importer les propositions.
+            select_feature: Veuillez sélectionner un composant
+            select_states: Vérifiez les états des propositions à importer
+        shared:
+          info_proposal:
+            body: Corps
+            created_at: Date de création
+            proposal_votes_count: Les votes comptent
+            proposals: Les propositions
       answers:
         accepted: Retenue
         evaluating: En cours d'évaluation
         not_answered: Resté sans réponse
         rejected: Refusée
+        withdrawn: Retiré
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès.
-      events:
-        create_proposal_event:
-          email_intro: |-
-            Bonjour, %{author_name} %{author_nickname}, que vous suivez, a créé une nouvelle proposition. Prenez-en connaissance et contribuez :
-          email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
-          email_subject: Nouvelle proposition par %{author_nickname}
-          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         proposal:
           fields:
             category: Catégorie
+            comments: Commentaires
+            created_at: Créé à
             id: ID
+            notes: Remarques
             official_proposal: Proposition officielle
             scope: Zone d'application
             state: Etat
@@ -120,9 +164,9 @@ fr:
           all: Toutes
           category: Catégorie
           category_prompt: Sélectionner une catégorie
-          citizens: Citoyens
+          citizens: Propositions citoyennes
           evaluating: En cours d'évaluation
-          official: Elu-e-s
+          official: Propositions officielles
           origin: Auteurs
           rejected: Refusée
           related_to: Liée à
@@ -136,10 +180,11 @@ fr:
           unfold: Déplier
         index:
           new_proposal: Nouvelle proposition
+          see_all_withdrawn: Voir toutes les propositions retirées
           view_proposal: Voir la proposition
         linked_proposals:
           proposal_votes:
-            one: voter
+            one: vote
             other: votes
         new:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
@@ -164,6 +209,9 @@ fr:
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition a été refusée parce que:'
           report: Signaler
+          withdraw_btn_hint: Vous pouvez retirer votre proposition si vous changez d'avis, tant que vous n'avez reçu aucun support. La proposition n'est pas supprimée, elle apparaîtra dans la liste des propositions retirées.
+          withdraw_confirmation: Êtes-vous sûr de retirer cette proposition?
+          withdraw_proposal: Retirer la proposition
         vote_button:
           already_voted: Déjà voté
           already_voted_hover: Retirer le vote
@@ -189,6 +237,10 @@ fr:
         error: Des erreurs se sont produites lors de l'enregistrement de la proposition.
         success: Proposition mise à jour avec succès.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Propositions associées
+      included_projects:
+        project_results: 'Résultats apparaissant dans ce projet :'
       included_proposals:
         proposal_projects: 'Proposition figurant dans ces projets :'
         proposal_results: 'Proposition figurant dans ces résultats :'

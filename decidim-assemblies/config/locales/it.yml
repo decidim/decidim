@@ -59,9 +59,27 @@ it:
         destroy:
           error: Si è verificato un errore durante la pubblicazione di questo assembly.
           success: Assembly non pubblicato con successo.
+      assembly_user_roles:
+        create:
+          error: Si è verificato un errore durante l'aggiunta di un utente per questo assembly.
+          success: Utente creato con successo per questo assembly.
+        destroy:
+          success: Utente distrutto correttamente per questo assembly.
+        edit:
+          title: Aggiorna utente dell'assieme.
+          update: Aggiornare
+        index:
+          assembly_admins_title: Utenti dell'assemblaggio
+        new:
+          create: Creare
+          title: Nuovo utente dell'assemblaggio.
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di un utente per questo assieme.
+          success: Utente aggiornato correttamente per questo assembly.
       menu:
         assemblies: assemblee
         assemblies_submenu:
+          assembly_admins: Utenti dell'assemblaggio
           attachments: Allegati
           categories: Categorie
           features: Funzionalità (features)
@@ -75,6 +93,16 @@ it:
             published: Pubblicato
             title: Nome
           name: montaggio
+        assembly_user_role:
+          fields:
+            email: E-mail
+            name: Nome
+            role: Ruolo
+          name: Utente dell'Assemblea
+          roles:
+            admin: Amministratore
+            collaborator: Collaboratore
+            moderator: Moderatore
       titles:
         assemblies: assemblee
     assemblies:

@@ -24,13 +24,24 @@ es:
         cta_button_path: Ruta del botón de acción principal
         cta_button_text: Texto del botón de acción principal
         description: Descripción
+        enable_omnipresent_banner: Mostrar banner omnipresente
         favicon: Icono
         header_snippets: Snippets de encabezado
+        highlighted_content_banner_action_subtitle: Subtítulo del botón de acción
+        highlighted_content_banner_action_title: Título del botón de acción
+        highlighted_content_banner_action_url: URL del botón de acción
+        highlighted_content_banner_enabled: Mostrar el banner de contenido resaltado
+        highlighted_content_banner_image: Imagen
+        highlighted_content_banner_short_description: Breve descripción
+        highlighted_content_banner_title: Título
         homepage_image: Imagen de portada
         logo: Logotipo
         official_img_footer: Logotipo oficial de pie de página
         official_img_header: Logotipo oficial de cabecera
         official_url: URL oficial de la organización
+        omnipresent_banner_short_description: Breve descripción
+        omnipresent_banner_title: Título
+        omnipresent_banner_url: URL
         show_statistics: Mostrar estadísticas
         welcome_text: Texto de bienvenida
       scope:
@@ -197,6 +208,7 @@ es:
         new:
           create: Crear
           new_managed_user: Nuevo usuario gestionado
+          no_authorization_handlers: No hay autorizaciones disponibles para gestionar usuarios. Por favor, póngase en contacto con el administrador del sistema.
           select_authorization_method: Seleccione un método de autorización
           step: Fase %{current} de %{total}
         promotion:
@@ -214,7 +226,7 @@ es:
         dashboard: Panel de control
         managed_users: Usuarios gestionados
         newsletters: Boletines
-        officializations: Funcionalizaciones
+        officializations: Oficializaciones
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         settings: Configuración
@@ -318,11 +330,11 @@ es:
         create:
           success: Usuario oficializado con éxito
         destroy:
-          success: Usuario no oficializado con éxito
+          success: Usuario des-oficializado con éxito
         index:
-          actions: Comportamiento
+          actions: Acciones
           badge: Distintivo
-          created_at: Creado en
+          created_at: Creado el
           filter:
             all: Todas
             not_officialized: No oficializado
@@ -333,10 +345,10 @@ es:
           not_officialized: No oficializado
           officialize: Oficializar
           officialized: Oficializado
-          reofficialize: Reoficializar
+          reofficialize: Re-oficializar
           search: Buscar
           status: Estado
-          unofficialize: Desoficializar
+          unofficialize: Des-oficializar
         new:
           badge: Insignia de oficialización
           officialize: Oficializar
@@ -364,7 +376,9 @@ es:
           cta_button_text_help: Puedes sobrescribir el texto del botón de acción principal en la página de inicio para cada idioma disponible en tu organización. Si no está configurado, se usará el valor predeterminado. El botón de acción principal se muestra en la página de inicio entre el texto de bienvenida y la descripción.
           header_snippets_help: Utiliza este campo para agregar cosas a la cabecera HTML. El uso más común es integrar servicios de terceros que requieran JavaScript o CSS adicionales. Además, puedes usarlo para agregar etiquetas HTML adicionales. Ten en cuenta que esto sólo se mostrará en las páginas públicas, no en la sección de administración.
           homepage_appearance_title: Editar apariencia de página de inicio
+          homepage_highlighted_content_banner_title: Banner de contenido resaltado
           layout_appearance_title: Editar apariencia de diseño global
+          omnipresent_banner_appearance_title: Editar banner omnipresente
       scope_types:
         create:
           error: Se ha producido un error al crear un nuevo tipo de ámbito.
@@ -408,7 +422,7 @@ es:
           title: Editar página
           update: Actualizar
         new:
-          create: Nueva
+          create: Crear
           title: Nueva página
         update:
           error: Se ha producido un error en la actualización de ésta página.
@@ -418,7 +432,7 @@ es:
         dashboard: Panel de control
         impersonations: Suplantaciones
         managed_users: Usuarios gestionados
-        officializations: Funcionalizaciones
+        officializations: Oficializaciones
         scope_types: Tipos de ámbito
         scopes: Ámbitos
         static_pages: Páginas

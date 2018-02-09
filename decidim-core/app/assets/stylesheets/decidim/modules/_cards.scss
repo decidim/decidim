@@ -26,6 +26,14 @@ $datetime-bg: $primary;
   border: $card-border;
   border-radius: $card-border-radius;
   overflow: hidden;
+
+  @include modifiers(border-top-color, (muted: rgba($muted, .3))){
+    border-top-width: 8px;
+  }
+
+  &:hover{
+    @include modifiers(border-color, (muted: rgba($muted, .3)));
+  }
 }
 
 .card--nomargin{
@@ -45,6 +53,10 @@ $datetime-bg: $primary;
   }
 }
 
+.card__content--center{
+  text-align: center;
+}
+
 .card__extra{
   background: $card-secondary-bg;
   padding: $card-padding-small;
@@ -52,6 +64,11 @@ $datetime-bg: $primary;
 
 .card__title{
   @extend .heading5;
+}
+
+.card__title--strong{
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .card__header{
@@ -136,6 +153,10 @@ $datetime-bg: $primary;
   .card__content{
     display: flex;
   }
+}
+
+.card__footer--transparent{
+  background: transparent;
 }
 
 .card__footer--data{
@@ -289,6 +310,10 @@ $datetime-bg: $primary;
 .card__link{
   color: inherit;
 
+  @include breakpoint(small only){
+    word-break: break-all;
+  }
+
   &:hover{
     color: $anchor-color;
   }
@@ -397,6 +422,15 @@ $datetime-bg: $primary;
     .icon{
       fill: $anchor-color;
     }
+  }
+}
+
+.card--list__data__icon--lg{
+  @extend .card--list__data__icon;
+
+  .icon{
+    width: 36px;
+    height: 36px;
   }
 }
 
@@ -568,5 +602,27 @@ $datetime-bg: $primary;
 
   .card--process__small{
     margin-top: auto;
+  }
+}
+
+// card status
+.card__status{
+  .card-data__item{
+    flex-basis: initial;
+    padding: 1em .5em;
+
+    &:empty{
+      border-right: 0;
+
+      & + .card-data__item:not(:empty){
+        border-left: $border;
+      }
+    }
+  }
+
+  .card-status__text{
+    font-weight: bold;
+
+    @include modifiers(color, (muted: $muted));
   }
 }

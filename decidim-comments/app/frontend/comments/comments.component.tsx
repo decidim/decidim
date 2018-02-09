@@ -37,9 +37,9 @@ export class Comments extends React.Component<CommentsProps> {
   };
 
   public render() {
-    const { commentable: { comments }, reorderComments, orderBy, loading } = this.props;
+    const { commentable: { comments, totalCommentsCount }, reorderComments, orderBy, loading } = this.props;
     let commentClasses = "comments";
-    let commentHeader = I18n.t("components.comments.title", { count: comments.length });
+    let commentHeader = I18n.t("components.comments.title", { count: totalCommentsCount });
 
     if (loading) {
       commentClasses += " loading-comments";

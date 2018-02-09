@@ -41,55 +41,32 @@ Project management [[See on Waffle.io]](https://waffle.io/decidim/decidim)
 
 * [Get started with Decidim](#getting-started-with-decidim)
 * [Contribute to the project](#how-to-contribute)
-* [Decidim components](#officially-supported-libraries)
-* [How to test Decidim engines](docs/testing.md)
+* [Modules](#modules)
 * [Create & browse development app](#browse-decidim)
-* [Technical tradeoffs](#technical-tradeoffs)
 
 ---
 
 ## Getting started with Decidim
 
+TLDR: install gem, generate a Ruby on Rails app, enjoy.
+
+```
+gem install decidim
+decidim decidim_application
+```
+
 We've set up a guide on how to install, set up and upgrade Decidim. See the [Getting started guide](https://github.com/decidim/decidim/blob/master/docs/getting_started.md).
 
 ## How to contribute
 
-### As a Translator
+See [Contributing](CONTRIBUTING.md).
 
-Decidim is already translated on multiple languages (English, Spanish, Catalan, Basque, Galician, Italian, Finnish, Dutch, French, Portuguese (and Brazilian Portuguese), Swedish, Russian and Ukrainian). You can help us at [Crowdin, the translation service](https://crowdin.com/project/decidim), reviewing these translations or proposing a new language to add to the platform.
 
-### As a Developer
+### Browse Decidim
 
-In order to develop on decidim, you'll need:
+After you create a development app (`bundle exec decidim decidim_application`):
 
-* **Git** 2.15+
-* **PostgreSQL** 9.4+
-* **Ruby** 2.4.1
-* **NodeJS** 9.x.x (with `yarn` as a package manager)
-* **ImageMagick**
-* **Chrome** browser and [chromedriver](https://sites.google.com/a/chromium.org/chromedriver/).
-
-The easiest way to work on decidim is to clone decidim's repository and install its dependencies
-
-```bash
-git clone git@github.com:decidim/decidim.git
-cd decidim
-bundle install
-yarn install
-```
-
-You have several rake tasks available:
-
-* `bundle exec rake development_app`: Creates a development app which you can use to run an application with the gems in your path.
-* `bundle exec rake test_app`: Generates a dummy application to be used for testing.
-* `bundle exec rake test_all`: Runs the tests of every engine using the dummy
-  application
-
-#### Browse Decidim
-
-After you create a development app (`bundle exec rake development_app`):
-
-* `cd development_app`
+* `cd decidim_application`
 * `bundle exec rails s`
 * Go to 'http://localhost:3000'
 
@@ -97,48 +74,58 @@ Optionally, you can log in as: user@example.org | decidim123456
 
 Also, if you want to verify yourself against the default authorization handler use a document number ended with "X".
 
-#### Browse Admin Interface
+### Browse Admin Interface
 
-After you create a development app (`bundle exec rake development_app`):
+After you create a development app (`bundle exec rake decidim_application`):
 
-* `cd development_app`
+* `cd decidim_application`
 * `bundle exec rails s`
 * Go to 'http://localhost:3000/admin'
 * Login data: admin@example.org | decidim123456
 
-## Officially supported libraries
+## Modules
 
-| Library        | Description           |
-| ------------- |-------------|
-| [Admin](https://github.com/decidim/decidim/tree/master/decidim-admin)      | This library adds an administration dashboard so users can manage their organization and all other entities. |
-| [API](https://github.com/decidim/decidim/tree/master/decidim-api)      | This library exposes a GraphQL API to programatically interact with the Decidim platform via HTTP      |
-| [Assemblies](https://github.com/decidim/decidim/tree/master/decidim-assemblies) | Permanent participatory spaces. Currently in beta as an optional feature, can be included by explicitly adding `decidim-assemblies` to the Gemfile. |
-| [Budgets](https://github.com/decidim/decidim/tree/master/decidim-budgets) | Adds a participatory budgets system to any participatory space. |
-| [Comments](https://github.com/decidim/decidim/tree/master/decidim-comments) | The Comments module adds the ability to include comments to any resource which can be commentable by users.      |
-| [Core](https://github.com/decidim/decidim/tree/master/decidim-core) | The basics of Decidim: users, organizations, etc. This is the only required engine to run Decidim, all the others are optional. |
-| [Participatory Processes](https://github.com/decidim/decidim/tree/master/decidim-participatory_processes) | The main concept of a Decidim installation: participatory processes. |
-| [Dev](https://github.com/decidim/decidim/tree/master/decidim-dev) | This gem aids the local development of Decidim's features. |
-| [Meeting](https://github.com/decidim/decidim/tree/master/decidim-meetings) | The Meeting module adds meeting to any participatory space. It adds a CRUD engine to the admin and public view scoped inside the participatory space. |
-| [Pages](https://github.com/decidim/decidim/tree/master/decidim-pages) | The Pages module adds static page capabilities to any participatory space. It basically provides an interface to include arbitrary HTML content to any step. |
-| [Proposals](https://github.com/decidim/decidim/tree/master/decidim-proposals) | The Proposals module adds one of the main features of Decidim: allows users to contribute to a participatory space by creating proposals. |
-| [Accountability](https://github.com/decidim/decidim/tree/master/decidim-accountability) | Adds an accountability section to any participatory space so users can follow along the state of the accepted proposals. |
-| [Surveys](https://github.com/decidim/decidim/tree/master/decidim-surveys) | Adds the ability for admins to create arbitrary surveys. |
-| [System](https://github.com/decidim/decidim/tree/master/decidim-system) | Multitenant Admin to manage multiple organizations in a single installation |
+### Official (stable)
 
-## Technical tradeoffs
+| Module                                                                                                    | Description                                                                                                                                                  |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Accountability](https://github.com/decidim/decidim/tree/master/decidim-accountability)                   | Adds an accountability section to any participatory space so users can follow along the state of the accepted proposals.                                     |
+| [Admin](https://github.com/decidim/decidim/tree/master/decidim-admin)                                     | Adds an administration dashboard so users can manage their organization and all other entities.                                                              |
+| [API](https://github.com/decidim/decidim/tree/master/decidim-api)                                         | Exposes a GraphQL API to programatically interact with the Decidim platform via HTTP.                                                                        |
+| [Assemblies](https://github.com/decidim/decidim/tree/master/decidim-assemblies)                           | Permanent participatory spaces.                                                                                                                              |
+| [Budgets](https://github.com/decidim/decidim/tree/master/decidim-budgets)                                 | Adds a participatory budgets system to any participatory space.                                                                                              |
+| [Comments](https://github.com/decidim/decidim/tree/master/decidim-comments)                               | The Comments module adds the ability to include comments to any resource which can be commentable by users.                                                  |
+| [Core](https://github.com/decidim/decidim/tree/master/decidim-core)                                       | The basics of Decidim: users, organizations, etc. This is the only required engine to run Decidim, all the others are optional.                              |
+| [Participatory Processes](https://github.com/decidim/decidim/tree/master/decidim-participatory_processes) | The main concept of a Decidim installation: participatory processes.                                                                                         |
+| [Dev](https://github.com/decidim/decidim/tree/master/decidim-dev)                                         | Aids the local development of Decidim's features.                                                                                                            |
+| [Meeting](https://github.com/decidim/decidim/tree/master/decidim-meetings)                                | The Meeting module adds meeting to any participatory space. It adds a CRUD engine to the admin and public view scoped inside the participatory space.        |
+| [Pages](https://github.com/decidim/decidim/tree/master/decidim-pages)                                     | The Pages module adds static page capabilities to any participatory space. It basically provides an interface to include arbitrary HTML content to any step. |
+| [Proposals](https://github.com/decidim/decidim/tree/master/decidim-proposals)                             | The Proposals module adds one of the main features of Decidim: allows users to contribute to a participatory space by creating proposals.                    |
+| [Surveys](https://github.com/decidim/decidim/tree/master/decidim-surveys)                                 | Adds the ability for admins to create arbitrary surveys.                                                                                                     |
+| [System](https://github.com/decidim/decidim/tree/master/decidim-system)                                   | Multitenant Admin to manage multiple organizations in a single installation.                                                                                 |
 
-### Architecture
+### Official (on development)
 
-This is not your typical Ruby on Rails Vanilla App. We've tried using [Consul](http://decide.es) but we found some problems on reutilization, adaptation, modularization and configuration. You can read more about that on "[Propuesta de Cambios de Arquitectura de Consul](https://www.gitbook.com/book/alabs/propuesta-de-cambios-en-la-arquitectura-de-consul/details)".
+| Module                                                                                                    | Description                                                                                                                                                  |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Blogs](https://github.com/decidim/decidim-module-blogs)                                                  |  This component makes possible to add posts ordered by publication time to spaces.                                                                           |
+| [Consultations](https://github.com/decidim/decidim-module-consultations)                                  |  This module creates a new space for decidim to host consultations: debates around critical questions and a proxy for eVoting                                |
+| [Initiatives](https://github.com/decidim/decidim-initiatives)                                             | Initiatives is the place on Decidim's where citizens can promote a civic initiative. Unlike participatory processes that must be created by an administrator, Civic initiatives can be created by any user of the platform.                                                                                             |
+| [Sortitions](https://github.com/decidim/decidim-module-sortitions)                                        |  This component makes possible to select randomly a number of proposals among a set of proposals (or a category of proposals within a set) maximizing guarantees of randomness and avoiding manipulation of results by the administrator.                                                                                               |
 
-### Turbolinks
+### Community
 
-Decidim doesn't support `turbolinks` so it isn't included on our generated apps and it's removed for existing Rails applications which install the Decidim engine.
-
-The main reason is we are injecting some scripts into the body for some individual pages and Turbolinks loads the scripts in parallel. For some libraries like [leaflet](http://leafletjs.com/) it's very inconvenient because its plugins extend an existing global object.
-
-The support of Turbolinks was dropped in [d8c7d9f](https://github.com/decidim/decidim/commit/d8c7d9f63e4d75307e8f7a0360bef977fab209b6). If you're interested in bringing turbolinks back, further discussion is welcome.
-
+| Module                                                                                                    | Description                                                                                                                                                  |
+| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Census](https://github.com/diputacioBCN/decidim-diba/tree/master/decidim-census)                         | Allows to upload a census CSV file to perform authorizations against real users parameterised by their age.                                                  |
+| [Crowdfunding](https://github.com/podemos-info/decidim-module-crowdfundings)                              | This rails engine implements a Decidim feature that allows to the administrators to configure crowfunding campaigns for a participatory space.               |
+| [DataViz](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/tree/master/decidim-dataviz)         | The Dataviz module adds the PAM data visualizations to any participatory process but it is intended to be used just for the PAM participatory process.       |
+| [Members](https://github.com/ElectricThings/decidim-members)                                              | Members list and search plugin for Decidim                                                                                                                   |
+| [Pol.is](https://github.com/OpenSourcePolitics/decidim-polis)                                             | Pol.is integration on Decidim                                                                                                                                |
+| [User Export](https://github.com/OpenSourcePolitics/decidim-user-export)                                  | Allow user export                                                                                                                                            |
+| [Verification DIBA Census API](https://github.com/diputacioBCN/decidim-diba/tree/master/decidim-diba_census_api)                                     | A decidim package to provice user authorizations agains the Diputació of Barcelona census API                     |
+| [Verification Podemos Census API](https://github.com/podemos-info/decidim-module-census_connector)        | A decidim package to provice user authorizations against the Podemos census API                                                                              |
+| [Votings](https://github.com/podemos-info/decidim-module-votings)                                         | An administrator can add one or more votings to a participatory process or assambly                                                                          |
 ## Following our license
 
 If you plan to release your application you'll need to publish it using the same license: GPL Affero 3. We recommend doing that on GitHub before publishing, you can read more on "[Being Open Source From Day One is Especially Important for Government Projects](http://producingoss.com/en/governments-and-open-source.html#starting-open-for-govs)". If you have any trouble you can contact us on [Gitter](https://gitter.im/decidim/decidim).

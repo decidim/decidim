@@ -4,6 +4,17 @@ fr:
       admin:
         exports:
           dummies: Nuls
+    participatory_processes:
+      statistics:
+        dummies_count_high: Dummies haute
+        dummies_count_medium: Dummies moyen
     resource_links:
       test_link:
         dummy_resource_dummy: Référence factice concernée
+  pages:
+    home:
+      statistics:
+        bar: Machin
+        dummies_count_high: Dummies haute
+        dummies_count_medium: Dummies moyen
+        foo: Truc

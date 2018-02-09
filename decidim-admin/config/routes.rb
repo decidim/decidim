@@ -7,7 +7,7 @@ Decidim::Admin::Engine.routes.draw do
     end
 
     Decidim.participatory_space_manifests.each do |manifest|
-      mount manifest.admin_engine, at: "/", as: "decidim_admin_#{manifest.name}"
+      mount manifest.context(:admin).engine, at: "/", as: "decidim_admin_#{manifest.name}"
     end
 
     resources :static_pages

@@ -3,24 +3,23 @@
 module Decidim
   class NewsletterMailer < ApplicationMailer
     helper Decidim::SanitizeHelper
+    include Decidim::NewslettersHelper
+
     add_template_helper Decidim::TranslationsHelper
 
     def newsletter(user, newsletter)
       @organization = user.organization
       @newsletter = newsletter
+      @user = user
 
+      @custom_url_for_mail_root = custom_url_for_mail_root(@organization, @newsletter.id) if Decidim.config.track_newsletter_links
+      @encrypted_token = Decidim::NewsletterEncryptor.sent_at_encrypted(@user.id, @newsletter.sent_at)
       with_user(user) do
-        @subject = parse_interpolations(@newsletter.subject[I18n.locale.to_s], user)
-        @body = parse_interpolations(@newsletter.body[I18n.locale.to_s], user)
+        @subject = parse_interpolations(@newsletter.subject[I18n.locale.to_s], user, @newsletter.id)
+        @body = parse_interpolations(@newsletter.body[I18n.locale.to_s], user, @newsletter.id)
 
         mail(to: "#{user.name} <#{user.email}>", subject: @subject)
       end
-    end
-
-    private
-
-    def parse_interpolations(content, user)
-      content.gsub("%{name}", user.name)
     end
   end
 end

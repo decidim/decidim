@@ -3,8 +3,9 @@
 module Decidim
   module Admin
     # Controller that allows managing newsletters.
-    #
     class NewslettersController < Decidim::Admin::ApplicationController
+      include Decidim::NewslettersHelper
+
       def index
         authorize! :index, Newsletter
         @newsletters = collection.order(Newsletter.arel_table[:created_at].desc)
@@ -27,7 +28,6 @@ module Decidim
 
         email = NewsletterMailer.newsletter(current_user, @newsletter)
         Premailer::Rails::Hook.perform(email)
-
         render html: email.html_part.body.decoded.html_safe
       end
 
