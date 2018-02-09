@@ -11,6 +11,7 @@ pl:
   decidim:
     budgets:
       actions:
+        attachment_collections: Kolekcje
         attachments: Załączniki
         confirm_destroy: Czy na pewno chcesz usunąć ten projekt?
         destroy: Kasować
