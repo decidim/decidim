@@ -61,6 +61,8 @@ fr:
         participatory_process_groups: Groupes de processus participatifs
         participatory_processes: Processus participatifs
         participatory_processes_submenu:
+          attachment_collections: Collections
+          attachment_files: Des dossiers
           attachments: Documents liés
           categories: Catégories
           features: Fonctions
