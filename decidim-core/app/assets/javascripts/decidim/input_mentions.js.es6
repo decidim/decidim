@@ -23,9 +23,10 @@ $(() => {
   });
 
   function bhRegex(q, sync) {
-    // maybe you pull out a certain substring from `q` before passing
-    // it to #search
-    charRegex.test(q) ? bh.search(q, sync) : sync([]);
+    // @mention match regex
+    const mentionRegex = new RegExp('[@]+[A-Za-z0-9_]+','gim');
+    let _matches = mentionRegex.exec(q);
+    mentionRegex.test(q) ? bh.search(_matches[0].substring(1), sync) : sync([]);
   }
 
   $mentionContainer.typeahead({
@@ -47,9 +48,6 @@ $(() => {
       let tmp = me.typeahead('val');
       me.typeahead('open'); // Deletes tag
       me.typeahead('val', tmp);
-
-      // set previous text
-      // $(e.target).val(e.target.value);
     }
   });
 
