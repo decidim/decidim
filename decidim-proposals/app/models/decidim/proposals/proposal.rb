@@ -117,6 +117,15 @@ module Decidim
         votes.count >= maximum_votes
       end
 
+      def can_accumulate_more_than_maximum
+        feature.settings.can_accumulate_more_than_maximum
+      end
+
+      def can_accumulate_more_than_maximum?
+        return false unless can_accumulate_more_than_maximum
+        true
+      end
+
       # Checks whether the user can edit the given proposal.
       #
       # user - the user to check for authorship

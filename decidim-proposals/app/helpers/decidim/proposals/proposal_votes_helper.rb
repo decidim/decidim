@@ -54,6 +54,13 @@ module Decidim
         feature_settings.maximum_votes_per_proposal
       end
 
+      # Public: Checks if can accumulate more than maxium is enabled
+      #
+      # Returns true if enabled, false otherwise.
+      def can_accumulate_more_than_maximum?
+        feature_settings.can_accumulate_more_than_maximum
+      end
+
       # Public: Checks if voting is enabled in this step.
       #
       # Returns true if enabled, false otherwise.
