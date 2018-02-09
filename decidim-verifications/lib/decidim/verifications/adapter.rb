@@ -47,9 +47,9 @@ module Decidim
       #
       def root_path(redirect_url: nil)
         if manifest.type == "direct"
-          decidim_verifications.new_authorization_path(handler: name, redirect_url: redirect_url)
+          decidim_verifications.new_authorization_path(redirect_params(handler: name, redirect_url: redirect_url))
         else
-          main_engine.send(:root_path, redirect_url: redirect_url)
+          main_engine.send(:root_path, redirect_params(redirect_url: redirect_url))
         end
       end
 
@@ -58,22 +58,32 @@ module Decidim
       # process. Otherwise it rises
       #
       def resume_authorization_path(redirect_url: nil)
-        if manifest.type == "direct"
-          raise InvalidDirectVerificationRoute.new(route: "edit_authorization_path")
-        end
+        raise InvalidDirectVerificationRoute.new(route: "edit_authorization_path") if manifest.type == "direct"
 
-        main_engine.send(:edit_authorization_path, redirect_url: redirect_url)
+        main_engine.send(:edit_authorization_path, redirect_params(redirect_url: redirect_url))
       end
 
       #
       # Administrational entry point for the verification engine
       #
       def admin_root_path
-        if manifest.type == "direct"
-          raise InvalidDirectVerificationRoute.new(route: "admin_route_path")
-        end
+        raise InvalidDirectVerificationRoute.new(route: "admin_route_path") if manifest.type == "direct"
 
-        public_send(:"decidim_admin_#{name}").send(:root_path)
+        public_send(:"decidim_admin_#{name}").send(:root_path, redirect_params)
+      end
+
+      #
+      # Authorize user to perform an action using the authorization handler action authorizer.
+      # Saves the action_authorizer object with its context for subsequent methods calls.
+      #
+      # authorization - The existing authorization record to be evaluated. Can be nil.
+      # options       - A hash with options related only to the current authorization process.
+      #
+      # Returns the result of authorization handler check. Check Decidim::Verifications::DefaultActionAuthorizer class docs.
+      #
+      def authorize(authorization, options)
+        @action_authorizer = @manifest.action_authorizer_class.new(authorization, options)
+        @action_authorizer.authorize
       end
 
       private
@@ -82,6 +92,11 @@ module Decidim
 
       def main_engine
         send("decidim_#{manifest.name}")
+      end
+
+      def redirect_params(params = {})
+        # Could add redirect params if a ActionAuthorizer object was previously set.
+        params.merge(@action_authorizer&.redirect_params || {})
       end
     end
   end

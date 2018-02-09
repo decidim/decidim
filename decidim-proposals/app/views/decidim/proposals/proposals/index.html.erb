@@ -34,7 +34,7 @@
       <%= render partial: "count" %>
     </h2>
     <% if current_settings.creation_enabled %>
-      <%= action_authorized_link_to :create, new_proposal_path, class: "title-action__action button small hollow" do %>
+      <%= action_authorized_link_to :create, new_proposal_path, class: "title-action__action button small hollow", data: { "redirect_url" => new_proposal_path } do %>
         <%= t(".new_proposal") %>
         <%= icon "plus" %>
       <% end %>
@@ -57,6 +57,10 @@
     <%= render partial: "proposals" %>
   </div>
 </div>
-
+<div class="row">
+<div class="text-right">
+  <%= link_to t('.see_all_withdrawn'), proposals_path('filter[state]' => 'withdrawn') %>
+</div>
+</div>
 <%= javascript_include_tag("decidim/filters") %>
 <%= javascript_include_tag "decidim/orders" %>

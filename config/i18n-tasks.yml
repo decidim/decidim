@@ -85,6 +85,10 @@ search:
 # Do not consider these keys missing:
 ignore_missing:
   - '{devise,components}.*'
+  - email_subject
+  - email_intro
+  - email_outro
+  - notification_title
 
 # Consider these keys used:
 ignore_unused:
@@ -111,6 +115,8 @@ ignore_unused:
   - decidim.features.accountability.name
   - decidim.features.accountability.settings.*
   - decidim.accountability.models.project.valid_statuses.*
+  - decidim.debates.debates.filters.*
+  - decidim.events.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

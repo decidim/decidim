@@ -20,7 +20,9 @@ module Decidim
     let(:ok?) { false }
     let(:code) { :missing }
     let(:handler_name) { "foo_authorization" }
-    let(:data) { { fields: %w(foo bar) } }
+    let(:data) { { action: data_action, fields: data_fields } }
+    let(:data_action) { :authorize }
+    let(:data_fields) { nil }
 
     before do
       allow(helper).to receive(:current_user).and_return(user)
@@ -36,13 +38,30 @@ module Decidim
           expect(helper).to receive(:authorize_action_path).with("foo").and_return "authorization_route"
           rendered = helper.action_authorization_modal("foo")
           expect(rendered).to include("missing-authorization")
+          expect(rendered).not_to include("expired-authorization")
           expect(rendered).not_to include("incomplete-authorization")
-          expect(rendered).not_to include("invalid-authorization")
+          expect(rendered).not_to include("unauthorized-authorization")
+        end
+      end
+
+      context "when expired" do
+        let(:code) { :expired }
+        let(:ok?) { false }
+
+        it "renders a modal with the expired information" do
+          expect(helper).to receive(:authorize_action_path).with("foo").and_return "authorization_route"
+          rendered = helper.action_authorization_modal("foo")
+          expect(rendered).to include("expired-authorization")
+          expect(rendered).not_to include("missing-authorization")
+          expect(rendered).not_to include("incomplete-authorization")
+          expect(rendered).not_to include("unauthorized-authorization")
         end
       end
 
       context "when incomplete" do
         let(:code) { :incomplete }
+        let(:data_action) { :reauthorize }
+        let(:data_fields) { %w(foo bar) }
         let(:ok?) { false }
 
         it "renders a modal with the missing information" do
@@ -50,25 +69,29 @@ module Decidim
           rendered = helper.action_authorization_modal("foo")
           expect(rendered.downcase).to include("reauthorize")
           expect(rendered).to include("incomplete-authorization")
+          expect(rendered).not_to include("expired-authorization")
           expect(rendered).not_to include("missing-authorization")
-          expect(rendered).not_to include("invalid-authorization")
+          expect(rendered).not_to include("unauthorized-authorization")
         end
       end
 
-      context "when invalid" do
-        let(:code) { :invalid }
+      context "when unauthorized" do
+        let(:code) { :unauthorized }
+        let(:data_action) { nil }
+        let(:data_fields) { %w(foo bar) }
         let(:ok?) { false }
 
-        it "renders a modal with the invalid information" do
+        it "renders a modal with the unauthorized information" do
           rendered = helper.action_authorization_modal("foo")
-          expect(rendered).to include("invalid-authorization")
+          expect(rendered).to include("unauthorized-authorization")
+          expect(rendered).not_to include("expired-authorization")
           expect(rendered).not_to include("missing-authorization")
           expect(rendered).not_to include("incomplete-authorization")
         end
       end
 
       context "when ok" do
-        let(:code) { :authorized }
+        let(:code) { :ok }
         let(:ok?) { true }
 
         it "renders blank" do
@@ -79,12 +102,12 @@ module Decidim
 
     describe "action_authorized_link_to" do
       context "when the action is authorized" do
-        let(:code) { :authorized }
+        let(:code) { :ok }
         let(:ok?) { true }
 
         it "renders a regular link" do
           rendered = helper.action_authorized_link_to("foo", "Link", "fake_path")
-          expect(rendered).not_to include("data-toggle")
+          expect(rendered).not_to include("data-open")
           expect(rendered).to include("<a")
           expect(rendered).to include("Link")
         end
@@ -92,7 +115,7 @@ module Decidim
         it "renders with a block" do
           rendered = helper.action_authorized_link_to("foo", "fake_path") { "Link" }
 
-          expect(rendered).not_to include("data-toggle")
+          expect(rendered).not_to include("data-open")
           expect(rendered).to include("<a")
           expect(rendered).to include("Link")
         end
@@ -105,7 +128,7 @@ module Decidim
         it "renders a link toggling the modal" do
           rendered = helper.action_authorized_link_to("foo", "Link", "fake_path")
           expect(rendered).not_to include("fake_path")
-          expect(rendered).to include('data-toggle="fooAuthorizationModal"')
+          expect(rendered).to include('data-open="fooAuthorizationModal"')
           expect(rendered).to include("<a")
         end
       end
@@ -113,12 +136,12 @@ module Decidim
 
     describe "action_authorized_button_to" do
       context "when the action is authorized" do
-        let(:code) { :authorized }
+        let(:code) { :ok }
         let(:ok?) { true }
 
         it "renders a regular button" do
           rendered = helper.action_authorized_button_to("foo", "Link", "fake_path")
-          expect(rendered).not_to include("data-toggle")
+          expect(rendered).not_to include("data-open")
           expect(rendered).to include("<input")
           expect(rendered).to include("type=\"submit\"")
           expect(rendered).to include("Link")
@@ -127,7 +150,7 @@ module Decidim
         it "renders with a block" do
           rendered = helper.action_authorized_button_to("foo", "fake_path") { "Link" }
 
-          expect(rendered).not_to include("data-toggle")
+          expect(rendered).not_to include("data-open")
           expect(rendered).to include("<button")
           expect(rendered).to include("type=\"submit\"")
           expect(rendered).to include("Link")
@@ -143,7 +166,7 @@ module Decidim
           expect(rendered).to include("<input")
           expect(rendered).to include("type=\"submit\"")
           expect(rendered).not_to include("fake_path")
-          expect(rendered).to include('data-toggle="fooAuthorizationModal"')
+          expect(rendered).to include('data-open="fooAuthorizationModal"')
         end
       end
     end

@@ -6,11 +6,8 @@
 - Fixes #?
 
 #### :clipboard: Subtasks
-- [x] Subtask 1
-- [ ] Subtask 2
+- [x] Add `CHANGELOG` entry
+- [ ] Another subtask
 
 ### :camera: Screenshots (optional)
 ![Description](URL)
-
-#### :ghost: GIF
-![]()

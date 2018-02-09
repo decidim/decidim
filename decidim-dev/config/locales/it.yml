@@ -4,6 +4,17 @@ it:
       admin:
         exports:
           dummies: Risorse Fittizie
+    participatory_processes:
+      statistics:
+        dummies_count_high: Manichini in alto
+        dummies_count_medium: Manichino medio
     resource_links:
       test_link:
         dummy_resource_dummy: Risorse fittizie correlate
+  pages:
+    home:
+      statistics:
+        bar: Bar
+        dummies_count_high: Manichini in alto
+        dummies_count_medium: Manichino medio
+        foo: foo

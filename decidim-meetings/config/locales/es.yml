@@ -10,20 +10,50 @@ es:
         proposal_ids: Propuestas creadas en el encuentro
       meeting:
         address: Dirección
+        available_slots: Espacios disponibles para este encuentro
         decidim_category_id: Categoría
         decidim_scope_id: Ámbito
         description: Descripción
         end_time: Hora de finalización
         location: Ubicación
         location_hints: Pistas de ubicación
+        registration_terms: Términos y condiciones de inscripción
+        registrations_enabled: Inscripciones abiertas
         start_time: Hora de inicio
         title: Título
   decidim:
+    events:
+      meetings:
+        meeting_closed:
+          email_intro: 'Se ha cerrado la reunión "%{resource_title}". Puedes leer las conclusiones en su página:'
+          email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+          email_subject: Se ha cerrado el encuentro "%{resource_title}"
+          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
+        meeting_registrations_over_percentage:
+          email_intro: Las inscripciones ocupadas en "%{resource_title}" son %{percentage}%.
+          email_outro: Has recibido esta notificación porque eres es un administrador del espacio participativo de la reunión.
+          email_subject: Las inscripciones en "%{resource_title}" están por encima del %{percentage}%
+          notification_title: Las inscripciones de <a href="%{resource_path}">%{resource_title}</a> están por encima del %{percentage}%.
+        meeting_updated:
+          email_intro: 'Se ha cerrado el encuentro "%{resource_title}". Puedes leer las conclusiones en su página:'
+          email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+          email_subject: Se ha actualizado el encuentro "%{resource_title}"
+          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha sido actualizado.
+        registrations_enabled:
+          email_intro: 'El encuentro "%{resource_title}" ha ha abierto las inscripciones. Puedes inscribirte en su página:'
+          email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+          email_subject: El encuentro "%{resource_title}" ha abierto las inscripciones.
+          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha abierto las inscripciones.
+        upcoming_meeting:
+          email_intro: El encuentro "%{resource_title}" comenzará en menos de 48 h.
+          email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
+          email_subject: El encuentro "%{resource_title}" comenzará en menos de 48 h.
+          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48 h.
     features:
       meetings:
         actions:
           join: Unirse
-        name: Lista de encuentros
+        name: Encuentros
         settings:
           global:
             announcement: Aviso
@@ -73,7 +103,7 @@ es:
           edit:
             update: Actualizar
           index:
-            title: Lista de encuentros
+            title: Encuentros
           new:
             create: Crear
             title: Crear encuentro
@@ -95,32 +125,6 @@ es:
           update:
             invalid: Se ha producido un problema al guardar la configuración de la inscripción.
             success: Se han guardado correctamente las configuraciones de inscripciones de encuentros.
-      events:
-        close_meeting_event:
-          email_intro: 'Se ha cerrado la reunión "%{resource_title}". Puedes leer las conclusiones en su página:'
-          email_outro: Has recibido esta notificación porque sigues la reunión "%{resource_title}". Puedes dejar de seguirla en el enlace anterior.
-          email_subject: Se ha cerrado la reunión "%{resource_title}"
-          notification_title: La reunión <a href="%{resource_path}">%{resource_title}</a> ha sido cerrada.
-        meeting_registrations_enabled:
-          email_intro: 'La reunión "%{resource_title}" ha ha activado inscripciones. Puedes inscribirte en su página:'
-          email_outro: Ha recibido esta notificación porque usted sigue el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
-          email_subject: El encuentro "%{resource_title}" ha activado inscripciones.
-          notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> ha activado inscripciones.
-        meeting_registrations_over_percentage:
-          email_intro: Las inscripciones ocupadas en "%{resource_title}" son %{percentage}%.
-          email_outro: Has recibido esta notificación porque eres es un administrador del espacio participativo de la reunión.
-          email_subject: Las inscripciones ocupadas de "%{resource_title}" son %{percentage}%
-          notification_title: Las inscripciones ocupadas de <a href="%{resource_path}">%{resource_title}</a> son %{percentage}%.
-        upcoming_meeting_event:
-          email_intro: La reunión "%{resource_title}" se iniciará en menos de 48h.
-          email_outro: Has recibido esta notificación porque sigues la reunión "%{resource_title}". Puedes dejar de seguirla en el enlace anterior.
-          email_subject: La reunión "%{resource_title}" comenzará en menos de 48h.
-          notification_title: La reunión de <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48h.
-        update_meeting_event:
-          email_intro: 'La reunión "%{resource_title}" fue actualizada. Puedes leer la nueva versión en su página:'
-          email_outro: Has recibido esta notificación porque sigues la reunión "%{resource_title}". Puedes dejar de seguirla en el enlace anterior.
-          email_subject: La reunión "%{resource_title}" ha sido actualizada
-          notification_title: La reunión <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada.
       mailer:
         invite_join_meeting_mailer:
           invite:

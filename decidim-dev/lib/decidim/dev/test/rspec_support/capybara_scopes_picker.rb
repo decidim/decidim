@@ -97,5 +97,5 @@ module Capybara
 end
 
 RSpec.configure do |config|
-  config.include Capybara::ScopesPicker, type: :feature
+  config.include Capybara::ScopesPicker, type: :system
 end

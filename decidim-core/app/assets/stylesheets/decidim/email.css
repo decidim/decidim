@@ -783,6 +783,12 @@ th.float-center {
   float: none;
   text-align: center; }
 
+th.float-right {
+  margin: 0 auto;
+  Margin: 0 auto;
+  float: right;
+  text-align: center; }
+
 .hide-for-large {
   display: none !important;
   mso-hide: all;
@@ -1385,10 +1391,12 @@ table.body{
   margin-top: 16px;
 }
 
-.footnote {
+.footnote, .headnote {
   padding-top: 10px;
   color: #666;
+  font-size: 12px;
 }
+
 
 table.container.main {
   background: #fefefe;

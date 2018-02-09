@@ -157,7 +157,7 @@ en:
           success: Participatory process step updated successfully.
       participatory_process_user_roles:
         create:
-          error: There was an error adding an user for this participatory process.
+          error: There was an error adding a user for this participatory process.
           success: User created successfully for this participatory process.
         destroy:
           success: User destroyed successfully for this participatory process.
@@ -170,7 +170,7 @@ en:
           create: Create
           title: New participatory process user.
         update:
-          error: There was an error updated an user for this participatory process.
+          error: There was an error updated a user for this participatory process.
           success: User updated successfully for this participatory process.
       participatory_processes:
         create:

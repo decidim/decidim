@@ -24,6 +24,7 @@ module Decidim
     mount_uploader :official_img_footer, Decidim::OfficialImageFooterUploader
     mount_uploader :logo, Decidim::OrganizationLogoUploader
     mount_uploader :favicon, Decidim::OrganizationFaviconUploader
+    mount_uploader :highlighted_content_banner_image, ImageUploader
 
     # Returns top level scopes for this organization.
     #

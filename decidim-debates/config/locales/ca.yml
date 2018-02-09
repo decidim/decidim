@@ -1,0 +1,114 @@
+ca:
+  activemodel:
+    attributes:
+      debate:
+        category_id: Categoria
+        description: Descripció
+        end_time: Data de finalització
+        information_updates: Actualitzacions d'informació
+        instructions: Instruccions per participar
+        start_time: Data d'inici
+        title: Títol
+        user_group_id: Crea un debat com
+  decidim:
+    debates:
+      actions:
+        confirm_destroy: N'estàs segur?
+        destroy: Suprimeix
+        edit: Edita
+        new: Nou %{name}
+        title: Accions
+      admin:
+        debates:
+          create:
+            invalid: Hi ha hagut un problema en crear el debat.
+            success: Debat creat correctament.
+          destroy:
+            success: Debat suprimit correctament.
+          edit:
+            title: Editar debat
+            update: Actualitzar debat
+          index:
+            title: Debats
+          new:
+            create: Crea un debat
+            title: Nou debat
+          update:
+            invalid: Hi ha hagut un problema mentre s'actualitza aquest debat.
+            success: El debat s'ha actualitzat correctament.
+        models:
+          debate:
+            name: Debat
+      debates:
+        count:
+          debates_count:
+            one: "%{count} debat"
+            other: "%{count} debats"
+        create:
+          invalid: Hi ha hagut un problema en crear el debat.
+          success: Debat creat correctament.
+        debate:
+          comments:
+            one: Comentari
+            other: Comentaris
+          participate: Participa
+        filters:
+          all: Tots
+          category: Categoria
+          category_prompt: Selecciona una categoria
+          citizens: Ciutadania
+          official: Oficial
+          origin: Origen
+          search: Cerca
+        filters_small_view:
+          close_modal: Tancar finestra
+          filter: Filtra
+          filter_by: Filtra per
+          unfold: Desplega
+        index:
+          new_debate: Nou debat
+        new:
+          back: Enrere
+          create: Crear
+          select_a_category: Si us plau, selecciona una categoria
+          title: Nou debat
+        share:
+          close_window: Tanca la finestra
+          share: Compartir
+          share_link: Comparteix l'enllaç
+        show:
+          comments: Comentaris
+          report: Denuncia
+      models:
+        debate:
+          fields:
+            end_time: Data de finalització
+            official_debate: Debat oficial
+            start_time: Data d'inici
+            title: Títol
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_intro: |-
+              S'ha creat un nou debat a l'espai participatiu %{space_title}, fes-hi un cop d'ull i contribueix:
+            email_outro: Has rebut aquesta notificació perquè estàs seguint %{space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+            email_subject: Nou debat a %{space_title}
+            notification_title: El <a href="%{resource_path}">%{resource_title}</a> debat s'ha creat a <a href="%{space_path}">%{space_title}</a>.
+          user_followers:
+            email_intro: |-
+              %{author_name} %{author_nickname}, a qui segueixes, ha creat un nou debat. Revisa'l i contribueix:
+            email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+            email_subject: Nou debat d'en/na %{author_nickname}
+            notification_title: El <a href="%{resource_path}">%{resource_title}</a> debat ha estat creat per en/na <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+    features:
+      debates:
+        actions:
+          create: Crear
+        name: Debats
+        settings:
+          global:
+            comments_enabled: Comentaris habilitats
+          step:
+            comments_blocked: Comentaris bloquejats
+            creation_enabled: Habilitar la creació de debats pels usuaris

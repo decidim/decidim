@@ -15,7 +15,7 @@ module Decidim
         let(:password) { "password1234" }
         let(:password_confirmation) { password }
         let(:tos_agreement) { "1" }
-        let(:newsletter_notifications) { "1" }
+        let(:newsletter) { "1" }
 
         let(:user_group_name) { "My organization" }
         let(:user_group_document_number) { "123456789Z" }
@@ -31,7 +31,7 @@ module Decidim
               "password" => password,
               "password_confirmation" => password_confirmation,
               "tos_agreement" => tos_agreement,
-              "newsletter_notifications" => newsletter_notifications,
+              "newsletter" => newsletter,
               "user_group_name" => user_group_name,
               "user_group_document_number" => user_group_document_number,
               "user_group_phone" => user_group_phone
@@ -76,7 +76,8 @@ module Decidim
               password: form.password,
               password_confirmation: form.password_confirmation,
               tos_agreement: form.tos_agreement,
-              newsletter_notifications: form.newsletter_notifications,
+              newsletter_notifications: form.newsletter,
+              email_on_notification: true,
               organization: organization
             ).and_call_original
 

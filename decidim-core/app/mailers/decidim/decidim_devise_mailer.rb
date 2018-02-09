@@ -19,9 +19,7 @@ module Decidim
         @organization = user.organization
         @opts = opts
 
-        if opts[:invitation_instructions]
-          opts[:subject] = I18n.t("devise.mailer.#{opts[:invitation_instructions]}.subject", organization: user.organization.name)
-        end
+        opts[:subject] = I18n.t("devise.mailer.#{opts[:invitation_instructions]}.subject", organization: user.organization.name) if opts[:invitation_instructions]
       end
 
       devise_mail(user, opts[:invitation_instructions] || :invitation_instructions, opts)

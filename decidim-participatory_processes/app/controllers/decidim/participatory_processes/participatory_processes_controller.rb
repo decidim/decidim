@@ -5,9 +5,8 @@ module Decidim
     # A controller that holds the logic to show ParticipatoryProcesses in a
     # public layout.
     class ParticipatoryProcessesController < Decidim::ApplicationController
-      layout "layouts/decidim/participatory_process", only: [:show]
-
-      before_action -> { extend NeedsParticipatoryProcess }, only: [:show]
+      include ParticipatorySpaceContext
+      participatory_space_layout only: :show
 
       helper Decidim::AttachmentsHelper
       helper Decidim::IconHelper
@@ -25,11 +24,21 @@ module Decidim
         authorize! :read, ParticipatoryProcessGroup
       end
 
-      def show
-        authorize! :read, current_participatory_process
-      end
+      def show; end
 
       private
+
+      def organization_participatory_processes
+        @organization_participatory_processes ||= OrganizationParticipatoryProcesses.new(current_organization).query
+      end
+
+      def current_participatory_space
+        return unless params["slug"]
+
+        @current_participatory_space ||= organization_participatory_processes.where(slug: params["slug"]).or(
+          organization_participatory_processes.where(id: params["slug"])
+        ).first!
+      end
 
       def published_processes
         @published_processes ||= OrganizationPublishedParticipatoryProcesses.new(current_organization)
@@ -56,7 +65,7 @@ module Decidim
       end
 
       def stats
-        @stats ||= ParticipatoryProcessStatsPresenter.new(participatory_process: current_participatory_process)
+        @stats ||= ParticipatoryProcessStatsPresenter.new(participatory_process: current_participatory_space)
       end
 
       def filter

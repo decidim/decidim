@@ -6,6 +6,9 @@ module Decidim
       # Controller that allows managing participatory processes.
       #
       class ParticipatoryProcessesController < Decidim::Admin::ApplicationController
+        include Decidim::Admin::ParticipatorySpaceAdminContext
+        participatory_space_admin_layout only: [:edit]
+
         helper ProcessGroupsForSelectHelper
 
         helper_method :current_participatory_process, :current_participatory_space
@@ -93,12 +96,12 @@ module Decidim
         end
 
         def ability_context
-          super.merge(current_participatory_process: current_participatory_process)
+          super.merge(current_participatory_space: current_participatory_process)
         end
 
         def participatory_process_params
           {
-            id: params[:id],
+            id: params[:slug],
             hero_image: current_participatory_process.hero_image,
             banner_image: current_participatory_process.banner_image
           }.merge(params[:participatory_process].to_unsafe_h)

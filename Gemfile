@@ -6,9 +6,6 @@ ruby RUBY_VERSION
 
 gem "decidim", path: "."
 
-# Uncomment the following line if you want to use decidim-assemblies plugin
-# gem "decidim-assemblies", path: "."
-
 gem "puma", "~> 3.0"
 gem "uglifier", ">= 1.3.0"
 

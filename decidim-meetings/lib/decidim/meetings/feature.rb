@@ -87,7 +87,9 @@ Decidim.register_feature(:meetings) do |feature|
           nickname: Faker::Twitter.unique.screen_name,
           organization: feature.organization,
           tos_agreement: "1",
-          confirmed_at: Time.current
+          confirmed_at: Time.current,
+          personal_url: Faker::Internet.url,
+          about: Faker::Lorem.paragraph(2)
         )
 
         Decidim::Meetings::Registration.create!(

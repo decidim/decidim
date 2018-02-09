@@ -59,9 +59,27 @@ eu:
         destroy:
           error: Errorea gertatu da batzar hau desargitaratzean.
           success: Batzarra ongi desargitaratu da.
+      assembly_user_roles:
+        create:
+          error: Errore bat gertatu da muntaketa honen erabiltzaile bat gehitzean.
+          success: Sortu den erabiltzaileak behar bezala sortu du.
+        destroy:
+          success: Erabiltzailea behar bezala suntsitu da muntaia honetarako.
+        edit:
+          title: Eguneratu muntaia erabiltzailea.
+          update: eguneratzearen
+        index:
+          assembly_admins_title: Batzar erabiltzaileak
+        new:
+          create: Sortu
+          title: Erabiltzaile muntaia berria.
+        update:
+          error: Errore bat gertatu da muntaketa honetarako erabiltzailea.
+          success: Erabiltzaileari behar bezala eguneratu da muntaia honetarako.
       menu:
         assemblies: Biltzarrak
         assemblies_submenu:
+          assembly_admins: Batzar erabiltzaileak
           attachments: Eranskinak
           categories: Kategoriak
           features: Funtzionalitateak
@@ -75,6 +93,16 @@ eu:
             published: Argitaratua
             title: Prozesu partizipatiboen multzoak
           name: Batzarra
+        assembly_user_role:
+          fields:
+            email: Emaila
+            name: izena
+            role: Role
+          name: Batzar Erabiltzailea
+          roles:
+            admin: Administrator
+            collaborator: Kolaboratzaile
+            moderator: Moderatzaile
       titles:
         assemblies: Biltzarrak
     assemblies:

@@ -4,6 +4,17 @@ ru:
       admin:
         exports:
           dummies: Примеры сохранения
+    participatory_processes:
+      statistics:
+        dummies_count_high: Пример наибольшего количества
+        dummies_count_medium: Пример среднего количества
     resource_links:
       test_link:
         dummy_resource_dummy: Пример соотносящегося ресурса
+  pages:
+    home:
+      statistics:
+        bar: Пример переменной 1
+        dummies_count_high: Пример наибольшего количества
+        dummies_count_medium: Пример среднего количества
+        foo: Пример переменной 2

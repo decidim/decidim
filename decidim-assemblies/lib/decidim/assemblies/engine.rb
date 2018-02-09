@@ -45,6 +45,9 @@ module Decidim
         Decidim.configure do |config|
           config.abilities += [
             "Decidim::Assemblies::Abilities::EveryoneAbility",
+            "Decidim::Assemblies::Abilities::AssemblyAdminAbility",
+            "Decidim::Assemblies::Abilities::AssemblyCollaboratorAbility",
+            "Decidim::Assemblies::Abilities::AssemblyModeratorAbility",
             "Decidim::Assemblies::Abilities::AdminAbility"
           ]
         end

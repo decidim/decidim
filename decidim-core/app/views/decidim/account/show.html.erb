@@ -1,12 +1,15 @@
 <div class="row">
-  <%= decidim_form_for(@account, url: account_path, method: :put, class: "user-form") do |f| %>
+  <%= decidim_form_for(@account, url: account_path, method: :put, class: "user-form", autocomplete: "nope") do |f| %>
     <div class="columns large-4">
       <%= f.upload :avatar %>
     </div>
 
     <div class="columns large-8 end">
       <%= f.text_field :name %>
+      <%= f.text_field :nickname %>
       <%= f.email_field :email %>
+      <%= f.url_field :personal_url %>
+      <%= f.text_area :about, rows: 5 %>
 
       <% if @account.errors[:password].any? || @account.errors[:password_confirmation].any? %>
         <%= render partial: "password_fields", locals: { form: f } %>

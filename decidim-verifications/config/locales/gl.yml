@@ -55,6 +55,10 @@ gl:
           authorize_with: Verifica con %{authorizer}
         skip_verification: Podes ignorar isto por agora e %{link}
         start_exploring: comezar a explorar
+      dummy_authorization:
+        extra_explanation:
+          one: A participación está restrinxida aos usuarios co código postal %{postal_codes}.
+          other: 'A participación está restrinxida aos usuarios que conteñan algún dos seguintes códigos postais: %{postal_codes}.'
       id_documents:
         admin:
           confirmations:

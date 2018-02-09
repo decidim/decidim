@@ -62,11 +62,29 @@ fi:
       comment_thread:
         title: Keskustelu henkilön %{authorName} kanssa
       comments:
-        blocked_comments_warning: Kommentit on poistettu käytöstä tällä hetkellä, mutta voit lukea edelliset.
+        blocked_comments_warning: Kommentit on poistettu käytöstä tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
         loading: Ladataan kommentteja ...
         title: "%{count} kommenttia"
       featured_comment:
         title: Esille nostettu kommentti
+    events:
+      comments:
+        comment_created:
+          comment:
+            email_intro: '"%{resource_title}" on kommentoinut. Voit lukea kommentin tällä sivulla:'
+            email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}" tai sen kirjoittajaa. Voit purkaa sen edellisestä linkistä.
+            email_subject: 'Uusi kommentti %{author_name}: sta %{resource_title}: ssa'
+            notification_title: Uusi kommentti <a href="%{author_path}">%{author_name} %{author_nickname}</a> kohteessa <a href="%{resource_path}">%{resource_title}</a>
+          reply:
+            email_intro: Kommentoi "%{resource_title}"
+            email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}" tai sen kirjoittajaa. Voit purkaa sen edellisestä linkistä.
+            email_subject: 'Kommenttisi on uusi vastaus %{author_name}: sta <a href="%{resource_url}">%{resource_title}</a>'
+            notification_title: 'Kommenttisi on uusi vastaus <a href="%{author_path}">%{author_name} %{author_nickname}</a>: sta <a href="%{resource_path}">%{resource_title}</a>'
+        user_mentioned:
+          email_intro: Sinut on mainittu
+          email_outro: Olet saanut tämän ilmoituksen, koska sinut on mainittu kohdassa "%{resource_title}".
+          email_subject: Olet maininnut %{resource_title}
+          notification_title: Olet maininnut <a href="%{resource_path}">%{resource_title}</a> mennessä <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:
     messages:
       cannot_have_comments: ei voi sisältää kommentteja

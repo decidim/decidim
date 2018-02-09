@@ -6,69 +6,33 @@
               type="button">
         <span aria-hidden="true">&times;</span>
       </button>
-      <% if status.code == :pending %>
-        <div class="reveal__header pending-authorization">
-          <h3 class="reveal__title"><%= t('.pending.title') %></h3>
-        </div>
-        <p><%= t ".pending.explanation", authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers") %></p>
-        <div class="row">
-          <div class="columns medium-8 medium-offset-2">
-            <%= link_to t('.pending.resume', authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers")), authorize_action_path(action), class: "button expanded" %>
-          </div>
-        </div>
-      <% elsif status.code == :incomplete %>
-        <div class="reveal__header incomplete-authorization">
-          <h3 class="reveal__title"><%= t('.incomplete.title') %></h3>
-        </div>
-        <p><%= t ".incomplete.explanation", authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers") %></p>
-        <ul>
-          <% status.data[:fields].each do |field| %>
-            <li><strong><%= t("#{status.handler_name}.fields.#{field}", scope: "decidim.authorization_handlers") %></strong></li>
+      <div class="reveal__header <%= status.code %>-authorization">
+        <h3 class="reveal__title"><%= t ".#{status.code}.title" %></h3>
+      </div>
+      <p><%= t ".#{status.code}.explanation", authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers") %></p>
+      <% if status.data[:extra_explanation] %>
+      <p><%= t status.data[:extra_explanation][:key], **status.data[:extra_explanation][:params] %></p>
+      <% end %>
+      <% if status.data[:fields] %>
+      <ul>
+        <% status.data[:fields].each do |field, value| %>
+          <li><strong><%= t ".#{status.code}.invalid_field", field: t("#{status.handler_name}.fields.#{field}", scope: "decidim.authorization_handlers"), value: value ? "(#{value})" : "" %></strong></li>
+        <% end %>
+      </ul>
+      <% end %>
+      <div class="row">
+        <div class="columns medium-8 medium-offset-2">
+          <% if status.data[:action].present? %>
+            <%= link_to t(".#{status.code}.#{status.data[:action]}", authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers")), authorize_action_path(action), class: "button expanded" %>
+          <% else %>
+            <button class="button expanded" data-close><%= t ".#{status.code}.ok" %></button>
           <% end %>
-        </ul>
-        <div class="row">
-          <div class="columns medium-8 medium-offset-2">
-            <%= link_to t('.incomplete.reauthorize'), authorize_action_path(action), class: "button expanded" %>
-          </div>
         </div>
-        <div class="text-center">
-          <button class="link" data-close><%=t ".incomplete.cancel" %></button>
-        </div>
-      <% elsif status.code == :missing %>
-        <div class="reveal__header missing-authorization">
-          <h3 class="reveal__title"><%= t('.missing.title') %></h3>
-        </div>
-        <p><%= t ".missing.explanation", authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers") %></p>
-        <div class="row">
-          <div class="columns medium-8 medium-offset-2">
-            <%= link_to t('.missing.authorize', authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers")), authorize_action_path(action), class: "button expanded" %>
-          </div>
-        </div>
-      <% elsif status.code == :expired %>
-        <div class="reveal__header missing-authorization">
-          <h3 class="reveal__title"><%= t('.expired.title') %></h3>
-        </div>
-        <p><%= t ".expired.explanation", authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers") %></p>
-        <div class="row">
-          <div class="columns medium-8 medium-offset-2">
-            <%= link_to t('.expired.authorize', authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers")), authorize_action_path(action), class: "button expanded" %>
-          </div>
-        </div>
-      <% elsif status.code == :invalid %>
-        <div class="reveal__header invalid-authorization">
-          <h3 class="reveal__title"><%= t('.unauthorized.title') %></h3>
-        </div>
-        <p><%= t ".unauthorized.explanation", authorization: t("#{status.handler_name}.name", scope: "decidim.authorization_handlers") %></p>
-        <ul>
-          <% status.data[:fields].each do |field, value| %>
-            <li><strong><%= t(".unauthorized.invalid", field: t("#{status.handler_name}.fields.#{field}", scope: "decidim.authorization_handlers")) %></strong></li>
-          <% end %>
-        </ul>
-        <div class="row">
-          <div class="columns medium-8 medium-offset-2">
-            <button class="button expanded" data-close><%=t ".unauthorized.ok" %></button>
-          </div>
-        </div>
+      </div>
+      <% if status.data[:cancel] %>
+      <div class="text-center">
+        <button class="link" data-close><%= t ".#{status.code}.cancel" %></button>
+      </div>
       <% end %>
     </div>
   <% end %>

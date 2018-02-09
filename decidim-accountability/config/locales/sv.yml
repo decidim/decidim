@@ -8,6 +8,7 @@ sv:
         description: Beskrivning
         end_date: Slutdatum
         progress: Framsteg
+        project_ids: Inkluderade projekt
         proposal_ids: Ingår förslag
         start_date: Start datum
         title: Titel
@@ -118,7 +119,6 @@ sv:
             other: "%{count} resultat"
         filters:
           all: Allt
-          global: Global
           scopes: Scopes
         home:
           categories_label: kategorier
@@ -170,5 +170,7 @@ sv:
           step:
             comments_blocked: Kommentarer blockerad
     resource_links:
+      included_projects:
+        result_projects: Projekt som ingår i detta resultat
       included_proposals:
         result_proposals: Förslag som ingår i detta resultat

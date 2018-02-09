@@ -40,8 +40,12 @@ module Decidim
     def resource_icon(resource, options = {})
       if resource.respond_to?(:feature)
         feature_icon(resource.feature, options)
-      else
+      elsif resource.respond_to?(:manifest)
         manifest_icon(resource.manifest, options)
+      elsif resource.is_a?(Decidim::User)
+        icon "person", options
+      else
+        icon "bell", options
       end
     end
   end

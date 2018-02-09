@@ -25,13 +25,24 @@ en:
         cta_button_path: Call To Action button path
         cta_button_text: Call To Action button text
         description: Description
+        enable_omnipresent_banner: Show omnipresent banner
         favicon: Icon
         header_snippets: Header snippets
+        highlighted_content_banner_action_subtitle: Action button subtitle
+        highlighted_content_banner_action_title: Action button title
+        highlighted_content_banner_action_url: Action button URL
+        highlighted_content_banner_enabled: Show the highlighted content banner
+        highlighted_content_banner_image: Image
+        highlighted_content_banner_short_description: Short description
+        highlighted_content_banner_title: Title
         homepage_image: Homepage image
         logo: Logo
         official_img_footer: Official logo footer
         official_img_header: Official logo header
         official_url: Official organization URL
+        omnipresent_banner_short_description: Short description
+        omnipresent_banner_title: Title
+        omnipresent_banner_url: URL
         show_statistics: Show statistics
         welcome_text: Welcome text
       scope:
@@ -134,12 +145,6 @@ en:
       dashboard:
         show:
           welcome: Welcome to the Decidim Admin Panel.
-      events:
-        user_officialized_event:
-          email_intro: The <a href="%{profile_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
-          email_outro: You have received this notification because you are following %{nickname}. You can stop receiving notifications following the previous link.
-          email_subject: "%{nickname} updated their profile"
-          notification_title: The <a href="%{profile_path}">profile page</a> of %{name} (%{nickname}), who you are following, has been updated.
       exports:
         export_as: "%{name} as %{export_format}"
         notice: Your export is currently in progress. You'll receive an email when it's complete.
@@ -204,6 +209,7 @@ en:
         new:
           create: Create
           new_managed_user: New managed user
+          no_authorization_handlers: There are no available authorization handlers to manage users. Please contact your system administrator.
           select_authorization_method: Select an authorization method
           step: Step %{current} of %{total}
         promotion:
@@ -382,7 +388,9 @@ en:
           cta_button_text_help: You can overwrite the Call To Action button text in the homepage for each available language in your organization. If not set, the default value will be used. The Call To Action button is shown in the homepage between the welcome text and the description.
           header_snippets_help: Use this field to add things to the HTML head. The most common use is to integrate third-party services that require some extra JavaScript or CSS. Also, you can use it to add extra meta tags to the HTML. Note that this will only be rendered in public pages, not in the admin section.
           homepage_appearance_title: Edit homepage appearance
+          homepage_highlighted_content_banner_title: Highligted content banner
           layout_appearance_title: Edit layout appearance
+          omnipresent_banner_appearance_title: Edit omnipresent
       scope_types:
         create:
           error: There was an error creating a new scope type.
@@ -426,7 +434,7 @@ en:
           title: Edit page
           update: Update
         new:
-          create: New
+          create: Create
           title: New page
         update:
           error: There was an error when updating this page.

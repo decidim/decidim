@@ -2,13 +2,14 @@ version: '3'
 services:
   decidim:
     image: decidim/decidim:latest-dev
-    entrypoint: []
+    entrypoint: /usr/local/bin/entrypoint.sh
     command: decidim
     working_dir: "/code"
+    ports:
+      - "3000:3000"
     volumes:
       - .:/code
-      - bundle:/usr/local/bundle
-      - dummy_app:/code/spec/decidim_dummy_app
+      - gems:/gems:delegated
     environment:
       - DATABASE_HOST=pg
       - DATABASE_USERNAME=postgres
@@ -24,7 +25,6 @@ services:
     volumes:
       - redis-data:/data
 volumes:
-  dummy_app: {}
-  bundle: {}
+  gems: {}
   pg-data: {}
   redis-data: {}

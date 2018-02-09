@@ -10,11 +10,11 @@ Gem::Specification.new do |s|
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/decidim/decidim"
-  s.required_ruby_version = ">= 2.3.1"
+  s.required_ruby_version = ">= 2.3"
 
   s.name = "decidim-assemblies"
-  s.summary = "Assemblies plugin for decidim"
-  s.description = s.summary
+  s.summary = "Decidim assemblies module"
+  s.description = "Assemblies component for decidim."
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 

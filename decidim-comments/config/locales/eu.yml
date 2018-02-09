@@ -67,6 +67,24 @@ eu:
         title: "%{count} iruzkin"
       featured_comment:
         title: Iruzkin nabarmendua
+    events:
+      comments:
+        comment_created:
+          comment:
+            email_intro: '"%{resource_title}" iruzkindu da. Orri honetan iruzkina irakur dezakezu:'
+            email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zaren edo bere egileak direlako. Aurreko esteka estekan jarrai dezakezu.
+            email_subject: '%{author_name} helbidean %{resource_title} iruzkin berri bat dago'
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>-en iruzkin berri bat dago.
+          reply:
+            email_intro: '"%{resource_title}" iruzkindu da'
+            email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zaren edo bere egileak direlako. Aurreko esteka estekan jarrai dezakezu.
+            email_subject: Zure iruzkina erantzun berria da %{author_name} <a href="%{resource_url}">%{resource_title}</a>-n.
+            notification_title: Zure iruzkinaren erantzun berria dago <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>
+        user_mentioned:
+          email_intro: Esan zaizu
+          email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" aipatu duzulako.
+          email_subject: '%{resource_title} aipatu zaituzte'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> <a href="%{author_path}">%{author_name} %{author_nickname}</a> bidez aipatu zaituzte.
   errors:
     messages:
       cannot_have_comments: ezin zaio iruzkinik egin

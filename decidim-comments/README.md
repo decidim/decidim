@@ -71,6 +71,13 @@ yarn run graphql:generate_schema_types
 
 This command will create a file called `app/frontend/support/schema.ts` that can be used to strict type checking in our components.
 
+In order for this to work your Rails server must be running at `localhost:3000`, if you're using a different host you can set it with `DECIDIM_HOST`:
+
+
+```bash
+DECIDIM_HOST=myhost:3000 yarn run graphql:generate_schema_types
+```
+
 ## Contributing
 
 See [Decidim](https://github.com/decidim/decidim).

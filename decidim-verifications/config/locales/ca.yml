@@ -56,6 +56,10 @@ ca:
           authorize_with: Verifica amb %{authorizer}
         skip_verification: Pots ometre-ho per ara i %{link}
         start_exploring: comença a explorar
+      dummy_authorization:
+        extra_explanation:
+          one: La participació està restringida als usuaris amb el codi postal %{postal_codes}.
+          other: 'La participació està restringida als usuaris amb algun dels següents codis postals: %{postal_codes}.'
       id_documents:
         admin:
           confirmations:

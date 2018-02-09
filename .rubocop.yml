@@ -5,14 +5,13 @@ AllCops:
   Exclude:
     - '**/vendor/**/*'
     - 'development_app/**/*'
-    - 'docker_development_app/**/*'
     - 'spec/decidim_dummy_app/**/*'
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
   # by overriding DisplayCopNames, or by giving the -D/--display-cop-names
   # option.
-  DisplayCopNames: false
+  DisplayCopNames: true
   # Style guide URLs are not displayed in offense messages by default. Change
   # behavior by overriding DisplayStyleGuide, or by giving the
   # -S/--display-style-guide option.
@@ -56,7 +55,7 @@ AllCops:
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: 2.4
+  TargetRubyVersion: 2.3
 
 # Indent private/protected/public as deep as method definitions
 Layout/AccessModifierIndentation:
@@ -526,9 +525,6 @@ Style/HashSyntax:
   UseHashRocketsWithSymbolValues: false
   # Do not suggest { a?: 1 } over { :a? => 1 } in ruby19 style
   PreferHashRocketsForNonAlnumEndingSymbols: false
-
-Style/IfUnlessModifier:
-  MaxLineLength: 80
 
 Layout/IndentationConsistency:
   # The difference between `rails` and `normal` is that the `rails` style
@@ -1037,9 +1033,6 @@ Naming/VariableNumber:
     - normalcase
     - non_integer
 
-Style/WhileUntilModifier:
-  MaxLineLength: 80
-
 # WordArray enforces how array literals of word-like strings should be expressed.
 Style/WordArray:
   EnforcedStyle: percent
@@ -1098,6 +1091,8 @@ Metrics/MethodLength:
 Metrics/ParameterLists:
   Max: 5
   CountKeywordArgs: true
+  Exclude:
+    - 'decidim-core/lib/decidim/filter_form_builder.rb'
 
 Metrics/PerceivedComplexity:
   Max: 10
@@ -1278,6 +1273,7 @@ Metrics/BlockLength:
     - 'decidim-*/lib/**/*/feature.rb'
     - 'decidim-*/lib/**/*/participatory_space.rb'
     - '**/spec/**/*_spec.rb'
+    - '**/spec/shared/**.rb'
     - '**/spec/**/*_examples.rb'
     - '**/*.gemspec'
     - '**/abilities/**/*_ability.rb'
@@ -1295,9 +1291,15 @@ RSpec/ContextWording:
 
 RSpec/DescribeClass:
   Exclude:
+    - "**/*/spec/system/**/*" # TODO: Fixed in rubocop-rspec 1.22.0, remove when bumping to it
     - spec/i18n_spec.rb
     - spec/generator_spec.rb
     - decidim-comments/spec/bundle_spec.rb
+    - decidim-core/spec/lib/global_engines_spec.rb
+
+RSpec/EmptyExampleGroup:
+  Exclude:
+    - decidim-core/spec/lib/participatory_space_manifest_spec.rb
 
 RSpec/ExampleLength:
   Max: 49

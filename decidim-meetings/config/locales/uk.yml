@@ -96,32 +96,6 @@ uk:
           update:
             invalid: При спробі зберегти налаштування реєстрації виникла проблема.
             success: Налаштування реєстрації на зустріч успішно збережено.
-      events:
-        close_meeting_event:
-          email_intro: 'Зустріч "%{resource_title}" було завершено. Ви можете ознайомитися з підсумками на сторінці зустрічі:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
-          email_subject: Зустріч "%{resource_title}" було завершено
-          notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> було завершено.
-        meeting_registrations_enabled:
-          email_intro: 'Розпочалася реєстрація на зустріч "%{resource_title}". Ви можете зареєструватися на сторінці:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
-          email_subject: Розпочато реєстрацію на зустріч "%{resource_title}".
-          notification_title: Розпочато реєстрацію на зустріч <a href="%{resource_path}">%{resource_title}</a>.
-        meeting_registrations_over_percentage:
-          email_intro: На зустріч "%{resource_title}" зайнято більше %{percentage}% місць.
-          email_outro: Ви отримали це сповіщення, оскільки ви адміністратор простору співучасті зустрічі.
-          email_subject: На зустріч "%{resource_title}" зайнято більше %{percentage}% місць
-          notification_title: На зустріч <a href="%{resource_path}">%{resource_title}</a> зайнято більше %{percentage}% місць.
-        upcoming_meeting_event:
-          email_intro: Зустріч "%{resource_title}" розпочнеться менш ніж за 48 годин.
-          email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
-          email_subject: Зустріч "%{resource_title}" розпочнеться менш ніж за 48 годин.
-          notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> розпочнеться менш ніж за 48 годин.
-        update_meeting_event:
-          email_intro: 'Зустріч "%{resource_title}" було оновлено. Ви можете ознайомитися з новою редакцією на сторінці зустрічі:'
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
-          email_subject: Зустріч "%{resource_title}" було оновлено
-          notification_title: Зустріч <a href="%{resource_path}">%{resource_title}</a> було оновлено.
       mailer:
         invite_join_meeting_mailer:
           invite:

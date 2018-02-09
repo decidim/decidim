@@ -55,6 +55,10 @@ eu:
           authorize_with: Egiaztatu %{authorizer} rekin
         skip_verification: Hau saltatu dezakezu oraingoz eta %{link}
         start_exploring: Hasi esploratzen
+      dummy_authorization:
+        extra_explanation:
+          one: Partehartzea mugatua da %{postal_codes} kode postalarekin duten erabiltzaileentzat.
+          other: 'Parte-hartzea honako posta-kode hauetakoren bat duten erabiltzaileentzat mugatuta dago: %{postal_codes}.'
       id_documents:
         admin:
           confirmations:

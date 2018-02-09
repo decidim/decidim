@@ -8,6 +8,7 @@ nl:
         description: Beschrijving
         end_date: Einddatum
         progress: Vooruitgang
+        project_ids: Opgenomen projecten
         proposal_ids: Opgenomen voorstellen
         start_date: Begin datum
         title: Titel
@@ -118,7 +119,6 @@ nl:
             other: "%{count} resultaten"
         filters:
           all: Alle
-          global: Globaal
           scopes: scopes
         home:
           categories_label: Categorieën
@@ -170,5 +170,7 @@ nl:
           step:
             comments_blocked: Reacties geblokkeerd
     resource_links:
+      included_projects:
+        result_projects: Projecten opgenomen in dit resultaat
       included_proposals:
         result_proposals: Voorstellen opgenomen in dit resultaat

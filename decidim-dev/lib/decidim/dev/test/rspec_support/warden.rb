@@ -17,10 +17,10 @@ module Decidim
 end
 
 RSpec.configure do |config|
-  config.include Decidim::WardenTestHelpers, type: :feature
+  config.include Decidim::WardenTestHelpers, type: :system
   config.include Devise::Test::ControllerHelpers, type: :controller
 
-  config.after :each, type: :feature do
+  config.after :each, type: :system do
     Warden.test_reset!
   end
 end

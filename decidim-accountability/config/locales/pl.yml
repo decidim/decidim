@@ -8,6 +8,7 @@ pl:
         description: Opis
         end_date: Data zakończenia
         progress: Postęp
+        project_ids: Uwzględnione projekty
         proposal_ids: Zawarte propozycje
         start_date: Data rozpoczęcia
         title: Tytuł
@@ -119,7 +120,6 @@ pl:
             other: "%{count} wyników"
         filters:
           all: Wszystkie
-          global: Światowy
           scopes: Zakresy
         home:
           categories_label: Kategorie
@@ -171,5 +171,7 @@ pl:
           step:
             comments_blocked: Komentarze zablokowane
     resource_links:
+      included_projects:
+        result_projects: Projekty uwzględnione w tym wyniku
       included_proposals:
         result_proposals: Propozycje zawarte w tym wyniku

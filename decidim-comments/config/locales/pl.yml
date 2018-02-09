@@ -67,6 +67,24 @@ pl:
         title: "%{count} komentarzy"
       featured_comment:
         title: Wyróżniony komentarz
+    events:
+      comments:
+        comment_created:
+          comment:
+            email_intro: '"%{resource_title}" został skomentowany. Możesz przeczytać komentarz na tej stronie:'
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}" lub jego autora. Możesz przestać go obserwować z poprzedniego linku.
+            email_subject: Jest nowy komentarz od %{author_name} w %{resource_title}
+            notification_title: Jest nowy komentarz od <a href="%{author_path}">%{author_name} %{author_nickname}</a> w <a href="%{resource_path}">%{resource_title}</a>
+          reply:
+            email_intro: Komentarz "%{resource_title}" został skomentowany
+            email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}" lub jego autora. Możesz przestać go obserwować z poprzedniego linku.
+            email_subject: Nowa odpowiedź na Twój komentarz od %{author_name} w <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Pojawiła się nowa odpowiedź Twojego komentarza z <a href="%{author_path}">%{author_name} %{author_nickname}</a> w <a href="%{resource_path}">%{resource_title}</a>
+        user_mentioned:
+          email_intro: Zostałeś wspomniany
+          email_outro: Otrzymałeś to powiadomienie, ponieważ wspomniano Cię w "%{resource_title}".
+          email_subject: Wspomnieliś cie w %{resource_title}
+          notification_title: Wspomniałeś w <a href="%{resource_path}">%{resource_title}</a> przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:
     messages:
       cannot_have_comments: Nie może mieć komentarzy

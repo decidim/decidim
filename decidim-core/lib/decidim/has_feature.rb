@@ -11,6 +11,7 @@ module Decidim
     included do
       belongs_to :feature, foreign_key: "decidim_feature_id", class_name: "Decidim::Feature"
       delegate :organization, to: :feature, allow_nil: true
+      delegate :participatory_space, to: :feature, allow_nil: true
     end
 
     class_methods do

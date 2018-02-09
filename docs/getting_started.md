@@ -79,8 +79,6 @@ We also have other guides on how to configure some extra features:
 
 ## Deploy
 
-Once you've generated the Decidim app you might need to do some changes in order to deploy it. You can check [`codegram/decidim-deploy-heroku`](https://github.com/codegram/decidim-deploy-heroku) for an opinionated example of things to do before deploying to Heroku, for example.
-
 Once you've successfully deployed your app to your favorite platform, you'll need to create your `System` user. First you'll need to create your `Decidim::System` user in your production Ruby on Rails console:
 
 ```ruby
@@ -104,7 +102,7 @@ If you want, you can create seed data in production. Run this command in your pr
 $ SEED=true rails db:seed
 ```
 
-If you used Codegram's [`decidim-deploy-heroku`](https://github.com/codegram/decidim-deploy-heroku), then you're all set. Otherwise you'll need to login as system user and edit the host for the organization. Set it to you production host, without the protocol and the port (so if your host is `https://my.host:3001`, you need to write `my.host`).
+You'll need to login as system user and edit the host for the organization. Set it to you production host, without the protocol and the port (so if your host is `https://my.host:3001`, you need to write `my.host`).
 
 ## Keeping your app up-to-date
 

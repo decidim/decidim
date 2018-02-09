@@ -26,6 +26,8 @@ module Decidim
       validates :sender, :body, presence: true
       validates :body, length: { maximum: 1_000 }
 
+      default_scope { order(created_at: :asc) }
+
       validate :sender_is_participant
 
       #

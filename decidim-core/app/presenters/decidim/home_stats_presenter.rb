@@ -51,7 +51,7 @@ module Decidim
     def global_stats(conditions)
       Decidim.stats.except([:users_count, :processes_count])
              .filter(conditions)
-             .with_context(published_features)
+             .with_context(organization)
              .map { |name, data| [name, data] }
     end
 

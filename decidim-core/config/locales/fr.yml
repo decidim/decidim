@@ -2,12 +2,13 @@ fr:
   activemodel:
     attributes:
       account:
-        delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
+        delete_reason: Pour quelle raison de supprimez-vous votre compte ?
       report:
         details: Commentaires additionnels
       user:
         email: Votre email
         name: Votre nom
+        nickname: Votre identifiant court et unique pour Decidim
         password: Nouveau mot de passe
         password_confirmation: Confirmez votre nouveau mot de passe
         remove_avatar: Supprimer l'avatar
@@ -88,15 +89,15 @@ fr:
           email_already_exists: Un autre compte utilise la même adresse de email
         new:
           complete_profile: Complétez votre profil
-          nickname_help: Votre identifiant unique pour Decidim.
+          nickname_help: Votre identifiant court et unique pour Decidim
           sign_up: Veuillez compléter votre profil
           subtitle: Remplissez le formulaire suivant pour compléter l'inscription
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       registrations:
         new:
           already_have_an_account?: Vous avez déjà un compte?
-          newsletter_notifications: Recevoir des lettres d'informations sur l'activité de la plateforme
-          nickname_help: Votre identifiant unique pour Decidim.
+          newsletter: Recevoir une newsletter occasionnelle avec des informations pertinentes
+          nickname_help: Votre identifiant court et unique pour Decidim
           sign_in: S'identifier
           sign_up: S'inscrire
           sign_up_as:
@@ -123,6 +124,12 @@ fr:
         content_doesnt_exist: Cette adresse web est incorrecte ou n'existe plus.
         title: La page que vous recherchez ne peut être trouvée
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'Un nouveau document a été ajouté à %{resource_title}. Vous pouvez le voir sur cette page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{resource_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Une mise à jour de %{resource_title}
+          notification_title: Un <a href="%{resource_path}"> nouveau document</a> a été ajouté à <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Bonjour %{user_name},
         email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez le voir sur cette page :'
@@ -131,8 +138,24 @@ fr:
         moderation:
           email_intro: 'Un nouveau contenu est à modérer. Vous pouvez le voir sur cette page :'
           email_subject: Nouveau contenu en attente de modération
+      feature_published_event:
+        email_intro: 'Le composant %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page :'
+        email_outro: Vous recevez cette notification car vous suivez « %{participatory_space_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
+        email_subject: Une mise à jour de %{participatory_space_title}
+        notification_title: Le composant %{resource_title} est maintenant actif pour <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
+      participatory_process_step_activated_event:
+        email_intro: 'L''étape %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez y accéder sur cette page:'
+        email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+        email_subject: Une mise à jour de %{participatory_space_title}
+        notification_title: L'étape %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
+      users:
+        profile_updated:
+          email_intro: Le <a href="%{resource_url}">profile page</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
+          email_outro: Vous recevez cette notification car vous suivez « %{nickname} ». Vous pouvez cesser de le suivre à partir du lien précédent.
+          email_subject: "%{nickname} a mis à jour son profil"
+          notification_title: Le <a href="%{resource_path}">profile page</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
     export_mailer:
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
@@ -210,10 +233,19 @@ fr:
     newsletter_mailer:
       newsletter:
         note: Vous avez reçu ce courrier électronique parce que vous êtes abonné aux bulletins d'information de %{organization_name}. Vous pouvez modifier vos paramètres sur votre <a href="%{link}">page de notifications</a>.
+        see_on_website: Vous ne pouvez pas voir cet e-mail correctement? Consultez la <a href="%{link}" target="_blank">version web</a>.
+        unsubscribe: Pour ne plus recevoir ce type d'e-mail, <a href="%{link}" target="_blank" class="unsubscribe">Désabonnez-vous</a>.
+    newsletters:
+      unsubscribe:
+        check_subscription: Si vous souhaitez modifier vos préférences, vous pouvez le faire dans la <a href="%{link}" target="_blank">page configuration</a>
+        error: Il y a eu une erreur lors de votre désabonnement
+        success: Vous vous êtes désabonné avec succès.
+        token_error: Le lien a expiré.
+        unsubscribe: Se désabonner
     notifications_settings:
       show:
         email_on_notification: Je veux recevoir un courriel chaque fois que je reçois une notification.
-        newsletter_notifications: Je souhaite recevoir des lettres d'informations sur l'activité de la plateforme
+        newsletter_notifications: Je souhaite recevoir les lettres d'informations
         update_notifications_settings: Enregistrer les modifications
       update:
         error: Une erreur s'est produite lors de la mise à jour des paramètres de vos notifications.
@@ -228,6 +260,9 @@ fr:
         title: Plus d'information
     profiles:
       default_officialization_text: L'identité de ce participant a été vérifiée. Son nom ou son rôle correspondent avec son vrai nom ou son vrai rôle dans le monde réel
+      show:
+        about_me: À propos de moi
+        personal_url: Site Web personnel
     reported_mailer:
       hide:
         hello: Bonjour %{name},
@@ -260,6 +295,7 @@ fr:
         incomplete:
           cancel: Annuler
           explanation: 'Même si vous êtes actuellement autorisé avec "%{authorization}", nous avons besoin de vous réautoriser car nous ne disposons pas les données suivantes:'
+          invalid_field: "%{field}"
           reauthorize: Réautoriser
           title: Veuillez réautoriser
         missing:
@@ -272,7 +308,7 @@ fr:
           title: L'autorisation est toujours en cours
         unauthorized:
           explanation: Désolé, vous ne pouvez pas effectuer cette action car certaines de vos données d'autorisation ne correspondent pas.
-          invalid: "%{field} n'est pas valide."
+          invalid_field: "%{field} valeur %{value} n'est pas valide."
           ok: D'accord
           title: Non autorisé
       author:
@@ -393,7 +429,7 @@ fr:
       extended:
         debates: Débats
         debates_explanation: Débattez et discutez, partagez vos points de vue et enrichissez les sujets pertinents.
-        how_to_participate: Comment puis-je participer à un processus participatif?
+        how_to_participate: Comment participer ?
         meetings: Rencontres
         meetings_explanation: Découvrez où et quand vous pouvez participer à des réunions publiques.
         more_info: En savoir plus

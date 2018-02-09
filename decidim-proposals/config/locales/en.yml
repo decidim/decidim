@@ -21,6 +21,27 @@ en:
           email_intro: '%{author_name} published a new proposal in'
           moderation_url: "You can moderate it here : %{moderation_url}"
           email_subject: 'New proposal from %{author_name} waiting for moderation'
+      proposals:
+        proposal_accepted:
+          email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
+          email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+          email_subject: A proposal you're following has been accepted
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been accepted.
+        proposal_created:
+          email_intro: "%{author_name} %{author_nickname}, who you are following, has created a new proposal, check it out and contribute:"
+          email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
+          email_subject: New proposal by %{author_nickname}
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_evaluating:
+          email_intro: 'The proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
+          email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+          email_subject: A proposal you're following is being evaluated
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal is being evaluated.
+        proposal_rejected:
+          email_intro: 'The proposal "%{resource_title}" has been rejected. You can read the answer in this page:'
+          email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
+          email_subject: A proposal you're following has been rejected
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been rejected.
     features:
       proposals:
         actions:
@@ -54,6 +75,7 @@ en:
       actions:
         answer: Answer
         new: New
+        private_notes: Private notes
         title: Actions
       admin:
         actions:
@@ -71,6 +93,12 @@ en:
             evaluating: Evaluating
             rejected: Rejected
             title: Answer for proposal %{title}
+        proposal_notes:
+          form:
+            note: Note
+            submit: Submit
+          leave_your_note: Leave your note
+          title: Private notes
         proposals:
           answer:
             invalid: There's been a problem answering this proposal
@@ -86,11 +114,18 @@ en:
           new:
             create: Create
             title: Create proposal
+        shared:
+          info_proposal:
+            body: Body
+            created_at: Creation date
+            proposal_votes_count: Votes count
+            proposals: Proposals
       answers:
         accepted: Accepted
         evaluating: Evaluating
         not_answered: Not answered
         rejected: Rejected
+        withdrawn: Withdrawn
       create:
         error: There's been errors when saving the proposal.
         success: Proposal successfully created.
@@ -111,6 +146,7 @@ en:
             comments: Comments
             created_at: Created at
             id: ID
+            notes: Notes
             official_proposal: Official proposal
             scope: Scope
             state: State
@@ -153,6 +189,7 @@ en:
           unfold: Unfold
         index:
           new_proposal: New proposal
+          see_all_withdrawn: See all withdrawn proposals
           view_proposal: View proposal
         linked_proposals:
           proposal_votes:
@@ -181,6 +218,8 @@ en:
           proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: 'This proposal has been rejected because:'
           report: Report
+          withdraw_confirmation: Are you sure to withdraw this proposal?
+          withdraw_proposal: Withdraw proposal
         vote_button:
           already_voted: Already voted
           already_voted_hover: Unvote
@@ -206,6 +245,8 @@ en:
         error: There's been errors when saving the proposal.
         success: Proposal updated successfully.
     resource_links:
+      included_projects:
+        project_results: 'Results appearing in this project:'
       included_proposals:
         proposal_projects: 'Proposal appearing in these projects:'
         proposal_results: 'Proposal appearing in these results:'

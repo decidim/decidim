@@ -16,7 +16,7 @@ module Decidim
       extend ActiveSupport::Concern
 
       included do
-        types << :email
+        type :email
 
         def email_subject
           I18n.t("decidim.events.email_event.email_subject", resource_title: resource_title)

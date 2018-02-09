@@ -74,8 +74,8 @@ module Decidim
       end
 
       def count_replies(comment)
-        if comment.comments.size.positive?
-          comment.comments.size + comment.comments.sum { |reply| count_replies(reply) }
+        if comment.comment_threads.size.positive?
+          comment.comment_threads.size + comment.comment_threads.sum { |reply| count_replies(reply) }
         else
           0
         end

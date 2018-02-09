@@ -14,7 +14,7 @@ module Decidim
     def call
       return broadcast(:invalid) unless user&.invited_to_sign_up?
 
-      user.deliver_invitation(invitation_instructions: instructions)
+      user.invite!(user.invited_by, invitation_instructions: instructions)
 
       broadcast(:ok)
     end
