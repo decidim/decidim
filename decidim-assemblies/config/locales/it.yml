@@ -80,6 +80,8 @@ it:
         assemblies: assemblee
         assemblies_submenu:
           assembly_admins: Utenti dell'assemblaggio
+          attachment_collections: collezioni
+          attachment_files: File
           attachments: Allegati
           categories: Categorie
           features: Funzionalità (features)
