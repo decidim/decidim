@@ -48,7 +48,7 @@ $tag-margin: .2rem;
 
   .tag{
     color: inherit;
-    margin-right: $tag-margin;
+    margin-right: 0; // fix whitespace
     margin-bottom: $tag-margin;
   }
 }
