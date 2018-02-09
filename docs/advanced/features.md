@@ -2,7 +2,7 @@
 
 Features are the core contract between external modules and the core. They're used to define pieces of functionality that are pluggable to participatory processes and can be enabled or disabled by the administrator.
 
-## How do I create a new feature?
+## How to create a new feature
 
 Features are just gems with one or more Rails engines included in it. You can use as an example [decidim-pages](https://github.com/decidim/decidim/tree/master/decidim-pages).
 

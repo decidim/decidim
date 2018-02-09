@@ -6,7 +6,7 @@ All engines can define their own view hooks, and register to other engines' ones
 
 Take the homepage, for example. It is rendered by the `decidim-core`. We want to show there a list of highlighted participatory spaces (processes and assemblies). We cannot be sure the final app has these engines, so we need to check they exist:
 
-```
+```erb
 <% if defined? Decidim::Processes %>
   <% # iterate through the most important ones %>
 <% end %>
@@ -24,7 +24,7 @@ This raises two important issues:
 
 Instead of the previous example, we created the concept of "view hooks". Think of them as a registry of views which can be defined by a given engine and extended by others. To follow the previous example, we would register a view hook in `decidim-core`:
 
-```
+```erb
 <%= Decidim.view_hooks.render(:highlighted_elements, self) %>
 ```
 
@@ -69,6 +69,6 @@ end
 
 Ideally, each engine should hold their own instance of `Decidim::ViewHooks`. This means that if `decidim-participatory_processes` wants to allow part of its views to be extended by other engines, it should define `Decidim::ParticipatoryProcesses.view_hooks`, and other engines should register to this instance.
 
-## The engine I want to extend does not support view hooks, what can I do?
+## The engine I want to extend does not support view hooks - what to do
 
-First of all, send a PR to the engine to add the view hook you need. Expose your needs, so the developers can assess a view hook is the best solution. Sometimes a view hook can be replaced with another abstraction, or another UI. Meanwhile, you can use [`deface`](https://github.com/spree/deface) to extend a view file without replacing it. Be careful, since `deface` is *very* powerful and can be a double-edged sword. We considered adding `deface` to `decidim`, but found that it opened to a code that would be much harder to maintain.
+First of all, send a PR to the engine to add the view hook you need. Expose your needs, so the developers can assess a view hook is the best solution. Sometimes a view hook can be replaced with another abstraction, or another UI. Meanwhile, you can use [`deface`](https://github.com/spree/deface) to extend a view file without replacing it. Be careful, since `deface` is _very_ powerful and can be a double-edged sword. We considered adding `deface` to `decidim`, but found that it opened to a code that would be much harder to maintain.

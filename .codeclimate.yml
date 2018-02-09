@@ -64,14 +64,6 @@ plugins:
     exclude_paths:
       - "decidim_app-design/**/*"
 
-  markdownlint:
-    enabled: true
-
-    exclude_paths:
-      - docs/*
-      - .github/*
-      - CHANGELOG.md
-
   rubocop:
     enabled: true
     channel: rubocop-0-51

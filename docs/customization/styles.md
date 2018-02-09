@@ -6,10 +6,11 @@ We use [SASS, with SCSS syntax](http://sass-lang.com/guide) as CSS preprocessor.
 
 Also you can check your scss files syntax with
 
-```
-scss-lint
+```bash
+$ scss-lint
+# Will show a report of scss code violations.
 ```
 
 ## **Accesibility**
 
-To maintain accesibility level, if you add new colors use a[ Color contrast checker](http://webaim.org/resources/contrastchecker/) (WCAG AA is mandatory, WCAG AAA is recommended)
+To maintain accesibility level, if you add new colors use a [Color contrast checker](http://webaim.org/resources/contrastchecker/) (WCAG AA is mandatory, WCAG AAA is recommended)
