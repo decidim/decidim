@@ -61,6 +61,8 @@ pl:
         participatory_process_groups: Grupy procesowe
         participatory_processes: Procesy
         participatory_processes_submenu:
+          attachment_collections: Kolekcje
+          attachment_files: Akta
           attachments: Załączniki
           categories: Kategorie
           features: cechy
