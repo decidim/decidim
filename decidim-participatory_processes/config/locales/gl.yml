@@ -61,6 +61,8 @@ gl:
         participatory_process_groups: Grupos de procesos
         participatory_processes: Procesos
         participatory_processes_submenu:
+          attachment_collections: Coleccións
+          attachment_files: Arquivos
           attachments: Anexos
           categories: Categorías
           features: características
