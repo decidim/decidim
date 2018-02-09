@@ -2,9 +2,13 @@ eu:
   activemodel:
     attributes:
       attachment:
+        attachment_collection_id: Bilduma
         description: Descripción
         file: Fitxategia
         title: Titulua
+      attachment_collection:
+        description: deskribapena
+        name: izena
       category:
         description: Descripción
         name: Izena
@@ -105,6 +109,24 @@ eu:
         permissions: Baimenak
         reject: Ukatu
         verify: Egiaztatu
+      attachment_collections:
+        create:
+          error: Errore bat gertatu da bilduma berria sortzean.
+          success: Bilduma sortu da.
+        destroy:
+          success: Bilduma suntsitu egin da.
+        edit:
+          title: Editatu bilduma
+          update: eguneratzearen
+        index:
+          attachment_collection_used: Bilduma hau ezin da ezabatu erabiltzen ari delako.
+          attachment_collections_title: Eranskinen bildumak
+        new:
+          create: Sortu
+          title: Bilduma berria
+        update:
+          error: Errore bat gertatu da bilduma hau eguneratzean.
+          success: Bilduma eguneratu da.
       attachments:
         create:
           error: Errorea gertatu da fitxategi erantsi bat sortzean.
@@ -236,9 +258,13 @@ eu:
       models:
         attachment:
           fields:
+            collection: Bilduma
             content_type: Mota
+            file_size: Tamaina
             title: Titulua
           name: Fitxategi erantsia
+        attachment_collection:
+          name: Bilduma
         category:
           name: Kategoria
         impersonation_log:
