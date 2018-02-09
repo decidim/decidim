@@ -61,6 +61,8 @@ fi:
         participatory_process_groups: Prosessiryhmät
         participatory_processes: Prosessit
         participatory_processes_submenu:
+          attachment_collections: kokoelmat
+          attachment_files: Tiedostot
           attachments: Liitteet
           categories: Aihepiirit
           features: Ominaisuudet
