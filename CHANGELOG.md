@@ -2,10 +2,6 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
-**Added**:
-
-**Changed**:
-
 **Fixed**:
 
 ## [v0.9.0](https://github.com/decidim/decidim/tree/v0.9.0) (2018-2-5)
