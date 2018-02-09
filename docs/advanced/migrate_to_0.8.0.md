@@ -31,7 +31,7 @@ gem "decidim-verifications"
 
 ### bundle update
 
-Finally run _bundle update_ to get the required gems updated.
+Finally run `bundle update` to get the required gems updated.
 
 ```bash
 $ bundle update --full-index
@@ -42,7 +42,7 @@ $ bundle update --full-index
 
 ### Factories
 
-Decidim 0.8.0 has migratied from FactoryGirl gem to FactoryBot. Cause this you need to update your factories. Usually the _factories.rb_ file looks like this:
+Decidim 0.8.0 has migratied from FactoryGirl gem to FactoryBot. Cause this you need to update your factories. Usually the `factories.rb` file looks like this:
 
 ```ruby
 # frozen_string_literal: true
@@ -72,9 +72,9 @@ end
 
 Some examples have changed its name to be more descriptive. In order to have your tests up and running again you must perform the following substitions in the specs folder:
 
-* _include_context "feature"_ now is _include_context "with a feature"_
+* `include_context "feature"` now is `include_context "with a feature"`
 
-* _include_context "feature admin"_ now is _include_context "when managing a feature as an admin"_
+* `include_context "feature admin"` now is `include_context "when managing a feature as an admin"`
 
 ### Capybara
 
