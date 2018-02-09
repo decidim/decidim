@@ -1128,16 +1128,24 @@
                   <br>
                   <h2 class="section-heading">Mentions</h2>
                   <div class="row column">
-                    <pre>div.js-mentions-container contenteditable="true"</pre>
-                    <div contenteditable="true" class="mentions__container js-mentions-container" type="text" placeholder="Add tags"></div>
-                    <pre>div.js-mentions-container.mentions__container--textarea contenteditable="true"</pre>
-                    <div contenteditable="true" class="mentions__container mentions__container--textarea js-mentions-container" placeholder="Use mentions typing @ sign" rows="8"></div>
+                    <pre>Tipo input (contenteditable="true")</pre>
+                    <div class="mentions__container">
+                      <div contenteditable="true" class="js-mentions" type="text" placeholder="Add tags"></div>
+                    </div>
+                    <pre>Tipo textarea (contenteditable="true")</pre>
+                    <div class="mentions__container mentions__container--textarea">
+                      <div contenteditable="true" class="js-mentions" placeholder="Use mentions typing @ sign" rows="8"></div>
+                    </div>
                     <br>
                     <p>También se puede añadir a elementos de un formulario&nbsp;<sup>1</sup></p>
-                    <pre>input.js-mentions-container</pre>
-                    <input class="js-mentions-container" type="text" placeholder="Add tags"/>
-                    <pre>textarea.js-mentions-container</pre>
-                    <textarea class="js-mentions-container" placeholder="Use mentions typing @ sign" rows="8" cols="80"></textarea>
+                    <pre>.mentions__container input.js-mentions</pre>
+                    <div class="mentions__container">
+                      <input class="js-mentions" type="text" placeholder="Add tags"/>
+                    </div>
+                    <pre>.mentions__container textarea.js-mentions</pre>
+                    <div class="mentions__container">
+                      <textarea class="js-mentions" placeholder="Use mentions typing @ sign" rows="8" cols="80"></textarea>
+                    </div>
                     <small><sup>1</sup>&nbsp;No es posible estilar elementos dentro de un input/textarea. Solo permite texto.</small>
                   </div>
 

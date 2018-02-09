@@ -1,7 +1,7 @@
 // = require tribute
 
 $(() => {
-  const $mentionContainer = $('.js-mentions-container');
+  const $mentionContainer = $('.js-mentions');
 
   // TEMP DATA TESTING
   const sources = [{
@@ -31,10 +31,11 @@ $(() => {
     }
   ];
 
+  // tribute.js - http://github.com/zurb/tribute
   let tribute = new Tribute({
     values: sources,
     positionMenu: false,
-    menuContainer: $mentionContainer.parent()[0],
+    // menuContainer: document.activeElement.parentNode,
     fillAttr: 'tag',
     noMatchTemplate: null,
     lookup: function(item) {
@@ -54,5 +55,31 @@ $(() => {
   });
 
   tribute.attach($mentionContainer);
+
+  // DOM manipulation
+  $mentionContainer.on('focusin', e => {
+    tribute.menuContainer = e.target.parentNode
+  });
+  $mentionContainer.on('focusout', e => {
+    let $parent = $(e.target).parent();
+    // REVIEW no funciona del todo
+    if (e.target.parentNode !== tribute.menuContainer) {
+      tribute.menuContainer = null;
+    }
+    if ($parent.hasClass('is-active')) {
+      $parent.removeClass('is-active');
+    }
+  });
+  $mentionContainer.on('input', e => {
+    let $parent = $(e.target).parent();
+
+    if (tribute.isActive) {
+      let $me = $(e.target).next();
+      $me.removeAttr('style');
+      $parent.addClass('is-active');
+    } else {
+      $parent.removeClass('is-active');
+    }
+  });
 
 });
