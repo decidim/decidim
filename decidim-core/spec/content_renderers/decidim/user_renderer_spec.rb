@@ -16,6 +16,16 @@ module Decidim
       end
     end
 
+    context "when content has more than one Decidim::User Global ID" do
+      let(:content) { "This text contains two valid Decidim::User Global ID: #{user.to_global_id} #{user.to_global_id}" }
+
+      it "renders the two mentions" do
+        rendered = renderer.render
+        mention = %(<a class="user-mention" href="/profiles/#{user.nickname}">@#{user.nickname}</a>)
+        expect(rendered.scan(mention).length).to eq(2)
+      end
+    end
+
     context "when content has an unparsed mention" do
       let(:content) { "This text mentions a non valid user: @unvalid" }
 
