@@ -77,9 +77,8 @@ shared_examples "manage proposal wizard steps help texts" do
     Decidim::EngineRouter.main_proxy(current_feature).new_proposal_path(current_feature.id)
   end
 
-  def compare_proposal_path(_current_feature, proposal)
-    Decidim::EngineRouter.main_proxy(feature).compare_proposal_path(proposal)
-    # Decidim::ResourceLocatorPresenter.new(proposal).path + "/compare"
+  def compare_proposal_path(current_feature, proposal)
+    Decidim::EngineRouter.main_proxy(current_feature).compare_proposal_path(proposal)
   end
 
   def preview_proposal_path(current_feature, proposal)

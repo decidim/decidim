@@ -61,7 +61,8 @@ module Decidim
         CreateProposal.call(@form, current_user) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
-            redirect_to compare_proposal_path(proposal)
+            compare_path = Decidim::ResourceLocatorPresenter.new(proposal).path + "/compare"
+            redirect_to compare_path
           end
 
           on(:invalid) do
