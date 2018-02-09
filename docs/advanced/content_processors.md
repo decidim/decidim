@@ -4,11 +4,11 @@ A content processor is a concept to refer to a set of two classes: a content par
 
 The content parser class is used to process the text before it is saved to the database, and the associated renderer class is used to render the saved content.
 
-## How do I add a content processor?
+## How to add a content processor
 
 Register the content processor in an `initializer`:
 
-```
+```ruby
 Decidim.content_processors += [:special_words]
 ```
 

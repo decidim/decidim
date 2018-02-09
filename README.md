@@ -1,4 +1,6 @@
-<img src="https://cdn.rawgit.com/decidim/decidim/master/logo.svg" alt="Decidim Logo" width="400">
+# Decidim
+
+![Decidim Logo](https://cdn.rawgit.com/decidim/decidim/master/logo.svg)
 
 The participatory democracy framework.
 
@@ -37,8 +39,6 @@ Project management [[See on Waffle.io]](https://waffle.io/decidim/decidim)
 
 ---
 
-# What do you need to do?
-
 * [Get started with Decidim](#getting-started-with-decidim)
 * [Contribute to the project](#how-to-contribute)
 * [Modules](#modules)
@@ -50,9 +50,11 @@ Project management [[See on Waffle.io]](https://waffle.io/decidim/decidim)
 
 TLDR: install gem, generate a Ruby on Rails app, enjoy.
 
-```
-gem install decidim
-decidim decidim_application
+```bash
+$ gem install decidim
+// Install the decidim ruby gem.
+$ decidim decidim_application
+// Generates a new rails application using decidim.
 ```
 
 We've set up a guide on how to install, set up and upgrade Decidim. See the [Getting started guide](https://github.com/decidim/decidim/blob/master/docs/getting_started.md).
@@ -61,14 +63,13 @@ We've set up a guide on how to install, set up and upgrade Decidim. See the [Get
 
 See [Contributing](CONTRIBUTING.md).
 
-
 ### Browse Decidim
 
 After you create a development app (`bundle exec decidim decidim_application`):
 
 * `cd decidim_application`
 * `bundle exec rails s`
-* Go to 'http://localhost:3000'
+* Go to `http://localhost:3000`
 
 Optionally, you can log in as: user@example.org | decidim123456
 
@@ -80,7 +81,7 @@ After you create a development app (`bundle exec rake decidim_application`):
 
 * `cd decidim_application`
 * `bundle exec rails s`
-* Go to 'http://localhost:3000/admin'
+* Go to `http://localhost:3000/admin`
 * Login data: admin@example.org | decidim123456
 
 ## Modules
@@ -106,26 +107,27 @@ After you create a development app (`bundle exec rake decidim_application`):
 
 ### Official (on development)
 
-| Module                                                                                                    | Description                                                                                                                                                  |
-| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Blogs](https://github.com/decidim/decidim-module-blogs)                                                  |  This component makes possible to add posts ordered by publication time to spaces.                                                                           |
-| [Consultations](https://github.com/decidim/decidim-module-consultations)                                  |  This module creates a new space for decidim to host consultations: debates around critical questions and a proxy for eVoting                                |
-| [Initiatives](https://github.com/decidim/decidim-initiatives)                                             | Initiatives is the place on Decidim's where citizens can promote a civic initiative. Unlike participatory processes that must be created by an administrator, Civic initiatives can be created by any user of the platform.                                                                                             |
-| [Sortitions](https://github.com/decidim/decidim-module-sortitions)                                        |  This component makes possible to select randomly a number of proposals among a set of proposals (or a category of proposals within a set) maximizing guarantees of randomness and avoiding manipulation of results by the administrator.                                                                                               |
+| Module                                                                   | Description                                                                                                                                                                                                                              |
+| ------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Blogs](https://github.com/decidim/decidim-module-blogs)                 | This component makes possible to add posts ordered by publication time to spaces.                                                                                                                                                        |
+| [Consultations](https://github.com/decidim/decidim-module-consultations) | This module creates a new space for decidim to host consultations: debates around critical questions and a proxy for eVoting                                                                                                             |
+| [Initiatives](https://github.com/decidim/decidim-initiatives)            | Initiatives is the place on Decidim's where citizens can promote a civic initiative. Unlike participatory processes that must be created by an administrator, Civic initiatives can be created by any user of the platform.              |
+| [Sortitions](https://github.com/decidim/decidim-module-sortitions)       | This component makes possible to select randomly a number of proposals among a set of proposals (or a category of proposals within a set) maximizing guarantees of randomness and avoiding manipulation of results by the administrator. |
 
 ### Community
 
-| Module                                                                                                    | Description                                                                                                                                                  |
-| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Census](https://github.com/diputacioBCN/decidim-diba/tree/master/decidim-census)                         | Allows to upload a census CSV file to perform authorizations against real users parameterised by their age.                                                  |
-| [Crowdfunding](https://github.com/podemos-info/decidim-module-crowdfundings)                              | This rails engine implements a Decidim feature that allows to the administrators to configure crowfunding campaigns for a participatory space.               |
-| [DataViz](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/tree/master/decidim-dataviz)         | The Dataviz module adds the PAM data visualizations to any participatory process but it is intended to be used just for the PAM participatory process.       |
-| [Members](https://github.com/ElectricThings/decidim-members)                                              | Members list and search plugin for Decidim                                                                                                                   |
-| [Pol.is](https://github.com/OpenSourcePolitics/decidim-polis)                                             | Pol.is integration on Decidim                                                                                                                                |
-| [User Export](https://github.com/OpenSourcePolitics/decidim-user-export)                                  | Allow user export                                                                                                                                            |
-| [Verification DIBA Census API](https://github.com/diputacioBCN/decidim-diba/tree/master/decidim-diba_census_api)                                     | A decidim package to provice user authorizations agains the Diputació of Barcelona census API                     |
-| [Verification Podemos Census API](https://github.com/podemos-info/decidim-module-census_connector)        | A decidim package to provice user authorizations against the Podemos census API                                                                              |
-| [Votings](https://github.com/podemos-info/decidim-module-votings)                                         | An administrator can add one or more votings to a participatory process or assambly                                                                          |
+| Module                                                                                                           | Description                                                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Census](https://github.com/diputacioBCN/decidim-diba/tree/master/decidim-census)                                | Allows to upload a census CSV file to perform authorizations against real users parameterised by their age.                                            |
+| [Crowdfunding](https://github.com/podemos-info/decidim-module-crowdfundings)                                     | This rails engine implements a Decidim feature that allows to the administrators to configure crowfunding campaigns for a participatory space.         |
+| [DataViz](https://github.com/AjuntamentdeBarcelona/decidim-barcelona/tree/master/decidim-dataviz)                | The Dataviz module adds the PAM data visualizations to any participatory process but it is intended to be used just for the PAM participatory process. |
+| [Members](https://github.com/ElectricThings/decidim-members)                                                     | Members list and search plugin for Decidim                                                                                                             |
+| [Pol.is](https://github.com/OpenSourcePolitics/decidim-polis)                                                    | Pol.is integration on Decidim                                                                                                                          |
+| [User Export](https://github.com/OpenSourcePolitics/decidim-user-export)                                         | Allow user export                                                                                                                                      |
+| [Verification DIBA Census API](https://github.com/diputacioBCN/decidim-diba/tree/master/decidim-diba_census_api) | A decidim package to provice user authorizations agains the Diputació of Barcelona census API                                                          |
+| [Verification Podemos Census API](https://github.com/podemos-info/decidim-module-census_connector)               | A decidim package to provice user authorizations against the Podemos census API                                                                        |
+| [Votings](https://github.com/podemos-info/decidim-module-votings)                                                | An administrator can add one or more votings to a participatory process or assambly                                                                    |
+
 ## Following our license
 
 If you plan to release your application you'll need to publish it using the same license: GPL Affero 3. We recommend doing that on GitHub before publishing, you can read more on "[Being Open Source From Day One is Especially Important for Government Projects](http://producingoss.com/en/governments-and-open-source.html#starting-open-for-govs)". If you have any trouble you can contact us on [Gitter](https://gitter.im/decidim/decidim).

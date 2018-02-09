@@ -11,4 +11,3 @@ Decidim doesn't support `turbolinks` so it isn't included on our generated apps 
 The main reason is we are injecting some scripts into the body for some individual pages and Turbolinks loads the scripts in parallel. For some libraries like [leaflet](http://leafletjs.com/) it's very inconvenient because its plugins extend an existing global object.
 
 The support of Turbolinks was dropped in [d8c7d9f](https://github.com/decidim/decidim/commit/d8c7d9f63e4d75307e8f7a0360bef977fab209b6). If you're interested in bringing turbolinks back, further discussion is welcome.
-

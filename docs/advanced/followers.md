@@ -32,4 +32,3 @@ Decidim.feature_manifests.each do |feature_manifest|
   end
 end; p 1
 ```
-

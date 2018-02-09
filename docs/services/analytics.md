@@ -6,7 +6,7 @@ Adding analytics is quite easy. We've set up a partial in place for that. Just c
 
 Here's an example for Piwik:
 
-```
+```html
 <script type="text/javascript">
   var _paq = _paq || [];
   // tracker methods like "setCustomDimension" should be called before "trackPageView"
