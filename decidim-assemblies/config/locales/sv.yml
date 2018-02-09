@@ -80,6 +80,8 @@ sv:
         assemblies: Assemblies
         assemblies_submenu:
           assembly_admins: Monteringsanvändare
+          attachment_collections: samlingar
+          attachment_files: filer
           attachments: bilagor
           categories: kategorier
           features: Funktioner
