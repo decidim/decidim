@@ -55,6 +55,10 @@ sv:
         success_with_email_confirmation: Ditt konto har uppdaterats framgångsrikt. Du får ett mail för att bekräfta din nya e-postadress.
     anonymous_user: Anonym
     application:
+      collection:
+        documents:
+          one: Dokumentera
+          other: Dokument
       documents:
         related_documents: Relaterade dokument
       photos:
