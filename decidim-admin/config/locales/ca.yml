@@ -2,9 +2,13 @@ ca:
   activemodel:
     attributes:
       attachment:
+        attachment_collection_id: Col · lecció
         description: Descripció
         file: Arxiu
         title: Títol
+      attachment_collection:
+        description: Descripció
+        name: Nom
       category:
         description: Descripció
         name: Nom
@@ -105,6 +109,24 @@ ca:
         permissions: Permisos
         reject: Rebutjar
         verify: Verificar
+      attachment_collections:
+        create:
+          error: S'ha produït un error en crear una nova col · lecció.
+          success: S'ha creat la col·lecció amb èxit.
+        destroy:
+          success: S'ha destruït la col·lecció amb èxit.
+        edit:
+          title: Edita la col·lecció
+          update: Actualització
+        index:
+          attachment_collection_used: Aquesta col · lecció no es pot eliminar perquè està en ús.
+          attachment_collections_title: Col·leccions adjuntes
+        new:
+          create: Crear
+          title: Nova col · lecció
+        update:
+          error: S'ha produït un error en actualitzar aquesta col·lecció.
+          success: S'ha actualitzat la col·lecció amb èxit.
       attachments:
         create:
           error: S'ha produït un error en crear un nou arxiu adjunt.
@@ -236,9 +258,13 @@ ca:
       models:
         attachment:
           fields:
+            collection: Col · lecció
             content_type: Tipus
+            file_size: Mida
             title: Títol
           name: Arxiu adjunt
+        attachment_collection:
+          name: Col · lecció
         category:
           name: Categoria
         impersonation_log:
