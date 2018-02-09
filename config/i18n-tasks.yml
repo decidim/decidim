@@ -46,8 +46,8 @@ data:
 search:
   ## Paths or `File.find` patterns to search in:
   paths:
-      <%= "- #{%x[bundle show devise-i18n].chomp}/app\n" %>
-      <%= "- #{%x[bundle show devise].chomp}/app\n" %>
+      <%= "- #{Gem.loaded_specs['devise-i18n'].full_gem_path.chomp}/app\n" %>
+      <%= "- #{Gem.loaded_specs['devise'].full_gem_path.chomp}/app\n" %>
     <% Dir.glob("decidim-*").each do |path| -%>
       <%= "- #{path}/app\n" %>
       <%= "- #{path}/lib\n" %>
@@ -55,11 +55,11 @@ search:
 
   # Root directories for relative keys resolution.
   relative_roots:
-      <%= "- #{%x[bundle show devise-i18n].chomp}/app/views\n" %>
-      <%= "- #{%x[bundle show devise].chomp}/app/controllers\n" %>
-      <%= "- #{%x[bundle show devise].chomp}/app/helpers\n" %>
-      <%= "- #{%x[bundle show devise].chomp}/app/mailers\n" %>
-      <%= "- #{%x[bundle show devise].chomp}/app/views\n" %>
+      <%= "- #{Gem.loaded_specs['devise-i18n'].full_gem_path.chomp}/app/views\n" %>
+      <%= "- #{Gem.loaded_specs['devise'].full_gem_path.chomp}/app/controllers\n" %>
+      <%= "- #{Gem.loaded_specs['devise'].full_gem_path.chomp}/app/helpers\n" %>
+      <%= "- #{Gem.loaded_specs['devise'].full_gem_path.chomp}/app/mailers\n" %>
+      <%= "- #{Gem.loaded_specs['devise'].full_gem_path.chomp}/app/views\n" %>
     <% Dir.glob("decidim-*").each do |path| -%>
       <%= "- #{path}/app/controllers\n" %>
       <%= "- #{path}/app/helpers\n" %>
