@@ -2,9 +2,13 @@ fr:
   activemodel:
     attributes:
       attachment:
+        attachment_collection_id: Collection
         description: Description
         file: Fichier
         title: Titre
+      attachment_collection:
+        description: La description
+        name: prénom
       category:
         description: Description
         name: Nom
@@ -105,6 +109,24 @@ fr:
         permissions: Autorisations
         reject: Rejeter
         verify: Vérifier
+      attachment_collections:
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouvelle collection.
+          success: Collection créée avec succès.
+        destroy:
+          success: Collection détruite avec succès.
+        edit:
+          title: Modifier la collection
+          update: Mettre à jour
+        index:
+          attachment_collection_used: Cette collection ne peut pas être supprimée car elle est en cours d'utilisation.
+          attachment_collections_title: Collections de pièces jointes
+        new:
+          create: Créer
+          title: Nouvelle collection
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette collection.
+          success: Collection mise à jour avec succès.
       attachments:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau document lié.
@@ -236,9 +258,13 @@ fr:
       models:
         attachment:
           fields:
+            collection: Collection
             content_type: Type de contenus
+            file_size: Taille
             title: Titre
           name: Document lié
+        attachment_collection:
+          name: Collection
         category:
           name: Catégorie
         impersonation_log:
