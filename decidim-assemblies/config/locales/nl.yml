@@ -80,6 +80,8 @@ nl:
         assemblies: Bijeenkomsten
         assemblies_submenu:
           assembly_admins: Assemblage gebruikers
+          attachment_collections: collecties
+          attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
           features: Kenmerken
