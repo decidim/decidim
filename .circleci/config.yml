@@ -73,6 +73,22 @@ jobs:
       - run:
           name: Run main folder RSpec
           command: bundle exec rspec
+      - restore_cache:
+          keys:
+            - yarn-dependencies-{{ checksum "yarn.lock" }}
+      - run:
+          name: Install yarn dependencies
+          command: yarn
+      - save_cache:
+          key: yarn-dependencies-{{ checksum "yarn.lock" }}
+          paths:
+            - node_modules
+      - run:
+          name: Run es6 lint
+          command: yarn run lint
+      - run:
+          name: Run markdown lint
+          command: yarn run lint:markdown
   core:
     <<: *defaults
     steps:
@@ -222,7 +238,7 @@ jobs:
           paths:
             - node_modules
       - run:
-          name: Run main folder yarn lint & tests
+          name: Run main folder yarn tests
           command: yarn test:ci
       - restore_cache:
           keys:
