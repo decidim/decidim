@@ -62,6 +62,7 @@ pl:
             comments_blocked: Komentarze zablokowane
     meetings:
       actions:
+        attachment_collections: Kolekcje
         attachments: Załączniki
         close: Zamknij
         confirm_destroy: Czy na pewno chcesz usunąć to spotkanie?
