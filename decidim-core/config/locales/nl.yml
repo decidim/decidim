@@ -55,6 +55,10 @@ nl:
         success_with_email_confirmation: Uw account is bijgewerkt. U ontvangt een e-mail ter bevestiging van uw nieuwe e-mailadres.
     anonymous_user: Anoniem
     application:
+      collection:
+        documents:
+          one: Document
+          other: documenten
       documents:
         related_documents: Gerelateerde documenten
       photos:
