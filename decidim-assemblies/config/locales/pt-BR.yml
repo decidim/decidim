@@ -80,6 +80,8 @@ pt-BR:
         assemblies: Assembléias
         assemblies_submenu:
           assembly_admins: Usuários da assembléia
+          attachment_collections: Coleções
+          attachment_files: arquivos
           attachments: Anexos
           categories: Categorias
           features: Características
