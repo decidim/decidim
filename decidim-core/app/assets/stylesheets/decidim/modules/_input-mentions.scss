@@ -1,32 +1,63 @@
+@import "tribute";
 
+.mentions__container{
+  span{
+    color: $secondary;
+  }
+
+  &.mentions__container--textarea{
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield-multiline;
+    appearance: textfield;
+
+    // foundation defaults
+    @include form-element();
+
+    max-width: 100%;
+    min-height: ($input-font-size * unitless-calc($input-line-height)) + (get-side($input-padding, 'top') + get-side($input-padding, 'bottom'));
+
+    &[rows]{
+      height: auto;
+    }
+
+    // Placeholder text
+    &::placeholder{
+      color: $input-placeholder-color;
+    }
+
+    // Disabled/readonly state
+    &:disabled,
+    &[readonly]{
+      background-color: $input-background-disabled;
+      cursor: $input-cursor-disabled;
+    }
+  }
+}
 
 // Override defaults
-// .mentions-input{
-//   .highlighter-content strong{
-//     //TODO no funciona
-//     color: $secondary;
-//     // background-color: $white;
-//   }
-//
-//   ul{
-//     //reset list
-//     margin: 0;
-//     list-style: none;
-//     // input defaults
-//     padding: $input-padding;
-//     outline: none;
-//     border: $input-border-focus;
-//     border-radius: $input-radius;
-//     background-color: $input-background-focus;
-//     box-shadow: $input-shadow-focus;
-//
-//     @if has-value($input-transition){
-//       transition: $input-transition;
-//     }
-//   }
-// }
-//
-// [data-mention]{
-//   // background-color: $white;
-// }
+.tribute-container{
+  ul{
+    //reset list
+    margin: 0;
+    list-style: none;
+    // input defaults
+    outline: none;
+    border: $input-border-focus;
+    border-radius: $input-radius;
+    background-color: $input-background-focus;
+    box-shadow: $input-shadow-focus;
 
+    @if has-value($input-transition){
+      transition: $input-transition;
+    }
+
+    li{
+      padding: $input-padding;
+      border-top: $border;
+    }
+  }
+
+  .highlight{
+    background-color: $secondary;
+  }
+}
