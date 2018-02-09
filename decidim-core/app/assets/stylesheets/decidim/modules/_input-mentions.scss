@@ -1,27 +1,32 @@
+
+
 // Override defaults
-.twitter-typeahead{
-  width: 100%;
+// .mentions-input{
+//   .highlighter-content strong{
+//     //TODO no funciona
+//     color: $secondary;
+//     // background-color: $white;
+//   }
+//
+//   ul{
+//     //reset list
+//     margin: 0;
+//     list-style: none;
+//     // input defaults
+//     padding: $input-padding;
+//     outline: none;
+//     border: $input-border-focus;
+//     border-radius: $input-radius;
+//     background-color: $input-background-focus;
+//     box-shadow: $input-shadow-focus;
+//
+//     @if has-value($input-transition){
+//       transition: $input-transition;
+//     }
+//   }
+// }
+//
+// [data-mention]{
+//   // background-color: $white;
+// }
 
-  .input__mentions{
-    // width: 100%;
-  }
-
-  .input__mentions__hint{
-    // opacity: .5;
-  }
-
-  .input__mentions__results{
-    width: 100%;
-    // input defaults
-    padding: $input-padding;
-    outline: none;
-    border: $input-border-focus;
-    border-radius: $input-radius;
-    background-color: $input-background-focus;
-    box-shadow: $input-shadow-focus;
-
-    @if has-value($input-transition){
-      transition: $input-transition;
-    }
-  }
-}
