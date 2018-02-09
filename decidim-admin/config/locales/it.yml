@@ -2,9 +2,13 @@ it:
   activemodel:
     attributes:
       attachment:
+        attachment_collection_id: Collezione
         description: Descrizione
         file: File
         title: Titolo
+      attachment_collection:
+        description: Descrizione
+        name: Nome
       category:
         description: Descrizione
         name: Nome
@@ -105,6 +109,24 @@ it:
         permissions: Permessi
         reject: Rifiutare
         verify: Verifica
+      attachment_collections:
+        create:
+          error: Si è verificato un errore durante la creazione di una nuova raccolta.
+          success: Raccolta creata con successo
+        destroy:
+          success: Collezione distrutta con successo.
+        edit:
+          title: Modifica raccolta
+          update: Aggiornare
+        index:
+          attachment_collection_used: Questa raccolta non può essere rimossa perché è in uso.
+          attachment_collections_title: Collezioni di allegati
+        new:
+          create: Creare
+          title: Nuova collezione
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questa raccolta.
+          success: Raccolta aggiornata con successo.
       attachments:
         create:
           error: Si è verificato un errore creando il nuovo allegato.
@@ -236,9 +258,13 @@ it:
       models:
         attachment:
           fields:
+            collection: Collezione
             content_type: Tipo
+            file_size: Dimensione
             title: Titolo
           name: Allegato
+        attachment_collection:
+          name: Collezione
         category:
           name: Categorie
         impersonation_log:
