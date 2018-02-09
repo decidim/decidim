@@ -55,6 +55,10 @@ fi:
         success_with_email_confirmation: Tilisi päivitettiin onnistuneesti. Sähköpostiisi on lähetetty viesti uuden sähköpostiosoitteesi vahvistamiseksi.
     anonymous_user: Anonyymi
     application:
+      collection:
+        documents:
+          one: Asiakirja
+          other: asiakirjat
       documents:
         related_documents: Liittyvät dokumentit
       photos:
