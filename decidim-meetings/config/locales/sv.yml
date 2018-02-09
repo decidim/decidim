@@ -62,6 +62,7 @@ sv:
             comments_blocked: Kommentarer blockerad
     meetings:
       actions:
+        attachment_collections: samlingar
         attachments: bilagor
         close: Stänga
         confirm_destroy: Är du säker på att du vill radera detta möte?
