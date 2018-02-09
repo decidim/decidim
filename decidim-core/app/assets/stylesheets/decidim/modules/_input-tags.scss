@@ -27,6 +27,7 @@ $tag-margin: .2rem;
   $span-height: ($input-font-size * unitless-calc($tag-line-height)) + (get-side($tag-padding, 'top') + get-side($tag-padding, 'bottom')) - rem-calc(1);
 
   width: 100%;
+  border: $border;
   min-height: $height;
   padding-bottom: $tag-margin / 4;
 

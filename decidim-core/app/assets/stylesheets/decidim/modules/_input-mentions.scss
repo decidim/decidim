@@ -5,6 +5,12 @@
     color: $secondary;
   }
 
+  &[contenteditable=true]:empty::before{
+    color: $input-placeholder-color;
+    content: attr(placeholder);
+    display: block; // firefox
+  }
+
   &.mentions__container--textarea{
     -webkit-appearance: textfield;
     -moz-appearance: textfield-multiline;
