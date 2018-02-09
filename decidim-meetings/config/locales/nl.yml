@@ -62,6 +62,7 @@ nl:
             comments_blocked: Reacties geblokkeerd
     meetings:
       actions:
+        attachment_collections: collecties
         attachments: Bijlagen
         close: Sluit
         confirm_destroy: Weet u zeker dat u deze vergadering wilt verwijderen?
