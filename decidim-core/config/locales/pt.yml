@@ -55,6 +55,10 @@ pt:
         success_with_email_confirmation: A sua conta foi actualizada com sucesso. Irá receber um e-mail de confirmação do seu novo endereço.
     anonymous_user: Anônimo
     application:
+      collection:
+        documents:
+          one: Documento
+          other: Documentos
       documents:
         related_documents: Documentos relacionados
       photos:
