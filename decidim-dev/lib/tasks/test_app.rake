@@ -19,4 +19,20 @@ namespace :decidim do
       ]
     )
   end
+
+  desc "Generates a dummy app for trying out external modules"
+  task :generate_external_development_app do
+    dummy_app_path = File.expand_path(File.join(Dir.pwd, "development_app"))
+
+    Decidim::Generators::AppGenerator.start(
+      [
+        dummy_app_path,
+        "--path",
+        "..",
+        "--recreate_db",
+        "--seed_db",
+        "--demo"
+      ]
+    )
+  end
 end
