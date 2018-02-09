@@ -7,7 +7,6 @@ require "pg"
 require "redis"
 
 require "devise"
-require "devise-i18n"
 require "devise_invitable"
 require "jquery-rails"
 require "sassc-rails"

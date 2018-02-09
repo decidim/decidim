@@ -24,7 +24,6 @@ Gem::Specification.new do |s|
   s.add_dependency "carrierwave", "~> 1.1"
   s.add_dependency "date_validator", "~> 0.9.0"
   s.add_dependency "devise", "~> 4.3"
-  s.add_dependency "devise-i18n", "~> 1.2"
   s.add_dependency "file_validators", "~> 2.1"
   s.add_dependency "foundation-rails", "~> 6.4", "< 6.5"
   s.add_dependency "foundation_rails_helper", "~> 3.0"
