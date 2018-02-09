@@ -61,6 +61,8 @@ eu:
         participatory_process_groups: Prozesu-multzoak
         participatory_processes: Prozesuak
         participatory_processes_submenu:
+          attachment_collections: Bilduma
+          attachment_files: Fitxategiak
           attachments: Eranskinak
           categories: Kategoriak
           features: Funtzionalitateak
