@@ -80,6 +80,8 @@ pl:
         assemblies: Zespoły
         assemblies_submenu:
           assembly_admins: Użytkownicy montażu
+          attachment_collections: Kolekcje
+          attachment_files: Akta
           attachments: Załączniki
           categories: Kategorie
           features: cechy
