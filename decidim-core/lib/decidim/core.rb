@@ -25,6 +25,7 @@ module Decidim
   autoload :ContentRenderers, "decidim/content_renderers"
   autoload :ContentProcessor, "decidim/content_processor"
   autoload :Features, "decidim/features"
+  autoload :HasAttachmentCollections, "decidim/has_attachment_collections"
   autoload :HasAttachments, "decidim/has_attachments"
   autoload :FeatureValidator, "decidim/feature_validator"
   autoload :HasSettings, "decidim/has_settings"

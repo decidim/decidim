@@ -1259,6 +1259,7 @@ Rails/HasManyOrHasOneDependent:
 Metrics/BlockLength:
   Exclude:
     - 'decidim-admin/app/controllers/decidim/admin/concerns/has_attachments.rb'
+    - 'decidim-admin/app/controllers/decidim/admin/concerns/has_attachment_collections.rb'
     - 'decidim-*/lib/**/*engine.rb'
     - 'decidim-api/lib/decidim/api/schema.rb'
     - 'decidim-core/config/initializers/devise.rb'

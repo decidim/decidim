@@ -181,10 +181,19 @@ FactoryBot.define do
     end
   end
 
+  factory :attachment_collection, class: "Decidim::AttachmentCollection" do
+    name { Decidim::Faker::Localized.sentence(1) }
+    description { Decidim::Faker::Localized.sentence(2) }
+    weight { Faker::Number.number(1) }
+
+    association :collection_for, factory: :participatory_process
+  end
+
   factory :attachment, class: "Decidim::Attachment" do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+    weight { Faker::Number.number(1) }
     attached_to { build(:participatory_process) }
     content_type { "image/jpeg" }
     file_size { 108_908 }

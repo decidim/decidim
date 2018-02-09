@@ -19,6 +19,7 @@ module Decidim
               get :export
             end
           end
+          resources :attachment_collections
           resources :attachments
         end
         root to: "meetings#index"
