@@ -55,6 +55,10 @@ ca:
         success_with_email_confirmation: El teu compte s'ha actualitzat correctament. Rebràs un correu electrònic per confirmar la teva nova adreça de correu electrònic.
     anonymous_user: Anònim
     application:
+      collection:
+        documents:
+          one: Document
+          other: Documents
       documents:
         related_documents: Documents relacionats
       photos:
