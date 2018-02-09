@@ -61,6 +61,8 @@ sv:
         participatory_process_groups: Processgrupper
         participatory_processes: processer
         participatory_processes_submenu:
+          attachment_collections: samlingar
+          attachment_files: filer
           attachments: bilagor
           categories: kategorier
           features: Funktioner
