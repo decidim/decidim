@@ -11,6 +11,7 @@ fr:
   decidim:
     budgets:
       actions:
+        attachment_collections: Collections
         attachments: Pièces jointes
         confirm_destroy: Êtes-vous certain de vouloir supprimer ce projet?
         destroy: Supprimer
