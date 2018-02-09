@@ -55,6 +55,10 @@ eu:
         success_with_email_confirmation: Zure kontua zuzen eguneratu da. Mezu elektroniko bat jasoko duzu zure helbide elektroniko berria baieztatzeko.
     anonymous_user: Anonimoa
     application:
+      collection:
+        documents:
+          one: Dokumentuaren
+          other: Dokumentuak
       documents:
         related_documents: Honekin lotutako agiriak
       photos:
