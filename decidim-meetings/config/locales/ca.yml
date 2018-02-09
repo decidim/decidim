@@ -67,6 +67,7 @@ ca:
             comments_blocked: Comentaris bloquejats
     meetings:
       actions:
+        attachment_collections: Col·leccions
         attachments: Adjunts
         close: Tancar
         confirm_destroy: Segur que vols suprimir aquesta trobada?
