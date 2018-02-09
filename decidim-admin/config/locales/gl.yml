@@ -2,9 +2,13 @@ gl:
   activemodel:
     attributes:
       attachment:
+        attachment_collection_id: Colección
         description: Descrición
         file: Arquivo
         title: Título
+      attachment_collection:
+        description: Descrición
+        name: Nome
       category:
         description: Descrición
         name: Nome
@@ -105,6 +109,24 @@ gl:
         permissions: Permisos
         reject: Rexeitar
         verify: Verifique
+      attachment_collections:
+        create:
+          error: Produciuse un erro ao crear unha nova colección.
+          success: Colección creada con éxito.
+        destroy:
+          success: A colección foi destruída con éxito.
+        edit:
+          title: Editar colección
+          update: Actualización
+        index:
+          attachment_collection_used: Esta colección non se pode eliminar porque está en uso.
+          attachment_collections_title: Coleccións anexas
+        new:
+          create: Crear
+          title: Nova colección
+        update:
+          error: Houbo un erro ao actualizar esta colección.
+          success: A colección actualizouse con éxito.
       attachments:
         create:
           error: Produciuse un erro ao crear un anexo novo.
@@ -236,9 +258,13 @@ gl:
       models:
         attachment:
           fields:
+            collection: Colección
             content_type: Tipo
+            file_size: Tamaño
             title: Título
           name: Anexo
+        attachment_collection:
+          name: Colección
         category:
           name: Categoría
         impersonation_log:
