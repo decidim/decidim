@@ -34,7 +34,7 @@ module Decidim
     end
 
     def max_image_height_or_width
-      3840
+      Decidim.maximum_attachment_height_or_width
     end
 
     private

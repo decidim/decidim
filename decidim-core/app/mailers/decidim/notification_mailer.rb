@@ -13,8 +13,7 @@ module Decidim
         event_class = event_class_name.constantize
         @event_instance = event_class.new(resource: resource, event_name: event, user: user, extra: extra)
         subject = @event_instance.email_subject
-
-        mail(from: Decidim.config.mailer_sender ,to: user.email, subject: subject)
+        mail(from: Decidim.config.mailer_sender, to: user.email, subject: subject)
       end
     end
   end

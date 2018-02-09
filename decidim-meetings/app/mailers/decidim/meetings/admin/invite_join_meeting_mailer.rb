@@ -28,7 +28,7 @@ module Decidim
             @locator = Decidim::ResourceLocatorPresenter.new(@meeting)
 
             subject = I18n.t("invite.subject", scope: "decidim.meetings.mailer.invite_join_meeting_mailer")
-            mail(to: user.email, subject: subject)
+            mail(from: Decidim.config.mailer_sender, to: user.email, subject: subject)
           end
         end
 

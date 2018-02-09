@@ -130,6 +130,11 @@ module Decidim
     10.megabytes
   end
 
+  # Exposes a configuration option: The maximum height or width of an attachment.
+  config_accessor :maximum_attachment_height_or_width do
+    3840
+  end
+
   # Exposes a configuration option: The maximum file size for user avatar images.
   config_accessor :maximum_avatar_size do
     5.megabytes

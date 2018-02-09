@@ -23,7 +23,7 @@ Decidim::NotificationMailer.class_eval do
             false
           end
         end
-      mail(to: user.email, subject: subject)
+      mail(from: Decidim.config.mailer_sender, to: user.email, subject: subject)
     end
   end
 
