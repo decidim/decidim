@@ -62,6 +62,7 @@ fr:
             comments_blocked: Commentaires bloqués
     meetings:
       actions:
+        attachment_collections: Collections
         attachments: Documents liés
         close: Clore
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
