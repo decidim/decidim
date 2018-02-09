@@ -87,8 +87,8 @@ module Decidim
       def gemfile
         return if options[:skip_gemfile]
 
-        template path_to_root("Gemfile"), "Gemfile", force: true
-        template path_to_root("Gemfile.lock"), "Gemfile.lock", force: true
+        template target_gemfile, "Gemfile", force: true
+        template "#{target_gemfile}.lock", "Gemfile.lock", force: true
 
         gem_modifier = if options[:path]
                          "path: \"#{options[:path]}\""
@@ -100,8 +100,8 @@ module Decidim
                          "\"#{Decidim.version}\""
                        end
 
-        gsub_file "Gemfile", /gem "decidim".*/, "gem \"decidim\", #{gem_modifier}"
-        gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}"
+        gsub_file "Gemfile", /gem "#{current_gem}".*/, "gem \"#{current_gem}\", #{gem_modifier}"
+        gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}" if current_gem == "decidim"
 
         Bundler.with_original_env { run "bundle install" }
       end
@@ -133,8 +133,32 @@ module Decidim
 
       private
 
-      def path_to_root(file)
-        File.expand_path(File.join("..", "..", "..", file), __dir__)
+      def current_gem
+        return "decidim" unless options[:path]
+
+        File.read(gemspec).match(/name\s*=\s*['"](?<name>.*)["']/)[:name]
+      end
+
+      def gemspec
+        File.expand_path(Dir.glob("*.gemspec", base: expanded_path).first, expanded_path)
+      end
+
+      def target_gemfile
+        root = if options[:path]
+                 expanded_path
+               else
+                 decidim_root
+               end
+
+        File.join(root, "Gemfile")
+      end
+
+      def expanded_path
+        File.expand_path(options[:path])
+      end
+
+      def decidim_root
+        File.expand_path(File.join("..", "..", ".."), __dir__)
       end
 
       def app_const_base
