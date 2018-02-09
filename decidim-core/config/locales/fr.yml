@@ -55,6 +55,10 @@ fr:
         success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse e-mail.
     anonymous_user: Anonyme
     application:
+      collection:
+        documents:
+          one: Document
+          other: Documents
       documents:
         related_documents: Documents connexes
       photos:
