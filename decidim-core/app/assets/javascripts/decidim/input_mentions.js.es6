@@ -3,6 +3,7 @@
 $(() => {
   const $mentionContainer = $('.js-mentions-container');
 
+  // TEMP DATA TESTING
   const sources = [
     "Cayman Islands",
     "Sudan",
@@ -25,8 +26,14 @@ $(() => {
   function bhRegex(q, sync) {
     // @mention match regex
     const mentionRegex = new RegExp('[@]+[A-Za-z0-9_]+','gim');
-    let _matches = mentionRegex.exec(q);
-    mentionRegex.test(q) ? bh.search(_matches[0].substring(1), sync) : sync([]);
+
+    if (mentionRegex.test(q)) {
+      let _matches = q.match(mentionRegex);
+      let mention = _matches[0].substring(1); // TEMP
+      bh.search(mention, sync);
+    } else {
+      sync([]);
+    }
   }
 
   $mentionContainer.typeahead({
