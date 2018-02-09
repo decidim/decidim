@@ -62,6 +62,7 @@ it:
             comments_blocked: Commenti bloccati
     meetings:
       actions:
+        attachment_collections: collezioni
         attachments: Allegati
         close: Chiuso
         confirm_destroy: Sei certo di voler cancellare questo meeting?
