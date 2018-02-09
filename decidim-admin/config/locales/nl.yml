@@ -2,9 +2,13 @@ nl:
   activemodel:
     attributes:
       attachment:
+        attachment_collection_id: Verzameling
         description: Beschrijving
         file: Bestand
         title: Titel
+      attachment_collection:
+        description: Beschrijving
+        name: Naam
       category:
         description: Beschrijving
         name: Naam
@@ -105,6 +109,24 @@ nl:
         permissions: Permissies
         reject: Weigeren
         verify: Verifiëren
+      attachment_collections:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuwe verzameling.
+          success: Verzameling succesvol gemaakt.
+        destroy:
+          success: Collectie succesvol vernietigd.
+        edit:
+          title: Bewerk verzameling
+          update: Bijwerken
+        index:
+          attachment_collection_used: Deze verzameling kan niet worden verwijderd omdat deze in gebruik is.
+          attachment_collections_title: Attachment collecties
+        new:
+          create: creëren
+          title: Nieuwe collectie
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze verzameling.
+          success: Verzameling succesvol bijgewerkt.
       attachments:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe bijlage.
@@ -236,9 +258,13 @@ nl:
       models:
         attachment:
           fields:
+            collection: Verzameling
             content_type: Type
+            file_size: Grootte
             title: Titel
           name: Bijlage
+        attachment_collection:
+          name: Verzameling
         category:
           name: Categorie
         impersonation_log:
