@@ -1,5 +1,15 @@
 # Change Log
 
+## Unreleased
+
+**Added**:
+
+**Changed**:
+
+**Fixed**:
+
+**decidim-core**: Fix mention rendering when there's more than one mention. [\2691](https://github.com/decidim/decidim/pull/2691)
+
 ## [v0.9.1](https://github.com/decidim/decidim/tree/v0.9.1) (2018-2-8)
 
 **Added**:
