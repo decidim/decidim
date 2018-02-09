@@ -2,9 +2,13 @@ fi:
   activemodel:
     attributes:
       attachment:
+        attachment_collection_id: Kokoelma
         description: Kuvaus
         file: Tiedosto
         title: Otsikko
+      attachment_collection:
+        description: Kuvaus
+        name: Nimi
       category:
         description: Kuvaus
         name: Nimi
@@ -105,6 +109,24 @@ fi:
         permissions: Oikeudet
         reject: Hylkää
         verify: Vahvista
+      attachment_collections:
+        create:
+          error: Virhe uuden kokoelman luomisessa.
+          success: Kokoelma on luotu onnistuneesti.
+        destroy:
+          success: Kokoelma on tuhottu onnistuneesti.
+        edit:
+          title: Muokkaa kokoelmia
+          update: Päivittää
+        index:
+          attachment_collection_used: Tätä kokoelmaa ei voida poistaa, koska se on käytössä.
+          attachment_collections_title: Liitetiedostot
+        new:
+          create: Luoda
+          title: Uusi kokoelma
+        update:
+          error: Tämän kokoelman päivittämisessä tapahtui virhe.
+          success: Kokoelma on päivitetty onnistuneesti.
       attachments:
         create:
           error: Uuden liitteen luonnissa tapahtui virhe.
@@ -236,9 +258,13 @@ fi:
       models:
         attachment:
           fields:
+            collection: Kokoelma
             content_type: Tyyppi
+            file_size: Koko
             title: Otsikko
           name: Liite
+        attachment_collection:
+          name: Kokoelma
         category:
           name: Aihepiiri
         impersonation_log:
