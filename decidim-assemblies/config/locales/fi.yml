@@ -80,6 +80,8 @@ fi:
         assemblies: Kehitysryhmät
         assemblies_submenu:
           assembly_admins: Kehitysryhmän käyttäjät
+          attachment_collections: kokoelmat
+          attachment_files: Tiedostot
           attachments: Liitteet
           categories: Aihepiirit
           features: Ominaisuudet
