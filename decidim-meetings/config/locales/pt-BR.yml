@@ -62,6 +62,7 @@ pt-BR:
             comments_blocked: Comentários bloqueados
     meetings:
       actions:
+        attachment_collections: Coleções
         attachments: Anexos
         close: Fechar
         confirm_destroy: Tem certeza de que deseja excluir esta reunião?
