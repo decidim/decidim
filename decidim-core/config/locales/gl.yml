@@ -55,6 +55,10 @@ gl:
         success_with_email_confirmation: A túa conta foi actualizada correctamente. Recibirá un correo electrónico para confirmar o seu novo enderezo de correo electrónico.
     anonymous_user: Anónimo
     application:
+      collection:
+        documents:
+          one: Documento
+          other: Documentos
       documents:
         related_documents: Documentos relacionados
       photos:
