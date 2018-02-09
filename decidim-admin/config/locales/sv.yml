@@ -2,9 +2,13 @@ sv:
   activemodel:
     attributes:
       attachment:
+        attachment_collection_id: Samling
         description: Beskrivning
         file: Fil
         title: Titel
+      attachment_collection:
+        description: Beskrivning
+        name: namn
       category:
         description: Beskrivning
         name: namn
@@ -105,6 +109,24 @@ sv:
         permissions: Behörigheter
         reject: Avvisa
         verify: Kontrollera
+      attachment_collections:
+        create:
+          error: Det uppstod ett fel vid att skapa en ny samling.
+          success: Samlingen skapades framgångsrikt.
+        destroy:
+          success: Samlingen förstördes framgångsrikt.
+        edit:
+          title: Redigera samling
+          update: Uppdatering
+        index:
+          attachment_collection_used: Denna samling kan inte tas bort eftersom den är i bruk.
+          attachment_collections_title: Bilagor
+        new:
+          create: Skapa
+          title: Ny kollektion
+        update:
+          error: Det uppstod ett fel vid uppdateringen av denna samling.
+          success: Samlingen uppdaterades framgångsrikt.
       attachments:
         create:
           error: Det uppstod ett fel vid att skapa en ny bilaga.
@@ -236,9 +258,13 @@ sv:
       models:
         attachment:
           fields:
+            collection: Samling
             content_type: Typ
+            file_size: Storlek
             title: Titel
           name: Bilaga
+        attachment_collection:
+          name: Samling
         category:
           name: Kategori
         impersonation_log:
