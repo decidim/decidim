@@ -62,6 +62,7 @@ gl:
             comments_blocked: Comentarios bloqueados
     meetings:
       actions:
+        attachment_collections: Coleccións
         attachments: Anexos
         close: Pechar
         confirm_destroy: Estás seguro de que queres eliminar esta reunión?
