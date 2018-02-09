@@ -46,8 +46,6 @@ data:
 search:
   ## Paths or `File.find` patterns to search in:
   paths:
-      <%= "- #{Gem.loaded_specs['devise-i18n'].full_gem_path.chomp}/app\n" %>
-      <%= "- #{Gem.loaded_specs['devise'].full_gem_path.chomp}/app\n" %>
     <% Dir.glob("decidim-*").each do |path| -%>
       <%= "- #{path}/app\n" %>
       <%= "- #{path}/lib\n" %>
@@ -55,11 +53,6 @@ search:
 
   # Root directories for relative keys resolution.
   relative_roots:
-      <%= "- #{Gem.loaded_specs['devise-i18n'].full_gem_path.chomp}/app/views\n" %>
-      <%= "- #{Gem.loaded_specs['devise'].full_gem_path.chomp}/app/controllers\n" %>
-      <%= "- #{Gem.loaded_specs['devise'].full_gem_path.chomp}/app/helpers\n" %>
-      <%= "- #{Gem.loaded_specs['devise'].full_gem_path.chomp}/app/mailers\n" %>
-      <%= "- #{Gem.loaded_specs['devise'].full_gem_path.chomp}/app/views\n" %>
     <% Dir.glob("decidim-*").each do |path| -%>
       <%= "- #{path}/app/controllers\n" %>
       <%= "- #{path}/app/helpers\n" %>
