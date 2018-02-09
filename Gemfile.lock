@@ -82,8 +82,8 @@ PATH
       valid_email2 (~> 2.1)
       wisper (~> 2.0)
     decidim-debates (0.10.0.pre)
-      decidim-comments
-      decidim-core
+      decidim-comments (= 0.10.0.pre)
+      decidim-core (= 0.10.0.pre)
       kaminari (~> 1.0)
       searchlight (~> 4.1)
     decidim-dev (0.10.0.pre)
