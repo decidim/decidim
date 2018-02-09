@@ -1,3 +1,4 @@
+---
 en:
   devise:
     confirmations:
@@ -25,7 +26,7 @@ en:
       password_change:
         greeting: Hello %{recipient}!
         message: We're contacting you to notify you that your password has been changed.
-        subject: Password Changed
+        subject: Password changed
       reset_password_instructions:
         action: Change my password
         greeting: Hello %{recipient}!
