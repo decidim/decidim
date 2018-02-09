@@ -2,9 +2,13 @@ es:
   activemodel:
     attributes:
       attachment:
+        attachment_collection_id: Colección
         description: Descripción
         file: Archivo
         title: Título
+      attachment_collection:
+        description: Descripción
+        name: Nombre
       category:
         description: Descripción
         name: Nombre
@@ -105,6 +109,24 @@ es:
         permissions: Permisos
         reject: Rechazar
         verify: Verificar
+      attachment_collections:
+        create:
+          error: Hubo un error al crear una nueva colección.
+          success: Colección creada con éxito.
+        destroy:
+          success: Colección destruida con éxito.
+        edit:
+          title: Editar colección
+          update: Actualizar
+        index:
+          attachment_collection_used: Esta colección no se puede eliminar porque está en uso.
+          attachment_collections_title: Colecciones de archivos adjuntos
+        new:
+          create: Crear
+          title: Nueva colección
+        update:
+          error: Hubo un error al actualizar esta colección.
+          success: Colección actualizada con éxito.
       attachments:
         create:
           error: Se ha producido un error al crear un nuevo archivo adjunto.
@@ -236,9 +258,13 @@ es:
       models:
         attachment:
           fields:
+            collection: Colección
             content_type: Tipo
+            file_size: tamaño
             title: Título
           name: Archivo adjunto
+        attachment_collection:
+          name: Colección
         category:
           name: Categoría
         impersonation_log:
