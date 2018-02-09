@@ -12,8 +12,8 @@
 
 **Fixed**:
 
-**decidim-core**: Fix notifications list when the resource is a User. [\#2692](https://github.com/decidim/decidim/pull/2692)
-**decidim-core**: Fix mention rendering when there's more than one mention. [\2691](https://github.com/decidim/decidim/pull/2691)
+* **decidim-core**: Fix notifications list when the resource is a User. [\#2692](https://github.com/decidim/decidim/pull/2692)
+* **decidim-core**: Fix mention rendering when there's more than one mention. [\#2691](https://github.com/decidim/decidim/pull/2691)
 
 ## [v0.9.1](https://github.com/decidim/decidim/tree/v0.9.1) (2018-2-8)
 
@@ -29,8 +29,7 @@
 * **decidim-comments**: Fix comment notifications listing. [\#2652](https://github.com/decidim/decidim/pull/2652)
 * **decidim-participatory_processes**: Fix editing a process after an error.[\#2653](https://github.com/decidim/decidim/pull/2653)
 * **decidim-assemblies**: Fix editing a process after an error.[\#2653](https://github.com/decidim/decidim/pull/2653)
-
-- **decidim-participatory_processes**: Ensure only active processes are shown in the highlighted processes section in the homepage[\#2682](https://github.com/decidim/decidim/pull/2682)
+* **decidim-participatory_processes**: Ensure only active processes are shown in the highlighted processes section in the homepage[\#2682](https://github.com/decidim/decidim/pull/2682)
 
 ## [v0.9.0](https://github.com/decidim/decidim/tree/v0.9.0) (2018-2-5)
 
