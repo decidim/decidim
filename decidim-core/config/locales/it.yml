@@ -55,6 +55,10 @@ it:
         success_with_email_confirmation: Il tuo account è stato aggiornato correttamente. Riceverai un'email per confermare il tuo nuovo indirizzo email.
     anonymous_user: Anonimo
     application:
+      collection:
+        documents:
+          one: Documento
+          other: Documenti
       documents:
         related_documents: Documenti Relativi
       photos:
