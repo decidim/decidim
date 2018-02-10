@@ -37,10 +37,6 @@ module Decidim
                             default: nil,
                             desc: "Use a specific branch from GitHub's version"
 
-      class_option :database, type: :string,
-                              default: "postgresql",
-                              desc: "Configure for selected database (options: #{DATABASES.join("/")})"
-
       class_option :recreate_db, type: :boolean,
                                  default: false,
                                  desc: "Recreate test database"
