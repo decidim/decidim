@@ -61,7 +61,7 @@ module Decidim
     def current_user_can_visit_space?
       (current_participatory_space.private_space? &&
        current_participatory_space.users.any? { current_user }) ||
-       !current_participatory_space.private_space?
+        !current_participatory_space.private_space?
     end
   end
 end
