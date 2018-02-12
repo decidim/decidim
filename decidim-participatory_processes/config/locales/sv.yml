@@ -253,6 +253,7 @@ sv:
       statistics:
         answers_count: svar
         comments_count: kommentarer
+        endorsements_count: påskrifter
         headline: Aktivitet
         meetings_count: möten
         orders_count: röster
