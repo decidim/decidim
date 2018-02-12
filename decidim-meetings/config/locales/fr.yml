@@ -4,7 +4,7 @@ fr:
       close_meeting:
         attendees_count: Nombre de participants
         attending_organizations: Liste des organisations qui ont participé à cette rencontre
-        closing_report: Signaler
+        closing_report: Compte rendu
         contributions_count: Nombre de contributions
         proposal_ids: Propositions soumises lors de la rencontre
       meeting:
