@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "active_link_to", "~> 1.0"
-  s.add_dependency "autoprefixer-rails", "~> 7.1"
+  s.add_dependency "autoprefixer-rails", "~> 7.2"
   s.add_dependency "cancancan", "~> 2.0"
   s.add_dependency "carrierwave", "~> 1.1"
   s.add_dependency "date_validator", "~> 0.9.0"
@@ -38,7 +38,7 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth-google-oauth2", "~> 0.5.0"
   s.add_dependency "omniauth-twitter", "~> 1.4"
   s.add_dependency "paper_trail", "~> 8.0"
-  s.add_dependency "pg", "~> 0.21.0"
+  s.add_dependency "pg", "~> 1.0"
   s.add_dependency "premailer-rails", "~> 1.9"
   s.add_dependency "rails", "~> 5.1", "< 5.2"
   s.add_dependency "rails-i18n", "~> 5.0"
