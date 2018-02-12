@@ -7,6 +7,20 @@
     color: $secondary;
   }
 
+  [type=text]{
+    white-space: nowrap;
+    overflow: hidden;
+
+    br{
+      display: none;
+    }
+
+    *{
+      display: inline;
+      white-space: nowrap;
+    }
+  }
+
   [contenteditable=true]:empty::before{
     color: $input-placeholder-color;
     content: attr(placeholder);
