@@ -30,7 +30,7 @@ module Decidim
       let(:mail) { described_class.password_change(user, {}) }
 
       let(:subject) { "Contrasenya modificada" }
-      let(:body) { "Ens posem en contacte amb tu per notificar-te que la teva contrasenya ha estat canviada correctament" }
+      let(:body) { "Ens posem en contacte amb tu per notificar-te que has canviat la contrasenya correctament" }
       let(:default_subject) { "Password changed" }
       let(:default_body) { "contacting you to notify you that your password has been changed" }
 
