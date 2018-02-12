@@ -58,6 +58,20 @@ module Decidim
       def metadata
         Metadata.new
       end
+
+      protected
+
+      # A convenience method to get the current organization inside the content parsers
+      #
+      # @example Scope a query while parsing the content
+      #   def rewrite
+      #     Decidim::User.where(nickname: nickname, organization: current_organization)
+      #   end
+      #
+      # @return [Decidim::Organization] the current request organization
+      def current_organization
+        RequestStore.store[:decidim_current_organization]
+      end
     end
   end
 end
