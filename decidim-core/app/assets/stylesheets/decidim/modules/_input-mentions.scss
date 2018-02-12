@@ -23,11 +23,9 @@
       @include form-element();
 
       max-width: 100%;
-      min-height: ($input-font-size * unitless-calc($input-line-height)) + (get-side($input-padding, 'top') + get-side($input-padding, 'bottom'));
-
-      &[rows]{
-        height: auto;
-      }
+      // Min size, 3 times input textfield
+      min-height: 3 * (($input-font-size * unitless-calc($input-line-height)) + (get-side($input-padding, 'top') + get-side($input-padding, 'bottom')));
+      height: auto;
 
       // Placeholder text
       &::placeholder{
