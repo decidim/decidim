@@ -253,6 +253,7 @@ pl:
       statistics:
         answers_count: Odpowiedzi
         comments_count: Komentarze
+        endorsements_count: Adnotacje
         headline: Czynność
         meetings_count: Spotkania
         orders_count: Głosowania
