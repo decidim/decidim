@@ -13,6 +13,8 @@ module Decidim
         step_i = step.to_s.split("_").last.to_i
         if step_i == proposal_wizard_step_number(current_step)
           %(step--active #{step} #{current_step})
+        elsif step_i < proposal_wizard_step_number(current_step)
+          %(step--past #{step})
         else
           %()
         end
