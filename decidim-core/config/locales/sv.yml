@@ -447,6 +447,7 @@ sv:
         answers_count: Avslutade undersökningar
         assemblies_count: Assemblies
         comments_count: kommentarer
+        endorsements_count: påskrifter
         headline: Aktuellt tillstånd %{organization}
         meetings_count: möten
         orders_count: röster
