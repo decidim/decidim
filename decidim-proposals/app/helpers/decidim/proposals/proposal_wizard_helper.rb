@@ -36,7 +36,7 @@ module Decidim
                        "edit_draft"
                      else
                        action_name
-        end
+                     end
 
         t("decidim.proposals.proposals.#{step_title}.title")
       end

@@ -26,7 +26,6 @@ describe "Proposal", type: :system do
   end
 
   context "when creating a new proposal" do
-
     before do
       login_as user, scope: :user
       visit_feature
@@ -52,11 +51,10 @@ describe "Proposal", type: :system do
     end
 
     context "step_2: Compare" do
-      let(:proposal_draft) { create(:proposal, :draft, feature: feature, title: proposal_title, body: proposal_body ) }
+      let(:proposal_draft) { create(:proposal, :draft, feature: feature, title: proposal_title, body: proposal_body) }
       before do
         visit compare_proposal_path(feature, proposal_draft)
       end
-
 
       context "with similar results" do
         before do
@@ -83,7 +81,7 @@ describe "Proposal", type: :system do
       end
 
       context "without similar results" do
-        let(:proposal_draft) { create(:proposal, :draft, feature: feature, title: proposal_title, body: proposal_body ) }
+        let(:proposal_draft) { create(:proposal, :draft, feature: feature, title: proposal_title, body: proposal_body) }
 
         before do
           visit compare_proposal_path(feature, proposal_draft)

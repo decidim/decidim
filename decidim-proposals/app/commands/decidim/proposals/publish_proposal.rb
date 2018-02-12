@@ -26,7 +26,6 @@ module Decidim
 
         broadcast(:ok, @proposal)
       end
-
     end
   end
 end
