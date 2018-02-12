@@ -31,6 +31,9 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
           email_subject: Nova proposta afegida a %{participatory_space_title}
           notification_title: S'ha afegit la proposta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
+        proposal_endorsed:
+          email_intro: "%{endorser_name} %{endorser_nickname}, a qui sigueu, acaba d'aprovar una proposta que us pot resultar interessant, revisar-la i contribuir:"
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{endorser_nickname}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
         proposal_evaluating:
           email_intro: 'La proposta "%{resource_title}" s''està avaluant actualment. Pots consultar una resposta en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
@@ -45,6 +48,7 @@ ca:
       proposals:
         actions:
           create: Crear
+          endorse: Endossar
           vote: Donar suport
         name: Propostes
         settings:
@@ -64,6 +68,8 @@ ca:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
             creation_enabled: Habilitar de creació de propostes
+            endorsements_blocked: S'han bloquejat les recomanacions
+            endorsements_enabled: Aprovacions habilitades
             proposal_answering_enabled: Resposta oficial a propostes activades
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
@@ -151,6 +157,15 @@ ca:
             votes: Suports
       new:
         limit_reached: No pots crear noves propostes ja que has superat el límit.
+      proposal_endorsements:
+        create:
+          error: Hi ha hagut errors en aprovar la proposta.
+        identities:
+          select_identity: Selecciona identitat
+      proposal_endorsements_helper:
+        endorsement_button:
+          already_endorsed: Ja aprovat
+          endorse: Endossar
       proposal_votes:
         create:
           error: Hi ha hagut errors en donar suport a la proposta.
@@ -164,6 +179,18 @@ ca:
           select_a_category: Si us plau, selecciona una categoria
           send: Enviar
           title: Editar proposta
+        endorsement_button:
+          already_endorsed: Ja aprovat
+          already_endorsed_hover: Unendorse
+        endorsement_identities_cabin:
+          endorse: Endossar
+        endorsements_count:
+          count:
+            one: APROVACIÓ
+            other: AVANTATGES
+        endorsements_listing:
+          see_all: veure tot
+          title: Llista d'aprovacions
         filters:
           accepted: Acceptades
           activity: Activitat
@@ -211,6 +238,7 @@ ca:
           view_proposal: Veure proposta
         show:
           edit_proposal: Editar proposta
+          endorsements_blocked: S'han bloquejat les recomanacions
           proposal_accepted_reason: 'Aquesta proposta ha estat acceptada perquè:'
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
