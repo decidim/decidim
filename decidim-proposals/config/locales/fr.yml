@@ -26,6 +26,11 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: Nouvelle proposition par %{author_nickname}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_endorsed:
+          email_intro: "%{endorser_name} %{endorser_nickname}, que vous suivez, vient d'endosser une proposition qui pourrait vous intéresser, vérifiez-la et contribuez:"
+          email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: "%{endorser_nickname} a approuvé une nouvelle proposition"
+          notification_title: Le <a href="%{resource_path}">%{resource_title}</a> proposition a été approuvée par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           email_intro: 'La proposition "%{resource_title}" est en cours d''évaluation. Vous pouvez vérifier une réponse dans cette page:'
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez le retirer du lien précédent.
@@ -40,6 +45,7 @@ fr:
       proposals:
         actions:
           create: Créer
+          endorse: Endosser
           vote: Voter
         name: Propositions
         settings:
@@ -59,6 +65,8 @@ fr:
             announcement: Message d'annonce
             comments_blocked: Commentaires bloqués
             creation_enabled: Module propositions activé
+            endorsements_blocked: Endossements bloqués
+            endorsements_enabled: Endorsements activés
             proposal_answering_enabled: '"Réponses aux propositions" activé'
             votes_blocked: Votes bloqués
             votes_enabled: Votes activés
@@ -145,6 +153,15 @@ fr:
             votes: Votes
       new:
         limit_reached: Vous ne pouvez pas créer de nouvelles propositions car vous avez dépassé le nombre autorisé.
+      proposal_endorsements:
+        create:
+          error: Il y a eu des erreurs lors de l'approbation de la proposition.
+        identities:
+          select_identity: Sélectionnez l'identité
+      proposal_endorsements_helper:
+        endorsement_button:
+          already_endorsed: Déjà approuvé
+          endorse: Endosser
       proposal_votes:
         create:
           error: Des erreurs se sont produites lors du vote de la proposition.
@@ -158,6 +175,18 @@ fr:
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Modifier la proposition
+        endorsement_button:
+          already_endorsed: Déjà approuvé
+          already_endorsed_hover: Unendorse
+        endorsement_identities_cabin:
+          endorse: Endosser
+        endorsements_count:
+          count:
+            one: APPROBATION
+            other: ENDOS
+        endorsements_listing:
+          see_all: voir tout
+          title: Liste des avenants
         filters:
           accepted: Retenue
           activity: Activité
@@ -205,6 +234,7 @@ fr:
           view_proposal: Voir la proposition
         show:
           edit_proposal: Modifier la proposition
+          endorsements_blocked: Endossements bloqués
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition a été refusée parce que:'
