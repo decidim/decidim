@@ -447,6 +447,7 @@ gl:
         answers_count: Enquisas concluídas
         assemblies_count: Asembleas
         comments_count: Comentarios
+        endorsements_count: Aprobacións
         headline: Estado actual de %{organization}
         meetings_count: Reunións
         orders_count: Votos
