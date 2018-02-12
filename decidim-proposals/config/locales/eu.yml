@@ -26,6 +26,9 @@ eu:
           email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Proposamen berria %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena <a href="%{author_path}">%{author_name} %{author_nickname}</a> sortu zen.
+        proposal_endorsed:
+          email_intro: "%{endorser_name} %{endorser_nickname}, jarraitzen ari zaren norbaiti, interesgarria izan daitekeen proposamen bat onartu du, begiratu eta lagundu:"
+          email_subject: "%{endorser_nickname} proposamen berri bat onartu du"
         proposal_evaluating:
           email_intro: '"%{resource_title}" proposamena ebaluatzen ari da. Orri honetan erantzun dezakezu:'
           email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
@@ -40,6 +43,7 @@ eu:
       proposals:
         actions:
           create: Sortu
+          endorse: gatoz
           vote: Proiektuaren alde egin
         name: Proposamenak
         settings:
@@ -59,6 +63,8 @@ eu:
             announcement: Oharra
             comments_blocked: Iruzkinak blokeatuta
             creation_enabled: Gaitu proposamenen sorrera
+            endorsements_blocked: Onarpen blokeatuak
+            endorsements_enabled: Onarpen gaituak
             proposal_answering_enabled: Erantzun ofiziala gaitutako proposamenei
             votes_blocked: Bozketa blokeatuta
             votes_enabled: Botoak gaituta
@@ -145,6 +151,15 @@ eu:
             votes: Euskarriak
       new:
         limit_reached: Ezin duzu proposamen berririk sortu muga gainditu zenuenetik.
+      proposal_endorsements:
+        create:
+          error: Arazoak izan dira proposamena onartzean.
+        identities:
+          select_identity: Hautatu identitatea
+      proposal_endorsements_helper:
+        endorsement_button:
+          already_endorsed: Dagoeneko sinatutakoa
+          endorse: gatoz
       proposal_votes:
         create:
           error: Erroreak gertatu dira proposamena bozkatzean.
@@ -158,6 +173,18 @@ eu:
           select_a_category: Hautatu kategoria bat
           send: Bidali
           title: Editatu proposamena
+        endorsement_button:
+          already_endorsed: Dagoeneko sinatutakoa
+          already_endorsed_hover: Unendorse
+        endorsement_identities_cabin:
+          endorse: gatoz
+        endorsements_count:
+          count:
+            one: abal
+            other: MERKATALGARRITASUNARI
+        endorsements_listing:
+          see_all: dena ikusi
+          title: Onarpenen zerrenda
         filters:
           accepted: Onartuta
           activity: Jarduera
@@ -205,6 +232,7 @@ eu:
           view_proposal: Ikusi proposamena
         show:
           edit_proposal: Editatu proposamena
+          endorsements_blocked: Onarpen blokeatuak
           proposal_accepted_reason: 'Proposamen hau onartu da arrazoi hauengatik:'
           proposal_in_evaluation_reason: Proposamen hau ebaluatzen ari da
           proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'
