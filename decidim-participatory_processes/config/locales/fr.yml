@@ -253,6 +253,7 @@ fr:
       statistics:
         answers_count: Réponses
         comments_count: Commentaires
+        endorsements_count: Les avenants
         headline: Activité
         meetings_count: Réunions
         orders_count: Votes
