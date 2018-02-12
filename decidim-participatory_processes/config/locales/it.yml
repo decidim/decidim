@@ -253,6 +253,7 @@ it:
       statistics:
         answers_count: risposte
         comments_count: Commenti
+        endorsements_count: Riconoscimenti
         headline: Attività
         meetings_count: Riunioni
         orders_count: Voti
