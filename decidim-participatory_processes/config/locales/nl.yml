@@ -253,6 +253,7 @@ nl:
       statistics:
         answers_count: Antwoorden
         comments_count: Reacties
+        endorsements_count: Endorsements
         headline: Activiteit
         meetings_count: Vergaderingen
         orders_count: Stemmen
