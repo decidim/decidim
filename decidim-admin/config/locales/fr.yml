@@ -52,7 +52,7 @@ fr:
         code: Code
         name: Nom
         organization: Organisation
-        scope_type: Type de périmètre d'application
+        scope_type: Type de zone de d'application
       scope_type:
         name: Nom
         organization: Organisation
