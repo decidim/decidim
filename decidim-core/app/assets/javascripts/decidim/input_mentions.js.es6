@@ -35,9 +35,9 @@ $(() => {
   let tribute = new Tribute({
     values: sources,
     positionMenu: false,
-    // menuContainer: document.activeElement.parentNode,
+    menuContainer: null,
     fillAttr: 'tag',
-    noMatchTemplate: null,
+    noMatchTemplate: null, // TODO implementar
     lookup: function(item) {
       return item.tag + item.name;
     },
@@ -58,14 +58,12 @@ $(() => {
 
   // DOM manipulation
   $mentionContainer.on('focusin', e => {
-    tribute.menuContainer = e.target.parentNode
+    // Set the parent container relative to the current element
+    tribute.menuContainer = e.target.parentNode;
   });
   $mentionContainer.on('focusout', e => {
     let $parent = $(e.target).parent();
-    // REVIEW no funciona del todo
-    if (e.target.parentNode !== tribute.menuContainer) {
-      tribute.menuContainer = null;
-    }
+
     if ($parent.hasClass('is-active')) {
       $parent.removeClass('is-active');
     }
@@ -74,8 +72,12 @@ $(() => {
     let $parent = $(e.target).parent();
 
     if (tribute.isActive) {
-      let $me = $(e.target).next();
-      $me.removeAttr('style');
+      // We need to move the container to the wrapper selected
+      let $tribute = $('.tribute-container');
+      $tribute.appendTo($parent);
+      // Remove the inline styles, relative to absolute positioning
+      $tribute.removeAttr('style');
+      // Parent adaptation
       $parent.addClass('is-active');
     } else {
       $parent.removeClass('is-active');

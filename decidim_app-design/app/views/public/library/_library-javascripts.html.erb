@@ -15,22 +15,22 @@
   <div class="column medium-6">
     <pre>Tipo input (type=text contenteditable="true")</pre>
     <div class="mentions__container">
-      <div contenteditable="true" class="js-mentions" type="text" placeholder="Use mentions typing @ sign"></div>
+      <div id="c1" contenteditable="true" class="js-mentions" type="text" placeholder="Use mentions typing @ sign"></div>
     </div>
     <pre>Tipo textarea (contenteditable="true")</pre>
     <div class="mentions__container mentions__container--textarea">
-      <div contenteditable="true" class="js-mentions" placeholder="El contenido de este textarea es autoexpandible. Escribe lo que quieras."></div>
+      <div id="c2" contenteditable="true" class="js-mentions" placeholder="El contenido de este textarea es autoexpandible. Escribe lo que quieras."></div>
     </div>
   </div>
   <div class="column medium-6">
     <p>También se puede añadir a elementos de un formulario&nbsp;<sup>1</sup></p>
     <pre>.mentions__container input.js-mentions</pre>
     <div class="mentions__container">
-      <input class="js-mentions" type="text" placeholder="Add tags"/>
+      <input id="c3" class="js-mentions" type="text" placeholder="Add tags"/>
     </div>
     <pre>.mentions__container textarea.js-mentions</pre>
     <div class="mentions__container">
-      <textarea class="js-mentions" placeholder="Use mentions typing @ sign" rows="4" cols="80"></textarea>
+      <textarea id="c4" class="js-mentions" placeholder="Use mentions typing @ sign" rows="4" cols="80"></textarea>
     </div>
     <small><sup>1</sup>&nbsp;No es posible estilar elementos dentro de un input/textarea. Solo permite texto.</small>
   </div>
