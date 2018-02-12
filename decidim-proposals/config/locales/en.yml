@@ -53,6 +53,7 @@ en:
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
             proposal_limit: Proposal limit per user
             vote_limit: Vote limit per user
+            vote_weight_enabled: Up / Down / Neutral votes enabled
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
