@@ -447,6 +447,7 @@ fr:
         answers_count: Enquêtes terminées
         assemblies_count: Assemblées
         comments_count: Commentaires
+        endorsements_count: Les avenants
         headline: État actuel de %{organization}
         meetings_count: Rencontres
         orders_count: Votes
