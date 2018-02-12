@@ -7,6 +7,8 @@ describe "Application generation" do
 
   let(:test_app) { "spec/generator_test_app" }
 
+  after { FileUtils.rm_rf(test_app) }
+
   shared_examples_for "a sane generator" do
     it "successfully generates application" do
       expect(status).to eq(true)
@@ -27,57 +29,34 @@ describe "Application generation" do
   end
   # rubocop:enable RSpec/BeforeAfterAll
 
-  context "when directly invoking decidim executable" do
-    after { FileUtils.rm_rf(test_app) }
+  context "without flags" do
+    let(:command) { "decidim #{test_app}" }
 
-    context "without flags" do
-      let(:command) { "decidim #{test_app}" }
-
-      it_behaves_like "a sane generator"
-    end
-
-    context "with --edge flag" do
-      let(:command) { "decidim --edge #{test_app}" }
-
-      it_behaves_like "a sane generator"
-    end
-
-    context "with --branch flag" do
-      let(:command) { "decidim --branch master #{test_app}" }
-
-      it_behaves_like "a sane generator"
-    end
-
-    context "with --path flag" do
-      let(:command) { "decidim --path #{File.expand_path("..", __dir__)} #{test_app}" }
-
-      it_behaves_like "a sane generator"
-    end
-
-    context "with development application" do
-      let(:command) do
-        "decidim --path #{File.expand_path("..", __dir__)} #{test_app} --recreate_db --seed_db"
-      end
-
-      it_behaves_like "a sane generator"
-    end
+    it_behaves_like "a sane generator"
   end
 
-  context "when run from external application" do
-    around do |example|
-      Bundler.with_original_env do
-        system(
-          "decidim --path #{File.expand_path("..", __dir__)} #{test_app}",
-          out: File::NULL
-        )
-      end
+  context "with --edge flag" do
+    let(:command) { "decidim --edge #{test_app}" }
 
-      Dir.chdir(test_app) { example.run }
+    it_behaves_like "a sane generator"
+  end
 
-      FileUtils.rm_rf(test_app)
+  context "with --branch flag" do
+    let(:command) { "decidim --branch master #{test_app}" }
+
+    it_behaves_like "a sane generator"
+  end
+
+  context "with --path flag" do
+    let(:command) { "decidim --path #{File.expand_path("..", __dir__)} #{test_app}" }
+
+    it_behaves_like "a sane generator"
+  end
+
+  context "with development application" do
+    let(:command) do
+      "decidim --path #{File.expand_path("..", __dir__)} #{test_app} --recreate_db --seed_db"
     end
-
-    let(:command) { "bundle exec rake decidim:generate_external_test_app" }
 
     it_behaves_like "a sane generator"
   end
