@@ -31,6 +31,11 @@ es:
           email_outro: Has recibido esta notificación porque sigues "%{participatory_space_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: Nueva propuesta añadida a %{participatory_space_title}
           notification_title: Se ha añadido la propuesta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
+        proposal_endorsed:
+          email_intro: "%{endorser_name} %{endorser_nickname}, a quién sigues, acaba de aprobar una propuesta que puede ser interesante para ti, compruébalo y contribuye:"
+          email_outro: Recibió esta notificación porque está siguiendo %{endorser_nickname}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: "%{endorser_nickname} ha endosado una nueva propuesta"
+          notification_title: El <a href="%{resource_path}">%{resource_title}</a> propuesta ha sido respaldada por <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           email_intro: 'La propuesta "%{resource_title}" se está evaluando actualmente. Puedes encontrar la respuesta en esta página:'
           email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
@@ -45,6 +50,7 @@ es:
       proposals:
         actions:
           create: Crear
+          endorse: Endosar
           vote: Dar apoyo
         name: Propuestas
         settings:
@@ -64,6 +70,8 @@ es:
             announcement: Aviso
             comments_blocked: Comentarios bloqueados
             creation_enabled: Habilitar creación de propuestas
+            endorsements_blocked: Endosos bloqueados
+            endorsements_enabled: Endosos habilitados
             proposal_answering_enabled: Respuesta a propuestas activadas
             votes_blocked: Votación bloqueada
             votes_enabled: Votos habilitados
@@ -151,6 +159,15 @@ es:
             votes: Votos
       new:
         limit_reached: No puedes crear nuevas propuestas ya que has superado el límite.
+      proposal_endorsements:
+        create:
+          error: Ha habido errores al respaldar la propuesta.
+        identities:
+          select_identity: Seleccionar identidad
+      proposal_endorsements_helper:
+        endorsement_button:
+          already_endorsed: Ya avalado
+          endorse: Endosar
       proposal_votes:
         create:
           error: Ha habido errores al votar la propuesta.
@@ -164,6 +181,18 @@ es:
           select_a_category: Por favor, seleccione una categoría
           send: Enviar
           title: Editar propuesta
+        endorsement_button:
+          already_endorsed: Ya avalado
+          already_endorsed_hover: Unendorse
+        endorsement_identities_cabin:
+          endorse: Endosar
+        endorsements_count:
+          count:
+            one: APROBACIÓN
+            other: ENDOSO
+        endorsements_listing:
+          see_all: ver todo
+          title: Lista de Endosos
         filters:
           accepted: Aceptadas
           activity: Actividad
@@ -211,6 +240,7 @@ es:
           view_proposal: Ver propuesta
         show:
           edit_proposal: Editar propuesta
+          endorsements_blocked: Endosos bloqueados
           proposal_accepted_reason: 'Esta propuesta ha sido aceptada porque:'
           proposal_in_evaluation_reason: Esta propuesta está siendo evaluada
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
