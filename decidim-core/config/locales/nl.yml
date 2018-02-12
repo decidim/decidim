@@ -447,6 +447,7 @@ nl:
         answers_count: Voltooide enquêtes
         assemblies_count: Bijeenkomsten
         comments_count: Reacties
+        endorsements_count: Endorsements
         headline: Huidige stand van %{organization}
         meetings_count: Vergaderingen
         orders_count: stemmen
