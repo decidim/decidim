@@ -74,6 +74,20 @@ describe "Proposals feature" do # rubocop:disable RSpec/DescribeClass
       end
     end
 
+    describe "endorsements_count" do
+      let(:stats_name) { :endorsements_count }
+
+      before do
+        create_list :proposal_endorsement, 2, proposal: proposal
+        create_list :proposal_endorsement, 3, proposal: hidden_proposal
+      end
+
+      it "counts the endorsements from visible proposals" do
+        expect(Decidim::Proposals::ProposalEndorsement.count).to eq 5
+        expect(subject).to eq 2
+      end
+    end
+
     describe "comments_count" do
       let(:stats_name) { :comments_count }
 

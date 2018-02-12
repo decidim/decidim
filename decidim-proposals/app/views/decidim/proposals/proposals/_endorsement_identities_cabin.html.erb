@@ -1,0 +1,14 @@
+<% if current_user && current_user.user_groups.verified.any? %>
+  <button id="select-identity-button"
+          class="card__button button expanded button--sc">
+    <%= t('.endorse') %>
+  </button>
+
+  <div class="reveal"
+       id="user-identities"
+       data-reveal data-refresh-url="<%= identities_proposal_proposal_endorsement_path(proposal) %>">
+  </div>
+<% else %>
+    <%= endorsement_button(proposal, false) %>
+<% end %>
+<%= javascript_include_tag 'decidim/proposals/identity_selector_dialog' %>

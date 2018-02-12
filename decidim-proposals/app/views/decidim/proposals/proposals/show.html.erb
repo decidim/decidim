@@ -18,7 +18,7 @@
       <% end %>
     </div>
     <% if @proposal.withdrawable_by?(current_user) %>
-      <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), method: :put, class: "title-action__action button small hollow", data: {confirm: t('.withdraw_confirmation')}  do %>
+      <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), method: :put, class: "title-action__action button small hollow", title: t('.withdraw_btn_hint'), data: {confirm: t('.withdraw_confirmation')}  do %>
         <%= t('.withdraw_proposal') %>
         <%= icon "x" %>
       <% end %>
@@ -43,7 +43,19 @@
         </div>
       </div>
     <% end %>
-    <%= feature_reference(@proposal) %>
+    <% if current_settings.endorsements_enabled? %>
+      <div class="card extra">
+        <div class="card__content">
+          <%= render partial: "endorsements_count", locals: { proposal: @proposal, from_proposals_list: false } %>
+          <% if current_settings.endorsements_blocked? %>
+            <%= content_tag :span, t('.endorsements_blocked'), class: "card__button button #{endorsement_button_classes(from_proposals_list)} disabled", disabled: true %>
+          <% else %>
+            <%= render partial: "endorsement_identities_cabin", locals: { proposal: @proposal, from_proposals_list: false } %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <%= resource_reference(@proposal) %>
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>
   </div>
@@ -88,6 +100,7 @@
 </div>
 <%= attachments_for @proposal %>
 
+<%= render partial: 'endorsements_listing', locals: {proposal: @proposal} %>
 <%= comments_for @proposal %>
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>

@@ -58,6 +58,10 @@
                 <% end %>
 
                 <% if can? :update, current_feature %>
+                    <%= icon_link_to "folder", meeting_attachment_collections_path(meeting), t("actions.attachment_collections", scope: "decidim.meetings"), class: "action-icon--attachment_collections" %>
+                <% end %>
+
+                <% if can? :update, current_feature %>
                   <%= icon_link_to "paperclip", meeting_attachments_path(meeting), t("actions.attachments", scope: "decidim.meetings"), class: "action-icon--attachments" %>
                 <% end %>
 

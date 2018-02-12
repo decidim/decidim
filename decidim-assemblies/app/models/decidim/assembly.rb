@@ -6,10 +6,12 @@ module Decidim
   # several features (proposals, debates...) that can be enabled or disabled.
   class Assembly < ApplicationRecord
     include Decidim::HasAttachments
+    include Decidim::HasAttachmentCollections
     include Decidim::Participable
     include Decidim::Publicable
     include Decidim::Scopable
     include Decidim::Followable
+    include Decidim::HasReference
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",

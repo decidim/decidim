@@ -1,0 +1,7 @@
+<div class="reveal__header">
+  <h1 class="reveal__title"><%=t '.select_identity' %></h1>
+</div>
+<%= endorsement_button(proposal, false, current_user.name) %>
+<% @user_verified_groups.each do |user_group| %>
+  <br/><%= endorsement_button(proposal, false, user_group.name, user_group) %>
+<% end %>

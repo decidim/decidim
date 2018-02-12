@@ -1,0 +1,8 @@
+var $proposalEndorsementsCount = $('#proposal-<%= proposal.id %>-endorsements-count');
+morphdom($proposalEndorsementsCount[0], '<%= j(render partial: 'decidim/proposals/proposals/endorsements_count', locals: { proposal: proposal, from_proposals_list: @from_proposals_list }).strip.html_safe %>');
+var $proposalEndorsementButton = $('#proposal-<%= proposal.id %>-endorsement-button');
+morphdom($proposalEndorsementButton[0], '<%= j(endorsement_button(proposal, @from_proposals_list, current_user.name)).strip.html_safe %>');
+<% current_user.user_groups.verified.each do |user_group| %>
+var $proposalEndorsementButton4Group = $('#proposal-<%= proposal.id %>-endorsement-button-<%= user_group.id %>');
+morphdom($proposalEndorsementButton4Group[0], '<%= j(endorsement_button(proposal, @from_proposals_list, user_group.name, user_group)).strip.html_safe %>');
+<% end %>

@@ -11,7 +11,7 @@ Decidim.register_feature(:proposals) do |feature|
     raise "Can't destroy this feature when there are proposals" if Decidim::Proposals::Proposal.where(feature: instance).any?
   end
 
-  feature.actions = %w(vote create withdraw)
+  feature.actions = %w(endorse vote create withdraw)
 
   feature.settings(:global) do |settings|
     settings.attribute :vote_limit, type: :integer, default: 0
@@ -28,6 +28,8 @@ Decidim.register_feature(:proposals) do |feature|
   end
 
   feature.settings(:step) do |settings|
+    settings.attribute :endorsements_enabled, type: :boolean, default: true
+    settings.attribute :endorsements_blocked, type: :boolean
     settings.attribute :votes_enabled, type: :boolean
     settings.attribute :votes_blocked, type: :boolean
     settings.attribute :votes_hidden, type: :boolean, default: false
@@ -53,6 +55,11 @@ Decidim.register_feature(:proposals) do |feature|
   feature.register_stat :votes_count, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, start_at, end_at|
     proposals = Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).not_hidden
     Decidim::Proposals::ProposalVote.where(proposal: proposals).count
+  end
+
+  feature.register_stat :endorsements_count, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |features, start_at, end_at|
+    proposals = Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).not_hidden
+    Decidim::Proposals::ProposalEndorsement.where(proposal: proposals).count
   end
 
   feature.register_stat :comments_count, tag: :comments do |features, start_at, end_at|
@@ -150,6 +157,36 @@ Decidim.register_feature(:proposals) do |feature|
         )
 
         Decidim::Proposals::ProposalVote.create!(proposal: proposal, author: author) unless proposal.answered? && proposal.rejected?
+      end
+
+      unless proposal.answered? && proposal.rejected?
+        (n * 2).times do |index|
+          email = "endorsement-author-#{participatory_space.underscored_name}-#{participatory_space.id}-#{n}-endr#{index}@example.org"
+          name = "#{Faker::Name.name} #{participatory_space.id} #{n} endr#{index}"
+
+          author = Decidim::User.find_or_initialize_by(email: email)
+          author.update!(
+            password: "password1234",
+            password_confirmation: "password1234",
+            name: name,
+            nickname: Faker::Twitter.unique.screen_name,
+            organization: feature.organization,
+            tos_agreement: "1",
+            confirmed_at: Time.current
+          )
+          if index.even?
+            group = Decidim::UserGroup.create!(
+              name: Faker::Name.name,
+              document_number: Faker::Code.isbn,
+              phone: Faker::PhoneNumber.phone_number,
+              decidim_organization_id: feature.organization.id,
+              verified_at: Time.current
+            )
+            author.user_groups << group
+            author.save!
+          end
+          Decidim::Proposals::ProposalEndorsement.create!(proposal: proposal, author: author, user_group: author.user_groups.first)
+        end
       end
 
       (n % 3).times do

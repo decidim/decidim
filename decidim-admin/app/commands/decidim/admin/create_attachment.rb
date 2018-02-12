@@ -44,7 +44,9 @@ module Decidim
           title: form.title,
           description: form.description,
           file: form.file,
-          attached_to: @attached_to
+          attached_to: @attached_to,
+          weight: form.weight,
+          attachment_collection: form.attachment_collection
         )
       end
 

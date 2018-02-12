@@ -10,6 +10,9 @@ ca:
         user_group_id: Crear proposta
       proposal_answer:
         answer: Resposta
+      proposals_copy:
+        copy_proposals: Entenc que això importarà totes les propostes del component seleccionat a l'actual i que aquesta acció no es pot revertir.
+        origin_feature_id: Component des d'on copiar les propostes
   decidim:
     events:
       proposals:
@@ -23,6 +26,11 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Nova proposta de %{author_nickname}
           notification_title: La proposta "<a href="%{resource_path}">%{resource_title}</a>" ha estat creada per en/na <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_created_for_space:
+          email_intro: S'ha afegit la proposta "%{resource_title}" a l'espai "%{participatory_space_title}" que estàs seguint.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
+          email_subject: Nova proposta afegida a %{participatory_space_title}
+          notification_title: S'ha afegit la proposta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
         proposal_evaluating:
           email_intro: 'La proposta "%{resource_title}" s''està avaluant actualment. Pots consultar una resposta en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
@@ -63,6 +71,7 @@ ca:
     proposals:
       actions:
         answer: Respondre
+        import: Importaa des d'un altre component
         new: Nova
         private_notes: Notes privades
         title: Accions
@@ -103,6 +112,15 @@ ca:
           new:
             create: Crear
             title: Crear proposta
+        proposals_imports:
+          create:
+            invalid: Hi ha hagut un problema important les propostes
+            success: "%{number} propostes importades correctament"
+          new:
+            create: Importa propostes
+            no_features: No hi ha cap altre component de propostes en aquest espai participatiu des d'on importar-les.
+            select_feature: Seleccioneu un component
+            select_states: Consulteu els estats de les propostes per importar
         shared:
           info_proposal:
             body: Cos
@@ -197,6 +215,7 @@ ca:
           proposal_in_evaluation_reason: S'està avaluant aquesta proposta
           proposal_rejected_reason: 'Aquesta proposta ha estat rebutjada perquè:'
           report: Informe
+          withdraw_btn_hint: Pots retirar la teva proposta si canvies d'opinió, sempre que no hagis rebut cap suport. La proposta no s'esborra, apareixerà a la llista de propostes retirades.
           withdraw_confirmation: Estàs segur que vols retirar aquesta proposta?
           withdraw_proposal: Retirar proposta
         vote_button:
@@ -224,6 +243,8 @@ ca:
         error: Hi ha hagut errors en desar la proposta.
         success: La proposta s'ha actualitzat correctament.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Propostes relacionades
       included_projects:
         project_results: 'Resultats que apareixen en aquest projecte:'
       included_proposals:
