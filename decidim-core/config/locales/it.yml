@@ -447,6 +447,7 @@ it:
         answers_count: Sondaggi completati
         assemblies_count: assemblee
         comments_count: Commenti
+        endorsements_count: Riconoscimenti
         headline: Stato attuale dell'organizzazione %{organization}
         meetings_count: Meeting
         orders_count: Voti
