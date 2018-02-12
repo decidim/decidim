@@ -14,7 +14,7 @@ module Decidim
         if @current_user
           processes.private_spaces_user(@current_user.id)
         else
-          processes.public_process
+          processes.non_private_processes
         end
       end
     end

@@ -80,6 +80,8 @@ module Decidim
       #
       # Returns an `ActiveRecord::Association`.
       def public_spaces
+        return published unless (self.name == Decidim::ParticipatoryProcess) || (self.name == Decidim::Assembly)
+
         published.where(private_space: false)
       end
     end

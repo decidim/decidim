@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # An AssemblyPrivateUser associate user with assembly
+  # This class gives a given User access to a given private Assembly
   class AssemblyPrivateUser < ApplicationRecord
     belongs_to :user, class_name: "Decidim::User", foreign_key: :decidim_user_id, optional: true
     belongs_to :assembly, class_name: "Decidim::Assembly", foreign_key: :decidim_assembly_id, optional: true

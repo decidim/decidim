@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  # An ParticipatoryProcessPrivateUser associate user with participatory process
+  # This class gives a given User access to a given private Process
   class ParticipatoryProcessPrivateUser < ApplicationRecord
     belongs_to :user, class_name: "Decidim::User", foreign_key: :decidim_user_id, optional: true
     belongs_to :participatory_process, class_name: "Decidim::ParticipatoryProcess", foreign_key: :decidim_participatory_process_id, optional: true

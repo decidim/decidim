@@ -58,9 +58,9 @@ en:
       assembly_private_users:
         create:
           error: There was an error adding a private user for this assembly.
-          success: Private user created successfully for this assembly.
+          success: Private Assembly user access created successfully.
         destroy:
-          success: Private user destroyed successfully for this assembly.
+          success: Private Assembly user access destroyed successfully.
         index:
           assembly_private_users_title: Assembly private users
         new:

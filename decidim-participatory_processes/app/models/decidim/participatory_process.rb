@@ -62,8 +62,7 @@ module Decidim
     scope :private_spaces_user, lambda { |user|
       joins("LEFT JOIN decidim_participatory_process_private_users ON
              decidim_participatory_process_private_users.decidim_participatory_process_id = decidim_participatory_processes.id")
-        .where("(private_space = true and decidim_participatory_process_private_users.decidim_user_id
-             = #{user} ) or private_space = false")
+        .where("(private_space = ? and decidim_participatory_process_private_users.decidim_user_id = ?) or private_space = ?", true, user, false)
     }
 
     # Scope to return only the promoted processes.
@@ -81,15 +80,11 @@ module Decidim
       slug
     end
 
-    def private_space?
-      private_space
-    end
-
-    def self.private_space
+    def self.private_processes
       where(private_space: true)
     end
 
-    def self.public_process
+    def self.non_private_processes
       where(private_space: false)
     end
   end

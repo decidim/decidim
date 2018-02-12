@@ -126,8 +126,11 @@ en:
           error: There was en error updating this participatory process group.
           success: Participatory process group updated successfully.
       participatory_process_private_users:
+        create:
+          error: There was an error adding a private user for this process.
+          success: Private Process user access created successfully
         destroy:
-          success: Participatory process private user destroyed successfully.
+          success: Private Process User Access destroyed successfully.
         index:
           process_admins_title: Participatory Process Private Users
         new:

@@ -44,9 +44,9 @@ module Decidim
     scope :private_spaces_user, lambda { |user|
       joins("LEFT JOIN decidim_assembly_private_users ON
              decidim_assembly_private_users.decidim_assembly_id = decidim_assemblies.id")
-        .where("(private_space = true and decidim_assembly_private_users.decidim_user_id
-             = #{user} ) or private_space = false")
+        .where("(private_space = ? and decidim_assembly_private_users.decidim_user_id = ?) or private_space = ?", true, user, false)
     }
+
     # Scope to return only the promoted assemblies.
     #
     # Returns an ActiveRecord::Relation.
@@ -62,15 +62,11 @@ module Decidim
       slug
     end
 
-    def private_space?
-      private_space
-    end
-
-    def self.private_space
+    def self.private_assemblies
       where(private_space: true)
     end
 
-    def self.public_assembly
+    def self.non_private_assemblies
       where(private_space: false)
     end
   end
