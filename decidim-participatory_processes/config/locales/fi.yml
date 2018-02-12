@@ -253,6 +253,7 @@ fi:
       statistics:
         answers_count: Vastaukset
         comments_count: Kommentit
+        endorsements_count: merkintöjen
         headline: Tilastot
         meetings_count: Tapaamiset
         orders_count: Äänet
