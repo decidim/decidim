@@ -2,45 +2,30 @@
 
 $(() => {
   const $mentionContainer = $('.js-mentions');
+  const nodatafound = 'No results.'; // TODO: this string must be i18n
+  const sources = []; // TODO: Object with remote data. See Tribute.js DOCS
 
-  // TEMP DATA TESTING
-  const sources = [{
-      "tag": "barrera",
-      "name": "Collins Franklin",
-      "img": "http://placehold.it/32x32"
-    },
-    {
-      "tag": "woods",
-      "name": "Nadine Buck",
-      "img": "http://placehold.it/32x32"
-    },
-    {
-      "tag": "harding",
-      "name": "Edna Taylor",
-      "img": "http://placehold.it/32x32"
-    },
-    {
-      "tag": "brennan",
-      "name": "Myrtle Coleman",
-      "img": "http://placehold.it/32x32"
-    },
-    {
-      "tag": "rutledge",
-      "name": "Priscilla Donovan",
-      "img": "http://placehold.it/32x32"
-    }
-  ];
+  // EXAMPLE DATA
+  // tag & name properties are mandatory
+  //
+  // source = [{
+  //     "tag": "barrera",
+  //     "name": "Collins Franklin",
+  //   },
+  //   {
+  //     "tag": "woods",
+  //     "name": "Nadine Buck",
+  //   },
+  //   ...]
 
-  // tribute.js - http://github.com/zurb/tribute
+  // tribute.js docs - http://github.com/zurb/tribute
   let tribute = new Tribute({
     values: sources,
     positionMenu: false,
     menuContainer: null,
     fillAttr: 'tag',
-    noMatchTemplate: null, // TODO implementar
-    lookup: function(item) {
-      return item.tag + item.name;
-    },
+    noMatchTemplate: () => '<li>' + nodatafound + '</li>',
+    lookup: (item) => item.tag + item.name,
     selectTemplate: function(item) {
       if (typeof item === 'undefined') return null;
       if (this.range.isContentEditable(this.current.element)) {
