@@ -253,6 +253,7 @@ ca:
       statistics:
         answers_count: Respostes
         comments_count: Comentaris
+        endorsements_count: Aprovacions
         headline: Activitat
         meetings_count: Trobades presencials
         orders_count: Vots
