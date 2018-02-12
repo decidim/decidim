@@ -34,11 +34,11 @@
     font-weight: bold;
 
     & ~ li{
-      color: $secondary;
-      border-left: 2px solid $secondary;
+      color: $muted;
+      border-left: 2px solid $muted;
 
       &::before{
-        background-color: $secondary;
+        background-color: $muted;
       }
     }
   }
