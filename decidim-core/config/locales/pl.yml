@@ -448,6 +448,7 @@ pl:
         answers_count: Ankiety zakończone
         assemblies_count: Złożenia
         comments_count: Komentarze
+        endorsements_count: Adnotacje
         headline: Aktualny stan %{organization}
         meetings_count: Spotkania
         orders_count: Głosowania
