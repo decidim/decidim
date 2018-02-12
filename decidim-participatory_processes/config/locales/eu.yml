@@ -253,6 +253,7 @@ eu:
       statistics:
         answers_count: Erantzunak
         comments_count: Iruzkinak
+        endorsements_count: Oniritziak
         headline: Jarduera
         meetings_count: Topaketak
         orders_count: Euskarriak
