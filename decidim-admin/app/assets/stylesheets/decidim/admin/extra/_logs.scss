@@ -1,0 +1,38 @@
+ul#logs{
+  list-style: none;
+  margin-left: 0;
+  margin-bottom: 0;
+
+  li{
+    border-bottom: 1px solid rgba(black, .05);
+    padding: $table-padding;
+    display: flex;
+    flex-direction: row;
+    &:last-child{
+      border-bottom: none;
+    }
+  }
+
+  .logs-log__date{
+    color: $muted;
+    padding-right: rem-calc(10);
+    flex-grow: 0;
+  }
+
+  .logs-log__content{
+    flex-grow: 1;
+
+    span{
+      font-weight: 600;
+    }
+    .logs-log__author{
+      color: rgb(89, 197, 100);
+    }
+    .logs-log__resource{
+      color: rgb(58, 134, 222);
+    }
+    .logs-log__space{
+      color: rgb(143, 107, 201);
+    }
+  }
+}
