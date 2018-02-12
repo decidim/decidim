@@ -447,6 +447,7 @@ pt-BR:
         answers_count: Formulário completo
         assemblies_count: Assembléias
         comments_count: Comentários
+        endorsements_count: Endossos
         headline: Estado atual de %{organization}
         meetings_count: Reuniões
         orders_count: Votos
