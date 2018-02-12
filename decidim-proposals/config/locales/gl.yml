@@ -26,6 +26,8 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{author_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Nova proposta por %{author_nickname}
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> proposta foi creada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_endorsed:
+          email_outro: Recibiches esta notificación porque estás seguindo %{endorser_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
         proposal_evaluating:
           email_intro: 'A proposta "%{resource_title}" está a ser avaliada. Podes consultar unha resposta nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
@@ -40,6 +42,7 @@ gl:
       proposals:
         actions:
           create: Crear
+          endorse: Endosar
           vote: Vota
         name: Propostas
         settings:
@@ -59,6 +62,8 @@ gl:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
             creation_enabled: Creación de proposta habilitada
+            endorsements_blocked: Aprobacións bloqueadas
+            endorsements_enabled: Aprobacións habilitadas
             proposal_answering_enabled: Contestando a proposta habilitada
             votes_blocked: Votos bloqueados
             votes_enabled: Votos habilitados
@@ -145,6 +150,15 @@ gl:
             votes: Votos
       new:
         limit_reached: Non podes crear novas propostas xa que superaches o límite.
+      proposal_endorsements:
+        create:
+          error: Houbo erros ao aprobar a proposta.
+        identities:
+          select_identity: Seleccionar identidade
+      proposal_endorsements_helper:
+        endorsement_button:
+          already_endorsed: Xa aprobado
+          endorse: Endosar
       proposal_votes:
         create:
           error: Houbo erros ao votar a proposta.
@@ -158,6 +172,18 @@ gl:
           select_a_category: Selecciona unha categoría
           send: Enviar
           title: Editar proposta
+        endorsement_button:
+          already_endorsed: Xa aprobado
+          already_endorsed_hover: Unendorse
+        endorsement_identities_cabin:
+          endorse: Endosar
+        endorsements_count:
+          count:
+            one: APROXIMACIÓN
+            other: APROXIMACIÓN
+        endorsements_listing:
+          see_all: ver todos
+          title: Lista de avales
         filters:
           accepted: Aceptada
           activity: Actividade
@@ -205,6 +231,7 @@ gl:
           view_proposal: Ver proposta
         show:
           edit_proposal: Editar proposta
+          endorsements_blocked: Aprobacións bloqueadas
           proposal_accepted_reason: 'Esta proposta foi aceptada porque:'
           proposal_in_evaluation_reason: Esta proposta está a ser avaliada
           proposal_rejected_reason: 'Esta proposta foi rexeitada porque:'
