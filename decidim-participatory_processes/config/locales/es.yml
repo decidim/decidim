@@ -253,6 +253,7 @@ es:
       statistics:
         answers_count: '¿A quién va dirigida?'
         comments_count: Comentarios
+        endorsements_count: Endosos
         headline: Actividad
         meetings_count: Encuentros
         orders_count: Votos
