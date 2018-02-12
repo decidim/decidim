@@ -33,34 +33,31 @@
       </div>
     </div>
     <div class="row">
-      <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
-        large-3 large-push-9">
-        <div class="card extra">
+      <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
+        <div class="card">
           <div class="card__content">
-            <span class="extra__suport-number">45</span>
-            <span class="extra__suport-text">Apoyos</span>
-            <div class="extra__popularity popularity popularity--level5">
-              <span class="popularity__item"></span>
-              <span class="popularity__item"></span>
-              <span class="popularity__item"></span>
-              <span class="popularity__item"></span>
-              <span class="popularity__item"></span>
-              <span class="popularity__desc">
-                Proposta molt popular
-                <%= partial "help" %>
-              </span>
-            </div>
-            <button class="button expanded button--sc">Apoyar</button>
-            <button class="button secondary hollow expanded small button--icon">
-          <%= icon "bell" %>
-          <span>Seguir propuesta</span>
-        </button>
+
+            <%= partial "progress_bar", { vertical: true, progress: 27, total: 50 } %>
+
+            <button class="button expanded light button--sc">Apoyar</button>
+
+            <%= partial "adhesion_buttons", { status: 'success' } %>
+
           </div>
         </div>
-        <div class="reference">
-          Referencia: BCN-2016-01-173
+        <div class="card text-center">
+          <div class="card__content">
+            <button class="button secondary hollow expanded button--icon button--sc success">
+              <%= icon "bell" %>
+              <span>Siguiendo</span>
+            </button>
+            <small>Recibe una notificación cuando haya novedades en esta propuesta</small>
+          </div>
         </div>
         <%= partial "share" %>
+        <div class="text-center">
+          <small>Referencia: BCN-2016-01-173</small>
+        </div>
       </div>
       <div class="columns mediumlarge-8 mediumlarge-pull-4">
         <div class="section">
@@ -114,4 +111,3 @@
 </main>
 
 <%= partial "template_bottom" %>
-

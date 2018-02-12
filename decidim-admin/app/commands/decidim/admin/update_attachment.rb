@@ -41,9 +41,11 @@ module Decidim
         {
           title: form.title,
           file: form.file,
-          description: form.description
-        }.reject do |_attribute, value|
-          value.blank?
+          description: form.description,
+          weight: form.weight,
+          attachment_collection: form.attachment_collection
+        }.reject do |attribute, value|
+          value.blank? && attribute != :attachment_collection
         end
       end
     end

@@ -24,6 +24,7 @@ module Decidim
             end
           end
 
+          resources :attachment_collections, controller: "assembly_attachment_collections"
           resources :attachments, controller: "assembly_attachments"
         end
 

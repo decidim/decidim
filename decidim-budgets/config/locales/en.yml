@@ -12,6 +12,7 @@ en:
   decidim:
     budgets:
       actions:
+        attachment_collections: Collections
         attachments: Attachments
         confirm_destroy: Are you sure you want to delete this project?
         destroy: Delete

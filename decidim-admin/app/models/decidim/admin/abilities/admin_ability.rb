@@ -35,6 +35,7 @@ module Decidim
 
           can :manage, Moderation
           can :manage, Attachment
+          can :manage, AttachmentCollection
           can :manage, Scope
           can :manage, ScopeType
           can :manage, Newsletter

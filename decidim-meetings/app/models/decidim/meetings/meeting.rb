@@ -7,6 +7,7 @@ module Decidim
     class Meeting < Meetings::ApplicationRecord
       include Decidim::Resourceable
       include Decidim::HasAttachments
+      include Decidim::HasAttachmentCollections
       include Decidim::HasFeature
       include Decidim::HasReference
       include Decidim::HasScope

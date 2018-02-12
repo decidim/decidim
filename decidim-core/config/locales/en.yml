@@ -56,6 +56,10 @@ en:
         success_with_email_confirmation: Your account was updated successfully. You'll receive an email to confirm your new email address.
     anonymous_user: Anonymous
     application:
+      collection:
+        documents:
+          one: Document
+          other: Documents
       documents:
         related_documents: Related documents
       photos:
@@ -445,6 +449,7 @@ en:
         answers_count: Completed Surveys
         assemblies_count: Assemblies
         comments_count: Comments
+        endorsements_count: Endorsements
         headline: Current state of %{organization}
         meetings_count: Meetings
         orders_count: Votes

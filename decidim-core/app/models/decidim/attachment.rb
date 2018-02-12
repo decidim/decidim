@@ -4,11 +4,14 @@ module Decidim
   # Attachment can be any type of document or images related to a partcipatory
   # process.
   class Attachment < ApplicationRecord
+    belongs_to :attachment_collection, class_name: "Decidim::AttachmentCollection", optional: true
     belongs_to :attached_to, polymorphic: true
 
     validates :file, :content_type, presence: true
     validates :file, file_size: { less_than_or_equal_to: ->(_attachment) { Decidim.maximum_attachment_size } }
     mount_uploader :file, Decidim::AttachmentUploader
+
+    default_scope { order(arel_table[:weight].asc) }
 
     # Whether this attachment is a photo or not.
     #
