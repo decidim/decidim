@@ -46,6 +46,14 @@ module Decidim
         def users_to_notify_on_comment_created
           Decidim::User.none
         end
+
+        # Public: callback to allow Commentables to react on comment metadatas.
+        # This method can be overridden by Commentables that want to do some action
+        # depending on the content of a comment.
+        # Normally this action will be to notify mentioned users, users with mentioned proposals, etc.
+        # Returns: a relation of Decidim::User objects.
+        def act_on_comment_metadatas(parsed.metadata)
+        end
       end
     end
   end
