@@ -23,3 +23,17 @@
     margin-bottom: 0;
   }
 }
+
+.baseline-center{
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+
+  > :first-child{
+    margin-right: .5rem;
+  }
+
+  > :last-child{
+    margin-left: .5rem;
+  }
+}
