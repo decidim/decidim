@@ -32,6 +32,11 @@ en:
           email_outro: You have received this notification because you are following "%{participatory_space_title}". You can unfollow it from the previous link.
           email_subject: New proposal added to %{participatory_space_title}
           notification_title: The proposal <a href="%{resource_path}">%{resource_title}</a> has been added to %{participatory_space_title}
+        proposal_endorsed:
+          email_intro: "%{endorser_name} %{endorser_nickname}, who you are following, has just endorsed a proposal that may be interesting to you, check it out and contribute:"
+          email_outro: You have received this notification because you are following %{endorser_nickname}. You can stop receiving notifications following the previous link.
+          email_subject: "%{endorser_nickname} has endorsed a new proposal"
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been endorsed by <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           email_intro: 'The proposal "%{resource_title}" is currently being evaluated. You can check for an answer in this page:'
           email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
@@ -46,6 +51,7 @@ en:
       proposals:
         actions:
           create: Create
+          endorse: Endorse
           vote: Vote
         name: Proposals
         settings:
@@ -65,6 +71,8 @@ en:
             announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled: Proposal creation enabled
+            endorsements_blocked: Endorsements blocked
+            endorsements_enabled: Endorsements enabled
             proposal_answering_enabled: Proposal answering enabled
             votes_blocked: Votes blocked
             votes_enabled: Votes enabled
@@ -152,6 +160,15 @@ en:
             votes: Votes
       new:
         limit_reached: You can't create new proposals since you've exceeded the limit.
+      proposal_endorsements:
+        create:
+          error: There's been errors when endorsing the proposal.
+        identities:
+          select_identity: Select identity
+      proposal_endorsements_helper:
+        endorsement_button:
+          already_endorsed: Already endorsed
+          endorse: Endorse
       proposal_votes:
         create:
           error: There's been errors when voting the proposal.
@@ -165,6 +182,18 @@ en:
           select_a_category: Please select a category
           send: Send
           title: Edit proposal
+        endorsement_button:
+          already_endorsed: Already endorsed
+          already_endorsed_hover: Unendorse
+        endorsement_identities_cabin:
+          endorse: Endorse
+        endorsements_count:
+          count:
+            one: ENDORSEMENT
+            other: ENDORSEMENTS
+        endorsements_listing:
+          see_all: see all
+          title: List of Endorsements
         filters:
           accepted: Accepted
           activity: Activity
@@ -212,6 +241,7 @@ en:
           view_proposal: View proposal
         show:
           edit_proposal: Edit proposal
+          endorsements_blocked: Endorsements blocked
           proposal_accepted_reason: 'This proposal has been accepted because:'
           proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: 'This proposal has been rejected because:'
