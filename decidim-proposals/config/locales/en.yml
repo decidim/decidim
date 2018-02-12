@@ -325,7 +325,6 @@ en:
         wizard_aside:
           back: Back
           info: You are creating a <strong>proposal</strong>.
-          more_info: More info
         wizard_steps:
           see_steps: see steps
           step_1: Create your proposal
