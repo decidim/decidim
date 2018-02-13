@@ -289,6 +289,9 @@ en:
         proposal:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
+        proposal_preview:
+          creation_date: 'Creation: %{date}'
+          view_proposal: View proposal
         show:
           edit_proposal: Edit proposal
           endorsements_blocked: Endorsements blocked

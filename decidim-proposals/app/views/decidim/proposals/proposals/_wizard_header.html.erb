@@ -16,7 +16,10 @@
   </div>
 <% end %>
 
-<h2 class="section-heading"><%= proposal_wizard_step_title action_name %></h2>
+<h2 class="section-heading">
+  <%= proposal_wizard_step_title action_name %>
+  <%= "(#{@similar_proposals.count})" if @similar_proposals.present? %>
+</h2>
 
 <div class="hide-for-large m-bottom">
   <%= proposal_wizard_current_step_of(proposal_wizard_step_number(@step)) %>
