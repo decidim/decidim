@@ -1,13 +1,6 @@
 <div class="content">
   <div class="row">
-    <h3 class="card-title">
-      <%= t "decidim.admin.titles.admin_log" %>
-    </h3>
-    <ul>
-      <% logs.each do |log| %>
-        <%= render_log(log) %>
-      <% end %>
-    </ul>
+    <%= render partial: "decidim/admin/logs/logs_list", locals: { logs: logs } %>
     <%= paginate logs, theme: "decidim" %>
   </div>
 </div>

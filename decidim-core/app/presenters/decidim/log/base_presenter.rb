@@ -38,13 +38,7 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present
-        h.content_tag(:li) do
-          I18n.t(
-            action_string,
-            i18n_params
-          ).html_safe +
-            " (#{h.localize(action_log.created_at, format: :decidim_short)})"
-        end
+        present_content
       end
 
       private
@@ -96,9 +90,9 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present_space
-        return present_space_name if participatory_space.blank?
+        return h.content_tag(:span, present_space_name, class: "logs__log__space") if participatory_space.blank?
 
-        h.link_to(present_space_name, space_path)
+        h.link_to(present_space_name, space_path, class: "logs__log__space")
       end
 
       # Private: Presents the resource of the action. If the resource and the
@@ -107,10 +101,11 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present_resource
-        return present_resource_name if resource.blank? || resource_path.blank?
-        return present_resource_name if resource_path.blank?
+        span = h.content_tag(:span, present_resource_name, class: "logs__log__resource")
+        return span if resource.blank? || resource_path.blank?
+        return span if resource_path.blank?
 
-        h.link_to(present_resource_name, resource_path)
+        h.link_to(present_resource_name, resource_path, class: "logs__log__resource")
       end
 
       # Private: Finds the link for the given space.
@@ -153,8 +148,8 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present_user
-        return present_user_name if user.blank?
-        h.link_to(present_user_name, h.decidim.profile_path(action_log.extra["user"]["nickname"]))
+        return h.content_tag(:span, present_user_name, class: "logs__log__author") if user.blank?
+        h.link_to(present_user_name, h.decidim.profile_path(action_log.extra["user"]["nickname"]), class: "logs__log__author")
       end
 
       # Private: Presents a space. If the space is found in the database, it
@@ -165,6 +160,32 @@ module Decidim
         name = action_log.extra["user"]["name"]
         nickname = action_log.extra["user"]["nickname"]
         "#{name} @#{nickname}"
+      end
+
+      def present_log_date
+        h.content_tag(:div, class: "logs__log__date") do
+          h.localize(action_log.created_at, format: :decidim_short)
+        end
+      end
+
+      def present_explanation
+        h.content_tag(:div, class: "logs__log__explanation") do
+          I18n.t(
+            action_string,
+            i18n_params
+          ).html_safe
+        end
+      end
+
+      # Private: PResents the log content with a default form.
+      #
+      # Returns an HTML-safe String.
+      def present_content
+        h.content_tag(:li, class: "logs__log") do
+          h.content_tag(:div, class: "logs__log__content") do
+            present_log_date + present_explanation
+          end
+        end
       end
 
       # Private: Finds the name of the I18n key that will be sued for the
