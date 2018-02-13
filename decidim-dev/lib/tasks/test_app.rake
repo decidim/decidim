@@ -7,14 +7,33 @@ namespace :decidim do
   task :generate_external_test_app do
     dummy_app_path = File.expand_path(File.join(Dir.pwd, "spec", "decidim_dummy_app"))
 
+    sh "rm -fR spec/decidim_dummy_app", verbose: false
+
     Decidim::Generators::AppGenerator.start(
       [
         dummy_app_path,
         "--path",
         "../..",
         "--recreate_db",
-        "--app_const_base=DummyApplication",
         "--skip_gemfile",
+        "--demo"
+      ]
+    )
+  end
+
+  desc "Generates a dummy app for trying out external modules"
+  task :generate_external_development_app do
+    dummy_app_path = File.expand_path(File.join(Dir.pwd, "development_app"))
+
+    sh "rm -fR development_app", verbose: false
+
+    Decidim::Generators::AppGenerator.start(
+      [
+        dummy_app_path,
+        "--path",
+        "..",
+        "--recreate_db",
+        "--seed_db",
         "--demo"
       ]
     )

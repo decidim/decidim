@@ -78,7 +78,6 @@ plugins:
 
   rubocop:
     enabled: true
-    channel: rubocop-0-51
 
   stylelint:
     enabled: true
