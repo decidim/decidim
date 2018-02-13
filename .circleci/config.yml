@@ -373,7 +373,7 @@ jobs:
           command: cd decidim-debates && rake
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/screenshots
-  build_images:
+  build_design_app:
     working_directory: /app
     docker:
       - image: docker:17.09.0-ce-git
@@ -403,6 +403,8 @@ workflows:
   version: 2
   build_and_test:
     jobs:
+      - build_design_app
+
       - build_test_app:
           filters:
             branches:
