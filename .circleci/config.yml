@@ -391,7 +391,7 @@ jobs:
       - run:
           name: Build image
           command: |
-            docker build -t registry.heroku.com/decidim-design/web -t --cache-from registry.heroku.com/decidim-design/web .
+            docker build -t registry.heroku.com/decidim-design/web --cache-from registry.heroku.com/decidim-design/web -f Dockerfile.design .
       - run:
           name: Push deployment image
           command: |

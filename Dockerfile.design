@@ -10,6 +10,9 @@ ENV RAILS_SERVE_STATIC_FILES=true
 
 WORKDIR /code
 COPY . .
+RUN bundle install
+RUN bundle exec rake install_all
+
 WORKDIR /code/decidim_app-design
 
 RUN bundle install
