@@ -24,10 +24,14 @@
   }
 }
 
-.baseline-center{
+.flex-center{
   display: flex;
   justify-content: center;
-  align-items: baseline;
+  align-items: center;
+
+  *:only-child{
+    margin-bottom: 0;
+  }
 
   > :first-child{
     margin-right: .5rem;
