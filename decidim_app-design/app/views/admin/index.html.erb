@@ -75,7 +75,18 @@
                   <%= link_to "Componentes: Encuentros", page_path("component-meetings") %>
                 </li>
                 <li>
-                  <%= link_to "Componentes: Propuestas", page_path("component-proposals") %>
+                  <%= link_to "Componentes: Propuestas (Búsqueda)", page_path("component-proposals-search") %>
+                  <ul>
+                    <li>
+                      <%= link_to "Componentes: Propuestas (Ninguno seleccionado)", page_path("component-proposals-none") %>
+                    </li>
+                    <li>
+                      <%= link_to "Componentes: Propuestas (Alguno seleccionado)", page_path("component-proposals-selected") %>
+                    </li>
+                    <li>
+                      <%= link_to "Componentes: Propuestas (Acciones)", page_path("component-proposals-actions") %>
+                    </li>
+                  </ul>
                 </li>
                 <li>
                   <%= link_to "Componentes: Debates", page_path("component-results") %>

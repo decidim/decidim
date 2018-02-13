@@ -52,6 +52,10 @@
     }
   }
 
+  tr.selected{
+    background-color: rgba($brand, .05);
+  }
+
   a:not(.button){
     color: $body-font-color;
 
