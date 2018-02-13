@@ -64,6 +64,10 @@
     margin-bottom: 0;
   }
 
+  td{
+    @include modifiers(color);
+  }
+
   .switch.tiny{
     margin: 0 auto;
     width: 48px;

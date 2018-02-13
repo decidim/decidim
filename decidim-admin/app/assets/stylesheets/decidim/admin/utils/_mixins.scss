@@ -17,3 +17,20 @@
   letter-spacing: .1em;
   font-size: .9em;
 }
+
+// Status modifier mixin
+$palette: $foundation-palette;
+
+@mixin modifiers($vars, $colors: $palette){
+  $map: map-merge($palette, $colors);
+
+  @each $key, $value in $map{
+    &.#{$key}{
+      @content;
+
+      @each $property in $vars{
+        #{$property}: map-get($map, $key);
+      }
+    }
+  }
+}
