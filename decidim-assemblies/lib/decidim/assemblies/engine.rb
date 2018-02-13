@@ -55,7 +55,9 @@ module Decidim
 
       initializer "decidim.stats" do
         Decidim.stats.register :assemblies_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
-          Decidim::Assembly.where(organization: organization).non_private_assemblies.published.count
+          # Decidim::Assembly.where(organization: organization).non_private_assemblies.published.count
+          Decidim::Assembly.where(organization: organization).non_private_spaces.published.count
+          # Decidim::Assembly.where(organization: organization).public_spaces.count
         end
       end
 

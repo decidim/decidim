@@ -3,7 +3,7 @@
 module Decidim
   module ParticipatoryProcesses
     # This query class filters participatory processes given a current_user.
-    class PrivateParticipatoryProcesses < Rectify::Query
+    class VisibleParticipatoryProcesses < Rectify::Query
       def initialize(current_user)
         @current_user = current_user
       end
@@ -12,9 +12,9 @@ module Decidim
         processes = Decidim::ParticipatoryProcess.all
 
         if @current_user
-          processes.private_spaces_user(@current_user.id)
+          processes.visible_participatory_processes_for(@current_user.id)
         else
-          processes.non_private_processes
+          processes.non_private_spaces
         end
       end
     end

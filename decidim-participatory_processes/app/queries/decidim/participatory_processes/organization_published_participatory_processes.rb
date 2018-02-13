@@ -12,7 +12,7 @@ module Decidim
       def query
         Rectify::Query.merge(
           OrganizationParticipatoryProcesses.new(@organization),
-          PrivateParticipatoryProcesses.new(@user),
+          VisibleParticipatoryProcesses.new(@user),
           PublishedParticipatoryProcesses.new
         ).query
       end

@@ -41,7 +41,7 @@ module Decidim
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::BannerImageUploader
 
-    scope :private_spaces_user, lambda { |user|
+    scope :visible_assemblies_for, lambda { |user|
       joins("LEFT JOIN decidim_assembly_private_users ON
              decidim_assembly_private_users.decidim_assembly_id = decidim_assemblies.id")
         .where("(private_space = ? and decidim_assembly_private_users.decidim_user_id = ?) or private_space = ?", true, user, false)
@@ -64,10 +64,6 @@ module Decidim
 
     def self.private_assemblies
       where(private_space: true)
-    end
-
-    def self.non_private_assemblies
-      where(private_space: false)
     end
   end
 end
