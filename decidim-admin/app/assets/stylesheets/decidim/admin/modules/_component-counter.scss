@@ -9,6 +9,11 @@
   font-size: .7rem;
   float: right;
   margin-top: .4em;
+
+  &.component-counter--inline{
+    float: none;
+    display: inline-block;
+  }
 }
 
 .component-counter--off{

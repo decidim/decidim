@@ -2,11 +2,9 @@ $card-padding-small: 1rem;
 
 .card-title{
   @include smallcaps;
-
-  font-size: 1rem;
-
   @include clearfix;
 
+  font-size: 1rem;
   width: 100%;
 }
 
