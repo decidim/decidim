@@ -29,10 +29,6 @@
   justify-content: center;
   align-items: center;
 
-  *:only-child{
-    margin-bottom: 0;
-  }
-
   > :first-child{
     margin-right: .5rem;
   }
