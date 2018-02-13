@@ -9,7 +9,7 @@ services:
       - 3000:3000
     volumes:
       - .:/code
-      - gems:/gems:delegated
+      - gems:/usr/local/bundle:delegated
     environment:
       - DATABASE_HOST=pg
       - DATABASE_USERNAME=postgres
