@@ -3,13 +3,15 @@ ul#logs{
   margin-left: 0;
   margin-bottom: 0;
 
-  li .logs-log__content, li .logs-log__diff-row{
+  li .logs-log__content,
+  li .logs-log__diff-row{
     display: flex;
     flex-direction: row;
     padding: $table-padding;
   }
 
-  li .logs-log__content, li .logs-log__diff-row{
+  li .logs-log__content,
+  li .logs-log__diff-row{
     border-bottom: 1px solid rgba(black, .05);
   }
 
@@ -35,15 +37,19 @@ ul#logs{
     flex-grow: 17;
     flex-basis: 1px;
 
-    span, a{
+    span,
+    a{
       font-weight: 600;
     }
+
     .logs-log__author{
       color: rgb(89, 197, 100);
     }
+
     .logs-log__resource{
       color: rgb(58, 134, 222);
     }
+
     .logs-log__space{
       color: rgb(143, 107, 201);
     }
@@ -57,10 +63,11 @@ ul#logs{
 
   .logs-log__actions-dropdown{
     color: $muted;
-    &::after {
-      content: "▸"
+    padding: rem-calc(0 10);
+
+    &::after{
+      content: "▸";
     }
-    padding: rem-calc(0 10)
   }
 
   .logs-log__diff{
@@ -70,12 +77,13 @@ ul#logs{
   }
 
   .expanded{
-    & .logs-log__diff{
-    display: block;
+    .logs-log__diff{
+      display: block;
     }
+
     .logs-log__actions-dropdown{
       &::after{
-        content: "▾"
+        content: "▾";
       }
     }
   }
@@ -99,6 +107,7 @@ ul#logs{
 
   .previous-value{
     background-color: rgb(238, 238, 238);
+
     .logs-log__diff-title{
       color: rgb(152, 152, 152);
       font-weight: normal;
