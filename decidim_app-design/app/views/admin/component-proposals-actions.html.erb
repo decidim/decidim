@@ -18,9 +18,17 @@
         <h2 class="card-title">
           Propuestas&nbsp;<span class="component-counter component-counter--inline">1</span>
           <div class="float-right">
-            <a href="#" class="button tiny button--title">Exportar <%= icon "caret-bottom", class: "icon--small" %></a>
-            <a href="#" class="button tiny button--title">Nuevo</a>
-            <a href="#" class="button tiny button--title alert light">Borrar</a>
+            <button class="button button--simple tiny success light" type="button" data-toggle="actions-bottom-right">Acciones <%= icon "caret-bottom", class: "icon--small" %></button>
+            <div class="dropdown-pane" data-position="bottom" data-alignment="right" id="actions-bottom-right" data-dropdown data-auto-focus="true">
+              <ul class="list-reset">
+                <li><a href="">Canviar categoria</a></li>
+                <li><a href="">Item1</a></li>
+                <li><a href="">Item2</a></li>
+                <li><a href="" class="text-alert">Esborrar</a></li>
+              </ul>
+            </div>
+            <button class="button button--simple tiny" type="button">Nuevo</button>
+            <button class="button button--simple tiny" type="button">Exportar <%= icon "caret-bottom", class: "icon--small" %></button>
           </div>
         </h2>
       </div>
@@ -39,29 +47,7 @@
               </tr>
             </thead>
             <tbody>
-              <% 3.times do %>
-                <tr>
-                  <td><input type="checkbox"></td>
-                  <td><%= Faker::Number.digit %></td>
-                  <td><%= Faker::FamilyGuy.quote %></td>
-                  <td><%= Faker::Food.dish %></td>
-                  <td><%= Faker::Cat.name %></td>
-                  <td class="warning">not answered</td>
-                  <td><%= Faker::Number.between(1, 10) %></td>
-                  <td class="muted"><%= icon "comment-square", class: "icon--small" %></td>
-                </tr>
-              <% end %>
-              <tr class="selected">
-                <td><input type="checkbox" checked></td>
-                <td><%= Faker::Number.digit %></td>
-                <td><%= Faker::FamilyGuy.quote %></td>
-                <td><%= Faker::Food.dish %></td>
-                <td><%= Faker::Cat.name %></td>
-                <td class="warning">not answered</td>
-                <td><%= Faker::Number.between(1, 10) %></td>
-                <td class="muted"><%= icon "comment-square", class: "icon--small" %></td>
-              </tr>
-              <% 2.times do %>
+              <% 6.times do %>
                 <tr>
                   <td><input type="checkbox"></td>
                   <td><%= Faker::Number.digit %></td>
@@ -80,12 +66,3 @@
   </div>
 </div>
 <%= partial 'template_bottom' %>
-
-<script type="text/javascript">
-  // NOTE: Remove script when integration; it's only to see the checkbox indeterminate state
-  window.onload = onPageLoad();
-
-  function onPageLoad() {
-    $('th [type="checkbox"]')[0].indeterminate = true;
-  }
-</script>

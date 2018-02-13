@@ -1,0 +1,23 @@
+<div class="filters__section">
+  <div>
+    Filter by: <a href="">All <%= icon "caret-bottom", class: "icon--small" %></a>
+  </div>
+  <div>
+    <span class="text-alert">
+      <%= icon "x", class: "icon--small" %>
+       Clear current queries and filters
+    </span>
+  </div>
+  <div>
+    <form class="filters__search">
+      <div class="input-group">
+        <input class="input-group-field" type="search" placeholder="Buscar">
+        <div class="input-group-button">
+          <button type="submit" class="button button--muted">
+            <%= icon "magnifying-glass", aria_label: "Buscar", role: "img" %>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

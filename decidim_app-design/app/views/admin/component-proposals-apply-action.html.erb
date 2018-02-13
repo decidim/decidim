@@ -18,9 +18,9 @@
         <h2 class="card-title">
           Propuestas&nbsp;<span class="component-counter component-counter--inline">1</span>
           <div class="float-right">
-            <a href="#" class="button tiny button--title">Exportar <%= icon "caret-bottom", class: "icon--small" %></a>
-            <a href="#" class="button tiny button--title">Nuevo</a>
-            <a href="#" class="button tiny button--title alert light">Borrar</a>
+            <select name="" id=""></select>
+            <a href="#" class="button tiny button--title">Aplicar</a>
+            <a href="">Cancel</a>
           </div>
         </h2>
       </div>
@@ -39,29 +39,7 @@
               </tr>
             </thead>
             <tbody>
-              <% 3.times do %>
-                <tr>
-                  <td><input type="checkbox"></td>
-                  <td><%= Faker::Number.digit %></td>
-                  <td><%= Faker::FamilyGuy.quote %></td>
-                  <td><%= Faker::Food.dish %></td>
-                  <td><%= Faker::Cat.name %></td>
-                  <td class="warning">not answered</td>
-                  <td><%= Faker::Number.between(1, 10) %></td>
-                  <td class="muted"><%= icon "comment-square", class: "icon--small" %></td>
-                </tr>
-              <% end %>
-              <tr class="selected">
-                <td><input type="checkbox" checked></td>
-                <td><%= Faker::Number.digit %></td>
-                <td><%= Faker::FamilyGuy.quote %></td>
-                <td><%= Faker::Food.dish %></td>
-                <td><%= Faker::Cat.name %></td>
-                <td class="warning">not answered</td>
-                <td><%= Faker::Number.between(1, 10) %></td>
-                <td class="muted"><%= icon "comment-square", class: "icon--small" %></td>
-              </tr>
-              <% 2.times do %>
+              <% 6.times do %>
                 <tr>
                   <td><input type="checkbox"></td>
                   <td><%= Faker::Number.digit %></td>
@@ -80,12 +58,3 @@
   </div>
 </div>
 <%= partial 'template_bottom' %>
-
-<script type="text/javascript">
-  // NOTE: Remove script when integration; it's only to see the checkbox indeterminate state
-  window.onload = onPageLoad();
-
-  function onPageLoad() {
-    $('th [type="checkbox"]')[0].indeterminate = true;
-  }
-</script>
