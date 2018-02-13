@@ -13,6 +13,7 @@ module Decidim
 
       helper_method :geocoded_proposals
       before_action :authenticate_user!, only: [:new, :create]
+      before_action :ensure_is_draft, only: [:compare, :preview, :publish, :edit_draft, :update_draft]
 
       def index
         @proposals = search
@@ -74,7 +75,6 @@ module Decidim
 
       def compare
         @step = :step_2
-        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
         @similar_proposals ||= Decidim::Proposals::SimilarProposals
                                .for(current_feature, @proposal)
                                .all
@@ -87,12 +87,10 @@ module Decidim
 
       def preview
         @step = :step_3
-        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
       end
 
       def publish
         @step = :step_3
-        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
         PublishProposal.call(@proposal, current_user) do
           on(:ok) do |proposal|
             flash[:notice] = I18n.t("proposals.publish.success", scope: "decidim")
@@ -108,7 +106,6 @@ module Decidim
 
       def edit_draft
         @step = :step_1
-        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
         authorize! :edit, Proposal
 
         @form = form(ProposalForm).from_model(@proposal)
@@ -116,7 +113,6 @@ module Decidim
 
       def update_draft
         @step = :step_1
-        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
         authorize! :edit, @proposal
 
         @form = form(ProposalForm).from_params(params)
@@ -198,6 +194,11 @@ module Decidim
 
       def proposal_draft
         Proposal.not_hidden.where(feature: current_feature).find_by(published_at: nil)
+      end
+
+      def ensure_is_draft
+        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path unless @proposal.draft?
       end
     end
   end
