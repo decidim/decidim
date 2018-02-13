@@ -4,9 +4,9 @@ services:
     image: decidim/decidim:latest-dev
     entrypoint: /usr/local/bin/entrypoint.sh
     command: decidim
-    working_dir: "/code"
+    working_dir: /code
     ports:
-      - "3000:3000"
+      - 3000:3000
     volumes:
       - .:/code
       - gems:/gems:delegated
