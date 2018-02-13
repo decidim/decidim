@@ -143,23 +143,37 @@ module Decidim
         h.translated_attribute action_log.extra["resource"]["title"]
       end
 
-      # Private: Presents a space. If the space is found in the database, it
-      # links to it. Otherwise it only shows the name.
+      # Private: Presents a user. If the user is found in the database, it
+      # links to their profile, and shows their nickname as a tooltip.
+      # Otherwise it only shows the name.
       #
       # Returns an HTML-safe String.
       def present_user
         return h.content_tag(:span, present_user_name, class: "logs__log__author") if user.blank?
-        h.link_to(present_user_name, h.decidim.profile_path(action_log.extra["user"]["nickname"]), class: "logs__log__author")
+        h.link_to(
+          present_user_name,
+          h.decidim.profile_path(action_log.extra["user"]["nickname"]),
+          class: "logs__log__author has-tip",
+          title: "@" + user.nickname,
+          data: {
+            tooltip: true,
+            "disable-hover": false
+          }
+        )
       end
 
-      # Private: Presents a space. If the space is found in the database, it
-      # links to it. Otherwise it only shows the name.
+      # Private: Presents the name of the user performing the action.
       #
       # Returns an HTML-safe String.
       def present_user_name
-        name = action_log.extra["user"]["name"]
-        nickname = action_log.extra["user"]["nickname"]
-        "#{name} @#{nickname}"
+        action_log.extra["user"]["name"].html_safe
+      end
+
+      # Private: Presents the nickname of the user performing the action.
+      #
+      # Returns an HTML-safe String.
+      def present_user_nickname
+        action_log.extra["user"]["nickname"].html_safe
       end
 
       def present_log_date
