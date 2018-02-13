@@ -30,6 +30,10 @@ plugins:
     exclude_fingerprints:
       - 3806e0c6847f506e683c8bc4133b22e5
       - ae2cee64fca2a95102d03e03b9ffb54f
+      - 6f035938f647907520c4828322745f06
+      - 54a2aa506daf27744a0c0d51712f11b5
+      - 335702a6e9817ff54c4e6deb16b6663a
+      - 4cd229a46c20efb3b58249cd528bc66c
 
     exclude_paths:
       - "decidim-*/spec/**/*"
@@ -74,7 +78,6 @@ plugins:
 
   rubocop:
     enabled: true
-    channel: rubocop-0-51
 
   stylelint:
     enabled: true

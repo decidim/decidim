@@ -36,6 +36,9 @@
                 <li class="tabs-title">
                   <a href="#patternBars">Barras</a>
                 </li>
+                <li class="tabs-title">
+                  <a href="#patternPaginator">Paginador</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -43,7 +46,7 @@
             <div class="main-container__content">
               <div class="tabs-content vertical"
                 data-tabs-content="pattern-library-tabs">
-                <div class="tabs-panel" id="patternTypography">
+                <div class="tabs-panel is-active" id="patternTypography">
                   <h2 class="section-heading">Encabezados básicos</h2>
                   <p>Lista de encabezados que aparecen en la interfaz.</p>
                   <h1 class="heading1">Encabezado .heading1</h1>
@@ -56,6 +59,7 @@
                 </div>
 
                 <div class="tabs-panel" id="patternButtons">
+
                   <h2 class="section-heading">Botones principales</h2>
                   <button class="button">.button</button>
                   <button class="button secondary">.secondary</button>
@@ -63,30 +67,7 @@
                   <button class="button button--sc">.button--sc</button>
                   <button class="button hollow">.hollow</button>
                   <button class="button hollow secondary">.hollow .secondary</button>
-                  <hr>
-                  <h2 class="section-heading">Paginación</h2>
-                  <div class="section">
-                    <div class="show-more">
-                      <!--primary load more -->
-                      <button class="button button--muted small">
-                        Ver más propouestas
-                      </button>
-                    </div>
-                    <div class="show-more">
-                      <!--primary load more -->
-                      <button class="button button--muted small">
-                        Ver más comentarios
-                      </button>
-                    </div>
-                    <div class="show-more">
-                      <!--secondary load more -->
-                      <button class="muted-link">
-                        Ver más comentarios
-                      </button>
-                    </div>
-                  </div>
-                  <%= partial "pagination" %>
-                  <hr>
+
                   <h2 class="section-heading">Botones y estados</h2>
                   <button class="button small">Apoyar</button>
                   <button class="button small success">Apoyando</button>
@@ -189,7 +170,26 @@
                       <%= icon "thumb-down", aria_label: "En contra" %>
                     </button>
                   </div>
+
+                  <div class="row column">
+                    <h2 class="section-heading">Botones con sombra</h2>
+                    <pre>.button--shadow</pre>
+                    <button class="button button--shadow primary">.primary</button>
+                    <button class="button button--shadow success">.success</button>
+                    <button class="button button--shadow secondary">.secondary</button>
+                    <button class="button button--shadow warning">.warning</button>
+                    <button class="button button--shadow alert">.alert</button>
+                    <button class="button button--shadow muted button--muted">.button--muted.muted</button>
+                  </div>
+
+                  <div class="row column">
+                    <h2 class="section-heading">Botones texto blanco</h2>
+                    <pre>.button.light</pre>
+                    <button class="button light success">.success</button>
+                    <button class="button light secondary">.secondary</button>
+                  </div>
                 </div>
+
                 <div class="tabs-panel" id="patternIcons">
                   <h2 class="section-heading">Iconos de componente</h2>
                   <p>
@@ -205,7 +205,8 @@
                       <a href="http://useiconic.com/open" target="_blank">useiconic.com/open</a>.
                   </p>
                 </div>
-                <div class="tabs-panel is-active" id="patternCards">
+
+                <div class="tabs-panel" id="patternCards">
                   <h2 class="section-heading">Card básico</h2>
                   <div class="row">
                     <div class="columns small-12 medium-6">
@@ -1027,6 +1028,31 @@
                   <p>Usuaria Verificada
                     <%= icon "verified-badge", class: "author__verified" %>
                   </p>
+                </div>
+
+                <div class="tabs-panel" id="patternPaginator">
+                  <h2 class="section-heading">Paginación</h2>
+                  <div class="section">
+                    <div class="show-more">
+                      <!--primary load more -->
+                      <button class="button button--muted small">
+                        Ver más propuestas
+                      </button>
+                    </div>
+                    <div class="show-more">
+                      <!--primary load more -->
+                      <button class="button button--muted small">
+                        Ver más comentarios
+                      </button>
+                    </div>
+                    <div class="show-more">
+                      <!--secondary load more -->
+                      <button class="muted-link">
+                        Ver más comentarios
+                      </button>
+                    </div>
+                  </div>
+                  <%= partial "pagination" %>
                 </div>
 
                 <div class="tabs-panel" id="patternBars">

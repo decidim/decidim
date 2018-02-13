@@ -2,9 +2,9 @@ version: 2
 
 defaults: &defaults
   docker:
-    # This is the sha of the latest `decidim/decidim:latest-dev` docker image. You can retrieve the
+    # This is the sha of the latest `decidim/decidim:latest-test` docker image. You can retrieve the
     # latest digest by doing `$ docker pull decidim/decidim:latest-dev`.
-    - image: decidim/decidim@sha256:a5fb460b462338ea018ef3ad30c8910f1ed7203a776d410603b9fc79ba3856ce
+    - image: decidim/decidim@sha256:348fb1faa49cfe76ba7cbeafc67ca09002cf95f0ffa7a76eefa9d5b3774e0ee9
       environment:
         BUNDLE_GEMFILE: /app/Gemfile
         SIMPLECOV: true
@@ -86,7 +86,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run core RSpec
           command: cd decidim-core && rake
@@ -105,7 +105,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run assemblies RSpec
           command: cd decidim-assemblies && rake
@@ -124,7 +124,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run api RSpec
           command: cd decidim-api && rake
@@ -143,7 +143,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run participatory_processes RSpec
           command: cd decidim-participatory_processes && rake
@@ -162,7 +162,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run admin RSpec
           command: cd decidim-admin && rake
@@ -181,7 +181,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run system RSpec
           command: cd decidim-system && rake
@@ -200,7 +200,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run proposals RSpec
           command: cd decidim-proposals && rake
@@ -232,7 +232,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run comments RSpec
           command: cd decidim-comments && rake
@@ -251,7 +251,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run meetings RSpec
           command: cd decidim-meetings && rake
@@ -270,7 +270,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run pages RSpec
           command: cd decidim-pages && rake
@@ -289,7 +289,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run accountability RSpec
           command: cd decidim-accountability && rake
@@ -308,7 +308,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run budgets RSpec
           command: cd decidim-budgets && rake
@@ -327,7 +327,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run surveys RSpec
           command: cd decidim-surveys && rake
@@ -347,7 +347,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run verifications RSpec
           command: cd decidim-verifications && rake
@@ -367,7 +367,7 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create test DB
-          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rake db:create db:schema:load
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run debates RSpec
           command: cd decidim-debates && rake

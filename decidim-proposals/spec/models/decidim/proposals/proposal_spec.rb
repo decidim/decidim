@@ -37,6 +37,35 @@ module Decidim
         end
       end
 
+      describe "#endorsed_by?" do
+        let(:user) { create(:user, organization: subject.organization) }
+
+        context "with User endorsement" do
+          it "returns false if the proposal is not endorsed by the given user" do
+            expect(subject).not_to be_endorsed_by(user)
+          end
+
+          it "returns true if the proposal is not endorsed by the given user" do
+            create(:proposal_endorsement, proposal: subject, author: user)
+            expect(subject).to be_endorsed_by(user)
+          end
+        end
+
+        context "with Organization endorsement" do
+          let(:user_group) { create(:user_group, verified_at: DateTime.current) }
+          let(:membership) { create(:user_group_membership, user: user, user_group: user_group) }
+
+          it "returns false if the proposal is not endorsed by the given organization" do
+            expect(subject).not_to be_endorsed_by(user, user_group)
+          end
+
+          it "returns true if the proposal is not endorsed by the given organization" do
+            create(:proposal_endorsement, proposal: subject, author: user, user_group: user_group)
+            expect(subject).to be_endorsed_by(user, user_group)
+          end
+        end
+      end
+
       context "when it has been accepted" do
         let(:proposal) { build(:proposal, :accepted) }
 

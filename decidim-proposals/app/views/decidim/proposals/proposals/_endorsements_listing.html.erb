@@ -1,0 +1,31 @@
+<%
+count = proposal.endorsements.count
+if count > 0
+%>
+  <div class="row">
+    <div class="columns large-12">
+      <h4 class="section-heading"><%= t('.title') %></h4>
+    </div>
+
+    <div class="columns large-12">
+      <% proposal.endorsements.for_listing.limit(5).each do |endorsement| %>
+        <%= render partial: 'endorsement_xxs', locals: {endorsement: endorsement} %>
+      <% end %>
+      <% if count > 5 %>...<% end -%>
+    </div>
+  </div>
+  <% if count > 5 %>
+    <div class="row">
+      <div class="columns large-12">
+        <a data-toggle="remaining-endorsements"><%= t('.see_all') %></a>
+      </div>
+      <div id="remaining-endorsements" class="columns large-12 hide" data-toggler=".hide">
+        <% proposal.endorsements.for_listing.offset(5).each do |endorsement| %>
+        <div>
+          <%= render partial: 'endorsement_xxs', locals: {endorsement: endorsement} %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  <% end -%>
+<% end %>
