@@ -32,7 +32,7 @@ describe "Proposal", type: :system do
       click_link "New proposal"
     end
 
-    context "step_1: Start" do
+    context "when in step_1: Start" do
       it "show current step_1 highlighted" do
         within ".wizard__steps" do
           expect(page).to have_css(".step--active", count: 1)
@@ -50,8 +50,9 @@ describe "Proposal", type: :system do
       end
     end
 
-    context "step_2: Compare" do
+    context "when in step_2: Compare" do
       let(:proposal_draft) { create(:proposal, :draft, feature: feature, title: proposal_title, body: proposal_body) }
+
       before do
         visit compare_proposal_path(feature, proposal_draft)
       end
@@ -96,6 +97,34 @@ describe "Proposal", type: :system do
             expect(page).to have_content("Well done! No similar proposals found")
           end
         end
+      end
+    end
+
+    context "when in step_3: Publish" do
+      let(:proposal_draft) { create(:proposal, :draft, feature: feature, title: proposal_title, body: proposal_body) }
+
+      before do
+        visit preview_proposal_path(feature, proposal_draft)
+      end
+
+      it "show current step_3 highlighted" do
+        within ".wizard__steps" do
+          expect(page).to have_css(".step--active", count: 1)
+          expect(page).to have_css(".step--past", count: 2)
+          expect(page).to have_css(".step--active.step_3")
+        end
+      end
+
+      it "shows a preview" do
+        expect(page).to have_css(".card.card--proposal", count: 1)
+      end
+
+      it "shows a publish button" do
+        expect(page).to have_selector("button", text: "Publish")
+      end
+
+      it "shows a modify proposal link" do
+        expect(page).to have_selector("a", text: "Modify the proposal")
       end
     end
   end
