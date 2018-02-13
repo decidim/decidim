@@ -19,6 +19,10 @@ ul#logs{
     }
   }
 
+  .deletion .logs-log__content{
+    background-color: rgb(255, 242, 242);
+  }
+
   .logs-log__date{
     color: $muted;
     text-align: right;
