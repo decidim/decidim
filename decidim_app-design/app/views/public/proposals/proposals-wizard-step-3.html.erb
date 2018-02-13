@@ -17,9 +17,6 @@
         <p>
           Estás creando una <strong>propuesta.</strong>
         </p>
-        <p>
-          <a href="#">Más información</a>.
-        </p>
       </div>
       <div class="show-for-large">
         <!-- STEPS component: Set any kind of list with 'steps' class; Its children only require set the active element w/ 'step--active' class -->
@@ -65,7 +62,9 @@
                       <a href="#" class="author__name">
                         Autor
                       </a>
-                      01/08/2016
+                      <a href="#" class="author__nickname">
+                        @autor
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -78,7 +77,7 @@
             <div class="card__status">
               <ul class="card-data">
                 <li class="card-data__item">
-                  <span class="card-status__text success">aceptada</span>
+                  <span class="card-status__text success"></span>
                 </li>
                 <li class="card-data__item">
                   04/06/2003
@@ -86,13 +85,13 @@
                 <li class="card-data__item">
                   <a href="#comments" title="Respaldos">
                     <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-                      500
+                      0
                   </a>
                 </li>
                 <li class="card-data__item">
                   <a href="#comments" title="Comentarios">
                     <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-                      23
+                      0
                   </a>
                 </li>
               </ul>
@@ -100,7 +99,9 @@
           </article>
           <div class="row column baseline-center">
             <a href="">Modifica la propuesta</a>
-            <button class="button small" type="button" name="button">Publicar</button>
+            <form class="button_to" method="" action="#">
+              <button class="button small" type="button">Publicar</button>
+            </form>
           </div>
         </div>
       </div>
