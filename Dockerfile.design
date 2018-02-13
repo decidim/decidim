@@ -3,7 +3,7 @@ LABEL maintainer="info@codegram.com"
 
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
-ENV RAILS_ENV prod
+ENV RAILS_ENV production
 ENV PORT 3000
 ENV SECRET_KEY_BASE=no_need_for_such_secrecy
 ENV RAILS_SERVE_STATIC_FILES=true
@@ -13,5 +13,5 @@ COPY . .
 WORKDIR /code/decidim_app-design
 
 RUN bundle install
-RUN rails assets:precompile
-CMD rails s -p $PORT
+RUN bundle exec rails assets:precompile
+CMD bundle exec rails s -p $PORT
