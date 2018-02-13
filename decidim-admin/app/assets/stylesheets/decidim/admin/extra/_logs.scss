@@ -35,7 +35,7 @@ ul#logs{
     flex-grow: 17;
     flex-basis: 1px;
 
-    span{
+    span, a{
       font-weight: 600;
     }
     .logs-log__author{
