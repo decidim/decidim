@@ -33,6 +33,11 @@
     text-align: right;
   }
 
+  th [type="checkbox"]:only-child,
+  td [type="checkbox"]:only-child{
+    margin-bottom: 0;
+  }
+
   &.table-list--lastcenter{
     th:last-child,
     td:last-child{
