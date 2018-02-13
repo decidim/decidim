@@ -30,16 +30,23 @@ end
 desc "Installs all gems locally."
 task :install_all do
   Decidim::ComponentManager.run_all(
-    "rake install:local",
-    out: File::NULL
+    "gem build %name && mv %name-%version.gem ..",
+    include_root: false
+  )
+
+  Decidim::ComponentManager.new(__dir__).run(
+    "gem build %name && gem install *.gem"
   )
 end
 
 desc "Uninstalls all gems locally."
 task :uninstall_all do
   Decidim::ComponentManager.run_all(
-    "gem uninstall %name -v %version --executables --force",
-    out: File::NULL
+    "gem uninstall %name -v %version --executables --force"
+  )
+
+  Decidim::ComponentManager.new(__dir__).run(
+    "rm decidim-*.gem"
   )
 end
 
@@ -53,29 +60,13 @@ task :check_locale_completeness do
   system({ "ENFORCED_LOCALES" => "en,ca,es", "SKIP_NORMALIZATION" => "true" }, "rspec spec/i18n_spec.rb")
 end
 
+load "decidim-dev/lib/tasks/test_app.rake"
+
 desc "Generates a dummy app for testing"
-task :test_app do
-  dummy_app_path = File.expand_path(File.join(Dir.pwd, "spec", "decidim_dummy_app"))
-
-  Dir.chdir(__dir__) do
-    sh "rm -fR #{dummy_app_path}", verbose: false
-
-    Decidim::Generators::AppGenerator.start(
-      [dummy_app_path, "--path", "../..", "--recreate_db", "--demo"]
-    )
-  end
-end
+task test_app: "decidim:generate_external_test_app"
 
 desc "Generates a development app."
-task :development_app do
-  Dir.chdir(__dir__) do
-    sh "rm -fR development_app", verbose: false
-  end
-
-  Decidim::Generators::AppGenerator.start(
-    ["development_app", "--path", "..", "--recreate_db", "--seed_db", "--demo"]
-  )
-end
+task development_app: "decidim:generate_external_development_app"
 
 desc "Build webpack bundle files"
 task :webpack do

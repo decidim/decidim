@@ -83,8 +83,12 @@ module Decidim
 
     private
 
-    def name
+    def folder_name
       File.basename(@dir)
+    end
+
+    def name
+      folder_name.match?("decidim") ? folder_name : "decidim"
     end
 
     def short_name
