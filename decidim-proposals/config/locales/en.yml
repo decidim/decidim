@@ -177,7 +177,6 @@ en:
           error: There's been errors when voting the proposal.
       proposals:
         compare:
-          back: Back
           mine_is_different: My proposal is different
           no_similars_found: Well done! No similar proposals found
           title: Similar Proposals
@@ -191,7 +190,6 @@ en:
           send: Send
           title: Edit proposal
         edit_draft:
-          back: Back
           send: Preview
           title: Edit Proposal Draft
         endorsement_button:
@@ -236,7 +234,6 @@ en:
             other: votes
         new:
           attachment_legend: "(Optional) Add an attachment"
-          back: Back
           select_a_category: Please select a category
           send: Continue
           title: Create Your Proposal
@@ -246,7 +243,6 @@ en:
           random: Random
           recent: Recent
         preview:
-          back: Back
           modify: Modify the proposal
           proposal_edit_before_minutes:
             one: You will be able to edit this proposal during the first minute after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
@@ -254,9 +250,6 @@ en:
           publish: Publish
           title: Publish your proposal
         proposal:
-          creation_date: 'Creation: %{date}'
-          view_proposal: View proposal
-        proposal_preview:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
         show:
