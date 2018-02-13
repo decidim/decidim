@@ -92,7 +92,7 @@ describe "Vote Proposal", type: :system do
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("1 VOTE")
+            expect(page).to have_content("1/0 VOTE")
           end
         end
       end
@@ -110,7 +110,7 @@ describe "Vote Proposal", type: :system do
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("1 VOTE")
+            expect(page).to have_content("1/0 VOTE")
           end
         end
 
@@ -260,7 +260,7 @@ describe "Vote Proposal", type: :system do
             end
 
             it "shows the vote count but not the vote button" do
-              expect(page).to have_css(".card__support__data", text: "1 VOTE")
+              expect(page).to have_css(".card__support__data", text: "1/0 VOTE")
               expect(page).to have_content("Voting disabled")
             end
           end
@@ -319,6 +319,33 @@ describe "Vote Proposal", type: :system do
           within ".card__support", match: :first do
             click_button "Vote"
             expect(page).to have_content("Already voted")
+          end
+        end
+      end
+    end
+    context "when proposals have vote limit but can accumulate more votes" do
+      let!(:feature) do
+        create(:proposal_feature,
+               :with_votes_enabled,
+               :with_maximum_votes_per_proposal,
+               :with_can_accumulate_more_than_maximum,
+               manifest: manifest,
+               participatory_space: participatory_process)
+      end
+
+      before do
+        login_as user, scope: :user
+      end
+
+      it "allows users to vote on proposals over the limit" do
+        create(:proposal_vote, proposal: proposal)
+        visit_feature
+
+        proposal_element = page.find("article", text: proposal.reference)
+
+        within proposal_element do
+          within ".card__support", match: :first do
+            expect(page).to have_content("1/0 VOTE")
           end
         end
       end

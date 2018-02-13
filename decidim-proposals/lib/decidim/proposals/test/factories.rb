@@ -118,6 +118,14 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_can_accumulate_more_than_maximum do
+      settings do
+        {
+          can_accumulate_more_than_maximum: true
+        }
+      end
+    end
   end
 
   factory :proposal, class: "Decidim::Proposals::Proposal" do

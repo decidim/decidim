@@ -117,13 +117,11 @@ module Decidim
         votes.count >= maximum_votes
       end
 
+      # Public: Can accumulate more votres than maximum for this proposal.
+      #
+      # Returns true if can accumulate, false otherwise
       def can_accumulate_more_than_maximum
         feature.settings.can_accumulate_more_than_maximum
-      end
-
-      def can_accumulate_more_than_maximum?
-        return false unless can_accumulate_more_than_maximum
-        true
       end
 
       # Checks whether the user can edit the given proposal.
