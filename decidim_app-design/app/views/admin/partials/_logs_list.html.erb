@@ -4,20 +4,69 @@
   </div>
   <div class="table-scroll">
     <ul id="logs" class ".table">
-      <% 10.times do |index| %>
+      <% 5.times do |index| %>
         <li class="logs-log">
-          <div class="logs-log__date">10/10/18 08:24</div>
           <div class="logs-log__content">
-            <span class="logs-log__author">Matthew Mills </span>
-            <%= index % 2 == 0 ? "created" : "updated" %>
-            <span class="logs-log__resource">Regular meetup</span>
-            in
-            <span class="logs-log__space">Book Cycle</span>
+            <div class="logs-log__date">10/10/18 08:24</div>
+            <div class="logs-log__explanation">
+              <span class="logs-log__author">Matthew Mills </span>
+              created
+              <span class="logs-log__resource">Regular meetup</span>
+              in
+              <span class="logs-log__space">Book Cycle</span>
+            </div>
+            <div class="logs-log__actions">
+            </div>
           </div>
-          <div class="logs-log__actions table-list__actions">
-            <% if index % 2 == 1 %>
-              <a href="#" class="action-icon"><%= icon "eye" %></a>
-            <% end %>
+        </li>
+
+        <li class="logs-log" id="log-<%= (index + 1) * 3 %>" data-toggler=".expanded">
+          <div class="logs-log__content">
+            <div class="logs-log__date">10/10/18 08:24</div>
+            <div class="logs-log__explanation">
+              <span class="logs-log__author">Matthew Mills </span>
+              updated
+              <span class="logs-log__resource">Regular meetup</span>
+              in
+              <span class="logs-log__space">Book Cycle</span>
+            </div>
+            <div class="logs-log__actions">
+              <a class="logs-log__actions-dropdown" data-toggle="log-<%= (index + 1) * 3 %>"></a>
+            </div>
+          </div>
+          <div class="logs-log__diff">
+            <div class="logs-log__diff-row new-value">
+              <div class="logs-log__diff-title">
+                Title
+              </div>
+              <div class="logs-log__diff-value">
+                My new title is uber-awesome
+              </div>
+            </div>
+            <div class="logs-log__diff-row previous-value">
+              <div class="logs-log__diff-title">
+                Before
+              </div>
+              <div class="logs-log__diff-value">
+                Boring title
+              </div>
+            </div>
+            <div class="logs-log__diff-row new-value">
+              <div class="logs-log__diff-title">
+                Description
+              </div>
+              <div class="logs-log__diff-value">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras vulputate mi eu enim vulputate, et dignissim justo ultrices. Aliquam sodales scelerisque tincidunt. Praesent gravida iaculis iaculis. Curabitur arcu libero, hendrerit eu mi id, aliquet aliquam nisl. Etiam ullamcorper, metus non mollis egestas, massa sapien dictum magna, quis venenatis eros leo sit amet arcu. Fusce at accumsan nisi, ut cursus velit. Quisque urna tellus, rhoncus vitae ex ut, dictum eleifend nibh. Pellentesque ut blandit purus, id feugiat lectus. Fusce vehicula nisi odio. In vel laoreet lorem. Maecenas sed iaculis nibh, a semper eros. Aliquam a congue lacus. Donec maximus tincidunt purus, sed sagittis felis porttitor eu. Maecenas finibus, mi quis lacinia gravida, metus eros sagittis ligula, commodo ultricies neque libero sed sapien.
+              </div>
+            </div>
+            <div class="logs-log__diff-row previous-value">
+              <div class="logs-log__diff-title">
+                Before
+              </div>
+              <div class="logs-log__diff-value">
+                Boring description
+              </div>
+            </div>
           </div>
         </li>
       <% end %>

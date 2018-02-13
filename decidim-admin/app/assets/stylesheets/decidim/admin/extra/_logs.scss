@@ -3,11 +3,17 @@ ul#logs{
   margin-left: 0;
   margin-bottom: 0;
 
-  li{
-    border-bottom: 1px solid rgba(black, .05);
-    padding: $table-padding;
+  li .logs-log__content, li .logs-log__diff-row{
     display: flex;
     flex-direction: row;
+    padding: $table-padding;
+  }
+
+  li .logs-log__content, li .logs-log__diff-row{
+    border-bottom: 1px solid rgba(black, .05);
+  }
+
+  li .logs-log__diff-row{
     &:last-child{
       border-bottom: none;
     }
@@ -15,12 +21,15 @@ ul#logs{
 
   .logs-log__date{
     color: $muted;
+    text-align: right;
     padding-right: rem-calc(10);
-    flex-grow: 0;
+    flex-grow: 2;
+    flex-basis: 1px;
   }
 
-  .logs-log__content{
-    flex-grow: 1;
+  .logs-log__explanation{
+    flex-grow: 17;
+    flex-basis: 1px;
 
     span{
       font-weight: 600;
@@ -33,6 +42,63 @@ ul#logs{
     }
     .logs-log__space{
       color: rgb(143, 107, 201);
+    }
+  }
+
+  .logs-log__actions{
+    flex-grow: 1;
+    flex-basis: 1px;
+    text-align: right;
+  }
+
+  .logs-log__actions-dropdown{
+    color: $muted;
+    &::after {
+      content: "▸"
+    }
+    padding: rem-calc(0 10)
+  }
+
+  .logs-log__diff{
+    max-height: 200px;
+    overflow-y: scroll;
+    display: none;
+  }
+
+  .expanded{
+    & .logs-log__diff{
+    display: block;
+    }
+    .logs-log__actions-dropdown{
+      &::after{
+        content: "▾"
+      }
+    }
+  }
+
+  .logs-log__diff-title{
+    padding-right: rem-calc(10);
+    flex-grow: 1;
+    font-weight: 600;
+    text-align: right;
+    flex-basis: 1px;
+  }
+
+  .logs-log__diff-value{
+    flex-grow: 9;
+    flex-basis: 1px;
+  }
+
+  .new-value{
+    background-color: rgb(217, 255, 221);
+  }
+
+  .previous-value{
+    background-color: rgb(238, 238, 238);
+    .logs-log__diff-title{
+      color: rgb(152, 152, 152);
+      font-weight: normal;
+      text-transform: lowercase;
     }
   }
 }
