@@ -1,3 +1,4 @@
 # frozen_string_literal: true
-class DecidimController < ::ApplicationController
-end  
+
+class DecidimController < ApplicationController
+end
