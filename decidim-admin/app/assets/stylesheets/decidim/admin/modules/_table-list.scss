@@ -65,7 +65,7 @@
   }
 
   td{
-    @include modifiers(color);
+    @include modifiers(color, (muted: $muted));
   }
 
   .switch.tiny{

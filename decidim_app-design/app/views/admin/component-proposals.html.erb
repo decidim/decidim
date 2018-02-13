@@ -18,7 +18,7 @@
       </div>
       <div class="card-section">
         <div class="table-scroll">
-          <table class="table-list">
+          <table class="table-list table-list--lastcenter">
             <thead>
               <tr>
                 <th><input type="checkbox" name="" value=""></th>
@@ -36,11 +36,11 @@
                 <td><input type="checkbox" name="" value=""></td>
                 <td>1</td>
                 <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</td>
-                <td>dolorem voluptates non temporibus voluptatum.</td>
+                <td><%= Forgery(:lorem_ipsum).words(100) %></td>
                 <td>jerderport</td>
                 <td class="warning">not answered</td>
                 <td>2</td>
-                <td><%= icon "comment-square", class: "icon--small" %></td>
+                <td class="muted"><%= icon "comment-square", class: "icon--small" %></td>
               </tr>
             </tbody>
           </table>
