@@ -2,12 +2,9 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-# Maintain your gem's version:
-require "decidim/dev/version"
-
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.version = Decidim::Dev.version
+  s.version = "0.10.0.pre"
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
   s.license = "AGPL-3.0"
@@ -21,7 +18,7 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
   s.add_dependency "capybara", "~> 2.15"
-  s.add_dependency "decidim", Decidim::Dev.version
+  s.add_dependency "decidim", s.version
   s.add_dependency "factory_bot_rails", "~> 4.8"
 
   s.add_dependency "byebug", "~> 10.0"
