@@ -46,6 +46,7 @@ module Decidim
       end
 
       # Public: Check if the user has endorsed the proposal.
+      # - user_group: may be nil if user is not representing any user_group.
       #
       # Returns Boolean.
       def endorsed_by?(user, user_group = nil)

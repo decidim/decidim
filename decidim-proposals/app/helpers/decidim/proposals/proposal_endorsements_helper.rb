@@ -21,7 +21,7 @@ module Decidim
       # Returns a string with the value of the css classes.
       def endorsement_button_classes(from_proposals_list)
         return "small" if from_proposals_list
-        "expanded button--sc"
+        "small compact light button--sc"
       end
 
       # Public: Checks if endorsement are enabled in this step.
@@ -43,6 +43,13 @@ module Decidim
       # Returns true if the current user can endorse, false otherwise.
       def current_user_can_endorse?
         current_user && endorsements_enabled? && !endorsements_blocked?
+      end
+
+      # Public: Checks if the card for endorsements should be rendered.
+      #
+      # Returns true if the endorsements card should be rendered, false otherwise.
+      def show_endorsements_card?
+        endorsements_enabled?
       end
 
       def endorsement_identity(endorsement)
@@ -67,6 +74,12 @@ module Decidim
                                                                                     from_proposals_list: from_proposals_list, user_group: user_group,
                                                                                     current_endorsement_url: current_endorsement_url,
                                                                                     endorse_label: endorse_label, unendorse_label: unendorse_label }
+      end
+
+      def fully_endorsed?(proposal, current_user)
+        all_endorsements= current_user.user_groups.verified.all? {|user_group| proposal.endorsed_by?(current_user, user_group)}
+        fully_endorsed= all_endorsements && proposal.endorsed_by?(current_user)
+        fully_endorsed
       end
     end
   end

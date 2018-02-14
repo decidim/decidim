@@ -1,19 +1,23 @@
+<% fully_endorsed= fully_endorsed?(@proposal, current_user) %>
+<% closed ||= false %>
 <div class="row collapse buttons__row">
+  <% if !closed %>
   <div class="column small-9 collapse">
     <div class="button-group button-group--collapse button--nomargin small">
-      <button type="button" name="button" class="button small compact light secondary button--sc button--shadow">
-        <svg aria-label="Endorsements" role="img" class="icon--bullhorn icon icon--small"><use xlink:href="/assets/decidim/icons-509a478a67af62ad7c73a2b25fa27fbf9874be8aee5d9366428cf650b335b143.svg#icon-bullhorn"></use></svg> 332
-      </button>
-      <button type="button" name="button" class="button small compact light secondary button--sc">
-        Reivindicar
-      </button>
+      <% if endorsements_enabled? %>
+        <%= render partial: "endorsements_count", locals: { proposal: @proposal, fully_endorsed: fully_endorsed } %>
+        <% if current_settings.endorsements_blocked? %>
+          <%= content_tag :span, t('.endorsements_blocked'), class: "card__button button #{endorsement_button_classes(from_proposals_list)} disabled", disabled: true %>
+        <% else %>
+          <%= render partial: "endorsement_identities_cabin", locals: { proposal: @proposal, fully_endorsed: fully_endorsed } %>
+        <% end %>
+      <% end %>
     </div>
   </div>
-  <div class="column collapse small-3">
-    <button type="button" name="button" class="button small compact hollow secondary button--nomargin expanded">
-      <a href="#comments" title="Comentarios">
-        <svg aria-label="Comentarios" role="img" class="icon--comment-square icon icon--small"><use xlink:href="/assets/decidim/icons-509a478a67af62ad7c73a2b25fa27fbf9874be8aee5d9366428cf650b335b143.svg#icon-comment-square"></use></svg> 108 
-      </a>
-    </button>
+  <% end %>
+  <div class="column collapse <%= closed ? '' : 'small-3' %>">
+    <%= link_to '#comments', class: "button small compact hollow secondary button--nomargin expanded" do %>
+        <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> <%= @proposal.comments.count %> <% if closed %>Comentarios<% end %>
+    <% end %>
   </div>
 </div>
