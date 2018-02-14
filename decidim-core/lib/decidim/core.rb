@@ -334,6 +334,6 @@ module Decidim
   end
 
   def self.version
-    Gem.loaded_specs["decidim-core"].version
+    Gem.loaded_specs["decidim-core"].version.to_s
   end
 end
