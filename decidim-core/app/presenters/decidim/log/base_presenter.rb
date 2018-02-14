@@ -6,9 +6,11 @@ module Decidim
     # It is supposed to be a base class for all other log renderers, as it defines
     # some helpful methods that later presenters can use.
     #
-    # Most presenters that inherit fromt his class will only need to overwrite
+    # Most presenters that inherit from this class will only need to overwrite
     # the `action_string` method, which defines what I18n key will be used for
-    # each action.
+    # each action. Other methods that might be interesting to overwrite are those
+    # named `present_*`. Check the source code and the method docs to see how they
+    # work.
     #
     # See `Decidim::ActionLog#render_log` for more info on the log types and
     # presenters.
@@ -127,23 +129,21 @@ module Decidim
                            end
       end
 
-      # Private: Presents a space. If the space is found in the database, it
-      # links to it. Otherwise it only shows the name.
+      # Private: Presents the space name.
       #
       # Returns an HTML-safe String.
       def present_space_name
         h.translated_attribute action_log.extra["participatory_space"]["title"]
       end
 
-      # Private: Presents a space. If the space is found in the database, it
-      # links to it. Otherwise it only shows the name.
+      # Private: Presents resource name.
       #
       # Returns an HTML-safe String.
       def present_resource_name
         h.translated_attribute action_log.extra["resource"]["title"]
       end
 
-      # Private: Presents a user. If the user is found in the database, it
+      # Private: Presents the given user. If the user is found in the database, it
       # links to their profile, and shows their nickname as a tooltip.
       # Otherwise it only shows the name.
       #
@@ -176,12 +176,20 @@ module Decidim
         action_log.extra["user"]["nickname"].html_safe
       end
 
+      # Private: Presents the date the action was performed.
+      #
+      # Returns an HTML-safe String.
       def present_log_date
         h.content_tag(:div, class: "logs__log__date") do
           h.localize(action_log.created_at, format: :decidim_short)
         end
       end
 
+      # Private presents the explanation of the action. It will
+      # hold the author name, the action type, the resource affected
+      # and the participatory space the resource belongs to.
+      #
+      # Returns an HTML-safe String.
       def present_explanation
         h.content_tag(:div, class: "logs__log__explanation") do
           I18n.t(
@@ -191,7 +199,8 @@ module Decidim
         end
       end
 
-      # Private: PResents the log content with a default form.
+      # Private: Presents the log content with a default form.
+      # It holds the date of the action and the explanation.
       #
       # Returns an HTML-safe String.
       def present_content
@@ -202,7 +211,7 @@ module Decidim
         end
       end
 
-      # Private: Finds the name of the I18n key that will be sued for the
+      # Private: Finds the name of the I18n key that will be used for the
       # current log action.
       #
       # Returns a String.
@@ -217,6 +226,9 @@ module Decidim
         end
       end
 
+      # Private: The params to be sent to the i18n string.
+      #
+      # Returns a Hash.
       def i18n_params
         {
           user_name: present_user,
