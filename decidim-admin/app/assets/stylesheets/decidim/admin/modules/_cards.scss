@@ -3,6 +3,10 @@ $card-padding-small: 1rem;
 .card-title{
   @include smallcaps;
 
+  button:not(.clear){
+    @include smallcaps;
+  }
+
   // clearfix if there is no flex--* class in the same element
   &:not([class*="flex--"]){
     @include clearfix;
