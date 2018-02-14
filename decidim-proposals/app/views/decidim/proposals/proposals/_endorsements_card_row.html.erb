@@ -1,23 +1,20 @@
 <% fully_endorsed= fully_endorsed?(@proposal, current_user) %>
-<% closed ||= false %>
 <div class="row collapse buttons__row">
-  <% if !closed %>
-  <div class="column small-9 collapse">
-    <div class="button-group button-group--collapse button--nomargin small">
-      <% if endorsements_enabled? %>
+  <% if endorsements_enabled? %>
+    <div class="column small-9 collapse">
+      <div class="button-group button-group--collapse button--nomargin small">
         <%= render partial: "endorsements_count", locals: { proposal: @proposal, fully_endorsed: fully_endorsed } %>
         <% if current_settings.endorsements_blocked? %>
-          <%= content_tag :span, t('.endorsements_blocked'), class: "card__button button #{endorsement_button_classes(from_proposals_list)} disabled", disabled: true %>
+          <%= content_tag :span, t('.endorse'), class: "card__button button #{endorsement_button_classes(false)} disabled", disabled: true, title: t('.endorsements_blocked') %>
         <% else %>
           <%= render partial: "endorsement_identities_cabin", locals: { proposal: @proposal, fully_endorsed: fully_endorsed } %>
         <% end %>
-      <% end %>
+      </div>
     </div>
-  </div>
   <% end %>
-  <div class="column collapse <%= closed ? '' : 'small-3' %>">
+  <div class="column collapse <%= endorsements_enabled? ? 'small-3' : '' %>">
     <%= link_to '#comments', class: "button small compact hollow secondary button--nomargin expanded" do %>
-        <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> <%= @proposal.comments.count %> <% if closed %>Comentarios<% end %>
+        <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> <%= @proposal.comments.count %>
     <% end %>
   </div>
 </div>

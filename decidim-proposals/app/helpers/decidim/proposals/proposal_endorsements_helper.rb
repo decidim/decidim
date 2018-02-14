@@ -77,9 +77,11 @@ module Decidim
       end
 
       def fully_endorsed?(proposal, current_user)
-        all_endorsements= current_user.user_groups.verified.all? {|user_group| proposal.endorsed_by?(current_user, user_group)}
-        fully_endorsed= all_endorsements && proposal.endorsed_by?(current_user)
-        fully_endorsed
+        if current_user
+          all_endorsements= current_user.user_groups.verified.all? {|user_group| proposal.endorsed_by?(current_user, user_group)}
+          fully_endorsed= all_endorsements && proposal.endorsed_by?(current_user)
+          fully_endorsed
+        end
       end
     end
   end

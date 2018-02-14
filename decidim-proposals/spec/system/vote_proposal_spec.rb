@@ -248,7 +248,7 @@ describe "Vote Proposal", type: :system do
           end
 
           it "is not able to vote other proposals" do
-            expect(page).to have_css(".card__button[disabled]", count: 2)
+            expect(page).to have_css(".button[disabled]", count: 2)
           end
 
           context "when votes are blocked" do
