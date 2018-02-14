@@ -170,10 +170,25 @@ module Decidim::Meetings
       context "when the participatory space has a scope" do
         let(:parent_scope) { create(:scope, organization: organization) }
         let(:participatory_process) { create(:participatory_process, organization: organization, scope: parent_scope) }
-        let(:scope) { create(:scope, organization: organization, parent: parent_scope) }
 
         context "when the scope is descendant from participatory space scope" do
+          let(:scope) { create(:scope, organization: organization, parent: parent_scope) }
+
           it { is_expected.to eq(scope) }
+
+          it "makes the form valid" do
+            expect(form).to be_valid
+          end
+        end
+
+        context "when the scope is the same scope of the participatory space scope" do
+          let(:scope) { parent_scope }
+
+          it { is_expected.to eq(scope) }
+
+          it "makes the form valid" do
+            expect(form).to be_valid
+          end
         end
 
         context "when the scope is not descendant from participatory space scope" do

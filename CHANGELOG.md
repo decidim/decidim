@@ -8,6 +8,8 @@
 
 **Fixed**:
 
+* **decidim-meetings**: Fix meeting update and creation when its participatory space has a scope without subscopes. [\#2720](https://github.com/decidim/decidim/pull/2720)
+
 ## [v0.9.2](https://github.com/decidim/decidim/tree/v0.9.2) (2018-2-9)
 
 **Fixed**:
