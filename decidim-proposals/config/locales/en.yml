@@ -190,10 +190,6 @@ en:
         endorsements_card_row:
           endorse: Endorse
           endorsements_blocked: Endorsements are blocked
-        endorsements_count:
-          count:
-            one: ENDORSEMENT
-            other: ENDORSEMENTS
         endorsements_listing:
           see_all: see all
           title: List of Endorsements
