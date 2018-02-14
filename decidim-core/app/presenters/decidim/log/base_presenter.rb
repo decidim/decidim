@@ -40,7 +40,7 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present
-        present_content
+        present_action_log
       end
 
       private
@@ -108,6 +108,17 @@ module Decidim
         end
       end
 
+      # Private: Presents the dropdown, if needed, to display the diff.
+      #
+      # Returns an HTML-safe String.
+      def present_dropdown
+        return h.content_tag(:div, "", class: "logs__log__actions") unless has_diff?
+
+        h.content_tag(:div, class: "logs__log__actions") do
+          h.content_tag(:a, "", class: "logs__log__actions-dropdown", data: { toggle: h.dom_id(action_log) })
+        end
+      end
+
       # Private presents the explanation of the action. It will
       # hold the author name, the action type, the resource affected
       # and the participatory space the resource belongs to.
@@ -122,15 +133,42 @@ module Decidim
         end
       end
 
-      # Private: Presents the log content with a default form.
+      # Private: Presents the contents of the log.
       # It holds the date of the action and the explanation.
       #
       # Returns an HTML-safe String.
       def present_content
-        h.content_tag(:li, class: "logs__log") do
-          h.content_tag(:div, class: "logs__log__content") do
-            present_log_date + present_explanation
-          end
+        h.content_tag(:div, class: "logs__log__content") do
+          present_log_date + present_explanation + present_dropdown
+        end
+      end
+
+      # Private: Caches the object that will be responsible of presenting the diff
+      # of the given action.
+      #
+      # Returns an object that responds to `present` and `visible?`.
+      def diff_presenter
+        @diff_presenter ||= Decidim::Log::DiffPresenter.new(action_log.resource, view_helpers, action_log.extra["version"])
+      end
+
+      # Private: Presents the diff of the log, if needed
+      # It holds the names of the attributes that have changed,
+      # and the old and new values.
+      #
+      # Returns an HTML-safe String.
+      def present_diff
+        return "".html_safe unless has_diff?
+
+        diff_presenter.present
+      end
+
+      # Private: Presents the log content with a default form.
+      #
+      # Returns an HTML-safe String.
+      def present_action_log
+        h.content_tag(:li, id: h.dom_id(action_log), class: "logs__log", data: { toggler: ".logs__log--expanded" }) do
+          h.concat(present_content)
+          h.concat(present_diff)
         end
       end
 
@@ -158,6 +196,13 @@ module Decidim
           resource_name: present_resource,
           space_name: present_space
         }
+      end
+
+      # Private: Calculates if the diff has to be shown or not.
+      #
+      # Returns a Boolean.
+      def has_diff?
+        action == "update" && diff_presenter.visible?
       end
     end
   end
