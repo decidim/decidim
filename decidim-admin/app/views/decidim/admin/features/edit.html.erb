@@ -30,8 +30,10 @@ function switchDisabling(check1, check2){
 }
 
 $(document).ready(function() {
-  var $supports = $("input[name='feature[step_settings][3][votes_enabled]']")
-  var $votes = $("input[name='feature[step_settings][3][votes_weight_enabled]']")
+  var participatory_space_id = <%= current_participatory_space.id %>;
+  var $supports = $('input[name="feature[step_settings][' + participatory_space_id + '][votes_enabled]"]')
+  var $votes = $('input[name="feature[step_settings][' + participatory_space_id + '][votes_weight_enabled]"]')
+  console.log($supports)
   disableClick($supports, $votes)
   switchDisabling($supports, $votes)
   switchDisabling($votes, $supports)
