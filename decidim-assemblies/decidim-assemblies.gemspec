@@ -2,10 +2,8 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/assemblies/version"
-
 Gem::Specification.new do |s|
-  s.version = Decidim::Assemblies.version
+  s.version = "0.10.0.pre"
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
   s.license = "AGPL-3.0"
@@ -18,8 +16,8 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-core", Decidim::Assemblies.version
+  s.add_dependency "decidim-core", s.version
 
-  s.add_development_dependency "decidim-admin", Decidim::Assemblies.version
-  s.add_development_dependency "decidim-dev", Decidim::Assemblies.version
+  s.add_development_dependency "decidim-admin", s.version
+  s.add_development_dependency "decidim-dev", s.version
 end

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "decidim/core/engine"
-require "decidim/core/version"
 require "decidim/core/api"
 
 # Decidim configuration.
@@ -332,5 +331,9 @@ module Decidim
   # Public: Stores an instance of Traceability
   def self.traceability
     @traceability ||= Traceability.new
+  end
+
+  def self.version
+    Gem.loaded_specs["decidim-core"].version
   end
 end

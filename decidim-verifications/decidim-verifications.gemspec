@@ -2,11 +2,9 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-require "decidim/verifications/version"
-
 Gem::Specification.new do |s|
   s.name = "decidim-verifications"
-  s.version = Decidim::Verifications.version
+  s.version = "0.10.0.pre"
   s.authors = ["David Rodriguez"]
   s.email = ["deivid.rodriguez@riseup.net"]
   s.homepage = "https://github.com/decidim/decidim"
@@ -17,8 +15,8 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-core", Decidim::Verifications.version
+  s.add_dependency "decidim-core", s.version
 
-  s.add_development_dependency "decidim-admin", Decidim::Verifications.version
-  s.add_development_dependency "decidim-dev", Decidim::Verifications.version
+  s.add_development_dependency "decidim-admin", s.version
+  s.add_development_dependency "decidim-dev", s.version
 end

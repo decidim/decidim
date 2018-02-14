@@ -2,13 +2,10 @@
 
 $LOAD_PATH.push File.expand_path("lib", __dir__)
 
-# Maintain your gem's version:
-require "decidim/core/version"
-
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   s.name = "decidim-core"
-  s.version = Decidim::Core.version
+  s.version = "0.10.0.pre"
   s.authors = ["Josep Jaume Rey Peroy", "Marc Riera Casals", "Oriol Gual Oliva"]
   s.email = ["josepjaume@gmail.com", "mrc2407@gmail.com", "oriolgual@gmail.com"]
   s.homepage = "https://github.com/decidim/decidim"
@@ -53,7 +50,7 @@ Gem::Specification.new do |s|
   s.add_dependency "valid_email2", "~> 2.1"
   s.add_dependency "wisper", "~> 2.0"
 
-  s.add_dependency "decidim-api", Decidim::Core.version
+  s.add_dependency "decidim-api", s.version
 
-  s.add_development_dependency "decidim-dev", Decidim::Core.version
+  s.add_development_dependency "decidim-dev", s.version
 end

@@ -28,9 +28,9 @@ module Decidim
 
     def replace_version
       self.class.replace_file(
-        "lib/#{name.tr("-", "/")}/version.rb",
-        /def self\.version(\s*)"[^"]*"/,
-        "def self.version\\1\"#{version}\""
+        "#{name}.gemspec",
+        /s\.version = .+/,
+        "s\.version = \"#{version}\""
       )
     end
 

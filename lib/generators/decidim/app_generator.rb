@@ -3,7 +3,6 @@
 require "bundler"
 require "rails/generators"
 require "rails/generators/rails/app/app_generator"
-require "decidim/version"
 require_relative "install_generator"
 
 module Decidim
@@ -90,7 +89,7 @@ module Decidim
                        elsif options[:branch]
                          "git: \"https://github.com/decidim/decidim.git\", branch: \"#{options[:branch]}\""
                        else
-                         "\"#{Decidim.version}\""
+                         "\"#{decidim_version}\""
                        end
 
         gsub_file "Gemfile", /gem "#{current_gem}".*/, "gem \"#{current_gem}\", #{gem_modifier}"
@@ -130,6 +129,10 @@ module Decidim
         return "decidim" unless options[:path]
 
         File.read(gemspec).match(/name\s*=\s*['"](?<name>.*)["']/)[:name]
+      end
+
+      def decidim_version
+        Gem.loaded_specs["decidim-core"].version
       end
 
       def gemspec
