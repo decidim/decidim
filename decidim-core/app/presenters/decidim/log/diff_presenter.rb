@@ -41,7 +41,7 @@ module Decidim
 
         h.content_tag(:div, class: "logs__log__diff") do
           changeset.each do |attribute|
-            h.concat(present_new_value(attribute[:attribute_name], attribute[:new_value]))
+            h.concat(present_new_value(attribute[:label], attribute[:new_value]))
             h.concat(present_previous_value(attribute[:previous_value]))
           end
         end
@@ -61,13 +61,13 @@ module Decidim
 
       # Private: Helper method to render the new value.
       #
-      # attribute - the attribute name
-      # value - the value for the given attribute
+      # label - the label name
+      # value - the value for the given label
       #
       # Returns an HTML-safe String.
-      def present_new_value(attribute, value)
+      def present_new_value(label, value)
         h.content_tag(:div, class: "logs__log__diff-row logs__log__diff-row--new-value") do
-          h.concat(h.content_tag(:div, attribute, class: "logs__log__diff-title"))
+          h.concat(h.content_tag(:div, label, class: "logs__log__diff-title"))
           h.concat(h.content_tag(:div, value, class: "logs__log__diff-value"))
         end
       end

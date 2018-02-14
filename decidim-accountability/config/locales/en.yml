@@ -13,6 +13,7 @@ en:
         proposal_ids: Included proposals
         start_date: Start date
         title: Title
+        updated_at: Updated at
       status:
         description: Description
         key: Key

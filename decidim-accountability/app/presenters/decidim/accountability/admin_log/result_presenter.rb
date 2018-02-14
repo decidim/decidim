@@ -26,8 +26,17 @@ module Decidim
 
         def diff_fields_mapping
           {
-            description: :i18n
+            start_date: :date,
+            end_date: :date,
+            description: :i18n,
+            title: :i18n,
+            decidim_scope_id: :scope,
+            progress: :percentage
           }
+        end
+
+        def i18n_labels_scope
+          "activemodel.attributes.result"
         end
       end
     end

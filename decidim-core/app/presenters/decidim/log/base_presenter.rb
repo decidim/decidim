@@ -217,12 +217,18 @@ module Decidim
       # will probably want to overwrite this method to fulfill their
       # needs.
       #
-      # Returns a Hash.
+      # When the value is `nil`, then it renders all fields.
+      #
+      # Returns a Hash or `nil`.
       def diff_fields_mapping
-        {
-          created_at: :date,
-          updated_at: :date
-        }
+        nil
+      end
+
+      # Private: The I18n scope where the resource fields are found, so
+      # the diff can properly generate the labels.
+      #
+      # Returns a String.
+      def i18n_labels_scope
       end
 
       # Private: Calculates the changeset to be rendered. Uses the values
@@ -232,7 +238,8 @@ module Decidim
       def changeset
         Decidim::Log::DiffChangesetCalculator.new(
           version.changeset,
-          diff_fields_mapping
+          diff_fields_mapping,
+          i18n_labels_scope
         ).changeset
       end
     end
