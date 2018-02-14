@@ -20,7 +20,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if @proposal.maximum_votes_reached? && !@proposal.can_accumulate_more_than_maximum
+        return broadcast(:invalid) if @proposal.maximum_votes_reached? && !@proposal.can_accumulate_supports_beyond_threshold
 
         build_proposal_vote
         return broadcast(:invalid) unless vote.valid?

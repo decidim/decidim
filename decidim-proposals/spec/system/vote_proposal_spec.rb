@@ -328,7 +328,7 @@ describe "Vote Proposal", type: :system do
         create(:proposal_feature,
                :with_votes_enabled,
                :with_maximum_votes_per_proposal,
-               :with_can_accumulate_more_than_maximum,
+               :with_can_accumulate_supports_beyond_threshold,
                manifest: manifest,
                participatory_space: participatory_process)
       end

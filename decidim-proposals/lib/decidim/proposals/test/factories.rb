@@ -119,10 +119,10 @@ FactoryBot.define do
       end
     end
 
-    trait :with_can_accumulate_more_than_maximum do
+    trait :with_can_accumulate_supports_beyond_threshold do
       settings do
         {
-          can_accumulate_more_than_maximum: true
+          can_accumulate_supports_beyond_threshold: true
         }
       end
     end

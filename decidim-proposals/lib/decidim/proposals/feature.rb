@@ -18,7 +18,7 @@ Decidim.register_feature(:proposals) do |feature|
     settings.attribute :proposal_limit, type: :integer, default: 0
     settings.attribute :proposal_edit_before_minutes, type: :integer, default: 5
     settings.attribute :maximum_votes_per_proposal, type: :integer, default: 0
-    settings.attribute :can_accumulate_more_than_maximum, type: :boolean, default: false
+    settings.attribute :can_accumulate_supports_beyond_threshold, type: :boolean, default: false
     settings.attribute :proposal_answering_enabled, type: :boolean, default: true
     settings.attribute :official_proposals_enabled, type: :boolean, default: true
     settings.attribute :comments_enabled, type: :boolean, default: true

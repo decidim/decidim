@@ -57,8 +57,8 @@ module Decidim
       # Public: Checks if can accumulate more than maxium is enabled
       #
       # Returns true if enabled, false otherwise.
-      def can_accumulate_more_than_maximum?
-        feature_settings.can_accumulate_more_than_maximum
+      def can_accumulate_supports_beyond_threshold?
+        feature_settings.can_accumulate_supports_beyond_threshold
       end
 
       # Public: Checks if voting is enabled in this step.
