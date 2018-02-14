@@ -13,7 +13,7 @@ plugins:
 
   csslint:
     enabled: true
-    exclude_paths:
+    exclude_patterns:
       - "decidim-core/app/assets/stylesheets/decidim/email.css"
 
   duplication:
@@ -35,7 +35,7 @@ plugins:
       - 335702a6e9817ff54c4e6deb16b6663a
       - 4cd229a46c20efb3b58249cd528bc66c
 
-    exclude_paths:
+    exclude_patterns:
       - "decidim-*/spec/**/*"
 
   eslint:
@@ -44,7 +44,7 @@ plugins:
   fixme:
     enabled: true
 
-    exclude_paths:
+    exclude_patterns:
      - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
      - .rubocop.yml
 
@@ -65,13 +65,13 @@ plugins:
           severity: minor
           categories: Style
 
-    exclude_paths:
+    exclude_patterns:
       - "decidim_app-design/**/*"
 
   markdownlint:
     enabled: true
 
-    exclude_paths:
+    exclude_patterns:
       - docs/*
       - .github/*
       - CHANGELOG.md
@@ -81,7 +81,7 @@ plugins:
 
   stylelint:
     enabled: true
-    exclude_paths:
+    exclude_patterns:
       - "decidim-core/app/assets/stylesheets/decidim/email.css"
 
 exclude_patterns:

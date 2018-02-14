@@ -41,5 +41,13 @@
         Configuración
       <% end %>
     </li>
+    <li <% if @activesection == "logs" %>
+     class="is-active"
+    <% end %> >
+      <%= link_to page_path("logs") do %>
+        <%= icon "list" %>
+        Logs
+      <% end %>
+    </li>
   </ul>
 </div>
