@@ -1,14 +1,25 @@
 /* Foundation button overrides */
-
 .button{
   &.small{
     padding-top: .5rem;
     padding-bottom: .5rem;
+
+    &.compact{
+      padding-left: .5rem;
+      padding-right: .5rem;
+      letter-spacing: 0;
+    }
   }
 
   &.tiny{
     padding-top: .25rem;
     padding-bottom: .25rem;
+
+    &.compact{
+      padding-left: .25rem;
+      padding-right: .25rem;
+      letter-spacing: 0;
+    }
   }
 }
 

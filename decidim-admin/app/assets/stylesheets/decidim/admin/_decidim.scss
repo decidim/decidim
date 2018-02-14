@@ -9,6 +9,7 @@
 @include foundation-everything();
 
 @import "utils/mixins";
+@import "utils/flex";
 @import "plugins/foundation-datepicker";
 @import "decidim/modules/data-picker";
 @import "modules/modules";

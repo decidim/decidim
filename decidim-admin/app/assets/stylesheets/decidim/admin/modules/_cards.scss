@@ -85,3 +85,7 @@ $card-padding-small: 1rem;
   margin-bottom: 0;
   display: block;
 }
+
+.card-divider--reduced{
+  padding: ($global-padding / 2) $global-padding;
+}
