@@ -12,16 +12,12 @@ module Decidim
     class DiffPresenter
       # Public: Initializes the presenter.
       #
-      # resource - An instance of a model that can be located by
-      #   `Decidim::ResourceLocatorPresenter`
+      # changeset - An array of hashes
       # view_helpers - An object holding the view helpers at the render time.
       #   Most probably should come automatically from the views.
-      # extra -  a Hash with extra data, most likely coming from the
-      #   `action_log` being presented
-      def initialize(resource, view_helpers, extra)
-        @resource = resource
+      def initialize(changeset, view_helpers)
+        @changeset = changeset
         @view_helpers = view_helpers
-        @extra = extra
       end
 
       # Public: Renders the given diff.
@@ -31,16 +27,9 @@ module Decidim
         present_diff
       end
 
-      # Public: Checks if the diff is visible or not.
-      #
-      # Returns a Boolean.
-      def visible?
-        version.present?
-      end
-
       private
 
-      attr_reader :resource, :view_helpers, :extra
+      attr_reader :changeset, :view_helpers
       alias h view_helpers
 
       # Private: Presents the diff for this action. If the resource and the
@@ -48,12 +37,12 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present_diff
-        return "".html_safe unless version
+        return "".html_safe unless changeset
 
         h.content_tag(:div, class: "logs__log__diff") do
-          clean_changeset.each do |attribute, (old_value, new_value)|
-            h.concat(present_new_value(attribute, new_value))
-            h.concat(present_previous_value(attribute, old_value))
+          changeset.each do |attribute|
+            h.concat(present_new_value(attribute[:attribute_name], attribute[:new_value]))
+            h.concat(present_previous_value(attribute[:previous_value]))
           end
         end
       end
@@ -81,20 +70,6 @@ module Decidim
           h.concat(h.content_tag(:div, attribute, class: "logs__log__diff-title"))
           h.concat(h.content_tag(:div, value, class: "logs__log__diff-value"))
         end
-      end
-
-      # Private: Caches the version that holds the changeset to display.
-      #
-      # Returns a PaperTrail::Version.
-      def version
-        @version ||= PaperTrail::Version.where(id: extra["id"]).first
-      end
-
-      # Private: Removes some fields from the changeset that should not be rendered.
-      #
-      # Returns a Hash with `<attribute_name> => [<old_value>, <new_value>]`.
-      def clean_changeset
-        @clean_changeset ||= version.changeset.except("updated_at")
       end
     end
   end

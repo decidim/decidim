@@ -23,6 +23,12 @@ module Decidim
             "decidim.accountability.admin_log.result.update"
           end
         end
+
+        def diff_fields_mapping
+          {
+            description: :i18n
+          }
+        end
       end
     end
   end

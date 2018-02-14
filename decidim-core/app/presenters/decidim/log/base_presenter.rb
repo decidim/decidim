@@ -50,6 +50,13 @@ module Decidim
 
       delegate :action, to: :action_log
 
+      # Private: Caches the version that holds the changeset to display.
+      #
+      # Returns a PaperTrail::Version.
+      def version
+        @version ||= PaperTrail::Version.where(id: action_log.extra.dig("version", "id")).first
+      end
+
       # Private: Presents the given space.
       #
       # Returns an HTML-safe String.
@@ -148,7 +155,7 @@ module Decidim
       #
       # Returns an object that responds to `present` and `visible?`.
       def diff_presenter
-        @diff_presenter ||= Decidim::Log::DiffPresenter.new(action_log.resource, view_helpers, action_log.extra["version"])
+        @diff_presenter ||= Decidim::Log::DiffPresenter.new(changeset, view_helpers)
       end
 
       # Private: Presents the diff of the log, if needed
@@ -202,7 +209,31 @@ module Decidim
       #
       # Returns a Boolean.
       def has_diff?
-        action == "update" && diff_presenter.visible?
+        action == "update" && version.present?
+      end
+
+      # Private: Sets a default list of attributes to be rendered in
+      # the diff, and how they should be rendered. Custom renderers
+      # will probably want to overwrite this method to fulfill their
+      # needs.
+      #
+      # Returns a Hash.
+      def diff_fields_mapping
+        {
+          created_at: :date,
+          updated_at: :date
+        }
+      end
+
+      # Private: Calculates the changeset to be rendered. Uses the values
+      # from the `diff_fields_mapping` method.
+      #
+      # Returns an Array of Hashes.
+      def changeset
+        Decidim::Log::DiffChangesetCalculator.new(
+          version.changeset,
+          diff_fields_mapping
+        ).changeset
       end
     end
   end
