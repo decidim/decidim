@@ -24,7 +24,7 @@ module Decidim
     class BasePresenter
       # Public: Initializes the presenter.
       #
-      # action_log - An instance of Decidim::ActionLog.last
+      # action_log - An instance of Decidim::ActionLog
       # view_helpers - An object holding the view helpers at the render time.
       #   Most probably should come automatically from the views.
       def initialize(action_log, view_helpers)
@@ -32,7 +32,7 @@ module Decidim
         @view_helpers = view_helpers
       end
 
-      # Public: Renders the resource associated to the given `action_log`.
+      # Public: Renders the given `action_log`.
       #
       # action_log - An instance of Decidim::ActionLog.last
       # view_helpers - An object holding the view helpers at the render time.
@@ -50,130 +50,53 @@ module Decidim
 
       delegate :action, to: :action_log
 
-      # Private: Caches the relation. If we `delegate` the relation directly
-      # (without caching it at the Ruby level), then we get a lot of `CACHE`
-      # queries in the logs, so this reduces the noise.
-      #
-      # Returns the Decidim::User that performed the action.
-      def user
-        @user ||= action_log.user
-      end
-
-      # Private: Caches the relation. If we `delegate` the relation directly
-      # (without caching it at the Ruby level), then we get a lot of `CACHE`
-      # queries in the logs, so this reduces the noise.
-      #
-      # Returns the resource on which the action was performed.
-      def resource
-        @resource ||= action_log.resource
-      end
-
-      # Private: Caches the relation. If we `delegate` the relation directly
-      # (without caching it at the Ruby level), then we get a lot of `CACHE`
-      # queries in the logs, so this reduces the noise.
-      #
-      # Returns the Decidim::Feature of the resource, if any.
-      def feature
-        @feature ||= action_log.feature
-      end
-
-      # Private: Caches the relation. If we `delegate` the relation directly
-      # (without caching it at the Ruby level), then we get a lot of `CACHE`
-      # queries in the logs, so this reduces the noise.
-      #
-      # Returns the participatory space (Decidim::Participable) of the
-      # resource, if any.
-      def participatory_space
-        @participatory_space ||= action_log.participatory_space
-      end
-
-      # Private: Presents a space. If the space is found in the database, it
-      # links to it. Otherwise it only shows the name.
+      # Private: Presents the given space.
       #
       # Returns an HTML-safe String.
       def present_space
-        return h.content_tag(:span, present_space_name, class: "logs__log__space") if participatory_space.blank?
-
-        h.link_to(present_space_name, space_path, class: "logs__log__space")
+        space_presenter.present
       end
 
-      # Private: Presents the resource of the action. If the resource and the
-      # space are found in the database, it links to it. Otherwise it only
-      # shows the resource name.
+      # Private: Caches the object that will be responsible of presenting the space
+      # where the action is performed.
+      #
+      # Returns an object that responds to `present`.
+      def space_presenter
+        @space_presenter ||= Decidim::Log::SpacePresenter.new(
+                               action_log.participatory_space,
+                               h,
+                               action_log.extra["participatory_space"]
+                             )
+      end
+
+      # Private: Presents the given resource.
       #
       # Returns an HTML-safe String.
       def present_resource
-        span = h.content_tag(:span, present_resource_name, class: "logs__log__resource")
-        return span if resource.blank? || resource_path.blank?
-        return span if resource_path.blank?
-
-        h.link_to(present_resource_name, resource_path, class: "logs__log__resource")
+        resource_presenter.present
       end
 
-      # Private: Finds the link for the given space.
+      # Private: Caches the object that will be responsible of presenting the resource
+      # affected by the given action.
       #
-      # Returns an HTML-safe String.
-      def space_path
-        Decidim::ResourceLocatorPresenter.new(participatory_space).path
+      # Returns an object that responds to `present`.
+      def resource_presenter
+        @resource_presenter ||= Decidim::Log::ResourcePresenter.new(action_log.resource, h, action_log.extra["resource"])
       end
 
-      # Private: Finds the link for the given resource.
-      #
-      # Returns an HTML-safe String. If the resource space is not
-      # present, it returns `nil`.
-      def resource_path
-        @resource_path ||= begin
-                             Decidim::ResourceLocatorPresenter.new(resource).path
-                           rescue NoMethodError
-                             nil
-                           end
-      end
-
-      # Private: Presents the space name.
-      #
-      # Returns an HTML-safe String.
-      def present_space_name
-        h.translated_attribute action_log.extra["participatory_space"]["title"]
-      end
-
-      # Private: Presents resource name.
-      #
-      # Returns an HTML-safe String.
-      def present_resource_name
-        h.translated_attribute action_log.extra["resource"]["title"]
-      end
-
-      # Private: Presents the given user. If the user is found in the database, it
-      # links to their profile, and shows their nickname as a tooltip.
-      # Otherwise it only shows the name.
+      # Private: Presents the given user.
       #
       # Returns an HTML-safe String.
       def present_user
-        return h.content_tag(:span, present_user_name, class: "logs__log__author") if user.blank?
-        h.link_to(
-          present_user_name,
-          h.decidim.profile_path(action_log.extra["user"]["nickname"]),
-          class: "logs__log__author has-tip",
-          title: "@" + user.nickname,
-          data: {
-            tooltip: true,
-            "disable-hover": false
-          }
-        )
+        user_presenter.present
       end
 
-      # Private: Presents the name of the user performing the action.
+      # Private: Caches the object that will be responsible of presenting the user
+      # that performed the given action.
       #
-      # Returns an HTML-safe String.
-      def present_user_name
-        action_log.extra["user"]["name"].html_safe
-      end
-
-      # Private: Presents the nickname of the user performing the action.
-      #
-      # Returns an HTML-safe String.
-      def present_user_nickname
-        action_log.extra["user"]["nickname"].html_safe
+      # Returns an object that responds to `present`.
+      def user_presenter
+        @user_presenter ||= Decidim::Log::UserPresenter.new(action_log.user, h, action_log.extra["user"])
       end
 
       # Private: Presents the date the action was performed.
