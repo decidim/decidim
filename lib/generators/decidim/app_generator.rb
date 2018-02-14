@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "bundler"
 require "rails/generators"
 require "rails/generators/rails/app/app_generator"
 require "decidim/version"
@@ -36,10 +37,6 @@ module Decidim
                             default: nil,
                             desc: "Use a specific branch from GitHub's version"
 
-      class_option :database, type: :string,
-                              default: "postgresql",
-                              desc: "Configure for selected database (options: #{DATABASES.join("/")})"
-
       class_option :recreate_db, type: :boolean,
                                  default: false,
                                  desc: "Recreate test database"
@@ -47,9 +44,6 @@ module Decidim
       class_option :seed_db, type: :boolean,
                              default: false,
                              desc: "Seed test database"
-
-      class_option :app_const_base, type: :string,
-                                    desc: "The application constant name"
 
       class_option :skip_bundle, type: :boolean,
                                  default: true,
@@ -86,8 +80,8 @@ module Decidim
       def gemfile
         return if options[:skip_gemfile]
 
-        template path_to_root("Gemfile"), "Gemfile", force: true
-        template path_to_root("Gemfile.lock"), "Gemfile.lock", force: true
+        template target_gemfile, "Gemfile", force: true
+        template "#{target_gemfile}.lock", "Gemfile.lock", force: true
 
         gem_modifier = if options[:path]
                          "path: \"#{options[:path]}\""
@@ -99,8 +93,10 @@ module Decidim
                          "\"#{Decidim.version}\""
                        end
 
-        gsub_file "Gemfile", /gem "decidim([^"]*)".*/, "gem \"decidim\\1\", #{gem_modifier}"
-        run "BUNDLE_GEMFILE=Gemfile bundle install"
+        gsub_file "Gemfile", /gem "#{current_gem}".*/, "gem \"#{current_gem}\", #{gem_modifier}"
+        gsub_file "Gemfile", /gem "decidim-dev".*/, "gem \"decidim-dev\", #{gem_modifier}" if current_gem == "decidim"
+
+        Bundler.with_original_env { run "bundle install" }
       end
 
       def add_ignore_uploads
@@ -130,12 +126,32 @@ module Decidim
 
       private
 
-      def path_to_root(file)
-        File.expand_path(File.join("..", "..", "..", file), __dir__)
+      def current_gem
+        return "decidim" unless options[:path]
+
+        File.read(gemspec).match(/name\s*=\s*['"](?<name>.*)["']/)[:name]
       end
 
-      def app_const_base
-        options["app_const_base"] || super
+      def gemspec
+        File.expand_path(Dir.glob("*.gemspec", base: expanded_path).first, expanded_path)
+      end
+
+      def target_gemfile
+        root = if options[:path]
+                 expanded_path
+               else
+                 decidim_root
+               end
+
+        File.join(root, "Gemfile")
+      end
+
+      def expanded_path
+        File.expand_path(options[:path])
+      end
+
+      def decidim_root
+        File.expand_path(File.join("..", "..", ".."), __dir__)
       end
     end
   end
