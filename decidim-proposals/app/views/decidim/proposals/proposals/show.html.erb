@@ -31,12 +31,14 @@
       <%= link_to t(".edit_proposal"), edit_proposal_path(@proposal), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
     <% end %>
     <% if current_settings.votes_enabled? || current_user %>
-      <div class="card extra">
+      <div class="card">
         <div class="card__content">
           <% if current_settings.votes_enabled? %>
             <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
             <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
           <% end %>
+          <%= render partial: "endorsements_card_row", locals: { proposal: @proposal } %>
+          <br/>
           <% if current_user %>
             <%= render partial: "decidim/shared/follow_button", locals: { followable: @proposal } %>
           <% end %>
