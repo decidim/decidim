@@ -76,6 +76,10 @@
     </div>
 
     <div class="row column">
+      <%= form.select :area, grouped_options_for_select(assembly_areas_for_select) %>
+    </div>
+
+    <div class="row column">
       <%= form.translated :text_field, :participatory_scope %>
     </div>
 

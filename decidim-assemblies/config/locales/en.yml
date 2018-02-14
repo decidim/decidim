@@ -113,6 +113,17 @@ en:
         assemblies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            citizen_rights: Citizen Rights
+            city: City
+            culture_and_sports: Culture and Sports
+            district: District
+            ecology: Ecology
+            economy_and_finance: Economy and Finance
+            neighbourhood: Neighbourhood
+            participation: Participation
+            security_and_prevention: Security and Prevention
+            social_rights: Social Rights
+            urban_planning_and_mobility: Urban planning and Mobility
         assembly_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'

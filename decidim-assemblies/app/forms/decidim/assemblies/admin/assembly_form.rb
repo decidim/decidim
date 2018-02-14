@@ -32,6 +32,7 @@ module Decidim
         attribute :banner_image
         attribute :remove_banner_image
         attribute :show_statistics, Boolean
+        attribute :area
 
         validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true

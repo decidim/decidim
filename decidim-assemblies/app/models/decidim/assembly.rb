@@ -34,6 +34,11 @@ module Decidim
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::BannerImageUploader
 
+    ASSEMBLY_AREAS = {
+      territorial_areas: %w(city district neighbourhood),
+      sectorial_areas: %w(economy_and_finance social_rights culture_and_sports citizen_rights participation security_and_prevention ecology urban_planning_and_mobility)
+    }
+
     # Scope to return only the promoted assemblies.
     #
     # Returns an ActiveRecord::Relation.
