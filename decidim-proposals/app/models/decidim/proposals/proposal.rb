@@ -18,6 +18,11 @@ module Decidim
       feature_manifest_name "proposals"
 
       has_many :votes, foreign_key: "decidim_proposal_id", class_name: "ProposalVote", dependent: :destroy, counter_cache: "proposal_votes_count"
+      # Votes weight
+      has_many :up_votes, -> { where(weight: 1) }, foreign_key: "decidim_proposal_id", class_name: "ProposalVote", dependent: :destroy
+      has_many :down_votes, -> { where(weight: -1) }, foreign_key: "decidim_proposal_id", class_name: "ProposalVote", dependent: :destroy
+      has_many :neutral_votes, -> { where(weight: 0) }, foreign_key: "decidim_proposal_id", class_name: "ProposalVote", dependent: :destroy
+
       has_many :notes, foreign_key: "decidim_proposal_id", class_name: "ProposalNote", dependent: :destroy, counter_cache: "proposal_notes_count"
 
       validates :title, :body, presence: true

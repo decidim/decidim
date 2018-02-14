@@ -64,7 +64,7 @@ module Decidim
 
         def voting_enabled?
           return unless current_settings
-          current_settings.votes_enabled? && !current_settings.votes_blocked?
+          (current_settings.votes_enabled? || current_settings.votes_weight_enabled?) && !current_settings.votes_blocked?
         end
 
         def current_settings

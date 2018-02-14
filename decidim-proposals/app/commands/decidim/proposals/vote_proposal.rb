@@ -8,9 +8,10 @@ module Decidim
       #
       # proposal     - A Decidim::Proposals::Proposal object.
       # current_user - The current user.
-      def initialize(proposal, current_user)
+      def initialize(proposal, current_user, weight)
         @proposal = proposal
         @current_user = current_user
+        @weight = weight
       end
 
       # Executes the command. Broadcasts these events:
@@ -34,7 +35,8 @@ module Decidim
       private
 
       def build_proposal_vote
-        @vote = @proposal.votes.build(author: @current_user)
+        @vote = @proposal.votes.find_or_initialize_by(author: current_user)
+        @vote.update_attributes!(weight: @weight)
       end
     end
   end

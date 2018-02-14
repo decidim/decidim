@@ -13,8 +13,8 @@ module Decidim
       def create
         authorize! :vote, proposal
         @from_proposals_list = params[:from_proposals_list] == "true"
-
-        VoteProposal.call(proposal, current_user) do
+        weight = params[:weight]
+        VoteProposal.call(proposal, current_user, weight) do
           on(:ok) do
             proposal.reload
             render :update_buttons_and_counters
