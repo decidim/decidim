@@ -139,11 +139,12 @@ pt-BR:
         email_intro: 'Houve uma atualização em "%{resource_title}". Você pode vê-la nesta página:'
         email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Se desejar parar de segui-la, clique no link anterior.
         email_subject: Há uma atualização em %{resource_title}
-      feature_published_event:
-        email_intro: 'O componente %{resource_title} agora está ativo para %{participatory_space_title}. Você pode vê-lo a partir desta página:'
-        email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
-        email_subject: Uma atualização para %{participatory_space_title}
-        notification_title: O componente %{resource_title} agora está ativo para <a href="%{resource_path}">%{participatory_space_title}</a>
+      features:
+        feature_published:
+          email_intro: 'O componente %{resource_title} agora está ativo para %{participatory_space_title}. Você pode vê-lo a partir desta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Uma atualização para %{participatory_space_title}
+          notification_title: O componente %{resource_title} agora está ativo para <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
       participatory_process_step_activated_event:
