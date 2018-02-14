@@ -15,7 +15,15 @@
     <%= partial 'filter_table' %>
     <div class="card">
       <div class="card-divider">
-        <h2 class="card-title">Propuestas <a href="#" class="button tiny button--title">Exportar <%= icon "caret-bottom", class: "icon--small" %></a><a href="#" class="button tiny button--title">Nuevo</a></h2>
+        <h2 class="card-title flex--sbc">
+          <div>
+            Propuestas
+          </div>
+          <div class="flex--cc flex-gap--1">
+            <button type="button" class="button tiny">Nuevo</button>
+            <button type="button" class="button tiny">Exportar <%= icon "caret-bottom", class: "icon--small" %></button>
+          </div>
+        </h2>
       </div>
       <div class="card-section">
         <table class="table-list table-list--lastcenter">

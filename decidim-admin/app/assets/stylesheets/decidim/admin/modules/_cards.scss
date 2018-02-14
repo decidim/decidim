@@ -2,7 +2,11 @@ $card-padding-small: 1rem;
 
 .card-title{
   @include smallcaps;
-  @include clearfix;
+
+  // clearfix if there is no flex--* class in the same element
+  &:not([class*="flex--"]){
+    @include clearfix;
+  }
 
   font-size: 1rem;
   width: 100%;
@@ -87,5 +91,6 @@ $card-padding-small: 1rem;
 }
 
 .card-divider--reduced{
-  padding: ($global-padding / 2) $global-padding;
+  // height adjust
+  padding: (($global-padding / 2) + rem-calc(.7)) $global-padding;
 }

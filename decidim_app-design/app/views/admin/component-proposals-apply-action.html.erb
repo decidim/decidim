@@ -14,18 +14,18 @@
     <%= partial 'process_title' %>
     <%= partial 'filter_table' %>
     <div class="card">
-      <div class="card-divider card-divider--reduced">
-        <h2 class="card-title flex--sbc flex-equal">
+      <div class="card-divider card-divider--reduced"><!-- card-divider--reduced ONLY in apply-action.html-->
+        <h2 class="card-title flex--sbc">
           <div>
             Propuestas&nbsp;<span class="component-counter component-counter--inline">1</span>
           </div>
           <div class="flex--cc flex-gap--1">
-            <select class="button--simple">
+            <select>
               <option selected hidden>Canviar categoria</option>
               <% 6.times do %><option><%= Faker::Ancient.hero %></option><% end %>
             </select>
-            <button class="button button--simple tiny" type="button">Aplicar</button>
-            <button class="button button--simple tiny clear compact" type="button">Cancelar</button>
+            <button class="button tiny" type="button">Aplicar</button>
+            <button class="button tiny clear compact" type="button">Cancelar</button>
           </div>
         </h2>
       </div>
