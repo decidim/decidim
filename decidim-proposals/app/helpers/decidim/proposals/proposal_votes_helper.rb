@@ -21,7 +21,7 @@ module Decidim
       # Returns a string with the value of the css classes.
       def vote_button_classes(from_proposals_list)
         return "small" if from_proposals_list
-        "expanded light button--sc"
+        "expanded button--sc"
       end
 
       # Public: Gets the vote limit for each user, if set.
