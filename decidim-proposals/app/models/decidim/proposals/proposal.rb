@@ -37,6 +37,13 @@ module Decidim
         end
       end
 
+      # Public: Check if the settings split proposal is activated.
+      #
+      # Returns Boolean.
+      def split_proposal_enabled?
+        feature.settings.split_proposal_enabled?
+      end
+
       # Public: Check if the user has voted the proposal.
       #
       # Returns Boolean.
