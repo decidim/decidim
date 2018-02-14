@@ -17,4 +17,5 @@ WORKDIR /code/decidim_app-design
 
 RUN bundle install
 RUN bundle exec rails assets:precompile
+ENTRYPOINT []
 CMD bundle exec rails s -p $PORT
