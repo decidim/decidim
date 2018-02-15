@@ -27,12 +27,12 @@ ul.logs{
     color: $muted;
     text-align: right;
     padding-right: rem-calc(10);
-    flex-grow: 2;
+    flex-grow: 4.5;
     flex-basis: 1px;
   }
 
   .logs__log__explanation{
-    flex-grow: 17;
+    flex-grow: 34.5;
     flex-basis: 1px;
 
     span,
@@ -88,14 +88,14 @@ ul.logs{
 
   .logs__log__diff-title{
     padding-right: rem-calc(10);
-    flex-grow: 1;
+    flex-grow: 4.5;
     font-weight: 600;
     text-align: right;
     flex-basis: 1px;
   }
 
   .logs__log__diff-value{
-    flex-grow: 9;
+    flex-grow: 35.5;
     flex-basis: 1px;
   }
 
