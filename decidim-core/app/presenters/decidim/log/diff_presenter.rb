@@ -41,8 +41,8 @@ module Decidim
 
         h.content_tag(:div, class: "logs__log__diff") do
           changeset.each do |attribute|
-            h.concat(present_new_value(attribute[:label], attribute[:new_value]))
-            h.concat(present_previous_value(attribute[:previous_value]))
+            h.concat(present_new_value(attribute[:label], attribute[:new_value], attribute[:type]))
+            h.concat(present_previous_value(attribute[:previous_value], attribute[:type]))
           end
         end
       end
@@ -50,12 +50,15 @@ module Decidim
       # Private: Helper method to render the previous value.
       #
       # value - the value for the given attribute
+      # type - A symbol or String representing the type of the value.
+      #   If it's a String, it should be the name of the presenter that will
+      #   be in charge of presenting it.
       #
       # Returns an HTML-safe String.
-      def present_previous_value(value)
+      def present_previous_value(value, type)
         h.content_tag(:div, class: "logs__log__diff-row logs__log__diff-row--previous-value") do
           h.concat(h.content_tag(:div, "before", class: "logs__log__diff-title"))
-          h.concat(h.content_tag(:div, value, class: "logs__log__diff-value"))
+          h.concat(h.content_tag(:div, present_value(value, type), class: "logs__log__diff-value"))
         end
       end
 
@@ -63,12 +66,51 @@ module Decidim
       #
       # label - the label name
       # value - the value for the given label
+      # type - A symbol or String representing the type of the value.
+      #   If it's a String, it should be the name of the presenter that will
+      #   be in charge of presenting it.
       #
       # Returns an HTML-safe String.
-      def present_new_value(label, value)
+      def present_new_value(label, value, type)
         h.content_tag(:div, class: "logs__log__diff-row logs__log__diff-row--new-value") do
           h.concat(h.content_tag(:div, label, class: "logs__log__diff-title"))
-          h.concat(h.content_tag(:div, value, class: "logs__log__diff-value"))
+          h.concat(h.content_tag(:div, present_value(value, type), class: "logs__log__diff-value"))
+        end
+      end
+
+      # Private: Presents the value with the its type presenter.
+      #
+      # value - the value to be presented, no specific type.
+      # type - A symbol or String representing the type of the value.
+      #   If it's a String, it should be the name of the presenter that will
+      #   be in charge of presenting it.
+      #
+      # Returns an HTML-safe String.
+      def present_value(value, type)
+        presenter_klass_for(type).new(value, view_helpers).present
+      end
+
+      # Private: Finds the presenter class for the given type.
+      #
+      # type - A symbol or String representing the type of the value.
+      #   If it's a String, it should be the name of the presenter that will
+      #   be in charge of presenting it.
+      #
+      # Returns a Class.
+      def presenter_klass_for(type)
+        default_klass = Decidim::Log::ValueTypes::DefaultPresenter
+        klass = ""
+
+        if type.is_a?(Symbol)
+          klass = "Decidim::Log::ValueTypes::#{type.to_s.camelize}Presenter"
+        elsif type.is_a?(String)
+          klass = type
+        end
+
+        begin
+          return klass.constantize
+        rescue NameError => _exception
+          default_klass
         end
       end
     end

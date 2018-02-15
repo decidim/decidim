@@ -28,11 +28,6 @@ module Decidim
       #
       # Returns an Array of Hashes.
       def changeset
-        # 1. get original changeset
-        # 2. only keep fields in mapping
-        # 3. flatten i18n fields
-        # 4. remove i18n fields that haven't changed
-        # 5. return correct structure
         original_changeset.inject([]) do |diff, (attribute, values)|
           attribute = attribute.to_sym
 
