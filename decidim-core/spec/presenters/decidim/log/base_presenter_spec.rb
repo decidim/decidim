@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Log::BasePresenter, type: :helper do
   subject { described_class.new(action_log, helper) }
 
-  let(:action_log) { create :action_log, action: action }
+  let(:action_log) { create :action_log, action: action, created_at: Date.new(2018, 1, 2).at_midnight }
   let(:user) { action_log.user }
   let(:participatory_space) { action_log.participatory_space }
   let(:resource) { action_log.resource }
@@ -18,6 +18,10 @@ describe Decidim::Log::BasePresenter, type: :helper do
 
   describe "#present" do
     subject { described_class.new(action_log, helper).present }
+
+    it "shows the date of the action" do
+      expect(subject).to include("02/01/2018 00:00")
+    end
 
     it "renders a basic log sentence" do
       expect(subject).to include("create")
