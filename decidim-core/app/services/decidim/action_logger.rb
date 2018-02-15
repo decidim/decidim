@@ -74,6 +74,10 @@ module Decidim
       participatory_space.try(:class).try(:participatory_space_manifest).try(:name)
     end
 
+    # Private: Defines some extra data that will be saved in the action log `extra`
+    # field.
+    #
+    # Returns a Hash.
     def extra_data
       {
         feature: {

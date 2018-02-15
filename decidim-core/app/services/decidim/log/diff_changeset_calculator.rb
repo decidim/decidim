@@ -12,11 +12,16 @@ module Decidim
     #
     #    version = resource.versions.last
     #    fields_mapping = { updated_at: :date, title: :string }
+    #    i18n_labels_scope = "activemodel.attributes.my_resource"
     #
     #    DiffChangesetCalculator
-    #      .new(version.changeset, fields_mapping)
+    #      .new(version.changeset, fields_mapping, i18n_labels_scope)
     #      .changeset
     class DiffChangesetCalculator
+      # original_changeset - a `changeset` from a PaperTrail::Version instance
+      # fields_mapping - a Hash mapping attribute names and a type to render them
+      # i18n_labels_scope - a String representing the I18n scope where the attribtue
+      #   labels can be found
       def initialize(original_changeset, fields_mapping, i18n_labels_scope)
         @original_changeset = original_changeset
         @fields_mapping = fields_mapping
@@ -47,7 +52,11 @@ module Decidim
       attr_reader :fields_mapping, :original_changeset, :i18n_labels_scope
 
       # Private: Generates the data structure for the changeset attribute,
-      # needed so that the attribtue can be rendered in the diff.
+      # needed so that the attribute can be rendered in the diff.
+      #
+      # attribute - the name of the attribute
+      # values - an Array of the attribute values: [old_value, new_value]
+      # type - a symbol or a String representing the value type presenter
       #
       # Returns an array of hashes.
       def calculate_changeset(attribute, values, type)
@@ -56,6 +65,15 @@ module Decidim
         generate_changeset(attribute, values, type)
       end
 
+      # Private: Generates the data structure for an i18n attribute,
+      # needed so that the attribute can be rendered in the diff.
+      # Sets the label for the given attribute as: `AttributeName (locale)`.
+      #
+      # attribute - the name of the attribute
+      # values - an Array of the attribute values: [old_value, new_value]
+      # type - a symbol or a String representing the value type presenter
+      #
+      # Returns an array of hashes.
       def generate_i18n_changeset(attribute, values, type)
         values.last.flat_map do |locale, _value|
           previous_value = values.first.try(:[], locale)
@@ -69,6 +87,15 @@ module Decidim
         end
       end
 
+      # Private: Generates the structure needed for the given attribute,
+      # values, type and label.
+      #
+      # attribute - the name of the attribute
+      # values - an Array of the attribute values: [old_value, new_value]
+      # type - a symbol or a String representing the value type presenter
+      # label - the label for the current attribute
+      #
+      # Returns an array of Hashes.
       def generate_changeset(attribute, values, type, label = nil)
         [
           {
@@ -81,6 +108,14 @@ module Decidim
         ]
       end
 
+      # Generates the label for the given attribute. If the `locale` is set,
+      # it appends the locale at the end: `AttributeName (LocaleName)`.
+      #
+      # attribute - A String representing the attribute name. It will retrive
+      #   this key from the I18n scope set at `i18n_labels_scope`.
+      # locale - a String representing the name of the locale.
+      #
+      # Returns a String.
       def generate_label(attribute, locale = nil)
         label = I18n.t(attribute, scope: i18n_labels_scope)
         return label unless locale
