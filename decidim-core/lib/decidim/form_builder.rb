@@ -7,6 +7,7 @@ module Decidim
   # following the conventions set on `Decidim::TranslatableAttributes`.
   class FormBuilder < FoundationRailsHelper::FormBuilder
     include ActionView::Context
+    include Decidim::TranslatableAttributes
 
     # Public: generates a check boxes input from a collection and adds help
     # text and errors.
@@ -436,18 +437,18 @@ module Decidim
 
     def categories_for_select(scope)
       sorted_main_categories = scope.first_class.includes(:subcategories).sort_by do |category|
-        category.name[I18n.locale.to_s]
+        translated_attribute(category.name, category.participatory_space.organization)
       end
 
       sorted_main_categories.flat_map do |category|
-        parent = [[category.name[I18n.locale.to_s], category.id]]
+        parent = [[translated_attribute(category.name, category.participatory_space.organization), category.id]]
 
         sorted_subcategories = category.subcategories.sort_by do |subcategory|
-          subcategory.name[I18n.locale.to_s]
+          translated_attribute(subcategory.name, subcategory.participatory_space.organization)
         end
 
         sorted_subcategories.each do |subcategory|
-          parent << ["- #{subcategory.name[I18n.locale.to_s]}", subcategory.id]
+          parent << ["- #{translated_attribute(subcategory.name, subcategory.participatory_space.organization)}", subcategory.id]
         end
 
         parent
