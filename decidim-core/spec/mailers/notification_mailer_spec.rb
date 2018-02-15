@@ -43,6 +43,16 @@ module Decidim
       it "includes the resource url" do
         expect(mail.body).to include(event_instance.resource_url)
       end
+
+      context "when the user doesn't have an email" do
+        before do
+          user.update_attributes(email: nil)
+        end
+
+        it "does nothing" do
+          expect(mail.deliver_now).to be_nil
+        end
+      end
     end
   end
 end
