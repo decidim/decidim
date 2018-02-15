@@ -23,9 +23,9 @@ describe Decidim::Log::DiffChangesetCalculator do
   end
   let(:i18n_labels_scope) { "activemodel.attributes.dummy_resource" }
   let(:title_attribute) do
-    subject.find{ |field| field[:attribute_name] == :title }
+    subject.find { |field| field[:attribute_name] == :title }
   end
-  let(:attribute_names) { subject.map{ |field| field[:attribute_name] } }
+  let(:attribute_names) { subject.map { |field| field[:attribute_name] } }
 
   describe "#changeset" do
     it "only keeps the fields in fields mapping" do

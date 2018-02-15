@@ -57,30 +57,16 @@ module Decidim
         @version ||= PaperTrail::Version.where(id: action_log.extra.dig("version", "id")).first
       end
 
-      # Private: Presents the given space.
-      #
-      # Returns an HTML-safe String.
-      def present_space
-        space_presenter.present
-      end
-
       # Private: Caches the object that will be responsible of presenting the space
       # where the action is performed.
       #
       # Returns an object that responds to `present`.
       def space_presenter
         @space_presenter ||= Decidim::Log::SpacePresenter.new(
-                               action_log.participatory_space,
-                               h,
-                               action_log.extra["participatory_space"]
-                             )
-      end
-
-      # Private: Presents the given resource.
-      #
-      # Returns an HTML-safe String.
-      def present_resource
-        resource_presenter.present
+          action_log.participatory_space,
+          h,
+          action_log.extra["participatory_space"]
+        )
       end
 
       # Private: Caches the object that will be responsible of presenting the resource
@@ -89,13 +75,6 @@ module Decidim
       # Returns an object that responds to `present`.
       def resource_presenter
         @resource_presenter ||= Decidim::Log::ResourcePresenter.new(action_log.resource, h, action_log.extra["resource"])
-      end
-
-      # Private: Presents the given user.
-      #
-      # Returns an HTML-safe String.
-      def present_user
-        user_presenter.present
       end
 
       # Private: Caches the object that will be responsible of presenting the user
@@ -199,9 +178,9 @@ module Decidim
       # Returns a Hash.
       def i18n_params
         {
-          user_name: present_user,
-          resource_name: present_resource,
-          space_name: present_space
+          user_name: user_presenter.present,
+          resource_name: resource_presenter.present,
+          space_name: space_presenter.present
         }
       end
 
@@ -228,8 +207,7 @@ module Decidim
       # the diff can properly generate the labels.
       #
       # Returns a String.
-      def i18n_labels_scope
-      end
+      def i18n_labels_scope; end
 
       # Private: Calculates the changeset to be rendered. Uses the values
       # from the `diff_fields_mapping` method.
