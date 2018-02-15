@@ -41,6 +41,10 @@
           <br/>
           <% if current_user %>
             <%= render partial: "decidim/shared/follow_button", locals: { followable: @proposal } %>
+          <% else %>
+            <p class="mt-s mb-none">
+              <%= t(".sign_in_or_up", {in: link_to(t(".sign_in"), decidim.new_user_session_path), up: link_to(t(".sign_up"), decidim.new_user_registration_path)}).html_safe %>
+            </p>
           <% end %>
         </div>
       </div>
