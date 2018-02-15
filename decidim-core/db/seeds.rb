@@ -55,6 +55,34 @@ if !Rails.env.production? || ENV["SEED"]
     end
   end
 
+  territorial = Decidim::AreaType.create!(
+    name: Decidim::Faker::Localized.literal("territorial"),
+    plural: Decidim::Faker::Localized.literal("territorials"),
+    organization: organization
+  )
+
+  sectorial = Decidim::AreaType.create!(
+    name: Decidim::Faker::Localized.literal("sectorials"),
+    plural: Decidim::Faker::Localized.literal("sectorials"),
+    organization: organization
+  )
+
+  3.times do
+    parent = Decidim::Area.create!(
+      name: Decidim::Faker::Localized.word,
+      area_type: territorial,
+      organization: organization
+    )
+  end
+
+  5.times do
+    Decidim::Scope.create!(
+      name: Decidim::Faker::Localized.word,
+      area_type: sectorial,
+      organization: organization,
+    )
+  end
+
   admin = Decidim::User.find_or_initialize_by(email: "admin@example.org")
 
   admin.update!(

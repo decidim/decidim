@@ -2,6 +2,14 @@
 en:
   activemodel:
     attributes:
+      area:
+        area_type: Area type
+        name: Name
+        organization: Organization
+      area_type:
+        name: Name
+        organization: Organization
+        plural: Plural
       attachment:
         attachment_collection_id: Collection
         description: Description
@@ -149,6 +157,37 @@ en:
         update:
           error: There was an error when updating this attachment.
           success: Attachment updated successfully.
+      area_types:
+        create:
+          error: There was an error creating a new area type.
+          success: Area type created successfully.
+        destroy:
+          success: Area type successfully destroyed
+        edit:
+          title: Edit area type
+          update: Update
+        new:
+          create: Create area type
+          title: New area type
+        update:
+          error: There was an error when updating this area type.
+          success: Area type updated successfully
+      areas:
+        create:
+          error: There was an error creating a new area.
+          success: Area created successfully.
+        destroy:
+          success: Area successfully destroyed
+        edit:
+          title: Edit area
+          update: Update
+        new:
+          create: Create area
+          title: New area
+        no_areas: No Areas
+        update:
+          error: There was an error when updating this area.
+          success: Area updated successfully
       categories:
         create:
           error: There was an error creating this category.
@@ -251,6 +290,8 @@ en:
         admin_log: Admin activity log
         admins: Admins
         appearance: Appearance
+        area_types: Area types
+        areas: Areas
         configuration: Configuration
         dashboard: Dashboard
         managed_users: Managed users
@@ -263,6 +304,14 @@ en:
         user_groups: User groups
         users: Users
       models:
+        area:
+          fields:
+            name: Name
+            area_type: Area type
+        area_type:
+          fields:
+            name: Name
+            plural: Plural
         attachment:
           fields:
             collection: Collection
@@ -462,6 +511,8 @@ en:
           success: Page updated successfully
       titles:
         admin_log: Admin log
+        area_types: Area types
+        areas: Areas
         authorization_workflows: Verification methods
         dashboard: Dashboard
         impersonations: Impersonations
