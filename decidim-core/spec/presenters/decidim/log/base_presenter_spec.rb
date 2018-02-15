@@ -41,19 +41,17 @@ describe Decidim::Log::BasePresenter, type: :helper do
 
     context "when the user exists" do
       it "links to their profile" do
-        expect(subject).to include("<a href=\"/profiles/#{user.nickname}\">")
+        expect(subject).to include("href=\"/profiles/#{user.nickname}\">")
       end
     end
 
     context "when the user doesn't exist" do
       it "doesn't link to their profile" do
-        nickname = user.nickname
         user_name = user.name
         user.destroy
         action_log.reload
 
-        expect(subject).not_to include("<a href=\"/profiles/")
-        expect(subject).to include(nickname)
+        expect(subject).not_to include("href=\"/profiles/")
         expect(subject).to include(user_name)
       end
     end
