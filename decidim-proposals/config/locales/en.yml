@@ -138,6 +138,8 @@ en:
         create:
           error: There's been errors when voting the proposal.
       proposals:
+        display_type:
+          label: Display
         count:
           proposals_count:
             one: 1 proposal

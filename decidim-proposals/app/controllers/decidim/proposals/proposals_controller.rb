@@ -9,6 +9,7 @@ module Decidim
       include FilterResource
       include Orderable
       include Paginable
+      include Displayable
 
       helper_method :geocoded_proposals
       before_action :authenticate_user!, only: [:new, :create]
