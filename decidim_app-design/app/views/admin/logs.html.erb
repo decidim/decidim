@@ -1,6 +1,6 @@
 <%
 @title = "Decidim Admin"
-@activesection = "home"
+@activesection = "logs"
 %>
 
 <%= partial 'template_top' %>
@@ -8,16 +8,9 @@
   <%= partial 'home_nav' %>
 </div>
 <div class="layout-content">
-  <%= partial 'callouts_full' %>
   <div class="container">
-    <h1>Decidim Admin</h1>
-    <p>
-      A possible place for a Dashboard.
-    </p>
     <%= partial 'logs_list' %>
-    <div class="text-center">
-      <%= link_to "See more logs", page_path("logs") %>
-    </div>
+    <%= partial 'pagination' %>
   </div>
 </div>
 <%= partial 'template_bottom' %>
