@@ -199,6 +199,10 @@ gl:
       errors:
         error: Hai un erro neste campo.
       remove_this_file: Elimina este ficheiro
+    log:
+      value_types:
+        scope_presenter:
+          not_found: 'O alcance non se atopou na base de datos (ID: %{id})'
     managed_users:
       expired_session: A sesión de suplantación actual caducou.
     menu:
