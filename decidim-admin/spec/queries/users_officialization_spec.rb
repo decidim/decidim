@@ -14,7 +14,7 @@ module Decidim::Admin
       let!(:users) { create_list(:user, 3, organization: organization) }
 
       it "returns all users" do
-        expect(subject.query).to eq users
+        expect(subject.query).to match_array users
       end
     end
 

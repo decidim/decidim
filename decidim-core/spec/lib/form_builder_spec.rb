@@ -183,6 +183,22 @@ module Decidim
         expect(subject.css("option")[3].text).to eq("- #{subcategory.name["en"]}")
       end
 
+      context "when a category doesn't have the translation in the current locale" do
+        before do
+          I18n.locale = "zh"
+          create(:category, name: { "en" => "Subcategory 2", "zh" => "Something" }, parent: category, participatory_space: feature.participatory_space)
+        end
+
+        after do
+          I18n.locale = "en"
+        end
+
+        it "uses the organization's default locale" do
+          expect(subject.css("option")[0].text).to eq(other_category.name["en"])
+          expect(subject.css("option")[1].text).to eq(category.name["en"])
+        end
+      end
+
       context "when given a prompt" do
         let(:options) { { prompt: "Select something" } }
 
