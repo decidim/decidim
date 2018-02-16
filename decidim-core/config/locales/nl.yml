@@ -199,6 +199,14 @@ nl:
       errors:
         error: Er is een fout in dit veld.
       remove_this_file: Verwijder dit bestand
+    log:
+      base_presenter:
+        create: "%{user_name} gemaakt %{resource_name} in %{space_name}"
+        unknown_action: "%{user_name} voerde wat actie uit op %{resource_name} in %{space_name}"
+        update: "%{user_name} bijgewerkt %{resource_name} in %{space_name}"
+      value_types:
+        scope_presenter:
+          not_found: 'Het bereik is niet gevonden in de database (ID: %{id})'
     managed_users:
       expired_session: De huidige naboots sessie is verlopen.
     menu:
