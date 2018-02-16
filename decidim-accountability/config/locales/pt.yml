@@ -12,6 +12,7 @@ pt:
         proposal_ids: Propostas incluídas
         start_date: Data de início
         title: Título
+        updated_at: Atualizado em
       status:
         description: Descrição
         key: Chave
@@ -94,6 +95,10 @@ pt:
           update:
             invalid: Ocorreu um problema ao atualizar esta entrada
             success: Entrada atualizada com sucesso
+      admin_log:
+        result:
+          create: "%{user_name} resultado criado %{resource_name} em %{space_name}"
+          update: "%{user_name} resultado atualizado %{resource_name} em %{space_name}"
       models:
         result:
           fields:
