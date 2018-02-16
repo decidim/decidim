@@ -165,6 +165,7 @@ es:
           success: Categoría actualizada correctamente.
       dashboard:
         show:
+          view_more_logs: Ver más registros
           welcome: Bienvenido al panel de administración de Decidim.
       exports:
         export_as: "%{name} como %{export_format}"
@@ -242,6 +243,7 @@ es:
             new_managed_user_promotion: Nueva promoción de usuarios gestionados
             promote: Promocionar
       menu:
+        admin_log: Registro de actividad de administrador
         admins: Administradores
         appearance: Apariencia
         configuration: Configuración
@@ -454,6 +456,7 @@ es:
           error: Se ha producido un error en la actualización de ésta página.
           success: La página se ha actualizado correctamente.
       titles:
+        admin_log: Registro de administrador
         authorization_workflows: Métodos de verificación
         dashboard: Panel de control
         impersonations: Suplantaciones
