@@ -165,6 +165,7 @@ nl:
           success: Categorie is succesvol bijgewerkt.
       dashboard:
         show:
+          view_more_logs: Bekijk meer logs
           welcome: Welkom bij het Decidim Admin Panel.
       exports:
         export_as: "%{name} als %{export_format}"
@@ -242,6 +243,7 @@ nl:
             new_managed_user_promotion: Nieuwe beheerde gebruikerspromotie
             promote: Promoten
       menu:
+        admin_log: Admin-activiteitenlogboek
         admins: Admins
         appearance: Uiterlijk
         configuration: Configuratie
@@ -454,6 +456,7 @@ nl:
           error: Er is een fout opgetreden bij het bijwerken van deze pagina.
           success: Pagina is succesvol bijgewerkt
       titles:
+        admin_log: Beheerderslog
         authorization_workflows: Verificatiemethoden
         dashboard: Dashboard
         impersonations: Nabootsingingen
