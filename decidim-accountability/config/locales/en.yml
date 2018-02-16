@@ -13,6 +13,7 @@ en:
         proposal_ids: Included proposals
         start_date: Start date
         title: Title
+        updated_at: Updated at
       status:
         description: Description
         key: Key
@@ -95,6 +96,10 @@ en:
           update:
             invalid: There's been a problem updating this entry
             success: Entry successfully updated
+      admin_log:
+        result:
+          create: "%{user_name} created result %{resource_name} in %{space_name}"
+          update: "%{user_name} updated result %{resource_name} in %{space_name}"
       models:
         result:
           fields:

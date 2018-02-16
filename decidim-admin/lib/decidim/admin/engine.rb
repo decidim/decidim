@@ -76,6 +76,13 @@ module Decidim
                     position: 7,
                     active: [%w(decidim/admin/organization decidim/admin/scopes decidim/admin/scope_types), []],
                     if: can?(:read, current_organization)
+
+          menu.item I18n.t("menu.admin_log", scope: "decidim.admin"),
+                    decidim_admin.logs_path,
+                    icon_name: "dashboard",
+                    position: 10,
+                    active: [%w(decidim/admin/logs), []],
+                    if: can?(:read, :admin_log)
         end
       end
     end

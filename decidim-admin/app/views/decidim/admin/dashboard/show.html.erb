@@ -3,4 +3,12 @@
 </h2>
 <div class="content">
   <p><%= t ".welcome" %></p>
+  <% if can? :read, :admin_log %>
+    <div class="row">
+      <h3 class="card-title">
+      </h3>
+      <%= render partial: "decidim/admin/logs/logs_list", locals: { logs: latest_action_logs } %>
+      <div class="text-center"><%= link_to t(".view_more_logs"), logs_path %></div>
+    </div>
+  <% end %>
 </div>
