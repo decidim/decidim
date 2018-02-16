@@ -1,4 +1,12 @@
 nl:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Gemaakt bij
+        field: Veld
+        start_date: Begin datum
+        title: Titel
+        updated_at: Bijgewerkt om
   decidim:
     dummy:
       admin:
