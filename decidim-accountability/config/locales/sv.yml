@@ -12,6 +12,7 @@ sv:
         proposal_ids: Ingår förslag
         start_date: Start datum
         title: Titel
+        updated_at: Uppdaterad på
       status:
         description: Beskrivning
         key: Nyckel
@@ -94,6 +95,10 @@ sv:
           update:
             invalid: Det har varit ett problem att uppdatera den här posten
             success: Inmatning uppdaterad
+      admin_log:
+        result:
+          create: "%{user_name} skapat resultat %{resource_name} i %{space_name}"
+          update: "%{user_name} uppdaterat resultat %{resource_name} i %{space_name}"
       models:
         result:
           fields:
