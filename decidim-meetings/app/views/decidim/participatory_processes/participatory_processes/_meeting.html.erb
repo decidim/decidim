@@ -6,8 +6,7 @@
           <%= translated_attribute meeting.title %>
         </h6>
         <span class="text-medium">
-          <%= l meeting.start_time, format: "%d" %> <%= l meeting.start_time, format: "%B %Y" %> -
-          <%= meeting.start_time.strftime("%H:%M") %> - <%= meeting.end_time.strftime("%H:%M") %>
+          <%= l meeting.start_time, format: :decidim_day_of_year %> - <%= l meeting.start_time, format: :time_of_day %> - <%= l meeting.end_time, format: :time_of_day %>
         </span>
       </a>
     </div>
