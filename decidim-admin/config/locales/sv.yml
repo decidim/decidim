@@ -165,6 +165,7 @@ sv:
           success: Kategori uppdaterad framgångsrikt.
       dashboard:
         show:
+          view_more_logs: Visa fler loggar
           welcome: Välkommen till Decidim Admin Panel.
       exports:
         export_as: "%{name} som %{export_format}"
@@ -242,6 +243,7 @@ sv:
             new_managed_user_promotion: Ny hanterad användarpromotion
             promote: Främja
       menu:
+        admin_log: Adminaktivitetslogg
         admins: admins
         appearance: Utseende
         configuration: Konfiguration
@@ -454,6 +456,7 @@ sv:
           error: Det uppstod ett fel vid uppdateringen av den här sidan.
           success: Sidan uppdaterad framgångsrikt
       titles:
+        admin_log: Admin logg
         authorization_workflows: Verifieringsmetoder
         dashboard: instrumentbräda
         impersonations: impersonations
