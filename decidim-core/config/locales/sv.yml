@@ -199,6 +199,14 @@ sv:
       errors:
         error: Det finns ett fel i det här fältet.
       remove_this_file: Ta bort den här filen
+    log:
+      base_presenter:
+        create: "%{user_name} skapad %{resource_name} i %{space_name}"
+        unknown_action: "%{user_name} utfört en viss åtgärd på %{resource_name} i %{space_name}"
+        update: "%{user_name} uppdaterad %{resource_name} i %{space_name}"
+      value_types:
+        scope_presenter:
+          not_found: 'Omfattningen hittades inte i databasen (ID: %{id})'
     managed_users:
       expired_session: Den nuvarande ombildningsperioden har löpt ut.
     menu:
