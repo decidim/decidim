@@ -4,6 +4,8 @@
 
 **Added**:
 
+**decidim-core**: Add context to content parsers [\#2751](https://github.com/decidim/decidim/pull/2751)
+
 **Changed**:
 
 **Fixed**:
