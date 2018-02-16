@@ -1,0 +1,23 @@
+<div class="reveal collapse" data-reveal id="identity-selector">
+  <div class="reveal__header">
+    <strong>SELECT AN IDENTITY</strong>
+  </div>
+  <div>
+    <ul>
+      <li>
+        <%= partial "author_data", { verified: true } %>
+      </li>
+      <li>
+        <%= partial "author_data" %>
+      </li>
+      <li>
+        <%= partial "author_data" %>
+      </li>
+    </ul>
+
+  </div>
+  <div>
+    <button class="button clear" type="button" name="button">Cancelar</button>
+    <button class="button button--sc" type="button" name="button">Select</button>
+  </div>
+</div>
