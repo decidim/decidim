@@ -8,7 +8,7 @@ module Decidim
       subject { described_class.from_params(attributes).with_context(context) }
 
       let(:organization) { create :organization }
-      let(:name) { Decidim::Faker::Localized.word  }
+      let(:name) { Decidim::Faker::Localized.word }
       let(:area_type) { create :area_type }
       let(:attributes) do
         {

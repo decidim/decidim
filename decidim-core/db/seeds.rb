@@ -68,7 +68,7 @@ if !Rails.env.production? || ENV["SEED"]
   )
 
   3.times do
-    parent = Decidim::Area.create!(
+    Decidim::Area.create!(
       name: Decidim::Faker::Localized.word,
       area_type: territorial,
       organization: organization

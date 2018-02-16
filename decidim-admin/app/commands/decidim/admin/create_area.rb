@@ -32,7 +32,7 @@ module Decidim
         Area.create!(
           name: form.name,
           organization: form.organization,
-          area_type: form.area_type,
+          area_type: form.area_type
         )
       end
     end

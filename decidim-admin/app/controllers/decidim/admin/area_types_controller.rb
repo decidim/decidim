@@ -2,8 +2,8 @@
 
 module Decidim
   module Admin
-    # Controller that allows managing scopes types at the admin panel.
-    #
+    # Controller that allows managing
+    #areas types at the admin panel.
     class AreaTypesController < Decidim::Admin::ApplicationController
       layout "decidim/admin/settings"
       helper_method :area_types

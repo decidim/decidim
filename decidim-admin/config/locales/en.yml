@@ -122,6 +122,37 @@ en:
         permissions: Permissions
         reject: Reject
         verify: Verify
+      area_types:
+        create:
+          error: There was an error creating a new area type.
+          success: Area type created successfully.
+        destroy:
+          success: Area type successfully destroyed
+        edit:
+          title: Edit area type
+          update: Update
+        new:
+          create: Create area type
+          title: New area type
+        update:
+          error: There was an error when updating this area type.
+          success: Area type updated successfully
+      areas:
+        create:
+          error: There was an error creating a new area.
+          success: Area created successfully.
+        destroy:
+          success: Area successfully destroyed
+        edit:
+          title: Edit area
+          update: Update
+        new:
+          create: Create area
+          title: New area
+        no_areas: No Areas
+        update:
+          error: There was an error when updating this area.
+          success: Area updated successfully
       attachment_collections:
         create:
           error: There was an error creating a new collection.
@@ -157,37 +188,6 @@ en:
         update:
           error: There was an error when updating this attachment.
           success: Attachment updated successfully.
-      area_types:
-        create:
-          error: There was an error creating a new area type.
-          success: Area type created successfully.
-        destroy:
-          success: Area type successfully destroyed
-        edit:
-          title: Edit area type
-          update: Update
-        new:
-          create: Create area type
-          title: New area type
-        update:
-          error: There was an error when updating this area type.
-          success: Area type updated successfully
-      areas:
-        create:
-          error: There was an error creating a new area.
-          success: Area created successfully.
-        destroy:
-          success: Area successfully destroyed
-        edit:
-          title: Edit area
-          update: Update
-        new:
-          create: Create area
-          title: New area
-        no_areas: No Areas
-        update:
-          error: There was an error when updating this area.
-          success: Area updated successfully
       categories:
         create:
           error: There was an error creating this category.
@@ -306,8 +306,8 @@ en:
       models:
         area:
           fields:
-            name: Name
             area_type: Area type
+            name: Name
         area_type:
           fields:
             name: Name
