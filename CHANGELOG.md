@@ -4,6 +4,7 @@
 
 **Added**:
 
+- **decidim-core**: Add context to content parsers [\#2749](https://github.com/decidim/decidim/pull/2749)
 - **decidim-assemblies**: Assemblies now have a reference [\#2557](https://github.com/decidim/decidim/pull/2557)
 - **decidim-core**: Let participatory spaces have reference [\#2557](https://github.com/decidim/decidim/pull/2557)
 - **decidim-meetings**: Add simple formatting to debates fields to improve readability [\#2670](https://github.com/decidim/decidim/issues/2670)
