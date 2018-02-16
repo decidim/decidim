@@ -165,6 +165,7 @@ pt-BR:
           success: Categoria atualizada com sucesso.
       dashboard:
         show:
+          view_more_logs: Ver mais logs
           welcome: Bem-vindo ao Decidim Admin Panel.
       exports:
         export_as: "%{name} como %{export_format}"
@@ -242,6 +243,7 @@ pt-BR:
             new_managed_user_promotion: Nova promoção de usuário gerenciado
             promote: Destacar
       menu:
+        admin_log: Log de atividade de administração
         admins: Administradores
         appearance: Aparência
         configuration: Configuração
@@ -454,6 +456,7 @@ pt-BR:
           error: Ocorreu um erro ao atualizar esta página.
           success: Página atualizada com sucesso
       titles:
+        admin_log: Log de administração
         authorization_workflows: Métodos de verificação
         dashboard: painel de controle
         impersonations: Personagens
