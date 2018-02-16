@@ -127,7 +127,7 @@ fr:
           info_proposal:
             body: Corps
             created_at: Date de création
-            proposal_votes_count: Les votes comptent
+            proposal_votes_count: Nombre de votes
             proposals: Les propositions
       answers:
         accepted: Retenue
