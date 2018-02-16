@@ -24,7 +24,7 @@ describe Decidim::Log::UserPresenter, type: :helper do
       let(:user) { nil }
       let(:extra) do
         {
-          "title" => "Alice Doe",
+          "name" => "Alice Doe",
           "nickname" => "alicedoe"
         }
       end
