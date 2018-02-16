@@ -165,6 +165,7 @@ fi:
           success: Aihepiiri päivitetty onnistuneesti.
       dashboard:
         show:
+          view_more_logs: Näytä lisää lokeja
           welcome: Tervetuloa Decidimin hallintapaneeliin.
       exports:
         export_as: "%{name} muodossa %{export_format}"
@@ -242,6 +243,7 @@ fi:
             new_managed_user_promotion: Uusi käyttäjätason korotus hallinnoidulle käyttäjälle
             promote: Korota oikeudet
       menu:
+        admin_log: Hallintatoimintojen loki
         admins: Ylläpitäjät
         appearance: Ulkoasu
         configuration: Asetukset
@@ -454,6 +456,7 @@ fi:
           error: Tämän sivun päivityksessä tapahtui virhe.
           success: Sivu päivitetty onnistuneesti
       titles:
+        admin_log: Admin-loki
         authorization_workflows: Vahvistusmenetelmät
         dashboard: Hallintapaneeli
         impersonations: Esiintymiset käyttäjinä
