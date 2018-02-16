@@ -12,6 +12,7 @@ fi:
         proposal_ids: Sisällytetyt ehdotukset
         start_date: Aloitusaika
         title: Otsikko
+        updated_at: Päivitetty klo
       status:
         description: Kuvaus
         key: Tunniste
@@ -94,6 +95,10 @@ fi:
           update:
             invalid: Merkinnän päivityksessä tapahtui virhe
             success: Merkinnän päivitys onnistui
+      admin_log:
+        result:
+          create: "%{user_name} luotu tulos %{resource_name} vuonna %{space_name}"
+          update: "%{user_name} päivitetty tulos %{resource_name} vuonna %{space_name}"
       models:
         result:
           fields:
