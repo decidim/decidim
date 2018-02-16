@@ -199,6 +199,10 @@ ca:
       errors:
         error: Hi ha un error en aquest camp.
       remove_this_file: Eliminar aquest arxiu
+    log:
+      value_types:
+        scope_presenter:
+          not_found: 'L''àmbit d''aplicació no es va trobar a la base de dades (ID: %{id})'
     managed_users:
       expired_session: La sessió de suplantació actual ha caducat.
     menu:
