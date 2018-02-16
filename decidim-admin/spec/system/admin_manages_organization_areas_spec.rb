@@ -27,8 +27,8 @@ describe "Organization Areas", type: :system do
 
       within ".new_area" do
         fill_in_i18n :area_name, "#area-name-tabs", en: "My area",
-                                                      es: "Mi area",
-                                                      ca: "La meva area"
+                                                    es: "Mi area",
+                                                    ca: "La meva area"
         select area_type.name["en"], from: :area_area_type_id
 
         find("*[type=submit]").click
@@ -55,8 +55,8 @@ describe "Organization Areas", type: :system do
 
         within ".edit_area" do
           fill_in_i18n :area_name, "#area-name-tabs", en: "Another area",
-                                                        es: "Otra area",
-                                                        ca: "Una altra area"
+                                                      es: "Otra area",
+                                                      ca: "Una altra area"
           find("*[type=submit]").click
         end
 
