@@ -12,6 +12,7 @@ es:
         proposal_ids: Propuestas incluidas
         start_date: Inicio
         title: Título
+        updated_at: Actualizado en
       status:
         description: Descripción
         key: Clave
@@ -94,6 +95,10 @@ es:
           update:
             invalid: Ha habido un problema al actualizar este elemento
             success: El elemento ha actualizado correctamente
+      admin_log:
+        result:
+          create: "%{user_name} resultado creado %{resource_name} en %{space_name}"
+          update: "%{user_name} resultado actualizado %{resource_name} en %{space_name}"
       models:
         result:
           fields:
