@@ -9,8 +9,6 @@ module Decidim
     let(:host) { "city.domain.org" }
     let(:middleware) { described_class.new(app) }
 
-    after { RequestStore.store[:decidim_current_organization] = nil }
-
     context "when an organization exists for the current host" do
       let!(:organization) { create(:organization, host: host) }
 
@@ -18,7 +16,6 @@ module Decidim
         _code, new_env = middleware.call(env)
 
         expect(new_env["decidim.current_organization"]).to eq(organization)
-        expect(RequestStore.store[:decidim_current_organization]).to eq(organization)
       end
     end
 
@@ -39,7 +36,6 @@ module Decidim
         _code, new_env = middleware.call(env)
 
         expect(new_env["decidim.current_organization"]).to be_nil
-        expect(RequestStore.store[:decidim_current_organization]).to be_nil
       end
     end
   end

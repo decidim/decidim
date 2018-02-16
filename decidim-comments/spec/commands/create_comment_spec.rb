@@ -116,14 +116,6 @@ module Decidim
           end
 
           context "and comment contains a user mention" do
-            before do
-              # rubocop:disable RSpec/AnyInstance
-              allow_any_instance_of(Decidim::ContentParsers::UserParser)
-                .to receive(:current_organization)
-                .and_return(organization)
-              # rubocop:enable RSpec/AnyInstance
-            end
-
             let(:mentioned_user) { create(:user, organization: organization) }
             let(:parser_context) { {} }
             let(:body) { ::Faker::Lorem.paragraph + " @#{mentioned_user.nickname}" }

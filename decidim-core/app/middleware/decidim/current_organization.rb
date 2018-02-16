@@ -17,7 +17,6 @@ module Decidim
     def call(env)
       organization = detect_current_organization(env)
       if organization
-        RequestStore.store[:decidim_current_organization] = organization
         env["decidim.current_organization"] = organization
         @app.call(env)
       else
