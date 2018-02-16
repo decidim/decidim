@@ -12,6 +12,7 @@ ca:
         proposal_ids: Propostes incloses
         start_date: Inici
         title: Títol
+        updated_at: Actualitzat a
       status:
         description: Descripció
         key: Clau
