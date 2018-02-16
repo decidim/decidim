@@ -12,6 +12,7 @@ nl:
         proposal_ids: Opgenomen voorstellen
         start_date: Begin datum
         title: Titel
+        updated_at: Bijgewerkt om
       status:
         description: Beschrijving
         key: sleutel
@@ -94,6 +95,10 @@ nl:
           update:
             invalid: Er is een probleem opgetreden met het bijwerken van dit item
             success: Item succesvol bijgewerkt
+      admin_log:
+        result:
+          create: "%{user_name} gemaakt resultaat %{resource_name} in %{space_name}"
+          update: "%{user_name} bijgewerkt resultaat %{resource_name} in %{space_name}"
       models:
         result:
           fields:
