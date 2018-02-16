@@ -165,6 +165,7 @@ gl:
           success: A categoría actualizouse con éxito.
       dashboard:
         show:
+          view_more_logs: Ver máis rexistros
           welcome: Benvido ao Panel de administración de decisións.
       exports:
         export_as: "%{name} como %{export_format}"
@@ -242,6 +243,7 @@ gl:
             new_managed_user_promotion: Nova promoción de usuarios xestionados
             promote: Promover
       menu:
+        admin_log: Rexistro de actividade do administrador
         admins: Administradores
         appearance: Aparencia
         configuration: Configuración
@@ -454,6 +456,7 @@ gl:
           error: Produciuse un erro ao actualizar esta páxina.
           success: Páxina actualizada con éxito
       titles:
+        admin_log: Rexistro de administrador
         authorization_workflows: Métodos de verificación
         dashboard: Taboleiro de instrumentos
         impersonations: Impersonacións
