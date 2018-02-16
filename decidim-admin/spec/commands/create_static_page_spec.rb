@@ -6,7 +6,12 @@ module Decidim::Admin
   describe CreateStaticPage do
     describe "call" do
       let(:organization) { create(:organization) }
-      let(:form) { StaticPageForm.from_model(build(:static_page)).with_context(current_organization: organization) }
+      let(:user) { create :user, :admin, :confirmed, organization: organization }
+      let(:form) do
+        StaticPageForm
+          .from_model(build(:static_page))
+          .with_context(current_user: user, current_organization: organization)
+      end
       let(:command) { described_class.new(form) }
 
       describe "when the form is not valid" do
@@ -28,6 +33,11 @@ module Decidim::Admin
       describe "when the form is valid" do
         it "broadcasts ok" do
           expect { command.call }.to broadcast(:ok)
+        end
+
+        it "uses traceability to create the page" do
+          expect(Decidim.traceability).to receive(:create!)
+          command.call
         end
 
         it "creates a page in the organization" do
