@@ -6,8 +6,8 @@ class EtiquetteValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
     return if value.blank?
 
-    validate_caps(record, attribute, value)
-    validate_marks(record, attribute, value)
+    # validate_caps(record, attribute, value)
+    # validate_marks(record, attribute, value)
     validate_long_words(record, attribute, value)
     validate_caps_first(record, attribute, value)
     validate_length(record, attribute, value)
