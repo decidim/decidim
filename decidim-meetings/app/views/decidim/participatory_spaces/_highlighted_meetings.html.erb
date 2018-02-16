@@ -4,7 +4,7 @@
       <%= t(".upcoming_meetings") %> <a href="<%= main_feature_path(upcoming_meetings.first.feature) %>" class="text-small"><%= t(".see_all_meetings") %></a>
     </h4>
     <div class="card card--list">
-      <%= render partial: 'meeting', collection: upcoming_meetings %>
+      <%= render partial: 'decidim/participatory_spaces/meeting', collection: upcoming_meetings %>
     </div>
   </div>
 <% elsif past_meetings.any? %>
@@ -13,7 +13,7 @@
       <%= t(".past_meetings") %> <a href="<%= main_feature_path(past_meetings.first.feature) %>" class="text-small"><%= t(".see_all_meetings") %></a>
     </h4>
     <div class="card card--list">
-      <%= render partial: 'meeting', collection: past_meetings %>
+      <%= render partial: 'decidim/participatory_spaces/meeting', collection: past_meetings %>
     </div>
   </div>
 <% end %>
