@@ -12,6 +12,7 @@ pl:
         proposal_ids: Zawarte propozycje
         start_date: Data rozpoczęcia
         title: Tytuł
+        updated_at: Zaktualizowano na
       status:
         description: Opis
         key: Klawisz
@@ -94,6 +95,10 @@ pl:
           update:
             invalid: Podczas aktualizowania tego wpisu wystąpił problem
             success: Wprowadzono pomyślnie
+      admin_log:
+        result:
+          create: "%{user_name} utworzony wynik %{resource_name} w %{space_name}"
+          update: "%{user_name} zaktualizowany wynik %{resource_name} w %{space_name}"
       models:
         result:
           fields:
