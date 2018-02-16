@@ -165,6 +165,7 @@ eu:
           success: Kategoria zuzen eguneratu da.
       dashboard:
         show:
+          view_more_logs: Ikusi gehiago erregistroak
           welcome: Ongi etorri Decidim Admin Panelera.
       exports:
         export_as: "%{name} honako hau gisa: %{export_format}"
@@ -242,6 +243,7 @@ eu:
             new_managed_user_promotion: Kudeatutako erabiltzaileen maila igoera berria
             promote: Goratu
       menu:
+        admin_log: Admin jarduera erregistroa
         admins: Administratzaileak
         appearance: Itxura
         configuration: konfigurazioa
@@ -454,6 +456,7 @@ eu:
           error: Errorea gertatu da orri hau eguneratzean.
           success: Orria zuzen eguneratu da.
       titles:
+        admin_log: Admin erregistroa
         authorization_workflows: Egiaztapen metodoak
         dashboard: Kontrol-panela
         impersonations: Ordezteak
