@@ -12,6 +12,7 @@ it:
         proposal_ids: Proposte incluse
         start_date: Date di inizio
         title: Nome
+        updated_at: Aggiornato a
       status:
         description: Descrizione
         key: Chiave
@@ -94,6 +95,10 @@ it:
           update:
             invalid: C'è stato un problema nel aggiornamento di questa voce
             success: Voce aggiornata con successo
+      admin_log:
+        result:
+          create: "%{user_name} risultato creato %{resource_name} in %{space_name}"
+          update: "%{user_name} risultato aggiornato %{resource_name} in %{space_name}"
       models:
         result:
           fields:
