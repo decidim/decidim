@@ -20,9 +20,7 @@ module Decidim
       # @param attributes [#to_hash] attributes
       #   the attributes hash to be set
       def initialize(attributes = nil)
-        if attributes.is_a? (Hash)
-          attributes.each { |key, val| send("#{key}=", val) }
-        end
+        attributes.each { |key, val| send("#{key}=", val) } if attributes.is_a? Hash
       end
     end
   end

@@ -5,6 +5,7 @@ require "spec_helper"
 module Decidim
   describe ContentParsers::Context do
     subject { described_class.new(current_organization: organization) }
+
     let(:organization) { build(:organization) }
 
     describe "#initialize" do
