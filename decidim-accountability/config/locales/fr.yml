@@ -12,6 +12,7 @@ fr:
         proposal_ids: Propositions incluses
         start_date: Date de début
         title: Titre
+        updated_at: Mis à jour à
       status:
         description: Description
         key: Clé
@@ -94,6 +95,10 @@ fr:
           update:
             invalid: Un problème est survenu lors de la mise à jour de cette entrée
             success: Entrée mise à jour avec succès
+      admin_log:
+        result:
+          create: "%{user_name} résultat créé %{resource_name} dans %{space_name}"
+          update: "%{user_name} résultat mis à jour %{resource_name} dans %{space_name}"
       models:
         result:
           fields:
