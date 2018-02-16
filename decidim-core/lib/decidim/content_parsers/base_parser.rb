@@ -5,7 +5,10 @@ module Decidim
     # Abstract base class for content parsers, so they have the same contract
     #
     # @example How to use a content parser class
-    #   parser = Decidim::ContentParsers::CustomParser.new(content)
+    #   context = Decidim::ContentParsers::Context.new(
+    #     current_organization: a_decidim_organization
+    #   )
+    #   parser = Decidim::ContentParsers::CustomParser.new(content, context)
     #   parser.rewrite # returns the content rewritten
     #   parser.metadata # returns a Metadata object
     #
@@ -17,11 +20,15 @@ module Decidim
       # @return [String] the content to be rewritten
       attr_reader :content
 
+      # @return [Decidim::ContentParsers::Context] the context instance
+      attr_reader :context
+
       # Gets initialized with the `content` to parse
       #
       # @param content [String] already rewritten content or regular content
-      def initialize(content)
+      def initialize(content, context)
         @content = content || ""
+        @context = context
       end
 
       # Parse the `content` and return it modified
@@ -29,6 +36,11 @@ module Decidim
       # @example Implementation for search and mark prohibited words
       #   def rewrite
       #     content.gsub('foo', '~~foo~~')
+      #   end
+      #
+      # @example Scope a query while parsing the content
+      #   def rewrite
+      #     Decidim::User.where(nickname: nickname, organization: context.current_organization)
       #   end
       #
       # @abstract Subclass is expected to implement it

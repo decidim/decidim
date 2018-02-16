@@ -5,7 +5,8 @@ require "spec_helper"
 module Decidim
   describe ContentParsers::UserParser do
     let(:user) { create(:user, :confirmed) }
-    let(:parser) { described_class.new(content) }
+    let(:context) { Decidim::ContentParsers::Context.new }
+    let(:parser) { described_class.new(content, context) }
 
     context "when mentioning a valid user" do
       let(:content) { "This text contains a valid user mention: @#{user.nickname}" }
