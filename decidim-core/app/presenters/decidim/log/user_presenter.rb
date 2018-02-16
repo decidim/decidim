@@ -46,6 +46,7 @@ module Decidim
       # Returns an HTML-safe String.
       def present_user
         return h.content_tag(:span, present_user_name, class: "logs__log__author") if user.blank?
+
         h.link_to(
           present_user_name,
           user_path,

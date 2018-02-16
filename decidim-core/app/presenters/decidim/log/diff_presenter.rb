@@ -37,7 +37,7 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present_diff
-        return "".html_safe unless changeset
+        return "".html_safe unless changeset.present?
 
         h.content_tag(:div, class: "logs__log__diff") do
           changeset.each do |attribute|

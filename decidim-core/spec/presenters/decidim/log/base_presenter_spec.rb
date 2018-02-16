@@ -6,12 +6,13 @@ describe Decidim::Log::BasePresenter, type: :helper do
   subject { presenter }
 
   let(:presenter) { described_class.new(action_log, helper) }
-  let(:action_log) { create :action_log, action: action, created_at: Date.new(2018, 1, 2).at_midnight }
-  let(:user) { action_log.user }
+  let(:action_log) { create :action_log, user: user, action: action, created_at: Date.new(2018, 1, 2).at_midnight }
+  let(:user) { create :user, name: "Alice Doe" }
   let(:participatory_space) { action_log.participatory_space }
   let(:resource) { action_log.resource }
   let(:action) { :create }
   let(:version_double) { double(present?: false) }
+  let(:presenter_double) { double(present: true) }
 
   before do
     helper.extend(Decidim::ApplicationHelper)
@@ -53,11 +54,10 @@ describe Decidim::Log::BasePresenter, type: :helper do
         end
 
         it "renders the diff" do
-          diff_presenter_double = double(present: true)
           allow(Decidim::Log::DiffPresenter)
-            .to receive(:new).and_return(diff_presenter_double)
+            .to receive(:new).and_return(presenter_double)
 
-          expect(diff_presenter_double)
+          expect(presenter_double)
             .to receive(:present)
 
           subject
@@ -65,70 +65,34 @@ describe Decidim::Log::BasePresenter, type: :helper do
       end
     end
 
-    context "when the user exists" do
-      it "links to their profile" do
-        expect(subject).to include("href=\"/profiles/#{user.nickname}\">")
-      end
+    it "renders the user" do
+      allow(Decidim::Log::UserPresenter)
+        .to receive(:new).and_return(presenter_double)
+
+      expect(presenter_double)
+        .to receive(:present)
+
+      subject
     end
 
-    context "when the user doesn't exist" do
-      it "doesn't link to their profile" do
-        user_name = user.name
-        user.destroy
-        action_log.reload
+    it "renders the space" do
+      allow(Decidim::Log::SpacePresenter)
+        .to receive(:new).and_return(presenter_double)
 
-        expect(subject).not_to include("href=\"/profiles/")
-        expect(subject).to include(user_name)
-      end
+      expect(presenter_double)
+        .to receive(:present)
+
+      subject
     end
 
-    describe "resource" do
-      let(:title) { resource.title }
-      let(:resource_path) { Decidim::ResourceLocatorPresenter.new(resource).path }
+    it "renders the resource" do
+      allow(Decidim::Log::ResourcePresenter)
+        .to receive(:new).and_return(presenter_double)
 
-      context "when the resource exists" do
-        it "links to its public page" do
-          expect(subject).to have_link(title, href: resource_path)
-        end
-      end
+      expect(presenter_double)
+        .to receive(:present)
 
-      context "when the resource doesn't exist" do
-        it "doesn't link to its public page" do
-          resource.destroy
-          action_log.reload
-
-          expect(subject).not_to have_link(title)
-          expect(subject).to include(title)
-        end
-      end
-    end
-
-    describe "participatory space" do
-      let(:title) { participatory_space.title["en"] }
-      let(:participatory_space_path) { Decidim::ResourceLocatorPresenter.new(participatory_space).path }
-
-      context "when the space exists" do
-        it "links to its public page" do
-          expect(subject).to have_link(title, href: participatory_space_path)
-        end
-      end
-
-      context "when the space doesn't exist" do
-        before do
-          participatory_space.destroy
-          action_log.reload
-        end
-
-        it "doesn't link to its public page" do
-          expect(subject).not_to have_link(title)
-          expect(subject).to include(title)
-        end
-
-        it "doesn't link to the resource public page" do
-          expect(subject).not_to have_link(resource.title)
-          expect(subject).to include(resource.title)
-        end
-      end
+      subject
     end
   end
 end
