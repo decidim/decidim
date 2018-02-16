@@ -165,6 +165,7 @@ pl:
           success: Kategoria została zaktualizowana.
       dashboard:
         show:
+          view_more_logs: Zobacz więcej dzienników
           welcome: Witamy w Decidim Admin Panel.
       exports:
         export_as: "%{name} jako %{export_format}"
@@ -242,6 +243,7 @@ pl:
             new_managed_user_promotion: Nowa zarządzana promocja użytkowników
             promote: Promować
       menu:
+        admin_log: Dziennik aktywności administratora
         admins: Administratorzy
         appearance: Wygląd
         configuration: Konfiguracja
@@ -454,6 +456,7 @@ pl:
           error: Podczas aktualizowania tej strony wystąpił błąd.
           success: Strona została zaktualizowana
       titles:
+        admin_log: Dziennik administratora
         authorization_workflows: Metody weryfikacji
         dashboard: Deska rozdzielcza
         impersonations: Impersonaty
