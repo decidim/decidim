@@ -22,9 +22,6 @@ module Decidim
   # declare the other side making it "transparent" (declaring the class and leaving it empty).
   #
   # @example How to parse a content
-  #   context = Decidim::ContentParsers::Context.new(
-  #     current_organization: a_decidim_organization
-  #   )
   #   parsed = Decidim::ContentProcessor.parse(content, context)
   #   parsed.rewrite # contains rewritten content
   #   parsed.metadata # contains the merged metadata of all parsers
@@ -46,7 +43,7 @@ module Decidim
     # metadata for each one and the resulting modified content
     #
     # @param content [String] already rewritten content or regular content
-    # @param context [Decidim::ContentParsers::Context] context to inject to the parsers
+    # @param context [Hash] with information to inject to the parsers as context
     #
     # @return [Result] a Result object with the content rewritten and the metadata
     def self.parse(content, context)

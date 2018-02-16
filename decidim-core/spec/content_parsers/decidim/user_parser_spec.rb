@@ -5,7 +5,7 @@ require "spec_helper"
 module Decidim
   describe ContentParsers::UserParser do
     let(:user) { create(:user, :confirmed) }
-    let(:context) { Decidim::ContentParsers::Context.new }
+    let(:context) { {} }
     let(:parser) { described_class.new(content, context) }
 
     context "when mentioning a valid user" do

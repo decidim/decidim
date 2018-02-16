@@ -41,8 +41,7 @@ end
 ## How to use the content parser class
 
 ```rb
-context = Decidim::ContentParsers::Context.new(current_organization: a_decidim_organization)
-parser = Decidim::ContentParsers::SpecialWordsParser.new(content, context)
+parser = Decidim::ContentParsers::SpecialWordsParser.new(content, {})
 parser.rewrite # returns the content rewritten
 parser.metadata # returns a Metadata object
 ```
