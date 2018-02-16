@@ -165,6 +165,7 @@ ca:
           success: Categoria actualitzada correctament.
       dashboard:
         show:
+          view_more_logs: Veure més registres
           welcome: Benvingut al tauler d'administració de Decidim.
       exports:
         export_as: "%{name} com a %{export_format}"
@@ -242,6 +243,7 @@ ca:
             new_managed_user_promotion: Nova promoció d'usuari gestionat
             promote: Promocionar
       menu:
+        admin_log: Registre d'activitat administratiu
         admins: Administradors
         appearance: Aparença
         configuration: Configuració
@@ -454,6 +456,7 @@ ca:
           error: S'ha produït un error en l'actualització d'aquests pàgina.
           success: La pàgina s'ha actualitzat correctament.
       titles:
+        admin_log: Registre d'administrador
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
         impersonations: Suplantacions
