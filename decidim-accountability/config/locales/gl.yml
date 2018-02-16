@@ -12,6 +12,7 @@ gl:
         proposal_ids: Propostas incluidas
         start_date: Data de inicio
         title: Título
+        updated_at: Actualizado en
       status:
         description: Descrición
         key: Clave
