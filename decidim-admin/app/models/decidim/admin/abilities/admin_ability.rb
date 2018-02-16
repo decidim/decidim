@@ -9,6 +9,8 @@ module Decidim
         def define_abilities
           super
 
+          can :read, :admin_log
+
           can :manage, Category
           can :manage, ParticipatoryProcessUserRole
           can [:create, :update, :index, :new, :read], StaticPage

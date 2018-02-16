@@ -35,7 +35,7 @@ module Decidim
       attr_reader :form
 
       def create_comment
-        parsed = Decidim::ContentProcessor.parse(form.body)
+        parsed = Decidim::ContentProcessor.parse(form.body, {})
 
         @comment = Comment.create!(author: @author,
                                    commentable: @commentable,
