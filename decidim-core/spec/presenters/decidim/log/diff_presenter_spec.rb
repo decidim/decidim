@@ -29,15 +29,15 @@ describe Decidim::Log::DiffPresenter, type: :helper do
       end
     end
 
-    it "it shows the attribute label" do
+    it "shows the attribute label" do
       expect(subject).to include("My field")
     end
 
-    it "it shows the new value" do
+    it "shows the new value" do
       expect(subject).to include("New value")
     end
 
-    it "it shows the previous value" do
+    it "shows the previous value" do
       expect(subject).to include("Previous value")
     end
 

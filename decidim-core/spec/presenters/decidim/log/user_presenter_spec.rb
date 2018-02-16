@@ -9,7 +9,7 @@ describe Decidim::Log::UserPresenter, type: :helper do
   let(:extra) do
     {
       "name" => user.name,
-      "nickname" => user.nickname,
+      "nickname" => user.nickname
     }
   end
 
@@ -25,7 +25,7 @@ describe Decidim::Log::UserPresenter, type: :helper do
       let(:extra) do
         {
           "title" => "Alice Doe",
-          "nickname" => "alicedoe",
+          "nickname" => "alicedoe"
         }
       end
 
