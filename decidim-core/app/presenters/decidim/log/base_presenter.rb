@@ -165,12 +165,27 @@ module Decidim
       def action_string
         case action.to_s
         when "create"
-          "decidim.log.base_presenter.create"
+          generate_action_string(:create)
         when "update"
-          "decidim.log.base_presenter.update"
+          generate_action_string(:update)
         else
-          "decidim.log.base_presenter.unknown_action"
+          generate_action_string(:unknown_action)
         end
+      end
+
+      # Private: Generates the correct action string considering if
+      # the space is present or not.
+      #
+      # action - A String with the name of the action
+      #
+      # Returns a String.
+      def generate_action_string(action)
+        string = if action_log.participatory_space.present?
+                   "#{action}_with_space"
+                 else
+                   action
+                 end
+        "decidim.log.base_presenter.#{string}"
       end
 
       # Private: The params to be sent to the i18n string.
