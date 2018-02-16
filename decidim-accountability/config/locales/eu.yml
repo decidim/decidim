@@ -12,6 +12,7 @@ eu:
         proposal_ids: Sartutako proposamenak
         start_date: Hasiera-data
         title: Izenburua
+        updated_at: Eguneratuta
       status:
         description: Descripción
         key: Gakoa
@@ -94,6 +95,10 @@ eu:
           update:
             invalid: Arazo bat izan da sarrera hau eguneratzean
             success: Sarrera ondo eguneratu da
+      admin_log:
+        result:
+          create: "%{user_name} emaitza sortu da %{resource_name} en %{space_name}"
+          update: "%{user_name} emaitza eguneratu %{resource_name} en %{space_name}"
       models:
         result:
           fields:
