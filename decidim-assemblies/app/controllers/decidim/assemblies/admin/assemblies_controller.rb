@@ -6,7 +6,6 @@ module Decidim
       # Controller that allows managing assemblies.
       #
       class AssembliesController < Decidim::Admin::ApplicationController
-        #helper AssemblyAreasForSelectHelper
         helper_method :current_assembly, :current_participatory_space
         layout "decidim/admin/assemblies"
 

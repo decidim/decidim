@@ -76,10 +76,10 @@ if !Rails.env.production? || ENV["SEED"]
   end
 
   5.times do
-    Decidim::Scope.create!(
+    Decidim::Area.create!(
       name: Decidim::Faker::Localized.word,
       area_type: sectorial,
-      organization: organization,
+      organization: organization
     )
   end
 

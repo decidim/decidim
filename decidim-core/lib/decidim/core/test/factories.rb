@@ -261,7 +261,6 @@ FactoryBot.define do
 
   factory :area, class: "Decidim::Area" do
     name { Decidim::Faker::Localized.literal(generate(:area_name)) }
-    area_type
     organization
   end
 

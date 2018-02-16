@@ -18,5 +18,8 @@ module Decidim
     validates :name, :organization, presence: true
     validates :name, uniqueness: { scope: :organization }
 
+    def translated_name
+      Decidim::AreaPresenter.new(self).translated_name
+    end
   end
 end

@@ -32,11 +32,12 @@ module Decidim
         attribute :banner_image
         attribute :remove_banner_image
         attribute :show_statistics, Boolean
-        attribute :area
+        attribute :area_id, Integer
 
         validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
+        validates :area, presence: true, if: proc { |object| object.area_id.present? }
 
         validate :slug_uniqueness
 
@@ -49,6 +50,10 @@ module Decidim
 
         def scope
           @scope ||= current_organization.scopes.where(id: scope_id).first
+        end
+
+        def area
+          @area ||= current_organization.areas.where(id: area_id).first
         end
 
         private

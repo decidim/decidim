@@ -58,6 +58,7 @@ module Decidim
             short_description: form.short_description,
             scopes_enabled: form.scopes_enabled,
             scope: form.scope,
+            area: form.area,
             developer_group: form.developer_group,
             local_area: form.local_area,
             target: form.target,

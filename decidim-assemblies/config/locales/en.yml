@@ -112,7 +112,6 @@ en:
       admin:
         assemblies:
           form:
-            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             citizen_rights: Citizen Rights
             city: City
             culture_and_sports: Culture and Sports
@@ -122,6 +121,8 @@ en:
             neighbourhood: Neighbourhood
             participation: Participation
             security_and_prevention: Security and Prevention
+            select_an_area: Select an Area
+            slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             social_rights: Social Rights
             urban_planning_and_mobility: Urban planning and Mobility
         assembly_copies:
@@ -135,6 +136,7 @@ en:
             active_assemblies: Active assemblies
             see_all_assemblies: See all assemblies
       show:
+        area: Area
         developer_group: Developer group
         local_area: Local area
         participatory_scope: Participatory scope
