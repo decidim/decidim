@@ -57,6 +57,14 @@ jobs:
       - attach_workspace:
           at: /app
       - checkout
+      - run:
+          name: Install a custom rubygems with fix applied
+          command: |
+            git clone https://github.com/deivid-rodriguez/rubygems /rubygems
+            cd /rubygems
+            git checkout add_missing_requires
+            git submodule update --init
+            ruby setup.rb
       - restore_cache:
           keys:
             - bundler-dependencies-{{ checksum "Gemfile.lock" }}
