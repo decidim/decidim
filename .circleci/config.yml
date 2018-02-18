@@ -58,11 +58,11 @@ jobs:
           at: /app
       - checkout
       - run:
-          name: Install a custom rubygems with fix applied
+          name: Install a rubygems revision that gets tests passing
           command: |
-            git clone https://github.com/deivid-rodriguez/rubygems /rubygems
+            git clone https://github.com/rubygems/rubygems /rubygems
             cd /rubygems
-            git checkout add_missing_requires
+            git checkout e093fb7d594f97edaa6289547a90537871ca5f98
             git submodule update --init
             ruby setup.rb
       - restore_cache:
