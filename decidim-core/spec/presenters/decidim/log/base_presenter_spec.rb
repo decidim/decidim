@@ -15,9 +15,9 @@ describe Decidim::Log::BasePresenter, type: :helper do
       created_at: Date.new(2018, 1, 2).at_midnight
     )
   end
-  let(:user) { create :user, name: "Alice Doe" }
+  let(:user) { create :user, name: "Alice Doe", organization: resource.feature.participatory_space.organization }
   let(:participatory_space) { action_log.participatory_space }
-  let(:resource) { create :dummy_resource, organization: user.organization, title: "My Resource" }
+  let(:resource) { create :dummy_resource, title: "My Resource" }
   let(:action) { :create }
   let(:version_double) { double(present?: false) }
   let(:presenter_double) { double(present: true) }
