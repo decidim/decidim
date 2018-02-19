@@ -152,7 +152,8 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present_action_log
-        h.content_tag(:li, id: h.dom_id(action_log), class: "logs__log", data: { toggler: ".logs__log--expanded" }) do
+        classes = ["logs__log"] + action_log_extra_classes.to_a
+        h.content_tag(:li, id: h.dom_id(action_log), class: classes.join(" "), data: { toggler: ".logs__log--expanded" }) do
           h.concat(present_content)
           h.concat(present_diff)
         end
@@ -223,6 +224,15 @@ module Decidim
       #
       # Returns a String.
       def i18n_labels_scope; end
+
+      # Private: Holds a list of extra classes to apply to the action log
+      # HTML element.
+      #
+      # Returns an Array of Strings.
+      def action_log_extra_classes
+        return ["logs__log--deletion"] if action.to_s == "delete"
+        []
+      end
 
       # Private: Calculates the changeset to be rendered. Uses the values
       # from the `diff_fields_mapping` method.

@@ -6,10 +6,16 @@ describe Decidim::Log::BasePresenter, type: :helper do
   subject { presenter }
 
   let(:presenter) { described_class.new(action_log, helper) }
-  let(:action_log) { create :action_log, user: user, action: action, created_at: Date.new(2018, 1, 2).at_midnight }
+  let(:action_log) do
+    create :action_log,
+    user: user,
+    action: action,
+    resource: resource,
+    created_at: Date.new(2018, 1, 2).at_midnight
+  end
   let(:user) { create :user, name: "Alice Doe" }
   let(:participatory_space) { action_log.participatory_space }
-  let(:resource) { action_log.resource }
+  let(:resource) { create :dummy_resource, organization: user.organization, title: "My Resource" }
   let(:action) { :create }
   let(:version_double) { double(present?: false) }
   let(:presenter_double) { double(present: true) }
@@ -36,7 +42,7 @@ describe Decidim::Log::BasePresenter, type: :helper do
     end
 
     context "when the action is update" do
-      let(:action) { :update }
+      let(:action) { "update" }
 
       it "renders a basic log sentence" do
         expect(subject).to include("update")
@@ -62,6 +68,14 @@ describe Decidim::Log::BasePresenter, type: :helper do
 
           subject
         end
+      end
+    end
+
+    context "when action is delete" do
+      let(:action) { "delete" }
+
+      it "adds the correct classes to the action log element" do
+        expect(subject).to include("logs__log logs__log--deletion")
       end
     end
 
