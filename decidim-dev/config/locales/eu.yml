@@ -3,6 +3,7 @@ eu:
     attributes:
       dummy_resource:
         created_at: Sortutako at
+        field: Nire eremua
         start_date: Hasiera data
         title: Izenburua
         updated_at: Eguneratuta
