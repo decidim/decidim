@@ -7,11 +7,13 @@ describe Decidim::Log::BasePresenter, type: :helper do
 
   let(:presenter) { described_class.new(action_log, helper) }
   let(:action_log) do
-    create :action_log,
-    user: user,
-    action: action,
-    resource: resource,
-    created_at: Date.new(2018, 1, 2).at_midnight
+    create(
+      :action_log,
+      user: user,
+      action: action,
+      resource: resource,
+      created_at: Date.new(2018, 1, 2).at_midnight
+    )
   end
   let(:user) { create :user, name: "Alice Doe" }
   let(:participatory_space) { action_log.participatory_space }
