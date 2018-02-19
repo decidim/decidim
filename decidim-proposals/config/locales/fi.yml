@@ -26,6 +26,11 @@ fi:
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
           email_subject: Uusi ehdotus %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> -ehdotus luotiin <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_created_for_space:
+          email_intro: Ehdotus "%{resource_title}" on lisätty "%{participatory_space_title}" että seuraat.
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{participatory_space_title}". Voit purkaa sen edellisestä linkistä.
+          email_subject: Uusi ehdotus lisätty %{participatory_space_title}
+          notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on lisätty %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, jota seuraat, on juuri hyväksynyt ehdotuksen, joka voi olla kiinnostava sinulle, tarkista se ja osallistuta:"
           email_outro: Olet saanut tämän ilmoituksen, koska olet seurannut %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
@@ -46,6 +51,7 @@ fi:
           create: Luo
           endorse: hyväksyä
           vote: Äänestä
+          withdraw: Peruuttaa
         name: Ehdotukset
         settings:
           global:
@@ -117,6 +123,7 @@ fi:
         proposals_imports:
           create:
             invalid: Ehdotuksia tuodaan ongelmana
+            success: "%{number} ehdotukset tuodaan onnistuneesti"
           new:
             create: Tuo ehdotuksia
             no_features: Ehdotuksessa tuodaan ehdotusominaisuuksiltaan muita ehdotusominaisuuksia.
