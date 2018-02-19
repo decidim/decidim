@@ -60,12 +60,28 @@ describe Decidim::Log::DiffChangesetCalculator do
         expect(subject).to eq [
           {
             attribute_name: :field,
-            label: "Field (English)",
+            label: "My field (English)",
             previous_value: "Foo",
             new_value: "Doe",
             type: :i18n
           }
         ]
+      end
+
+      context "when i18n labels scope is not set" do
+        let(:i18n_labels_scope) { nil }
+
+        it "humanizes the attribute name and keeps the locale" do
+          expect(subject).to eq [
+            {
+              attribute_name: :field,
+              label: "Field (English)",
+              previous_value: "Foo",
+              new_value: "Doe",
+              type: :i18n
+            }
+          ]
+        end
       end
     end
 

@@ -75,6 +75,8 @@ module Decidim
       #
       # Returns an array of hashes.
       def generate_i18n_changeset(attribute, values, type)
+        values.map! { |value| value.is_a?(String) ? JSON.parse(value) : value }
+
         values.last.flat_map do |locale, _value|
           previous_value = values.first.try(:[], locale)
           new_value = values.last.try(:[], locale)
@@ -117,8 +119,11 @@ module Decidim
       #
       # Returns a String.
       def generate_label(attribute, locale = nil)
-        return attribute.to_s.humanize unless i18n_labels_scope
-        label = I18n.t(attribute, scope: i18n_labels_scope)
+        label = if i18n_labels_scope
+                  I18n.t(attribute, scope: i18n_labels_scope)
+                else
+                  attribute.to_s.humanize
+                end
         return label unless locale
 
         locale_name = I18n.t("locale.name", locale: locale)
