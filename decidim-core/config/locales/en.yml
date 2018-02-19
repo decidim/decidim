@@ -56,10 +56,14 @@ en:
         success_with_email_confirmation: Your account was updated successfully. You'll receive an email to confirm your new email address.
     admin_log:
       newsletter:
-        create: "%{user_name} created the newsletter %{resource_name}"
-        delete: "%{user_name} deleted the newsletter %{resource_name}"
-        deliver: "%{user_name} delivered the newsletter %{resource_name}"
-        update: "%{user_name} updated the newsletter %{resource_name}"
+        create: "%{user_name} created the %{resource_name} newsletter"
+        delete: "%{user_name} deleted the %{resource_name} newsletter"
+        deliver: "%{user_name} delivered the %{resource_name} newsletter"
+        update: "%{user_name} updated the %{resource_name} newsletter"
+      static_pages:
+        create: "%{user_name} created the %{resource_name} static page"
+        delete: "%{user_name} deleted the %{resource_name} static page"
+        update: "%{user_name} updated the %{resource_name} static page"
     anonymous_user: Anonymous
     application:
       collection:
