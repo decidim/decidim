@@ -95,7 +95,7 @@ module Decidim
         @newsletter = collection.find(params[:id])
         authorize! :update, @newsletter
 
-        DeliverNewsletter.call(@newsletter) do
+        DeliverNewsletter.call(@newsletter, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("newsletters.deliver.success", scope: "decidim.admin")
             redirect_to action: :index
