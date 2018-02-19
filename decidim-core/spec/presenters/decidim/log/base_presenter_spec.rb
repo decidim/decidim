@@ -35,7 +35,6 @@ describe Decidim::Log::BasePresenter, type: :helper do
       expect(subject).to include(participatory_space.title["en"])
     end
 
-
     context "when version exists" do
       let(:version_double) { double(present?: true, changeset: {}) }
 

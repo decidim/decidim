@@ -44,9 +44,7 @@ module Decidim
         h.content_tag(:div, class: "logs__log__diff") do
           changeset.each do |attribute|
             h.concat(present_new_value(attribute[:label], attribute[:new_value], attribute[:type]))
-            if options[:show_previous_value?]
-              h.concat(present_previous_value(attribute[:previous_value], attribute[:type]))
-            end
+            h.concat(present_previous_value(attribute[:previous_value], attribute[:type])) if options[:show_previous_value?]
           end
         end
       end
