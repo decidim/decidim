@@ -54,6 +54,12 @@ en:
         error: There's been an error updating your account.
         success: Your account was updated successfully.
         success_with_email_confirmation: Your account was updated successfully. You'll receive an email to confirm your new email address.
+    admin_log:
+      newsletter:
+        create: "%{user_name} created the newsletter %{resource_name}"
+        delete: "%{user_name} deleted the newsletter %{resource_name}"
+        deliver: "%{user_name} delivered the newsletter %{resource_name}"
+        update: "%{user_name} updated the newsletter %{resource_name}"
     anonymous_user: Anonymous
     application:
       collection:
