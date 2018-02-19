@@ -26,6 +26,10 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{author_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Nova proposta por %{author_nickname}
           notification_title: A <a href="%{resource_path}">%{resource_title}</a> proposta foi creada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_created_for_space:
+          email_intro: A proposta "%{resource_title}" Engadiuse a "%{participatory_space_title}" que estás seguindo.
+          email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
+          email_subject: Nova proposta engadida a %{participatory_space_title}
         proposal_endorsed:
           email_outro: Recibiches esta notificación porque estás seguindo %{endorser_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
         proposal_evaluating:
@@ -44,6 +48,7 @@ gl:
           create: Crear
           endorse: Endosar
           vote: Vota
+          withdraw: Retirar
         name: Propostas
         settings:
           global:
