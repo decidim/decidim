@@ -15,9 +15,11 @@ module Decidim
       # changeset - An array of hashes
       # view_helpers - An object holding the view helpers at the render time.
       #   Most probably should come automatically from the views.
-      def initialize(changeset, view_helpers)
+      # options - a Hash with options
+      def initialize(changeset, view_helpers, options = {})
         @changeset = changeset
         @view_helpers = view_helpers
+        @options = { show_previous_value?: true }.merge(options)
       end
 
       # Public: Renders the given diff.
@@ -29,7 +31,7 @@ module Decidim
 
       private
 
-      attr_reader :changeset, :view_helpers
+      attr_reader :changeset, :view_helpers, :options
       alias h view_helpers
 
       # Private: Presents the diff for this action. If the resource and the
@@ -42,7 +44,9 @@ module Decidim
         h.content_tag(:div, class: "logs__log__diff") do
           changeset.each do |attribute|
             h.concat(present_new_value(attribute[:label], attribute[:new_value], attribute[:type]))
-            h.concat(present_previous_value(attribute[:previous_value], attribute[:type]))
+            if options[:show_previous_value?]
+              h.concat(present_previous_value(attribute[:previous_value], attribute[:type]))
+            end
           end
         end
       end

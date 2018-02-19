@@ -35,6 +35,25 @@ describe Decidim::Log::BasePresenter, type: :helper do
       expect(subject).to include(participatory_space.title["en"])
     end
 
+
+    context "when version exists" do
+      let(:version_double) { double(present?: true, changeset: {}) }
+
+      it "renders a dropdown" do
+        expect(subject).to include("class=\"logs__log__actions-dropdown\"")
+      end
+
+      it "renders the diff" do
+        allow(Decidim::Log::DiffPresenter)
+          .to receive(:new).and_return(presenter_double)
+
+        expect(presenter_double)
+          .to receive(:present)
+
+        subject
+      end
+    end
+
     context "when the action is update" do
       let(:action) { :update }
 
@@ -44,24 +63,6 @@ describe Decidim::Log::BasePresenter, type: :helper do
         expect(subject).to include(user.nickname)
         expect(subject).to include(resource.title)
         expect(subject).to include(participatory_space.title["en"])
-      end
-
-      context "when version exists" do
-        let(:version_double) { double(present?: true, changeset: {}) }
-
-        it "renders a dropdown" do
-          expect(subject).to include("class=\"logs__log__actions-dropdown\"")
-        end
-
-        it "renders the diff" do
-          allow(Decidim::Log::DiffPresenter)
-            .to receive(:new).and_return(presenter_double)
-
-          expect(presenter_double)
-            .to receive(:present)
-
-          subject
-        end
       end
     end
 
