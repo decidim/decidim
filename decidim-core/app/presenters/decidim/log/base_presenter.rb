@@ -165,10 +165,8 @@ module Decidim
       # Returns a String.
       def action_string
         case action.to_s
-        when "create"
-          generate_action_string(:create)
-        when "update"
-          generate_action_string(:update)
+        when "create", "update", "delete"
+          generate_action_string(action)
         else
           generate_action_string(:unknown_action)
         end
