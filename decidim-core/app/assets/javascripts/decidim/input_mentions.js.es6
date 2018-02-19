@@ -2,7 +2,7 @@
 
 $(() => {
   const $mentionContainer = $('.js-mentions');
-  const nodatafound = 'No results.'; // TODO: this string must be i18n
+  const nodatafound = $mentionContainer.attr('data-noresults');
   const sources = []; // TODO: Object with remote data. See Tribute.js DOCS
 
   // EXAMPLE DATA
