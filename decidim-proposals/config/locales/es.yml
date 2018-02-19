@@ -52,6 +52,7 @@ es:
           create: Crear
           endorse: Endosar
           vote: Dar apoyo
+          withdraw: Retirar
         name: Propuestas
         settings:
           global:
