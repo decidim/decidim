@@ -26,6 +26,11 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: Nouvelle proposition par %{author_nickname}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_created_for_space:
+          email_intro: La proposition "%{resource_title}" a été ajouté à "%{participatory_space_title}" que vous suivez.
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez le retirer du lien précédent.
+          email_subject: Nouvelle proposition ajoutée à %{participatory_space_title}
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajouté à %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, que vous suivez, vient d'endosser une proposition qui pourrait vous intéresser, vérifiez-la et contribuez:"
           email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
@@ -47,6 +52,7 @@ fr:
           create: Créer
           endorse: Endosser
           vote: Voter
+          withdraw: Se désister
         name: Propositions
         settings:
           global:
@@ -118,6 +124,7 @@ fr:
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'importation des propositions
+            success: "%{number} propositions importées avec succès"
           new:
             create: Importer des propositions
             no_features: Il n'y a pas d'autres fonctionnalités de proposition dans cet espace participatif pour importer les propositions.
