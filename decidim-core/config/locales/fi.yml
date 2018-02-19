@@ -201,9 +201,14 @@ fi:
       remove_this_file: Poista tiedosto
     log:
       base_presenter:
-        create: "%{user_name} luotu %{resource_name} vuonna %{space_name}"
-        unknown_action: "%{user_name} suoritti jonkin verran toimenpiteitä %{resource_name} vuonna %{space_name}"
-        update: "%{user_name} päivitetty %{resource_name} vuonna %{space_name}"
+        create: "%{user_name} luotu %{resource_name}"
+        create_with_space: "%{user_name} luotu %{resource_name} vuonna %{space_name}"
+        delete: "%{user_name} poistettu %{resource_name}"
+        delete_with_space: "%{user_name} poistettu %{resource_name} vuonna %{space_name}"
+        unknown_action: "%{user_name} suoritti jonkin verran toimenpiteitä %{resource_name}"
+        unknown_action_with_space: "%{user_name} suoritti jonkin verran toimenpiteitä %{resource_name} vuonna %{space_name}"
+        update: "%{user_name} päivitetty %{resource_name}"
+        update_with_space: "%{user_name} päivitetty %{resource_name} vuonna %{space_name}"
       value_types:
         scope_presenter:
           not_found: 'Soveltamisalaa ei löytynyt tietokannasta (ID: %{id})'
