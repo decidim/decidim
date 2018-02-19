@@ -3,7 +3,6 @@ sv:
     attributes:
       dummy_resource:
         created_at: Skapad vid
-        field: Fält
         start_date: Start datum
         title: Titel
         updated_at: Uppdaterad på
