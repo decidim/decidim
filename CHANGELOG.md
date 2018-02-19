@@ -16,6 +16,7 @@
 - **decidim-participatory_processes**: Ensure only active processes are shown in the highlighted processes section in the homepage[\#2682](https://github.com/decidim/decidim/pull/2682)
 - **decidim-core**: Add collections to group attachments [\#2394](https://github.com/decidim/decidim/pull/2394).
 - **decidim-admin**: Adds a log of all admin actions, only visible by organization admins [\#2604](https://github.com/decidim/decidim/pull/2604)
+- **decidim-core**: Add some examples on documentation to AuthorizationHandler [\#2758](https://github.com/decidim/decidim/pull/2758).
 
 **Changed**:
 
