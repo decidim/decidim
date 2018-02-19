@@ -50,6 +50,7 @@ ca:
           create: Crear
           endorse: Endossar
           vote: Donar suport
+          withdraw: Retirada
         name: Propostes
         settings:
           global:
