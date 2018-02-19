@@ -33,7 +33,7 @@ module Decidim
       def localized_attribute(slug, attribute)
         Decidim.available_locales.inject({}) do |result, locale|
           text = I18n.with_locale(locale) do
-            I18n.t(attribute, scope: "decidim.system.default_pages.placeholders", page: slug)
+            "<p>#{I18n.t(attribute, scope: "decidim.system.default_pages.placeholders", page: slug)}</p>"
           end
 
           result.update(locale => text)

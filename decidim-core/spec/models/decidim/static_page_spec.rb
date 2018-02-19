@@ -6,6 +6,8 @@ module Decidim
   describe StaticPage do
     let(:page) { build(:static_page) }
 
+    it { is_expected.to be_versioned }
+
     describe "validations" do
       let(:invalid_slug) { "#Invalid.Slug" }
 

@@ -29,7 +29,11 @@ module Decidim
     # Returns an instance of `klass`.
     def create(klass, author, params)
       PaperTrail.whodunnit(gid(author)) do
-        klass.create(params)
+        klass.transaction do
+          resource = klass.create(params)
+          log(:create, author, resource)
+          resource
+        end
       end
     end
 
@@ -42,7 +46,11 @@ module Decidim
     # Returns an instance of `klass`.
     def create!(klass, author, params)
       PaperTrail.whodunnit(gid(author)) do
-        klass.create!(params)
+        klass.transaction do
+          resource = klass.create!(params)
+          log(:create, author, resource)
+          resource
+        end
       end
     end
 
@@ -55,8 +63,11 @@ module Decidim
     # Returns the updated `resource`.
     def update!(resource, author, params)
       PaperTrail.whodunnit(gid(author)) do
-        resource.update_attributes!(params)
-        resource
+        resource.class.transaction do
+          resource.update_attributes!(params)
+          log(:update, author, resource)
+          resource
+        end
       end
     end
 
@@ -86,6 +97,30 @@ module Decidim
       return if author.blank?
       return author.to_gid if author.respond_to?(:to_gid)
       author
+    end
+
+    def log(action, user, resource)
+      return unless user.is_a?(Decidim::User)
+      return unless resource.is_a?(Decidim::Traceable)
+
+      Decidim::ActionLogger.log(
+        action,
+        user,
+        resource,
+        version_params(resource)
+      )
+    end
+
+    def version_params(resource)
+      return {} unless resource.is_a?(Decidim::Traceable)
+      return {} if resource.versions.blank?
+
+      {
+        version: {
+          number: resource.versions.count,
+          id: resource.versions.last.id
+        }
+      }
     end
   end
 end

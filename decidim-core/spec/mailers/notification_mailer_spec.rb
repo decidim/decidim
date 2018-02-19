@@ -4,7 +4,8 @@ require "spec_helper"
 
 module Decidim
   describe NotificationMailer, type: :mailer do
-    let(:user) { create(:user, name: "Sarah Connor") }
+    let(:organization) { create(:organization, name: "O'Connor") }
+    let(:user) { create(:user, name: "Sarah Connor", organization: organization) }
     let(:resource) { user }
     let(:event_class_name) { "Decidim::ProfileUpdatedEvent" }
     let(:extra) { { foo: "bar" } }
@@ -25,7 +26,7 @@ module Decidim
       end
 
       it "includes the organization data" do
-        expect(mail.body).to include(user.organization.name)
+        expect(mail.body.encoded).to include(user.organization.name)
       end
 
       it "includes the greeting" do
@@ -42,6 +43,16 @@ module Decidim
 
       it "includes the resource url" do
         expect(mail.body).to include(event_instance.resource_url)
+      end
+
+      context "when the user doesn't have an email" do
+        before do
+          user.update_attributes(email: nil)
+        end
+
+        it "does nothing" do
+          expect(mail.deliver_now).to be_nil
+        end
       end
     end
   end
