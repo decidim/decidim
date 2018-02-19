@@ -3,7 +3,6 @@ fi:
     attributes:
       dummy_resource:
         created_at: Luotu osoitteessa
-        field: Ala
         start_date: Aloituspäivämäärä
         title: otsikko
         updated_at: Päivitetty klo
