@@ -26,6 +26,11 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo %{author_nickname}. Você pode parar de receber notificações após o link anterior.
           email_subject: Nova proposta por %{author_nickname}
           notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi criada por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_created_for_space:
+          email_intro: A proposta "%{resource_title}" foi adicionado a "%{participatory_space_title}" que você está seguindo.
+          email_outro: Você recebeu esta notificação porque está seguindo "%{participatory_space_title}". Você pode ignorá-lo do link anterior.
+          email_subject: Nova proposta adicionada a %{participatory_space_title}
+          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi adicionado a %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, quem você está seguindo, acabou de aprovar uma proposta que pode ser interessante para você, confira e contribua:"
           email_outro: Você recebeu esta notificação porque você está seguindo %{endorser_nickname}. Você pode parar de receber notificações após o link anterior.
@@ -47,6 +52,7 @@ pt-BR:
           create: Criar
           endorse: Endossar
           vote: Votar
+          withdraw: retirar o
         name: Propostas
         settings:
           global:
@@ -118,6 +124,7 @@ pt-BR:
         proposals_imports:
           create:
             invalid: Tem havido um problema ao importar as propostas
+            success: "%{number} propostas importadas com sucesso"
           new:
             create: Propostas de importação
             no_features: Não há outros recursos de proposta neste espaço participativo para importar as propostas.
