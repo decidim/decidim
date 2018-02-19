@@ -134,7 +134,11 @@ module Decidim
       #
       # Returns an object that responds to `present` and `visible?`.
       def diff_presenter
-        @diff_presenter ||= Decidim::Log::DiffPresenter.new(changeset, view_helpers)
+        @diff_presenter ||= Decidim::Log::DiffPresenter.new(
+          changeset,
+          view_helpers,
+          show_previous_value?: action.to_s != "create"
+        )
       end
 
       # Private: Presents the diff of the log, if needed
@@ -188,7 +192,7 @@ module Decidim
       #
       # Returns a Boolean.
       def has_diff?
-        action == "update" && version.present?
+        %w(update create).include?(action.to_s) && version.present?
       end
 
       # Private: Sets a default list of attributes to be rendered in
