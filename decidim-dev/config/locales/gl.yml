@@ -3,6 +3,7 @@ gl:
     attributes:
       dummy_resource:
         created_at: Creado en
+        field: O meu campo
         start_date: Data de inicio
         title: Título
         updated_at: Actualizado en
