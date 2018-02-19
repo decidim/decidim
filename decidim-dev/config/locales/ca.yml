@@ -3,6 +3,7 @@ ca:
     attributes:
       dummy_resource:
         created_at: Creat a
+        field: El meu camp
         start_date: Data d'inici
         title: Títol
         updated_at: Actualitzat a
