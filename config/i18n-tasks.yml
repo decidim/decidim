@@ -118,6 +118,7 @@ ignore_unused:
   - decidim.accountability.models.project.valid_statuses.*
   - decidim.accountability.admin_log.*
   - decidim.log.base_presenter.*
+  - decidim.admin_log.*
   - decidim.debates.debates.filters.*
   - decidim.events.*
 
