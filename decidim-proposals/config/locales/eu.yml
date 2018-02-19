@@ -26,6 +26,10 @@ eu:
           email_outro: Jakinarazpena jaso duzu %{author_nickname} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Proposamen berria %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena <a href="%{author_path}">%{author_name} %{author_nickname}</a> sortu zen.
+        proposal_created_for_space:
+          email_intro: Proposamena "%{resource_title}" gehitu da "%{participatory_space_title}" " jarraitzen ari zarela.
+          email_subject: Proposamen berria %{participatory_space_title}
+          notification_title: Proposamena <a href="%{resource_path}">%{resource_title}</a> gehitu da %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, jarraitzen ari zaren norbaiti, interesgarria izan daitekeen proposamen bat onartu du, begiratu eta lagundu:"
           email_subject: "%{endorser_nickname} proposamen berri bat onartu du"
@@ -45,6 +49,7 @@ eu:
           create: Sortu
           endorse: gatoz
           vote: Proiektuaren alde egin
+          withdraw: Erretiratuko
         name: Proposamenak
         settings:
           global:
@@ -116,6 +121,7 @@ eu:
         proposals_imports:
           create:
             invalid: Arazo bat izan da proposamenak inportatzea
+            success: "%{number} proposamenak behar bezala inportatu dira"
           new:
             create: Inportatzeko proposamenak
             no_features: Proposamenen inportazioa inportatzeko espazio parte hartzaile honetan ez dago proposamenrik.
