@@ -1,0 +1,20 @@
+FROM decidim/decidim:latest
+LABEL maintainer="info@codegram.com"
+
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
+ENV RAILS_ENV production
+ENV PORT 3000
+ENV SECRET_KEY_BASE=no_need_for_such_secrecy
+ENV RAILS_SERVE_STATIC_FILES=true
+
+WORKDIR /code
+COPY . .
+RUN bundle install
+
+WORKDIR /code/decidim_app-design
+
+RUN bundle install
+RUN bundle exec rails assets:precompile
+ENTRYPOINT []
+CMD bundle exec rails s -p $PORT
