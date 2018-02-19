@@ -3,7 +3,6 @@ it:
     attributes:
       dummy_resource:
         created_at: Creato a
-        field: Campo
         start_date: Data d'inizio
         title: Titolo
         updated_at: Aggiornato a
