@@ -38,7 +38,7 @@ Gem::Specification.new do |s|
   s.add_dependency "omniauth-google-oauth2", "~> 0.5.0"
   s.add_dependency "omniauth-twitter", "~> 1.4"
   s.add_dependency "paper_trail", "~> 8.0"
-  s.add_dependency "pg", "~> 0.18"
+  s.add_dependency "pg", ">= 0.18", "< 2"
   s.add_dependency "premailer-rails", "~> 1.9"
   s.add_dependency "rails", "~> 5.1", "< 5.2"
   s.add_dependency "rails-i18n", "~> 5.0"
