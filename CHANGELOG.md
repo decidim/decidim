@@ -16,12 +16,15 @@
 - **decidim-participatory_processes**: Ensure only active processes are shown in the highlighted processes section in the homepage[\#2682](https://github.com/decidim/decidim/pull/2682)
 - **decidim-core**: Add collections to group attachments [\#2394](https://github.com/decidim/decidim/pull/2394).
 - **decidim-admin**: Adds a log of all admin actions, only visible by organization admins [\#2604](https://github.com/decidim/decidim/pull/2604)
+- **decidim-core**: Make static pages traceable [\#2754](https://github.com/decidim/decidim/pull/2754)
+- **decidim-admin**: Log all actions on static pages [\#2754](https://github.com/decidim/decidim/pull/2754)
 
 **Changed**:
 
 - **decidim-core**: General improvements on documentation [\#2656](https://github.com/decidim/decidim/pull/2656).
 - **decidim-core**: `FeatureReferenceHelper#feature_reference` has been moved to `ResourceReferenceHelper#resource_reference` to clarify its use. [\#2557](https://github.com/decidim/decidim/pull/2557)
 - **decidim-core**: `Decidim.resource_reference_generator` has been moved to `Decidim.reference_generator` to clarify its use. [\#2557](https://github.com/decidim/decidim/pull/2557)
+- **decidim-system**: Default pages content are now wrapped in `<p>` HTML tags [\#2754](https://github.com/decidim/decidim/pull/2754)
 
 **Fixed**:
 

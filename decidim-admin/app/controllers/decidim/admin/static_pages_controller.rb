@@ -63,11 +63,13 @@ module Decidim
 
       def destroy
         authorize! :destroy, page
-        page.destroy!
 
-        flash[:notice] = I18n.t("static_pages.destroy.success", scope: "decidim.admin")
-
-        redirect_to static_pages_path
+        DestroyStaticPage.call(page, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("static_pages.destroy.success", scope: "decidim.admin")
+            redirect_to static_pages_path
+          end
+        end
       end
 
       private
