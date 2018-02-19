@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Log::DiffPresenter, type: :helper do
-  subject { described_class.new(changeset, helper).present }
+  subject { described_class.new(changeset, helper, options).present }
 
   let(:user) { create :user }
   let(:type) { nil }
@@ -19,6 +19,7 @@ describe Decidim::Log::DiffPresenter, type: :helper do
     ]
   end
   let(:presenter_double) { double(present: true) }
+  let(:options) { {} }
 
   describe "#present" do
     context "when no changeset is present" do
@@ -39,6 +40,16 @@ describe Decidim::Log::DiffPresenter, type: :helper do
 
     it "shows the previous value" do
       expect(subject).to include("Previous value")
+    end
+
+    describe "options" do
+      context "when `show_previous_value?` is false" do
+        let(:options) { { show_previous_value?: false } }
+
+        it "does not show the previous value" do
+          expect(subject).not_to include("Previous value")
+        end
+      end
     end
 
     describe "value types presenters" do

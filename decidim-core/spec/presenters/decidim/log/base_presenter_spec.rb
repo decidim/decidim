@@ -6,10 +6,18 @@ describe Decidim::Log::BasePresenter, type: :helper do
   subject { presenter }
 
   let(:presenter) { described_class.new(action_log, helper) }
-  let(:action_log) { create :action_log, user: user, action: action, created_at: Date.new(2018, 1, 2).at_midnight }
-  let(:user) { create :user, name: "Alice Doe" }
+  let(:action_log) do
+    create(
+      :action_log,
+      user: user,
+      action: action,
+      resource: resource,
+      created_at: Date.new(2018, 1, 2).at_midnight
+    )
+  end
+  let(:user) { create :user, name: "Alice Doe", organization: resource.feature.participatory_space.organization }
   let(:participatory_space) { action_log.participatory_space }
-  let(:resource) { action_log.resource }
+  let(:resource) { create :dummy_resource, title: "My Resource" }
   let(:action) { :create }
   let(:version_double) { double(present?: false) }
   let(:presenter_double) { double(present: true) }
@@ -35,8 +43,26 @@ describe Decidim::Log::BasePresenter, type: :helper do
       expect(subject).to include(participatory_space.title["en"])
     end
 
+    context "when version exists" do
+      let(:version_double) { double(present?: true, changeset: {}) }
+
+      it "renders a dropdown" do
+        expect(subject).to include("class=\"logs__log__actions-dropdown\"")
+      end
+
+      it "renders the diff" do
+        allow(Decidim::Log::DiffPresenter)
+          .to receive(:new).and_return(presenter_double)
+
+        expect(presenter_double)
+          .to receive(:present)
+
+        subject
+      end
+    end
+
     context "when the action is update" do
-      let(:action) { :update }
+      let(:action) { "update" }
 
       it "renders a basic log sentence" do
         expect(subject).to include("update")
@@ -45,23 +71,13 @@ describe Decidim::Log::BasePresenter, type: :helper do
         expect(subject).to include(resource.title)
         expect(subject).to include(participatory_space.title["en"])
       end
+    end
 
-      context "when version exists" do
-        let(:version_double) { double(present?: true, changeset: {}) }
+    context "when action is delete" do
+      let(:action) { "delete" }
 
-        it "renders a dropdown" do
-          expect(subject).to include("class=\"logs__log__actions-dropdown\"")
-        end
-
-        it "renders the diff" do
-          allow(Decidim::Log::DiffPresenter)
-            .to receive(:new).and_return(presenter_double)
-
-          expect(presenter_double)
-            .to receive(:present)
-
-          subject
-        end
+      it "adds the correct classes to the action log element" do
+        expect(subject).to include("logs__log logs__log--deletion")
       end
     end
 

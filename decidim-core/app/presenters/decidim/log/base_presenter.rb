@@ -134,7 +134,11 @@ module Decidim
       #
       # Returns an object that responds to `present` and `visible?`.
       def diff_presenter
-        @diff_presenter ||= Decidim::Log::DiffPresenter.new(changeset, view_helpers)
+        @diff_presenter ||= Decidim::Log::DiffPresenter.new(
+          changeset,
+          view_helpers,
+          show_previous_value?: action.to_s != "create"
+        )
       end
 
       # Private: Presents the diff of the log, if needed
@@ -152,7 +156,8 @@ module Decidim
       #
       # Returns an HTML-safe String.
       def present_action_log
-        h.content_tag(:li, id: h.dom_id(action_log), class: "logs__log", data: { toggler: ".logs__log--expanded" }) do
+        classes = ["logs__log"] + action_log_extra_classes.to_a
+        h.content_tag(:li, id: h.dom_id(action_log), class: classes.join(" "), data: { toggler: ".logs__log--expanded" }) do
           h.concat(present_content)
           h.concat(present_diff)
         end
@@ -164,13 +169,26 @@ module Decidim
       # Returns a String.
       def action_string
         case action.to_s
-        when "create"
-          "decidim.log.base_presenter.create"
-        when "update"
-          "decidim.log.base_presenter.update"
+        when "create", "update", "delete"
+          generate_action_string(action)
         else
-          "decidim.log.base_presenter.unknown_action"
+          generate_action_string(:unknown_action)
         end
+      end
+
+      # Private: Generates the correct action string considering if
+      # the space is present or not.
+      #
+      # action - A String with the name of the action
+      #
+      # Returns a String.
+      def generate_action_string(action)
+        string = if action_log.participatory_space.present?
+                   "#{action}_with_space"
+                 else
+                   action
+                 end
+        "decidim.log.base_presenter.#{string}"
       end
 
       # Private: The params to be sent to the i18n string.
@@ -188,7 +206,7 @@ module Decidim
       #
       # Returns a Boolean.
       def has_diff?
-        action == "update" && version.present?
+        %w(update create).include?(action.to_s) && version.present?
       end
 
       # Private: Sets a default list of attributes to be rendered in
@@ -208,6 +226,15 @@ module Decidim
       #
       # Returns a String.
       def i18n_labels_scope; end
+
+      # Private: Holds a list of extra classes to apply to the action log
+      # HTML element.
+      #
+      # Returns an Array of Strings.
+      def action_log_extra_classes
+        return ["logs__log--deletion"] if action.to_s == "delete"
+        []
+      end
 
       # Private: Calculates the changeset to be rendered. Uses the values
       # from the `diff_fields_mapping` method.

@@ -75,6 +75,8 @@ module Decidim
       #
       # Returns an array of hashes.
       def generate_i18n_changeset(attribute, values, type)
+        values.map! { |value| value.is_a?(String) ? JSON.parse(value) : value }
+
         values.last.flat_map do |locale, _value|
           previous_value = values.first.try(:[], locale)
           new_value = values.last.try(:[], locale)
@@ -111,13 +113,17 @@ module Decidim
       # Generates the label for the given attribute. If the `locale` is set,
       # it appends the locale at the end: `AttributeName (LocaleName)`.
       #
-      # attribute - A String representing the attribute name. It will retrive
+      # attribute - A Symbol representing the attribute name. It will retrive
       #   this key from the I18n scope set at `i18n_labels_scope`.
       # locale - a String representing the name of the locale.
       #
       # Returns a String.
       def generate_label(attribute, locale = nil)
-        label = I18n.t(attribute, scope: i18n_labels_scope)
+        label = if i18n_labels_scope
+                  I18n.t(attribute, scope: i18n_labels_scope)
+                else
+                  attribute.to_s.humanize
+                end
         return label unless locale
 
         locale_name = I18n.t("locale.name", locale: locale)
