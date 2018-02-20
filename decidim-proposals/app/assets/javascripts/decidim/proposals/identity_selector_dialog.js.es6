@@ -27,14 +27,13 @@ $(document).ready(function () {
  *
  */
 $(document).ready(function () {
-  $("#select-identity-button").on('ajax:success', function(evt, data) {
+  $("#select-identity-button").on('ajax:success', function(evt) {
     // once reveal popup has been rendered register event callbacks
     $("#user-identities ul.reveal__list li").each(function(index, elem) {
-      var liTag= $(elem)
-      liTag.on('click', function(evt) {
+      let liTag= $(elem)
+      liTag.on('click', function() {
         let method= liTag.data('method')
         let url= liTag.data('url')
-        console.log(method, url, '<<<request')
         $.ajax({
           url: url,
           method: method,
