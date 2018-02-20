@@ -58,6 +58,11 @@ pt-BR:
         create: "%{user_name} criou o %{resource_name} Boletim de Notícias"
         delete: "%{user_name} apagou o %{resource_name} Boletim de Notícias"
         deliver: "%{user_name} entregou o %{resource_name} Boletim de Notícias"
+        update: "%{user_name} atualizou o %{resource_name} Boletim de Notícias"
+      static_pages:
+        create: "%{user_name} criou o %{resource_name} página estática"
+        delete: "%{user_name} apagou o %{resource_name} página estática"
+        update: "%{user_name} atualizou o %{resource_name} página estática"
     anonymous_user: Anônimo
     application:
       collection:
