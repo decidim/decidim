@@ -48,6 +48,11 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:ok)
         end
 
+        it "traces the creation" do
+          expect(Decidim.traceability).to receive(:update!).with(newsletter, user, a_kind_of(Hash))
+          command.call
+        end
+
         it "updates the newsletter" do
           command.call
           newsletter.reload
