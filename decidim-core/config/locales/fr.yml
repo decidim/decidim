@@ -53,6 +53,11 @@ fr:
         error: Une erreur s'est produite lors de la mise à jour de votre compte.
         success: Votre compte a été mis à jour avec succès.
         success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse e-mail.
+    admin_log:
+      newsletter:
+        create: "%{user_name} créé le %{resource_name} bulletin"
+        delete: "%{user_name} supprimé le %{resource_name} bulletin"
+        deliver: "%{user_name} livré le %{resource_name} bulletin"
     anonymous_user: Anonyme
     application:
       collection:
