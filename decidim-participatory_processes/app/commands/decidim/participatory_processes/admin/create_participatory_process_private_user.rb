@@ -31,7 +31,7 @@ module Decidim
           end
 
           broadcast(:ok)
-        rescue ActiveRecord::RecordInvalid
+          rescue ActiveRecord::RecordInvalid
           form.errors.add(:email, :taken)
           broadcast(:invalid)
         end

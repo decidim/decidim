@@ -30,8 +30,11 @@ module Decidim
             create_or_invite_user
             create_private_user
           end
-
           broadcast(:ok)
+
+          rescue ActiveRecord::RecordInvalid
+          form.errors.add(:email, :taken)
+          broadcast(:invalid)
         end
 
         private

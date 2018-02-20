@@ -59,9 +59,9 @@ module Decidim
 
     # Method for current user can visit the space (assembly or proces)
     def current_user_can_visit_space?
-      (current_participatory_space.private_space? &&
+      (current_participatory_space.try(:private_space?) &&
        current_participatory_space.users.any? { current_user }) ||
-        !current_participatory_space.private_space?
+        !current_participatory_space.try(:private_space?)
     end
   end
 end

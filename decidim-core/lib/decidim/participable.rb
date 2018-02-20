@@ -84,8 +84,6 @@ module Decidim
       #
       # Returns an `ActiveRecord::Association`.
       def public_spaces
-        return published if Object.const_defined?("Decidim::Initiatives")
-
         published.non_private_spaces
       end
     end

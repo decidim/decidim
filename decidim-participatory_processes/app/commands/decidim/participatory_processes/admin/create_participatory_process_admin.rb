@@ -26,6 +26,7 @@ module Decidim
         # Returns nothing.
         def call
           return broadcast(:invalid) if form.invalid?
+          
           ActiveRecord::Base.transaction do
             create_or_invite_user
             existing_role || create_role
