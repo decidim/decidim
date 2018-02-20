@@ -57,6 +57,12 @@ it:
       newsletter:
         create: "%{user_name} creato il %{resource_name} notiziario"
         delete: "%{user_name} cancellato il %{resource_name} notiziario"
+        deliver: "%{user_name} consegnato il %{resource_name} notiziario"
+        update: "%{user_name} aggiornato il %{resource_name} notiziario"
+      static_pages:
+        create: "%{user_name} creato il %{resource_name} pagina statica"
+        delete: "%{user_name} cancellato il %{resource_name} pagina statica"
+        update: "%{user_name} aggiornato il %{resource_name} pagina statica"
     anonymous_user: Anonimo
     application:
       collection:
