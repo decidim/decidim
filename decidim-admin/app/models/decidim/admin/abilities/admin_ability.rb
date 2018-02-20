@@ -13,7 +13,7 @@ module Decidim
 
           can :manage, Category
           can :manage, ParticipatoryProcessUserRole
-          
+
           can [:create, :update, :index, :new, :read], StaticPage
 
           can([:update_slug, :destroy], [StaticPage, StaticPageForm]) do |page|
@@ -45,7 +45,7 @@ module Decidim
           can :manage, Scope
           can :manage, ScopeType
           can :manage, Newsletter
-          
+
           can [:create, :index, :new, :read, :invite], User
 
           can([:destroy], [User]) do |user_to_destroy|
