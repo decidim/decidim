@@ -53,6 +53,12 @@ es:
         error: Se ha producido un error al actualizar tu cuenta.
         success: Tu cuenta se ha actualizado correctamente.
         success_with_email_confirmation: Tu cuenta se ha actualizado correctamente. Recibirás un correo electrónico para confirmar tu nueva dirección de correo electrónico.
+    admin_log:
+      newsletter:
+        create: "%{user_name} creó el %{resource_name} hoja informativa"
+        delete: "%{user_name} eliminado el %{resource_name} hoja informativa"
+        deliver: "%{user_name} entregado el %{resource_name} hoja informativa"
+        update: "%{user_name} actualizado el %{resource_name} hoja informativa"
     anonymous_user: Anónimo
     application:
       collection:
