@@ -9,8 +9,13 @@
 **Changed**:
 
 **Fixed**:
-* **decidim-core**: Fix mention parsing to only search users in current organization. [\2711](https://github.com/decidim/decidim/pull/2711)
 
+* **decidim-core**: Fix DefaultActionAuthorizer when options is nil [\#2753](https://github.com/decidim/decidim/pull/2753)
+* **decidim-system**: Disable recover password for System admins. [\#2752](https://github.com/decidim/decidim/pull/2752)
+* **decidim-core**: Don't render notifications if the resource has been deleted. [\#2746](https://github.com/decidim/decidim/pull/2746)
+* **decidim-core**: Don't try to send notification emails to deleted users. [\#2743](https://github.com/decidim/decidim/pull/2743)
+* **decidim-core**: Fix categories select when missing translations. [\#2742](https://github.com/decidim/decidim/pull/2742)
+* **decidim-core**: Fix mention parsing to only search users in current organization. [\2711](https://github.com/decidim/decidim/pull/2711)
 * **decidim-meetings**: Fix meeting update and creation when its participatory space has a scope without subscopes. [\#2720](https://github.com/decidim/decidim/pull/2720)
 
 ## [v0.9.2](https://github.com/decidim/decidim/tree/v0.9.2) (2018-2-9)
