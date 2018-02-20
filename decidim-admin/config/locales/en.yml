@@ -166,6 +166,7 @@ en:
           success: Category updated successfully.
       dashboard:
         show:
+          view_more_logs: View more logs
           welcome: Welcome to the Decidim Admin Panel.
       exports:
         export_as: "%{name} as %{export_format}"
@@ -243,6 +244,7 @@ en:
             new_managed_user_promotion: New managed user promotion
             promote: Promote
       menu:
+        admin_log: Admin activity log
         admins: Admins
         appearance: Appearance
         configuration: Configuration
@@ -455,6 +457,7 @@ en:
           error: There was an error when updating this page.
           success: Page updated successfully
       titles:
+        admin_log: Admin log
         authorization_workflows: Verification methods
         dashboard: Dashboard
         impersonations: Impersonations

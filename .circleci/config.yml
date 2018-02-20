@@ -57,6 +57,14 @@ jobs:
       - attach_workspace:
           at: /app
       - checkout
+      - run:
+          name: Install a rubygems revision that gets tests passing
+          command: |
+            git clone https://github.com/rubygems/rubygems /rubygems
+            cd /rubygems
+            git checkout e093fb7d594f97edaa6289547a90537871ca5f98
+            git submodule update --init
+            ruby setup.rb
       - restore_cache:
           keys:
             - bundler-dependencies-{{ checksum "Gemfile.lock" }}
@@ -373,10 +381,38 @@ jobs:
           command: cd decidim-debates && rake
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/screenshots
+  build_design_app:
+    working_directory: /app
+    docker:
+      - image: docker:17.09.0-ce-git
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Login to docker
+          command: |
+            docker login --username=_ --password=$HEROKU_AUTH_TOKEN registry.heroku.com
+      - run:
+          name: Pulling docker image
+          command: |
+            docker pull registry.heroku.com/decidim-design/web || true
+      - run:
+          name: Build image
+          command: |
+            docker build -t registry.heroku.com/decidim-design/web --cache-from registry.heroku.com/decidim-design/web -f Dockerfile.design .
+      - run:
+          name: Push deployment image
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              docker push registry.heroku.com/decidim-design/web
+            fi
+
 workflows:
   version: 2
   build_and_test:
     jobs:
+      - build_design_app
+
       - build_test_app:
           filters:
             branches:

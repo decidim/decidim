@@ -19,4 +19,5 @@ describe "Admin manages proposals", type: :system do
   it_behaves_like "manage proposals help texts"
   it_behaves_like "manage proposal wizard steps help texts"
   it_behaves_like "import proposals"
+  it_behaves_like "manage proposals permissions"
 end

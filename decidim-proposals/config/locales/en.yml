@@ -53,6 +53,7 @@ en:
           create: Create
           endorse: Endorse
           vote: Vote
+          withdraw: Withdraw
         name: Proposals
         settings:
           global:
