@@ -32,10 +32,10 @@ Decidim::Proposals.configure do |config|
   config.similarity_limit = 10 # default value
 end
 ```
+
 `similarity_threshold`(real): Sets the current similarity threshold that is used by the % operator. The threshold must be between 0 and 1 (default is 0.3).
 
 `similarity_limit`: number of maximum results.
-
 
 ## Contributing
 

@@ -89,17 +89,17 @@ module Decidim
       #
       # step - A symbol of the target step
       def proposal_wizard_step_help_text?(step)
-       translated_attribute(feature_settings.try("proposal_wizard_#{step}_help_text")).present?
-     end
+        translated_attribute(feature_settings.try("proposal_wizard_#{step}_help_text")).present?
+      end
 
-     # Renders a user_group select field in a form.
-     # form - FormBuilder object
-     # name - attribute user_group_id
-     #
-     # Returns nothing.
-     def user_group_select_field(form, name)
-       form.select(name, current_user.user_groups.verified.map{|g| [g.name, g.id]}, prompt: current_user.name)
-     end
+      # Renders a user_group select field in a form.
+      # form - FormBuilder object
+      # name - attribute user_group_id
+      #
+      # Returns nothing.
+      def user_group_select_field(form, name)
+        form.select(name, current_user.user_groups.verified.map { |g| [g.name, g.id] }, prompt: current_user.name)
+      end
     end
   end
 end
