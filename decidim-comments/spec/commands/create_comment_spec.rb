@@ -28,6 +28,8 @@ module Decidim
         let(:form) do
           CommentForm.from_params(
             form_params
+          ).with_context(
+            current_organization: organization
           )
         end
         let(:command) { described_class.new(form, author, commentable) }
@@ -117,7 +119,7 @@ module Decidim
 
           context "and comment contains a user mention" do
             let(:mentioned_user) { create(:user, organization: organization) }
-            let(:parser_context) { {} }
+            let(:parser_context) { { current_organization: organization } }
             let(:body) { ::Faker::Lorem.paragraph + " @#{mentioned_user.nickname}" }
 
             it "creates a new comment with user mention replaced" do
