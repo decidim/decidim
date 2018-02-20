@@ -23,9 +23,13 @@ en:
         subject: Subject
       organization:
         default_locale: Default locale
+        facebook_handler: Facebook handler
+        github_handler: GitHub handler
+        instagram_handler: Instagram handler
         name: Name
         reference_prefix: Reference prefix
-      organization_appearance:
+        twitter_handler: Twitter handler
+        youtube_handler: YouTube handler
         cta_button_path: Call To Action button path
         cta_button_text: Call To Action button text
         description: Description
