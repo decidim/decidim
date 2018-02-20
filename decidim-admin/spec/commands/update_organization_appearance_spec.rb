@@ -9,7 +9,7 @@ module Decidim::Admin
       let(:user) { create(:user, organization: organization) }
       let(:params) do
         {
-          organization_appearance: {
+          organization: {
             welcome_text_en: "Welcome",
             welcome_text_es: "Hola",
             welcome_text_ca: "Hola",
