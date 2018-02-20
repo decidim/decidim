@@ -74,7 +74,7 @@ module Decidim
 
       # Returns a string with the current step number and the total steps number
       #
-      # current_step_num - A symbol of the current step
+      # step - A symbol of the target step
       def proposal_wizard_current_step_of(step)
         current_step_num = proposal_wizard_step_number(step)
         content_tag :span, class: "text-small" do
@@ -84,6 +84,13 @@ module Decidim
           concat ")"
         end
       end
+
+      # Returns a boolean if the step has a help text defined
+      #
+      # step - A symbol of the target step
+      def proposal_wizard_step_help_text?(step)
+       translated_attribute(feature_settings.try("proposal_wizard_#{step}_help_text")).present?
+     end
     end
   end
 end
