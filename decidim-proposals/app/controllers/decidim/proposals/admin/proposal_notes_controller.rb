@@ -18,12 +18,12 @@ module Decidim
 
           CreateProposalNote.call(@form, proposal, current_user) do
             on(:ok) do
-              flash[:notice] = I18n.t("proposals.create.success", scope: "decidim")
+              flash[:notice] = I18n.t("proposal_notes.create.success", scope: "decidim.proposals.admin")
               redirect_to proposal_proposal_notes_path(proposal_id: proposal.id)
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("proposals.create.error", scope: "decidim")
+              flash.now[:alert] = I18n.t("proposal_notes.create.error", scope: "decidim.proposals.admin")
               render :index
             end
           end
