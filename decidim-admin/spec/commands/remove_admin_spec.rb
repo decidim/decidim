@@ -20,9 +20,9 @@ module Decidim::Admin
     end
 
     it "tracks the change" do
-      expect(Decidim.traceability)
-        .to receive(:update!)
-        .with(user, current_user, admin: false, roles: [])
+      expect(Decidim::ActionLogger)
+        .to receive(:log)
+        .with("remove_from_admin", current_user, user, a_kind_of(Hash))
 
         command.call
     end
