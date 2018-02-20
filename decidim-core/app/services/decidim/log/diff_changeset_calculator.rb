@@ -39,7 +39,7 @@ module Decidim
           type = :default
           type = fields_mapping[attribute] unless fields_mapping.nil?
 
-          if type.blank?
+          if type.blank? || values[0] == values[1]
             diff
           else
             diff.concat(calculate_changeset(attribute, values, type))
@@ -120,7 +120,7 @@ module Decidim
       # Returns a String.
       def generate_label(attribute, locale = nil)
         label = if i18n_labels_scope
-                  I18n.t(attribute, scope: i18n_labels_scope)
+                  I18n.t(attribute, scope: i18n_labels_scope, default: attribute.to_s.humanize)
                 else
                   attribute.to_s.humanize
                 end
