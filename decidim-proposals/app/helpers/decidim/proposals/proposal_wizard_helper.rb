@@ -4,11 +4,12 @@ module Decidim
   module Proposals
     # Simple helpers to handle markup variations for proposal wizard partials
     module ProposalWizardHelper
-      # Returns the css classes used for proposal votes count in both proposals list and show pages
+      # Returns the css classes used for the proposal wizard for the desired step
       #
-      # from_proposals_list - A boolean to indicate if the template is rendered from the proposals list page
+      # step - A symbol of the target step
+      # current_step - A symbol of the current step
       #
-      # Returns a hash with the css classes for the count number and label
+      # Returns a string with the css classes for the desired step
       def proposal_wizard_step_classes(step, current_step)
         step_i = step.to_s.split("_").last.to_i
         if step_i == proposal_wizard_step_number(current_step)
@@ -20,14 +21,23 @@ module Decidim
         end
       end
 
+      # Returns the number of the step
+      #
+      # step - A symbol of the target step
       def proposal_wizard_step_number(step)
         step.to_s.split("_").last.to_i
       end
 
+      # Returns the name of the step, translated
+      #
+      # step - A symbol of the target step
       def proposal_wizard_step_name(step)
         t(:"decidim.proposals.proposals.wizard_steps.#{step}")
       end
 
+      # Returns the page title of the given step, translated
+      #
+      # action_name - A string of the rendered action
       def proposal_wizard_step_title(action_name)
         step_title = case action_name
                      when "create"
@@ -41,10 +51,17 @@ module Decidim
         t("decidim.proposals.proposals.#{step_title}.title")
       end
 
+      # Returns the list item of the given step, in html
+      #
+      # step - A symbol of the target step
+      # current_step - A symbol of the current step
       def proposal_wizard_stepper_step(step, current_step)
         content_tag(:li, proposal_wizard_step_name(step), class: proposal_wizard_step_classes(step, current_step).to_s)
       end
 
+      # Returns the list with all the steps, in html
+      #
+      # current_step - A symbol of the current step
       def proposal_wizard_stepper(current_step)
         content_tag :ol, class: "wizard__steps" do
           %(
@@ -55,7 +72,11 @@ module Decidim
         end
       end
 
-      def proposal_wizard_current_step_of(current_step_num)
+      # Returns a string with the current step number and the total steps number
+      #
+      # current_step_num - A symbol of the current step
+      def proposal_wizard_current_step_of(step)
+        current_step_num = proposal_wizard_step_number(step)
         content_tag :span, class: "text-small" do
           concat t(:"decidim.proposals.proposals.wizard_steps.step_of", current_step_num: current_step_num, total_steps: 3)
           concat " ("
