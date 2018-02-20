@@ -2,14 +2,14 @@
 
 module Decidim
   module Proposals
-    # Class uses to retrieve similar proposals.
+    # Class used to retrieve similar proposals.
     class SimilarProposals < Rectify::Query
       include Decidim::TranslationsHelper
 
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # features - Decidim::CurrentFeature
-      # form - Decidim::Proposals::ProposalWizardForm
+      # form - Decidim::Proposals::Proposal
       def self.for(features, form)
         new(features, form).query
       end
