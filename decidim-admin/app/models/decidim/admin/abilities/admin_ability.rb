@@ -13,13 +13,14 @@ module Decidim
 
           can :manage, Category
           can :manage, ParticipatoryProcessUserRole
+
           can [:create, :update, :index, :new, :read], StaticPage
 
-          can [:update_slug, :destroy], [StaticPage, StaticPageForm] do |page|
+          can([:update_slug, :destroy], [StaticPage, StaticPageForm]) do |page|
             !StaticPage.default?(page.slug)
           end
 
-          can [:read, :update], Decidim::Organization do |organization|
+          can([:read, :update], Decidim::Organization) do |organization|
             organization == user.organization
           end
 
@@ -27,11 +28,14 @@ module Decidim
           can :manage, :admin_users
 
           can :manage, :managed_users
+
           cannot [:new, :create], :managed_users if empty_available_authorizations?
-          can :impersonate, Decidim::User do |user_to_impersonate|
+
+          can(:impersonate, Decidim::User) do |user_to_impersonate|
             user_to_impersonate.managed? && Decidim::ImpersonationLog.active.empty?
           end
-          can :promote, Decidim::User do |user_to_promote|
+
+          can(:promote, Decidim::User) do |user_to_promote|
             user_to_promote.managed? && Decidim::ImpersonationLog.active.empty?
           end
 
@@ -41,9 +45,10 @@ module Decidim
           can :manage, Scope
           can :manage, ScopeType
           can :manage, Newsletter
+
           can [:create, :index, :new, :read, :invite], User
 
-          can [:destroy], [User] do |user_to_destroy|
+          can([:destroy], [User]) do |user_to_destroy|
             user != user_to_destroy
           end
 
