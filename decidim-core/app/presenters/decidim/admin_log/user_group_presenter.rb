@@ -20,7 +20,7 @@ module Decidim
 
       def action_string
         case action
-        when "verify"
+        when "verify", "reject"
           "decidim.admin_log.user_group.#{action}"
         else
           super

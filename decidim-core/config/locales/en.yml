@@ -65,6 +65,7 @@ en:
         delete: "%{user_name} deleted the %{resource_name} static page"
         update: "%{user_name} updated the %{resource_name} static page"
       user_group:
+        reject: "%{user_name} rejected the %{resource_name} user group verification"
         verify: "%{user_name} verified the %{resource_name} user group"
     anonymous_user: Anonymous
     application:
