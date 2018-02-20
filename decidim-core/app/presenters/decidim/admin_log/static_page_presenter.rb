@@ -30,6 +30,19 @@ module Decidim
       def resource_presenter
         @resource_presenter ||= Decidim::AdminLog::StaticPageResourcePresenter.new(action_log.resource, h, action_log.extra["resource"])
       end
+
+      def i18n_labels_scope
+        "activemodel.attributes.static_page"
+      end
+
+      def action_string
+        case action
+        when "create", "delete", "update"
+          "decidim.admin_log.static_page.#{action}"
+        else
+          super
+        end
+      end
     end
   end
 end
