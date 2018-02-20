@@ -53,6 +53,9 @@ eu:
         error: Errorea gertatu da zure kontua eguneratzean.
         success: Zure kontua zuzen eguneratu da.
         success_with_email_confirmation: Zure kontua zuzen eguneratu da. Mezu elektroniko bat jasoko duzu zure helbide elektroniko berria baieztatzeko.
+    admin_log:
+      newsletter:
+        create: "%{user_name} sortu %{resource_name} buletina"
     anonymous_user: Anonimoa
     application:
       collection:
