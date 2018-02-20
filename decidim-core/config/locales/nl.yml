@@ -56,6 +56,13 @@ nl:
     admin_log:
       newsletter:
         create: "%{user_name} creëerde de %{resource_name} nieuwsbrief"
+        delete: "%{user_name} heeft de %{resource_name} verwijderd nieuwsbrief"
+        deliver: "%{user_name} de %{resource_name} geleverd nieuwsbrief"
+        update: "%{user_name} heeft de %{resource_name} bijgewerkt nieuwsbrief"
+      static_pages:
+        create: "%{user_name} creëerde de %{resource_name} statische pagina"
+        delete: "%{user_name} heeft de %{resource_name} verwijderd statische pagina"
+        update: "%{user_name} heeft de %{resource_name} bijgewerkt statische pagina"
     anonymous_user: Anoniem
     application:
       collection:
