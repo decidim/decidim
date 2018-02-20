@@ -6,6 +6,7 @@ module Decidim
     class ProposalEndorsementsController < Decidim::Proposals::ApplicationController
       helper_method :proposal
 
+      protect_from_forgery except: [:destroy, :create]
       before_action :authenticate_user!
 
       def create

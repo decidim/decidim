@@ -83,6 +83,28 @@ module Decidim
           fully_endorsed
         end
       end
+
+      # Public: Renders an identity for endorsement.
+      #
+      # @params (mandatory): proposal, from_proposals_list
+      # @params (mandatory): user, the user that is endorsing at the end.
+      # @params (optional) : user_group, the user_group on behalf of which the endorsement is being done
+      def render_endorsement_identity(proposal, user, user_group = nil)
+        current_endorsement_url = proposal_proposal_endorsement_path(
+          proposal_id: proposal,
+          from_proposals_list: false,
+          user_group_id: user_group&.id
+        )
+        presenter = if user_group
+                      Decidim::UserGroupPresenter.new(user_group)
+                    else
+                      Decidim::UserPresenter.new(user)
+                    end
+        selected = proposal.endorsed_by?(user, user_group)
+        http_method = selected ? :delete : :post
+        render partial: "decidim/proposals/proposal_endorsements/identity", locals:
+        { identity: presenter, selected: selected, current_endorsement_url: current_endorsement_url, http_method: http_method }
+      end
     end
   end
 end
