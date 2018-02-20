@@ -58,6 +58,11 @@ fr:
         create: "%{user_name} créé le %{resource_name} bulletin"
         delete: "%{user_name} supprimé le %{resource_name} bulletin"
         deliver: "%{user_name} livré le %{resource_name} bulletin"
+        update: "%{user_name} mis à jour le %{resource_name} bulletin"
+      static_pages:
+        create: "%{user_name} créé le %{resource_name} page statique"
+        delete: "%{user_name} supprimé le %{resource_name} page statique"
+        update: "%{user_name} mis à jour le %{resource_name} page statique"
     anonymous_user: Anonyme
     application:
       collection:
