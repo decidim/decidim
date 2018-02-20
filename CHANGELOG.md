@@ -29,6 +29,7 @@
 
 **Fixed**:
 
+- **decidim-proposals**: Fix duplicates when paginate proposals admin with sort_link state [\#2772](https://github.com/decidim/decidim/pull/2772)
 - **decidim-system**: Disable recover password for System admins. [\#2752](https://github.com/decidim/decidim/pull/2752)
 - **decidim-core**: Fix DefaultActionAuthorizer when options is nil [\#2753](https://github.com/decidim/decidim/pull/2753)
 - **decidim-core**: Don't render notifications if the resource has been deleted. [\#2746](https://github.com/decidim/decidim/pull/2746)
