@@ -22,19 +22,14 @@ en:
         body: Body
         subject: Subject
       organization:
-        default_locale: Default locale
-        facebook_handler: Facebook handler
-        github_handler: GitHub handler
-        instagram_handler: Instagram handler
-        name: Name
-        reference_prefix: Reference prefix
-        twitter_handler: Twitter handler
-        youtube_handler: YouTube handler
         cta_button_path: Call To Action button path
         cta_button_text: Call To Action button text
+        default_locale: Default locale
         description: Description
         enable_omnipresent_banner: Show omnipresent banner
+        facebook_handler: Facebook handler
         favicon: Icon
+        github_handler: GitHub handler
         header_snippets: Header snippets
         highlighted_content_banner_action_subtitle: Action button subtitle
         highlighted_content_banner_action_title: Action button title
@@ -44,15 +39,20 @@ en:
         highlighted_content_banner_short_description: Short description
         highlighted_content_banner_title: Title
         homepage_image: Homepage image
+        instagram_handler: Instagram handler
         logo: Logo
+        name: Name
         official_img_footer: Official logo footer
         official_img_header: Official logo header
         official_url: Official organization URL
         omnipresent_banner_short_description: Short description
         omnipresent_banner_title: Title
         omnipresent_banner_url: URL
+        reference_prefix: Reference prefix
         show_statistics: Show statistics
+        twitter_handler: Twitter handler
         welcome_text: Welcome text
+        youtube_handler: YouTube handler
       scope:
         code: Code
         name: Name
