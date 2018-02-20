@@ -19,7 +19,7 @@ ca:
         registration_terms: Termes i condicions de l'inscripció
         registrations_enabled: Inscripcions obertes
         start_time: Hora d'inici
-        title: Editar trobada
+        title: Títol
   decidim:
     events:
       meetings:
