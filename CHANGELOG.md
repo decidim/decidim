@@ -19,6 +19,7 @@
 - **decidim-core**: Make static pages traceable [\#2754](https://github.com/decidim/decidim/pull/2754)
 - **decidim-admin**: Log all actions on static pages [\#2754](https://github.com/decidim/decidim/pull/2754)
 - **decidim-admin**: Log all actions on newsletters [\#2763](https://github.com/decidim/decidim/pull/2763)
+- **decidim-admin**: Log user groups verifications and rejections [\#2778](https://github.com/decidim/decidim/pull/2778)
 
 **Changed**:
 
