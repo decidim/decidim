@@ -53,6 +53,9 @@ nl:
         error: Er is een fout opgetreden bij het bijwerken van uw account.
         success: Uw account is bijgewerkt.
         success_with_email_confirmation: Uw account is bijgewerkt. U ontvangt een e-mail ter bevestiging van uw nieuwe e-mailadres.
+    admin_log:
+      newsletter:
+        create: "%{user_name} creëerde de %{resource_name} nieuwsbrief"
     anonymous_user: Anoniem
     application:
       collection:
