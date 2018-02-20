@@ -416,6 +416,27 @@ shared_examples "manage proposals" do
     end
   end
 
+  context "when admin can create proposal notes" do
+    it "can create proposal note" do
+      within find("tr", text: proposal.title) do
+        click_link "Private notes"
+      end
+
+      expect(page).to have_selector(".new_proposal_note")
+
+      within ".new_proposal_note" do
+        fill_in :proposal_note_body, with: "Lorem ipsum dolor sit amet consectetur"
+        click_button "Submit"
+      end
+
+      expect(page).to have_admin_callout("Proposal note successfully created")
+
+      within find(".comments") do
+        expect(page).to have_content("Lorem ipsum dolor sit amet consectetur")
+      end
+    end
+  end
+
   def go_to_edit_answer(proposal)
     within find("tr", text: proposal.title) do
       click_link "Answer"
