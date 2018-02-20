@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-module Decidim
+module Decidim::Admin
   describe RemoveAdmin do
     let(:user) { create(:user, :admin) }
     let(:command) { described_class.new(user) }
