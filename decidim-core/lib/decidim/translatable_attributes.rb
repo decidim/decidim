@@ -56,15 +56,18 @@ module Decidim
       # attribute - A Hash where keys (strings) are locales, and their values are
       #             the translation for each locale.
       #
+      # organization - An optional Organization to get the default locale from.
+      #
       # Returns a String with the translation.
-      def translated_attribute(attribute)
+      def translated_attribute(attribute, organization = nil)
         return "" if attribute.nil?
         return attribute unless attribute.is_a?(Hash)
 
-        current_organization_locale = try(:current_organization).try(:default_locale)
+        organization ||= try(:current_organization)
+        organization_locale = organization.try(:default_locale)
 
         attribute[I18n.locale.to_s].presence ||
-          attribute[current_organization_locale].presence ||
+          attribute[organization_locale].presence ||
           attribute[attribute.keys.first].presence ||
           ""
       end

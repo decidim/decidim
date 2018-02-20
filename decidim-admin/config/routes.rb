@@ -15,6 +15,7 @@ Decidim::Admin::Engine.routes.draw do
     resources :scopes, except: [:show] do
       resources :scopes, except: [:show]
     end
+    resources :logs, only: [:index]
 
     resources :authorization_workflows, only: :index
 

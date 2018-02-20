@@ -6,6 +6,17 @@ module Decidim
     #
     class DashboardController < Decidim::Admin::ApplicationController
       authorize_resource :admin_dashboard, class: false
+
+      helper_method :latest_action_logs
+
+      private
+
+      def latest_action_logs
+        @latest_action_logs ||= Decidim::ActionLog
+                                .where(organization: current_organization)
+                                .order(created_at: :desc)
+                                .first(20)
+      end
     end
   end
 end
