@@ -53,6 +53,10 @@ fi:
         error: Tilisi päivityksessä tapahtui virhe.
         success: Tilisi on onnistuneesti päivitetty.
         success_with_email_confirmation: Tilisi päivitettiin onnistuneesti. Sähköpostiisi on lähetetty viesti uuden sähköpostiosoitteesi vahvistamiseksi.
+    admin_log:
+      newsletter:
+        create: "%{user_name} luonut %{resource_name} tiedote"
+        delete: "%{user_name} poistettu %{resource_name} tiedote"
     anonymous_user: Anonyymi
     application:
       collection:
