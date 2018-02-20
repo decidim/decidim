@@ -21,7 +21,7 @@ ca:
         slug: Nom curt d'URL
         subtitle: Subtítol
         target: A qui va dirigit?
-        title: Grup de processos participatius
+        title: Títol
   decidim:
     admin:
       assemblies:
@@ -93,7 +93,7 @@ ca:
             created_at: Data de creació
             promoted: Destacat
             published: Publicat
-            title: Grup de processos participatius
+            title: Títol
           name: Assemblea
         assembly_user_role:
           fields:
