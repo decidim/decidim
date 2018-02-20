@@ -19,6 +19,8 @@
 - **decidim-core**: Make static pages traceable [\#2754](https://github.com/decidim/decidim/pull/2754)
 - **decidim-admin**: Log all actions on static pages [\#2754](https://github.com/decidim/decidim/pull/2754)
 - **decidim-admin**: Log all actions on newsletters [\#2763](https://github.com/decidim/decidim/pull/2763)
+- **decidim-meetings**: Add WYSIWYG editor for meeting closing notes [\#2761](https://github.com/decidim/decidim/pull/2779)
+- **decidim-meetings**: Add formatting of the list of organizations attending to a meeting [\#2761](https://github.com/decidim/decidim/pull/2779)
 
 **Changed**:
 
