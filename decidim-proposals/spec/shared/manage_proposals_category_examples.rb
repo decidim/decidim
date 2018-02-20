@@ -7,7 +7,7 @@ shared_examples "when managing proposals category as an admin" do
   let!(:proposal_first) { reportables.first }
   let!(:proposal_last) { reportables.last }
 
-  context "Proposals list page" do
+  context "when in the Proposals list page" do
     it "shows a checkbox to select each proposal" do
       expect(page).to have_css("#js-form-recategorize-proposals tbody .js-check-all-proposal", count: 4)
     end

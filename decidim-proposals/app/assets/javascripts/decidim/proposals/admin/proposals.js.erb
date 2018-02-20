@@ -1,0 +1,90 @@
+// = require_self
+
+let selectedProposalsCount = function() {
+  return $("#js-recategorize-proposals-count").text($('.js-check-all-proposal:checked').length);
+}
+
+let showBulkActionsButton = function() {
+  $("#js-bulk-actions-button").removeClass('invisible');
+}
+
+let hideBulkActionsButton = function() {
+  $("#js-bulk-actions-button").addClass('invisible');
+  $("#js-bulk-actions-dropdown").removeClass('is-open');
+}
+
+let showOtherActionsButtons = function() {
+  $("#js-other-actions-wrapper").removeClass('invisible');
+}
+let hideOtherActionsButtons = function() {
+  $("#js-other-actions-wrapper").addClass('invisible');
+}
+
+if ($('#js-form-recategorize-proposals').length) {
+  /* eslint-disable no-invalid-this */
+  $("#js-bulk-actions-recategorize").click(function(e){
+    e.preventDefault();
+    $("#js-bulk-actions-wrapper").addClass('invisible');
+    hideBulkActionsButton()
+    hideOtherActionsButtons()
+    $("#js-recategorize-proposals-actions").removeClass('invisible');
+  })
+
+  $("#js-recategorize-proposals-actions").addClass('invisible');
+  $("#js-bulk-actions-button").addClass('invisible');
+
+  // select all checkboxes
+  $(".js-check-all").change(function() {
+    $(".js-check-all-proposal").prop('checked', $(this).prop("checked"));
+
+    if ($(this).prop("checked")) {
+      showBulkActionsButton()
+    } else {
+      hideBulkActionsButton()
+    }
+
+    selectedProposalsCount()
+  });
+
+  // proposal checkbox change
+  $('.js-check-all-proposal').change(function() {
+    // uncheck "select all", if one of the listed checkbox item is unchecked
+    if ($(this).prop("checked") === false) {
+      $(".js-check-all").prop('checked', false);
+    }
+    // check "select all" if all checkbox proposals are checked
+    if ($('.js-check-all-proposal:checked').length === $('.js-check-all-proposal').length) {
+      $(".js-check-all").prop('checked', true);
+      showBulkActionsButton()
+    }
+
+    if ($(this).prop("checked")) {
+      showBulkActionsButton()
+    }
+
+    if ($('.js-check-all-proposal:checked').length === 0) {
+      hideBulkActionsButton()
+    }
+
+    selectedProposalsCount()
+  });
+
+  $('.js-proposal-list-check').change(function() {
+    var proposal_id = $(this).val()
+    var checked = $(this).prop("checked")
+    $('#js-form-recategorize-proposals').find(".js-proposal-id-"+proposal_id).prop('checked', checked)
+  })
+}
+
+
+$(document).ready(function() {
+  return $(document).on("ajax:success", function(e, data, status, xhr) {
+    <% if flash[:error].present? %>
+    	console.log('invalid_category_error', "<%= raw flash[:error] %>")
+    <% end %>
+  }).on("ajax:error", function(e, xhr, status, error) {
+    console.log("error");
+
+    // return $("#js-form-recategorize-proposals").append("<p>ERROR</p>");
+  });
+});
