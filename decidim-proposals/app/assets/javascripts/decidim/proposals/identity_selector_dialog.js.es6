@@ -27,7 +27,7 @@ $(document).ready(function () {
  *
  */
 $(document).ready(function () {
-  $("#select-identity-button").on('ajax:success', function(evt) {
+  $("#select-identity-button").on('ajax:success', function() {
     // once reveal popup has been rendered register event callbacks
     $("#user-identities ul.reveal__list li").each(function(index, elem) {
       let liTag= $(elem)
