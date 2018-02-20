@@ -20,7 +20,9 @@ And then execute:
 bundle
 ```
 
-## Configuring Similarity
+### Configuring Similarity
+
+`pg_trgm` is a PostgreSQL extension providing simple fuzzy string matching used in the Proposal wizard to find similar published proposals (title and the body).
 
 Create config variables in your app's `/config/initializers/decidim-proposals.rb`:
 
@@ -30,6 +32,10 @@ Decidim::Proposals.configure do |config|
   config.similarity_limit = 10 # default value
 end
 ```
+`similarity_threshold`(real): Sets the current similarity threshold that is used by the % operator. The threshold must be between 0 and 1 (default is 0.3).
+
+`similarity_limit`: number of maximum results.
+
 
 ## Contributing
 
