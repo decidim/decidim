@@ -51,7 +51,7 @@
           <% end %>
           <div class="definition-data__item">
             <span class="definition-data__title"><%= t(".organizations") %></span>
-            <span class="definition-data__text"><%= meeting.attending_organizations %></span>
+            <span class="definition-data__text"><%= simple_format(meeting.attending_organizations) %></span>
           </div>
         </div>
       <% end %>
