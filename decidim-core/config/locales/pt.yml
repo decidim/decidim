@@ -53,6 +53,11 @@ pt:
         error: Ocorreu um erro ao actualizar a sua conta.
         success: A sua conta foi actualizada com sucesso.
         success_with_email_confirmation: A sua conta foi actualizada com sucesso. Irá receber um e-mail de confirmação do seu novo endereço.
+    admin_log:
+      newsletter:
+        create: "%{user_name} criou o %{resource_name} Boletim de Notícias"
+        delete: "%{user_name} apagou o %{resource_name} Boletim de Notícias"
+        deliver: "%{user_name} entregou o %{resource_name} Boletim de Notícias"
     anonymous_user: Anônimo
     application:
       collection:
