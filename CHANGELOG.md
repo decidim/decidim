@@ -35,6 +35,7 @@
 
 **Fixed**:
 
+- **decidim-proposals**: Fix duplicates when paginate proposals admin with sort_link state [\#2772](https://github.com/decidim/decidim/pull/2772)
 - **decidim-proposals**: Fix wrong message when creating a proposal private note [\#2769](https://github.com/decidim/decidim/pull/2769)
 - **decidim-core**: Fix AuthorEvent when author is missing [\#2777](https://github.com/decidim/decidim/pull/2777)
 - **decidim-system**: Disable recover password for System admins. [\#2752](https://github.com/decidim/decidim/pull/2752)
