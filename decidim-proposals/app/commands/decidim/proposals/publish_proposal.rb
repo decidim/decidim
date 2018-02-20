@@ -2,7 +2,7 @@
 
 module Decidim
   module Proposals
-    # A command with all the business logic when a user withdraws a new proposal.
+    # A command with all the business logic when a user publishes a draft proposal.
     class PublishProposal < Rectify::Command
       # Public: Initializes the command.
       #
@@ -15,8 +15,8 @@ module Decidim
 
       # Executes the command. Broadcasts these events:
       #
-      # - :ok when everything is valid, together with the proposal.
-      # - :invalid if the proposal already has supports or does not belong to current user.
+      # - :ok when everything is valid and the proposal is published.
+      # - :invalid if the proposal's author is not the current user.
       #
       # Returns nothing.
       def call
