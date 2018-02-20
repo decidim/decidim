@@ -122,8 +122,9 @@ en:
             attachment_legend: "(Optional) Add an attachment"
             select_a_category: Select a category
           index:
-            apply_category: Apply category
-            select_a_category: Select a category
+            actions: Actions
+            cancel: Cancel
+            change_category: Change category
             selected: selected
             title: Proposals
             update_selected: Update selected

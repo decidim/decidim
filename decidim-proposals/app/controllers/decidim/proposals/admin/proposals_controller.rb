@@ -34,29 +34,31 @@ module Decidim
 
         def update_category
           authorize! :update, Proposal
+          @proposal_ids = params[:proposal_ids]
 
           Admin::UpdateProposalCategory.call(params[:category][:id], params[:proposal_ids]) do
             on(:invalid_category) do
-              flash[:alert] = I18n.t(
+              flash.now[:error] = I18n.t(
                 "proposals.update_category.select_a_category",
                 scope: "decidim.proposals.admin"
               )
             end
 
             on(:invalid_proposal_ids) do
-              flash[:alert] = I18n.t(
+              flash.now[:alert] = I18n.t(
                 "proposals.update_category.select_a_proposal",
                 scope: "decidim.proposals.admin"
               )
             end
 
             on(:update_proposals_category) do
-              update_proposals_category_response_oks @response
-              update_proposals_category_response_kos @response
+              flash.now[:notice] = update_proposals_category_response_oks @response
+              flash.now[:alert] = update_proposals_category_response_kos @response
+            end
+            respond_to do |format|
+              format.js
             end
           end
-
-          redirect_to proposals_path
         end
 
         private
@@ -75,7 +77,7 @@ module Decidim
 
         def update_proposals_category_response_oks(response)
           return if response[:oks].blank?
-          flash[:notice] = I18n.t(
+          I18n.t(
             "proposals.update_category.success",
             category: response[:category_name],
             proposals: response[:oks].to_sentence,
@@ -85,7 +87,7 @@ module Decidim
 
         def update_proposals_category_response_kos(response)
           return if response[:kos].blank?
-          flash[:alert] = I18n.t(
+          I18n.t(
             "proposals.update_category.invalid",
             category: response[:category_name],
             proposals: response[:kos].to_sentence,
