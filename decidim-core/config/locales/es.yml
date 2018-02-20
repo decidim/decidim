@@ -59,6 +59,10 @@ es:
         delete: "%{user_name} eliminado el %{resource_name} hoja informativa"
         deliver: "%{user_name} entregado el %{resource_name} hoja informativa"
         update: "%{user_name} actualizado el %{resource_name} hoja informativa"
+      static_pages:
+        create: "%{user_name} creó el %{resource_name} página estática"
+        delete: "%{user_name} eliminado el %{resource_name} página estática"
+        update: "%{user_name} actualizado el %{resource_name} página estática"
     anonymous_user: Anónimo
     application:
       collection:
