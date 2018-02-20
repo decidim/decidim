@@ -102,6 +102,9 @@ en:
             rejected: Rejected
             title: Answer for proposal %{title}
         proposal_notes:
+          create:
+            invalid: There's been a problem creating this proposal note
+            success: Proposal note successfully created
           form:
             note: Note
             submit: Submit
