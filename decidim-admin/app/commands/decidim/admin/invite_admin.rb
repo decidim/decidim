@@ -16,7 +16,7 @@ module Decidim
 
         transaction do
           invite_user
-          set_nickname
+          generate_nickname
           log_action
         end
 
@@ -30,16 +30,18 @@ module Decidim
       def invite_user
         InviteUser.call(form) do
           on(:ok) do |user|
-            set_user(user)
+            save_user(user)
           end
         end
       end
 
-      def set_nickname
+      def generate_nickname
         user.update_attributes(nickname: User.nicknamize(user.name))
       end
 
-      def set_user(user)
+      # Ugly fix to get the user from the block inside the
+      # `InviteUser#call` method. I'm not proud of this.
+      def save_user(user)
         @user = user
       end
 

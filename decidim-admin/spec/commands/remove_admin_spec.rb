@@ -24,7 +24,7 @@ module Decidim::Admin
         .to receive(:log)
         .with("remove_from_admin", current_user, user, a_kind_of(Hash))
 
-        command.call
+      command.call
     end
 
     context "when no user given" do

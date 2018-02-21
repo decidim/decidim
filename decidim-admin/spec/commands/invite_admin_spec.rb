@@ -42,7 +42,7 @@ module Decidim::Admin
         .to receive(:log)
         .with("invite", current_user, a_kind_of(Decidim::User), extra: { invited_user_role: form.role, invited_user_id: a_kind_of(Integer) })
 
-        command.call
+      command.call
     end
 
     context "when the form is not valid" do
