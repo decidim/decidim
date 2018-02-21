@@ -21,9 +21,37 @@ pt-BR:
         body: Corpo
         subject: Assunto
       organization:
+        cta_button_path: Caminho do botão Chamar para Ação
+        cta_button_text: Texto do botão Chamar para Ação
         default_locale: Idioma por defeito
+        description: Descrição
+        enable_omnipresent_banner: Mostrar bandeira omnipresente
+        facebook_handler: Manipulador do Facebook
+        favicon: Ícone
+        github_handler: GitHub handler
+        header_snippets: Snippets de cabeçalho
+        highlighted_content_banner_action_subtitle: Legenda do botão de ação
+        highlighted_content_banner_action_title: Título do botão Ação
+        highlighted_content_banner_action_url: URL do botão de ação
+        highlighted_content_banner_enabled: Mostrar o banner de conteúdo destacado
+        highlighted_content_banner_image: Imagem
+        highlighted_content_banner_short_description: Pequena descrição
+        highlighted_content_banner_title: Título
+        homepage_image: Imagem do site inicial
+        instagram_handler: Instagram handler
+        logo: Logotipo
         name: Nome
+        official_img_footer: Símbolo oficial do rodapé
+        official_img_header: Cabeçalho do logotipo oficial
+        official_url: URL da organização oficial
+        omnipresent_banner_short_description: Pequena descrição
+        omnipresent_banner_title: Título
+        omnipresent_banner_url: URL
         reference_prefix: Prefixo de referência
+        show_statistics: Mostre estatisticas
+        twitter_handler: Manipulador do Twitter
+        welcome_text: Texto de boas-vindas
+        youtube_handler: Manipulador do YouTube
       scope:
         code: Código
         name: Nome
