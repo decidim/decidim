@@ -59,6 +59,12 @@ fr:
         delete: "%{user_name} supprimé le %{resource_name} bulletin"
         deliver: "%{user_name} livré le %{resource_name} bulletin"
         update: "%{user_name} mis à jour le %{resource_name} bulletin"
+      organization:
+        update: "%{user_name} mis à jour les paramètres de l'organisation"
+      static_page:
+        create: "%{user_name} créé le %{resource_name} page statique"
+        delete: "%{user_name} supprimé le %{resource_name} page statique"
+        update: "%{user_name} mis à jour le %{resource_name} page statique"
       user:
         invite: "%{user_name} invité l'utilisateur %{resource_name} avec rôle: %{role}"
         remove_from_admin: "%{user_name} supprimé l'utilisateur %{resource_name} avec rôle: %{role}"
