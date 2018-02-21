@@ -7,6 +7,7 @@ module Decidim
     subject(:organization) { build(:organization) }
 
     it { is_expected.to be_valid }
+    it { is_expected.to be_versioned }
 
     describe "has an association for scopes" do
       subject(:organization_scopes) { organization.scopes }

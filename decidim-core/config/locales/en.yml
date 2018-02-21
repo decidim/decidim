@@ -60,7 +60,9 @@ en:
         delete: "%{user_name} deleted the %{resource_name} newsletter"
         deliver: "%{user_name} delivered the %{resource_name} newsletter"
         update: "%{user_name} updated the %{resource_name} newsletter"
-      static_pages:
+      organization:
+        update: "%{user_name} updated the organization settings"
+      static_page:
         create: "%{user_name} created the %{resource_name} static page"
         delete: "%{user_name} deleted the %{resource_name} static page"
         update: "%{user_name} updated the %{resource_name} static page"
