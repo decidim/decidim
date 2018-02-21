@@ -67,7 +67,9 @@ fr:
         update: "%{user_name} mis à jour le %{resource_name} page statique"
       user:
         invite: "%{user_name} invité l'utilisateur %{resource_name} avec rôle: %{role}"
+        officialize: "%{user_name} officialisé l'utilisateur %{resource_name}"
         remove_from_admin: "%{user_name} supprimé l'utilisateur %{resource_name} avec rôle: %{role}"
+        unofficialize: "%{user_name} non officialisé l'utilisateur %{resource_name}"
       user_group:
         reject: "%{user_name} rejeté le %{resource_name} vérification du groupe d'utilisateurs"
         verify: "%{user_name} vérifié le %{resource_name} groupe d'utilisateurs"
