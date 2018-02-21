@@ -24,30 +24,6 @@ nl:
         default_locale: Standaard taal
         name: Naam
         reference_prefix: Referentievoorvoegsel
-      organization_appearance:
-        cta_button_path: Call to Action knop pad
-        cta_button_text: Oproep naar actie knop tekst
-        description: Beschrijving
-        enable_omnipresent_banner: Toon alomtegenwoordige banner
-        favicon: Icoon
-        header_snippets: Header snippets
-        highlighted_content_banner_action_subtitle: Actieknop ondertitel
-        highlighted_content_banner_action_title: Actieknop titel
-        highlighted_content_banner_action_url: Actieknop URL
-        highlighted_content_banner_enabled: Toon de gemarkeerde inhoudsbanner
-        highlighted_content_banner_image: Beeld
-        highlighted_content_banner_short_description: Korte beschrijving
-        highlighted_content_banner_title: Titel
-        homepage_image: Homepage afbeelding
-        logo: Logo
-        official_img_footer: Officiële logo voettekst
-        official_img_header: Officiële logo header
-        official_url: URL van de officiële organisatie
-        omnipresent_banner_short_description: Korte beschrijving
-        omnipresent_banner_title: Titel
-        omnipresent_banner_url: URL
-        show_statistics: Toon statistieken
-        welcome_text: Welkom tekst
       scope:
         code: Code
         name: Naam
