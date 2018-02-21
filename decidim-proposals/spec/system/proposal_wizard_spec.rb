@@ -25,6 +25,16 @@ describe "Proposal", type: :system do
            participatory_space: participatory_process)
   end
 
+  let!(:proposal_draft) { create(:proposal, :draft, feature: feature, title: proposal_title, body: proposal_body) }
+
+  let!(:compare_proposal_path) do
+    Decidim::EngineRouter.main_proxy(feature).compare_proposal_path(proposal_draft)
+  end
+
+  let!(:preview_proposal_path) do
+    Decidim::EngineRouter.main_proxy(feature).preview_proposal_path(proposal_draft)
+  end
+
   context "when creating a new proposal" do
     before do
       login_as user, scope: :user
@@ -42,7 +52,7 @@ describe "Proposal", type: :system do
       end
 
       it "fill in title and body" do
-        within ".new_proposal" do
+        within ".card__content form" do
           fill_in :proposal_title, with: proposal_title
           fill_in :proposal_body, with: proposal_body
           find("*[type=submit]").click
@@ -51,17 +61,11 @@ describe "Proposal", type: :system do
     end
 
     context "when in step_2: Compare" do
-      let(:proposal_draft) { create(:proposal, :draft, feature: feature, title: proposal_title, body: proposal_body) }
-
-      before do
-        visit compare_proposal_path(feature, proposal_draft)
-      end
-
       context "with similar results" do
         before do
           create(:proposal, title: "Agusti for president", body: "He will solve everything", feature: feature)
           create(:proposal, title: "Homer for president", body: "He will not solve everything", feature: feature)
-          visit compare_proposal_path(feature, proposal_draft)
+          visit compare_proposal_path
         end
 
         it "show previous and current step_2 highlighted" do
@@ -82,10 +86,8 @@ describe "Proposal", type: :system do
       end
 
       context "without similar results" do
-        let(:proposal_draft) { create(:proposal, :draft, feature: feature, title: proposal_title, body: proposal_body) }
-
         before do
-          visit compare_proposal_path(feature, proposal_draft)
+          visit compare_proposal_path
         end
 
         it "redirects to the publish step" do
@@ -101,10 +103,8 @@ describe "Proposal", type: :system do
     end
 
     context "when in step_3: Publish" do
-      let(:proposal_draft) { create(:proposal, :draft, feature: feature, title: proposal_title, body: proposal_body) }
-
       before do
-        visit preview_proposal_path(feature, proposal_draft)
+        visit preview_proposal_path
       end
 
       it "show current step_3 highlighted" do
@@ -127,15 +127,5 @@ describe "Proposal", type: :system do
         expect(page).to have_selector("a", text: "Modify the proposal")
       end
     end
-  end
-
-  private
-
-  def compare_proposal_path(feature, proposal)
-    Decidim::EngineRouter.main_proxy(feature).compare_proposal_path(proposal)
-  end
-
-  def preview_proposal_path(feature, proposal)
-    Decidim::EngineRouter.main_proxy(feature).preview_proposal_path(proposal)
   end
 end
