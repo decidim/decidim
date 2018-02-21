@@ -65,6 +65,7 @@ sv:
         update: "%{user_name} uppdaterade %{resource_name} statisk sida"
       user_group:
         reject: "%{user_name} avvisade %{resource_name} användargruppverifiering"
+        verify: "%{user_name} verifierade %{resource_name} användargrupp"
     anonymous_user: Anonym
     application:
       collection:
