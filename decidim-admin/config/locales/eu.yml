@@ -21,9 +21,37 @@ eu:
         body: Testua
         subject: Gaia
       organization:
+        cta_button_path: Deitu ekintza botoiaren bideora
+        cta_button_text: Deitu ekintza botoiaren testura
         default_locale: Eskualdeko ezarpen lehenetsiak
+        description: deskribapena
+        enable_omnipresent_banner: Erakutsi omnipresent banner
+        facebook_handler: Facebook kudeatzailea
+        favicon: Ikonoa
+        github_handler: GitHub kudeatzailea
+        header_snippets: Goiburuko mozkinak
+        highlighted_content_banner_action_subtitle: Ekintza botoia azpititulua
+        highlighted_content_banner_action_title: Ekintza botoien titulua
+        highlighted_content_banner_action_url: Ekintza botoia URLa
+        highlighted_content_banner_enabled: Erakutsi nabarmendutako edukien bandera
+        highlighted_content_banner_image: Image
+        highlighted_content_banner_short_description: Deskribapen laburra
+        highlighted_content_banner_title: Izenburua
+        homepage_image: Irudiaren irudia
+        instagram_handler: Instagram kudeatzailea
+        logo: Logotipo
         name: Izena
+        official_img_footer: Logotipoaren logotipo ofiziala
+        official_img_header: Logotipoaren goiburu ofiziala
+        official_url: Erakundearen URL ofiziala
+        omnipresent_banner_short_description: Deskribapen laburra
+        omnipresent_banner_title: Izenburua
+        omnipresent_banner_url: URL
         reference_prefix: Erreferentzia-aurrizkia
+        show_statistics: Erakutsi estatistikak
+        twitter_handler: Twitter kudeatzailea
+        welcome_text: Ongietorri testua
+        youtube_handler: YouTube kudeatzailea
       scope:
         code: Kodea
         name: Izena
