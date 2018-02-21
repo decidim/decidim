@@ -68,6 +68,7 @@ en:
         update: "%{user_name} updated the %{resource_name} static page"
       user:
         invite: "%{user_name} invited the user %{resource_name} with role: %{role}"
+        officialize: "%{user_name} officialized the user %{resource_name} with badge: %{badge}"
         remove_from_admin: "%{user_name} removed the user %{resource_name} with role: %{role}"
       user_group:
         reject: "%{user_name} rejected the %{resource_name} user group verification"

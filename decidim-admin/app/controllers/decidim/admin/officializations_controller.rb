@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    # Controller that allows managing user groups at the admin panel.
+    # Controller that allows managing user officializations at the admin panel.
     #
     class OfficializationsController < Decidim::Admin::ApplicationController
       layout "decidim/admin/users"

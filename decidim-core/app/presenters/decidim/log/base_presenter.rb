@@ -137,7 +137,7 @@ module Decidim
         @diff_presenter ||= Decidim::Log::DiffPresenter.new(
           changeset,
           view_helpers,
-          show_previous_value?: action.to_s != "create"
+          show_previous_value?: show_previous_value_in_diff?
         )
       end
 
@@ -207,6 +207,14 @@ module Decidim
       # Returns a Boolean.
       def has_diff?
         %w(update create).include?(action.to_s) && version.present?
+      end
+
+      # Private: Calculates whether the diff should show the previous value
+      # or not, based on the current action name.
+      #
+      # Returns a Boolean.
+      def show_previous_value_in_diff?
+        action != "create"
       end
 
       # Private: Sets a default list of attributes to be rendered in
