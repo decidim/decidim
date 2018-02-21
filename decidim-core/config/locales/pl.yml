@@ -67,7 +67,9 @@ pl:
         update: "%{user_name} zaktualizowałem %{resource_name} strona statyczna"
       user:
         invite: "%{user_name} zaprosił użytkownika %{resource_name} z rolą: %{role}"
+        officialize: "%{user_name} oficjalny użytkownik %{resource_name}"
         remove_from_admin: "%{user_name} usunięto użytkownika %{resource_name} z rolą: %{role}"
+        unofficialize: "%{user_name} nieoficjalny użytkownik %{resource_name}"
       user_group:
         reject: "%{user_name} odrzucił %{resource_name} weryfikacja grupy użytkowników"
         verify: "%{user_name} zweryfikował %{resource_name} grupa użytkowników"
