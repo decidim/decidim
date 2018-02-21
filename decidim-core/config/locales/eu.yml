@@ -63,6 +63,8 @@ eu:
         create: "%{user_name} sortu %{resource_name} orri estatikoa"
         delete: "%{user_name} ezabatu %{resource_name} orri estatikoa"
         update: "%{user_name} eguneratu %{resource_name} orri estatikoa"
+      user_group:
+        reject: "%{user_name} baztertu %{resource_name} erabiltzaile taldeen egiaztapena"
     anonymous_user: Anonimoa
     application:
       collection:
