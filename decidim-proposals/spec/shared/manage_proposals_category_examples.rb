@@ -43,7 +43,6 @@ shared_examples "when managing proposals category as an admin" do
         end
       end
 
-
       context "when change category is selected from actions dropdown" do
         before do
           click_button "Actions"
@@ -58,7 +57,6 @@ shared_examples "when managing proposals category as an admin" do
           expect(page).to have_css("button#js-submit-edit-category", count: 1)
         end
       end
-
 
       context "when submiting form" do
         before do
