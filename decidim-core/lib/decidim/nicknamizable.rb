@@ -42,7 +42,7 @@ module Decidim
         2.step do |n|
           return candidate unless exists?(nickname: candidate)
 
-          candidate = numbered_variation_of(candidate, n)
+          candidate = numbered_variation_of(name, n)
         end
       end
 

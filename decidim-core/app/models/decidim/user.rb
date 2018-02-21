@@ -28,7 +28,7 @@ module Decidim
     validates :locale, inclusion: { in: :available_locales }, allow_blank: true
     validates :tos_agreement, acceptance: true, allow_nil: false, on: :create
     validates :avatar, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_avatar_size } }
-    validates :email, :nickname, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? }
+    validates :email, :nickname, uniqueness: { scope: :organization }, unless: -> { deleted? || managed? || nickname.blank? }
     validates :email, 'valid_email_2/email': { disposable: true }
 
     validate :all_roles_are_valid
