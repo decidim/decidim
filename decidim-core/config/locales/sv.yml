@@ -63,6 +63,8 @@ sv:
         create: "%{user_name} skapade %{resource_name} statisk sida"
         delete: "%{user_name} raderade %{resource_name} statisk sida"
         update: "%{user_name} uppdaterade %{resource_name} statisk sida"
+      user_group:
+        reject: "%{user_name} avvisade %{resource_name} användargruppverifiering"
     anonymous_user: Anonym
     application:
       collection:
