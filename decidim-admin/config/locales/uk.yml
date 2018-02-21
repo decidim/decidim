@@ -20,19 +20,6 @@ uk:
         default_locale: Мова за замовчуванням
         name: Назва
         reference_prefix: Довідковий префікс
-      organization_appearance:
-        cta_button_path: Шлях до кнопки "Закликати до дії"
-        cta_button_text: Текст кнопки "Закликати до дії"
-        description: Опис
-        favicon: Значок
-        header_snippets: Сніпети для гіпертекстових заголовків сторінок сайту
-        homepage_image: Зображення головної сторінки
-        logo: Логотип
-        official_img_footer: Нижній колонтитул офіційного логотипу
-        official_img_header: Заголовок офіційного логотипу
-        official_url: Офіційна URL-адреса організації
-        show_statistics: Показувати статистику
-        welcome_text: Текст привітання
       scope:
         code: Код
         name: Назва
