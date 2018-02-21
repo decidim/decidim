@@ -66,7 +66,9 @@ eu:
         delete: "%{user_name} ezabatu %{resource_name} orri estatikoa"
         update: "%{user_name} eguneratu %{resource_name} orri estatikoa"
       user:
+        officialize: "%{user_name} Erabiltzaile ofiziala %{resource_name}"
         remove_from_admin: "%{user_name} erabiltzaileak kendu %{resource_name} rolarekin: %{role}"
+        unofficialize: "%{user_name} erabiltzaile ez ofiziala %{resource_name}"
       user_group:
         reject: "%{user_name} baztertu %{resource_name} erabiltzaile taldeen egiaztapena"
         verify: "%{user_name} egiaztatu %{resource_name} erabiltzaile taldea"
