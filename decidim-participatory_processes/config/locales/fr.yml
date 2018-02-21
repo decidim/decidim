@@ -19,6 +19,7 @@ fr:
         participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
         promoted: Mis en avant
+        published_at: Publié à
         scope_id: Périmètre d'application
         scopes_enabled: Périmètres d'application activés
         short_description: Résumé
@@ -204,6 +205,11 @@ fr:
         resend_invitation:
           error: Une erreur s'est produite lors de l'envoi de l’invitation.
           success: Invitation renvoyée avec succès.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} créé le %{resource_name} processus participatif"
+        publish: "%{user_name} publié le %{resource_name} processus participatif"
+        unpublish: "%{user_name} non publié le %{resource_name} processus participatif"
     menu:
       processes: Processus participatifs
     participatory_process_groups:
