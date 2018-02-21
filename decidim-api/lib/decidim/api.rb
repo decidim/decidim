@@ -9,5 +9,10 @@ module Decidim
     autoload :MutationType, "decidim/api/mutation_type"
     autoload :QueryType, "decidim/api/query_type"
     autoload :Schema, "decidim/api/schema"
+
+    def self.orphan_types
+      Decidim.feature_manifests.map(&:api_type).map(&:constantize).uniq +
+        Decidim.participatory_space_manifests.map(&:api_type).map(&:constantize).uniq
+    end
   end
 end
