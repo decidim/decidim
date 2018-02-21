@@ -69,6 +69,7 @@ sv:
         invite: "%{user_name} bjudit in användaren %{resource_name} med roll: %{role}"
         officialize: "%{user_name} publicerade användaren %{resource_name}"
         remove_from_admin: "%{user_name} tagit bort användaren %{resource_name} med roll: %{role}"
+        unofficialize: "%{user_name} oofficiserad användaren %{resource_name}"
       user_group:
         reject: "%{user_name} avvisade %{resource_name} användargruppverifiering"
         verify: "%{user_name} verifierade %{resource_name} användargrupp"
