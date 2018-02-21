@@ -21,9 +21,37 @@ fi:
         body: Runko
         subject: Otsikko
       organization:
+        cta_button_path: Call To Action -painikkeen polku
+        cta_button_text: Call To Action -painikkeen teksti
         default_locale: Oletuskieli
+        description: Kuvaus
+        enable_omnipresent_banner: Näytä kaikkialla näkyvä banneri
+        facebook_handler: Facebook-käsittelijä
+        favicon: ikoni
+        github_handler: GitHub-käsittelijä
+        header_snippets: Yläotsikot
+        highlighted_content_banner_action_subtitle: Toiminnon painikkeen tekstitys
+        highlighted_content_banner_action_title: Toiminnon painikkeen otsikko
+        highlighted_content_banner_action_url: Toimintonäppäimen URL-osoite
+        highlighted_content_banner_enabled: Näytä korostettu sisältöbanneri
+        highlighted_content_banner_image: Kuva
+        highlighted_content_banner_short_description: Lyhyt kuvaus
+        highlighted_content_banner_title: otsikko
+        homepage_image: Kotisivun kuva
+        instagram_handler: Instagram-käsittelijä
+        logo: Logo
         name: Nimi
+        official_img_footer: Virallinen logo-alatunniste
+        official_img_header: Virallinen logo header
+        official_url: Virallinen organisaation URL-osoite
+        omnipresent_banner_short_description: Lyhyt kuvaus
+        omnipresent_banner_title: otsikko
+        omnipresent_banner_url: URL-
         reference_prefix: Viitteen etuliite
+        show_statistics: Näytä tilastot
+        twitter_handler: Twitter käsittelijä
+        welcome_text: Tervetulotoivotus
+        youtube_handler: YouTube-käsittelijä
       scope:
         code: Koodi
         name: Nimi
