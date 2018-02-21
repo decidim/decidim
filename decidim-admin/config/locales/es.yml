@@ -24,30 +24,6 @@ es:
         default_locale: Idioma predeterminado
         name: Nombre
         reference_prefix: Prefijo de la referencia
-      organization_appearance:
-        cta_button_path: Ruta del botón de acción principal
-        cta_button_text: Texto del botón de acción principal
-        description: Descripción
-        enable_omnipresent_banner: Mostrar banner omnipresente
-        favicon: Icono
-        header_snippets: Snippets de encabezado
-        highlighted_content_banner_action_subtitle: Subtítulo del botón de acción
-        highlighted_content_banner_action_title: Título del botón de acción
-        highlighted_content_banner_action_url: URL del botón de acción
-        highlighted_content_banner_enabled: Mostrar el banner de contenido resaltado
-        highlighted_content_banner_image: Imagen
-        highlighted_content_banner_short_description: Breve descripción
-        highlighted_content_banner_title: Título
-        homepage_image: Imagen de portada
-        logo: Logotipo
-        official_img_footer: Logotipo oficial de pie de página
-        official_img_header: Logotipo oficial de cabecera
-        official_url: URL oficial de la organización
-        omnipresent_banner_short_description: Breve descripción
-        omnipresent_banner_title: Título
-        omnipresent_banner_url: URL
-        show_statistics: Mostrar estadísticas
-        welcome_text: Texto de bienvenida
       scope:
         code: Código
         name: Nombre
