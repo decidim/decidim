@@ -77,7 +77,8 @@ module Decidim
       def generate_i18n_changeset(attribute, values, type)
         values.map! { |value| value.is_a?(String) ? JSON.parse(value) : value }
 
-        values.last.flat_map do |locale, _value|
+        locales = values[0].to_h.keys | values[1].to_h.keys
+        locales.flat_map do |locale|
           previous_value = values.first.try(:[], locale)
           new_value = values.last.try(:[], locale)
           if previous_value == new_value
