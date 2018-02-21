@@ -208,6 +208,7 @@ en:
     admin_log:
       participatory_process:
         create: "%{user_name} created the %{resource_name} participatory process"
+        publish: "%{user_name} published the %{resource_name} participatory process"
     menu:
       processes: Processes
     participatory_process_groups:
