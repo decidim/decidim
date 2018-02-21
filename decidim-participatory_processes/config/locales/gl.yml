@@ -19,6 +19,7 @@ gl:
         participatory_scope: Alcance participativo
         participatory_structure: Estrutura participativa
         promoted: Promocionado
+        published_at: Publicado en
         scope_id: Alcance
         scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
