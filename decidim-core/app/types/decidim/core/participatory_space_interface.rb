@@ -20,7 +20,7 @@ module Decidim
                 }
       end
 
-      resolve_type ->(obj, _ctx) { obj.manifest.api_type.constantize }
+      resolve_type ->(obj, _ctx) { obj.manifest.query_type.constantize }
     end
   end
 end
