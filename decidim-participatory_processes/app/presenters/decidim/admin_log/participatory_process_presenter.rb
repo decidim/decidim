@@ -23,6 +23,7 @@ module Decidim
           meta_scope: :i18n,
           participatory_scope: :i18n,
           participatory_structure: :i18n,
+          published_at: :date,
           scopes_enabled: :boolean,
           short_description: :i18n,
           slug: :string,
@@ -34,7 +35,7 @@ module Decidim
 
       def action_string
         case action
-        when "create", "publish"
+        when "create", "publish", "unpublish"
           "decidim.admin_log.participatory_process.#{action}"
         else
           super
@@ -43,6 +44,10 @@ module Decidim
 
       def i18n_labels_scope
         "activemodel.attributes.participatory_process"
+      end
+
+      def has_diff?
+        action == "unpublish" || super
       end
     end
   end
