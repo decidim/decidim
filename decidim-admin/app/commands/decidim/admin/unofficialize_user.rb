@@ -7,8 +7,10 @@ module Decidim
       # Public: Initializes the command.
       #
       # user - The user to be unofficialized.
-      def initialize(user)
+      # current_user - The user performing the action
+      def initialize(user, current_user)
         @user = user
+        @current_user = current_user
       end
 
       # Executes the command. Broadcasts these events:
@@ -25,10 +27,24 @@ module Decidim
 
       private
 
-      attr_reader :user
+      attr_reader :user, :current_user
 
       def unofficialize_user
-        user.update!(officialized_at: nil, officialized_as: nil)
+        transaction do
+          Decidim::ActionLogger.log(
+            "unofficialize",
+            current_user,
+            user,
+            extra: {
+              officialized_user_badge: nil,
+              officialized_user_badge_previous: user.officialized_as,
+              officialized_user_at: nil,
+              officialized_user_at_previous: user.officialized_at
+            }
+          )
+
+          user.update!(officialized_at: nil, officialized_as: nil)
+        end
       end
     end
   end

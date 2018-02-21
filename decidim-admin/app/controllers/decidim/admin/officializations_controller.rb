@@ -42,7 +42,7 @@ module Decidim
       def destroy
         authorize! :destroy, :officializations
 
-        UnofficializeUser.call(user) do
+        UnofficializeUser.call(user, current_user) do
           on(:ok) do
             notice = I18n.t("officializations.destroy.success", scope: "decidim.admin")
 
