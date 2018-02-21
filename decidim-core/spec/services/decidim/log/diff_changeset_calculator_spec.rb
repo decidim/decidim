@@ -80,6 +80,23 @@ describe Decidim::Log::DiffChangesetCalculator do
         ]
       end
 
+      context "when adding and deleting locales" do
+        let(:changeset) do
+          {
+            field: [
+              { "en" => "Foo" },
+              { "ca" => "Bar" }
+            ]
+          }
+        end
+
+        it "calculates the diff correctly" do
+          expect(subject.count).to eq 2
+          expect(subject.first).to include(label: "My field (English)", previous_value: "Foo", new_value: nil)
+          expect(subject.last).to include(label: "My field (Català)", previous_value: nil, new_value: "Bar")
+        end
+      end
+
       context "when i18n labels scope is not set" do
         let(:i18n_labels_scope) { nil }
 

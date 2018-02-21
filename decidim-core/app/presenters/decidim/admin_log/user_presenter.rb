@@ -16,7 +16,7 @@ module Decidim
 
       def action_string
         case action
-        when "invite", "remove_from_admin"
+        when "invite", "officialize", "remove_from_admin", "unofficialize"
           "decidim.admin_log.user.#{action}"
         else
           super
@@ -31,6 +31,28 @@ module Decidim
 
       def user_role
         action_log.extra.dig("extra", "invited_user_role")
+      end
+
+      def user_badge
+        action_log.extra.dig("extra", "officialized_user_badge") || Hash.new("")
+      end
+
+      def previous_user_badge
+        action_log.extra.dig("extra", "officialized_user_badge_previous") || Hash.new("")
+      end
+
+      # We fake the changeset for officialization actions.
+      def changeset
+        Decidim::Log::DiffChangesetCalculator.new(
+          { badge: [previous_user_badge, user_badge] },
+          { badge: :i18n },
+          i18n_labels_scope
+        ).changeset
+      end
+
+      # If the action is officialization, then we want to show the diff
+      def has_diff?
+        %w(officialize unofficialize).include?(action)
       end
     end
   end
