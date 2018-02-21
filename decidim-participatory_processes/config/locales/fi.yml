@@ -19,6 +19,7 @@ fi:
         participatory_scope: Osallistumisprosessin konteksti
         participatory_structure: Osallistumisprosessin rakenne
         promoted: Korostettu
+        published_at: Julkaistu osoitteessa
         scope_id: Konteksti
         scopes_enabled: Kontekstit käytössä
         short_description: Lyhyt kuvaus
@@ -204,6 +205,11 @@ fi:
         resend_invitation:
           error: Virhe lähettää kutsun.
           success: Kutsu uudelleen onnistuneesti.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} luonut %{resource_name} osallistuva prosessi"
+        publish: "%{user_name} julkaisi %{resource_name} osallistuva prosessi"
+        unpublish: "%{user_name} julkaisematon %{resource_name} osallistuva prosessi"
     menu:
       processes: Prosessit
     participatory_process_groups:
