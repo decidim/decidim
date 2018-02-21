@@ -59,6 +59,12 @@ es:
         delete: "%{user_name} eliminado el %{resource_name} hoja informativa"
         deliver: "%{user_name} entregado el %{resource_name} hoja informativa"
         update: "%{user_name} actualizado el %{resource_name} hoja informativa"
+      organization:
+        update: "%{user_name} actualizado la configuración de la organización"
+      static_page:
+        create: "%{user_name} creó el %{resource_name} página estática"
+        delete: "%{user_name} eliminado el %{resource_name} página estática"
+        update: "%{user_name} actualizado el %{resource_name} página estática"
       user:
         invite: "%{user_name} invitó al usuario %{resource_name} con el rol: %{role}"
         remove_from_admin: "%{user_name} eliminado al usuario %{resource_name} con el rol: %{role}"
