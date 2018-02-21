@@ -19,6 +19,7 @@ sv:
         participatory_scope: Deltagande räckvidd
         participatory_structure: Deltagande struktur
         promoted: främjas
+        published_at: Publicerad på
         scope_id: Omfattning
         scopes_enabled: Scopes aktiverade
         short_description: Kort beskrivning
@@ -204,6 +205,11 @@ sv:
         resend_invitation:
           error: Det uppstod ett fel när du skickade inbjudan igen.
           success: Inbjudan misslyckas framgångsrikt.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} skapade %{resource_name} deltagande process"
+        publish: "%{user_name} publicerade %{resource_name} deltagande process"
+        unpublish: "%{user_name} opublicerade %{resource_name} deltagande process"
     menu:
       processes: processer
     participatory_process_groups:
