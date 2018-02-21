@@ -24,30 +24,6 @@ sv:
         default_locale: Standard locale
         name: namn
         reference_prefix: Referensprefix
-      organization_appearance:
-        cta_button_path: Call to Action-knappsökväg
-        cta_button_text: Ring till handlingsknapptext
-        description: Beskrivning
-        enable_omnipresent_banner: Visa omnipresent banner
-        favicon: Ikon
-        header_snippets: Rubrikrubriker
-        highlighted_content_banner_action_subtitle: Åtgärdsknapp textning
-        highlighted_content_banner_action_title: Åtgärdsknappens titel
-        highlighted_content_banner_action_url: Åtgärdsknapp URL
-        highlighted_content_banner_enabled: Visa den markerade innehållsbanan
-        highlighted_content_banner_image: Bild
-        highlighted_content_banner_short_description: Kort beskrivning
-        highlighted_content_banner_title: Titel
-        homepage_image: Hemsida bild
-        logo: Logotyp
-        official_img_footer: Officiell logo footer
-        official_img_header: Officiell logotyphuvud
-        official_url: Officiell organisationsadress
-        omnipresent_banner_short_description: Kort beskrivning
-        omnipresent_banner_title: Titel
-        omnipresent_banner_url: URL
-        show_statistics: Visa statistik
-        welcome_text: Välkommen text
       scope:
         code: Koda
         name: namn
