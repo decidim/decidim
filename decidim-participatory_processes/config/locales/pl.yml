@@ -19,6 +19,7 @@ pl:
         participatory_scope: Zakres partycypacji
         participatory_structure: Struktura partycypacji
         promoted: Lansowany
+        published_at: Opublikowano na
         scope_id: Zakres
         scopes_enabled: Zakresy włączone
         short_description: Krótki opis
@@ -204,6 +205,10 @@ pl:
         resend_invitation:
           error: Wystąpił błąd ponownego wysłania zaproszenia.
           success: Zaproszenie wysłane pomyślnie ponownie.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} stworzył %{resource_name} proces uczestnictwa"
+        publish: "%{user_name} opublikował %{resource_name} proces uczestnictwa"
     menu:
       processes: Procesy
     participatory_process_groups:
