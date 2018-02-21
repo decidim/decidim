@@ -59,6 +59,12 @@ eu:
         delete: "%{user_name} ezabatu %{resource_name} buletina"
         deliver: "%{user_name} entregatu %{resource_name} buletina"
         update: "%{user_name} eguneratu %{resource_name} buletina"
+      organization:
+        update: "%{user_name} Eguneratu antolazioaren ezarpenak"
+      static_page:
+        create: "%{user_name} sortu %{resource_name} orri estatikoa"
+        delete: "%{user_name} ezabatu %{resource_name} orri estatikoa"
+        update: "%{user_name} eguneratu %{resource_name} orri estatikoa"
       user:
         remove_from_admin: "%{user_name} erabiltzaileak kendu %{resource_name} rolarekin: %{role}"
       user_group:
