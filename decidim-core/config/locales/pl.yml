@@ -63,6 +63,9 @@ pl:
         create: "%{user_name} stworzył %{resource_name} strona statyczna"
         delete: "%{user_name} usunięto %{resource_name} strona statyczna"
         update: "%{user_name} zaktualizowałem %{resource_name} strona statyczna"
+      user_group:
+        reject: "%{user_name} odrzucił %{resource_name} weryfikacja grupy użytkowników"
+        verify: "%{user_name} zweryfikował %{resource_name} grupa użytkowników"
     anonymous_user: Anonim
     application:
       collection:
