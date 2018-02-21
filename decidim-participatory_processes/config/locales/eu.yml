@@ -19,6 +19,7 @@ eu:
         participatory_scope: Partehartze esparrua
         participatory_structure: Partehartze egitura
         promoted: Nabarmendua
+        published_at: Argitaratu at
         scope_id: Esparrua
         scopes_enabled: Esparru gaituak
         short_description: Deskribapen laburra
@@ -204,6 +205,11 @@ eu:
         resend_invitation:
           error: Errorea gertatu zen gonbita berriro bidaltzean.
           success: Gonbita ongi birbidali da.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} sortu %{resource_name} prozesu parte-hartzailea"
+        publish: "%{user_name} argitaratu du %{resource_name} prozesu parte-hartzailea"
+        unpublish: "%{user_name} argitaratu gabe %{resource_name} prozesu parte-hartzailea"
     menu:
       processes: Prozesuak
     participatory_process_groups:
