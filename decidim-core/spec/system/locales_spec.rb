@@ -11,6 +11,12 @@ describe "Locales", type: :system do
       visit decidim.root_path
     end
 
+    after do
+      within_language_menu do
+        click_link "English"
+      end
+    end
+
     it "changes the locale to the chosen one" do
       within_language_menu do
         click_link "Català"
