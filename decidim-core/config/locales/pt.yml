@@ -63,6 +63,9 @@ pt:
         create: "%{user_name} criou o %{resource_name} página estática"
         delete: "%{user_name} apagou o %{resource_name} página estática"
         update: "%{user_name} atualizou o %{resource_name} página estática"
+      user:
+        invite: "%{user_name} convidou o usuário %{resource_name} com papel: %{role}"
+        remove_from_admin: "%{user_name} removeu o usuário %{resource_name} com papel: %{role}"
       user_group:
         reject: "%{user_name} rejeitou o %{resource_name} verificação do grupo de usuários"
         verify: "%{user_name} verificado o %{resource_name} grupo de usuários"
