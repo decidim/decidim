@@ -21,9 +21,37 @@ sv:
         body: Kropp
         subject: Ämne
       organization:
+        cta_button_path: Call to Action-knappsökväg
+        cta_button_text: Ring till handlingsknapptext
         default_locale: Standard locale
+        description: Beskrivning
+        enable_omnipresent_banner: Visa omnipresent banner
+        facebook_handler: Facebook-hanterare
+        favicon: Ikon
+        github_handler: GitHub handler
+        header_snippets: Rubrikrubriker
+        highlighted_content_banner_action_subtitle: Åtgärdsknapp textning
+        highlighted_content_banner_action_title: Åtgärdsknappens titel
+        highlighted_content_banner_action_url: Åtgärdsknapp URL
+        highlighted_content_banner_enabled: Visa den markerade innehållsbanan
+        highlighted_content_banner_image: Bild
+        highlighted_content_banner_short_description: Kort beskrivning
+        highlighted_content_banner_title: Titel
+        homepage_image: Hemsida bild
+        instagram_handler: Instagram handler
+        logo: Logotyp
         name: namn
+        official_img_footer: Officiell logo footer
+        official_img_header: Officiell logotyphuvud
+        official_url: Officiell organisationsadress
+        omnipresent_banner_short_description: Kort beskrivning
+        omnipresent_banner_title: Titel
+        omnipresent_banner_url: URL
         reference_prefix: Referensprefix
+        show_statistics: Visa statistik
+        twitter_handler: Twitter-hanterare
+        welcome_text: Välkommen text
+        youtube_handler: YouTube-hanterare
       scope:
         code: Koda
         name: namn
