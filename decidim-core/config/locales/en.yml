@@ -64,6 +64,9 @@ en:
         create: "%{user_name} created the %{resource_name} static page"
         delete: "%{user_name} deleted the %{resource_name} static page"
         update: "%{user_name} updated the %{resource_name} static page"
+      user:
+        invite: "%{user_name} invited the user %{resource_name} with role: %{role}"
+        remove_from_admin: "%{user_name} removed the user %{resource_name} with role: %{role}"
       user_group:
         reject: "%{user_name} rejected the %{resource_name} user group verification"
         verify: "%{user_name} verified the %{resource_name} user group"
