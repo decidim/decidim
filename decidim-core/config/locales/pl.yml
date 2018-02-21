@@ -59,6 +59,12 @@ pl:
         delete: "%{user_name} usunięto %{resource_name} biuletyn"
         deliver: "%{user_name} dostarczone %{resource_name} biuletyn"
         update: "%{user_name} zaktualizowałem %{resource_name} biuletyn"
+      organization:
+        update: "%{user_name} zaktualizował ustawienia organizacji"
+      static_page:
+        create: "%{user_name} stworzył %{resource_name} strona statyczna"
+        delete: "%{user_name} usunięto %{resource_name} strona statyczna"
+        update: "%{user_name} zaktualizowałem %{resource_name} strona statyczna"
       user:
         invite: "%{user_name} zaprosił użytkownika %{resource_name} z rolą: %{role}"
         remove_from_admin: "%{user_name} usunięto użytkownika %{resource_name} z rolą: %{role}"
