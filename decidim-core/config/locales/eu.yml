@@ -65,6 +65,7 @@ eu:
         update: "%{user_name} eguneratu %{resource_name} orri estatikoa"
       user_group:
         reject: "%{user_name} baztertu %{resource_name} erabiltzaile taldeen egiaztapena"
+        verify: "%{user_name} egiaztatu %{resource_name} erabiltzaile taldea"
     anonymous_user: Anonimoa
     application:
       collection:
