@@ -1,4 +1,4 @@
-# Authorizations
+# Verifications
 
 One particular thing about this kind of applications is the need to Authorize a given user. This is specially important when you want to have legally bindings decisions taken on the platform. There are several ways that this could be done:
 
