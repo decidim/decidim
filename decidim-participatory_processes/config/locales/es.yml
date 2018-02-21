@@ -19,6 +19,7 @@ es:
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
         promoted: Destacado
+        published_at: Publicado en
         scope_id: Ámbito
         scopes_enabled: Ámbitos habilitados
         short_description: Descripción breve
@@ -204,6 +205,11 @@ es:
         resend_invitation:
           error: Hubo un error al volver a enviar la invitación.
           success: Invitación reenviada con éxito.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} creó el %{resource_name} proceso participativo"
+        publish: "%{user_name} publicó el %{resource_name} proceso participativo"
+        unpublish: "%{user_name} inédito el %{resource_name} proceso participativo"
     menu:
       processes: Procesos
     participatory_process_groups:
