@@ -9,18 +9,18 @@ module Decidim
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # features - Decidim::CurrentFeature
-      # form - Decidim::Proposals::Proposal
-      def self.for(features, form)
-        new(features, form).query
+      # proposal - Decidim::Proposals::Proposal
+      def self.for(features, proposal)
+        new(features, proposal).query
       end
 
       # Initializes the class.
       #
       # features - Decidim::CurrentFeature
-      # form - Decidim::Proposals::ProposalWizardForm
-      def initialize(features, form)
+      # proposal - Decidim::Proposals::Proposal
+      def initialize(features, proposal)
         @features = features
-        @form = form
+        @proposal = proposal
       end
 
       # Retrieves similar proposals
@@ -30,8 +30,8 @@ module Decidim
           .published
           .where(
             "GREATEST(#{title_similarity}, #{body_similarity}) >= ?",
-            form.title,
-            form.body,
+            proposal.title,
+            proposal.body,
             Decidim::Proposals.similarity_threshold
           )
           .limit(Decidim::Proposals.similarity_limit)
@@ -39,7 +39,7 @@ module Decidim
 
       private
 
-      attr_reader :form
+      attr_reader :proposal
 
       def title_similarity
         "similarity(title, ?)"
