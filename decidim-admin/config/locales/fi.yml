@@ -24,30 +24,6 @@ fi:
         default_locale: Oletuskieli
         name: Nimi
         reference_prefix: Viitteen etuliite
-      organization_appearance:
-        cta_button_path: Toimintopainikkeen (Call To Action) polku
-        cta_button_text: Toimintopainikkeen (Call To Action) teksti
-        description: Kuvaus
-        enable_omnipresent_banner: Näytä kaikkialla näkyvä banneri
-        favicon: Ikoni
-        header_snippets: Yläosion koodit
-        highlighted_content_banner_action_subtitle: Toiminnon painikkeen tekstitys
-        highlighted_content_banner_action_title: Toiminnon painikkeen otsikko
-        highlighted_content_banner_action_url: Toimintonäppäimen URL-osoite
-        highlighted_content_banner_enabled: Näytä korostettu sisältöbanneri
-        highlighted_content_banner_image: Kuva
-        highlighted_content_banner_short_description: Lyhyt kuvaus
-        highlighted_content_banner_title: otsikko
-        homepage_image: Kotisivun kuva
-        logo: Logo
-        official_img_footer: Virallinen alapalkin logo
-        official_img_header: Virallinen yläpalkin logo
-        official_url: Virallinen organisaation URL-osoite
-        omnipresent_banner_short_description: Lyhyt kuvaus
-        omnipresent_banner_title: Otsikko
-        omnipresent_banner_url: URL-
-        show_statistics: Näytä tilastot
-        welcome_text: Tervetuloa-teksti
       scope:
         code: Koodi
         name: Nimi
