@@ -19,6 +19,7 @@ nl:
         participatory_scope: Participatief toepassingsgebied
         participatory_structure: Participatieve structuur
         promoted: Gepromoveerd
+        published_at: Gepubliceerd op
         scope_id: Scope
         scopes_enabled: Scopes ingeschakeld
         short_description: Korte beschrijving
@@ -204,6 +205,11 @@ nl:
         resend_invitation:
           error: Er is een fout opgetreden bij het opnieuw verzenden van de uitnodiging.
           success: Uitnodiging opnieuw verzonden met succes.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} creëerde de %{resource_name} participatief proces"
+        publish: "%{user_name} publiceerde de %{resource_name} participatief proces"
+        unpublish: "%{user_name} ongepubliceerd de %{resource_name} participatief proces"
     menu:
       processes: Processen
     participatory_process_groups:
