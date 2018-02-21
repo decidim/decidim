@@ -63,6 +63,9 @@ fi:
         create: "%{user_name} luonut %{resource_name} staattinen sivu"
         delete: "%{user_name} poistettu %{resource_name} staattinen sivu"
         update: "%{user_name} päivitti %{resource_name} staattinen sivu"
+      user_group:
+        reject: "%{user_name} hylkäsi %{resource_name} käyttäjäryhmän vahvistaminen"
+        verify: "%{user_name} vahvistanut %{resource_name} käyttäjäryhmä"
     anonymous_user: Anonyymi
     application:
       collection:
