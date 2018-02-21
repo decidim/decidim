@@ -1,4 +1,6 @@
-require 'pg_search'
+# frozen_string_literal: true
+
+require "pg_search"
 
 module Decidim
   # A searchable Resource
@@ -15,6 +17,6 @@ module Decidim
     belongs_to :resource, polymorphic: true
     belongs_to :decidim_participatory_space, polymorphic: true
 
-    pg_search_scope :global_search, against: {content_A: 'A',content_B: 'B',content_C: 'C',content_D: 'D'}
+    pg_search_scope :global_search, against: { content_A: "A", content_B: "B", content_C: "C", content_D: "D" }
   end
 end

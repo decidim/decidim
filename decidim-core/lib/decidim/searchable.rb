@@ -9,8 +9,8 @@ module Decidim
 
     included do
       has_one :searchable_rsrc, class_name: "Decidim::SearchableRsrc", inverse_of: :resource
-      after_create  :index_as_search_rsrc
-      after_update  :index_as_search_rsrc
+      after_create :index_as_search_rsrc
+      after_update :index_as_search_rsrc
       after_destroy :unindex_from_search_rsrc
     end
 
@@ -28,15 +28,16 @@ module Decidim
     def search_rsrc_indexable_fields
       raise "#{self.class.name}#search_doc_indexable_fields is abstract and should be overriden"
     end
+
     def index_as_search_rsrc
-      fields= search_rsrc_indexable_fields
+      fields = search_rsrc_indexable_fields
       fields[:i18n].each_pair do |locale, contents|
-        content_A= contents[:A]&.join(' ')
-        content_B= contents[:B]&.join(' ')
-        content_C= contents[:C]&.join(' ')
-        content_D= contents[:D]&.join(' ')
+        content_a = contents[:A]&.join(" ")
+        content_b = contents[:B]&.join(" ")
+        content_c = contents[:C]&.join(" ")
+        content_d = contents[:D]&.join(" ")
         Decidim::SearchableRsrc.create(
-          content_A: content_A, content_B: content_B, content_C: content_C, content_D: content_D,
+          content_A: content_a, content_B: content_b, content_C: content_c, content_D: content_d,
           locale: locale,
           decidim_scope_id: fields[:decidim_scope_id],
           decidim_participatory_space_id: fields[:decidim_participatory_space_id],
