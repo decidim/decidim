@@ -21,9 +21,37 @@ pl:
         body: Ciało
         subject: Przedmiot
       organization:
+        cta_button_path: Ścieżka przycisku wezwania do działania
+        cta_button_text: Tekst przycisku wezwania do działania
         default_locale: Domena domyślna
+        description: Opis
+        enable_omnipresent_banner: Pokaż wszechobecny baner
+        facebook_handler: Handler Facebooka
+        favicon: Ikona
+        github_handler: Obsługa programu GitHub
+        header_snippets: Fragmenty nagłówków
+        highlighted_content_banner_action_subtitle: Podtytuł przycisku czynności
+        highlighted_content_banner_action_title: Tytuł przycisku akcji
+        highlighted_content_banner_action_url: URL przycisku czynności
+        highlighted_content_banner_enabled: Pokaż podświetlony baner treści
+        highlighted_content_banner_image: Obraz
+        highlighted_content_banner_short_description: Krótki opis
+        highlighted_content_banner_title: Tytuł
+        homepage_image: Obraz strony głównej
+        instagram_handler: Obsługa Instagram
+        logo: Logo
         name: Nazwa
+        official_img_footer: Oficjalna stopka logo
+        official_img_header: Oficjalny nagłówek logo
+        official_url: Oficjalny URL organizacji
+        omnipresent_banner_short_description: Krótki opis
+        omnipresent_banner_title: Tytuł
+        omnipresent_banner_url: URL
         reference_prefix: Prefiks referencyjny
+        show_statistics: Pokaż statystyki
+        twitter_handler: Obsługa Twittera
+        welcome_text: Tekst powitalny
+        youtube_handler: Poradnik YouTube
       scope:
         code: Kod
         name: Nazwa
