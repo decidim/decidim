@@ -66,7 +66,9 @@ fi:
         delete: "%{user_name} poistettu %{resource_name} staattinen sivu"
         update: "%{user_name} päivitti %{resource_name} staattinen sivu"
       user:
+        officialize: "%{user_name} virallistettu käyttäjä %{resource_name}"
         remove_from_admin: "%{user_name} poistanut käyttäjän %{resource_name} roolilla: %{role}"
+        unofficialize: "%{user_name} epävirallinen käyttäjä %{resource_name}"
       user_group:
         reject: "%{user_name} hylkäsi %{resource_name} käyttäjäryhmän vahvistaminen"
         verify: "%{user_name} vahvistanut %{resource_name} käyttäjäryhmä"
