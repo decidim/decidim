@@ -128,7 +128,7 @@ en:
             change_category: Change category
             selected: selected
             title: Proposals
-            update_selected: Update selected
+            update: Update
           new:
             create: Create
             title: Create proposal
