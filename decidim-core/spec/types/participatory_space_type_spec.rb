@@ -20,7 +20,7 @@ module Decidim
 
       describe "components" do
         let!(:published_components) do
-          create_list(:dummy_feature, 2, participatory_space: model, published_at: Time.now)
+          create_list(:dummy_feature, 2, participatory_space: model, published_at: Time.zone.now)
         end
 
         let!(:unpublished_components) do

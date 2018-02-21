@@ -37,5 +37,5 @@ module Decidim
         resolve ->(obj, _args, _ctx) { UserPresenter.new(obj).badge }
       end
     end
- end
+  end
 end

@@ -6,7 +6,7 @@ module Decidim
       name "DateTime"
       description "An ISO8601 date with time"
 
-      coerce_input ->(value, _ctx) do
+      coerce_input lambda do |value, _ctx|
         Time.iso8601(value)
       end
 
