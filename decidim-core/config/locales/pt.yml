@@ -59,10 +59,6 @@ pt:
         delete: "%{user_name} apagou o %{resource_name} Boletim de Notícias"
         deliver: "%{user_name} entregou o %{resource_name} Boletim de Notícias"
         update: "%{user_name} atualizou o %{resource_name} Boletim de Notícias"
-      static_pages:
-        create: "%{user_name} criou o %{resource_name} página estática"
-        delete: "%{user_name} apagou o %{resource_name} página estática"
-        update: "%{user_name} atualizou o %{resource_name} página estática"
       user:
         invite: "%{user_name} convidou o usuário %{resource_name} com papel: %{role}"
         remove_from_admin: "%{user_name} removeu o usuário %{resource_name} com papel: %{role}"
