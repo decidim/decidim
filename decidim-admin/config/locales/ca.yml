@@ -21,9 +21,37 @@ ca:
         body: Cos
         subject: Assumpte
       organization:
+        cta_button_path: Camí del botó Truca a l'acció
+        cta_button_text: Text del botó Truca a l'acció
         default_locale: Idioma per defecte
+        description: Descripció
+        enable_omnipresent_banner: Mostra pancarta omnipresent
+        facebook_handler: Manejador de Facebook
+        favicon: Icona
+        github_handler: GitHub handler
+        header_snippets: Fragments de capçalera
+        highlighted_content_banner_action_subtitle: Subtítol del botó d'acció
+        highlighted_content_banner_action_title: Títol del botó d'acció
+        highlighted_content_banner_action_url: URL del botó d'acció
+        highlighted_content_banner_enabled: Mostra el bàner de contingut ressaltat
+        highlighted_content_banner_image: Imatge
+        highlighted_content_banner_short_description: Descripció breu
+        highlighted_content_banner_title: Títol
+        homepage_image: Imatge de la pàgina d'inici
+        instagram_handler: Carregador d'Instagram
+        logo: Logotip
         name: Nom
+        official_img_footer: Cofre del logotip oficial
+        official_img_header: Capçalera oficial del logotip
+        official_url: URL de l'organització oficial
+        omnipresent_banner_short_description: Descripció breu
+        omnipresent_banner_title: Títol
+        omnipresent_banner_url: URL
         reference_prefix: Prefix de referència
+        show_statistics: Mostra estadístiques
+        twitter_handler: Controlador de Twitter
+        welcome_text: Text de benvinguda
+        youtube_handler: Controlador de YouTube
       scope:
         code: Codi
         name: Nom
