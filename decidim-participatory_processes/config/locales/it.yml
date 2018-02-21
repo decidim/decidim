@@ -208,6 +208,8 @@ it:
     admin_log:
       participatory_process:
         create: "%{user_name} creato il %{resource_name} processo partecipativo"
+        publish: "%{user_name} pubblicato il %{resource_name} processo partecipativo"
+        unpublish: "%{user_name} non pubblicato il %{resource_name} processo partecipativo"
     menu:
       processes: Processi
     participatory_process_groups:
