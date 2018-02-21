@@ -59,6 +59,12 @@ it:
         delete: "%{user_name} cancellato il %{resource_name} notiziario"
         deliver: "%{user_name} consegnato il %{resource_name} notiziario"
         update: "%{user_name} aggiornato il %{resource_name} notiziario"
+      organization:
+        update: "%{user_name} aggiornato le impostazioni dell'organizzazione"
+      static_page:
+        create: "%{user_name} creato il %{resource_name} pagina statica"
+        delete: "%{user_name} cancellato il %{resource_name} pagina statica"
+        update: "%{user_name} aggiornato il %{resource_name} pagina statica"
       user:
         invite: "%{user_name} ha invitato l'utente %{resource_name} con ruolo: %{role}"
         remove_from_admin: "%{user_name} rimosso l'utente %{resource_name} con ruolo: %{role}"
