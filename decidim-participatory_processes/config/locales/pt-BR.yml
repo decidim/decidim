@@ -19,6 +19,7 @@ pt-BR:
         participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
         promoted: Destacado
+        published_at: Publicado em
         scope_id: Âmbito
         scopes_enabled: Âmbitos ativados
         short_description: Pequena descrição
@@ -204,6 +205,10 @@ pt-BR:
         resend_invitation:
           error: Ocorreu um erro ao reenviar o convite.
           success: O convite remete com sucesso.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} criou o %{resource_name} processo participativo"
+        publish: "%{user_name} publicou o %{resource_name} processo participativo"
     menu:
       processes: Processos
     participatory_process_groups:
