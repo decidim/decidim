@@ -41,6 +41,18 @@ describe Decidim::Log::DiffChangesetCalculator do
       expect(title_attribute[:type]).to eq :string
     end
 
+    context "when changeset has the same values" do
+      let(:changeset) do
+        {
+          updated_at: [date1, date1]
+        }
+      end
+
+      it "skips the attribute" do
+        expect(subject).to be_empty
+      end
+    end
+
     context "with i18n fields" do
       let(:changeset) do
         {
