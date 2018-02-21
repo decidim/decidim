@@ -59,6 +59,12 @@ nl:
         delete: "%{user_name} heeft de %{resource_name} verwijderd nieuwsbrief"
         deliver: "%{user_name} de %{resource_name} geleverd nieuwsbrief"
         update: "%{user_name} heeft de %{resource_name} bijgewerkt nieuwsbrief"
+      organization:
+        update: "%{user_name} de organisatie-instellingen bijgewerkt"
+      static_page:
+        create: "%{user_name} creëerde de %{resource_name} statische pagina"
+        delete: "%{user_name} heeft de %{resource_name} verwijderd statische pagina"
+        update: "%{user_name} heeft de %{resource_name} bijgewerkt statische pagina"
       user:
         invite: "%{user_name} nodigde de gebruiker uit %{resource_name} met rol: %{role}"
         remove_from_admin: "%{user_name} de gebruiker verwijderd %{resource_name} met rol: %{role}"
