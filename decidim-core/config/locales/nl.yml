@@ -67,7 +67,9 @@ nl:
         update: "%{user_name} heeft de %{resource_name} bijgewerkt statische pagina"
       user:
         invite: "%{user_name} nodigde de gebruiker uit %{resource_name} met rol: %{role}"
+        officialize: "%{user_name} officieel de gebruiker %{resource_name}"
         remove_from_admin: "%{user_name} de gebruiker verwijderd %{resource_name} met rol: %{role}"
+        unofficialize: "%{user_name} de gebruiker onofficieel %{resource_name}"
       user_group:
         reject: "%{user_name} verwierp de %{resource_name} gebruikersgroep verificatie"
         verify: "%{user_name} de %{resource_name} geverifieerd gebruikersgroep"
