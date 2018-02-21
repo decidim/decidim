@@ -15,14 +15,14 @@ describe "Admin manages ogranization", type: :system do
     it "updates the values from the form" do
       visit decidim_admin.edit_organization_appearance_path
 
-      fill_in_i18n_editor :organization_appearance_description,
-                          "#organization_appearance-description-tabs",
+      fill_in_i18n_editor :organization_description,
+                          "#organization-description-tabs",
                           en: "My own super description",
                           es: "Mi gran descripción",
                           ca: "La meva gran descripció"
 
-      fill_in_i18n :organization_appearance_welcome_text,
-                   "#organization_appearance-welcome_text-tabs",
+      fill_in_i18n :organization_welcome_text,
+                   "#organization-welcome_text-tabs",
                    en: "My super welcome text",
                    es: "Mi super texto de bienvenida",
                    ca: "El meu súper text de benvinguda"

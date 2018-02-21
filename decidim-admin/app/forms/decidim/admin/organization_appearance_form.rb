@@ -8,7 +8,7 @@ module Decidim
     class OrganizationAppearanceForm < Form
       include TranslatableAttributes
 
-      mimic :organization_appearance
+      mimic :organization
 
       attribute :homepage_image
       attribute :remove_homepage_image

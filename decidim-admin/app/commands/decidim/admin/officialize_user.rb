@@ -37,10 +37,24 @@ module Decidim
       attr_reader :form
 
       def officialize_user
-        form.user.update!(
-          officialized_at: Time.current,
-          officialized_as: form.officialized_as
-        )
+        transaction do
+          timestamp = Time.current
+          Decidim::ActionLogger.log(
+            "officialize",
+            form.current_user,
+            form.user,
+            extra: {
+              officialized_user_badge: form.officialized_as,
+              officialized_user_badge_previous: form.user.officialized_as,
+              officialized_user_at: timestamp,
+              officialized_user_at_previous: form.user.officialized_at
+            }
+          )
+          form.user.update!(
+            officialized_at: timestamp,
+            officialized_as: form.officialized_as
+          )
+        end
       end
     end
   end

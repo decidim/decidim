@@ -47,6 +47,7 @@ module Decidim
             expect(admin.organization.name).to eq("Gotham City")
             expect(admin).to be_admin
             expect(admin).to be_created_by_invite
+            expect(admin).to be_valid
           end
 
           it "sends a custom email" do
