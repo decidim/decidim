@@ -67,6 +67,7 @@ sv:
         update: "%{user_name} uppdaterade %{resource_name} statisk sida"
       user:
         invite: "%{user_name} bjudit in användaren %{resource_name} med roll: %{role}"
+        officialize: "%{user_name} publicerade användaren %{resource_name}"
         remove_from_admin: "%{user_name} tagit bort användaren %{resource_name} med roll: %{role}"
       user_group:
         reject: "%{user_name} avvisade %{resource_name} användargruppverifiering"
