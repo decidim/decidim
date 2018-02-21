@@ -18,7 +18,9 @@ module Decidim
       routes do
         root to: proc { [200, {}, ["DUMMY ENGINE"]] }
 
-        resources :dummy_resources
+        resources :dummy_resources do
+          get :foo, on: :member
+        end
       end
     end
 
