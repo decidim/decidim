@@ -63,6 +63,9 @@ pt-BR:
         create: "%{user_name} criou o %{resource_name} página estática"
         delete: "%{user_name} apagou o %{resource_name} página estática"
         update: "%{user_name} atualizou o %{resource_name} página estática"
+      user_group:
+        reject: "%{user_name} rejeitou o %{resource_name} verificação do grupo de usuários"
+        verify: "%{user_name} verificado o %{resource_name} grupo de usuários"
     anonymous_user: Anônimo
     application:
       collection:
