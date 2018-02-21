@@ -59,10 +59,6 @@ sv:
         delete: "%{user_name} raderade %{resource_name} nyhetsbrev"
         deliver: "%{user_name} levererade %{resource_name} nyhetsbrev"
         update: "%{user_name} uppdaterade %{resource_name} nyhetsbrev"
-      static_pages:
-        create: "%{user_name} skapade %{resource_name} statisk sida"
-        delete: "%{user_name} raderade %{resource_name} statisk sida"
-        update: "%{user_name} uppdaterade %{resource_name} statisk sida"
       user:
         invite: "%{user_name} bjudit in användaren %{resource_name} med roll: %{role}"
         remove_from_admin: "%{user_name} tagit bort användaren %{resource_name} med roll: %{role}"
