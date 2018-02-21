@@ -24,30 +24,6 @@ eu:
         default_locale: Eskualdeko ezarpen lehenetsiak
         name: Izena
         reference_prefix: Erreferentzia-aurrizkia
-      organization_appearance:
-        cta_button_path: Ekintza dei botoiaren bidea
-        cta_button_text: Deitu ekintza botoiaren testura
-        description: Descripción
-        enable_omnipresent_banner: Erakutsi omnipresent banner
-        favicon: Ikonoa
-        header_snippets: Izenburu-snippets-ak
-        highlighted_content_banner_action_subtitle: Ekintza botoia azpititulua
-        highlighted_content_banner_action_title: Ekintza botoien titulua
-        highlighted_content_banner_action_url: Ekintza botoia URLa
-        highlighted_content_banner_enabled: Erakutsi nabarmendutako edukien bandera
-        highlighted_content_banner_image: Image
-        highlighted_content_banner_short_description: Deskribapen laburra
-        highlighted_content_banner_title: Izenburua
-        homepage_image: Orri nagusiko irudia
-        logo: Logotipo
-        official_img_footer: Orri-oineko logotipo ofiziala
-        official_img_header: Goiburuko logotipo ofiziala
-        official_url: Erakundearen URL ofiziala
-        omnipresent_banner_short_description: Deskribapen laburra
-        omnipresent_banner_title: Izenburua
-        omnipresent_banner_url: URL
-        show_statistics: Erakutsi estatistikak
-        welcome_text: Ongietorri-testua
       scope:
         code: Kodea
         name: Izena
