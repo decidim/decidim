@@ -8,6 +8,8 @@ module Decidim
 
     let(:user_group) { create(:user_group) }
 
+    it { is_expected.to be_versioned }
+
     it "is valid" do
       expect(subject).to be_valid
     end
