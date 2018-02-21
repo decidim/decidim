@@ -59,10 +59,6 @@ fi:
         delete: "%{user_name} poistettu %{resource_name} tiedote"
         deliver: "%{user_name} toimitti %{resource_name} tiedote"
         update: "%{user_name} päivitti %{resource_name} tiedote"
-      static_pages:
-        create: "%{user_name} luonut %{resource_name} staattinen sivu"
-        delete: "%{user_name} poistettu %{resource_name} staattinen sivu"
-        update: "%{user_name} päivitti %{resource_name} staattinen sivu"
       user:
         remove_from_admin: "%{user_name} poistanut käyttäjän %{resource_name} roolilla: %{role}"
       user_group:
