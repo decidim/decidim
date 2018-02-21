@@ -63,6 +63,9 @@ it:
         create: "%{user_name} creato il %{resource_name} pagina statica"
         delete: "%{user_name} cancellato il %{resource_name} pagina statica"
         update: "%{user_name} aggiornato il %{resource_name} pagina statica"
+      user_group:
+        reject: "%{user_name} respinto il %{resource_name} verifica del gruppo di utenti"
+        verify: "%{user_name} verificato il %{resource_name} gruppo di utenti"
     anonymous_user: Anonimo
     application:
       collection:
