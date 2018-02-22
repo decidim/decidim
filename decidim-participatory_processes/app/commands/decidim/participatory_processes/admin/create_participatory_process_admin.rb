@@ -46,9 +46,6 @@ module Decidim
           extra_info = {
             resource: {
               title: user.name
-            },
-            extra: {
-              user_role: form.role
             }
           }
           role_params = {

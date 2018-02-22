@@ -35,9 +35,6 @@ module Decidim::ParticipatoryProcesses
         hash_including(
           resource: hash_including(
             title: kind_of(String)
-          ),
-          extra: hash_including(
-            user_role: role
           )
         )
       end
