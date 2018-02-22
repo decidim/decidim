@@ -54,6 +54,9 @@ fi:
         success: Tilisi on onnistuneesti päivitetty.
         success_with_email_confirmation: Tilisi päivitettiin onnistuneesti. Sähköpostiisi on lähetetty viesti uuden sähköpostiosoitteesi vahvistamiseksi.
     admin_log:
+      feature:
+        create: "%{user_name} lisäsi %{resource_name} ominaisuus %{space_name} tila"
+        delete: "%{user_name} poistanut %{resource_name} ominaisuus %{space_name} tila"
       newsletter:
         create: "%{user_name} luonut %{resource_name} tiedote"
         delete: "%{user_name} poistettu %{resource_name} tiedote"
