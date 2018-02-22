@@ -49,6 +49,8 @@ module Decidim
             user: user,
             participatory_process: @participatory_process
           )
+
+          Decidim.traceability.perform_action!(:create, )
         end
 
         def log_action
