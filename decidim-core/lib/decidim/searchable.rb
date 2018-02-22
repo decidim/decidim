@@ -37,7 +37,7 @@ module Decidim
         content_c = contents[:C]&.join(" ")
         content_d = contents[:D]&.join(" ")
         Decidim::SearchableRsrc.create(
-          content_A: content_a, content_B: content_b, content_C: content_c, content_D: content_d,
+          content_a: content_a, content_b: content_b, content_c: content_c, content_d: content_d,
           locale: locale,
           decidim_scope_id: fields[:decidim_scope_id],
           decidim_participatory_space_id: fields[:decidim_participatory_space_id],

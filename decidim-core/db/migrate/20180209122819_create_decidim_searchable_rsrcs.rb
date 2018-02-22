@@ -3,10 +3,10 @@
 class CreateDecidimSearchableRsrcs < ActiveRecord::Migration[5.1]
   def change
     create_table :decidim_searchable_rsrcs do |t|
-      t.text :content_A
-      t.text :content_B
-      t.text :content_C
-      t.text :content_D
+      t.text :content_a
+      t.text :content_b
+      t.text :content_c
+      t.text :content_d
       t.string :locale
 
       t.belongs_to :decidim_scope

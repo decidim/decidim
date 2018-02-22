@@ -353,4 +353,13 @@ FactoryBot.define do
       }.deep_merge(extra_data)
     end
   end
+
+  factory :searchable_rsrc, class: "Decidim::SearchableRsrc" do
+    resource do
+      build(:dummy_resource)
+    end
+    organization { resource.feature.organization }
+    decidim_participatory_space { resource.feature.participatory_space }
+    content_a { Faker::Lorem.sentence }
+  end
 end
