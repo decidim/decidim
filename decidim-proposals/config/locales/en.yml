@@ -71,6 +71,7 @@ en:
             proposal_wizard_step_2_help_text: Proposal wizard "Compare" step help text
             proposal_wizard_step_3_help_text: Proposal wizard "Publish" step help text
             vote_limit: Vote limit per user
+            proposal_length: Maximum proposal body length
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
