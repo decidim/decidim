@@ -54,6 +54,9 @@ nl:
         success: Uw account is bijgewerkt.
         success_with_email_confirmation: Uw account is bijgewerkt. U ontvangt een e-mail ter bevestiging van uw nieuwe e-mailadres.
     admin_log:
+      feature:
+        create: "%{user_name} de %{resource_name} toegevoegd functie naar de %{space_name} ruimte"
+        delete: "%{user_name} de %{resource_name} verwijderd functie van de %{space_name} ruimte"
       newsletter:
         create: "%{user_name} creëerde de %{resource_name} nieuwsbrief"
         delete: "%{user_name} heeft de %{resource_name} verwijderd nieuwsbrief"
