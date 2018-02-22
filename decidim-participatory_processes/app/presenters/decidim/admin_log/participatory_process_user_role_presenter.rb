@@ -14,6 +14,10 @@ module Decidim
     class ParticipatoryProcessUserRolePresenter < Decidim::Log::BasePresenter
       private
 
+      def diff_fields_mapping
+          { role: :string }
+      end
+
       def action_string
         case action
         when "create"
@@ -21,22 +25,6 @@ module Decidim
         else
           super
         end
-      end
-
-      def changeset
-        Decidim::Log::DiffChangesetCalculator.new(
-          { role: [previous_user_role, user_role] },
-          { role: :string },
-          i18n_labels_scope
-        ).changeset
-      end
-
-      def previous_user_role
-        action_log.extra.dig("extra", "previous_user_role")
-      end
-
-      def user_role
-        action_log.extra.dig("extra", "user_role")
       end
 
       def i18n_labels_scope
