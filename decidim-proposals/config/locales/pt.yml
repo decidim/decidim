@@ -66,6 +66,9 @@ pt:
             proposal_answering_enabled: Resposta de proposta ativada
             proposal_edit_before_minutes: As propostas podem ser editadas pelos autores antes que muitos minutos passem.
             proposal_limit: Limite da proposta por usuário
+            proposal_wizard_step_1_help_text: Assistente de propostas "Criar" passo ajuda texto
+            proposal_wizard_step_2_help_text: Assistente de propostas "Compare" passo ajuda texto
+            proposal_wizard_step_3_help_text: Assistente de propostas "Publicar" passo ajuda texto
             vote_limit: Limite de voto por usuário
           step:
             announcement: Anúncio
@@ -144,7 +147,7 @@ pt:
         withdrawn: Retirado
       create:
         error: Ocorreu erros ao salvar a proposta.
-        success: Proposta criada com sucesso.
+        success: Proposta criada com sucesso. Salvo como um rascunho.
       models:
         proposal:
           fields:
@@ -173,6 +176,10 @@ pt:
         create:
           error: Houve erros ao votar a proposta.
       proposals:
+        compare:
+          mine_is_different: Minha proposta é diferente
+          no_similars_found: Bem feito! Não foram encontradas propostas semelhantes
+          title: Propostas semelhantes
         count:
           proposals_count:
             one: 1 proposta
@@ -182,6 +189,9 @@ pt:
           select_a_category: Selecione uma categoria
           send: Enviar
           title: Editar proposta
+        edit_draft:
+          send: Visualização
+          title: Editar proposta de rascunho
         endorsement_button:
           already_endorsed: Já endossado
           already_endorsed_hover: Unendorse
@@ -224,18 +234,16 @@ pt:
             other: votos
         new:
           attachment_legend: "(Opcional) Adicionar um anexo"
-          back: Voltar
-          proposal_edit_before_minutes:
-            one: Você poderá editar esta proposta durante o primeiro minuto após a criação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
-            other: Você poderá editar esta proposta durante os primeiros %{count} minutos após a criação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
           select_a_category: Selecione uma categoria
-          send: Enviar
-          title: Nova proposta
+          send: Continuar
+          title: Crie sua proposta
         orders:
           label: 'Ordene propostas por:'
           most_voted: Mais votados
           random: Aleatória
           recent: Recente
+        preview:
+          modify: Modificar a proposta
         proposal:
           creation_date: 'Criação: %{date}'
           view_proposal: Ver proposta
