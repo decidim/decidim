@@ -598,6 +598,8 @@ Style/Lambda:
     - line_count_dependent
     - lambda
     - literal
+  Exclude:
+    - "**/types/**/*"
 
 Style/LambdaCall:
   EnforcedStyle: call

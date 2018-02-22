@@ -11,9 +11,7 @@ module Decidim
 
       field :name, !TranslatedFieldType, "The name of this component."
 
-      resolve_type lambda do |obj, _ctx|
-        obj.manifest.api_type.constantize
-      end
+      resolve_type ->(obj, _ctx) { obj.manifest.api_type.constantize }
     end
   end
 end

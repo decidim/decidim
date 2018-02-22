@@ -6,10 +6,7 @@ module Decidim
       name "DateTime"
       description "An ISO8601 date"
 
-      coerce_input lambda do |value, _ctx|
-        Date.iso8601(value)
-      end
-
+      coerce_input ->(value, _ctx) { Date.iso8601(value) }
       coerce_result ->(value, _ctx) { value.to_date.iso8601 }
     end
   end
