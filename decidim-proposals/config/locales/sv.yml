@@ -66,6 +66,9 @@ sv:
             proposal_answering_enabled: Förslagsvarning aktiverat
             proposal_edit_before_minutes: Förslag kan redigeras av författare innan detta många minuter passerar
             proposal_limit: Förslagsgräns per användare
+            proposal_wizard_step_1_help_text: Förslagsguiden "Skapa" steg hjälptext
+            proposal_wizard_step_2_help_text: Förslagsguiden "Jämför" steg hjälptext
+            proposal_wizard_step_3_help_text: Förslagsguiden "Publicera" steg hjälptext
             vote_limit: Rösta per användare
           step:
             announcement: Meddelande
@@ -144,7 +147,7 @@ sv:
         withdrawn: kallas
       create:
         error: Det har varit fel när du lagrade förslaget.
-        success: Förslaget skapades framgångsrikt.
+        success: Förslaget skapades framgångsrikt. Sparat som ett formulär.
       models:
         proposal:
           fields:
@@ -173,6 +176,10 @@ sv:
         create:
           error: Det har varit fel när man röstade förslaget.
       proposals:
+        compare:
+          mine_is_different: Mitt förslag är annorlunda
+          no_similars_found: Bra gjort! Inga liknande förslag hittades
+          title: Liknande förslag
         count:
           proposals_count:
             one: 1 förslag
@@ -182,6 +189,9 @@ sv:
           select_a_category: Var god välj en kategori
           send: Skicka
           title: Redigera förslag
+        edit_draft:
+          send: Förhandsvisning
+          title: Redigera förslagskoncept
         endorsement_button:
           already_endorsed: Redan godkänd
           already_endorsed_hover: Unendorse
@@ -224,18 +234,21 @@ sv:
             other: röster
         new:
           attachment_legend: "(Valfritt) Lägg till en bilaga"
-          back: Tillbaka
-          proposal_edit_before_minutes:
-            one: Du kommer att kunna redigera detta förslag under den första minuten efter det att förslaget skapades. När det här gångfönstret passerar kommer du inte att kunna redigera förslaget.
-            other: Du kommer att kunna redigera detta förslag under de första %{count} minuter efter det att förslaget skapades. När det här gångfönstret passerar kommer du inte att kunna redigera förslaget.
           select_a_category: Var god välj en kategori
-          send: Skicka
-          title: Nytt förslag
+          send: Fortsätta
+          title: Skapa ditt förslag
         orders:
           label: 'Beställ förslag av:'
           most_voted: De flesta röstade
           random: Slumpmässig
           recent: Nyligen
+        preview:
+          modify: Ändra förslaget
+          proposal_edit_before_minutes:
+            one: Du kommer att kunna redigera detta förslag under den första minuten efter att förslaget har publicerats. När det här gångfönstret passerar kommer du inte att kunna redigera förslaget.
+            other: Du kommer att kunna redigera detta förslag under den första %{count} minuter efter att förslaget har publicerats. När det här gångfönstret passerar kommer du inte att kunna redigera förslaget.
+          publish: Publicera
+          title: Publicera ditt förslag
         proposal:
           creation_date: 'Skapelse: %{date}'
           view_proposal: Visa förslag
@@ -270,6 +283,8 @@ sv:
             description: Du kan rösta upp till %{limit} förslag.
             left: Återstående
             votes: röster
+        wizard_aside:
+          back: Tillbaka
       update:
         error: Det har varit fel när du lagrade förslaget.
         success: Förslaget uppdateras framgångsrikt.
