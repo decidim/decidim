@@ -66,6 +66,9 @@ fr:
             proposal_answering_enabled: '"Réponses aux propositions" activé'
             proposal_edit_before_minutes: Les propositions peuvent être éditées par les auteurs avant que ces minutes soit écoulées
             proposal_limit: Maximum de propositions par utilisateur
+            proposal_wizard_step_1_help_text: Assistant d'aide à la proposition "Créer" étape texte d'aide
+            proposal_wizard_step_2_help_text: Assistant d'aide à la proposition "Comparer" étape texte d'aide
+            proposal_wizard_step_3_help_text: Assistant d'aide à la proposition "Publier" étape texte d'aide
             vote_limit: Nombre maximum de votes par utilisateur
           step:
             announcement: Message d'annonce
@@ -144,7 +147,7 @@ fr:
         withdrawn: Retiré
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
-        success: Proposition créée avec succès.
+        success: Proposition créée avec succès. Enregistré comme brouillon
       models:
         proposal:
           fields:
@@ -173,6 +176,10 @@ fr:
         create:
           error: Des erreurs se sont produites lors du vote de la proposition.
       proposals:
+        compare:
+          mine_is_different: Ma proposition est différente
+          no_similars_found: Bien joué! Aucune proposition similaire trouvée
+          title: Propositions similaires
         count:
           proposals_count:
             one: 1 proposition
@@ -182,6 +189,9 @@ fr:
           select_a_category: Veuillez sélectionner une catégorie
           send: Envoyer
           title: Modifier la proposition
+        edit_draft:
+          send: Aperçu
+          title: Modifier le projet de proposition
         endorsement_button:
           already_endorsed: Déjà approuvé
           already_endorsed_hover: Unendorse
@@ -224,18 +234,19 @@ fr:
             other: votes
         new:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
-          back: Retour
-          proposal_edit_before_minutes:
-            one: Vous serez en mesure de modifier cette proposition pendant un minute après la création de la proposition. Une fois cette fenêtre de temps passée, vous ne pourrez plus modifier la proposition.
-            other: Vous serez en mesure de modifier cette proposition au cours des premières %{count} minutes après la création de la proposition. Une fois cette fenêtre de temps passée, vous ne pourrez plus modifier la proposition.
           select_a_category: Veuillez sélectionner une catégorie
-          send: Publier
-          title: Nouvelle proposition
+          send: Continuer
+          title: Créez votre proposition
         orders:
           label: 'Classement des propositions par:'
           most_voted: Les plus votées
           random: Aléatoire
           recent: Les plus récents
+        preview:
+          modify: Modifier la proposition
+          proposal_edit_before_minutes:
+            one: Vous serez en mesure de modifier cette proposition au cours de la première minute après la publication de la proposition. Une fois cette fenêtre de temps passée, vous ne pourrez pas modifier la proposition.
+            other: Vous serez en mesure de modifier cette proposition au cours de la première %{count} minutes après la publication de la proposition. Une fois cette fenêtre de temps passée, vous ne pourrez pas modifier la proposition.
         proposal:
           creation_date: 'Création: %{date}'
           view_proposal: Voir la proposition
