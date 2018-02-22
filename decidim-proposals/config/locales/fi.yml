@@ -103,6 +103,9 @@ fi:
             rejected: Hylätty
             title: 'Vastaa ehdotukseen: %{title}'
         proposal_notes:
+          create:
+            error: On tullut ongelma tämän ehdotusviestin luomisesta
+            success: Ehdotusviesti onnistuneesti luotu
           form:
             note: Huomautus
             submit: Lähetä
@@ -246,6 +249,8 @@ fi:
           proposal_edit_before_minutes:
             one: Voit muokata tätä ehdotusta ensimmäisen minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna läpäisee, et pysty muokkaamaan ehdotusta.
             other: 'Voit muokata tätä ehdotusta ensimmäisen %{count}: n aikana minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna läpäisee, et pysty muokkaamaan ehdotusta.'
+          publish: Julkaista
+          title: Julkaise ehdotuksesi
         proposal:
           creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus
@@ -280,9 +285,23 @@ fi:
             description: Voit äänestää enintään %{limit} ehdotusta.
             left: Jäljellä
             votes: Ääntä
+        wizard_aside:
+          back: Takaisin
+          info: Luo <strong>ehdotuksen</strong>.
+        wizard_steps:
+          see_steps: katso vaiheet
+          step_1: Luo ehdotuksesi
+          step_2: Vertailla
+          step_3: Julkaise ehdotuksesi
+      publish:
+        error: Ehdotuksen julkaisemisessa on tapahtunut virheitä.
+        success: Ehdotus julkaistiin onnistuneesti.
       update:
         error: Ehdotuksen tallentamisessa tapahtui virheitä.
         success: Ehdotus on päivitetty onnistuneesti.
+      update_draft:
+        error: Ehdotushuutos tallennettaessa on ollut virheitä.
+        success: Ehdotusluonnos on päivitetty onnistuneesti.
     resource_links:
       copied_from_component:
         proposal_proposals: Vastaavat ehdotukset
