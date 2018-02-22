@@ -58,6 +58,7 @@ sv:
           global:
             announcement: Meddelande
             attachments_allowed: Tillåt bilagor
+            can_accumulate_supports_beyond_threshold: Kan ackumulera stöd över gränsen
             comments_enabled: Kommentarer aktiverade
             geocoding_enabled: Geocoding aktiverad
             maximum_votes_per_proposal: Maximalt antal röster per förslag
@@ -276,7 +277,11 @@ sv:
           count:
             one: RÖSTA
             other: RÖSTER
+          most_popular_proposal: Mest populära förslaget
+          need_more_votes: Behöver flera röster
         voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Varje förslag kan ackumuleras mer än högsta röster
           maximum_votes_per_proposal:
             description: Varje förslag får maximalt %{limit} röster.
           proposal_limit:
