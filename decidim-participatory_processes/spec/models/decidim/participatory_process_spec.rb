@@ -10,6 +10,8 @@ module Decidim
 
     it { is_expected.to be_valid }
 
+    it { is_expected.to be_versioned }
+
     include_examples "publicable"
 
     context "when there's a process with the same slug in the same organization" do

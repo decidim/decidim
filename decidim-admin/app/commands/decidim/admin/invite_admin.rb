@@ -16,7 +16,6 @@ module Decidim
 
         transaction do
           invite_user
-          generate_nickname
           log_action
         end
 
@@ -33,10 +32,6 @@ module Decidim
             save_user(user)
           end
         end
-      end
-
-      def generate_nickname
-        user.update_attributes(nickname: User.nicknamize(user.name))
       end
 
       # Ugly fix to get the user from the block inside the

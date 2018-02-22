@@ -72,7 +72,7 @@ module Decidim
         @feature = query_scope.find(params[:id])
         authorize! :destroy, @feature
 
-        DestroyFeature.call(@feature) do
+        DestroyFeature.call(@feature, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("features.destroy.success", scope: "decidim.admin")
             redirect_to action: :index

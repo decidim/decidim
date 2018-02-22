@@ -27,7 +27,7 @@ describe "Index Proposal Notes", type: :system do
     visit current_path + "proposals/#{proposal.id}/proposal_notes"
   end
 
-  it "shows all proposal notes for the given proposal" do
+  it "shows proposal notes for the current proposal" do
     proposal_notes.each do |proposal_note|
       expect(page).to have_content(proposal_note.author.name)
       expect(page).to have_content(proposal_note.body)
@@ -35,8 +35,8 @@ describe "Index Proposal Notes", type: :system do
     expect(page).to have_selector("form")
   end
 
-  context "when the form is valid" do
-    it "creates a new proposal note ", :slow do
+  context "when the form has a text inside body" do
+    it "creates a proposal note ", :slow do
       within ".new_proposal_note" do
         fill_in :proposal_note_body, with: body
 
@@ -51,10 +51,10 @@ describe "Index Proposal Notes", type: :system do
     end
   end
 
-  context "when the form is not valid" do
+  context "when the form hasn't text inside body" do
     let(:body) { nil }
 
-    it "not creates a new proposal note", :slow do
+    it "don't create a proposal note", :slow do
       within ".new_proposal_note" do
         fill_in :proposal_note_body, with: body
 
