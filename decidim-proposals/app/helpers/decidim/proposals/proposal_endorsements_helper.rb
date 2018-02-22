@@ -21,7 +21,7 @@ module Decidim
       # Returns a string with the value of the css classes.
       def endorsement_button_classes(from_proposals_list)
         return "small" if from_proposals_list
-        "small compact light button--sc"
+        "small compact light button--sc expanded"
       end
 
       # Public: Checks if endorsement are enabled in this step.
