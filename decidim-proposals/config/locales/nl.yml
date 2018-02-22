@@ -104,6 +104,9 @@ nl:
             rejected: Verworpen
             title: Antwoord voor voorstel %{title}
         proposal_notes:
+          create:
+            error: Er is een probleem opgetreden bij het maken van deze voorstelnotitie
+            success: Voorstelnotitie succesvol aangemaakt
           form:
             note: Notitie
             submit: voorleggen
@@ -244,6 +247,11 @@ nl:
           recent: Recentelijk
         preview:
           modify: Pas het voorstel aan
+          proposal_edit_before_minutes:
+            one: U kunt dit voorstel bewerken in de eerste minuut nadat het voorstel is gepubliceerd. Zodra dit tijdvenster is verstreken, kunt u het voorstel niet bewerken.
+            other: U kunt dit voorstel bewerken tijdens de eerste %{count} minuten nadat het voorstel is gepubliceerd. Zodra dit tijdvenster is verstreken, kunt u het voorstel niet bewerken.
+          publish: Publiceren
+          title: Publiceer uw voorstel
         proposal:
           creation_date: 'Aangemaakt op: %{date}'
           view_proposal: Bekijk voorstel
@@ -278,9 +286,24 @@ nl:
             description: U kunt tot %{limit} voorstellen stemmen.
             left: Resterend
             votes: Stemmen
+        wizard_aside:
+          back: Terug
+          info: U maakt een <strong>voorstel</strong>.
+        wizard_steps:
+          see_steps: zie stappen
+          step_1: Maak uw voorstel
+          step_2: Vergelijken
+          step_3: Publiceer uw voorstel
+          step_of: Stap %{current_step_num} van %{total_steps}
+      publish:
+        error: Er zijn fouten opgetreden bij het publiceren van het voorstel.
+        success: Voorstel met succes gepubliceerd.
       update:
         error: Er zijn fouten opgetreden bij het opslaan van het voorstel.
         success: Voorstel succesvol bijgewerkt.
+      update_draft:
+        error: Er zijn fouten opgetreden bij het opslaan van de conceptopmaak.
+        success: Voorstel concept succesvol bijgewerkt.
     resource_links:
       copied_from_component:
         proposal_proposals: Gerelateerde voorstellen
