@@ -2,7 +2,6 @@
 
 module Decidim
   module Core
-    # This type represents a ParticipatoryProcess.
     ComponentType = GraphQL::ObjectType.define do
       interfaces [ComponentInterface]
 

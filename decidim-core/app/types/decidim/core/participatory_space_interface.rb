@@ -2,7 +2,6 @@
 
 module Decidim
   module Core
-    # This type represents a ParticipatoryProcess.
     ParticipatorySpaceInterface = GraphQL::InterfaceType.define do
       name "ParticipatorySpaceInterface"
       description "The interface that all participatory spaces should implement."
