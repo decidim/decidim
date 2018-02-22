@@ -3,6 +3,8 @@
 module Decidim
   # This model holds all the data needed to send a newsletter.
   class Newsletter < ApplicationRecord
+    include Decidim::Traceable
+
     belongs_to :author, class_name: "User"
     belongs_to :organization
 

@@ -5,6 +5,8 @@ module Decidim
   # installation we can find many organizations and each of them can start
   # their own participatory processes.
   class Organization < ApplicationRecord
+    include Decidim::Traceable
+
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
 
     has_many :static_pages, foreign_key: "decidim_organization_id", class_name: "Decidim::StaticPage", inverse_of: :organization, dependent: :destroy

@@ -39,6 +39,11 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:ok)
         end
 
+        it "traces the creation" do
+          expect(Decidim.traceability).to receive(:create!).with(Decidim::Newsletter, user, a_kind_of(Hash))
+          command.call
+        end
+
         it "creates a new category" do
           expect do
             command.call

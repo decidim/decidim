@@ -65,6 +65,8 @@ module Decidim
           transaction do
             process.save!
 
+            log_process_creation(process)
+
             process.steps.create!(
               title: TranslationsHelper.multi_translation(
                 "decidim.admin.participatory_process_steps.default_title",
@@ -75,6 +77,18 @@ module Decidim
 
             process
           end
+        end
+
+        def log_process_creation(process)
+          Decidim::ActionLogger.log(
+            "create",
+            form.current_user,
+            process,
+            version: {
+              number: process.versions.count,
+              id: process.versions.last.id
+            }
+          )
         end
       end
     end

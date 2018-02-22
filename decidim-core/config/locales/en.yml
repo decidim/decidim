@@ -54,6 +54,29 @@ en:
         error: There's been an error updating your account.
         success: Your account was updated successfully.
         success_with_email_confirmation: Your account was updated successfully. You'll receive an email to confirm your new email address.
+    admin_log:
+      feature:
+        create: "%{user_name} added the %{resource_name} feature to the %{space_name} space"
+        delete: "%{user_name} removed the %{resource_name} feature from the %{space_name} space"
+      newsletter:
+        create: "%{user_name} created the %{resource_name} newsletter"
+        delete: "%{user_name} deleted the %{resource_name} newsletter"
+        deliver: "%{user_name} delivered the %{resource_name} newsletter"
+        update: "%{user_name} updated the %{resource_name} newsletter"
+      organization:
+        update: "%{user_name} updated the organization settings"
+      static_page:
+        create: "%{user_name} created the %{resource_name} static page"
+        delete: "%{user_name} deleted the %{resource_name} static page"
+        update: "%{user_name} updated the %{resource_name} static page"
+      user:
+        invite: "%{user_name} invited the user %{resource_name} with role: %{role}"
+        officialize: "%{user_name} officialized the user %{resource_name}"
+        remove_from_admin: "%{user_name} removed the user %{resource_name} with role: %{role}"
+        unofficialize: "%{user_name} unofficialized the user %{resource_name}"
+      user_group:
+        reject: "%{user_name} rejected the %{resource_name} user group verification"
+        verify: "%{user_name} verified the %{resource_name} user group"
     anonymous_user: Anonymous
     application:
       collection:
@@ -202,9 +225,14 @@ en:
       remove_this_file: Remove this file
     log:
       base_presenter:
-        create: "%{user_name} created %{resource_name} in %{space_name}"
-        unknown_action: "%{user_name} performed some action on %{resource_name} in %{space_name}"
-        update: "%{user_name} updated %{resource_name} in %{space_name}"
+        create: "%{user_name} created %{resource_name}"
+        create_with_space: "%{user_name} created %{resource_name} in %{space_name}"
+        delete: "%{user_name} deleted %{resource_name}"
+        delete_with_space: "%{user_name} deleted %{resource_name} in %{space_name}"
+        unknown_action: "%{user_name} performed some action on %{resource_name}"
+        unknown_action_with_space: "%{user_name} performed some action on %{resource_name} in %{space_name}"
+        update: "%{user_name} updated %{resource_name}"
+        update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
       value_types:
         scope_presenter:
           not_found: 'The scope was not found on the database (ID: %{id})'

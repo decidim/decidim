@@ -134,12 +134,12 @@ module Decidim
         let(:author) { build(:user, organization: organization) }
 
         context "when user is author" do
-          let(:proposal) { build :proposal, feature: feature, author: author, created_at: Time.current }
+          let(:proposal) { build :proposal, feature: feature, author: author, updated_at: Time.current }
 
           it { is_expected.to be_editable_by(author) }
 
           context "when the proposal has been linked to another one" do
-            let(:proposal) { create :proposal, feature: feature, author: author, created_at: Time.current }
+            let(:proposal) { create :proposal, feature: feature, author: author, updated_at: Time.current }
             let(:original_proposal) do
               original_feature = create(:proposal_feature, organization: organization, participatory_space: feature.participatory_space)
               create(:proposal, feature: original_feature)
@@ -155,25 +155,25 @@ module Decidim
 
         context "when proposal is from user group and user is admin" do
           let(:user_group) { create :user_group, users: [author], organization: author.organization }
-          let(:proposal) { build :proposal, feature: feature, author: author, created_at: Time.current, user_group: user_group }
+          let(:proposal) { build :proposal, feature: feature, author: author, updated_at: Time.current, user_group: user_group }
 
           it { is_expected.to be_editable_by(author) }
         end
 
         context "when user is not the author" do
-          let(:proposal) { build :proposal, feature: feature, created_at: Time.current }
+          let(:proposal) { build :proposal, feature: feature, updated_at: Time.current }
 
           it { is_expected.not_to be_editable_by(author) }
         end
 
         context "when proposal is answered" do
-          let(:proposal) { build :proposal, :with_answer, feature: feature, created_at: Time.current, author: author }
+          let(:proposal) { build :proposal, :with_answer, feature: feature, updated_at: Time.current, author: author }
 
           it { is_expected.not_to be_editable_by(author) }
         end
 
         context "when proposal editing time has run out" do
-          let(:proposal) { build :proposal, created_at: 10.minutes.ago, feature: feature, author: author }
+          let(:proposal) { build :proposal, updated_at: 10.minutes.ago, feature: feature, author: author }
 
           it { is_expected.not_to be_editable_by(author) }
         end

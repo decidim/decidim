@@ -267,6 +267,10 @@ FactoryBot.define do
 
     subject { Decidim::Faker::Localized.sentence(3) }
     body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+
+    trait :sent do
+      sent_at { Time.current }
+    end
   end
 
   factory :moderation, class: "Decidim::Moderation" do
