@@ -11,8 +11,8 @@ module Decidim
 
       field :title, !TranslatedFieldType, "The name of this participatory space."
 
-      field :allComponents, types[ComponentInterface] do
-        description "Lists all the components this space contains."
+      field :components, types[ComponentInterface] do
+        description "Lists the components this space contains."
 
         resolve ->(participatory_space, _args, _ctx) {
                   Decidim::Feature.where(
