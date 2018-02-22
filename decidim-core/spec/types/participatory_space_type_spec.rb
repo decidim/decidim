@@ -18,7 +18,7 @@ module Decidim
         end
       end
 
-      describe "components" do
+      describe "allComponents" do
         let!(:published_components) do
           create_list(:dummy_feature, 2, participatory_space: model, published_at: Time.zone.now)
         end
@@ -27,10 +27,10 @@ module Decidim
           create_list(:dummy_feature, 2, participatory_space: model, published_at: nil)
         end
 
-        let(:query) { %({ components { id } }) }
+        let(:query) { %({ allComponents { id } }) }
 
         it "only includes the published components" do
-          component_ids = response["components"].map { |c| c["id"].to_i }
+          component_ids = response["allComponents"].map { |c| c["id"].to_i }
 
           expect(component_ids).to include(*published_components.map(&:id))
           expect(component_ids).not_to include(*unpublished_components.map(&:id))

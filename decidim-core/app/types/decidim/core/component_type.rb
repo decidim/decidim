@@ -7,7 +7,7 @@ module Decidim
       interfaces [ComponentInterface]
 
       name "Component"
-      description "A component"
+      description "A base component with no particular specificities."
     end
   end
 end

@@ -21,10 +21,10 @@ module Decidim
       end
 
       describe "application_name" do
-        let(:query) { "{ application_name }" }
+        let(:query) { "{ applicationName }" }
 
         it "returns the application's name" do
-          expect(response).to eq("application_name" => Decidim.application_name)
+          expect(response).to eq("applicationName" => Decidim.application_name)
         end
       end
     end

@@ -5,7 +5,7 @@ module Decidim
     # This type represents a ParticipatoryProcess.
     ComponentInterface = GraphQL::InterfaceType.define do
       name "ComponentInterface"
-      description "A component inside a participatory space"
+      description "This interface is implemented by all components that belong into a Participatory Space"
 
       field :id, !types.ID, "The Component's unique ID"
 

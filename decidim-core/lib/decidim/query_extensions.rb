@@ -11,7 +11,7 @@ module Decidim
     # Returns nothing.
     def self.define(type)
       Decidim.participatory_space_manifests.each do |participatory_space_manifest|
-        type.field participatory_space_manifest.name.to_s.camelize(:lower) do
+        type.field "all_#{participatory_space_manifest.name}".camelize(:lower) do
           type !types[participatory_space_manifest.api_type.constantize]
           description "Lists all #{participatory_space_manifest.name}"
 

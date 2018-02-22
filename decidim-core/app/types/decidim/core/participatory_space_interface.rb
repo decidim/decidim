@@ -5,13 +5,15 @@ module Decidim
     # This type represents a ParticipatoryProcess.
     ParticipatorySpaceInterface = GraphQL::InterfaceType.define do
       name "ParticipatorySpaceInterface"
-      description "A feature inside a participatory space"
+      description "The interface that all participatory spaces should implement."
 
-      field :id, !types.ID, "The Feature's unique ID"
+      field :id, !types.ID, "The participatory space's unique ID"
 
-      field :title, !TranslatedFieldType, "The name of this feature."
+      field :title, !TranslatedFieldType, "The name of this participatory space."
 
-      field :components, types[ComponentInterface] do
+      field :allComponents, types[ComponentInterface] do
+        description "Lists all the components this space contains."
+
         resolve ->(participatory_space, _args, _ctx) {
                   Decidim::Feature.where(
                     participatory_space: participatory_space
