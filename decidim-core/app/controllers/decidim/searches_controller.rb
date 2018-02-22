@@ -2,6 +2,7 @@
 
 module Decidim
   class SearchesController < Decidim::ApplicationController
+    #include Paginable
     skip_authorization_check
     helper_method :term
 

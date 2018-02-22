@@ -291,6 +291,7 @@ en:
         success: Your notifications settings were updated successfully.
     search:
       term_input_placeholder: Search
+      results_found_for_term: "%{count} Results for the search: \"%{term}\""
     own_user_groups:
       index:
         pending: Pending
