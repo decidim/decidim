@@ -5,11 +5,29 @@ require "spec_helper"
 module Decidim
   describe Search do
     describe "call" do
-      let(:organization) { create(:organization) }
-      let(:command) { described_class.new(term) }
+      let(:current_organization) { create(:organization) }
+      let(:command) { described_class.new(term, current_organization) }
 
+      context "whith resources from different organizations" do
+        let(:other_organization) { create(:organization)}
+        before do
+          create(:searchable_rsrc, organization: current_organization, content_a: "Fight fire with fire")
+          create(:searchable_rsrc, organization: other_organization, content_a: "Light my fire")
+        end
+        let(:term) {"fire"}
+
+        it "should return resources only from current_organization" do
+          rs= command.call do
+            on(:ok) {|results|
+              expect(results.count).to eq(1)
+              expect(results.first.organization).to eq(current_organization)
+            }
+            on(:invalid) {fail("Should not happen")}
+          end
+        end
+      end
       context "when SearchRsrc is empty" do
-        let(:term) { "whathever" }
+        let(:term) { "whatever" }
 
         it "should return an empty list" do
           expect(command.call).to broadcast(:ok, [])
@@ -21,7 +39,7 @@ module Decidim
           create(:searchable_rsrc)
         end
         it "should return some random results" do
-          rs= described_class.call(term) do
+          rs= command.call do
             on(:ok) {|results|
               expect(results).not_to be_empty
             }
