@@ -54,6 +54,9 @@ es:
         success: Tu cuenta se ha actualizado correctamente.
         success_with_email_confirmation: Tu cuenta se ha actualizado correctamente. Recibirás un correo electrónico para confirmar tu nueva dirección de correo electrónico.
     admin_log:
+      feature:
+        create: "%{user_name} agregó el %{resource_name} característica al %{space_name} espacio"
+        delete: "%{user_name} eliminado el %{resource_name} característica de %{space_name} espacio"
       newsletter:
         create: "%{user_name} creó el %{resource_name} hoja informativa"
         delete: "%{user_name} eliminado el %{resource_name} hoja informativa"
