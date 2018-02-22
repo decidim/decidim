@@ -54,6 +54,9 @@ fr:
         success: Votre compte a été mis à jour avec succès.
         success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse e-mail.
     admin_log:
+      feature:
+        create: "%{user_name} ajouté le %{resource_name} caractéristique de la %{space_name} espace"
+        delete: "%{user_name} retiré le %{resource_name} caractéristique de la %{space_name} espace"
       newsletter:
         create: "%{user_name} créé le %{resource_name} bulletin"
         delete: "%{user_name} supprimé le %{resource_name} bulletin"
