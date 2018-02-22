@@ -194,7 +194,8 @@ en:
           endorse: Endorse
           endorsements_blocked: Endorsements are blocked
         endorsements_listing:
-          see_all: see all
+          see_all: See all
+          see_less: See less
           title: List of Endorsements
         filters:
           accepted: Accepted
