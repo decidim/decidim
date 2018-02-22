@@ -4,12 +4,13 @@ require "spec_helper"
 
 describe "Proposals feature" do # rubocop:disable RSpec/DescribeClass
   let!(:feature) { create(:proposal_feature) }
+  let!(:current_user) { create(:user, organization: feature.participatory_space.organization) }
 
   describe "on destroy" do
     context "when there are no proposals for the feature" do
       it "destroys the feature" do
         expect do
-          Decidim::Admin::DestroyFeature.call(feature)
+          Decidim::Admin::DestroyFeature.call(feature, current_user)
         end.to change { Decidim::Feature.count }.by(-1)
 
         expect(feature).to be_destroyed
@@ -23,7 +24,7 @@ describe "Proposals feature" do # rubocop:disable RSpec/DescribeClass
 
       it "raises an error" do
         expect do
-          Decidim::Admin::DestroyFeature.call(feature)
+          Decidim::Admin::DestroyFeature.call(feature, current_user)
         end.to broadcast(:invalid)
 
         expect(feature).not_to be_destroyed
@@ -47,6 +48,7 @@ describe "Proposals feature" do # rubocop:disable RSpec/DescribeClass
     let!(:proposal) { create :proposal }
     let(:feature) { proposal.feature }
     let!(:hidden_proposal) { create :proposal, feature: feature }
+    let!(:draft_proposal) { create :proposal, :draft, feature: feature }
     let!(:moderation) { create :moderation, reportable: hidden_proposal, hidden_at: 1.day.ago }
 
     let(:current_stat) { stats.find { |stat| stat[1] == stats_name } }
@@ -54,8 +56,8 @@ describe "Proposals feature" do # rubocop:disable RSpec/DescribeClass
     describe "proposals_count" do
       let(:stats_name) { :proposals_count }
 
-      it "only counts not hidden proposals" do
-        expect(Decidim::Proposals::Proposal.where(feature: feature).count).to eq 2
+      it "only counts published and not hidden proposals" do
+        expect(Decidim::Proposals::Proposal.where(feature: feature).count).to eq 3
         expect(subject).to eq 1
       end
     end

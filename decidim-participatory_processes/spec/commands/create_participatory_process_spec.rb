@@ -3,12 +3,13 @@
 require "spec_helper"
 
 module Decidim::ParticipatoryProcesses
-  describe Admin::CreateParticipatoryProcess do
+  describe Admin::CreateParticipatoryProcess, versioning: true do
     subject { described_class.new(form) }
 
     let(:organization) { create :organization }
     let(:participatory_process_group) { create :participatory_process_group, organization: organization }
     let(:scope) { create :scope, organization: organization }
+    let(:current_user) { create :user, organization: organization }
     let(:errors) { double.as_null_object }
     let(:form) do
       instance_double(
@@ -31,6 +32,7 @@ module Decidim::ParticipatoryProcesses
         end_date: nil,
         description: { en: "description" },
         short_description: { en: "short_description" },
+        current_user: current_user,
         current_organization: organization,
         scopes_enabled: true,
         scope: scope,
@@ -79,6 +81,14 @@ module Decidim::ParticipatoryProcesses
     context "when everything is ok" do
       it "creates a participatory process" do
         expect { subject.call }.to change { Decidim::ParticipatoryProcess.count }.by(1)
+      end
+
+      it "traces the creation" do
+        expect(Decidim::ActionLogger)
+          .to receive(:log)
+          .with("create", current_user, a_kind_of(Decidim::ParticipatoryProcess), a_kind_of(Hash))
+
+        subject.call
       end
 
       it "broadcasts ok" do

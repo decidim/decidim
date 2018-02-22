@@ -34,7 +34,9 @@ module Decidim
       private
 
       def create_feature
-        @feature = Feature.create!(
+        @feature = Decidim.traceability.create!(
+          Feature,
+          form.current_user,
           manifest_name: manifest.name,
           name: form.name,
           participatory_space: participatory_space,
