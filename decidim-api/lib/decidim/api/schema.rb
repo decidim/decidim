@@ -13,7 +13,7 @@ module Decidim
 
       orphan_types(Api.orphan_types)
 
-      resolve_type ->(_type, _obj) {}
+      resolve_type ->(_type, _obj, _ctx) {}
     end
   end
 end

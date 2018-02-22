@@ -10,6 +10,10 @@ module Decidim
     autoload :QueryType, "decidim/api/query_type"
     autoload :Schema, "decidim/api/schema"
 
+    # This declares all the types an interface or union can resolve to. This needs
+    # to be done in order to be able to have them found. This is a shortcoming of
+    # graphql-ruby and the way it deals with loading types, in combination with
+    # rail's infamous autoloading.
     def self.orphan_types
       Decidim.feature_manifests.map(&:api_type).map(&:constantize).uniq +
         Decidim.participatory_space_manifests.map(&:api_type).map(&:constantize).uniq
