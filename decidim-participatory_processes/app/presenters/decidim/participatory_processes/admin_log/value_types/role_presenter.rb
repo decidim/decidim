@@ -7,12 +7,12 @@ module Decidim
         # This class presents the given value as a user role. Check
         # the `DefaultPresenter` for more info on how value
         # presenters work.
-        class RolePresenter < DefaultPresenter
+        class RolePresenter < Decidim::Log::ValueTypes::DefaultPresenter
           # Public: Presents the value as a user role.
           #
           # Returns an HTML-safe String.
           def present
-            return unless value
+            return unless value.present?
             h.t(value, scope: "decidim.admin.models.participatory_process_user_role.roles", default: value)
           end
         end
