@@ -165,7 +165,6 @@ en:
         create:
           error: There's been errors when endorsing the proposal.
         identities:
-          cancel: Cancel
           done: Done
           select_identity: Select identity
       proposal_endorsements_helper:
