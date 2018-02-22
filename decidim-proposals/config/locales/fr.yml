@@ -104,6 +104,9 @@ fr:
             rejected: Refusée
             title: Réponse à la proposition %{title}
         proposal_notes:
+          create:
+            error: Un problème est survenu lors de la création de cette note de proposition
+            success: Note de proposition créée avec succès
           form:
             note: Remarque
             submit: Soumettre
@@ -247,6 +250,8 @@ fr:
           proposal_edit_before_minutes:
             one: Vous serez en mesure de modifier cette proposition au cours de la première minute après la publication de la proposition. Une fois cette fenêtre de temps passée, vous ne pourrez pas modifier la proposition.
             other: Vous serez en mesure de modifier cette proposition au cours de la première %{count} minutes après la publication de la proposition. Une fois cette fenêtre de temps passée, vous ne pourrez pas modifier la proposition.
+          publish: Publier
+          title: Publiez votre proposition
         proposal:
           creation_date: 'Création: %{date}'
           view_proposal: Voir la proposition
@@ -281,9 +286,24 @@ fr:
             description: Vous pouvez voter pour %{limit} propositions au maximum.
             left: Restant
             votes: Votes
+        wizard_aside:
+          back: Arrière
+          info: Vous créez une <strong>proposition</strong>.
+        wizard_steps:
+          see_steps: voir les étapes
+          step_1: Créez votre proposition
+          step_2: Comparer
+          step_3: Publiez votre proposition
+          step_of: Étape %{current_step_num} de %{total_steps}
+      publish:
+        error: Il y a eu des erreurs lors de la publication de la proposition.
+        success: Proposition publiée avec succès.
       update:
         error: Des erreurs se sont produites lors de l'enregistrement de la proposition.
         success: Proposition mise à jour avec succès.
+      update_draft:
+        error: Il y a eu des erreurs lors de l'enregistrement du brouillon de la proposition.
+        success: Le projet de proposition a été mis à jour
     resource_links:
       copied_from_component:
         proposal_proposals: Propositions associées
