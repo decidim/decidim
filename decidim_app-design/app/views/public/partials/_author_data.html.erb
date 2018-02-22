@@ -1,4 +1,5 @@
 <% extra ||= false %>
+<% nick = true unless local_assigns.has_key?(:nick) %>
 <div class="author-data author-data--small">
 
   <div class="author-data__main">
@@ -9,9 +10,11 @@
       <a href="user-profile" class="author__name">
         <%= Faker::Name.name %>
       </a>
-      <a href="user-profile" class="author__nickname">
-        @<%= Faker::Twitter.screen_name %>
-      </a>
+      <% if nick %>
+        <a href="user-profile" class="author__nickname">
+          @<%= Faker::Twitter.screen_name %>
+        </a>
+      <% end %>
       <% if Faker::Boolean.boolean %>
         <%= icon "verified-badge", class: "author__verified" %>
       <% end %>

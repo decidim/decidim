@@ -641,3 +641,24 @@ $datetime-bg: $primary;
     }
   }
 }
+
+.card__label--container{
+  margin-top: $global-margin / 2;
+  margin-bottom: ($global-margin * 2.5) - $card-padding-small;
+
+  @include breakpoint(medium){
+    margin-bottom: ($global-margin * 2.5) - $card-padding;
+  }
+
+  .card__label{
+    display: inline-block;
+    color: $card-bg;
+    padding: .1rem .5rem;
+    font-size: $small-font-size;
+    font-weight: bold;
+    margin-left: -$global-margin;
+    position: absolute;
+
+    @include modifiers(background-color, (muted: tint($muted, 50)));
+  }
+}
