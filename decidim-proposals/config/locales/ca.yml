@@ -102,6 +102,9 @@ ca:
             rejected: Rebutjada
             title: Respondre a la proposta %{title}
         proposal_notes:
+          create:
+            error: Hi ha hagut un problema en crear aquesta nota de proposta
+            success: La nota de la proposta s'ha creat correctament
           form:
             note: Nota
             submit: Enviar
@@ -245,6 +248,8 @@ ca:
           proposal_edit_before_minutes:
             one: Podreu editar aquesta proposta durant el primer minut després de publicar la proposta. Un cop passada aquesta finestra de temps, no podreu editar la proposta.
             other: Podreu editar aquesta proposta durant el primer %{count} minuts després de la publicació de la proposta. Un cop passada aquesta finestra de temps, no podreu editar la proposta.
+          publish: Publica
+          title: Publica la teva proposta
         proposal:
           creation_date: 'Creació: %{date}'
           view_proposal: Veure proposta
@@ -279,9 +284,24 @@ ca:
             description: Pots donar suport a %{limit} propostes.
             left: Restant
             votes: Suports
+        wizard_aside:
+          back: esquena
+          info: Estàs creant una <strong>proposta</strong>.
+        wizard_steps:
+          see_steps: vegeu els passos
+          step_1: Crea la teva proposta
+          step_2: Compara
+          step_3: Publica la teva proposta
+          step_of: Pas %{current_step_num} de %{total_steps}
+      publish:
+        error: Hi ha hagut errors en publicar la proposta.
+        success: La proposta s'ha publicat correctament.
       update:
         error: Hi ha hagut errors en desar la proposta.
         success: La proposta s'ha actualitzat correctament.
+      update_draft:
+        error: Hi ha hagut errors en desar l'esborrany de la proposta.
+        success: El projecte de proposta s'ha actualitzat correctament.
     resource_links:
       copied_from_component:
         proposal_proposals: Propostes relacionades
