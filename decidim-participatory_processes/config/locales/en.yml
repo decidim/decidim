@@ -20,6 +20,7 @@ en:
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         promoted: Promoted
+        published_at: Published at
         scope_id: Scope
         scopes_enabled: Scopes enabled
         short_description: Short description
@@ -205,6 +206,11 @@ en:
         resend_invitation:
           error: There was an error resending the invitation.
           success: Invitation resent successfully.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} created the %{resource_name} participatory process"
+        publish: "%{user_name} published the %{resource_name} participatory process"
+        unpublish: "%{user_name} unpublished the %{resource_name} participatory process"
     menu:
       processes: Processes
     participatory_process_groups:

@@ -64,7 +64,7 @@ module Decidim
         private
 
         def query
-          @query ||= Proposal.where(feature: current_feature).ransack(params[:q])
+          @query ||= Proposal.where(feature: current_feature).published.ransack(params[:q])
         end
 
         def proposals

@@ -54,19 +54,20 @@ module Decidim
       end
     end
 
-    # Updates the `resource` with `update_attributes!` and sets the author of the version.
+    # Performs the given block and sets the author of the action.
+    # If no block is given, updates the `resource` with `update_attributes!`.
     # It also logs the action with the given `action` parameter.
     #
     # action - a String or Symbol representing the action performed
     # resource - An ActiveRecord instance that implements `Decidim::Traceable`
     # author - An object that implements `to_gid` or a String
-    # params - a Hash
+    # params - a Hash with attributes to update the resource (optional)
     #
     # Returns the updated `resource`.
-    def update_with_action!(action, resource, author, params)
+    def update_with_action!(action, resource, author, params = {})
       PaperTrail.whodunnit(gid(author)) do
         resource.class.transaction do
-          resource.update_attributes!(params)
+          block_given? ? yield : resource.update_attributes!(params)
           log(action, author, resource)
           resource
         end

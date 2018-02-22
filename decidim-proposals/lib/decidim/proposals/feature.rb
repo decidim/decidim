@@ -25,6 +25,9 @@ Decidim.register_feature(:proposals) do |feature|
     settings.attribute :attachments_allowed, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :new_proposal_help_text, type: :text, translated: true, editor: true
+    settings.attribute :proposal_wizard_step_1_help_text, type: :text, translated: true, editor: true
+    settings.attribute :proposal_wizard_step_2_help_text, type: :text, translated: true, editor: true
+    settings.attribute :proposal_wizard_step_3_help_text, type: :text, translated: true, editor: true
   end
 
   feature.settings(:step) do |settings|
@@ -45,7 +48,7 @@ Decidim.register_feature(:proposals) do |feature|
   end
 
   feature.register_stat :proposals_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, start_at, end_at|
-    Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).not_hidden.count
+    Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).published.not_hidden.count
   end
 
   feature.register_stat :proposals_accepted, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, start_at, end_at|
@@ -53,7 +56,7 @@ Decidim.register_feature(:proposals) do |feature|
   end
 
   feature.register_stat :votes_count, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, start_at, end_at|
-    proposals = Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).not_hidden
+    proposals = Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).published.not_hidden
     Decidim::Proposals::ProposalVote.where(proposal: proposals).count
   end
 
@@ -63,7 +66,7 @@ Decidim.register_feature(:proposals) do |feature|
   end
 
   feature.register_stat :comments_count, tag: :comments do |features, start_at, end_at|
-    proposals = Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).not_hidden
+    proposals = Decidim::Proposals::FilteredProposals.for(features, start_at, end_at).published.not_hidden
     Decidim::Comments::Comment.where(root_commentable: proposals).count
   end
 
@@ -136,7 +139,8 @@ Decidim.register_feature(:proposals) do |feature|
         user_group: user_group,
         state: state,
         answer: answer,
-        answered_at: Time.current
+        answered_at: Time.current,
+        published_at: Time.current
       )
 
       (n % 3).times do |m|

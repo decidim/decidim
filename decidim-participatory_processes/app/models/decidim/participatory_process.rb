@@ -14,6 +14,7 @@ module Decidim
     include Decidim::Scopable
     include Decidim::Followable
     include Decidim::HasReference
+    include Decidim::Traceable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
