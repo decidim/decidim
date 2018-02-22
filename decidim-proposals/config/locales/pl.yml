@@ -58,6 +58,7 @@ pl:
           global:
             announcement: Ogłoszenie
             attachments_allowed: Zezwalaj na załączniki
+            can_accumulate_supports_beyond_threshold: Może gromadzić podpory przekraczające próg
             comments_enabled: Włączone komentarze
             geocoding_enabled: Włączone kodowanie geograficzne
             maximum_votes_per_proposal: Maksymalna liczba głosów na jeden wniosek
@@ -281,7 +282,11 @@ pl:
             one: GŁOSOWAĆ
             few: GŁOSOWANIA
             other: GŁOSOWANIA
+          most_popular_proposal: Najpopularniejsza propozycja
+          need_more_votes: Potrzebujesz więcej głosów
         voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Każda propozycja może zgromadzić więcej niż maksymalną liczbę głosów
           maximum_votes_per_proposal:
             description: Każda propozycja może otrzymać maksymalnie %{limit} głosów.
           proposal_limit:
