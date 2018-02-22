@@ -104,6 +104,9 @@ it:
             rejected: Rifiutata
             title: Risposta per la proposta %{title}
         proposal_notes:
+          create:
+            error: Si è verificato un problema durante la creazione di questa nota di proposta
+            success: Nota della proposta creata con successo
           form:
             note: Nota
             submit: Sottoscrivi
@@ -248,6 +251,7 @@ it:
             one: Sarai in grado di modificare questa proposta durante il primo minuto dopo la pubblicazione della proposta. Una volta passata questa finestra, non sarai in grado di modificare la proposta.
             other: Sarai in grado di modificare questa proposta durante il primo %{count} pochi minuti dopo la pubblicazione della proposta. Una volta passata questa finestra, non sarai in grado di modificare la proposta.
           publish: Pubblicare
+          title: Pubblica la tua proposta
         proposal:
           creation_date: 'Creazione: %{date}'
           view_proposal: Visualizza la proposta
@@ -282,9 +286,24 @@ it:
             description: Puoi votare fino a %{limit} proposte.
             left: Restano
             votes: Voti
+        wizard_aside:
+          back: Indietro
+          info: Stai creando una <strong>proposta</strong>.
+        wizard_steps:
+          see_steps: vedere i passaggi
+          step_1: Crea la tua proposta
+          step_2: Confrontare
+          step_3: Pubblica la tua proposta
+          step_of: Step %{current_step_num} di %{total_steps}
+      publish:
+        error: Si sono verificati errori durante la pubblicazione della proposta.
+        success: Proposta pubblicata con successo.
       update:
         error: Ci sono stati errori quando si salva la proposta.
         success: La proposta è stata aggiornata correttamente.
+      update_draft:
+        error: Si sono verificati errori durante il salvataggio della bozza della proposta.
+        success: Bozza proposta aggiornata correttamente.
     resource_links:
       copied_from_component:
         proposal_proposals: Proposte correlate
