@@ -104,6 +104,9 @@ es:
             rejected: Rechazada
             title: Responder a la propuesta %{title}
         proposal_notes:
+          create:
+            error: Ha habido un problema al crear esta nota de propuesta
+            success: Nota de propuesta creada con éxito
           form:
             note: Nota
             submit: Enviar
@@ -286,9 +289,21 @@ es:
         wizard_aside:
           back: Espalda
           info: Está creando una <strong>propuesta</strong>.
+        wizard_steps:
+          see_steps: ver los pasos
+          step_1: Crea tu propuesta
+          step_2: Comparar
+          step_3: Publica tu propuesta
+          step_of: Paso %{current_step_num} de %{total_steps}
+      publish:
+        error: Ha habido errores al publicar la propuesta.
+        success: Propuesta publicada con éxito.
       update:
         error: Ha habido errores al guardar la propuesta.
         success: Propuesta actualizada con éxito.
+      update_draft:
+        error: Ha habido errores al guardar el borrador de la propuesta.
+        success: Proyecto de propuesta actualizado con éxito.
     resource_links:
       copied_from_component:
         proposal_proposals: Propuestas relacionadas
