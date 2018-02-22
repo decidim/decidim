@@ -66,6 +66,9 @@ pl:
             proposal_answering_enabled: Włączona odpowiedź na pytania
             proposal_edit_before_minutes: Propozycje mogą być edytowane przez autorów przed upływem tych wielu minut
             proposal_limit: Limit propozycji dla użytkownika
+            proposal_wizard_step_1_help_text: Kreator propozycji "Utwórz" tekst pomocy krok
+            proposal_wizard_step_2_help_text: Kreator propozycji "Porównaj" tekst pomocy
+            proposal_wizard_step_3_help_text: Kreator propozycji "Pomoc do opublikowania" tekstu pomocy
             vote_limit: Limit głosu na użytkownika
           step:
             announcement: Ogłoszenie
@@ -144,7 +147,7 @@ pl:
         withdrawn: Wycofane
       create:
         error: Podczas zapisywania propozycji wystąpiły błędy.
-        success: Propozycja została pomyślnie utworzona.
+        success: Propozycja została utworzona pomyślnie. Zapisany jako wersja robocza.
       models:
         proposal:
           fields:
@@ -173,6 +176,10 @@ pl:
         create:
           error: Podczas głosowania nad propozycją wystąpiły błędy.
       proposals:
+        compare:
+          mine_is_different: Moja propozycja jest inna
+          no_similars_found: Dobra robota! Nie znaleziono podobnych propozycji
+          title: Podobne propozycje
         count:
           proposals_count:
             one: 1 propozycja
@@ -183,6 +190,9 @@ pl:
           select_a_category: Proszę wybrać kategorię
           send: Wysłać
           title: Edytuj propozycję
+        edit_draft:
+          send: Zapowiedź
+          title: Edytuj wersję roboczą oferty
         endorsement_button:
           already_endorsed: Już zatwierdzony
           already_endorsed_hover: Unendorse
@@ -227,19 +237,21 @@ pl:
             other: głosów
         new:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
-          back: Plecy
-          proposal_edit_before_minutes:
-            one: Będziesz mógł edytować tę propozycję w pierwszej minucie po utworzeniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
-            few: Będziesz mógł edytować tę propozycję podczas pierwszych %{count} minut po utworzeniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
-            other: Będziesz mógł edytować tę propozycję podczas pierwszych %{count} minut po utworzeniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
           select_a_category: Proszę wybrać kategorię
-          send: Wysłać
-          title: Nowa propozycja
+          send: dalej
+          title: Utwórz swoją ofertę
         orders:
           label: 'Propozycje zamówień:'
           most_voted: Większość głosów
           random: Losowy
           recent: Niedawny
+        preview:
+          modify: Zmodyfikuj propozycję
+          proposal_edit_before_minutes:
+            one: Będziesz mógł edytować tę propozycję w pierwszej minucie po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
+            few: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
+            other: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
+          publish: Publikować
         proposal:
           creation_date: 'Tworzenie: %{date}'
           view_proposal: Wyświetl propozycję
