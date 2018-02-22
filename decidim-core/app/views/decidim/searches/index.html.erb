@@ -1,13 +1,12 @@
 <main class="wrapper">
   <div class="row columns">
     <h2 class="section-heading">
-      <%= @results.count %> Resultats per la cerca:
-      "<%= term %>"
+      <%= t("decidim.search.results_found_for_term", count: @results.count, term: term) %>
     </h2>
   </div>
   <%= render "filters" %>
   <div class="columns mediumlarge-8 large-9">
-    <%= render "results" %>
+    <%= render partial: "results" %>
   </div>
 </main>
 
