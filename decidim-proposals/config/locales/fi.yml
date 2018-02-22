@@ -57,6 +57,7 @@ fi:
           global:
             announcement: Ilmoitus
             attachments_allowed: Salli liitteet
+            can_accumulate_supports_beyond_threshold: Voidaan kerätä tukia kynnysarvon ulkopuolella
             comments_enabled: Kommentointi sallittu
             geocoding_enabled: Geokoodaus päällä
             maximum_votes_per_proposal: Suurin äänimäärä ehdotusta kohden
@@ -275,7 +276,11 @@ fi:
           count:
             one: ÄÄNI
             other: ÄÄNTÄ
+          most_popular_proposal: Suosituin ehdotus
+          need_more_votes: Tarvitset enemmän ääniä
         voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Jokainen ehdotus voi kerätä enemmän kuin enimmäisäänestykset
           maximum_votes_per_proposal:
             description: Jokainen ehdotus voi saada enintään %{limit} ääntä.
           proposal_limit:
