@@ -66,6 +66,9 @@ nl:
             proposal_answering_enabled: Voorstel beantwoorden ingeschakeld
             proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat dit aantal minuten zijn verlopen
             proposal_limit: Voorstellimiet per gebruiker
+            proposal_wizard_step_1_help_text: Voorstel wizard "Maak" stap helptekst
+            proposal_wizard_step_2_help_text: Voorstel assistent tekst "Vergelijken" stap
+            proposal_wizard_step_3_help_text: Voorstel assistent "Publiceren" stap helptekst
             vote_limit: Stemlimiet per gebruiker
           step:
             announcement: Aankondiging
@@ -144,7 +147,7 @@ nl:
         withdrawn: teruggetrokken
       create:
         error: Er zijn fouten geweest bij het opslaan van het voorstel.
-        success: Voorstel is succesvol gemaakt.
+        success: Voorstel succesvol aangemaakt. Opgeslagen als een concept.
       models:
         proposal:
           fields:
@@ -173,6 +176,10 @@ nl:
         create:
           error: Er zijn fouten geweest bij het stemmen van het voorstel.
       proposals:
+        compare:
+          mine_is_different: Mijn voorstel is anders
+          no_similars_found: Goed gedaan! Geen vergelijkbare voorstellen gevonden
+          title: Vergelijkbare voorstellen
         count:
           proposals_count:
             one: 1 voorstel
@@ -182,6 +189,9 @@ nl:
           select_a_category: Selecteer een categorie
           send: Verzenden
           title: Bewerk voorstel
+        edit_draft:
+          send: Voorbeeld
+          title: Bewerk voorstel concept
         endorsement_button:
           already_endorsed: Al goedgekeurd
           already_endorsed_hover: Unendorse
@@ -224,18 +234,16 @@ nl:
             other: stemmen
         new:
           attachment_legend: "(Optioneel) Een bijlage toevoegen"
-          back: Terug
-          proposal_edit_before_minutes:
-            one: U kunt dit voorstel bewerken in de eerste minuut nadat het voorstel is gemaakt. Zodra dit tijdvenster is verstreken, kunt u het voorstel niet bewerken.
-            other: U kunt dit voorstel bewerken tijdens de eerste %{count} minuten nadat het voorstel is gemaakt. Zodra dit tijdvenster is verstreken, kunt u het voorstel niet bewerken.
           select_a_category: Selecteer een categorie
-          send: Verstuur
-          title: Nieuw voorstel
+          send: Doorgaan met
+          title: Maak uw voorstel
         orders:
           label: 'Bestelling sorteren op:'
           most_voted: Meeste stemmen
           random: Willekeurig
           recent: Recentelijk
+        preview:
+          modify: Pas het voorstel aan
         proposal:
           creation_date: 'Aangemaakt op: %{date}'
           view_proposal: Bekijk voorstel
