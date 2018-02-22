@@ -56,6 +56,7 @@ ca:
           global:
             announcement: Avís
             attachments_allowed: Permetre arxius adjunts
+            can_accumulate_supports_beyond_threshold: Pot acumular suports més enllà del llindar
             comments_enabled: Comentaris habilitats
             geocoding_enabled: Geocodificació habilitada
             maximum_votes_per_proposal: Suports màxims per proposta
@@ -274,7 +275,11 @@ ca:
           count:
             one: SUPORT
             other: SUPORTS
+          most_popular_proposal: Proposta més popular
+          need_more_votes: Necessiteu més vots
         voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Cada proposta pot acumular més del màxim de vots
           maximum_votes_per_proposal:
             description: Cada proposta pot rebre un màxim de %{limit} suports.
           proposal_limit:
