@@ -28,6 +28,11 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz spotkanie "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
           email_subject: Spotkanie "%{resource_title}" zostało zamknięte
           notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> zostało zamknięte.
+        meeting_created:
+          email_intro: Spotkanie "%{resource_title}" został dodany do "%{participatory_space_title}" że podążacie.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_subject: Nowe spotkanie zostało dodane do %{participatory_space_title}
+          notification_title: Spotkanie <a href="%{resource_path}">%{resource_title}</a> został dodany do %{participatory_space_title}
         meeting_registrations_over_percentage:
           email_intro: '"%{resource_title}" zajmowanych miejsc spotkań przekroczyło %{percentage}%.'
           email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś administratorem przestrzeni partycypacyjnej spotkania.
@@ -186,6 +191,16 @@ pl:
         destroy:
           invalid: Wystąpił problem z tym spotkaniem.
           success: Opuściłeś spotkanie pomyślnie.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Poprzednie spotkania
+          upcoming_meetings: Nadchodzące spotkania
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Poprzednie spotkania
+        see_all_meetings: Zobacz wszystkie spotkania
+        upcoming_meetings: Nadchodzące spotkania
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Powiązane wyniki:'
