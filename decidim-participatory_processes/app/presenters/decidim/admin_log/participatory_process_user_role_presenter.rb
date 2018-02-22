@@ -15,7 +15,9 @@ module Decidim
       private
 
       def diff_fields_mapping
-          { role: :string }
+        {
+          role: "Decidim::ParticipatoryProcesses::AdminLog::ValueTypes::RolePresenter"
+        }
       end
 
       def action_string
