@@ -1,31 +1,28 @@
 // = require_self
 
 let selectedProposalsCount = function() {
-  let count = $('.table-list .js-check-all-proposal:checked').length
-  if(count == 0){
+  return $('.table-list .js-check-all-proposal:checked').length
+}
+
+let selectedProposalsCountUpdate = function() {
+  if(selectedProposalsCount() == 0){
     $("#js-recategorize-proposals-count").text("")
   } else {
-    $("#js-recategorize-proposals-count").text(count);
+    $("#js-recategorize-proposals-count").text(selectedProposalsCount());
   }
 }
 
 let showBulkActionsButton = function() {
-  $("#js-bulk-actions-button").removeClass('hide');
+  if(selectedProposalsCount() > 0){
+    $("#js-bulk-actions-button").removeClass('hide');
+  }
 }
 
-let hideBulkActionsButton = function() {
-  $("#js-bulk-actions-button").addClass('hide');
-  $("#js-bulk-actions-dropdown").removeClass('is-open');
-}
-
-let hideBulkActionsWrapper = function() {
-  hideBulkActionsButton();
-  $("#js-bulk-actions-wrapper").addClass('hide');
-}
-
-let showBulkActionsWrapper = function() {
-  showBulkActionsButton();
-  $("#js-bulk-actions-wrapper").removeClass('hide');
+let hideBulkActionsButton = function(force = false) {
+  if(selectedProposalsCount() == 0 || force == true){
+    $("#js-bulk-actions-button").addClass('hide');
+    $("#js-bulk-actions-dropdown").removeClass('is-open');
+  }
 }
 
 let showOtherActionsButtons = function() {
@@ -56,9 +53,8 @@ if ($('#js-form-recategorize-proposals').length) {
       $('.layout-content > .callout-wrapper').html("");
     })
 
-    showBulkActionsWrapper();
     showRecategorizeProposalActions();
-    hideBulkActionsButton();
+    hideBulkActionsButton(true);
     hideOtherActionsButtons();
   })
 
@@ -74,12 +70,11 @@ if ($('#js-form-recategorize-proposals').length) {
       hideBulkActionsButton();
     }
 
-    selectedProposalsCount();
+    selectedProposalsCountUpdate();
   });
 
   // proposal checkbox change
-  $('.js-check-all-proposal').on('change', function (e) {
-    console.log(".js-check-all-proposal on change")
+  $('.table-list').on('change', '.js-check-all-proposal', function (e) {
     let proposal_id = $(this).val()
     let checked = $(this).prop("checked")
 
@@ -106,12 +101,12 @@ if ($('#js-form-recategorize-proposals').length) {
     }
 
     $('#js-form-recategorize-proposals').find(".js-proposal-id-"+proposal_id).prop('checked', checked);
-    selectedProposalsCount();
+    selectedProposalsCountUpdate();
   });
 
   $('#js-cancel-edit-category').on('click', function (e) {
     hideRecategorizeProposalActions();
-    showBulkActionsWrapper();
+    showBulkActionsButton();
     showOtherActionsButtons();
   });
 }
