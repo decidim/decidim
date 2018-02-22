@@ -13,7 +13,7 @@ module Decidim
             can :manage, ParticipatoryProcess
             can :manage, ParticipatoryProcessGroup
             can :manage, ParticipatoryProcessStep
-            can :manage, ParticipatoryProcessPrivateUser
+            can :manage, Decidim::ParticipatorySpacePrivateUser
           end
         end
       end

@@ -46,11 +46,6 @@ FactoryBot.define do
     role "admin"
   end
 
-  factory :assembly_private_user, class: "Decidim::AssemblyPrivateUser" do
-    user
-    assembly { create :assembly, organization: user.organization }
-  end
-
   factory :assembly_admin, parent: :user, class: "Decidim::User" do
     transient do
       assembly { create(:assembly) }

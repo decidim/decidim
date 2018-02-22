@@ -86,8 +86,6 @@ en:
           fields:
             name: Name
           name: Process group
-        participatory_process_private_user:
-          name: Participatory Process Private User
         participatory_process_step:
           fields:
             end_date: End date
@@ -125,14 +123,6 @@ en:
         update:
           error: There was en error updating this participatory process group.
           success: Participatory process group updated successfully.
-      participatory_process_private_users:
-        destroy:
-          success: Private Process User Access destroyed successfully.
-        index:
-          process_admins_title: Participatory Process Private Users
-        new:
-          create: Create
-          title: New private user process
       participatory_process_publications:
         create:
           error: There was an error publishing this participatory process.

@@ -2,15 +2,15 @@
 
 require "spec_helper"
 
-module Decidim::Assemblies
-  describe Admin::CreateAssemblyPrivateUser do
-    subject { described_class.new(form, current_user, my_assembly) }
+module Decidim::Admin
+  describe CreateParticipatorySpacePrivateUser do
+    subject { described_class.new(form, current_user, privatable_to) }
 
-    let(:my_assembly) { create :assembly }
+    let(:privatable_to) { create :participatory_process}
     let!(:email) { "my_email@example.org" }
     let!(:name) { "Weird Guy" }
-    let!(:user) { create :user, email: "my_email@example.org", organization: my_assembly.organization }
-    let!(:current_user) { create :user, email: "some_email@example.org", organization: my_assembly.organization }
+    let!(:user) { create :user, email: "my_email@example.org", organization: privatable_to.organization }
+    let!(:current_user) { create :user, email: "some_email@example.org", organization: privatable_to.organization }
     let(:form) do
       double(
         invalid?: invalid,
@@ -32,9 +32,9 @@ module Decidim::Assemblies
       it "creates the private user" do
         subject.call
 
-        assembly_private_users = Decidim::AssemblyPrivateUser.where(user: user)
+        participatory_space_private_users = Decidim::ParticipatorySpacePrivateUser.where(user: user)
 
-        expect(assembly_private_users.count).to eq 1
+        expect(participatory_space_private_users.count).to eq 1
       end
 
       it "creates a new user with no application admin privileges" do
@@ -64,9 +64,9 @@ module Decidim::Assemblies
         it "doesn't get created twice" do
           expect { subject.call }.to broadcast(:ok)
 
-          assembly_private_users = Decidim::AssemblyPrivateUser.where(user: user)
+          participatory_space_private_users = Decidim::ParticipatorySpacePrivateUser.where(user: user)
 
-          expect(assembly_private_users.count).to eq 1
+          expect(participatory_space_private_users.count).to eq 1
         end
       end
 

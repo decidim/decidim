@@ -12,6 +12,7 @@ module Decidim
     include Decidim::Scopable
     include Decidim::Followable
     include Decidim::HasReference
+    include Decidim::HasPrivateUsers
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -32,20 +33,11 @@ module Decidim
 
     has_many :features, as: :participatory_space, dependent: :destroy
 
-    has_many :assembly_private_users, class_name: "Decidim::AssemblyPrivateUser", foreign_key: "decidim_assembly_id", dependent: :destroy
-    has_many :users, through: :assembly_private_users, class_name: "Decidim::User", foreign_key: "decidim_user_id"
-
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
 
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::BannerImageUploader
-
-    scope :visible_for, lambda { |user|
-      joins("LEFT JOIN decidim_assembly_private_users ON
-             decidim_assembly_private_users.decidim_assembly_id = decidim_assemblies.id")
-        .where("(private_space = ? and decidim_assembly_private_users.decidim_user_id = ?) or private_space = ?", true, user, false)
-    }
 
     # Scope to return only the promoted assemblies.
     #

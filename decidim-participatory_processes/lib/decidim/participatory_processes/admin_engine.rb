@@ -32,11 +32,6 @@ module Decidim
           end
           resources :attachment_collections, controller: "participatory_process_attachment_collections"
           resources :attachments, controller: "participatory_process_attachments"
-          resources :private_users, controller: "participatory_process_private_users" do
-            member do
-              post :resend_invitation, to: "participatory_process_private_users#resend_invitation"
-            end
-          end
         end
 
         scope "/participatory_processes/:participatory_process_slug" do
@@ -55,6 +50,11 @@ module Decidim
             member do
               put :unreport
               put :hide
+            end
+          end
+          resources :participatory_space_private_users, controller: "participatory_space_private_users" do
+            member do
+              post :resend_invitation, to: "participatory_space_private_users#resend_invitation"
             end
           end
         end
