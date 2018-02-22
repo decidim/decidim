@@ -70,6 +70,12 @@ module Decidim::Admin
         expect(feature.name["en"]).to eq("My feature")
         expect(feature).to be_persisted
       end
+
+      it "broadcasts the previous and current settings" do
+        expect do
+          described_class.call(form, feature)
+        end.to broadcast(:ok, true, {}, hash_including("global" => kind_of(Hash), "default_step" => kind_of(Hash), "steps" => kind_of(Hash)))
+      end
     end
 
     describe "when invalid" do
