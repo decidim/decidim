@@ -55,6 +55,7 @@ eu:
           global:
             announcement: Oharra
             attachments_allowed: Baimendu eranskinak
+            can_accumulate_supports_beyond_threshold: Atalasetik haratago doazen euskarriak pilatu ditzakezu
             comments_enabled: Iruzkinak gaituta
             geocoding_enabled: Geokodeketa gaituta
             maximum_votes_per_proposal: Proposamen bakoitzeko gehienezko botoak
@@ -273,7 +274,11 @@ eu:
           count:
             one: SOSTENGU
             other: SOSTENGU
+          most_popular_proposal: Proposamenrik ezagunena
+          need_more_votes: Botoak gehiago behar dituzu
         voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Proposamen bakoitzak gehienezko boto gehienak pilatu ahal ditu
           maximum_votes_per_proposal:
             description: Proposamen bakoitzak gehienez %{limit} boto jaso ditzake.
           proposal_limit:
