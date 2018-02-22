@@ -29,8 +29,7 @@ module Decidim
 
           ActiveRecord::Base.transaction do
             create_or_invite_user
-            create_role
-            log_action
+            existing_role || create_role
           end
 
           broadcast(:ok)
@@ -44,31 +43,34 @@ module Decidim
         attr_reader :form, :participatory_process, :current_user, :user
 
         def create_role
-          @role = Decidim::ParticipatoryProcessUserRole.find_or_create_by!(
+          extra_info = {
+            resource: {
+              title: user.name
+            },
+            extra: {
+              user_role: form.role
+            }
+          }
+          role_params = {
             role: form.role.to_sym,
             user: user,
             participatory_process: @participatory_process
-          )
+          }
 
-          Decidim.traceability.perform_action!(:create, )
+          Decidim.traceability.create!(
+            Decidim::ParticipatoryProcessUserRole,
+            current_user,
+            role_params,
+            extra_info
+          )
         end
 
-        def log_action
-          Decidim::ActionLogger.log(
-            "create",
-            current_user,
-            @role,
-            resource: {
-              title: @role.user.name
-            },
-            version: {
-              number: @role.versions.count,
-              id: @role.versions.last.id
-            },
-            extra: {
-              user_role: @role.role
-            }
-          )
+        def existing_role
+          Decidim::ParticipatoryProcessUserRole.where(
+            role: form.role.to_sym,
+            user: user,
+            participatory_process: @participatory_process
+          ).first
         end
 
         def create_or_invite_user

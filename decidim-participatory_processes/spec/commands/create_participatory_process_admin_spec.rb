@@ -31,19 +31,22 @@ module Decidim::ParticipatoryProcesses
     end
 
     context "when everything is ok" do
-      let(:tracing_hash) do
+      let(:log_info) do
         hash_including(
           resource: hash_including(
             title: kind_of(String)
-          ),
-          version: hash_including(
-            number: kind_of(Integer),
-            id: kind_of(Integer),
           ),
           extra: hash_including(
             user_role: role
           )
         )
+      end
+      let(:role_params) do
+        {
+          role: role.to_sym,
+          user: user,
+          participatory_process: my_process
+        }
       end
 
       it "creates the user role" do
@@ -55,9 +58,9 @@ module Decidim::ParticipatoryProcesses
       end
 
       it "traces the action" do
-        expect(Decidim::ActionLogger)
-          .to receive(:log)
-          .with("create", current_user, a_kind_of(Decidim::ParticipatoryProcessUserRole), tracing_hash)
+        expect(Decidim.traceability)
+          .to receive(:create!)
+          .with(Decidim::ParticipatoryProcessUserRole, current_user, role_params, log_info)
 
         subject.call
       end
