@@ -104,6 +104,9 @@ pl:
             rejected: Odrzucone
             title: Odpowiedź na wniosek %{title}
         proposal_notes:
+          create:
+            error: Wystąpił problem podczas tworzenia tej notatki dotyczącej wniosku
+            success: Notatka propozycji została pomyślnie utworzona
           form:
             note: Uwaga
             submit: Zatwierdź
@@ -252,6 +255,7 @@ pl:
             few: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
             other: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
           publish: Publikować
+          title: Opublikuj swoją propozycję
         proposal:
           creation_date: 'Tworzenie: %{date}'
           view_proposal: Wyświetl propozycję
@@ -287,9 +291,24 @@ pl:
             description: Możesz zgłosić do %{limit} propozycje.
             left: Pozostały
             votes: Głosowania
+        wizard_aside:
+          back: Plecy
+          info: Tworzysz <strong>propozycję</strong>.
+        wizard_steps:
+          see_steps: zobacz kroki
+          step_1: Utwórz swoją propozycję
+          step_2: Porównać
+          step_3: Opublikuj swoją propozycję
+          step_of: Krok %{current_step_num} z %{total_steps}
+      publish:
+        error: Podczas publikowania propozycji wystąpiły błędy.
+        success: Wniosek opublikowano pomyślnie.
       update:
         error: Podczas zapisywania propozycji wystąpiły błędy.
         success: Wniosek zaktualizowano pomyślnie.
+      update_draft:
+        error: Wystąpiły błędy podczas zapisywania wersji roboczej propozycji.
+        success: Projekt propozycji został pomyślnie zaktualizowany.
     resource_links:
       copied_from_component:
         proposal_proposals: Powiązane propozycje
