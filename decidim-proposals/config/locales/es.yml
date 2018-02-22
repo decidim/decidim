@@ -66,6 +66,9 @@ es:
             proposal_answering_enabled: Respuesta oficial a propuestas habilitadas
             proposal_edit_before_minutes: Las propuestas pueden ser editadas por los autores antes de que pasen estos minutos
             proposal_limit: Límite de propuestas por usuario
+            proposal_wizard_step_1_help_text: Asistente de propuesta "Crear" paso texto de ayuda
+            proposal_wizard_step_2_help_text: Asistente de propuesta "Comparar" texto de ayuda paso
+            proposal_wizard_step_3_help_text: Asistente de propuesta Texto de ayuda paso "Publicar"
             vote_limit: Límite de votos por usuario
           step:
             announcement: Aviso
@@ -144,7 +147,7 @@ es:
         withdrawn: Retirado
       create:
         error: Ha habido errores al guardar la propuesta.
-        success: Propuesta creada correctamente.
+        success: Propuesta creada con éxito. Guardado como un borrador.
       models:
         proposal:
           fields:
@@ -173,6 +176,10 @@ es:
         create:
           error: Ha habido errores al votar la propuesta.
       proposals:
+        compare:
+          mine_is_different: Mi propuesta es diferente
+          no_similars_found: '¡Bien hecho! No se encontraron propuestas similares'
+          title: Propuestas similares
         count:
           proposals_count:
             one: 1 propuesta
@@ -182,6 +189,9 @@ es:
           select_a_category: Por favor, seleccione una categoría
           send: Enviar
           title: Editar propuesta
+        edit_draft:
+          send: Avance
+          title: Editar borrador de propuesta
         endorsement_button:
           already_endorsed: Ya avalado
           already_endorsed_hover: Unendorse
@@ -224,18 +234,21 @@ es:
             other: votos
         new:
           attachment_legend: "(Opcional) Añadir un archivo adjunto"
-          back: Atrás
-          proposal_edit_before_minutes:
-            one: Podrás editar esta propuesta durante el primer minuto posterior a la creación de la propuesta. Una vez que pase esta ventana de tiempo, no podrás editar la propuesta.
-            other: Podrás editar esta propuesta durante los primeros %{count} minutos posteriores a la creación de la propuesta. Una vez que pase esta ventana de tiempo, no podrás editar la propuesta.
           select_a_category: Por favor, seleccione una categoría
-          send: Enviar
-          title: Nueva propuesta
+          send: Continuar
+          title: Crea tu propuesta
         orders:
           label: 'Ordenar propuestas por:'
           most_voted: Más votado
           random: Aleatorio
           recent: Reciente
+        preview:
+          modify: Modificar la propuesta
+          proposal_edit_before_minutes:
+            one: Podrá editar esta propuesta durante el primer minuto posterior a la publicación de la propuesta. Una vez que pase esta ventana de tiempo, no podrá editar la propuesta.
+            other: Podrás editar esta propuesta durante el primer %{count} minutos después de que se publique la propuesta. Una vez que pase esta ventana de tiempo, no podrá editar la propuesta.
+          publish: Publicar
+          title: Publica tu propuesta
         proposal:
           creation_date: 'Creación: %{date}'
           view_proposal: Ver propuesta
@@ -270,6 +283,9 @@ es:
             description: Puedes votar hasta %{limit} propuestas.
             left: Restante
             votes: Votos
+        wizard_aside:
+          back: Espalda
+          info: Está creando una <strong>propuesta</strong>.
       update:
         error: Ha habido errores al guardar la propuesta.
         success: Propuesta actualizada con éxito.
