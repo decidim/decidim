@@ -54,6 +54,9 @@ pt:
         success: A sua conta foi actualizada com sucesso.
         success_with_email_confirmation: A sua conta foi actualizada com sucesso. Irá receber um e-mail de confirmação do seu novo endereço.
     admin_log:
+      feature:
+        create: "%{user_name} adicionou o %{resource_name} recurso para o %{space_name} espaço"
+        delete: "%{user_name} removeu o %{resource_name} recurso do %{space_name} espaço"
       newsletter:
         create: "%{user_name} criou o %{resource_name} Boletim de Notícias"
         delete: "%{user_name} apagou o %{resource_name} Boletim de Notícias"
