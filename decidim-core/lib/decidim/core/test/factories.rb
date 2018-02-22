@@ -355,9 +355,9 @@ FactoryBot.define do
   end
 
   factory :searchable_rsrc, class: "Decidim::SearchableRsrc" do
-    resource do
-      build(:dummy_resource)
-    end
+    resource { build(:dummy_resource) }
+    resource_id { resource.id }
+    resource_type { resource.class.name }
     organization { resource.feature.organization }
     decidim_participatory_space { resource.feature.participatory_space }
     content_a { Faker::Lorem.sentence }

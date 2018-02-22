@@ -31,5 +31,17 @@ module Decidim
         end
       end
     end
+    context "when applying filters" do
+      let(:search) { instance_dobule(Decidim::Search) }
+      let(:resource_type) { "SomeResourceType" }
+      before do
+        allow(Decidim::Search).to receive(:call)
+      end
+      it "should take the filters into account" do
+        expect(Decidim::Search).to receive(:call).with(any_args, {"resource_type" => resource_type})
+
+        get :index, params: {term: 'Blues', "filter[resource_type]" => resource_type}
+      end
+    end
   end
 end

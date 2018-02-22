@@ -7,7 +7,7 @@ module Decidim
     helper_method :term
 
     def index
-      Search.call(term, current_organization) do
+      Search.call(term, current_organization, filters) do
         on(:ok) do |results|
           expose(results: results)
         end
@@ -20,6 +20,9 @@ module Decidim
 
     def term
       @term ||= params[:term]
+    end
+    def filters
+      @filters ||= params[:filter]&.permit(:resource_type)&.to_h
     end
   end
 end
