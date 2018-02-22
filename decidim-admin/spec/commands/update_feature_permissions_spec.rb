@@ -52,6 +52,20 @@ module Decidim::Admin
 
         expect(feature.permissions).to eq(expected_permissions)
       end
+
+      it "fires the hooks" do
+        results = {}
+
+        manifest.on(:permission_update) do |feature|
+          results[:feature] = feature
+        end
+
+        described_class.call(form, feature)
+
+        feature = results[:feature]
+
+        expect(feature.permissions).to eq(expected_permissions)
+      end
     end
 
     describe "when invalid" do
