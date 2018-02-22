@@ -65,6 +65,9 @@ fi:
             proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
             proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän aikamääreen sisällä sen luonnista
             proposal_limit: Ehdotuksien raja käyttäjää kohden
+            proposal_wizard_step_1_help_text: Ohjattu ohjattu "Luo" vaiheen ohjeteksti
+            proposal_wizard_step_2_help_text: Ohjattu ohjattu "Vertaile" vaiheen ohjeteksti
+            proposal_wizard_step_3_help_text: Ohjattu ohjattu "julkaise" vaiheen ohjeteksti
             vote_limit: Äänestysraja käyttäjää kohden
           step:
             announcement: Ilmoitus
@@ -143,7 +146,7 @@ fi:
         withdrawn: Peruutettu
       create:
         error: Ehdotuksen tallennuksessa tapahtui virhe.
-        success: Ehdotus luotu onnistuneesti.
+        success: Ehdotus luotiin onnistuneesti. Tallennetaan luonnoksena.
       models:
         proposal:
           fields:
@@ -172,6 +175,10 @@ fi:
         create:
           error: Äänestettäessä ehdotusta tapahtui virhe.
       proposals:
+        compare:
+          mine_is_different: Ehdotukseni on erilainen
+          no_similars_found: Hyvin tehty! Vastaavia ehdotuksia ei löytynyt
+          title: Vastaavat ehdotukset
         count:
           proposals_count:
             one: 1 ehdotus
@@ -181,6 +188,9 @@ fi:
           select_a_category: Valitse kategoria
           send: Lähetä
           title: Muokkaa ehdotusta
+        edit_draft:
+          send: esikatselu
+          title: Muokkaa ehdotusluonnos
         endorsement_button:
           already_endorsed: Jo hyväksytty
           already_endorsed_hover: Unendorse
@@ -223,18 +233,19 @@ fi:
             other: ääntä
         new:
           attachment_legend: "(Valinnainen) Lisää liite"
-          back: Takaisin
-          proposal_edit_before_minutes:
-            one: Voit muokata tätä ehdotusta ensimmäisen minuutin aikana ehdotuksen luomisesta. Kun tämä aikaikkuna tulee päätökseensä, et pysty enää muokkaamaan ehdotusta.
-            other: Voit muokata tätä ehdotusta ensimmäisten %{count} minuutin aikana ehdotuksen luomisesta. Kun tämä aikaikkuna tulee päätökseensä, et pysty enää muokkaamaan ehdotusta.
           select_a_category: Valitse aihepiiri
-          send: Lähetä
-          title: Uusi ehdotus
+          send: Jatkaa
+          title: Luo ehdotuksesi
         orders:
           label: 'Järjestä ehdotukset:'
           most_voted: Eniten ääniä saaneet
           random: Satunnainen
           recent: Viimeisimmät
+        preview:
+          modify: Muokkaa ehdotusta
+          proposal_edit_before_minutes:
+            one: Voit muokata tätä ehdotusta ensimmäisen minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna läpäisee, et pysty muokkaamaan ehdotusta.
+            other: 'Voit muokata tätä ehdotusta ensimmäisen %{count}: n aikana minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna läpäisee, et pysty muokkaamaan ehdotusta.'
         proposal:
           creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus
