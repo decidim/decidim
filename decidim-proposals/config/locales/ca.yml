@@ -64,6 +64,9 @@ ca:
             proposal_answering_enabled: Resposta oficial a propostes activades
             proposal_edit_before_minutes: Les propostes poden ser editades pels autors abans que passin aquest nombre de minuts
             proposal_limit: Límit de propostes per usuari
+            proposal_wizard_step_1_help_text: Assistent de proposta "Crear" text d'ajuda al pas
+            proposal_wizard_step_2_help_text: Assistent de proposta "Comparar" text d'ajuda al pas
+            proposal_wizard_step_3_help_text: Assistent de proposta "Publica" text d'ajuda al pas
             vote_limit: Límit de suports per usuari
           step:
             announcement: Avís
@@ -142,7 +145,7 @@ ca:
         withdrawn: Retirada
       create:
         error: Hi ha hagut errors en desar la proposta.
-        success: Proposta creada correctament.
+        success: La proposta s'ha creat correctament. S'ha desat com a esborrany.
       models:
         proposal:
           fields:
@@ -171,6 +174,10 @@ ca:
         create:
           error: Hi ha hagut errors en donar suport a la proposta.
       proposals:
+        compare:
+          mine_is_different: La meva proposta és diferent
+          no_similars_found: Ben fet! No s'han trobat propostes semblants
+          title: Propostes similars
         count:
           proposals_count:
             one: 1 proposta
@@ -180,6 +187,9 @@ ca:
           select_a_category: Si us plau, selecciona una categoria
           send: Enviar
           title: Editar proposta
+        edit_draft:
+          send: Vista prèvia
+          title: Edició del projecte de proposta
         endorsement_button:
           already_endorsed: Ja aprovat
           already_endorsed_hover: Unendorse
@@ -222,18 +232,19 @@ ca:
             other: suports
         new:
           attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
-          back: Enrere
-          proposal_edit_before_minutes:
-            one: Podràs editar aquesta proposta durant el primer minut després de la creació de la proposta. Un cop passada aquesta finestra de temps, no podràs editar la proposta.
-            other: Podràs editar aquesta proposta durant els primers %{count} minuts després de la creació de la proposta. Un cop passada aquesta finestra de temps, no podràs editar la proposta.
           select_a_category: Si us plau, seleccioni una categoria
-          send: Enviar
-          title: Nova proposta
+          send: Continua
+          title: Crea la teva proposta
         orders:
           label: 'Ordenar propostes per:'
           most_voted: Ha rebut més suports
           random: Aleatori
           recent: Recent
+        preview:
+          modify: Modifica la proposta
+          proposal_edit_before_minutes:
+            one: Podreu editar aquesta proposta durant el primer minut després de publicar la proposta. Un cop passada aquesta finestra de temps, no podreu editar la proposta.
+            other: Podreu editar aquesta proposta durant el primer %{count} minuts després de la publicació de la proposta. Un cop passada aquesta finestra de temps, no podreu editar la proposta.
         proposal:
           creation_date: 'Creació: %{date}'
           view_proposal: Veure proposta
