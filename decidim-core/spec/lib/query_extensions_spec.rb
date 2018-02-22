@@ -8,17 +8,17 @@ module Decidim
     describe Decidim::Api::QueryType do
       include_context "with a graphql type"
 
-      describe "allParticipatoryProcesses" do
+      describe "participatoryProcesses" do
         let!(:process1) { create(:participatory_process, organization: current_organization) }
         let!(:process2) { create(:participatory_process, organization: current_organization) }
         let!(:process3) { create(:participatory_process) }
 
-        let(:query) { %({ allParticipatoryProcesses { id }}) }
+        let(:query) { %({ participatoryProcesses { id }}) }
 
         it "returns all the processes" do
-          expect(response["allParticipatoryProcesses"]).to include("id" => process1.id.to_s)
-          expect(response["allParticipatoryProcesses"]).to include("id" => process2.id.to_s)
-          expect(response["allParticipatoryProcesses"]).not_to include("id" => process3.id.to_s)
+          expect(response["participatoryProcesses"]).to include("id" => process1.id.to_s)
+          expect(response["participatoryProcesses"]).to include("id" => process2.id.to_s)
+          expect(response["participatoryProcesses"]).not_to include("id" => process3.id.to_s)
         end
       end
 
