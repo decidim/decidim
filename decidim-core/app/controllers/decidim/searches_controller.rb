@@ -7,7 +7,7 @@ module Decidim
     helper_method :term
 
     def index
-      Search.call(term) do
+      Search.call(term, current_organization) do
         on(:ok) do |results|
           expose(results: results)
         end

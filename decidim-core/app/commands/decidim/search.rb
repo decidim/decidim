@@ -9,8 +9,9 @@ module Decidim
     # Public: Initializes the command.
     #
     # @param term: The term to search for.
-    def initialize(term)
+    def initialize(term, organization)
       @term = term
+      @organization = organization
     end
 
     # Executes the command. Broadcasts these events:
@@ -20,11 +21,13 @@ module Decidim
     #
     # Returns nothing.
     def call
+      query= SearchableRsrc.where(organization: @organization)
       @results= if term.present?
-        SearchableRsrc.global_search(term)
+        query.global_search(term)
       else
-        SearchableRsrc.all
+        query.all
       end
+
       broadcast(:ok, @results)
     end
 

@@ -18,11 +18,11 @@ module Decidim
     describe "GET /search" do
       context "when having resources with the term 'Great' in their content" do
         let!(:results) {
-          [create(:searchable_rsrc, content_a: 'Great proposal of mine'),
-            create(:searchable_rsrc, content_a: 'The great-est place of the world')]
+          [create(:searchable_rsrc, organization: organization, content_a: 'Great proposal of mine'),
+            create(:searchable_rsrc, organization: organization, content_a: 'The great-est place of the world')]
         }
         before do
-          create(:searchable_rsrc, content_a: "I don't like groomming my dog.")
+          create(:searchable_rsrc, organization: organization, content_a: "I don't like groomming my dog.")
         end
         it "should return results with 'Great' in their content" do
           get :index, params: {term: 'Great'}
