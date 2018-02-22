@@ -9,7 +9,7 @@
 **Changed**:
 
 **Fixed**:
-
+* **decidim-proposals**: Fix wrong message when creating a proposal private note [\#2796](https://github.com/decidim/decidim/pull/2796)
 * **decidim-core**: Fix AuthorEvent when author is missing [\#2777](https://github.com/decidim/decidim/pull/2777)
 * **decidim-core**: Fix DefaultActionAuthorizer when options is nil [\#2753](https://github.com/decidim/decidim/pull/2753)
 * **decidim-core**: Fix mention parsing to only search users in current organization. [\2711](https://github.com/decidim/decidim/pull/2711)
