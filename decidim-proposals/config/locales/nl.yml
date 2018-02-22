@@ -58,6 +58,7 @@ nl:
           global:
             announcement: Aankondiging
             attachments_allowed: Bijlagen toestaan
+            can_accumulate_supports_beyond_threshold: Kan ondersteuningen verzamelen die de drempel overschrijden
             comments_enabled: Reacties ingeschakeld
             geocoding_enabled: Geocoding ingeschakeld
             maximum_votes_per_proposal: Maximale stemmen per voorstel
@@ -276,7 +277,11 @@ nl:
           count:
             one: STEM
             other: STEMMEN
+          most_popular_proposal: Meest populaire voorstel
+          need_more_votes: Meer stemmen nodig
         voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Elk voorstel kan meer dan maximale stemmen verzamelen
           maximum_votes_per_proposal:
             description: Elk voorstel kan maximaal %{limit} stemmen ontvangen.
           proposal_limit:
