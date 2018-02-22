@@ -9,6 +9,8 @@ module Decidim
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User", optional: true
     belongs_to :participatory_process, foreign_key: "decidim_participatory_process_id", class_name: "Decidim::ParticipatoryProcess", optional: true
 
+    alias participatory_space participatory_process
+
     ROLES = %w(admin collaborator moderator).freeze
     validates :role, inclusion: { in: ROLES }, uniqueness: { scope: [:user, :participatory_process] }
     validate :user_and_participatory_process_same_organization

@@ -9,6 +9,7 @@ module Decidim
         # Public: Initializes the command.
         #
         # form - A form object with the params.
+        # current_user - the user performing this action
         # participatory_process - The ParticipatoryProcess that will hold the
         #   user role
         def initialize(form, current_user, participatory_process)
@@ -29,6 +30,7 @@ module Decidim
           ActiveRecord::Base.transaction do
             create_or_invite_user
             create_role
+            log_action
           end
 
           broadcast(:ok)
@@ -42,10 +44,28 @@ module Decidim
         attr_reader :form, :participatory_process, :current_user, :user
 
         def create_role
-          Decidim::ParticipatoryProcessUserRole.find_or_create_by!(
+          @role = Decidim::ParticipatoryProcessUserRole.find_or_create_by!(
             role: form.role.to_sym,
             user: user,
             participatory_process: @participatory_process
+          )
+        end
+
+        def log_action
+          Decidim::ActionLogger.log(
+            "create",
+            current_user,
+            @role,
+            resource: {
+              title: @role.user.name
+            },
+            version: {
+              number: @role.versions.count,
+              id: @role.versions.last.id
+            },
+            extra: {
+              user_role: @role.role
+            }
           )
         end
 

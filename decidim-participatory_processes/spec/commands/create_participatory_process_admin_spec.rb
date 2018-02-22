@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim::ParticipatoryProcesses
-  describe Admin::CreateParticipatoryProcessAdmin do
+  describe Admin::CreateParticipatoryProcessAdmin, versioning: true do
     subject { described_class.new(form, current_user, my_process) }
 
     let(:my_process) { create :participatory_process }
@@ -31,12 +31,35 @@ module Decidim::ParticipatoryProcesses
     end
 
     context "when everything is ok" do
+      let(:tracing_hash) do
+        hash_including(
+          resource: hash_including(
+            title: kind_of(String)
+          ),
+          version: hash_including(
+            number: kind_of(Integer),
+            id: kind_of(Integer),
+          ),
+          extra: hash_including(
+            user_role: role
+          )
+        )
+      end
+
       it "creates the user role" do
         subject.call
         roles = Decidim::ParticipatoryProcessUserRole.where(user: user)
 
         expect(roles.count).to eq 1
         expect(roles.first.role).to eq "admin"
+      end
+
+      it "traces the action" do
+        expect(Decidim::ActionLogger)
+          .to receive(:log)
+          .with("create", current_user, a_kind_of(Decidim::ParticipatoryProcessUserRole), tracing_hash)
+
+        subject.call
       end
 
       it "creates a new user with no application admin privileges" do
