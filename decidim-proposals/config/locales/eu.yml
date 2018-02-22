@@ -63,6 +63,9 @@ eu:
             proposal_answering_enabled: Erantzuna aktibatutako proposamenei
             proposal_edit_before_minutes: Proposamenak egileek editatu ahal izango dituzte minutu asko igaro aurretik
             proposal_limit: Proposamenaren muga erabiltzaile bakoitzeko
+            proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
+            proposal_wizard_step_2_help_text: Proposamen laguntzailea "Konparatu" urrats laguntza testua
+            proposal_wizard_step_3_help_text: Proposamen laguntzailea "Argitaratu" urrats laguntza testua
             vote_limit: Erabiltzaile bakoitzari botoa emateko muga
           step:
             announcement: Oharra
@@ -141,7 +144,7 @@ eu:
         withdrawn: kendu
       create:
         error: Erroreak gertatu dira proposamena gordetzean.
-        success: Proposamena zuzen sortu da.
+        success: Onartutako proposamena. Zirriborro gisa gorde da.
       models:
         proposal:
           fields:
@@ -170,6 +173,10 @@ eu:
         create:
           error: Erroreak gertatu dira proposamena bozkatzean.
       proposals:
+        compare:
+          mine_is_different: Nire proposamena desberdina da
+          no_similars_found: Ongi egina! Ez da antzeko proposamenik aurkitu
+          title: Proposamen antzekoak
         count:
           proposals_count:
             one: 1 proposamen
@@ -179,6 +186,9 @@ eu:
           select_a_category: Hautatu kategoria bat
           send: Bidali
           title: Editatu proposamena
+        edit_draft:
+          send: Aurreikusi
+          title: Editatu proposamenaren zirriborroa
         endorsement_button:
           already_endorsed: Dagoeneko sinatutakoa
           already_endorsed_hover: Unendorse
@@ -221,18 +231,16 @@ eu:
             other: euskarriak
         new:
           attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
-          back: Atzera
-          proposal_edit_before_minutes:
-            one: Proposamen hau sortu ondoren, lehenengo proposamena editatu ahal izango duzu. Behin leiho hau igarotzen denean, ezingo duzu proposamen hori editatu.
-            other: Proposamen hau sortu zenetik %{count} minutu lehenago editatu ahal izango duzu. Behin leiho hau igarotzen denean, ezingo duzu proposamen hori editatu.
           select_a_category: Mesedez, aukeratu kategoria bat
-          send: Bidali
-          title: Proposamen berria
+          send: Jarraitu
+          title: Sortu zure proposamena
         orders:
           label: 'Antolatu proposamenak honen arabera:'
           most_voted: Bozkatuenak
           random: Ausazkoa eran
           recent: Berrienak
+        preview:
+          modify: Aldatu proposamena
         proposal:
           creation_date: 'Sorkuntza: %{date}'
           view_proposal: Ikusi proposamena
