@@ -7,21 +7,23 @@
         <%= image_tag "demo-avatar.jpg" %>
       </a>
       <a href="user-profile" class="author__name">
-        Eius veritatis
+        <%= Faker::Name.name %>
       </a>
       <a href="user-profile" class="author__nickname">
-        @aperiam_tempora
+        @<%= Faker::Twitter.screen_name %>
       </a>
-      <%= icon "verified-badge", class: "author__verified" %>
+      <% if Faker::Boolean.boolean %>
+        <%= icon "verified-badge", class: "author__verified" %>
+      <% end %>
     </div>
   </div>
 
   <% if extra %>
     <div class="author-data__extra">
-      01/08/2018&nbsp;&nbsp;·&nbsp;&nbsp;
+      <%= Faker::Date.backward(725).strftime('%d/%m/%Y') %>&nbsp;&nbsp;·&nbsp;&nbsp;
       <a href="#comments" title="Comentarios">
         <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-        108 comentarios
+        <%= Faker::Number.between(1, 100) %> comentarios
       </a>
     </div>
   <% end %>

@@ -18,7 +18,7 @@
             <div class="side-panel">
               <ul class="tabs vertical side-panel__tabs" id="pattern-library-tabs"
                 data-tabs>
-                <li class="tabs-title is-active">
+                <li class="tabs-title">
                   <a href="#patternTypography" aria-selected="true">Tipografía</a>
                 </li>
                 <li class="tabs-title">
@@ -29,6 +29,9 @@
                 </li>
                 <li class="tabs-title">
                   <a href="#patternCards">Tarjetas y contenedores</a>
+                </li>
+                <li class="tabs-title is-active">
+                  <a href="#patternCardsM">Tarjetas tamaño M</a>
                 </li>
                 <li class="tabs-title">
                   <a href="#patternMarkers">Marcadores</a>
@@ -46,7 +49,7 @@
             <div class="main-container__content">
               <div class="tabs-content vertical"
                 data-tabs-content="pattern-library-tabs">
-                <div class="tabs-panel is-active" id="patternTypography">
+                <div class="tabs-panel" id="patternTypography">
                   <h2 class="section-heading">Encabezados básicos</h2>
                   <p>Lista de encabezados que aparecen en la interfaz.</p>
                   <h1 class="heading1">Encabezado .heading1</h1>
@@ -1006,6 +1009,10 @@
                     </div>
                   </div>
 
+                </div>
+
+                <div class="tabs-panel is-active" id="patternCardsM">
+                  <%= render partial: page_path("cards") + "/m" %>
                 </div>
 
                 <div class="tabs-panel" id="patternMarkers">

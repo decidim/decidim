@@ -101,6 +101,27 @@ $datetime-bg: $primary;
   }
 }
 
+.card__text{
+  .card__text--paragraph{
+    @include ellipsis();
+  }
+
+  .card__text--status{
+    font-weight: bold;
+    text-transform: uppercase;
+
+    &::after{
+      content: " ";
+    }
+
+    @include modifiers(color, (muted: $muted));
+  }
+
+  .card__text--category{
+    display: block;
+  }
+}
+
 /* Card meetings */
 .card--meeting{
   .card__content{
@@ -308,7 +329,7 @@ $datetime-bg: $primary;
 
 /* Card Link */
 .card__link{
-  color: inherit;
+  color: $anchor-color;
 
   @include breakpoint(small only){
     word-break: break-all;
@@ -618,11 +639,5 @@ $datetime-bg: $primary;
         border-left: $border;
       }
     }
-  }
-
-  .card-status__text{
-    font-weight: bold;
-
-    @include modifiers(color, (muted: $muted));
   }
 }
