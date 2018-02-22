@@ -101,6 +101,9 @@ eu:
             rejected: Ukatua
             title: 'Erantzun proposamen honi: %{title}'
         proposal_notes:
+          create:
+            error: Arazo bat izan da proposamen ohar hau sortzeko
+            success: Proposatutako oharra zuzen sortu da
           form:
             note: Ohar
             submit: Bidali
@@ -241,6 +244,11 @@ eu:
           recent: Berrienak
         preview:
           modify: Aldatu proposamena
+          proposal_edit_before_minutes:
+            one: Proposamen hau argitaratu ondoren, lehenengo proposamena editatu ahal izango duzu. Behin leiho hau igarotzen denean, ezingo duzu proposamen hori editatu.
+            other: Proposamen hau editatu ahal izango duzu lehenengo %{count} Proposamenaren ondoren argitaratutako minutuak. Behin leiho hau igarotzen denean, ezingo duzu proposamen hori editatu.
+          publish: Argitaratu
+          title: Argitaratu zure proposamena
         proposal:
           creation_date: 'Sorkuntza: %{date}'
           view_proposal: Ikusi proposamena
@@ -275,9 +283,24 @@ eu:
             description: '%{limit} proposamenari bozkatu ahal zaizkio.'
             left: Emateke
             votes: Euskarriak
+        wizard_aside:
+          back: Back
+          info: 123_8_0_321 | proposamen bat</strong>da. |
+        wizard_steps:
+          see_steps: ikusi urratsak
+          step_1: Sortu zure proposamena
+          step_2: konparatu
+          step_3: Argitaratu zure proposamena
+          step_of: Urratsa %{current_step_num} de %{total_steps}
+      publish:
+        error: Arazoak izan dira proposamena argitaratzean.
+        success: Proposamena ondo argitaratua.
       update:
         error: Arazoak izan dira proposamena gordetzean.
         success: Proposamena ondo eguneratu da.
+      update_draft:
+        error: Arazoak izan dira proposamenaren aurrebista gordetzean.
+        success: Proposamenaren zirriborroa eguneratu da.
     resource_links:
       copied_from_component:
         proposal_proposals: Lotutako proposamenak
