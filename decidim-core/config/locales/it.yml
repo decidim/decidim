@@ -54,6 +54,9 @@ it:
         success: Il tuo account è stato aggiornato correttamente.
         success_with_email_confirmation: Il tuo account è stato aggiornato correttamente. Riceverai un'email per confermare il tuo nuovo indirizzo email.
     admin_log:
+      feature:
+        create: "%{user_name} aggiunto il %{resource_name} funzione per %{space_name} spazio"
+        delete: "%{user_name} rimosso il %{resource_name} funzione dal %{space_name} spazio"
       newsletter:
         create: "%{user_name} creato il %{resource_name} notiziario"
         delete: "%{user_name} cancellato il %{resource_name} notiziario"
