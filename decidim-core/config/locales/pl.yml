@@ -54,6 +54,9 @@ pl:
         success: Twoje konto zostało zaktualizowane pomyślnie.
         success_with_email_confirmation: Twoje konto zostało pomyślnie zaktualizowane. W celu potwierdzenia Twojego nowego adresu e-mail otrzymasz na niego wiadomość.
     admin_log:
+      feature:
+        create: "%{user_name} dodano %{resource_name} funkcja do %{space_name} przestrzeń"
+        delete: "%{user_name} usunięto %{resource_name} funkcja od %{space_name} przestrzeń"
       newsletter:
         create: "%{user_name} stworzył %{resource_name} biuletyn"
         delete: "%{user_name} usunięto %{resource_name} biuletyn"
