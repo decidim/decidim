@@ -4,12 +4,13 @@ require "spec_helper"
 
 describe "Proposals feature" do # rubocop:disable RSpec/DescribeClass
   let!(:feature) { create(:proposal_feature) }
+  let!(:current_user) { create(:user, organization: feature.participatory_space.organization) }
 
   describe "on destroy" do
     context "when there are no proposals for the feature" do
       it "destroys the feature" do
         expect do
-          Decidim::Admin::DestroyFeature.call(feature)
+          Decidim::Admin::DestroyFeature.call(feature, current_user)
         end.to change { Decidim::Feature.count }.by(-1)
 
         expect(feature).to be_destroyed
@@ -23,7 +24,7 @@ describe "Proposals feature" do # rubocop:disable RSpec/DescribeClass
 
       it "raises an error" do
         expect do
-          Decidim::Admin::DestroyFeature.call(feature)
+          Decidim::Admin::DestroyFeature.call(feature, current_user)
         end.to broadcast(:invalid)
 
         expect(feature).not_to be_destroyed
