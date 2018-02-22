@@ -7,6 +7,7 @@ module Decidim
   class Feature < ApplicationRecord
     include HasSettings
     include Publicable
+    include Traceable
 
     belongs_to :participatory_space, polymorphic: true
 

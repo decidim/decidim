@@ -4,14 +4,23 @@ require "spec_helper"
 
 module Decidim::Admin
   describe DestroyFeature do
-    subject { described_class.new(feature) }
+    subject { described_class.new(feature, current_user) }
 
     let!(:feature) { create(:feature) }
+    let!(:current_user) { create(:user, organization: feature.participatory_space.organization) }
 
     context "when everything is ok" do
       it "destroys the feature" do
         subject.call
         expect(Decidim::Feature.where(id: feature.id)).not_to exist
+      end
+
+      it "traces the action" do
+        expect(Decidim.traceability)
+          .to receive(:update_with_action!)
+          .with("delete", feature, current_user)
+
+        subject.call
       end
 
       it "fires the hooks" do

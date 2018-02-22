@@ -9,6 +9,7 @@ module Decidim
     let(:feature) { build(:feature, manifest_name: "dummy") }
 
     it { is_expected.to be_valid }
+    it { is_expected.to be_versioned }
 
     include_examples "publicable"
   end
