@@ -58,6 +58,7 @@ fr:
           global:
             announcement: Message d'annonce
             attachments_allowed: Autoriser les pièces jointes
+            can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
             comments_enabled: Commentaires activés
             geocoding_enabled: Géocodage activé
             maximum_votes_per_proposal: Nombre maximum de votes par proposition
@@ -276,7 +277,11 @@ fr:
           count:
             one: VOTE
             other: VOTES
+          most_popular_proposal: Proposition la plus populaire
+          need_more_votes: Besoin de plus de votes
         voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Chaque proposition peut accumuler plus que le nombre maximum de votes
           maximum_votes_per_proposal:
             description: Chaque proposition peut recevoir un maximum de %{limit} votes.
           proposal_limit:
