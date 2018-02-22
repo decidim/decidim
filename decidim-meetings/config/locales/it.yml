@@ -28,6 +28,11 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo la riunione "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: La riunione "%{resource_title}" è stata chiusa
           notification_title: La riunione <a href="%{resource_path}">%{resource_title}</a> è stata chiusa.
+        meeting_created:
+          email_intro: L'incontro "%{resource_title}" è stato aggiunto a "%{participatory_space_title}" che stai seguendo.
+          email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". Puoi smettere di seguirlo dal link precedente.
+          email_subject: Nuova riunione aggiunta a %{participatory_space_title}
+          notification_title: L'incontro <a href="%{resource_path}">%{resource_title}</a> è stato aggiunto a %{participatory_space_title}
         meeting_registrations_over_percentage:
           email_intro: Gli spazi occupati della riunione "%{resource_title}" sono superiori a %{percentage}%.
           email_outro: Hai ricevuto questa notifica perché sei un amministratore dello spazio partecipativo della riunione.
@@ -184,6 +189,16 @@ it:
         destroy:
           invalid: C'è stato un problema lasciare questa riunione.
           success: Hai lasciato l'incontro con successo.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Incontri passati
+          upcoming_meetings: Prossimi incontri
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Incontri passati
+        see_all_meetings: Vedi tutte le riunioni
+        upcoming_meetings: Prossimi incontri
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Risultati correlati:'
