@@ -1,0 +1,14 @@
+<main class="wrapper">
+  <div class="row columns">
+    <h2 class="section-heading">
+      <%= @results.count %> Resultats per la cerca:
+      "<%= term %>"
+    </h2>
+  </div>
+  <%= render "filters" %>
+  <div class="columns mediumlarge-8 large-9">
+    <%= render "results" %>
+  </div>
+</main>
+
+<% console %>
