@@ -58,6 +58,7 @@ es:
           global:
             announcement: Aviso
             attachments_allowed: Permitir archivos adjuntos
+            can_accumulate_supports_beyond_threshold: Puede acumular apoyos más allá del umbral
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocodificación habilitada
             maximum_votes_per_proposal: Máximo de votos por propuesta
@@ -276,7 +277,11 @@ es:
           count:
             one: APOYO
             other: APOYOS
+          most_popular_proposal: La propuesta más popular
+          need_more_votes: Necesito más votos
         voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Cada propuesta puede acumular más que el máximo de votos
           maximum_votes_per_proposal:
             description: Cada propuesta puede recibir un máximo de %{limit} votos.
           proposal_limit:
