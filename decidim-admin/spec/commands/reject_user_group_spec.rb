@@ -34,7 +34,7 @@ module Decidim::Admin
 
         it "tracks the changes" do
           expect(Decidim.traceability)
-            .to receive(:update_with_action!)
+            .to receive(:perform_action!)
             .with("reject", user_group, current_user, a_kind_of(Hash))
 
           subject.call
@@ -67,7 +67,7 @@ module Decidim::Admin
 
         it "tracks the changes" do
           expect(Decidim.traceability)
-            .to receive(:update_with_action!)
+            .to receive(:perform_action!)
             .with("reject", user_group, current_user, a_kind_of(Hash))
 
           subject.call

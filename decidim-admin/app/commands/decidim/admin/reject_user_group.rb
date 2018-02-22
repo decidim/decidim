@@ -28,13 +28,13 @@ module Decidim
       private
 
       def reject_user_group
-        Decidim.traceability.update_with_action!(
+        Decidim.traceability.perform_action!(
           "reject",
           @user_group,
-          @current_user,
-          rejected_at: Time.current,
-          verified_at: nil
-        )
+          @current_user
+        ) do
+          @user_group.update_attributes!(rejected_at: Time.current, verified_at: nil)
+        end
       end
     end
   end
