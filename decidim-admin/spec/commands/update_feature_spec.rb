@@ -75,7 +75,7 @@ module Decidim::Admin
     describe "when invalid" do
       let(:valid) { false }
 
-      it "creates the feature" do
+      it "does not update the feature" do
         expect do
           described_class.call(form, feature)
         end.to broadcast(:invalid)
