@@ -20,9 +20,14 @@ module Decidim
         }
       end
 
+      def changeset
+        byebug
+        super
+      end
+
       def action_string
         case action
-        when "create"
+        when "create", "update"
           "decidim.admin_log.participatory_process_user_role.#{action}"
         else
           super

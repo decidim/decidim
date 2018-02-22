@@ -35,7 +35,18 @@ module Decidim
         attr_reader :form, :user_role
 
         def update_role!
-          user_role.update_attributes!(role: form.role)
+          extra_info = {
+            resource: {
+              title: user_role.user.name
+            }
+          }
+
+          Decidim.traceability.update!(
+            user_role,
+            form.current_user,
+            { role: form.role },
+            extra_info
+          )
         end
       end
     end

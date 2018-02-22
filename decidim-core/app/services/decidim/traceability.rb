@@ -65,8 +65,9 @@ module Decidim
         klass = resource.is_a?(Class) ? resource : resource.class
         klass.transaction do
           Decidim::ApplicationRecord.transaction do
+            result = block_given? ? yield : nil
             log(action, author, resource, extra_log_info)
-            yield if block_given?
+            result
           end
         end
       end
