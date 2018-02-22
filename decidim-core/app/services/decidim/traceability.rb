@@ -27,10 +27,10 @@ module Decidim
     # params - a Hash with the attributes of the new resource
     #
     # Returns an instance of `klass`.
-    def create(klass, author, params)
+    def create(klass, author, params, extra_log_info = {})
       perform_action!(:create, klass, author) do
         resource = klass.create(params)
-        log(:create, author, resource)
+        log(:create, author, resource, extra_log_info)
         resource
       end
     end
@@ -42,10 +42,10 @@ module Decidim
     # params - a Hash with the attributes of the new resource
     #
     # Returns an instance of `klass`.
-    def create!(klass, author, params)
+    def create!(klass, author, params, extra_log_info = {})
       perform_action!(:create, klass, author) do
         resource = klass.create!(params)
-        log(:create, author, resource)
+        log(:create, author, resource, extra_log_info)
         resource
       end
     end
@@ -57,15 +57,15 @@ module Decidim
     # action - a String or Symbol representing the action performed
     # resource - An ActiveRecord instance that implements `Decidim::Traceable`
     # author - An object that implements `to_gid` or a String
-    # extra_log_params - a Hash with extra info that will be saved to the log
+    # extra_log_info - a Hash with extra info that will be saved to the log
     #
     # Returns whatever the given block returns.
-    def perform_action!(action, resource, author, extra_log_params = {})
+    def perform_action!(action, resource, author, extra_log_info = {})
       PaperTrail.whodunnit(gid(author)) do
         klass = resource.is_a?(Class) ? resource : resource.class
         klass.transaction do
           Decidim::ApplicationRecord.transaction do
-            log(action, author, resource, extra_log_params)
+            log(action, author, resource, extra_log_info)
             yield if block_given?
           end
         end
@@ -76,11 +76,12 @@ module Decidim
     #
     # resource - An ActiveRecord instance that implements `Decidim::Traceable`
     # author - An object that implements `to_gid` or a String
-    # params - a Hash
+    # params - a Hash with the attributes to update to the resource
+    # extra_log_info - a Hash with extra info that will be saved to the log
     #
     # Returns the updated `resource`.
-    def update!(resource, author, params)
-      perform_action!(:update, resource, author) do
+    def update!(resource, author, params, extra_log_info = {})
+      perform_action!(:update, resource, author, extra_log_info) do
         resource.update_attributes!(params)
         resource
       end
@@ -114,7 +115,7 @@ module Decidim
       author
     end
 
-    def log(action, user, resource, extra_log_params = {})
+    def log(action, user, resource, extra_log_info = {})
       return unless user.is_a?(Decidim::User)
       return unless resource.is_a?(Decidim::Traceable)
 
@@ -122,7 +123,7 @@ module Decidim
         action,
         user,
         resource,
-        version_params(resource).merge(extra_log_params)
+        version_params(resource).merge(extra_log_info)
       )
     end
 
