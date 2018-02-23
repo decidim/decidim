@@ -35,9 +35,9 @@ module Decidim
       end
 
       def i18n_params
-        super.merge({
+        super.merge(
           resource_type: action_log.resource.try(:decidim_reportable_type).try(:demodulize)
-        })
+        )
       end
 
       def has_diff?
