@@ -16,14 +16,14 @@ module Decidim
 
       def diff_fields_mapping
         {
-          body: :i18n,
-          subject: :i18n
+          hidden_at: :date,
+          report_count: :integer
         }
       end
 
       def action_string
         case action
-        when "hide"
+        when "hide", "unreport"
           "decidim.admin_log.moderation.#{action}"
         else
           super
@@ -31,7 +31,7 @@ module Decidim
       end
 
       def i18n_labels_scope
-        "activemodel.attributes.moderation"
+        "decidim.moderations.models.moderation.fields"
       end
 
       def i18n_params
@@ -40,14 +40,9 @@ module Decidim
         })
       end
 
-      # # Private: Caches the object that will be responsible of presenting the newsletter.
-      # # Overwrites the method so that we can use a custom presenter to show the correct
-      # # path for the newsletter.
-      # #
-      # # Returns an object that responds to `present`.
-      # def resource_presenter
-      #   @resource_presenter ||= Decidim::AdminLog::NewsletterResourcePresenter.new(action_log.resource, h, action_log.extra["resource"])
-      # end
+      def has_diff?
+        action == "unreport" || super
+      end
     end
   end
 end
