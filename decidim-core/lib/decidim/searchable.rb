@@ -30,6 +30,8 @@ module Decidim
       raise "#{self.class.name}#search_rsrc_indexable_fields is abstract and should be overriden"
     end
 
+    # Public: after_create callback to index the model as a SearchableRsrc.
+    #
     def add_to_index_as_search_rsrc
       fields = search_rsrc_indexable_fields
       fields[:i18n].keys.each do |locale|
@@ -37,6 +39,8 @@ module Decidim
       end
     end
 
+    # Public: after_update callback to update index information of the model.
+    #
     def update_index_for_search_rsrc
       fields = search_rsrc_indexable_fields
       searchable_rsrcs.each do |sr|
