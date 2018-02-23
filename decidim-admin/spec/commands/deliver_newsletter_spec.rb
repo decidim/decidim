@@ -45,9 +45,9 @@ module Decidim::Admin
       end
 
       it "logs the action" do
-        expect(Decidim::ActionLogger)
-          .to receive(:log)
-          .with("deliver", delivering_user, newsletter)
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with("deliver", newsletter, delivering_user)
 
         command.call
       end

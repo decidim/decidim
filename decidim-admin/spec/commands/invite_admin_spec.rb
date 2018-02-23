@@ -38,9 +38,9 @@ module Decidim::Admin
     end
 
     it "tracks the change" do
-      expect(Decidim::ActionLogger)
-        .to receive(:log)
-        .with("invite", current_user, a_kind_of(Decidim::User), extra: { invited_user_role: form.role, invited_user_id: a_kind_of(Integer) })
+      expect(Decidim.traceability)
+        .to receive(:perform_action!)
+        .with("invite", a_kind_of(Decidim::User), current_user, extra: { invited_user_role: form.role, invited_user_id: a_kind_of(Integer) })
 
       command.call
     end

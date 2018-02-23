@@ -33,9 +33,9 @@ module Decidim::Admin
       end
 
       it "logs the action" do
-        expect(Decidim::ActionLogger)
-          .to receive(:log)
-          .with("delete", user, newsletter)
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with("delete", newsletter, user)
 
         subject.call
       end
