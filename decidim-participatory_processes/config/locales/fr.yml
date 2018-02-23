@@ -210,6 +210,10 @@ fr:
         create: "%{user_name} créé le %{resource_name} processus participatif"
         publish: "%{user_name} publié le %{resource_name} processus participatif"
         unpublish: "%{user_name} non publié le %{resource_name} processus participatif"
+      participatory_process_user_role:
+        create: "%{user_name} invité l'utilisateur %{resource_name} à la %{space_name} processus participatif"
+        delete: "%{user_name} supprimé l'utilisateur %{resource_name} à partir du %{space_name} processus participatif"
+        update: "%{user_name} changé le rôle de l'utilisateur %{resource_name} dans le %{space_name} processus participatif"
     menu:
       processes: Processus participatifs
     participatory_process_groups:
