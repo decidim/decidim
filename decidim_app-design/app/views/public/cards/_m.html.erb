@@ -172,236 +172,6 @@
   </div>
 </div>
 
-<p>TODO: mover estados a seccion aparte</p>
-<div class="row">
-  <div class="columns small-12 medium-6">
-    <p>Propuesta con estado: aceptada</p>
-    <article class="card card--proposal success">
-      <div class="card__content">
-        <div class="card__header">
-          <%= link_to page_path("proposal-view"), class: "card__link" do %>
-            <h5 class="card__title">
-              <%= Faker::StarWars.quote %>
-            </h5>
-          <% end %>
-          <div class="card__author">
-            <%= partial "author_data" %>
-          </div>
-        </div>
-        <div class="card__text">
-          <p class="card__text--paragraph">
-            <span class="card__text--status success">aceptada</span><%= Faker::Lorem.paragraph %>
-          </p>
-          <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
-        </div>
-      </div>
-      <div class="card__status">
-        <ul class="card-data">
-          <li class="card-data__item">
-            <%= Faker::Date.backward(725).strftime('%d/%m/%Y') %>
-          </li>
-          <li class="card-data__item">
-            <a href="">
-              <%= icon "check", class: "icon--small" %>&nbsp;Following
-            </a>
-          </li>
-          <li class="card-data__item">
-            <a href="">
-              <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-              <%= Faker::Number.between(0, 100) %>
-            </a>
-          </li>
-          <li class="card-data__item">
-            <a href="" title="Comentarios">
-              <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-              <%= Faker::Number.between(0, 100) %>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="card__footer">
-        <div class="card__support">
-          <%= partial "progress_bar", { progress: Faker::Number.between(0, 100) } %>
-
-          <button class="card__button button button--sc small">
-            Apoyar
-          </button>
-        </div>
-      </div>
-    </article>
-  </div>
-  <div class="columns small-12 medium-6">
-    <p>Propuesta con estado: rechazada</p>
-    <article class="card card--proposal alert">
-      <div class="card__content">
-        <div class="card__header">
-          <%= link_to page_path("proposal-view"), class: "card__link" do %>
-            <h5 class="card__title">
-              <%= Faker::StarWars.quote %>
-            </h5>
-          <% end %>
-          <div class="card__author">
-            <%= partial "author_data" %>
-          </div>
-        </div>
-        <div class="card__text">
-          <p class="card__text--paragraph">
-            <span class="card__text--status alert">rechazada</span><%= Faker::Lorem.paragraph %>
-          </p>
-          <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
-        </div>
-      </div>
-      <div class="card__status">
-        <ul class="card-data">
-          <li class="card-data__item">
-            <%= Faker::Date.backward(725).strftime('%d/%m/%Y') %>
-          </li>
-          <li class="card-data__item">
-            <a href="">
-              <%= icon "check", class: "icon--small" %>&nbsp;Following
-            </a>
-          </li>
-          <li class="card-data__item">
-            <a href="">
-              <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-              <%= Faker::Number.between(0, 100) %>
-            </a>
-          </li>
-          <li class="card-data__item">
-            <a href="" title="Comentarios">
-              <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-              <%= Faker::Number.between(0, 100) %>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="card__footer">
-        <div class="card__support">
-          <%= partial "progress_bar", { progress: Faker::Number.between(0, 100) } %>
-
-          <button class="card__button button button--sc small">
-            Apoyar
-          </button>
-        </div>
-      </div>
-    </article>
-  </div>
-</div>
-<div class="row">
-  <div class="columns small-12 medium-6">
-    <p>Propuesta con estado: en evaluación</p>
-    <article class="card card--proposal warning">
-      <div class="card__content">
-        <div class="card__header">
-          <%= link_to page_path("proposal-view"), class: "card__link" do %>
-            <h5 class="card__title">
-              <%= Faker::StarWars.quote %>
-            </h5>
-          <% end %>
-          <div class="card__author">
-            <%= partial "author_data" %>
-          </div>
-        </div>
-        <div class="card__text">
-          <p class="card__text--paragraph">
-            <span class="card__text--status warning">en evaluación</span><%= Faker::Lorem.paragraph %>
-          </p>
-          <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
-        </div>
-      </div>
-      <div class="card__status">
-        <ul class="card-data">
-          <li class="card-data__item">
-            <%= Faker::Date.backward(725).strftime('%d/%m/%Y') %>
-          </li>
-          <li class="card-data__item">
-            <a href="">
-              <%= icon "check", class: "icon--small" %>&nbsp;Following
-            </a>
-          </li>
-          <li class="card-data__item">
-            <a href="">
-              <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-              <%= Faker::Number.between(0, 100) %>
-            </a>
-          </li>
-          <li class="card-data__item">
-            <a href="" title="Comentarios">
-              <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-              <%= Faker::Number.between(0, 100) %>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="card__footer">
-        <div class="card__support">
-          <%= partial "progress_bar", { progress: Faker::Number.between(0, 100) } %>
-
-          <button class="card__button button button--sc small">
-            Apoyar
-          </button>
-        </div>
-      </div>
-    </article>
-  </div>
-  <div class="columns small-12 medium-6">
-    <p>Propuesta con estado: sin respuesta</p>
-    <article class="card card--proposal muted">
-      <div class="card__content">
-        <div class="card__header">
-          <%= link_to page_path("proposal-view"), class: "card__link" do %>
-            <h5 class="card__title">
-              <%= Faker::StarWars.quote %>
-            </h5>
-          <% end %>
-          <div class="card__author">
-            <%= partial "author_data" %>
-          </div>
-        </div>
-        <div class="card__text">
-          <p class="card__text--paragraph">
-            <span class="card__text--status muted">sin respuesta</span><%= Faker::Lorem.paragraph %>
-          </p>
-          <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
-        </div>
-      </div>
-      <div class="card__status">
-        <ul class="card-data">
-          <li class="card-data__item">
-            <%= Faker::Date.backward(725).strftime('%d/%m/%Y') %>
-          </li>
-          <li class="card-data__item">
-            <a href="">
-              <%= icon "check", class: "icon--small" %>&nbsp;Following
-            </a>
-          </li>
-          <li class="card-data__item">
-            <a href="">
-              <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-              <%= Faker::Number.between(0, 100) %>
-            </a>
-          </li>
-          <li class="card-data__item">
-            <a href="" title="Comentarios">
-              <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-              <%= Faker::Number.between(0, 100) %>
-            </a>
-          </li>
-        </ul>
-      </div>
-      <div class="card__footer">
-        <div class="card__support">
-          <%= partial "progress_bar", { progress: Faker::Number.between(0, 100) } %>
-
-          <button class="card__button button button--sc small">
-            Apoyar
-          </button>
-        </div>
-      </div>
-    </article>
-  </div>
-</div>
-
 <hr>
 
 <h2 class="section-heading">Card de iniciativa</h2>
@@ -725,7 +495,7 @@
 <div class="row">
   <div class="columns small-12 medium-6">
     <p>Blog</p>
-    <article class="card card--debate">
+    <article class="card card--blog">
       <div class="card__content">
         <div class="card__header">
           <%= link_to page_path("proposal-view"), class: "card__link" do %>
@@ -779,7 +549,7 @@
   </div>
   <div class="columns small-12 medium-6">
     <p>Blog con etiqueta</p>
-    <article class="card card--debate">
+    <article class="card card--blog">
       <div class="card__label--container">
         <div class="card__label muted">blog</div>
       </div>
@@ -829,6 +599,264 @@
         <div class="card__support">
           <button class="card__button button secondary button--sc small light">
             Leer
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+
+<hr>
+
+<h2 class="section-heading">Cards con diversos estados</h2>
+<div class="row">
+  <div class="columns small-12 medium-6">
+    <p>Propuesta con estado: aceptada</p>
+    <article class="card card--proposal success">
+      <div class="card__content">
+        <div class="card__header">
+          <%= link_to page_path("proposal-view"), class: "card__link" do %>
+            <h5 class="card__title">
+              <%= Faker::StarWars.quote %>
+            </h5>
+          <% end %>
+          <div class="card__author">
+            <%= partial "author_data" %>
+          </div>
+        </div>
+        <div class="card__text">
+          <p class="card__text--paragraph">
+            <span class="card__text--status success">aceptada</span><%= Faker::Lorem.paragraph %>
+          </p>
+          <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
+        </div>
+      </div>
+      <div class="card__status">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= Faker::Date.backward(725).strftime('%d/%m/%Y') %>
+          </li>
+          <li class="card-data__item">
+            <a href="">
+              <%= icon "check", class: "icon--small" %>&nbsp;Following
+            </a>
+          </li>
+          <li class="card-data__item">
+            <a href="">
+              <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+          <li class="card-data__item">
+            <a href="" title="Comentarios">
+              <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="card__footer">
+        <div class="card__support">
+          <%= partial "progress_bar", { progress: Faker::Number.between(0, 100) } %>
+
+          <button class="card__button button button--sc small">
+            Apoyar
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="columns small-12 medium-6">
+    <p>Propuesta con estado: rechazada</p>
+    <article class="card card--proposal alert">
+      <div class="card__content">
+        <div class="card__header">
+          <%= link_to page_path("proposal-view"), class: "card__link" do %>
+            <h5 class="card__title">
+              <%= Faker::StarWars.quote %>
+            </h5>
+          <% end %>
+          <div class="card__author">
+            <%= partial "author_data" %>
+          </div>
+        </div>
+        <div class="card__text">
+          <p class="card__text--paragraph">
+            <span class="card__text--status alert">rechazada</span><%= Faker::Lorem.paragraph %>
+          </p>
+          <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
+        </div>
+      </div>
+      <div class="card__status">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= Faker::Date.backward(725).strftime('%d/%m/%Y') %>
+          </li>
+          <li class="card-data__item">
+            <a href="">
+              <%= icon "check", class: "icon--small" %>&nbsp;Following
+            </a>
+          </li>
+          <li class="card-data__item">
+            <a href="">
+              <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+          <li class="card-data__item">
+            <a href="" title="Comentarios">
+              <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="card__footer">
+        <div class="card__support">
+          <%= partial "progress_bar", { progress: Faker::Number.between(0, 100) } %>
+
+          <button class="card__button button button--sc small">
+            Apoyar
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+<div class="row">
+  <div class="columns small-12 medium-6">
+    <p>Iniciativa con estado: en evaluación</p>
+    <article class="card card--initiative warning">
+      <div class="card__content">
+        <div class="card__header">
+          <%= link_to page_path("proposal-view"), class: "card__link" do %>
+            <h5 class="card__title">
+              <%= Faker::StarWars.quote %>
+            </h5>
+          <% end %>
+          <div class="card__author">
+            <!-- locals.text: the number has to match with the hidden ones -->
+            <!-- locals.size: classname. small shows only 3 items -->
+            <!-- locals.classText: classname. default text-small. append to span -->
+            <%= render layout: "public/components/collapsible-list", locals: { text: raw("y <strong>6</strong> personas más"), size: "small", classText: '' } do %>
+              <%= partial "author_data", { nick: false } %>
+              <%= partial "author_data", { nick: false } %>
+              <%= partial "author_data", { nick: false } %>
+              <%= partial "author_data", { nick: false } %>
+              <%= partial "author_data", { nick: false } %>
+              <%= partial "author_data", { nick: false } %>
+              <%= partial "author_data", { nick: false } %>
+              <%= partial "author_data", { nick: false } %>
+              <%= partial "author_data", { nick: false } %>
+            <% end %>
+          </div>
+        </div>
+        <div class="card__text">
+          <p class="card__text--paragraph">
+            <span class="card__text--status warning">en evaluación</span><%= Faker::Lorem.paragraph %>
+          </p>
+          <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
+        </div>
+      </div>
+      <div class="card__status">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= Faker::Date.backward(725).strftime('%d/%m/%Y') %>
+          </li>
+          <li class="card-data__item">
+            <a href="">
+              <%= icon "bell", class: "icon--small", aria_label: "Respaldos", role: "img" %>&nbsp;Follow
+            </a>
+          </li>
+          <li class="card-data__item">
+            <a href="">
+              <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+          <li class="card-data__item">
+            <a href="" title="Comentarios">
+              <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="card__footer">
+        <div class="card__support">
+          <%= partial "progress_bar", { progress: Faker::Number.between(0, 100), text: 'Firmas' } %>
+
+          <button class="card__button button secondary button--sc small light">
+            Firmar
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="columns small-12 medium-6">
+    <p>Iniciativa con estado: sin respuesta</p>
+    <article class="card card--initiative muted">
+      <div class="card__content">
+        <div class="card__header">
+          <%= link_to page_path("proposal-view"), class: "card__link" do %>
+            <h5 class="card__title">
+              <%= Faker::StarWars.quote %>
+            </h5>
+          <% end %>
+          <div class="card__author">
+            <!-- locals.text: the number has to match with the hidden ones -->
+            <!-- locals.size: classname. small shows only 3 items -->
+            <!-- locals.classText: classname. default text-small. append to span -->
+            <%= render layout: "public/components/collapsible-list", locals: { text: raw("y <strong>6</strong> personas más"), size: "small", classText: '' } do %>
+              <%= partial "author_data", { nick: false } %>
+              <%= partial "author_data", { nick: false } %>
+              <%= partial "author_data", { nick: false } %>
+              <%= partial "author_data", { nick: false } %>
+              <%= partial "author_data", { nick: false } %>
+              <%= partial "author_data", { nick: false } %>
+              <%= partial "author_data", { nick: false } %>
+              <%= partial "author_data", { nick: false } %>
+              <%= partial "author_data", { nick: false } %>
+            <% end %>
+          </div>
+        </div>
+        <div class="card__text">
+          <p class="card__text--paragraph">
+            <span class="card__text--status muted">sin respuesta</span><%= Faker::Lorem.paragraph %>
+          </p>
+          <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
+        </div>
+      </div>
+      <div class="card__status">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= Faker::Date.backward(725).strftime('%d/%m/%Y') %>
+          </li>
+          <li class="card-data__item">
+            <a href="">
+              <%= icon "bell", class: "icon--small", aria_label: "Respaldos", role: "img" %>&nbsp;Follow
+            </a>
+          </li>
+          <li class="card-data__item">
+            <a href="">
+              <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+          <li class="card-data__item">
+            <a href="" title="Comentarios">
+              <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="card__footer">
+        <div class="card__support">
+          <%= partial "progress_bar", { progress: Faker::Number.between(0, 100), text: 'Firmas' } %>
+
+          <button class="card__button button secondary button--sc small light">
+            Firmar
           </button>
         </div>
       </div>
