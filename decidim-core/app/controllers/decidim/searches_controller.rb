@@ -23,7 +23,7 @@ module Decidim
       @term ||= params[:term]
     end
     def filters
-      @filters ||= params[:filter]&.permit(:resource_type)&.to_h
+      @filters ||= params[:filter]&.permit(%i[resource_type scope_id])&.to_h
     end
   end
 end

@@ -31,16 +31,29 @@ module Decidim
         end
       end
     end
-    context "when applying filters" do
+    context "when applying resource_type filter" do
       let(:search) { instance_dobule(Decidim::Search) }
       let(:resource_type) { "SomeResourceType" }
       before do
         allow(Decidim::Search).to receive(:call)
       end
-      it "should take the filters into account" do
+      it "should take the resource_type filter into account" do
         expect(Decidim::Search).to receive(:call).with(any_args, {"resource_type" => resource_type})
 
         get :index, params: {term: 'Blues', "filter[resource_type]" => resource_type}
+      end
+    end
+
+    context "when applying scope filter" do
+      let(:search) { instance_dobule(Decidim::Search) }
+      let(:scope_id) { "SomeScopeId" }
+      before do
+        allow(Decidim::Search).to receive(:call)
+      end
+      it "should take the scope filter into account" do
+        expect(Decidim::Search).to receive(:call).with(any_args, {"scope_id" => scope_id})
+
+        get :index, params: {term: 'Blues', "filter[scope_id]" => scope_id}
       end
     end
   end

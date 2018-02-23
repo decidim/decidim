@@ -4,7 +4,7 @@ module Decidim
   # A command that will act as a search service, with all the business logic for performing searches.
   class Search < Rectify::Command
 
-    ACCEPTED_FILTERS= [:resource_type]
+    ACCEPTED_FILTERS= %i[resource_type decidim_scope_id]
 
     attr_reader :term, :results
 
