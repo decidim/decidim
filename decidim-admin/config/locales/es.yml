@@ -1,6 +1,14 @@
 es:
   activemodel:
     attributes:
+      area:
+        area_type: Tipo de área
+        name: Nombre
+        organization: Organización
+      area_type:
+        name: Nombre
+        organization: Organización
+        plural: Plural
       attachment:
         attachment_collection_id: Colección
         description: Descripción
@@ -113,6 +121,37 @@ es:
         permissions: Permisos
         reject: Rechazar
         verify: Verificar
+      area_types:
+        create:
+          error: Hubo un error al crear un nuevo tipo de área.
+          success: Tipo de área creada con éxito.
+        destroy:
+          success: Área destruida con éxito
+        edit:
+          title: Editar tipo de área
+          update: Actualizar
+        new:
+          create: Crear tipo de área
+          title: Nuevo tipo de área
+        update:
+          error: Hubo un error al actualizar este tipo de área.
+          success: Tipo de área actualizada con éxito
+      areas:
+        create:
+          error: Hubo un error al crear una nueva área.
+          success: Área creada con éxito.
+        destroy:
+          success: Área destruida con éxito
+        edit:
+          title: Área de edición
+          update: Actualizar
+        new:
+          create: Crear área
+          title: NUEVA Área
+        no_areas: Sin áreas
+        update:
+          error: Hubo un error al actualizar esta área.
+          success: Área actualizada con éxito
       attachment_collections:
         create:
           error: Hubo un error al crear una nueva colección.
@@ -250,6 +289,8 @@ es:
         admin_log: Registro de actividad de administrador
         admins: Administradores
         appearance: Apariencia
+        area_types: Tipos de área
+        areas: Áreas
         configuration: Configuración
         dashboard: Panel de control
         managed_users: Usuarios gestionados
@@ -262,6 +303,14 @@ es:
         user_groups: Grupos de usuarios
         users: Usuarios
       models:
+        area:
+          fields:
+            area_type: Tipo de área
+            name: Nombre
+        area_type:
+          fields:
+            name: Nombre
+            plural: Plural
         attachment:
           fields:
             collection: Colección
@@ -461,6 +510,8 @@ es:
           success: La página se ha actualizado correctamente.
       titles:
         admin_log: Registro de administrador
+        area_types: Tipos de área
+        areas: Áreas
         authorization_workflows: Métodos de verificación
         dashboard: Panel de control
         impersonations: Suplantaciones
