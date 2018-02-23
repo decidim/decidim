@@ -57,6 +57,8 @@ eu:
       feature:
         create: "%{user_name} gehitu %{resource_name} ezaugarri %{space_name} espazioa"
         delete: "%{user_name} kendu %{resource_name} Ezaugarri %{space_name} espazioa"
+      moderation:
+        hide: "%{user_name} ezkutatu motako baliabide bat %{resource_type} en %{space_name} espazioa"
       newsletter:
         create: "%{user_name} sortu %{resource_name} buletina"
         delete: "%{user_name} ezabatu %{resource_name} buletina"
