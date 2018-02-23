@@ -184,11 +184,6 @@ pl:
           mine_is_different: Moja propozycja jest inna
           no_similars_found: Dobra robota! Nie znaleziono podobnych propozycji
           title: Podobne propozycje
-        count:
-          proposals_count:
-            one: 1 propozycja
-            few: "%{count} propozycje"
-            other: "%{count} propozycje"
         edit:
           back: Plecy
           select_a_category: Proszę wybrać kategorię
@@ -202,11 +197,6 @@ pl:
           already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: Podpisać się
-        endorsements_count:
-          count:
-            one: POPARCIE
-            few: POTWIERDZENIA
-            other: POTWIERDZENIA
         endorsements_listing:
           see_all: widzieć wszystko
           title: Lista rekomendacji
@@ -234,11 +224,6 @@ pl:
           new_proposal: Nowa propozycja
           see_all_withdrawn: Zobacz wszystkie wycofane propozycje
           view_proposal: Wyświetl propozycję
-        linked_proposals:
-          proposal_votes:
-            one: głosować
-            few: głosów
-            other: głosów
         new:
           attachment_legend: "(Opcjonalnie) Dodaj załącznik"
           select_a_category: Proszę wybrać kategorię
@@ -251,10 +236,6 @@ pl:
           recent: Niedawny
         preview:
           modify: Zmodyfikuj propozycję
-          proposal_edit_before_minutes:
-            one: Będziesz mógł edytować tę propozycję w pierwszej minucie po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
-            few: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
-            other: Będziesz mógł edytować tę propozycję podczas pierwszej %{count} minut po opublikowaniu propozycji. Po przejściu tego okna czasowego nie będzie można edytować propozycji.
           publish: Publikować
           title: Opublikuj swoją propozycję
         proposal:
@@ -278,10 +259,6 @@ pl:
           vote: Głosować
           votes_blocked: Głosowanie zostało wyłączone
         votes_count:
-          count:
-            one: GŁOSOWAĆ
-            few: GŁOSOWANIA
-            other: GŁOSOWANIA
           most_popular_proposal: Najpopularniejsza propozycja
           need_more_votes: Potrzebujesz więcej głosów
         voting_rules:
