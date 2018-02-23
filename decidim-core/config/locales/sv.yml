@@ -57,6 +57,9 @@ sv:
       feature:
         create: "%{user_name} lagt till %{resource_name} funktion till %{space_name} rymden"
         delete: "%{user_name} tog bort %{resource_name} funktion från %{space_name} rymden"
+      moderation:
+        hide: "%{user_name} gömde en resurs av typ %{resource_type} i %{space_name} rymden"
+        unreport: "%{user_name} unreported en resurs av typ %{resource_type} i %{space_name} rymden"
       newsletter:
         create: "%{user_name} skapade %{resource_name} nyhetsbrev"
         delete: "%{user_name} raderade %{resource_name} nyhetsbrev"
