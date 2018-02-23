@@ -71,8 +71,8 @@ plugins:
     enabled: true
 
     exclude_patterns:
-     - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
-     - .rubocop.yml
+      - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
+      - .rubocop.yml
 
   grep:
     enabled: true
