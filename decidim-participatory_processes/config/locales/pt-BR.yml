@@ -213,6 +213,7 @@ pt-BR:
       participatory_process_user_role:
         create: "%{user_name} convidou o usuário %{resource_name} para o %{space_name} processo participativo"
         delete: "%{user_name} removeu o usuário %{resource_name} do %{space_name} processo participativo"
+        update: "%{user_name} alterou o papel do usuário %{resource_name} no %{space_name} processo participativo"
     menu:
       processes: Processos
     participatory_process_groups:
