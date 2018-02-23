@@ -6,10 +6,10 @@
         <%= render partial: "endorsements_count", locals: { proposal: @proposal, fully_endorsed: fully_endorsed } %>
         <% if current_settings.endorsements_blocked? %>
           <%= content_tag :span, t('.endorse'), class: "card__button button #{endorsement_button_classes(false)} disabled", disabled: true, title: t('.endorse') %>
-        <% elsif not current_user %>
-          <%= action_authorized_button_to :endorse, t('.endorse'), '', class: "card__button button #{endorsement_button_classes(false)} secondary" %>
-        <% else %>
+        <% elsif current_user %>
           <%= render partial: "endorsement_identities_cabin", locals: { proposal: @proposal, fully_endorsed: fully_endorsed } %>
+        <% else %>
+          <%= action_authorized_button_to :endorse, t('.endorse'), '', class: "card__button button #{endorsement_button_classes(false)} secondary" %>
         <% end %>
       </div>
     </div>
