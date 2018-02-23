@@ -57,6 +57,9 @@ it:
       feature:
         create: "%{user_name} aggiunto il %{resource_name} funzione per %{space_name} spazio"
         delete: "%{user_name} rimosso il %{resource_name} funzione dal %{space_name} spazio"
+      moderation:
+        hide: "%{user_name} nascosto una risorsa di tipo %{resource_type} nel %{space_name} spazio"
+        unreport: "%{user_name} non segnalata una risorsa di tipo %{resource_type} nel %{space_name} spazio"
       newsletter:
         create: "%{user_name} creato il %{resource_name} notiziario"
         delete: "%{user_name} cancellato il %{resource_name} notiziario"
