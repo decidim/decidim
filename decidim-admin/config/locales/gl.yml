@@ -1,6 +1,14 @@
 gl:
   activemodel:
     attributes:
+      area:
+        area_type: Tipo de área
+        name: Nome
+        organization: Organización
+      area_type:
+        name: Nome
+        organization: Organización
+        plural: Plural
       attachment:
         attachment_collection_id: Colección
         description: Descrición
@@ -113,6 +121,37 @@ gl:
         permissions: Permisos
         reject: Rexeitar
         verify: Verifique
+      area_types:
+        create:
+          error: Produciuse un erro ao crear un novo tipo de área.
+          success: Tipo de área creada con éxito.
+        destroy:
+          success: Tipo de área destruído con éxito
+        edit:
+          title: Editar tipo de área
+          update: Actualización
+        new:
+          create: Crea un tipo de área
+          title: Tipo de área nova
+        update:
+          error: Produciuse un erro ao actualizar este tipo de área.
+          success: Tipo de área actualizado con éxito
+      areas:
+        create:
+          error: Produciuse un erro ao crear unha nova área.
+          success: Area creada con éxito.
+        destroy:
+          success: Área destruída con éxito
+        edit:
+          title: Editar área
+          update: Actualización
+        new:
+          create: Crear área
+          title: Nova área
+        no_areas: Sen Áreas
+        update:
+          error: Produciuse un erro ao actualizar esta área.
+          success: Área actualizada correctamente
       attachment_collections:
         create:
           error: Produciuse un erro ao crear unha nova colección.
@@ -250,6 +289,8 @@ gl:
         admin_log: Rexistro de actividade do administrador
         admins: Administradores
         appearance: Aparencia
+        area_types: Tipos de área
+        areas: Campos
         configuration: Configuración
         dashboard: Taboleiro de instrumentos
         managed_users: Usuarios xestionados
@@ -262,6 +303,14 @@ gl:
         user_groups: Grupos de usuarios
         users: Usuarios
       models:
+        area:
+          fields:
+            area_type: Tipo de área
+            name: Nome
+        area_type:
+          fields:
+            name: Nome
+            plural: Plural
         attachment:
           fields:
             collection: Colección
@@ -461,6 +510,8 @@ gl:
           success: Páxina actualizada con éxito
       titles:
         admin_log: Rexistro de administrador
+        area_types: Tipos de área
+        areas: Campos
         authorization_workflows: Métodos de verificación
         dashboard: Taboleiro de instrumentos
         impersonations: Impersonacións
