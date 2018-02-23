@@ -1,6 +1,14 @@
 fr:
   activemodel:
     attributes:
+      area:
+        area_type: Type de zone
+        name: prénom
+        organization: Organisation
+      area_type:
+        name: prénom
+        organization: Organisation
+        plural: Pluriel
       attachment:
         attachment_collection_id: Collection
         description: Description
@@ -113,6 +121,37 @@ fr:
         permissions: Autorisations
         reject: Rejeter
         verify: Vérifier
+      area_types:
+        create:
+          error: Une erreur s'est produite lors de la création d'un nouveau type de zone.
+          success: Le type de zone a été créé avec succès.
+        destroy:
+          success: Type de zone détruit avec succès
+        edit:
+          title: Modifier le type de zone
+          update: Mettre à jour
+        new:
+          create: Créer un type de zone
+          title: Nouveau type de zone
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de ce type de zone.
+          success: Type de zone mis à jour avec succès
+      areas:
+        create:
+          error: Une erreur s'est produite lors de la création d'une nouvelle zone.
+          success: Zone créée avec succès.
+        destroy:
+          success: Zone détruite avec succès
+        edit:
+          title: Modifier la zone
+          update: Mettre à jour
+        new:
+          create: Créer une zone
+          title: Nouvelle zone
+        no_areas: Pas de zones
+        update:
+          error: Une erreur s'est produite lors de la mise à jour de cette zone.
+          success: Zone mise à jour avec succès
       attachment_collections:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle collection.
@@ -250,6 +289,8 @@ fr:
         admin_log: Journal d'activité de l'administrateur
         admins: Administrateurs
         appearance: Apparence
+        area_types: Types de zones
+        areas: Zones
         configuration: Configuration
         dashboard: Tableau de bord
         managed_users: Utilisateurs représentés
@@ -262,6 +303,14 @@ fr:
         user_groups: Groupes d'utilisateurs
         users: Utilisateurs
       models:
+        area:
+          fields:
+            area_type: Type de zone
+            name: prénom
+        area_type:
+          fields:
+            name: prénom
+            plural: Pluriel
         attachment:
           fields:
             collection: Collection
@@ -461,6 +510,8 @@ fr:
           success: Page mise à jour avec succès
       titles:
         admin_log: Journal d'administration
+        area_types: Types de zones
+        areas: Zones
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
         impersonations: Représentations d'utilisateurs
