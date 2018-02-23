@@ -210,6 +210,10 @@ es:
         create: "%{user_name} creó el %{resource_name} proceso participativo"
         publish: "%{user_name} publicó el %{resource_name} proceso participativo"
         unpublish: "%{user_name} inédito el %{resource_name} proceso participativo"
+      participatory_process_user_role:
+        create: "%{user_name} invitó al usuario %{resource_name} al %{space_name} proceso participativo"
+        delete: "%{user_name} eliminado al usuario %{resource_name} del %{space_name} proceso participativo"
+        update: "%{user_name} cambió el rol del usuario %{resource_name} en el %{space_name} proceso participativo"
     menu:
       processes: Procesos
     participatory_process_groups:
