@@ -16,7 +16,7 @@ module Decidim
     include Decidim::HasReference
     include Decidim::Traceable
     include Decidim::HasPrivateUsers
-    
+
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
@@ -56,6 +56,12 @@ module Decidim
     scope :past, -> { where(arel_table[:end_date].lteq(Time.current)) }
     scope :upcoming, -> { where(arel_table[:start_date].gt(Time.current)) }
     scope :active, -> { where(arel_table[:start_date].lteq(Time.current).and(arel_table[:end_date].gt(Time.current).or(arel_table[:end_date].eq(nil)))) }
+
+    scope :visible_for, lambda { |user|
+          joins("LEFT JOIN decidim_participatory_space_private_users ON
+          decidim_participatory_space_private_users.privatable_to_id = decidim_participatory_processes.id")
+          .where("(private_space = ? and decidim_participatory_space_private_users.decidim_user_id = ?) or private_space = ?", true, user, false)
+          }
 
     # Scope to return only the promoted processes.
     #
