@@ -288,8 +288,11 @@ $datetime-bg: $primary;
     padding: $card-padding;
   }
 
+  > *:only-child{
+    margin-left: auto;
+  }
+
   .card__button{
-    //margin-left: auto;
     font-size: $small-font-size;
   }
 }
