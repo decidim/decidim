@@ -42,10 +42,17 @@ describe "Organization Areas", type: :system do
     end
 
     context "with existing areas" do
-      let!(:area) { create(:area, organization: organization) }
+      let!(:area) { create(:area, organization: organization, area_type: area_type) }
 
       before do
         visit current_path
+      end
+
+      it "lists all the areas for the organization" do
+        within "#areas table" do
+          expect(page).to have_content(translated(area.name, locale: :en))
+          expect(page).to have_content(translated(area.area_type.name, locale: :en))
+        end
       end
 
       it "can edit them" do
