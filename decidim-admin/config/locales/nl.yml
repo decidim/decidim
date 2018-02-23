@@ -1,6 +1,14 @@
 nl:
   activemodel:
     attributes:
+      area:
+        area_type: Soort gebied
+        name: Naam
+        organization: Organisatie
+      area_type:
+        name: Naam
+        organization: Organisatie
+        plural: Meervoud
       attachment:
         attachment_collection_id: Verzameling
         description: Beschrijving
@@ -113,6 +121,37 @@ nl:
         permissions: Permissies
         reject: Weigeren
         verify: Verifiëren
+      area_types:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuw gebiedstype.
+          success: Gebiedstype met succes gemaakt.
+        destroy:
+          success: Gebiedstype met succes vernietigd
+        edit:
+          title: Gebiedstype bewerken
+          update: Bijwerken
+        new:
+          create: Maak een gebiedstype
+          title: Nieuw gebiedstype
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van dit gebiedstype.
+          success: Gebiedstype is succesvol bijgewerkt
+      areas:
+        create:
+          error: Er is een fout opgetreden bij het maken van een nieuw gebied.
+          success: Gebied met succes gemaakt.
+        destroy:
+          success: Gebied met succes vernietigd
+        edit:
+          title: Gebied bewerken
+          update: Bijwerken
+        new:
+          create: Maak een gebied
+          title: Nieuw gebied
+        no_areas: Geen gebieden
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van dit gebied.
+          success: Gebied met succes bijgewerkt
       attachment_collections:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe verzameling.
@@ -250,6 +289,8 @@ nl:
         admin_log: Admin-activiteitenlogboek
         admins: Admins
         appearance: Uiterlijk
+        area_types: Gebiedstypen
+        areas: gebieden
         configuration: Configuratie
         dashboard: Dashboard
         managed_users: Beheerde gebruikers
@@ -262,6 +303,14 @@ nl:
         user_groups: Gebruikersgroepen
         users: Gebruikers
       models:
+        area:
+          fields:
+            area_type: Soort gebied
+            name: Naam
+        area_type:
+          fields:
+            name: Naam
+            plural: Meervoud
         attachment:
           fields:
             collection: Verzameling
@@ -461,6 +510,8 @@ nl:
           success: Pagina is succesvol bijgewerkt
       titles:
         admin_log: Beheerderslog
+        area_types: Gebiedstypen
+        areas: gebieden
         authorization_workflows: Verificatiemethoden
         dashboard: Dashboard
         impersonations: Nabootsingingen
