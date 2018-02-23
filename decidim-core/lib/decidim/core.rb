@@ -14,6 +14,7 @@ module Decidim
   autoload :ResourceManifest, "decidim/resource_manifest"
   autoload :Resourceable, "decidim/resourceable"
   autoload :Traceable, "decidim/traceable"
+  autoload :Loggable, "decidim/loggable"
   autoload :Reportable, "decidim/reportable"
   autoload :Authorable, "decidim/authorable"
   autoload :Participable, "decidim/participable"
