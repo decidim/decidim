@@ -1,6 +1,14 @@
 pl:
   activemodel:
     attributes:
+      area:
+        area_type: Typ obszaru
+        name: Nazwa
+        organization: Organizacja
+      area_type:
+        name: Nazwa
+        organization: Organizacja
+        plural: Liczba mnoga
       attachment:
         attachment_collection_id: Kolekcja
         description: Opis
@@ -113,6 +121,37 @@ pl:
         permissions: Uprawnienia
         reject: Odrzucać
         verify: Zweryfikować
+      area_types:
+        create:
+          error: Wystąpił błąd podczas tworzenia nowego typu obszaru.
+          success: Typ obszaru został pomyślnie utworzony.
+        destroy:
+          success: Typ obszaru został zniszczony
+        edit:
+          title: Edytuj typ obszaru
+          update: Aktualizacja
+        new:
+          create: Utwórz typ obszaru
+          title: Nowy typ obszaru
+        update:
+          error: Wystąpił błąd podczas aktualizowania tego typu obszaru.
+          success: Typ obszaru został pomyślnie zaktualizowany
+      areas:
+        create:
+          error: Wystąpił błąd podczas tworzenia nowego obszaru.
+          success: Obszar utworzony pomyślnie.
+        destroy:
+          success: Obszar pomyślnie zniszczony
+        edit:
+          title: Edytuj obszar
+          update: Aktualizacja
+        new:
+          create: Utwórz obszar
+          title: Nowa okolica
+        no_areas: Brak obszarów
+        update:
+          error: Wystąpił błąd podczas aktualizowania tego obszaru.
+          success: Obszar zaktualizowany pomyślnie
       attachment_collections:
         create:
           error: Wystąpił błąd podczas tworzenia nowej kolekcji.
@@ -250,6 +289,8 @@ pl:
         admin_log: Dziennik aktywności administratora
         admins: Administratorzy
         appearance: Wygląd
+        area_types: Rodzaje powierzchni
+        areas: Obszary
         configuration: Konfiguracja
         dashboard: Deska rozdzielcza
         managed_users: Zarządzane użytkownicy
@@ -262,6 +303,14 @@ pl:
         user_groups: Grupy użytkowników
         users: Użytkownicy
       models:
+        area:
+          fields:
+            area_type: Typ obszaru
+            name: Nazwa
+        area_type:
+          fields:
+            name: Nazwa
+            plural: Liczba mnoga
         attachment:
           fields:
             collection: Kolekcja
@@ -461,6 +510,8 @@ pl:
           success: Strona została zaktualizowana
       titles:
         admin_log: Dziennik administratora
+        area_types: Rodzaje powierzchni
+        areas: Obszary
         authorization_workflows: Metody weryfikacji
         dashboard: Deska rozdzielcza
         impersonations: Impersonaty
