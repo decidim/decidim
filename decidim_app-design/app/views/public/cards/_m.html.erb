@@ -444,13 +444,15 @@
           <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
         </div>
       </div>
-      <div class="card__date">
+      <div class="card__dateplace">
         <ul class="card-data">
           <li class="card-data__item">
             <%= icon "clock", class: "icon--big" %>
           </li>
           <li class="card-data__item">
-            <strong><%= Faker::Date.forward(365).strftime('%e %B %Y') %></strong>&nbsp;·&nbsp;<%= Faker::Time.forward(365, :evening).strftime('%R') %> - <%= Faker::Time.forward(365, :evening).strftime('%R') %>
+            <div>
+              <strong><%= Faker::Date.forward(365).strftime('%e %B %Y') %></strong>&nbsp;·&nbsp;<%= Faker::Time.forward(365, :evening).strftime('%R') %> - <%= Faker::Time.forward(365, :evening).strftime('%R') %>
+            </div>
           </li>
         </ul>
       </div>
@@ -599,6 +601,457 @@
         <div class="card__support">
           <button class="card__button button secondary button--sc small light">
             Leer
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+
+<hr>
+
+<h2 class="section-heading">Card de encuentro</h2>
+<div class="row">
+  <div class="columns small-12 medium-6">
+    <p>Encuentro</p>
+    <article class="card card--meeting">
+      <div class="card__content">
+        <div class="card__header">
+          <%= link_to page_path("proposal-view"), class: "card__link" do %>
+            <h5 class="card__title">
+              <%= Faker::StarWars.quote %>
+            </h5>
+          <% end %>
+        </div>
+        <div class="card__text">
+          <p class="card__text--paragraph">
+            <%= Faker::Lorem.paragraph %>
+          </p>
+        </div>
+      </div>
+      <div class="card__dateplace">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= icon "clock", class: "icon--big" %>
+          </li>
+          <li class="card-data__item">
+            <div>
+              <strong><%= Faker::Date.forward(365).strftime('%e %B %Y') %></strong>&nbsp;·&nbsp;<%= Faker::Time.forward(365, :evening).strftime('%R') %> - <%= Faker::Time.forward(365, :evening).strftime('%R') %>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="card__dateplace">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= icon "map-marker", class: "icon--big" %>
+          </li>
+          <li class="card-data__item">
+            <div class="text-left">
+              <strong><%= Faker::Address.community %></strong><br>
+              <%= Faker::Address.street_address %>&nbsp;<%= Faker::Address.zip %>&nbsp;<%= Faker::Address.city %><br><br>
+              <a class="mt-s">Como llegar</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="card__status">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= Faker::Date.backward(725).strftime('%d/%m/%Y') %>
+          </li>
+          <li class="card-data__item">
+            <a href="">
+              <%= icon "bell", class: "icon--small", aria_label: "Respaldos", role: "img" %>&nbsp;Follow
+            </a>
+          </li>
+          <li class="card-data__item">
+            <a href="">
+              <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+          <li class="card-data__item">
+            <a href="" title="Comentarios">
+              <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="card__footer">
+        <div class="card__support">
+          <button class="card__button button button--sc small">
+            Asistir
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="columns small-12 medium-6">
+    <p>Encuentro asistiendo</p>
+    <article class="card card--meeting">
+      <div class="card__content">
+        <div class="card__header">
+          <%= link_to page_path("proposal-view"), class: "card__link" do %>
+            <h5 class="card__title">
+              <%= Faker::StarWars.quote %>
+            </h5>
+          <% end %>
+        </div>
+        <div class="card__text">
+          <p class="card__text--paragraph">
+            <%= Faker::Lorem.paragraph %>
+          </p>
+        </div>
+      </div>
+      <div class="card__dateplace">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= icon "clock", class: "icon--big" %>
+          </li>
+          <li class="card-data__item">
+            <div>
+              <strong><%= Faker::Date.forward(365).strftime('%e %B %Y') %></strong>&nbsp;·&nbsp;<%= Faker::Time.forward(365, :evening).strftime('%R') %> - <%= Faker::Time.forward(365, :evening).strftime('%R') %>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="card__dateplace">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= icon "map-marker", class: "icon--big" %>
+          </li>
+          <li class="card-data__item">
+            <div class="text-left">
+              <strong><%= Faker::Address.community %></strong><br>
+              <%= Faker::Address.street_address %>&nbsp;<%= Faker::Address.zip %>&nbsp;<%= Faker::Address.city %><br><br>
+              <a class="mt-s">Como llegar</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="card__status">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= Faker::Date.backward(725).strftime('%d/%m/%Y') %>
+          </li>
+          <li class="card-data__item">
+            <a href="">
+              <%= icon "bell", class: "icon--small", aria_label: "Respaldos", role: "img" %>&nbsp;Follow
+            </a>
+          </li>
+          <li class="card-data__item">
+            <a href="">
+              <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+          <li class="card-data__item">
+            <a href="" title="Comentarios">
+              <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="card__footer">
+        <div class="card__support">
+          <button class="card__button button secondary button--sc small light">
+            <%= icon "check", class: "icon--small" %>&nbsp;Asistiendo
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+<div class="row">
+  <div class="columns small-12 medium-6">
+    <p>Encuentro con etiqueta</p>
+    <article class="card card--meeting">
+      <div class="card__label--container">
+        <div class="card__label muted">meeting</div>
+      </div>
+      <div class="card__content">
+        <div class="card__header">
+          <%= link_to page_path("proposal-view"), class: "card__link" do %>
+            <h5 class="card__title">
+              <%= Faker::StarWars.quote %>
+            </h5>
+          <% end %>
+        </div>
+        <div class="card__text">
+          <p class="card__text--paragraph">
+            <%= Faker::Lorem.paragraph %>
+          </p>
+        </div>
+      </div>
+      <div class="card__dateplace">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= icon "clock", class: "icon--big" %>
+          </li>
+          <li class="card-data__item">
+            <div>
+              <strong><%= Faker::Date.forward(365).strftime('%e %B %Y') %></strong>&nbsp;·&nbsp;<%= Faker::Time.forward(365, :evening).strftime('%R') %> - <%= Faker::Time.forward(365, :evening).strftime('%R') %>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="card__dateplace">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= icon "map-marker", class: "icon--big" %>
+          </li>
+          <li class="card-data__item">
+            <div class="text-left">
+              <strong><%= Faker::Address.community %></strong><br>
+              <%= Faker::Address.street_address %>&nbsp;<%= Faker::Address.zip %>&nbsp;<%= Faker::Address.city %><br><br>
+              <a class="mt-s">Como llegar</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="card__status">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= Faker::Date.backward(725).strftime('%d/%m/%Y') %>
+          </li>
+          <li class="card-data__item">
+            <a href="">
+              <%= icon "bell", class: "icon--small", aria_label: "Respaldos", role: "img" %>&nbsp;Follow
+            </a>
+          </li>
+          <li class="card-data__item">
+            <a href="">
+              <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+          <li class="card-data__item">
+            <a href="" title="Comentarios">
+              <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="card__footer">
+        <div class="card__support">
+          <button class="card__button button button--sc small">
+            Asistir
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+<div class="row">
+  <div class="columns small-12 medium-6">
+    <p>Encuentro con menos información</p>
+    <article class="card card--meeting">
+      <div class="card__content">
+        <div class="card__header">
+          <%= link_to page_path("proposal-view"), class: "card__link" do %>
+            <h5 class="card__title">
+              <%= Faker::StarWars.quote %>
+            </h5>
+          <% end %>
+        </div>
+        <div class="card__text">
+          <p class="card__text--paragraph">
+            <%= Faker::Lorem.paragraph %>
+          </p>
+        </div>
+      </div>
+      <div class="card__dateplace">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= icon "clock", class: "icon--big" %>
+          </li>
+          <li class="card-data__item">
+            <div>
+              <strong><%= Faker::Date.forward(365).strftime('%e %B %Y') %></strong>&nbsp;·&nbsp;<%= Faker::Time.forward(365, :evening).strftime('%R') %> - <%= Faker::Time.forward(365, :evening).strftime('%R') %>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="card__dateplace">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= icon "map-marker", class: "icon--big" %>
+          </li>
+          <li class="card-data__item">
+            <div class="text-left">
+              <strong><%= Faker::Address.community %></strong><br>
+              <%= Faker::Address.street_address %>&nbsp;<%= Faker::Address.zip %>&nbsp;<%= Faker::Address.city %>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="card__status">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= Faker::Date.backward(725).strftime('%d/%m/%Y') %>
+          </li>
+          <li class="card-data__item">
+            <a href="">
+              <%= icon "bell", class: "icon--small", aria_label: "Respaldos", role: "img" %>&nbsp;Follow
+            </a>
+          </li>
+          <li class="card-data__item">
+            <a href="">
+              <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+          <li class="card-data__item">
+            <a href="" title="Comentarios">
+              <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="card__footer">
+        <div class="card__support">
+          <button class="card__button button button--sc small">
+            Asistir
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+  <div class="columns small-12 medium-6">
+    <p>Encuentro con menos información</p>
+    <article class="card card--meeting">
+      <div class="card__content">
+        <div class="card__header">
+          <%= link_to page_path("proposal-view"), class: "card__link" do %>
+            <h5 class="card__title">
+              <%= Faker::StarWars.quote %>
+            </h5>
+          <% end %>
+        </div>
+        <div class="card__text">
+          <p class="card__text--paragraph">
+            <%= Faker::Lorem.paragraph %>
+          </p>
+        </div>
+      </div>
+      <div class="card__dateplace">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= icon "clock", class: "icon--big" %>
+          </li>
+          <li class="card-data__item">
+            <div>
+              <strong><%= Faker::Date.forward(365).strftime('%e %B %Y') %></strong>&nbsp;·&nbsp;<%= Faker::Time.forward(365, :evening).strftime('%R') %> - <%= Faker::Time.forward(365, :evening).strftime('%R') %>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="card__status">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= Faker::Date.backward(725).strftime('%d/%m/%Y') %>
+          </li>
+          <li class="card-data__item">
+            <a href="">
+              <%= icon "bell", class: "icon--small", aria_label: "Respaldos", role: "img" %>&nbsp;Follow
+            </a>
+          </li>
+          <li class="card-data__item">
+            <a href="">
+              <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+          <li class="card-data__item">
+            <a href="" title="Comentarios">
+              <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="card__footer">
+        <div class="card__support">
+          <button class="card__button button button--sc small">
+            Asistir
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+<div class="row">
+  <div class="columns small-12 medium-6">
+    <p>Encuentro sin posibilidad de seguir</p>
+    <article class="card card--meeting">
+      <div class="card__content">
+        <div class="card__header">
+          <%= link_to page_path("proposal-view"), class: "card__link" do %>
+            <h5 class="card__title">
+              <%= Faker::StarWars.quote %>
+            </h5>
+          <% end %>
+        </div>
+        <div class="card__text">
+          <p class="card__text--paragraph">
+            <%= Faker::Lorem.paragraph %>
+          </p>
+        </div>
+      </div>
+      <div class="card__dateplace">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= icon "clock", class: "icon--big" %>
+          </li>
+          <li class="card-data__item">
+            <div>
+              <strong><%= Faker::Date.forward(365).strftime('%e %B %Y') %></strong>&nbsp;·&nbsp;<%= Faker::Time.forward(365, :evening).strftime('%R') %> - <%= Faker::Time.forward(365, :evening).strftime('%R') %>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="card__dateplace">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= icon "map-marker", class: "icon--big" %>
+          </li>
+          <li class="card-data__item">
+            <div class="text-left">
+              <strong><%= Faker::Address.community %></strong><br>
+              <%= Faker::Address.street_address %>&nbsp;<%= Faker::Address.zip %>&nbsp;<%= Faker::Address.city %><br><br>
+              <a class="mt-s">Como llegar</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="card__status">
+        <ul class="card-data">
+          <li class="card-data__item">
+            <%= Faker::Date.backward(725).strftime('%d/%m/%Y') %>
+          </li>
+          <li class="card-data__item">
+            <a href="">
+              <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+          <li class="card-data__item">
+            <a href="" title="Comentarios">
+              <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
+              <%= Faker::Number.between(0, 100) %>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="card__footer">
+        <div class="card__support">
+          <button class="card__button button secondary button--sc small light">
+            <%= icon "check", class: "icon--small" %>&nbsp;Asistiendo
           </button>
         </div>
       </div>

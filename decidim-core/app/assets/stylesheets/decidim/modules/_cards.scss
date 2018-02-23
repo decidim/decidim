@@ -669,27 +669,32 @@ $datetime-bg: $primary;
   }
 }
 
-// card date
-.card__date{
+// card date-place
+.card__dateplace{
   ul{
-    align-items: center;
+    align-items: stretch;
     border-top: $border;
 
     li{
       border-top: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      > *{
+        margin: .5rem;
+      }
     }
 
     li:first-child{
       color: $primary;
       flex: 0;
-
-      svg{
-        margin: .5rem;
-      }
     }
 
     li:last-child{
       font-size: $global-font-size;
+      text-transform: none;
+      justify-content: left;
 
       strong{
         color: $body-font-color;
