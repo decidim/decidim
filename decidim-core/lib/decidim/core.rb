@@ -51,6 +51,7 @@ module Decidim
   autoload :ViewHooks, "decidim/view_hooks"
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
   autoload :Searchable, "decidim/searchable"
+  autoload :ViewModel, "decidim/view_model"
 
   include ActiveSupport::Configurable
 
