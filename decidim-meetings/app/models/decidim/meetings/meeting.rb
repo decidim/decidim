@@ -14,6 +14,7 @@ module Decidim
       include Decidim::HasCategory
       include Decidim::Followable
       include Decidim::Comments::Commentable
+      include Decidim::Searchable
 
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
 
@@ -63,6 +64,25 @@ module Decidim
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`
       def users_to_notify_on_comment_created
         followers
+      end
+
+      # Public: As Searchable, does the mapping of fields to be indexed.
+      #
+      #
+      def search_rsrc_indexable_fields
+        org = feature.organization
+        fields = {
+          decidim_scope_id: decidim_scope_id,
+          decidim_participatory_space_id: feature.participatory_space_id,
+          decidim_participatory_space_type: feature.participatory_space_type,
+          decidim_organization_id: org.id,
+          i18n: {}
+        }
+        i18n = fields[:i18n]
+        org.available_locales.each do |locale|
+          i18n[locale] = { A: [title[locale]], D: [description[locale], address] }
+        end
+        fields
       end
     end
   end

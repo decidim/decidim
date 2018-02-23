@@ -8,10 +8,9 @@ module Decidim
     extend ActiveSupport::Concern
 
     included do
-      has_one :searchable_rsrc, class_name: "Decidim::SearchableRsrc", inverse_of: :resource
-      after_create :index_as_search_rsrc
-      after_update :index_as_search_rsrc
-      after_destroy :unindex_from_search_rsrc
+      has_many :searchable_rsrcs, class_name: "Decidim::SearchableRsrc", inverse_of: :resource, foreign_key: :resource_id, dependent: :destroy
+      after_create :add_to_index_as_search_rsrc
+      after_update :update_index_for_search_rsrc
     end
 
     #
@@ -26,26 +25,41 @@ module Decidim
     # }
     #
     def search_rsrc_indexable_fields
-      raise "#{self.class.name}#search_doc_indexable_fields is abstract and should be overriden"
+      raise "#{self.class.name}#search_rsrc_indexable_fields is abstract and should be overriden"
     end
 
-    def index_as_search_rsrc
+    def add_to_index_as_search_rsrc
       fields = search_rsrc_indexable_fields
-      fields[:i18n].each_pair do |locale, contents|
-        content_a = contents[:A]&.join(" ")
-        content_b = contents[:B]&.join(" ")
-        content_c = contents[:C]&.join(" ")
-        content_d = contents[:D]&.join(" ")
-        Decidim::SearchableRsrc.create(
-          content_a: content_a, content_b: content_b, content_c: content_c, content_d: content_d,
-          locale: locale,
-          decidim_scope_id: fields[:decidim_scope_id],
-          decidim_participatory_space_id: fields[:decidim_participatory_space_id],
-          decidim_participatory_space_type: fields[:decidim_participatory_space_type],
-          decidim_organization_id: fields[:decidim_organization_id],
-          resource: self
-        )
+      fields[:i18n].keys.each do |locale|
+        Decidim::SearchableRsrc.create(contents_to_searchable_rsrc_attrs(fields, locale))
       end
+    end
+
+    def update_index_for_search_rsrc
+      fields = search_rsrc_indexable_fields
+      searchable_rsrcs.each do |sr|
+        sr.update_attributes(contents_to_searchable_rsrc_attrs(fields, sr.locale))
+      end
+    end
+
+    #------------------------------------------------------------------
+    private
+    #------------------------------------------------------------------
+    def contents_to_searchable_rsrc_attrs(fields, locale)
+      contents= fields[:i18n][locale]
+      content_a = contents[:A]&.join(" ")
+      content_b = contents[:B]&.join(" ")
+      content_c = contents[:C]&.join(" ")
+      content_d = contents[:D]&.join(" ")
+      {
+        content_a: content_a, content_b: content_b, content_c: content_c, content_d: content_d,
+        locale: locale,
+        decidim_scope_id: fields[:decidim_scope_id],
+        decidim_participatory_space_id: fields[:decidim_participatory_space_id],
+        decidim_participatory_space_type: fields[:decidim_participatory_space_type],
+        decidim_organization_id: fields[:decidim_organization_id],
+        resource: self
+      }
     end
   end
 end
