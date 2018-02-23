@@ -212,6 +212,8 @@ it:
         unpublish: "%{user_name} non pubblicato il %{resource_name} processo partecipativo"
       participatory_process_user_role:
         create: "%{user_name} ha invitato l'utente %{resource_name} al %{space_name} processo partecipativo"
+        delete: "%{user_name} rimosso l'utente %{resource_name} dal %{space_name} processo partecipativo"
+        update: "%{user_name} cambiato il ruolo dell'utente %{resource_name} nel %{space_name} processo partecipativo"
     menu:
       processes: Processi
     participatory_process_groups:
