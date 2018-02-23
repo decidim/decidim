@@ -2,7 +2,7 @@
 
 module Decidim
   module Proposals
-    class ProposalCell < Decidim::ViewModel
+    class ProposalCell < Decidim::ResultCell
       include LayoutHelper
 
       def show
@@ -15,9 +15,6 @@ module Decidim
         model.title
       end
 
-      def proposal_path
-        resource_locator(model).path
-      end
     end
   end
 end
