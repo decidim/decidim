@@ -1,6 +1,14 @@
 ca:
   activemodel:
     attributes:
+      area:
+        area_type: Tipus d'àrea
+        name: Nom
+        organization: Organització
+      area_type:
+        name: Nom
+        organization: Organització
+        plural: Plural
       attachment:
         attachment_collection_id: Col · lecció
         description: Descripció
@@ -113,6 +121,37 @@ ca:
         permissions: Permisos
         reject: Rebutjar
         verify: Verificar
+      area_types:
+        create:
+          error: S'ha produït un error en crear un tipus d'àrea nova.
+          success: El tipus d'àrea creat correctament.
+        destroy:
+          success: El tipus d'àrea s'ha destruït amb èxit
+        edit:
+          title: Editeu el tipus d'àrea
+          update: Actualització
+        new:
+          create: Crea un tipus d'àrea
+          title: Tipus d'àrea nova
+        update:
+          error: S'ha produït un error en actualitzar aquest tipus d'àrea.
+          success: El tipus d'àrea s'ha actualitzat correctament
+      areas:
+        create:
+          error: S'ha produït un error en crear una nova àrea.
+          success: Àrea creada amb èxit.
+        destroy:
+          success: Àrea destruïda amb èxit
+        edit:
+          title: Editar àrea
+          update: Actualització
+        new:
+          create: Crea una àrea
+          title: Nova àrea
+        no_areas: Sense Àrees
+        update:
+          error: S'ha produït un error en actualitzar aquesta àrea.
+          success: Àrea actualitzada amb èxit
       attachment_collections:
         create:
           error: S'ha produït un error en crear una nova col · lecció.
@@ -250,6 +289,8 @@ ca:
         admin_log: Registre d'activitat administratiu
         admins: Administradors
         appearance: Aparença
+        area_types: Tipus d'àrea
+        areas: Àrees
         configuration: Configuració
         dashboard: Tauler de control
         managed_users: Usuaris gestionats
@@ -262,6 +303,14 @@ ca:
         user_groups: Grups d'usuaris
         users: Usuaris
       models:
+        area:
+          fields:
+            area_type: Tipus d'àrea
+            name: Nom
+        area_type:
+          fields:
+            name: Nom
+            plural: Plural
         attachment:
           fields:
             collection: Col · lecció
@@ -461,6 +510,8 @@ ca:
           success: La pàgina s'ha actualitzat correctament.
       titles:
         admin_log: Registre d'administrador
+        area_types: Tipus d'àrea
+        areas: Àrees
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
         impersonations: Suplantacions
