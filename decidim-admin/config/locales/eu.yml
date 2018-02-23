@@ -1,6 +1,14 @@
 eu:
   activemodel:
     attributes:
+      area:
+        area_type: Area mota
+        name: izena
+        organization: Erakundea
+      area_type:
+        name: izena
+        organization: Erakundea
+        plural: plural
       attachment:
         attachment_collection_id: Bilduma
         description: Descripción
@@ -113,6 +121,37 @@ eu:
         permissions: Baimenak
         reject: Ukatu
         verify: Egiaztatu
+      area_types:
+        create:
+          error: Errorea eremu mota berri bat sortzean.
+          success: Area mota sortu da.
+        destroy:
+          success: Area mota behar bezala suntsitu da
+        edit:
+          title: Editatu eremu mota
+          update: eguneratzearen
+        new:
+          create: Sortu eremu mota
+          title: Area mota berria
+        update:
+          error: Errore bat gertatu da eremu mota hau eguneratzean.
+          success: Area mota eguneratu da behar bezala
+      areas:
+        create:
+          error: Errore bat gertatu da area berri bat sortzean.
+          success: Area sortu da behar bezala.
+        destroy:
+          success: Area behar bezala suntsitu da
+        edit:
+          title: Editatu eremua
+          update: eguneratzearen
+        new:
+          create: Sortu eremua
+          title: Area berria
+        no_areas: No Arloak
+        update:
+          error: Errore bat gertatu da eremu hau eguneratzean.
+          success: Area ondo eguneratu da
       attachment_collections:
         create:
           error: Errore bat gertatu da bilduma berria sortzean.
@@ -250,6 +289,8 @@ eu:
         admin_log: Admin jarduera erregistroa
         admins: Administratzaileak
         appearance: Itxura
+        area_types: Area motak
+        areas: Arloak
         configuration: konfigurazioa
         dashboard: Kontrol-panela
         managed_users: Kudeatutako erabiltzaileak
@@ -262,6 +303,14 @@ eu:
         user_groups: Erabiltzaile-taldeak
         users: Erabiltzaileak
       models:
+        area:
+          fields:
+            area_type: Area mota
+            name: izena
+        area_type:
+          fields:
+            name: izena
+            plural: plural
         attachment:
           fields:
             collection: Bilduma
@@ -461,6 +510,8 @@ eu:
           success: Orria zuzen eguneratu da.
       titles:
         admin_log: Admin erregistroa
+        area_types: Area motak
+        areas: Arloak
         authorization_workflows: Egiaztapen metodoak
         dashboard: Kontrol-panela
         impersonations: Ordezteak
