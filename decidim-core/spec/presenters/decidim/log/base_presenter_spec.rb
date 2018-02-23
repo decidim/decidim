@@ -25,7 +25,7 @@ describe Decidim::Log::BasePresenter, type: :helper do
   before do
     helper.extend(Decidim::ApplicationHelper)
     helper.extend(Decidim::TranslationsHelper)
-    allow(presenter).to receive(:version).and_return(version_double)
+    allow(action_log).to receive(:version).and_return(version_double)
   end
 
   describe "#present" do

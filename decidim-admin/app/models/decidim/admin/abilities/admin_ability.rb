@@ -44,6 +44,8 @@ module Decidim
           can :manage, AttachmentCollection
           can :manage, Scope
           can :manage, ScopeType
+          can :manage, Area
+          can :manage, AreaType
           can :manage, Newsletter
 
           can [:create, :index, :new, :read, :invite], User
