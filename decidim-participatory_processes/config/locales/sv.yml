@@ -213,6 +213,7 @@ sv:
       participatory_process_user_role:
         create: "%{user_name} bjudit in användaren %{resource_name} till %{space_name} deltagande process"
         delete: "%{user_name} tagit bort användaren %{resource_name} från %{space_name} deltagande process"
+        update: "%{user_name} ändrade användarens roll %{resource_name} i %{space_name} deltagande process"
     menu:
       processes: processer
     participatory_process_groups:
