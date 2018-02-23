@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 module Decidim
-  # Use this class to log actions by any user.
+  # Use this class to log actions by any user. You probably shouldn't
+  # use this class dfirectly, but rather use `Decidim.traceability` instead.
+  # Check the docs on `Decidim::Traceability` for more info.
   #
   # Usage:
   #
