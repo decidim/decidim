@@ -192,13 +192,13 @@ es:
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
-          past_meetings: Reuniones pasadas
-          upcoming_meetings: Próximas reuniones
+          past_meetings: Encuentros pasados
+          upcoming_meetings: Próximos encuentros
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Reuniones pasadas
-        see_all_meetings: Ver todas las reuniones
-        upcoming_meetings: Próximas reuniones
+        past_meetings: Encuentros pasados
+        see_all_meetings: Ver todos los encuentros
+        upcoming_meetings: Próximos encuentros
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Resultados relacionados:'
