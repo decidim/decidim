@@ -111,6 +111,7 @@ pt-BR:
       admin:
         assemblies:
           form:
+            select_an_area: Selecione uma Área
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembléia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
         assembly_copies:
           form:
@@ -123,6 +124,7 @@ pt-BR:
             active_assemblies: Conjuntos ativos
             see_all_assemblies: Veja todas as assembléias
       show:
+        area: Área
         developer_group: Grupo de desenvolvedores
         local_area: Área Local
         participatory_scope: Âmbito participativo
