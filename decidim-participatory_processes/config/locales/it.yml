@@ -210,6 +210,8 @@ it:
         create: "%{user_name} creato il %{resource_name} processo partecipativo"
         publish: "%{user_name} pubblicato il %{resource_name} processo partecipativo"
         unpublish: "%{user_name} non pubblicato il %{resource_name} processo partecipativo"
+      participatory_process_user_role:
+        create: "%{user_name} ha invitato l'utente %{resource_name} al %{space_name} processo partecipativo"
     menu:
       processes: Processi
     participatory_process_groups:
