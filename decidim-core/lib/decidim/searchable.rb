@@ -14,6 +14,8 @@ module Decidim
     end
 
     #
+    # Protected: callback that Searchable invokes when indexing or re-indexing a model to obtain the information to be added to the index.
+    #
     # Model will be inferred with `resource= self`.
     # @returns A Hash with the content in the form:
     # {
