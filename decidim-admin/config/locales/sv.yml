@@ -1,6 +1,14 @@
 sv:
   activemodel:
     attributes:
+      area:
+        area_type: Typ av område
+        name: namn
+        organization: Organisation
+      area_type:
+        name: namn
+        organization: Organisation
+        plural: Flertal
       attachment:
         attachment_collection_id: Samling
         description: Beskrivning
@@ -113,6 +121,37 @@ sv:
         permissions: Behörigheter
         reject: Avvisa
         verify: Kontrollera
+      area_types:
+        create:
+          error: Ett fel uppstod med att skapa en ny områdes typ.
+          success: Områdetypen skapades framgångsrikt.
+        destroy:
+          success: Typ av område framgångsrikt förstört
+        edit:
+          title: Redigera områdets typ
+          update: Uppdatering
+        new:
+          create: Skapa områdets typ
+          title: Ny typ av område
+        update:
+          error: Det uppstod ett fel vid uppdatering av denna typ av område.
+          success: Områdetypen uppdateras framgångsrikt
+      areas:
+        create:
+          error: Det uppstod ett fel vid skapandet av ett nytt område.
+          success: Område skapades framgångsrikt.
+        destroy:
+          success: Området framgångsrikt förstörs
+        edit:
+          title: Redigera område
+          update: Uppdatering
+        new:
+          create: Skapa område
+          title: Nytt område
+        no_areas: Inga områden
+        update:
+          error: Det uppstod ett fel vid uppdateringen av det här området.
+          success: Området uppdateras framgångsrikt
       attachment_collections:
         create:
           error: Det uppstod ett fel vid att skapa en ny samling.
@@ -250,6 +289,8 @@ sv:
         admin_log: Adminaktivitetslogg
         admins: admins
         appearance: Utseende
+        area_types: Areortyper
+        areas: områden
         configuration: Konfiguration
         dashboard: instrumentbräda
         managed_users: Administrerade användare
@@ -262,6 +303,14 @@ sv:
         user_groups: Användargrupper
         users: användare
       models:
+        area:
+          fields:
+            area_type: Typ av område
+            name: namn
+        area_type:
+          fields:
+            name: namn
+            plural: Flertal
         attachment:
           fields:
             collection: Samling
@@ -461,6 +510,8 @@ sv:
           success: Sidan uppdaterad framgångsrikt
       titles:
         admin_log: Admin logg
+        area_types: Areortyper
+        areas: områden
         authorization_workflows: Verifieringsmetoder
         dashboard: instrumentbräda
         impersonations: impersonations
