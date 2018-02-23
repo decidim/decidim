@@ -57,6 +57,9 @@ fr:
       feature:
         create: "%{user_name} ajouté le %{resource_name} caractéristique de la %{space_name} espace"
         delete: "%{user_name} retiré le %{resource_name} caractéristique de la %{space_name} espace"
+      moderation:
+        hide: "%{user_name} a caché une ressource de type %{resource_type} dans le %{space_name} espace"
+        unreport: "%{user_name} non déclaré une ressource de type %{resource_type} dans le %{space_name} espace"
       newsletter:
         create: "%{user_name} créé le %{resource_name} bulletin"
         delete: "%{user_name} supprimé le %{resource_name} bulletin"
