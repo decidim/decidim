@@ -646,6 +646,7 @@ $datetime-bg: $primary;
   }
 }
 
+// card label
 .card__label--container{
   margin-top: $global-margin / 2;
   margin-bottom: ($global-margin * 2.5) - $card-padding-small;
@@ -665,5 +666,35 @@ $datetime-bg: $primary;
     position: absolute;
 
     @include modifiers(background-color, (muted: tint($muted, 50)));
+  }
+}
+
+// card date
+.card__date{
+  ul{
+    align-items: center;
+    border-top: $border;
+
+    li{
+      border-top: 0;
+    }
+
+    li:first-child{
+      color: $primary;
+      flex: 0;
+
+      svg{
+        margin: .5rem;
+      }
+    }
+
+    li:last-child{
+      font-size: $global-font-size;
+
+      strong{
+        color: $body-font-color;
+        text-transform: uppercase;
+      }
+    }
   }
 }
