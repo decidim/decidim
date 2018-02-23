@@ -451,7 +451,7 @@ es:
         notifications: Notificaciones
         profile: Mi cuenta
         public_profile: Mi perfil público
-        sign_out: Sal
+        sign_out: Cerrar sesión
       user_profile:
         account: Cuenta
         authorizations: Autorizaciones
