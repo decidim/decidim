@@ -4,9 +4,10 @@ require "spec_helper"
 
 module Decidim::ParticipatoryProcesses
   describe Admin::PublishParticipatoryProcess do
-    subject { described_class.new(my_process) }
+    subject { described_class.new(my_process, user) }
 
-    let(:my_process) { create :participatory_process, :unpublished }
+    let(:my_process) { create :participatory_process, :unpublished, organization: user.organization }
+    let(:user) { create :user }
 
     context "when the process is nil" do
       let(:my_process) { nil }
@@ -27,6 +28,14 @@ module Decidim::ParticipatoryProcesses
     context "when the process is not published" do
       it "is valid" do
         expect { subject.call }.to broadcast(:ok)
+      end
+
+      it "traces the action" do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with("publish", my_process, user)
+
+        subject.call
       end
 
       it "publishes it" do

@@ -17,7 +17,9 @@ module Decidim
       def call
         return broadcast(:invalid) unless @form.valid?
 
-        newsletter = Newsletter.create!(
+        newsletter = Decidim.traceability.create!(
+          Newsletter,
+          @user,
           subject: @form.subject,
           body: @form.body,
           author: @user,

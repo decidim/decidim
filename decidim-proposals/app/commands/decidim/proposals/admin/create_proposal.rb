@@ -48,7 +48,8 @@ module Decidim
             feature: form.feature,
             address: form.address,
             latitude: form.latitude,
-            longitude: form.longitude
+            longitude: form.longitude,
+            published_at: Time.current
           )
         end
 

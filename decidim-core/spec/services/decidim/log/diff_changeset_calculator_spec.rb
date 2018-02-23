@@ -41,6 +41,18 @@ describe Decidim::Log::DiffChangesetCalculator do
       expect(title_attribute[:type]).to eq :string
     end
 
+    context "when changeset has the same values" do
+      let(:changeset) do
+        {
+          updated_at: [date1, date1]
+        }
+      end
+
+      it "skips the attribute" do
+        expect(subject).to be_empty
+      end
+    end
+
     context "with i18n fields" do
       let(:changeset) do
         {
@@ -66,6 +78,23 @@ describe Decidim::Log::DiffChangesetCalculator do
             type: :i18n
           }
         ]
+      end
+
+      context "when adding and deleting locales" do
+        let(:changeset) do
+          {
+            field: [
+              { "en" => "Foo" },
+              { "ca" => "Bar" }
+            ]
+          }
+        end
+
+        it "calculates the diff correctly" do
+          expect(subject.count).to eq 2
+          expect(subject.first).to include(label: "My field (English)", previous_value: "Foo", new_value: nil)
+          expect(subject.last).to include(label: "My field (Català)", previous_value: nil, new_value: "Bar")
+        end
       end
 
       context "when i18n labels scope is not set" do

@@ -7,12 +7,14 @@ module Decidim::Admin
     subject { described_class.new(form) }
 
     let(:organization) { create :organization }
+    let(:current_user) { create(:user, organization: organization) }
 
     let(:form) do
       OfficializationForm.from_params(
         officialized_as: { "en" => "Major of Barcelona" },
         user_id: user_id
       ).with_context(
+        current_user: current_user,
         current_organization: organization
       )
     end
@@ -38,6 +40,14 @@ module Decidim::Admin
 
       it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
+      end
+
+      it "traces the update" do
+        expect(Decidim::ActionLogger)
+          .to receive(:log)
+          .with("officialize", current_user, user, an_instance_of(Hash))
+
+        subject.call
       end
 
       it "officializes user" do

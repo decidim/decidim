@@ -60,6 +60,13 @@
               <li><%= link_to "Propuesta: selector", page_path("proposals/proposal-view-identity-selector") %></li>
             </ul>
           </li>
+          <li>
+            <%= link_to "Propuesta: wizard paso 1", page_path("proposals/proposals-wizard-step-1") %>
+            <ul>
+              <li><%= link_to "Propuesta: wizard paso 2", page_path("proposals/proposals-wizard-step-2") %></li>
+              <li><%= link_to "Propuesta: wizard paso 3", page_path("proposals/proposals-wizard-step-3") %></li>
+            </ul>
+          </li>
           <li><%= link_to "Resultado", page_path("action-view") %></li>
         </ul>
         <h2 class="section-heading">Iniciativas</h2>
@@ -97,6 +104,20 @@
           <li><%= link_to "Presupuestos - Votos excedidos", page_path("projects-budget-excess") %></li>
           <li><%= link_to "Presupuestos - Votación finalizada", page_path("projects-budget-finish") %></li>
         </ul>
+        <h2 class="section-heading">Multiconsulta</h2>
+        <ul>
+          <li><%= link_to "Home - banners para anunciar Multiconsulta", page_path("home-with-consultation-banners") %></li>
+          <li><%= link_to "Home de Multiconsulta (y botón para ver el histórico, cuando lo haya)", page_path("consultations") %></li>
+          <li><%= link_to "Desambiguador de Multiconsulta (para elegir en el histórico)", page_path("consultations-choose") %></li>
+          <li><%= link_to "Pregunta: home", page_path("consultations-info") %></li>
+          <li><%= link_to "Pregunta: página de más información (datos de contexto, transparencia)", page_path("consultations-moreinfo") %></li>
+          <li><%= link_to "Pregunta: encuentros", page_path("consultations-meetings") %></li>
+          <li><%= link_to "Pregunta: entidades interesadas", page_path("consultations-entities") %></li>
+          <li><%= link_to "Pregunta: detalle de entidad interesada", page_path("consultations-entities-view") %></li>
+          <li><%= link_to "Pregunta: dónde votar", page_path("consultations-voting-places") %></li>
+          <li><%= link_to "Pregunta: votación en modal", page_path("consultations-vote") %></li>
+          <li><%= link_to "Pregunta: votación en modal - confirmar", page_path("consultations-vote-confirm") %></li>
+         </ul>
         <h2 class="section-heading">Legal y sistema</h2>
         <ul>
           <li><%= link_to "Contenido estático/legal", page_path("static") %></li>

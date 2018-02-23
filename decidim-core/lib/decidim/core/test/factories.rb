@@ -31,6 +31,10 @@ FactoryBot.define do
     "#{Faker::Lorem.characters(4).upcase}-#{n}"
   end
 
+  sequence(:area_name) do |n|
+    "#{Faker::Lorem.sentence(1, true, 3)} #{n}"
+  end
+
   factory :category, class: "Decidim::Category" do
     name { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
@@ -106,12 +110,6 @@ FactoryBot.define do
     trait :officialized do
       officialized_at { Time.zone.now }
     end
-  end
-
-  factory :participatory_process_user_role, class: "Decidim::ParticipatoryProcessUserRole" do
-    user
-    participatory_process { create :participatory_process, organization: user.organization }
-    role "admin"
   end
 
   factory :user_group, class: "Decidim::UserGroup" do
@@ -249,6 +247,17 @@ FactoryBot.define do
     end
   end
 
+  factory :area_type, class: "Decidim::AreaType" do
+    name { Decidim::Faker::Localized.word }
+    plural { Decidim::Faker::Localized.literal(name.values.first.pluralize) }
+    organization
+  end
+
+  factory :area, class: "Decidim::Area" do
+    name { Decidim::Faker::Localized.literal(generate(:area_name)) }
+    organization
+  end
+
   factory :dummy_resource, class: "Decidim::DummyResources::DummyResource" do
     title { generate(:name) }
     feature { create(:feature, manifest_name: "dummy") }
@@ -267,6 +276,10 @@ FactoryBot.define do
 
     subject { Decidim::Faker::Localized.sentence(3) }
     body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+
+    trait :sent do
+      sent_at { Time.current }
+    end
   end
 
   factory :moderation, class: "Decidim::Moderation" do

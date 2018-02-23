@@ -4,7 +4,10 @@
 
 **Added**:
 
-- **decidim-core**: Add context to content parsers [\#2749](https://github.com/decidim/decidim/pull/2749)
+- **decidim-assemblies**: Add a select field for assign an area to assemblies [\#2750](https://github.com/decidim/decidim/pull/2750)
+- **decidim-core**: Add Area and AreaType to Core [\#2750](https://github.com/decidim/decidim/pull/2750)
+- **decidim-proposals**: Proposals can accumulate more votes than the maximum [\#2693](https://github.com/decidim/decidim/pull/2693)
+- **decidim-proposals**: Added a wizard for the creation of proposals in the public site [\#2697](https://github.com/decidim/decidim/pull/2697).
 - **decidim-assemblies**: Assemblies now have a reference [\#2557](https://github.com/decidim/decidim/pull/2557)
 - **decidim-core**: Let participatory spaces have reference [\#2557](https://github.com/decidim/decidim/pull/2557)
 - **decidim-meetings**: Add simple formatting to debates fields to improve readability [\#2670](https://github.com/decidim/decidim/issues/2670)
@@ -17,8 +20,18 @@
 - **decidim-participatory_processes**: Ensure only active processes are shown in the highlighted processes section in the homepage[\#2682](https://github.com/decidim/decidim/pull/2682)
 - **decidim-core**: Add collections to group attachments [\#2394](https://github.com/decidim/decidim/pull/2394).
 - **decidim-admin**: Adds a log of all admin actions, only visible by organization admins [\#2604](https://github.com/decidim/decidim/pull/2604)
+- **decidim-meetings**: Show past/upcoming meetings in process and process group home [\#2713](https://github.com/decidim/decidim/issues/2713)
+- **decidim-participatory_processes**: Render `decidim:participatory_space_highlighted_elements` and `participatory_processes:process_group_highlighted_elements` view hooks in process and process group home respectively [\#2713](https://github.com/decidim/decidim/issues/2713)
 - **decidim-core**: Make static pages traceable [\#2754](https://github.com/decidim/decidim/pull/2754)
 - **decidim-admin**: Log all actions on static pages [\#2754](https://github.com/decidim/decidim/pull/2754)
+- **decidim-admin**: Log all actions on newsletters [\#2763](https://github.com/decidim/decidim/pull/2763)
+- **decidim-admin**: Log user groups verifications and rejections [\#2778](https://github.com/decidim/decidim/pull/2778)
+- **decidim-admin**: Log admin users invites and deletions [\#2776](https://github.com/decidim/decidim/pull/2776)
+- **decidim-admin**: Log all changes on organization settings [\#2771](https://github.com/decidim/decidim/pull/2771)
+- **decidim-admin**: Log user (un)officializations [\#2782](https://github.com/decidim/decidim/pull/2782)
+- **decidim-participatory_processes**: Log process creation and (un)publications [\#2786](https://github.com/decidim/decidim/pull/2786)
+- **decidim-admin**: Log feature creation and deletion [\#2792](https://github.com/decidim/decidim/pull/2792)
+- **decidim-participatory_processes**: Log process users invites (Creation, update and deletion) [\#2793](https://github.com/decidim/decidim/pull/2793)
 
 **Changed**:
 
@@ -29,6 +42,9 @@
 
 **Fixed**:
 
+- **decidim-proposals**: Fix wrong message when creating a proposal private note [\#2769](https://github.com/decidim/decidim/pull/2769)
+- **decidim-core**: Fix AuthorEvent when author is missing [\#2777](https://github.com/decidim/decidim/pull/2777)
+- **decidim-system**: Disable recover password for System admins. [\#2752](https://github.com/decidim/decidim/pull/2752)
 - **decidim-core**: Fix DefaultActionAuthorizer when options is nil [\#2753](https://github.com/decidim/decidim/pull/2753)
 - **decidim-core**: Don't render notifications if the resource has been deleted. [\#2746](https://github.com/decidim/decidim/pull/2746)
 - **decidim-core**: Fix categories select when missing translations. [\#2742](https://github.com/decidim/decidim/pull/2742)
@@ -43,5 +59,6 @@
 - **decidim-participatory_processes**: Fix editing a process after an error.[\#2653](https://github.com/decidim/decidim/pull/2653)
 - **decidim-assemblies**: Fix editing a process after an error.[\#2653](https://github.com/decidim/decidim/pull/2653)
 - **decidim-core**: Fix missing i18n strings for "Feature published" events. [\#2729](https://github.com/decidim/decidim/pull/2729)
+- **decidim-core**: Fix user invitations by generating their nickname. [\#2783](https://github.com/decidim/decidim/pull/2783)
 
 Please check [0.9-stable](https://github.com/decidim/decidim/blob/0.9-stable/CHANGELOG.md) for previous changes.

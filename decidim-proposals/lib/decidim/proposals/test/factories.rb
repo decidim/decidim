@@ -118,12 +118,21 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_can_accumulate_supports_beyond_threshold do
+      settings do
+        {
+          can_accumulate_supports_beyond_threshold: true
+        }
+      end
+    end
   end
 
   factory :proposal, class: "Decidim::Proposals::Proposal" do
     title { Faker::Lorem.sentence }
     body { Faker::Lorem.sentences(3).join("\n") }
     feature { create(:proposal_feature) }
+    published_at { Time.current }
     author do
       create(:user, organization: feature.organization) if feature
     end
@@ -154,6 +163,10 @@ FactoryBot.define do
     trait :with_answer do
       answer { Decidim::Faker::Localized.sentence }
       answered_at { Time.current }
+    end
+
+    trait :draft do
+      published_at nil
     end
   end
 
