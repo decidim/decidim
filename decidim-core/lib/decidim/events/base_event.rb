@@ -6,6 +6,8 @@ module Decidim
     # add more logic to a `Decidim::Notification` and are used to render them in the
     # notifications dashboard and to generate other notifications (emails, for example).
     class BaseEvent
+      include Decidim::TranslatableAttributes
+
       class_attribute :types
       self.types = []
 
@@ -88,7 +90,13 @@ module Decidim
       end
 
       def resource_title
-        resource.title.is_a?(Hash) ? resource.title[I18n.locale.to_s] : resource.title
+        return unless resource
+
+        if resource.respond_to?(:title)
+          translated_attribute(resource.title)
+        elsif resource.respond_to?(:name)
+          translated_attribute(resource.name)
+        end
       end
     end
   end
