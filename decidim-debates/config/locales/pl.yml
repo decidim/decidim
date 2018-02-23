@@ -40,19 +40,10 @@ pl:
           debate:
             name: Debata
       debates:
-        count:
-          debates_count:
-            one: "%{count} debata"
-            few: "%{count} debat"
-            other: "%{count} debat"
         create:
           invalid: Podczas tworzenia debaty wystąpił problem.
           success: Debatę utworzono pomyślnie.
         debate:
-          comments:
-            one: Komentarz
-            few: Komentarze
-            other: Komentarze
           participate: Uczestniczyć
         filters:
           all: Wszystko
