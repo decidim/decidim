@@ -1,6 +1,14 @@
 it:
   activemodel:
     attributes:
+      area:
+        area_type: Tipo di area
+        name: Nome
+        organization: Organizzazione
+      area_type:
+        name: Nome
+        organization: Organizzazione
+        plural: Plurale
       attachment:
         attachment_collection_id: Collezione
         description: Descrizione
@@ -113,6 +121,37 @@ it:
         permissions: Permessi
         reject: Rifiutare
         verify: Verifica
+      area_types:
+        create:
+          error: Si è verificato un errore durante la creazione di un nuovo tipo di area.
+          success: Tipo di area creato con successo.
+        destroy:
+          success: Tipo di area distrutta con successo
+        edit:
+          title: Modifica il tipo di area
+          update: Aggiornare
+        new:
+          create: Crea il tipo di area
+          title: Nuovo tipo di area
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questo tipo di area.
+          success: Tipo di area aggiornato correttamente
+      areas:
+        create:
+          error: Si è verificato un errore durante la creazione di una nuova area.
+          success: Area creata con successo.
+        destroy:
+          success: Area distrutta con successo
+        edit:
+          title: Modifica area
+          update: Aggiornare
+        new:
+          create: Crea un'area
+          title: Nuova area
+        no_areas: Nessuna zona
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di quest'area.
+          success: Area aggiornata con successo
       attachment_collections:
         create:
           error: Si è verificato un errore durante la creazione di una nuova raccolta.
@@ -250,6 +289,8 @@ it:
         admin_log: Registro delle attività di amministrazione
         admins: Amministratori
         appearance: Aspetto
+        area_types: Tipi di area
+        areas: le zone
         configuration: Configurazione
         dashboard: Cruscotto (Dashboard)
         managed_users: Utenti gestiti
@@ -262,6 +303,14 @@ it:
         user_groups: Gruppi di utenti
         users: Utenti
       models:
+        area:
+          fields:
+            area_type: Tipo di area
+            name: Nome
+        area_type:
+          fields:
+            name: Nome
+            plural: Plurale
         attachment:
           fields:
             collection: Collezione
@@ -461,6 +510,8 @@ it:
           success: OK, la pagina è stata aggiornata.
       titles:
         admin_log: Registro di amministrazione
+        area_types: Tipi di area
+        areas: le zone
         authorization_workflows: Metodi di verifica
         dashboard: Cruscotto (Dashboard)
         impersonations: impersonations
