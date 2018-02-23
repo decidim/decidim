@@ -210,6 +210,9 @@ sv:
         create: "%{user_name} skapade %{resource_name} deltagande process"
         publish: "%{user_name} publicerade %{resource_name} deltagande process"
         unpublish: "%{user_name} opublicerade %{resource_name} deltagande process"
+      participatory_process_user_role:
+        create: "%{user_name} bjudit in användaren %{resource_name} till %{space_name} deltagande process"
+        delete: "%{user_name} tagit bort användaren %{resource_name} från %{space_name} deltagande process"
     menu:
       processes: processer
     participatory_process_groups:
