@@ -15,7 +15,7 @@ module Decidim::ParticipatoryProcesses
       double(
         invalid?: invalid,
         current_user: current_user,
-        role: new_role,
+        role: new_role
       )
     end
     let(:invalid) { false }

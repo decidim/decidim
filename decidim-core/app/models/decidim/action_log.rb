@@ -38,8 +38,8 @@ module Decidim
     end
 
     def version
-      @version ||= PaperTrail::Version.where(id: extra.dig("version", "id")).first ||
-        PaperTrail::Version.where(item_id: resource_id, item_type: resource_type).order(id: :desc).first
+      @version ||= PaperTrail::Version.find_by(id: extra.dig("version", "id")) ||
+                   PaperTrail::Version.where(item_id: resource_id, item_type: resource_type).order(id: :desc).first
     end
 
     # Public: Renders the action log instance. Assumes the existence of the presenter
