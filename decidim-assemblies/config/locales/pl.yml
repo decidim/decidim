@@ -111,6 +111,7 @@ pl:
       admin:
         assemblies:
           form:
+            select_an_area: Wybierz obszar
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
         assembly_copies:
           form:
@@ -123,6 +124,7 @@ pl:
             active_assemblies: Aktywne złożenia
             see_all_assemblies: Zobacz wszystkie zespoły
       show:
+        area: Powierzchnia
         developer_group: Grupa programistyczna
         local_area: Okolica
         participatory_scope: Zakres partycypacji
