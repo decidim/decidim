@@ -212,6 +212,8 @@ pl:
         unpublish: "%{user_name} niepublikowane %{resource_name} proces uczestnictwa"
       participatory_process_user_role:
         create: "%{user_name} zaprosił użytkownika %{resource_name} do %{space_name} proces uczestnictwa"
+        delete: "%{user_name} usunięto użytkownika %{resource_name} z %{space_name} proces uczestnictwa"
+        update: "%{user_name} zmienił rolę użytkownika %{resource_name} w %{space_name} proces uczestnictwa"
     menu:
       processes: Procesy
     participatory_process_groups:
