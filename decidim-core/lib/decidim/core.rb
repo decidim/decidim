@@ -2,7 +2,6 @@
 
 require "decidim/core/engine"
 require "decidim/core/version"
-require "decidim/core/api"
 
 # Decidim configuration.
 module Decidim

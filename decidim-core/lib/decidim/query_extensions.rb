@@ -9,29 +9,31 @@ module Decidim
     # type - A GraphQL::BaseType to extend.
     #
     # Returns nothing.
-    def self.extend!(type)
-      type.define do
-        field :processes do
-          type !types[ProcessType]
-          description "Lists all processes."
+    def self.define(type)
+      Decidim.participatory_space_manifests.each do |participatory_space_manifest|
+        type.field participatory_space_manifest.name.to_s.camelize(:lower) do
+          type !types[participatory_space_manifest.api_type.constantize]
+          description "Lists all #{participatory_space_manifest.name}"
 
           resolve lambda { |_obj, _args, ctx|
-            ParticipatoryProcesses::OrganizationPublishedParticipatoryProcesses.new(ctx[:current_organization])
+            participatory_space_manifest.model_class_name.constantize.public_spaces.where(
+              organization: ctx[:current_organization]
+            )
           }
         end
+      end
 
-        field :session do
-          type SessionType
-          description "Return's information about the logged in user"
+      type.field :session do
+        type Core::SessionType
+        description "Return's information about the logged in user"
 
-          resolve lambda { |_obj, _args, ctx|
-            ctx[:current_user]
-          }
-        end
+        resolve lambda { |_obj, _args, ctx|
+          ctx[:current_user]
+        }
+      end
 
-        field :decidim, DecidimType, "Decidim's framework properties." do
-          resolve ->(_obj, _args, _ctx) { Decidim }
-        end
+      type.field :decidim, Core::DecidimType, "Decidim's framework properties." do
+        resolve ->(_obj, _args, _ctx) { Decidim }
       end
     end
   end

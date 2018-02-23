@@ -19,6 +19,9 @@ shared_context "with a graphql type" do
 
     GraphQL::Schema.define do
       query query_type
+
+      orphan_types(Decidim::Api.orphan_types)
+
       resolve_type ->(_type, _obj, _ctx) {}
     end
   end
