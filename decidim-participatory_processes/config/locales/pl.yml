@@ -210,6 +210,8 @@ pl:
         create: "%{user_name} stworzył %{resource_name} proces uczestnictwa"
         publish: "%{user_name} opublikował %{resource_name} proces uczestnictwa"
         unpublish: "%{user_name} niepublikowane %{resource_name} proces uczestnictwa"
+      participatory_process_user_role:
+        create: "%{user_name} zaprosił użytkownika %{resource_name} do %{space_name} proces uczestnictwa"
     menu:
       processes: Procesy
     participatory_process_groups:
