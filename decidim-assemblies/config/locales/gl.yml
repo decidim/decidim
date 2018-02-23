@@ -111,6 +111,7 @@ gl:
       admin:
         assemblies:
           form:
+            select_an_area: Seleccione unha área
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
         assembly_copies:
           form:
@@ -123,6 +124,7 @@ gl:
             active_assemblies: Asembleas activas
             see_all_assemblies: Ver todos os conxuntos
       show:
+        area: Área
         developer_group: Grupo de desenvolvedores
         local_area: Área local
         participatory_scope: Alcance participativo
