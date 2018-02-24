@@ -44,6 +44,8 @@ uk:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
             creation_enabled: Ввімкнено створення пропозицій
+            endorsements_blocked: Надання підтримки заблоковано
+            endorsements_enabled: Надання підтримки увімкнено
             proposal_answering_enabled: Ввімкнуто відповіді на пропозиції
             votes_blocked: Голосування вимкнене
             votes_enabled: Голосування ввімкнене
@@ -94,6 +96,7 @@ uk:
         proposals_imports:
           new:
             create: Імпортувати пропозиції
+            select_feature: Будь ласка, оберіть складову
         shared:
           info_proposal:
             body: Основний текст
@@ -135,6 +138,7 @@ uk:
           error: При голосуванні пропозиції сталися помилки.
       proposals:
         compare:
+          mine_is_different: Моя пропозиція відрізняється
           title: Подібні пропозиції
         count:
           proposals_count:
@@ -149,6 +153,7 @@ uk:
           title: Редагувати пропозицію
         edit_draft:
           send: Попередній перегляд
+          title: Редагувати чернетку пропозиції
         endorsement_button:
           already_endorsed: Вже підтримано
           already_endorsed_hover: Відкликати підтримку
@@ -162,6 +167,7 @@ uk:
             other: ПІДТРИМОК
         endorsements_listing:
           see_all: переглянути всі
+          title: Перелік підтримок
         filters:
           accepted: Прийнято
           activity: Діяльність
@@ -184,6 +190,7 @@ uk:
           unfold: Розгорнути
         index:
           new_proposal: Нова пропозиція
+          see_all_withdrawn: Переглянути всі відкликані пропозиції
           view_proposal: Переглянути пропозицію
         linked_proposals:
           proposal_votes:
@@ -195,18 +202,22 @@ uk:
           attachment_legend: "(Необов'язково) Додати вкладений файл"
           select_a_category: Будь ласка, оберіть розділ
           send: Продовжити
+          title: Внести власну пропозицію
         orders:
           label: 'Впорядкувати пропозиції за:'
           most_voted: Найбільш підтримані
           random: Довільно
           recent: Нещодавні
         preview:
+          modify: Внеасти зміни в пропозицію
           publish: Опублікувати
+          title: Опублікувати свою пропозицію
         proposal:
           creation_date: 'Створено: %{date}'
           view_proposal: Переглянути пропозицію
         show:
           edit_proposal: Редагувати пропозицію
+          endorsements_blocked: Надання підтримки заблоковано
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
           proposal_in_evaluation_reason: Ця пропозиція розглядається
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
@@ -225,6 +236,7 @@ uk:
             few: ГОЛОСИ
             many: ГОЛОСІВ
             other: ГОЛОСІВ
+          most_popular_proposal: Найпопулярніша пропозиція
           need_more_votes: Потрібно більше голосів
         voting_rules:
           maximum_votes_per_proposal:
@@ -242,6 +254,7 @@ uk:
           see_steps: переглянути кроки
           step_1: Внести власну пропозицію
           step_2: Порівняти
+          step_3: Опублікувати свою пропозицію
       update:
         error: При збереженні цієї пропозиції сталися помилки.
         success: Пропозицію успішно оновлено.
