@@ -52,6 +52,7 @@ uk:
       actions:
         answer: Відповісти
         new: Нова
+        private_notes: Приватні примітки
         title: Дії
       admin:
         actions:
@@ -73,12 +74,14 @@ uk:
           form:
             note: Примітка
             submit: Надіслати
+          leave_your_note: Залиште свою нотатку
+          title: Приватні примітки
         proposals:
           answer:
             invalid: При спробі відповісти на цю пропозицію виникла проблема
             success: Успішно дано відповідь на пропозицію
           create:
-            invalid: При спробі створити цю пропозицію виникла проблема
+            invalid: При спробі внести цю пропозицію виникла проблема
             success: Пропозицію успішно внесено
           form:
             attachment_legend: "(Необов'язково) Додати вкладений файл"
@@ -91,6 +94,7 @@ uk:
         shared:
           info_proposal:
             body: Основний текст
+            created_at: Дата створення
             proposal_votes_count: Кількість голосів
             proposals: Пропозиції
       answers:
@@ -116,6 +120,9 @@ uk:
             votes: Голоси
       new:
         limit_reached: Ви не можете додавати нові пропозиції, оскільки ви перевищили ліміт.
+      proposal_endorsements:
+        identities:
+          select_identity: Оберіть особу
       proposal_endorsements_helper:
         endorsement_button:
           endorse: Підтримати
@@ -140,6 +147,12 @@ uk:
           already_endorsed_hover: Відкликати підтримку
         endorsement_identities_cabin:
           endorse: Підтримати
+        endorsements_count:
+          count:
+            one: ПІДТРИМКА
+            few: ПІДТРИМКИ
+            many: ПІДТРИМОК
+            other: ПІДТРИМОК
         endorsements_listing:
           see_all: переглянути всі
         filters:
