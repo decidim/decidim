@@ -50,7 +50,6 @@ module Decidim
 
           next unless proposals.any?
 
-          view_context.extend Decidim::ActionAuthorizationHelper
           view_context.extend Decidim::Proposals::ApplicationHelper
           view_context.render(
             partial: "decidim/participatory_spaces/highlighted_proposals",
@@ -67,7 +66,6 @@ module Decidim
 
             next unless proposals.any?
 
-            view_context.extend Decidim::ActionAuthorizationHelper
             view_context.extend Decidim::ResourceReferenceHelper
             view_context.extend Decidim::Proposals::ApplicationHelper
             view_context.render(
