@@ -41,6 +41,7 @@ uk:
         highlighted_content_banner_action_subtitle: Підзаголовок кнопки дії
         highlighted_content_banner_action_title: Заголовок кнопки дії
         highlighted_content_banner_action_url: URL-адреса кнопки дії
+        highlighted_content_banner_enabled: Показувати банер висвітленого вмісту
         highlighted_content_banner_image: Зображення
         highlighted_content_banner_short_description: Стислий опис
         highlighted_content_banner_title: Заголовок
@@ -153,6 +154,7 @@ uk:
           success: Терен успішно оновлено
       attachment_collections:
         create:
+          error: При створенні нової збірки сталася помилка.
           success: Збірку успішно створено.
         destroy:
           success: Збірку успішно видалено.
@@ -160,11 +162,13 @@ uk:
           title: Редагувати збірку
           update: Оновити
         index:
+          attachment_collection_used: Цю збірку не можна видалити, оскільки вона використовується.
           attachment_collections_title: Збірки вкладень
         new:
           create: Створити
           title: Додати збірку
         update:
+          error: При оновленні цієї збірки сталася помилка.
           success: Збірку успішно оновлено.
       attachments:
         create:
