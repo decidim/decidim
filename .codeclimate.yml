@@ -102,9 +102,6 @@ plugins:
       - .github/*
       - CHANGELOG.md
 
-  rubocop:
-    enabled: true
-
   stylelint:
     enabled: true
     exclude_patterns:
