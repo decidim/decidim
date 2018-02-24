@@ -67,6 +67,18 @@ uk:
         update: "%{user_name} оновив розсилання %{resource_name}"
       organization:
         update: "%{user_name} оновив налаштування організації"
+      static_page:
+        create: "%{user_name} створив статичну сторінку %{resource_name}"
+        delete: "%{user_name} видалив статичну сторінку %{resource_name}"
+        update: "%{user_name} оновив статичну сторінку %{resource_name}"
+      user:
+        invite: "%{user_name} запросив учасника %{resource_name} на роль: %{role}"
+        officialize: "%{user_name} офіційно зареєстрував учасника %{resource_name}"
+        remove_from_admin: "%{user_name} видалив учасника %{resource_name} з роллю: %{role}"
+        unofficialize: "%{user_name} скасував офіційну реєстрацію учасника %{resource_name}"
+      user_group:
+        reject: "%{user_name} відхилив підтвердження групи користувачів %{resource_name}"
+        verify: "%{user_name} підтвердив групу користувачів %{resource_name}"
     anonymous_user: Анонімний вхід
     application:
       collection:
@@ -146,6 +158,8 @@ uk:
     events:
       attachments:
         attachment_created:
+          email_intro: 'До %{resource_title} був доданий новий документ. Ви можете побачити його на цій сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{resource_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Оновлення до %{resource_title}
       email_event:
         email_greeting: Доброго дня, %{user_name}%!
