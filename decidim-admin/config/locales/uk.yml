@@ -152,6 +152,10 @@ uk:
           error: При оновленні цього терену сталася помилка.
           success: Терен успішно оновлено
       attachment_collections:
+        create:
+          success: Збірку успішно створено.
+        destroy:
+          success: Збірку успішно видалено.
         edit:
           title: Редагувати збірку
           update: Оновити
@@ -160,6 +164,8 @@ uk:
         new:
           create: Створити
           title: Додати збірку
+        update:
+          success: Збірку успішно оновлено.
       attachments:
         create:
           error: При додаванні нового вкладеного файлу сталася помилка.
