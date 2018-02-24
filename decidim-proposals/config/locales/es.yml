@@ -175,7 +175,7 @@ es:
       proposal_endorsements_helper:
         endorsement_button:
           already_endorsed: Ya avalado
-          endorse: Endosar
+          endorse: Reivindicar
       proposal_votes:
         create:
           error: Ha habido errores al votar la propuesta.
@@ -194,7 +194,7 @@ es:
           send: Enviar
           title: Editar propuesta
         edit_draft:
-          send: Avance
+          send: Previsualizar
           title: Editar borrador de propuesta
         endorsement_button:
           already_endorsed: Ya avalado
