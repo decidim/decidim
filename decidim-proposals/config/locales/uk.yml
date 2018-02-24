@@ -6,7 +6,7 @@ uk:
         category_id: Розділ
         has_address: Має адресу
         scope_id: Терен
-        title: Назва
+        title: Заголовок
         user_group_id: Внести пропозицію як
       proposal_answer:
         answer: Відповісти
@@ -30,6 +30,7 @@ uk:
           global:
             announcement: Оголошення
             attachments_allowed: Дозволити вкладення
+            can_accumulate_supports_beyond_threshold: Можна накопичувати підтримку більше порогового значення
             comments_enabled: Коментарі ввімкнено
             geocoding_enabled: Геокодування ввімкнено
             maximum_votes_per_proposal: Максимальна кількість голосів на пропозицію
@@ -68,6 +69,9 @@ uk:
             evaluating: Розглядається
             rejected: Відхилено
             title: Відповідь на пропозицію %{title}
+        proposal_notes:
+          form:
+            note: Примітка
         proposals:
           answer:
             invalid: При спробі відповісти на цю пропозицію виникла проблема
@@ -83,6 +87,9 @@ uk:
           new:
             create: Внести
             title: Внести пропозицію
+        shared:
+          info_proposal:
+            body: Основний текст
       answers:
         accepted: Прийнято
         evaluating: Розглядається
@@ -97,10 +104,11 @@ uk:
             comments: Коментарі
             created_at: 'Створено:'
             id: Псевдонім
+            notes: Примітки
             official_proposal: Офіційна пропозиція
             scope: Терен
             state: Стан
-            title: Назва
+            title: Заголовок
             votes: Голоси
       new:
         limit_reached: Ви не можете додавати нові пропозиції, оскільки ви перевищили ліміт.
@@ -188,6 +196,8 @@ uk:
             description: Ви можете проголосувати до %{limit} пропозицій.
             left: Залишилось
             votes: Голоси
+        wizard_aside:
+          back: Назад
       update:
         error: При збереженні цієї пропозиції сталися помилки.
         success: Пропозицію успішно оновлено.
