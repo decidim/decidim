@@ -77,13 +77,13 @@ module Decidim
             end.not_to change(ProposalEndorsement, :count)
 
             expect(flash[:alert]).not_to be_empty
-            expect(response).to have_http_status(302)
+            expect(response).to have_http_status(:found)
           end
 
           context "when requesting user identities" do
             it "raises exception" do
               get :identities, params: params
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
         end
@@ -99,13 +99,13 @@ module Decidim
             end.not_to change(ProposalEndorsement, :count)
 
             expect(flash[:alert]).not_to be_empty
-            expect(response).to have_http_status(302)
+            expect(response).to have_http_status(:found)
           end
 
           context "when requesting user identities" do
             it "does not allow it" do
               get :identities, params: params
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
         end
@@ -141,7 +141,7 @@ module Decidim
             end.not_to change(ProposalEndorsement, :count)
 
             expect(flash[:alert]).not_to be_empty
-            expect(response).to have_http_status(302)
+            expect(response).to have_http_status(:found)
           end
         end
       end
