@@ -19,6 +19,7 @@ uk:
         participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
         promoted: Рекламується
+        published_at: 'Опубліковано:'
         scope_id: Терен
         scopes_enabled: Ввімкнені терени
         short_description: Стислий опис
@@ -61,6 +62,7 @@ uk:
         participatory_process_groups: Групи рухів
         participatory_processes: Рухи
         participatory_processes_submenu:
+          attachment_collections: Збірки
           attachment_files: Файли
           attachments: Вкладені файли
           categories: Розділи
@@ -250,6 +252,7 @@ uk:
       statistics:
         answers_count: Відповіді
         comments_count: Коментарі
+        endorsements_count: Підтримало
         headline: Діяльність
         meetings_count: Зустрічі
         orders_count: Голоси
