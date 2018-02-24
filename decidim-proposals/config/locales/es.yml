@@ -50,7 +50,7 @@ es:
       proposals:
         actions:
           create: Crear
-          endorse: Endosar
+          endorse: Reivindicar
           vote: Dar apoyo
           withdraw: Retirar
         name: Propuestas
@@ -67,8 +67,8 @@ es:
             proposal_answering_enabled: Respuesta oficial a propuestas habilitadas
             proposal_edit_before_minutes: Las propuestas pueden ser editadas por los autores antes de que pasen estos minutos
             proposal_limit: Límite de propuestas por usuario
-            proposal_wizard_step_1_help_text: Asistente de propuesta "Crear" paso texto de ayuda
-            proposal_wizard_step_2_help_text: Asistente de propuesta "Comparar" texto de ayuda paso
+            proposal_wizard_step_1_help_text: Texto de ayuda para el paso "Crear" del asistente de propuesta
+            proposal_wizard_step_2_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuesta
             proposal_wizard_step_3_help_text: Asistente de propuesta Texto de ayuda paso "Publicar"
             vote_limit: Límite de votos por usuario
           step:
@@ -197,13 +197,13 @@ es:
           send: Previsualizar
           title: Editar borrador de propuesta
         endorsement_button:
-          already_endorsed: Ya avalado
-          already_endorsed_hover: Unendorse
+          already_endorsed: Ya reivindicado
+          already_endorsed_hover: Des-reivindicar
         endorsement_identities_cabin:
-          endorse: Endosar
+          endorse: Reivindicar
         endorsements_count:
           count:
-            one: APROBACIÓN
+            one: REIVINDICACIÓN
             other: ENDOSO
         endorsements_listing:
           see_all: ver todo
@@ -258,7 +258,7 @@ es:
           view_proposal: Ver propuesta
         show:
           edit_proposal: Editar propuesta
-          endorsements_blocked: Endosos bloqueados
+          endorsements_blocked: Reivindicaciones bloqueadas
           proposal_accepted_reason: 'Esta propuesta ha sido aceptada porque:'
           proposal_in_evaluation_reason: Esta propuesta está siendo evaluada
           proposal_rejected_reason: 'Esta propuesta ha sido rechazada porque:'
@@ -278,7 +278,7 @@ es:
             one: APOYO
             other: APOYOS
           most_popular_proposal: La propuesta más popular
-          need_more_votes: Necesito más votos
+          need_more_votes: Necesita más votos
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada propuesta puede acumular más que el máximo de votos
@@ -292,8 +292,8 @@ es:
             left: Restante
             votes: Votos
         wizard_aside:
-          back: Espalda
-          info: Está creando una <strong>propuesta</strong>.
+          back: Atrás
+          info: Estás creando una <strong>propuesta</strong>.
         wizard_steps:
           see_steps: ver los pasos
           step_1: Crea tu propuesta
