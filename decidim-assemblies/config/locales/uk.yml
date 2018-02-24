@@ -21,7 +21,7 @@ uk:
         slug: Скорочена URL-адреса
         subtitle: Підзаголовок
         target: Мета
-        title: Назва
+        title: Заголовок
   decidim:
     admin:
       assemblies:
@@ -73,8 +73,13 @@ uk:
             created_at: 'Додано:'
             promoted: Висвітлено
             published: Опубліковано
-            title: Назва
+            title: Заголовок
           name: Збори
+        assembly_user_role:
+          fields:
+            email: Адреса електронної пошти
+            name: Ім'я
+            role: Роль
       titles:
         assemblies: Збори
     assemblies:
