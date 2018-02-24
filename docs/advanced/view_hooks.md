@@ -68,7 +68,7 @@ initializer "decidim_participatory_processes.view_hooks" do
     view_context.render(partial: "decidim/participatory_spaces/highlighted_proposals", locals: { })
   end
 end
-``` 
+```
 
 When registering a view hook, we can set a priority for each one. By default, all view hooks are registered with low priority, but we can change it:
 
