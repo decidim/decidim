@@ -40,8 +40,19 @@ uk:
         highlighted_content_banner_action_url: URL-адреса кнопки дії
         highlighted_content_banner_image: Зображення
         highlighted_content_banner_short_description: Стислий опис
+        highlighted_content_banner_title: Заголовок
+        homepage_image: Зображення головної сторінки
+        logo: Логотип
         name: Назва
+        official_img_footer: Нижній колонтитул офіційного логотипу
+        official_img_header: Заголовок офіційного логотипу
+        official_url: Офіційна URL-адреса організації
+        omnipresent_banner_short_description: Стислий опис
+        omnipresent_banner_title: Заголовок
+        omnipresent_banner_url: URL-адреса
         reference_prefix: Довідковий префікс
+        show_statistics: Показувати статистику
+        welcome_text: Текст привітання
       scope:
         code: Код
         name: Назва
@@ -134,6 +145,11 @@ uk:
         update:
           error: При оновленні цього терену сталася помилка.
           success: Терен успішно оновлено
+      attachment_collections:
+        edit:
+          update: Оновити
+        new:
+          create: Створити
       attachments:
         create:
           error: При додаванні нового вкладеного файлу сталася помилка.
@@ -172,6 +188,7 @@ uk:
           success: Розділ успішно оновлено.
       dashboard:
         show:
+          view_more_logs: Переглянути інші журнали
           welcome: Ласкаво просимо до адмін-панелі Десідім!
       exports:
         export_as: "%{name} як %{export_format}"
@@ -248,6 +265,7 @@ uk:
             new_managed_user_promotion: Нове підвищення керованого учасника
             promote: Підвищити
       menu:
+        admin_log: Журнал діяльності адміністратора
         admins: Адміністратори
         appearance: Зовнішній вигляд
         area_types: Різновиди теренів
@@ -275,6 +293,7 @@ uk:
         attachment:
           fields:
             content_type: Різновид
+            file_size: Розмір
             title: Назва
           name: Вкладений файл
         category:
@@ -415,6 +434,7 @@ uk:
           header_snippets_help: Використовуйте це поле, щоб додавати щось до заголовку HTML. Найпоширенішим використанням є інтеграція сторонніх служб, які потребують додаткового JavaScript або CSS. Також ви можете використовувати його для додавання додаткових метатегів до HTML. Зверніть увагу, що це буде показано лише на загальнодоступних сторінках, а не в розділі адміністратора.
           homepage_appearance_title: Редагувати вигляд головної сторінки
           layout_appearance_title: Редагувати зовнішній вигляд шаблону
+          omnipresent_banner_appearance_title: Редагувати всюдисущий банер
       scope_types:
         create:
           error: При створенні нового різновиду терену сталася помилка.
