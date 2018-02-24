@@ -12,6 +12,7 @@ uk:
         proposal_ids: Включені пропозиції
         start_date: Дата початку
         title: Заголовок
+        updated_at: 'Оновлено:'
       status:
         description: Опис
         key: Ключ
