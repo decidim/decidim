@@ -19,7 +19,7 @@ uk:
         registration_terms: Умови реєстрації
         registrations_enabled: Реєстрацію відкрито
         start_time: Час початку
-        title: Назва
+        title: Заголовок
   decidim:
     events:
       meetings:
@@ -152,7 +152,7 @@ uk:
             end_time: Дата закінчення
             map: Мапа
             start_time: Дата початку
-            title: Назва
+            title: Заголовок
       read_more: "(читати далі)"
       registration_mailer:
         confirmation:
