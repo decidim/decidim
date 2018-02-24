@@ -102,6 +102,8 @@ uk:
       registrations:
         new:
           already_have_an_account?: Вже маєте обліковий запис?
+          newsletter: Отримувати іноді розсилання з цього приводу
+          nickname_help: Ваш короткий, унікальний псевдонім в Десідім
           sign_in: Увійти
           sign_up: Зареєструватися
           sign_up_as:
