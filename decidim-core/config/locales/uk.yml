@@ -130,6 +130,9 @@ uk:
         content_doesnt_exist: Ця адреса невірна або була вилучена.
         title: Не вдалося знайти сторінку, яку ви шукаєте
     events:
+      attachments:
+        attachment_created:
+          email_subject: Оновлення до %{resource_title}
       email_event:
         email_greeting: Доброго дня, %{user_name}%!
         email_intro: 'Було оновлено "%{resource_title}". Ви можете побачити це зі сторінки:'
