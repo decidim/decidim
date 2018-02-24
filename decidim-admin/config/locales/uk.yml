@@ -1,10 +1,21 @@
 uk:
   activemodel:
     attributes:
+      area:
+        area_type: Різновид терену
+        name: Назва
+        organization: Організація
+      area_type:
+        name: Назва
+        organization: Організація
+        plural: Множина
       attachment:
         description: Опис
         file: Файл
         title: Назва
+      attachment_collection:
+        description: Опис
+        name: Назва
       category:
         description: Опис
         name: Ім'я
@@ -17,7 +28,11 @@ uk:
         body: Основний текст
         subject: Тема
       organization:
+        cta_button_path: Шлях до кнопки "Закликати до дії"
+        cta_button_text: Текст кнопки "Закликати до дії"
         default_locale: Мова за замовчуванням
+        description: Опис
+        enable_omnipresent_banner: Показувати всюдисущий банер
         name: Назва
         reference_prefix: Довідковий префікс
       scope:
@@ -44,7 +59,7 @@ uk:
         end_date: Дата закінчення
         hashtag: Хештег
         hero_image: Зображення головної сторінки
-        local_area: Місцевість
+        local_area: Терен
         meta_scope: Метадані терену
         participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
@@ -81,6 +96,37 @@ uk:
         permissions: Права
         reject: Відхилити
         verify: Підтвердити
+      area_types:
+        create:
+          error: При створенні нового різновиду терену сталася помилка.
+          success: Різновид терену успішно створено.
+        destroy:
+          success: Різновид терену успішно видалено
+        edit:
+          title: Редагувати різновид терену
+          update: Оновити
+        new:
+          create: Створити різновид терену
+          title: Новий різновид терену
+        update:
+          error: При оновленні цього різновиду терену сталася помилка.
+          success: Різновид терену успішно оновлено
+      areas:
+        create:
+          error: При створенні нового терену сталася помилка.
+          success: Терен успішно створено.
+        destroy:
+          success: Терен успішно видалено
+        edit:
+          title: Редагувати терен
+          update: Оновити
+        new:
+          create: Створити терен
+          title: Новий терен
+        no_areas: Немає теренів
+        update:
+          error: При оновленні цього терену сталася помилка.
+          success: Терен успішно оновлено
       attachments:
         create:
           error: При додаванні нового вкладеного файлу сталася помилка.
@@ -197,6 +243,8 @@ uk:
       menu:
         admins: Адміністратори
         appearance: Зовнішній вигляд
+        area_types: Різновиди теренів
+        areas: Терени
         configuration: Конфігурація
         dashboard: Приладна дошка
         managed_users: Керовані учасники
@@ -209,6 +257,14 @@ uk:
         user_groups: Групи учасників
         users: Учасники
       models:
+        area:
+          fields:
+            area_type: Різновид терену
+            name: Назва
+        area_type:
+          fields:
+            name: Назва
+            plural: Множина
         attachment:
           fields:
             content_type: Різновид
@@ -400,6 +456,8 @@ uk:
           error: При оновленні цієї сторінки сталася помилка.
           success: Сторінку успішно оновлено
       titles:
+        area_types: Різновиди теренів
+        areas: Терени
         authorization_workflows: Методи підтвердження особи
         dashboard: Приладна дошка
         impersonations: Виступи в ролі учасника
