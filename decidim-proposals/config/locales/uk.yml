@@ -91,6 +91,9 @@ uk:
           new:
             create: Внести
             title: Внести пропозицію
+        proposals_imports:
+          new:
+            create: Імпортувати пропозиції
         shared:
           info_proposal:
             body: Основний текст
@@ -125,11 +128,14 @@ uk:
           select_identity: Оберіть особу
       proposal_endorsements_helper:
         endorsement_button:
+          already_endorsed: Вже підтримано
           endorse: Підтримати
       proposal_votes:
         create:
           error: При голосуванні пропозиції сталися помилки.
       proposals:
+        compare:
+          title: Подібні пропозиції
         count:
           proposals_count:
             one: 1 пропозиція
@@ -144,6 +150,7 @@ uk:
         edit_draft:
           send: Попередній перегляд
         endorsement_button:
+          already_endorsed: Вже підтримано
           already_endorsed_hover: Відкликати підтримку
         endorsement_identities_cabin:
           endorse: Підтримати
@@ -204,6 +211,7 @@ uk:
           proposal_in_evaluation_reason: Ця пропозиція розглядається
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
           report: Поскаржитись
+          withdraw_proposal: Зняти пропозицію
         vote_button:
           already_voted: Вже проголосували
           already_voted_hover: Скасувати голос
@@ -217,6 +225,7 @@ uk:
             few: ГОЛОСИ
             many: ГОЛОСІВ
             other: ГОЛОСІВ
+          need_more_votes: Потрібно більше голосів
         voting_rules:
           maximum_votes_per_proposal:
             description: Кожна пропозиція може отримати максимум %{limit} голосів.
@@ -237,6 +246,8 @@ uk:
         error: При збереженні цієї пропозиції сталися помилки.
         success: Пропозицію успішно оновлено.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Супутні пропозиції
       included_projects:
         project_results: 'Підсумки, які є в цьому проекті:'
       included_proposals:
