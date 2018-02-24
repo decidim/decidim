@@ -119,7 +119,7 @@ uk:
           date: Дата
           past: Минулі
           search: Шукати
-          upcoming: Майбутні
+          upcoming: Прийдешні
         filters_small_view:
           close_modal: Закрити віконце
           filter: Відібрати
@@ -170,9 +170,12 @@ uk:
       participatory_process_groups:
         highlighted_meetings:
           past_meetings: Минулі зустрічі
+          upcoming_meetings: Прийдешні зустрічі
     participatory_spaces:
       highlighted_meetings:
         past_meetings: Минулі зустрічі
+        see_all_meetings: Переглянути всі зустрічі
+        upcoming_meetings: Прийдешні зустрічі
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Пов''язані підсумки:'
