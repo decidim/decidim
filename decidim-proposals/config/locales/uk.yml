@@ -72,6 +72,7 @@ uk:
         proposal_notes:
           form:
             note: Примітка
+            submit: Надіслати
         proposals:
           answer:
             invalid: При спробі відповісти на цю пропозицію виникла проблема
@@ -90,11 +91,14 @@ uk:
         shared:
           info_proposal:
             body: Основний текст
+            proposal_votes_count: Кількість голосів
+            proposals: Пропозиції
       answers:
         accepted: Прийнято
         evaluating: Розглядається
         not_answered: Без відповідей
         rejected: Відхилено
+        withdrawn: Відкликано
       create:
         error: При збереженні цієї пропозиції сталися помилки.
       models:
@@ -112,6 +116,9 @@ uk:
             votes: Голоси
       new:
         limit_reached: Ви не можете додавати нові пропозиції, оскільки ви перевищили ліміт.
+      proposal_endorsements_helper:
+        endorsement_button:
+          endorse: Підтримати
       proposal_votes:
         create:
           error: При голосуванні пропозиції сталися помилки.
@@ -127,6 +134,14 @@ uk:
           select_a_category: Будь ласка, оберіть розділ
           send: Надіслати
           title: Редагувати пропозицію
+        edit_draft:
+          send: Попередній перегляд
+        endorsement_button:
+          already_endorsed_hover: Відкликати підтримку
+        endorsement_identities_cabin:
+          endorse: Підтримати
+        endorsements_listing:
+          see_all: переглянути всі
         filters:
           accepted: Прийнято
           activity: Діяльність
@@ -136,7 +151,7 @@ uk:
           citizens: Громадяни
           evaluating: Розглядається
           official: Офіційне
-          origin: Джерело
+          origin: Походження
           rejected: Відхилено
           related_to: Пов'язане з
           search: Шукати
@@ -159,11 +174,14 @@ uk:
         new:
           attachment_legend: "(Необов'язково) Додати вкладений файл"
           select_a_category: Будь ласка, оберіть розділ
+          send: Продовжити
         orders:
           label: 'Впорядкувати пропозиції за:'
           most_voted: Найбільш підтримані
           random: Довільно
           recent: Нещодавні
+        preview:
+          publish: Опублікувати
         proposal:
           creation_date: 'Створено: %{date}'
           view_proposal: Переглянути пропозицію
@@ -198,6 +216,10 @@ uk:
             votes: Голоси
         wizard_aside:
           back: Назад
+        wizard_steps:
+          see_steps: переглянути кроки
+          step_1: Внести власну пропозицію
+          step_2: Порівняти
       update:
         error: При збереженні цієї пропозиції сталися помилки.
         success: Пропозицію успішно оновлено.
