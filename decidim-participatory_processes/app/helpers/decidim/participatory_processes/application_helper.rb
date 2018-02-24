@@ -13,7 +13,7 @@ module Decidim
       #
       # Returns an HTML safe String.
       def render_participatory_processes_hook(hook_name)
-        Decidim::ParticipatoryProcesses.view_hooks.render(hook_name, self)
+        Decidim::ParticipatoryProcesses.view_hooks.render(hook_name, deep_dup)
       end
     end
   end

@@ -9,7 +9,7 @@ module Decidim
     #
     # Returns an HTML safe String.
     def render_hook(hook_name)
-      Decidim.view_hooks.render(hook_name, self)
+      Decidim.view_hooks.render(hook_name, deep_dup)
     end
   end
 end
