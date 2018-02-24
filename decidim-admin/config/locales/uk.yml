@@ -35,8 +35,11 @@ uk:
         enable_omnipresent_banner: Показувати всюдисущий банер
         favicon: Значок
         header_snippets: Сніпети для гіпертекстових заголовків сторінок сайту
-        highlighted_content_banner_action_title: Назва кнопки дії
+        highlighted_content_banner_action_subtitle: Підзаголовок кнопки дії
+        highlighted_content_banner_action_title: Заголовок кнопки дії
         highlighted_content_banner_action_url: URL-адреса кнопки дії
+        highlighted_content_banner_image: Зображення
+        highlighted_content_banner_short_description: Стислий опис
         name: Назва
         reference_prefix: Довідковий префікс
       scope:
