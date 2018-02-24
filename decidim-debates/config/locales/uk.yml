@@ -10,6 +10,7 @@ uk:
   decidim:
     debates:
       actions:
+        confirm_destroy: Ви впевнені?
         destroy: Видалити
         edit: Редагувати
         new: Додати %{name}
@@ -18,14 +19,22 @@ uk:
         debates:
           edit:
             title: Редагувати обговорення
+            update: Оновити обговорення
           index:
             title: Обговорення
           new:
+            create: Створити обговорення
             title: Нове обговорення
         models:
           debate:
             name: Обговорення
       debates:
+        count:
+          debates_count:
+            one: "%{count} обговорення"
+            few: "%{count} обговорення"
+            many: "%{count} обговорень"
+            other: "%{count} обговорень"
         debate:
           comments:
             one: Коментар
@@ -52,6 +61,7 @@ uk:
           create: Створити
           title: Нове обговорення
         share:
+          close_window: Закрити вікно
           share: Поділитися
           share_link: Поділитись посиланням
         show:
@@ -61,6 +71,7 @@ uk:
         debate:
           fields:
             end_time: Дата закінчення
+            official_debate: Офіційне обговорення
             start_time: Дата початку
             title: Заголовок
     features:
