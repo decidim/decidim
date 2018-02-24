@@ -87,6 +87,13 @@ uk:
             official_debate: Офіційне обговорення
             start_time: Дата початку
             title: Заголовок
+    events:
+      debates:
+        create_debate_event:
+          space_followers:
+            email_subject: Нове обговорення у %{space_title}
+          user_followers:
+            email_subject: Нове обговорення, створене %{author_nickname}
     features:
       debates:
         actions:
@@ -97,3 +104,4 @@ uk:
             comments_enabled: Коментарі ввімкнено
           step:
             comments_blocked: Коментарі заблоковано
+            creation_enabled: Увімкнено створення обговорень учасниками
