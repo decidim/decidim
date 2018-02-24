@@ -59,9 +59,16 @@ uk:
         destroy:
           error: При скасуванні публікації цих зборів сталася помилка.
           success: Публікацію зборів успішно скасовано.
+      assembly_user_roles:
+        edit:
+          update: Оновити
+        new:
+          create: Створити
       menu:
         assemblies: Збори
         assemblies_submenu:
+          attachment_collections: Збірки
+          attachment_files: Файли
           attachments: Вкладені файли
           categories: Розділи
           features: Складові
@@ -80,6 +87,8 @@ uk:
             email: Адреса електронної пошти
             name: Ім'я
             role: Роль
+          roles:
+            moderator: Модератор
       titles:
         assemblies: Збори
     assemblies:
