@@ -43,7 +43,7 @@ module Decidim
         end
       end
 
-      initializer "decidim_meetings.view_hooks" do
+      initializer "decidim_proposals.view_hooks" do
         Decidim.view_hooks.register(:participatory_space_highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
           published_features = Decidim::Feature.where(participatory_space: view_context.current_participatory_space).published
           proposals = Decidim::Proposals::Proposal.where(feature: published_features).order_randomly(rand * 2 - 1).limit(4)
