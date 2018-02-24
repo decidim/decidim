@@ -74,6 +74,8 @@ uk:
             rejected: Відхилено
             title: Відповідь на пропозицію %{title}
         proposal_notes:
+          create:
+            success: Примітку до пропозиції успішно створено
           form:
             note: Примітка
             submit: Надіслати
