@@ -79,7 +79,7 @@ module Decidim::Accountability
       let(:result) { Result.last }
 
       it "creates the result" do
-        expect { subject.call }.to change { Result.count }.by(1)
+        expect { subject.call }.to change(Result, :count).by(1)
       end
 
       it "sets the scope" do
