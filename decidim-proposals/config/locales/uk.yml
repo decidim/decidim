@@ -10,6 +10,8 @@ uk:
         user_group_id: Внести пропозицію як
       proposal_answer:
         answer: Відповісти
+      proposals_copy:
+        origin_feature_id: Складова, звідки потрібно скопіювати пропозиції
   decidim:
     events:
       proposals:
@@ -114,6 +116,7 @@ uk:
         withdrawn: Відкликано
       create:
         error: При збереженні цієї пропозиції сталися помилки.
+        success: Пропозицію успішно створено. Збережено як чернетку.
       models:
         proposal:
           fields:
@@ -142,6 +145,7 @@ uk:
       proposals:
         compare:
           mine_is_different: Моя пропозиція відрізняється
+          no_similars_found: Гарна робота! Не знайдено схожий пропозицій
           title: Подібні пропозиції
         count:
           proposals_count:
@@ -225,6 +229,7 @@ uk:
           proposal_in_evaluation_reason: Ця пропозиція розглядається
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
           report: Поскаржитись
+          withdraw_confirmation: Ви впевнені, що бажаєте зняти цю пропозицію?
           withdraw_proposal: Зняти пропозицію
         vote_button:
           already_voted: Вже проголосували
@@ -263,6 +268,9 @@ uk:
       update:
         error: При збереженні цієї пропозиції сталися помилки.
         success: Пропозицію успішно оновлено.
+      update_draft:
+        error: При збереженні чернетки цієї пропозиції сталися помилки.
+        success: Чернетку пропозиції успішно оновлено.
     resource_links:
       copied_from_component:
         proposal_proposals: Супутні пропозиції
