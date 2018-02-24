@@ -9,15 +9,23 @@ uk:
         proposal_ids: Пропозиції, вироблені під час зустрічі
       meeting:
         address: Адреса
+        available_slots: Наявні місця на цю зустріч
         decidim_category_id: Розділ
         decidim_scope_id: Терен
         description: Опис
         end_time: Час завершення
         location: Розташування
         location_hints: Як дістатися до цього місця
+        registration_terms: Умови реєстрації
+        registrations_enabled: Реєстрацію відкрито
         start_time: Час початку
         title: Назва
   decidim:
+    events:
+      meetings:
+        meeting_closed:
+          email_intro: 'Зустріч "%{resource_title}" було завершено. Ви можете ознайомитися з підсумками на сторінці зустрічі:'
+          email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
     features:
       meetings:
         actions:
