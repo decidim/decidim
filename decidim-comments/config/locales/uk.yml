@@ -52,6 +52,13 @@ uk:
         title: "%{count} коментарів"
       featured_comment:
         title: Рекомендований коментар
+    events:
+      comments:
+        comment_created:
+          comment:
+            email_intro: '"%{resource_title}" прокоментували. Ви можете прочитати коментар на цій сторінці:'
+            email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+            email_subject: Надійшов новий коментар від %{author_name} на %{resource_title}
   errors:
     messages:
       cannot_have_comments: не підлягає коментуванню
