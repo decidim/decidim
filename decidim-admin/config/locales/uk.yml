@@ -56,7 +56,9 @@ uk:
         omnipresent_banner_url: URL-адреса
         reference_prefix: Довідковий префікс
         show_statistics: Показувати статистику
+        twitter_handler: Адреса Twitter
         welcome_text: Текст привітання
+        youtube_handler: Адреса YouTube
       scope:
         code: Код
         name: Назва
