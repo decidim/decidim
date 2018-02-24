@@ -10,9 +10,10 @@ uk:
         organization: Організація
         plural: Множина
       attachment:
+        attachment_collection_id: Збірка
         description: Опис
         file: Файл
-        title: Назва
+        title: Заголовок
       attachment_collection:
         description: Опис
         name: Назва
@@ -66,7 +67,7 @@ uk:
         content: Вміст
         organization: Організація
         slug: Скорочена URL-адреса
-        title: Назва
+        title: Заголовок
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -88,7 +89,7 @@ uk:
         start_date: Дата початку
         subtitle: Підзаголовок
         target: Мета
-        title: Назва
+        title: Заголовок
       decidim/participatory_process_group:
         description: Опис
         hero_image: Зображення головної сторінки
@@ -100,7 +101,7 @@ uk:
       decidim/static_page:
         content: Вміст
         slug: Скорочена URL-адреса
-        title: Назва
+        title: Заголовок
   date:
     formats:
       datepicker: "%d.%m.%Y"
@@ -147,9 +148,11 @@ uk:
           success: Терен успішно оновлено
       attachment_collections:
         edit:
+          title: Редагувати збірку
           update: Оновити
         new:
           create: Створити
+          title: Додати збірку
       attachments:
         create:
           error: При додаванні нового вкладеного файлу сталася помилка.
@@ -292,10 +295,13 @@ uk:
             plural: Множина
         attachment:
           fields:
+            collection: Збірка
             content_type: Різновид
             file_size: Розмір
-            title: Назва
+            title: Заголовок
           name: Вкладений файл
+        attachment_collection:
+          name: Збірка
         category:
           name: Розділ
         impersonation_log:
@@ -325,7 +331,7 @@ uk:
         static_page:
           fields:
             created_at: 'Створено:'
-            title: Назва
+            title: Заголовок
         user:
           fields:
             created_at: Дата створення
@@ -478,11 +484,13 @@ uk:
           title: Редагувати сторінку
           update: Оновити
         new:
+          create: Створити
           title: Нова сторінка
         update:
           error: При оновленні цієї сторінки сталася помилка.
           success: Сторінку успішно оновлено
       titles:
+        admin_log: Журнал адміністратора
         area_types: Різновиди теренів
         areas: Терени
         authorization_workflows: Методи підтвердження особи
