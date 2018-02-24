@@ -1,4 +1,8 @@
 uk:
+  activemodel:
+    attributes:
+      dummy_resource:
+        title: Заголовок
   decidim:
     dummy:
       admin:
