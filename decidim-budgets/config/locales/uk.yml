@@ -11,6 +11,7 @@ uk:
   decidim:
     budgets:
       actions:
+        attachment_collections: Збірки
         attachments: Вкладені файли
         confirm_destroy: Ви дійсно бажаєте видалити цей проект?
         destroy: Видалити
