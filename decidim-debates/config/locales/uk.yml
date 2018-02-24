@@ -5,6 +5,8 @@ uk:
         category_id: Розділ
         description: Опис
         end_time: 'Завершується:'
+        information_updates: Оновлення відомостей
+        instructions: Вказівки до участі
         start_time: 'Розпочато: '
         title: Заголовок
         user_group_id: Створити обговорення як
@@ -18,6 +20,10 @@ uk:
         title: Дії
       admin:
         debates:
+          create:
+            success: Обговорення успішно створено.
+          destroy:
+            success: Обговорення успішно видалено.
           edit:
             title: Редагувати обговорення
             update: Оновити обговорення
@@ -26,6 +32,8 @@ uk:
           new:
             create: Створити обговорення
             title: Нове обговорення
+          update:
+            success: Обговорення успішно оновлено.
         models:
           debate:
             name: Обговорення
@@ -36,6 +44,8 @@ uk:
             few: "%{count} обговорення"
             many: "%{count} обговорень"
             other: "%{count} обговорень"
+        create:
+          success: Обговорення успішно створено.
         debate:
           comments:
             one: Коментар
@@ -61,6 +71,7 @@ uk:
         new:
           back: Назад
           create: Створити
+          select_a_category: Будь ласка, оберіть розділ
           title: Нове обговорення
         share:
           close_window: Закрити вікно
