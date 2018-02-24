@@ -40,6 +40,7 @@ uk:
             comments_blocked: Коментарі вимкнено
     meetings:
       actions:
+        attachment_collections: Збірки
         attachments: Вкладені файли
         close: Закрити
         confirm_destroy: Ви впевнені, що хочете видалити цю зустріч?
