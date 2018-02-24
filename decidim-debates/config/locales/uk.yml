@@ -7,6 +7,7 @@ uk:
         end_time: 'Завершується:'
         start_time: 'Розпочато: '
         title: Заголовок
+        user_group_id: Створити обговорення як
   decidim:
     debates:
       actions:
@@ -45,6 +46,7 @@ uk:
         filters:
           all: Усі
           category: Розділ
+          category_prompt: Оберіть розділ
           citizens: Громадяни
           official: Офіційне
           origin: Походження
@@ -79,3 +81,8 @@ uk:
         actions:
           create: Створити
         name: Обговорення
+        settings:
+          global:
+            comments_enabled: Коментарі ввімкнено
+          step:
+            comments_blocked: Коментарі заблоковано
