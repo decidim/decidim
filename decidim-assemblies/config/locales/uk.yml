@@ -61,11 +61,13 @@ uk:
           success: Публікацію зборів успішно скасовано.
       assembly_user_roles:
         edit:
+          title: Оновити учасника зборів.
           update: Оновити
         index:
           assembly_admins_title: Учасники зборів
         new:
           create: Створити
+          title: Новий учасник зборів.
       menu:
         assemblies: Збори
         assemblies_submenu:
