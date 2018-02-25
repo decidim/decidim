@@ -35,7 +35,7 @@ module Decidim
       def permission_forms
         permissions = component.permissions || {}
 
-        @permission_forms ||= component.manifest.actions.inject({}) do |result, action|
+        component.manifest.actions.inject({}) do |result, action|
           form = PermissionForm.new(
             authorization_handler_name: permissions.dig(action, "authorization_handler_name"),
             options: permissions.dig(action, "options").try(:to_json)
