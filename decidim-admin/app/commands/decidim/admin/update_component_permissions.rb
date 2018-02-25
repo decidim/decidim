@@ -35,10 +35,10 @@ module Decidim
       def update_permissions
         permissions = @form.permissions.inject({}) do |result, (key, value)|
           serialized = {
-            "authorization_handler_name" => value.authorization_handler_name
+            "authorization_handler_name" => value.authorization_handler_name,
+            "options" => value.options
           }
 
-          serialized["options"] = JSON.parse(value.options) if value.options
           result.update(key => serialized)
         end
 

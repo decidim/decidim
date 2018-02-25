@@ -16,7 +16,15 @@
                 authorizations.map { |authorization|
                   [authorization.description, authorization.key]
                 }, include_blank: t(".everyone") %>
-              <%= permission_form.text_field :options %>
+
+              <% options_schema = permission_form.object.options_schema %>
+              <% options_attributes = permission_form.object.options_attributes %>
+
+              <%= permission_form.fields_for(:options, options_schema) do |options_form| %>
+                <% options_attributes.each do |name, attribute| %>
+                  <%= options_form.send(form_method_for_attribute(attribute), name, label: name.to_s) %>
+                <% end %>
+              <% end %>
             </div>
           </fieldset>
         <% end %>

@@ -4,9 +4,17 @@ Decidim::Verifications.register_workflow(:dummy_authorization_handler) do |workf
   workflow.form = "DummyAuthorizationHandler"
   workflow.action_authorizer = "DummyAuthorizationHandler::ActionAuthorizer"
   workflow.expires_in = 1.hour
+
+  workflow.options do |options|
+    options.attribute :postal_code, type: :string, default: "08001"
+  end
 end
 
 Decidim::Verifications.register_workflow(:another_dummy_authorization_handler) do |workflow|
   workflow.form = "AnotherDummyAuthorizationHandler"
   workflow.expires_in = 1.hour
+
+  workflow.options do |options|
+    options.attribute :passport_number, type: :string
+  end
 end

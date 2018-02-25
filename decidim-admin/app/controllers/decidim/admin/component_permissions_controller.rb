@@ -37,12 +37,16 @@ module Decidim
 
         component.manifest.actions.inject({}) do |result, action|
           form = PermissionForm.new(
-            authorization_handler_name: permissions.dig(action, "authorization_handler_name"),
-            options: permissions.dig(action, "options").try(:to_json)
+            authorization_handler_name: permissions.dig(action, "authorization_handler_name") || default_authorization.name,
+            options: permissions.dig(action, "options")
           )
 
           result.update(action => form)
         end
+      end
+
+      def default_authorization
+        Verifications.find_workflow_manifest(:dummy_authorization_handler)
       end
 
       def authorizations
