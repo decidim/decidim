@@ -5,23 +5,23 @@
     </div>
   </div>
 
-  <%= form_for @permissions_form, url: url_for(action: :update), method: "put" do |form| %>
-    <%= form.fields_for :permissions, form.object do |form| %>
-      <% form.object.permissions.each do |action, permission| %>
-        <%= form.fields_for(action, permission) do |form| %>
-          <fieldset class="card <%= action %>-permission">
+  <%= form_for @permissions_form, url: url_for(action: :update), method: "put" do |permissions_form| %>
+    <%= permissions_form.fields_for :permissions, permissions_form.object do |action_permission_form| %>
+      <% action_permission_form.object.permissions.each do |action, permission| %>
+        <%= action_permission_form.fields_for(action, permission) do |permission_form| %>
+          <fieldset class="card <%=action %>-permission">
             <div class="card-divider"><%= t("#{component.manifest.name}.actions.#{action}", scope: "decidim.components") %></div>
             <div class="card-section">
-              <%= form.select :authorization_handler_name,
+              <%= permission_form.select :authorization_handler_name,
                 authorizations.map { |authorization|
                   [authorization.description, authorization.key]
                 }, include_blank: t(".everyone") %>
-              <%= form.text_field :options %>
+              <%= permission_form.text_field :options %>
             </div>
           </fieldset>
         <% end %>
       <% end %>
     <% end %>
-    <%= form.submit t(".submit") %>
+    <%= permissions_form.submit t(".submit") %>
   <% end %>
 </section>
