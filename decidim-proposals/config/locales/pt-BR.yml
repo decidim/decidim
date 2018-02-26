@@ -156,6 +156,8 @@ pt-BR:
           update_category:
             invalid: 'Essas propostas já tinham a categoria %{category} : %{proposals}.'
             select_a_category: Por favor, selecione uma categoria
+            select_a_proposal: Selecione uma proposta
+            success: 'Propostas atualizadas com êxito para a categoria %{category} : %{proposals}.'
         proposals_imports:
           create:
             invalid: Tem havido um problema ao importar as propostas
