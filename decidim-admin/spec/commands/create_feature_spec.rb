@@ -62,12 +62,18 @@ module Decidim::Admin
         expect(step_settings.dummy_step_attribute_2).to eq(false)
       end
 
-      it "traces the action" do
+      it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:create!)
           .with(Decidim::Feature, current_user, a_kind_of(Hash))
+          .and_call_original
 
-        subject.call
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+
+        action_log = Decidim::ActionLog.last
+        expect(action_log.extra)
+          .to include("version" => { "number" => 1, "id" => an_instance_of(Integer)})
+        expect(action_log.version.event).to eq "create"
       end
 
       it "fires the hooks" do

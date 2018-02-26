@@ -66,7 +66,8 @@ module Decidim
         klass.transaction do
           Decidim::ApplicationRecord.transaction do
             result = block_given? ? yield : nil
-            log(action, author, resource, extra_log_info)
+            loggable_resource = resource.is_a?(Class) ? result : resource
+            log(action, author, loggable_resource, extra_log_info)
             result
           end
         end
@@ -118,7 +119,6 @@ module Decidim
 
     def log(action, user, resource, extra_log_info = {})
       return unless user.is_a?(Decidim::User)
-      return unless resource.is_a?(Decidim::Traceable)
 
       Decidim::ActionLogger.log(
         action,

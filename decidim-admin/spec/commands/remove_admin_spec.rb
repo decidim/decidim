@@ -26,12 +26,18 @@ module Decidim::Admin
       end.to broadcast(:ok)
     end
 
-    it "tracks the change" do
+    it "tracks the change", versioning: true do
       expect(Decidim.traceability)
         .to receive(:perform_action!)
         .with("remove_from_admin", user, current_user, log_info)
+        .and_call_original
 
-      command.call
+      expect { command.call }.to change(Decidim::ActionLog, :count)
+
+      action_log = Decidim::ActionLog.last
+      expect(action_log.extra["version"]).to be_nil
+      expect(action_log.extra)
+        .to include("extra" => { "invited_user_role" => "admin" })
     end
 
     context "when no user given" do

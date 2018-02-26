@@ -35,9 +35,18 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:ok)
         end
 
-        it "uses traceability to create the page" do
-          expect(Decidim.traceability).to receive(:create!)
-          command.call
+        it "uses traceability to create the page", versioning: true do
+          expect(Decidim.traceability)
+            .to receive(:create!)
+            .with(Decidim::StaticPage, user, hash_including(:title, :slug, :content, :organization))
+            .and_call_original
+
+          expect { command.call }.to change(Decidim::ActionLog, :count)
+
+          action_log = Decidim::ActionLog.last
+          expect(action_log.extra)
+            .to include("version" => { "number" => 1, "id" => an_instance_of(Integer)})
+          expect(action_log.version.event).to eq "create"
         end
 
         it "creates a page in the organization" do

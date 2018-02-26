@@ -30,12 +30,18 @@ module Decidim::ParticipatoryProcesses
         expect { subject.call }.to broadcast(:ok)
       end
 
-      it "traces the action" do
+      it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
           .with("unpublish", my_process, user)
+          .and_call_original
 
-        subject.call
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+
+        action_log = Decidim::ActionLog.last
+        expect(action_log.extra)
+          .to include("version" => { "number" => 2, "id" => an_instance_of(Integer)})
+        expect(action_log.version.event).to eq "update"
       end
 
       it "unpublishes it" do

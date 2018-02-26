@@ -51,12 +51,25 @@ module Decidim::Admin
         expect { subject.call }.to broadcast(:ok)
       end
 
-      it "traces the update" do
+      it "traces the update", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
           .with("officialize", user, current_user, log_info)
+          .and_call_original
 
-        subject.call
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+
+        action_log = Decidim::ActionLog.last
+        expect(action_log.extra["version"]).to be_nil
+        expect(action_log.extra)
+          .to include(
+            "extra" => {
+              "officialized_user_badge" => { "en" => "Major of Barcelona" },
+              "officialized_user_badge_previous" => nil,
+              "officialized_user_at" => a_kind_of(String),
+              "officialized_user_at_previous" => nil
+            }
+          )
       end
 
       it "officializes user" do

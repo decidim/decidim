@@ -52,12 +52,18 @@ module Decidim::ParticipatoryProcesses
         expect(role.role).to eq "moderator"
       end
 
-      it "traces the action" do
+      it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:update!)
           .with(role, current_user, { role: new_role }, log_info)
+          .and_call_original
 
-        subject.call
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+
+        action_log = Decidim::ActionLog.last
+        expect(action_log.extra)
+          .to include("version" => { "number" => 2, "id" => an_instance_of(Integer)})
+        expect(action_log.version.event).to eq "update"
       end
     end
   end
