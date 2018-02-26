@@ -155,6 +155,9 @@ ca:
             title: Crear proposta
           update_category:
             invalid: 'Aquestes propostes ja tenien la categoria %{category} : %{proposals}.'
+            select_a_category: Seleccioneu una categoria
+            select_a_proposal: Seleccioneu una proposta
+            success: 'Les propostes s''han actualitzat correctament a la categoria %{category} : %{proposals}.'
         proposals_imports:
           create:
             invalid: Hi ha hagut un problema important les propostes
