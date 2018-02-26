@@ -16,6 +16,16 @@ gl:
   decidim:
     events:
       proposals:
+        creation_enabled:
+          email_intro: 'Agora podes crear novas propostas en %{participatory_space_title}. Comezar a participar nesta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: As propostas agora están dispoñibles en %{participatory_space_title}
+          notification_title: Agora podes comezar <a href="%{resource_path}">novas propostas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        endorsing_enabled:
+          email_intro: 'Podes aprobar propostas en %{participatory_space_title}. Comezar a participar nesta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: As propostas de avaliación iniciáronse para %{participatory_space_title}
+          notification_title: Agora podes comezar <a href="%{resource_path}">propostas de aprobación</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'A proposta "%{resource_title}" foi aceptada. Podes ler a resposta nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
@@ -30,8 +40,12 @@ gl:
           email_intro: A proposta "%{resource_title}" Engadiuse a "%{participatory_space_title}" que estás seguindo.
           email_outro: Recibiches esta notificación porque estás seguindo "%{participatory_space_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Nova proposta engadida a %{participatory_space_title}
+          notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> engadiuse a %{participatory_space_title}
         proposal_endorsed:
+          email_intro: "%{endorser_name} %{endorser_nickname}, a quen estás seguindo, acaba de aprobar unha proposta que poida resultar interesante para ti, consultar e contribuír:"
           email_outro: Recibiches esta notificación porque estás seguindo %{endorser_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: "%{endorser_nickname} aprobou unha nova proposta"
+          notification_title: A <a href="%{resource_path}">%{resource_title}</a> proposta foi aprobada por <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           email_intro: 'A proposta "%{resource_title}" está a ser avaliada. Podes consultar unha resposta nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
@@ -42,6 +56,11 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: A proposta que segues foi rexeitada
           notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi rexeitada.
+        voting_enabled:
+          email_intro: 'Podes votar propostas en %{participatory_space_title}. Comezar a participar nesta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: A votación das propostas comezou para %{participatory_space_title}
+          notification_title: Agora podes comezar <a href="%{resource_path}">propostas de voto</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     features:
       proposals:
         actions:
@@ -127,6 +146,7 @@ gl:
         proposals_imports:
           create:
             invalid: Produciuse un problema na importación das propostas
+            success: "%{number} propostas importadas con éxito"
           new:
             create: Propostas de importación
             no_features: Non hai outras características de proposta neste espazo participativo para importar as propostas.
@@ -294,6 +314,7 @@ gl:
           step_1: Crea a túa proposta
           step_2: Compare
           step_3: Publica a túa proposta
+          step_of: Paso %{current_step_num} de %{total_steps}
       publish:
         error: Houbo erros ao publicar a proposta.
         success: Proposta publicada correctamente.
