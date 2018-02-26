@@ -16,6 +16,16 @@ eu:
   decidim:
     events:
       proposals:
+        creation_enabled:
+          email_intro: 'Orain %{participatory_space_title}proposamen berriak sor ditzakezu! Hasi orri honetan parte hartzea:'
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: Proposamenak orain eskuragarri %{participatory_space_title}
+          notification_title: Orain <a href="%{resource_path}">proposamen berriak hasi ditzakezu</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        endorsing_enabled:
+          email_intro: '%{participatory_space_title}proposamenak onartu ditzakezu! Hasi orri honetan parte hartzea:'
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: Onarpen proposamenak %{participatory_space_title}-ra hasi dira
+          notification_title: Oraingo <a href="%{resource_path}"></a> babes-proposamenak hasi ditzakezu <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: '"%{resource_title}" proposamena onartu da. Orri honetan erantzun dezakezu:'
           email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
@@ -28,11 +38,14 @@ eu:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena <a href="%{author_path}">%{author_name} %{author_nickname}</a> sortu zen.
         proposal_created_for_space:
           email_intro: Proposamena "%{resource_title}" gehitu da "%{participatory_space_title}" " jarraitzen ari zarela.
+          email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Proposamen berria %{participatory_space_title}
           notification_title: Proposamena <a href="%{resource_path}">%{resource_title}</a> gehitu da %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, jarraitzen ari zaren norbaiti, interesgarria izan daitekeen proposamen bat onartu du, begiratu eta lagundu:"
+          email_outro: Jakinarazpena jaso duzu %{endorser_nickname}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: "%{endorser_nickname} proposamen berri bat onartu du"
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> onetsi du.
         proposal_evaluating:
           email_intro: '"%{resource_title}" proposamena ebaluatzen ari da. Orri honetan erantzun dezakezu:'
           email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
@@ -43,6 +56,11 @@ eu:
           email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Ondorengo proposamen bat baztertu egin da
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena baztertu da.
+        voting_enabled:
+          email_intro: 'Proposamenak bozkatu ditzakezu %{participatory_space_title}-n! Hasi orri honetan parte hartzea:'
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: Proposamenak hauteskundeak hasi dira %{participatory_space_title}erako
+          notification_title: <a href="%{resource_path}">boto-proposamen</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>-n has dezakezu orain
     features:
       proposals:
         actions:
