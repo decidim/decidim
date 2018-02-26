@@ -155,6 +155,9 @@ eu:
             title: Sortu proposamena
           update_category:
             invalid: 'Proposamen hauek %{category} kategoria zeuden: %{proposals}.'
+            select_a_category: Hautatu kategoria bat
+            select_a_proposal: Aukeratu proposamen bat
+            success: 'Proposamenak %{category} kategorian eguneratu dira: %{proposals}.'
         proposals_imports:
           create:
             invalid: Arazo bat izan da proposamenak inportatzea
