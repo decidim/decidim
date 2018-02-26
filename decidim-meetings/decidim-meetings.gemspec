@@ -26,6 +26,8 @@ Gem::Specification.new do |s|
   s.add_dependency "jquery-tmpl-rails", "~> 1.1"
   s.add_dependency "kaminari", "~> 1.0"
   s.add_dependency "searchlight", "~> 4.1"
+  s.add_dependency "cells-erb", "~> 0.1.0"
+  s.add_dependency "cells-rails", "~> 0.0.8"
 
   s.add_development_dependency "decidim-admin", Decidim::Meetings.version
   s.add_development_dependency "decidim-assemblies", Decidim::Meetings.version

@@ -8,5 +8,6 @@ require "decidim/meetings/feature"
 module Decidim
   # Base module for this engine.
   module Meetings
+    autoload :ViewModel, "decidim/proposals/view_model"
   end
 end
