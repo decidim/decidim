@@ -16,6 +16,16 @@ it:
   decidim:
     events:
       proposals:
+        creation_enabled:
+          email_intro: 'Ora puoi creare nuove proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_subject: Proposte ora disponibili in %{participatory_space_title}
+          notification_title: Ora puoi iniziare <a href="%{resource_path}">nuove proposte</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        endorsing_enabled:
+          email_intro: 'Puoi sostenere proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_subject: L'approvazione delle proposte è iniziata per %{participatory_space_title}
+          notification_title: È ora possibile avviare <a href="%{resource_path}">proposte di approvazione</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'La proposta "%{resource_title}" è stata accettata. Puoi leggere la risposta in questa pagina:'
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
@@ -46,6 +56,16 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
           email_subject: Una proposta che stai seguendo è stata respinta
           notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> è stata respinta.
+        proposal_update_category:
+          email_intro: 'Un amministratore ha aggiornato la categoria della tua proposta "%{resource_title}", dai un''occhiata:'
+          email_outro: Hai ricevuto questa notifica perché sei l'autore della proposta.
+          email_subject: La categoria di proposta %{resource_title} è stata aggiornata
+          notification_title: La categoria <a href="%{resource_path}">%{resource_title}</a> proposta è stata aggiornata da un amministratore.
+        voting_enabled:
+          email_intro: 'Puoi votare le proposte in %{participatory_space_title}! Inizia a partecipare a questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_subject: Il voto delle proposte è iniziato per %{participatory_space_title}
+          notification_title: Ora puoi iniziare <a href="%{resource_path}">proposte di voto</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     features:
       proposals:
         actions:
@@ -124,10 +144,20 @@ it:
             attachment_legend: "(Opzionale) Aggiungere un allegato"
             select_a_category: Scegli una categoria
           index:
+            actions: Azioni
+            cancel: Annulla
+            change_category: Cambia categoria
+            selected: selezionato
             title: Proposte
+            update: Aggiornare
           new:
             create: Crea
             title: Crea una proposta
+          update_category:
+            invalid: 'Queste proposte avevano già la categoria %{category} : %{proposals}.'
+            select_a_category: Si prega di selezionare una categoria
+            select_a_proposal: Si prega di selezionare una proposta
+            success: 'Proposte aggiornate con successo alla categoria %{category} : %{proposals}.'
         proposals_imports:
           create:
             invalid: C'è stato un problema nell'importazione delle proposte
