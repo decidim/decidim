@@ -101,6 +101,16 @@ es:
             email_outro: Has recibido esta notificación porque estás siguiendo a %{author_nickname}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
             email_subject: Nuevo debate de %{author_nickname}
             notification_title: El debate <a href="%{resource_path}">%{resource_title}</a> fue creado por <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        creation_disabled:
+          email_intro: 'La creación de debate ya no está activa en %{participatory_space_title}. Aún puede participar en debates abiertos desde esta página:'
+          email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: Creación de debate deshabilitada en %{participatory_space_title}
+          notification_title: La creación de debate ahora está deshabilitada en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: '¡Ahora puede comenzar nuevos debates en %{participatory_space_title}! Comience a participar en esta página:'
+          email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: Debates ahora disponibles en %{participatory_space_title}
+          notification_title: Ahora puede comenzar <a href="%{resource_path}">nuevos debates</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     features:
       debates:
         actions:
