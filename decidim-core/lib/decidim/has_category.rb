@@ -13,6 +13,11 @@ module Decidim
 
       validate :category_belongs_to_organization
 
+      def previous_category
+        return if categorization.versions.count <= 1
+        Decidim::Category.find_by(id: categorization.versions.last.reify.decidim_category_id)
+      end
+
       private
 
       def category_belongs_to_organization
