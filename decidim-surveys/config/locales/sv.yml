@@ -7,6 +7,18 @@ sv:
         mandatory: Obligatorisk
         question_type: Typ
   decidim:
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Undersökningen %{resource_title} i %{participatory_space_title} har stängts.
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: En undersökning har slutförts på %{participatory_space_title}
+          notification_title: Undersökningen <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> har slutförts.
+        survey_opened:
+          email_intro: 'Undersökningen %{resource_title} i %{participatory_space_title} är nu öppen. Du kan delta i det från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: En ny undersökning i %{participatory_space_title}
+          notification_title: Undersökningen <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> är nu öppen.
     features:
       surveys:
         actions:
