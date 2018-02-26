@@ -49,10 +49,12 @@ module Decidim
     end
 
     #------------------------------------------------------------------
+
     private
+
     #------------------------------------------------------------------
     def contents_to_searchable_rsrc_attrs(fields, locale)
-      contents= fields[:i18n][locale]
+      contents = fields[:i18n][locale]
       content_a = contents[:A]&.join(" ")
       content_b = contents[:B]&.join(" ")
       content_c = contents[:C]&.join(" ")

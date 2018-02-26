@@ -3,7 +3,7 @@
 module Decidim
   class SearchesController < Decidim::ApplicationController
     include Rectify::ControllerHelpers
-    #include Paginable
+    # include Paginable
     skip_authorization_check
     helper_method :term
 
@@ -16,14 +16,17 @@ module Decidim
     end
 
     #--------------------------------------------------------------
+
     private
+
     #--------------------------------------------------------------
 
     def term
       @term ||= params[:term]
     end
+
     def filters
-      @filters ||= params[:filter]&.permit(%i[resource_type scope_id])&.to_h
+      @filters ||= params[:filter]&.permit([:resource_type, :scope_id])&.to_h
     end
   end
 end
