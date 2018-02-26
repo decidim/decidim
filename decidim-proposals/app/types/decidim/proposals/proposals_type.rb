@@ -10,19 +10,25 @@ module Decidim
       description "A proposals component of a participatory space."
 
       connection :proposals, ProposalType.connection_type do
-        resolve -> (feature, _args, _ctx) {
-                  Proposal.where(
-                    feature: feature
-                  ).limit(5)
+        resolve ->(feature, _args, _ctx) {
+                  ProposalsTypeHelper.base_scope(feature).includes(:feature).published
                 }
       end
 
-      field(:proposal, ProposalType.connection_type) do
+      field(:proposal, ProposalType) do
         argument :id, !types.ID
 
-        resolve -> (feature, args, _ctx) {
-          Proposal.where(feature: feature).find(args[:id])
+        resolve ->(feature, args, _ctx) {
+          ProposalsTypeHelper.base_scope(feature).find(args[:id])
         }
+      end
+    end
+
+    module ProposalsTypeHelper
+      def self.base_scope(feature)
+        Proposal
+          .where(feature: feature)
+          .published
       end
     end
   end

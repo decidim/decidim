@@ -13,7 +13,7 @@ Decidim.register_feature(:proposals) do |feature|
 
   feature.actions = %w(endorse vote create withdraw)
 
-  feature.api_type = "Decidim::Proposals::ProposalsType"
+  feature.query_type = "Decidim::Proposals::ProposalsType"
 
   feature.settings(:global) do |settings|
     settings.attribute :vote_limit, type: :integer, default: 0
