@@ -1,7 +1,7 @@
 <h2 class="section-heading">Card de propuesta</h2>
 <div class="row">
   <div class="columns small-12 medium-6">
-    <p>Propuesta aceptada</p>
+    <pre>Propuesta aceptada</pre>
     <article class="card card--proposal success">
       <div class="card__content">
         <div class="card__header">
@@ -15,9 +15,9 @@
           </div>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <span class="card__text--status success">aceptada</span><%= Faker::Hipster.paragraph[0..140] %>
-          </p>
+          </div>
           <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
         </div>
       </div>
@@ -57,7 +57,7 @@
     </article>
   </div>
   <div class="columns small-12 medium-6">
-    <p>Propuesta apoyada</p>
+    <pre>Propuesta apoyada</pre>
     <article class="card card--proposal success">
       <div class="card__content">
         <div class="card__header">
@@ -71,9 +71,9 @@
           </div>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <span class="card__text--status success">aceptada</span><%= Faker::Hipster.paragraph[0..140] %>
-          </p>
+          </div>
           <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
         </div>
       </div>
@@ -115,7 +115,7 @@
 </div>
 <div class="row">
   <div class="columns small-12 medium-6">
-    <p>Propuesta siguiendo</p>
+    <pre>Propuesta siguiendo</pre>
     <article class="card card--proposal success">
       <div class="card__content">
         <div class="card__header">
@@ -129,9 +129,9 @@
           </div>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <span class="card__text--status success">aceptada</span><%= Faker::Hipster.paragraph[0..140] %>
-          </p>
+          </div>
           <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
         </div>
       </div>
@@ -177,7 +177,7 @@
 <h2 class="section-heading">Card de iniciativa</h2>
 <div class="row">
   <div class="columns small-12 medium-6">
-    <p>Iniciativa</p>
+    <pre>Iniciativa</pre>
     <article class="card card--initiative success">
       <div class="card__content">
         <div class="card__header">
@@ -204,9 +204,9 @@
           </div>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <span class="card__text--status success">aceptada</span><%= Faker::Hipster.paragraph[0..140] %>
-          </p>
+          </div>
           <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
         </div>
       </div>
@@ -246,8 +246,8 @@
     </article>
   </div>
   <div class="columns small-12 medium-6">
-    <p>Iniciativa con etiqueta</p>
-    <article class="card card--initiative success">
+    <pre>Iniciativa con etiqueta (incompleto)</pre>
+    <article class="card card--initiative success" style="opacity:.3">
       <div class="card__label--container">
         <div class="card__label muted">initiative</div>
       </div>
@@ -263,9 +263,9 @@
           </div>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <span class="card__text--status success">aceptada</span><%= Faker::Hipster.paragraph[0..140] %>
-          </p>
+          </div>
           <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
         </div>
       </div>
@@ -311,7 +311,7 @@
 <h2 class="section-heading">Card de debate</h2>
 <div class="row">
   <div class="columns small-12 medium-6">
-    <p>Debate</p>
+    <pre>Debate</pre>
     <article class="card card--debate">
       <div class="card__content">
         <div class="card__header">
@@ -325,10 +325,9 @@
           </div>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <%= Faker::Hipster.paragraph[0..140] %>
-          </p>
-          <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
+          </div>
         </div>
       </div>
       <div class="card__status">
@@ -365,8 +364,8 @@
     </article>
   </div>
   <div class="columns small-12 medium-6">
-    <p>Debate con etiqueta</p>
-    <article class="card card--debate">
+    <pre>Debate con etiqueta (incompleto)</pre>
+    <article class="card card--debate" style="opacity:.3">
       <div class="card__label--container">
         <div class="card__label muted">debate</div>
       </div>
@@ -382,10 +381,9 @@
           </div>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <%= Faker::Hipster.paragraph[0..140] %>
-          </p>
-          <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
+          </div>
         </div>
       </div>
       <div class="card__status">
@@ -424,7 +422,7 @@
 </div>
 <div class="row">
   <div class="columns small-12 medium-6">
-    <p>Debate con fecha</p>
+    <pre>Debate con fecha</pre>
     <article class="card card--debate">
       <div class="card__content">
         <div class="card__header">
@@ -438,10 +436,9 @@
           </div>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <%= Faker::Hipster.paragraph[0..140] %>
-          </p>
-          <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
+          </div>
         </div>
       </div>
       <div class="card__dateplace">
@@ -496,7 +493,7 @@
 <h2 class="section-heading">Card de blog</h2>
 <div class="row">
   <div class="columns small-12 medium-6">
-    <p>Blog</p>
+    <pre>Blog</pre>
     <article class="card card--blog">
       <div class="card__content">
         <div class="card__header">
@@ -510,10 +507,9 @@
           </div>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <%= Faker::Hipster.paragraph[0..140] %>
-          </p>
-          <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
+          </div>
         </div>
       </div>
       <div class="card__status">
@@ -550,8 +546,8 @@
     </article>
   </div>
   <div class="columns small-12 medium-6">
-    <p>Blog con etiqueta</p>
-    <article class="card card--blog">
+    <pre>Blog con etiqueta (incompleto)</pre>
+    <article class="card card--blog" style="opacity:.3">
       <div class="card__label--container">
         <div class="card__label muted">blog</div>
       </div>
@@ -567,10 +563,9 @@
           </div>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <%= Faker::Hipster.paragraph[0..140] %>
-          </p>
-          <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
+          </div>
         </div>
       </div>
       <div class="card__status">
@@ -613,7 +608,7 @@
 <h2 class="section-heading">Card de encuentro</h2>
 <div class="row">
   <div class="columns small-12 medium-6">
-    <p>Encuentro</p>
+    <pre>Encuentro</pre>
     <article class="card card--meeting">
       <div class="card__content">
         <div class="card__header">
@@ -624,9 +619,9 @@
           <% end %>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <%= Faker::Hipster.paragraph[0..140] %>
-          </p>
+          </div>
         </div>
       </div>
       <div class="card__dateplace">
@@ -689,7 +684,7 @@
     </article>
   </div>
   <div class="columns small-12 medium-6">
-    <p>Encuentro asistiendo</p>
+    <pre>Encuentro asistiendo</pre>
     <article class="card card--meeting">
       <div class="card__content">
         <div class="card__header">
@@ -700,9 +695,9 @@
           <% end %>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <%= Faker::Hipster.paragraph[0..140] %>
-          </p>
+          </div>
         </div>
       </div>
       <div class="card__dateplace">
@@ -767,8 +762,8 @@
 </div>
 <div class="row">
   <div class="columns small-12 medium-6">
-    <p>Encuentro con etiqueta</p>
-    <article class="card card--meeting">
+    <pre>Encuentro con etiqueta (incompleto)</pre>
+    <article class="card card--meeting" style="opacity:.3">
       <div class="card__label--container">
         <div class="card__label muted">meeting</div>
       </div>
@@ -781,9 +776,9 @@
           <% end %>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <%= Faker::Hipster.paragraph[0..140] %>
-          </p>
+          </div>
         </div>
       </div>
       <div class="card__dateplace">
@@ -848,7 +843,7 @@
 </div>
 <div class="row">
   <div class="columns small-12 medium-6">
-    <p>Encuentro con menos información</p>
+    <pre>Encuentro con menos información</pre>
     <article class="card card--meeting">
       <div class="card__content">
         <div class="card__header">
@@ -859,9 +854,9 @@
           <% end %>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <%= Faker::Hipster.paragraph[0..140] %>
-          </p>
+          </div>
         </div>
       </div>
       <div class="card__dateplace">
@@ -923,7 +918,7 @@
     </article>
   </div>
   <div class="columns small-12 medium-6">
-    <p>Encuentro con menos información</p>
+    <pre>Encuentro con menos información</pre>
     <article class="card card--meeting">
       <div class="card__content">
         <div class="card__header">
@@ -934,9 +929,9 @@
           <% end %>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <%= Faker::Hipster.paragraph[0..140] %>
-          </p>
+          </div>
         </div>
       </div>
       <div class="card__dateplace">
@@ -987,7 +982,7 @@
 </div>
 <div class="row">
   <div class="columns small-12 medium-6">
-    <p>Encuentro sin posibilidad de seguir</p>
+    <pre>Encuentro sin posibilidad de seguir</pre>
     <article class="card card--meeting">
       <div class="card__content">
         <div class="card__header">
@@ -998,9 +993,9 @@
           <% end %>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <%= Faker::Hipster.paragraph[0..140] %>
-          </p>
+          </div>
         </div>
       </div>
       <div class="card__dateplace">
@@ -1064,7 +1059,7 @@
 <h2 class="section-heading">Cards con diversos estados</h2>
 <div class="row">
   <div class="columns small-12 medium-6">
-    <p>Propuesta con estado: aceptada</p>
+    <pre>Propuesta con estado: aceptada</pre>
     <article class="card card--proposal success">
       <div class="card__content">
         <div class="card__header">
@@ -1078,9 +1073,9 @@
           </div>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <span class="card__text--status success">aceptada</span><%= Faker::Hipster.paragraph[0..140] %>
-          </p>
+          </div>
           <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
         </div>
       </div>
@@ -1120,7 +1115,7 @@
     </article>
   </div>
   <div class="columns small-12 medium-6">
-    <p>Propuesta con estado: rechazada</p>
+    <pre>Propuesta con estado: rechazada</pre>
     <article class="card card--proposal alert">
       <div class="card__content">
         <div class="card__header">
@@ -1134,9 +1129,9 @@
           </div>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <span class="card__text--status alert">rechazada</span><%= Faker::Hipster.paragraph[0..140] %>
-          </p>
+          </div>
           <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
         </div>
       </div>
@@ -1178,7 +1173,7 @@
 </div>
 <div class="row">
   <div class="columns small-12 medium-6">
-    <p>Iniciativa con estado: en evaluación</p>
+    <pre>Iniciativa con estado: en evaluación</pre>
     <article class="card card--initiative warning">
       <div class="card__content">
         <div class="card__header">
@@ -1205,9 +1200,9 @@
           </div>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <span class="card__text--status warning">en evaluación</span><%= Faker::Hipster.paragraph[0..140] %>
-          </p>
+          </div>
           <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
         </div>
       </div>
@@ -1247,7 +1242,7 @@
     </article>
   </div>
   <div class="columns small-12 medium-6">
-    <p>Iniciativa con estado: sin respuesta</p>
+    <pre>Iniciativa con estado: sin respuesta</pre>
     <article class="card card--initiative muted">
       <div class="card__content">
         <div class="card__header">
@@ -1274,9 +1269,9 @@
           </div>
         </div>
         <div class="card__text">
-          <p class="card__text--paragraph">
+          <div class="card__text--paragraph">
             <span class="card__text--status muted">sin respuesta</span><%= Faker::Hipster.paragraph[0..140] %>
-          </p>
+          </div>
           <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
         </div>
       </div>
