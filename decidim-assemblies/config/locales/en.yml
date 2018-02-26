@@ -141,6 +141,7 @@ en:
             see_all_assemblies: See all assemblies
       show:
         area: Area
+        children: Assemblies
         developer_group: Developer group
         local_area: Local area
         participatory_scope: Participatory scope

@@ -30,6 +30,9 @@ module Decidim
 
     has_many :features, as: :participatory_space, dependent: :destroy
 
+    has_many :children, foreign_key: "parent_id", class_name: "Decidim::Assembly", inverse_of: :parent, dependent: :destroy
+    belongs_to :parent, foreign_key: "parent_id", class_name: "Decidim::Assembly", inverse_of: :children, optional: true, counter_cache: :children_count
+
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
 
@@ -53,6 +56,18 @@ module Decidim
 
     def to_param
       slug
+    end
+
+    def ancestors
+      @ancestors ||= begin
+        current_assembly = self
+        [].tap do |ancestors|
+          until current_assembly.parent.nil?
+            current_assembly = current_assembly.parent
+            ancestors.unshift current_assembly
+          end
+        end
+      end
     end
   end
 end
