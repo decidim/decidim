@@ -59,7 +59,7 @@ module Decidim
           it "creates a new vote for the proposal" do
             expect do
               command.call
-            end.to change { ProposalVote.count }.by(1)
+            end.to change(ProposalVote, :count).by(1)
           end
         end
       end

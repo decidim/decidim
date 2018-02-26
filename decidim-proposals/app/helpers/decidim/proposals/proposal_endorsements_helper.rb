@@ -99,7 +99,8 @@ module Decidim
         current_endorsement_url = proposal_proposal_endorsement_path(
           proposal_id: proposal,
           from_proposals_list: false,
-          user_group_id: user_group&.id
+          user_group_id: user_group&.id,
+          authenticity_token: form_authenticity_token
         )
         presenter = if user_group
                       Decidim::UserGroupPresenter.new(user_group)
