@@ -56,6 +56,11 @@ ca:
           email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
           email_subject: S'ha rebutjat una proposta que segueixes
           notification_title: S'ha rebutjat la proposta <a href="%{resource_path}">%{resource_title}</a>.
+        proposal_update_category:
+          email_intro: 'Un administrador ha actualitzat la categoria de la vostra proposta "%{resource_title}", fes-la una ullada:'
+          email_outro: Heu rebut aquesta notificació perquè sou l'autor de la proposta.
+          email_subject: S'ha actualitzat la categoria de proposta %{resource_title}
+          notification_title: La categoria de proposta <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada per un administrador.
         voting_enabled:
           email_intro: 'Podeu votar propostes a %{participatory_space_title}. Comença a participar en aquesta pàgina:'
           email_outro: Heu rebut aquesta notificació perquè esteu seguint %{participatory_space_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
@@ -139,10 +144,17 @@ ca:
             attachment_legend: "(Opcional) Afegiu un fitxer adjunt"
             select_a_category: Selecciona una categoria
           index:
+            actions: Accions
+            cancel: Cancel · lar
+            change_category: Canvia la categoria
+            selected: seleccionat
             title: Propostes
+            update: Actualització
           new:
             create: Crear
             title: Crear proposta
+          update_category:
+            invalid: 'Aquestes propostes ja tenien la categoria %{category} : %{proposals}.'
         proposals_imports:
           create:
             invalid: Hi ha hagut un problema important les propostes
