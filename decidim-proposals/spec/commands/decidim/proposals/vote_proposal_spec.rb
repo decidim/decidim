@@ -18,7 +18,7 @@ module Decidim
           it "creates a new vote for the proposal" do
             expect do
               command.call
-            end.to change { ProposalVote.count }.by(1)
+            end.to change(ProposalVote, :count).by(1)
           end
         end
 
@@ -36,7 +36,7 @@ module Decidim
           it "doesn't create a new vote for the proposal" do
             expect do
               command.call
-            end.to change { ProposalVote.count }.by(0)
+            end.to change(ProposalVote, :count).by(0)
           end
         end
 
@@ -59,7 +59,7 @@ module Decidim
           it "creates a new vote for the proposal" do
             expect do
               command.call
-            end.to change { ProposalVote.count }.by(1)
+            end.to change(ProposalVote, :count).by(1)
           end
         end
       end

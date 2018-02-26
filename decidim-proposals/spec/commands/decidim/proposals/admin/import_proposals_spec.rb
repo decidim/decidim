@@ -36,7 +36,7 @@ module Decidim
             it "doesn't create the proposal" do
               expect do
                 command.call
-              end.to change { Proposal.count }.by(0)
+              end.to change(Proposal, :count).by(0)
             end
           end
 

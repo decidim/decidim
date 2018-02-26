@@ -31,7 +31,7 @@ module Decidim
             it "doesn't create the proposal note" do
               expect do
                 command.call
-              end.to change { ProposalVote.count }.by(0)
+              end.to change(ProposalVote, :count).by(0)
             end
           end
 
@@ -47,7 +47,7 @@ module Decidim
             it "creates the proposal notes" do
               expect do
                 command.call
-              end.to change { ProposalNote.count }.by(1)
+              end.to change(ProposalNote, :count).by(1)
             end
           end
         end

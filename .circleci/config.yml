@@ -81,6 +81,9 @@ jobs:
       - run:
           name: Run main folder RSpec
           command: bundle exec rspec
+      - run:
+          name: Run rubocop
+          command: bundle exec rubocop
   core:
     <<: *defaults
     steps:

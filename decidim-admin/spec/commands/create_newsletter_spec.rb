@@ -28,7 +28,7 @@ module Decidim::Admin
         it "doesn't create a newsletter" do
           expect do
             command.call
-          end.not_to change { Decidim::Newsletter.count }
+          end.not_to change(Decidim::Newsletter, :count)
         end
       end
 
@@ -47,7 +47,7 @@ module Decidim::Admin
         it "creates a new category" do
           expect do
             command.call
-          end.to change { Decidim::Newsletter.count }.by(1)
+          end.to change(Decidim::Newsletter, :count).by(1)
         end
 
         it "creates a newsletter with the right attributes" do
