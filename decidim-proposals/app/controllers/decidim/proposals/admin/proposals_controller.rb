@@ -52,8 +52,8 @@ module Decidim
             end
 
             on(:update_proposals_category) do
-              flash.now[:notice] = update_proposals_category_response_oks @response
-              flash.now[:alert] = update_proposals_category_response_kos @response
+              flash.now[:notice] = update_proposals_category_response_successful @response
+              flash.now[:alert] = update_proposals_category_response_errored @response
             end
             respond_to do |format|
               format.js
@@ -75,22 +75,22 @@ module Decidim
           @proposal ||= Proposal.where(feature: current_feature).find(params[:id])
         end
 
-        def update_proposals_category_response_oks(response)
-          return if response[:oks].blank?
+        def update_proposals_category_response_successful(response)
+          return if response[:successful].blank?
           I18n.t(
             "proposals.update_category.success",
             category: response[:category_name],
-            proposals: response[:oks].to_sentence,
+            proposals: response[:successful].to_sentence,
             scope: "decidim.proposals.admin"
           )
         end
 
-        def update_proposals_category_response_kos(response)
-          return if response[:kos].blank?
+        def update_proposals_category_response_errored(response)
+          return if response[:errored].blank?
           I18n.t(
             "proposals.update_category.invalid",
             category: response[:category_name],
-            proposals: response[:kos].to_sentence,
+            proposals: response[:errored].to_sentence,
             scope: "decidim.proposals.admin"
           )
         end

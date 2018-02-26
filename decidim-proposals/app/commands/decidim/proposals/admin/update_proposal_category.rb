@@ -12,7 +12,7 @@ module Decidim
         def initialize(category_id, proposal_ids)
           @category = Decidim::Category.find_by id: category_id
           @proposal_ids = proposal_ids
-          @response = { category_name: "", oks: [], kos: [] }
+          @response = { category_name: "", successful: [], errored: [] }
         end
 
         # Executes the command. Broadcasts these events:
@@ -24,8 +24,8 @@ module Decidim
         # Returns @response hash:
         #
         # - :category_name - the translated_name of the category assigned
-        # - :oks - Array of names of the updated proposals
-        # - :kos - Array of names of the proposals not updated because they already had the category assigned
+        # - :successful - Array of names of the updated proposals
+        # - :errored - Array of names of the proposals not updated because they already had the category assigned
         def call
           return broadcast(:invalid_category) if @category.blank?
           return broadcast(:invalid_proposal_ids) if @proposal_ids.blank?
@@ -33,13 +33,13 @@ module Decidim
           @response[:category_name] = @category.translated_name
           Proposal.where(id: @proposal_ids).find_each do |proposal|
             if @category == proposal.category
-              @response[:kos] << proposal.title
+              @response[:errored] << proposal.title
             else
               transaction do
                 update_proposal_category proposal
                 notify_author proposal if proposal.author.present?
               end
-              @response[:oks] << proposal.title
+              @response[:successful] << proposal.title
             end
           end
 
