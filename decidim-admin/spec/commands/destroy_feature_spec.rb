@@ -17,7 +17,7 @@ module Decidim::Admin
 
       it "traces the action" do
         expect(Decidim.traceability)
-          .to receive(:update_with_action!)
+          .to receive(:perform_action!)
           .with("delete", feature, current_user)
 
         subject.call

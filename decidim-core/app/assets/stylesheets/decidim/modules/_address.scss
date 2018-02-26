@@ -7,6 +7,10 @@
   display: flex;
 }
 
+.address--alone{
+  flex-grow: 1;
+}
+
 .address__info{
   display: flex;
   flex-grow: 1;

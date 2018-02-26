@@ -8,7 +8,6 @@ module Decidim
 
     let(:serializer) do
       Class.new do
-        # rubocop:disable RSpec/InstanceVariable
         def initialize(resource)
           @resource = resource
         end

@@ -3,10 +3,16 @@ $card-padding-small: 1rem;
 .card-title{
   @include smallcaps;
 
+  button:not(.clear){
+    @include smallcaps;
+  }
+
+  // clearfix if there is no flex--* class in the same element
+  &:not([class*="flex--"]){
+    @include clearfix;
+  }
+
   font-size: 1rem;
-
-  @include clearfix;
-
   width: 100%;
 }
 
@@ -86,4 +92,9 @@ $card-padding-small: 1rem;
 .card--list__heading{
   margin-bottom: 0;
   display: block;
+}
+
+.card-divider--reduced{
+  // height adjust
+  padding: (($global-padding / 2) + rem-calc(.7)) $global-padding;
 }

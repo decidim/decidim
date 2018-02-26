@@ -118,6 +118,14 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_can_accumulate_supports_beyond_threshold do
+      settings do
+        {
+          can_accumulate_supports_beyond_threshold: true
+        }
+      end
+    end
   end
 
   factory :proposal, class: "Decidim::Proposals::Proposal" do

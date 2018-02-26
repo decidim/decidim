@@ -42,6 +42,16 @@ module Decidim
           config.abilities += ["Decidim::Proposals::Abilities::CurrentUserAbility"]
         end
       end
+
+      initializer "decidim_changes" do
+        Decidim::SettingsChange.subscribe "surveys" do |changes|
+          Decidim::Proposals::SettingsChangeJob.perform_later(
+            changes[:feature_id],
+            changes[:previous_settings],
+            changes[:current_settings]
+          )
+        end
+      end
     end
   end
 end

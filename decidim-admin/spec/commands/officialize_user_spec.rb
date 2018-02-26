@@ -29,7 +29,7 @@ module Decidim::Admin
       it "does not officialize users" do
         subject.call
 
-        expect { subject.call }.not_to change { Decidim::User.where(officialized_at: nil).count }
+        expect { subject.call }.not_to change(Decidim::User.where(officialized_at: nil), :count)
       end
     end
 

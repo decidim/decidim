@@ -36,7 +36,6 @@ require "paper_trail"
 require "decidim/api"
 
 require "decidim/query_extensions"
-require "decidim/i18n_exceptions"
 
 module Decidim
   module Core
@@ -96,7 +95,9 @@ module Decidim
       end
 
       initializer "decidim.query_extensions" do
-        QueryExtensions.extend!(Decidim::Api::QueryType)
+        Decidim::Api::QueryType.define do
+          Decidim::QueryExtensions.define(self)
+        end
       end
 
       initializer "decidim.i18n_exceptions" do

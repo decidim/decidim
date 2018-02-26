@@ -10,6 +10,7 @@ module Decidim
 
       routes do
         resources :proposals, only: [:index, :new, :create] do
+          post :update_category, on: :collection
           collection do
             resource :proposals_import, only: [:new, :create]
           end
@@ -18,6 +19,10 @@ module Decidim
         end
 
         root to: "proposals#index"
+      end
+
+      initializer "decidim_proposals.admin_assets" do |app|
+        app.config.assets.precompile += %w(admin/decidim_proposals_manifest.js)
       end
 
       initializer "decidim_proposals.inject_abilities_to_user" do |_app|
