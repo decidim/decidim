@@ -32,8 +32,14 @@ module Decidim
 
       private
 
+      def configured_permissions
+        @form.permissions.select do |_action, permission|
+          permission.authorization_handler_name.present?
+        end
+      end
+
       def update_permissions
-        permissions = @form.permissions.inject({}) do |result, (key, value)|
+        permissions = configured_permissions.inject({}) do |result, (key, value)|
           serialized = {
             "authorization_handler_name" => value.authorization_handler_name,
             "options" => value.options

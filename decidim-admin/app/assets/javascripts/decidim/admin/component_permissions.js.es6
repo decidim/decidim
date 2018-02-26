@@ -4,9 +4,9 @@
   const { SubformTogglerComponent } = exports.DecidimAdmin;
 
   const subformToggler = new SubformTogglerComponent({
-    controllerSelect: $("select#impersonate_user_authorization_handler_name"),
+    controllerSelect: $("select[name$=\\[authorization_handler_name\\]]"),
     subformWrapperClass: "authorization-handler",
-    globalWrapperSelector: "form"
+    globalWrapperSelector: "fieldset"
   });
 
   subformToggler.run();
