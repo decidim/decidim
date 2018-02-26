@@ -16,6 +16,16 @@ ca:
   decidim:
     events:
       proposals:
+        creation_enabled:
+          email_intro: 'Ara pots crear noves propostes a %{participatory_space_title}. Comença a participar en aquesta pàgina:'
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{participatory_space_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Les propostes ja estan disponibles en %{participatory_space_title}
+          notification_title: Ara podeu començar <a href="%{resource_path}">noves propostes</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        endorsing_enabled:
+          email_intro: 'Podeu aprovar les propostes a %{participatory_space_title}. Comença a participar en aquesta pàgina:'
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{participatory_space_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: S'ha iniciat l'aprovació de les propostes per %{participatory_space_title}
+          notification_title: Ara podeu començar <a href="%{resource_path}">propostes d'aprovació</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'S''ha acceptat la proposta "%{resource_title}". Pots llegir la resposta des d''aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
@@ -34,6 +44,8 @@ ca:
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, a qui sigueu, acaba d'aprovar una proposta que us pot resultar interessant, revisar-la i contribuir:"
           email_outro: Heu rebut aquesta notificació perquè esteu seguint %{endorser_nickname}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: "%{endorser_nickname} ha aprovat una nova proposta"
+          notification_title: La <a href="%{resource_path}">%{resource_title}</a> proposta ha estat aprovada per <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           email_intro: 'La proposta "%{resource_title}" s''està avaluant actualment. Pots consultar una resposta en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
@@ -44,6 +56,11 @@ ca:
           email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
           email_subject: S'ha rebutjat una proposta que segueixes
           notification_title: S'ha rebutjat la proposta <a href="%{resource_path}">%{resource_title}</a>.
+        voting_enabled:
+          email_intro: 'Podeu votar propostes a %{participatory_space_title}. Comença a participar en aquesta pàgina:'
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{participatory_space_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: S'ha iniciat la votació de les propostes per %{participatory_space_title}
+          notification_title: Ara podeu començar <a href="%{resource_path}">propostes de vot</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     features:
       proposals:
         actions:
