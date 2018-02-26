@@ -155,6 +155,9 @@ gl:
             title: Crear proposta
           update_category:
             invalid: 'Estas propostas xa tiñan a categoría %{category} : %{proposals}.'
+            select_a_category: Selecciona unha categoría
+            select_a_proposal: Selecciona unha proposta
+            success: 'As propostas actualizáronse con éxito á categoría %{category} : %{proposals}.'
         proposals_imports:
           create:
             invalid: Produciuse un problema na importación das propostas
