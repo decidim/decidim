@@ -46,6 +46,7 @@ module Decidim
               put :hide
             end
           end
+          resources :assembly_participatory_processes, controller: "assembly_participatory_processes"
         end
 
         scope "/assemblies/:assembly_slug/features/:feature_id/manage" do
