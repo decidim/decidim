@@ -50,7 +50,7 @@ Project management [[See on Waffle.io]](https://waffle.io/decidim/decidim)
 
 TLDR: install gem, generate a Ruby on Rails app, enjoy.
 
-```
+```console
 gem install decidim
 decidim decidim_application
 ```
@@ -60,7 +60,6 @@ We've set up a guide on how to install, set up and upgrade Decidim. See the [Get
 ## How to contribute
 
 See [Contributing](CONTRIBUTING.md).
-
 
 ### Browse Decidim
 
@@ -126,6 +125,7 @@ After you create a development app (`bundle exec rake decidim_application`):
 | [Verification DIBA Census API](https://github.com/diputacioBCN/decidim-diba/tree/master/decidim-diba_census_api)                                     | A decidim package to provice user authorizations agains the Diputació of Barcelona census API                     |
 | [Verification Podemos Census API](https://github.com/podemos-info/decidim-module-census_connector)        | A decidim package to provice user authorizations against the Podemos census API                                                                              |
 | [Votings](https://github.com/podemos-info/decidim-module-votings)                                         | An administrator can add one or more votings to a participatory process or assambly                                                                          |
+
 ## Following our license
 
 If you plan to release your application you'll need to publish it using the same license: GPL Affero 3. We recommend doing that on GitHub before publishing, you can read more on "[Being Open Source From Day One is Especially Important for Government Projects](http://producingoss.com/en/governments-and-open-source.html#starting-open-for-govs)". If you have any trouble you can contact us on [Gitter](https://gitter.im/decidim/decidim).

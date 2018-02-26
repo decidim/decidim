@@ -20,6 +20,14 @@ module Decidim
       where(parent_id: nil)
     end
 
+    def descendants
+      @descendants ||= Category.where(parent_id: id)
+    end
+
+    def translated_name
+      Decidim::CategoryPresenter.new(self).translated_name
+    end
+
     def unused?
       categorizations.empty?
     end

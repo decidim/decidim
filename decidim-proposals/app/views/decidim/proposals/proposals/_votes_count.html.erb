@@ -1,10 +1,26 @@
 <div id="proposal-<%= proposal.id %>-votes-count" class="card__support__data">
   <% if !current_settings.votes_hidden? %>
-    <span class="<%= votes_count_classes(from_proposals_list)[:number] %>">
-      <%= proposal.proposal_votes_count %>
-    </span>
-    <span class="<%= votes_count_classes(from_proposals_list)[:label]  %>">
-      <%= t('.count', count: proposal.proposal_votes_count) %>
-    </span>
+    <% progress ||= proposal.proposal_votes_count || 0 %>
+    <% total ||= proposal.maximum_votes || 0  %>
+    <% percent = (progress.to_f/total) * 100 %>
+    <% vertical ||= from_proposals_list %>
+    <div class="progress__bar<%= (!vertical) ? ' progress__bar--vertical' : '' %>">
+      <div class="progress__bar__title">
+        <span class="progress__bar__number"><%= progress %></span>/<%= total %>
+        <span class="progress__bar__text"><%= t('.count', count: proposal.proposal_votes_count) %></span>
+      </div>
+      <div class="progress progress__bar__bar" role="progressbar" tabindex="0" aria-valuenow="<%= percent %>" aria-valuemin="0" aria-valuetext="<%= percent %> percent" aria-valuemax="100">
+        <div class="progress-meter progress__bar__bar--complete" style="width: <%= percent %>%"></div>
+        <div class="progress__bar__bar--incomplete" style="width:calc(100% - <%= percent %>%);"></div>
+      </div>
+      <div class="progress__bar__subtitle">
+        <% if progress >= total %>
+          <%= t('.most_popular_proposal') %>
+        <% else %>
+          <%= t('.need_more_votes') %>
+        <% end %>
+      </div>
+    </div>
+
   <% end %>
 </div>

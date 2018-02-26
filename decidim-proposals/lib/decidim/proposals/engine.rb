@@ -45,6 +45,16 @@ module Decidim
         end
       end
 
+      initializer "decidim_changes" do
+        Decidim::SettingsChange.subscribe "surveys" do |changes|
+          Decidim::Proposals::SettingsChangeJob.perform_later(
+            changes[:feature_id],
+            changes[:previous_settings],
+            changes[:current_settings]
+          )
+        end
+      end
+
       initializer "decidim_proposals.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/cells")
       end

@@ -86,7 +86,7 @@ module Decidim
       end
 
       def participatory_space
-        return feature.participatory_space if feature
+        feature&.participatory_space
       end
 
       def resource_title

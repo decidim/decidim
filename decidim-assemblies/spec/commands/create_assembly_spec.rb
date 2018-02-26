@@ -8,6 +8,7 @@ module Decidim::Assemblies
 
     let(:organization) { create :organization }
     let(:scope) { create :scope, organization: organization }
+    let(:area) { create :area, organization: organization }
     let(:errors) { double.as_null_object }
     let(:form) do
       instance_double(
@@ -31,6 +32,7 @@ module Decidim::Assemblies
         current_organization: organization,
         scopes_enabled: true,
         scope: scope,
+        area: area,
         errors: errors
       )
     end

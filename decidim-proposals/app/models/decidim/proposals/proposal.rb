@@ -118,6 +118,13 @@ module Decidim
         votes.count >= maximum_votes
       end
 
+      # Public: Can accumulate more votres than maximum for this proposal.
+      #
+      # Returns true if can accumulate, false otherwise
+      def can_accumulate_supports_beyond_threshold
+        feature.settings.can_accumulate_supports_beyond_threshold
+      end
+
       # Checks whether the user can edit the given proposal.
       #
       # user - the user to check for authorship

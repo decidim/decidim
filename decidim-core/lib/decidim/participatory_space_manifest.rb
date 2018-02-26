@@ -22,6 +22,8 @@ module Decidim
     # When not explicitly set, it will use the model name.
     attribute :route_name, String
 
+    attribute :query_type, String, default: "Decidim::Core::ParticipatorySpaceType"
+
     # A String with the feature's icon. The icon must be stored in the
     # engine's assets path.
     attribute :icon, String
