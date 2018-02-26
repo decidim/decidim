@@ -24,8 +24,7 @@ module Decidim::Admin
         expect { subject.call }.to change(Decidim::ActionLog, :count)
 
         action_log = Decidim::ActionLog.last
-        expect(action_log.extra)
-          .to include("version" => { "number" => 2, "id" => an_instance_of(Integer)})
+        expect(action_log.version).to be_present
         expect(action_log.version.event).to eq "destroy"
       end
     end

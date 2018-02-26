@@ -124,20 +124,16 @@ module Decidim
         action,
         user,
         resource,
-        version_params(resource).merge(extra_log_info)
+        version_id(resource),
+        extra_log_info
       )
     end
 
-    def version_params(resource)
-      return {} unless resource.is_a?(Decidim::Traceable)
-      return {} if resource.versions.blank?
+    def version_id(resource)
+      return nil unless resource.is_a?(Decidim::Traceable)
+      return nil if resource.versions.blank?
 
-      {
-        version: {
-          number: resource.versions.count,
-          id: resource.versions.last.id
-        }
-      }
+      resource.versions.last.id
     end
   end
 end

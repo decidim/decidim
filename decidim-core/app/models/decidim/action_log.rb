@@ -25,6 +25,10 @@ module Decidim
                optional: true,
                polymorphic: true
 
+    belongs_to :version,
+               optional: true,
+               class_name: "PaperTrail::Version"
+
     validates :organization, :user, :action, :resource, presence: true
 
     # To ensure records can't be deleted
@@ -35,11 +39,6 @@ module Decidim
     # Returns a Boolean.
     def readonly?
       !new_record?
-    end
-
-    def version
-      @version ||= PaperTrail::Version.find_by(id: extra.dig("version", "id")) ||
-                   PaperTrail::Version.where(item_id: resource_id, item_type: resource_type).order(id: :desc).first
     end
 
     # Public: Finds the correct presenter class for the given

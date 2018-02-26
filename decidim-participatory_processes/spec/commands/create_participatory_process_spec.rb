@@ -86,14 +86,13 @@ module Decidim::ParticipatoryProcesses
       it "traces the creation", versioning: true do
         expect(Decidim::ActionLogger)
           .to receive(:log)
-          .with("create", current_user, a_kind_of(Decidim::ParticipatoryProcess), a_kind_of(Hash))
+          .with("create", current_user, a_kind_of(Decidim::ParticipatoryProcess), a_kind_of(Integer))
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)
 
         action_log = Decidim::ActionLog.last
-        expect(action_log.extra)
-          .to include("version" => { "number" => 1, "id" => an_instance_of(Integer)})
+        expect(action_log.version).to be_present
         expect(action_log.version.event).to eq "create"
       end
 
