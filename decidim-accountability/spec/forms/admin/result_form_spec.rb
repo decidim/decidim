@@ -89,26 +89,29 @@ module Decidim::Accountability
     context "with proposals" do
       let(:proposals_feature) { create :feature, manifest_name: :proposals, participatory_space: participatory_process }
       let!(:proposal) { create :proposal, feature: proposals_feature }
+      subject { described_class.from_model(result).with_context(context) }
+
+      let(:result) do
+        create(
+          :result,
+          feature: current_feature,
+          scope: scope,
+          category: category
+        )
+      end
 
       describe "#proposals" do
+        before do
+          result.link_resources([proposal], "included_proposals")
+        end
         it "returns the available proposals in a way suitable for the form" do
+          proposal_ids= result.linked_resources(:proposals, "included_proposals").pluck(:id)
           expect(subject.proposals)
             .to eq([[proposal.title, proposal.id]])
         end
       end
 
       describe "#map_model" do
-        subject { described_class.from_model(result).with_context(context) }
-
-        let(:result) do
-          create(
-            :result,
-            feature: current_feature,
-            scope: scope,
-            category: category
-          )
-        end
-
         it "sets the proposal_ids correctly" do
           result.link_resources([proposal], "included_proposals")
           expect(subject.proposal_ids).to eq [proposal.id]
