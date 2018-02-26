@@ -16,6 +16,16 @@ sv:
   decidim:
     events:
       proposals:
+        creation_enabled:
+          email_intro: 'Nu kan du skapa nya förslag på %{participatory_space_title}! Börja delta på den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: Förslag som nu finns tillgängliga på %{participatory_space_title}
+          notification_title: Du kan nu starta <a href="%{resource_path}">nya förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        endorsing_enabled:
+          email_intro: 'Du kan godkänna förslag på %{participatory_space_title}! Börja delta på den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: Förslag till godkännande har startat för %{participatory_space_title}
+          notification_title: Du kan nu börja <a href="%{resource_path}">godkänna förslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'Förslaget "%{resource_title}" har godkänts. Du kan läsa svaret på den här sidan:'
           email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
@@ -46,6 +56,16 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
           email_subject: Ett förslag som du följer är avvisat
           notification_title: <a href="%{resource_path}">%{resource_title}</a> förslaget har avslagits.
+        proposal_update_category:
+          email_intro: 'En administratör har uppdaterat kategorin av ditt förslag "%{resource_title}", kolla in det:'
+          email_outro: Du har fått den här meddelandet eftersom du är författaren till förslaget.
+          email_subject: Förslagskategorin %{resource_title} har uppdaterats
+          notification_title: Förslagskategorin <a href="%{resource_path}">%{resource_title}</a> har uppdaterats av en administratör.
+        voting_enabled:
+          email_intro: 'Du kan rösta på förslag på %{participatory_space_title}! Börja delta på den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: Förslagets röstning har börjat för %{participatory_space_title}
+          notification_title: Du kan nu börja <a href="%{resource_path}">röstningsförslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     features:
       proposals:
         actions:
@@ -124,10 +144,20 @@ sv:
             attachment_legend: "(Valfritt) Lägg till en bilaga"
             select_a_category: Välj en kategori
           index:
+            actions: Handlingar
+            cancel: Annullera
+            change_category: Ändra kategori
+            selected: vald
             title: förslag
+            update: Uppdatering
           new:
             create: Skapa
             title: Skapa förslag
+          update_category:
+            invalid: 'Dessa förslag hade redan %{category} kategorin: %{proposals}.'
+            select_a_category: Var god välj en kategori
+            select_a_proposal: Vänligen välj ett förslag
+            success: 'Förslag som har uppdaterats till %{category} kategorin: %{proposals}.'
         proposals_imports:
           create:
             invalid: Det har varit ett problem att importera förslagen
