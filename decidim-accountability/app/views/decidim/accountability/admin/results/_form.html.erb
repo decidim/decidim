@@ -54,12 +54,9 @@
 
     <div class="row column">
       <% if @form.proposals %>
-<!-- testing ------------------------------------------------- -->
-<% 
-# { id: "#{@object_name}_#{attribute}", class: "picker-#{options[:multiple] ? "multiple" : "single"}", name: "#{@object_name}[#{attribute}]" }
-picker_options= { id: "decidim_accountability_proposals", class: "picker-multiple", name: 'result[proposal_ids]', multiple: true }
-prompt_params= { url: 'proposals', text: "Add proposal"}
-%>
+<!-- dataPicker ------------------------------------------------- -->
+<% picker_options= { id: "decidim_accountability_proposals", class: "picker-multiple", name: 'result[proposal_ids]', multiple: true }
+prompt_params= { url: 'proposals', text: "Add proposal"} %>
 <%= form.data_picker(:proposal_objs, picker_options, prompt_params) {|item| { url: 'proposals', text: "##{item.id}- #{item.title}" }} %>
 <script type="application/javascript">
 $(function() {
@@ -90,13 +87,7 @@ $(function() {
   } );
 })
 </script>
-<!-- testing ------------------------------------------------- -->
-
-        <%#= form.select :proposal_ids,
-                        @form.proposals,
-                        {},
-                        { multiple: true, class: "chosen-select" }
-        %>
+<!-- dataPicker ------------------------------------------------- -->
       <% end %>
     </div>
 
