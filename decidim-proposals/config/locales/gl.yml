@@ -56,6 +56,11 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: A proposta que segues foi rexeitada
           notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> foi rexeitada.
+        proposal_update_category:
+          email_intro: 'Un administrador actualizou a categoría da túa proposta "%{resource_title}", comproba isto:'
+          email_outro: Recibiches esta notificación porque es o autor da proposta.
+          email_subject: A categoría de proposta %{resource_title} foi actualizada
+          notification_title: A categoría de proposta <a href="%{resource_path}">%{resource_title}</a> foi actualizada por un administrador.
         voting_enabled:
           email_intro: 'Podes votar propostas en %{participatory_space_title}. Comezar a participar nesta páxina:'
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
@@ -139,10 +144,17 @@ gl:
             attachment_legend: "(Opcional) Engada un anexo"
             select_a_category: Selecciona unha categoría
           index:
+            actions: Accións
+            cancel: Cancelar
+            change_category: Cambiar categoría
+            selected: seleccionado
             title: Propostas
+            update: Actualización
           new:
             create: Crear
             title: Crear proposta
+          update_category:
+            invalid: 'Estas propostas xa tiñan a categoría %{category} : %{proposals}.'
         proposals_imports:
           create:
             invalid: Produciuse un problema na importación das propostas
