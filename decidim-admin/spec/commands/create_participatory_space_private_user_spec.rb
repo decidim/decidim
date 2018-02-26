@@ -6,7 +6,7 @@ module Decidim::Admin
   describe CreateParticipatorySpacePrivateUser do
     subject { described_class.new(form, current_user, privatable_to) }
 
-    let(:privatable_to) { create :participatory_process}
+    let(:privatable_to) { create :participatory_process }
     let!(:email) { "my_email@example.org" }
     let!(:name) { "Weird Guy" }
     let!(:user) { create :user, email: "my_email@example.org", organization: privatable_to.organization }

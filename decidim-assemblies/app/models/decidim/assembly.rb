@@ -40,10 +40,10 @@ module Decidim
     mount_uploader :banner_image, Decidim::BannerImageUploader
 
     scope :visible_for, lambda { |user|
-          joins("LEFT JOIN decidim_participatory_space_private_users ON
-          decidim_participatory_space_private_users.privatable_to_id = decidim_assemblies.id")
-          .where("(private_space = ? and decidim_participatory_space_private_users.decidim_user_id = ?) or private_space = ?", true, user, false)
-          }
+                          joins("LEFT JOIN decidim_participatory_space_private_users ON
+                          decidim_participatory_space_private_users.privatable_to_id = decidim_assemblies.id")
+                            .where("(private_space = ? and decidim_participatory_space_private_users.decidim_user_id = ?) or private_space = ?", true, user, false)
+                        }
 
     # Scope to return only the promoted assemblies.
     #
