@@ -22,7 +22,7 @@ module Decidim::Meetings
       end
 
       it "destroys the registration for the meeting and the user" do
-        expect { subject.call }.to change { Registration.count }.by(-1)
+        expect { subject.call }.to change(Registration, :count).by(-1)
       end
     end
 

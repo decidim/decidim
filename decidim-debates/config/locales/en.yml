@@ -104,6 +104,16 @@ en:
             email_outro: You have received this notification because you are following %{author_nickname}. You can stop receiving notifications following the previous link.
             email_subject: New debate by %{author_nickname}
             notification_title: The <a href="%{resource_path}">%{resource_title}</a> debate was created by <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        creation_disabled:
+          email_intro: 'Debate creation is no longer active in %{participatory_space_title}. You can still participate in opened debates from this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: Debate creation disabled in %{participatory_space_title}
+          notification_title: Debate creation is now disabled in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'You can now start new debates in %{participatory_space_title}! Start participating in this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: Debates now available in %{participatory_space_title}
+          notification_title: You can now start <a href="%{resource_path}">new debates</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     features:
       debates:
         actions:

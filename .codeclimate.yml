@@ -3,9 +3,35 @@
 version: "2"
 
 checks:
+  argument-count:
+    enabled: false
+
+  complex-logic:
+    enabled: false
+
+  file-lines:
+    enabled: false
+
+  identical-code:
+    enabled: false
+
   method-complexity:
-    config:
-      threshold: 9
+    enabled: false
+
+  method-count:
+    enabled: false
+
+  method-lines:
+    enabled: false
+
+  nested-control-flow:
+    enabled: false
+
+  return-statements:
+    enabled: false
+
+  similar-code:
+    enabled: false
 
 plugins:
   bundler-audit:
@@ -45,8 +71,8 @@ plugins:
     enabled: true
 
     exclude_patterns:
-     - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
-     - .rubocop.yml
+      - decidim-comments/app/assets/javascripts/decidim/comments/bundle.js.map
+      - .rubocop.yml
 
   grep:
     enabled: true
@@ -76,9 +102,6 @@ plugins:
       - .github/*
       - CHANGELOG.md
 
-  rubocop:
-    enabled: true
-
   stylelint:
     enabled: true
     exclude_patterns:
@@ -87,6 +110,7 @@ plugins:
 exclude_patterns:
   - "**/vendor/"
   - "decidim-comments/app/assets/javascripts/decidim/comments/bundle.js"
+  - "decidim-comments/app/frontend/support/schema.ts"
   - "node_modules/"
   - "development_app/"
   - "spec/decidim_dummy_app/"

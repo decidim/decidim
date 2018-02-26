@@ -60,7 +60,7 @@ task :check_locale_completeness do
   system({ "ENFORCED_LOCALES" => "en,ca,es", "SKIP_NORMALIZATION" => "true" }, "rspec spec/i18n_spec.rb")
 end
 
-load "decidim-dev/lib/tasks/test_app.rake"
+load "decidim-dev/lib/tasks/generators.rake"
 
 desc "Generates a dummy app for testing"
 task test_app: "decidim:generate_external_test_app"

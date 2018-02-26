@@ -42,7 +42,7 @@ module Decidim::Meetings
         it "does not create another user" do
           expect do
             subject.call
-          end.not_to change { Decidim::User.count }
+          end.not_to change(Decidim::User, :count)
         end
 
         it "sends the invitation instructions" do
@@ -55,7 +55,7 @@ module Decidim::Meetings
         it "creates it" do
           expect do
             subject.call
-          end.to change { Decidim::User.count }.by(1)
+          end.to change(Decidim::User, :count).by(1)
 
           expect(Decidim::User.last.email).to eq(form.email)
         end

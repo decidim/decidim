@@ -29,7 +29,7 @@ module Decidim
         end
 
         it "doesn't create the report" do
-          expect { command.call }.not_to change { Report.count }
+          expect { command.call }.not_to change(Report, :count)
         end
       end
 
@@ -73,7 +73,7 @@ module Decidim
           end
 
           it "doesn't create an additional moderation" do
-            expect { command.call }.not_to change { Moderation.count }
+            expect { command.call }.not_to change(Moderation, :count)
 
             last_moderation = Moderation.last
             expect(last_moderation.report_count).to eq(3)
