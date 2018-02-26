@@ -76,6 +76,7 @@ module Decidim
             )
           end
         end
+      end
 
       initializer "decidim_changes" do
         Decidim::SettingsChange.subscribe "surveys" do |changes|
