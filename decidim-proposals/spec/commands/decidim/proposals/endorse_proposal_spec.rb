@@ -23,7 +23,7 @@ module Decidim
           it "creates a new endorsement for the proposal" do
             expect do
               command.call
-            end.to change { ProposalEndorsement.count }.by(1)
+            end.to change(ProposalEndorsement, :count).by(1)
           end
 
           it "notifies all followers of the endorser that the proposal has been endorsed" do
@@ -57,7 +57,7 @@ module Decidim
           it "doesn't create a new endorsement for the proposal" do
             expect do
               command.call
-            end.not_to change { ProposalEndorsement.count }
+            end.not_to change(ProposalEndorsement, :count)
           end
         end
       end
@@ -79,7 +79,7 @@ module Decidim
           it "Creates an endorsement" do
             expect do
               command.call
-            end.to change { ProposalEndorsement.count }.by(1)
+            end.to change(ProposalEndorsement, :count).by(1)
           end
         end
 

@@ -47,7 +47,7 @@ module Decidim::Budgets
       let(:project) { Project.last }
 
       it "creates the project" do
-        expect { subject.call }.to change { Project.count }.by(1)
+        expect { subject.call }.to change(Project, :count).by(1)
       end
 
       it "sets the scope" do

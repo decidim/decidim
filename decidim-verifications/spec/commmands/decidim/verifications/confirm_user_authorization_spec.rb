@@ -66,7 +66,7 @@ describe Decidim::Verifications::ConfirmUserAuthorization do
     end
 
     it "confirms the authorization for the user" do
-      expect { subject.call }.to change { authorizations.count }.by(1)
+      expect { subject.call }.to change(authorizations, :count).by(1)
     end
   end
 end

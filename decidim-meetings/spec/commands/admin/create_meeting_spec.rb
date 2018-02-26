@@ -46,7 +46,7 @@ module Decidim::Meetings
       let(:meeting) { Meeting.last }
 
       it "creates the meeting" do
-        expect { subject.call }.to change { Meeting.count }.by(1)
+        expect { subject.call }.to change(Meeting, :count).by(1)
       end
 
       it "sets the scope" do
