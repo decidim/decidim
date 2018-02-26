@@ -138,7 +138,7 @@ fr:
           error: Des erreurs se sont produites lors du vote de la proposition.
       proposals:
         display_type:
-          label: Affichage
+          label: 'Affichage :'
         count:
           proposals_count:
             one: 1 proposition
