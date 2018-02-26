@@ -26,6 +26,7 @@ module Decidim
             deactivate_active_steps
             activate_step
             notify_followers
+            publish_step_settings_change
           end
 
           broadcast(:ok)
@@ -37,6 +38,7 @@ module Decidim
 
         def deactivate_active_steps
           step.participatory_process.steps.where(active: true).each do |step|
+            @previous_step = step if step.active?
             step.update_attributes!(active: false)
           end
         end
@@ -52,6 +54,26 @@ module Decidim
             resource: step,
             recipient_ids: step.participatory_process.followers.pluck(:id)
           )
+        end
+
+        def publish_step_settings_change
+          step.participatory_process.features.each do |feature|
+            Decidim::SettingsChange.publish(
+              feature,
+              previous_step_settings(feature).to_h,
+              current_step_settings(feature).to_h
+            )
+          end
+        end
+
+        def current_step_settings(feature)
+          feature.step_settings.fetch(step.id.to_s)
+        end
+
+        def previous_step_settings(feature)
+          return {} unless @previous_step
+
+          feature.step_settings.fetch(@previous_step.id.to_s)
         end
       end
     end

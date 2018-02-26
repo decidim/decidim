@@ -18,7 +18,7 @@ module Decidim
           expect(endorsement).to be_valid
           expect do
             command.call
-          end.to change { ProposalEndorsement.count }.by(-1)
+          end.to change(ProposalEndorsement, :count).by(-1)
         end
 
         it "Decreases the endorsements counter by one" do
@@ -44,7 +44,7 @@ module Decidim
           expect(endorsement).to be_valid
           expect do
             command.call
-          end.to change { ProposalEndorsement.count }.by(-1)
+          end.to change(ProposalEndorsement, :count).by(-1)
         end
 
         it "Do not decreases the endorsement counter by one" do

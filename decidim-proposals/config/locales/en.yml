@@ -17,6 +17,16 @@ en:
   decidim:
     events:
       proposals:
+        creation_enabled:
+          email_intro: 'You can now create new proposals in %{participatory_space_title}! Start participating in this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: Proposals now available in %{participatory_space_title}
+          notification_title: You can now start <a href="%{resource_path}">new proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        endorsing_enabled:
+          email_intro: 'You can endorse proposals in %{participatory_space_title}! Start participating in this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: Proposals endorsing has started for %{participatory_space_title}
+          notification_title: You can now start <a href="%{resource_path}">endorsing proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
           email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
@@ -52,6 +62,11 @@ en:
           email_outro: You have received this notification because you are the author of the proposal.
           email_subject: The %{resource_title} proposal category has been updated
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal category has been updated by an admin.
+        voting_enabled:
+          email_intro: 'You can vote proposals in %{participatory_space_title}! Start participating in this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: Proposals voting has started for %{participatory_space_title}
+          notification_title: You can now start <a href="%{resource_path}">voting proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     features:
       proposals:
         actions:

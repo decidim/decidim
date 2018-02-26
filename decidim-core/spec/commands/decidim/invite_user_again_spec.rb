@@ -26,13 +26,13 @@ module Decidim
       it "regenerates the invitation token" do
         expect do
           command.call
-        end.to change { user.invitation_token }
+        end.to change(user, :invitation_token)
       end
 
       it "regenerates the invitation due date" do
         expect do
           command.call
-        end.to change { user.invitation_due_at }
+        end.to change(user, :invitation_due_at)
       end
     end
 

@@ -7,8 +7,10 @@ module Decidim
       # Public: Initializes the command.
       #
       # reportable - A Decidim::Reportable
-      def initialize(reportable)
+      # current_user - the user performing the action
+      def initialize(reportable, current_user)
         @reportable = reportable
+        @current_user = current_user
       end
 
       # Executes the command. Broadcasts these events:
@@ -27,7 +29,13 @@ module Decidim
       private
 
       def unreport!
-        @reportable.moderation.update_attributes!(report_count: 0, hidden_at: nil)
+        Decidim.traceability.perform_action!(
+          "unreport",
+          @reportable.moderation,
+          @current_user
+        ) do
+          @reportable.moderation.update_attributes!(report_count: 0, hidden_at: nil)
+        end
       end
     end
   end

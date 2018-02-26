@@ -4,6 +4,10 @@
 
 **Added**:
 
+- **decidim-proposals**: Space followers are notified when the proposal can be created, endorsed or voted [\#2794](https://github.com/decidim/decidim/pull/2794)
+- **decidim-debates**: Space followers are notified when the debate creation is enabled or disabled [\#2794](https://github.com/decidim/decidim/pull/2794)
+- **decidim-surveys**: Space followers are notified when a survey is opened or closed [\#2794](https://github.com/decidim/decidim/pull/2794)
+- **decidim-core**: Broadcast feature settings changes [\#2794](https://github.com/decidim/decidim/pull/2794)
 - **decidim-assemblies**: Add a select field for assign an area to assemblies [\#2750](https://github.com/decidim/decidim/pull/2750)
 - **decidim-core**: Add Area and AreaType to Core [\#2750](https://github.com/decidim/decidim/pull/2750)
 - **decidim-proposals**: Proposals can accumulate more votes than the maximum [\#2693](https://github.com/decidim/decidim/pull/2693)
@@ -32,6 +36,8 @@
 - **decidim-admin**: Log feature creation and deletion [\#2792](https://github.com/decidim/decidim/pull/2792)
 - **decidim-admin**: Multiple proposals can be recategorized from the proposal index  [\#2585](https://github.com/decidim/decidim/pull/2585#issuecomment-366902187)
 - **decidim-participatory_processes**: Log process users invites (Creation, update and deletion) [\#2793](https://github.com/decidim/decidim/pull/2793)
+- **decidim-admin**: Log actions on moderations [\#2803](https://github.com/decidim/decidim/pull/2803)
+- **decidim-core**: Enable a "permission_update" hook to be run upon feature permissions update [\#2809](https://github.com/decidim/decidim/pull/2809)
 
 **Changed**:
 
@@ -60,5 +66,6 @@
 - **decidim-assemblies**: Fix editing a process after an error.[\#2653](https://github.com/decidim/decidim/pull/2653)
 - **decidim-core**: Fix missing i18n strings for "Feature published" events. [\#2729](https://github.com/decidim/decidim/pull/2729)
 - **decidim-core**: Fix user invitations by generating their nickname. [\#2783](https://github.com/decidim/decidim/pull/2783)
+- **decidim-core**: Fix authorization modals not reopening [\#2811](https://github.com/decidim/decidim/pull/2811)
 
 Please check [0.9-stable](https://github.com/decidim/decidim/blob/0.9-stable/CHANGELOG.md) for previous changes.

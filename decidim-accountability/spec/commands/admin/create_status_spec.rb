@@ -39,7 +39,7 @@ module Decidim::Accountability
       let(:status) { Status.last }
 
       it "creates the status" do
-        expect { subject.call }.to change { Status.count }.by(1)
+        expect { subject.call }.to change(Status, :count).by(1)
       end
 
       it "sets the name" do

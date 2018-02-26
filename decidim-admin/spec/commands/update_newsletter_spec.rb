@@ -29,9 +29,7 @@ module Decidim::Admin
         end
 
         it "doesn't create a newsletter" do
-          expect do
-            command.call
-          end.not_to change { newsletter.reload.updated_at }
+          expect { command.call }.not_to(change { newsletter.reload.updated_at })
         end
       end
 

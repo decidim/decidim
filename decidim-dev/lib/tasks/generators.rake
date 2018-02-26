@@ -9,6 +9,8 @@ namespace :decidim do
 
     sh "rm -fR spec/decidim_dummy_app", verbose: false
 
+    original_folder = Dir.pwd
+
     Decidim::Generators::AppGenerator.start(
       [
         dummy_app_path,
@@ -19,6 +21,8 @@ namespace :decidim do
         "--demo"
       ]
     )
+
+    Dir.chdir(original_folder)
   end
 
   desc "Generates a dummy app for trying out external modules"
@@ -26,6 +30,8 @@ namespace :decidim do
     dummy_app_path = File.expand_path(File.join(Dir.pwd, "development_app"))
 
     sh "rm -fR development_app", verbose: false
+
+    original_folder = Dir.pwd
 
     Decidim::Generators::AppGenerator.start(
       [
@@ -37,5 +43,7 @@ namespace :decidim do
         "--demo"
       ]
     )
+
+    Dir.chdir(original_folder)
   end
 end
