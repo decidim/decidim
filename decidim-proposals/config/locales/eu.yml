@@ -56,6 +56,11 @@ eu:
           email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Ondorengo proposamen bat baztertu egin da
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena baztertu da.
+        proposal_update_category:
+          email_intro: 'Administratzaileak "%{resource_title}" proposamenaren kategoria eguneratu du, check it out:'
+          email_outro: Jakinarazpen hau jaso duzu proposamenaren egilea delako.
+          email_subject: '%{resource_title} Proposamenaren kategoria eguneratu da'
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamenaren kategoria administratzaile batek eguneratu du.
         voting_enabled:
           email_intro: 'Proposamenak bozkatu ditzakezu %{participatory_space_title}-n! Hasi orri honetan parte hartzea:'
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
@@ -139,10 +144,17 @@ eu:
             attachment_legend: "(Aukerakoa) Gehitu eranskin bat"
             select_a_category: Aukeratu kategoria bat
           index:
+            actions: Ekintzak
+            cancel: Utzi
+            change_category: Aldatu kategoria
+            selected: hautatutako
             title: Proposamenak
+            update: eguneratzearen
           new:
             create: Sortu
             title: Sortu proposamena
+          update_category:
+            invalid: 'Proposamen hauek %{category} kategoria zeuden: %{proposals}.'
         proposals_imports:
           create:
             invalid: Arazo bat izan da proposamenak inportatzea
