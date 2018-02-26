@@ -45,16 +45,16 @@ $spaces: $space ($space * 2);
 
 // flex--cc:
 // justify-content: center;
-// align-items: center;
+// align-items: middle;
 .flex--cc{
   @include flex;
-  @include flex-align($x: center, $y: center);
+  @include flex-align($x: center, $y: middle);
 }
 
 // flex--cc:
 // justify-content: space-between;
-// align-items: center;
+// align-items: middle;
 .flex--sbc{
   @include flex;
-  @include flex-align($x: space-between, $y: center);
+  @include flex-align($x: space-between, $y: middle);
 }
