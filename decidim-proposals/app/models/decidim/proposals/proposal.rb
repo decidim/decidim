@@ -49,16 +49,16 @@ module Decidim
         votes.where(author: user).any?
       end
 
-      def up_vote?(current_user)
-        Decidim::Proposals::ProposalVote.where(author: current_user,  proposal: self, weight: 1).any?
+      def up_voted_by?(user)
+        votes.where(author: user,  proposal: self, weight: 1).any?
       end
 
-      def neutral_vote?(current_user)
-        Decidim::Proposals::ProposalVote.where(author: current_user,  proposal: self, weight: 0).any?
+      def neutral_voted_by?(user)
+        votes.where(author: user,  proposal: self, weight: 0).any?
       end
 
-      def down_vote?(current_user)
-        Decidim::Proposals::ProposalVote.where(author: current_user,  proposal: self, weight: -1).any?
+      def down_voted_by?(user)
+        votes.where(author: user,  proposal: self, weight: -1).any?
       end
 
       # Public: Checks if the organization has given an answer for the proposal.
