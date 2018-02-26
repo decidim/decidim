@@ -17,6 +17,16 @@ en:
   decidim:
     events:
       proposals:
+        creation_enabled:
+          email_intro: 'You can now create new proposals in %{participatory_space_title}! Start participating in this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: Proposals now available in %{participatory_space_title}
+          notification_title: You can now start <a href="%{resource_path}">new proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        endorsing_enabled:
+          email_intro: 'You can endorse proposals in %{participatory_space_title}! Start participating in this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: Proposals endorsing has started for %{participatory_space_title}
+          notification_title: You can now start <a href="%{resource_path}">endorsing proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
           email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
@@ -47,6 +57,16 @@ en:
           email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
           email_subject: A proposal you're following has been rejected
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been rejected.
+        proposal_update_category:
+          email_intro: 'An admin has updated the category of your proposal "%{resource_title}", check it out:'
+          email_outro: You have received this notification because you are the author of the proposal.
+          email_subject: The %{resource_title} proposal category has been updated
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal category has been updated by an admin.
+        voting_enabled:
+          email_intro: 'You can vote proposals in %{participatory_space_title}! Start participating in this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: Proposals voting has started for %{participatory_space_title}
+          notification_title: You can now start <a href="%{resource_path}">voting proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     features:
       proposals:
         actions:
@@ -59,6 +79,7 @@ en:
           global:
             announcement: Announcement
             attachments_allowed: Allow attachments
+            can_accumulate_supports_beyond_threshold: Can accumulate supports beyond threshold
             comments_enabled: Comments enabled
             geocoding_enabled: Geocoding enabled
             maximum_votes_per_proposal: Maximum votes per proposal
@@ -124,10 +145,20 @@ en:
             attachment_legend: "(Optional) Add an attachment"
             select_a_category: Select a category
           index:
+            actions: Actions
+            cancel: Cancel
+            change_category: Change category
+            selected: selected
             title: Proposals
+            update: Update
           new:
             create: Create
             title: Create proposal
+          update_category:
+            invalid: 'These proposals already had the %{category} category: %{proposals}.'
+            select_a_category: Please select a category
+            select_a_proposal: Please select a proposal
+            success: 'Proposals successfully updated to the %{category} category: %{proposals}.'
         proposals_imports:
           create:
             invalid: There's been a problem importing the proposals
@@ -277,7 +308,11 @@ en:
           count:
             one: VOTE
             other: VOTES
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
         voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Each proposal can accumulate more than maximum votes
           maximum_votes_per_proposal:
             description: Each proposal can receive a maximum of %{limit} votes.
           proposal_limit:

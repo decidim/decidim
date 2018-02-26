@@ -19,6 +19,7 @@
         </div>
         <%= decidim_sanitize translated_attribute(current_participatory_space.description) %>
       </div>
+      <%= render_hook(:participatory_space_highlighted_elements) %>
       <%= attachments_for current_participatory_space %>
     </div>
     <div class="section columns medium-5 mediumlarge-4 large-3">

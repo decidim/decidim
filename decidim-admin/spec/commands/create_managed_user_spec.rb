@@ -40,7 +40,7 @@ module Decidim::Admin
         it "doesn't create a user" do
           expect do
             command.call
-          end.not_to change { Decidim::User.count }
+          end.not_to change(Decidim::User, :count)
         end
       end
 
@@ -52,7 +52,7 @@ module Decidim::Admin
         it "creates a managed user" do
           expect do
             command.call
-          end.to change { Decidim::User.count }.by(1)
+          end.to change(Decidim::User, :count).by(1)
 
           user = Decidim::User.last
           expect(user).to be_managed

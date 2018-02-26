@@ -15,7 +15,7 @@ module Decidim::Messaging
       end
 
       it "does not create a conversation" do
-        expect { command.call }.not_to change { Conversation.count }
+        expect { command.call }.not_to change(Conversation, :count)
       end
 
       it "broadcasts invalid" do
@@ -25,7 +25,7 @@ module Decidim::Messaging
       it "does not send notifications" do
         expect do
           perform_enqueued_jobs { command.call }
-        end.not_to change { emails.count }
+        end.not_to change(emails, :count)
       end
     end
 
@@ -39,9 +39,9 @@ module Decidim::Messaging
 
       it "creates a conversation with one message" do
         expect { command.call }
-          .to change { Conversation.count }
+          .to change(Conversation, :count)
           .by(1)
-          .and change { Message.count }
+          .and change(Message, :count)
           .by(1)
       end
 
@@ -52,7 +52,7 @@ module Decidim::Messaging
       it "sends a notification to the recipient" do
         expect do
           perform_enqueued_jobs { command.call }
-        end.to change { emails.count }.by(1)
+        end.to change(emails, :count).by(1)
       end
     end
   end

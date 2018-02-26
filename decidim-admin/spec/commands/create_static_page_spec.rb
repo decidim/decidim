@@ -26,7 +26,7 @@ module Decidim::Admin
         it "doesn't create a page" do
           expect do
             command.call
-          end.not_to change { Decidim::StaticPage.count }
+          end.not_to change(Decidim::StaticPage, :count)
         end
       end
 
@@ -43,7 +43,7 @@ module Decidim::Admin
         it "creates a page in the organization" do
           expect do
             command.call
-          end.to change { organization.static_pages.count }.by(1)
+          end.to change(organization.static_pages, :count).by(1)
         end
       end
     end

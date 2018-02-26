@@ -20,6 +20,10 @@ module Decidim
                foreign_key: "decidim_scope_id",
                class_name: "Decidim::Scope",
                optional: true
+    belongs_to :area,
+               foreign_key: "decidim_area_id",
+               class_name: "Decidim::Area",
+               optional: true
     has_many :categories,
              foreign_key: "decidim_participatory_space_id",
              foreign_type: "decidim_participatory_space_type",

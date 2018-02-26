@@ -31,7 +31,7 @@ module Decidim
         transaction do
           run_before_hooks
 
-          Decidim.traceability.update_with_action!(
+          Decidim.traceability.perform_action!(
             "delete",
             @feature,
             @current_user

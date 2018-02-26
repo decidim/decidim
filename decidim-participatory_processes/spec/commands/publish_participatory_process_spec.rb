@@ -32,7 +32,7 @@ module Decidim::ParticipatoryProcesses
 
       it "traces the action" do
         expect(Decidim.traceability)
-          .to receive(:update_with_action!)
+          .to receive(:perform_action!)
           .with("publish", my_process, user)
 
         subject.call
