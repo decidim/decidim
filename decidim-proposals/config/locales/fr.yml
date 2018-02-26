@@ -16,6 +16,16 @@ fr:
   decidim:
     events:
       proposals:
+        creation_enabled:
+          email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title}! Commencez à participer à cette page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Propositions maintenant disponibles en %{participatory_space_title}
+          notification_title: Vous pouvez maintenant démarrer <a href="%{resource_path}">nouvelles propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        endorsing_enabled:
+          email_intro: 'Vous pouvez approuver des propositions dans %{participatory_space_title}! Commencez à participer à cette page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Les propositions entérinées ont commencé pour %{participatory_space_title}
+          notification_title: Vous pouvez maintenant démarrer <a href="%{resource_path}">endosser les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse dans cette page:'
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez le retirer du lien précédent.
@@ -46,6 +56,16 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez le retirer du lien précédent.
           email_subject: Une proposition que vous suivez a été rejetée
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été rejetée.
+        proposal_update_category:
+          email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}", vérifiez-la:'
+          email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
+          email_subject: La catégorie de proposition %{resource_title} a été mise à jour
+          notification_title: La catégorie de proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
+        voting_enabled:
+          email_intro: 'Vous pouvez voter sur les propositions dans %{participatory_space_title}! Commencez à participer à cette page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Le vote des propositions a commencé pour %{participatory_space_title}
+          notification_title: Vous pouvez maintenant commencer <a href="%{resource_path}">propositions de vote</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     features:
       proposals:
         actions:
@@ -124,10 +144,20 @@ fr:
             attachment_legend: "(Facultatif) Ajouter une pièce jointe"
             select_a_category: Sélectionner une catégorie
           index:
+            actions: actes
+            cancel: Annuler
+            change_category: Changer de catégorie
+            selected: choisi
             title: Propositions
+            update: Mettre à jour
           new:
             create: Créer
             title: Créer une proposition
+          update_category:
+            invalid: 'Ces propositions avaient déjà la catégorie %{category} : %{proposals}.'
+            select_a_category: Veuillez sélectionner une catégorie
+            select_a_proposal: Veuillez sélectionner une proposition
+            success: 'Les propositions ont bien été mises à jour dans la catégorie %{category} : %{proposals}.'
         proposals_imports:
           create:
             invalid: Un problème est survenu lors de l'importation des propositions
