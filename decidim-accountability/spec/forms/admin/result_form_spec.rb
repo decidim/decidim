@@ -87,9 +87,10 @@ module Decidim::Accountability
     end
 
     context "with proposals" do
+      subject { described_class.from_model(result).with_context(context) }
+
       let(:proposals_feature) { create :feature, manifest_name: :proposals, participatory_space: participatory_process }
       let!(:proposal) { create :proposal, feature: proposals_feature }
-      subject { described_class.from_model(result).with_context(context) }
 
       let(:result) do
         create(
@@ -105,7 +106,6 @@ module Decidim::Accountability
           result.link_resources([proposal], "included_proposals")
         end
         it "returns the available proposals in a way suitable for the form" do
-          proposal_ids= result.linked_resources(:proposals, "included_proposals").pluck(:id)
           expect(subject.proposals)
             .to eq([[proposal.title, proposal.id]])
         end
