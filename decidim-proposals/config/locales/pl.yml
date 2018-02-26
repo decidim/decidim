@@ -16,6 +16,16 @@ pl:
   decidim:
     events:
       proposals:
+        creation_enabled:
+          email_intro: 'Możesz teraz tworzyć nowe propozycje w %{participatory_space_title}! Zacznij uczestniczyć w tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Propozycje są teraz dostępne w %{participatory_space_title}
+          notification_title: Możesz teraz uruchomić <a href="%{resource_path}">nowych propozycji</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        endorsing_enabled:
+          email_intro: 'Możesz zgłaszać propozycje w %{participatory_space_title}! Zacznij uczestniczyć w tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Zatwierdzono propozycje dla %{participatory_space_title}
+          notification_title: Możesz teraz uruchomić <a href="%{resource_path}">potwierdzające propozycje</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'Wniosek "%{resource_title}" został zaakceptowany. Możesz przeczytać odpowiedź na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
@@ -46,6 +56,16 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
           email_subject: Propozycja, którą obserwujesz, została odrzucona
           notification_title: <a href="%{resource_path}">%{resource_title}</a> propozycja została odrzucona.
+        proposal_update_category:
+          email_intro: 'Administrator zaktualizował kategorię Twojej propozycji "%{resource_title}", sprawdź to:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ jesteś autorem wniosku.
+          email_subject: Kategoria %{resource_title} propozycji została zaktualizowana
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> kategoria propozycji została zaktualizowana przez administratora.
+        voting_enabled:
+          email_intro: 'Możesz głosować na propozycje w %{participatory_space_title}! Zacznij uczestniczyć w tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Rozpoczęto głosowanie nad propozycjami dla %{participatory_space_title}
+          notification_title: Możesz teraz uruchomić <a href="%{resource_path}">propozycji głosowania</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     features:
       proposals:
         actions:
@@ -124,10 +144,20 @@ pl:
             attachment_legend: "(Opcjonalnie) Dodaj załącznik"
             select_a_category: Wybierz kategorię
           index:
+            actions: działania
+            cancel: Anuluj
+            change_category: Zmień kategorię
+            selected: wybrany
             title: Propozycje
+            update: Aktualizacja
           new:
             create: Stwórz
             title: Utwórz propozycję
+          update_category:
+            invalid: 'Te propozycje miały już kategorię %{category} : %{proposals}.'
+            select_a_category: Proszę wybierz kategorie
+            select_a_proposal: Wybierz propozycję
+            success: 'Propozycje pomyślnie zaktualizowane do kategorii %{category} : %{proposals}.'
         proposals_imports:
           create:
             invalid: Podczas importowania propozycji wystąpił problem
