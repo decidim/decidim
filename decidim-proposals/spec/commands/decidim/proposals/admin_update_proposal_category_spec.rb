@@ -37,6 +37,7 @@ module Decidim
                 expect(proposal).not_to receive(:update_attributes!)
               end
             end
+
             context "when the category is diferent from the proposal's category" do
               before do
                 proposals.each { |p| p.update_attributes!(category: category_one) }
