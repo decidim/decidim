@@ -3,7 +3,7 @@
 module Decidim
   module Assemblies
     module Admin
-      # Controller that allows managing assemblies.
+      # Controller that allows managing assembly participatory process.
       #
       class AssemblyParticipatoryProcessesController < Decidim::Admin::ApplicationController
         include Decidim::Assemblies::Admin::AssemblyParticipatoryProcessesHelper
@@ -25,7 +25,7 @@ module Decidim
           authorize! :new, Decidim::AssemblyParticipatoryProcess
           @form = form(AssemblyParticipatoryProcessForm).from_params(params)
 
-          CreateAssemblyParticipatoryProcess.call(@form, current_assembly) do
+          CreateAssemblyParticipatoryProcess.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("assembly_participatory_processes.create.success", scope: "decidim.admin")
               redirect_to assembly_participatory_processes_path(current_assembly)

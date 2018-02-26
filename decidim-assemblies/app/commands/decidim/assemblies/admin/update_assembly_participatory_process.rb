@@ -3,6 +3,8 @@
 module Decidim
   module Assemblies
     module Admin
+      # A command with all the business logic when updating a new assembly
+      # participatory process
       class UpdateAssemblyParticipatoryProcess < Rectify::Command
         def initialize(assembly_participatory_process, form)
           @assembly_participatory_process = assembly_participatory_process
@@ -33,6 +35,7 @@ module Decidim
 
         def attributes
           {
+            assembly: form.assembly,
             participatory_process: form.participatory_process
           }
         end

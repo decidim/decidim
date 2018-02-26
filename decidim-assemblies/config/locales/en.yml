@@ -66,6 +66,7 @@ en:
         new:
           create: Create
           title: New assembly participatory processes
+        placeholder_participatory_process: Select a related participatory process
         update:
           error: There was an error updated a assembly participatory process.
           success: Assembly participatory process updated successfully for this assembly.
@@ -97,7 +98,7 @@ en:
         assemblies: Assemblies
         assemblies_submenu:
           assembly_admins: Assembly users
-          assembly_participatory_processes: Assembly Participatory Process
+          assembly_participatory_processes: Related Participatory Process
           attachment_collections: Collections
           attachment_files: Files
           attachments: Attachments
@@ -119,7 +120,7 @@ en:
             id: Id
             slug_particpatory_process: Slug participatory process
             title_particpatory_process: Title participatory process
-          name: Assembly Participatory Processes
+          name: Related Participatory Processes
         assembly_user_role:
           fields:
             email: Email
@@ -132,7 +133,7 @@ en:
             moderator: Moderator
       titles:
         assemblies: Assemblies
-        assembly_participatory_processes: Assembly Participatory Processes
+        assembly_participatory_processes: Related Participatory Processes
     assemblies:
       admin:
         assemblies:
