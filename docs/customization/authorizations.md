@@ -24,6 +24,6 @@ You can go see some example code on:
 
 * [Decidim Terrassa](https://github.com/AjuntamentDeTerrassa/decidim-terrassa/blob/master/app/services/census_authorization_handler.rb)
 
-* [Decidim Sant Cugat](https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat/blob/d6b030f58a5c2cbdbf6979530d64c7fb9f6c6d65/app/services/census_authorization_handler.rb)
+* [Decidim Sant Cugat](https://github.com/AjuntamentdeSantCugat/decidim-sant_cugat/blob/master/app/services/census_authorization_handler.rb)
 
 These are just a few examples but mostly all the Municipal installations have somekind of Authorization.
