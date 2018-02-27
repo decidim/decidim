@@ -2,7 +2,6 @@
 
 module Decidim
   module Core
-    # This type represents the current user session.
     StatisticType = GraphQL::ObjectType.define do
       name "Statistic"
       description "Represents a single statistic"
