@@ -214,6 +214,18 @@ pl:
         create: "%{user_name} zaprosił użytkownika %{resource_name} do %{space_name} proces uczestnictwa"
         delete: "%{user_name} usunięto użytkownika %{resource_name} z %{space_name} proces uczestnictwa"
         update: "%{user_name} zmienił rolę użytkownika %{resource_name} w %{space_name} proces uczestnictwa"
+    events:
+      participatory_process:
+        step_activated:
+          email_intro: 'Krok %{resource_title} jest teraz aktywny dla %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Aktualizacja do %{participatory_space_title}
+          notification_title: Krok %{resource_title} jest teraz aktywny dla <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'Daty dla kroku %{resource_title} na %{participatory_space_title} zostały zaktualizowane. Możesz go zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Aktualizacja do %{participatory_space_title}
+          notification_title: Zmieniono daty <a href="%{resource_path}">%{resource_title}</a> kroku <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     menu:
       processes: Procesy
     participatory_process_groups:
