@@ -86,6 +86,7 @@ pl:
             official_proposals_enabled: Oficjalne propozycje
             proposal_answering_enabled: Włączona odpowiedź na pytania
             proposal_edit_before_minutes: Propozycje mogą być edytowane przez autorów przed upływem tych wielu minut
+            proposal_length: Maksymalna długość treści wniosku
             proposal_limit: Limit propozycji dla użytkownika
             proposal_wizard_step_1_help_text: Kreator propozycji "Utwórz" tekst pomocy krok
             proposal_wizard_step_2_help_text: Kreator propozycji "Porównaj" tekst pomocy
