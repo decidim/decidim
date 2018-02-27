@@ -201,6 +201,7 @@ pl:
         create:
           error: Podczas zatwierdzania propozycji wystąpiły błędy.
         identities:
+          done: Gotowe
           select_identity: Wybierz tożsamość
       proposal_endorsements_helper:
         endorsement_button:
@@ -227,8 +228,11 @@ pl:
           already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: Podpisać się
+        endorsements_card_row:
+          endorse: Podpisać się
         endorsements_listing:
-          see_all: widzieć wszystko
+          see_all: Widzieć wszystko
+          see_less: Zobacz mniej
           title: Lista rekomendacji
         filters:
           accepted: Przyjęty
@@ -273,11 +277,13 @@ pl:
           view_proposal: Wyświetl propozycję
         show:
           edit_proposal: Edytuj propozycję
-          endorsements_blocked: Zatwierdzenia zostały zablokowane
           proposal_accepted_reason: 'Niniejszy wniosek został zaakceptowany, ponieważ:'
           proposal_in_evaluation_reason: Niniejszy wniosek jest oceniany
           proposal_rejected_reason: 'Niniejszy wniosek został odrzucony, ponieważ:'
           report: Raport
+          sign_in: Zaloguj
+          sign_in_or_up: "%{in} lub %{up} do wzięcia udziału"
+          sign_up: Zapisz się
           withdraw_btn_hint: Możesz wycofać swoją propozycję, jeśli zmienisz zdanie, o ile nie otrzymałeś żadnego wsparcia. Wniosek nie zostanie usunięty, pojawi się na liście wycofanych wniosków.
           withdraw_confirmation: Czy na pewno chcesz wycofać tę propozycję?
           withdraw_proposal: Wycofaj propozycję
