@@ -41,7 +41,6 @@ plugins:
     enabled: true
     exclude_patterns:
       - "decidim-core/app/assets/stylesheets/decidim/email.css"
-      - "decidim-admin/app/assets/stylesheets/decidim/admin/plugins/jquery.auto-complete.css"
 
   duplication:
     enabled: true
@@ -94,7 +93,6 @@ plugins:
 
     exclude_patterns:
       - "decidim_app-design/**/*"
-      - "decidim-admin/app/assets/javascripts/decidim/admin/jquery.auto-complete.js"
 
 
   markdownlint:
