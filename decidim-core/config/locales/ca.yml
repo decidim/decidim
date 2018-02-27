@@ -53,6 +53,32 @@ ca:
         error: S'ha produït un error en actualitzar el seu compte.
         success: El seu compte s'ha actualitzat correctament.
         success_with_email_confirmation: El teu compte s'ha actualitzat correctament. Rebràs un correu electrònic per confirmar la teva nova adreça de correu electrònic.
+    admin_log:
+      feature:
+        create: "%{user_name} ha afegit la funció %{resource_name} a l'espai %{space_name}"
+        delete: "%{user_name} ha eliminat la funció %{resource_name} de l'espai %{space_name}"
+      moderation:
+        hide: "%{user_name} ha ocultat un recurs del tipus %{resource_type} a l'espai %{space_name}"
+        unreport: "%{user_name} no s'informa un recurs del tipus %{resource_type} a l'espai %{space_name}"
+      newsletter:
+        create: "%{user_name} ha creat el butlletí %{resource_name}"
+        delete: "%{user_name} ha eliminat el butlletí %{resource_name}"
+        deliver: "%{user_name} va lliurar el butlletí %{resource_name}"
+        update: "%{user_name} ha actualitzat el butlletí %{resource_name}"
+      organization:
+        update: "%{user_name} ha actualitzat la configuració de l'organització"
+      static_page:
+        create: "%{user_name} ha creat la pàgina estàtica %{resource_name}"
+        delete: "%{user_name} ha esborrat la pàgina estàtica %{resource_name}"
+        update: "%{user_name} ha actualitzat la pàgina estàtica %{resource_name}"
+      user:
+        invite: "%{user_name} va convidar l'usuari a %{resource_name} amb el rol: %{role}"
+        officialize: "%{user_name} oficialitza l'usuari %{resource_name}"
+        remove_from_admin: "%{user_name} ha eliminat l'usuari %{resource_name} amb el rol: %{role}"
+        unofficialize: "%{user_name} no oficialitzat l'usuari %{resource_name}"
+      user_group:
+        reject: "%{user_name} ha rebutjat la verificació del grup d'usuaris %{resource_name}"
+        verify: "%{user_name} ha verificat el grup d'usuaris %{resource_name}"
     anonymous_user: Anònim
     application:
       collection:
@@ -195,6 +221,15 @@ ca:
         error: Hi ha un error en aquest camp.
       remove_this_file: Eliminar aquest arxiu
     log:
+      base_presenter:
+        create: "%{user_name} creat %{resource_name}"
+        create_with_space: "%{user_name} creat %{resource_name} en %{space_name}"
+        delete: "%{user_name} suprimit %{resource_name}"
+        delete_with_space: "%{user_name} suprimit %{resource_name} en %{space_name}"
+        unknown_action: "%{user_name} va realitzar una acció a %{resource_name}"
+        unknown_action_with_space: "%{user_name} va realitzar una acció a %{resource_name} en %{space_name}"
+        update: "%{user_name} s'ha actualitzat %{resource_name}"
+        update_with_space: "%{user_name} s'ha actualitzat %{resource_name} en %{space_name}"
       value_types:
         scope_presenter:
           not_found: 'L''àmbit d''aplicació no es va trobar a la base de dades (ID: %{id})'
