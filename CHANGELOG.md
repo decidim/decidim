@@ -36,6 +36,7 @@
 - **decidim-admin**: Log user (un)officializations [\#2782](https://github.com/decidim/decidim/pull/2782)
 - **decidim-participatory_processes**: Log process creation and (un)publications [\#2786](https://github.com/decidim/decidim/pull/2786)
 - **decidim-admin**: Log feature creation and deletion [\#2792](https://github.com/decidim/decidim/pull/2792)
+- **decidim-core**: Document async jobs configuration for end applications [\#2640](https://github.com/decidim/decidim/issues/2640)
 - **decidim-admin**: Multiple proposals can be recategorized from the proposal index  [\#2585](https://github.com/decidim/decidim/pull/2585#issuecomment-366902187)
 - **decidim-participatory_processes**: Log process users invites (Creation, update and deletion) [\#2793](https://github.com/decidim/decidim/pull/2793)
 - **decidim-admin**: Log actions on moderations [\#2803](https://github.com/decidim/decidim/pull/2803)
