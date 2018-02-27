@@ -18,7 +18,7 @@
             <div class="side-panel">
               <ul class="tabs vertical side-panel__tabs" id="pattern-library-tabs"
                 data-tabs data-deep-link="true">
-                <li class="tabs-title">
+                <li class="tabs-title is-active">
                   <a href="#patternTypography" aria-selected="true">Tipografía</a>
                 </li>
                 <li class="tabs-title">
@@ -30,7 +30,7 @@
                 <li class="tabs-title">
                   <a href="#patternCards">Tarjetas y contenedores</a>
                 </li>
-                <li class="tabs-title is-active">
+                <li class="tabs-title">
                   <a href="#patternCardsM">Tarjetas tamaño M</a>
                 </li>
                 <li class="tabs-title">
@@ -49,7 +49,7 @@
             <div class="main-container__content">
               <div class="tabs-content vertical"
                 data-tabs-content="pattern-library-tabs">
-                <div class="tabs-panel" id="patternTypography">
+                <div class="tabs-panel is-active" id="patternTypography">
                   <h2 class="section-heading">Encabezados básicos</h2>
                   <p>Lista de encabezados que aparecen en la interfaz.</p>
                   <h1 class="heading1">Encabezado .heading1</h1>
@@ -249,33 +249,6 @@
                     </div>
                   </div>
 
-                  <h2 class="section-heading">Card con footer</h2>
-                  <div class="row">
-                    <div class="small-12 medium-6">
-                      <article class="card card--debate">
-                        <div class="card__content">
-                          <div class="card__header">
-                            <a href="#" class="card__link">
-                              <h5 class="card__title">Título</h5>
-                            </a>
-                          </div>
-                          <p>
-                           Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam…
-                          </p>
-                        </div>
-                        <div class="card__footer">
-                          <div class="card__support">
-                            <div class="card__support__data"></div>
-                            <a href="#" class="button small secondary card__button">
-                              Acción</a>
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                  </div>
-
                   <h2 class="section-heading">Card de proceso</h2>
                   <div class="row">
                     <div class="small-12 medium-6">
@@ -304,167 +277,6 @@
                       </article>
                     </div>
                   </div>
-
-
-                  <h2 class="section-heading">Card de encuentro</h2>
-                  <div class="row">
-                    <div class="small-12 medium-6">
-                      <article class="card">
-                        <div class="card__content">
-                          <div class="card__header">
-                            <h5 class="card__title">
-                              <a href="#" class="card__link">
-                                Título
-                              </a>
-                            </h5>
-                          </div>
-                          <div class="card__datetime">
-                              <div class="card__datetime__date">
-                                20 <span class="card__datetime__month">Ago</span>
-                              </div>
-                              <div class="card__datetime__time">
-                                16:00 - 18:00
-                              </div>
-                            </div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam…
-                          </p>
-                          <div class="address card__extra">
-                            <div class="address__icon">
-                              <%= icon "meetings" %>
-                            </div>
-                            <div class="address__details">
-                              <strong>Seu del Districte Sants-Montjuïc</strong><br>
-                              <span>Carrer de la Creu Coberta, 104</span><br>
-                              <span>Barcelona</span>
-                            </div>
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                  </div>
-
-                  <h2 class="section-heading">Card de debate</h2>
-                  <div class="row">
-                    <div class="small-12 medium-6">
-                      <article class="card card--debate">
-                        <div class="card__content">
-                          <div class="card__header">
-                            <%= link_to page_path("debate-view-AMA"), class: "card__link" do %>
-                              <h5 class="card__title">Título</h5>
-                            <% end %>
-                          </div>
-                          <div class="card__datetime">
-                            <div class="card__datetime__date">
-                              20 <span class="card__datetime__month">Agosto</span>
-                            </div>
-                            <div class="card__datetime__time">
-                              16:00 - 18:00
-                            </div>
-                          </div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam…
-                          </p>
-                        </div>
-                        <div class="card__footer">
-                          <div class="card__support">
-                            <div class="card__support__data"></div>
-                            <a href="#" class="button small secondary card__button">
-                              Acción</a>
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                  </div>
-
-                  <h2 class="section-heading">Card de resultado</h2>
-                  <div class="row">
-                    <div class="small-12 medium-6">
-                      <article class="card card--action">
-                        <div class="card__content">
-                          <%= link_to page_path("action-view"), class: "card__link" do %>
-                            <h5 class="card__title">Título</h5>
-                          <% end %>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam…
-                          </p>
-                        </div>
-                        <div class="card__footer">
-                          <ul class="card-data">
-                            <li class="card-data__item">
-                              <span class="card-data__item__number">130</span>propostes
-                            </li>
-                            <li class="card-data__item">
-                              <span class="card-data__item__number">27</span>suports
-                            </li>
-                            <li class="card-data__item">
-                              <span class="card-data__item__number">2567</span>comentaris
-                            </li>
-                          </ul>
-                        </div>
-                      </article>
-                    </div>
-                  </div>
-
-                  <h2 class="section-heading">Card de blog</h2>
-                  <div class="row">
-                    <div class="small-12 medium-6">
-                      <article class="card card--blog">
-                        <div class="card__content">
-                          <div class="card__header">
-                            <%= link_to page_path("blog-view"), class: "card__link" do %>
-                              <h5 class="card__title">
-                                Exercitationem qui, error ad quas aut ea veritatis eligendi doloribus nobis, quam.
-                              </h5>
-                            <% end %>
-                            <div class="card__author author-data author-data--small">
-                              <div class="author-data__main">
-                                <div class="author author--inline">
-                                  <a href="#" class="author__avatar author__avatar--small">
-                                    <%= image_tag "demo-avatar.jpg" %>
-                                  </a>
-                                  <a href="#" class="author__name">
-                                    Autor
-                                  </a>
-                                  <a href="#" class="author__nickname">
-                                    @autor
-                                  </a>
-                                  <%= icon "verified-badge", class: "author__verified" %>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam…</p>
-                            <a href="#">Economia col·laborativa i gestió</a>
-                        </div>
-                        <div class="card__status">
-                          <ul class="card-data">
-                            <li class="card-data__item"></li>
-                            <li class="card-data__item"></li>
-                            <li class="card-data__item">
-                              01/08/2556
-                            </li>
-                            <li class="card-data__item">
-                              <a href="#comments" title="Comentarios">
-                                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-                                23
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </article>
-                    </div>
-                  </div>
-
 
                   <h2 class="section-heading">Card list</h2>
                   <div class="row">
@@ -677,7 +489,7 @@
 
                 </div>
 
-                <div class="tabs-panel is-active" id="patternCardsM">
+                <div class="tabs-panel" id="patternCardsM">
                   <%= render partial: page_path("cards") + "/m" %>
                 </div>
 

@@ -48,9 +48,11 @@ $datetime-bg: $primary;
 
 .card__content{
   padding: $card-padding-small;
+  padding-bottom: $card-padding-small / 2;
 
   @include breakpoint(medium){
     padding: $card-padding;
+    padding-bottom: $card-padding / 2;
   }
 }
 
@@ -75,7 +77,7 @@ $datetime-bg: $primary;
 }
 
 .card__header{
-  margin-bottom: 1rem;
+  margin-bottom: $card-padding / 2;
 }
 
 .card__button{
@@ -122,7 +124,7 @@ $datetime-bg: $primary;
 
   .card__text--category{
     display: block;
-    margin-top: $global-margin;
+    margin-top: $global-margin / 2;
   }
 }
 
@@ -130,19 +132,6 @@ $datetime-bg: $primary;
   width: 100%;
   max-height: 10rem;
   object-fit: cover;
-}
-
-/* Card meetings */
-.card--meeting{
-  .card__content{
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-
-    .address{
-      margin-top: auto;
-    }
-  }
 }
 
 /* Card datetime */
@@ -216,8 +205,12 @@ $datetime-bg: $primary;
 }
 
 .card__author{
-  margin-top: -.3rem;
   margin-bottom: .5rem;
+
+  // Hack when there's a toggler list
+  [data-toggler]{
+    margin-bottom: -.5rem;
+  }
 }
 
 .card__voting{
@@ -246,7 +239,7 @@ $datetime-bg: $primary;
   flex-grow: 1;
   text-align: center;
   text-transform: uppercase;
-  font-size: 85%;
+  font-size: rem-calc(15);
   line-height: 1;
   color: $muted;
   padding: .5em;
@@ -713,6 +706,16 @@ $datetime-bg: $primary;
       strong{
         color: $body-font-color;
         text-transform: uppercase;
+      }
+
+      .card__icondata--address{
+        color: $body-font-color;
+        line-height: 120%;
+
+        & + a{
+          display: block;
+          margin-top: $global-margin;
+        }
       }
     }
   }
