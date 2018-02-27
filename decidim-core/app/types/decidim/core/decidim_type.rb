@@ -14,6 +14,10 @@ module Decidim
       field :applicationName, !types.String, "The current installation's name." do
         resolve ->(obj, _args, _ctx) { obj.application_name }
       end
+
+      field :rubyVersion, !types.String, "The current ruby version" do
+        resolve ->(_, _, _) { RUBY_VERSION }
+      end
     end
   end
 end

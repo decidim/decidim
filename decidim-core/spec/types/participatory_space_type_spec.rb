@@ -36,6 +36,14 @@ module Decidim
           expect(component_ids).not_to include(*unpublished_components.map(&:id))
         end
       end
+
+      describe "stats" do
+        let(:query) { %({ stats { name value } }) }
+
+        it "show all the stats for this participatory process" do
+          expect(response["stats"]).to include({"name" => "dummies_count_high", "value" => 0})
+        end
+      end
     end
   end
 end
