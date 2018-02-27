@@ -39,6 +39,7 @@
 - **decidim-admin**: Log actions on moderations [\#2803](https://github.com/decidim/decidim/pull/2803)
 - **decidim-core**: Enable a "permission_update" hook to be run upon feature permissions update [\#2809](https://github.com/decidim/decidim/pull/2809)
 - **decidim-participatory_processes**: Adds a basic API including steps and components. [\#2787](https://github.com/decidim/decidim/pull/2787)
+- **decidim-core**: Adds a statistics API to `Organization` and `ParticipatorySpace`. [\#2843](https://github.com/decidim/decidim/pull/2843)
 
 **Changed**:
 
