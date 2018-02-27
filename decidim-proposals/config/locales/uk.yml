@@ -166,14 +166,7 @@ uk:
           already_endorsed_hover: Відкликати підтримку
         endorsement_identities_cabin:
           endorse: Підтримати
-        endorsements_count:
-          count:
-            one: ПІДТРИМКА
-            few: ПІДТРИМКИ
-            many: ПІДТРИМОК
-            other: ПІДТРИМОК
         endorsements_listing:
-          see_all: переглянути всі
           title: Перелік підтримок
         filters:
           accepted: Прийнято
@@ -224,7 +217,6 @@ uk:
           view_proposal: Переглянути пропозицію
         show:
           edit_proposal: Редагувати пропозицію
-          endorsements_blocked: Надання підтримки заблоковано
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'
           proposal_in_evaluation_reason: Ця пропозиція розглядається
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
