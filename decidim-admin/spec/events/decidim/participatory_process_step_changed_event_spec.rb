@@ -2,12 +2,12 @@
 
 require "spec_helper"
 
-describe Decidim::ParticipatoryProcessStepActivatedEvent do
+describe Decidim::ParticipatoryProcessStepChangedEvent do
   include Rails.application.routes.mounted_helpers
 
   include_context "simple event"
 
-  let(:event_name) { "decidim.events.participatory_process.step_activated" }
+  let(:event_name) { "decidim.events.participatory_process.step_changed" }
   let(:participatory_process) { resource.participatory_process }
   let(:participatory_space) { resource.participatory_process }
   let(:resource) { create :participatory_process_step }
@@ -34,7 +34,7 @@ describe Decidim::ParticipatoryProcessStepActivatedEvent do
   describe "email_intro" do
     it "is generated correctly" do
       expect(subject.email_intro)
-        .to eq("The #{resource_title} step is now active for #{participatory_space_title}. You can see it from this page:")
+        .to eq("The dates for the #{resource_title} step at #{participatory_space_title} have been updated. You can see it from this page:")
     end
   end
 
@@ -48,7 +48,7 @@ describe Decidim::ParticipatoryProcessStepActivatedEvent do
   describe "notification_title" do
     it "is generated correctly" do
       expect(subject.notification_title)
-        .to eq("The #{resource_title} step is now active for <a href=\"#{resource_path}\">#{participatory_space_title}</a>")
+        .to eq("The dates for the <a href=\"#{resource_path}\">#{resource_title}</a> step at <a href=\"#{participatory_space_url}\">#{participatory_space_title}</a> have been updated.")
     end
   end
 end
