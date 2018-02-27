@@ -14,7 +14,7 @@ One particular thing about this kind of applications is the need to Authorize a 
 
 * By having a list of valid users emails
 
-Right now Decidim supports only a few of these cases, but we have an internal API where you can program your own kind of authorizations. To create your own AuthorizationHandler for an external API (ie a Municipal Census) you should add a app/services/ file, then activate it on config/initializers/decidim.rb and finally enabling it on /system for the tenant.
+Right now Decidim supports only a few of these cases, but we have an internal API where you can program your own kind of authorizations. To create your own `AuthorizationHandler` for an external API (ie a Municipal Census) you should add a `app/services/` file, then activate it on `config/initializers/decidim.rb` and finally enabling it on `/system` for the tenant.
 
 You can go see some example code on:
 
