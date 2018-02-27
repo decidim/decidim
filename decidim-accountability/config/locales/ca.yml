@@ -95,6 +95,10 @@ ca:
           update:
             invalid: Hi ha hagut un problema en actualitzar aquest element
             success: El element ha estat actualitzat correctament
+      admin_log:
+        result:
+          create: "%{user_name} va crear el resultat %{resource_name} en %{space_name}"
+          update: "%{user_name} resultat actualitzat %{resource_name} en %{space_name}"
       models:
         result:
           fields:
@@ -170,6 +174,14 @@ ca:
             subcategories_label: Nom per a "Subcategories"
           step:
             comments_blocked: Comentaris bloquejats
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Resultats
+    participatory_spaces:
+      highlighted_results:
+        results: Resultats
+        see_all_results: Veure tots els resultats
     resource_links:
       included_projects:
         result_projects: Projectes inclosos en aquest resultat
