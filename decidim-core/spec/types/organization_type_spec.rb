@@ -26,7 +26,7 @@ module Decidim
         let!(:unconfirmed_users) { create_list(:user, 2, organization: model) }
 
         it "show all the stats for this organization" do
-          expect(response["stats"]).to include({"name" => "users_count", "value" => 5})
+          expect(response["stats"]).to include("name" => "users_count", "value" => 5)
         end
       end
     end

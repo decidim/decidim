@@ -41,7 +41,7 @@ module Decidim
         let(:query) { %({ stats { name value } }) }
 
         it "show all the stats for this participatory process" do
-          expect(response["stats"]).to include({"name" => "dummies_count_high", "value" => 0})
+          expect(response["stats"]).to include("name" => "dummies_count_high", "value" => 0)
         end
       end
     end
