@@ -28,10 +28,8 @@ module Decidim
     #
     # Returns an instance of `klass`.
     def create(klass, author, params, extra_log_info = {})
-      perform_action!(:create, klass, author) do
-        resource = klass.create(params)
-        log(:create, author, resource, extra_log_info)
-        resource
+      perform_action!(:create, klass, author, extra_log_info) do
+        klass.create(params)
       end
     end
 
@@ -43,10 +41,8 @@ module Decidim
     #
     # Returns an instance of `klass`.
     def create!(klass, author, params, extra_log_info = {})
-      perform_action!(:create, klass, author) do
-        resource = klass.create!(params)
-        log(:create, author, resource, extra_log_info)
-        resource
+      perform_action!(:create, klass, author, extra_log_info) do
+        klass.create!(params)
       end
     end
 
