@@ -125,6 +125,12 @@ $datetime-bg: $primary;
   }
 }
 
+.card__image{
+  width: 100%;
+  max-height: 10rem;
+  object-fit: cover;
+}
+
 /* Card meetings */
 .card--meeting{
   .card__content{
@@ -673,7 +679,7 @@ $datetime-bg: $primary;
 }
 
 // card date-place
-.card__dateplace{
+.card__icondata{
   ul{
     align-items: stretch;
     border-top: $border;
@@ -694,7 +700,7 @@ $datetime-bg: $primary;
       flex: 0;
     }
 
-    li:last-child{
+    li:not(:first-child){
       font-size: $global-font-size;
       text-transform: none;
       justify-content: left;
