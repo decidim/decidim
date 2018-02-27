@@ -86,6 +86,7 @@ ca:
             official_proposals_enabled: Propostes oficials habilitades
             proposal_answering_enabled: Resposta oficial a propostes activades
             proposal_edit_before_minutes: Les propostes poden ser editades pels autors abans que passin aquest nombre de minuts
+            proposal_length: Durada màxima del cos de la proposta
             proposal_limit: Límit de propostes per usuari
             proposal_wizard_step_1_help_text: Assistent de proposta "Crear" text d'ajuda al pas
             proposal_wizard_step_2_help_text: Assistent de proposta "Comparar" text d'ajuda al pas
