@@ -15,12 +15,17 @@ module Decidim::Admin
         expect(Decidim::Feature.where(id: feature.id)).not_to exist
       end
 
-      it "traces the action" do
+      it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
           .with("delete", feature, current_user)
+          .and_call_original
 
-        subject.call
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+        expect(action_log.version.event).to eq "destroy"
       end
 
       it "fires the hooks" do

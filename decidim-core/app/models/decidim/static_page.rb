@@ -9,6 +9,7 @@ module Decidim
   # modified.
   class StaticPage < ApplicationRecord
     include Decidim::Traceable
+    include Decidim::Loggable
 
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization", inverse_of: :static_pages
 
@@ -29,6 +30,10 @@ module Decidim
     # Returns Boolean.
     def self.default?(slug)
       DEFAULT_PAGES.include?(slug)
+    end
+
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::StaticPagePresenter
     end
 
     # Whether this is page is a default one or not.

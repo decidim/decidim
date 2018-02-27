@@ -46,9 +46,17 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:ok)
         end
 
-        it "traces the creation" do
-          expect(Decidim.traceability).to receive(:update!).with(newsletter, user, a_kind_of(Hash))
-          command.call
+        it "traces the creation", versioning: true do
+          expect(Decidim.traceability)
+            .to receive(:update!)
+            .with(newsletter, user, a_kind_of(Hash))
+            .and_call_original
+
+          expect { command.call }.to change(Decidim::ActionLog, :count)
+
+          action_log = Decidim::ActionLog.last
+          expect(action_log.version).to be_present
+          expect(action_log.version.event).to eq "update"
         end
 
         it "updates the newsletter" do

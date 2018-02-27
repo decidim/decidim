@@ -15,12 +15,17 @@ module Decidim::Admin
         expect(Decidim::StaticPage.where(id: page.id)).not_to exist
       end
 
-      it "logs the action" do
-        expect(Decidim::ActionLogger)
-          .to receive(:log)
-          .with("delete", user, page)
+      it "logs the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with("delete", page, user)
+          .and_call_original
 
-        subject.call
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+        expect(action_log.version.event).to eq "destroy"
       end
     end
   end

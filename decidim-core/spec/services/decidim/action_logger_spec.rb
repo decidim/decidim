@@ -3,9 +3,10 @@
 require "spec_helper"
 
 describe Decidim::ActionLogger do
-  subject { described_class.log(action, user, resource, extra) }
+  subject { described_class.log(action, user, resource, version_id, extra) }
 
   let(:organization) { create :organization }
+  let(:version_id) { 1 }
   let(:extra) { {} }
   let(:user) { create :user, organization: organization, current_sign_in_ip: "127.0.0.1" }
   let(:participatory_space) { create :participatory_process, organization: organization }

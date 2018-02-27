@@ -26,13 +26,13 @@ module Decidim
 
       def destroy_page
         transaction do
-          page.destroy!
-
-          Decidim::ActionLogger.log(
+          Decidim.traceability.perform_action!(
             "delete",
-            current_user,
-            page
-          )
+            page,
+            current_user
+          ) do
+            page.destroy!
+          end
         end
       end
     end
