@@ -30,27 +30,21 @@
     <% if can?(:edit, @proposal) %>
       <%= link_to t(".edit_proposal"), edit_proposal_path(@proposal), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
     <% end %>
-    <% if current_settings.votes_enabled? || current_user %>
-      <div class="card extra">
+    <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
+      <div class="card">
         <div class="card__content">
           <% if current_settings.votes_enabled? %>
             <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
             <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
           <% end %>
+          <%= render partial: "endorsements_card_row", locals: { proposal: @proposal } %>
+          <br/>
           <% if current_user %>
             <%= render partial: "decidim/shared/follow_button", locals: { followable: @proposal } %>
-          <% end %>
-        </div>
-      </div>
-    <% end %>
-    <% if current_settings.endorsements_enabled? %>
-      <div class="card extra">
-        <div class="card__content">
-          <%= render partial: "endorsements_count", locals: { proposal: @proposal, from_proposals_list: false } %>
-          <% if current_settings.endorsements_blocked? %>
-            <%= content_tag :span, t('.endorsements_blocked'), class: "card__button button #{endorsement_button_classes(from_proposals_list)} disabled", disabled: true %>
           <% else %>
-            <%= render partial: "endorsement_identities_cabin", locals: { proposal: @proposal, from_proposals_list: false } %>
+            <p class="mt-s mb-none">
+              <%= t(".sign_in_or_up", {in: link_to(t(".sign_in"), decidim.new_user_session_path), up: link_to(t(".sign_up"), decidim.new_user_registration_path)}).html_safe %>
+            </p>
           <% end %>
         </div>
       </div>
@@ -100,6 +94,7 @@
 </div>
 <%= attachments_for @proposal %>
 
+<a name="list-of-endorsements"></a>
 <%= render partial: 'endorsements_listing', locals: {proposal: @proposal} %>
 <%= comments_for @proposal %>
 

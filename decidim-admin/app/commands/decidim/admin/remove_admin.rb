@@ -16,16 +16,14 @@ module Decidim
       def call
         return broadcast(:invalid) unless user
 
-        transaction do
-          Decidim::ActionLogger.log(
-            "remove_from_admin",
-            current_user,
-            user,
-            extra: {
-              invited_user_role: user_role
-            }
-          )
-
+        Decidim.traceability.perform_action!(
+          "remove_from_admin",
+          user,
+          current_user,
+          extra: {
+            invited_user_role: user_role
+          }
+        ) do
           user.update_attributes!(admin: false, roles: [])
         end
 

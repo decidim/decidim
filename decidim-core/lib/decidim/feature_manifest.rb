@@ -19,7 +19,7 @@ module Decidim
     attribute :name, Symbol
     attribute :hooks, Hash[Symbol => Array[Proc]], default: {}
 
-    attribute :api_type, String, default: "Decidim::Core::ComponentType"
+    attribute :query_type, String, default: "Decidim::Core::ComponentType"
 
     # A path with the `scss` stylesheet this engine provides. It is used to
     # mix this engine's stylesheets with the main app's stylesheets so it can

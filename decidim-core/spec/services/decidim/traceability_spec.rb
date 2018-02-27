@@ -30,7 +30,7 @@ describe Decidim::Traceability, versioning: true do
     it "logs the action" do
       expect(Decidim::ActionLogger)
         .to receive(:log)
-        .with(:create, user, a_kind_of(klass), a_kind_of(Hash))
+        .with(:create, user, a_kind_of(klass), kind_of(Integer), kind_of(Hash))
       subject.create(klass, user, params)
     end
   end
@@ -55,8 +55,8 @@ describe Decidim::Traceability, versioning: true do
     it "logs the action" do
       expect(Decidim::ActionLogger)
         .to receive(:log)
-        .with(:create, user, a_kind_of(klass), a_kind_of(Hash))
-      subject.create(klass, user, params)
+        .with(:create, user, a_kind_of(klass), a_kind_of(Integer), a_kind_of(Hash))
+      subject.create!(klass, user, params)
     end
   end
 
@@ -80,7 +80,7 @@ describe Decidim::Traceability, versioning: true do
     it "logs the action" do
       expect(Decidim::ActionLogger)
         .to receive(:log)
-        .with(:update, user, dummy_resource, a_kind_of(Hash))
+        .with(:update, user, dummy_resource, a_kind_of(Integer), a_kind_of(Hash))
       subject.update!(dummy_resource, user, params)
     end
   end

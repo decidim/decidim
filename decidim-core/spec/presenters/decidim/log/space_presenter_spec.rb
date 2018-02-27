@@ -11,7 +11,7 @@ describe Decidim::Log::SpacePresenter, type: :helper do
       "title" => space.title
     }
   end
-  let(:title) { extra["title"]["en"] }
+  let(:title) { h(extra["title"]["en"]) }
   let(:space_path) { Decidim::ResourceLocatorPresenter.new(space).path }
 
   before do

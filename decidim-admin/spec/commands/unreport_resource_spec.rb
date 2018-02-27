@@ -20,12 +20,17 @@ module Decidim::Admin
         expect(reportable.reload.moderation.report_count).to eq(0)
       end
 
-      it "traces the action" do
+      it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:perform_action!)
           .with("unreport", moderation, current_user)
+          .and_call_original
 
-        command.call
+        expect { command.call }.to change(Decidim::ActionLog, :count)
+
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+        expect(action_log.version.event).to eq "update"
       end
 
       context "when the resource is hidden" do

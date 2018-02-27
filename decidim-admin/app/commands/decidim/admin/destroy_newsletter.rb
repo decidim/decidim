@@ -26,14 +26,12 @@ module Decidim
       attr_reader :newsletter, :current_user
 
       def destroy_newsletter
-        transaction do
+        Decidim.traceability.perform_action!(
+          "delete",
+          newsletter,
+          current_user
+        ) do
           newsletter.destroy!
-
-          Decidim::ActionLogger.log(
-            "delete",
-            current_user,
-            newsletter
-          )
         end
       end
     end

@@ -28,10 +28,8 @@ module Decidim
     #
     # Returns an instance of `klass`.
     def create(klass, author, params, extra_log_info = {})
-      perform_action!(:create, klass, author) do
-        resource = klass.create(params)
-        log(:create, author, resource, extra_log_info)
-        resource
+      perform_action!(:create, klass, author, extra_log_info) do
+        klass.create(params)
       end
     end
 
@@ -43,10 +41,8 @@ module Decidim
     #
     # Returns an instance of `klass`.
     def create!(klass, author, params, extra_log_info = {})
-      perform_action!(:create, klass, author) do
-        resource = klass.create!(params)
-        log(:create, author, resource, extra_log_info)
-        resource
+      perform_action!(:create, klass, author, extra_log_info) do
+        klass.create!(params)
       end
     end
 
@@ -66,7 +62,8 @@ module Decidim
         klass.transaction do
           Decidim::ApplicationRecord.transaction do
             result = block_given? ? yield : nil
-            log(action, author, resource, extra_log_info)
+            loggable_resource = resource.is_a?(Class) ? result : resource
+            log(action, author, loggable_resource, extra_log_info)
             result
           end
         end
@@ -118,26 +115,21 @@ module Decidim
 
     def log(action, user, resource, extra_log_info = {})
       return unless user.is_a?(Decidim::User)
-      return unless resource.is_a?(Decidim::Traceable)
 
       Decidim::ActionLogger.log(
         action,
         user,
         resource,
-        version_params(resource).merge(extra_log_info)
+        version_id(resource),
+        extra_log_info
       )
     end
 
-    def version_params(resource)
-      return {} unless resource.is_a?(Decidim::Traceable)
-      return {} if resource.versions.blank?
+    def version_id(resource)
+      return nil unless resource.is_a?(Decidim::Traceable)
+      return nil if resource.versions.blank?
 
-      {
-        version: {
-          number: resource.versions.count,
-          id: resource.versions.last.id
-        }
-      }
+      resource.versions.last.id
     end
   end
 end
