@@ -36,7 +36,7 @@ module Decidim
 
       def i18n_params
         super.merge(
-          resource_type: action_log.resource.try(:decidim_reportable_type).try(:demodulize)
+          resource_type: action_log.extra.dig("extra", "reportable_type").try(:demodulize)
         )
       end
 
