@@ -201,6 +201,7 @@ gl:
         create:
           error: Houbo erros ao aprobar a proposta.
         identities:
+          done: Feito
           select_identity: Seleccionar identidade
       proposal_endorsements_helper:
         endorsement_button:
@@ -231,12 +232,11 @@ gl:
           already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: Endosar
-        endorsements_count:
-          count:
-            one: APROXIMACIÓN
-            other: APROXIMACIÓN
+        endorsements_card_row:
+          endorse: Endosar
         endorsements_listing:
-          see_all: ver todos
+          see_all: Ver todo
+          see_less: Vexa menos
           title: Lista de avales
         filters:
           accepted: Aceptada
@@ -288,11 +288,13 @@ gl:
           view_proposal: Ver proposta
         show:
           edit_proposal: Editar proposta
-          endorsements_blocked: Aprobacións bloqueadas
           proposal_accepted_reason: 'Esta proposta foi aceptada porque:'
           proposal_in_evaluation_reason: Esta proposta está a ser avaliada
           proposal_rejected_reason: 'Esta proposta foi rexeitada porque:'
           report: Informe
+          sign_in: Rexístrate
+          sign_in_or_up: "%{in} ou %{up} para participar"
+          sign_up: Rexistrarse
           withdraw_btn_hint: Pode retirar a súa proposta se cambia de opinión, sempre que non teña recibido ningún apoio. A proposta non se elimina, aparecerá na lista de propostas retiradas.
           withdraw_confirmation: '¿Estás seguro de retirar esta proposta?'
           withdraw_proposal: Retire a proposta
