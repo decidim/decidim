@@ -5,14 +5,16 @@ module Decidim
     # Helpers to render log entries.
     #
     module LogRenderHelper
-      # Renders the given `log_entry`. See `Decidim::ActionLog#render_log` for
-      # more info on the log renderers, and how to implement your own.
+      # Renders the given `action_log`. See `Decidim::Loggable` for
+      # more info on how log presenters work.
       #
-      # log_entry - An instance of `ActionLog`
+      # action_log - An instance of `ActionLog`
+      # log_type - A symbol representing the log type
       #
       # Returns an HTML-safe String.
-      def render_log(log_entry)
-        log_entry.render_log(self)
+      def render_log(action_log, log_type = :admin_log)
+        presenter_klass = action_log.log_presenter_class_for(log_type)
+        presenter_klass.new(action_log, self).present
       end
     end
   end

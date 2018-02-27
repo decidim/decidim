@@ -37,19 +37,18 @@ module Decidim
       attr_reader :form
 
       def officialize_user
-        transaction do
-          timestamp = Time.current
-          Decidim::ActionLogger.log(
-            "officialize",
-            form.current_user,
-            form.user,
-            extra: {
-              officialized_user_badge: form.officialized_as,
-              officialized_user_badge_previous: form.user.officialized_as,
-              officialized_user_at: timestamp,
-              officialized_user_at_previous: form.user.officialized_at
-            }
-          )
+        timestamp = Time.current
+        Decidim.traceability.perform_action!(
+          "officialize",
+          form.user,
+          form.current_user,
+          extra: {
+            officialized_user_badge: form.officialized_as,
+            officialized_user_badge_previous: form.user.officialized_as,
+            officialized_user_at: timestamp,
+            officialized_user_at_previous: form.user.officialized_at
+          }
+        ) do
           form.user.update!(
             officialized_at: timestamp,
             officialized_as: form.officialized_as

@@ -20,6 +20,18 @@ module Decidim
                 }
       end
 
+      field :stats, types[Decidim::Core::StatisticType] do
+        resolve ->(participatory_space, _args, _ctx) {
+          published_features = Feature.where(participatory_space: participatory_space).published
+
+          stats = Decidim.feature_manifests.map do |feature_manifest|
+            feature_manifest.stats.with_context(published_features).map { |name, data| [name, data] }.flatten
+          end
+
+          stats.reject(&:empty?)
+        }
+      end
+
       resolve_type ->(obj, _ctx) { obj.manifest.query_type.constantize }
     end
   end

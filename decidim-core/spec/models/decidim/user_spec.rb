@@ -11,6 +11,11 @@ module Decidim
 
     it { is_expected.to be_valid }
 
+    it "overwrites the log presenter" do
+      expect(described_class.log_presenter_class_for(:foo))
+        .to eq Decidim::AdminLog::UserPresenter
+    end
+
     it "has an association for identities" do
       expect(subject.identities).to eq([])
     end

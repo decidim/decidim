@@ -21,7 +21,7 @@ module Decidim
       # Returns a string with the value of the css classes.
       def endorsement_button_classes(from_proposals_list)
         return "small" if from_proposals_list
-        "expanded button--sc"
+        "small compact light button--sc expanded"
       end
 
       # Public: Checks if endorsement are enabled in this step.
@@ -43,6 +43,13 @@ module Decidim
       # Returns true if the current user can endorse, false otherwise.
       def current_user_can_endorse?
         current_user && endorsements_enabled? && !endorsements_blocked?
+      end
+
+      # Public: Checks if the card for endorsements should be rendered.
+      #
+      # Returns true if the endorsements card should be rendered, false otherwise.
+      def show_endorsements_card?
+        endorsements_enabled?
       end
 
       def endorsement_identity(endorsement)
@@ -67,6 +74,43 @@ module Decidim
                                                                                     from_proposals_list: from_proposals_list, user_group: user_group,
                                                                                     current_endorsement_url: current_endorsement_url,
                                                                                     endorse_label: endorse_label, unendorse_label: unendorse_label }
+      end
+
+      #
+      # Public: Checks if the given Proposal has been endorsed by all identities of the user.
+      #
+      # @param proposal: The Proposal from which endorsements will be checked against.
+      # @param user:     The user whose identities and endorsements  will be checked against.
+      #
+      def fully_endorsed?(proposal, user)
+        return false unless user
+
+        user_group_endorsements = user.user_groups.verified.all? { |user_group| proposal.endorsed_by?(user, user_group) }
+
+        user_group_endorsements && proposal.endorsed_by?(user)
+      end
+
+      # Public: Renders an identity for endorsement.
+      #
+      # @params (mandatory): proposal, from_proposals_list
+      # @params (mandatory): user, the user that is endorsing at the end.
+      # @params (optional) : user_group, the user_group on behalf of which the endorsement is being done
+      def render_endorsement_identity(proposal, user, user_group = nil)
+        current_endorsement_url = proposal_proposal_endorsement_path(
+          proposal_id: proposal,
+          from_proposals_list: false,
+          user_group_id: user_group&.id,
+          authenticity_token: form_authenticity_token
+        )
+        presenter = if user_group
+                      Decidim::UserGroupPresenter.new(user_group)
+                    else
+                      Decidim::UserPresenter.new(user)
+                    end
+        selected = proposal.endorsed_by?(user, user_group)
+        http_method = selected ? :delete : :post
+        render partial: "decidim/proposals/proposal_endorsements/identity", locals:
+        { identity: presenter, selected: selected, current_endorsement_url: current_endorsement_url, http_method: http_method }
       end
     end
   end

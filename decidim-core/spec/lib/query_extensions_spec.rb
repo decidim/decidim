@@ -22,11 +22,64 @@ module Decidim
         end
       end
 
+      describe "participatoryProcess" do
+        let(:query) { %({ participatoryProcess(id: \"#{id}\") { id }}) }
+
+        context "with a participatory process that belongs to the current organization" do
+          let!(:process) { create(:participatory_process, organization: current_organization) }
+          let(:id) { process.id }
+
+          it "returns the process" do
+            expect(response["participatoryProcess"]).to eq("id" => process.id.to_s)
+          end
+        end
+
+        context "with a participatory process of another organization" do
+          let!(:process) { create(:participatory_process) }
+          let(:id) { process.id }
+
+          it "returns nil" do
+            expect(response["participatoryProcess"]).to be_nil
+          end
+        end
+      end
+
+      describe "component" do
+        let(:query) { %({ component(id: \"#{id}\") { id }}) }
+
+        context "with a participatory space that belongs to the current organization" do
+          let!(:feature) { create(:dummy_feature, participatory_space: participatory_process) }
+          let(:participatory_process) { create(:participatory_process, organization: current_organization) }
+          let(:id) { feature.id }
+
+          it "returns the component" do
+            expect(response["component"]).to eq("id" => feature.id.to_s)
+          end
+        end
+
+        context "with a participatory space that doesn't belong to the current organization" do
+          let!(:feature) { create(:dummy_feature) }
+          let(:id) { feature.id }
+
+          it "returns the component" do
+            expect(response["component"]).to be_nil
+          end
+        end
+      end
+
       describe "decidim" do
         let(:query) { %({ decidim { version }}) }
 
         it "returns the right version" do
           expect(response["decidim"]).to include("version" => Decidim.version)
+        end
+      end
+
+      describe "organization" do
+        let(:query) { %({ organization { name }}) }
+
+        it "returns the current organization" do
+          expect(response["organization"]["name"]).to eq(current_organization.name.to_s)
         end
       end
     end
