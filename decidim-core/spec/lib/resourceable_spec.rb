@@ -19,11 +19,20 @@ module Decidim
 
       context "when I'm linking to a resource" do
         before do
+          @received_on_create= nil
+          event_name= "decidim.resourceable.link-name.created"
+          ActiveSupport::Notifications.subscribe event_name do |name, started, finished, unique_id, data|
+            @received_on_create= data
+          end
           resource.link_resources(target_resource, "link-name")
         end
 
         it "includes the linked resource" do
           expect(resource.linked_resources(:dummy, "link-name")).to include(target_resource)
+        end
+        it "should send an event to notify the linking happened" do
+          payload= {:from_type=>"Decidim::DummyResources::DummyResource", :from_id=>resource.id, :to_type=>"Decidim::DummyResources::DummyResource", :to_id=>target_resource.id}
+          expect(@received_on_create[:this]).to eq(payload)
         end
       end
 

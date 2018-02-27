@@ -157,6 +157,19 @@ module Decidim
         Arel.sql(query)
       end
 
+      # Subscribes to ActiveSupport::Notifications that may affect a Proposal.
+      def self.subscribe_to_events
+        event_name= "decidim.resourceable.included_proposals.created"
+        ActiveSupport::Notifications.subscribe event_name do |name, started, finished, unique_id, data|
+          payload= data[:this]
+          if payload[:to_type] == Proposal.name
+            proposal= Proposal.find(payload[:to_id])
+            proposal.update_attributes(state: 'accepted')
+          end
+        end
+      end
+      subscribe_to_events
+
       private
 
       # Checks whether the proposal is inside the time window to be editable or not once published.
@@ -169,6 +182,7 @@ module Decidim
       def copied_from_other_component?
         linked_resources(:proposals, "copied_from_component").any?
       end
+
     end
   end
 end
