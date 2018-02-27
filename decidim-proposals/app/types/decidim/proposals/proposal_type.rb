@@ -13,7 +13,7 @@ module Decidim
       field :state, types.String, "The state in which proposal is in"
       field :address, types.String, "The physical address (location) of this proposal"
 
-      field :publishedAt, Decidim::Core::DateTimeType do 
+      field :publishedAt, Decidim::Core::DateTimeType do
         description "The date and time this proposal was published"
         property :published_at
       end
