@@ -14,6 +14,7 @@ module Decidim
       include Decidim::HasAttachments
       include Decidim::Followable
       include Decidim::Proposals::CommentableProposal
+      include Decidim::Traceable
 
       feature_manifest_name "proposals"
 
