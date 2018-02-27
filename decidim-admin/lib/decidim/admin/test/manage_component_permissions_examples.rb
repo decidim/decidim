@@ -23,7 +23,7 @@ shared_examples "Managing component permissions" do
     within "form.new_component_permissions" do
       within ".foo-permission" do
         select "Example authorization", from: "component_permissions_permissions_foo_authorization_handler_name"
-        fill_in "component_permissions_permissions_foo_options", with: '{ "foo": 123 }'
+        fill_in "component_permissions_permissions_foo_options", with: '{ "postal_code": "08002" }'
       end
       find("*[type=submit]").click
     end
@@ -33,7 +33,7 @@ shared_examples "Managing component permissions" do
     expect(component.reload.permissions["foo"]).to(
       include(
         "authorization_handler_name" => "dummy_authorization_handler",
-        "options" => { "foo" => 123 }
+        "options" => { "postal_code" => "08002" }
       )
     )
   end
