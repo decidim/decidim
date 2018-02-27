@@ -102,6 +102,20 @@ it:
             votes_blocked: Votazioni bloccate
             votes_enabled: Votazioni abilitate
             votes_hidden: Voti nascosti (se i voti sono abilitati, spuntando questa casella verrà nascosto il numero dei voti)
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_proposals:
+          proposals: proposte
+        proposal:
+          creation_date: 'Creazione: %{date}'
+          view_proposal: Visualizza proposta
+    participatory_spaces:
+      highlighted_proposals:
+        proposals: proposte
+        see_all_proposals: Vedi tutte le proposte
+      proposal:
+        creation_date: 'Creazione: %{date}'
+        view_proposal: Visualizza proposta
     proposals:
       actions:
         answer: Risposta
