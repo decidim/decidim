@@ -201,6 +201,7 @@ sv:
         create:
           error: Det har varit fel när man godkände förslaget.
         identities:
+          done: Gjort
           select_identity: Välj identitet
       proposal_endorsements_helper:
         endorsement_button:
@@ -231,12 +232,11 @@ sv:
           already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: Stödja
-        endorsements_count:
-          count:
-            one: GODKÄNNANDE
-            other: GODKÄNNANDEN
+        endorsements_card_row:
+          endorse: Stödja
         endorsements_listing:
-          see_all: se allt
+          see_all: Se allt
+          see_less: Se mindre
           title: Förteckning över godkännanden
         filters:
           accepted: Accepterad
@@ -288,11 +288,13 @@ sv:
           view_proposal: Visa förslag
         show:
           edit_proposal: Redigera förslag
-          endorsements_blocked: Anmärkningar blockerade
           proposal_accepted_reason: 'Detta förslag har godkänts eftersom:'
           proposal_in_evaluation_reason: Detta förslag utvärderas
           proposal_rejected_reason: 'Detta förslag har avslagits på grund av att'
           report: Rapportera
+          sign_in: Logga in
+          sign_in_or_up: "%{in} eller %{up} att delta"
+          sign_up: Bli Medlem
           withdraw_btn_hint: Du kan dra tillbaka ditt förslag om du ändrar dig, så länge du inte har fått något stöd. Förslaget är inte borttaget, det kommer att visas i listan över återkallade förslag.
           withdraw_confirmation: Är du säker på att dra tillbaka detta förslag?
           withdraw_proposal: Dra ut förslaget
