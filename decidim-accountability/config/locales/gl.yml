@@ -95,6 +95,10 @@ gl:
           update:
             invalid: Produciuse un problema ao actualizar esta entrada
             success: Entrada actualizada con éxito
+      admin_log:
+        result:
+          create: "%{user_name} resultado creado %{resource_name} en %{space_name}"
+          update: "%{user_name} resultado actualizado %{resource_name} en %{space_name}"
       models:
         result:
           fields:
@@ -170,6 +174,14 @@ gl:
             subcategories_label: Nome para "Subcategorías"
           step:
             comments_blocked: Comentarios bloqueados
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Resultados
+    participatory_spaces:
+      highlighted_results:
+        results: Resultados
+        see_all_results: Ver todos os resultados
     resource_links:
       included_projects:
         result_projects: Proxectos incluídos neste resultado
