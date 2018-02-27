@@ -11,7 +11,7 @@ module Decidim
 
       connection :proposals, ProposalType.connection_type do
         resolve ->(feature, _args, _ctx) {
-                  ProposalsTypeHelper.base_scope(feature).includes(:feature).published
+                  ProposalsTypeHelper.base_scope(feature).includes(:feature)
                 }
       end
 

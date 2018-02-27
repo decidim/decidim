@@ -5,4 +5,3 @@ shared_examples_for "a component query type" do
     expect(subject.interfaces).to include(Decidim::Core::ComponentInterface)
   end
 end
-

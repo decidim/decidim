@@ -2,7 +2,6 @@
 
 module Decidim
   module Proposals
-    # This type represents a ParticipatoryProcess.
     ProposalType = GraphQL::ObjectType.define do
       name "Proposal"
       description "A proposal"
