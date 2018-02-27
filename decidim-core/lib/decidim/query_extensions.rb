@@ -58,6 +58,10 @@ module Decidim
       type.field :decidim, Core::DecidimType, "Decidim's framework properties." do
         resolve ->(_obj, _args, _ctx) { Decidim }
       end
+
+      type.field :organization, Core::OrganizationType, "The current organization" do
+        resolve ->(_obj, _args, ctx) { ctx[:current_organization] }
+      end
     end
   end
 end

@@ -74,6 +74,14 @@ module Decidim
           expect(response["decidim"]).to include("version" => Decidim.version)
         end
       end
+
+      describe "organization" do
+        let(:query) { %({ organization { name }}) }
+
+        it "returns the current organization" do
+          expect(response["organization"]["name"]).to eq(current_organization.name.to_s)
+        end
+      end
     end
   end
 end
