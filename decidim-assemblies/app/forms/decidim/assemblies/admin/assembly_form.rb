@@ -33,6 +33,7 @@ module Decidim
         attribute :remove_banner_image
         attribute :show_statistics, Boolean
         attribute :area_id, Integer
+        attribute :participatory_processes_ids, Array[Integer]
 
         validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
@@ -54,6 +55,15 @@ module Decidim
 
         def area
           @area ||= current_organization.areas.where(id: area_id).first
+        end
+
+        def participatory_processes
+          @participatory_processes ||= Decidim::ParticipatoryProcess.where(organization: current_organization)&.order(title: :asc).map do |process|
+            [
+              translated_attribute(process.title),
+              process.id
+            ]
+          end
         end
 
         private

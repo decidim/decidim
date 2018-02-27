@@ -27,6 +27,7 @@ module Decidim
 
           if @assembly.valid?
             broadcast(:ok, @assembly)
+            link_participatory_processes
           else
             form.errors.add(:hero_image, @assembly.errors[:hero_image]) if @assembly.errors.include? :hero_image
             form.errors.add(:banner_image, @assembly.errors[:banner_image]) if @assembly.errors.include? :banner_image
@@ -76,6 +77,14 @@ module Decidim
             meta_scope: form.meta_scope,
             show_statistics: form.show_statistics
           }
+        end
+
+        def participatory_processes
+          @participatory_processes ||= Decidim::ParticipatoryProcess.where(organization: assembly.organization).where(id: @form.participatory_processes_ids)
+        end
+
+        def link_participatory_processes
+          assembly.link_participatory_spaces_resources(participatory_processes, "included_participatory_processes")
         end
       end
     end

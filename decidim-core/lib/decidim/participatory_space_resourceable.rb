@@ -15,63 +15,63 @@ module Decidim
       # An association with all the links that are originated from this model.
       has_many :participatory_space_resource_links_from, as: :from, class_name: "Decidim::ParticipatorySpaceLink"
 
-      # # Finds all the linked resources to or from this model for a given resource
-      # # name and link name.
-      # #
-      # # resource_name - The String name of the resource manifest exposed by a feature.
-      # # link_name     - The String name of the link between this model and the target resource.
-      # #
-      # # Returns an ActiveRecord::Relation.
-      # def linked_resources(resource_name, link_name)
-      #   scope = sibling_scope(resource_name)
+      # Finds all the linked resources to or from this model for a given resource
+      # name and link name.
       #
-      #   from = scope
-      #          .joins(:resource_links_from)
-      #          .where(decidim_resource_links: { name: link_name, to_id: id, to_type: self.class.name })
+      # resource_name - The String name of the resource manifest exposed by a feature.
+      # link_name     - The String name of the link between this model and the target resource.
       #
-      #   to = scope
-      #        .joins(:resource_links_to)
-      #        .where(decidim_resource_links: { name: link_name, from_id: id, from_type: self.class.name })
+      # Returns an ActiveRecord::Relation.
+      def linked_resources(resource_name, link_name)
+        scope = sibling_scope(resource_name)
+
+        from = scope
+               .joins(:resource_links_from)
+               .where(decidim_resource_links: { name: link_name, to_id: id, to_type: self.class.name })
+
+        to = scope
+             .joins(:resource_links_to)
+             .where(decidim_resource_links: { name: link_name, from_id: id, from_type: self.class.name })
+
+        scope.where(id: from).or(scope.where(id: to))
+      end
+
+      # Builds an ActiveRecord::Relation in order to load all the resources
+      # that are in the same parent as this model.
       #
-      #   scope.where(id: from).or(scope.where(id: to))
-      # end
+      # resource_name - The String name of the resource manifest exposed by a feature.
       #
-      # # Builds an ActiveRecord::Relation in order to load all the resources
-      # # that are in the same parent as this model.
-      # #
-      # # resource_name - The String name of the resource manifest exposed by a feature.
-      # #
-      # # Returns an ActiveRecord::Relation.
-      # def sibling_scope(resource_name)
-      #   manifest = Decidim.find_resource_manifest(resource_name)
-      #   return self.class.none unless manifest
+      # Returns an ActiveRecord::Relation.
+      # def sibling_participatory_space_scope(resource_name)
+      #   module_name = "Decidim::#{resource_name.to_s.classify}"
+      #   return self.class.none unless resource_name
       #
       #   scope = manifest.resource_scope(feature)
       #   scope = scope.where("#{self.class.table_name}.id != ?", id) if manifest.model_class == self.class
       #
       #   scope
       # end
+
+      # Links the given resources to this model, replaces any previous links with the same name.
       #
-      # # Links the given resources to this model, replaces any previous links with the same name.
-      # #
-      # # resources - An Array or ActiveRecord::Base object to link to.
-      # # link_name - The String name to use as the name between the resources.
-      # # data      - An optional Hash to add to the link.
-      # #
-      # # Returns nothing.
-      # def link_resources(resources, link_name, data = {})
-      #   transaction do
-      #     resource_links_from.where(name: link_name).delete_all
-      #     Array.wrap(resources).each do |resource|
-      #       Decidim::ResourceLink.create!(
-      #         from: self,
-      #         to: resource,
-      #         name: link_name,
-      #         data: data
-      #       )
-      #     end
-      #   end
-      # end
+      # resources - An Array or ActiveRecord::Base object to link to.
+      # link_name - The String name to use as the name between the resources.
+      # data      - An optional Hash to add to the link.
+      #
+      # Returns nothing.
+      def link_participatory_spaces_resources(resources, link_name, data = {})
+        transaction do
+          participatory_space_resource_links_from.where(name: link_name).delete_all
+          Array.wrap(resources).each do |resource|
+            Decidim::ParticipatorySpaceLink.create!(
+              from: self,
+              to: resource,
+              name: link_name,
+              data: data
+            )
+          end
+        end
+      end
     end
 
     class_methods do
