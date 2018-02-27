@@ -86,6 +86,7 @@ pt:
             official_proposals_enabled: Proposta oficial habilitada
             proposal_answering_enabled: Resposta de proposta ativada
             proposal_edit_before_minutes: As propostas podem ser editadas pelos autores antes que muitos minutos passem.
+            proposal_length: Comprimento máximo do corpo da proposta
             proposal_limit: Limite da proposta por usuário
             proposal_wizard_step_1_help_text: Assistente de propostas "Criar" passo ajuda texto
             proposal_wizard_step_2_help_text: Assistente de propostas "Compare" passo ajuda texto
