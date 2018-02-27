@@ -87,6 +87,7 @@ en:
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
+            proposal_length: Maximum proposal body length
             proposal_limit: Proposal limit per user
             proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
             proposal_wizard_step_2_help_text: Proposal wizard "Compare" step help text
