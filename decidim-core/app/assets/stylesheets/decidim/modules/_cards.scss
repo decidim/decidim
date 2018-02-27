@@ -5,6 +5,7 @@ $card-secondary-bg: $light-gray-dark;
 $card-border: $border;
 $card-border-radius: $global-radius;
 $card-shadow: 0 2px 7px rgba(black, .1);
+$card-id: $medium-gray;
 
 $card-padding-small: 1rem;
 $card-padding: 1.5rem;
@@ -656,29 +657,33 @@ $datetime-bg: $primary;
 }
 
 // card label
-.card__label--container{
-  margin-top: $global-margin / 2;
-  margin-bottom: ($global-margin * 2.5) - $card-padding-small;
+.card__label{
+  display: inline-flex;
+  color: $card-id;
+  padding: 0 .5rem;
+  text-transform: uppercase;
+  font-size: $small-font-size;
+  font-weight: bold;
+  position: absolute;
+  background-color: $card-bg;
+  margin-top: -$global-margin * .75;
+  margin-left: $card-padding-small;
 
-  @include breakpoint(medium){
-    margin-bottom: ($global-margin * 2.5) - $card-padding;
+  .icon{
+    // Reduces some icon space
+    margin-left: -.25rem;
   }
 
-  .card__label{
-    display: inline-block;
-    color: $card-bg;
-    padding: .1rem .5rem;
-    text-transform: uppercase;
-    font-size: $small-font-size;
-    font-weight: bold;
-    margin-left: -$global-margin;
-    position: absolute;
+  @include breakpoint(medium){
+    margin-left: $card-padding;
+  }
 
-    @include modifiers(background-color, (muted: tint($muted, 50)));
+  @include modifiers(color, (muted: tint($muted, 50))){
+    margin-top: -$global-margin * .95;
   }
 }
 
-// card date-place
+// card metadata with icon
 .card__icondata{
   ul{
     align-items: stretch;
