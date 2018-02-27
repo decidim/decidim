@@ -201,6 +201,7 @@ fr:
         create:
           error: Il y a eu des erreurs lors de l'approbation de la proposition.
         identities:
+          done: Terminé
           select_identity: Sélectionnez l'identité
       proposal_endorsements_helper:
         endorsement_button:
@@ -231,12 +232,11 @@ fr:
           already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: Endosser
-        endorsements_count:
-          count:
-            one: APPROBATION
-            other: ENDOS
+        endorsements_card_row:
+          endorse: Endosser
         endorsements_listing:
-          see_all: voir tout
+          see_all: Voir tout
+          see_less: Voir moins
           title: Liste des avenants
         filters:
           accepted: Retenue
@@ -288,11 +288,13 @@ fr:
           view_proposal: Voir la proposition
         show:
           edit_proposal: Modifier la proposition
-          endorsements_blocked: Endossements bloqués
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
           proposal_rejected_reason: 'Cette proposition a été refusée parce que:'
           report: Signaler
+          sign_in: se connecter
+          sign_in_or_up: "%{in} ou %{up} pour participer"
+          sign_up: s'inscrire
           withdraw_btn_hint: Vous pouvez retirer votre proposition si vous changez d'avis, tant que vous n'avez reçu aucun support. La proposition n'est pas supprimée, elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation: Êtes-vous sûr de retirer cette proposition?
           withdraw_proposal: Retirer la proposition
