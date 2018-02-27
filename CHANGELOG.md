@@ -4,6 +4,14 @@
 
 **Added**:
 
+**Changed**:
+
+**Fixed**:
+
+## [v0.9.3](https://github.com/decidim/decidim/tree/v0.9.3) (2018-2-27)
+
+**Added**:
+
 **decidim-core**: Add context to content parsers [\#2751](https://github.com/decidim/decidim/pull/2751)
 
 **Changed**:
