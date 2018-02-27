@@ -1,10 +1,11 @@
 <% extra ||= false %>
 <% nick = true unless local_assigns.has_key?(:nick) %>
-<div class="author-data author-data--small">
+<% small ||= false %>
+<div class="author-data<%= ' author-data--small' if small %>">
 
   <div class="author-data__main">
     <div class="author author--inline">
-      <a href="user-profile" class="author__avatar author__avatar--small">
+      <a href="user-profile" class="author__avatar<%= ' author-data--small' if small %>">
         <%= image_tag "demo-avatar.jpg" %>
       </a>
       <a href="user-profile" class="author__name">

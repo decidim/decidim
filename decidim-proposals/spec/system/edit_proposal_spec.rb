@@ -52,7 +52,7 @@ describe "Edit proposals", type: :system do
         fill_in "Body", with: "A"
         click_button "Send"
 
-        expect(page).to have_content("Is using too much caps, Is too short, Is using too much caps, Is too short")
+        expect(page).to have_content("Is using too much caps, Is too short")
       end
     end
   end

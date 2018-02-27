@@ -25,10 +25,10 @@ This raises two important issues:
 Instead of the previous example, we created the concept of "view hooks". Think of them as a registry of views which can be defined by a given engine and extended by others. To follow the previous example, we would register a view hook in `decidim-core`:
 
 ```
-<%= Decidim.view_hooks.render(:highlighted_elements, self) %>
+<%= Decidim.view_hooks.render(:highlighted_elements, deep_dup) %>
 ```
 
-We're rendering the view hooks registered as `:highlighted_elements`. The `self` parameter is the view context, we will analyze it later.
+We're rendering the view hooks registered as `:highlighted_elements`. The `deep_dup` parameter is a deep copy of the view context, we will analyze it later.
 
 ## Registering view hooks
 
@@ -43,7 +43,7 @@ initializer "decidim_participatory_processes.view_hooks" do
 end
 ```
 
-In order to register a view hook we need the hook name and a block of Ruby code. We're registering a view hook as `:highlighted-elements`, following our example. We're passing the view context to the block so that we can use our views helper methods there, and we're rendering a partial. We could write `ActiveRecord` queries and pass the results to the partial as `locals` if we wanted a more complex view:
+In order to register a view hook we need the hook name and a block of Ruby code. We're registering a view hook as `:highlighted-elements`, following our example. We're passing a deep copy of the view context to the block so that we can use our views helper methods there, and we're rendering a partial. We could write `ActiveRecord` queries and pass the results to the partial as `locals` if we wanted a more complex view:
 
 ```ruby
 # decidim-participatory_processes/lib/decidim/participatory_processes/engine.rb
@@ -53,6 +53,19 @@ initializer "decidim_participatory_processes.view_hooks" do
       OrganizationPublishedParticipatoryProcesses.new(view_context.current_organization) | HighlightedParticipatoryProcesses.new
 
     view_context.render(partial: "decidim/participatory_processes/my/partial", locals: { highlighted_processes: highlighted_processes })
+  end
+end
+```
+
+We're passing a deep copy of the view context to allow us to extend it without polluting the original view context:
+
+```ruby
+# decidim-proposals/lib/decidim/proposals/engine.rb
+initializer "decidim_participatory_processes.view_hooks" do
+  Decidim.view_hooks.register(:participatory_space_highlighted_elements) do |view_context|
+    # ...
+    view_context.extend Decidim::Proposals::ApplicationHelper
+    view_context.render(partial: "decidim/participatory_spaces/highlighted_proposals", locals: { })
   end
 end
 ```

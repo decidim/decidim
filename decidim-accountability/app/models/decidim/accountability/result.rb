@@ -25,6 +25,13 @@ module Decidim
 
       after_save :update_parent_progress, if: -> { parent_id.present? }
 
+      def self.order_randomly(seed)
+        transaction do
+          connection.execute("SELECT setseed(#{connection.quote(seed)})")
+          order("RANDOM()").load
+        end
+      end
+
       def update_parent_progress
         return if parent.blank?
 
