@@ -201,6 +201,7 @@ it:
         create:
           error: Ci sono stati errori nel sostenere la proposta.
         identities:
+          done: Fatto
           select_identity: Seleziona identità
       proposal_endorsements_helper:
         endorsement_button:
@@ -231,12 +232,11 @@ it:
           already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: Approvare
-        endorsements_count:
-          count:
-            one: APPROVAZIONE
-            other: APPROVAZIONI
+        endorsements_card_row:
+          endorse: Approvare
         endorsements_listing:
-          see_all: vedi tutto
+          see_all: Vedi tutto
+          see_less: Vedi di meno
           title: Elenco di approvazioni
         filters:
           accepted: Accettata
@@ -288,11 +288,13 @@ it:
           view_proposal: Visualizza la proposta
         show:
           edit_proposal: Modifica la proposta
-          endorsements_blocked: Approvazioni bloccate
           proposal_accepted_reason: 'Questa proposta è stata accettata perché:'
           proposal_in_evaluation_reason: Questa proposta è in fase di valutazione
           proposal_rejected_reason: 'Questa proposta è stata rifiutata perché:'
           report: Report
+          sign_in: registrati
+          sign_in_or_up: "%{in} o %{up} per partecipare"
+          sign_up: Iscriviti
           withdraw_btn_hint: Puoi ritirare la tua proposta se cambi idea, purché non abbia ricevuto alcun supporto. La proposta non viene cancellata, apparirà nell'elenco delle proposte ritirate.
           withdraw_confirmation: Sei sicuro di ritirare questa proposta?
           withdraw_proposal: Ritirare la proposta
