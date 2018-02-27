@@ -86,6 +86,7 @@ sv:
             official_proposals_enabled: Officiella förslag möjliga
             proposal_answering_enabled: Förslagsvarning aktiverat
             proposal_edit_before_minutes: Förslag kan redigeras av författare innan detta många minuter passerar
+            proposal_length: Maximal förslag kroppslängd
             proposal_limit: Förslagsgräns per användare
             proposal_wizard_step_1_help_text: Förslagsguiden "Skapa" steg hjälptext
             proposal_wizard_step_2_help_text: Förslagsguiden "Jämför" steg hjälptext
