@@ -14,6 +14,7 @@ Decidim.register_feature(:meetings) do |feature|
   feature.register_resource do |resource|
     resource.model_class_name = "Decidim::Meetings::Meeting"
     resource.template = "decidim/meetings/meetings/linked_meetings"
+    resource.cell = "decidim/meetings/meeting"
   end
 
   feature.register_stat :meetings_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |features, start_at, end_at|

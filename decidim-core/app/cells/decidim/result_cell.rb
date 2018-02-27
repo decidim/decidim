@@ -5,7 +5,7 @@ module Decidim
     #include LayoutHelper
 
     def show
-      cell(model.resource.class.model_name.i18n_key, model.resource)
+      cell(resource_cell, model.resource)
       # render
     end
 
@@ -17,6 +17,10 @@ module Decidim
 
     def resource_path
       resource_locator(model).path
+    end
+
+    def resource_cell
+      model.resource.class.resource_manifest.cell
     end
 
   end

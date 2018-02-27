@@ -46,6 +46,7 @@ Decidim.register_feature(:proposals) do |feature|
   feature.register_resource do |resource|
     resource.model_class_name = "Decidim::Proposals::Proposal"
     resource.template = "decidim/proposals/proposals/linked_proposals"
+    resource.cell = "decidim/proposals/proposal"
   end
 
   feature.register_stat :proposals_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, start_at, end_at|
