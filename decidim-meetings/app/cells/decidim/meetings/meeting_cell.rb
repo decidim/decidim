@@ -20,7 +20,6 @@ module Decidim
         icon("meetings", remove_icon_class: true, width: 40, height: 70)
       end
 
-
     end
   end
 end

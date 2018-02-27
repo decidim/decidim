@@ -28,6 +28,7 @@
           </div>
         </div>
 
+        <% if false %>
         <div class="filters__section">
           <fieldset>
             <legend>
@@ -62,6 +63,7 @@
             </label>
           </fieldset>
         </div>
+        <% end %>
 
         <div class="filters__section">
           <fieldset>
@@ -69,27 +71,20 @@
               <h6 class="heading6">Components</h6>
             </legend>
 
-            <input type="hidden" name="filter[component]" value="">
+            <input type="hidden" name="filter[resource_type]" value="">
 
             <label for="filter_component_all">
-              <input type="radio" value="all" checked="checked" name="filter[component]" id="filter_component_all">
+              <input type="radio" value="all" <%= radio_checked?("all") %> name="filter[resource_type]" id="filter_component_all">
               All
             </label>
 
-            <label for="filter_component_proposals">
-              <input type="radio" value="proposals" name="filter[component]" id="filter_component_proposals">
-              Proposals
-            </label>
+            <% searchable_resources_class_names.each do |searchable_resource_class_name| %>
+              <label for="filter_component_<%= searchable_resource_human_name(searchable_resource_class_name).underscore %>">
+                <input type="radio" value="<%= searchable_resource_class_name %>" <%= radio_checked?(searchable_resource_class_name) %> name="filter[resource_type]" id="filter_component_<%= searchable_resource_human_name(searchable_resource_class_name).underscore %>">
+                  <%= searchable_resource_human_name searchable_resource_class_name %>
+              </label>
+            <% end %>
 
-            <label for="filter_component_meetings">
-              <input type="radio" value="meetings" name="filter[component]" id="filter_component_meetings">
-              Meetings
-            </label>
-
-            <label for="filter_component_debates">
-              <input type="radio" value="debates" name="filter[component]" id="filter_component_debates">
-              Debates
-            </label>
           </fieldset>
           </div>
       <% end %>
