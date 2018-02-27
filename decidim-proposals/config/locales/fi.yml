@@ -86,6 +86,7 @@ fi:
             official_proposals_enabled: Viralliset ehdotukset sallittu
             proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
             proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän aikamääreen sisällä sen luonnista
+            proposal_length: Suurin ehdotuksen pituus
             proposal_limit: Ehdotuksien raja käyttäjää kohden
             proposal_wizard_step_1_help_text: Ohjattu ohjattu "Luo" vaiheen ohjeteksti
             proposal_wizard_step_2_help_text: Ohjattu ohjattu "Vertaile" vaiheen ohjeteksti
