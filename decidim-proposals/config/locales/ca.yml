@@ -102,6 +102,20 @@ ca:
             votes_blocked: Suports bloquejats
             votes_enabled: Suports habilitats
             votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports)
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_proposals:
+          proposals: Propostes
+        proposal:
+          creation_date: 'Creació: %{date}'
+          view_proposal: Veure proposta
+    participatory_spaces:
+      highlighted_proposals:
+        proposals: Propostes
+        see_all_proposals: Veure totes les propostes
+      proposal:
+        creation_date: 'Creació: %{date}'
+        view_proposal: Veure proposta
     proposals:
       actions:
         answer: Respondre
@@ -127,7 +141,7 @@ ca:
             title: Respondre a la proposta %{title}
         proposal_notes:
           create:
-            error: Hi ha hagut un problema en crear aquesta nota de proposta
+            error: Hi ha hagut un problema en crear aquesta nota
             success: La nota de la proposta s'ha creat correctament
           form:
             note: Nota
