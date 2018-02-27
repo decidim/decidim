@@ -15,7 +15,6 @@ Data Picker is composed by 2 visual artifacts, plus the javascript and one contr
 ## How to
 ### Placing the Data Picker widget:
 The Data Picker widget structure is as follows:
-TODO: Review picker-values!
 ```html
 <div id="some-unique-id" class="data-picker <%= picker_options[:class]%>" data-picker-name="<%=picker_options[:name]%>">
   <div class="picker-values"><% @form.proposals.each do |proposal, params| %>
@@ -43,9 +42,7 @@ data-close: this anchor will be ignored
 href: the url to be used for choosing
 picker-choose: when 'undefined' will load the given href url. Otherwise a choose action in the component is invoked with params: `url: href, value: picker-value, text: picker-text`.
 picker-value: the selected value
-picker-text (optional): 
-
-
+picker-text (optional): The text to be shown in the picker button.
 
 ### Returning the selection to the widget
-To return the selection to the widget in the main page.
+To return the selection to the widget in the main page use javascript to set the data-picker-value in the #proposal-picker-choose button.
