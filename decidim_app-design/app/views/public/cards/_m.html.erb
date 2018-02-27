@@ -174,7 +174,7 @@
     <pre>Propuesta con imagen</pre>
     <article class="card card--proposal success">
       <a href="">
-        <img src="<%= Faker::LoremPixel.image(Faker::Number.between(100, 500).to_s + 'x' + Faker::Number.between(100, 500).to_s, false, 'sports', Faker::Number.between(1, 10)) %>" alt="" class="card__image">
+        <%= image_tag "demo-debate.jpg", class: "card__image" %>
       </a>
       <div class="card__content">
         <div class="card__header">
