@@ -55,21 +55,21 @@ en:
           title: Duplicate assembly
       assembly_participatory_processes:
         create:
-          error: There was an error creating this assembly participatory process.
-          success: Assembly participatory process created successfully.
+          error: There was an error creating this related participatory process.
+          success: Related participatory process created successfully.
         destroy:
-          error: There was an error deleting this assembly participatory process.
-          success: Assembly participatory process deleted successfully.
+          error: There was an error deleting this related participatory process.
+          success: Related participatory process deleted successfully.
         edit:
-          title: Update assembly participatory process.
+          title: Update related participatory process.
           update: Update
         new:
           create: Create
-          title: New assembly participatory processes
+          title: New related participatory processes
         placeholder_participatory_process: Select a related participatory process
         update:
-          error: There was an error updated a assembly participatory process.
-          success: Assembly participatory process updated successfully for this assembly.
+          error: There was an error updated a related participatory process.
+          success: Related participatory process updated successfully for this assembly.
       assembly_publications:
         create:
           error: There was an error publishing this assembly.

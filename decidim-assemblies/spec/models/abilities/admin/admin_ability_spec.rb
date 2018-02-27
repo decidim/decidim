@@ -9,5 +9,6 @@ module Decidim::Assemblies
     let(:user) { build(:user, :admin) }
 
     it { is_expected.to be_able_to(:manage, Decidim::Assembly) }
+    it { is_expected.to be_able_to(:manage, Decidim::AssemblyParticipatoryProcess) }
   end
 end
