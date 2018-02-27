@@ -10,7 +10,7 @@ en:
         end_date: End date
         progress: Progress
         project_ids: Included projects
-        proposal_ids: Included proposals
+        proposal_objs: Included proposals
         start_date: Start date
         title: Title
         updated_at: Updated at
