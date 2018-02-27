@@ -57,6 +57,8 @@ fr:
           global:
             announcement: Message d'annonce
             comments_enabled: Commentaires activés
+            comments_upstream_moderation_enabled: Modération à priori des commentaires activée
+
           step:
             announcement: Message d'annonce
             comments_blocked: Commentaires bloqués

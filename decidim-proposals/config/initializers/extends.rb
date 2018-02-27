@@ -1,0 +1,1 @@
+require "decidim/extends/proposal_extend.rb"

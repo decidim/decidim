@@ -135,6 +135,9 @@ fr:
         email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez le voir sur cette page :'
         email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
         email_subject: Mise à jour de %{resource_title}
+        moderation:
+          email_intro: 'Un nouveau contenu est à modérer. Vous pouvez le voir sur cette page :'
+          email_subject: Nouveau contenu en attente de modération
       feature_published_event:
         email_intro: 'Le composant %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page :'
         email_outro: Vous recevez cette notification car vous suivez « %{participatory_space_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
@@ -440,8 +443,8 @@ fr:
         participate: Participez
         welcome: Bienvenue sur %{organization}!
       statistics:
-        answers_count: Enquêtes terminées
-        assemblies_count: Assemblées
+        answers_count: Réponses
+        assemblies_count: Agora
         comments_count: Commentaires
         headline: État actuel de %{organization}
         meetings_count: Rencontres

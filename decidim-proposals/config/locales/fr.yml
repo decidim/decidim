@@ -12,6 +12,14 @@ fr:
         answer: Répondre
   decidim:
     events:
+      proposal_created:
+        notification_title: Nouvelle proposition de %{author_name} dans <a href="%{resource_path}">%{resource_title}</a>
+        url: "Url de la proposition : %{resource_url}"
+        email_subject: 'Nouvelle proposition de %{author_name}'
+        moderation:
+          email_intro: "%{author_name} a publié une nouvelle proposition dans"
+          moderation_url: "Vous pouvez modérer le contenu en suivant ce lien : %{moderation_url}"
+          email_subject: 'Nouvelle proposition de %{author_name} en attente de modération'
       proposals:
         proposal_accepted:
           email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse dans cette page:'
@@ -52,6 +60,8 @@ fr:
             proposal_edit_before_minutes: Les propositions peuvent être éditées par les auteurs avant que ces minutes soit écoulées
             proposal_limit: Maximum de propositions par utilisateur
             vote_limit: Nombre maximum de votes par utilisateur
+            upstream_moderation_enabled: Modération à priori des propositions activée
+            comments_upstream_moderation_enabled: Modération à priori des commentaires activée
           step:
             announcement: Message d'annonce
             comments_blocked: Commentaires bloqués
@@ -95,7 +105,7 @@ fr:
             success: La réponse à la proposition a publiée avec succès
           create:
             invalid: Il y a eu un problème lors de la création de cette proposition
-            success: Proposition créée avec succès
+            success: Proposition créée avec succès.
           form:
             attachment_legend: "(Facultatif) Ajouter une pièce jointe"
             select_a_category: Sélectionner une catégorie
@@ -119,6 +129,15 @@ fr:
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès.
+        moderation:
+          success: Proposition créée avec succès. Elle sera publiée dès qu'un administrateur l'aura validée.
+      events:
+        create_proposal_event:
+          email_intro: |-
+            Bonjour, %{author_name} %{author_nickname}, que vous suivez, a créé une nouvelle proposition. Prenez-en connaissance et contribuez :
+          email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
+          email_subject: Nouvelle proposition par %{author_nickname}
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
       models:
         proposal:
           fields:

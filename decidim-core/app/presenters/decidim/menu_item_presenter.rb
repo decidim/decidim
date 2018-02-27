@@ -29,9 +29,9 @@ module Decidim
     def render
       content_tag :li, class: link_wrapper_classes do
         if icon_name
-          link_to(url) { icon(icon_name) + label }
+          link_to(url, target: @menu_item.target) { icon(icon_name) + label }
         else
-          link_to label, url
+          link_to label, url, target: @menu_item.target
         end
       end
     end

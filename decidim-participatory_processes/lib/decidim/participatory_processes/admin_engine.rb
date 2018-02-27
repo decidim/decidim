@@ -49,6 +49,7 @@ module Decidim
             member do
               put :unreport
               put :hide
+              put :authorize
             end
           end
         end

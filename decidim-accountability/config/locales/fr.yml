@@ -163,6 +163,7 @@ fr:
           global:
             categories_label: Nom pour "Catégories"
             comments_enabled: Commentaires activés
+            comments_upstream_moderation_enabled: Modération à priori des commentaires activée
             heading_leaf_level_results: Nom pour "Projets"
             heading_parent_level_results: Nom pour "Résultats"
             intro: Intro

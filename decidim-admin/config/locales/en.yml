@@ -234,6 +234,7 @@ en:
         static_pages: Pages
         user_groups: User groups
         users: Users
+        navbar_links: Navbar links
       models:
         attachment:
           fields:
@@ -290,9 +291,19 @@ en:
             phone: Phone
             state: State
             users_count: Users count
+        navbar_link:
+          fields:
+            title: Title
+            link: Link
+            weight: Weight
       moderations:
         index:
           title: Moderations
+          title:
+            upstream: Upstream moderation
+            downstream: Downstream moderation
+          moderated: Moderated
+          unmoderated: Unmoderated
         report:
           reasons:
             does_not_belong: Does not belong
@@ -439,6 +450,7 @@ en:
         static_pages: Pages
         user_groups: User groups
         users: Users
+        navbar_links: Navbar links
       user_group:
         reject:
           invalid: There was an error when rejecting this user group.
@@ -473,6 +485,28 @@ en:
         new:
           create: Invite
           title: Invite user as administrator
+      navbar_links:
+        no_links: No links created
+        form:
+          title: Title
+          link: Link
+          weight: Weight
+          new_tab: Open in a new tab
+          same_tab: Open in the same tab
+        new:
+          title: New navbar link
+          create: Create
+        edit:
+          title: Edit navbar link
+          update: Update
+        create:
+          error: There was an error when creating this link.
+          success: Link created successfully
+        update:
+          error: There was an error when updating this link.
+          success: Link updated successfully
+        destroy:
+          success: Link successfully destroyed
     moderations:
       actions:
         hidden: Hidden
@@ -480,6 +514,11 @@ en:
         not_hidden: Not hidden
         title: Actions
         unreport: Unreport
+        moderated: Moderated
+        unmoderated: Unmoderated
+        authorize: Authorize
+        refuse: Refuse
+
       admin:
         reportable:
           hide:
@@ -497,6 +536,9 @@ en:
             reported_content_url: Reported content URL
             reports: Reports
             visit_url: Visit URL
+            date: Date
+            type: Type
+            status: Status
   errors:
     messages:
       invalid_json: Invalid JSON

@@ -39,7 +39,7 @@ module Decidim
             sender: @sender
           )
 
-          mail(to: to.email, subject: subject)
+          mail(from: Decidim.config.mailer_sender, to: to.email, subject: subject)
         end
       end
     end

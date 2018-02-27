@@ -53,6 +53,7 @@ Gem::Specification.new do |s|
   s.add_dependency "valid_email2", "~> 2.1"
   s.add_dependency "wisper", "~> 2.0"
 
+  s.add_development_dependency "pry-byebug"
   s.add_dependency "decidim-api", Decidim::Core.version
 
   s.add_development_dependency "decidim-dev", Decidim::Core.version

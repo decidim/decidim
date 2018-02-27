@@ -16,6 +16,8 @@ Decidim::Admin::Engine.routes.draw do
       resources :scopes, except: [:show]
     end
 
+    resources :navbar_links
+
     resources :authorization_workflows, only: :index
 
     Decidim.authorization_admin_engines.each do |manifest|

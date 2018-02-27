@@ -48,7 +48,6 @@ module Decidim
       recipient = Decidim::User.where(id: recipient_id).first
       return unless recipient
       return unless recipient.email_on_notification?
-
       NotificationMailer
         .event_received(
           event,

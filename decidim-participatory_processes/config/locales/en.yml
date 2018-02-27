@@ -66,6 +66,9 @@ en:
           categories: Categories
           features: Features
           info: Info
+          moderation:
+            downstream: Downstream
+            upstream: Upstream
           moderations: Moderations
           process_admins: Process users
           steps: Steps
