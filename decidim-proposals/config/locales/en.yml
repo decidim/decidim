@@ -103,6 +103,20 @@ en:
             votes_blocked: Votes blocked
             votes_enabled: Votes enabled
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_proposals:
+          proposals: Proposals
+        proposal:
+          creation_date: 'Creation: %{date}'
+          view_proposal: View proposal
+    participatory_spaces:
+      highlighted_proposals:
+        proposals: Proposals
+        see_all_proposals: See all proposals
+      proposal:
+        creation_date: 'Creation: %{date}'
+        view_proposal: View proposal
     proposals:
       actions:
         answer: Answer

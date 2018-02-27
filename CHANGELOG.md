@@ -27,6 +27,7 @@
 - **decidim-admin**: Adds a log of all admin actions, only visible by organization admins [\#2604](https://github.com/decidim/decidim/pull/2604)
 - **decidim-accountability**: Show random results in process and process group home [\#2824](https://github.com/decidim/decidim/issues/2824)
 - **decidim-meetings**: Show past/upcoming meetings in process and process group home [\#2713](https://github.com/decidim/decidim/issues/2713)
+- **decidim-proposals**: Show random proposals in process and process group home [\#2817](https://github.com/decidim/decidim/issues/2817)
 - **decidim-participatory_processes**: Render `decidim:participatory_space_highlighted_elements` and `participatory_processes:process_group_highlighted_elements` view hooks in process and process group home respectively [\#2713](https://github.com/decidim/decidim/issues/2713)
 - **decidim-core**: Make static pages traceable [\#2754](https://github.com/decidim/decidim/pull/2754)
 - **decidim-admin**: Log all actions on static pages [\#2754](https://github.com/decidim/decidim/pull/2754)
@@ -46,6 +47,7 @@
 
 **Changed**:
 
+- **decidim-core**: Send a deep copy of view context to view hooks [\#2817](https://github.com/decidim/decidim/issues/2817)
 - **decidim-core**: General improvements on documentation [\#2656](https://github.com/decidim/decidim/pull/2656).
 - **decidim-core**: `FeatureReferenceHelper#feature_reference` has been moved to `ResourceReferenceHelper#resource_reference` to clarify its use. [\#2557](https://github.com/decidim/decidim/pull/2557)
 - **decidim-core**: `Decidim.resource_reference_generator` has been moved to `Decidim.reference_generator` to clarify its use. [\#2557](https://github.com/decidim/decidim/pull/2557)
