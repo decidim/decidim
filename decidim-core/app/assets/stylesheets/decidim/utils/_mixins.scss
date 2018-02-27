@@ -94,7 +94,6 @@ $palette: $foundation-palette;
   display: block; /* Fallback for non-webkit */
   display: -webkit-box;
   max-height: ($global-lineheight * $lines) * 1rem; /* Fallback for non-webkit */
-  line-height: $global-lineheight;
   -webkit-line-clamp: $lines;
   -webkit-box-orient: vertical;
   overflow: hidden;
