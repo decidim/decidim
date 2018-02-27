@@ -214,6 +214,18 @@ es:
         create: "%{user_name} invitó al usuario %{resource_name} al %{space_name} proceso participativo"
         delete: "%{user_name} eliminado al usuario %{resource_name} del %{space_name} proceso participativo"
         update: "%{user_name} cambió el rol del usuario %{resource_name} en el %{space_name} proceso participativo"
+    events:
+      participatory_process:
+        step_activated:
+          email_intro: 'El paso %{resource_title} ahora está activo para %{participatory_space_title}. Puedes verlo desde esta página:'
+          email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: Una actualización de %{participatory_space_title}
+          notification_title: El paso %{resource_title} ahora está activo para <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'Las fechas para el paso %{resource_title} en %{participatory_space_title} se han actualizado. Puedes verlo desde esta página:'
+          email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: Una actualización de %{participatory_space_title}
+          notification_title: Las fechas del paso <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> se han actualizado.
     menu:
       processes: Procesos
     participatory_process_groups:
