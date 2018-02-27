@@ -83,6 +83,9 @@ ca:
             rejected: Rebutjada
             title: Respondre a la proposta %{title}
         proposal_notes:
+          create:
+            error: Hi ha hagut un problema en crear aquesta nota
+            success: La nota de la proposta s'ha creat correctament
           form:
             note: Nota
             submit: Enviar

@@ -83,6 +83,9 @@ es:
             rejected: Rechazada
             title: Responder a la propuesta %{title}
         proposal_notes:
+          create:
+            error: Ha habido un problema al crear esta nota de propuesta 
+            success: Nota de propuesta creada con éxito
           form:
             note: Nota
             submit: Enviar
