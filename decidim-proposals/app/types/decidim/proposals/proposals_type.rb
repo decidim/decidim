@@ -19,7 +19,7 @@ module Decidim
         argument :id, !types.ID
 
         resolve ->(feature, args, _ctx) {
-          ProposalsTypeHelper.base_scope(feature).find(args[:id])
+          ProposalsTypeHelper.base_scope(feature).find_by(id: args[:id])
         }
       end
     end

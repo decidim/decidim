@@ -28,15 +28,22 @@ module Decidim
       end
 
       describe "proposal" do
+        let(:query) { "query Proposal($id: ID!){ proposal(id: $id) { id } }" }
+        let(:variables) { { id: proposal.id.to_s } }
+
         context "when the proposal belongs to the feature" do
+          let!(:proposal) { create(:proposal, feature: model) }
+
           it "finds the proposal" do
-            raise NotImplementedError
+            expect(response["proposal"]["id"]).to eq(proposal.id.to_s)
           end
         end
 
         context "when the proposal doesn't belong to the feature" do
+          let!(:proposal) { create(:proposal, feature: create(:proposal_feature)) }
+
           it "returns null" do
-            raise NotImplementedError
+            expect(response["proposal"]).to be_nil
           end
         end
       end
