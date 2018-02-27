@@ -6,6 +6,7 @@ module Decidim
   # their own participatory processes.
   class Organization < ApplicationRecord
     include Decidim::Traceable
+    include Decidim::Loggable
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
 
@@ -28,6 +29,10 @@ module Decidim
     mount_uploader :logo, Decidim::OrganizationLogoUploader
     mount_uploader :favicon, Decidim::OrganizationFaviconUploader
     mount_uploader :highlighted_content_banner_image, ImageUploader
+
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::OrganizationPresenter
+    end
 
     # Returns top level scopes for this organization.
     #

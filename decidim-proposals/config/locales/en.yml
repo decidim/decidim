@@ -87,6 +87,7 @@ en:
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
+            proposal_length: Maximum proposal body length
             proposal_limit: Proposal limit per user
             proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
             proposal_wizard_step_2_help_text: Proposal wizard "Compare" step help text
@@ -202,6 +203,7 @@ en:
         create:
           error: There's been errors when endorsing the proposal.
         identities:
+          done: Done
           select_identity: Select identity
       proposal_endorsements_helper:
         endorsement_button:
@@ -232,12 +234,11 @@ en:
           already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: Endorse
-        endorsements_count:
-          count:
-            one: ENDORSEMENT
-            other: ENDORSEMENTS
+        endorsements_card_row:
+          endorse: Endorse
         endorsements_listing:
-          see_all: see all
+          see_all: See all
+          see_less: See less
           title: List of Endorsements
         filters:
           accepted: Accepted
@@ -289,11 +290,13 @@ en:
           view_proposal: View proposal
         show:
           edit_proposal: Edit proposal
-          endorsements_blocked: Endorsements blocked
           proposal_accepted_reason: 'This proposal has been accepted because:'
           proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: 'This proposal has been rejected because:'
           report: Report
+          sign_in: Sign in
+          sign_in_or_up: "%{in} or %{up} to participate"
+          sign_up: sign up
           withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any support. The proposal is not deleted, it will appear in the list of withdrawn proposals.
           withdraw_confirmation: Are you sure to withdraw this proposal?
           withdraw_proposal: Withdraw proposal

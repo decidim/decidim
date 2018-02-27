@@ -12,7 +12,7 @@ describe Decidim::Log::ResourcePresenter, type: :helper do
       "title" => resource.title
     }
   end
-  let(:title) { extra["title"] }
+  let(:title) { h(extra["title"]) }
   let(:resource_path) { Decidim::ResourceLocatorPresenter.new(resource).path }
 
   before do

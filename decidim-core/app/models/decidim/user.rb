@@ -8,6 +8,7 @@ module Decidim
   class User < ApplicationRecord
     include Nicknamizable
     include Decidim::Followable
+    include Decidim::Loggable
 
     OMNIAUTH_PROVIDERS = [:facebook, :twitter, :google_oauth2, (:developer if Rails.env.development?)].compact
     ROLES = %w(admin user_manager).freeze
@@ -43,6 +44,10 @@ module Decidim
     #
     # Returns a String.
     attr_accessor :invitation_instructions
+
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::UserPresenter
+    end
 
     # Checks if the user has the given `role` or not.
     #

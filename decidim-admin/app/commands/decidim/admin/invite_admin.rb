@@ -41,10 +41,10 @@ module Decidim
       end
 
       def log_action
-        Decidim::ActionLogger.log(
+        Decidim.traceability.perform_action!(
           "invite",
-          form.current_user,
           user,
+          form.current_user,
           extra: {
             invited_user_role: form.role,
             invited_user_id: user.id

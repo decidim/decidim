@@ -15,9 +15,12 @@ describe Decidim::Log::BasePresenter, type: :helper do
       created_at: Date.new(2018, 1, 2).at_midnight
     )
   end
-  let(:user) { create :user, name: "Alice Doe", organization: resource.feature.participatory_space.organization }
+  let(:user) { create :user, organization: resource.feature.participatory_space.organization }
+  let(:user_name) { h(user.name) }
   let(:participatory_space) { action_log.participatory_space }
-  let(:resource) { create :dummy_resource, title: "My Resource" }
+  let(:participatory_space_title) { h(participatory_space.title["en"]) }
+  let(:resource) { create :dummy_resource }
+  let(:resource_title) { h(resource.title) }
   let(:action) { :create }
   let(:version_double) { double(present?: false) }
   let(:presenter_double) { double(present: true) }
@@ -37,10 +40,10 @@ describe Decidim::Log::BasePresenter, type: :helper do
 
     it "renders a basic log sentence" do
       expect(subject).to include("create")
-      expect(subject).to include(user.name)
+      expect(subject).to include(user_name)
       expect(subject).to include(user.nickname)
-      expect(subject).to include(resource.title)
-      expect(subject).to include(participatory_space.title["en"])
+      expect(subject).to include(resource_title)
+      expect(subject).to include(participatory_space_title)
     end
 
     context "when version exists" do
@@ -66,10 +69,10 @@ describe Decidim::Log::BasePresenter, type: :helper do
 
       it "renders a basic log sentence" do
         expect(subject).to include("update")
-        expect(subject).to include(user.name)
+        expect(subject).to include(user_name)
         expect(subject).to include(user.nickname)
-        expect(subject).to include(resource.title)
-        expect(subject).to include(participatory_space.title["en"])
+        expect(subject).to include(resource_title)
+        expect(subject).to include(participatory_space_title)
       end
     end
 

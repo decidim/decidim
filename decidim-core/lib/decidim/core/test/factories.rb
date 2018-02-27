@@ -109,6 +109,7 @@ FactoryBot.define do
 
     trait :officialized do
       officialized_at { Time.zone.now }
+      officialized_as { Decidim::Faker::Localized.sentence(3) }
     end
   end
 

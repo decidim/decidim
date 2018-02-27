@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 module Decidim
-  # Use this class to log actions by any user.
+  # Use this class to log actions by any user. You probably shouldn't
+  # use this class dfirectly, but rather use `Decidim.traceability` instead.
+  # Check the docs on `Decidim::Traceability` for more info.
   #
   # Usage:
   #
@@ -13,11 +15,12 @@ module Decidim
     # action - a String representing the name of the action
     # user - the Decidim::User that performed the action
     # resource - the resource onn which the action was performed
+    # version_id - the ID of the `PaperTrail::Version` that was created on that action
     # resource_extra - a Hash with resource_extra info to be recorded
     #
     # Returns the newly created `Decidim::ActionLog` resource.
-    def self.log(action, user, resource, resource_extra = {})
-      new(action, user, resource, resource_extra).log!
+    def self.log(action, user, resource, version_id, resource_extra = {})
+      new(action, user, resource, version_id, resource_extra).log!
     end
 
     # Public: Initializes the instance.
@@ -25,11 +28,13 @@ module Decidim
     # action - a String representing the name of the action
     # user - the Decidim::User that performed the action
     # resource - the resource onn which the action was performed
+    # version_id - the ID of the `PaperTrail::Version` that was created on that action
     # resource_extra - a Hash with resource_extra info to be recorded
-    def initialize(action, user, resource, resource_extra = {})
+    def initialize(action, user, resource, version_id = nil, resource_extra = {})
       @action = action
       @user = user
       @resource = resource
+      @version_id = version_id
       @resource_extra = resource_extra
     end
 
@@ -45,13 +50,14 @@ module Decidim
         resource: resource,
         participatory_space: participatory_space,
         feature: feature,
+        version_id: version_id,
         extra: extra_data
       )
     end
 
     private
 
-    attr_reader :action, :user, :resource, :resource_extra
+    attr_reader :action, :user, :resource, :resource_extra, :version_id
 
     def organization
       user.organization
