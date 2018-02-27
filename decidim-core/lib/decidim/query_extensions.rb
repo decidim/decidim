@@ -12,7 +12,7 @@ module Decidim
     def self.define(type)
       Decidim.participatory_space_manifests.each do |participatory_space_manifest|
         type.field participatory_space_manifest.name.to_s.camelize(:lower) do
-          type !types[participatory_space_manifest.query_type.constantize]
+          type types[participatory_space_manifest.query_type.constantize]
           description "Lists all #{participatory_space_manifest.name}"
 
           resolve lambda { |_obj, _args, ctx|
@@ -21,6 +21,29 @@ module Decidim
             )
           }
         end
+
+        type.field participatory_space_manifest.name.to_s.singularize.camelize(:lower) do
+          type participatory_space_manifest.query_type.constantize
+          description "Finds a #{participatory_space_manifest.name.to_s.singularize}"
+          argument :id, !types.ID, "The ID of the #{participatory_space_manifest.name.to_s.singularize}"
+
+          resolve lambda { |_obj, args, ctx|
+            participatory_space_manifest.model_class_name.constantize.public_spaces.find_by(
+              organization: ctx[:current_organization],
+              id: args[:id]
+            )
+          }
+        end
+      end
+
+      type.field :component, Decidim::Core::ComponentInterface do
+        description "Lists the components this space contains."
+        argument :id, !types.ID, "The ID of the component to be found"
+
+        resolve lambda { |_, args, ctx|
+                  feature = Decidim::Feature.published.find_by(id: args[:id])
+                  feature&.organization == ctx[:current_organization] ? feature : nil
+                }
       end
 
       type.field :session do
@@ -34,6 +57,10 @@ module Decidim
 
       type.field :decidim, Core::DecidimType, "Decidim's framework properties." do
         resolve ->(_obj, _args, _ctx) { Decidim }
+      end
+
+      type.field :organization, Core::OrganizationType, "The current organization" do
+        resolve ->(_obj, _args, ctx) { ctx[:current_organization] }
       end
     end
   end

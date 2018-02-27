@@ -32,7 +32,10 @@ module Decidim
         Decidim.traceability.perform_action!(
           "unreport",
           @reportable.moderation,
-          @current_user
+          @current_user,
+          extra: {
+            reportable_type: @reportable.class.name
+          }
         ) do
           @reportable.moderation.update_attributes!(report_count: 0, hidden_at: nil)
         end
