@@ -86,6 +86,7 @@ nl:
             official_proposals_enabled: Officiële voorstellen ingeschakeld
             proposal_answering_enabled: Voorstel beantwoorden ingeschakeld
             proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat dit aantal minuten zijn verlopen
+            proposal_length: Maximale lengte van het voorstel
             proposal_limit: Voorstellimiet per gebruiker
             proposal_wizard_step_1_help_text: Voorstel wizard "Maak" stap helptekst
             proposal_wizard_step_2_help_text: Voorstel assistent tekst "Vergelijken" stap
