@@ -24,6 +24,8 @@ module Decidim
 
       geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.feature.organization.host } }
 
+      scope :officials, -> { where(author: nil) }
+      scope :citizens, -> { where.not(author: nil) }
       scope :accepted, -> { where(state: "accepted") }
       scope :rejected, -> { where(state: "rejected") }
       scope :evaluating, -> { where(state: "evaluating") }

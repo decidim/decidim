@@ -53,6 +53,7 @@ en:
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
             proposal_limit: Proposal limit per user
             vote_limit: Vote limit per user
+            split_proposal_enabled: Split officials and citizens proposals
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
@@ -140,10 +141,20 @@ en:
       proposals:
         display_type:
           label: 'Display :'
+        citizens_proposals:
+          see_all: See all citizens proposals
+        officials_proposals:
+          see_all: See all officials proposals
         count:
           proposals_count:
             one: 1 proposal
             other: "%{count} proposals"
+          citizens_proposals_count:
+            one: 1 citizen proposal
+            other: "%{count} citizens proposals"
+          officials_proposals_count:
+            one: 1 official proposal
+            other: "%{count} officials proposals"
         edit:
           back: Back
           select_a_category: Please select a category
@@ -191,7 +202,10 @@ en:
           most_voted: Most voted
           random: Random
           recent: Recent
-        proposal:
+        proposal_column:
+          creation_date: 'Creation: %{date}'
+          view_proposal: View proposal
+        proposal_list:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
         show:

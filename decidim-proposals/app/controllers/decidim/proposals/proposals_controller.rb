@@ -11,17 +11,17 @@ module Decidim
       include Paginable
       include Displayable
 
+      helper_method :officials_proposals
+      helper_method :citizens_proposals
       helper_method :geocoded_proposals
       before_action :authenticate_user!, only: [:new, :create]
 
       def index
-        @proposals = search
-                     .results
-                     .not_hidden
-                     .includes(:author)
-                     .includes(:category)
-                     .includes(:scope)
-
+        @proposals = proposals_search
+        @officials_proposals = proposals_search.officials
+        @citizens_proposals = proposals_search.citizens
+        @param_list = params[:display_type] == "list"
+        @no_filter_origin = no_filter_origin?
         @voted_proposals = if current_user
                              ProposalVote.where(
                                author: current_user,
@@ -108,6 +108,27 @@ module Decidim
       end
 
       private
+
+      def officials_proposals
+        @officials_proposals.any?
+      end
+
+      def citizens_proposals
+        @citizens_proposals.any?
+      end
+
+      def no_filter_origin?
+       (params[:filter][:origin] != ("all" || nil)) if params[:filter]
+      end
+
+      def proposals_search
+        search
+          .results
+          .not_hidden
+          .includes(:author)
+          .includes(:category)
+          .includes(:scope)
+      end
 
       def geocoded_proposals
         @geocoded_proposals ||= search.results.not_hidden.select(&:geocoded?)

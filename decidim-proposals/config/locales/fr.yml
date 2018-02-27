@@ -52,6 +52,7 @@ fr:
             proposal_edit_before_minutes: Les propositions peuvent être éditées par les auteurs avant que ces minutes soit écoulées
             proposal_limit: Maximum de propositions par utilisateur
             vote_limit: Nombre maximum de votes par utilisateur
+            split_proposal_enabled: Séparer propositions officielles et citoyennes
           step:
             announcement: Message d'annonce
             comments_blocked: Commentaires bloqués
@@ -139,10 +140,20 @@ fr:
       proposals:
         display_type:
           label: 'Affichage :'
+        citizens_proposals:
+          see_all: Voir toutes les propositions citoyennes
+        officials_proposals:
+          see_all: Voir toutes les propositions officielles
         count:
           proposals_count:
             one: 1 proposition
             other: "%{count} propositions"
+          citizens_proposals_count:
+            one: 1 proposition citoyenne
+            other: "%{count} propositions citoyennes"
+          officials_proposals_count:
+            one: 1 proposition officielle
+            other: "%{count} propositions officielles"
         edit:
           back: Retour
           select_a_category: Veuillez sélectionner une catégorie
@@ -190,7 +201,10 @@ fr:
           most_voted: Les plus votées
           random: Aléatoire
           recent: Les plus récents
-        proposal:
+        proposal_column:
+          creation_date: 'Création: %{date}'
+          view_proposal: Voir la proposition
+        proposal_list:
           creation_date: 'Création: %{date}'
           view_proposal: Voir la proposition
         show:
