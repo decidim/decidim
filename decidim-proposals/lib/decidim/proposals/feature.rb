@@ -6,6 +6,7 @@ Decidim.register_feature(:proposals) do |feature|
   feature.engine = Decidim::Proposals::Engine
   feature.admin_engine = Decidim::Proposals::AdminEngine
   feature.icon = "decidim/proposals/icon.svg"
+  feature.searchable_fields = { a: ["title"], b: ["description", "location"]}
 
   feature.on(:before_destroy) do |instance|
     raise "Can't destroy this feature when there are proposals" if Decidim::Proposals::Proposal.where(feature: instance).any?

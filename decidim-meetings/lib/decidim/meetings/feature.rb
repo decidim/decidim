@@ -6,6 +6,7 @@ Decidim.register_feature(:meetings) do |feature|
   feature.engine = Decidim::Meetings::Engine
   feature.admin_engine = Decidim::Meetings::AdminEngine
   feature.icon = "decidim/meetings/icon.svg"
+  feature.searchable_fields = { a: ["title"], b: ["description", "location"]}
 
   feature.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this feature" if Decidim::Meetings::Meeting.where(feature: instance).any?
