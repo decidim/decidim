@@ -86,6 +86,7 @@ eu:
             official_proposals_enabled: Proposamen ofizialak gaituta
             proposal_answering_enabled: Erantzuna aktibatutako proposamenei
             proposal_edit_before_minutes: Proposamenak egileek editatu ahal izango dituzte minutu asko igaro aurretik
+            proposal_length: Proposamen maximoa gorputzaren luzera
             proposal_limit: Proposamenaren muga erabiltzaile bakoitzeko
             proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
             proposal_wizard_step_2_help_text: Proposamen laguntzailea "Konparatu" urrats laguntza testua
