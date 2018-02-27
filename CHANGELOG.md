@@ -48,6 +48,7 @@
 - **decidim-participatory_processes**: Adds a basic API including steps and components. [\#2787](https://github.com/decidim/decidim/pull/2787)
 - **decidim-core**: Adds a statistics API to `Organization` and `ParticipatorySpace`. [\#2843](https://github.com/decidim/decidim/pull/2843)
 - **decidim-proposals**: Log proposal answers [\#2848](https://github.com/decidim/decidim/pull/2848)
+- **decidim-accountability**: Adds flag to control if the visualization of progress is visible [\#2847](https://github.com/decidim/decidim/pull/2847)
 
 **Changed**:
 
