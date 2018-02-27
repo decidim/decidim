@@ -201,6 +201,7 @@ eu:
         create:
           error: Arazoak izan dira proposamena onartzean.
         identities:
+          done: Done
           select_identity: Hautatu identitatea
       proposal_endorsements_helper:
         endorsement_button:
@@ -231,12 +232,11 @@ eu:
           already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: gatoz
-        endorsements_count:
-          count:
-            one: abal
-            other: MERKATALGARRITASUNARI
+        endorsements_card_row:
+          endorse: gatoz
         endorsements_listing:
-          see_all: dena ikusi
+          see_all: Dena ikusi
+          see_less: Ikusi gutxiago
           title: Onarpenen zerrenda
         filters:
           accepted: Onartuta
@@ -288,11 +288,13 @@ eu:
           view_proposal: Ikusi proposamena
         show:
           edit_proposal: Editatu proposamena
-          endorsements_blocked: Onarpen blokeatuak
           proposal_accepted_reason: 'Proposamen hau onartu da arrazoi hauengatik:'
           proposal_in_evaluation_reason: Proposamen hau ebaluatzen ari da
           proposal_rejected_reason: 'Proposamen hau baztertu da arrazoi hauengatik:'
           report: Salatu
+          sign_in: Hasi saioa
+          sign_in_or_up: "%{in} edo %{up} parte hartzeko"
+          sign_up: Izena eman
           withdraw_btn_hint: Zure proposamena uka dezakezu zure kontuan aldatzen baduzu, laguntza jaso ez baduzu. Proposamena ez da ezabatu, kendutako proposamenen zerrendan agertuko da.
           withdraw_confirmation: Ziur al zaude proposamen hau kendu nahi duzula?
           withdraw_proposal: Ezabatu proposamena
