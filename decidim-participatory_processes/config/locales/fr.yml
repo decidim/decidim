@@ -214,6 +214,18 @@ fr:
         create: "%{user_name} invité l'utilisateur %{resource_name} à la %{space_name} processus participatif"
         delete: "%{user_name} supprimé l'utilisateur %{resource_name} à partir du %{space_name} processus participatif"
         update: "%{user_name} changé le rôle de l'utilisateur %{resource_name} dans le %{space_name} processus participatif"
+    events:
+      participatory_process:
+        step_activated:
+          email_intro: 'L''étape %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Une mise à jour de %{participatory_space_title}
+          notification_title: L'étape %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'Les dates pour l''étape %{resource_title} à %{participatory_space_title} ont été mises à jour. Vous pouvez le voir sur cette page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Une mise à jour de %{participatory_space_title}
+          notification_title: Les dates de l'étape <a href="%{resource_path}">%{resource_title}</a> à <a href="%{participatory_space_url}">%{participatory_space_title}</a> ont été mises à jour.
     menu:
       processes: Processus participatifs
     participatory_process_groups:
