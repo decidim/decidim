@@ -40,7 +40,7 @@ shared_context "with a graphql type" do
   end
 end
 
-shared_context "with a graphql scalar" do
+shared_context "with a graphql scalar type" do
   include_context "with a graphql type"
 
   let(:root_value) do
