@@ -9,6 +9,7 @@
 <main>
   <div class="wrapper">
     <%= partial "process_header" %>
+    <%= render partial: page_path("proposals") + "/identity-selector" %>
     <div class="row column view-header">
       <h2 class="heading2">Cobriment de la Ronda de Dalt al seu pas per
             la Vall d'Hebrón</h2>
@@ -35,22 +36,20 @@
     <div class="row">
       <div class="columns section view-side mediumlarge-4 mediumlarge-push-8
         large-3 large-push-9">
-        <div class="card extra">
+        <div class="card">
           <div class="card__content">
 
             <%= partial "progress_bar", { vertical: true, progress: 27, total: 50 } %>
 
-            <button class="button expanded button--sc" disabled>Apoyar</button>
+            <button class="button expanded light button--sc">Apoyar</button>
 
-            <p class="mt-s mb-none">
-              <%= link_to raw("Entra en tu cuenta</a> o <a href='/user-register'>regístrate"), page_path("user-login") %> para apoyar.
-            </p>
+            <%= partial "adhesion_buttons", { status: 'secondary' } %>
 
           </div>
         </div>
         <div class="card text-center">
           <div class="card__content">
-            <button class="button secondary hollow expanded button--icon button--sc success" disabled>
+            <button class="button secondary hollow expanded button--icon button--sc">
               <%= icon "bell" %>
               <span>Seguir</span>
             </button>
@@ -114,3 +113,10 @@
 </main>
 
 <%= partial "template_bottom" %>
+
+<script>
+/* Inline script for demo purposes */
+window.addEventListener("load", function(event) {
+  $('#identity-selector').foundation('open');
+});
+</script>

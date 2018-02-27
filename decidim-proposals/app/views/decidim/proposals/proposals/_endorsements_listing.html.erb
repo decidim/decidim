@@ -8,23 +8,26 @@ if count > 0
     </div>
 
     <div class="columns large-12">
-      <% proposal.endorsements.for_listing.limit(5).each do |endorsement| %>
-        <%= render partial: 'endorsement_xxs', locals: {endorsement: endorsement} %>
-      <% end %>
+      <%= proposal.endorsements.for_listing.limit(5).collect do |endorsement| %>
+        <% render partial: 'endorsement_xxs', locals: {endorsement: endorsement} %>
+      <% end.join(', ').html_safe %>
       <% if count > 5 %>...<% end -%>
     </div>
   </div>
   <% if count > 5 %>
     <div class="row">
-      <div class="columns large-12">
-        <a data-toggle="remaining-endorsements"><%= t('.see_all') %></a>
+      <div id="see-all-endorsements" class="columns large-12" data-toggler=".hide">
+        <a data-toggle="remaining-endorsements see-all-endorsements"><%= t('.see_all') %></a>
       </div>
-      <div id="remaining-endorsements" class="columns large-12 hide" data-toggler=".hide">
-        <% proposal.endorsements.for_listing.offset(5).each do |endorsement| %>
-        <div>
-          <%= render partial: 'endorsement_xxs', locals: {endorsement: endorsement} %>
+      <div id="remaining-endorsements" class="hide" data-toggler=".hide">
+        <div class="columns large-12">
+        <%= proposal.endorsements.for_listing.offset(5).collect do |endorsement| %>
+          <% render partial: 'endorsement_xxs', locals: {endorsement: endorsement} %>
+        <% end.join(', ').html_safe %>
         </div>
-        <% end %>
+        <div class="columns large-12">
+          <a data-toggle="remaining-endorsements see-all-endorsements"><%= t('.see_less') %></a>
+        </div>
       </div>
     </div>
   <% end -%>
