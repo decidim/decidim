@@ -46,7 +46,7 @@ shared_context "with a graphql scalar type" do
   let(:root_value) do
     OpenStruct.new(value: model)
   end
- 
+
   let(:type_class) do
     klass = described_class
 
