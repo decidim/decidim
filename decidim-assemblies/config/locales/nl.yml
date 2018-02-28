@@ -80,6 +80,8 @@ nl:
         assemblies: Bijeenkomsten
         assemblies_submenu:
           assembly_admins: Assemblage gebruikers
+          attachment_collections: collecties
+          attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
           features: Kenmerken
@@ -109,6 +111,7 @@ nl:
       admin:
         assemblies:
           form:
+            select_an_area: Selecteer een gebied
             slug_help: 'URL-slugs worden gebruikt om de URL''s te genereren die naar deze bijeenkomst verwijzen. Enkel letters, cijfers en streepjes worden toegestaan en deze moet beginnen met een letter. Voorbeeld: %{url}'
         assembly_copies:
           form:
@@ -121,6 +124,7 @@ nl:
             active_assemblies: Actieve bijeenkomsten
             see_all_assemblies: Bekijk alle bijeenkomsten
       show:
+        area: Gebied
         developer_group: Ontwikkelaarsgroep
         local_area: Lokaal gebied
         participatory_scope: Participatieve scope
