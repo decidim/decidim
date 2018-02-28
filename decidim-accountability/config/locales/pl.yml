@@ -171,6 +171,7 @@ pl:
           global:
             categories_label: Nazwa "Kategorie"
             comments_enabled: Komentarze włączone
+            display_progress_enabled: Wyświetl postęp
             heading_leaf_level_results: Nazwa "Projekty"
             heading_parent_level_results: Nazwa "Wyniki"
             intro: Intro
