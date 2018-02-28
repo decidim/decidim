@@ -175,6 +175,7 @@ nl:
           global:
             categories_label: Naam voor "Categorieën"
             comments_enabled: Reacties ingeschakeld
+            display_progress_enabled: Geef de voortgang weer
             heading_leaf_level_results: Naam voor "Projecten"
             heading_parent_level_results: Naam voor "Resultaten"
             intro: Intro
