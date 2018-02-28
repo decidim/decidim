@@ -175,6 +175,7 @@ ca:
           global:
             categories_label: Nom per a "Categories"
             comments_enabled: Comentaris habilitats
+            display_progress_enabled: Mostra el progrés
             heading_leaf_level_results: Nom per a "Projectes"
             heading_parent_level_results: Nom per a "Resultats"
             intro: Introducció
