@@ -53,6 +53,7 @@
 - **decidim-proposals**: Log proposal answers [\#2848](https://github.com/decidim/decidim/pull/2848)
 - **decidim-accountability**: Adds flag to control if the visualization of progress is visible [\#2847](https://github.com/decidim/decidim/pull/2847)
 - **decidim-proposals**: Adds a basic API that lists proposals. [\#2788](https://github.com/decidim/decidim/pull/2788)
+- **decidim-participatory_processes**: Log process updates[\#2860](https://github.com/decidim/decidim/pull/2860)
 
 **Changed**:
 
