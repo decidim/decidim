@@ -161,6 +161,11 @@ nl:
           changes_at_title: Veranderingen bij "%{title}"
         version:
           version_index: Versie %{index}
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Het voorstel "%{proposal_title}" is in een resultaat opgenomen. Je kunt het vanaf deze pagina bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je "%{proposal_title}" volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
     features:
       accountability:
         name: Verantwoording
