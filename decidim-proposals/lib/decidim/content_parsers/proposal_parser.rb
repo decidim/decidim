@@ -17,14 +17,14 @@ module Decidim
       Metadata = Struct.new(:proposals)
 
       # Matches a URL
-      URL_REGEX = /(?i)\b((?:[a-z][\w-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))/i
+      URL_REGEX = %r{/(?i)\b((?:[a-z][\w-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+
+      [.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))/i}
       # Matches a mentioned Proposal ID (~(d)+ expression)
       ID_REGEX = /~(\d+)/
 
-
       def initialize(content, context)
         super
-        @metadata= Metadata.new([])
+        @metadata = Metadata.new([])
       end
 
       # Replaces found mentions matching a nickname of an existing
@@ -38,12 +38,12 @@ module Decidim
       end
 
       # (see BaseParser#metadata)
-      def metadata
-        @metadata
-      end
+      attr_reader :metadata
 
       #-------------------------------------------------
+
       private
+
       #-------------------------------------------------
 
       def parse_for_urls(content)
@@ -60,7 +60,7 @@ module Decidim
 
       def parse_for_ids(content)
         content.gsub(ID_REGEX) do |match|
-          proposal = proposal_from_id_match($1)
+          proposal = proposal_from_id_match(Regexp.last_match(1))
           if proposal
             @metadata.proposals << proposal
             proposal.to_global_id
@@ -82,7 +82,7 @@ module Decidim
       end
 
       def find_proposal_by_id(id)
-        Decidim::Proposals::Proposal.find_by_id(id) if id.present?
+        Decidim::Proposals::Proposal.find_by(id: id) if id.present?
       end
     end
   end

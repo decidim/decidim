@@ -42,10 +42,10 @@ module Decidim
           let(:proposal_2) { create(:proposal) }
           let(:proposal_3) { create(:proposal) }
           let(:content) do
-            gid_1 = proposal_1.to_global_id
-            gid_2 = proposal_2.to_global_id
-            gid_3 = proposal_3.to_global_id
-            "This content references the following proposals: #{gid_1}, #{gid_2} and #{gid_3}. Great?I like them!"
+            gid1 = proposal_1.to_global_id
+            gid2 = proposal_2.to_global_id
+            gid3 = proposal_3.to_global_id
+            "This content references the following proposals: #{gid1}, #{gid2} and #{gid3}. Great?I like them!"
           end
 
           it { is_expected.to eq("This content references the following proposals: #{proposal_as_html_link(proposal_1)}, #{proposal_as_html_link(proposal_2)} and #{proposal_as_html_link(proposal_3)}. Great?I like them!") }
@@ -59,7 +59,6 @@ module Decidim
       end
 
       def proposal_url(proposal)
-        host = proposal.organization.host
         f = proposal.feature
         url = "/processes/#{f.participatory_space.slug}/f/#{f.id}/proposals/#{proposal.id}"
         url
