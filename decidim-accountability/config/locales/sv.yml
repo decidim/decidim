@@ -175,6 +175,7 @@ sv:
           global:
             categories_label: Namn för "kategorier"
             comments_enabled: Kommentarer aktiverade
+            display_progress_enabled: Visningsframsteg
             heading_leaf_level_results: Namn på "Projekt"
             heading_parent_level_results: Namn på "Resultat"
             intro: Intro
