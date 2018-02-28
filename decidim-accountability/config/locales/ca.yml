@@ -12,6 +12,7 @@ ca:
         proposal_ids: Propostes incloses
         start_date: Inici
         title: Títol
+        updated_at: Actualitzat a
       status:
         description: Descripció
         key: Clau
@@ -94,6 +95,10 @@ ca:
           update:
             invalid: Hi ha hagut un problema en actualitzar aquest element
             success: El element ha estat actualitzat correctament
+      admin_log:
+        result:
+          create: "%{user_name} va crear el resultat %{resource_name} en %{space_name}"
+          update: "%{user_name} resultat actualitzat %{resource_name} en %{space_name}"
       models:
         result:
           fields:
@@ -156,6 +161,13 @@ ca:
           changes_at_title: Canvis a "%{title}"
         version:
           version_index: Versió %{index}
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'La proposta "%{proposal_title}" s''ha inclòs en un resultat. Podeu veure-ho des d''aquesta pàgina:'
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint "%{proposal_title}". Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una actualització a %{proposal_title}
+          notification_title: La proposta <a href="%{proposal_path}">%{proposal_title}</a> s'ha inclòs al <a href="%{resource_path}">%{resource_title}</a> resultat.
     features:
       accountability:
         name: Seguiment
@@ -163,12 +175,21 @@ ca:
           global:
             categories_label: Nom per a "Categories"
             comments_enabled: Comentaris habilitats
+            display_progress_enabled: Mostra el progrés
             heading_leaf_level_results: Nom per a "Projectes"
             heading_parent_level_results: Nom per a "Resultats"
             intro: Introducció
             subcategories_label: Nom per a "Subcategories"
           step:
             comments_blocked: Comentaris bloquejats
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Resultats
+    participatory_spaces:
+      highlighted_results:
+        results: Resultats
+        see_all_results: Veure tots els resultats
     resource_links:
       included_projects:
         result_projects: Projectes inclosos en aquest resultat
