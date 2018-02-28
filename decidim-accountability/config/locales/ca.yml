@@ -167,6 +167,7 @@ ca:
           email_intro: 'La proposta "%{proposal_title}" s''ha inclòs en un resultat. Podeu veure-ho des d''aquesta pàgina:'
           email_outro: Heu rebut aquesta notificació perquè esteu seguint "%{proposal_title}". Podeu deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una actualització a %{proposal_title}
+          notification_title: La proposta <a href="%{proposal_path}">%{proposal_title}</a> s'ha inclòs al <a href="%{resource_path}">%{resource_title}</a> resultat.
     features:
       accountability:
         name: Seguiment
