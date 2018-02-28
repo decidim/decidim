@@ -53,8 +53,38 @@ es:
         error: Se ha producido un error al actualizar tu cuenta.
         success: Tu cuenta se ha actualizado correctamente.
         success_with_email_confirmation: Tu cuenta se ha actualizado correctamente. Recibirás un correo electrónico para confirmar tu nueva dirección de correo electrónico.
+    admin_log:
+      feature:
+        create: "%{user_name} agregó el %{resource_name} característica al %{space_name} espacio"
+        delete: "%{user_name} eliminado el %{resource_name} característica de %{space_name} espacio"
+      moderation:
+        hide: "%{user_name} escondió un recurso de tipo %{resource_type} en el %{space_name} espacio"
+        unreport: "%{user_name} no reportó un recurso de tipo %{resource_type} en el %{space_name} espacio"
+      newsletter:
+        create: "%{user_name} creó el %{resource_name} hoja informativa"
+        delete: "%{user_name} eliminado el %{resource_name} hoja informativa"
+        deliver: "%{user_name} entregado el %{resource_name} hoja informativa"
+        update: "%{user_name} actualizado el %{resource_name} hoja informativa"
+      organization:
+        update: "%{user_name} actualizado la configuración de la organización"
+      static_page:
+        create: "%{user_name} creó el %{resource_name} página estática"
+        delete: "%{user_name} eliminado el %{resource_name} página estática"
+        update: "%{user_name} actualizado el %{resource_name} página estática"
+      user:
+        invite: "%{user_name} invitó al usuario %{resource_name} con el rol: %{role}"
+        officialize: "%{user_name} oficializó al usuario %{resource_name}"
+        remove_from_admin: "%{user_name} eliminado al usuario %{resource_name} con el rol: %{role}"
+        unofficialize: "%{user_name} no oficializado el usuario %{resource_name}"
+      user_group:
+        reject: "%{user_name} rechazó el %{resource_name} Verificación del grupo de usuarios"
+        verify: "%{user_name} verificado el %{resource_name} grupo de usuario"
     anonymous_user: Anónimo
     application:
+      collection:
+        documents:
+          one: Documento
+          other: Documentos
       documents:
         related_documents: Documentos relacionados
       photos:
@@ -135,18 +165,14 @@ es:
         email_intro: 'Ha habido una actualización de "%{resource_title}". Se puede ver en esta página:'
         email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
         email_subject: Una actualización de %{resource_title}
-      feature_published_event:
-        email_intro: 'El componente %{resource_title} ahora está activo para %{participatory_space_title}. Puedes verlo desde esta página:'
-        email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-        email_subject: Una actualización de %{participatory_space_title}
-        notification_title: El componente %{resource_title} ahora está activo para <a href="%{resource_path}">%{participatory_space_title}</a>
+      features:
+        feature_published:
+          email_intro: 'El componente %{resource_title} ahora está activo para %{participatory_space_title}. Puedes verlo desde esta página:'
+          email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: Una actualización de %{participatory_space_title}
+          notification_title: El componente %{resource_title} ahora está activo para <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
-      participatory_process_step_activated_event:
-        email_intro: 'La fase %{resource_title} ahora está activa para %{participatory_space_title}. Puedes verla desde esta página:'
-        email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-        email_subject: Un evento ha ocurrido en %{participatory_space_title}
-        notification_title: La fase %{resource_title} ahora está activa para <a href="%{resource_path}">%{participatory_space_title}</a>
       users:
         profile_updated:
           email_intro: La página <a href="%{resource_url}">de perfil</a> de %{name} (%{nickname}), a quien estás siguiendo, se ha actualizado.
@@ -194,6 +220,19 @@ es:
       errors:
         error: Hay un error en este campo.
       remove_this_file: Eliminar este archivo
+    log:
+      base_presenter:
+        create: "%{user_name} creado %{resource_name}"
+        create_with_space: "%{user_name} creado %{resource_name} en %{space_name}"
+        delete: "%{user_name} borrado %{resource_name}"
+        delete_with_space: "%{user_name} borrado %{resource_name} en %{space_name}"
+        unknown_action: "%{user_name} realizó alguna acción en %{resource_name}"
+        unknown_action_with_space: "%{user_name} realizó alguna acción en %{resource_name} en %{space_name}"
+        update: "%{user_name} actualizado %{resource_name}"
+        update_with_space: "%{user_name} actualizado %{resource_name} en %{space_name}"
+      value_types:
+        scope_presenter:
+          not_found: 'El alcance no se encontró en la base de datos (ID: %{id})'
     managed_users:
       expired_session: La sesión de suplantación actual ha caducado.
     menu:
@@ -410,7 +449,7 @@ es:
         notifications: Notificaciones
         profile: Mi cuenta
         public_profile: Mi perfil público
-        sign_out: Sal
+        sign_out: Cerrar sesión
       user_profile:
         account: Cuenta
         authorizations: Autorizaciones
@@ -444,6 +483,7 @@ es:
         answers_count: Encuestas completadas
         assemblies_count: Asambleas
         comments_count: Comentarios
+        endorsements_count: Endosos
         headline: Estado actual de %{organization}
         meetings_count: Encuentros
         orders_count: Votos
@@ -483,6 +523,7 @@ es:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d/%m/%y"
+      decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   views:
