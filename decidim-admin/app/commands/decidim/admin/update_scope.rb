@@ -38,8 +38,7 @@ module Decidim
         {
           name: form.name,
           code: form.code,
-          scope_type: form.scope_type,
-          parent: @parent_scope
+          scope_type: form.scope_type
         }
       end
     end
