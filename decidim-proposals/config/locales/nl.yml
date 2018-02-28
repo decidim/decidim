@@ -2,10 +2,13 @@ nl:
   activemodel:
     attributes:
       proposal:
+        answer: Antwoord
+        answered_at: Beantwoord op
         body: Body
         category_id: Categorie
         has_address: Heeft adres
         scope_id: Reikwijdte
+        state: Staat
         title: Titel
         user_group_id: Maak een voorstel als
       proposal_answer:
@@ -188,6 +191,9 @@ nl:
             created_at: Aanmaakdatum
             proposal_votes_count: Stemmen tellen
             proposals: voorstellen
+      admin_log:
+        proposal:
+          answer: "%{user_name} beantwoordde het voorstel %{resource_name} op de %{space_name} spatie"
       answers:
         accepted: Aanvaard
         evaluating: Aan het beoordelen
