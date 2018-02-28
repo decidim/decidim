@@ -55,6 +55,7 @@ module Decidim
           end
 
           it "does not recognize the proposal" do
+            subject
             expect(parser.metadata.proposals).to eq([])
           end
         end
@@ -79,17 +80,17 @@ module Decidim
           let(:proposal2) { create(:proposal, feature: feature) }
           let(:proposal3) { create(:proposal, feature: feature) }
           let(:content) do
-            url1 = proposal_url(proposal_1)
-            url2 = proposal_url(proposal_2)
-            url3 = proposal_url(proposal_3)
+            url1 = proposal_url(proposal1)
+            url2 = proposal_url(proposal2)
+            url3 = proposal_url(proposal3)
             "This content references the following proposals: #{url1}, #{url2} and #{url3}. Great?I like them!"
           end
 
-          it { is_expected.to eq("This content references the following proposals: #{proposal_1.to_global_id}, #{proposal_2.to_global_id} and #{proposal_3.to_global_id}. Great?I like them!") }
+          it { is_expected.to eq("This content references the following proposals: #{proposal1.to_global_id}, #{proposal2.to_global_id} and #{proposal3.to_global_id}. Great?I like them!") }
           it "has metadata with all linked proposals" do
             subject
             expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
-            expect(parser.metadata.proposals).to eq([proposal_1, proposal_2, proposal_3])
+            expect(parser.metadata.proposals).to eq([proposal1, proposal2, proposal3])
           end
         end
 
