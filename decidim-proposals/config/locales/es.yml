@@ -2,10 +2,13 @@ es:
   activemodel:
     attributes:
       proposal:
+        answer: Responder
+        answered_at: Respondido en
         body: Cuerpo
         category_id: Categoría
         has_address: Tiene dirección
         scope_id: Ámbito
+        state: Estado
         title: Título
         user_group_id: Crear propuesta como
       proposal_answer:
@@ -188,6 +191,9 @@ es:
             created_at: Fecha de creación
             proposal_votes_count: Número de votos
             proposals: Propuestas
+      admin_log:
+        proposal:
+          answer: "%{user_name} respondió la propuesta %{resource_name} en el espacio %{space_name}"
       answers:
         accepted: Aceptadas
         evaluating: En evaluación
