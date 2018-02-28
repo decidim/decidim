@@ -167,6 +167,7 @@ fi:
           email_intro: 'Tulos on sisällytetty ehdotukseen "%{proposal_title}". Voit nähdä sen tällä sivulla:'
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{proposal_title}". Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
           email_subject: Päivitys %{proposal_title}
+          notification_title: Ehdotus <a href="%{proposal_path}">%{proposal_title}</a> on sisällytetty <a href="%{resource_path}">%{resource_title}</a> tulokseen.
     features:
       accountability:
         name: Tulokset
