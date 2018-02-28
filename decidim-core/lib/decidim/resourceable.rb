@@ -65,11 +65,11 @@ module Decidim
           Array.wrap(resources).each do |resource|
             payload = {
               from_type: self.class.name,
-              from_id: self.id,
+              from_id: id,
               to_type: resource.class.name,
               to_id: resource.id
             }
-            event_name= "decidim.resourceable.#{link_name}.created"
+            event_name = "decidim.resourceable.#{link_name}.created"
             ActiveSupport::Notifications.instrument event_name, this: payload do
               Decidim::ResourceLink.create!(
                 from: self,

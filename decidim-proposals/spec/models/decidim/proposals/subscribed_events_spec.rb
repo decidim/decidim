@@ -16,10 +16,10 @@ module Decidim
         build(:dummy_resource)
       end
 
-      context "on created event" do
+      context "when event is created" do
         before do
-          link_name= "included_proposals"
-          event_name= "decidim.resourceable.#{link_name}.created"
+          link_name = "included_proposals"
+          event_name = "decidim.resourceable.#{link_name}.created"
           payload = {
             from_type: resource.class.name, from_id: resource.id,
             to_type: proposal.class.name, to_id: proposal.id
@@ -39,7 +39,6 @@ module Decidim
           expect(proposal.state).to eq("accepted")
         end
       end
-
     end
   end
 end
