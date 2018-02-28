@@ -29,6 +29,24 @@ describe "Explore results", versioning: true, type: :system do
         expect(page).to have_content(translated(category.name)) if !category.subcategories.empty? || results_count.positive?
       end
     end
+
+    it "shows progress" do
+      expect(page).to have_content("GLOBAL EXECUTION STATUS")
+      expect(page).to have_selector(".progress-figure")
+    end
+
+    context "with progress disabled" do
+      before do
+        feature.update_attributes!(settings: { display_progress_enabled: false })
+      end
+
+      it "doesn't show progress" do
+        visit path
+
+        expect(page).to have_no_content("Global execution status")
+        expect(page).to have_no_selector(".progress-figure")
+      end
+    end
   end
 
   describe "index" do
