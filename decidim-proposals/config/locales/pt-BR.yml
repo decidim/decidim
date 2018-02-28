@@ -2,10 +2,13 @@ pt-BR:
   activemodel:
     attributes:
       proposal:
+        answer: Responda
+        answered_at: Respondido em
         body: Corpo
         category_id: Categoria
         has_address: Tem endereço
         scope_id: Âmbito
+        state: Estado
         title: Título
         user_group_id: Criar proposta como
       proposal_answer:
@@ -188,6 +191,9 @@ pt-BR:
             created_at: Data de criação
             proposal_votes_count: Contagem de votos
             proposals: Propostas
+      admin_log:
+        proposal:
+          answer: "%{user_name} respondeu a proposta %{resource_name} no espaço %{space_name}"
       answers:
         accepted: Aceitaram
         evaluating: Avaliando
