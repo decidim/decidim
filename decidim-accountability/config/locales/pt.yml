@@ -161,6 +161,13 @@ pt:
           changes_at_title: Alterações em "%{title}"
         version:
           version_index: Versão %{index}
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'A proposta "%{proposal_title}" foi incluída em um resultado. Você pode vê-lo a partir desta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo "%{proposal_title}". Você pode parar de receber notificações após o link anterior.
+          email_subject: Uma atualização para %{proposal_title}
+          notification_title: A proposta <a href="%{proposal_path}">%{proposal_title}</a> foi incluída no resultado <a href="%{resource_path}">%{resource_title}</a>.
     features:
       accountability:
         name: Prestação de contas
