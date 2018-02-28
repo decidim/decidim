@@ -11,7 +11,7 @@ module Decidim
         def create
           authorize! :publish, current_assembly
 
-          PublishAssembly.call(current_assembly) do
+          PublishAssembly.call(current_assembly, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("assembly_publications.create.success", scope: "decidim.admin")
             end

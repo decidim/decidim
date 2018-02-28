@@ -114,6 +114,7 @@ en:
     admin_log:
       assembly:
         create: "%{user_name} created the %{resource_name} assembly"
+        publish: "%{user_name} published the %{resource_name} assembly"
     assemblies:
       admin:
         assemblies:
