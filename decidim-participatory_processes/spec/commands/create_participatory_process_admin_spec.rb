@@ -67,9 +67,18 @@ module Decidim::ParticipatoryProcesses
         expect(action_log.version.event).to eq "create"
       end
 
-      it "creates a new user with no application admin privileges" do
+      it "doesn't add admin privileges to the user" do
         subject.call
-        expect(Decidim::User.last).not_to be_admin
+        user.reload
+
+        expect(user).not_to be_admin
+      end
+
+      it "makes the new admin follow the process" do
+        subject.call
+        user.reload
+
+        expect(user.follows?(my_process)).to be true
       end
 
       context "when there is no user with the given email" do
