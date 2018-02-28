@@ -175,6 +175,7 @@ fr:
           global:
             categories_label: Nom pour "Catégories"
             comments_enabled: Commentaires activés
+            display_progress_enabled: Afficher les progrès
             heading_leaf_level_results: Nom pour "Projets"
             heading_parent_level_results: Nom pour "Résultats"
             intro: Intro
