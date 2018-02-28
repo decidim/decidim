@@ -161,6 +161,12 @@ gl:
           changes_at_title: Cambios en "%{title}"
         version:
           version_index: Versión %{index}
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'A proposta "%{proposal_title}" foi incluída nun resultado. Podes velo desde esta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo "%{proposal_title}". Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Unha actualización a %{proposal_title}
     features:
       accountability:
         name: Responsabilidade
