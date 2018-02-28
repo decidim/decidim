@@ -44,6 +44,7 @@ module Decidim
                                    alignment: form.alignment,
                                    decidim_user_group_id: form.user_group_id)
 
+        @commentable.act_on_comment_metadatas(parsed.metadata)
         mentioned_users = parsed.metadata[:user].users
         send_mention_notifications(mentioned_users) if mentioned_users.any?
       end
