@@ -27,6 +27,7 @@ module Decidim
             participatory_scope: :i18n,
             participatory_structure: :i18n,
             promoted: :boolean,
+            published_at: :date,
             reference: :string,
             scopes_enabled: :boolean,
             short_description: :i18n,
@@ -44,11 +45,15 @@ module Decidim
 
         def action_string
           case action
-          when "create", "publish"
+          when "create", "publish", "unpublish"
             "decidim.admin_log.assembly.#{action}"
           else
             super
           end
+        end
+
+        def has_diff?
+          action == "unpublish" || super
         end
       end
     end

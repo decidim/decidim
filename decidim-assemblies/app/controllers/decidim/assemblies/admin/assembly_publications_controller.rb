@@ -27,7 +27,7 @@ module Decidim
         def destroy
           authorize! :publish, current_assembly
 
-          UnpublishAssembly.call(current_assembly) do
+          UnpublishAssembly.call(current_assembly, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("assembly_publications.destroy.success", scope: "decidim.admin")
             end

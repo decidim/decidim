@@ -8,6 +8,7 @@ module Decidim
         # Public: Initializes the command.
         #
         # assembly - A Assembly that will be published
+        # current_user - the user performing the action
         def initialize(assembly, current_user)
           @assembly = assembly
           @current_user = current_user

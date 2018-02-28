@@ -18,6 +18,7 @@ en:
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         promoted: Promoted
+        published_at: Published at
         scope_id: Scope
         scopes_enabled: Scopes enabled
         short_description: Short description
@@ -115,6 +116,7 @@ en:
       assembly:
         create: "%{user_name} created the %{resource_name} assembly"
         publish: "%{user_name} published the %{resource_name} assembly"
+        unpublish: "%{user_name} unpublished the %{resource_name} assembly"
     assemblies:
       admin:
         assemblies:
