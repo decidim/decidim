@@ -7,7 +7,8 @@ module Decidim::Admin
     subject { described_class.new(scope, form) }
 
     let(:organization) { create :organization }
-    let(:scope) { create :scope, organization: organization }
+    let(:parent_scope) { create :scope, organization: organization }
+    let(:scope) { create :scope, parent: parent_scope, organization: organization }
     let(:name) { Decidim::Faker::Localized.literal("New name") }
     let(:code) { "NEWCODE" }
     let(:scope_type) { create :scope_type, organization: organization }
@@ -46,6 +47,10 @@ module Decidim::Admin
 
       it "updates the scope type" do
         expect(scope.scope_type).to eq(scope_type)
+      end
+
+      it "keeps the parent scope" do
+        expect(scope.parent).to eq(parent_scope)
       end
     end
   end
