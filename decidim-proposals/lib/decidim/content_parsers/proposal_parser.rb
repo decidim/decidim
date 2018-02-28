@@ -4,7 +4,6 @@ module Decidim
   module ContentParsers
     # A parser that searches mentions of Proposals in content.
     #
-    # TODO:
     # A word starting with `~` will be considered as a possible mentioned proposal
     # if it only numbers.
     #
