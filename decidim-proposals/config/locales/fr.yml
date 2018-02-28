@@ -2,10 +2,13 @@ fr:
   activemodel:
     attributes:
       proposal:
+        answer: Répondre
+        answered_at: Répondu à
         body: Corps du texte
         category_id: Catégorie
         has_address: Renseignez une adresse
         scope_id: Zone d'application
+        state: Etat
         title: Titre
         user_group_id: Créer une proposition en tant que
       proposal_answer:
@@ -188,6 +191,9 @@ fr:
             created_at: Date de création
             proposal_votes_count: Nombre de votes
             proposals: Les propositions
+      admin_log:
+        proposal:
+          answer: "%{user_name} a répondu à la proposition %{resource_name} sur l'espace %{space_name}"
       answers:
         accepted: Retenue
         evaluating: En cours d'évaluation
