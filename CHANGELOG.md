@@ -4,6 +4,8 @@
 
 **Added**:
 
+- **decidim-assemblies**: Make admins auto follow assemblies [\#2855](https://github.com/decidim/decidim/pull/2855)
+- **decidim-participatory_processes**: Make admins auto follow participatory processes [\#2855](https://github.com/decidim/decidim/pull/2855)
 - **decidim-accountability**: Proposal followers are notified when a proposal is included in a result [\#2836](https://github.com/decidim/decidim/pull/2836)
 - **decidim-core**: Space followers are notified when a step changes its dates [\#2833](https://github.com/decidim/decidim/pull/2833)
 - **decidim-proposals**: Space followers are notified when the proposal can be created, endorsed or voted [\#2794](https://github.com/decidim/decidim/pull/2794)
@@ -49,6 +51,8 @@
 - **decidim-participatory_processes**: Adds a basic API including steps and components. [\#2787](https://github.com/decidim/decidim/pull/2787)
 - **decidim-core**: Adds a statistics API to `Organization` and `ParticipatorySpace`. [\#2843](https://github.com/decidim/decidim/pull/2843)
 - **decidim-proposals**: Log proposal answers [\#2848](https://github.com/decidim/decidim/pull/2848)
+- **decidim-accountability**: Adds flag to control if the visualization of progress is visible [\#2847](https://github.com/decidim/decidim/pull/2847)
+- **decidim-proposals**: Adds a basic API that lists proposals. [\#2788](https://github.com/decidim/decidim/pull/2788)
 
 **Changed**:
 
@@ -80,5 +84,6 @@
 - **decidim-core**: Fix user invitations by generating their nickname. [\#2783](https://github.com/decidim/decidim/pull/2783)
 - **decidim-core**: Fix authorization modals not reopening [\#2811](https://github.com/decidim/decidim/pull/2811)
 - **decidim-core**: Fix ugly white stripe under flash message on pages with a picture as main background (such as the homepage) [\#2818](https://github.com/decidim/decidim/pull/2818)
+- **decidim-admin**: Fix a bug that lost the scope hierarchy when updating, making the updated scope top-level [\#2853](https://github.com/decidim/decidim/pull/2853)
 
 Please check [0.9-stable](https://github.com/decidim/decidim/blob/0.9-stable/CHANGELOG.md) for previous changes.
