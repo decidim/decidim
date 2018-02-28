@@ -1,0 +1,53 @@
+<div class="card" id="assembly_participatory_processes">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= t "decidim.admin.titles.assembly_participatory_processes" %><%= link_to t("actions.new", scope: "decidim.admin", name: t("models.assembly_participatory_process.name", scope: "decidim.admin")), ['new', 'assembly_participatory_process'], class: 'button tiny button--title' if can? :create, Decidim::AssemblyParticipatoryProcess %>
+    </h2>
+  </div>
+  <div class="card-section">
+    <div class="table-scroll">
+      <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.assembly_participatory_process.fields.id", scope: "decidim.admin") %></th>
+            <th><%= t("models.assembly_participatory_process.fields.title_particpatory_process", scope: "decidim.admin") %></th>
+            <th><%= t("models.assembly_participatory_process.fields.slug_particpatory_process", scope: "decidim.admin") %></th>
+            <th><%= t("models.assembly_participatory_process.fields.created_at", scope: "decidim.admin") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @assembly_participatory_processes.each do |assembly_participatory_process| %>
+            <tr>
+              <td>
+                <%= assembly_participatory_process.id %>
+              </td>
+              <td>
+                <% if can? :update, assembly_participatory_process %>
+                  <%= link_to translated_attribute(assembly_participatory_process.participatory_process.title), edit_assembly_participatory_process_path(current_assembly, assembly_participatory_process) %><br />
+                <% else %>
+                  <%= translated_attribute(assembly_participatory_process.participatory_process.title) %>
+                <% end %>
+              </td>
+              <td>
+                <%= assembly_participatory_process.participatory_process.slug %>
+              </td>
+              <td>
+                <%= l assembly_participatory_process.created_at, format: :short %>
+              </td>
+              <td class="table-list__actions">
+                <% if can? :update, assembly_participatory_process %>
+                  <%= icon_link_to "pencil", edit_assembly_participatory_process_path(current_assembly, assembly_participatory_process), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
+                <% end %>
+
+                <% if can? :destroy, assembly_participatory_process %>
+                  <%= icon_link_to "circle-x", assembly_participatory_process_path(current_assembly, assembly_participatory_process), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

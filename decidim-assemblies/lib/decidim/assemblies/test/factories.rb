@@ -74,4 +74,9 @@ FactoryBot.define do
              role: :moderator
     end
   end
+
+  factory :assembly_participatory_process, class: "Decidim::AssemblyParticipatoryProcess" do
+    assembly { build(:assembly) }
+    participatory_process { build(:participatory_process, organization: assembly.organization) }
+  end
 end

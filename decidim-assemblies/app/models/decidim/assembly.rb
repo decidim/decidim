@@ -32,6 +32,9 @@ module Decidim
 
     has_many :features, as: :participatory_space, dependent: :destroy
 
+    has_many :assembly_participatory_processes, foreign_key: "decidim_assembly_id", dependent: :destroy
+    has_many :participatory_processes, through: :assembly_participatory_processes
+
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
 

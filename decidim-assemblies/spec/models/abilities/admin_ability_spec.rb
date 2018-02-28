@@ -10,5 +10,6 @@ module Decidim::Assemblies
     let(:context) { {} }
 
     it { is_expected.to be_able_to(:read, Decidim::Assembly) }
+    it { is_expected.to be_able_to(:read, Decidim::AssemblyParticipatoryProcess) }
   end
 end

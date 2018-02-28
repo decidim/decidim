@@ -53,6 +53,23 @@ en:
           copy: Copy
           select: Select which data you would like to duplicate
           title: Duplicate assembly
+      assembly_participatory_processes:
+        create:
+          error: There was an error creating this related participatory process.
+          success: Related participatory process created successfully.
+        destroy:
+          error: There was an error deleting this related participatory process.
+          success: Related participatory process deleted successfully.
+        edit:
+          title: Update related participatory process.
+          update: Update
+        new:
+          create: Create
+          title: New related participatory processes
+        placeholder_participatory_process: Select a related participatory process
+        update:
+          error: There was an error updated a related participatory process.
+          success: Related participatory process updated successfully for this assembly.
       assembly_publications:
         create:
           error: There was an error publishing this assembly.
@@ -81,6 +98,7 @@ en:
         assemblies: Assemblies
         assemblies_submenu:
           assembly_admins: Assembly users
+          assembly_participatory_processes: Related Participatory Process
           attachment_collections: Collections
           attachment_files: Files
           attachments: Attachments
@@ -96,6 +114,13 @@ en:
             published: Published
             title: Title
           name: Assembly
+        assembly_participatory_process:
+          fields:
+            created_at: Created at
+            id: Id
+            slug_particpatory_process: Slug participatory process
+            title_particpatory_process: Title participatory process
+          name: Related Participatory Processes
         assembly_user_role:
           fields:
             email: Email
@@ -108,6 +133,7 @@ en:
             moderator: Moderator
       titles:
         assemblies: Assemblies
+        assembly_participatory_processes: Related Participatory Processes
     assemblies:
       admin:
         assemblies:
@@ -130,6 +156,7 @@ en:
         local_area: Local area
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
+        related_participatory_processes: Related participatory processes
         scope: Scope
         target: Target
       statistics:
