@@ -157,6 +157,13 @@ pl:
           changes_at_title: Zmiany w "%{title}"
         version:
           version_index: Wersja %{index}
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Wniosek "%{proposal_title}" został uwzględniony w wyniku. Możesz go zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{proposal_title}". Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Aktualizacja do %{proposal_title}
+          notification_title: Wniosek <a href="%{proposal_path}">%{proposal_title}</a> został uwzględniony w wyniku <a href="%{resource_path}">%{resource_title}</a>.
     features:
       accountability:
         name: Odpowiedzialność
