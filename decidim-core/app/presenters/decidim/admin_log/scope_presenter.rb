@@ -25,7 +25,7 @@ module Decidim
 
       def action_string
         case action
-        when "create"
+        when "create", "delete", "update"
           if parent_name.present?
             "decidim.admin_log.scope.#{action}_with_parent"
           else
