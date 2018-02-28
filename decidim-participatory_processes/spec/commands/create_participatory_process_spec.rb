@@ -9,7 +9,7 @@ module Decidim::ParticipatoryProcesses
     let(:organization) { create :organization }
     let(:participatory_process_group) { create :participatory_process_group, organization: organization }
     let(:scope) { create :scope, organization: organization }
-    let(:current_user) { create :user, organization: organization }
+    let(:current_user) { create :user, :admin, organization: organization }
     let(:errors) { double.as_null_object }
     let(:form) do
       instance_double(
@@ -105,6 +105,14 @@ module Decidim::ParticipatoryProcesses
           on(:ok) do |process|
             expect(process.steps.count).to eq(1)
             expect(process.steps.first).to be_active
+          end
+        end
+      end
+
+      it "adds the admins as followers" do
+        subject.call do
+          on(:ok) do |process|
+            expect(current_user.follows?(process)).to be_true
           end
         end
       end
