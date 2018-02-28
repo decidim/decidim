@@ -174,6 +174,14 @@ sv:
             subcategories_label: Namn på "Underkategorier"
           step:
             comments_blocked: Kommentarer blockerad
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Resultat
+    participatory_spaces:
+      highlighted_results:
+        results: Resultat
+        see_all_results: Se alla resultat
     resource_links:
       included_projects:
         result_projects: Projekt som ingår i detta resultat
