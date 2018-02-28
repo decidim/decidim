@@ -2,10 +2,13 @@ eu:
   activemodel:
     attributes:
       proposal:
+        answer: Erantzuna
+        answered_at: Erantzuna at
         body: Testua
         category_id: Kategoria
         has_address: Helbidea du
         scope_id: Esparrua
+        state: Estatu
         title: Titulua
         user_group_id: 'Sortu proposamen bat honako hau gisa:'
       proposal_answer:
@@ -188,6 +191,9 @@ eu:
             created_at: Sortze data
             proposal_votes_count: Botoen zenbaketa
             proposals: proposamenak
+      admin_log:
+        proposal:
+          answer: "%{user_name} %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
       answers:
         accepted: Onartuta
         evaluating: Ebaluatzen
