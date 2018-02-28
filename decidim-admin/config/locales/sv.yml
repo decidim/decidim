@@ -27,6 +27,13 @@ sv:
         enable_omnipresent_banner: Visa omnipresent banner
         favicon: Ikon
         header_snippets: Rubrikrubriker
+        highlighted_content_banner_action_subtitle: Åtgärdsknapp textning
+        highlighted_content_banner_action_title: Åtgärdsknappens titel
+        highlighted_content_banner_action_url: Åtgärdsknapp URL
+        highlighted_content_banner_enabled: Visa den markerade innehållsbanan
+        highlighted_content_banner_image: Bild
+        highlighted_content_banner_short_description: Kort beskrivning
+        highlighted_content_banner_title: Titel
         homepage_image: Hemsida bild
         logo: Logotyp
         official_img_footer: Officiell logo footer
@@ -201,6 +208,7 @@ sv:
         new:
           create: Skapa
           new_managed_user: Ny hanterad användare
+          no_authorization_handlers: Det finns inga tillgängliga behörighetshanterare för att hantera användare. Kontakta din systemadministratör.
           select_authorization_method: Välj en auktoriseringsmetod
           step: Steg %{current} av %{total}
         promotion:
@@ -368,6 +376,7 @@ sv:
           cta_button_text_help: Du kan skriva över textknappen Ring till handling på hemsidan för varje tillgängligt språk i din organisation. Om den inte är inställd kommer standardvärdet att användas. Knappen Ring till handling visas på hemsidan mellan välkomsttexten och beskrivningen.
           header_snippets_help: Använd det här fältet för att lägga till saker i HTML-huvudet. Den vanligaste användningen är att integrera tjänster från tredje part som kräver lite extra JavaScript eller CSS. Du kan också använda den för att lägga till extra metataggar i HTML-koden. Observera att detta endast kommer att göras på offentliga sidor, inte i administratörsdelen.
           homepage_appearance_title: Redigera startsidans utseende
+          homepage_highlighted_content_banner_title: Högupplysad innehållsbanner
           layout_appearance_title: Ändra layoututseende
           omnipresent_banner_appearance_title: Ändra allmänt
       scope_types:

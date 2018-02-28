@@ -22,7 +22,11 @@ module Decidim
       def call
         return broadcast(:invalid) unless @form.valid?
 
-        update_permissions
+        transaction do
+          update_permissions
+          run_hooks
+        end
+
         broadcast(:ok)
       end
 
@@ -41,6 +45,10 @@ module Decidim
         @feature.update_attributes!(
           permissions: permissions
         )
+      end
+
+      def run_hooks
+        @feature.manifest.run_hooks(:permission_update, @feature)
       end
     end
   end

@@ -7,5 +7,5 @@ describe Decidim::Meetings::CloseMeetingEvent do
   let(:event_name) { "decidim.events.meetings.meeting_closed" }
 
   include_context "simple event"
-  it_behaves_like "an simple event"
+  it_behaves_like "a simple event"
 end

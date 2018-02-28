@@ -2,7 +2,7 @@ nl:
   activemodel:
     attributes:
       debate:
-        decidim_category_id: Categorie
+        category_id: Categorie
         description: Beschrijving
         end_time: Eindigt bij
         information_updates: Informatie-updates

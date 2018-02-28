@@ -31,6 +31,46 @@ module Decidim
           SVG
         end
       end
+
+      describe "resource_icon" do
+        let(:result) { helper.resource_icon(resource) }
+
+        context "when it has a feature" do
+          let(:resource) { build :dummy_resource }
+
+          it "renders the feature icon" do
+            expect(helper).to receive(:feature_icon).with(resource.feature, {})
+
+            result
+          end
+        end
+
+        context "when it has a manifest" do
+          let(:resource) { build(:feature, manifest_name: :dummy) }
+
+          it "renders the manifest icon" do
+            expect(helper).to receive(:manifest_icon).with(resource.manifest, {})
+
+            result
+          end
+        end
+
+        context "when it is a user" do
+          let(:resource) { build :user }
+
+          it "renders a person icon" do
+            expect(result).to include("svg#icon-person")
+          end
+        end
+
+        context "and in other cases" do
+          let(:resource) { "Something" }
+
+          it "renders a generic icon" do
+            expect(result).to include("svg#icon-bell")
+          end
+        end
+      end
     end
   end
 end

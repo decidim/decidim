@@ -2,7 +2,7 @@ fi:
   activemodel:
     attributes:
       debate:
-        decidim_category_id: Kategoria
+        category_id: Kategoria
         description: Kuvaus
         end_time: Päättymisaika
         information_updates: Tietojen päivitykset

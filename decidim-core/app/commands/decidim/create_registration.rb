@@ -40,8 +40,8 @@ module Decidim
                            password_confirmation: form.password_confirmation,
                            organization: form.current_organization,
                            tos_agreement: form.tos_agreement,
-                           newsletter_notifications: form.notifications,
-                           email_on_notification: form.notifications)
+                           newsletter_notifications: form.newsletter,
+                           email_on_notification: true)
     end
 
     def create_user_group

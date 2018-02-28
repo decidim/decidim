@@ -46,9 +46,7 @@ module Decidim
       private
 
       def children_ids(parent_id)
-        Result.where(parent_id: parent_id).pluck(:id).flat_map do |child_id|
-          [child_id] + children_ids(child_id)
-        end
+        Result.where(parent_id: parent_id).pluck(:id)
       end
 
       # Internal: builds the needed query to search for a text in the organization's

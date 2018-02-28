@@ -19,13 +19,15 @@ describe "I18n sanity" do
     expect(unused_keys).to be_empty, "#{unused_keys.inspect} are unused"
   end
 
-  it "is normalized" do
-    previous_locale_hashes = locale_hashes
-    i18n.normalize_store!
-    new_locale_hashes = locale_hashes
+  unless ENV["SKIP_NORMALIZATION"]
+    it "is normalized" do
+      previous_locale_hashes = locale_hashes
+      i18n.normalize_store!
+      new_locale_hashes = locale_hashes
 
-    expect(previous_locale_hashes).to eq(new_locale_hashes),
-                                      "Please normalize your locale files with `i18n-tasks normalize`"
+      expect(previous_locale_hashes).to eq(new_locale_hashes),
+                                        "Please normalize your locale files with `i18n-tasks normalize`"
+    end
   end
 
   def locale_hashes

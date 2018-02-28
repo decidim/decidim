@@ -31,7 +31,7 @@ module Decidim
 
       def detect_current_assembly(params)
         organization_assemblies.where(slug: params["assembly_slug"]).or(
-          organization_assemblies.where(id: params["assembly_id"])
+          organization_assemblies.where(id: params["assembly_slug"])
         ).first!
       end
 

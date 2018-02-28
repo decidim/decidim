@@ -4,7 +4,6 @@ require "spec_helper"
 
 describe "Process admin manages debates", type: :system do
   let(:manifest_name) { "debates" }
-  let(:user) { process_admin }
 
   include_context "when managing a feature as a process admin"
 

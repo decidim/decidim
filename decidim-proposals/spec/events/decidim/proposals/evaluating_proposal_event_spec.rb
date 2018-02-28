@@ -7,7 +7,7 @@ describe Decidim::Proposals::EvaluatingProposalEvent do
   let(:event_name) { "decidim.events.proposals.proposal_evaluating" }
 
   include_context "simple event"
-  it_behaves_like "an simple event"
+  it_behaves_like "a simple event"
 
   describe "email_subject" do
     it "is generated correctly" do

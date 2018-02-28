@@ -28,6 +28,20 @@ module Decidim
       def documents
         @documents ||= attachments.select(&:document?)
       end
+
+      # All the attachments that are documents for this process that has a collection.
+      #
+      # Returns an Array<Attachment>
+      def documents_with_collection
+        documents.select(&:attachment_collection_id?)
+      end
+
+      # All the attachments that are documents for this process that not has a collection.
+      #
+      # Returns an Array<Attachment>
+      def documents_without_collection
+        documents.reject(&:attachment_collection_id?)
+      end
     end
   end
 end

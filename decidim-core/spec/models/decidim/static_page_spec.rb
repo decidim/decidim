@@ -6,6 +6,13 @@ module Decidim
   describe StaticPage do
     let(:page) { build(:static_page) }
 
+    it { is_expected.to be_versioned }
+
+    it "overwrites the log presenter" do
+      expect(described_class.log_presenter_class_for(:foo))
+        .to eq Decidim::AdminLog::StaticPagePresenter
+    end
+
     describe "validations" do
       let(:invalid_slug) { "#Invalid.Slug" }
 

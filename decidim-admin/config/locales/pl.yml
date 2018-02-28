@@ -27,6 +27,13 @@ pl:
         enable_omnipresent_banner: Pokaż wszechobecny baner
         favicon: Ikona
         header_snippets: Fragmenty nagłówków
+        highlighted_content_banner_action_subtitle: Podtytuł przycisku czynności
+        highlighted_content_banner_action_title: Tytuł przycisku akcji
+        highlighted_content_banner_action_url: URL przycisku czynności
+        highlighted_content_banner_enabled: Pokaż podświetlony baner treści
+        highlighted_content_banner_image: Obraz
+        highlighted_content_banner_short_description: Krótki opis
+        highlighted_content_banner_title: Tytuł
         homepage_image: Obraz strony głównej
         logo: Logo
         official_img_footer: Oficjalny stopka logo
@@ -201,6 +208,7 @@ pl:
         new:
           create: Utwórz
           new_managed_user: Nowy użytkownik zarządzany
+          no_authorization_handlers: Nie ma dostępnych programów do obsługi upoważnień do zarządzania użytkownikami. Skontaktuj się z administratorem systemu.
           select_authorization_method: Wybierz metodę autoryzacji
           step: Krok %{current} z %{total}
         promotion:
@@ -368,6 +376,7 @@ pl:
           cta_button_text_help: Można zastąpić tekst przycisku Żądanie do działania na stronie głównej dla każdego dostępnego języka w organizacji. Jeśli nie zostanie ustawiona, zostanie użyta wartość domyślna. Przycisk Zadzwoń do Działania zostanie wyświetlony na stronie głównej między tekstem powitalnym a opisem.
           header_snippets_help: Użyj tego pola, aby dodać elementy do głowicy HTML. Najczęstszym sposobem jest zintegrowanie usług innych firm, które wymagają dodatkowego kodu JavaScript lub CSS. Można również użyć go do dodawania dodatkowych znaczników meta do HTML. Należy zauważyć, że będzie to widoczne tylko na stronach publicznych, a nie w sekcji administracyjnej.
           homepage_appearance_title: Edytuj wygląd strony głównej
+          homepage_highlighted_content_banner_title: Baner treści o wysokim priorytecie
           layout_appearance_title: Edytuj wygląd układu
           omnipresent_banner_appearance_title: Edytuj wszechobecny
       scope_types:

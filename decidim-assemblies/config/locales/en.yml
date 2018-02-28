@@ -81,6 +81,8 @@ en:
         assemblies: Assemblies
         assemblies_submenu:
           assembly_admins: Assembly users
+          attachment_collections: Collections
+          attachment_files: Files
           attachments: Attachments
           categories: Categories
           features: Features
@@ -110,6 +112,7 @@ en:
       admin:
         assemblies:
           form:
+            select_an_area: Select an Area
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_copies:
           form:
@@ -122,6 +125,7 @@ en:
             active_assemblies: Active assemblies
             see_all_assemblies: See all assemblies
       show:
+        area: Area
         developer_group: Developer group
         local_area: Local area
         participatory_scope: Participatory scope

@@ -268,5 +268,40 @@ describe "Homepage", type: :system do
         expect(page).to have_xpath("//a[@href = 'https://www.github.com/github_handler']")
       end
     end
+
+    context "and has highlighted content banner enabled" do
+      let(:organization) do
+        create(:organization,
+               official_url: official_url,
+               highlighted_content_banner_enabled: true,
+               highlighted_content_banner_title: Decidim::Faker::Localized.sentence(2),
+               highlighted_content_banner_short_description: Decidim::Faker::Localized.sentence(2),
+               highlighted_content_banner_action_title: Decidim::Faker::Localized.sentence(2),
+               highlighted_content_banner_action_subtitle: Decidim::Faker::Localized.sentence(2),
+               highlighted_content_banner_action_url: ::Faker::Internet.url,
+               highlighted_content_banner_image: Decidim::Dev.test_file("city.jpeg", "image/jpeg"))
+      end
+
+      before do
+        switch_to_host(organization.host)
+        visit decidim.root_path
+      end
+
+      it "shows the banner's title" do
+        expect(page).to have_i18n_content(organization.highlighted_content_banner_title)
+      end
+
+      it "shows the banner's description" do
+        expect(page).to have_i18n_content(organization.highlighted_content_banner_short_description)
+      end
+
+      it "shows the banner's action title" do
+        expect(page).to have_i18n_content(organization.highlighted_content_banner_action_title, upcase: true)
+      end
+
+      it "shows the banner's action subtitle" do
+        expect(page).to have_i18n_content(organization.highlighted_content_banner_action_subtitle)
+      end
+    end
   end
 end

@@ -2,7 +2,7 @@ eu:
   activemodel:
     attributes:
       debate:
-        decidim_category_id: Kategoria
+        category_id: Kategoria
         description: deskribapena
         end_time: Amaitzen du
         information_updates: Informazioaren eguneratzeak

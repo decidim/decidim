@@ -46,7 +46,7 @@ module Decidim::Meetings
       let(:meeting) { Meeting.last }
 
       it "creates the meeting" do
-        expect { subject.call }.to change { Meeting.count }.by(1)
+        expect { subject.call }.to change(Meeting, :count).by(1)
       end
 
       it "sets the scope" do
@@ -81,6 +81,22 @@ module Decidim::Meetings
         expect(UpcomingMeetingNotificationJob)
           .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
           .with(set: start_time - 2.days).with(1, "1234")
+
+        subject.call
+      end
+
+      it "sends a notification to the participatory space followers" do
+        follower = create(:user, organization: organization)
+        create(:follow, followable: participatory_process, user: follower)
+
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.meetings.meeting_created",
+            event_class: Decidim::Meetings::CreateMeetingEvent,
+            resource: kind_of(Meeting),
+            recipient_ids: [follower.id]
+          )
 
         subject.call
       end

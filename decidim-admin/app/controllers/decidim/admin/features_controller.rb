@@ -56,7 +56,9 @@ module Decidim
         authorize! :update, @feature
 
         UpdateFeature.call(@form, @feature) do
-          on(:ok) do
+          on(:ok) do |settings_changed, previous_settings, current_settings|
+            handle_feature_settings_change(previous_settings, current_settings) if settings_changed
+
             flash[:notice] = I18n.t("features.update.success", scope: "decidim.admin")
             redirect_to action: :index
           end
@@ -72,7 +74,7 @@ module Decidim
         @feature = query_scope.find(params[:id])
         authorize! :destroy, @feature
 
-        DestroyFeature.call(@feature) do
+        DestroyFeature.call(@feature, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("features.destroy.success", scope: "decidim.admin")
             redirect_to action: :index
@@ -126,6 +128,16 @@ module Decidim
         TranslationsHelper.multi_translation(
           "decidim.features.#{manifest.name}.name",
           current_organization.available_locales
+        )
+      end
+
+      def handle_feature_settings_change(previous_settings, current_settings)
+        return if @feature.participatory_space.allows_steps?
+
+        Decidim::SettingsChange.publish(
+          @feature,
+          previous_settings["default_step"] || {},
+          current_settings["default_step"] || {}
         )
       end
     end

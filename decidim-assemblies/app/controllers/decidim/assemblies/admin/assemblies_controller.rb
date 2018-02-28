@@ -95,7 +95,7 @@ module Decidim
 
         def assembly_params
           {
-            id: params[:id],
+            id: params[:slug],
             hero_image: current_assembly.hero_image,
             banner_image: current_assembly.banner_image
           }.merge(params[:assembly].to_unsafe_h)

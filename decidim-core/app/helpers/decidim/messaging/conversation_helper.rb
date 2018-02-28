@@ -47,6 +47,8 @@ module Decidim
       #
       # @return [Decidim::Messaging::Conversation]
       def conversation_between(*participants)
+        return if participants.to_set.length <= 1
+
         UserConversations.for(participants.first).find do |conversation|
           conversation.participants.to_set == participants.to_set
         end

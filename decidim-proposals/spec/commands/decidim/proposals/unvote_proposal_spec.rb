@@ -18,7 +18,7 @@ module Decidim
         it "deletes the proposal vote for that user" do
           expect do
             command.call
-          end.to change { ProposalVote.count }.by(-1)
+          end.to change(ProposalVote, :count).by(-1)
         end
       end
     end

@@ -7,12 +7,12 @@ describe Decidim::FeaturePublishedEvent do
 
   include_context "simple event"
 
-  let(:event_name) { "decidim.events.feature_published_event" }
+  let(:event_name) { "decidim.events.features.feature_published" }
   let(:resource) { create(:feature) }
   let(:participatory_space) { resource.participatory_space }
   let(:resource_path) { main_feature_path(resource) }
 
-  it_behaves_like "an simple event"
+  it_behaves_like "a simple event"
 
   describe "email_subject" do
     it "is generated correctly" do

@@ -7,6 +7,7 @@ module Decidim
     class Meeting < Meetings::ApplicationRecord
       include Decidim::Resourceable
       include Decidim::HasAttachments
+      include Decidim::HasAttachmentCollections
       include Decidim::HasFeature
       include Decidim::HasReference
       include Decidim::HasScope
@@ -21,6 +22,9 @@ module Decidim
       validates :title, presence: true
 
       geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.feature.organization.host } }
+
+      scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
+      scope :upcoming, -> { where(arel_table[:start_time].gt(Time.current)) }
 
       def closed?
         closed_at.present?

@@ -9,6 +9,22 @@ FactoryBot.define do
     manifest_name :proposals
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
 
+    trait :with_endorsements_enabled do
+      step_settings do
+        {
+          participatory_space.active_step.id => { endorsements_enabled: true }
+        }
+      end
+    end
+
+    trait :with_endorsements_disabled do
+      step_settings do
+        {
+          participatory_space.active_step.id => { endorsements_enabled: false }
+        }
+      end
+    end
+
     trait :with_votes_enabled do
       step_settings do
         {
@@ -45,6 +61,17 @@ FactoryBot.define do
       settings do
         {
           proposal_limit: proposal_limit
+        }
+      end
+    end
+
+    trait :with_endorsements_blocked do
+      step_settings do
+        {
+          participatory_space.active_step.id => {
+            endorsements_enabled: true,
+            endorsements_blocked: true
+          }
         }
       end
     end
@@ -91,12 +118,21 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_can_accumulate_supports_beyond_threshold do
+      settings do
+        {
+          can_accumulate_supports_beyond_threshold: true
+        }
+      end
+    end
   end
 
   factory :proposal, class: "Decidim::Proposals::Proposal" do
     title { Faker::Lorem.sentence }
     body { Faker::Lorem.sentences(3).join("\n") }
     feature { create(:proposal_feature) }
+    published_at { Time.current }
     author do
       create(:user, organization: feature.organization) if feature
     end
@@ -128,11 +164,29 @@ FactoryBot.define do
       answer { Decidim::Faker::Localized.sentence }
       answered_at { Time.current }
     end
+
+    trait :draft do
+      published_at nil
+    end
   end
 
   factory :proposal_vote, class: "Decidim::Proposals::ProposalVote" do
     proposal { build(:proposal) }
     author { build(:user, organization: proposal.organization) }
+  end
+
+  factory :proposal_endorsement, class: "Decidim::Proposals::ProposalEndorsement" do
+    proposal { build(:proposal) }
+    author { build(:user, organization: proposal.organization) }
+  end
+
+  factory :user_group_proposal_endorsement, class: "Decidim::Proposals::ProposalEndorsement" do
+    proposal { build(:proposal) }
+    author { build(:user, organization: proposal.organization) }
+    user_group { create(:user_group) }
+    after(:create) do |support|
+      create(:user_group_membership, user: support.author, user_group: Decidim::UserGroup.find(support.decidim_user_group_id))
+    end
   end
 
   factory :proposal_note, class: "Decidim::Proposals::ProposalNote" do

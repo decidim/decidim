@@ -96,8 +96,8 @@ gl:
       registrations:
         new:
           already_have_an_account?: Xa ten unha conta?
+          newsletter: Recibir un boletín ocasional con información relevante
           nickname_help: O teu identificador breve e único en decidir
-          notifications: Recibir información sobre a actividade relevante
           sign_in: Iniciar sesión
           sign_up: Rexistrarse
           sign_up_as:
@@ -420,7 +420,7 @@ gl:
       widget:
         see_more: Ver máis
   locale:
-    name: Inglés
+    name: Galego
   pages:
     home:
       extended:
