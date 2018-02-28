@@ -175,6 +175,7 @@ gl:
           global:
             categories_label: Nome para "Categorías"
             comments_enabled: Comentarios habilitados
+            display_progress_enabled: Mostrar o progreso
             heading_leaf_level_results: Nome para "Proxectos"
             heading_parent_level_results: Nome para "Resultados"
             intro: Intro
