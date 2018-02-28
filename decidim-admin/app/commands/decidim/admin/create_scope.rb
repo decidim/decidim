@@ -31,7 +31,9 @@ module Decidim
       attr_reader :form
 
       def create_scope
-        Scope.create!(
+        Decidim.traceability.create!(
+          Scope,
+          form.current_user,
           name: form.name,
           organization: form.organization,
           code: form.code,
