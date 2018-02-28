@@ -6,6 +6,7 @@ module Decidim
   # (i.e. does it affect the whole city or just a district?)
   class Scope < ApplicationRecord
     include Decidim::Traceable
+    include Decidim::Loggable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -43,6 +44,10 @@ module Decidim
     # Returns an ActiveRecord::Relation.
     def self.top_level
       where parent_id: nil
+    end
+
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::ScopePresenter
     end
 
     def descendants

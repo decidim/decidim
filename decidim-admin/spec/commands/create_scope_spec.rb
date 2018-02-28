@@ -44,7 +44,12 @@ module Decidim::Admin
       it "traces the action", versioning: true do
         expect(Decidim.traceability)
           .to receive(:create!)
-          .with(Decidim::Scope, form.current_user, hash_including(:name, :organization, :code, :scope_type, :parent))
+          .with(
+            Decidim::Scope,
+            form.current_user,
+            hash_including(:name, :organization, :code, :scope_type, :parent),
+            hash_including(extra: hash_including(:parent_name, :scope_type_name)),
+          )
           .and_call_original
 
         expect { subject.call }.to change(Decidim::ActionLog, :count)

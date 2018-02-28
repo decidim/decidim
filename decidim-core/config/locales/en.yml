@@ -68,6 +68,9 @@ en:
         update: "%{user_name} updated the %{resource_name} newsletter"
       organization:
         update: "%{user_name} updated the organization settings"
+      scope:
+        create: "%{user_name} created the %{resource_name} scope"
+        create_with_parent: "%{user_name} created the %{resource_name} scope inside the %{parent_scope} scope"
       static_page:
         create: "%{user_name} created the %{resource_name} static page"
         delete: "%{user_name} deleted the %{resource_name} static page"
@@ -234,6 +237,8 @@ en:
       value_types:
         scope_presenter:
           not_found: 'The scope was not found on the database (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'The scope type was not found on the database (ID: %{id})'
     managed_users:
       expired_session: The current impersonation session has expired.
     menu:
