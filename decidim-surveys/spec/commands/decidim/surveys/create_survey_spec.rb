@@ -23,7 +23,7 @@ module Decidim
           it "doesn't create a survey" do
             expect do
               command.call
-            end.not_to change { Survey.count }
+            end.not_to change(Survey, :count)
           end
         end
 
@@ -37,7 +37,7 @@ module Decidim
 
             expect do
               command.call
-            end.to change { Survey.count }.by(1)
+            end.to change(Survey, :count).by(1)
           end
         end
       end

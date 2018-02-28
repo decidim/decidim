@@ -33,6 +33,11 @@
     text-align: right;
   }
 
+  th [type="checkbox"]:only-child,
+  td [type="checkbox"]:only-child{
+    margin-bottom: 0;
+  }
+
   &.table-list--lastcenter{
     th:last-child,
     td:last-child{
@@ -47,6 +52,10 @@
     }
   }
 
+  tr.selected{
+    background-color: rgba($brand, .05);
+  }
+
   a:not(.button){
     color: $body-font-color;
 
@@ -57,6 +66,10 @@
 
   td > .button{
     margin-bottom: 0;
+  }
+
+  td{
+    @include modifiers(color, (muted: $muted));
   }
 
   .switch.tiny{
@@ -85,8 +98,4 @@
 
 .table-list__state{
   text-align: center;
-}
-
-.icon-state.has-tip{
-  border-bottom: 0;
 }

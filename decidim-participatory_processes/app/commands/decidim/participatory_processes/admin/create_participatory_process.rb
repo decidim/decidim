@@ -84,10 +84,7 @@ module Decidim
             "create",
             form.current_user,
             process,
-            version: {
-              number: process.versions.count,
-              id: process.versions.last.id
-            }
+            process.versions.last.id
           )
         end
       end

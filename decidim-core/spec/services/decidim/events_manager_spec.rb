@@ -23,6 +23,24 @@ describe Decidim::EventsManager do
         extra: extra
       )
     end
+
+    context "when there are invalid values as the recipient ids" do
+      let(:recipient_ids) { [1, nil, 2, 3, 2] }
+
+      it "sanitizes the recipients" do
+        expect(ActiveSupport::Notifications)
+          .to receive(:publish)
+          .with(event, hash_including(recipient_ids: [1, 2, 3]))
+
+        described_class.publish(
+          event: event,
+          event_class: event_class,
+          resource: resource,
+          recipient_ids: recipient_ids,
+          extra: extra
+        )
+      end
+    end
   end
 
   describe "#subscribe" do

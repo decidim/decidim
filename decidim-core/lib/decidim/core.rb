@@ -2,7 +2,6 @@
 
 require "decidim/core/engine"
 require "decidim/core/version"
-require "decidim/core/api"
 
 # Decidim configuration.
 module Decidim
@@ -10,12 +9,12 @@ module Decidim
   autoload :FormBuilder, "decidim/form_builder"
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :FilterFormBuilder, "decidim/filter_form_builder"
-  autoload :DeviseFailureApp, "decidim/devise_failure_app"
   autoload :FeatureManifest, "decidim/feature_manifest"
   autoload :ParticipatorySpaceManifest, "decidim/participatory_space_manifest"
   autoload :ResourceManifest, "decidim/resource_manifest"
   autoload :Resourceable, "decidim/resourceable"
   autoload :Traceable, "decidim/traceable"
+  autoload :Loggable, "decidim/loggable"
   autoload :Reportable, "decidim/reportable"
   autoload :Authorable, "decidim/authorable"
   autoload :Participable, "decidim/participable"

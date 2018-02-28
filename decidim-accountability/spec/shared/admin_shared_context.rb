@@ -4,8 +4,6 @@ RSpec.shared_context "when admin" do
   let(:organization) { create(:organization) }
   let!(:user) { create(:user, :admin, :confirmed, organization: organization, email: "admin@example.org") }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
-  let(:process_admin) { create :user, :confirmed, organization: organization }
-  let!(:user_role) { create :participatory_process_user_role, user: process_admin, participatory_process: participatory_process }
   let(:current_feature) { create :accountability_feature, participatory_space: participatory_process }
   let(:scope) { create :scope, organization: organization }
   let!(:category) { create :category, participatory_space: participatory_process }

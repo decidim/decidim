@@ -8,6 +8,8 @@ Decidim.register_participatory_space(:participatory_processes) do |participatory
     Decidim::ParticipatoryProcesses::OrganizationParticipatoryProcesses.new(organization).query
   end
 
+  participatory_space.query_type = "Decidim::ParticipatoryProcesses::ParticipatoryProcessType"
+
   participatory_space.context(:public) do |context|
     context.engine = Decidim::ParticipatoryProcesses::Engine
     context.layout = "layouts/decidim/participatory_process"
