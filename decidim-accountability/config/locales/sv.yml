@@ -161,6 +161,13 @@ sv:
           changes_at_title: Ändringar vid "%{title}"
         version:
           version_index: Version %{index}
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Förslaget "%{proposal_title}" har inkluderats i ett resultat. Du kan se den från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{proposal_title}". Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: En uppdatering till %{proposal_title}
+          notification_title: Förslaget <a href="%{proposal_path}">%{proposal_title}</a> har inkluderats i <a href="%{resource_path}">%{resource_title}</a> resultat.
     features:
       accountability:
         name: Ansvarighet
