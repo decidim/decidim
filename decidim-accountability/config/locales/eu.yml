@@ -161,6 +161,12 @@ eu:
           changes_at_title: Aldaketak "%{title}" atalean
         version:
           version_index: '%{index} bertsioa'
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: '"%{proposal_title}" proposamena emaitza batean sartu da. Orrialde hau ikusi dezakezu:'
+          email_outro: Jakinarazpena jaso duzu "%{proposal_title}" jarraitzen ari zarenagatik. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: '%{proposal_title} eguneratzea'
     features:
       accountability:
         name: Emaitzak
