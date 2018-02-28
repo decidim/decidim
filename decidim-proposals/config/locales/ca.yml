@@ -2,10 +2,13 @@ ca:
   activemodel:
     attributes:
       proposal:
+        answer: Resposta
+        answered_at: Respost a
         body: Cos
         category_id: Categoria
         has_address: Té adreça
         scope_id: Àmbit
+        state: Estat
         title: Títol
         user_group_id: Crear proposta
       proposal_answer:
@@ -188,6 +191,9 @@ ca:
             created_at: Data de creació
             proposal_votes_count: Nombre de suports
             proposals: Propostes
+      admin_log:
+        proposal:
+          answer: "%{user_name} va respondre a la proposta %{resource_name} a l'espai %{space_name}"
       answers:
         accepted: Acceptada
         evaluating: En avaluació
