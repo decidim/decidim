@@ -21,7 +21,7 @@ ca:
         slug: Nom curt d'URL
         subtitle: Subtítol
         target: A qui va dirigit?
-        title: Grup de processos participatius
+        title: Títol
   decidim:
     admin:
       assemblies:
@@ -80,6 +80,8 @@ ca:
         assemblies: Assemblees
         assemblies_submenu:
           assembly_admins: Usuaris de l'assemblea
+          attachment_collections: Col·leccions
+          attachment_files: Fitxers
           attachments: Adjunts
           categories: Categories
           features: Funcionalitats
@@ -91,7 +93,7 @@ ca:
             created_at: Data de creació
             promoted: Destacat
             published: Publicat
-            title: Grup de processos participatius
+            title: Títol
           name: Assemblea
         assembly_user_role:
           fields:
@@ -109,6 +111,7 @@ ca:
       admin:
         assemblies:
           form:
+            select_an_area: Seleccioneu un àrea
             slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_copies:
           form:
@@ -121,6 +124,7 @@ ca:
             active_assemblies: Assemblees actives
             see_all_assemblies: Veure totes les assemblees
       show:
+        area: Àrea
         developer_group: Grup promotor
         local_area: Àrea municipal
         participatory_scope: Àmbit participatiu
