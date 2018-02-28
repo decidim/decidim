@@ -19,6 +19,12 @@ describe "Admin manages participatory processes", versioning: true, type: :syste
   it_behaves_like "manage processes announcements"
 
   context "when creating a participatory process" do
+    let(:image1_filename) { "city.jpeg" }
+    let(:image1_path) { Decidim::Dev.asset(image1_filename) }
+
+    let(:image2_filename) { "city2.jpeg" }
+    let(:image2_path) { Decidim::Dev.asset(image2_filename) }
+
     before do
       within ".secondary-nav__actions" do
         page.find("a.button").click

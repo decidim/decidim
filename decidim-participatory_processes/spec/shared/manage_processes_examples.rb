@@ -36,6 +36,9 @@ shared_examples "manage processes examples" do
   end
 
   context "when updating a participatory process" do
+    let(:image3_filename) { "city3.jpeg" }
+    let(:image3_path) { Decidim::Dev.asset(image3_filename) }
+
     before do
       click_link translated(participatory_process.title)
     end
@@ -61,7 +64,6 @@ shared_examples "manage processes examples" do
 
       within ".container" do
         expect(page).to have_selector("input[value='My new title']")
-        expect(page).to have_no_css("img[src*='#{image2_filename}']")
         expect(page).to have_css("img[src*='#{image3_filename}']")
       end
     end
