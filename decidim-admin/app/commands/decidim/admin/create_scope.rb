@@ -41,11 +41,9 @@ module Decidim
             scope_type: form.scope_type,
             parent: @parent_scope
           },
-          {
-            extra: {
-              parent_name: @parent_scope.try(:name),
-              scope_type_name: form.scope_type.try(:name)
-            }
+          extra: {
+            parent_name: @parent_scope.try(:name),
+            scope_type_name: form.scope_type.try(:name)
           }
         )
       end

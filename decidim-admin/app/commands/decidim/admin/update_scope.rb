@@ -35,11 +35,9 @@ module Decidim
           @scope,
           form.current_user,
           attributes,
-          {
-            extra: {
-              parent_name: @scope.parent.try(:name),
-              scope_type_name: form.scope_type.try(:name)
-            }
+          extra: {
+            parent_name: @scope.parent.try(:name),
+            scope_type_name: form.scope_type.try(:name)
           }
         )
       end

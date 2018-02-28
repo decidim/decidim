@@ -48,7 +48,7 @@ module Decidim::Admin
             Decidim::Scope,
             form.current_user,
             hash_including(:name, :organization, :code, :scope_type, :parent),
-            hash_including(extra: hash_including(:parent_name, :scope_type_name)),
+            hash_including(extra: hash_including(:parent_name, :scope_type_name))
           )
           .and_call_original
 

@@ -33,11 +33,9 @@ module Decidim
           "delete",
           @scope,
           current_user,
-          {
-            extra: {
-              parent_name: @scope.parent.try(:name),
-              scope_type_name: @scope.scope_type.try(:name)
-            }
+          extra: {
+            parent_name: @scope.parent.try(:name),
+            scope_type_name: @scope.scope_type.try(:name)
           }
         ) do
           @scope.destroy!
