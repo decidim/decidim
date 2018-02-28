@@ -2,10 +2,13 @@ sv:
   activemodel:
     attributes:
       proposal:
+        answer: Svar
+        answered_at: Besvaras vid
         body: Kropp
         category_id: Kategori
         has_address: Har adress
         scope_id: Omfattning
+        state: stat
         title: Titel
         user_group_id: Skapa förslag som
       proposal_answer:
@@ -188,6 +191,9 @@ sv:
             created_at: Skapelsedagen
             proposal_votes_count: Röster räknas
             proposals: förslag
+      admin_log:
+        proposal:
+          answer: "%{user_name} svarade på %{resource_name} -förslaget på %{space_name} -utrymmet"
       answers:
         accepted: Accepterad
         evaluating: utvärdera
