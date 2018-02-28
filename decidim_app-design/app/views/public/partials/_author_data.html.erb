@@ -2,7 +2,7 @@
 <% nick = true unless local_assigns.has_key?(:nick) %>
 <% small ||= false %>
 <% big ||= false %>
-<% verified = Faker::Boolean.boolean unless local_assigns.has_key?(:verified)  %>
+<% verified = Faker::Boolean.boolean unless local_assigns.has_key?(:verified) %>
 <div class="author-data<%= ' author-data--small' if small %><%= ' author-data--big' if big %>">
 
   <div class="author-data__main">
