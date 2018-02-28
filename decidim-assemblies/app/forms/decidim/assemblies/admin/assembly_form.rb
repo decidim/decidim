@@ -58,7 +58,7 @@ module Decidim
         end
 
         def participatory_processes
-          @participatory_processes ||= Decidim::ParticipatoryProcess.where(organization: current_organization)&.order(title: :asc).map do |process|
+          @participatory_processes ||= Decidim::ParticipatoryProcess.where(organization: current_organization)&.order(title: :asc)&.map do |process|
             [
               translated_attribute(process.title),
               process.id

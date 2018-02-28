@@ -21,11 +21,11 @@ module Decidim
         end
 
         # Public: A formatted collection of ParticipatoryProcesses selected on
-        # AssemblyParticipatoryProcess to be used in forms.
+        # Assemblies to be used in forms.
         #
         # Returns an Array.
-        def disabled_processes_for_select
-          @disabled_processes_for_select ||= current_assembly.participatory_processes.pluck(:id)
+        def processes_selected
+          @processes_selected ||= current_assembly.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes").pluck(:id)
         end
       end
     end

@@ -77,7 +77,7 @@ module Decidim
         end
 
         def participatory_processes
-          @participatory_processes ||= assembly.sibling_participatory_space_scope(:participatory_processes).where(id: @form.participatory_processes_ids)
+          @participatory_processes ||= Decidim::ParticipatoryProcess.where(organization: current_organization).where(id: @form.participatory_processes_ids)
         end
 
         def link_participatory_processes
