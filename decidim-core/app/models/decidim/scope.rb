@@ -5,6 +5,8 @@ module Decidim
   # the scope of a participatory process.
   # (i.e. does it affect the whole city or just a district?)
   class Scope < ApplicationRecord
+    include Decidim::Traceable
+
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization",
