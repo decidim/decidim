@@ -175,6 +175,7 @@ fi:
           global:
             categories_label: Nimi kohteelle "Luokat"
             comments_enabled: Kommentointi sallittu
+            display_progress_enabled: Näytä edistyminen
             heading_leaf_level_results: Nimi kohteelle "Projektit"
             heading_parent_level_results: Nimi kohteelle "Tulokset"
             intro: Esittelyteksti
