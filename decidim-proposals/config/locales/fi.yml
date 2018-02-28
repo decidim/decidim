@@ -2,10 +2,13 @@ fi:
   activemodel:
     attributes:
       proposal:
+        answer: Vastaus
+        answered_at: Vastattu osoitteessa
         body: Runko
         category_id: Aihepiiri
         has_address: Ehdotuksella on osoite
         scope_id: Konteksti
+        state: Osavaltio
         title: Otsikko
         user_group_id: Luo ehdotus käyttäjänä
       proposal_answer:
@@ -188,6 +191,9 @@ fi:
             created_at: Luonnin ajankohta
             proposal_votes_count: Äänten määrä
             proposals: Ehdotukset
+      admin_log:
+        proposal:
+          answer: "%{user_name} vastasi %{resource_name} -ehdotusta %{space_name} -tilaan"
       answers:
         accepted: Hyväksytty
         evaluating: Arvioitavana
