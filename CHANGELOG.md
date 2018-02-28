@@ -4,6 +4,7 @@
 
 **Added**:
 
+- **decidim-proposals**: Parses Proposal urls or ids in comments and rewrite them in comments as links to show Proposal. [\#2288](https://github.com/decidim/decidim/pull/2863)
 - **decidim-assemblies**: Make admins auto follow assemblies [\#2855](https://github.com/decidim/decidim/pull/2855)
 - **decidim-participatory_processes**: Make admins auto follow participatory processes [\#2855](https://github.com/decidim/decidim/pull/2855)
 - **decidim-accountability**: Proposal followers are notified when a proposal is included in a result [\#2836](https://github.com/decidim/decidim/pull/2836)
