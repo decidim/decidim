@@ -6,21 +6,33 @@ uk:
         category_id: Розділ
         has_address: Має адресу
         scope_id: Терен
-        title: Назва
+        title: Заголовок
         user_group_id: Внести пропозицію як
       proposal_answer:
         answer: Відповісти
+      proposals_copy:
+        origin_feature_id: Складова, звідки потрібно скопіювати пропозиції
   decidim:
+    events:
+      proposals:
+        proposal_created:
+          email_intro: "%{author_name} %{author_nickname}, за яким ви стежите, вніс нову пропозицію. Прочитайте її та зробіть свій внесок:"
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: Нова пропозиція від %{author_nickname}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> вніс пропозицію <a href="%{resource_path}">%{resource_title}</a>.
     features:
       proposals:
         actions:
           create: Внести
+          endorse: Підтримати
           vote: Голосувати
+          withdraw: Відкликати підтримку
         name: Пропозиції
         settings:
           global:
             announcement: Оголошення
             attachments_allowed: Дозволити вкладення
+            can_accumulate_supports_beyond_threshold: Можна накопичувати підтримку більше порогового значення
             comments_enabled: Коментарі ввімкнено
             geocoding_enabled: Геокодування ввімкнено
             maximum_votes_per_proposal: Максимальна кількість голосів на пропозицію
@@ -34,6 +46,8 @@ uk:
             announcement: Оголошення
             comments_blocked: Коментарі вимкнено
             creation_enabled: Ввімкнено створення пропозицій
+            endorsements_blocked: Надання підтримки заблоковано
+            endorsements_enabled: Надання підтримки увімкнено
             proposal_answering_enabled: Ввімкнуто відповіді на пропозиції
             votes_blocked: Голосування вимкнене
             votes_enabled: Голосування ввімкнене
@@ -41,7 +55,9 @@ uk:
     proposals:
       actions:
         answer: Відповісти
+        import: Імпортувати з іншої складової
         new: Нова
+        private_notes: Приватні примітки
         title: Дії
       admin:
         actions:
@@ -59,12 +75,20 @@ uk:
             evaluating: Розглядається
             rejected: Відхилено
             title: Відповідь на пропозицію %{title}
+        proposal_notes:
+          create:
+            success: Примітку до пропозиції успішно створено
+          form:
+            note: Примітка
+            submit: Надіслати
+          leave_your_note: Залиште свою нотатку
+          title: Приватні примітки
         proposals:
           answer:
             invalid: При спробі відповісти на цю пропозицію виникла проблема
             success: Успішно дано відповідь на пропозицію
           create:
-            invalid: При спробі створити цю пропозицію виникла проблема
+            invalid: При спробі внести цю пропозицію виникла проблема
             success: Пропозицію успішно внесено
           form:
             attachment_legend: "(Необов'язково) Додати вкладений файл"
@@ -74,14 +98,25 @@ uk:
           new:
             create: Внести
             title: Внести пропозицію
+        proposals_imports:
+          new:
+            create: Імпортувати пропозиції
+            select_feature: Будь ласка, оберіть складову
+        shared:
+          info_proposal:
+            body: Основний текст
+            created_at: Дата створення
+            proposal_votes_count: Кількість голосів
+            proposals: Пропозиції
       answers:
         accepted: Прийнято
         evaluating: Розглядається
         not_answered: Без відповідей
         rejected: Відхилено
+        withdrawn: Відкликано
       create:
         error: При збереженні цієї пропозиції сталися помилки.
-        success: Пропозицію успішно додано.
+        success: Пропозицію успішно створено. Збережено як чернетку.
       models:
         proposal:
           fields:
@@ -89,17 +124,29 @@ uk:
             comments: Коментарі
             created_at: 'Створено:'
             id: Псевдонім
+            notes: Примітки
             official_proposal: Офіційна пропозиція
             scope: Терен
             state: Стан
-            title: Назва
+            title: Заголовок
             votes: Голоси
       new:
         limit_reached: Ви не можете додавати нові пропозиції, оскільки ви перевищили ліміт.
+      proposal_endorsements:
+        identities:
+          select_identity: Оберіть особу
+      proposal_endorsements_helper:
+        endorsement_button:
+          already_endorsed: Вже підтримано
+          endorse: Підтримати
       proposal_votes:
         create:
           error: При голосуванні пропозиції сталися помилки.
       proposals:
+        compare:
+          mine_is_different: Моя пропозиція відрізняється
+          no_similars_found: Гарна робота! Не знайдено схожий пропозицій
+          title: Подібні пропозиції
         count:
           proposals_count:
             one: 1 пропозиція
@@ -111,6 +158,16 @@ uk:
           select_a_category: Будь ласка, оберіть розділ
           send: Надіслати
           title: Редагувати пропозицію
+        edit_draft:
+          send: Попередній перегляд
+          title: Редагувати чернетку пропозиції
+        endorsement_button:
+          already_endorsed: Вже підтримано
+          already_endorsed_hover: Відкликати підтримку
+        endorsement_identities_cabin:
+          endorse: Підтримати
+        endorsements_listing:
+          title: Перелік підтримок
         filters:
           accepted: Прийнято
           activity: Діяльність
@@ -120,7 +177,7 @@ uk:
           citizens: Громадяни
           evaluating: Розглядається
           official: Офіційне
-          origin: Джерело
+          origin: Походження
           rejected: Відхилено
           related_to: Пов'язане з
           search: Шукати
@@ -133,6 +190,7 @@ uk:
           unfold: Розгорнути
         index:
           new_proposal: Нова пропозиція
+          see_all_withdrawn: Переглянути всі відкликані пропозиції
           view_proposal: Переглянути пропозицію
         linked_proposals:
           proposal_votes:
@@ -142,20 +200,18 @@ uk:
             other: голоси
         new:
           attachment_legend: "(Необов'язково) Додати вкладений файл"
-          back: Назад
-          proposal_edit_before_minutes:
-            one: Ви зможете редагувати цю пропозицію протягом першої хвилини після створення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
-            few: Ви зможете редагувати цю пропозицію протягом перших %{count} хвилин після створення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
-            many: Ви зможете редагувати цю пропозицію протягом перших %{count} хвилин після створення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
-            other: Ви зможете редагувати цю пропозицію протягом перших %{count} хвилин після створення пропозиції. Після цього проміжку часу ви не зможете редагувати пропозицію.
           select_a_category: Будь ласка, оберіть розділ
-          send: Надіслати
-          title: Нова пропозиція
+          send: Продовжити
+          title: Внести власну пропозицію
         orders:
           label: 'Впорядкувати пропозиції за:'
           most_voted: Найбільш підтримані
           random: Довільно
           recent: Нещодавні
+        preview:
+          modify: Внеасти зміни в пропозицію
+          publish: Опублікувати
+          title: Опублікувати свою пропозицію
         proposal:
           creation_date: 'Створено: %{date}'
           view_proposal: Переглянути пропозицію
@@ -165,6 +221,8 @@ uk:
           proposal_in_evaluation_reason: Ця пропозиція розглядається
           proposal_rejected_reason: 'Ця пропозиція була відхилена, оскільки:'
           report: Поскаржитись
+          withdraw_confirmation: Ви впевнені, що бажаєте зняти цю пропозицію?
+          withdraw_proposal: Зняти пропозицію
         vote_button:
           already_voted: Вже проголосували
           already_voted_hover: Скасувати голос
@@ -178,6 +236,8 @@ uk:
             few: ГОЛОСИ
             many: ГОЛОСІВ
             other: ГОЛОСІВ
+          most_popular_proposal: Найпопулярніша пропозиція
+          need_more_votes: Потрібно більше голосів
         voting_rules:
           maximum_votes_per_proposal:
             description: Кожна пропозиція може отримати максимум %{limit} голосів.
@@ -188,10 +248,24 @@ uk:
             description: Ви можете проголосувати до %{limit} пропозицій.
             left: Залишилось
             votes: Голоси
+        wizard_aside:
+          back: Назад
+        wizard_steps:
+          see_steps: переглянути кроки
+          step_1: Внести власну пропозицію
+          step_2: Порівняти
+          step_3: Опублікувати свою пропозицію
+      publish:
+        success: Пропозицію успішно опубліковано.
       update:
         error: При збереженні цієї пропозиції сталися помилки.
         success: Пропозицію успішно оновлено.
+      update_draft:
+        error: При збереженні чернетки цієї пропозиції сталися помилки.
+        success: Чернетку пропозиції успішно оновлено.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Супутні пропозиції
       included_projects:
         project_results: 'Підсумки, які є в цьому проекті:'
       included_proposals:
