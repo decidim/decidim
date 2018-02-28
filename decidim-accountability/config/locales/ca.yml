@@ -161,6 +161,12 @@ ca:
           changes_at_title: Canvis a "%{title}"
         version:
           version_index: Versió %{index}
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'La proposta "%{proposal_title}" s''ha inclòs en un resultat. Podeu veure-ho des d''aquesta pàgina:'
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint "%{proposal_title}". Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una actualització a %{proposal_title}
     features:
       accountability:
         name: Seguiment
