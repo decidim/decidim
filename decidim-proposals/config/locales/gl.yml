@@ -2,10 +2,13 @@ gl:
   activemodel:
     attributes:
       proposal:
+        answer: Resposta
+        answered_at: Respondeu en
         body: Corpo
         category_id: Categoría
         has_address: Ten enderezo
         scope_id: Alcance
+        state: Estado
         title: Título
         user_group_id: Crear proposta como
       proposal_answer:
@@ -188,6 +191,9 @@ gl:
             created_at: Data de creación
             proposal_votes_count: Reconto de votos
             proposals: Propostas
+      admin_log:
+        proposal:
+          answer: "%{user_name} respondeu á proposta %{resource_name} no espazo %{space_name}"
       answers:
         accepted: Aceptada
         evaluating: Avaliación
