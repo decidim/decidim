@@ -101,6 +101,16 @@ ca:
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: Nou debat d'en/na %{author_nickname}
             notification_title: El <a href="%{resource_path}">%{resource_title}</a> debat ha estat creat per en/na <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        creation_disabled:
+          email_intro: 'La creació de debats ja no està activa a %{participatory_space_title}. Encara podeu participar en debats oberts d''aquesta pàgina:'
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{participatory_space_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: S'ha desactivat la creació de debats a %{participatory_space_title}
+          notification_title: La creació de debats està desactivada ara al <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Ara pots començar nous debats en %{participatory_space_title}. Comença a participar en aquesta pàgina:'
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{participatory_space_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Els debats ja estan disponibles a %{participatory_space_title}
+          notification_title: Ara podeu començar <a href="%{resource_path}">nous debats</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     features:
       debates:
         actions:
