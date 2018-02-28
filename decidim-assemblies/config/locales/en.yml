@@ -6,6 +6,8 @@ en:
         banner_image: Banner image
         copy_categories: Copy categories
         copy_features: Copy features
+        decidim_area_id: Area
+        decidim_scope_id: Scope
         description: Description
         developer_group: Developer group
         domain: Domain
@@ -19,6 +21,7 @@ en:
         scope_id: Scope
         scopes_enabled: Scopes enabled
         short_description: Short description
+        show_statistics: Show statistics
         slug: URL slug
         subtitle: Subtitle
         target: Target
@@ -108,6 +111,9 @@ en:
             moderator: Moderator
       titles:
         assemblies: Assemblies
+    admin_log:
+      assembly:
+        create: "%{user_name} created the %{resource_name} assembly"
     assemblies:
       admin:
         assemblies:

@@ -13,6 +13,7 @@ module Decidim
     include Decidim::Followable
     include Decidim::HasReference
     include Decidim::Traceable
+    include Decidim::Loggable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -44,6 +45,10 @@ module Decidim
     # Returns an ActiveRecord::Relation.
     def self.promoted
       where(promoted: true)
+    end
+
+    def self.log_presenter_class_for(_log)
+      Decidim::Assemblies::AdminLog::AssemblyPresenter
     end
 
     def hashtag
