@@ -58,7 +58,7 @@ fr:
             creation_enabled: Module propositions activé
             proposal_answering_enabled: '"Réponses aux propositions" activé'
             votes_enabled: Soutiens activés
-            votes_weight_enabled: Vote pour / contre / absention activés
+            votes_weight_enabled: Votes pour / contre / absention activés
             votes_blocked: Soutiens / votes bloqués
             votes_hidden: Cacher le compteur de soutiens / votes (si les soutiens / votes sont activés, le compteur sera caché)
     proposals:
