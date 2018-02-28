@@ -4,6 +4,7 @@
 
 **Added**:
 
+- **decidim-accountability**: Proposal followers are notified when a proposal is included in a result [\#2836](https://github.com/decidim/decidim/pull/2836)
 - **decidim-core**: Space followers are notified when a step changes its dates [\#2833](https://github.com/decidim/decidim/pull/2833)
 - **decidim-proposals**: Space followers are notified when the proposal can be created, endorsed or voted [\#2794](https://github.com/decidim/decidim/pull/2794)
 - **decidim-debates**: Space followers are notified when the debate creation is enabled or disabled [\#2794](https://github.com/decidim/decidim/pull/2794)
