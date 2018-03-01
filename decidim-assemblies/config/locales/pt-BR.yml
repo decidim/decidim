@@ -5,6 +5,8 @@ pt-BR:
         banner_image: Imagem da bandeira
         copy_categories: Cópiar categorias
         copy_features: Recursos de cópia
+        decidim_area_id: Área
+        decidim_scope_id: Escopo
         description: Descrição
         developer_group: Grupo de desenvolvedores
         domain: Domínio
@@ -15,9 +17,11 @@ pt-BR:
         participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
         promoted: Destacado
+        published_at: Publicado em
         scope_id: Âmbito
         scopes_enabled: Âmbitos ativados
         short_description: Pequena descrição
+        show_statistics: Mostre estatisticas
         slug: Slug de URL
         subtitle: Subtítulo
         target: Alvo
@@ -107,6 +111,12 @@ pt-BR:
             moderator: Moderador
       titles:
         assemblies: Assembléias
+    admin_log:
+      assembly:
+        create: "%{user_name} criou o conjunto %{resource_name}"
+        publish: "%{user_name} publicou o conjunto %{resource_name}"
+        unpublish: "%{user_name} não publicado o conjunto %{resource_name}"
+        update: "%{user_name} atualizou a montagem %{resource_name}"
     assemblies:
       admin:
         assemblies:
