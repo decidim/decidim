@@ -238,6 +238,8 @@ it:
         update: "%{user_name} aggiornato %{resource_name}"
         update_with_space: "%{user_name} aggiornato %{resource_name} in %{space_name}"
       value_types:
+        area_presenter:
+          not_found: 'L''area non è stata trovata nel database (ID: %{id})'
         scope_presenter:
           not_found: 'L''ambito non è stato trovato nel database (ID: %{id})'
         scope_type_presenter:
