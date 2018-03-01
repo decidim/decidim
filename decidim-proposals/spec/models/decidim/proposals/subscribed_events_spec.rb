@@ -21,7 +21,7 @@ module Decidim
           link_name = "included_proposals"
           event_name = "decidim.resourceable.#{link_name}.created"
           payload = {
-            from_type: resource.class.name, from_id: resource.id,
+            from_type: "Decidim::Accountability::Result", from_id: resource.id,
             to_type: proposal.class.name, to_id: proposal.id
           }
           ActiveSupport::Notifications.instrument event_name, this: payload do
