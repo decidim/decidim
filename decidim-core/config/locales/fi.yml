@@ -238,6 +238,8 @@ fi:
         update: "%{user_name} päivitetty %{resource_name}"
         update_with_space: "%{user_name} päivitetty %{resource_name} vuonna %{space_name}"
       value_types:
+        area_presenter:
+          not_found: 'Aluetta ei löytynyt tietokannasta (ID: %{id})'
         scope_presenter:
           not_found: 'Soveltamisalaa ei löytynyt tietokannasta (ID: %{id})'
         scope_type_presenter:
