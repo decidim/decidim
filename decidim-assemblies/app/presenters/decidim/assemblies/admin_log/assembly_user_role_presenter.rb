@@ -45,7 +45,7 @@ module Decidim
         end
 
         def has_diff?
-          action = "delete" || super
+          action == "delete" || super
         end
       end
     end
