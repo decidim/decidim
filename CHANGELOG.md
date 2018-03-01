@@ -3,8 +3,11 @@
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
 **Added**:
-
 - **decidim**: Added private_space and participatory space private users. [\#2618](https://github.com/decidim/decidim/pull/2618)
+- **decidim-assemblies**: Make admins auto follow assemblies [\#2855](https://github.com/decidim/decidim/pull/2855)
+- **decidim-participatory_processes**: Make admins auto follow participatory processes [\#2855](https://github.com/decidim/decidim/pull/2855)
+- **decidim-accountability**: Proposal followers are notified when a proposal is included in a result [\#2836](https://github.com/decidim/decidim/pull/2836)
+- **decidim-core**: Space followers are notified when a step changes its dates [\#2833](https://github.com/decidim/decidim/pull/2833)
 - **decidim-proposals**: Space followers are notified when the proposal can be created, endorsed or voted [\#2794](https://github.com/decidim/decidim/pull/2794)
 - **decidim-debates**: Space followers are notified when the debate creation is enabled or disabled [\#2794](https://github.com/decidim/decidim/pull/2794)
 - **decidim-surveys**: Space followers are notified when a survey is opened or closed [\#2794](https://github.com/decidim/decidim/pull/2794)
@@ -26,7 +29,10 @@
 - **decidim-participatory_processes**: Ensure only active processes are shown in the highlighted processes section in the homepage[\#2682](https://github.com/decidim/decidim/pull/2682)
 - **decidim-core**: Add collections to group attachments [\#2394](https://github.com/decidim/decidim/pull/2394).
 - **decidim-admin**: Adds a log of all admin actions, only visible by organization admins [\#2604](https://github.com/decidim/decidim/pull/2604)
+- **decidim-core**: Add some examples on documentation to AuthorizationHandler [\#2758](https://github.com/decidim/decidim/pull/2758).
+- **decidim-accountability**: Show random results in process and process group home [\#2824](https://github.com/decidim/decidim/issues/2824)
 - **decidim-meetings**: Show past/upcoming meetings in process and process group home [\#2713](https://github.com/decidim/decidim/issues/2713)
+- **decidim-proposals**: Show random proposals in process and process group home [\#2817](https://github.com/decidim/decidim/issues/2817)
 - **decidim-participatory_processes**: Render `decidim:participatory_space_highlighted_elements` and `participatory_processes:process_group_highlighted_elements` view hooks in process and process group home respectively [\#2713](https://github.com/decidim/decidim/issues/2713)
 - **decidim-core**: Make static pages traceable [\#2754](https://github.com/decidim/decidim/pull/2754)
 - **decidim-admin**: Log all actions on static pages [\#2754](https://github.com/decidim/decidim/pull/2754)
@@ -43,16 +49,25 @@
 - **decidim-admin**: Log actions on moderations [\#2803](https://github.com/decidim/decidim/pull/2803)
 - **decidim-core**: Enable a "permission_update" hook to be run upon feature permissions update [\#2809](https://github.com/decidim/decidim/pull/2809)
 - **decidim-participatory_processes**: Adds a basic API including steps and components. [\#2787](https://github.com/decidim/decidim/pull/2787)
+- **decidim-core**: Adds a statistics API to `Organization` and `ParticipatorySpace`. [\#2843](https://github.com/decidim/decidim/pull/2843)
+- **decidim-proposals**: Log proposal answers [\#2848](https://github.com/decidim/decidim/pull/2848)
+- **decidim-accountability**: Adds flag to control if the visualization of progress is visible [\#2847](https://github.com/decidim/decidim/pull/2847)
+- **decidim-proposals**: Adds a basic API that lists proposals. [\#2788](https://github.com/decidim/decidim/pull/2788)
+- **decidim-participatory_processes**: Log process updates[\#2860](https://github.com/decidim/decidim/pull/2860)
+- **decidim-admin**: Log actions on scopes [\#2854](https://github.com/decidim/decidim/pull/2854)
+- **decidim-core**: `scopes_picker_field` can now receive options such as `label: false` [\#2867](https://github.com/decidim/decidim/pull/2847)
+- **decidim-core**: `theDataPicker.activate("#my_data_picker_element")` can now be used to bind dinamically created inputs to a data picker [\#2867](https://github.com/decidim/decidim/pull/2847)
 
 **Changed**:
 
+- **decidim-core**: Send a deep copy of view context to view hooks [\#2817](https://github.com/decidim/decidim/issues/2817)
 - **decidim-core**: General improvements on documentation [\#2656](https://github.com/decidim/decidim/pull/2656).
 - **decidim-core**: `FeatureReferenceHelper#feature_reference` has been moved to `ResourceReferenceHelper#resource_reference` to clarify its use. [\#2557](https://github.com/decidim/decidim/pull/2557)
 - **decidim-core**: `Decidim.resource_reference_generator` has been moved to `Decidim.reference_generator` to clarify its use. [\#2557](https://github.com/decidim/decidim/pull/2557)
 - **decidim-system**: Default pages content are now wrapped in `<p>` HTML tags [\#2754](https://github.com/decidim/decidim/pull/2754)
 
 **Fixed**:
-
+- **decidim-admin**: FIX Area and AreaType command specs [\#2859](https://github.com/decidim/decidim/pull/2859)
 - **decidim-proposals**: Fix wrong message when creating a proposal private note [\#2769](https://github.com/decidim/decidim/pull/2769)
 - **decidim-core**: Fix AuthorEvent when author is missing [\#2777](https://github.com/decidim/decidim/pull/2777)
 - **decidim-system**: Disable recover password for System admins. [\#2752](https://github.com/decidim/decidim/pull/2752)
@@ -73,5 +88,6 @@
 - **decidim-core**: Fix user invitations by generating their nickname. [\#2783](https://github.com/decidim/decidim/pull/2783)
 - **decidim-core**: Fix authorization modals not reopening [\#2811](https://github.com/decidim/decidim/pull/2811)
 - **decidim-core**: Fix ugly white stripe under flash message on pages with a picture as main background (such as the homepage) [\#2818](https://github.com/decidim/decidim/pull/2818)
+- **decidim-admin**: Fix a bug that lost the scope hierarchy when updating, making the updated scope top-level [\#2853](https://github.com/decidim/decidim/pull/2853)
 
 Please check [0.9-stable](https://github.com/decidim/decidim/blob/0.9-stable/CHANGELOG.md) for previous changes.

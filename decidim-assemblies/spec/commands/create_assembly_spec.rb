@@ -83,6 +83,14 @@ module Decidim::Assemblies
       it "broadcasts ok" do
         expect { subject.call }.to broadcast(:ok)
       end
+
+      it "adds the admins as followers" do
+        subject.call do
+          on(:ok) do |assembly|
+            expect(current_user.follows?(assembly)).to be_true
+          end
+        end
+      end
     end
   end
 end

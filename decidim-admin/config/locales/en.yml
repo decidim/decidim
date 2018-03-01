@@ -65,7 +65,9 @@ en:
         code: Code
         name: Name
         organization: Organization
+        parent_id: Parent
         scope_type: Scope type
+        scope_type_id: Scope type
       scope_type:
         name: Name
         organization: Organization
