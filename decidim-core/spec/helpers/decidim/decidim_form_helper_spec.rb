@@ -38,16 +38,6 @@ module Decidim
       end
     end
 
-    matcher :have_equivalent_markup_to do |expected|
-      cleaner = ->(str) { str.gsub(/>[[:space:]]*/, ">").gsub(/[[:space:]]*</, "<").strip }
-
-      match do |actual|
-        cleaner.call(expected) == cleaner.call(actual)
-      end
-
-      diffable
-    end
-
     describe "translated_field_tag" do
       context "when a single locale is enabled" do
         before do
@@ -70,6 +60,28 @@ module Decidim
 
           expect(expected_markup).to have_equivalent_markup_to(actual_markup)
         end
+      end
+    end
+
+    describe "scopes_picker_field_tag" do
+      let!(:scope) { create(:scope) }
+
+      it "renders the correct markup" do
+        actual = helper.scopes_picker_field_tag "my_thing[decidim_scope_id]", scope.id do
+          { url: "/my/url", text: "My text" }
+        end
+
+        expected = <<~HTML
+          <div id="my_thing_decidim_scope_id" class="data-picker picker-single" data-picker-name="my_thing[decidim_scope_id]">
+            <div class="picker-values">
+              <div><a href="/my/url" data-picker-value="#{scope.id}">My text</a></div>
+            </div>
+
+            <div class="picker-prompt"><a href="/my/url">My text</a></div>
+          </div>
+        HTML
+
+        expect(actual).to have_equivalent_markup_to(expected)
       end
     end
   end
