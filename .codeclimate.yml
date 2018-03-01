@@ -100,7 +100,6 @@ plugins:
     exclude_patterns:
       - docs/*
       - .github/*
-      - CHANGELOG.md
 
   stylelint:
     enabled: true
