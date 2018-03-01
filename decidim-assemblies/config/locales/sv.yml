@@ -5,6 +5,8 @@ sv:
         banner_image: Banner image
         copy_categories: Kopiera kategorier
         copy_features: Kopiera funktioner
+        decidim_area_id: Område
+        decidim_scope_id: Omfattning
         description: Beskrivning
         developer_group: Utvecklargrupp
         domain: Domän
@@ -15,9 +17,11 @@ sv:
         participatory_scope: Deltagande räckvidd
         participatory_structure: Deltagande struktur
         promoted: främjas
+        published_at: Publicerad på
         scope_id: Omfattning
         scopes_enabled: Scopes aktiverade
         short_description: Kort beskrivning
+        show_statistics: Visa statistik
         slug: URL slug
         subtitle: Texta
         target: Mål
@@ -107,6 +111,12 @@ sv:
             moderator: moderator
       titles:
         assemblies: Assemblies
+    admin_log:
+      assembly:
+        create: "%{user_name} skapade %{resource_name} -enheten"
+        publish: "%{user_name} publicerade %{resource_name} -enheten"
+        unpublish: "%{user_name} upublicerade %{resource_name} -enheten"
+        update: "%{user_name} uppdaterade %{resource_name} -enheten"
     assemblies:
       admin:
         assemblies:
