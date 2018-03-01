@@ -5,6 +5,8 @@ pl:
         banner_image: Obraz baneru
         copy_categories: Kopiuj kategorie
         copy_features: Kopiuj funkcje
+        decidim_area_id: Powierzchnia
+        decidim_scope_id: Zakres
         description: Opis
         developer_group: Grupa programistyczna
         domain: Domena
@@ -15,9 +17,11 @@ pl:
         participatory_scope: Zakres partycypacji
         participatory_structure: Struktura partycypacji
         promoted: Lansowany
+        published_at: Opublikowano na
         scope_id: Zakres
         scopes_enabled: Zakresy włączone
         short_description: Krótki opis
+        show_statistics: Pokaż statystyki
         slug: Ślimak URL
         subtitle: Podtytuł
         target: Cel
@@ -107,6 +111,12 @@ pl:
             moderator: Moderator
       titles:
         assemblies: Zespoły
+    admin_log:
+      assembly:
+        create: "%{user_name} utworzył zespół %{resource_name}"
+        publish: "%{user_name} opublikował montaż %{resource_name}"
+        unpublish: "%{user_name} anulował publikację zespołu %{resource_name}"
+        update: "%{user_name} zaktualizował zespół %{resource_name}"
     assemblies:
       admin:
         assemblies:
