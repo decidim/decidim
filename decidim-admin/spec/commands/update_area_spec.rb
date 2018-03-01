@@ -3,21 +3,19 @@
 require "spec_helper"
 
 module Decidim::Admin
-  describe UpdateScope do
-    subject { described_class.new(scope, form) }
+  describe UpdateArea do
+    subject { described_class.new(area, form) }
 
     let(:organization) { create :organization }
-    let(:scope) { create :scope, organization: organization }
+    let(:area) { create :area, organization: organization }
     let(:name) { Decidim::Faker::Localized.literal("New name") }
-    let(:code) { "NEWCODE" }
-    let(:scope_type) { create :scope_type, organization: organization }
+    let(:area_type) { create :area_type, organization: organization }
 
     let(:form) do
       double(
         invalid?: invalid,
         name: name,
-        code: code,
-        scope_type: scope_type
+        area_type: area_type
       )
     end
     let(:invalid) { false }
@@ -33,19 +31,15 @@ module Decidim::Admin
     context "when the form is valid" do
       before do
         subject.call
-        scope.reload
+        area.reload
       end
 
-      it "updates the name of the scope" do
-        expect(translated(scope.name)).to eq("New name")
+      it "updates the name of the area" do
+        expect(translated(area.name)).to eq("New name")
       end
 
-      it "updates the code of the scope" do
-        expect(scope.code).to eq("NEWCODE")
-      end
-
-      it "updates the scope type" do
-        expect(scope.scope_type).to eq(scope_type)
+      it "updates the area type" do
+        expect(area.area_type).to eq(area_type)
       end
     end
   end

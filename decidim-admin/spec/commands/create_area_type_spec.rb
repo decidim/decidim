@@ -3,12 +3,12 @@
 require "spec_helper"
 
 module Decidim::Admin
-  describe CreateScopeType do
+  describe CreateAreaType do
     subject { described_class.new(form) }
 
     let(:organization) { create :organization }
-    let(:name) { Decidim::Faker::Localized.literal("province") }
-    let(:plural) { Decidim::Faker::Localized.literal("provinces") }
+    let(:name) { Decidim::Faker::Localized.literal("territorial") }
+    let(:plural) { Decidim::Faker::Localized.literal("territorials") }
 
     let(:form) do
       double(
@@ -34,7 +34,7 @@ module Decidim::Admin
       end
 
       it "creates a new scope type for the organization" do
-        expect { subject.call }.to change { organization.scope_types.count }.by(1)
+        expect { subject.call }.to change { organization.area_types.count }.by(1)
       end
     end
   end

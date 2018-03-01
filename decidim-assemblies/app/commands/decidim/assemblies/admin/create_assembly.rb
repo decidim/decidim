@@ -21,7 +21,6 @@ module Decidim
         # Returns nothing.
         def call
           return broadcast(:invalid) if form.invalid?
-          assembly = create_assembly
 
           if assembly.persisted?
             add_admins_as_followers(assembly)
@@ -37,8 +36,10 @@ module Decidim
 
         attr_reader :form
 
-        def create_assembly
-          assembly = Assembly.new(
+        def assembly
+          @assembly ||= Decidim.traceability.create(
+            Assembly,
+            form.current_user,
             organization: form.current_organization,
             title: form.title,
             subtitle: form.subtitle,
@@ -59,10 +60,6 @@ module Decidim
             participatory_structure: form.participatory_structure,
             meta_scope: form.meta_scope
           )
-
-          return assembly unless assembly.valid?
-          assembly.save!
-          assembly
         end
 
         def add_admins_as_followers(assembly)
