@@ -5,6 +5,8 @@ es:
         banner_image: Imagen de banner
         copy_categories: Copiar categorías
         copy_features: Copiar funcionalidades
+        decidim_area_id: Zona
+        decidim_scope_id: Alcance
         description: Descripción
         developer_group: Grupo promotor
         domain: Dominio
@@ -15,9 +17,11 @@ es:
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
         promoted: Destacado
+        published_at: Publicado en
         scope_id: Ámbito
         scopes_enabled: Ámbitos habilitados
         short_description: Descripción breve
+        show_statistics: Mostrar estadísticas
         slug: Texto corto de URL
         subtitle: Subtítulo
         target: '¿A quién va dirigido?'
@@ -107,6 +111,12 @@ es:
             moderator: Moderador
       titles:
         assemblies: Asambleas
+    admin_log:
+      assembly:
+        create: "%{user_name} creó el ensamblaje %{resource_name}"
+        publish: "%{user_name} publicó el ensamblaje %{resource_name}"
+        unpublish: "%{user_name} inédito el ensamblaje %{resource_name}"
+        update: "%{user_name} actualizó el ensamblaje %{resource_name}"
     assemblies:
       admin:
         assemblies:
