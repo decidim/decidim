@@ -10,7 +10,7 @@ uk:
         domain: Домен
         hashtag: Хештег
         hero_image: Зображення головної сторінки
-        local_area: Місцевість
+        local_area: Терен
         meta_scope: Метадані терену
         participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
@@ -21,7 +21,7 @@ uk:
         slug: Скорочена URL-адреса
         subtitle: Підзаголовок
         target: Мета
-        title: Назва
+        title: Заголовок
   decidim:
     admin:
       assemblies:
@@ -59,9 +59,21 @@ uk:
         destroy:
           error: При скасуванні публікації цих зборів сталася помилка.
           success: Публікацію зборів успішно скасовано.
+      assembly_user_roles:
+        edit:
+          title: Оновити учасника зборів.
+          update: Оновити
+        index:
+          assembly_admins_title: Учасники зборів
+        new:
+          create: Створити
+          title: Новий учасник зборів.
       menu:
         assemblies: Збори
         assemblies_submenu:
+          assembly_admins: Учасники зборів
+          attachment_collections: Збірки
+          attachment_files: Файли
           attachments: Вкладені файли
           categories: Розділи
           features: Складові
@@ -73,14 +85,25 @@ uk:
             created_at: 'Додано:'
             promoted: Висвітлено
             published: Опубліковано
-            title: Назва
+            title: Заголовок
           name: Збори
+        assembly_user_role:
+          fields:
+            email: Адреса електронної пошти
+            name: Ім'я
+            role: Роль
+          name: Учасник зборів
+          roles:
+            admin: Адміністратор
+            collaborator: Співавтор
+            moderator: Модератор
       titles:
         assemblies: Збори
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Оберіть терен
             slug_help: 'Cкорочені URL-адреси використовуються для створення посилань на ці збори. В них припустимі лише букви, цифри та тире, і вони мають починатися з букви. Приклад: %{url}'
         assembly_copies:
           form:
@@ -93,8 +116,9 @@ uk:
             active_assemblies: Започаті збори
             see_all_assemblies: Переглянути всі збори
       show:
+        area: Терен
         developer_group: Група зачинальників
-        local_area: Місцевість
+        local_area: Терен
         participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
         scope: Терен
