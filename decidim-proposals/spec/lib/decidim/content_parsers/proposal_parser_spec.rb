@@ -20,7 +20,7 @@ module Decidim
           it "has empty metadata" do
             subject
             expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
-            expect(parser.metadata.proposals).to eq([])
+            expect(parser.metadata.linked_proposals).to eq([])
           end
         end
 
@@ -31,7 +31,7 @@ module Decidim
           it "has empty metadata" do
             subject
             expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
-            expect(parser.metadata.proposals).to eq([])
+            expect(parser.metadata.linked_proposals).to eq([])
           end
         end
 
@@ -42,7 +42,7 @@ module Decidim
           it "has empty metadata" do
             subject
             expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
-            expect(parser.metadata.proposals).to eq([])
+            expect(parser.metadata.linked_proposals).to eq([])
           end
         end
 
@@ -56,7 +56,7 @@ module Decidim
 
           it "does not recognize the proposal" do
             subject
-            expect(parser.metadata.proposals).to eq([])
+            expect(parser.metadata.linked_proposals).to eq([])
           end
         end
 
@@ -71,7 +71,7 @@ module Decidim
           it "has metadata with the proposal" do
             subject
             expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
-            expect(parser.metadata.proposals).to eq([proposal])
+            expect(parser.metadata.linked_proposals).to eq([proposal])
           end
         end
 
@@ -90,7 +90,7 @@ module Decidim
           it "has metadata with all linked proposals" do
             subject
             expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
-            expect(parser.metadata.proposals).to eq([proposal1, proposal2, proposal3])
+            expect(parser.metadata.linked_proposals).to eq([proposal1, proposal2, proposal3])
           end
         end
 
@@ -106,7 +106,7 @@ module Decidim
           it "has empty metadata" do
             subject
             expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
-            expect(parser.metadata.proposals).to eq([])
+            expect(parser.metadata.linked_proposals).to eq([])
           end
         end
 
@@ -118,7 +118,7 @@ module Decidim
           it "has metadata with the proposal" do
             subject
             expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
-            expect(parser.metadata.proposals).to eq([proposal])
+            expect(parser.metadata.linked_proposals).to eq([proposal])
           end
         end
       end

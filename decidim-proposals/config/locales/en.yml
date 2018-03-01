@@ -19,6 +19,11 @@ en:
         origin_feature_id: Component to copy the proposals from
   decidim:
     events:
+      comments:
+        proposal_mentioned:
+          email_intro: Your proposal "%{mentioned_proposal_title}" has been mentioned in the comments of proposal "<a href="%{resource_path}">%{source_proposal_title}</a>"
+          email_subject: Your proposal "%{mentioned_proposal_title}" has been mentioned
+          notification_title: Your proposal "%{mentioned_proposal_title}" has been mentioned in the comments of proposal "<a href="%{resource_path}">%{source_proposal_title}</a>"
       proposals:
         creation_enabled:
           email_intro: 'You can now create new proposals in %{participatory_space_title}! Start participating in this page:'

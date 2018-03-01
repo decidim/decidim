@@ -46,6 +46,8 @@ module Decidim
 
         mentioned_users = parsed.metadata[:user].users
         send_mention_notifications(mentioned_users) if mentioned_users.any?
+        linked_proposals = parsed.metadata[:proposal].linked_proposals
+        send_linked_proposals_notifications(linked_proposals) if linked_proposals.any?
       end
 
       def send_notification
@@ -75,6 +77,23 @@ module Decidim
             comment_id: @comment.id
           }
         )
+      end
+
+      def send_linked_proposals_notifications(linked_proposals)
+        linked_proposals.each do |proposal|
+          recipient_ids = [proposal.decidim_author_id]
+
+          Decidim::EventsManager.publish(
+            event: "decidim.events.comments.proposal_mentioned",
+            event_class: Decidim::Comments::ProposalMentionedEvent,
+            resource: @comment.root_commentable,
+            recipient_ids: recipient_ids,
+            extra: {
+              comment_id: @comment.id,
+              mentioned_proposal_id: proposal.id
+            }
+          )
+        end
       end
 
       def root_commentable(commentable)

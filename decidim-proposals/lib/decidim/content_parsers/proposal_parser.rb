@@ -11,14 +11,14 @@ module Decidim
     class ProposalParser < BaseParser
       # Class used as a container for metadata
       #
-      # @!attribute proposals
+      # @!attribute linked_proposals
       #   @return [Array] an array of Decidim::Proposals::Proposal mentioned in content
-      Metadata = Struct.new(:proposals)
+      Metadata = Struct.new(:linked_proposals)
 
       # Matches a URL
       URL_REGEX_PART1 = '(?i)\b((?:[a-z][\w-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|'
       URL_REGEX_PART2 = '\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:\'".,<>?«»“”‘’]))'
-      URL_REGEX = %r[#{URL_REGEX_PART1}#{URL_REGEX_PART2}]i
+      URL_REGEX = /#{URL_REGEX_PART1}#{URL_REGEX_PART2}/i
       # Matches a mentioned Proposal ID (~(d)+ expression)
       ID_REGEX = /~(\d+)/
 
@@ -50,7 +50,7 @@ module Decidim
         content.gsub(URL_REGEX) do |match|
           proposal = proposal_from_url_match(match)
           if proposal
-            @metadata.proposals << proposal
+            @metadata.linked_proposals << proposal
             proposal.to_global_id
           else
             match
@@ -62,7 +62,7 @@ module Decidim
         content.gsub(ID_REGEX) do |match|
           proposal = proposal_from_id_match(Regexp.last_match(1))
           if proposal
-            @metadata.proposals << proposal
+            @metadata.linked_proposals << proposal
             proposal.to_global_id
           else
             match
@@ -86,7 +86,7 @@ module Decidim
           spaces = Decidim.participatory_space_manifests.flat_map do |manifest|
             manifest.participatory_spaces.call(context[:current_organization]).public_spaces
           end
-          features= Feature.where(participatory_space: spaces).published
+          features = Feature.where(participatory_space: spaces).published
           Decidim::Proposals::Proposal.where(feature: features).find_by(id: id)
         end
       end
