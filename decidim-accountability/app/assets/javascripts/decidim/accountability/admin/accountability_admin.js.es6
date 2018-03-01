@@ -10,36 +10,40 @@ $("#result_decidim_accountability_status_id").change(function () {
 
 $(function() {
   $(document).on("open.zf.reveal", "#data_picker-modal", function () {
-    let xhr;
+    let xhr= null;
 
     $('#data_picker-autocomplete').autoComplete({
       minChars: 2,
       source: function(term, response) {
         try {
           xhr.abort();
-        } catch() { xhr = null}
+        } catch (exception) { xhr = null}
+
+        /* eslint-disable */
         xhr = $.getJSON(
           'proposals.json',
           { q: term },
-          function(data){ response(data);
+          function(data) { response(data);
         });
+
+        /* eslint-enable */
       },
       renderItem: function (item, search) {
-        search= search.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
-        let re= new RegExp("(" + search.split(' ').join('|') + ")", "gi");
+        let sanitizedSearch= search.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
+        let re= new RegExp(`(${sanitizedSearch.split(' ').join('|')})`, "gi");
         let title= item[0]
         let modelId= item[1]
-        let val= '#' + modelId + '- ' + title;
-        return '<div class="autocomplete-suggestion" data-model-id="' + modelId + '" data-val="'+title+'">' + val.replace(re, "<b>$1</b>") + '</div>';
+        let val= `#${modelId}- ${title}`;
+        return `<div class="autocomplete-suggestion" data-model-id="${modelId}" data-val="${title}">${val.replace(re, "<b>$1</b>")}</div>`;
       },
       onSelect: function(event, term, item) {
         let choose= $('#proposal-picker-choose')
         let modelId= item.data('modelId')
-        let val= "#${modelId}- ${item.data('val')}";
+        let val= `#${modelId}- ${item.data('val')}`;
         choose.data('picker-value', modelId)
-        choose.data('picker-text', val )
+        choose.data('picker-text', val)
         choose.data('picker-choose', '')
       }
     })
-  } );
+  });
 })
