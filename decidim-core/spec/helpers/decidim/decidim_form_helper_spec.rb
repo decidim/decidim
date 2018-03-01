@@ -38,6 +38,16 @@ module Decidim
       end
     end
 
+    matcher :have_equivalent_markup_to do |expected|
+      cleaner = ->(str) { str.gsub(/>[[:space:]]*/, ">").gsub(/[[:space:]]*</, "<").strip }
+
+      match do |actual|
+        cleaner.call(expected) == cleaner.call(actual)
+      end
+
+      diffable
+    end
+
     describe "translated_field_tag" do
       context "when a single locale is enabled" do
         before do
@@ -54,10 +64,11 @@ module Decidim
           )
 
           expected_markup = <<~HTML
-            <label for="body">Guacamole</label><input type="text" name="survey[questions][][body_en]" id="survey_questions__body_en" value="My dummy body" />
+            <label for="body">Guacamole</label>
+            <input type="text" name="survey[questions][][body_en]" id="survey_questions__body_en" value="My dummy body" />
           HTML
 
-          expect(expected_markup.strip).to eq(actual_markup.strip)
+          expect(expected_markup).to have_equivalent_markup_to(actual_markup)
         end
       end
     end
