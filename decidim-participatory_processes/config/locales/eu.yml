@@ -210,6 +210,7 @@ eu:
         create: "%{user_name} sortu %{resource_name} prozesu parte-hartzailea"
         publish: "%{user_name} argitaratu du %{resource_name} prozesu parte-hartzailea"
         unpublish: "%{user_name} argitaratu gabe %{resource_name} prozesu parte-hartzailea"
+        update: "%{user_name} %{resource_name} partehartze prozesua eguneratu du"
       participatory_process_user_role:
         create: "%{user_name} %{resource_name} erabiltzaile gonbidatu %{space_name} parte hartzerako prozesura"
         delete: "%{user_name} erabiltzaileak kendu %{resource_name} from %{space_name} prozesu parte-hartzailea"
