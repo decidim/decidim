@@ -1,7 +1,7 @@
 //Variables
 $order-border: $border;
 
-/* Results per page styles */
+/* type of display styles */
 .display-style{
   margin-bottom: 1rem;
   display: flex;
@@ -9,57 +9,15 @@ $order-border: $border;
   flex-wrap: wrap;
 }
 
-.display-style__dropdown{
+.display-style__all{
   display: flex;
   flex-wrap: wrap;
-
-  .menu{
-    .is-dropdown-submenu-parent > a{
-      padding: 0;
-      margin-left: .5rem;
-      margin-top: .25rem;
-    }
+  &>a {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
   }
-}
-
-.display-style__dropdown--right{
-  margin-left: auto;
-}
-
-.display-style__action{
-  margin-left: auto;
-  justify-content: flex-end;
-
-  .button{
-    margin-bottom: 0;
-  }
-}
-
-.display-style__tabs{
-  display: inline-block;
-}
-
-.display-style__tab{
-  color: $muted;
-
-  &::after{
-    content: "";
-    display: inline-block;
-    height: .75em;
-    border-left: $border;
-    margin: 0 .2em 0 .5em;
-    vertical-align: middle;
-  }
-
-  &.is-active{
-    color: $anchor-color;
-  }
-
-  &:first-of-type{
-    padding-left: 0;
-  }
-
-  &:last-of-type::after{
-    border-left: none;
+  .icon--list {
+    height: 17px;
   }
 }
