@@ -10,6 +10,7 @@
       <%#= render partial: "datetime", locals: { meeting: meeting } %>
       <%#= decidim_sanitize meeting_description(meeting) %>
       <%#= render partial: "decidim/shared/tags", locals: { resource: meeting, tags_class_extra: "tags--meeting" } %>
+      <%= cell("decidim/category", model.category, context: {resource: model}) %>
       <div class="address card__extra">
         <div class="address__icon">
           <%= resource_icon %>

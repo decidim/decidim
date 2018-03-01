@@ -20,7 +20,7 @@
       <%#= render partial: "proposal_badge", locals: { proposal: proposal } %>
       <p><%= truncate(model.body, length: 100) %></p>
       <%#= render partial: "decidim/shared/tags", locals: { resource: model, tags_class_extra: "tags--proposal" } %>
-      <%= cell("decidim/category", model.category) if model.category %>
+      <%= cell("decidim/category", model.category, context: {resource: model}) %>
     </div>
     <div class="card__footer">
       <div class="card__support">

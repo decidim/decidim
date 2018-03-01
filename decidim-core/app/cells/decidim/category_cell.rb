@@ -12,15 +12,18 @@ module Decidim
 
     def link_to_category
       link_to name, category_path
-      # link_to translated_attribute(model.name), resource_locator(model).index(filter: { category_id: model.id })
     end
 
     def name
-      model.name[I18n.locale.to_s]
+      model.translated_name
+    end
+
+    def resource
+      context[:resource]
     end
 
     def category_path
-      return "#"
+      resource_locator(resource).index(filter: { category_id: model.id })
     end
   end
 end

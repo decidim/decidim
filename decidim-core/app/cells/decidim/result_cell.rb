@@ -5,8 +5,7 @@ module Decidim
     #include LayoutHelper
 
     def show
-      cell(resource_cell, model.resource)
-      # render
+      cell(resource_cell, model.resource) if category?
     end
 
     private
@@ -21,6 +20,14 @@ module Decidim
 
     def resource_cell
       model.resource.class.resource_manifest.cell
+    end
+
+    def feature
+      model
+    end
+
+    def category?
+      model.resource.category.present?
     end
 
   end
