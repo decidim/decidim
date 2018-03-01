@@ -1,0 +1,23 @@
+//Variables
+$order-border: $border;
+
+/* type of display styles */
+.display-style{
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.display-style__all{
+  display: flex;
+  flex-wrap: wrap;
+  &>a {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+  }
+  .icon--list {
+    height: 17px;
+  }
+}
