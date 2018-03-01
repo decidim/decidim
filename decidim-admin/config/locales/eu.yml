@@ -64,7 +64,9 @@ eu:
         code: Kodea
         name: Izena
         organization: Erakundea
+        parent_id: Guraso
         scope_type: Esparru mota
+        scope_type_id: Esparru mota
       scope_type:
         name: Izena
         organization: Erakundea
