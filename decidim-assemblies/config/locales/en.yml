@@ -6,6 +6,8 @@ en:
         banner_image: Banner image
         copy_categories: Copy categories
         copy_features: Copy features
+        decidim_area_id: Area
+        decidim_scope_id: Scope
         description: Description
         developer_group: Developer group
         domain: Domain
@@ -16,9 +18,11 @@ en:
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         promoted: Promoted
+        published_at: Published at
         scope_id: Scope
         scopes_enabled: Scopes enabled
         short_description: Short description
+        show_statistics: Show statistics
         slug: URL slug
         subtitle: Subtitle
         target: Target
@@ -112,6 +116,12 @@ en:
             moderator: Moderator
       titles:
         assemblies: Assemblies
+    admin_log:
+      assembly:
+        create: "%{user_name} created the %{resource_name} assembly"
+        publish: "%{user_name} published the %{resource_name} assembly"
+        unpublish: "%{user_name} unpublished the %{resource_name} assembly"
+        update: "%{user_name} updated the %{resource_name} assembly"
     assemblies:
       admin:
         assemblies:

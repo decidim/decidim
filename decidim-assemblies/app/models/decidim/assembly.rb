@@ -12,6 +12,8 @@ module Decidim
     include Decidim::Scopable
     include Decidim::Followable
     include Decidim::HasReference
+    include Decidim::Traceable
+    include Decidim::Loggable
     include Decidim::HasPrivateUsers
 
     belongs_to :organization,
@@ -44,6 +46,10 @@ module Decidim
     # Returns an ActiveRecord::Relation.
     def self.promoted
       where(promoted: true)
+    end
+
+    def self.log_presenter_class_for(_log)
+      Decidim::Assemblies::AdminLog::AssemblyPresenter
     end
 
     def hashtag
