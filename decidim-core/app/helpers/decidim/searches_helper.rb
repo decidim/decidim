@@ -7,7 +7,7 @@ module Decidim
 
     def radio_checked?(resource_type_radio_value)
       if @filters.nil?
-        %q{checked="checked"} if resource_type_radio_value == "all"
+        %q{checked="checked"} if resource_type_radio_value.blank?
       else
         %q{checked="checked"} if @filters[:resource_type].include?(resource_type_radio_value)
       end
