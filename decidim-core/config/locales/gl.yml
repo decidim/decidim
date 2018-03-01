@@ -238,6 +238,8 @@ gl:
         update: "%{user_name} actualizouse %{resource_name}"
         update_with_space: "%{user_name} actualizouse %{resource_name} en %{space_name}"
       value_types:
+        area_presenter:
+          not_found: 'A área non se atopou na base de datos (ID: %{id})'
         scope_presenter:
           not_found: 'O alcance non se atopou na base de datos (ID: %{id})'
         scope_type_presenter:
