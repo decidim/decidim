@@ -5,6 +5,8 @@ fr:
         banner_image: Image d'en-tête
         copy_categories: Copier les catégories
         copy_features: Copier les fonctionnalités
+        decidim_area_id: Région
+        decidim_scope_id: Portée
         description: Description
         developer_group: Groupe d'initiateurs
         domain: Domaine
@@ -15,9 +17,11 @@ fr:
         participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
         promoted: Mis en avant
+        published_at: Publié à
         scope_id: Zone d'application
         scopes_enabled: Zone d'application activées
         short_description: Résumé
+        show_statistics: Montrez les statistiques
         slug: Identifiant
         subtitle: Sous-titre
         target: Public visé
@@ -107,6 +111,12 @@ fr:
             moderator: Modérateur
       titles:
         assemblies: Assemblées
+    admin_log:
+      assembly:
+        create: "%{user_name} a créé l'assemblage %{resource_name}"
+        publish: "%{user_name} a publié l'assembly %{resource_name}"
+        unpublish: "%{user_name} non publié l'assemblage %{resource_name}"
+        update: "%{user_name} a mis à jour l'assemblage %{resource_name}"
     assemblies:
       admin:
         assemblies:
