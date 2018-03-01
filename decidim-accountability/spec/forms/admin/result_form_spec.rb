@@ -105,6 +105,7 @@ module Decidim::Accountability
         before do
           result.link_resources([proposal], "included_proposals")
         end
+
         it "returns the available proposals in a way suitable for the form" do
           expect(subject.proposals)
             .to eq([[proposal.title, proposal.id]])
