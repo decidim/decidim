@@ -80,6 +80,8 @@ eu:
         assemblies: Biltzarrak
         assemblies_submenu:
           assembly_admins: Batzar erabiltzaileak
+          attachment_collections: Bilduma
+          attachment_files: Fitxategiak
           attachments: Eranskinak
           categories: Kategoriak
           features: Funtzionalitateak
@@ -109,6 +111,7 @@ eu:
       admin:
         assemblies:
           form:
+            select_an_area: Hautatu eremu bat
             slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
         assembly_copies:
           form:
@@ -121,6 +124,7 @@ eu:
             active_assemblies: Batzar aktiboak
             see_all_assemblies: Ikusi muntaia guztiak
       show:
+        area: Area
         developer_group: Talde sustatzailea
         local_area: Udal-alorrak
         participatory_scope: Esparru partizipatiboa
