@@ -1,4 +1,4 @@
-<h2 id="proposals-count" class="title-action__title section-heading">
+<h2 id="proposals-count" class="section-heading">
   <%= t("officials_proposals_count", count: @officials_proposals.count, scope: "decidim.proposals.proposals.count") %>
 </h2>
 
@@ -6,5 +6,5 @@
   <%= render @officials_proposals.first(4) %>
 </div>
 <div class= "text-right">
-  <%= form.radio_button :origin, 'official', label: t(".see_all") %> <!-- Filter -->
+  <%= link_to t(".see_all"), proposals_path('filter[origin]' => 'official') %>
 </div>
