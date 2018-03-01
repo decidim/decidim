@@ -40,7 +40,11 @@ module Decidim
 
         def update_assembly
           @assembly.assign_attributes(attributes)
-          if @assembly.valid?
+          save_assembly if @assembly.valid?
+        end
+
+        def save_assembly
+          transaction do
             @assembly.save!
             Decidim.traceability.perform_action!(:update, @assembly, form.current_user) do
               @assembly
