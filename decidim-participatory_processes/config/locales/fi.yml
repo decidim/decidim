@@ -210,6 +210,7 @@ fi:
         create: "%{user_name} luonut %{resource_name} osallistuva prosessi"
         publish: "%{user_name} julkaisi %{resource_name} osallistuva prosessi"
         unpublish: "%{user_name} julkaisematon %{resource_name} osallistuva prosessi"
+        update: "%{user_name} päivitti %{resource_name} osallistuvan prosessin"
       participatory_process_user_role:
         create: "%{user_name} kutsui käyttäjän %{resource_name} %{space_name} osallistumisprosessiin"
         delete: "%{user_name} poistanut käyttäjän %{resource_name} alkaen %{space_name} osallistuva prosessi"
