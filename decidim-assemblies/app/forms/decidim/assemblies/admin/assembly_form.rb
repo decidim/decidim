@@ -57,8 +57,8 @@ module Decidim
           @area ||= current_organization.areas.where(id: area_id).first
         end
 
-        def participatory_processes
-          @participatory_processes ||= Decidim::ParticipatoryProcess.where(organization: current_organization)&.order(title: :asc)&.map do |process|
+        def processes_for_select
+          @participatory_processes ||= Decidim.find_participatory_space_manifest(:participatory_processes).participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |process|
             [
               translated_attribute(process.title),
               process.id

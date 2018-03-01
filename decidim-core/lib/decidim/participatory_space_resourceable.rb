@@ -35,6 +35,17 @@ module Decidim
         klass.where(id: from).or(klass.where(id: to))
       end
 
+      def participatory_space_sibling_scope(participatory_space_name)
+        manifest = Decidim.find_participatory_space_manifest(participatory_space_name)
+        return self.class.none unless manifest
+
+        scope = manifest.participatory_spaces
+        raise
+        scope = scope.where("#{self.class.table_name}.id != ?", id) if manifest.model_class_name.constantize == self.class
+
+        scope
+      end
+
       # Links the given resources to this model, replaces any previous links with the same name.
       #
       # resources - An Array or ActiveRecord::Base object to link to.
