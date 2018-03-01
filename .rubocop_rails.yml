@@ -1,7 +1,5 @@
 ---
 
-inherit_from: ../.rubocop.yml
-
 Rails:
   Enabled: true
 
