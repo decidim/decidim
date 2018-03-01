@@ -235,6 +235,8 @@ eu:
         update: "%{user_name} eguneratu %{resource_name}"
         update_with_space: "%{user_name} eguneratu %{resource_name} en %{space_name}"
       value_types:
+        area_presenter:
+          not_found: 'Ez zen datu-basea aurkitu (ID: %{id})'
         scope_presenter:
           not_found: 'Esparrua ez da aurkitu datu-basean (ID: %{id})'
         scope_type_presenter:
