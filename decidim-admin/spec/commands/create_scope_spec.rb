@@ -7,6 +7,7 @@ module Decidim::Admin
     subject { described_class.new(form) }
 
     let(:organization) { create :organization }
+    let(:user) { create :user, :admin, :confirmed, organization: organization }
     let(:name) { Decidim::Faker::Localized.literal(Faker::Address.unique.state) }
     let(:code) { Faker::Address.unique.state_abbr }
     let(:scope_type) { create :scope_type }
@@ -14,6 +15,7 @@ module Decidim::Admin
     let(:form) do
       double(
         invalid?: invalid,
+        current_user: user,
         name: name,
         organization: organization,
         code: code,
@@ -38,23 +40,39 @@ module Decidim::Admin
       it "creates a new scope for the organization" do
         expect { subject.call }.to change { organization.scopes.count }.by(1)
       end
-    end
 
-    context "when its a child scope" do
-      subject { described_class.new(form, parent_scope) }
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:create!)
+          .with(
+            Decidim::Scope,
+            form.current_user,
+            hash_including(:name, :organization, :code, :scope_type, :parent),
+            hash_including(extra: hash_including(:parent_name, :scope_type_name))
+          )
+          .and_call_original
 
-      let!(:parent_scope) { create :scope, organization: organization }
-
-      it "broadcasts ok" do
-        expect { subject.call }.to broadcast(:ok)
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
       end
 
-      it "creates a new scope for the organization" do
-        expect { subject.call }.to change { organization.scopes.count }.by(1)
-      end
+      context "when its a child scope" do
+        subject { described_class.new(form, parent_scope) }
 
-      it "creates a child scope for the parent scope" do
-        expect { subject.call }.to change { parent_scope.children.count }.by(1)
+        let!(:parent_scope) { create :scope, organization: organization }
+
+        it "broadcasts ok" do
+          expect { subject.call }.to broadcast(:ok)
+        end
+
+        it "creates a new scope for the organization" do
+          expect { subject.call }.to change { organization.scopes.count }.by(1)
+        end
+
+        it "creates a child scope for the parent scope" do
+          expect { subject.call }.to change { parent_scope.children.count }.by(1)
+        end
       end
     end
   end
