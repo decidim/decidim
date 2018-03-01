@@ -238,6 +238,8 @@ ca:
         update: "%{user_name} s'ha actualitzat %{resource_name}"
         update_with_space: "%{user_name} s'ha actualitzat %{resource_name} en %{space_name}"
       value_types:
+        area_presenter:
+          not_found: 'L''àrea no s''ha trobat a la base de dades (ID: %{id})'
         scope_presenter:
           not_found: 'L''àmbit d''aplicació no es va trobar a la base de dades (ID: %{id})'
         scope_type_presenter:
