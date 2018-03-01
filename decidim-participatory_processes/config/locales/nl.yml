@@ -210,6 +210,7 @@ nl:
         create: "%{user_name} creëerde de %{resource_name} participatief proces"
         publish: "%{user_name} publiceerde de %{resource_name} participatief proces"
         unpublish: "%{user_name} ongepubliceerd de %{resource_name} participatief proces"
+        update: "%{user_name} heeft het participatief proces %{resource_name} bijgewerkt"
       participatory_process_user_role:
         create: "%{user_name} nodigde de gebruiker uit %{resource_name} naar de %{space_name} participatief proces"
         delete: "%{user_name} de gebruiker verwijderd %{resource_name} van de %{space_name} participatief proces"
