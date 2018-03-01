@@ -41,9 +41,9 @@ module Decidim
 
         def proposal_objs
           @proposal_objs ||= Decidim.find_resource_manifest(:proposals)
-                                    .try(:resource_scope, current_feature)&.
-            where(id: proposal_ids)&.
-            order(title: :asc)
+                                    .try(:resource_scope, current_feature)
+                                    &.where(id: proposal_ids)
+                                    &.order(title: :asc)
         end
 
         def proposals
