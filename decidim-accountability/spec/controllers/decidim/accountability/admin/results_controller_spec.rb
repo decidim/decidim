@@ -51,16 +51,7 @@ module Decidim
               expect(response.body).to eq("[[\"#{proposal.title}\",#{proposal.id}]]")
             end
           end
-          # let(:assembly_params) do
-          #   {
-          #     title: assembly.title,
-          #     subtitle: assembly.subtitle,
-          #     description: assembly.description,
-          #     short_description: assembly.short_description,
-          #     slug: assembly.slug,
-          #     scopes_enabled: assembly.scopes_enabled
-          #   }
-          # end
+
           context "when searching by term" do
             it "returns the title and id for filtered proposals" do
               params[:q] = proposal.title

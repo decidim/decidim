@@ -34,7 +34,7 @@ module Decidim
           end
         end
 
-        it "is accepted" do
+        it "should be accepted" do
           proposal.reload
           expect(proposal.state).to eq("accepted")
         end
