@@ -39,15 +39,11 @@ module Decidim
           self.decidim_category_id = model.category.try(:id)
         end
 
-        def proposal_objs
-          @proposal_objs ||= Decidim.find_resource_manifest(:proposals)
+        def proposals
+          @proposals ||= Decidim.find_resource_manifest(:proposals)
                                     .try(:resource_scope, current_feature)
                                     &.where(id: proposal_ids)
                                     &.order(title: :asc)
-        end
-
-        def proposals
-          @proposals ||= proposal_objs&.pluck(:title, :id)
         end
 
         def projects
