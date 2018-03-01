@@ -4,6 +4,8 @@ module Decidim
   # Defines a relation between a user and an assembly, and what kind of relation
   # does the user have.
   class AssemblyUserRole < ApplicationRecord
+    include Traceable
+
     belongs_to :user, foreign_key: "decidim_user_id", class_name: "Decidim::User", optional: true
     belongs_to :assembly, foreign_key: "decidim_assembly_id", class_name: "Decidim::Assembly", optional: true
 
