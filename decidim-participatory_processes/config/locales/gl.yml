@@ -210,6 +210,7 @@ gl:
         create: "%{user_name} creou o proceso participativo %{resource_name}"
         publish: "%{user_name} publicou o %{resource_name} proceso participativo"
         unpublish: "%{user_name} non publicou o proceso participativo %{resource_name}"
+        update: "%{user_name} actualizou o proceso participativo %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} convidou ao usuario %{resource_name} ao proceso participativo %{space_name}"
         delete: "%{user_name} eliminou o usuario %{resource_name} do proceso participativo %{space_name}"
