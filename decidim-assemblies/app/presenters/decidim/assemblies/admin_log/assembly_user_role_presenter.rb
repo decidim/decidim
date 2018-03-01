@@ -27,11 +27,25 @@ module Decidim
 
         def action_string
           case action
-          when "create", "update"
+          when "create", "delete", "update"
             "decidim.admin_log.assembly_user_role.#{action}"
           else
             super
           end
+        end
+
+        def changeset
+          return super unless action.to_s == "delete"
+
+          Decidim::Log::DiffChangesetCalculator.new(
+            { role: [action_log.version.object["role"], ""] },
+            diff_fields_mapping,
+            i18n_labels_scope
+          ).changeset
+        end
+
+        def has_diff?
+          action = "delete" || super
         end
       end
     end
