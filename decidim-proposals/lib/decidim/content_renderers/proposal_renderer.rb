@@ -10,7 +10,7 @@ module Decidim
     # @see BaseRenderer Examples of how to use a content renderer
     class ProposalRenderer < BaseRenderer
       # Matches a global id representing a Decidim::User
-      GLOBAL_ID_REGEX = %r{/gid:\/\/([\w-]*\/Decidim::Proposals::Proposal\/(\d+))/i}
+      GLOBAL_ID_REGEX = %r{gid:\/\/([\w-]*\/Decidim::Proposals::Proposal\/(\d+))}i
 
       # Replaces found Global IDs matching an existing proposal with
       # a link to their profile. The Global IDs representing an
