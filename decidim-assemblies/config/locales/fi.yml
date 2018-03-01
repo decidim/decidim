@@ -5,6 +5,8 @@ fi:
         banner_image: Bannerikuva
         copy_categories: Kopioi aihepiirit
         copy_features: Kopioi ominaisuudet
+        decidim_area_id: alue
+        decidim_scope_id: laajuus
         description: Kuvaus
         developer_group: Kehittäjäryhmä
         domain: Toimintaympäristö
@@ -15,9 +17,11 @@ fi:
         participatory_scope: Osallistumiskonteksti
         participatory_structure: Osallistumisen rakenne
         promoted: Korostettu
+        published_at: Julkaistu osoitteessa
         scope_id: Konteksti
         scopes_enabled: Kontekstit käytössä
         short_description: Lyhyt kuvaus
+        show_statistics: Näytä tilastot
         slug: URL-tunniste
         subtitle: Alaotsikko
         target: Kohde
@@ -107,6 +111,12 @@ fi:
             moderator: Moderaattori
       titles:
         assemblies: Kehitysryhmät
+    admin_log:
+      assembly:
+        create: "%{user_name} loi %{resource_name} kokoonpanon"
+        publish: "%{user_name} julkaisi %{resource_name} kokoonpanon"
+        unpublish: "%{user_name} julkaisematon %{resource_name} kokoonpano"
+        update: "%{user_name} päivitti %{resource_name} kokoonpanon"
     assemblies:
       admin:
         assemblies:
