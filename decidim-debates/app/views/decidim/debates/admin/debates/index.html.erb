@@ -27,12 +27,12 @@
               <td>
                 <% if debate.start_time %>
                   <%= l debate.start_time, format: :long %>
-                <%  end%>
+                <% end %>
               </td>
               <td>
                 <% if debate.end_time %>
                   <%= l debate.end_time, format: :long %>
-                <%  end%>
+                <% end %>
               </td>
               <td class="table-list__actions">
                 <% if can? :update, debate %>

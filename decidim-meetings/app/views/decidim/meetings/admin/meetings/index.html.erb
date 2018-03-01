@@ -30,12 +30,12 @@
               <td>
                 <% if meeting.start_time %>
                   <%= l meeting.start_time, format: :long %>
-                <%  end%>
+                <% end %>
               </td>
               <td>
                 <% if meeting.end_time %>
                   <%= l meeting.end_time, format: :long %>
-                <%  end%>
+                <% end %>
               </td>
               <td>
                 <%= humanize_boolean meeting.closed? %>

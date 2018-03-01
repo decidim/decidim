@@ -33,12 +33,12 @@
                 <td>
                   <% if step.start_date %>
                     <%= l step.start_date.to_date, format: :long %>
-                  <%  end%>
+                  <% end %>
                 </td>
                 <td>
                   <% if step.end_date %>
                     <%= l step.end_date.to_date, format: :long %>
-                  <%  end%>
+                  <% end %>
                 </td>
                 <td class="table-list__actions">
                   <% if can?(:activate, step) && !step.active? %>

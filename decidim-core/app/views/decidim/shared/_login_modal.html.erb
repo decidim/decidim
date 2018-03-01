@@ -11,7 +11,7 @@
       <%= decidim_form_for(Decidim::User.new, as: :user, url: session_path(:user), html: { class: "register-form new_user" }) do |f| %>
         <div>
           <div class="field">
-            <%= f.email_field :email, autofocus: true  %>
+            <%= f.email_field :email, autofocus: true %>
           </div>
           <div class="field">
             <%= f.password_field :password, autocomplete: "off" %>

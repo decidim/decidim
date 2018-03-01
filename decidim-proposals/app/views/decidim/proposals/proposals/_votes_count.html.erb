@@ -1,7 +1,7 @@
 <div id="proposal-<%= proposal.id %>-votes-count" class="card__support__data">
   <% if !current_settings.votes_hidden? %>
     <% progress ||= proposal.proposal_votes_count || 0 %>
-    <% total ||= proposal.maximum_votes || 0  %>
+    <% total ||= proposal.maximum_votes || 0 %>
     <% percent = (progress.to_f/total) * 100 %>
     <% vertical ||= from_proposals_list %>
     <div class="progress__bar<%= (!vertical) ? " progress__bar--vertical" : "" %>">
