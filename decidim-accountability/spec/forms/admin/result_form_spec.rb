@@ -108,7 +108,7 @@ module Decidim::Accountability
 
         it "returns the available proposals in a way suitable for the form" do
           expect(subject.proposals)
-            .to eq([[proposal.title, proposal.id]])
+            .to eq([proposal])
         end
       end
 
