@@ -34,7 +34,7 @@ module Decidim
     #                      or 'full' (optional) (default: 'basic')
     #           :lines   - The Integer to indicate how many lines should editor have (optional)
     #
-    # Returns a rich editor to be included in a html template.
+    # Returns a rich editor to be included in an html template.
     def editor_field_tag(name, value, options = {})
       options[:toolbar] ||= "basic"
       options[:lines] ||= 10
