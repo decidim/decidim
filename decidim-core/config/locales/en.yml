@@ -304,6 +304,8 @@ en:
     pages:
       index:
         title: More information
+    participatory_space_private_users:
+      not_allowed: You are not allowed to view this content
     profiles:
       default_officialization_text: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:

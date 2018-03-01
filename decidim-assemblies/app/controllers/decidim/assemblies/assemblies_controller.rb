@@ -23,7 +23,7 @@ module Decidim
       end
 
       def show
-        redirect_to "/404" unless current_user_can_visit_space?
+        check_current_user_can_visit_space
       end
 
       private

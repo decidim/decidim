@@ -63,5 +63,11 @@ module Decidim
        current_participatory_space.users.any? { current_user }) ||
         !current_participatory_space.try(:private_space?)
     end
+
+    def check_current_user_can_visit_space
+      return if current_user_can_visit_space?
+      flash[:alert] = I18n.t("participatory_space_private_users.not_allowed", scope: "decidim")
+      redirect_to action: "index"
+    end
   end
 end

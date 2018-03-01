@@ -64,10 +64,6 @@ module Decidim
       def manifest
         self.class.participatory_space_manifest
       end
-
-      def self.non_private_spaces
-        where(private_space: false)
-      end
     end
 
     class_methods do
@@ -84,7 +80,7 @@ module Decidim
       #
       # Returns an `ActiveRecord::Association`.
       def public_spaces
-        published.non_private_spaces
+        published
       end
     end
   end

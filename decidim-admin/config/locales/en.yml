@@ -468,11 +468,11 @@ en:
       participatory_space_private_users:
         create:
           error: There was an error adding a private user for this participatory space.
-          success: Private Participatory Space user access created successfully.
+          success: Participatory space private user access created successfully.
         destroy:
-          success: Private Participatory Space user access destroyed successfully.
+          success: Participatory space private user access destroyed successfully.
         index:
-          title: Private users Participatory Space
+          title: Participatory space private user
         new:
           create: Create
           title: New Participatory Space private user.
