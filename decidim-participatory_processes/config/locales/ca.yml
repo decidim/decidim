@@ -210,6 +210,7 @@ ca:
         create: "%{user_name} ha creat el procés participatiu %{resource_name}"
         publish: "%{user_name} va publicar el procés participatiu %{resource_name}"
         unpublish: "%{user_name} no s'ha publicat el procés participatiu %{resource_name}"
+        update: "%{user_name} ha actualitzat el procés participatiu %{resource_name}"
       participatory_process_user_role:
         create: "%{user_name} va convidar l'usuari %{resource_name} al procés participatiu %{space_name}"
         delete: "%{user_name} elimina l'usuari %{resource_name} del procés participatiu %{space_name}"
