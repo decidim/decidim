@@ -1,6 +1,6 @@
 # Data Picker
 
-Select2 has been removed from the project in the benefit of a custom selector. The reasons for this change can be found in [this](https://github.com/decidim/decidim/pull/2330) PR. The summary is that there are many kinds of data and many better usable ways to select this data than the simple select provided by html. Also there are some problems with the responsiveness of Select2.
+Simple HTML `select`s are not usable enough for the big collections of data Decidim has. We tried using `select2`, but we found problems with its usage and responsiveness, so we moved to a custom data picker. Also, there are many kinds of data that can be selected and many better usable ways to select this data than the simple select provided by html.
 
 Current Decidim's selector is inspired on [this](https://medium.com/@mibosc/responsive-design-why-and-how-we-ditched-the-good-old-select-element-bc190d62eff5) article.
 
