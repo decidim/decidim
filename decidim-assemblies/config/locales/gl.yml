@@ -5,6 +5,8 @@ gl:
         banner_image: Imaxe do banner
         copy_categories: Copiar categorías
         copy_features: Copiar funcións
+        decidim_area_id: Área
+        decidim_scope_id: Alcance
         description: Descrición
         developer_group: Grupo de desenvolvedores
         domain: Dominio
@@ -15,9 +17,11 @@ gl:
         participatory_scope: Alcance participativo
         participatory_structure: Estrutura participativa
         promoted: Promocionado
+        published_at: Publicado en
         scope_id: Alcance
         scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
+        show_statistics: Amosar estatísticas
         slug: URL slug
         subtitle: Subtítulo
         target: Obxectivo
@@ -107,6 +111,12 @@ gl:
             moderator: Moderador
       titles:
         assemblies: Asembleas
+    admin_log:
+      assembly:
+        create: "%{user_name} creou o conxunto %{resource_name}"
+        publish: "%{user_name} publicou o conxunto %{resource_name}"
+        unpublish: "%{user_name} inédita a montaxe %{resource_name}"
+        update: "%{user_name} actualizou o conxunto %{resource_name}"
     assemblies:
       admin:
         assemblies:
