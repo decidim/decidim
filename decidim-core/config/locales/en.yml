@@ -239,6 +239,8 @@ en:
         update: "%{user_name} updated %{resource_name}"
         update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
       value_types:
+        area_presenter:
+          not_found: 'The area was not found on the database (ID: %{id})'
         scope_presenter:
           not_found: 'The scope was not found on the database (ID: %{id})'
         scope_type_presenter:

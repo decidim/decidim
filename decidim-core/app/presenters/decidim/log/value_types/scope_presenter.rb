@@ -7,7 +7,7 @@ module Decidim
       # the `DefaultPresenter` for more info on how value
       # presenters work.
       class ScopePresenter < DefaultPresenter
-        # Public: Presents the value as a Percentage. If the scope can
+        # Public: Presents the value as a Decidim::Scope. If the scope can
         # be found, it shows its title. Otherwise it shows its ID.
         #
         # Returns an HTML-safe String.
