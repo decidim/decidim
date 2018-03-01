@@ -80,6 +80,8 @@ fi:
         assemblies: Kehitysryhmät
         assemblies_submenu:
           assembly_admins: Kehitysryhmän käyttäjät
+          attachment_collections: kokoelmat
+          attachment_files: Tiedostot
           attachments: Liitteet
           categories: Aihepiirit
           features: Ominaisuudet
@@ -109,6 +111,7 @@ fi:
       admin:
         assemblies:
           form:
+            select_an_area: Valitse alue
             slug_help: 'URL-tunnisteita käytetään tähän kehitysryhmään osoittavien URL-osoitteiden luonnissa. Hyväksyy kirjaimet, numerot ja viivat. Ensimmäinen merkki on oltava kirjain. Esimerkiksi: %{url}'
         assembly_copies:
           form:
@@ -121,6 +124,7 @@ fi:
             active_assemblies: Aktiiviset kehitysryhmät
             see_all_assemblies: Näytä kaikki kehitysryhmät
       show:
+        area: alue
         developer_group: Kehittäjäryhmä
         local_area: Paikallisalue
         participatory_scope: Osallistumiskonteksti
