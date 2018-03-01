@@ -80,6 +80,8 @@ pl:
         assemblies: Zespoły
         assemblies_submenu:
           assembly_admins: Użytkownicy montażu
+          attachment_collections: Kolekcje
+          attachment_files: Akta
           attachments: Załączniki
           categories: Kategorie
           features: cechy
@@ -109,6 +111,7 @@ pl:
       admin:
         assemblies:
           form:
+            select_an_area: Wybierz obszar
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
         assembly_copies:
           form:
@@ -121,6 +124,7 @@ pl:
             active_assemblies: Aktywne złożenia
             see_all_assemblies: Zobacz wszystkie zespoły
       show:
+        area: Powierzchnia
         developer_group: Grupa programistyczna
         local_area: Okolica
         participatory_scope: Zakres partycypacji
@@ -150,11 +154,6 @@ pl:
           take_part: Wziąć udział
         index:
           promoted_assemblies: Podświetlone zespoły
-        order_by_assemblies:
-          assemblies:
-            one: "%{count} montaż"
-            few: "%{count} złożeń"
-            other: "%{count} złożeń"
         promoted_assembly:
           more_info: Więcej informacji
           take_part: Wziąć udział
