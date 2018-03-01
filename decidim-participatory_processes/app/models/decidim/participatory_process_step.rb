@@ -5,6 +5,8 @@ module Decidim
   # features that will show up in the depending on what step is currently
   # active.
   class ParticipatoryProcessStep < ApplicationRecord
+    include Traceable
+
     belongs_to :participatory_process, foreign_key: "decidim_participatory_process_id", class_name: "Decidim::ParticipatoryProcess"
     has_one :organization, through: :participatory_process
 
