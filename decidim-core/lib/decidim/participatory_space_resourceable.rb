@@ -39,9 +39,8 @@ module Decidim
         manifest = Decidim.find_participatory_space_manifest(participatory_space_name)
         return self.class.none unless manifest
 
-        scope = manifest.participatory_spaces
-        raise
-        scope = scope.where("#{self.class.table_name}.id != ?", id) if manifest.model_class_name.constantize == self.class
+        organization = self.organization
+        scope = manifest.participatory_spaces.call(self.organization)
 
         scope
       end

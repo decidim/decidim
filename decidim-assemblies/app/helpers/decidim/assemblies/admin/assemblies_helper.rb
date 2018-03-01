@@ -14,7 +14,9 @@ module Decidim
         # #
         # # Returns an Array.
         def processes_selected
-          @processes_selected ||= current_assembly.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes").pluck(:id)
+          if current_assembly.present?
+            @processes_selected ||= current_assembly.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes").pluck(:id)
+          end
         end
       end
     end

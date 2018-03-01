@@ -24,8 +24,9 @@ module Decidim
 
           if assembly.persisted?
             add_admins_as_followers(assembly)
+            link_participatory_processes(assembly)
+
             broadcast(:ok, assembly)
-            link_participatory_processes
           else
             form.errors.add(:hero_image, assembly.errors[:hero_image]) if assembly.errors.include? :hero_image
             form.errors.add(:banner_image, assembly.errors[:banner_image]) if assembly.errors.include? :banner_image
@@ -35,7 +36,7 @@ module Decidim
 
         private
 
-        attr_reader :form
+        attr_reader :form, :assembly
 
         def assembly
           @assembly ||= Decidim.traceability.create(
@@ -76,12 +77,13 @@ module Decidim
           end
         end
 
-        def participatory_processes
-          @participatory_processes ||= Decidim.find_participatory_space_manifest(:participatory_processes).participatory_spaces.call(current_organization).where(id: @form.participatory_processes_ids)
+        def participatory_processes(assembly)
+          # @participatory_processes ||= Decidim.find_participatory_space_manifest(:participatory_processes).participatory_spaces.call(current_organization).where(id: @form.participatory_processes_ids)
+          @participatory_processes ||= assembly.participatory_space_sibling_scope(:participatory_processes).where(id: @form.participatory_processes_ids)
         end
 
-        def link_participatory_processes
-          assembly.link_participatory_spaces_resources(participatory_processes, "included_participatory_processes")
+        def link_participatory_processes(assembly)
+          assembly.link_participatory_spaces_resources(participatory_processes(assembly), "included_participatory_processes")
         end
       end
     end

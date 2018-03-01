@@ -114,9 +114,12 @@ module Decidim::Assemblies
       end
 
       it "links participatory processes" do
-        subject.call
-        linked_participatory_processes = assembly.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes")
-        expect(linked_participatory_processes).to match_array(participatory_processes)
+        subject.call do
+          on(:ok) do |assembly|
+            linked_participatory_processes = assembly.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes")
+            expect(linked_participatory_processes).to match_array(participatory_processes)
+          end
+        end
       end
     end
   end
