@@ -5,6 +5,8 @@ ca:
         banner_image: Imatge de bàner
         copy_categories: Copiar categories
         copy_features: Copiar funcionalitats
+        decidim_area_id: Àrea
+        decidim_scope_id: Abast
         description: Descripció
         developer_group: Grup promotor
         domain: Àrees municipals
@@ -15,9 +17,11 @@ ca:
         participatory_scope: Àmbit participatiu
         participatory_structure: Estructura participativa
         promoted: Destacat
+        published_at: Publicat a
         scope_id: Àmbit
         scopes_enabled: Àmbit habilitat
         short_description: Descripció breu
+        show_statistics: Mostra estadístiques
         slug: Nom curt d'URL
         subtitle: Subtítol
         target: A qui va dirigit?
@@ -107,6 +111,12 @@ ca:
             moderator: Moderador
       titles:
         assemblies: Assemblees
+    admin_log:
+      assembly:
+        create: "%{user_name} ha creat el conjunt %{resource_name}"
+        publish: "%{user_name} va publicar l'assemblea %{resource_name}"
+        unpublish: "%{user_name} no s'ha publicat l'assemblea %{resource_name}"
+        update: "%{user_name} ha actualitzat l'ensamblat %{resource_name}"
     assemblies:
       admin:
         assemblies:
