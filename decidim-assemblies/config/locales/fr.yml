@@ -80,9 +80,11 @@ fr:
         assemblies: Assemblées
         assemblies_submenu:
           assembly_admins: Utilisateurs de l'assemblée
+          attachment_collections: Collections
+          attachment_files: Des dossiers
           attachments: Documents liés
           categories: Catégories
-          features: Fonctions
+          features: Fonctionnalités
           info: Information
           moderations: Modérations
       models:
@@ -109,6 +111,7 @@ fr:
       admin:
         assemblies:
           form:
+            select_an_area: Sélectionnez une zone
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_copies:
           form:
@@ -121,6 +124,7 @@ fr:
             active_assemblies: Assemblées actives
             see_all_assemblies: Voir toutes les assemblées
       show:
+        area: Région
         developer_group: Groupe d'initiateurs
         local_area: Localisation
         participatory_scope: Objectif du processus participatif
