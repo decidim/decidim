@@ -66,3 +66,8 @@ Rails/ReversibleMigration:
 
 Rails/CreateTableWithTimestamps:
   Enabled: false
+
+# No idea why we need to explicitly set this cop but otherwise we get
+# `Lint/UnneededDisable` false positives for this cop
+Rails/SkipsModelValidations:
+  Enabled: true
