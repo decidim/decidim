@@ -94,7 +94,7 @@ module Decidim
         event_name = "decidim.resourceable.included_proposals.created"
         ActiveSupport::Notifications.subscribe event_name do |_name, _started, _finished, _unique_id, data|
           payload = data[:this]
-          if payload[:from_type] == Decidim::Accountability.Result.name and payload[:to_type] == Proposal.name
+          if payload[:from_type] == Decidim::Accountability::Result.name and payload[:to_type] == Proposal.name
             proposal = Proposal.find(payload[:to_id])
             proposal.update_attributes(state: "accepted")
           end
