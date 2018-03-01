@@ -27,7 +27,7 @@ module Decidim
 
         def action_string
           case action
-          when "create"
+          when "create", "update"
             "decidim.admin_log.assembly_user_role.#{action}"
           else
             super
