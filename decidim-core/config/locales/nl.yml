@@ -238,6 +238,8 @@ nl:
         update: "%{user_name} bijgewerkt %{resource_name}"
         update_with_space: "%{user_name} bijgewerkt %{resource_name} in %{space_name}"
       value_types:
+        area_presenter:
+          not_found: 'Het gebied is niet gevonden in de database (ID: %{id})'
         scope_presenter:
           not_found: 'Het bereik is niet gevonden in de database (ID: %{id})'
         scope_type_presenter:
