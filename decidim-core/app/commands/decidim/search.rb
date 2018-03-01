@@ -25,7 +25,7 @@ module Decidim
     def call
       query = SearchableRsrc.where(organization: @organization)
       @filters.each_pair do |att_name, value|
-        query = query.where(att_name => value) if ACCEPTED_FILTERS.include?(att_name)
+        query = query.where(att_name => value) if permit_filter?(att_name, value)
       end
       @results = if term.present?
                    query.global_search(term)
@@ -34,6 +34,13 @@ module Decidim
       end
 
       broadcast(:ok, @results)
+    end
+
+    #---------------------------------------------------------------------
+    private
+    #---------------------------------------------------------------------
+    def permit_filter?(att_name, value)
+      ACCEPTED_FILTERS.include?(att_name.to_sym) and value.present?
     end
   end
 end

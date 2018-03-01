@@ -3,10 +3,13 @@ en:
   activemodel:
     attributes:
       proposal:
+        answer: Answer
+        answered_at: Answered at
         body: Body
         category_id: Category
         has_address: Has address
         scope_id: Scope
+        state: State
         title: Title
         user_group_id: Create proposal as
       proposal_answer:
@@ -87,6 +90,7 @@ en:
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
+            proposal_length: Maximum proposal body length
             proposal_limit: Proposal limit per user
             proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
             proposal_wizard_step_2_help_text: Proposal wizard "Compare" step help text
@@ -102,6 +106,20 @@ en:
             votes_blocked: Votes blocked
             votes_enabled: Votes enabled
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_proposals:
+          proposals: Proposals
+        proposal:
+          creation_date: 'Creation: %{date}'
+          view_proposal: View proposal
+    participatory_spaces:
+      highlighted_proposals:
+        proposals: Proposals
+        see_all_proposals: See all proposals
+      proposal:
+        creation_date: 'Creation: %{date}'
+        view_proposal: View proposal
     proposals:
       actions:
         answer: Answer
@@ -174,6 +192,9 @@ en:
             created_at: Creation date
             proposal_votes_count: Votes count
             proposals: Proposals
+      admin_log:
+        proposal:
+          answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
       answers:
         accepted: Accepted
         evaluating: Evaluating
@@ -202,6 +223,7 @@ en:
         create:
           error: There's been errors when endorsing the proposal.
         identities:
+          done: Done
           select_identity: Select identity
       proposal_endorsements_helper:
         endorsement_button:
@@ -232,12 +254,11 @@ en:
           already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: Endorse
-        endorsements_count:
-          count:
-            one: ENDORSEMENT
-            other: ENDORSEMENTS
+        endorsements_card_row:
+          endorse: Endorse
         endorsements_listing:
-          see_all: see all
+          see_all: See all
+          see_less: See less
           title: List of Endorsements
         filters:
           accepted: Accepted
@@ -289,11 +310,13 @@ en:
           view_proposal: View proposal
         show:
           edit_proposal: Edit proposal
-          endorsements_blocked: Endorsements blocked
           proposal_accepted_reason: 'This proposal has been accepted because:'
           proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: 'This proposal has been rejected because:'
           report: Report
+          sign_in: Sign in
+          sign_in_or_up: "%{in} or %{up} to participate"
+          sign_up: sign up
           withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any support. The proposal is not deleted, it will appear in the list of withdrawn proposals.
           withdraw_confirmation: Are you sure to withdraw this proposal?
           withdraw_proposal: Withdraw proposal

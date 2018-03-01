@@ -15,6 +15,8 @@ module Decidim
       include Decidim::Followable
       include Decidim::Proposals::CommentableProposal
       include Decidim::Searchable
+      include Decidim::Traceable
+      include Decidim::Loggable
 
       feature_manifest_name "proposals"
 
@@ -40,6 +42,10 @@ module Decidim
         end
       end
 
+      def self.log_presenter_class_for(_log)
+        Decidim::Proposals::AdminLog::ProposalPresenter
+      end
+
       # Public: Check if the user has voted the proposal.
       #
       # Returns Boolean.
@@ -48,6 +54,7 @@ module Decidim
       end
 
       # Public: Check if the user has endorsed the proposal.
+      # - user_group: may be nil if user is not representing any user_group.
       #
       # Returns Boolean.
       def endorsed_by?(user, user_group = nil)

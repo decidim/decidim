@@ -8,6 +8,7 @@ module Decidim
     include HasSettings
     include Publicable
     include Traceable
+    include Loggable
 
     belongs_to :participatory_space, polymorphic: true
 
@@ -15,6 +16,10 @@ module Decidim
 
     delegate :organization, :categories, to: :participatory_space
     delegate :scopes, to: :organization
+
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::FeaturePresenter
+    end
 
     # Public: Finds the manifest this feature is associated to.
     #

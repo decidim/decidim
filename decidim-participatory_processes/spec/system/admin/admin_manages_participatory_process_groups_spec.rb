@@ -9,6 +9,9 @@ describe "Admin manages participatory process groups", type: :system do
     create_list(:participatory_process, 3, organization: organization)
   end
 
+  let(:image1_filename) { "city.jpeg" }
+  let(:image1_path) { Decidim::Dev.asset(image1_filename) }
+
   before do
     switch_to_host(organization.host)
     login_as user, scope: :user
@@ -48,6 +51,9 @@ describe "Admin manages participatory process groups", type: :system do
   context "with existing groups" do
     let!(:participatory_processes) { create_list(:participatory_process, 3, organization: organization) }
     let!(:participatory_process_group) { create(:participatory_process_group, organization: organization) }
+
+    let(:image2_filename) { "city2.jpeg" }
+    let(:image2_path) { Decidim::Dev.asset(image2_filename) }
 
     before do
       visit current_path

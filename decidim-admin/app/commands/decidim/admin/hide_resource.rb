@@ -36,7 +36,10 @@ module Decidim
         Decidim.traceability.perform_action!(
           "hide",
           @reportable.moderation,
-          @current_user
+          @current_user,
+          extra: {
+            reportable_type: @reportable.class.name
+          }
         ) do
           @reportable.moderation.update_attributes!(hidden_at: Time.current)
         end

@@ -25,6 +25,10 @@ module Decidim
                optional: true,
                polymorphic: true
 
+    belongs_to :version,
+               optional: true,
+               class_name: "PaperTrail::Version"
+
     validates :organization, :user, :action, :resource, presence: true
 
     # To ensure records can't be deleted
@@ -37,55 +41,17 @@ module Decidim
       !new_record?
     end
 
-    def version
-      @version ||= PaperTrail::Version.find_by(id: extra.dig("version", "id")) ||
-                   PaperTrail::Version.where(item_id: resource_id, item_type: resource_type).order(id: :desc).first
-    end
-
-    # Public: Renders the action log instance. Assumes the existence of the presenter
-    # class for the related `resource`, which will be in charge of the actual
-    # rendering of the data.
+    # Public: Finds the correct presenter class for the given
+    # `log_type` and the related `resource_type`. If no specific
+    # presenter can be found, it falls back to `Decidim::Log::BasePresenter`
     #
-    # The presenter class name is built from the resource class name and module:
-    # If the associated resource class name is this:
+    # log_type - a Symbol representing the log
     #
-    #     Decidim::MyModule::MyModel
-    #
-    # Then the presenter class that will be required is
-    #
-    #     Decidim::MyModule::ActionLog::MyModelPresenter
-    #
-    # We attach the `AdminLog` module to the presenter class name to differentiate
-    # between log types. This way we can have different logs, with different
-    # presentations, with the same data. We currently assume only one log is present
-    # (`AdminLog`), but we have a structure that enables multiple logs in the future.
-    #
-    # If the presenter class cannot be found automatically, it will use the
-    # `Decidim::Log::BasePresenter` class as a fallback.
-    #
-    # view_helpers - an object that holds all the view helpers accessible at the render
-    #   time.
-    #
-    # Returns an HTML-safe String.
-    def render_log(view_helpers)
-      presenter_klass = begin
-                          log_presenter_class_name.constantize
-                        rescue NameError
-                          Decidim::Log::BasePresenter
-                        end
-
-      presenter_klass.new(self, view_helpers).present
-    end
-
-    # Public: Calculates the name of the presenter class that will be used to present
-    # the action in the given log. Currently only handles the admin log.
-    #
-    # Returns a String.
-    def log_presenter_class_name
-      klass_name = resource_type.deconstantize
-      klass_name << "::AdminLog::"
-      klass_name << resource_type.demodulize
-      klass_name << "Presenter"
+    # Returns a Class.
+    def log_presenter_class_for(log_type)
+      resource_type.constantize.log_presenter_class_for(log_type)
+    rescue NameError
+      Decidim::Log::BasePresenter
     end
   end
 end

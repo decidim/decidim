@@ -34,4 +34,5 @@ RSpec.configure do |config|
   config.include TranslationHelpers
   config.include Rectify::RSpec::Helpers
   config.include ActionView::Helpers::SanitizeHelper
+  config.include ERB::Util
 end
