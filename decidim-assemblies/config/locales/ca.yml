@@ -117,6 +117,10 @@ ca:
         publish: "%{user_name} va publicar l'assemblea %{resource_name}"
         unpublish: "%{user_name} no s'ha publicat l'assemblea %{resource_name}"
         update: "%{user_name} ha actualitzat l'ensamblat %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} convidat %{resource_name} al conjunt %{space_name}"
+        delete: "%{user_name} elimina l'usuari %{resource_name} del conjunt %{space_name}"
+        update: "%{user_name} ha canviat la funció de %{resource_name} a l'assemblea %{space_name}"
     assemblies:
       admin:
         assemblies:
