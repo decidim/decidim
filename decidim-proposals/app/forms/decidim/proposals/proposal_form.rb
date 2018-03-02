@@ -60,6 +60,8 @@ module Decidim
         current_feature.settings.geocoding_enabled? && has_address
       end
 
+      private
+
       def proposal_length
         return unless body.presence
         length = current_feature.settings.proposal_length
