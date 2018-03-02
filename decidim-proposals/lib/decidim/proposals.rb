@@ -26,9 +26,11 @@ module Decidim
       10
     end
   end
+
   module ContentParsers
     autoload :ProposalParser, "decidim/content_parsers/proposal_parser"
   end
+
   module ContentRenderers
     autoload :ProposalRenderer, "decidim/content_renderers/proposal_renderer"
   end
