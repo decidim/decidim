@@ -23,6 +23,7 @@ it:
         parent_id: Su
       feature:
         name: Nome
+        published_at: Pubblicato a
         weight: Peso
       id: ID
       newsletter:
