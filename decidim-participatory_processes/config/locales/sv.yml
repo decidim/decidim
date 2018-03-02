@@ -211,6 +211,11 @@ sv:
         publish: "%{user_name} publicerade %{resource_name} deltagande process"
         unpublish: "%{user_name} opublicerade %{resource_name} deltagande process"
         update: "%{user_name} uppdaterade deltagandeprocessen %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} aktiverade %{resource_name} -steget i deltagarprocessen %{space_name}"
+        create: "%{user_name} skapade steget %{resource_name} i deltagande processen %{space_name}"
+        delete: "%{user_name} raderade %{resource_name} -steget i den deltagande processen %{space_name}"
+        update: "%{user_name} uppdaterade %{resource_name} -steget i den deltagande processen %{space_name}"
       participatory_process_user_role:
         create: "%{user_name} bjudit in användaren %{resource_name} till %{space_name} deltagande process"
         delete: "%{user_name} tagit bort användaren %{resource_name} från %{space_name} deltagande process"
