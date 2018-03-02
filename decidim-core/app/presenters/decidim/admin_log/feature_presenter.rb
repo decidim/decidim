@@ -16,7 +16,8 @@ module Decidim
 
       def diff_fields_mapping
         {
-          name: :i18n
+          name: :i18n,
+          published_at: :date
         }
       end
 
@@ -26,11 +27,15 @@ module Decidim
 
       def action_string
         case action
-        when "create", "delete", "publish"
+        when "create", "delete", "publish", "unpublish"
           "decidim.admin_log.feature.#{action}"
         else
           super
         end
+      end
+
+      def has_diff?
+        action == "unpublish" || super
       end
     end
   end

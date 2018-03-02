@@ -103,10 +103,12 @@ module Decidim
         @feature = query_scope.find(params[:id])
         authorize! :update, @feature
 
-        @feature.unpublish!
-
-        flash[:notice] = I18n.t("features.unpublish.success", scope: "decidim.admin")
-        redirect_to action: :index
+        UnpublishFeature.call(@feature, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("features.unpublish.success", scope: "decidim.admin")
+            redirect_to action: :index
+          end
+        end
       end
 
       private
