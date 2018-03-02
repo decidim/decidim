@@ -57,6 +57,8 @@ ca:
       feature:
         create: "%{user_name} ha afegit la funció %{resource_name} a l'espai %{space_name}"
         delete: "%{user_name} ha eliminat la funció %{resource_name} de l'espai %{space_name}"
+        publish: "%{user_name} ha publicat la funció %{resource_name} a l'espai %{space_name}"
+        unpublish: "%{user_name} no s'ha publicat la funció %{resource_name} des de l'espai %{space_name}"
       moderation:
         hide: "%{user_name} ha ocultat un recurs del tipus %{resource_type} a l'espai %{space_name}"
         unreport: "%{user_name} no s'informa un recurs del tipus %{resource_type} a l'espai %{space_name}"
