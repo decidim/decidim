@@ -117,6 +117,10 @@ it:
         publish: "%{user_name} ha pubblicato l'assemblea %{resource_name}"
         unpublish: "%{user_name} non pubblicato l'assembly %{resource_name}"
         update: "%{user_name} ha aggiornato l'assembly %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} invitato %{resource_name} all'assemblea %{space_name}"
+        delete: "%{user_name} rimosso l'utente %{resource_name} dall'assembly %{space_name}"
+        update: "%{user_name} ha cambiato il ruolo di %{resource_name} nell'assembly %{space_name}"
     assemblies:
       admin:
         assemblies:
