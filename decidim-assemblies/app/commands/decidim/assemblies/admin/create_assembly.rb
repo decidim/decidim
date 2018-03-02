@@ -36,7 +36,7 @@ module Decidim
 
         private
 
-        attr_reader :form, :assembly
+        attr_reader :form
 
         def assembly
           @assembly ||= Decidim.traceability.create(
@@ -78,7 +78,6 @@ module Decidim
         end
 
         def participatory_processes(assembly)
-          # @participatory_processes ||= Decidim.find_participatory_space_manifest(:participatory_processes).participatory_spaces.call(current_organization).where(id: @form.participatory_processes_ids)
           @participatory_processes ||= assembly.participatory_space_sibling_scope(:participatory_processes).where(id: @form.participatory_processes_ids)
         end
 

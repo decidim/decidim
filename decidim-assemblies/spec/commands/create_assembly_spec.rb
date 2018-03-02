@@ -43,7 +43,7 @@ module Decidim::Assemblies
         scope: scope,
         area: area,
         errors: errors,
-        participatory_processes_ids: participatory_processes.map(&:id),
+        participatory_processes_ids: participatory_processes.map(&:id)
       )
     end
     let(:invalid) { false }

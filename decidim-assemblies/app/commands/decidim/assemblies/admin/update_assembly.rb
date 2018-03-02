@@ -24,10 +24,10 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
           update_assembly
+          link_participatory_processes(@assembly)
 
           if @assembly.valid?
             broadcast(:ok, @assembly)
-            link_participatory_processes
           else
             form.errors.add(:hero_image, @assembly.errors[:hero_image]) if @assembly.errors.include? :hero_image
             form.errors.add(:banner_image, @assembly.errors[:banner_image]) if @assembly.errors.include? :banner_image
@@ -80,22 +80,12 @@ module Decidim
         end
 
         def participatory_processes(assembly)
-          # @participatory_processes ||= Decidim.find_participatory_space_manifest(:participatory_processes).participatory_spaces.call(current_organization).where(id: @form.participatory_processes_ids)
           @participatory_processes ||= assembly.participatory_space_sibling_scope(:participatory_processes).where(id: @form.participatory_processes_ids)
         end
 
         def link_participatory_processes(assembly)
           assembly.link_participatory_spaces_resources(participatory_processes(assembly), "included_participatory_processes")
         end
-
-        # def participatory_processes
-        #   # @participatory_processes ||= assembly.participatory_space_sibling_scope(:participatory_processes).where(id: @form.participatory_processes_ids)
-        #   @participatory_processes ||= Decidim.find_participatory_space_manifest(:participatory_processes).participatory_spaces.call(current_organization).where(id: @form.participatory_processes_ids)
-        # end
-        #
-        # def link_participatory_processes
-        #   assembly.link_participatory_spaces_resources(participatory_processes, "included_participatory_processes")
-        # end
       end
     end
   end
