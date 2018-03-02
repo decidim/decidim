@@ -57,6 +57,8 @@ eu:
       feature:
         create: "%{user_name} gehitu %{resource_name} ezaugarri %{space_name} espazioa"
         delete: "%{user_name} kendu %{resource_name} Ezaugarri %{space_name} espazioa"
+        publish: "%{user_name} %{resource_name} funtzioak %{space_name} espazioan argitaratu zituen"
+        unpublish: "%{user_name} %{resource_name} funtzioak %{space_name} espaziotik argitaratu gabe argitaratu du"
       moderation:
         hide: "%{user_name} ezkutatu motako baliabide bat %{resource_type} en %{space_name} espazioa"
         unreport: "%{user_name} %{resource_type} motako baliabide bat ez da %{space_name} espazioan"
