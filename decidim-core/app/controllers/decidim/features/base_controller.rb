@@ -55,7 +55,7 @@ module Decidim
       end
 
       def redirect_unless_feature_private
-        raise ActionController::RoutingError.new('Not Found') unless current_user_can_visit_space?
+        raise ActionController::RoutingError, "Not Found" unless current_user_can_visit_space?
       end
     end
   end
