@@ -57,6 +57,8 @@ pl:
       feature:
         create: "%{user_name} dodano %{resource_name} funkcja do %{space_name} przestrzeń"
         delete: "%{user_name} usunięto %{resource_name} funkcja od %{space_name} przestrzeń"
+        publish: "%{user_name} opublikował funkcję %{resource_name} w przestrzeni %{space_name}"
+        unpublish: "%{user_name} cofnął publikację funkcji %{resource_name} z przestrzeni %{space_name}"
       moderation:
         hide: "%{user_name} ukrył zasób typu %{resource_type} w %{space_name} przestrzeń"
         unreport: "%{user_name} niezgłoszony zasób typu %{resource_type} w %{space_name} przestrzeń"
