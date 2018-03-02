@@ -17,7 +17,8 @@ module Decidim
       def diff_fields_mapping
         {
           name: :i18n,
-          published_at: :date
+          published_at: :date,
+          weight: :integer
         }
       end
 
