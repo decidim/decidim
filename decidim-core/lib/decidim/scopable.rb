@@ -28,6 +28,8 @@ module Decidim
                  class_name: "Decidim::Scope",
                  optional: true
 
+      delegate :scopes, to: :organization
+
       validate :scope_belongs_to_organization
     end
 

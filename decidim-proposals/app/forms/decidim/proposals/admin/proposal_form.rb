@@ -44,7 +44,7 @@ module Decidim
         #
         # Returns a Decidim::Scope
         def scope
-          @scope ||= @scope_id ? current_feature.scopes.find_by(id: @scope_id) : current_participatory_space.scope
+          @scope ||= @scope_id ? current_participatory_space.scopes.find_by(id: @scope_id) : current_participatory_space.scope
         end
 
         # Scope identifier
