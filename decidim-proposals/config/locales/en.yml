@@ -320,6 +320,9 @@ en:
           withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any support. The proposal is not deleted, it will appear in the list of withdrawn proposals.
           withdraw_confirmation: Are you sure to withdraw this proposal?
           withdraw_proposal: Withdraw proposal
+        tags:
+          changed_from: "(changed from <u>%{previous_category}</u> by an administrator)"
+          filed_as: Filed as
         vote_button:
           already_voted: Already voted
           already_voted_hover: Unvote
