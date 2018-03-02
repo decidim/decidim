@@ -60,6 +60,7 @@
 - **decidim-assemblies**: Log assembly creation, update and (un)publication [\#2858](https://github.com/decidim/decidim/pull/2858)
 - **decidim-assemblies**: Log assembly user role creation, update and deletion [\#2874](https://github.com/decidim/decidim/pull/2874)
 - **decidim-participatory_processes**: Log actions on process steps [\#2876](https://github.com/decidim/decidim/pull/2876)
+- **decidim-admin**: Log feature (un)publication[\#2884](https://github.com/decidim/decidim/pull/2884)
 
 **Changed**:
 
