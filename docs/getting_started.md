@@ -38,20 +38,7 @@ This will create a `decidim_application` Ruby on Rails app using Decidim in the 
 
 ### C. Step by step
 
-First of all, you need to install the `decidim` gem:
-
-```
-gem install decidim
-```
-
-afterwards, you can create an application with the nice `decidim` executable:
-
-```
-decidim decidim_application
-cd decidim_application
-bundle install
-rails server
-```
+See our [manual installation tutorial](docs/manual-installation.md).
 
 ## Initializing your app for local development
 
