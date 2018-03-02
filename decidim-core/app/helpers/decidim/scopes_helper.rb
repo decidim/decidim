@@ -10,7 +10,7 @@ module Decidim
     #
     # Returns boolean.
     def has_visible_scopes?(resource)
-      try(:current_participatory_space)&.try(:scopes_enabled?) && resource.scope.present? && current_participatory_space.try(:scope)&.id != resource.scope&.id
+      resource.participatory_space.scopes_enabled? && resource.scope.present? && resource.participatory_space.scope != resource.scope
     end
 
     # Retrieves the translated name and type for an scope.
