@@ -26,17 +26,17 @@ $(function() {
         );
       },
       renderItem: function (item, search) {
-        let sanitizedSearch= search.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
-        let re= new RegExp(`(${sanitizedSearch.split(' ').join('|')})`, "gi");
-        let title= item[0]
-        let modelId= item[1]
-        let val= `#${modelId}- ${title}`;
-        return `<div class="autocomplete-suggestion" data-model-id="${modelId}" data-val="${title}">${val.replace(re, "<b>$1</b>")}</div>`;
+        let sanitizedSearch = search.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');
+        let re = new RegExp(`(${sanitizedSearch.split(' ').join('|')})`, "gi");
+        let title = item[0]
+        let modelId = item[1]
+        let val = `#${modelId}- ${title}`;
+        return `<div class="autocomplete-suggestion" data-model-id="${modelId}" data-val ="${title}">${val.replace(re, "<b>$1</b>")}</div>`;
       },
       onSelect: function(event, term, item) {
-        let choose= $('#proposal-picker-choose')
-        let modelId= item.data('modelId')
-        let val= `#${modelId}- ${item.data('val')}`;
+        let choose = $('#proposal-picker-choose')
+        let modelId = item.data('modelId')
+        let val = `#${modelId}- ${item.data('val')}`;
         choose.data('picker-value', modelId)
         choose.data('picker-text', val)
         choose.data('picker-choose', '')
