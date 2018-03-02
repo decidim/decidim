@@ -19,14 +19,11 @@ $(function() {
           xhr.abort();
         } catch (exception) { xhr = null}
 
-        /* eslint-disable */
         xhr = $.getJSON(
           'proposals.json',
-          { q: term },
-          function(data) { response(data);
-        });
-
-        /* eslint-enable */
+          { term: term },
+          function(data) { response(data); }
+        );
       },
       renderItem: function (item, search) {
         let sanitizedSearch= search.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&');

@@ -39,14 +39,14 @@ module Decidim
 
           context "when there are no results" do
             it "returns an empty json array" do
-              get :proposals, format: :json, params: params.merge!(q: "#0")
+              get :proposals, format: :json, params: params.merge!(term: "#0")
               expect(response.body).to eq("[]")
             end
           end
 
           context "when searching by id" do
             it "returns the title and id for filtered proposals" do
-              params[:q] = "##{proposal.id}"
+              params[:term] = "##{proposal.id}"
               get :proposals, format: :json, params: params
               expect(response.body).to eq("[[\"#{proposal.title}\",#{proposal.id}]]")
             end
@@ -54,7 +54,7 @@ module Decidim
 
           context "when searching by term" do
             it "returns the title and id for filtered proposals" do
-              params[:q] = proposal.title
+              params[:term] = proposal.title
               get :proposals, format: :json, params: params
               expect(response.body).to eq("[[\"#{proposal.title}\",#{proposal.id}]]")
             end

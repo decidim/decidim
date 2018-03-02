@@ -64,12 +64,12 @@ module Decidim
             format.json do
               query = Decidim.find_resource_manifest(:proposals)
                              .try(:resource_scope, current_feature)&.order(title: :asc)
-              term = params[:q]
+              term = params[:term]
               if term&.start_with?("#")
                 term.delete!("#")
                 query = query.where("CAST(id AS TEXT) LIKE ?", "#{term}%")
               else
-                query = query.where("title ilike ?", "%#{params[:q]}%")
+                query = query.where("title ilike ?", "%#{params[:term]}%")
               end
               render json: query.all.collect { |p| [p.title, p.id] }
             end
