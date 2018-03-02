@@ -21,8 +21,7 @@ module Decidim
 
       def proposal_path
         proposal = __getobj__
-        slug = proposal.participatory_space.slug
-        decidim_participatory_process_proposals.proposal_path(__getobj__, feature_id: proposal.feature.id, participatory_process_slug: slug)
+        Decidim::ResourceLocatorPresenter.new(proposal).path
       end
 
       def display_mention
