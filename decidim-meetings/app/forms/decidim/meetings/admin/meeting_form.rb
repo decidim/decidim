@@ -46,7 +46,6 @@ module Decidim
         #
         # Returns a Decidim::Scope
         def scope
-          return unless current_feature
           @scope ||= @decidim_scope_id ? current_feature.scopes.find_by(id: @decidim_scope_id) : current_participatory_space.scope
         end
 
