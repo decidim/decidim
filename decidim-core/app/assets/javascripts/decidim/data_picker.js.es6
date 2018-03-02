@@ -88,12 +88,12 @@
       }
 
       this.current = {
-                        multiple: $picker.hasClass("picker-multiple"),
-                        picker: $picker,
-                        name: $picker.data('picker-name'),
-                        values: $picker.find(".picker-values"),
-                        div: currentDiv
-                      };
+        multiple: $picker.hasClass("picker-multiple"),
+        picker: $picker,
+        name: $picker.data('picker-name'),
+        values: $picker.find(".picker-values"),
+        div: currentDiv
+      };
     }
 
     _load(url) {

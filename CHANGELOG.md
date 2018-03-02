@@ -58,6 +58,8 @@
 - **decidim-core**: `scopes_picker_field` can now receive options such as `label: false` [\#2867](https://github.com/decidim/decidim/pull/2847)
 - **decidim-core**: `theDataPicker.activate("#my_data_picker_element")` can now be used to bind dinamically created inputs to a data picker [\#2867](https://github.com/decidim/decidim/pull/2847)
 - **decidim-assemblies**: Log assembly creation, update and (un)publication [\#2858](https://github.com/decidim/decidim/pull/2858)
+- **decidim-assemblies**: Log assembly user role creation, update and deletion [\#2874](https://github.com/decidim/decidim/pull/2874)
+- **decidim-participatory_processes**: Log actions on process steps [\#2876](https://github.com/decidim/decidim/pull/2876)
 
 **Changed**:
 
