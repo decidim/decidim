@@ -23,6 +23,7 @@ nl:
         parent_id: Ouder
       feature:
         name: Naam
+        published_at: Gepubliceerd op
         weight: Gewicht
       id: ID
       newsletter:
