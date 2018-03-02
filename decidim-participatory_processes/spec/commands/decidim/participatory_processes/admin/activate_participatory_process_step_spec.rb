@@ -4,8 +4,9 @@ require "spec_helper"
 
 module Decidim::ParticipatoryProcesses
   describe Admin::ActivateParticipatoryProcessStep do
-    subject { described_class.new(process_step) }
+    subject { described_class.new(process_step, user) }
 
+    let(:user) { create :user, :admin, :confirmed }
     let(:process_step) { create :participatory_process_step }
     let(:participatory_process) { process_step.participatory_process }
 
@@ -37,6 +38,18 @@ module Decidim::ParticipatoryProcesses
       it "activates it" do
         subject.call
         expect(process_step).to be_active
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with(:activate, process_step, user)
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+        expect(action_log.version.event).to be_present
       end
 
       it "deactivates the process active steps" do

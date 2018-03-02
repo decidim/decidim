@@ -1,1 +1,5 @@
-../.rubocop-rails.yml
+---
+
+inherit_from:
+  - ../.rubocop.yml
+  - .rubocop_rails.yml

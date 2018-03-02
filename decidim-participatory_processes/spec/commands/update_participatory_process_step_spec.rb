@@ -7,10 +7,12 @@ module Decidim::ParticipatoryProcesses
     subject { described_class.new(step, form) }
 
     let(:step) { create :participatory_process_step }
+    let(:user) { create :user, :admin, :confirmed }
     let(:participatory_process) { step.participatory_process }
     let(:form) do
       instance_double(
         Admin::ParticipatoryProcessStepForm,
+        current_user: user,
         title: { en: "new title" },
         description: { en: "new description" },
         start_date: start_date,
@@ -50,6 +52,18 @@ module Decidim::ParticipatoryProcesses
         expect(Decidim::EventsManager).not_to receive(:publish)
 
         subject.call
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:update!)
+          .with(Decidim::ParticipatoryProcessStep, user, hash_including(:title, :description, :start_date, :end_date))
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+        expect(action_log.version.event).to eq "update"
       end
 
       context "when the dates are updated" do
