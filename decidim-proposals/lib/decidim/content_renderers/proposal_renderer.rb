@@ -13,7 +13,7 @@ module Decidim
       GLOBAL_ID_REGEX = %r{gid:\/\/([\w-]*\/Decidim::Proposals::Proposal\/(\d+))}i
 
       # Replaces found Global IDs matching an existing proposal with
-      # a link to their profile. The Global IDs representing an
+      # a link to its show page. The Global IDs representing an
       # invalid Decidim::Proposals::Proposal are replaced with '???' string.
       #
       # @return [String] the content ready to display (contains HTML)
