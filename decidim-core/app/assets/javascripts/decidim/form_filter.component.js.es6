@@ -108,7 +108,7 @@
       return null;
     }
 
-     /**
+    /**
      * Parse current location and get the current order.
      * @private
      * @returns {string} - The current order

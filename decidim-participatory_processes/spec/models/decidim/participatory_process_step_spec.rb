@@ -11,6 +11,7 @@ module Decidim
       let(:position) { nil }
 
       it { is_expected.to be_valid }
+      it { is_expected.to be_versioned }
 
       context "when start date is after end date" do
         let(:participatory_process_step) do

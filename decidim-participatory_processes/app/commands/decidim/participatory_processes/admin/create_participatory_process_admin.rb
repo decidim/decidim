@@ -30,6 +30,7 @@ module Decidim
           ActiveRecord::Base.transaction do
             create_or_invite_user
             existing_role || create_role
+            add_admin_as_follower
           end
 
           broadcast(:ok)
@@ -107,6 +108,19 @@ module Decidim
         def invitation_instructions
           return "invite_admin" if form.role == "admin"
           "invite_collaborator"
+        end
+
+        def add_admin_as_follower
+          return if user.follows?(participatory_process)
+
+          form = Decidim::FollowForm
+                 .from_params(followable_gid: participatory_process.to_signed_global_id.to_s)
+                 .with_context(
+                   current_organization: participatory_process.organization,
+                   current_user: user
+                 )
+
+          Decidim::CreateFollow.new(form, user).call
         end
       end
     end

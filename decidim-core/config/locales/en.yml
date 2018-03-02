@@ -58,6 +58,8 @@ en:
       feature:
         create: "%{user_name} added the %{resource_name} feature to the %{space_name} space"
         delete: "%{user_name} removed the %{resource_name} feature from the %{space_name} space"
+        publish: "%{user_name} published the %{resource_name} feature in the %{space_name} space"
+        unpublish: "%{user_name} unpublished the %{resource_name} feature from the %{space_name} space"
       moderation:
         hide: "%{user_name} hid a resource of type %{resource_type} in the %{space_name} space"
         unreport: "%{user_name} unreported a resource of type %{resource_type} in the %{space_name} space"
@@ -68,6 +70,13 @@ en:
         update: "%{user_name} updated the %{resource_name} newsletter"
       organization:
         update: "%{user_name} updated the organization settings"
+      scope:
+        create: "%{user_name} created the %{resource_name} scope"
+        create_with_parent: "%{user_name} created the %{resource_name} scope inside the %{parent_scope} scope"
+        delete: "%{user_name} deleted the %{resource_name} scope"
+        delete_with_parent: "%{user_name} deleted the %{resource_name} scope inside the %{parent_scope} scope"
+        update: "%{user_name} updated the %{resource_name} scope"
+        update_with_parent: "%{user_name} updated the %{resource_name} scope inside the %{parent_scope} scope"
       static_page:
         create: "%{user_name} created the %{resource_name} static page"
         delete: "%{user_name} deleted the %{resource_name} static page"
@@ -232,8 +241,12 @@ en:
         update: "%{user_name} updated %{resource_name}"
         update_with_space: "%{user_name} updated %{resource_name} in %{space_name}"
       value_types:
+        area_presenter:
+          not_found: 'The area was not found on the database (ID: %{id})'
         scope_presenter:
           not_found: 'The scope was not found on the database (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'The scope type was not found on the database (ID: %{id})'
     managed_users:
       expired_session: The current impersonation session has expired.
     menu:

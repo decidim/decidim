@@ -63,24 +63,17 @@ See [Contributing](CONTRIBUTING.md).
 
 ### Browse Decidim
 
-After you create a development app (`bundle exec decidim decidim_application`):
+After you create a development app (`bundle exec rake development_app`), you
+have to switch to it and boot the rails server with `cd development_app &&
+bundle exec rails s`.
 
-* `cd decidim_application`
-* `bundle exec rails s`
-* Go to 'http://localhost:3000'
+After that, you can:
 
-Optionally, you can log in as: user@example.org | decidim123456
+* Browse the main interface at `http://localhost:3000`, and log in as: user@example.org | decidim123456
+* Browse the admin interface at `http://localhost:3000/admin`, and log in as: admin@example.org | decidim123456
+* Browse the system interface at `http://localhost:3000/system`, and log in as: system@example.org | decidim123456
 
 Also, if you want to verify yourself against the default authorization handler use a document number ended with "X".
-
-### Browse Admin Interface
-
-After you create a development app (`bundle exec rake decidim_application`):
-
-* `cd decidim_application`
-* `bundle exec rails s`
-* Go to 'http://localhost:3000/admin'
-* Login data: admin@example.org | decidim123456
 
 ## Modules
 

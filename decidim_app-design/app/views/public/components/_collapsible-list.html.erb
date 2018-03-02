@@ -1,6 +1,7 @@
-<div id="collapsible-list" class="collapsible-list is-filtered" data-toggler=".is-filtered">
+<% random = Random.rand(9999) %>
+<div id="collapsible-list-<%= random %>" class="collapsible-list is-filtered<%= ' ' + size ||= '' %>" data-toggler=".is-filtered">
 
   <%= yield %>
 
-  <span class="text-small">(<a data-toggle="collapsible-list">veure'n més</a>)</span>
+  <span class="<%= classText ||= 'text-small' %>"><a data-toggle="collapsible-list-<%= random %>"><%= text ||= '(veure\'n mès)' %></a></span>
 </div>

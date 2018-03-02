@@ -9,8 +9,10 @@ module Decidim
         # Public: Initializes the command.
         #
         # step - A ParticipatoryProcessStep that will be activated
-        def initialize(step)
+        # current_user - the user performing the action
+        def initialize(step, current_user)
           @step = step
+          @current_user = current_user
         end
 
         # Executes the command. Broadcasts these events:
@@ -34,7 +36,7 @@ module Decidim
 
         private
 
-        attr_reader :step
+        attr_reader :step, :current_user
 
         def deactivate_active_steps
           step.participatory_process.steps.where(active: true).each do |step|
@@ -44,7 +46,13 @@ module Decidim
         end
 
         def activate_step
-          step.update_attributes!(active: true)
+          Decidim.traceability.perform_action!(
+            :activate,
+            step,
+            current_user
+          ) do
+            step.update_attributes!(active: true)
+          end
         end
 
         def notify_followers
