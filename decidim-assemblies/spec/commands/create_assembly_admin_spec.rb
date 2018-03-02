@@ -53,6 +53,17 @@ module Decidim::Assemblies
         expect(user.follows?(my_assembly)).to be true
       end
 
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with(:create, Decidim::AssemblyUserRole, current_user, resource: hash_including(:title))
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+      end
+
       context "when there is no user with the given email" do
         let(:email) { "does_not_exist@example.com" }
 

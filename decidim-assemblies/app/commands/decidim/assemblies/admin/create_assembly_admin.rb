@@ -43,11 +43,20 @@ module Decidim
         attr_reader :form, :assembly, :current_user, :user
 
         def create_role
-          Decidim::AssemblyUserRole.find_or_create_by!(
-            role: form.role.to_sym,
-            user: user,
-            assembly: @assembly
-          )
+          Decidim.traceability.perform_action!(
+            :create,
+            Decidim::AssemblyUserRole,
+            current_user,
+            resource: {
+              title: user.name
+            }
+          ) do
+            Decidim::AssemblyUserRole.find_or_create_by!(
+              role: form.role.to_sym,
+              user: user,
+              assembly: @assembly
+            )
+          end
         end
 
         def create_or_invite_user
