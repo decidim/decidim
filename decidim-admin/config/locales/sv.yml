@@ -23,6 +23,7 @@ sv:
         parent_id: Förälder
       feature:
         name: namn
+        published_at: Publicerad på
         weight: Vikt
       id: ID
       newsletter:
