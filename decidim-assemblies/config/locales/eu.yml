@@ -117,6 +117,10 @@ eu:
         publish: "%{user_name} %{resource_name} muntaia argitaratu du"
         unpublish: "%{user_name} %{resource_name} muntaia argitaratu gabe"
         update: "%{user_name} %{resource_name} muntaia eguneratu du"
+      assembly_user_role:
+        create: "%{user_name} %{resource_name} gonbidatu %{space_name} muntaira"
+        delete: "%{user_name} erabiltzaileak %{resource_name} %{space_name} muntaia ezabatu du"
+        update: "%{user_name} %{resource_name} %{space_name} muntaiarako rola aldatu da"
     assemblies:
       admin:
         assemblies:
