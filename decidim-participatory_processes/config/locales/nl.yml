@@ -211,6 +211,11 @@ nl:
         publish: "%{user_name} publiceerde de %{resource_name} participatief proces"
         unpublish: "%{user_name} ongepubliceerd de %{resource_name} participatief proces"
         update: "%{user_name} heeft het participatief proces %{resource_name} bijgewerkt"
+      participatory_process_step:
+        activate: "%{user_name} heeft de %{resource_name} stap in het %{space_name} participatieproces geactiveerd"
+        create: "%{user_name} heeft de %{resource_name} stap gemaakt in het %{space_name} participatieproces"
+        delete: "%{user_name} heeft de %{resource_name} stap verwijderd in het %{space_name} participatieproces"
+        update: "%{user_name} heeft de %{resource_name} stap in het %{space_name} participatieproces bijgewerkt"
       participatory_process_user_role:
         create: "%{user_name} nodigde de gebruiker uit %{resource_name} naar de %{space_name} participatief proces"
         delete: "%{user_name} de gebruiker verwijderd %{resource_name} van de %{space_name} participatief proces"
