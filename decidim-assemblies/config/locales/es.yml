@@ -117,6 +117,10 @@ es:
         publish: "%{user_name} publicó el ensamblaje %{resource_name}"
         unpublish: "%{user_name} inédito el ensamblaje %{resource_name}"
         update: "%{user_name} actualizó el ensamblaje %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} invitó %{resource_name} al ensamblaje %{space_name}"
+        delete: "%{user_name} eliminó al usuario %{resource_name} del ensamblaje %{space_name}"
+        update: "%{user_name} cambió la función de %{resource_name} en el ensamblaje %{space_name}"
     assemblies:
       admin:
         assemblies:
