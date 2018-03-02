@@ -30,7 +30,8 @@ module Decidim
         validates :current_feature, presence: true
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
-        validate { errors.add(:decidim_scope_id, :invalid) if current_participatory_space.out_of_scope?(scope) }
+
+        validate :scope_belongs_to_participatory_space_scope
 
         delegate :categories, to: :current_feature
 
@@ -59,6 +60,12 @@ module Decidim
         def category
           return unless current_feature
           @category ||= categories.find_by(id: decidim_category_id)
+        end
+
+        private
+
+        def scope_belongs_to_participatory_space_scope
+          errors.add(:decidim_scope_id, :invalid) if current_participatory_space.out_of_scope?(scope)
         end
       end
     end

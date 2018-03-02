@@ -22,9 +22,9 @@ module Decidim
       validates :address, presence: true, if: ->(form) { form.has_address? }
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
-      validate { errors.add(:scope_id, :invalid) if current_participatory_space.out_of_scope?(scope) }
 
       validate :proposal_length
+      validate :scope_belongs_to_participatory_space_scope
 
       delegate :categories, to: :current_feature
 
@@ -66,6 +66,10 @@ module Decidim
         return unless body.presence
         length = current_feature.settings.proposal_length
         errors.add(:body, :too_long, count: length) if body.length > length
+      end
+
+      def scope_belongs_to_participatory_space_scope
+        errors.add(:scope_id, :invalid) if current_participatory_space.out_of_scope?(scope)
       end
     end
   end
