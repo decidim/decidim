@@ -23,6 +23,7 @@ pl:
         parent_id: Roślina mateczna
       feature:
         name: Nazwa
+        published_at: Opublikowano na
         weight: Waga
       id: ID
       newsletter:
