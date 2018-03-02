@@ -117,6 +117,10 @@ nl:
         publish: "%{user_name} heeft de %{resource_name} assembly gepubliceerd"
         unpublish: "%{user_name} ongepubliceerd de %{resource_name} assembly"
         update: "%{user_name} heeft de assemblage %{resource_name} bijgewerkt"
+      assembly_user_role:
+        create: "%{user_name} nodigde %{resource_name} uit voor de assembly %{space_name}"
+        delete: "%{user_name} heeft de gebruiker %{resource_name} verwijderd uit de %{space_name} assembly"
+        update: "%{user_name} heeft de rol %{resource_name} in de %{space_name} assembly gewijzigd"
     assemblies:
       admin:
         assemblies:
