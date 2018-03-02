@@ -40,8 +40,8 @@ describe Decidim::Comments::ProposalMentionedEvent do
 
   context "with content" do
     let(:content) do
-      "Your proposal \"#{mentioned_proposal.title}\" has been mentioned in the comments of" \
-        " proposal \"<a href=\"#{resource_locator(source_proposal).path}\">#{source_proposal.title}</a>\""
+      "Your proposal \"#{mentioned_proposal.title}\" has been mentioned " \
+        "<a href=\"#{resource_locator(source_proposal).path}\">in this space</a> in the comments."
     end
 
     describe "email_intro" do
