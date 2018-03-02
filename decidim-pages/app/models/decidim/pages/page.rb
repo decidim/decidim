@@ -7,6 +7,7 @@ module Decidim
     class Page < Pages::ApplicationRecord
       include Decidim::Resourceable
       include Decidim::HasFeature
+      include Decidim::Traceable
 
       feature_manifest_name "pages"
 
