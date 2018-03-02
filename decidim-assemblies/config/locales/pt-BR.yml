@@ -117,6 +117,10 @@ pt-BR:
         publish: "%{user_name} publicou o conjunto %{resource_name}"
         unpublish: "%{user_name} não publicado o conjunto %{resource_name}"
         update: "%{user_name} atualizou a montagem %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} convidou %{resource_name} para o assembly %{space_name}"
+        delete: "%{user_name} removeu o usuário %{resource_name} do conjunto %{space_name}"
+        update: "%{user_name} alterou a função de %{resource_name} na montagem %{space_name}"
     assemblies:
       admin:
         assemblies:
