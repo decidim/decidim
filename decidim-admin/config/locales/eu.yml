@@ -23,6 +23,7 @@ eu:
         parent_id: Nagusia
       feature:
         name: Izena
+        published_at: Argitaratu at
         weight: Pisua
       id: NAN
       newsletter:
