@@ -57,6 +57,8 @@ gl:
       feature:
         create: "%{user_name} engadiu a función %{resource_name} ao espazo %{space_name}"
         delete: "%{user_name} eliminou a función %{resource_name} do espazo %{space_name}"
+        publish: "%{user_name} publicou a función %{resource_name} no espazo %{space_name}"
+        unpublish: "%{user_name} non se publicou a función %{resource_name} desde o espazo %{space_name}"
       moderation:
         hide: "%{user_name} agochar un recurso do tipo %{resource_type} no espazo %{space_name}"
         unreport: "%{user_name} Non se informou un recurso do tipo %{resource_type} no espazo %{space_name}"
