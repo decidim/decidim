@@ -57,6 +57,8 @@ nl:
       feature:
         create: "%{user_name} de %{resource_name} toegevoegd functie naar de %{space_name} ruimte"
         delete: "%{user_name} de %{resource_name} verwijderd functie van de %{space_name} ruimte"
+        publish: "%{user_name} heeft de functie %{resource_name} in de ruimte %{space_name} gepubliceerd"
+        unpublish: "%{user_name} ongepubliceerd de functie %{resource_name} van de %{space_name} spatie"
       moderation:
         hide: "%{user_name} verborg een hulpbron van het type %{resource_type} in de %{space_name} ruimte"
         unreport: "%{user_name} niet gerapporteerd een hulpbron van het type %{resource_type} in de %{space_name} ruimte"
