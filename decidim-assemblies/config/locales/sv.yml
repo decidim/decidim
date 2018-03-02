@@ -117,6 +117,10 @@ sv:
         publish: "%{user_name} publicerade %{resource_name} -enheten"
         unpublish: "%{user_name} upublicerade %{resource_name} -enheten"
         update: "%{user_name} uppdaterade %{resource_name} -enheten"
+      assembly_user_role:
+        create: "%{user_name} inbjudna %{resource_name} till sammansättningen %{space_name}"
+        delete: "%{user_name} tog bort användaren %{resource_name} från enheten %{space_name}"
+        update: "%{user_name} ändrade rollen som %{resource_name} i sammansättningen %{space_name}"
     assemblies:
       admin:
         assemblies:
