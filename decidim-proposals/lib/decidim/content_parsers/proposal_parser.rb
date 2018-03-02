@@ -4,8 +4,12 @@ module Decidim
   module ContentParsers
     # A parser that searches mentions of Proposals in content.
     #
-    # A word starting with `~` and digits afterwards will be considered a possible mentioned proposal.
+    # This parser accepts two ways for linking Proposals.
+    # - Using a standard url starting with http or https.
+    # - With a word starting with `~` and digits afterwards will be considered a possible mentioned proposal.
     # For example `~1234`, but no `~ 1234`.
+    #
+    # Also fills a `Metadata#linked_proposals` attribute.
     #
     # @see BaseParser Examples of how to use a content parser
     class ProposalParser < BaseParser
@@ -27,11 +31,11 @@ module Decidim
         @metadata = Metadata.new([])
       end
 
-      # Replaces found mentions matching a nickname of an existing
-      # user with a global id. Other mentions found that doesn't
-      # match an existing user are returned as is.
+      # Replaces found mentions matching an existing
+      # Proposal with a global id for that Proposal. Other mentions found that doesn't
+      # match an existing Proposal are returned as they are.
       #
-      # @return [String] the content with the valid mentions replaced by a global id
+      # @return [String] the content with the valid mentions replaced by a global id.
       def rewrite
         rewrited_content = parse_for_urls(content)
         parse_for_ids(rewrited_content)
