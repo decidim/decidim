@@ -117,6 +117,10 @@ gl:
         publish: "%{user_name} publicou o conxunto %{resource_name}"
         unpublish: "%{user_name} inédita a montaxe %{resource_name}"
         update: "%{user_name} actualizou o conxunto %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} invitou %{resource_name} á xuntanza %{space_name}"
+        delete: "%{user_name} eliminou o usuario %{resource_name} do conxunto %{space_name}"
+        update: "%{user_name} cambiou o papel de %{resource_name} na xuntanza %{space_name}"
     assemblies:
       admin:
         assemblies:
