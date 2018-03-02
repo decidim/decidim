@@ -23,6 +23,7 @@ pt:
         parent_id: Superior
       feature:
         name: Nome
+        published_at: Publicado em
         weight: Peso
       id: ID
       newsletter:
