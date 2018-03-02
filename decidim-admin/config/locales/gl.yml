@@ -23,6 +23,7 @@ gl:
         parent_id: Pai
       feature:
         name: Nome
+        published_at: Publicado en
         weight: Peso
       id: ID
       newsletter:
