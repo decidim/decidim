@@ -58,7 +58,19 @@ module Decidim
             target: form.target,
             participatory_scope: form.participatory_scope,
             participatory_structure: form.participatory_structure,
-            meta_scope: form.meta_scope
+            meta_scope: form.meta_scope,
+            show_statistics: form.show_statistics,
+            purpose_of_action: form.purpose_of_action,
+            type_of_assembly: form.type_of_assembly,
+            type_of_assembly_other: form.type_of_assembly_other,
+            date_created: form.date_created,
+            created_by: form.created_by,
+            created_by_other: form.created_by_other,
+            duration: form.duration,
+            date_of_inclusion: form.date_of_inclusion,
+            closing_date: form.closing_date,
+            closing_date_reason: form.closing_date_reason,
+            internal_organisation: form.internal_organisation
           )
         end
 

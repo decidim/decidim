@@ -9,6 +9,9 @@ module Decidim
       class AssemblyForm < Form
         include TranslatableAttributes
 
+        TYPE_OF_ASSEMBLY = %w(government executive consultative_advisory participatory working_group commission others).freeze
+        CREATED_BY = %w(city_council public others).freeze
+
         translatable_attribute :title, String
         translatable_attribute :subtitle, String
         translatable_attribute :description, String
@@ -19,6 +22,11 @@ module Decidim
         translatable_attribute :target, String
         translatable_attribute :participatory_scope, String
         translatable_attribute :participatory_structure, String
+        translatable_attribute :purpose_of_action, String
+        translatable_attribute :type_of_assembly_other, String
+        translatable_attribute :created_by_other, String
+        translatable_attribute :closing_date_reason, String
+        translatable_attribute :internal_organisation, String
 
         mimic :assembly
 
@@ -33,6 +41,12 @@ module Decidim
         attribute :remove_banner_image
         attribute :show_statistics, Boolean
         attribute :area_id, Integer
+        attribute :type_of_assembly, String
+        attribute :date_created, Decidim::Attributes::TimeWithZone
+        attribute :created_by, String
+        attribute :duration, Decidim::Attributes::TimeWithZone
+        attribute :date_of_inclusion, Decidim::Attributes::TimeWithZone
+        attribute :closing_date, Decidim::Attributes::TimeWithZone
 
         validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
@@ -54,6 +68,24 @@ module Decidim
 
         def area
           @area ||= current_organization.areas.where(id: area_id).first
+        end
+
+        def types_of_assembly_for_select
+          TYPE_OF_ASSEMBLY.map do |type|
+            [
+              I18n.t(type.downcase, scope: "decidim.assemblies.types_of_assembly"),
+              type
+            ]
+          end
+        end
+
+        def created_by_for_select
+          CREATED_BY.map do |by|
+            [
+              I18n.t(by.downcase, scope: "decidim.assemblies.created_by"),
+              by
+            ]
+          end
         end
 
         private

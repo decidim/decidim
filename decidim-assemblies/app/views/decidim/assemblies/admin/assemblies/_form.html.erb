@@ -90,6 +90,49 @@
     <div class="row column">
       <%= form.check_box :show_statistics %>
     </div>
+
+    <!-- NEW FIELDS -->
+    <div class="row column">
+      <%= form.translated :editor, :purpose_of_action %>
+    </div>
+
+    <div class="row column">
+      <%= form.select :type_of_assembly, @form.types_of_assembly_for_select, prompt: true %>
+      <%= form.translated :text_field, :type_of_assembly_other %>
+    </div>
+
+    <div class="row column">
+      <%= form.date_field :date_created %>
+    </div>
+
+    <div class="row column">
+      <%= form.select :created_by, @form.created_by_for_select, prompt: true  %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :text_field, :created_by_other %>
+    </div>
+
+    <div class="row column">
+      <%= form.date_field :duration %>
+    </div>
+
+    <div class="row column">
+      <%= form.date_field :date_of_inclusion %>
+    </div>
+
+    <div class="row column">
+      <%= form.date_field :closing_date %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :editor, :closing_date_reason %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :editor, :internal_organisation %>
+    </div>
+    <!-- NEW FIELDS -->
   </div>
 </div>
 

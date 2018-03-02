@@ -4,21 +4,30 @@ en:
     attributes:
       assembly:
         banner_image: Banner image
+        closing_date: Closing date
+        closing_date_reason: Closing date reason
         copy_categories: Copy categories
         copy_features: Copy features
+        created_by: Created by
+        created_by_other: Created by other
+        date_created: Date created
+        date_of_inclusion: Date of inclusion
         decidim_area_id: Area
         decidim_scope_id: Scope
         description: Description
         developer_group: Developer group
         domain: Domain
+        duration: Duration
         hashtag: Hashtag
         hero_image: Home image
+        internal_organisation: Internal organisation
         local_area: Local area
         meta_scope: Scope metadata
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         promoted: Promoted
         published_at: Published at
+        purpose_of_action: Purpose of action
         scope_id: Scope
         scopes_enabled: Scopes enabled
         short_description: Short description
@@ -27,6 +36,8 @@ en:
         subtitle: Subtitle
         target: Target
         title: Title
+        type_of_assembly: Type of assembly
+        type_of_assembly_other: Type of assembly other
   decidim:
     admin:
       assemblies:
@@ -126,13 +137,27 @@ en:
       admin:
         assemblies:
           form:
+            created_by: Created by
             select_an_area: Select an Area
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            type_of_assembly: Type of assembly
         assembly_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+      created_by:
+        city_council: City Council
+        public: Public
+        others: Others
       index:
         title: Assemblies
+      types_of_assembly:
+        government: Government
+        executive: Executive
+        consultative_advisory: Consultative/Advisory
+        participatory: Participatory
+        working_group: Working group
+        commission: Comission
+        others: Others
       pages:
         home:
           highlighted_assemblies:
