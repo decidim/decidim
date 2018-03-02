@@ -117,6 +117,10 @@ fi:
         publish: "%{user_name} julkaisi %{resource_name} kokoonpanon"
         unpublish: "%{user_name} julkaisematon %{resource_name} kokoonpano"
         update: "%{user_name} päivitti %{resource_name} kokoonpanon"
+      assembly_user_role:
+        create: "%{user_name} kutsui %{resource_name} %{space_name} kokoonpanoon"
+        delete: "%{user_name} poistanut käyttäjän %{resource_name} %{space_name} kokoonpanosta"
+        update: "%{user_name} muutti %{resource_name} : n roolia %{space_name} kokoonpanossa"
     assemblies:
       admin:
         assemblies:
