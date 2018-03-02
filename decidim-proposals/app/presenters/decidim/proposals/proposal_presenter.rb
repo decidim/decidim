@@ -25,7 +25,7 @@ module Decidim
       end
 
       def display_mention
-        link_to title, proposal_path # , class: "user-mention"
+        link_to title, proposal_path
       end
     end
   end
