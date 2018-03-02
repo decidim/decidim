@@ -57,6 +57,8 @@ pt:
       feature:
         create: "%{user_name} adicionou o %{resource_name} recurso para o %{space_name} espaço"
         delete: "%{user_name} removeu o %{resource_name} recurso do %{space_name} espaço"
+        publish: "%{user_name} publicou o recurso %{resource_name} no espaço %{space_name}"
+        unpublish: "%{user_name} não publicado o recurso %{resource_name} do espaço %{space_name}"
       moderation:
         hide: "%{user_name} Escondeu um recurso de tipo %{resource_type} no %{space_name} espaço"
         unreport: "%{user_name} Não declarou um recurso de tipo %{resource_type} no %{space_name} espaço"
