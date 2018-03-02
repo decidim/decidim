@@ -57,6 +57,8 @@ fi:
       feature:
         create: "%{user_name} lisäsi %{resource_name} ominaisuus %{space_name} tila"
         delete: "%{user_name} poistanut %{resource_name} ominaisuus %{space_name} tila"
+        publish: "%{user_name} julkaisi %{resource_name} -toiminnon %{space_name} -tilassa"
+        unpublish: "%{user_name} julkaisematon %{resource_name} -ominaisuus %{space_name} -tilasta"
       moderation:
         hide: "%{user_name} kätki tyypin %{resource_type} resurssin %{space_name} -tilaan"
         unreport: "%{user_name} ilmoitti tyypin %{resource_type} resurssin %{space_name} tilassa"
