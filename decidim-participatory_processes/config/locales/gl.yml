@@ -211,6 +211,11 @@ gl:
         publish: "%{user_name} publicou o %{resource_name} proceso participativo"
         unpublish: "%{user_name} non publicou o proceso participativo %{resource_name}"
         update: "%{user_name} actualizou o proceso participativo %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} activou o paso %{resource_name} no proceso participativo %{space_name}"
+        create: "%{user_name} creou o paso %{resource_name} no proceso participativo %{space_name}"
+        delete: "%{user_name} eliminou o paso %{resource_name} no proceso participativo %{space_name}"
+        update: "%{user_name} actualizou o paso %{resource_name} no proceso participativo %{space_name}"
       participatory_process_user_role:
         create: "%{user_name} convidou ao usuario %{resource_name} ao proceso participativo %{space_name}"
         delete: "%{user_name} eliminou o usuario %{resource_name} do proceso participativo %{space_name}"
