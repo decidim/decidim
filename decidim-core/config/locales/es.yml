@@ -57,6 +57,8 @@ es:
       feature:
         create: "%{user_name} agregó el %{resource_name} característica al %{space_name} espacio"
         delete: "%{user_name} eliminado el %{resource_name} característica de %{space_name} espacio"
+        publish: "%{user_name} publicó la función %{resource_name} en el espacio %{space_name}"
+        unpublish: "%{user_name} sin publicar la función %{resource_name} del espacio %{space_name}"
       moderation:
         hide: "%{user_name} escondió un recurso de tipo %{resource_type} en el %{space_name} espacio"
         unreport: "%{user_name} no reportó un recurso de tipo %{resource_type} en el %{space_name} espacio"
