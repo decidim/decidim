@@ -211,6 +211,11 @@ pt-BR:
         publish: "%{user_name} publicou o %{resource_name} processo participativo"
         unpublish: "%{user_name} não publicado o %{resource_name} processo participativo"
         update: "%{user_name} atualizou o processo participativo %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} ativou o passo %{resource_name} no processo participativo %{space_name}"
+        create: "%{user_name} criou o passo %{resource_name} no processo participativo %{space_name}"
+        delete: "%{user_name} excluiu o passo %{resource_name} no processo participativo %{space_name}"
+        update: "%{user_name} atualizou o passo %{resource_name} no processo participativo %{space_name}"
       participatory_process_user_role:
         create: "%{user_name} convidou o usuário %{resource_name} para o %{space_name} processo participativo"
         delete: "%{user_name} removeu o usuário %{resource_name} do %{space_name} processo participativo"
