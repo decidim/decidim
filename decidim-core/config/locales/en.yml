@@ -58,6 +58,7 @@ en:
       feature:
         create: "%{user_name} added the %{resource_name} feature to the %{space_name} space"
         delete: "%{user_name} removed the %{resource_name} feature from the %{space_name} space"
+        publish: "%{user_name} published the %{resource_name} feature in the %{space_name} space"
       moderation:
         hide: "%{user_name} hid a resource of type %{resource_type} in the %{space_name} space"
         unreport: "%{user_name} unreported a resource of type %{resource_type} in the %{space_name} space"
