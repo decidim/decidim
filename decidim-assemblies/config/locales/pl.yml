@@ -117,6 +117,10 @@ pl:
         publish: "%{user_name} opublikował montaż %{resource_name}"
         unpublish: "%{user_name} anulował publikację zespołu %{resource_name}"
         update: "%{user_name} zaktualizował zespół %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} zaprosił %{resource_name} do zespołu %{space_name}"
+        delete: "%{user_name} usunął użytkownika %{resource_name} ze złożenia %{space_name}"
+        update: "%{user_name} zmienił rolę %{resource_name} w zespole %{space_name}"
     assemblies:
       admin:
         assemblies:
