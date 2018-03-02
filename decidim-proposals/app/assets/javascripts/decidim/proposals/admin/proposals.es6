@@ -37,10 +37,6 @@ $(document).ready(function () {
     $("#js-recategorize-proposals-actions").removeClass('hide');
   }
 
-  function xxxhideRecategorizeProposalActions() {
-    $("#js-recategorize-proposals-actions").addClass('hide');
-  }
-
   window.hideRecategorizeProposalActions = function() {
     return $("#js-recategorize-proposals-actions").addClass('hide');
   }
