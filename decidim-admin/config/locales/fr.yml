@@ -23,6 +23,7 @@ fr:
         parent_id: Parent
       feature:
         name: Nom
+        published_at: Publié à
         weight: Rang d'affichage
       id: ID
       newsletter:
