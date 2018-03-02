@@ -4,8 +4,8 @@ module Decidim
   module ContentParsers
     # A parser that searches mentions of Proposals in content.
     #
-    # A word starting with `~` will be considered as a possible mentioned proposal
-    # if it only numbers.
+    # A word starting with `~` and digits afterwards will be considered a possible mentioned proposal.
+    # For example `~1234`, but no `~ 1234`.
     #
     # @see BaseParser Examples of how to use a content parser
     class ProposalParser < BaseParser
