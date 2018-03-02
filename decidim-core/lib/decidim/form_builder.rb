@@ -172,8 +172,11 @@ module Decidim
     #
     # Returns an html String.
     def data_picker(attribute, options = {}, prompt_params = {})
-      picker_options = { id: "#{@object_name}_#{attribute}", class: "picker-#{options[:multiple] ? "multiple" : "single"}",
-                         name: options[:name] || "#{@object_name}[#{attribute}]" }
+      picker_options = {
+        id: "#{@object_name}_#{attribute}",
+        class: "picker-#{options[:multiple] ? "multiple" : "single"}",
+        name: options[:name] || "#{@object_name}[#{attribute}]"
+      }
       picker_options[:class] += " is-invalid-input" if error?(attribute)
 
       items = object.send(attribute).collect { |item| [item, yield(item)] }
