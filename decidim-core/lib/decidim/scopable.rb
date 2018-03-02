@@ -47,6 +47,13 @@ module Decidim
       scopes_enabled && subscopes.any?
     end
 
+    # Whether the passed subscope is out of the resource's scope.
+    #
+    # Returns a boolean
+    def out_of_scope?(subscope)
+      scope && !scope.ancestor_of?(subscope)
+    end
+
     private
 
     def scope_belongs_to_organization

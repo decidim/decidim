@@ -20,7 +20,7 @@ module Decidim
         validates :address, geocoding: true, if: -> { current_feature.settings.geocoding_enabled? }
         validates :category, presence: true, if: ->(form) { form.category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
-        validate { errors.add(:scope_id, :invalid) if current_participatory_space&.scope && !current_participatory_space&.scope&.ancestor_of?(scope) }
+        validate { errors.add(:scope_id, :invalid) if current_participatory_space&.out_of_scope?(scope) }
 
         delegate :categories, to: :current_feature
 

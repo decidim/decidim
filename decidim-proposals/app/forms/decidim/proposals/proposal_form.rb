@@ -22,7 +22,7 @@ module Decidim
       validates :address, presence: true, if: ->(form) { form.has_address? }
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
-      validate { errors.add(:scope_id, :invalid) if current_participatory_space&.scope && !current_participatory_space&.scope&.ancestor_of?(scope) }
+      validate { errors.add(:scope_id, :invalid) if current_participatory_space&.out_of_scope?(scope) }
       validate :proposal_length
 
       delegate :categories, to: :current_feature
