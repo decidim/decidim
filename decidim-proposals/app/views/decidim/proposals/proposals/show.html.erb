@@ -11,13 +11,13 @@
     <button type="button" data-open="<%= current_user.present? ? 'flagModal' : 'loginModal' %>" title="<%= t('.report') %>" aria-controls="<%= current_user.present? ? 'flagModal' : 'loginModal' %>" aria-haspopup="true" tabindex="0">
       <%= icon "flag", aria_label: t('.report'), class: 'icon--small' %>
     </button>
-  <% end) %>
-  <% if @proposal.withdrawable_by?(current_user) %>
-    <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), method: :put, class: "title-action__action button small hollow", title: t('.withdraw_btn_hint'), data: {confirm: t('.withdraw_confirmation')}  do %>
-      <%= t('.withdraw_proposal') %>
-      <%= icon "x" %>
+    <% if @proposal.withdrawable_by?(current_user) %>
+      <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), method: :put, class: "title-action__action button small hollow", title: t('.withdraw_btn_hint'), data: {confirm: t('.withdraw_confirmation')}  do %>
+        <%= t('.withdraw_proposal') %>
+        <%= icon "x" %>
+      <% end %>
     <% end %>
-  <% end %>
+  <% end) %>
 </div>
 <div class="row">
   <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
