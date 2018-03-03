@@ -9,10 +9,9 @@
         <%= render :author %>
       <% end %>
 
-      <% if model.profile_path %>
+      <% if model.profile_path.present? %>
         <%= link_to_current_or_new_conversation_with(model) %>
       <% end %>
-      </a>
     </div>
   </div>
   <% if @options[:extra] %>
