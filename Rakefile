@@ -50,6 +50,16 @@ task :uninstall_all do
   )
 end
 
+Decidim::ComponentManager.all_dirs(include_root: false) do |dir|
+  manager = Decidim::ComponentManager.new(dir)
+  name = manager.short_name
+
+  desc "Runs tests on #{name}"
+  task "test_#{name}" do
+    manager.run("rake")
+  end
+end
+
 desc "Pushes a new build for each gem."
 task release_all: [:update_versions, :check_locale_completeness, :webpack] do
   Decidim::ComponentManager.run_all("rake release")
