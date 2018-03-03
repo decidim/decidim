@@ -2,9 +2,9 @@
 
 module Decidim
   # This cell renders the avatar, name and nickname of
-  # the given user, and adds some links to potential actions
-  # on the given user profile.
-  class UserCell < Decidim::ViewModel
+  # the given user or user group, and adds some links
+  # to potential actions on the given profile.
+  class ProfileCell < Decidim::ViewModel
     include LayoutHelper
     include Messaging::ConversationHelper
 
