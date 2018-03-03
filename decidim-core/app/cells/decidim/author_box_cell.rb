@@ -19,5 +19,9 @@ module Decidim
     def current_user
       parent_controller.current_user
     end
+
+    def author_box_classes
+      (["author-data"] + options[:extra_classes].to_a).join(" ")
+    end
   end
 end

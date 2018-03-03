@@ -1,12 +1,1 @@
-<div class="author-data__main">
-  <div class="author author--inline">
-    <% if author.profile_path.present? %>
-      <%= link_to author.profile_path do %>
-        <%= cell "decidim/profile", author %>
-      <% end %>
-    <% else %>
-      <%= cell "decidim/profile", author %>
-    <% end %>
-    </a>
-  </div>
-</div>
+<%= cell "decidim/author_box", author, extra_classes: ["author-data--small"] %>

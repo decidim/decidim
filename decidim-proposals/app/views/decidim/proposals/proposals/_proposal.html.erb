@@ -5,7 +5,7 @@
         <%= link_to proposal do%>
           <h5 class="card__title"><%= proposal.title %></h5>
         <% end %>
-        <div class="card__author author-data author-data--small">
+        <div class="card__author">
           <%= render partial: "decidim/shared/author_reference", locals: { author: present(proposal).author } %>
         </div>
         <div class="tech-info tech-info--text-left">
