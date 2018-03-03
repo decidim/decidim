@@ -1,18 +1,6 @@
 <div class="author-data">
   <div class="author-data__main">
-    <div class="author author--inline">
-      <% if model.profile_path.present? %>
-        <%= link_to model.profile_path do %>
-          <%= render :author %>
-        <% end %>
-      <% else %>
-        <%= render :author %>
-      <% end %>
-
-      <% if model.profile_path.present? %>
-        <%= link_to_current_or_new_conversation_with(model) %>
-      <% end %>
-    </div>
+    <%= cell "decidim/user", model %>
   </div>
   <% if @options[:extra] %>
     <div class="author-data__extra">
