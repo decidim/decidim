@@ -15,5 +15,7 @@
     </span>
   <% end %>
 
-  <span class="author__nickname"><%= model.nickname %></span>
+  <% if model.nickname.present? %>
+    <span class="author__nickname"><%= model.nickname %></span>
+  <% end %>
 <% end %>

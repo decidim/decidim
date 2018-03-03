@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module Decidim
-  # This cell renders the user's avatar, name, action buttons & potentially
-  # anything related to a user. It's used below resource titles to indicate
-  # its authorship & such.
-  class UserBoxCell < Decidim::ViewModel
+  # This cell renders the author of a resource. It is intended to be used
+  # below resource titles to indicate its authorship & such, and is intended
+  # for resources that have a single author.
+  class AuthorBoxCell < Decidim::ViewModel
     include LayoutHelper
     include Messaging::ConversationHelper
 
