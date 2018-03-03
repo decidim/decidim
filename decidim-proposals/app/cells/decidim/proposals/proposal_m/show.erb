@@ -1,0 +1,32 @@
+<div class="column">
+  <article class="card card--proposal">
+    <div class="card__content">
+      <div class="card__header">
+        <%= link_to model_path do%>
+          <h5 class="card__title"><%= model.title %></h5>
+        <% end %>
+        <div class="card__author">
+          <%= cell "decidim/author_box", present(model).author, extra_classes: ["author-data--small"] %>
+        </div>
+        <div class="tech-info tech-info--text-left">
+          <%= t("decidim.participatory_spaces.proposal.creation_date", date: l(model.created_at, format: :decidim_short)) %>
+        </div>
+        <%= resource_reference(model, class: "tech-info--text-left") %>
+      </div>
+      <%= render partial: "decidim/proposals/proposals/proposal_badge.html", locals: { proposal: model } %>
+      <p><%= truncate(model.body, length: 100) %></p>
+      <%= render partial: "decidim/shared/tags.html", locals: { resource: model, tags_class_extra: "tags--proposal" } %>
+    </div>
+    <div class="card__footer">
+      <div class="card__support">
+        <% if current_settings.votes_enabled? && !model.draft? %>
+          <%= render partial: "decidim/proposals/proposals/votes_count.html", locals: { proposal: model, from_proposals_list: true } %>
+          <%= render partial: "decidim/proposals/proposals/vote_button.html", locals: { proposal: model, from_proposals_list: true } %>
+        <% else %>
+          <div class="card__support__data"></div>
+          <%= link_to t("decidim.participatory_spaces.proposal.view_proposal"), model, class: "card__button button small secondary" %>
+        <% end %>
+      </div>
+    </div>
+  </article>
+</div>

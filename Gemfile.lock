@@ -118,6 +118,8 @@ PATH
     decidim-participatory_processes (0.10.0.pre)
       decidim-core (= 0.10.0.pre)
     decidim-proposals (0.10.0.pre)
+      cells-erb (~> 0.1.0)
+      cells-rails (~> 0.0.8)
       decidim-comments (= 0.10.0.pre)
       decidim-core (= 0.10.0.pre)
       kaminari (~> 1.0)
