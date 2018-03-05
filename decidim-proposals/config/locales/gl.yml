@@ -194,6 +194,7 @@ gl:
       admin_log:
         proposal:
           answer: "%{user_name} respondeu á proposta %{resource_name} no espazo %{space_name}"
+          create: "%{user_name} creou a proposta %{resource_name} no espazo %{space_name} como proposta oficial"
       answers:
         accepted: Aceptada
         evaluating: Avaliación
