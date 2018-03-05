@@ -63,6 +63,7 @@
 - **decidim-admin**: Log feature (un)publication[\#2884](https://github.com/decidim/decidim/pull/2884)
 - **decidim-pages**: Log page updates [\#2886](https://github.com/decidim/decidim/pull/2886)
 - **decidim-core**: Add missing `scopes_picker_tag` and `scopes_picker_field_tag` form helpers [\#2880](https://github.com/decidim/decidim/pull/2880)
+- **decidim-proposals**: Log official proposals creation [\#2905](https://github.com/decidim/decidim/pull/2905)
 
 **Changed**:
 
