@@ -3,12 +3,10 @@
     <%= render @proposals %>
   </div>
 <% else %>
-  <%= form_for filter, builder: Decidim::FilterFormBuilder, url: url_for, as: :filter, method: :get, remote: true, html: { id: nil } do |form| %> <!-- Filter form for "see all" btn -->
-    <% if officials_proposals && feature_settings.official_proposals_enabled %>
-      <%= render "officials_proposals", form: form %>
-    <% end %>
-    <% if citizens_proposals %>
-      <%= render "citizens_proposals" , form: form %>
-    <% end %>
+  <% if officials_proposals && feature_settings.official_proposals_enabled %>
+    <%= render "officials_proposals", form: form %>
+  <% end %>
+  <% if citizens_proposals %>
+    <%= render "citizens_proposals" , form: form %>
   <% end %>
 <% end %>
