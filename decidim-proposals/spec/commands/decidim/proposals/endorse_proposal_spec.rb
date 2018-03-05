@@ -9,7 +9,7 @@ module Decidim
       let(:current_user) { create(:user, organization: proposal.feature.organization) }
 
       before do
-        proposal.update_attributes author: current_user
+        proposal.update author: current_user
       end
 
       describe "User endorses Proposal" do
@@ -48,7 +48,7 @@ module Decidim
 
         context "when the endorsement is not valid" do
           before do
-            proposal.update_attributes(answered_at: DateTime.current, state: "rejected")
+            proposal.update(answered_at: DateTime.current, state: "rejected")
           end
           it "broadcasts invalid" do
             expect { command.call }.to broadcast(:invalid)
@@ -85,7 +85,7 @@ module Decidim
 
         context "when the endorsement is not valid" do
           before do
-            proposal.update_attributes(answered_at: DateTime.current, state: "rejected")
+            proposal.update(answered_at: DateTime.current, state: "rejected")
           end
           it "Do not increase the endorsements counter by one" do
             command.call

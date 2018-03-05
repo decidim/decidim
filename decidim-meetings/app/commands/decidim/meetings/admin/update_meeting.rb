@@ -35,7 +35,7 @@ module Decidim
         attr_reader :form, :meeting
 
         def update_meeting!
-          meeting.update_attributes!(
+          meeting.update!(
             scope: form.scope,
             category: form.category,
             title: form.title,

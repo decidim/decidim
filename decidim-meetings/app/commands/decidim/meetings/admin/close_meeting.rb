@@ -34,7 +34,7 @@ module Decidim
         attr_reader :form, :meeting
 
         def close_meeting
-          meeting.update_attributes!(
+          meeting.update!(
             closing_report: form.closing_report,
             attendees_count: form.attendees_count,
             contributions_count: form.contributions_count,

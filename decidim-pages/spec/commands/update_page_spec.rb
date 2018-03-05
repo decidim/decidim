@@ -36,7 +36,7 @@ module Decidim
           end
 
           it "doesn't update the page" do
-            expect(page).not_to receive(:update_attributes!)
+            expect(page).not_to receive(:update!)
             command.call
           end
         end
@@ -47,7 +47,7 @@ module Decidim
           end
 
           it "creates a new page with the same name as the feature" do
-            expect(page).to receive(:update_attributes!)
+            expect(page).to receive(:update!)
             command.call
           end
 

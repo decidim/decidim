@@ -41,7 +41,7 @@ module Decidim::Meetings
       end
 
       it "doesn't perform any other action" do
-        expect(meeting).not_to receive(:update_attributes!)
+        expect(meeting).not_to receive(:update!)
         expect(Decidim::ResourceLink).not_to receive(:create!)
 
         subject.call

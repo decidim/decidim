@@ -37,7 +37,7 @@ module Decidim::Budgets
 
     context "when the order is checked out" do
       before do
-        order.update_attributes!(checked_out_at: Time.current)
+        order.update!(checked_out_at: Time.current)
       end
 
       it "broadcasts invalid" do

@@ -59,7 +59,7 @@ module Decidim
         private
 
         def authorization
-          @authorization_presenter ||= AuthorizationPresenter.new(@authorization)
+          @authorization ||= AuthorizationPresenter.new(@authorization)
         end
 
         def load_authorization

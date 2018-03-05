@@ -98,7 +98,7 @@ module Decidim
           end
 
           it "doesn't update the survey" do
-            expect(survey).not_to receive(:update_attributes!)
+            expect(survey).not_to receive(:update!)
             command.call
           end
         end
