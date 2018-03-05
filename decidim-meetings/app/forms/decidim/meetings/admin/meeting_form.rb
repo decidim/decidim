@@ -11,6 +11,7 @@ module Decidim
         translatable_attribute :description, String
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
+
         attribute :address, String
         attribute :latitude, Float
         attribute :longitude, Float
@@ -30,7 +31,8 @@ module Decidim
         validates :current_feature, presence: true
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
-        validate { errors.add(:decidim_scope_id, :invalid) if current_participatory_space&.scope && !current_participatory_space&.scope&.ancestor_of?(scope) }
+
+        validate :scope_belongs_to_participatory_space_scope
 
         delegate :categories, to: :current_feature
 
@@ -46,8 +48,7 @@ module Decidim
         #
         # Returns a Decidim::Scope
         def scope
-          return unless current_feature
-          @scope ||= @decidim_scope_id ? current_feature.scopes.find_by(id: @decidim_scope_id) : current_participatory_space&.scope
+          @scope ||= @decidim_scope_id ? current_participatory_space.scopes.find_by(id: @decidim_scope_id) : current_participatory_space.scope
         end
 
         # Scope identifier
@@ -60,6 +61,12 @@ module Decidim
         def category
           return unless current_feature
           @category ||= categories.find_by(id: decidim_category_id)
+        end
+
+        private
+
+        def scope_belongs_to_participatory_space_scope
+          errors.add(:decidim_scope_id, :invalid) if current_participatory_space.out_of_scope?(scope)
         end
       end
     end

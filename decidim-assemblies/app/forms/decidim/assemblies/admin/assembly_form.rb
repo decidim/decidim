@@ -35,7 +35,7 @@ module Decidim
         attribute :area_id, Integer
         attribute :participatory_processes_ids, Array[Integer]
 
-        validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
+        validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
         validates :area, presence: true, if: proc { |object| object.area_id.present? }

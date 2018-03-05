@@ -98,9 +98,12 @@ plugins:
     enabled: true
 
     exclude_patterns:
-      - docs/*
+      - docs/add_authenticable_action.md
+      - docs/adding_fixtures_aka_dummy_content.md
+      - docs/getting_started.md
+      - docs/customization/*
+      - docs/services/*
       - .github/*
-      - CHANGELOG.md
 
   stylelint:
     enabled: true

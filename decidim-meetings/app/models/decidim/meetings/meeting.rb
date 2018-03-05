@@ -10,7 +10,7 @@ module Decidim
       include Decidim::HasAttachmentCollections
       include Decidim::HasFeature
       include Decidim::HasReference
-      include Decidim::HasScope
+      include Decidim::ScopableFeature
       include Decidim::HasCategory
       include Decidim::Followable
       include Decidim::Comments::Commentable

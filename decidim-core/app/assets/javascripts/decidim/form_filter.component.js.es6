@@ -93,7 +93,7 @@
           const [, key, array, value] = result.match(/filter\[([^\]]*)\](\[\])?=([^&]*)/);
           if (array) {
             if (!acc[key]) {
-              acc[key]=[];
+              acc[key] = [];
             }
             acc[key].push(value);
           } else {

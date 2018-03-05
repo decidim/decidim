@@ -8,6 +8,7 @@ shared_examples "create a proposal" do |with_author|
       form_params
     ).with_context(
       current_organization: organization,
+      current_participatory_space: feature.participatory_space,
       current_feature: feature
     )
   end

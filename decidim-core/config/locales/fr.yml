@@ -53,8 +53,47 @@ fr:
         error: Une erreur s'est produite lors de la mise à jour de votre compte.
         success: Votre compte a été mis à jour avec succès.
         success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse e-mail.
+    admin_log:
+      feature:
+        create: "%{user_name} ajouté le %{resource_name} caractéristique de la %{space_name} espace"
+        delete: "%{user_name} retiré le %{resource_name} caractéristique de la %{space_name} espace"
+        publish: "%{user_name} a publié la fonctionnalité %{resource_name} dans l'espace %{space_name}"
+        unpublish: "%{user_name} non publié la fonctionnalité %{resource_name} de l'espace %{space_name}"
+      moderation:
+        hide: "%{user_name} a caché une ressource de type %{resource_type} dans le %{space_name} espace"
+        unreport: "%{user_name} non déclaré une ressource de type %{resource_type} dans le %{space_name} espace"
+      newsletter:
+        create: "%{user_name} créé le %{resource_name} bulletin"
+        delete: "%{user_name} supprimé le %{resource_name} bulletin"
+        deliver: "%{user_name} livré le %{resource_name} bulletin"
+        update: "%{user_name} mis à jour le %{resource_name} bulletin"
+      organization:
+        update: "%{user_name} mis à jour les paramètres de l'organisation"
+      scope:
+        create: "%{user_name} a créé la portée %{resource_name}"
+        create_with_parent: "%{user_name} a créé la portée %{resource_name} à l'intérieur de la portée %{parent_scope}"
+        delete: "%{user_name} a supprimé la portée %{resource_name}"
+        delete_with_parent: "%{user_name} a supprimé la portée %{resource_name} à l'intérieur de la portée %{parent_scope}"
+        update: "%{user_name} a mis à jour la portée %{resource_name}"
+        update_with_parent: "%{user_name} a mis à jour la portée %{resource_name} à l'intérieur de la portée %{parent_scope}"
+      static_page:
+        create: "%{user_name} créé le %{resource_name} page statique"
+        delete: "%{user_name} supprimé le %{resource_name} page statique"
+        update: "%{user_name} mis à jour le %{resource_name} page statique"
+      user:
+        invite: "%{user_name} invité l'utilisateur %{resource_name} avec rôle: %{role}"
+        officialize: "%{user_name} officialisé l'utilisateur %{resource_name}"
+        remove_from_admin: "%{user_name} supprimé l'utilisateur %{resource_name} avec rôle: %{role}"
+        unofficialize: "%{user_name} non officialisé l'utilisateur %{resource_name}"
+      user_group:
+        reject: "%{user_name} rejeté le %{resource_name} vérification du groupe d'utilisateurs"
+        verify: "%{user_name} vérifié le %{resource_name} groupe d'utilisateurs"
     anonymous_user: Anonyme
     application:
+      collection:
+        documents:
+          one: Document
+          other: Documents
       documents:
         related_documents: Documents connexes
       photos:
@@ -135,18 +174,14 @@ fr:
         email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez le voir sur cette page :'
         email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
         email_subject: Mise à jour de %{resource_title}
-      feature_published_event:
-        email_intro: 'Le composant %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page :'
-        email_outro: Vous recevez cette notification car vous suivez « %{participatory_space_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
-        email_subject: Une mise à jour de %{participatory_space_title}
-        notification_title: Le composant %{resource_title} est maintenant actif pour <a href="%{resource_path}">%{participatory_space_title}</a>
+      features:
+        feature_published:
+          email_intro: 'Le composant %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Une mise à jour de %{participatory_space_title}
+          notification_title: Le composant %{resource_title} est maintenant actif pour <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
-      participatory_process_step_activated_event:
-        email_intro: 'L''étape %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez y accéder sur cette page:'
-        email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications à partir du lien précédent.
-        email_subject: Une mise à jour de %{participatory_space_title}
-        notification_title: L'étape %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
       users:
         profile_updated:
           email_intro: Le <a href="%{resource_url}">profile page</a> de %{name} (%{nickname}), que vous suivez, a été mis à jour.
@@ -194,6 +229,23 @@ fr:
       errors:
         error: Ce champ contient une erreur.
       remove_this_file: Supprimer ce fichier
+    log:
+      base_presenter:
+        create: "%{user_name} créé %{resource_name}"
+        create_with_space: "%{user_name} créé %{resource_name} dans %{space_name}"
+        delete: "%{user_name} supprimé %{resource_name}"
+        delete_with_space: "%{user_name} supprimé %{resource_name} dans %{space_name}"
+        unknown_action: "%{user_name} effectué une action sur %{resource_name}"
+        unknown_action_with_space: "%{user_name} effectué une action sur %{resource_name} dans %{space_name}"
+        update: "%{user_name} mis à jour %{resource_name}"
+        update_with_space: "%{user_name} mis à jour %{resource_name} dans %{space_name}"
+      value_types:
+        area_presenter:
+          not_found: 'La zone n''a pas été trouvée sur la base de données (ID: %{id})'
+        scope_presenter:
+          not_found: 'La portée n''a pas été trouvée sur la base de données (ID: %{id})'
+        scope_type_presenter:
+          not_found: 'Le type d''étendue n''a pas été trouvé sur la base de données (ID: %{id})'
     managed_users:
       expired_session: La session de connexion a expiré.
     menu:
@@ -443,6 +495,7 @@ fr:
         answers_count: Enquêtes terminées
         assemblies_count: Assemblées
         comments_count: Commentaires
+        endorsements_count: Les avenants
         headline: État actuel de %{organization}
         meetings_count: Rencontres
         orders_count: Votes
@@ -482,6 +535,7 @@ fr:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
       decidim_short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   views:

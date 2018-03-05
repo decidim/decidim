@@ -7,7 +7,7 @@ module Decidim
     class Result < Accountability::ApplicationRecord
       include Decidim::Resourceable
       include Decidim::HasFeature
-      include Decidim::HasScope
+      include Decidim::ScopableFeature
       include Decidim::HasCategory
       include Decidim::HasReference
       include Decidim::Comments::Commentable
