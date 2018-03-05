@@ -123,7 +123,9 @@ fr:
         name: Débats
         settings:
           global:
+            announcement: Annonce
             comments_enabled: Commentaires activés
           step:
+            announcement: Annonce
             comments_blocked: Commentaires bloqués
             creation_enabled: Création de débats par les utilisateurs activés
