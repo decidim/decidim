@@ -123,7 +123,9 @@ eu:
         name: eztabaidak
         settings:
           global:
+            announcement: Anuntzio
             comments_enabled: Iruzkinak gaituta
           step:
+            announcement: Anuntzio
             comments_blocked: Iruzkinak blokeatuta
             creation_enabled: Erabiltzaileek gaitutako eztabaida sortzea
