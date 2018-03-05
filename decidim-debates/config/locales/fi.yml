@@ -3,6 +3,7 @@ fi:
     attributes:
       debate:
         category_id: Kategoria
+        decidim_category_id: Kategoria
         description: Kuvaus
         end_time: Päättymisaika
         information_updates: Tietojen päivitykset
@@ -39,6 +40,10 @@ fi:
         models:
           debate:
             name: Keskustelu
+      admin_log:
+        debate:
+          create: "%{user_name} loi %{resource_name} keskustelun %{space_name} -tilasta"
+          update: "%{user_name} päivitti %{resource_name} keskustelun %{space_name} -tilasta"
       debates:
         count:
           debates_count:

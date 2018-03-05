@@ -3,6 +3,7 @@ it:
     attributes:
       debate:
         category_id: Categoria
+        decidim_category_id: Categoria
         description: Descrizione
         end_time: Finisce a
         information_updates: Aggiornamenti delle informazioni
@@ -39,6 +40,10 @@ it:
         models:
           debate:
             name: Discussione
+      admin_log:
+        debate:
+          create: "%{user_name} ha creato il dibattito %{resource_name} sullo spazio %{space_name}"
+          update: "%{user_name} ha aggiornato il dibattito %{resource_name} sullo spazio %{space_name}"
       debates:
         count:
           debates_count:

@@ -3,6 +3,7 @@ nl:
     attributes:
       debate:
         category_id: Categorie
+        decidim_category_id: Categorie
         description: Beschrijving
         end_time: Eindigt bij
         information_updates: Informatie-updates
@@ -39,6 +40,10 @@ nl:
         models:
           debate:
             name: Debat
+      admin_log:
+        debate:
+          create: "%{user_name} heeft het %{resource_name} -debat gemaakt over de ruimte %{space_name}"
+          update: "%{user_name} heeft het %{resource_name} -debat bijgewerkt op de %{space_name} spatie"
       debates:
         count:
           debates_count:
