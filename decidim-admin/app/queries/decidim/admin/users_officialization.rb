@@ -7,7 +7,7 @@ module Decidim
       # Syntactic sugar to initialize the class and return the queried objects.
       #
       # organization - the Decidim::Organization where search will be scoped to
-      # q - query to filter user group names
+      # query - query to filter user group names
       # state - evaluation state to be used as a filter
       def self.for(organization, query = nil, state = nil)
         new(organization, query, state).query
@@ -16,7 +16,7 @@ module Decidim
       # Initializes the class.
       #
       # organization - the Decidim::Organization where search will be scoped to
-      # q - query to filter user group names
+      # query - query to filter user group names
       # state - officialization state to be used as a filter
       def initialize(organization, query = nil, state = nil)
         @organization = organization
@@ -38,7 +38,7 @@ module Decidim
 
       def filter_by_search(users)
         return users if q.blank?
-        users.where("LOWER(name) LIKE LOWER(?)", "%#{query}%")
+        users.where("LOWER(name) LIKE LOWER(?)", "%#{@query}%")
       end
 
       def filter_by_state(users)
