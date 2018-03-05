@@ -4,9 +4,9 @@
   </div>
 <% else %>
   <% if officials_proposals && feature_settings.official_proposals_enabled %>
-    <%= render "officials_proposals", form: form %>
+    <%= render "officials_proposals"%>
   <% end %>
   <% if citizens_proposals %>
-    <%= render "citizens_proposals" , form: form %>
+    <%= render "citizens_proposals" %>
   <% end %>
 <% end %>
