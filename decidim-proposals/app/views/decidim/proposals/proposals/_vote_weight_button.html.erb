@@ -5,7 +5,7 @@
         <!-- Disabled btn -->
         <!-- Up vote -->
         <span class="votes_block input-group-button width-O">
-          <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: 1), class: "card__button button tiny button--muted opinion-toggle--ok disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: " up-votes-btn", disabled: true do %>
+          <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: 1), class: "card__button button tiny button--muted opinion-toggle--ok disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: " up-votes-btn", remote: true, disabled: true do %>
             <% unless current_settings.votes_hidden? %>
               <div id= "up-votes-count"><%= proposal.up_votes.count%></div>
             <% end %>
@@ -14,7 +14,7 @@
         </span>
         <!-- Neutral vote -->
         <span class="votes_block input-group-button width-O pr-pl-2">
-          <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: 0), class: "card__button button tiny button--muted opinion-toggle--meh disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: "neutral-votes-btn", disabled: true do %>
+          <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: 0), class: "card__button button tiny button--muted opinion-toggle--meh disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: "neutral-votes-btn", remote: true, disabled: true do %>
             <% unless current_settings.votes_hidden? %>
               <div id= "up-votes-count"><%= proposal.neutral_votes.count %></div>
             <% end %>
@@ -23,7 +23,7 @@
         </span>
         <!-- Down vote -->
         <span class="votes_block input-group-button width-O">
-          <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: -1), class: "card__button button tiny button--muted opinion-toggle--ko disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: "down-votes-btn", disabled: true do %>
+          <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: -1), class: "card__button button tiny button--muted opinion-toggle--ko disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: "down-votes-btn", remote: true, disabled: true do %>
             <% unless current_settings.votes_hidden? %>
               <div id= "up-votes-count"><%= proposal.down_votes.count %></div>
             <% end %>
@@ -99,7 +99,7 @@
           <!-- Disabled btn -->
           <!-- Up vote -->
           <span class="votes_block input-group-button width-O">
-            <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: 1), class: "card__button button tiny button--muted opinion-toggle--ok disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: " up-votes-btn", disabled: true do %>
+            <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: 1), class: "card__button button tiny button--muted opinion-toggle--ok disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: " up-votes-btn", remote: true, disabled: true do %>
               <% unless current_settings.votes_hidden? %>
                 <div id= "up-votes-count"><%= proposal.up_votes.count%></div>
               <% end %>
@@ -108,7 +108,7 @@
           </span>
           <!-- Neutral vote -->
           <span class="votes_block input-group-button width-O pr-pl-2">
-            <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: 0), class: "card__button button tiny button--muted opinion-toggle--meh disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: "neutral-votes-btn", disabled: true do %>
+            <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: 0), class: "card__button button tiny button--muted opinion-toggle--meh disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: "neutral-votes-btn", remote: true, disabled: true do %>
               <% unless current_settings.votes_hidden? %>
                 <div id= "up-votes-count"><%= proposal.neutral_votes.count %></div>
               <% end %>
@@ -117,7 +117,7 @@
           </span>
           <!-- Down vote -->
           <span class="votes_block input-group-button width-O">
-            <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: -1), class: "card__button button tiny button--muted opinion-toggle--ko disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: "down-votes-btn", disabled: true do %>
+            <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: -1), class: "card__button button tiny button--muted opinion-toggle--ko disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: "down-votes-btn", remote: true, disabled: true do %>
               <% unless current_settings.votes_hidden? %>
                 <div id= "up-votes-count"><%= proposal.down_votes.count %></div>
               <% end %>
@@ -130,7 +130,7 @@
             <!-- Disabled btn -->
             <!-- Up vote -->
             <span class="votes_block input-group-button width-O">
-              <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: 1), class: "card__button button tiny button--muted opinion-toggle--ok disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: " up-votes-btn", disabled: true do %>
+              <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: 1), class: "card__button button tiny button--muted opinion-toggle--ok disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: " up-votes-btn", remote: true, disabled: true do %>
                 <% unless current_settings.votes_hidden? %>
                   <div id= "up-votes-count"><%= proposal.up_votes.count%></div>
                 <% end %>
@@ -139,7 +139,7 @@
             </span>
             <!-- Neutral vote -->
             <span class="votes_block input-group-button width-O pr-pl-2">
-              <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: 0), class: "card__button button tiny button--muted opinion-toggle--meh disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: "neutral-votes-btn", disabled: true do %>
+              <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: 0), class: "card__button button tiny button--muted opinion-toggle--meh disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: "neutral-votes-btn", remote: true, disabled: true do %>
                 <% unless current_settings.votes_hidden? %>
                   <div id= "up-votes-count"><%= proposal.neutral_votes.count %></div>
                 <% end %>
@@ -148,7 +148,7 @@
             </span>
             <!-- Down vote -->
             <span class="votes_block input-group-button width-O">
-              <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: -1), class: "card__button button tiny button--muted opinion-toggle--ko disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: "down-votes-btn", disabled: true do %>
+              <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: -1), class: "card__button button tiny button--muted opinion-toggle--ko disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: "down-votes-btn", remote: true, disabled: true do %>
                 <% unless current_settings.votes_hidden? %>
                   <div id= "up-votes-count"><%= proposal.down_votes.count %></div>
                 <% end %>
@@ -160,7 +160,7 @@
               <!-- Disabled btn -->
               <!-- Up vote -->
               <span class="votes_block input-group-button width-O">
-                <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: 1), class: "card__button button tiny button--muted opinion-toggle--ok disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: " up-votes-btn", disabled: true do %>
+                <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: 1), class: "card__button button tiny button--muted opinion-toggle--ok disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: " up-votes-btn", remote: true, disabled: true do %>
                   <% unless current_settings.votes_hidden? %>
                     <div id= "up-votes-count"><%= proposal.up_votes.count%></div>
                   <% end %>
@@ -169,7 +169,7 @@
               </span>
               <!-- Neutral vote -->
               <span class="votes_block input-group-button width-O pr-pl-2">
-                <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: 0), class: "card__button button tiny button--muted opinion-toggle--meh disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: "neutral-votes-btn", disabled: true do %>
+                <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: 0), class: "card__button button tiny button--muted opinion-toggle--meh disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: "neutral-votes-btn", remote: true, disabled: true do %>
                   <% unless current_settings.votes_hidden? %>
                     <div id= "up-votes-count"><%= proposal.neutral_votes.count %></div>
                   <% end %>
@@ -178,7 +178,7 @@
               </span>
               <!-- Down vote -->
               <span class="votes_block input-group-button width-O">
-                <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: -1), class: "card__button button tiny button--muted opinion-toggle--ko disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: "down-votes-btn", disabled: true do %>
+                <%= action_authorized_button_to :vote, proposal_proposal_vote_path(proposal_id: proposal, from_proposals_list: from_proposals_list, weight: -1), class: "card__button button tiny button--muted opinion-toggle--ko disabled #{vote_button_classes(from_proposals_list)} disabled-weight", id: "down-votes-btn", remote: true, disabled: true do %>
                   <% unless current_settings.votes_hidden? %>
                     <div id= "up-votes-count"><%= proposal.down_votes.count %></div>
                   <% end %>
