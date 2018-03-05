@@ -104,7 +104,6 @@ plugins:
       - docs/customization/*
       - docs/services/*
       - .github/*
-      - CHANGELOG.md
 
   stylelint:
     enabled: true
