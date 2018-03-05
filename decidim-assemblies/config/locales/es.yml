@@ -2,6 +2,7 @@ es:
   activemodel:
     attributes:
       assembly:
+        area_id: Zona
         banner_image: Imagen de banner
         copy_categories: Copiar categorías
         copy_features: Copiar funcionalidades
@@ -149,6 +150,7 @@ es:
         answers_count: Respuestas
         assemblies_count: Asambleas
         comments_count: Comentarios
+        endorsements_count: Endosos
         headline: Actividad
         meetings_count: Encuentros
         orders_count: Votos
