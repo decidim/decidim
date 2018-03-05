@@ -3,6 +3,7 @@ pl:
     attributes:
       debate:
         category_id: Kategoria
+        decidim_category_id: Kategoria
         description: Opis
         end_time: Kończy się na
         information_updates: Aktualizacje informacji
@@ -39,6 +40,10 @@ pl:
         models:
           debate:
             name: Debata
+      admin_log:
+        debate:
+          create: "%{user_name} stworzył %{resource_name} debatę na przestrzeni %{space_name}"
+          update: "%{user_name} zaktualizował %{resource_name} debatę na temat przestrzeni %{space_name}"
       debates:
         create:
           invalid: Podczas tworzenia debaty wystąpił problem.
