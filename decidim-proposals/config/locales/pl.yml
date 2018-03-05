@@ -195,6 +195,8 @@ pl:
         proposal:
           answer: "%{user_name} odpowiedziało na propozycję %{resource_name} na przestrzeni %{space_name}"
           create: "%{user_name} stworzył propozycję %{resource_name} w przestrzeni %{space_name} jako oficjalną propozycję"
+        proposal_note:
+          create: "%{user_name} zostawił prywatną notatkę na %{resource_name} propozycji w przestrzeni %{space_name}"
       answers:
         accepted: Przyjęty
         evaluating: Ocena
