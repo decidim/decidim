@@ -1,4 +1,22 @@
 files:
+  - source: /**/locales/devise.en.yml
+    translation: /**/locales/devise.%locale%.yml
+    languages_mapping:
+      locale:
+        ca: ca
+        es-ES: es
+        eu: eu
+        fi: fi
+        fr: fr
+        gl: gl
+        it: it
+        nl: nl
+        pl: pl
+        pt-BR: pt-BR
+        pt-PT: pt
+        rumany: ru
+        sv-SE: sv
+        ukmany: uk
   - source: /**/locales/en.yml
     translation: /**/locales/%locale%.yml
     languages_mapping:

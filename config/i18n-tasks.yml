@@ -15,6 +15,7 @@ data:
   # Locale files or `File.find` patterns where translations are read from:
   read:
     - decidim-*/config/locales/%{locale}.yml
+    - decidim-core/config/locales/devise.%{locale}.yml
 
   # Locale files to write new keys to, based on a list of key pattern => file rules. Matched from top to bottom:
   # `i18n-tasks normalize -p` will force move the keys according to these rules
@@ -22,6 +23,7 @@ data:
     <% Dir.glob("decidim-*").each do |path| -%>
       <%= "- ['#{path.sub('-', '.')}.*', '#{path}/config/locales/%{locale}.yml']" %>
     <% end -%>
+      - ['devise.*', 'decidim-core/config/locales/devise.%{locale}.yml']
       - 'decidim-core/config/locales/%{locale}.yml'
 
   ## Specify the router (see Readme for details). Valid values: conservative_router, pattern_router, or a custom class.
@@ -85,7 +87,7 @@ search:
 
 # Do not consider these keys missing:
 ignore_missing:
-  - '{devise,components}.*'
+  - components.*
   - email_subject
   - email_intro
   - email_outro
@@ -93,6 +95,7 @@ ignore_missing:
 
 # Consider these keys used:
 ignore_unused:
+  - devise.{confirmations,failure,omniauth_callbacks,passwords,registrations,sessions,unlocks}.*
   - activemodel.attributes.*
   - activerecord.attributes.*
   - booleans.*

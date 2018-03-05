@@ -26,7 +26,7 @@ describe "I18n sanity" do
       new_locale_hashes = locale_hashes
 
       expect(previous_locale_hashes).to eq(new_locale_hashes),
-                                        "Please normalize your locale files with `i18n-tasks normalize`"
+                                        "Please normalize your locale files with `bundle exec i18n-tasks normalize`"
     end
   end
 

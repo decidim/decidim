@@ -4,7 +4,6 @@ require "rails"
 require "active_support/all"
 
 require "devise"
-require "devise-i18n"
 require "decidim/core"
 require "jquery-rails"
 require "sassc-rails"
