@@ -31,6 +31,9 @@
                   <a href="#patternCards">Tarjetas y contenedores</a>
                 </li>
                 <li class="tabs-title">
+                  <a href="#patternCardsM">Tarjetas tamaño M</a>
+                </li>
+                <li class="tabs-title">
                   <a href="#patternMarkers">Marcadores</a>
                 </li>
                 <li class="tabs-title">
@@ -38,6 +41,9 @@
                 </li>
                 <li class="tabs-title">
                   <a href="#patternJavascripts">Javascript</a>
+                </li>
+                <li class="tabs-title">
+                  <a href="#patternPaginator">Paginador</a>
                 </li>
               </ul>
             </div>
@@ -58,6 +64,9 @@
                 <div class="tabs-panel" id="patternCards">
                   <%= render partial: page_path('library') + "/library-cards" %>
                 </div>
+                <div class="tabs-panel" id="patternCardsM">
+                  <%= render partial: page_path("cards") + "/m" %>
+                </div>
                 <div class="tabs-panel" id="patternMarkers">
                   <%= render partial: page_path('library') + "/library-markers" %>
                 </div>
@@ -66,6 +75,9 @@
                 </div>
                 <div class="tabs-panel" id="patternJavascripts">
                   <%= render partial: page_path('library') + "/library-javascripts" %>
+                </div>
+                <div class="tabs-panel" id="patternPaginator">
+                  <%= render partial: page_path('library') + "/library-paginator" %>
                 </div>
               </div>
             </div>
