@@ -123,7 +123,9 @@ pt:
         name: Debates
         settings:
           global:
+            announcement: Anúncio
             comments_enabled: Comentários ativados
           step:
+            announcement: Anúncio
             comments_blocked: Comentários bloqueados
             creation_enabled: Criação de debate por usuários habilitado
