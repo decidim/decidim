@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Proposals::ProposalMentionedEvent do
   include_context "simple event"
 
-  let(:event_name) { "decidim.events.comments.proposal_mentioned" }
+  let(:event_name) { "decidim.events.proposals.proposal_mentioned" }
   let(:organization) { create :organization }
   let(:author) { create :user, organization: organization }
 
