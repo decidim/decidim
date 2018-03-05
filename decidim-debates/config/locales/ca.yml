@@ -123,7 +123,9 @@ ca:
         name: Debats
         settings:
           global:
+            announcement: Anunci
             comments_enabled: Comentaris habilitats
           step:
+            announcement: Anunci
             comments_blocked: Comentaris bloquejats
             creation_enabled: Habilitar la creació de debats pels usuaris
