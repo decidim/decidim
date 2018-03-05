@@ -138,7 +138,9 @@ en:
         assemblies:
           form:
             created_by: Created by
+            select_a_created_by: Select a created by
             select_an_area: Select an Area
+            select_an_assembly_type: Select an assembly type
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             type_of_assembly: Type of assembly
         assembly_copies:
@@ -207,3 +209,6 @@ en:
       assembly_widgets:
         show:
           take_part: Take part
+  errors:
+    messages:
+      cannot_be_blank: can not be blank

@@ -46,12 +46,19 @@ module Decidim
         attribute :created_by, String
         attribute :duration, Decidim::Attributes::TimeWithZone
         attribute :date_of_inclusion, Decidim::Attributes::TimeWithZone
+        attribute :has_closed, Boolean
         attribute :closing_date, Decidim::Attributes::TimeWithZone
 
         validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
         validates :area, presence: true, if: proc { |object| object.area_id.present? }
+
+        validates :closing_date, presence: true, if: ->(form) { form.has_closed }
+        validates :closing_date_reason, translatable_presence: true, if: ->(form) { form.has_closed }
+
+        validates :type_of_assembly_other, translatable_presence: true, if: ->(form) { form.type_of_assembly == "others" }
+        validates :created_by_other, translatable_presence: true, if: ->(form) { form.created_by == "others" }
 
         validate :slug_uniqueness
 

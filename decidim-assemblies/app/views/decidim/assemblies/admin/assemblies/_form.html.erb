@@ -97,7 +97,10 @@
     </div>
 
     <div class="row column">
-      <%= form.select :type_of_assembly, @form.types_of_assembly_for_select, prompt: true %>
+      <%= form.select :type_of_assembly, @form.types_of_assembly_for_select, { include_blank: t(".select_an_assembly_type") }, { multiple: false }  %>
+    </div>
+
+    <div class="row column" data-depends-on="#assembly_type_of_assembly" data-depends-on-value="others">
       <%= form.translated :text_field, :type_of_assembly_other %>
     </div>
 
@@ -106,10 +109,10 @@
     </div>
 
     <div class="row column">
-      <%= form.select :created_by, @form.created_by_for_select, prompt: true  %>
+      <%= form.select :created_by, @form.created_by_for_select, { include_blank: t(".select_a_created_by") }, { multiple: false }  %>
     </div>
 
-    <div class="row column">
+    <div class="row column" data-depends-on="#assembly_created_by" data-depends-on-value="others">
       <%= form.translated :text_field, :created_by_other %>
     </div>
 
@@ -122,10 +125,14 @@
     </div>
 
     <div class="row column">
+      <%= form.check_box :has_closed %>
+    </div>
+
+    <div class="row column" id="closing_date_div">
       <%= form.date_field :closing_date %>
     </div>
 
-    <div class="row column">
+    <div class="row column" id="closing_date_reason_div">
       <%= form.translated :editor, :closing_date_reason %>
     </div>
 
@@ -135,5 +142,6 @@
     <!-- NEW FIELDS -->
   </div>
 </div>
+
 
 <%= javascript_include_tag "decidim/assemblies/admin/assemblies" %>

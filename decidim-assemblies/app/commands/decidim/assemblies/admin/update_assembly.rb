@@ -83,6 +83,7 @@ module Decidim
             created_by_other: form.created_by_other,
             duration: form.duration,
             date_of_inclusion: form.date_of_inclusion,
+            has_closed: form.has_closed,
             closing_date: form.closing_date,
             closing_date_reason: form.closing_date_reason,
             internal_organisation: form.internal_organisation
