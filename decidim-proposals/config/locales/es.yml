@@ -194,6 +194,7 @@ es:
       admin_log:
         proposal:
           answer: "%{user_name} respondió la propuesta %{resource_name} en el espacio %{space_name}"
+          create: "%{user_name} creó la propuesta %{resource_name} en el espacio %{space_name} como una propuesta oficial"
       answers:
         accepted: Aceptadas
         evaluating: En evaluación
