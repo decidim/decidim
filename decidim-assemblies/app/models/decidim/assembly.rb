@@ -18,10 +18,6 @@ module Decidim
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
-    belongs_to :scope,
-               foreign_key: "decidim_scope_id",
-               class_name: "Decidim::Scope",
-               optional: true
     belongs_to :area,
                foreign_key: "decidim_area_id",
                class_name: "Decidim::Area",
