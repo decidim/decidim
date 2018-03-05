@@ -195,6 +195,8 @@ fr:
         proposal:
           answer: "%{user_name} a répondu à la proposition %{resource_name} sur l'espace %{space_name}"
           create: "%{user_name} a créé la proposition %{resource_name} sur l'espace %{space_name} en tant que proposition officielle"
+        proposal_note:
+          create: "%{user_name} a publié une note privée sur la proposition %{resource_name} sur l'espace %{space_name}"
       answers:
         accepted: Retenue
         evaluating: En cours d'évaluation
