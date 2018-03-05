@@ -194,6 +194,7 @@ sv:
       admin_log:
         proposal:
           answer: "%{user_name} svarade på %{resource_name} -förslaget på %{space_name} -utrymmet"
+          create: "%{user_name} skapade förslaget %{resource_name} på %{space_name} -utrymmet som ett officiellt förslag"
       answers:
         accepted: Accepterad
         evaluating: utvärdera
