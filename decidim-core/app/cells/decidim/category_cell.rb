@@ -5,7 +5,7 @@ module Decidim
     include LayoutHelper
 
     def show
-      render
+      render if category?
     end
 
     private
@@ -20,6 +20,10 @@ module Decidim
 
     def resource
       context[:resource]
+    end
+
+    def category?
+      resource.category.present?
     end
 
     def category_path

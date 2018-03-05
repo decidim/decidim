@@ -5,7 +5,7 @@ module Decidim
     #include LayoutHelper
 
     def show
-      cell(resource_cell, model.resource) if category?
+      cell(resource_cell, model.resource)
     end
 
     private
@@ -24,10 +24,6 @@ module Decidim
 
     def feature
       model
-    end
-
-    def category?
-      model.resource.category.present?
     end
 
   end
