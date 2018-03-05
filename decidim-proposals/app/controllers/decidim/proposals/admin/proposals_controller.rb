@@ -68,7 +68,7 @@ module Decidim
         end
 
         def proposals
-          @proposals ||= query.result.page(params[:page]).per(15)
+          @proposals ||= query.result(distinct: true).page(params[:page]).per(15)
         end
 
         def proposal
