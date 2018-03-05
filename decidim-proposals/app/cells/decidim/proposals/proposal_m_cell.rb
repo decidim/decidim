@@ -30,6 +30,14 @@ module Decidim
         controller.current_settings
       end
 
+      def feature_settings
+        controller.feature_settings
+      end
+
+      def action_authorization(action)
+        controller.action_authorization(action)
+      end
+
       def current_user
         controller.current_user
       end
