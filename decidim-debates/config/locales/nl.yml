@@ -43,6 +43,7 @@ nl:
       admin_log:
         debate:
           create: "%{user_name} heeft het %{resource_name} -debat gemaakt over de ruimte %{space_name}"
+          update: "%{user_name} heeft het %{resource_name} -debat bijgewerkt op de %{space_name} spatie"
       debates:
         count:
           debates_count:
