@@ -124,10 +124,7 @@ module Decidim
       end
 
       def proposal_url(proposal)
-        host = proposal.organization.host
-        f = proposal.feature
-        url = "http://#{host}/processes/#{f.participatory_space.slug}/f/#{f.id}/proposals/#{proposal.id}"
-        url
+        Decidim::ResourceLocatorPresenter.new(proposal).url
       end
     end
   end
