@@ -130,6 +130,12 @@ ca:
           update:
             invalid: S'ha produït un problema en desar la configuració de la inscripció.
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
+      admin_log:
+        meeting:
+          close: "%{user_name} va tancar la %{resource_name} reunió a l'espai %{space_name}"
+          create: "%{user_name} va crear la %{resource_name} reunió a l'espai %{space_name}"
+          delete: "%{user_name} ha eliminat la %{resource_name} reunió a l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat la %{resource_name} reunió a l'espai %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
