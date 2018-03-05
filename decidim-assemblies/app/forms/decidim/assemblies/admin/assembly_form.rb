@@ -27,6 +27,7 @@ module Decidim
         translatable_attribute :created_by_other, String
         translatable_attribute :closing_date_reason, String
         translatable_attribute :internal_organisation, String
+        translatable_attribute :special_features, String
 
         mimic :assembly
 
@@ -48,6 +49,15 @@ module Decidim
         attribute :date_of_inclusion, Decidim::Attributes::TimeWithZone
         attribute :has_closed, Boolean
         attribute :closing_date, Decidim::Attributes::TimeWithZone
+        attribute :open_field, String
+        attribute :public_field, String
+        attribute :transparent_field, String
+        attribute :twitter_handler, String
+        attribute :facebook_handler, String
+        attribute :instagram_handler, String
+        attribute :youtube_handler, String
+        attribute :github_handler, String
+
 
         validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true

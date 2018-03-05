@@ -21,82 +21,8 @@
         <div class="row">
           <div class="columns large-12">
             <div class="section">
-              <h4 class="section-heading"><%#= t(".related_photos") %> PURPOSE OF ACTION</h4>
+              <h4 class="section-heading"><%= t("assemblies.show.purpose_of_action", scope: "decidim") %></h4>
               <%= decidim_sanitize translated_attribute(current_participatory_space.purpose_of_action) %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-
-      <% if current_participatory_space.type_of_assembly.presence %>
-        <div class="row">
-          <div class="columns large-12">
-            <div class="section">
-              <h4 class="section-heading"><%#= t(".related_photos") %> Type of assembly </h4>
-              <%= current_participatory_space.type_of_assembly %>
-              <% if current_participatory_space.type_of_assembly == "others" %>
-                <%= translated_attribute(current_participatory_space.type_of_assembly_other) %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-
-      <% if current_participatory_space.date_created.presence %>
-        <div class="row">
-          <div class="columns large-12">
-            <div class="section">
-              <h4 class="section-heading"><%#= t(".related_photos") %> Date created </h4>
-              <%= l current_participatory_space.date_created, format: :datepicker %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-
-      <% if current_participatory_space.created_by.presence %>
-        <div class="row">
-          <div class="columns large-12">
-            <div class="section">
-              <h4 class="section-heading"><%#= t(".related_photos") %> Created by </h4>
-              <%= current_participatory_space.created_by %>
-              <% if current_participatory_space.created_by == "others" %>
-                <%= translated_attribute(current_participatory_space.created_by_other) %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-
-      <% if current_participatory_space.duration.presence %>
-        <div class="row">
-          <div class="columns large-12">
-            <div class="section">
-              <h4 class="section-heading"><%#= t(".related_photos") %> Duration</h4>
-              <%= l current_participatory_space.duration, format: :datepicker %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-
-      <% if current_participatory_space.date_of_inclusion.presence %>
-        <div class="row">
-          <div class="columns large-12">
-            <div class="section">
-              <h4 class="section-heading"><%#= t(".related_photos") %> Date of inclusion</h4>
-              <%= l current_participatory_space.date_of_inclusion, format: :datepicker %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-
-      <% if current_participatory_space.has_closed.presence %>
-        <div class="row">
-          <div class="columns large-12">
-            <div class="section">
-              <h4 class="section-heading"><%#= t(".related_photos") %> Closing Date</h4>
-              <%= l current_participatory_space.closing_date, format: :datepicker %>
-              Closing date reason
-              <%= decidim_sanitize translated_attribute(current_participatory_space.closing_date_reason) %>
             </div>
           </div>
         </div>
@@ -106,7 +32,7 @@
         <div class="row">
           <div class="columns large-12">
             <div class="section">
-              <h4 class="section-heading"><%#= t(".related_photos") %> Internal organisation</h4>
+              <h4 class="section-heading"><%= t("assemblies.show.internal_organisation", scope: "decidim") %></h4>
               <%= decidim_sanitize translated_attribute(current_participatory_space.internal_organisation) %>
             </div>
           </div>
@@ -169,6 +95,59 @@
           </div>
         <% end %>
 
+
+        <% if current_participatory_space.type_of_assembly.presence %>
+          <div class="definition-data__item area">
+            <span class="definition-data__title"><%= t("assemblies.show.type_of_assembly", scope: "decidim") %></span>
+            <%= current_participatory_space.type_of_assembly %>
+            <% if current_participatory_space.type_of_assembly == "others" %>
+              <%= translated_attribute(current_participatory_space.type_of_assembly_other) %>
+            <% end %>
+          </div>
+        <% end %>
+
+        <% if current_participatory_space.date_created.presence %>
+          <div class="definition-data__item area">
+            <span class="definition-data__title"><%= t("assemblies.show.date_created", scope: "decidim") %></span>
+            <%= l current_participatory_space.date_created, format: :datepicker %>
+          </div>
+        <% end %>
+
+        <% if current_participatory_space.created_by.presence %>
+          <div class="definition-data__item area">
+            <span class="definition-data__title"><%= t("assemblies.show.created_by", scope: "decidim") %></span>
+            <%= current_participatory_space.created_by %>
+            <% if current_participatory_space.created_by == "others" %>
+              <%= translated_attribute(current_participatory_space.created_by_other) %>
+            <% end %>
+          </div>
+        <% end %>
+
+        <div class="definition-data__item area">
+          <span class="definition-data__title"><%= t("assemblies.show.duration", scope: "decidim") %></span>
+          <% if current_participatory_space.duration.presence %>
+            <%= l current_participatory_space.duration, format: :datepicker %>
+          <% else %>
+            <%= t("assemblies.show.indefinite_duration", scope: "decidim") %>
+          <% end %>
+        </div>
+
+        <% if current_participatory_space.date_of_inclusion.presence %>
+          <div class="definition-data__item area">
+            <span class="definition-data__title"><%= t("assemblies.show.date_of_inclusion", scope: "decidim") %></span>
+            <%= l current_participatory_space.date_of_inclusion, format: :datepicker %>
+          </div>
+        <% end %>
+
+        <% if current_participatory_space.has_closed.presence %>
+          <div class="definition-data__item area">
+            <span class="definition-data__title"><%= t("assemblies.show.closing_date", scope: "decidim") %></span>
+            <%= l current_participatory_space.closing_date, format: :datepicker %>
+            <h4 class="section-heading"><%= t(".closing_date_reason") %></h4>
+            <%= decidim_sanitize translated_attribute(current_participatory_space.closing_date_reason) %>
+          </div>
+        <% end %>
+  
       </div>
       <%= resource_reference(current_participatory_space) %>
       <%= render partial: "decidim/shared/share_modal" %>

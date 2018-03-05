@@ -15,6 +15,8 @@ module Decidim
     include Decidim::Traceable
     include Decidim::Loggable
 
+    SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
+    
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"

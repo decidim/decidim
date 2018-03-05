@@ -71,7 +71,17 @@ module Decidim
             has_closed: form.has_closed,
             closing_date: form.closing_date,
             closing_date_reason: form.closing_date_reason,
-            internal_organisation: form.internal_organisation
+            internal_organisation: form.internal_organisation,
+            open_field: form.open_field,
+            public_field: form.public_field,
+            transparent_field: form.transparent_field,
+            special_features: form.special_features,
+            twitter_handler: form.twitter_handler,
+            facebook_handler: form.facebook_handler,
+            instagram_handler: form.instagram_handler,
+            youtube_handler: form.youtube_handler,
+            github_handler: form.github_handler
+
           )
         end
 

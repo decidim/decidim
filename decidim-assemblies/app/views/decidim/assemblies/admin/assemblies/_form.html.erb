@@ -139,6 +139,26 @@
     <div class="row column">
       <%= form.translated :editor, :internal_organisation %>
     </div>
+
+    <div class="row column">
+      <%= form.select :open_field, [ ["Yes", "yes"], ["No", "no" ] ], {}, { multiple: false }  %>
+    </div>
+
+    <div class="row column" data-depends-on="#assembly_open_field" data-depends-on-value="no" >
+      <%= form.select :public_field, [ ["Yes", "yes"], ["No", "no" ] ], {}, { multiple: false }  %>
+    </div>
+
+    <div class="row column" data-depends-on="#assembly_public_field" data-depends-on-value="no">
+      <%= form.select :transparent_field, [ ["Yes", "yes"], ["No", "no" ] ], {}, { multiple: false }  %>
+    </div>
+
+    <div class="row column" data-depends-on="#assembly_open_field" data-depends-on-value="no">
+      <%= form.translated :editor, :special_features %>
+    </div>
+
+    <div class="columns xlarge-6">
+      <%= form.social_field :text_field, :social_handlers, Decidim::Assembly::SOCIAL_HANDLERS, label: t("social_handlers", scope: "decidim.assemblies.admin.assemblies.form") %>
+    </div>
     <!-- NEW FIELDS -->
   </div>
 </div>
