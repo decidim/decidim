@@ -63,6 +63,17 @@ module Decidim::Meetings
         expect(meeting.longitude).to eq(longitude)
       end
 
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:update!)
+          .with(meeting, user, kind_of(Hash))
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+      end
+
       describe "events" do
         let!(:follow) { create :follow, followable: meeting, user: user }
         let(:title) { meeting.title }

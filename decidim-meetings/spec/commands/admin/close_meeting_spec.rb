@@ -55,6 +55,17 @@ module Decidim::Meetings
         expect(meeting).to be_closed
       end
 
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with(:close, meeting, user)
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+      end
+
       context "when previous proposals had been linked" do
         let(:previous_proposals) { create_list(:proposal, 3, feature: proposal_feature) }
 

@@ -67,6 +67,8 @@
 - **decidim-core**: Add missing `scopes_picker_tag` and `scopes_picker_field_tag` form helpers [\#2880](https://github.com/decidim/decidim/pull/2880)
 - **decidim-proposals**: Log official proposals creation [\#2905](https://github.com/decidim/decidim/pull/2905)
 - **decidim-proposals**: Log proposal private notes [\#2907](https://github.com/decidim/decidim/pull/2907)
+- **decidim-meetings**: Log actions on meetings [\#2911](https://github.com/decidim/decidim/pull/2911)
+- **decidim-debates**: Adds announcements to debates [\#2806](https://github.com/decidim/decidim/pull/2806)
 
 **Changed**:
 
@@ -75,6 +77,9 @@
 - **decidim-core**: `FeatureReferenceHelper#feature_reference` has been moved to `ResourceReferenceHelper#resource_reference` to clarify its use. [\#2557](https://github.com/decidim/decidim/pull/2557)
 - **decidim-core**: `Decidim.resource_reference_generator` has been moved to `Decidim.reference_generator` to clarify its use. [\#2557](https://github.com/decidim/decidim/pull/2557)
 - **decidim-system**: Default pages content are now wrapped in `<p>` HTML tags [\#2754](https://github.com/decidim/decidim/pull/2754)
+- **decidim-core**: The module to be included by components in order to add scopes to the component is now called `ScopableFeature` (instead of `HasScope`) [\#2895](https://github.com/decidim/decidim/pull/2895)
+- **decidim-core**: The `scopes_enabled?` helper method has been removed. Call `#scopes_enabled?` directly on the scopable resource instead [\#2895](https://github.com/decidim/decidim/pull/2895)
+- **decidim-core**: The `scopes` association has been removed from the `Feature` model. If you need to grab all organization scopes, use the equivalent method on the current organization or the current participatory space [\#2895](https://github.com/decidim/decidim/pull/2895)
 
 **Fixed**:
 

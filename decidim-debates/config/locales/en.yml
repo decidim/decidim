@@ -126,7 +126,9 @@ en:
         name: Debates
         settings:
           global:
+            announcement: Announcement
             comments_enabled: Comments enabled
           step:
+            announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled: Debate creation by users enabled
