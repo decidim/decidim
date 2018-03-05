@@ -2,6 +2,7 @@ ca:
   activemodel:
     attributes:
       assembly:
+        area_id: Àrea
         banner_image: Imatge de bàner
         copy_categories: Copiar categories
         copy_features: Copiar funcionalitats
@@ -149,6 +150,7 @@ ca:
         answers_count: Respostes
         assemblies_count: Assemblees
         comments_count: Comentaris
+        endorsements_count: Aprovacions
         headline: Activitat
         meetings_count: Trobades presencials
         orders_count: Vots
