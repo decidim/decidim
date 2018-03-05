@@ -123,7 +123,9 @@ nl:
         name: debatten
         settings:
           global:
+            announcement: Aankondiging
             comments_enabled: Reacties ingeschakeld
           step:
+            announcement: Aankondiging
             comments_blocked: Reacties geblokkeerd
             creation_enabled: Debatcreatie door gebruikers ingeschakeld
