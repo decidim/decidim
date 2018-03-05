@@ -1,4 +1,12 @@
 sv:
+  activemodel:
+    attributes:
+      dummy_resource:
+        created_at: Skapad vid
+        field: Mitt fält
+        start_date: Start datum
+        title: Titel
+        updated_at: Uppdaterad på
   decidim:
     dummy:
       admin:

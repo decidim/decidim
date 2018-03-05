@@ -101,6 +101,16 @@ fi:
             email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
             email_subject: Uusi keskustelu %{author_nickname}
             notification_title: <a href="%{resource_path}">%{resource_title}</a> keskustelu luotiin <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        creation_disabled:
+          email_intro: 'Keskustelujen luominen ei ole enää käytössä %{participatory_space_title}. Voit silti osallistua avattuihin keskusteluihin tällä sivulla:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_subject: Keskustelujen luominen on poistettu käytöstä %{participatory_space_title}
+          notification_title: Keskustelujen luominen on nyt poistettu käytöstä <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Nyt voit aloittaa uusia keskusteluja %{participatory_space_title}! Aloita osallistuminen tälle sivulle:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_subject: Keskustelut ovat nyt saatavilla %{participatory_space_title}
+          notification_title: Voit nyt aloittaa <a href="%{resource_path}">uutta keskustelua</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     features:
       debates:
         actions:
