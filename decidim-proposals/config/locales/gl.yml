@@ -195,6 +195,8 @@ gl:
         proposal:
           answer: "%{user_name} respondeu á proposta %{resource_name} no espazo %{space_name}"
           create: "%{user_name} creou a proposta %{resource_name} no espazo %{space_name} como proposta oficial"
+        proposal_note:
+          create: "%{user_name} deixou unha nota privada na proposta %{resource_name} no espazo %{space_name}"
       answers:
         accepted: Aceptada
         evaluating: Avaliación
