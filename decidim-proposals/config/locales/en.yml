@@ -18,6 +18,9 @@ en:
         copy_proposals: I understand that this will import all proposals from the selected component to the current one and that this action can't be reversed.
         origin_feature_id: Component to copy the proposals from
   decidim:
+    content_renderers:
+      proposal_renderer:
+        proposal_not_found: the proposal that was referenced here with id %{proposal_id} but doesn't exist anymore
     events:
       proposals:
         creation_enabled:
