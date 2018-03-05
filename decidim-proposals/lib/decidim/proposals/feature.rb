@@ -6,6 +6,7 @@ Decidim.register_feature(:proposals) do |feature|
   feature.engine = Decidim::Proposals::Engine
   feature.admin_engine = Decidim::Proposals::AdminEngine
   feature.icon = "decidim/proposals/icon.svg"
+  feature.searchable_fields = { a: ["title"], b: ["description", "location"]}
 
   feature.on(:before_destroy) do |instance|
     raise "Can't destroy this feature when there are proposals" if Decidim::Proposals::Proposal.where(feature: instance).any?
@@ -49,6 +50,7 @@ Decidim.register_feature(:proposals) do |feature|
   feature.register_resource do |resource|
     resource.model_class_name = "Decidim::Proposals::Proposal"
     resource.template = "decidim/proposals/proposals/linked_proposals"
+    resource.cell = "decidim/proposals/proposal"
   end
 
   feature.register_stat :proposals_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, start_at, end_at|

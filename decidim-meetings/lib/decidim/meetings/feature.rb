@@ -6,6 +6,7 @@ Decidim.register_feature(:meetings) do |feature|
   feature.engine = Decidim::Meetings::Engine
   feature.admin_engine = Decidim::Meetings::AdminEngine
   feature.icon = "decidim/meetings/icon.svg"
+  feature.searchable_fields = { a: ["title"], b: ["description", "location"]}
 
   feature.on(:before_destroy) do |instance|
     raise StandardError, "Can't remove this feature" if Decidim::Meetings::Meeting.where(feature: instance).any?
@@ -14,6 +15,7 @@ Decidim.register_feature(:meetings) do |feature|
   feature.register_resource do |resource|
     resource.model_class_name = "Decidim::Meetings::Meeting"
     resource.template = "decidim/meetings/meetings/linked_meetings"
+    resource.cell = "decidim/meetings/meeting"
   end
 
   feature.register_stat :meetings_count, primary: true, priority: Decidim::StatsRegistry::MEDIUM_PRIORITY do |features, start_at, end_at|

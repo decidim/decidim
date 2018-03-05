@@ -14,6 +14,7 @@ module Decidim
       include Decidim::HasAttachments
       include Decidim::Followable
       include Decidim::Proposals::CommentableProposal
+      include Decidim::Searchable
       include Decidim::Traceable
       include Decidim::Loggable
 
@@ -162,6 +163,25 @@ module Decidim
               )
             SQL
         Arel.sql(query)
+      end
+
+      #
+      # Overrides required method from Decidim::Searchable.
+      #
+      def search_rsrc_indexable_fields
+        org = feature.organization
+        fields = {
+          decidim_scope_id: decidim_scope_id,
+          decidim_participatory_space_id: feature.participatory_space_id,
+          decidim_participatory_space_type: feature.participatory_space_type,
+          decidim_organization_id: org.id,
+          i18n: {}
+        }
+        i18n = fields[:i18n]
+        org.available_locales.each do |locale|
+          i18n[locale] = { A: [title], D: [body] }
+        end
+        fields
       end
 
       private

@@ -263,6 +263,7 @@ FactoryBot.define do
     title { generate(:name) }
     feature { create(:feature, manifest_name: "dummy") }
     author { create(:user, :confirmed, organization: feature.organization) }
+    scope { create(:scope, organization: feature.organization) }
   end
 
   factory :resource_link, class: "Decidim::ResourceLink" do
@@ -362,5 +363,15 @@ FactoryBot.define do
         }.compact
       }.deep_merge(extra_data)
     end
+  end
+
+  factory :searchable_rsrc, class: "Decidim::SearchableRsrc" do
+    resource { build(:dummy_resource) }
+    resource_id { resource.id }
+    resource_type { resource.class.name }
+    organization { resource.feature.organization }
+    decidim_participatory_space { resource.feature.participatory_space }
+    scope { resource.scope }
+    content_a { Faker::Lorem.sentence }
   end
 end

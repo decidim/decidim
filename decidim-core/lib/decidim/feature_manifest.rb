@@ -15,6 +15,8 @@ module Decidim
 
     attribute :admin_engine, Rails::Engine
     attribute :engine, Rails::Engine
+    attribute :searchable_fields, Hash[Symbol => Array[Proc]], default: nil
+
 
     attribute :name, Symbol
     attribute :hooks, Hash[Symbol => Array[Proc]], default: {}
