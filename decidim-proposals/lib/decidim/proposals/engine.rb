@@ -87,6 +87,12 @@ module Decidim
           )
         end
       end
+
+      initializer "decidim_proposals.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/cells")
+        # Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells") # for shared partials
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/views") # for proposal partials
+      end
     end
   end
 end

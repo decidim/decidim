@@ -5,22 +5,7 @@ require "cell/partial"
 module Decidim
   module Proposals
     # This cell renders a proposal with its M-size card.
-    class ProposalMCell < Decidim::ViewModel
-      self.view_paths << "#{Decidim::Core::Engine.root}/app/views"
-      self.view_paths << "#{Decidim::Proposals::Engine.root}/app/cells"
-      self.view_paths << "#{Decidim::Proposals::Engine.root}/app/views"
-
-      include Decidim::LayoutHelper
-      include Decidim::ApplicationHelper
-      include Decidim::ActionAuthorizationHelper
-      include Decidim::TranslationsHelper
-      include Decidim::ResourceHelper
-      include Decidim::Proposals::ApplicationHelper
-      include Decidim::ResourceReferenceHelper
-
-      include Decidim::Proposals::Engine.routes.url_helpers
-
-      include Partial
+    class ProposalMCell < Decidim::Proposals::ViewModel
 
       def model_path
         resource_locator(model).path
