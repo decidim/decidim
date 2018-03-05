@@ -50,6 +50,16 @@ task :uninstall_all do
   )
 end
 
+Decidim::ComponentManager.all_dirs(include_root: false) do |dir|
+  manager = Decidim::ComponentManager.new(dir)
+  name = manager.short_name
+
+  desc "Runs tests on #{name}"
+  task "test_#{name}" do
+    manager.run("rake")
+  end
+end
+
 desc "Pushes a new build for each gem."
 task release_all: [:update_versions, :check_locale_completeness, :webpack] do
   Decidim::ComponentManager.run_all("rake release")
@@ -60,7 +70,7 @@ task :check_locale_completeness do
   system({ "ENFORCED_LOCALES" => "en,ca,es", "SKIP_NORMALIZATION" => "true" }, "rspec spec/i18n_spec.rb")
 end
 
-load "decidim-dev/lib/tasks/test_app.rake"
+load "decidim-dev/lib/tasks/generators.rake"
 
 desc "Generates a dummy app for testing"
 task test_app: "decidim:generate_external_test_app"

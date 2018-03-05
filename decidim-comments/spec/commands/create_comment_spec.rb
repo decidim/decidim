@@ -46,7 +46,7 @@ module Decidim
           it "doesn't create a comment" do
             expect do
               command.call
-            end.not_to change { Comment.count }
+            end.not_to change(Comment, :count)
           end
         end
 
@@ -67,7 +67,7 @@ module Decidim
 
             expect do
               command.call
-            end.to change { Comment.count }.by(1)
+            end.to change(Comment, :count).by(1)
           end
 
           it "sends a notification to the corresponding users except the comment's author" do
@@ -134,7 +134,7 @@ module Decidim
 
               expect do
                 command.call
-              end.to change { Comment.count }.by(1)
+              end.to change(Comment, :count).by(1)
             end
 
             it "sends a notification to the mentioned users" do

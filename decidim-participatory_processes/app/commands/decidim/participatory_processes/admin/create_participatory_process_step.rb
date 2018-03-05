@@ -34,7 +34,9 @@ module Decidim
         attr_reader :form
 
         def create_participatory_process_step
-          ParticipatoryProcessStep.create!(
+          Decidim.traceability.create!(
+            ParticipatoryProcessStep,
+            @form.current_user,
             title: form.title,
             description: form.description,
             start_date: form.start_date,

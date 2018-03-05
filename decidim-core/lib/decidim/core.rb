@@ -2,7 +2,6 @@
 
 require "decidim/core/engine"
 require "decidim/core/version"
-require "decidim/core/api"
 
 # Decidim configuration.
 module Decidim
@@ -10,17 +9,18 @@ module Decidim
   autoload :FormBuilder, "decidim/form_builder"
   autoload :AuthorizationFormBuilder, "decidim/authorization_form_builder"
   autoload :FilterFormBuilder, "decidim/filter_form_builder"
-  autoload :DeviseFailureApp, "decidim/devise_failure_app"
   autoload :FeatureManifest, "decidim/feature_manifest"
   autoload :ParticipatorySpaceManifest, "decidim/participatory_space_manifest"
   autoload :ResourceManifest, "decidim/resource_manifest"
   autoload :Resourceable, "decidim/resourceable"
   autoload :Traceable, "decidim/traceable"
+  autoload :Loggable, "decidim/loggable"
   autoload :Reportable, "decidim/reportable"
   autoload :Authorable, "decidim/authorable"
   autoload :Participable, "decidim/participable"
   autoload :Publicable, "decidim/publicable"
   autoload :Scopable, "decidim/scopable"
+  autoload :ScopableFeature, "decidim/scopable_feature"
   autoload :ContentParsers, "decidim/content_parsers"
   autoload :ContentRenderers, "decidim/content_renderers"
   autoload :ContentProcessor, "decidim/content_processor"
@@ -30,7 +30,6 @@ module Decidim
   autoload :FeatureValidator, "decidim/feature_validator"
   autoload :HasSettings, "decidim/has_settings"
   autoload :HasFeature, "decidim/has_feature"
-  autoload :HasScope, "decidim/has_scope"
   autoload :HasCategory, "decidim/has_category"
   autoload :Followable, "decidim/followable"
   autoload :FriendlyDates, "decidim/friendly_dates"
@@ -94,7 +93,7 @@ module Decidim
 
   # Exposes a configuration option: The application available locales.
   config_accessor :available_locales do
-    %w(en ca es eu fi fr gl it nl pt pr-BR ru sv uk)
+    %w(en ca es eu fi fr gl it nl pt pt-BR ru sv uk)
   end
 
   # Exposes a configuration option: an array of symbols representing processors

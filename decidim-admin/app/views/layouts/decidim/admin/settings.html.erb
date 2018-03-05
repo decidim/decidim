@@ -16,6 +16,12 @@
       <li <% if is_active_link?(decidim_admin.scope_types_path) %> class="is-active" <% end %>>
         <%= link_to t("menu.scope_types", scope: "decidim.admin"), decidim_admin.scope_types_path %>
       </li>
+      <li <% if is_active_link?(decidim_admin.areas_path) %> class="is-active" <% end %>>
+        <%= link_to t("menu.areas", scope: "decidim.admin"), decidim_admin.areas_path %>
+      </li>
+      <li <% if is_active_link?(decidim_admin.area_types_path) %> class="is-active" <% end %>>
+        <%= link_to t("menu.area_types", scope: "decidim.admin"), decidim_admin.area_types_path %>
+      </li>
     </ul>
   </div>
 <% end %>

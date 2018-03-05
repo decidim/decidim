@@ -11,6 +11,7 @@ pt-BR:
   decidim:
     budgets:
       actions:
+        attachment_collections: Coleções
         attachments: Anexos
         confirm_destroy: Tem certeza de que deseja excluir esse projeto?
         destroy: Excluir

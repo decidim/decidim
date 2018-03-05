@@ -59,7 +59,7 @@ module Decidim
           it "doesn't create a user" do
             expect do
               command.call
-            end.not_to change { User.count }
+            end.not_to change(User, :count)
           end
         end
 
@@ -81,7 +81,7 @@ module Decidim
               organization: organization
             ).and_call_original
 
-            expect { command.call }.to change { User.count }.by(1)
+            expect { command.call }.to change(User, :count).by(1)
           end
         end
 
@@ -103,7 +103,7 @@ module Decidim
             end
 
             it "doesn't create a user group" do
-              expect { command.call }.not_to change { UserGroup.count }
+              expect { command.call }.not_to change(UserGroup, :count)
             end
           end
 
@@ -123,7 +123,7 @@ module Decidim
               expect do
                 command.call
                 expect(UserGroup.last.users.first).to eq(User.last)
-              end.to change { UserGroup.count }.by(1)
+              end.to change(UserGroup, :count).by(1)
             end
           end
         end

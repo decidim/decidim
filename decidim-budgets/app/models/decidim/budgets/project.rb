@@ -7,7 +7,7 @@ module Decidim
     class Project < Budgets::ApplicationRecord
       include Decidim::Resourceable
       include Decidim::HasFeature
-      include Decidim::HasScope
+      include Decidim::ScopableFeature
       include Decidim::HasCategory
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections

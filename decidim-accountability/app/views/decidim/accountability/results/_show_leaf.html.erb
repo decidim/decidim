@@ -14,14 +14,18 @@
           <div class="progress-level">
             <div class="progress-label">
               <span class="progress-text"><%= t("models.result.fields.progress", scope: "decidim.accountability") %>:</span>
-              <span class="progress-figure">
-                <%= display_percentage result.progress %>
-              </span>
+              <% if feature_settings.display_progress_enabled? %>
+                <span class="progress-figure">
+                  <%= display_percentage result.progress %>
+                </span>
+              <% end %>
             </div>
 
-            <div class="progress">
-              <div class="progress-meter" style="width:<%= result.progress %>%"></div>
-            </div>
+            <% if feature_settings.display_progress_enabled? %>
+              <div class="progress">
+                <div class="progress-meter" style="width:<%= result.progress %>%"></div>
+              </div>
+            <% end %>
           </div>
         </div>
       <% end %>

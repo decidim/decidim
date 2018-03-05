@@ -8,6 +8,7 @@ shared_examples "create a proposal" do |with_author|
       form_params
     ).with_context(
       current_organization: organization,
+      current_participatory_space: feature.participatory_space,
       current_feature: feature
     )
   end
@@ -58,7 +59,7 @@ shared_examples "create a proposal" do |with_author|
       it "doesn't create a proposal" do
         expect do
           command.call
-        end.not_to change { Decidim::Proposals::Proposal.count }
+        end.not_to change(Decidim::Proposals::Proposal, :count)
       end
     end
 
@@ -70,7 +71,7 @@ shared_examples "create a proposal" do |with_author|
       it "creates a new proposal" do
         expect do
           command.call
-        end.to change { Decidim::Proposals::Proposal.count }.by(1)
+        end.to change(Decidim::Proposals::Proposal, :count).by(1)
       end
 
       if with_author
@@ -162,9 +163,7 @@ shared_examples "create a proposal" do |with_author|
         end
 
         it "creates an atachment for the proposal" do
-          expect do
-            command.call
-          end.to change { Decidim::Attachment.count }.by(1)
+          expect { command.call }.to change(Decidim::Attachment, :count).by(1)
           last_proposal = Decidim::Proposals::Proposal.last
           last_attachment = Decidim::Attachment.last
           expect(last_attachment.attached_to).to eq(last_proposal)

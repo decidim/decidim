@@ -10,6 +10,12 @@ module Decidim
     let(:role) { "admin" }
 
     it { is_expected.to be_valid }
+    it { is_expected.to be_versioned }
+
+    it "overwrites the log presenter" do
+      expect(described_class.log_presenter_class_for(:foo))
+        .to eq Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessUserRolePresenter
+    end
 
     context "when the role is not admin" do
       let(:role) { "fake_role" }

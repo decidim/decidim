@@ -28,7 +28,11 @@ module Decidim
         private
 
         def update_page
-          @page.update_attributes!(body: @form.body)
+          Decidim.traceability.update!(
+            @page,
+            @form.current_user,
+            body: @form.body
+          )
         end
       end
     end

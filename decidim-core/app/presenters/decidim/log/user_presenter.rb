@@ -50,7 +50,7 @@ module Decidim
         h.link_to(
           present_user_name,
           user_path,
-          class: "logs__log__author has-tip",
+          class: "logs__log__author",
           title: "@" + user.nickname,
           data: {
             tooltip: true,

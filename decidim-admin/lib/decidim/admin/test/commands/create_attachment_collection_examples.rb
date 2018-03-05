@@ -41,7 +41,7 @@ module Decidim
           it "doesn't create an attachment collection" do
             expect do
               command.call
-            end.not_to change { AttachmentCollection.count }
+            end.not_to change(AttachmentCollection, :count)
           end
         end
 
@@ -53,7 +53,7 @@ module Decidim
           it "creates a new attachment collection" do
             expect do
               command.call
-            end.to change { collection_for.attachment_collections.count }.by(1)
+            end.to change(collection_for.attachment_collections, :count).by(1)
           end
         end
       end

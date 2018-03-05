@@ -36,7 +36,7 @@ $(() => {
       const parts = queryString.split(/[&;]/g);
 
       // Reverse iteration as may be destructive
-      for (let index = parts.length; index > 0; index -= 1) {
+      for (let index = parts.length - 1; index >= 0; index -= 1) {
         // Idiom for string.startsWith
         if (parts[index].lastIndexOf(prefix, 0) !== -1) {
           parts.splice(index, 1);

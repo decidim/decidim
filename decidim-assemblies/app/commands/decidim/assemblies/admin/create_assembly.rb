@@ -21,9 +21,9 @@ module Decidim
         # Returns nothing.
         def call
           return broadcast(:invalid) if form.invalid?
-          assembly = create_assembly
 
           if assembly.persisted?
+            add_admins_as_followers(assembly)
             broadcast(:ok, assembly)
           else
             form.errors.add(:hero_image, assembly.errors[:hero_image]) if assembly.errors.include? :hero_image
@@ -36,8 +36,10 @@ module Decidim
 
         attr_reader :form
 
-        def create_assembly
-          assembly = Assembly.new(
+        def assembly
+          @assembly ||= Decidim.traceability.create(
+            Assembly,
+            form.current_user,
             organization: form.current_organization,
             title: form.title,
             subtitle: form.subtitle,
@@ -50,6 +52,7 @@ module Decidim
             promoted: form.promoted,
             scopes_enabled: form.scopes_enabled,
             scope: form.scope,
+            area: form.area,
             developer_group: form.developer_group,
             local_area: form.local_area,
             target: form.target,
@@ -57,10 +60,19 @@ module Decidim
             participatory_structure: form.participatory_structure,
             meta_scope: form.meta_scope
           )
+        end
 
-          return assembly unless assembly.valid?
-          assembly.save!
-          assembly
+        def add_admins_as_followers(assembly)
+          assembly.organization.admins.each do |admin|
+            form = Decidim::FollowForm
+                   .from_params(followable_gid: assembly.to_signed_global_id.to_s)
+                   .with_context(
+                     current_organization: assembly.organization,
+                     current_user: admin
+                   )
+
+            Decidim::CreateFollow.new(form, admin).call
+          end
         end
       end
     end

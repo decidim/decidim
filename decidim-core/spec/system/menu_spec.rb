@@ -69,6 +69,12 @@ describe "Menu", type: :system do
       end
     end
 
+    after do
+      within_language_menu do
+        click_link "English"
+      end
+    end
+
     it "works with multiple languages" do
       visit decidim.root_path
 

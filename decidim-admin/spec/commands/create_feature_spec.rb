@@ -4,6 +4,8 @@ require "spec_helper"
 
 module Decidim::Admin
   describe CreateFeature do
+    subject { described_class.new(manifest, form, participatory_process) }
+
     let(:manifest) { Decidim.find_feature_manifest(:dummy) }
     let(:form) do
       instance_double(
@@ -15,6 +17,7 @@ module Decidim::Admin
         },
         invalid?: !valid,
         valid?: valid,
+        current_user: current_user,
         weight: 2,
         settings: {
           dummy_global_attribute_1: true,
@@ -37,13 +40,14 @@ module Decidim::Admin
 
     let(:participatory_process) { create(:participatory_process, :with_steps) }
     let(:step) { participatory_process.steps.first }
+    let(:current_user) { create :user, organization: participatory_process.organization }
 
     describe "when valid" do
       let(:valid) { true }
 
       it "broadcasts :ok and creates the feature" do
         expect do
-          CreateFeature.call(manifest, form, participatory_process)
+          subject.call
         end.to broadcast(:ok)
 
         expect(participatory_process.features).not_to be_empty
@@ -58,6 +62,19 @@ module Decidim::Admin
         expect(step_settings.dummy_step_attribute_2).to eq(false)
       end
 
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:create!)
+          .with(Decidim::Feature, current_user, a_kind_of(Hash))
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+        expect(action_log.version.event).to eq "create"
+      end
+
       it "fires the hooks" do
         results = {}
 
@@ -65,7 +82,7 @@ module Decidim::Admin
           results[:feature] = feature
         end
 
-        CreateFeature.call(manifest, form, participatory_process)
+        subject.call
 
         feature = results[:feature]
         expect(feature.name["en"]).to eq("My feature")
@@ -78,7 +95,7 @@ module Decidim::Admin
 
       it "creates the feature" do
         expect do
-          CreateFeature.call(manifest, form, participatory_process)
+          subject.call
         end.to broadcast(:invalid)
 
         expect(participatory_process.features).to be_empty

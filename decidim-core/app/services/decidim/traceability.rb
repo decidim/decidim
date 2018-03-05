@@ -24,16 +24,12 @@ module Decidim
     #
     # klass - An ActiveRecord class that implements `Decidim::Traceable`
     # author - An object that implements `to_gid` or a String
-    # params - a Hash
+    # params - a Hash with the attributes of the new resource
     #
     # Returns an instance of `klass`.
-    def create(klass, author, params)
-      PaperTrail.whodunnit(gid(author)) do
-        klass.transaction do
-          resource = klass.create(params)
-          log(:create, author, resource)
-          resource
-        end
+    def create(klass, author, params, extra_log_info = {})
+      perform_action!(:create, klass, author, extra_log_info) do
+        klass.create(params)
       end
     end
 
@@ -41,15 +37,35 @@ module Decidim
     #
     # klass - An ActiveRecord class that implements `Decidim::Traceable`
     # author - An object that implements `to_gid` or a String
-    # params - a Hash
+    # params - a Hash with the attributes of the new resource
     #
     # Returns an instance of `klass`.
-    def create!(klass, author, params)
+    def create!(klass, author, params, extra_log_info = {})
+      perform_action!(:create, klass, author, extra_log_info) do
+        klass.create!(params)
+      end
+    end
+
+    # Performs the given block and sets the author of the action.
+    # It also logs the action with the given `action` parameter.
+    # The action and the logging are run inside a transaction.
+    #
+    # action - a String or Symbol representing the action performed
+    # resource - An ActiveRecord instance that implements `Decidim::Traceable`
+    # author - An object that implements `to_gid` or a String
+    # extra_log_info - a Hash with extra info that will be saved to the log
+    #
+    # Returns whatever the given block returns.
+    def perform_action!(action, resource, author, extra_log_info = {})
       PaperTrail.whodunnit(gid(author)) do
+        klass = resource.is_a?(Class) ? resource : resource.class
         klass.transaction do
-          resource = klass.create!(params)
-          log(:create, author, resource)
-          resource
+          Decidim::ApplicationRecord.transaction do
+            result = block_given? ? yield : nil
+            loggable_resource = resource.is_a?(Class) ? result : resource
+            log(action, author, loggable_resource, extra_log_info)
+            result
+          end
         end
       end
     end
@@ -58,16 +74,14 @@ module Decidim
     #
     # resource - An ActiveRecord instance that implements `Decidim::Traceable`
     # author - An object that implements `to_gid` or a String
-    # params - a Hash
+    # params - a Hash with the attributes to update to the resource
+    # extra_log_info - a Hash with extra info that will be saved to the log
     #
     # Returns the updated `resource`.
-    def update!(resource, author, params)
-      PaperTrail.whodunnit(gid(author)) do
-        resource.class.transaction do
-          resource.update_attributes!(params)
-          log(:update, author, resource)
-          resource
-        end
+    def update!(resource, author, params, extra_log_info = {})
+      perform_action!(:update, resource, author, extra_log_info) do
+        resource.update_attributes!(params)
+        resource
       end
     end
 
@@ -99,28 +113,23 @@ module Decidim
       author
     end
 
-    def log(action, user, resource)
+    def log(action, user, resource, extra_log_info = {})
       return unless user.is_a?(Decidim::User)
-      return unless resource.is_a?(Decidim::Traceable)
 
       Decidim::ActionLogger.log(
         action,
         user,
         resource,
-        version_params(resource)
+        version_id(resource),
+        extra_log_info
       )
     end
 
-    def version_params(resource)
-      return {} unless resource.is_a?(Decidim::Traceable)
-      return {} if resource.versions.blank?
+    def version_id(resource)
+      return nil unless resource.is_a?(Decidim::Traceable)
+      return nil if resource.versions.blank?
 
-      {
-        version: {
-          number: resource.versions.count,
-          id: resource.versions.last.id
-        }
-      }
+      resource.versions.last.id
     end
   end
 end
