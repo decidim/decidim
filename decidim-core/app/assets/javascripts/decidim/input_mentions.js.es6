@@ -3,7 +3,15 @@
 $(() => {
   const $mentionContainer = $('.js-mentions');
   const nodatafound = $mentionContainer.attr('data-noresults');
-  const sources = []; // TODO: Object with remote data. See Tribute.js DOCS
+  // const sources = []; // TODO: Object with remote data. See Tribute.js DOCS
+  const sources = [{
+      "tag": "barrera",
+      "name": "Collins Franklin",
+    },
+    {
+      "tag": "woods",
+      "name": "Nadine Buck",
+    }]
 
   // EXAMPLE DATA
   // tag & name properties are mandatory
@@ -29,6 +37,20 @@ $(() => {
     selectTemplate: function(item) {
       if (typeof item === 'undefined') return null;
       if (this.range.isContentEditable(this.current.element)) {
+        // Check quill.js
+        if ($(this.current.element).hasClass('editor-container')) {
+          let quill = this.current.element.__quill;
+          quill.insertText(cursor - 1, '@' + item.original.tag + ' ', Quill.sources.API);
+
+          let position = cursor + item.original.tag.length + 2; // cursor position + nickname length + '@' sign + space
+          let next = (quill.getLength() > position) ? position : quill.getLength() - 1;
+          // Workaround https://github.com/quilljs/quill/issues/731
+          setTimeout(function () {
+            quill.setSelection(next, 0);
+          }, 500);
+
+          return ''
+        }
         return '<span contenteditable="false">' + '@' + item.original.tag + '</span>';
       }
       return '@' + item.original.tag;
@@ -69,4 +91,9 @@ $(() => {
     }
   });
 
+  // Listener for the event triggered by quilljs
+  let cursor;
+  $mentionContainer.on('quill-position', function(e) {
+    cursor = e.detail.index;
+  });
 });
