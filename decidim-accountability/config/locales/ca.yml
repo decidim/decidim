@@ -9,7 +9,7 @@ ca:
         end_date: Fi
         progress: Progrés
         project_ids: Projectes inclosos
-        proposal_ids: Propostes incloses
+        proposals: Propostes incloses
         start_date: Inici
         title: Títol
         updated_at: Actualitzat a
@@ -50,11 +50,17 @@ ca:
           edit:
             title: Edita resultat
             update: Actualitza resultat
+          form:
+            add_proposal: Afegir proposta
           index:
             title: Resultats
           new:
             create: Crea resultat
             title: Nou resultat
+          proposals:
+            close: Tanca
+            current_selection: Selecció actual
+            select: Selecciona
           update:
             invalid: Hi ha hagut un problema en actualitzar aquest resultat
             success: El resultat ha estat actualitzat correctament
