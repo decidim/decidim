@@ -1,5 +1,8 @@
 ca:
   decidim:
+    admin_log:
+      page:
+        update: "%{user_name} va actualitzar la pàgina %{resource_name} en %{space_name}"
     features:
       pages:
         name: Pàgina
