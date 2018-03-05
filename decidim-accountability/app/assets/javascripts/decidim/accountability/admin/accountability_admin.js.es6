@@ -10,7 +10,7 @@ $("#result_decidim_accountability_status_id").change(function () {
 
 $(function() {
   $(document).on("open.zf.reveal", "#data_picker-modal", function () {
-    let xhr= null;
+    let xhr = null;
 
     $('#data_picker-autocomplete').autoComplete({
       minChars: 2,
