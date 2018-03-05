@@ -15,6 +15,7 @@ module Decidim
       include Decidim::Followable
       include Decidim::Comments::Commentable
       include Decidim::Traceable
+      include Decidim::Loggable
 
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
 
@@ -26,6 +27,10 @@ module Decidim
 
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
       scope :upcoming, -> { where(arel_table[:start_time].gt(Time.current)) }
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Meetings::AdminLog::MeetingPresenter
+      end
 
       def closed?
         closed_at.present?

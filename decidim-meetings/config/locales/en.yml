@@ -132,6 +132,9 @@ en:
           update:
             invalid: There's been a problem saving the registration settings.
             success: Meeting registrations settings successfully saved.
+      admin_log:
+        meeting:
+          create: "%{user_name} created the %{resource_name} meeting on the %{space_name} space"
       mailer:
         invite_join_meeting_mailer:
           invite:
