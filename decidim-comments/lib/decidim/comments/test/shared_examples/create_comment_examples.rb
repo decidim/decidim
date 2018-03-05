@@ -63,6 +63,15 @@ shared_examples "create comment" do
             }
           )
 
+        user_metadata = Decidim::ContentParsers::UserParser::Metadata.new([])
+        proposal_metadata = Decidim::ContentParsers::ProposalParser::Metadata.new([])
+        expect(Decidim::Comments::CommentCreation)
+          .to receive(:publish)
+          .with(
+            a_kind_of(Decidim::Comments::Comment),
+            hash_including(user: user_metadata, proposal: proposal_metadata)
+          )
+
         command.call
       end
 
@@ -120,6 +129,15 @@ shared_examples "create comment" do
               }
             )
 
+          command.call
+        end
+      end
+
+      context "and content processors have metadata" do
+        it "publishes the creation of the comment with its parsing metadatas" do
+          expect(Decidim::Comments::CommentCreation)
+            .to receive(:publish)
+            .with(a_kind_of(Decidim::Comments::Comment), a_kind_of(Hash))
           command.call
         end
       end

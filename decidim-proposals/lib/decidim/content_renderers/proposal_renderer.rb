@@ -23,7 +23,7 @@ module Decidim
             proposal = GlobalID::Locator.locate(proposal_gid)
             Decidim::Proposals::ProposalPresenter.new(proposal).display_mention
           rescue ActiveRecord::RecordNotFound
-            proposal_id= proposal_gid.split('/').last
+            proposal_id = proposal_gid.split("/").last
             "<#{I18n.t("decidim.content_renderers.proposal_renderer.proposal_not_found", proposal_id: proposal_id)}>"
           end
         end

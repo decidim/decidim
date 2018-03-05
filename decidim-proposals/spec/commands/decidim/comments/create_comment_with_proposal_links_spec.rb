@@ -51,7 +51,7 @@ module Decidim
           end
         end
 
-        it "sends a notification to linked proposal's authors" do
+        it "sends a notification with mentioned proposals in its m" do
           expect(command).to receive(:send_notification).and_return false
 
           expect(Decidim::EventsManager)
