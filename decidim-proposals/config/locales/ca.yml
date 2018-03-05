@@ -195,6 +195,8 @@ ca:
         proposal:
           answer: "%{user_name} va respondre a la proposta %{resource_name} a l'espai %{space_name}"
           create: "%{user_name} ha creat la proposta %{resource_name} sobre l'espai %{space_name} com a proposta oficial"
+        proposal_note:
+          create: "%{user_name} va deixar una nota privada a la %{resource_name} proposta sobre l'espai %{space_name}"
       answers:
         accepted: Acceptada
         evaluating: En avaluació
