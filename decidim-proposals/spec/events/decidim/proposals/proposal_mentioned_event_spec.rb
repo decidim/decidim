@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Comments::ProposalMentionedEvent do
+describe Decidim::Proposals::ProposalMentionedEvent do
   include_context "simple event"
 
   let(:event_name) { "decidim.events.comments.proposal_mentioned" }

@@ -1,18 +1,18 @@
 # frozen-string_literal: true
 
 module Decidim
-  module Comments
+  module Proposals
     class ProposalMentionedEvent < Decidim::Events::SimpleEvent
       def email_subject
         I18n.t(
-          "decidim.events.comments.proposal_mentioned.email_subject",
+          "decidim.events.proposals.proposal_mentioned.email_subject",
           mentioned_proposal_title: mentioned_proposal.title
         )
       end
 
       def email_intro
         I18n.t(
-          "decidim.events.comments.proposal_mentioned.email_intro",
+          "decidim.events.proposals.proposal_mentioned.email_intro",
           mentioned_proposal_title: mentioned_proposal.title,
           resource_path: resource_path
         )
@@ -20,7 +20,7 @@ module Decidim
 
       def notification_title
         I18n.t(
-          "decidim.events.comments.proposal_mentioned.notification_title",
+          "decidim.events.proposals.proposal_mentioned.notification_title",
           mentioned_proposal_title: mentioned_proposal.title,
           resource_path: resource_path
         ).html_safe
