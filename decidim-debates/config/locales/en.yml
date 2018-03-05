@@ -44,6 +44,7 @@ en:
       admin_log:
         debate:
           create: "%{user_name} created the %{resource_name} debate on the %{space_name} space"
+          update: "%{user_name} updated the %{resource_name} debate on the %{space_name} space"
       debates:
         count:
           debates_count:
