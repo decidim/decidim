@@ -3,30 +3,14 @@
 module Decidim
   module Proposals
     class ProposalMentionedEvent < Decidim::Events::SimpleEvent
-      def email_subject
-        I18n.t(
-          "decidim.events.proposals.proposal_mentioned.email_subject",
-          mentioned_proposal_title: mentioned_proposal.title
-        )
-      end
 
-      def email_intro
-        I18n.t(
-          "decidim.events.proposals.proposal_mentioned.email_intro",
-          mentioned_proposal_title: mentioned_proposal.title,
-          resource_path: resource_path
-        )
-      end
-
-      def notification_title
-        I18n.t(
-          "decidim.events.proposals.proposal_mentioned.notification_title",
-          mentioned_proposal_title: mentioned_proposal.title,
-          resource_path: resource_path
-        ).html_safe
-      end
+      i18n_attributes :mentioned_proposal_title
 
       private
+
+      def mentioned_proposal_title
+        mentioned_proposal.title
+      end
 
       def mentioned_proposal
         @mentioned_proposal ||= Decidim::Proposals::Proposal.find(extra[:mentioned_proposal_id])
