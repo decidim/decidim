@@ -123,7 +123,9 @@ it:
         name: dibattiti
         settings:
           global:
+            announcement: Annuncio
             comments_enabled: Commenti abilitati
           step:
+            announcement: Annuncio
             comments_blocked: Commenti bloccati
             creation_enabled: Creazione di dibattiti da parte degli utenti abilitati
