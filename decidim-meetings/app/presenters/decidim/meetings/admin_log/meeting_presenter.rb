@@ -18,6 +18,10 @@ module Decidim
         def diff_fields_mapping
           {
             address: :string,
+            attendees_count: :integer,
+            attending_organizations: :string,
+            closed_at: :date,
+            closing_report: :i18n,
             description: :i18n,
             end_date: :date,
             location: :i18n,
@@ -38,6 +42,10 @@ module Decidim
 
         def i18n_labels_scope
           "activemodel.attributes.meeting"
+        end
+
+        def has_diff?
+          action == "close" || super
         end
       end
     end
