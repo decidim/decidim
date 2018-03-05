@@ -11,14 +11,20 @@ module Decidim
       include Decidim::Resourceable
       include Decidim::Followable
       include Decidim::Comments::Commentable
-      include Decidim::HasScope
+      include Decidim::ScopableFeature
       include Decidim::Authorable
       include Decidim::Reportable
       include Decidim::HasReference
+      include Decidim::Traceable
+      include Decidim::Loggable
 
       feature_manifest_name "debates"
 
       validates :title, presence: true
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Debates::AdminLog::DebatePresenter
+      end
 
       # Public: Checks whether the debate is official or not.
       #

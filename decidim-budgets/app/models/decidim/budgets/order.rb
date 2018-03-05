@@ -63,6 +63,8 @@ module Decidim
       private
 
       def user_belongs_to_organization
+        organization = feature&.organization
+
         return if !user || !organization
         errors.add(:user, :invalid) unless user.organization == organization
       end

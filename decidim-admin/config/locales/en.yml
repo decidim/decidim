@@ -24,6 +24,7 @@ en:
         parent_id: Parent
       feature:
         name: Name
+        published_at: Published at
         weight: Weight
       id: ID
       newsletter:

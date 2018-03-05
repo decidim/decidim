@@ -19,6 +19,7 @@ fr:
         participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
         promoted: Mis en avant
+        published_at: Publié à
         scope_id: Périmètre d'application
         scopes_enabled: Périmètres d'application activés
         short_description: Résumé
@@ -61,9 +62,11 @@ fr:
         participatory_process_groups: Groupes de processus participatifs
         participatory_processes: Processus participatifs
         participatory_processes_submenu:
+          attachment_collections: Collections
+          attachment_files: Des dossiers
           attachments: Documents liés
           categories: Catégories
-          features: Fonctions
+          features: Fonctionnalités
           info: Information
           moderations: Modérations
           process_admins: Administrateurs du processus participatif
@@ -202,6 +205,33 @@ fr:
         resend_invitation:
           error: Une erreur s'est produite lors de l'envoi de l’invitation.
           success: Invitation renvoyée avec succès.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} créé le %{resource_name} processus participatif"
+        publish: "%{user_name} publié le %{resource_name} processus participatif"
+        unpublish: "%{user_name} non publié le %{resource_name} processus participatif"
+        update: "%{user_name} a mis à jour le processus participatif %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} a activé l'étape %{resource_name} dans le processus participatif %{space_name}"
+        create: "%{user_name} a créé l'étape %{resource_name} dans le processus participatif %{space_name}"
+        delete: "%{user_name} a supprimé l'étape %{resource_name} du processus participatif %{space_name}"
+        update: "%{user_name} a mis à jour l'étape %{resource_name} du processus participatif %{space_name}"
+      participatory_process_user_role:
+        create: "%{user_name} invité l'utilisateur %{resource_name} à la %{space_name} processus participatif"
+        delete: "%{user_name} supprimé l'utilisateur %{resource_name} à partir du %{space_name} processus participatif"
+        update: "%{user_name} changé le rôle de l'utilisateur %{resource_name} dans le %{space_name} processus participatif"
+    events:
+      participatory_process:
+        step_activated:
+          email_intro: 'L''étape %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Une mise à jour de %{participatory_space_title}
+          notification_title: L'étape %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'Les dates pour l''étape %{resource_title} à %{participatory_space_title} ont été mises à jour. Vous pouvez le voir sur cette page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Une mise à jour de %{participatory_space_title}
+          notification_title: Les dates de l'étape <a href="%{resource_path}">%{resource_title}</a> à <a href="%{participatory_space_url}">%{participatory_space_title}</a> ont été mises à jour.
     menu:
       processes: Processus participatifs
     participatory_process_groups:
@@ -251,6 +281,7 @@ fr:
       statistics:
         answers_count: Réponses
         comments_count: Commentaires
+        endorsements_count: Les avenants
         headline: Activité
         meetings_count: Réunions
         orders_count: Votes
