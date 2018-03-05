@@ -62,6 +62,7 @@
 - **decidim-participatory_processes**: Log actions on process steps [\#2876](https://github.com/decidim/decidim/pull/2876)
 - **decidim-admin**: Log feature (un)publication[\#2884](https://github.com/decidim/decidim/pull/2884)
 - **decidim-pages**: Log page updates [\#2886](https://github.com/decidim/decidim/pull/2886)
+- **decidim-debates**: Log debates creation and updates [\#2903](https://github.com/decidim/decidim/pull/2903)
 
 **Changed**:
 
