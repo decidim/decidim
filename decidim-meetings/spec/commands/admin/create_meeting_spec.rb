@@ -7,6 +7,7 @@ module Decidim::Meetings
     subject { described_class.new(form) }
 
     let(:organization) { create :organization, available_locales: [:en] }
+    let(:current_user) { create :user, :admin, :confirmed, organization: organization }
     let(:participatory_process) { create :participatory_process, organization: organization }
     let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "meetings" }
     let(:scope) { create :scope, organization: organization }
@@ -30,6 +31,7 @@ module Decidim::Meetings
         longitude: longitude,
         scope: scope,
         category: category,
+        current_user: current_user,
         current_feature: current_feature
       )
     end
@@ -69,6 +71,17 @@ module Decidim::Meetings
         last_meeting = Meeting.last
         expect(last_meeting.latitude).to eq(latitude)
         expect(last_meeting.longitude).to eq(longitude)
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:create!)
+          .with(Meeting, current_user, kind_of(Hash))
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
       end
 
       it "schedules a upcoming meeting notification job 48h before start time" do
