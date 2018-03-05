@@ -18,8 +18,8 @@ module Decidim
                               .where("(private_space = ? and decidim_participatory_space_private_users.decidim_user_id = ?) or private_space = ?", true, user, false)
                           }
 
-      def self.non_private_spaces
-        where(private_space: false)
+      def self.public_spaces
+        super.where(private_space: false)
       end
     end
   end

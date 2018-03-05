@@ -12,7 +12,7 @@ module Decidim
         if @user
           Decidim::Assembly.visible_for(@user.id)
         else
-          Decidim::Assembly.non_private_spaces
+          Decidim::Assembly.public_spaces
         end
       end
     end

@@ -14,7 +14,7 @@ module Decidim
         if @current_user
           processes.visible_for(@current_user.id)
         else
-          processes.non_private_spaces
+          processes.public_spaces
         end
       end
     end
