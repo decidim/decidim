@@ -15,6 +15,7 @@ module Decidim
       include Decidim::Authorable
       include Decidim::Reportable
       include Decidim::HasReference
+      include Decidim::Traceable
 
       feature_manifest_name "debates"
 
