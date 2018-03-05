@@ -194,6 +194,7 @@ ca:
       admin_log:
         proposal:
           answer: "%{user_name} va respondre a la proposta %{resource_name} a l'espai %{space_name}"
+          create: "%{user_name} ha creat la proposta %{resource_name} sobre l'espai %{space_name} com a proposta oficial"
       answers:
         accepted: Acceptada
         evaluating: En avaluació
