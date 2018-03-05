@@ -194,6 +194,7 @@ nl:
       admin_log:
         proposal:
           answer: "%{user_name} beantwoordde het voorstel %{resource_name} op de %{space_name} spatie"
+          create: "%{user_name} heeft het voorstel %{resource_name} op de %{space_name} ruimte gemaakt als officieel voorstel"
       answers:
         accepted: Aanvaard
         evaluating: Aan het beoordelen
