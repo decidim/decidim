@@ -12,6 +12,7 @@ module Decidim
       include_examples "has feature"
 
       it { is_expected.to be_valid }
+      it { is_expected.to be_versioned }
 
       context "without a feature" do
         let(:page) { build :page, feature: nil }
