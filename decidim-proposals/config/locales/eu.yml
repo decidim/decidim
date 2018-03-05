@@ -194,6 +194,7 @@ eu:
       admin_log:
         proposal:
           answer: "%{user_name} %{resource_name} %{space_name} espazioko proposamenari erantzun dio"
+          create: "%{user_name} %{resource_name} %{space_name} espazio proposamena sortu zen proposamen ofizial gisa"
       answers:
         accepted: Onartuta
         evaluating: Ebaluatzen
