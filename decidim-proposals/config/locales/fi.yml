@@ -194,6 +194,7 @@ fi:
       admin_log:
         proposal:
           answer: "%{user_name} vastasi %{resource_name} -ehdotusta %{space_name} -tilaan"
+          create: "%{user_name} loi %{resource_name} ehdotuksen %{space_name} tilaa viralliseksi ehdotukseksi"
       answers:
         accepted: Hyväksytty
         evaluating: Arvioitavana
