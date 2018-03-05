@@ -6,7 +6,7 @@ import "unfetch/polyfill";
 
 const client = new ApolloClient({
   link: new HttpLink({ uri: "/api", credentials: "same-origin", fetch }),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache(),
 });
 
 export default client;
