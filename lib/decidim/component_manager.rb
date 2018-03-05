@@ -21,7 +21,7 @@ module Decidim
     end
 
     def run(command, out: STDOUT)
-      Dir.chdir(name) do
+      Dir.chdir(@dir) do
         command = command.gsub("%version", version).gsub("%name", name)
         status = system(command, out: out)
         abort unless status || ENV["FAIL_FAST"] == "false"
@@ -29,7 +29,7 @@ module Decidim
     end
 
     def replace_version
-      Dir.chdir(name) do
+      Dir.chdir(@dir) do
         self.class.replace_file(
           "lib/#{name.tr("-", "/")}/version.rb",
           /def self\.version(\s*)"[^"]*"/,

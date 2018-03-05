@@ -3,6 +3,7 @@ en:
   activemodel:
     attributes:
       assembly:
+        area_id: Area
         banner_image: Banner image
         copy_categories: Copy categories
         copy_features: Copy features
@@ -150,6 +151,7 @@ en:
         answers_count: Answers
         assemblies_count: Assemblies
         comments_count: Comments
+        endorsements_count: Endorsements
         headline: Activity
         meetings_count: Meetings
         orders_count: Votes

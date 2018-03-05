@@ -144,8 +144,12 @@ module Decidim
     #
     # Returns a String.
     def scopes_picker(attribute, options = {})
-      picker_options = { id: "#{@object_name}_#{attribute}", class: "picker-#{options[:multiple] ? "multiple" : "single"}",
-                         name: "#{@object_name}[#{attribute}]" }
+      picker_options = {
+        id: "#{@object_name}_#{attribute}",
+        class: "picker-#{options[:multiple] ? "multiple" : "single"}",
+        name: "#{@object_name}[#{attribute}]"
+      }
+
       picker_options[:class] += " is-invalid-input" if error?(attribute)
 
       prompt_params = yield(nil)

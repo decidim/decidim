@@ -17,6 +17,8 @@ module Decidim
 
         def diff_fields_mapping
           {
+            title: :string,
+            body: :string,
             state: "Decidim::Proposals::AdminLog::ValueTypes::ProposalStatePresenter",
             answered_at: :date,
             answer: :i18n
@@ -25,7 +27,7 @@ module Decidim
 
         def action_string
           case action
-          when "answer"
+          when "answer", "create"
             "decidim.proposals.admin_log.proposal.#{action}"
           else
             super
