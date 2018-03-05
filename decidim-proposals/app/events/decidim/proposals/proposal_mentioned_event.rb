@@ -3,7 +3,6 @@
 module Decidim
   module Proposals
     class ProposalMentionedEvent < Decidim::Events::SimpleEvent
-
       i18n_attributes :mentioned_proposal_title
 
       private

@@ -58,7 +58,7 @@ module Decidim
             .to receive(:publish)
             .with(
               event: "decidim.events.comments.proposal_mentioned",
-              event_class: Decidim::Comments::ProposalMentionedEvent,
+              event_class: Decidim::Proposals::ProposalMentionedEvent,
               resource: commentable,
               recipient_ids: [linked_proposal.decidim_author_id],
               extra: {

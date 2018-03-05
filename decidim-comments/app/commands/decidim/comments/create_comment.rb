@@ -85,7 +85,7 @@ module Decidim
 
           Decidim::EventsManager.publish(
             event: "decidim.events.comments.proposal_mentioned",
-            event_class: Decidim::Comments::ProposalMentionedEvent,
+            event_class: Decidim::Proposals::ProposalMentionedEvent,
             resource: @comment.root_commentable,
             recipient_ids: recipient_ids,
             extra: {
