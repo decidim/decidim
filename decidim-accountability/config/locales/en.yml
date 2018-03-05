@@ -10,7 +10,7 @@ en:
         end_date: End date
         progress: Progress
         project_ids: Included projects
-        proposal_ids: Included proposals
+        proposals: Included proposals
         start_date: Start date
         title: Title
         updated_at: Updated at
@@ -51,11 +51,17 @@ en:
           edit:
             title: Edit result
             update: Update result
+          form:
+            add_proposal: Add proposal
           index:
             title: Results
           new:
             create: Create result
             title: New result
+          proposals:
+            close: Close
+            current_selection: Current selection
+            select: Select
           update:
             invalid: There's been a problem updating this result
             success: Result successfully updated
