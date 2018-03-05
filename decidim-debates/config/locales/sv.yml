@@ -123,7 +123,9 @@ sv:
         name: debatter
         settings:
           global:
+            announcement: Meddelande
             comments_enabled: Kommentarer aktiverade
           step:
+            announcement: Meddelande
             comments_blocked: Kommentarer blockerad
             creation_enabled: Debatt skapande av användare aktiverat
