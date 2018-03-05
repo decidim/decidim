@@ -1,12 +1,21 @@
+$icon-size: rem-calc(14);
+$icon-size-small: rem-calc(10);
+$icon-size-big: rem-calc(24);
+
 .icon{
-  width: 14px;
-  height: 14px;
+  width: $icon-size;
+  height: $icon-size;
   fill: currentColor;
 }
 
 .icon--small{
-  width: 10px;
-  height: 10px;
+  width: $icon-size-small;
+  height: $icon-size-small;
+}
+
+.icon--big{
+  width: $icon-size-big;
+  height: $icon-size-big;
 }
 
 .icon--action{

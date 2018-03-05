@@ -32,12 +32,17 @@ module Decidim::Admin
         expect { subject.call }.to broadcast(:ok)
       end
 
-      it "logs the action" do
-        expect(Decidim::ActionLogger)
-          .to receive(:log)
-          .with("delete", user, newsletter)
+      it "logs the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with("delete", newsletter, user)
+          .and_call_original
 
-        subject.call
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+        expect(action_log.version.event).to eq "destroy"
       end
     end
   end

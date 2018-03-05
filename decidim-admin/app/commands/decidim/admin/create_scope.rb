@@ -31,12 +31,20 @@ module Decidim
       attr_reader :form
 
       def create_scope
-        Scope.create!(
-          name: form.name,
-          organization: form.organization,
-          code: form.code,
-          scope_type: form.scope_type,
-          parent: @parent_scope
+        Decidim.traceability.create!(
+          Scope,
+          form.current_user,
+          {
+            name: form.name,
+            organization: form.organization,
+            code: form.code,
+            scope_type: form.scope_type,
+            parent: @parent_scope
+          },
+          extra: {
+            parent_name: @parent_scope.try(:name),
+            scope_type_name: form.scope_type.try(:name)
+          }
         )
       end
     end

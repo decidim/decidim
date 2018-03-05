@@ -11,6 +11,11 @@ module Decidim
 
     it { is_expected.to be_valid }
 
+    it "overwrites the log presenter" do
+      expect(described_class.log_presenter_class_for(:foo))
+        .to eq Decidim::AdminLog::UserPresenter
+    end
+
     it "has an association for identities" do
       expect(subject.identities).to eq([])
     end
@@ -40,17 +45,6 @@ module Decidim
     end
 
     describe "validations", processing_uploads_for: Decidim::AvatarUploader do
-      context "when the email is a disposable account" do
-        before do
-          user.email = "user@mailbox92.biz"
-        end
-
-        it "is not valid" do
-          expect(user).not_to be_valid
-          expect(user.errors[:email].length).to eq(1)
-        end
-      end
-
       context "when the nickname is empty" do
         before do
           user.nickname = ""

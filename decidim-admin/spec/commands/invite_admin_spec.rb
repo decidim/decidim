@@ -37,12 +37,22 @@ module Decidim::Admin
       end.to broadcast(:ok)
     end
 
-    it "tracks the change" do
-      expect(Decidim::ActionLogger)
-        .to receive(:log)
-        .with("invite", current_user, a_kind_of(Decidim::User), extra: { invited_user_role: form.role, invited_user_id: a_kind_of(Integer) })
+    it "tracks the change", versioning: true do
+      expect(Decidim.traceability)
+        .to receive(:perform_action!)
+        .with("invite", a_kind_of(Decidim::User), current_user, extra: { invited_user_role: form.role, invited_user_id: a_kind_of(Integer) })
+        .and_call_original
 
-      command.call
+      expect { command.call }.to change(Decidim::ActionLog, :count)
+      action_log = Decidim::ActionLog.last
+      expect(action_log.extra["version"]).to be_nil
+      expect(action_log.extra)
+        .to include(
+          "extra" => {
+            "invited_user_role" => "admin",
+            "invited_user_id" => invited_user.id
+          }
+        )
     end
 
     context "when the form is not valid" do

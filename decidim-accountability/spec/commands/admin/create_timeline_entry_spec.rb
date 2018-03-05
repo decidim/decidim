@@ -36,7 +36,7 @@ module Decidim::Accountability
       let(:timeline_entry) { TimelineEntry.last }
 
       it "creates the timeline entry" do
-        expect { subject.call }.to change { TimelineEntry.count }.by(1)
+        expect { subject.call }.to change(TimelineEntry, :count).by(1)
       end
 
       it "sets the entry date" do

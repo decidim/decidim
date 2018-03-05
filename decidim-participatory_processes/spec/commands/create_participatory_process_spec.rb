@@ -9,7 +9,7 @@ module Decidim::ParticipatoryProcesses
     let(:organization) { create :organization }
     let(:participatory_process_group) { create :participatory_process_group, organization: organization }
     let(:scope) { create :scope, organization: organization }
-    let(:current_user) { create :user, organization: organization }
+    let(:current_user) { create :user, :admin, organization: organization }
     let(:errors) { double.as_null_object }
     let(:form) do
       instance_double(
@@ -83,12 +83,17 @@ module Decidim::ParticipatoryProcesses
         expect { subject.call }.to change { Decidim::ParticipatoryProcess.count }.by(1)
       end
 
-      it "traces the creation" do
+      it "traces the creation", versioning: true do
         expect(Decidim::ActionLogger)
           .to receive(:log)
-          .with("create", current_user, a_kind_of(Decidim::ParticipatoryProcess), a_kind_of(Hash))
+          .with("create", current_user, a_kind_of(Decidim::ParticipatoryProcess), a_kind_of(Integer))
+          .and_call_original
 
-        subject.call
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+        expect(action_log.version.event).to eq "create"
       end
 
       it "broadcasts ok" do
@@ -100,6 +105,14 @@ module Decidim::ParticipatoryProcesses
           on(:ok) do |process|
             expect(process.steps.count).to eq(1)
             expect(process.steps.first).to be_active
+          end
+        end
+      end
+
+      it "adds the admins as followers" do
+        subject.call do
+          on(:ok) do |process|
+            expect(current_user.follows?(process)).to be_true
           end
         end
       end

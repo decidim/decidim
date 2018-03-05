@@ -50,13 +50,6 @@ module Decidim
 
       delegate :action, to: :action_log
 
-      # Private: Caches the version that holds the changeset to display.
-      #
-      # Returns a PaperTrail::Version.
-      def version
-        @version ||= PaperTrail::Version.where(id: action_log.extra.dig("version", "id")).first
-      end
-
       # Private: Caches the object that will be responsible of presenting the space
       # where the action is performed.
       #
@@ -206,7 +199,7 @@ module Decidim
       #
       # Returns a Boolean.
       def has_diff?
-        %w(update create).include?(action.to_s) && version.present?
+        %w(update create).include?(action.to_s) && action_log.version.present?
       end
 
       # Private: Calculates whether the diff should show the previous value
@@ -250,7 +243,7 @@ module Decidim
       # Returns an Array of Hashes.
       def changeset
         Decidim::Log::DiffChangesetCalculator.new(
-          version.changeset,
+          action_log.version.changeset,
           diff_fields_mapping,
           i18n_labels_scope
         ).changeset

@@ -11,7 +11,7 @@ module Decidim
         def create
           authorize! :activate, process_step
 
-          ActivateParticipatoryProcessStep.call(process_step) do
+          ActivateParticipatoryProcessStep.call(process_step, current_user) do
             on(:ok) do
               flash[:notice] = I18n.t("participatory_process_step_activations.create.success", scope: "decidim.admin")
             end

@@ -21,6 +21,7 @@ module Decidim
             link_meetings
             link_proposals
             link_projects
+            notify_proposal_followers
           end
 
           broadcast(:ok)
@@ -75,6 +76,20 @@ module Decidim
 
         def link_meetings
           result.link_resources(meetings, "meetings_through_proposals")
+        end
+
+        def notify_proposal_followers
+          proposals.includes(:author).each do |proposal|
+            Decidim::EventsManager.publish(
+              event: "decidim.events.accountability.proposal_linked",
+              event_class: Decidim::Accountability::ProposalLinkedEvent,
+              resource: result,
+              recipient_ids: Array(proposal&.author&.id) + proposal.followers.pluck(:id),
+              extra: {
+                proposal_id: proposal.id
+              }
+            )
+          end
         end
       end
     end

@@ -30,19 +30,17 @@ module Decidim
       attr_reader :user, :current_user
 
       def unofficialize_user
-        transaction do
-          Decidim::ActionLogger.log(
-            "unofficialize",
-            current_user,
-            user,
-            extra: {
-              officialized_user_badge: nil,
-              officialized_user_badge_previous: user.officialized_as,
-              officialized_user_at: nil,
-              officialized_user_at_previous: user.officialized_at
-            }
-          )
-
+        Decidim.traceability.perform_action!(
+          "unofficialize",
+          user,
+          current_user,
+          extra: {
+            officialized_user_badge: nil,
+            officialized_user_badge_previous: user.officialized_as,
+            officialized_user_at: nil,
+            officialized_user_at_previous: user.officialized_at
+          }
+        ) do
           user.update!(officialized_at: nil, officialized_as: nil)
         end
       end

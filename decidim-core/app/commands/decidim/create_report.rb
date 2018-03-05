@@ -75,7 +75,7 @@ module Decidim
     end
 
     def hide!
-      Decidim::Admin::HideResource.new(@reportable).call
+      Decidim::Admin::HideResource.new(@reportable, @current_user).call
     end
 
     def send_hide_notification_to_admins

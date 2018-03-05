@@ -6,12 +6,15 @@ module Decidim
   # their own participatory processes.
   class Organization < ApplicationRecord
     include Decidim::Traceable
+    include Decidim::Loggable
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
 
     has_many :static_pages, foreign_key: "decidim_organization_id", class_name: "Decidim::StaticPage", inverse_of: :organization, dependent: :destroy
     has_many :scopes, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::Scope", inverse_of: :organization
     has_many :scope_types, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::ScopeType", inverse_of: :organization
+    has_many :areas, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::Area", inverse_of: :organization
+    has_many :area_types, -> { order(name: :asc) }, foreign_key: "decidim_organization_id", class_name: "Decidim::AreaType", inverse_of: :organization
     has_many :admins, -> { where(admin: true) }, foreign_key: "decidim_organization_id", class_name: "Decidim::User"
     has_many :users_with_any_role, -> { where.not(roles: []) }, foreign_key: "decidim_organization_id", class_name: "Decidim::User"
     has_many :users, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
@@ -26,6 +29,10 @@ module Decidim
     mount_uploader :logo, Decidim::OrganizationLogoUploader
     mount_uploader :favicon, Decidim::OrganizationFaviconUploader
     mount_uploader :highlighted_content_banner_image, ImageUploader
+
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::OrganizationPresenter
+    end
 
     # Returns top level scopes for this organization.
     #

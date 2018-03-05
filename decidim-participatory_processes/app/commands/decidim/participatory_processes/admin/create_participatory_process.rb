@@ -24,6 +24,7 @@ module Decidim
           process = create_participatory_process
 
           if process.persisted?
+            add_admins_as_followers(process)
             broadcast(:ok, process)
           else
             form.errors.add(:hero_image, process.errors[:hero_image]) if process.errors.include? :hero_image
@@ -84,11 +85,21 @@ module Decidim
             "create",
             form.current_user,
             process,
-            version: {
-              number: process.versions.count,
-              id: process.versions.last.id
-            }
+            process.versions.last.id
           )
+        end
+
+        def add_admins_as_followers(process)
+          process.organization.admins.each do |admin|
+            form = Decidim::FollowForm
+                   .from_params(followable_gid: process.to_signed_global_id.to_s)
+                   .with_context(
+                     current_organization: process.organization,
+                     current_user: admin
+                   )
+
+            Decidim::CreateFollow.new(form, admin).call
+          end
         end
       end
     end

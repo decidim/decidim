@@ -29,7 +29,7 @@ module Decidim
           def define_assembly_abilities; end
 
           # Abstract: A subclass must define this method returning a valid role.
-          # See ParticipatoryProcessUserRoles::ROLES for more information.
+          # See AssemblyUserRole::ROLES for more information.
           def role
             raise "Needs implementation"
           end

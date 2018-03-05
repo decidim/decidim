@@ -81,6 +81,9 @@ jobs:
       - run:
           name: Run main folder RSpec
           command: bundle exec rspec
+      - run:
+          name: Run rubocop
+          command: bundle exec rubocop
   core:
     <<: *defaults
     steps:
@@ -349,7 +352,6 @@ jobs:
       - restore_cache:
           keys:
             - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run: export CODECOV_FLAG=verifications
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -369,7 +371,6 @@ jobs:
       - restore_cache:
           keys:
             - bundler-dependencies-{{ checksum "Gemfile.lock" }}
-      - run: export CODECOV_FLAG=debates
       - run:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -411,8 +412,10 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - build_design_app
-
+      - build_design_app:
+          filters:
+            branches:
+              ignore: /^l10n_master$/
       - build_test_app:
           filters:
             branches:

@@ -3,10 +3,13 @@ en:
   activemodel:
     attributes:
       proposal:
+        answer: Answer
+        answered_at: Answered at
         body: Body
         category_id: Category
         has_address: Has address
         scope_id: Scope
+        state: State
         title: Title
         user_group_id: Create proposal as
       proposal_answer:
@@ -17,6 +20,16 @@ en:
   decidim:
     events:
       proposals:
+        creation_enabled:
+          email_intro: 'You can now create new proposals in %{participatory_space_title}! Start participating in this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: Proposals now available in %{participatory_space_title}
+          notification_title: You can now start <a href="%{resource_path}">new proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        endorsing_enabled:
+          email_intro: 'You can endorse proposals in %{participatory_space_title}! Start participating in this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: Proposals endorsing has started for %{participatory_space_title}
+          notification_title: You can now start <a href="%{resource_path}">endorsing proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'The proposal "%{resource_title}" has been accepted. You can read the answer in this page:'
           email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
@@ -47,6 +60,16 @@ en:
           email_outro: You have received this notification because you are following "%{resource_title}". You can unfollow it from the previous link.
           email_subject: A proposal you're following has been rejected
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal has been rejected.
+        proposal_update_category:
+          email_intro: 'An admin has updated the category of your proposal "%{resource_title}", check it out:'
+          email_outro: You have received this notification because you are the author of the proposal.
+          email_subject: The %{resource_title} proposal category has been updated
+          notification_title: The <a href="%{resource_path}">%{resource_title}</a> proposal category has been updated by an admin.
+        voting_enabled:
+          email_intro: 'You can vote proposals in %{participatory_space_title}! Start participating in this page:'
+          email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
+          email_subject: Proposals voting has started for %{participatory_space_title}
+          notification_title: You can now start <a href="%{resource_path}">voting proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     features:
       proposals:
         actions:
@@ -59,6 +82,7 @@ en:
           global:
             announcement: Announcement
             attachments_allowed: Allow attachments
+            can_accumulate_supports_beyond_threshold: Can accumulate supports beyond threshold
             comments_enabled: Comments enabled
             geocoding_enabled: Geocoding enabled
             maximum_votes_per_proposal: Maximum votes per proposal
@@ -66,6 +90,7 @@ en:
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
             proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
+            proposal_length: Maximum proposal body length
             proposal_limit: Proposal limit per user
             proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
             proposal_wizard_step_2_help_text: Proposal wizard "Compare" step help text
@@ -81,6 +106,20 @@ en:
             votes_blocked: Votes blocked
             votes_enabled: Votes enabled
             votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_proposals:
+          proposals: Proposals
+        proposal:
+          creation_date: 'Creation: %{date}'
+          view_proposal: View proposal
+    participatory_spaces:
+      highlighted_proposals:
+        proposals: Proposals
+        see_all_proposals: See all proposals
+      proposal:
+        creation_date: 'Creation: %{date}'
+        view_proposal: View proposal
     proposals:
       actions:
         answer: Answer
@@ -124,10 +163,20 @@ en:
             attachment_legend: "(Optional) Add an attachment"
             select_a_category: Select a category
           index:
+            actions: Actions
+            cancel: Cancel
+            change_category: Change category
+            selected: selected
             title: Proposals
+            update: Update
           new:
             create: Create
             title: Create proposal
+          update_category:
+            invalid: 'These proposals already had the %{category} category: %{proposals}.'
+            select_a_category: Please select a category
+            select_a_proposal: Please select a proposal
+            success: 'Proposals successfully updated to the %{category} category: %{proposals}.'
         proposals_imports:
           create:
             invalid: There's been a problem importing the proposals
@@ -143,6 +192,9 @@ en:
             created_at: Creation date
             proposal_votes_count: Votes count
             proposals: Proposals
+      admin_log:
+        proposal:
+          answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
       answers:
         accepted: Accepted
         evaluating: Evaluating
@@ -171,6 +223,7 @@ en:
         create:
           error: There's been errors when endorsing the proposal.
         identities:
+          done: Done
           select_identity: Select identity
       proposal_endorsements_helper:
         endorsement_button:
@@ -201,12 +254,11 @@ en:
           already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: Endorse
-        endorsements_count:
-          count:
-            one: ENDORSEMENT
-            other: ENDORSEMENTS
+        endorsements_card_row:
+          endorse: Endorse
         endorsements_listing:
-          see_all: see all
+          see_all: See all
+          see_less: See less
           title: List of Endorsements
         filters:
           accepted: Accepted
@@ -258,11 +310,13 @@ en:
           view_proposal: View proposal
         show:
           edit_proposal: Edit proposal
-          endorsements_blocked: Endorsements blocked
           proposal_accepted_reason: 'This proposal has been accepted because:'
           proposal_in_evaluation_reason: This proposal is being evaluated
           proposal_rejected_reason: 'This proposal has been rejected because:'
           report: Report
+          sign_in: Sign in
+          sign_in_or_up: "%{in} or %{up} to participate"
+          sign_up: sign up
           withdraw_btn_hint: You can withdraw your proposal if you change your mind, as long as you have not received any support. The proposal is not deleted, it will appear in the list of withdrawn proposals.
           withdraw_confirmation: Are you sure to withdraw this proposal?
           withdraw_proposal: Withdraw proposal
@@ -277,7 +331,11 @@ en:
           count:
             one: VOTE
             other: VOTES
+          most_popular_proposal: Most popular proposal
+          need_more_votes: Need more votes
         voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Each proposal can accumulate more than maximum votes
           maximum_votes_per_proposal:
             description: Each proposal can receive a maximum of %{limit} votes.
           proposal_limit:

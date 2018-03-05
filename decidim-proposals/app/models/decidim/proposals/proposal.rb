@@ -14,6 +14,8 @@ module Decidim
       include Decidim::HasAttachments
       include Decidim::Followable
       include Decidim::Proposals::CommentableProposal
+      include Decidim::Traceable
+      include Decidim::Loggable
 
       feature_manifest_name "proposals"
 
@@ -39,6 +41,10 @@ module Decidim
         end
       end
 
+      def self.log_presenter_class_for(_log)
+        Decidim::Proposals::AdminLog::ProposalPresenter
+      end
+
       # Public: Check if the user has voted the proposal.
       #
       # Returns Boolean.
@@ -47,6 +53,7 @@ module Decidim
       end
 
       # Public: Check if the user has endorsed the proposal.
+      # - user_group: may be nil if user is not representing any user_group.
       #
       # Returns Boolean.
       def endorsed_by?(user, user_group = nil)
@@ -115,6 +122,13 @@ module Decidim
         return false unless maximum_votes
 
         votes.count >= maximum_votes
+      end
+
+      # Public: Can accumulate more votres than maximum for this proposal.
+      #
+      # Returns true if can accumulate, false otherwise
+      def can_accumulate_supports_beyond_threshold
+        feature.settings.can_accumulate_supports_beyond_threshold
       end
 
       # Checks whether the user can edit the given proposal.

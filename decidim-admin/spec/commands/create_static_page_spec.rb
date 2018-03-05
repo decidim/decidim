@@ -26,7 +26,7 @@ module Decidim::Admin
         it "doesn't create a page" do
           expect do
             command.call
-          end.not_to change { Decidim::StaticPage.count }
+          end.not_to change(Decidim::StaticPage, :count)
         end
       end
 
@@ -35,15 +35,23 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:ok)
         end
 
-        it "uses traceability to create the page" do
-          expect(Decidim.traceability).to receive(:create!)
-          command.call
+        it "uses traceability to create the page", versioning: true do
+          expect(Decidim.traceability)
+            .to receive(:create!)
+            .with(Decidim::StaticPage, user, hash_including(:title, :slug, :content, :organization))
+            .and_call_original
+
+          expect { command.call }.to change(Decidim::ActionLog, :count)
+
+          action_log = Decidim::ActionLog.last
+          expect(action_log.version).to be_present
+          expect(action_log.version.event).to eq "create"
         end
 
         it "creates a page in the organization" do
           expect do
             command.call
-          end.to change { organization.static_pages.count }.by(1)
+          end.to change(organization.static_pages, :count).by(1)
         end
       end
     end

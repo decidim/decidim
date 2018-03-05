@@ -58,11 +58,13 @@ module Decidim
 
       def destroy
         authorize! :destroy, scope
-        scope.destroy!
 
-        flash[:notice] = I18n.t("scopes.destroy.success", scope: "decidim.admin")
-
-        redirect_to current_scopes_path
+        DestroyScope.call(scope, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("scopes.destroy.success", scope: "decidim.admin")
+            redirect_to current_scopes_path
+          end
+        end
       end
 
       private

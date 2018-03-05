@@ -6,6 +6,7 @@ AllCops:
     - "**/vendor/**/*"
     - "development_app/**/*"
     - "spec/decidim_dummy_app/**/*"
+    - "node_modules/**/*"
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
@@ -598,6 +599,8 @@ Style/Lambda:
     - line_count_dependent
     - lambda
     - literal
+  Exclude:
+    - "**/types/**/*"
 
 Style/LambdaCall:
   EnforcedStyle: call
@@ -1082,6 +1085,8 @@ Metrics/LineLength:
   URISchemes:
     - http
     - https
+  Exclude:
+    - "**/spec/**/*"
 
 Metrics/MethodLength:
   CountComments: false  # count full line comments?
@@ -1099,9 +1104,10 @@ Metrics/PerceivedComplexity:
 
 ##################### Lint ##################################
 
-# TODO: This cop was buggy in 0.48.1. Reenable when upgrading to 0.49.0
 Lint/AmbiguousBlockAssociation:
-  Enabled: false
+  Enabled: true
+  Exclude:
+    - "**/abilities/**/*"
 
 # Allow safe assignment in conditions.
 Lint/AssignmentInCondition:
@@ -1159,103 +1165,6 @@ Performance/RedundantMerge:
   # Max number of key-value pairs to consider an offense
   MaxKeyValuePairs: 2
 
-##################### Rails ##################################
-
-Rails:
-  Enabled: true
-
-Rails/ActionFilter:
-  EnforcedStyle: action
-  SupportedStyles:
-    - action
-    - filter
-  Include:
-    - "*/app/controllers/**/*.rb"
-
-Rails/Date:
-  # The value `strict` disallows usage of `Date.today`, `Date.current`,
-  # `Date#to_time` etc.
-  # The value `flexible` allows usage of `Date.current`, `Date.yesterday`, etc
-  # (but not `Date.today`) which are overridden by ActiveSupport to handle current
-  # time zone.
-  EnforcedStyle: flexible
-  SupportedStyles:
-    - strict
-    - flexible
-
-Rails/Exit:
-  Include:
-    - "*/app/**/*.rb"
-    - config/**/*.rb
-    - lib/**/*.rb
-
-Rails/FindBy:
-  Include:
-    - "*/app/models/**/*.rb"
-
-Rails/FindEach:
-  Include:
-    - "*/app/models/**/*.rb"
-
-Rails/HasAndBelongsToMany:
-  Include:
-    - "*/app/models/**/*.rb"
-
-Rails/NotNullColumn:
-  Include:
-    - db/migrate/*.rb
-
-Rails/Output:
-  Include:
-    - "*/app/**/*.rb"
-    - config/**/*.rb
-    - db/**/*.rb
-    - lib/**/*.rb
-
-Rails/OutputSafety:
-  Enabled: false
-
-Rails/ReadWriteAttribute:
-  Include:
-    - "*/app/models/**/*.rb"
-
-Rails/RequestReferer:
-  EnforcedStyle: referer
-  SupportedStyles:
-    - referer
-    - referrer
-
-Rails/SafeNavigation:
-  # This will convert usages of `try` to use safe navigation as well as `try!`.
-  # `try` and `try!` work slighly differently. `try!` and safe navigation will
-  # both raise a `NoMethodError` if the receiver of the method call does not
-  # implement the intended method. `try` will not raise an exception for this.
-  ConvertTry: false
-
-Rails/ScopeArgs:
-  Include:
-    - "*/app/models/**/*.rb"
-
-Rails/TimeZone:
-  # The value `strict` means that `Time` should be used with `zone`.
-  # The value `flexible` allows usage of `in_time_zone` instead of `zone`.
-  EnforcedStyle: flexible
-  SupportedStyles:
-    - strict
-    - flexible
-
-Rails/UniqBeforePluck:
-  EnforcedStyle: conservative
-  AutoCorrect: false
-
-Rails/Validation:
-  Include:
-    - "*/app/models/**/*.rb"
-
-Rails/HasManyOrHasOneDependent:
-  Include:
-    - "**/*/app/models/**/*.rb"
-
 Metrics/BlockLength:
   Enabled: false
 
@@ -1272,7 +1181,6 @@ RSpec/ContextWording:
 
 RSpec/DescribeClass:
   Exclude:
-    - "**/*/spec/system/**/*" # TODO: Fixed in rubocop-rspec 1.22.0, remove when bumping to it
     - spec/i18n_spec.rb
     - spec/generator_spec.rb
     - decidim-comments/spec/bundle_spec.rb

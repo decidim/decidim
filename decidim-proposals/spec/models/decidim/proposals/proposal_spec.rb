@@ -19,6 +19,7 @@ module Decidim
       include_examples "reportable"
 
       it { is_expected.to be_valid }
+      it { is_expected.to be_versioned }
 
       it "has a votes association returning proposal votes" do
         expect(subject.votes.count).to eq(0)

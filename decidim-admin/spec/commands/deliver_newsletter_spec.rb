@@ -44,12 +44,19 @@ module Decidim::Admin
         expect(newsletter.total_recipients).to eq(5)
       end
 
-      it "logs the action" do
-        expect(Decidim::ActionLogger)
-          .to receive(:log)
-          .with("deliver", delivering_user, newsletter)
+      it "logs the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with("deliver", newsletter, delivering_user)
+          .and_call_original
 
-        command.call
+        expect do
+          perform_enqueued_jobs { command.call }
+        end.to change(Decidim::ActionLog, :count)
+
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+        expect(action_log.version.event).to eq "update"
       end
     end
   end

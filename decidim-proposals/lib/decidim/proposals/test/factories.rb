@@ -41,6 +41,14 @@ FactoryBot.define do
       end
     end
 
+    trait :with_votes_hidden do
+      step_settings do
+        {
+          participatory_space.active_step.id => { votes_hidden: true }
+        }
+      end
+    end
+
     trait :with_vote_limit do
       transient do
         vote_limit 10
@@ -118,6 +126,14 @@ FactoryBot.define do
         }
       end
     end
+
+    trait :with_can_accumulate_supports_beyond_threshold do
+      settings do
+        {
+          can_accumulate_supports_beyond_threshold: true
+        }
+      end
+    end
   end
 
   factory :proposal, class: "Decidim::Proposals::Proposal" do
@@ -125,6 +141,8 @@ FactoryBot.define do
     body { Faker::Lorem.sentences(3).join("\n") }
     feature { create(:proposal_feature) }
     published_at { Time.current }
+    address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
+
     author do
       create(:user, organization: feature.organization) if feature
     end
@@ -159,6 +177,18 @@ FactoryBot.define do
 
     trait :draft do
       published_at nil
+    end
+
+    trait :with_votes do
+      after :create do |proposal|
+        create_list(:proposal_vote, 5, proposal: proposal)
+      end
+    end
+
+    trait :with_endorsements do
+      after :create do |proposal|
+        create_list(:proposal_endorsement, 5, proposal: proposal)
+      end
     end
   end
 
