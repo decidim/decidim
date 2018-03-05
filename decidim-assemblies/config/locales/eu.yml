@@ -2,6 +2,7 @@ eu:
   activemodel:
     attributes:
       assembly:
+        area_id: Area
         banner_image: Bannerra
         copy_categories: Kopiatu kategoriak
         copy_features: Kopiatu funtzionalitateak
@@ -149,6 +150,7 @@ eu:
         answers_count: Erantzunak
         assemblies_count: Biltzarrak
         comments_count: Iruzkinak
+        endorsements_count: Oniritziak
         headline: Jarduera
         meetings_count: Topaketak
         orders_count: Euskarriak
