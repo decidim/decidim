@@ -41,10 +41,8 @@ module Decidim
               proposal: proposal,
               author: form.current_user
             },
-            {
-              resource: {
-                title: proposal.title
-              }
+            resource: {
+              title: proposal.title
             }
           )
         end
