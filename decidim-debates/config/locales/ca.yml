@@ -43,6 +43,7 @@ ca:
       admin_log:
         debate:
           create: "%{user_name} ha creat el %{resource_name} debat sobre l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat el %{resource_name} debat sobre l'espai %{space_name}"
       debates:
         count:
           debates_count:
