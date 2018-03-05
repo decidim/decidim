@@ -12,8 +12,8 @@ module Decidim::Budgets
 
     it { is_expected.to be_valid }
 
-    context "without a feature" do
-      let(:project) { build :project, feature: nil }
+    context "without a component" do
+      let(:project) { build :project, component: nil }
 
       it { is_expected.not_to be_valid }
     end
@@ -34,8 +34,8 @@ module Decidim::Budgets
 
     describe "#orders_count" do
       let(:project) { create :project, budget: 75_000_000 }
-      let(:order) { create :order, feature: project.feature }
-      let(:unfinished_order) { create :order, feature: project.feature }
+      let(:order) { create :order, component: project.component }
+      let(:unfinished_order) { create :order, component: project.component }
       let!(:line_item) { create :line_item, project: project, order: order }
       let!(:line_item_1) { create :line_item, project: project, order: unfinished_order }
 

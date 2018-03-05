@@ -19,16 +19,16 @@ describe "Answer a survey", type: :system do
       "es" => "<p>Contenido de la encuesta</p>"
     }
   end
-  let(:user) { create(:user, :confirmed, organization: feature.organization) }
-  let!(:survey) { create(:survey, feature: feature, title: title, description: description) }
+  let(:user) { create(:user, :confirmed, organization: component.organization) }
+  let!(:survey) { create(:survey, component: component, title: title, description: description) }
   let!(:survey_question_1) { create(:survey_question, survey: survey, position: 1) }
   let!(:survey_question_2) { create(:survey_question, survey: survey, position: 0) }
 
-  include_context "with a feature"
+  include_context "with a component"
 
   context "when the survey doesn't allow answers" do
     it "the survey cannot be answered" do
-      visit_feature
+      visit_component
 
       expect(page).to have_i18n_content(survey.title, upcase: true)
       expect(page).to have_i18n_content(survey.description)
@@ -42,9 +42,9 @@ describe "Answer a survey", type: :system do
 
   context "when the survey allow answers" do
     before do
-      feature.update!(
+      component.update!(
         step_settings: {
-          feature.participatory_space.active_step.id => {
+          component.participatory_space.active_step.id => {
             allow_answers: true
           }
         }
@@ -53,7 +53,7 @@ describe "Answer a survey", type: :system do
 
     context "when the user is not logged in" do
       it "the survey cannot be answered" do
-        visit_feature
+        visit_component
 
         expect(page).to have_i18n_content(survey.title, upcase: true)
         expect(page).to have_i18n_content(survey.description)
@@ -71,7 +71,7 @@ describe "Answer a survey", type: :system do
       end
 
       it "the survey can be answered" do
-        visit_feature
+        visit_component
 
         expect(page).to have_i18n_content(survey.title, upcase: true)
         expect(page).to have_i18n_content(survey.description)
@@ -93,7 +93,7 @@ describe "Answer a survey", type: :system do
       end
 
       it "the questions are ordered by position" do
-        visit_feature
+        visit_component
 
         form_fields = all(".answer-survey .row")
 
@@ -105,7 +105,7 @@ describe "Answer a survey", type: :system do
         let!(:survey_question_2) { create(:survey_question, survey: survey, position: 0, mandatory: true) }
 
         it "users cannot leave that question blank" do
-          visit_feature
+          visit_component
 
           check "survey_tos_agreement"
 
@@ -123,7 +123,7 @@ describe "Answer a survey", type: :system do
         let!(:survey_question_2) { create(:survey_question, survey: survey, question_type: "long_answer") }
 
         it "the question answer is rendered as a textarea" do
-          visit_feature
+          visit_component
 
           expect(page).to have_selector("textarea#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body")
           expect(page).to have_selector("textarea#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body")
@@ -136,7 +136,7 @@ describe "Answer a survey", type: :system do
         let!(:survey_question_2) { create(:survey_question, survey: survey, question_type: "single_option", answer_options: [answer_options[2], answer_options[3]]) }
 
         it "the question answers are rendered as a collection of radio buttons" do
-          visit_feature
+          visit_component
 
           expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type='radio']", count: 2)
           expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type='radio']", count: 2)
@@ -169,7 +169,7 @@ describe "Answer a survey", type: :system do
         let!(:survey_question_2) { create(:survey_question, survey: survey, question_type: "multiple_option", answer_options: [answer_options[2], answer_options[3]]) }
 
         it "the question answers are rendered as a collection of radio buttons" do
-          visit_feature
+          visit_component
 
           expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type='checkbox']", count: 2)
           expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type='checkbox']", count: 2)
@@ -203,7 +203,7 @@ describe "Answer a survey", type: :system do
         let!(:survey_question_2) { create(:survey_question, survey: survey, question_type: "multiple_option", answer_options: [answer_options[2], answer_options[3]]) }
 
         it "the question answers are rendered as a collection of radio buttons" do
-          visit_feature
+          visit_component
 
           expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type='checkbox']", count: 2)
           expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type='checkbox']", count: 2)

@@ -2,30 +2,30 @@
 
 module Decidim
   # This class is used to authorize a user against an action in the context of a
-  # feature.
+  # component.
   class ActionAuthorizer
     #
     # Initializes the ActionAuthorizer.
     #
     # user    - The user to authorize against.
-    # feature - The feature to authenticate against.
+    # component - The component to authenticate against.
     # action  - The action to authenticate.
     #
-    def initialize(user, feature, action)
+    def initialize(user, component, action)
       @user = user
-      @feature = feature
+      @component = component
       @action = action.to_s if action
     end
 
     #
-    # Authorize user to perform an action in the context of a feature.
+    # Authorize user to perform an action in the context of a component.
     #
     # Returns:
     #   :ok an empty hash                      - When there is no authorization handler related to the action.
     #   result of authorization handler check  - When there is an authorization handler related to the action. Check Decidim::Verifications::DefaultActionAuthorizer class docs.
     #
     def authorize
-      raise AuthorizationError, "Missing data" unless feature && action
+      raise AuthorizationError, "Missing data" unless component && action
 
       status_code, data = if authorization_handler_name
                             authorization_handler.authorize(authorization, permission_options)
@@ -38,7 +38,7 @@ module Decidim
 
     private
 
-    attr_reader :user, :feature, :action
+    attr_reader :user, :component, :action
 
     def authorization
       return nil unless user && authorization_handler_name
@@ -61,9 +61,9 @@ module Decidim
     end
 
     def permission
-      return nil unless feature && action
+      return nil unless component && action
 
-      @permission ||= feature.permissions&.fetch(action, nil)
+      @permission ||= component.permissions&.fetch(action, nil)
     end
 
     class AuthorizationStatus

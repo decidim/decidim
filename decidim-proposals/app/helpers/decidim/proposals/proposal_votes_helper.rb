@@ -28,11 +28,11 @@ module Decidim
       #
       # Returns an Integer if set, nil otherwise.
       def vote_limit
-        return nil if feature_settings.vote_limit.zero?
-        feature_settings.vote_limit
+        return nil if component_settings.vote_limit.zero?
+        component_settings.vote_limit
       end
 
-      # Check if the vote limit is enabled for the current feature
+      # Check if the vote limit is enabled for the current component
       #
       # Returns true if the vote limit is enabled
       def vote_limit_enabled?
@@ -50,15 +50,15 @@ module Decidim
       #
       # Returns an Integer with the maximum amount of votes, nil otherwise.
       def maximum_votes_per_proposal
-        return nil unless feature_settings.maximum_votes_per_proposal.positive?
-        feature_settings.maximum_votes_per_proposal
+        return nil unless component_settings.maximum_votes_per_proposal.positive?
+        component_settings.maximum_votes_per_proposal
       end
 
       # Public: Checks if can accumulate more than maxium is enabled
       #
       # Returns true if enabled, false otherwise.
       def can_accumulate_supports_beyond_threshold?
-        feature_settings.can_accumulate_supports_beyond_threshold
+        component_settings.can_accumulate_supports_beyond_threshold
       end
 
       # Public: Checks if voting is enabled in this step.
@@ -82,16 +82,16 @@ module Decidim
         current_user && votes_enabled? && vote_limit_enabled? && !votes_blocked?
       end
 
-      # Return the remaining votes for a user if the current feature has a vote limit
+      # Return the remaining votes for a user if the current component has a vote limit
       #
       # user - A User object
       #
       # Returns a number with the remaining votes for that user
       def remaining_votes_count_for(user)
         return 0 unless vote_limit_enabled?
-        proposals = Proposal.where(feature: current_feature)
+        proposals = Proposal.where(component: current_component)
         votes_count = ProposalVote.where(author: user, proposal: proposals).size
-        feature_settings.vote_limit - votes_count
+        component_settings.vote_limit - votes_count
       end
     end
   end

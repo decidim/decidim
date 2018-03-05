@@ -1,10 +1,10 @@
 # Decidim::Proposals
 
-The Proposals module adds one of the main features of Decidim: allows users to contribute to a participatory process by creating proposals.
+The Proposals module adds one of the main components of Decidim: allows users to contribute to a participatory process by creating proposals.
 
 ## Usage
 
-Proposals will be available as a Feature for a Participatory Process.
+Proposals will be available as a Component for a Participatory Process.
 
 ## Installation
 

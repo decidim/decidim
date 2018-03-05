@@ -6,19 +6,19 @@ module Decidim
     # title, description and any other useful information to render a custom
     # debate.
     class Debate < Debates::ApplicationRecord
-      include Decidim::HasFeature
+      include Decidim::HasComponent
       include Decidim::HasCategory
       include Decidim::Resourceable
       include Decidim::Followable
       include Decidim::Comments::Commentable
-      include Decidim::ScopableFeature
+      include Decidim::ScopableComponent
       include Decidim::Authorable
       include Decidim::Reportable
       include Decidim::HasReference
       include Decidim::Traceable
       include Decidim::Loggable
 
-      feature_manifest_name "debates"
+      component_manifest_name "debates"
 
       validates :title, presence: true
 
@@ -64,7 +64,7 @@ module Decidim
 
       # Public: Overrides the `commentable?` Commentable concern method.
       def commentable?
-        feature.settings.comments_enabled?
+        component.settings.comments_enabled?
       end
 
       # Public: Overrides the `accepts_new_comments?` Commentable concern method.
@@ -95,14 +95,14 @@ module Decidim
 
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`
       def users_to_notify_on_comment_created
-        return (followers | feature.participatory_space.admins).uniq if official?
+        return (followers | component.participatory_space.admins).uniq if official?
         followers
       end
 
       private
 
       def comments_blocked?
-        feature.current_settings.comments_blocked
+        component.current_settings.comments_blocked
       end
     end
   end

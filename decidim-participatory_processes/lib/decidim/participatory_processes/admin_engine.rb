@@ -37,8 +37,8 @@ module Decidim
         scope "/participatory_processes/:participatory_process_slug" do
           resources :categories
 
-          resources :features do
-            resource :permissions, controller: "feature_permissions"
+          resources :components do
+            resource :permissions, controller: "component_permissions"
             member do
               put :publish
               put :unpublish
@@ -54,11 +54,11 @@ module Decidim
           end
         end
 
-        scope "/participatory_processes/:participatory_process_slug/features/:feature_id/manage" do
-          Decidim.feature_manifests.each do |manifest|
+        scope "/participatory_processes/:participatory_process_slug/components/:component_id/manage" do
+          Decidim.component_manifests.each do |manifest|
             next unless manifest.admin_engine
 
-            constraints CurrentFeature.new(manifest) do
+            constraints CurrentComponent.new(manifest) do
               mount manifest.admin_engine, at: "/", as: "decidim_admin_participatory_process_#{manifest.name}"
             end
           end

@@ -3,7 +3,7 @@
 require "active_support/concern"
 
 module Decidim
-  # A concern with the features needed when you want a model to have a
+  # A concern with the components needed when you want a model to have a
   # reference.
   module HasReference
     extend ActiveSupport::Concern
@@ -20,12 +20,12 @@ module Decidim
       private
 
       # Public: Calculates a unique reference for the model using the function
-      # provided by configuration. Works for both feature resources and
+      # provided by configuration. Works for both component resources and
       # participatory spaces.
       #
       # Returns a String.
       def calculate_reference
-        Decidim.reference_generator.call(self, respond_to?(:feature) ? feature : nil)
+        Decidim.reference_generator.call(self, respond_to?(:component) ? component : nil)
       end
 
       # Internal: Sets the unique reference to the model. Note that if the resource

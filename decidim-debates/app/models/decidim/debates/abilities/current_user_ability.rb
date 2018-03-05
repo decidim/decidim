@@ -23,9 +23,9 @@ module Decidim
         private
 
         def authorized?(action)
-          return unless feature
+          return unless component
 
-          ActionAuthorizer.new(user, feature, action).authorize.ok?
+          ActionAuthorizer.new(user, component, action).authorize.ok?
         end
 
         def creation_enabled?
@@ -37,11 +37,11 @@ module Decidim
           context.fetch(:current_settings, nil)
         end
 
-        def feature
-          feature = context.fetch(:current_feature, nil)
-          return nil unless feature && feature.manifest.name == :debates
+        def component
+          component = context.fetch(:current_component, nil)
+          return nil unless component && component.manifest.name == :debates
 
-          feature
+          component
         end
       end
     end

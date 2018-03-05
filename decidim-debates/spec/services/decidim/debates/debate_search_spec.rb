@@ -5,13 +5,13 @@ require "spec_helper"
 describe Decidim::Debates::DebateSearch do
   subject { described_class.new(params).results }
 
-  let(:current_feature) { create :feature, manifest_name: "debates" }
-  let(:parent_category) { create :category, participatory_space: current_feature.participatory_space }
+  let(:current_component) { create :component, manifest_name: "debates" }
+  let(:parent_category) { create :category, participatory_space: current_component.participatory_space }
   let(:subcategory) { create :subcategory, parent: parent_category }
   let!(:debate1) do
     create(
       :debate,
-      feature: current_feature,
+      component: current_component,
       start_time: 1.day.from_now,
       category: parent_category
     )
@@ -20,30 +20,30 @@ describe Decidim::Debates::DebateSearch do
     create(
       :debate,
       :with_author,
-      feature: current_feature,
+      component: current_component,
       start_time: 2.days.from_now,
       category: subcategory
     )
   end
   let(:external_debate) { create :debate }
-  let(:feature_id) { current_feature.id }
-  let(:organization_id) { current_feature.organization.id }
-  let(:default_params) { { feature: current_feature } }
+  let(:component_id) { current_component.id }
+  let(:organization_id) { current_component.organization.id }
+  let(:default_params) { { component: current_component } }
   let(:params) { default_params }
 
   describe "base query" do
-    context "when no feature is passed" do
-      let(:default_params) { { feature: nil } }
+    context "when no component is passed" do
+      let(:default_params) { { component: nil } }
 
       it "raises an error" do
-        expect { subject }.to raise_error(StandardError, "Missing feature")
+        expect { subject }.to raise_error(StandardError, "Missing component")
       end
     end
   end
 
   describe "filters" do
-    describe "feature_id" do
-      it "only returns debates from the given feature" do
+    describe "component_id" do
+      it "only returns debates from the given component" do
         external_debate = create(:debate)
 
         expect(subject).not_to include(external_debate)
@@ -101,7 +101,7 @@ describe Decidim::Debates::DebateSearch do
         end
       end
 
-      context "when the category does not belong to the current feature" do
+      context "when the category does not belong to the current component" do
         let(:external_category) { create :category }
         let(:params) { default_params.merge(category_id: external_category.id) }
 

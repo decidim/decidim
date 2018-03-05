@@ -3,18 +3,18 @@
 module Decidim
   module Budgets
     # The data store for a Order in the Decidim::Budgets component. It is unique for each
-    # user and feature and contains a collection of projects
+    # user and component and contains a collection of projects
     class Order < Budgets::ApplicationRecord
-      include Decidim::HasFeature
+      include Decidim::HasComponent
 
-      feature_manifest_name "budgets"
+      component_manifest_name "budgets"
 
       belongs_to :user, class_name: "Decidim::User", foreign_key: "decidim_user_id"
 
       has_many :line_items, class_name: "Decidim::Budgets::LineItem", foreign_key: "decidim_order_id", dependent: :destroy
       has_many :projects, through: :line_items, class_name: "Decidim::Budgets::Project", foreign_key: "decidim_project_id"
 
-      validates :user, uniqueness: { scope: :feature }
+      validates :user, uniqueness: { scope: :component }
       validate :user_belongs_to_organization
 
       validates :total_budget, numericality: {
@@ -45,25 +45,25 @@ module Decidim
 
       # Public: Returns the order budget percent from the settings total budget
       def budget_percent
-        (total_budget.to_f / feature.settings.total_budget.to_f) * 100
+        (total_budget.to_f / component.settings.total_budget.to_f) * 100
       end
 
       # Public: Returns the required minimum budget to checkout
       def minimum_budget
-        return 0 unless feature
-        feature.settings.total_budget.to_f * (feature.settings.vote_threshold_percent.to_f / 100)
+        return 0 unless component
+        component.settings.total_budget.to_f * (component.settings.vote_threshold_percent.to_f / 100)
       end
 
       # Public: Returns the required maximum budget to checkout
       def maximum_budget
-        return 0 unless feature
-        feature.settings.total_budget.to_f
+        return 0 unless component
+        component.settings.total_budget.to_f
       end
 
       private
 
       def user_belongs_to_organization
-        organization = feature&.organization
+        organization = component&.organization
 
         return if !user || !organization
         errors.add(:user, :invalid) unless user.organization == organization

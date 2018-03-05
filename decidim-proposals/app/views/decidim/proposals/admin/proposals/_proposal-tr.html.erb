@@ -34,7 +34,7 @@
     </td>
   <% end %>
 
-  <% if current_feature.settings.comments_enabled? and !current_settings.comments_blocked? %>
+  <% if current_component.settings.comments_enabled? and !current_settings.comments_blocked? %>
     <td>
       <%= proposal.comments.count %>
     </td>

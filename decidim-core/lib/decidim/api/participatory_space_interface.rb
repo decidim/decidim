@@ -14,7 +14,7 @@ module Decidim
         description "Lists the components this space contains."
 
         resolve ->(participatory_space, _args, _ctx) {
-                  Decidim::Feature.where(
+                  Decidim::Component.where(
                     participatory_space: participatory_space
                   ).published
                 }
@@ -22,10 +22,10 @@ module Decidim
 
       field :stats, types[Decidim::Core::StatisticType] do
         resolve ->(participatory_space, _args, _ctx) {
-          published_features = Feature.where(participatory_space: participatory_space).published
+          published_components = Component.where(participatory_space: participatory_space).published
 
-          stats = Decidim.feature_manifests.map do |feature_manifest|
-            feature_manifest.stats.with_context(published_features).map { |name, data| [name, data] }.flatten
+          stats = Decidim.component_manifests.map do |component_manifest|
+            component_manifest.stats.with_context(published_components).map { |name, data| [name, data] }.flatten
           end
 
           stats.reject(&:empty?)
