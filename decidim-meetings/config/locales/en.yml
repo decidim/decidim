@@ -135,6 +135,7 @@ en:
       admin_log:
         meeting:
           create: "%{user_name} created the %{resource_name} meeting on the %{space_name} space"
+          update: "%{user_name} updated the %{resource_name} meeting on the %{space_name} space"
       mailer:
         invite_join_meeting_mailer:
           invite:
