@@ -13,7 +13,7 @@ module Decidim::Meetings
       it "destroys the meeting" do
         subject.call
 
-        expect{ meeting.reload }.to raise_error(ActiveRecord::RecordNotFound)
+        expect { meeting.reload }.to raise_error(ActiveRecord::RecordNotFound)
       end
 
       it "traces the action", versioning: true do
