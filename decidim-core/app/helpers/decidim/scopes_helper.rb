@@ -13,7 +13,7 @@ module Decidim
     #
     # Returns boolean.
     def has_visible_scopes?(resource)
-      try(:current_participatory_space)&.try(:scopes_enabled?) && resource.scope.present? && current_participatory_space.try(:scope)&.id != resource.scope&.id
+      resource.participatory_space.scopes_enabled? && resource.scope.present? && resource.participatory_space.scope != resource.scope
     end
 
     # Retrieves the translated name and type for an scope.
@@ -37,7 +37,7 @@ module Decidim
     #
     # Returns nothing.
     def scopes_picker_field(form, name, root: false, options: {})
-      root = try(:current_participatory_space)&.scope if root == false
+      root = current_participatory_space.scope if root == false
       form.scopes_picker name, options do |scope|
         { url: decidim.scopes_picker_path(root: root, current: scope&.id, field: form.label_for(name)),
           text: scope_name_for_picker(scope, I18n.t("decidim.scopes.global")) }

@@ -26,7 +26,7 @@ module Decidim
       def define_participatory_process_abilities; end
 
       # Abstract: A subclass must define this method returning a valid role.
-      # See ParticipatoryProcessUserRoles::ROLES for more information.
+      # See ParticipatoryProcessUserRole::ROLES for more information.
       def role
         raise "Needs implementation"
       end
