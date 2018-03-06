@@ -9,6 +9,7 @@ describe Decidim::Debates::Admin::CreateDebate do
   let(:participatory_process) { create :participatory_process, organization: organization }
   let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "debates" }
   let(:category) { create :category, participatory_space: participatory_process }
+  let(:user) { create :user, :admin, :confirmed, organization: organization }
   let(:form) do
     double(
       invalid?: invalid,
@@ -19,6 +20,7 @@ describe Decidim::Debates::Admin::CreateDebate do
       start_time: 1.day.from_now,
       end_time: 1.day.from_now + 1.hour,
       category: category,
+      current_user: user,
       current_feature: current_feature
     )
   end
@@ -47,6 +49,18 @@ describe Decidim::Debates::Admin::CreateDebate do
     it "sets the feature" do
       subject.call
       expect(debate.feature).to eq current_feature
+    end
+
+    it "traces the action", versioning: true do
+      expect(Decidim.traceability)
+        .to receive(:create!)
+        .with(Decidim::Debates::Debate, user, hash_including(:category, :title, :description, :information_updates, :instructions, :end_time, :start_time, :feature))
+        .and_call_original
+
+      expect { subject.call }.to change(Decidim::ActionLog, :count)
+      action_log = Decidim::ActionLog.last
+      expect(action_log.version).to be_present
+      expect(action_log.version.event).to eq "create"
     end
 
     describe "events" do

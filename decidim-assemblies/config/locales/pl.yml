@@ -2,9 +2,12 @@ pl:
   activemodel:
     attributes:
       assembly:
+        area_id: Powierzchnia
         banner_image: Obraz baneru
         copy_categories: Kopiuj kategorie
         copy_features: Kopiuj funkcje
+        decidim_area_id: Powierzchnia
+        decidim_scope_id: Zakres
         description: Opis
         developer_group: Grupa programistyczna
         domain: Domena
@@ -15,9 +18,11 @@ pl:
         participatory_scope: Zakres partycypacji
         participatory_structure: Struktura partycypacji
         promoted: Lansowany
+        published_at: Opublikowano na
         scope_id: Zakres
         scopes_enabled: Zakresy włączone
         short_description: Krótki opis
+        show_statistics: Pokaż statystyki
         slug: Ślimak URL
         subtitle: Podtytuł
         target: Cel
@@ -80,6 +85,8 @@ pl:
         assemblies: Zespoły
         assemblies_submenu:
           assembly_admins: Użytkownicy montażu
+          attachment_collections: Kolekcje
+          attachment_files: Akta
           attachments: Załączniki
           categories: Kategorie
           features: cechy
@@ -105,10 +112,21 @@ pl:
             moderator: Moderator
       titles:
         assemblies: Zespoły
+    admin_log:
+      assembly:
+        create: "%{user_name} utworzył zespół %{resource_name}"
+        publish: "%{user_name} opublikował montaż %{resource_name}"
+        unpublish: "%{user_name} anulował publikację zespołu %{resource_name}"
+        update: "%{user_name} zaktualizował zespół %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} zaprosił %{resource_name} do zespołu %{space_name}"
+        delete: "%{user_name} usunął użytkownika %{resource_name} ze złożenia %{space_name}"
+        update: "%{user_name} zmienił rolę %{resource_name} w zespole %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Wybierz obszar
             slug_help: 'Ślimaki URL służą do generowania adresów URL wskazujących ten zespół. Akceptuje tylko litery, cyfry i myślniki i musi zaczynać się od litery. Przykład: %{url}'
         assembly_copies:
           form:
@@ -121,6 +139,7 @@ pl:
             active_assemblies: Aktywne złożenia
             see_all_assemblies: Zobacz wszystkie zespoły
       show:
+        area: Powierzchnia
         developer_group: Grupa programistyczna
         local_area: Okolica
         participatory_scope: Zakres partycypacji
@@ -131,6 +150,7 @@ pl:
         answers_count: Odpowiedzi
         assemblies_count: Zespoły
         comments_count: Komentarze
+        endorsements_count: Adnotacje
         headline: Czynność
         meetings_count: Spotkania
         orders_count: Głosowania
@@ -150,11 +170,6 @@ pl:
           take_part: Wziąć udział
         index:
           promoted_assemblies: Podświetlone zespoły
-        order_by_assemblies:
-          assemblies:
-            one: "%{count} montaż"
-            few: "%{count} złożeń"
-            other: "%{count} złożeń"
         promoted_assembly:
           more_info: Więcej informacji
           take_part: Wziąć udział

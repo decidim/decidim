@@ -6,7 +6,7 @@ All engines can define their own view hooks, and register to other engines' ones
 
 Take the homepage, for example. It is rendered by the `decidim-core`. We want to show there a list of highlighted participatory spaces (processes and assemblies). We cannot be sure the final app has these engines, so we need to check they exist:
 
-```
+```ruby
 <% if defined? Decidim::Processes %>
   <% # iterate through the most important ones %>
 <% end %>
@@ -24,7 +24,7 @@ This raises two important issues:
 
 Instead of the previous example, we created the concept of "view hooks". Think of them as a registry of views which can be defined by a given engine and extended by others. To follow the previous example, we would register a view hook in `decidim-core`:
 
-```
+```ruby
 <%= Decidim.view_hooks.render(:highlighted_elements, deep_dup) %>
 ```
 

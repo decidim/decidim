@@ -19,6 +19,7 @@ gl:
         participatory_scope: Alcance participativo
         participatory_structure: Estrutura participativa
         promoted: Promocionado
+        published_at: Publicado en
         scope_id: Alcance
         scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
@@ -61,6 +62,8 @@ gl:
         participatory_process_groups: Grupos de procesos
         participatory_processes: Procesos
         participatory_processes_submenu:
+          attachment_collections: Coleccións
+          attachment_files: Arquivos
           attachments: Anexos
           categories: Categorías
           features: características
@@ -202,6 +205,33 @@ gl:
         resend_invitation:
           error: Produciuse un erro ao reenviar a invitación.
           success: A invitación resérvase con éxito.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} creou o proceso participativo %{resource_name}"
+        publish: "%{user_name} publicou o %{resource_name} proceso participativo"
+        unpublish: "%{user_name} non publicou o proceso participativo %{resource_name}"
+        update: "%{user_name} actualizou o proceso participativo %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} activou o paso %{resource_name} no proceso participativo %{space_name}"
+        create: "%{user_name} creou o paso %{resource_name} no proceso participativo %{space_name}"
+        delete: "%{user_name} eliminou o paso %{resource_name} no proceso participativo %{space_name}"
+        update: "%{user_name} actualizou o paso %{resource_name} no proceso participativo %{space_name}"
+      participatory_process_user_role:
+        create: "%{user_name} convidou ao usuario %{resource_name} ao proceso participativo %{space_name}"
+        delete: "%{user_name} eliminou o usuario %{resource_name} do proceso participativo %{space_name}"
+        update: "%{user_name} cambiou o papel do usuario %{resource_name} no proceso participativo %{space_name}"
+    events:
+      participatory_process:
+        step_activated:
+          email_intro: 'O paso %{resource_title} está agora activo para %{participatory_space_title}. Podes velo desde esta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Unha actualización a %{participatory_space_title}
+          notification_title: O paso %{resource_title} está agora activo para <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'As datas para o paso %{resource_title} en %{participatory_space_title} foron actualizadas. Podes velo desde esta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Unha actualización a %{participatory_space_title}
+          notification_title: As datas para o <a href="%{resource_path}">%{resource_title}</a> paso en <a href="%{participatory_space_url}">%{participatory_space_title}</a> foron actualizadas.
     menu:
       processes: Procesos
     participatory_process_groups:
@@ -251,6 +281,7 @@ gl:
       statistics:
         answers_count: Respostas
         comments_count: Comentarios
+        endorsements_count: Aprobacións
         headline: Actividade
         meetings_count: Reunións
         orders_count: Votos

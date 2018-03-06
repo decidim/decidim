@@ -53,7 +53,8 @@ module Decidim
                                   default: false,
                                   desc: "Don't generate a Gemfile for the application"
 
-      class_option :demo, type: :boolean, default: false,
+      class_option :demo, type: :boolean,
+                          default: false,
                           desc: "Generate a demo authorization handler"
 
       def database_yml

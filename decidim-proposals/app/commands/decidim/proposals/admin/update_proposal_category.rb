@@ -49,7 +49,7 @@ module Decidim
         private
 
         def update_proposal_category(proposal)
-          proposal.update_attributes!(
+          proposal.update!(
             category: @category
           )
         end

@@ -2,9 +2,12 @@ pt-BR:
   activemodel:
     attributes:
       assembly:
+        area_id: Área
         banner_image: Imagem da bandeira
         copy_categories: Cópiar categorias
         copy_features: Recursos de cópia
+        decidim_area_id: Área
+        decidim_scope_id: Escopo
         description: Descrição
         developer_group: Grupo de desenvolvedores
         domain: Domínio
@@ -15,9 +18,11 @@ pt-BR:
         participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
         promoted: Destacado
+        published_at: Publicado em
         scope_id: Âmbito
         scopes_enabled: Âmbitos ativados
         short_description: Pequena descrição
+        show_statistics: Mostre estatisticas
         slug: Slug de URL
         subtitle: Subtítulo
         target: Alvo
@@ -80,6 +85,8 @@ pt-BR:
         assemblies: Assembléias
         assemblies_submenu:
           assembly_admins: Usuários da assembléia
+          attachment_collections: Coleções
+          attachment_files: arquivos
           attachments: Anexos
           categories: Categorias
           features: Características
@@ -105,10 +112,21 @@ pt-BR:
             moderator: Moderador
       titles:
         assemblies: Assembléias
+    admin_log:
+      assembly:
+        create: "%{user_name} criou o conjunto %{resource_name}"
+        publish: "%{user_name} publicou o conjunto %{resource_name}"
+        unpublish: "%{user_name} não publicado o conjunto %{resource_name}"
+        update: "%{user_name} atualizou a montagem %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} convidou %{resource_name} para o assembly %{space_name}"
+        delete: "%{user_name} removeu o usuário %{resource_name} do conjunto %{space_name}"
+        update: "%{user_name} alterou a função de %{resource_name} na montagem %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Selecione uma Área
             slug_help: 'Os slugs de URL são usados ​​para gerar os URLs que apontam para essa assembléia. Apenas aceita letras, números e traços, e deve começar com uma carta. Exemplo: %{url}'
         assembly_copies:
           form:
@@ -121,6 +139,7 @@ pt-BR:
             active_assemblies: Conjuntos ativos
             see_all_assemblies: Veja todas as assembléias
       show:
+        area: Área
         developer_group: Grupo de desenvolvedores
         local_area: Área Local
         participatory_scope: Âmbito participativo
@@ -131,6 +150,7 @@ pt-BR:
         answers_count: Respostas
         assemblies_count: Assembléias
         comments_count: Comentários
+        endorsements_count: Endossos
         headline: Atividade
         meetings_count: Reuniões
         orders_count: Votos

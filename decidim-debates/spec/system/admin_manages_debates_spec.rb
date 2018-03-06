@@ -7,6 +7,7 @@ describe "Admin manages debates", type: :system do
 
   include_context "when managing a feature as an admin"
   it_behaves_like "manage debates"
+  it_behaves_like "manage announcements"
 
   before do
     switch_to_host(organization.host)

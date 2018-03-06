@@ -13,7 +13,7 @@ describe("<DownVoteButton />", () => {
   const orderBy = "older";
   const rootCommentable = {
     id: "1",
-    type: "Decidim::DummyResources::DummyResource",
+    type: "Decidim::DummyResources::DummyResource"
   };
   let comment: DownVoteButtonFragment;
   let session: any = null;
@@ -22,7 +22,7 @@ describe("<DownVoteButton />", () => {
   beforeEach(() => {
     const commentsData = generateCommentsData(1);
     session = {
-      user: generateUserData(),
+      user: generateUserData()
     };
     comment = commentsData[0];
   });

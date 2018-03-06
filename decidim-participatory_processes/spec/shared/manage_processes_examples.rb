@@ -123,7 +123,7 @@ shared_examples "manage processes examples" do
     let(:scope) { create(:scope, organization: organization) }
 
     before do
-      participatory_process.update_attributes!(scopes_enabled: true, scope: scope)
+      participatory_process.update!(scopes_enabled: true, scope: scope)
     end
 
     it "disables the scope for a participatory process" do

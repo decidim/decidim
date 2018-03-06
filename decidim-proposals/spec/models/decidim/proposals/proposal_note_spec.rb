@@ -14,9 +14,8 @@ module Decidim
       let!(:proposal) { create(:proposal, feature: feature, author: author) }
       let!(:proposal_note) { build(:proposal_note, proposal: proposal, author: author) }
 
-      it "is valid" do
-        expect(proposal_note).to be_valid
-      end
+      it { is_expected.to be_valid }
+      it { is_expected.to be_versioned }
 
       it "has an associated author" do
         expect(proposal_note.author).to be_a(Decidim::User)

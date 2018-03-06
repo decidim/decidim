@@ -27,7 +27,7 @@ const generateCommentsData = (num = 1) => {
         avatarUrl: image.imageUrl(),
         profilePath: `/profiles/${nickname}`,
         deleted: false,
-        badge: "verified-badge",
+        badge: "verified-badge"
       },
       hasComments: false,
       comments: [],
@@ -38,7 +38,7 @@ const generateCommentsData = (num = 1) => {
       downVotes: random.number(),
       downVoted: false,
       sgid: random.uuid(),
-      alreadyReported: false,
+      alreadyReported: false
     });
   }
 

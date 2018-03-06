@@ -4,6 +4,7 @@ en:
     attributes:
       debate:
         category_id: Category
+        decidim_category_id: Category
         description: Description
         end_time: Ends at
         information_updates: Information updates
@@ -40,6 +41,10 @@ en:
         models:
           debate:
             name: Debate
+      admin_log:
+        debate:
+          create: "%{user_name} created the %{resource_name} debate on the %{space_name} space"
+          update: "%{user_name} updated the %{resource_name} debate on the %{space_name} space"
       debates:
         count:
           debates_count:
@@ -121,7 +126,9 @@ en:
         name: Debates
         settings:
           global:
+            announcement: Announcement
             comments_enabled: Comments enabled
           step:
+            announcement: Announcement
             comments_blocked: Comments blocked
             creation_enabled: Debate creation by users enabled

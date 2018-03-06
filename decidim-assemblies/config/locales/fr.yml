@@ -2,9 +2,12 @@ fr:
   activemodel:
     attributes:
       assembly:
+        area_id: Région
         banner_image: Image d'en-tête
         copy_categories: Copier les catégories
         copy_features: Copier les fonctionnalités
+        decidim_area_id: Région
+        decidim_scope_id: Portée
         description: Description
         developer_group: Groupe d'initiateurs
         domain: Domaine
@@ -15,9 +18,11 @@ fr:
         participatory_scope: Objectif du processus participatif
         participatory_structure: Organisations concernées
         promoted: Mis en avant
+        published_at: Publié à
         scope_id: Zone d'application
         scopes_enabled: Zone d'application activées
         short_description: Résumé
+        show_statistics: Montrez les statistiques
         slug: Identifiant
         subtitle: Sous-titre
         target: Public visé
@@ -80,9 +85,11 @@ fr:
         assemblies: Assemblées
         assemblies_submenu:
           assembly_admins: Utilisateurs de l'assemblée
+          attachment_collections: Collections
+          attachment_files: Des dossiers
           attachments: Documents liés
           categories: Catégories
-          features: Fonctions
+          features: Fonctionnalités
           info: Information
           moderations: Modérations
       models:
@@ -105,10 +112,21 @@ fr:
             moderator: Modérateur
       titles:
         assemblies: Assemblées
+    admin_log:
+      assembly:
+        create: "%{user_name} a créé l'assemblage %{resource_name}"
+        publish: "%{user_name} a publié l'assembly %{resource_name}"
+        unpublish: "%{user_name} non publié l'assemblage %{resource_name}"
+        update: "%{user_name} a mis à jour l'assemblage %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} invité %{resource_name} à l'assembly %{space_name}"
+        delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'assembly %{space_name}"
+        update: "%{user_name} a changé le rôle de %{resource_name} dans l'assembly %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Sélectionnez une zone
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_copies:
           form:
@@ -121,6 +139,7 @@ fr:
             active_assemblies: Assemblées actives
             see_all_assemblies: Voir toutes les assemblées
       show:
+        area: Région
         developer_group: Groupe d'initiateurs
         local_area: Localisation
         participatory_scope: Objectif du processus participatif
@@ -131,6 +150,7 @@ fr:
         answers_count: Réponses
         assemblies_count: Assemblées
         comments_count: Commentaires
+        endorsements_count: Les avenants
         headline: Activité
         meetings_count: Réunions
         orders_count: Votes

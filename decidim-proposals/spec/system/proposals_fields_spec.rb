@@ -217,7 +217,7 @@ describe "Proposals", type: :system do
               }
             }
 
-            feature.update_attributes!(permissions: permissions)
+            feature.update!(permissions: permissions)
           end
 
           it "shows a modal dialog" do

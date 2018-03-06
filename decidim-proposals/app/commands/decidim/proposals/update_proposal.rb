@@ -38,7 +38,7 @@ module Decidim
       attr_reader :form, :proposal, :current_user
 
       def update_proposal
-        @proposal.update_attributes!(
+        @proposal.update!(
           title: form.title,
           body: form.body,
           category: form.category,

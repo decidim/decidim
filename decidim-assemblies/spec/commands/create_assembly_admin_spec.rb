@@ -39,9 +39,29 @@ module Decidim::Assemblies
         expect(roles.first.role).to eq "admin"
       end
 
-      it "creates a new user with no application admin privileges" do
+      it "doesn't add admin privileges to the user" do
         subject.call
-        expect(Decidim::User.last).not_to be_admin
+        user.reload
+
+        expect(user).not_to be_admin
+      end
+
+      it "makes the new admin follow the process" do
+        subject.call
+        user.reload
+
+        expect(user.follows?(my_assembly)).to be true
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with(:create, Decidim::AssemblyUserRole, current_user, resource: hash_including(:title))
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
       end
 
       context "when there is no user with the given email" do

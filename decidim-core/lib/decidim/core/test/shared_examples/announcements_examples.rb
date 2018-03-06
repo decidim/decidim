@@ -23,7 +23,7 @@ shared_examples "manage announcements" do
 
   context "when the general announcement is set" do
     before do
-      current_feature.update_attributes!(
+      current_feature.update!(
         settings: {
           announcement: {
             en: "An important announcement",
