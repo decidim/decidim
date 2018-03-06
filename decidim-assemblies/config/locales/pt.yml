@@ -2,6 +2,7 @@ pt:
   activemodel:
     attributes:
       assembly:
+        area_id: Área
         banner_image: Imagem da bandeira
         copy_categories: Cópiar categorias
         copy_features: Recursos de cópia
@@ -149,6 +150,7 @@ pt:
         answers_count: Respostas
         assemblies_count: Assembléias
         comments_count: Comentários
+        endorsements_count: Endossos
         headline: Atividade
         meetings_count: Reuniões
         orders_count: Votos
