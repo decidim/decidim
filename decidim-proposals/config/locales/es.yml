@@ -2,8 +2,8 @@ es:
   activemodel:
     attributes:
       proposal:
-        answer: Responder
-        answered_at: Respondido en
+        answer: Respuesta
+        answered_at: Respondido
         body: Cuerpo
         category_id: Categoría
         has_address: Tiene dirección
@@ -23,7 +23,7 @@ es:
           email_intro: '¡Ahora puedes crear nuevas propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Propuestas ahora disponibles en %{participatory_space_title}
-          notification_title: Ahora puede iniciar <a href="%{resource_path}">nuevas propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Puedes crear <a href="%{resource_path}">nuevas propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: '¡Puede reivindicar propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
           email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
@@ -303,7 +303,7 @@ es:
         preview:
           modify: Modificar la propuesta
           proposal_edit_before_minutes:
-            one: Podrá editar esta propuesta durante el primer minuto posterior a la publicación de la propuesta. Una vez que pase esta ventana de tiempo, no podrá editar la propuesta.
+            one: Podrás editar esta propuesta durante el primer minuto posterior a la publicación de la propuesta. Una vez que pase esta ventana de tiempo, ya no podrás editarla.
             other: Podrás editar esta propuesta durante el primer %{count} minutos después de que se publique la propuesta. Una vez que pase esta ventana de tiempo, no podrá editar la propuesta.
           publish: Publicar
           title: Publica tu propuesta
