@@ -9,7 +9,7 @@ fi:
         end_date: Päättymisaika
         progress: Edistyminen
         project_ids: Liitetyt projektit
-        proposal_ids: Sisällytetyt ehdotukset
+        proposals: Mukana olevat ehdotukset
         start_date: Aloitusaika
         title: Otsikko
         updated_at: Päivitetty klo
@@ -50,11 +50,17 @@ fi:
           edit:
             title: Muokkaa tulosta
             update: Päivitä tulos
+          form:
+            add_proposal: Lisää ehdotus
           index:
             title: Tulokset
           new:
             create: Luo tulos
             title: Uusi tulos
+          proposals:
+            close: kiinni
+            current_selection: Nykyinen valinta
+            select: valita
           update:
             invalid: Tuloksen päivityksessä tapahtui virhe
             success: Tulos päivitetty onnistuneesti
