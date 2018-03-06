@@ -316,13 +316,13 @@ ca:
             plural: Plural
         attachment:
           fields:
-            collection: Col · lecció
+            collection: Col·lecció
             content_type: Tipus
             file_size: Mida
             title: Títol
           name: Arxiu adjunt
         attachment_collection:
-          name: Col · lecció
+          name: Col·lecció
         category:
           name: Categoria
         impersonation_log:
@@ -512,8 +512,8 @@ ca:
           error: S'ha produït un error en l'actualització d'aquests pàgina.
           success: La pàgina s'ha actualitzat correctament.
       titles:
-        admin_log: Registre d'administrador
-        area_types: Tipus d'àrea
+        admin_log: Registre d'administració
+        area_types: Tipus d'àrees
         areas: Àrees
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
