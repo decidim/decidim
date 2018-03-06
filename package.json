@@ -193,7 +193,7 @@
     "@types/uuid": "^3.4.2",
     "awesome-typescript-loader": "^3.2.3",
     "babel-core": "^6.26.0",
-    "babel-eslint": "^7.2.3",
+    "babel-eslint": "^8.2.2",
     "babel-jest": "^22.4.1",
     "babel-loader": "^7.1.4",
     "babel-plugin-__coverage__": "~11.0.0",
