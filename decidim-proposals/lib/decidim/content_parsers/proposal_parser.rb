@@ -54,7 +54,7 @@ module Decidim
         content.gsub(URL_REGEX) do |match|
           proposal = proposal_from_url_match(match)
           if proposal
-            @metadata.linked_proposals << proposal
+            @metadata.linked_proposals << proposal.id
             proposal.to_global_id
           else
             match
@@ -66,7 +66,7 @@ module Decidim
         content.gsub(ID_REGEX) do |match|
           proposal = proposal_from_id_match(Regexp.last_match(1))
           if proposal
-            @metadata.linked_proposals << proposal
+            @metadata.linked_proposals << proposal.id
             proposal.to_global_id
           else
             match

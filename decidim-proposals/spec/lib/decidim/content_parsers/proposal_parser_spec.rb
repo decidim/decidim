@@ -71,7 +71,7 @@ module Decidim
           it "has metadata with the proposal" do
             subject
             expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
-            expect(parser.metadata.linked_proposals).to eq([proposal])
+            expect(parser.metadata.linked_proposals).to eq([proposal.id])
           end
         end
 
@@ -90,7 +90,7 @@ module Decidim
           it "has metadata with all linked proposals" do
             subject
             expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
-            expect(parser.metadata.linked_proposals).to eq([proposal1, proposal2, proposal3])
+            expect(parser.metadata.linked_proposals).to eq([proposal1.id, proposal2.id, proposal3.id])
           end
         end
 
@@ -118,7 +118,7 @@ module Decidim
           it "has metadata with the proposal" do
             subject
             expect(parser.metadata).to be_a(Decidim::ContentParsers::ProposalParser::Metadata)
-            expect(parser.metadata.linked_proposals).to eq([proposal])
+            expect(parser.metadata.linked_proposals).to eq([proposal.id])
           end
         end
       end

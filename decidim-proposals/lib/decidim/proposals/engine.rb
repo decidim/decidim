@@ -94,11 +94,10 @@ module Decidim
         end
       end
 
-      initializer "decidim_proposals_mentioned_listener" do
+      initializer "decidim_proposals.mentions_listener" do
         Decidim::Comments::CommentCreation.subscribe do |data|
-          comment = Decidim::Comments::Comment.find(data[:comment_id])
           metadata = data[:metadatas][:proposals]
-          Decidim::Proposals::NotifyProposalsMentionedJob.perform_later(comment, metadata)
+          Decidim::Proposals::NotifyProposalsMentionedJob.perform_later(data[:comment_id], metadata)
         end
       end
 

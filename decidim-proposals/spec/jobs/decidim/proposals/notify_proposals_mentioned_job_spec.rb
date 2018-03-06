@@ -16,7 +16,7 @@ module Decidim
         let(:linked_proposal) { create(:proposal, feature: proposal_feature) }
 
         before do
-          proposal_metadata[:linked_proposals] << linked_proposal
+          proposal_metadata[:linked_proposals] << linked_proposal.id
         end
         it "notifies the author about it" do
           expect(Decidim::EventsManager)
@@ -31,7 +31,7 @@ module Decidim
                 mentioned_proposal_id: linked_proposal.id
               }
             )
-          subject.perform_now(comment, proposal_metadata)
+          subject.perform_now(comment.id, proposal_metadata)
         end
       end
     end
