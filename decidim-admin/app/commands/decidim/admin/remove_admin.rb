@@ -24,7 +24,7 @@ module Decidim
             invited_user_role: user_role
           }
         ) do
-          user.update_attributes!(admin: false, roles: [])
+          user.update!(admin: false, roles: [])
         end
 
         broadcast(:ok)

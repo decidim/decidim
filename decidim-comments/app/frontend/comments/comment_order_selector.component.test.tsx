@@ -10,7 +10,7 @@ describe("<CommentOrderSelector />", () => {
   beforeEach(() => {
     window.$ = () => {
       return {
-        foundation: jasmine.createSpy(""),
+        foundation: jasmine.createSpy("")
       };
     };
   });

@@ -11,7 +11,7 @@ window.DecidimComments.renderCommentsComponent = (nodeId: string, props: Comment
 
   ReactDOM.render(
     React.createElement(Comments, props),
-    node,
+    node
   );
 };
 

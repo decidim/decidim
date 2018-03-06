@@ -28,7 +28,7 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           ActiveRecord::Base.transaction do
-            create_or_invite_user
+            @user = existing_user || new_user
             existing_role || create_role
             add_admin_as_follower
           end
@@ -69,10 +69,6 @@ module Decidim
             user: user,
             participatory_process: @participatory_process
           ).first
-        end
-
-        def create_or_invite_user
-          @user ||= existing_user || new_user
         end
 
         def existing_user

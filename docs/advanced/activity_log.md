@@ -3,7 +3,7 @@
 In order to make your component compatible with the activity log, you need to follow these steps:
 
 1. Make your model include the `Decidim::Traceable` module. This will let Decidim create versions every time your model records are changed. It uses [`paper_trail`](https://github.com/airblade/paper_trail) to generate the versions.
-2. Make your commands use `Decidim.traceability` to create and update records. Documentation can be found in `Decidim::Traceability`. This should set the author of the change in your record properly.
+1. Make your commands use `Decidim.traceability` to create and update records. Documentation can be found in `Decidim::Traceability`. This should set the author of the change in your record properly.
 
 That's all you need to do to get it working, really. We have a default way to present logs that Just Works™. Keep reading if you want to customize how the logs for your resources look!
 
@@ -134,4 +134,5 @@ end
 ```
 
 ## Multiple logs
+
 Although Decidim currently only has a log for the admin section, in the future we might need an activity log for the public part. It's easy to assume we might need to render the same data in different formats, so we need to differentiate the presenters for each log. The current system handles the case for multiple logs, although we only have one.

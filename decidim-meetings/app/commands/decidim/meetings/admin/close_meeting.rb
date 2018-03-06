@@ -34,13 +34,19 @@ module Decidim
         attr_reader :form, :meeting
 
         def close_meeting
-          meeting.update_attributes!(
-            closing_report: form.closing_report,
-            attendees_count: form.attendees_count,
-            contributions_count: form.contributions_count,
-            attending_organizations: form.attending_organizations,
-            closed_at: form.closed_at
-          )
+          Decidim.traceability.perform_action!(
+            :close,
+            meeting,
+            form.current_user
+          ) do
+            meeting.update!(
+              closing_report: form.closing_report,
+              attendees_count: form.attendees_count,
+              contributions_count: form.contributions_count,
+              attending_organizations: form.attending_organizations,
+              closed_at: form.closed_at
+            )
+          end
 
           Decidim::EventsManager.publish(
             event: "decidim.events.meetings.meeting_closed",

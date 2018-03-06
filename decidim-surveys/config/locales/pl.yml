@@ -7,6 +7,18 @@ pl:
         mandatory: Obowiązkowy
         question_type: Rodzaj
   decidim:
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Ankieta %{resource_title} w %{participatory_space_title} została zamknięta.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Ankieta zakończyła się w %{participatory_space_title}
+          notification_title: Ankieta <a href="%{resource_path}">%{resource_title}</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a> została zakończona.
+        survey_opened:
+          email_intro: 'Ankieta %{resource_title} w %{participatory_space_title} jest teraz otwarta. Możesz wziąć w nim udział z tej strony:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Nowa ankieta w %{participatory_space_title}
+          notification_title: Ankieta <a href="%{resource_path}">%{resource_title}</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a> jest teraz otwarta.
     features:
       surveys:
         actions:

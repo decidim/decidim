@@ -143,7 +143,7 @@ shared_examples "manage assemblies" do
     let(:scope) { create(:scope, organization: organization) }
 
     before do
-      assembly.update_attributes!(scopes_enabled: true, scope: scope)
+      assembly.update!(scopes_enabled: true, scope: scope)
     end
 
     it "disables the scope for the assembly" do

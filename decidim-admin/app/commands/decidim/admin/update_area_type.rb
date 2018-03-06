@@ -31,7 +31,7 @@ module Decidim
       attr_reader :form
 
       def update_area_type
-        @area_type.update_attributes!(attributes)
+        @area_type.update!(attributes)
       end
 
       def attributes

@@ -61,8 +61,8 @@ describe Decidim::Traceability, versioning: true do
   end
 
   describe "update!" do
-    it "calls `update_attributes!` to the resource" do
-      expect(dummy_resource).to receive(:update_attributes!).with(params)
+    it "calls `update!` to the resource" do
+      expect(dummy_resource).to receive(:update!).with(params)
       subject.update!(dummy_resource, user, params)
     end
 

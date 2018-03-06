@@ -37,7 +37,7 @@ describe "Explore results", versioning: true, type: :system do
 
     context "with progress disabled" do
       before do
-        feature.update_attributes!(settings: { display_progress_enabled: false })
+        feature.update!(settings: { display_progress_enabled: false })
       end
 
       it "doesn't show progress" do
@@ -258,7 +258,7 @@ describe "Explore results", versioning: true, type: :system do
 
       context "when the process has a linked scope" do
         before do
-          participatory_process.update_attributes(scope: scope)
+          participatory_process.update(scope: scope)
           visit current_path
         end
 
@@ -271,7 +271,7 @@ describe "Explore results", versioning: true, type: :system do
 
       context "when the process has no linked scope" do
         before do
-          participatory_process.update_attributes(scope: nil)
+          participatory_process.update(scope: nil)
           visit current_path
         end
 

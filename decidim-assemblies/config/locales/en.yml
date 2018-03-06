@@ -3,6 +3,7 @@ en:
   activemodel:
     attributes:
       assembly:
+        area_id: Area
         banner_image: Banner image
         closing_date: Closing date
         closing_date_reason: Closing date reason
@@ -196,6 +197,7 @@ en:
         answers_count: Answers
         assemblies_count: Assemblies
         comments_count: Comments
+        endorsements_count: Endorsements
         headline: Activity
         meetings_count: Meetings
         orders_count: Votes

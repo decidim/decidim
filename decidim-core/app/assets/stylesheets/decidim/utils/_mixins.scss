@@ -90,13 +90,3 @@ $palette: $foundation-palette;
   }
 }
 
-@mixin ellipsis($lines: 3){
-  display: block; /* Fallback for non-webkit */
-  display: -webkit-box;
-  max-height: ($global-lineheight * $lines) * 1rem; /* Fallback for non-webkit */
-  -webkit-line-clamp: $lines;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-

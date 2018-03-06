@@ -2,7 +2,7 @@
 
 shared_examples "manage proposals help texts" do
   before do
-    current_feature.update_attributes!(
+    current_feature.update!(
       step_settings: {
         current_feature.participatory_space.active_step.id => {
           creation_enabled: true

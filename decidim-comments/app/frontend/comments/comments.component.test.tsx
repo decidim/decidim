@@ -29,21 +29,21 @@ describe("<Comments />", () => {
       filterResult: false,
       rootValue: {
         session: {
-          user: userData,
+          user: userData
         },
         commentable: {
           acceptsNewComments: true,
           commentsHaveAlignment: true,
           commentsHaveVotes: true,
           totalCommentsCount: 15,
-          comments: commentsData,
-        },
+          comments: commentsData
+        }
       },
       variables: {
         orderBy,
         commentableId,
-        commentableType,
-      },
+        commentableType
+      }
     });
 
     session = result.session;
