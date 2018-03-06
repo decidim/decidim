@@ -17,10 +17,10 @@ module Decidim
 
         def action_string
           case action
-          when "create"
-            "decidim.accountability.admin_log.result.create"
-          when "update"
-            "decidim.accountability.admin_log.result.update"
+          when "create", "delete", "update"
+            "decidim.accountability.admin_log.result.#{action}"
+          else
+            super
           end
         end
 
