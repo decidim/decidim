@@ -12,7 +12,7 @@ ca:
         proposals: Propostes incloses
         start_date: Inici
         title: Títol
-        updated_at: Actualitzat a
+        updated_at: Actualitzat el
       status:
         description: Descripció
         key: Clau
@@ -103,8 +103,8 @@ ca:
             success: El element ha estat actualitzat correctament
       admin_log:
         result:
-          create: "%{user_name} va crear el resultat %{resource_name} en %{space_name}"
-          update: "%{user_name} resultat actualitzat %{resource_name} en %{space_name}"
+          create: "%{user_name} ha creat el resultat %{resource_name} en %{space_name}"
+          update: "%{user_name} ha actualitzat el resultat %{resource_name} en %{space_name}"
       models:
         result:
           fields:
