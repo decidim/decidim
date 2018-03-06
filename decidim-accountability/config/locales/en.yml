@@ -3,7 +3,7 @@ en:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: status
+        decidim_accountability_status_id: Status
         decidim_category_id: Category
         decidim_scope_id: Scope
         description: Description
