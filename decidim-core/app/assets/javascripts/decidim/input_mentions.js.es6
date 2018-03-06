@@ -3,20 +3,12 @@
 $(() => {
   const $mentionContainer = $('.js-mentions');
   const nodatafound = $mentionContainer.attr('data-noresults');
-  // const sources = []; // TODO: Object with remote data. See Tribute.js DOCS
-  const sources = [{
-      "tag": "barrera",
-      "name": "Collins Franklin",
-    },
-    {
-      "tag": "woods",
-      "name": "Nadine Buck",
-    }]
+  const sources = []; // TODO: Object with remote data. See Tribute.js DOCS
 
   // EXAMPLE DATA
   // tag & name properties are mandatory
   //
-  // source = [{
+  // sources = [{
   //     "tag": "barrera",
   //     "name": "Collins Franklin",
   //   },
