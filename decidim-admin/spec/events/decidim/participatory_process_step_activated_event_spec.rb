@@ -7,7 +7,7 @@ describe Decidim::ParticipatoryProcessStepActivatedEvent do
 
   include_context "simple event"
 
-  let(:event_name) { "decidim.events.participatory_process_step_activated_event" }
+  let(:event_name) { "decidim.events.participatory_process.step_activated" }
   let(:participatory_process) { resource.participatory_process }
   let(:resource) { create :participatory_process_step }
   let(:resource_path) do

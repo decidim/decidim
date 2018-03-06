@@ -8,6 +8,9 @@
 
 **Fixed**:
 
+- **decidim-core**: Fixes missing translations for step activated event [\#2928](https://github.com/decidim/decidim/pull/2928)
+- **decidim-admin**: Fix officializations showing all users in the system instead of only the organization ones [\#2912](https://github.com/decidim/decidim/pull/2912)
+
 ## [v0.9.3](https://github.com/decidim/decidim/tree/v0.9.3) (2018-2-27)
 
 **Added**:
@@ -170,7 +173,6 @@ you need to change the following line in `config/environments/production.rb`:
 * **decidim-accountability**: Top level search searches on all results (not only the first level) [\#2545](https://github.com/decidim/decidim/pull/2545)
 * **decidim-admin**: Visual bug in quilljs editor misleading admins into introducing blank lines to separate paragraphs. [\#2565](https://github.com/decidim/decidim/pull/2565).
 * **decidim-admin**: Properly highlight the Settings admin menu item when visiting the scope types section. [\#2642](https://github.com/decidim/decidim/pull/2642)
-- **decidim-admin**: Fix officializations showing all users in the system instead of only the organization ones [\#2912](https://github.com/decidim/decidim/pull/2912)
 
 **Removed**:
 
