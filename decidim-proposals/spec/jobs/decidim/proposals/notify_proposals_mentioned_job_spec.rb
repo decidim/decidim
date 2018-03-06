@@ -14,9 +14,11 @@ module Decidim
 
       describe "with mentioned proposals" do
         let(:linked_proposal) { create(:proposal, feature: proposal_feature) }
+        let(:linked_proposal_no_author) { create(:proposal, feature: proposal_feature, decidim_author_id: nil) }
 
         before do
           proposal_metadata[:linked_proposals] << linked_proposal.id
+          proposal_metadata[:linked_proposals] << linked_proposal_no_author.id
         end
         it "notifies the author about it" do
           expect(Decidim::EventsManager)

@@ -44,11 +44,7 @@ module Decidim
       # (see BaseParser#metadata)
       attr_reader :metadata
 
-      #-------------------------------------------------
-
       private
-
-      #-------------------------------------------------
 
       def parse_for_urls(content)
         content.gsub(URL_REGEX) do |match|

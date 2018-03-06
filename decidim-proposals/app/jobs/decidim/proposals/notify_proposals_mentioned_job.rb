@@ -8,6 +8,8 @@ module Decidim
         linked_proposals = proposal_metadata.linked_proposals
         linked_proposals.each do |proposal_id|
           proposal = Proposal.find(proposal_id)
+          next unless proposal.decidim_author_id.present?
+
           recipient_ids = [proposal.decidim_author_id]
           Decidim::EventsManager.publish(
             event: "decidim.events.proposals.proposal_mentioned",
