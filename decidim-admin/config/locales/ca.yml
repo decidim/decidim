@@ -10,7 +10,7 @@ ca:
         organization: Organització
         plural: Plural
       attachment:
-        attachment_collection_id: Col · lecció
+        attachment_collection_id: Col·lecció
         description: Descripció
         file: Arxiu
         title: Títol
@@ -23,51 +23,51 @@ ca:
         parent_id: Superior
       feature:
         name: Nom
-        published_at: Publicat a
+        published_at: Publicat el
         weight: Pes
       id: ID
       newsletter:
         body: Cos
         subject: Assumpte
       organization:
-        cta_button_path: Camí del botó Truca a l'acció
-        cta_button_text: Text del botó Truca a l'acció
+        cta_button_path: URL del botó d'acció
+        cta_button_text: Text del botó d'acció
         default_locale: Idioma per defecte
         description: Descripció
         enable_omnipresent_banner: Mostra pancarta omnipresent
-        facebook_handler: Manejador de Facebook
+        facebook_handler: Nom a facebook
         favicon: Icona
-        github_handler: GitHub handler
-        header_snippets: Fragments de capçalera
+        github_handler: Nom a GitHub
+        header_snippets: Fragments de codi a la capçalera
         highlighted_content_banner_action_subtitle: Subtítol del botó d'acció
         highlighted_content_banner_action_title: Títol del botó d'acció
         highlighted_content_banner_action_url: URL del botó d'acció
-        highlighted_content_banner_enabled: Mostra el bàner de contingut ressaltat
+        highlighted_content_banner_enabled: Mostra la pancarta de contingut ressaltat
         highlighted_content_banner_image: Imatge
         highlighted_content_banner_short_description: Descripció breu
         highlighted_content_banner_title: Títol
         homepage_image: Imatge de la pàgina d'inici
-        instagram_handler: Carregador d'Instagram
+        instagram_handler: Nom d'usuari a Instagram
         logo: Logotip
         name: Nom
-        official_img_footer: Cofre del logotip oficial
-        official_img_header: Capçalera oficial del logotip
-        official_url: URL de l'organització oficial
+        official_img_footer: Logotip oficial al peu de pàgina
+        official_img_header: Logotip oficial a la capçalera
+        official_url: Pàgina web oficial de l'organització
         omnipresent_banner_short_description: Descripció breu
         omnipresent_banner_title: Títol
         omnipresent_banner_url: URL
         reference_prefix: Prefix de referència
         show_statistics: Mostra estadístiques
-        twitter_handler: Controlador de Twitter
+        twitter_handler: Nom d'usuari de Twitter
         welcome_text: Text de benvinguda
-        youtube_handler: Controlador de YouTube
+        youtube_handler: Nom d'usuari de YouTube
       scope:
         code: Codi
         name: Nom
         organization: Organització
         parent_id: Pare
         scope_type: Tipus d'àmbit
-        scope_type_id: Tipus d'abast
+        scope_type_id: Tipus d'àmbit
       scope_type:
         name: Nom
         organization: Organització
@@ -127,15 +127,15 @@ ca:
       area_types:
         create:
           error: S'ha produït un error en crear un tipus d'àrea nova.
-          success: El tipus d'àrea creat correctament.
+          success: El tipus d'àrea ha estat creat correctament.
         destroy:
           success: El tipus d'àrea s'ha destruït amb èxit
         edit:
-          title: Editeu el tipus d'àrea
-          update: Actualització
+          title: Editar el tipus d'àrea
+          update: Actualitzar
         new:
           create: Crea un tipus d'àrea
-          title: Tipus d'àrea nova
+          title: Tipus d'àrea nou
         update:
           error: S'ha produït un error en actualitzar aquest tipus d'àrea.
           success: El tipus d'àrea s'ha actualitzat correctament
