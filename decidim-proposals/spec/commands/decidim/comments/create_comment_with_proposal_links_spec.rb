@@ -54,19 +54,12 @@ module Decidim
         it "sends a notification with mentioned proposals in its m" do
           expect(command).to receive(:send_notification).and_return false
 
-          expect(Decidim::EventsManager)
+          expect(Decidim::Comments::CommentCreation)
             .to receive(:publish)
             .with(
-              event: "decidim.events.proposals.proposal_mentioned",
-              event_class: Decidim::Proposals::ProposalMentionedEvent,
-              resource: commentable,
-              recipient_ids: [linked_proposal.decidim_author_id],
-              extra: {
-                comment_id: a_kind_of(Integer),
-                mentioned_proposal_id: linked_proposal.id
-              }
+              a_kind_of(Decidim::Comments::Comment),
+              hash_including(proposal: Decidim::ContentParsers::ProposalParser::Metadata.new([linked_proposal.id]))
             )
-
           command.call
         end
       end
