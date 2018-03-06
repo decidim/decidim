@@ -26,9 +26,9 @@ ca:
           notification_title: Ara pots començar <a href="%{resource_path}">noves propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Pots adherir-te a les propostes de %{participatory_space_title}. Comença a participar en aquesta pàgina:'
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{participatory_space_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: S'ha iniciat l'aprovació de les propostes per %{participatory_space_title}
-          notification_title: Ara podeu començar <a href="%{resource_path}">propostes d'aprovació</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Ara ja et pots adherir a les propostes de %{participatory_space_title}
+          notification_title: Ara ja pots començar a <a href="%{resource_path}">adherir-te a propostes</a> a <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'S''ha acceptat la proposta "%{resource_title}". Pots llegir la resposta des d''aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
@@ -45,7 +45,7 @@ ca:
           email_subject: Nova proposta afegida a %{participatory_space_title}
           notification_title: S'ha afegit la proposta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
         proposal_endorsed:
-          email_intro: "%{endorser_name} %{endorser_nickname}, a qui sigueu, acaba d'aprovar una proposta que us pot resultar interessant, revisar-la i contribuir:"
+          email_intro: "%{endorser_name} %{endorser_nickname}, a qui segueixes, acaba d'adherir-se a una proposta que et pot resultar interessant, revisar-la i contribueix:"
           email_outro: Heu rebut aquesta notificació perquè esteu seguint %{endorser_nickname}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: "%{endorser_nickname} ha aprovat una nova proposta"
           notification_title: La <a href="%{resource_path}">%{resource_title}</a> proposta ha estat aprovada per <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
