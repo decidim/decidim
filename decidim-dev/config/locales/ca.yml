@@ -2,11 +2,11 @@ ca:
   activemodel:
     attributes:
       dummy_resource:
-        created_at: Creat a
+        created_at: Creat el
         field: El meu camp
         start_date: Data d'inici
         title: Títol
-        updated_at: Actualitzat a
+        updated_at: Actualitzat el
   decidim:
     dummy:
       admin:
