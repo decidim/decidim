@@ -3,10 +3,10 @@ fr:
     attributes:
       area:
         area_type: Type de zone
-        name: prénom
+        name: Prénom
         organization: Organisation
       area_type:
-        name: prénom
+        name: Prénom
         organization: Organisation
         plural: Pluriel
       attachment:
@@ -16,7 +16,7 @@ fr:
         title: Titre
       attachment_collection:
         description: La description
-        name: prénom
+        name: Prénom
       category:
         description: Description
         name: Nom
@@ -30,15 +30,15 @@ fr:
         body: Corps de texte
         subject: Objet
       organization:
-        cta_button_path: Call to Action chemin du bouton
-        cta_button_text: Appel à l'action texte du bouton
+        cta_button_path: Chemin du bouton d'action
+        cta_button_text: Chemin du bouton d'action
         default_locale: Langue par défaut
-        description: La description
+        description: Description
         enable_omnipresent_banner: Montrer une bannière omniprésente
-        facebook_handler: Gestionnaire de Facebook
+        facebook_handler: Gestionnaire Facebook
         favicon: Icône
-        github_handler: GitHub gestionnaire
-        header_snippets: Extraits d'en-tête
+        github_handler: Gestionnaire GitHub
+        header_snippets: Éléments à ajouter entre les balises HTML
         highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
         highlighted_content_banner_action_title: Titre du bouton d'action
         highlighted_content_banner_action_url: URL du bouton d'action
