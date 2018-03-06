@@ -142,25 +142,25 @@ es:
       areas:
         create:
           error: Hubo un error al crear una nueva área.
-          success: Área creada con éxito.
+          success: Área creada correctamente.
         destroy:
-          success: Área destruida con éxito
+          success: Área destruida correctamente
         edit:
-          title: Área de edición
+          title: Editar área
           update: Actualizar
         new:
           create: Crear área
-          title: NUEVA Área
+          title: Nueva área
         no_areas: Sin áreas
         update:
           error: Hubo un error al actualizar esta área.
-          success: Área actualizada con éxito
+          success: Área actualizada correctamente
       attachment_collections:
         create:
           error: Hubo un error al crear una nueva colección.
-          success: Colección creada con éxito.
+          success: Colección creada correctamente.
         destroy:
-          success: Colección destruida con éxito.
+          success: Colección destruida correctamente.
         edit:
           title: Editar colección
           update: Actualizar
@@ -172,7 +172,7 @@ es:
           title: Nueva colección
         update:
           error: Hubo un error al actualizar esta colección.
-          success: Colección actualizada con éxito.
+          success: Colección actualizada correctamente.
       attachments:
         create:
           error: Se ha producido un error al crear un nuevo archivo adjunto.
@@ -318,7 +318,7 @@ es:
           fields:
             collection: Colección
             content_type: Tipo
-            file_size: tamaño
+            file_size: Tamaño
             title: Título
           name: Archivo adjunto
         attachment_collection:
@@ -512,7 +512,7 @@ es:
           error: Se ha producido un error en la actualización de ésta página.
           success: La página se ha actualizado correctamente.
       titles:
-        admin_log: Registro de administrador
+        admin_log: Registro de actividad de administradores
         area_types: Tipos de área
         areas: Áreas
         authorization_workflows: Métodos de verificación
