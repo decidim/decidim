@@ -25,6 +25,7 @@ module Decidim
     # klass - An ActiveRecord class that implements `Decidim::Traceable`
     # author - An object that implements `to_gid` or a String
     # params - a Hash with the attributes of the new resource
+    # extra_log_info - a Hash with extra info that will be saved to the log
     #
     # Returns an instance of `klass`.
     def create(klass, author, params, extra_log_info = {})
@@ -38,6 +39,7 @@ module Decidim
     # klass - An ActiveRecord class that implements `Decidim::Traceable`
     # author - An object that implements `to_gid` or a String
     # params - a Hash with the attributes of the new resource
+    # extra_log_info - a Hash with extra info that will be saved to the log
     #
     # Returns an instance of `klass`.
     def create!(klass, author, params, extra_log_info = {})

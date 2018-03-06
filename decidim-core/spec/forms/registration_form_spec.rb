@@ -50,6 +50,12 @@ module Decidim
       it { is_expected.to be_valid }
     end
 
+    context "when the email is a disposable account" do
+      let(:email) { "user@mailbox92.biz" }
+
+      it { is_expected.to be_invalid }
+    end
+
     context "when the sign_up_as is different from 'user' and 'user_group'" do
       let(:sign_up_as) { "community" }
 

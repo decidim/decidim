@@ -6,7 +6,7 @@
 $(document).ready(function () {
 
   let button = $('#select-identity-button'),
-      refreshUrl= null,
+      refreshUrl = null,
       userIdentitiesDialog = $('#user-identities');
 
   if (userIdentitiesDialog.length) {
@@ -30,10 +30,10 @@ $(document).ready(function () {
   $("#select-identity-button").on('ajax:success', function() {
     // once reveal popup has been rendered register event callbacks
     $("#user-identities ul.reveal__list li").each(function(index, elem) {
-      let liTag= $(elem)
+      let liTag = $(elem)
       liTag.on('click', function() {
-        let method= liTag.data('method')
-        let url= liTag.data('url')
+        let method = liTag.data('method')
+        let url = liTag.data('url')
         $.ajax({
           url: url,
           method: method,

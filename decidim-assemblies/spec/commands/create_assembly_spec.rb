@@ -7,12 +7,14 @@ module Decidim::Assemblies
     subject { described_class.new(form) }
 
     let(:organization) { create :organization }
+    let(:user) { create :user, :admin, :confirmed, organization: organization }
     let(:scope) { create :scope, organization: organization }
     let(:area) { create :area, organization: organization }
     let(:errors) { double.as_null_object }
     let(:form) do
       instance_double(
         Admin::AssemblyForm,
+        current_user: user,
         invalid?: invalid,
         title: { en: "title" },
         subtitle: { en: "subtitle" },
@@ -60,7 +62,8 @@ module Decidim::Assemblies
       end
 
       before do
-        expect(Decidim::Assembly).to receive(:new).and_return(invalid_assembly)
+        allow(Decidim::ActionLogger).to receive(:log).and_return(true)
+        expect(Decidim::Assembly).to receive(:create).and_return(invalid_assembly)
       end
 
       it "broadcasts invalid" do
@@ -89,6 +92,17 @@ module Decidim::Assemblies
             expect(current_user.follows?(assembly)).to be_true
           end
         end
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:create)
+          .with(Decidim::Assembly, user, kind_of(Hash))
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
       end
     end
   end

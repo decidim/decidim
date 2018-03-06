@@ -12,14 +12,12 @@ module Decidim
     include Decidim::Scopable
     include Decidim::Followable
     include Decidim::HasReference
+    include Decidim::Traceable
+    include Decidim::Loggable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
-    belongs_to :scope,
-               foreign_key: "decidim_scope_id",
-               class_name: "Decidim::Scope",
-               optional: true
     belongs_to :area,
                foreign_key: "decidim_area_id",
                class_name: "Decidim::Area",
@@ -43,6 +41,10 @@ module Decidim
     # Returns an ActiveRecord::Relation.
     def self.promoted
       where(promoted: true)
+    end
+
+    def self.log_presenter_class_for(_log)
+      Decidim::Assemblies::AdminLog::AssemblyPresenter
     end
 
     def hashtag

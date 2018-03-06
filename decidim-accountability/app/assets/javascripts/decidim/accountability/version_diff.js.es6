@@ -4,12 +4,8 @@ $(() => {
   $(".diff-i18n_html, .diff-i18n").each(function(_index, element) {
     const diffElement = $(element);
     const valueElement = diffElement.find(".diff__value");
-    const oldValue = valueElement.data("old-value").
-          replace(/</g, "&lt;").
-          replace(/>/g, "&gt;");
-    const newValue = valueElement.data("new-value").
-          replace(/</g, "&lt;").
-          replace(/>/g, "&gt;");
+    const oldValue = valueElement.data("old-value").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    const newValue = valueElement.data("new-value").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
     const diff = JsDiff.diffChars(oldValue, newValue);
     let outputHTML = "";

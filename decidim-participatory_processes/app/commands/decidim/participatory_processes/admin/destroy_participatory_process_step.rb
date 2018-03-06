@@ -8,9 +8,11 @@ module Decidim
         # Public: Initializes the command.
         #
         # step - A ParticipatoryProcessStep that will be deactivated
-        def initialize(step)
+        # current_user - the user performing the action
+        def initialize(step, current_user)
           @step = step
           @participatory_process = step.participatory_process
+          @current_user = current_user
         end
 
         # Executes the command. Broadcasts these events:
@@ -22,19 +24,28 @@ module Decidim
         def call
           return broadcast(:invalid, :active_step) if active_step?
 
-          @step.destroy!
-          reorder_steps
+          transaction do
+            Decidim.traceability.perform_action!(:delete, step, current_user) do
+              step.destroy!
+              step
+            end
+
+            reorder_steps
+          end
+
           broadcast(:ok)
         end
 
         private
 
+        attr_reader :step, :participatory_process, :current_user
+
         def active_step?
-          @participatory_process.steps.count > 1 && @step.active?
+          participatory_process.steps.count > 1 && step.active?
         end
 
         def reorder_steps
-          steps = @participatory_process.steps.reload
+          steps = participatory_process.steps.reload
 
           ReorderParticipatoryProcessSteps
             .new(steps, steps.map(&:id))

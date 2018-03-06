@@ -8,7 +8,7 @@ The content parser class is used to process the text before it is saved to the d
 
 Register the content processor in an `initializer`:
 
-```
+```ruby
 Decidim.content_processors += [:special_words]
 ```
 
