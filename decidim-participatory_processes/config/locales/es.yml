@@ -279,7 +279,7 @@ es:
         start_date: Fecha de inicio
         target: Quién participa
       statistics:
-        answers_count: '¿A quién va dirigida?'
+        answers_count: Respuestas
         comments_count: Comentarios
         endorsements_count: Endosos
         headline: Actividad
