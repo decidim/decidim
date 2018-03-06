@@ -2,6 +2,7 @@ sv:
   activemodel:
     attributes:
       assembly:
+        area_id: Område
         banner_image: Banner image
         copy_categories: Kopiera kategorier
         copy_features: Kopiera funktioner
@@ -149,6 +150,7 @@ sv:
         answers_count: svar
         assemblies_count: Assemblies
         comments_count: kommentarer
+        endorsements_count: påskrifter
         headline: Aktivitet
         meetings_count: möten
         orders_count: röster
