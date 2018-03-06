@@ -81,10 +81,10 @@ ca:
         delete: "%{user_name} ha esborrat la pàgina estàtica %{resource_name}"
         update: "%{user_name} ha actualitzat la pàgina estàtica %{resource_name}"
       user:
-        invite: "%{user_name} va convidar l'usuari a %{resource_name} amb el rol: %{role}"
-        officialize: "%{user_name} oficialitza l'usuari %{resource_name}"
+        invite: "%{user_name} ha convidat l'usuari a %{resource_name} amb el rol: %{role}"
+        officialize: "%{user_name} ha oficialitzat l'usuari %{resource_name}"
         remove_from_admin: "%{user_name} ha eliminat l'usuari %{resource_name} amb el rol: %{role}"
-        unofficialize: "%{user_name} no oficialitzat l'usuari %{resource_name}"
+        unofficialize: "%{user_name} ha desoficialitzat l'usuari %{resource_name}"
       user_group:
         reject: "%{user_name} ha rebutjat la verificació del grup d'usuaris %{resource_name}"
         verify: "%{user_name} ha verificat el grup d'usuaris %{resource_name}"
@@ -232,11 +232,11 @@ ca:
     log:
       base_presenter:
         create: "%{user_name} creat %{resource_name}"
-        create_with_space: "%{user_name} creat %{resource_name} en %{space_name}"
-        delete: "%{user_name} suprimit %{resource_name}"
-        delete_with_space: "%{user_name} suprimit %{resource_name} en %{space_name}"
-        unknown_action: "%{user_name} va realitzar una acció a %{resource_name}"
-        unknown_action_with_space: "%{user_name} va realitzar una acció a %{resource_name} en %{space_name}"
+        create_with_space: "%{user_name} ha creat %{resource_name} a %{space_name}"
+        delete: "%{user_name} ha eliminat %{resource_name}"
+        delete_with_space: "%{user_name} ha eliminat %{resource_name} en %{space_name}"
+        unknown_action: "%{user_name} ha realitzat una acció a %{resource_name}"
+        unknown_action_with_space: "%{user_name} ha realitzat una acció a %{resource_name} en %{space_name}"
         update: "%{user_name} s'ha actualitzat %{resource_name}"
         update_with_space: "%{user_name} s'ha actualitzat %{resource_name} en %{space_name}"
       value_types:
