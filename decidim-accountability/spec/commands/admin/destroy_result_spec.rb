@@ -13,7 +13,7 @@ module Decidim::Accountability
     context "when everything is ok" do
       it "destroys the result" do
         subject.call
-        expect{ result.reload }.to raise_error(ActiveRecord::RecordNotFound)
+        expect { result.reload }.to raise_error(ActiveRecord::RecordNotFound)
       end
 
       it "traces the action", versioning: true do
