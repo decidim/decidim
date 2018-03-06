@@ -73,21 +73,21 @@ es:
         create: "%{user_name} creó el ámbito %{resource_name}"
         create_with_parent: "%{user_name} creó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
         delete: "%{user_name} eliminó el ámbito %{resource_name}"
-        delete_with_parent: "%{user_name} borró el alcance %{resource_name} dentro del alcance %{parent_scope}"
-        update: "%{user_name} actualizó el alcance %{resource_name}"
-        update_with_parent: "%{user_name} actualizó el alcance %{resource_name} dentro del alcance %{parent_scope}"
+        delete_with_parent: "%{user_name} eliminó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
+        update: "%{user_name} actualizó el ámbito %{resource_name}"
+        update_with_parent: "%{user_name} actualizó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
       static_page:
-        create: "%{user_name} creó el %{resource_name} página estática"
-        delete: "%{user_name} eliminado el %{resource_name} página estática"
-        update: "%{user_name} actualizado el %{resource_name} página estática"
+        create: "%{user_name} creó la página estática %{resource_name}"
+        delete: "%{user_name} eliminó la página estática %{resource_name}"
+        update: "%{user_name} actualizó la página estática %{resource_name}"
       user:
         invite: "%{user_name} invitó al usuario %{resource_name} con el rol: %{role}"
         officialize: "%{user_name} oficializó al usuario %{resource_name}"
-        remove_from_admin: "%{user_name} eliminado al usuario %{resource_name} con el rol: %{role}"
-        unofficialize: "%{user_name} no oficializado el usuario %{resource_name}"
+        remove_from_admin: "%{user_name} eliminó al usuario %{resource_name} con el rol: %{role}"
+        unofficialize: "%{user_name} desoficializó al usuario %{resource_name}"
       user_group:
-        reject: "%{user_name} rechazó el %{resource_name} Verificación del grupo de usuarios"
-        verify: "%{user_name} verificado el %{resource_name} grupo de usuario"
+        reject: "%{user_name} rechazó la verificación del grupo de usuarios %{resource_name}"
+        verify: "%{user_name} verificó al grupo de usuarios %{resource_name}"
     anonymous_user: Anónimo
     application:
       collection:
@@ -176,10 +176,10 @@ es:
         email_subject: Una actualización de %{resource_title}
       features:
         feature_published:
-          email_intro: 'El componente %{resource_title} ahora está activo para %{participatory_space_title}. Puedes verlo desde esta página:'
-          email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_intro: 'Ya está activo el componente %{resource_title} para %{participatory_space_title}. Puedes verlo desde esta página:'
+          email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Una actualización de %{participatory_space_title}
-          notification_title: El componente %{resource_title} ahora está activo para <a href="%{resource_path}">%{participatory_space_title}</a>
+          notification_title: Ya está activo el componente %{resource_title} para <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -231,14 +231,14 @@ es:
       remove_this_file: Eliminar este archivo
     log:
       base_presenter:
-        create: "%{user_name} creado %{resource_name}"
-        create_with_space: "%{user_name} creado %{resource_name} en %{space_name}"
-        delete: "%{user_name} borrado %{resource_name}"
-        delete_with_space: "%{user_name} borrado %{resource_name} en %{space_name}"
-        unknown_action: "%{user_name} realizó alguna acción en %{resource_name}"
-        unknown_action_with_space: "%{user_name} realizó alguna acción en %{resource_name} en %{space_name}"
-        update: "%{user_name} actualizado %{resource_name}"
-        update_with_space: "%{user_name} actualizado %{resource_name} en %{space_name}"
+        create: "%{user_name} creó %{resource_name}"
+        create_with_space: "%{user_name} creó %{resource_name} en %{space_name}"
+        delete: "%{user_name} eliminó %{resource_name}"
+        delete_with_space: "%{user_name} eliminó %{resource_name} en %{space_name}"
+        unknown_action: "%{user_name} realizó una acción en %{resource_name}"
+        unknown_action_with_space: "%{user_name} realizó una acción en %{resource_name} en %{space_name}"
+        update: "%{user_name} actualizó %{resource_name}"
+        update_with_space: "%{user_name} actualizó %{resource_name} en %{space_name}"
       value_types:
         area_presenter:
           not_found: 'No se encontró el área en la base de datos (ID: %{id})'
