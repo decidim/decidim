@@ -303,8 +303,8 @@ es:
         preview:
           modify: Modificar la propuesta
           proposal_edit_before_minutes:
-            one: Podrás editar esta propuesta durante el primer minuto posterior a la publicación de la propuesta. Una vez que pase esta ventana de tiempo, ya no podrás editarla.
-            other: Podrás editar esta propuesta durante el primer %{count} minutos después de que se publique la propuesta. Una vez que pase esta ventana de tiempo, no podrá editar la propuesta.
+            one: Podrás editar esta propuesta durante el primer minuto posterior a la publicación de la misma. Una vez que pase este tiempo, ya no podrás editarla.
+            other: Podrás editar esta propuesta durante los primeros %{count} minutos después de que se publique. Una vez que pase este tiempo, no podrás editar la propuesta.
           publish: Publicar
           title: Publica tu propuesta
         proposal:
