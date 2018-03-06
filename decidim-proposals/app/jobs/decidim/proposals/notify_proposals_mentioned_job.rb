@@ -4,7 +4,6 @@ module Decidim
   module Proposals
     class NotifyProposalsMentionedJob < ApplicationJob
       def perform(comment, proposal_metadata)
-        # feature = Decidim::Feature.find(feature_id)
         linked_proposals = proposal_metadata.linked_proposals
         linked_proposals.each do |proposal|
           recipient_ids = [proposal.decidim_author_id]
