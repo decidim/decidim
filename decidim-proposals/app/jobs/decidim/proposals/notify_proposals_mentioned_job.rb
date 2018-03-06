@@ -8,7 +8,7 @@ module Decidim
         linked_proposals.each do |proposal|
           recipient_ids = [proposal.decidim_author_id]
           Decidim::EventsManager.publish(
-            event: "decidim.events.comments.proposal_mentioned",
+            event: "decidim.events.proposals.proposal_mentioned",
             event_class: Decidim::Proposals::ProposalMentionedEvent,
             resource: comment.root_commentable,
             recipient_ids: recipient_ids,

@@ -22,7 +22,7 @@ module Decidim
           expect(Decidim::EventsManager)
             .to receive(:publish)
             .with(
-              event: "decidim.events.comments.proposal_mentioned",
+              event: "decidim.events.proposals.proposal_mentioned",
               event_class: Decidim::Proposals::ProposalMentionedEvent,
               resource: commentable,
               recipient_ids: [linked_proposal.decidim_author_id],
