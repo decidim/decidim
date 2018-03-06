@@ -132,10 +132,10 @@ ca:
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
       admin_log:
         meeting:
-          close: "%{user_name} va tancar la %{resource_name} reunió a l'espai %{space_name}"
-          create: "%{user_name} va crear la %{resource_name} reunió a l'espai %{space_name}"
-          delete: "%{user_name} ha eliminat la %{resource_name} reunió a l'espai %{space_name}"
-          update: "%{user_name} ha actualitzat la %{resource_name} reunió a l'espai %{space_name}"
+          close: "%{user_name} ha tancat la trobada %{resource_name} a l'espai %{space_name}"
+          create: "%{user_name} ha creat la trobada %{resource_name} a l'espai %{space_name}"
+          delete: "%{user_name} ha eliminat la trobada %{resource_name} a l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat la trobada %{resource_name} a l'espai %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -198,13 +198,13 @@ ca:
     participatory_processes:
       participatory_process_groups:
         highlighted_meetings:
-          past_meetings: Reunions anteriors
-          upcoming_meetings: Propers reunions
+          past_meetings: Trobades anteriors
+          upcoming_meetings: Properes trobades
     participatory_spaces:
       highlighted_meetings:
-        past_meetings: Reunions anteriors
-        see_all_meetings: Veure totes les reunions
-        upcoming_meetings: Propers reunions
+        past_meetings: Trobades anteriors
+        see_all_meetings: Veure totes les trobades
+        upcoming_meetings: Properes rrobades
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Resultats relacionats:'
