@@ -3,6 +3,7 @@ ca:
     attributes:
       debate:
         category_id: Categoria
+        decidim_category_id: Categoria
         description: Descripció
         end_time: Data de finalització
         information_updates: Actualitzacions d'informació
@@ -39,6 +40,10 @@ ca:
         models:
           debate:
             name: Debat
+      admin_log:
+        debate:
+          create: "%{user_name} ha creat el %{resource_name} debat sobre l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat el %{resource_name} debat sobre l'espai %{space_name}"
       debates:
         count:
           debates_count:
@@ -118,7 +123,9 @@ ca:
         name: Debats
         settings:
           global:
+            announcement: Anunci
             comments_enabled: Comentaris habilitats
           step:
+            announcement: Anunci
             comments_blocked: Comentaris bloquejats
             creation_enabled: Habilitar la creació de debats pels usuaris

@@ -2,6 +2,7 @@ gl:
   activemodel:
     attributes:
       assembly:
+        area_id: Área
         banner_image: Imaxe do banner
         copy_categories: Copiar categorías
         copy_features: Copiar funcións
@@ -149,6 +150,7 @@ gl:
         answers_count: Respostas
         assemblies_count: Asembleas
         comments_count: Comentarios
+        endorsements_count: Aprobacións
         headline: Actividade
         meetings_count: Reunións
         orders_count: Votos

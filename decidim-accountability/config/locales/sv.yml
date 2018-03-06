@@ -9,7 +9,7 @@ sv:
         end_date: Slutdatum
         progress: Framsteg
         project_ids: Inkluderade projekt
-        proposal_ids: Ingår förslag
+        proposals: Ingår förslag
         start_date: Start datum
         title: Titel
         updated_at: Uppdaterad på
@@ -50,11 +50,17 @@ sv:
           edit:
             title: Ändra resultat
             update: Uppdateringsresultat
+          form:
+            add_proposal: Lägg till förslag
           index:
             title: Resultat
           new:
             create: Skapa resultat
             title: Nytt resultat
+          proposals:
+            close: Stänga
+            current_selection: Aktuellt urval
+            select: Välj
           update:
             invalid: Det har varit ett problem att uppdatera resultatet
             success: Resultatet uppdaterades med framgång

@@ -2,6 +2,7 @@ fr:
   activemodel:
     attributes:
       assembly:
+        area_id: Région
         banner_image: Image d'en-tête
         copy_categories: Copier les catégories
         copy_features: Copier les fonctionnalités
@@ -149,6 +150,7 @@ fr:
         answers_count: Réponses
         assemblies_count: Assemblées
         comments_count: Commentaires
+        endorsements_count: Les avenants
         headline: Activité
         meetings_count: Réunions
         orders_count: Votes

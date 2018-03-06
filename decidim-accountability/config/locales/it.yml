@@ -9,7 +9,7 @@ it:
         end_date: Data finale
         progress: Progresso
         project_ids: Progetti inclusi
-        proposal_ids: Proposte incluse
+        proposals: Proposte incluse
         start_date: Date di inizio
         title: Nome
         updated_at: Aggiornato a
@@ -50,11 +50,17 @@ it:
           edit:
             title: Modifica il risultato
             update: Aggiorna il risultato
+          form:
+            add_proposal: Aggiungi proposta
           index:
             title: Risultati
           new:
             create: Crea un risultato
             title: Nuovo risultato
+          proposals:
+            close: Vicino
+            current_selection: Selezione corrente
+            select: Selezionare
           update:
             invalid: C'è stato un problema durante l'aggiornamento di questo risultato
             success: Risultato modificato con successo

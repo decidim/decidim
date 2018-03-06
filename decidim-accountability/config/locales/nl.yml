@@ -9,7 +9,7 @@ nl:
         end_date: Einddatum
         progress: Vooruitgang
         project_ids: Opgenomen projecten
-        proposal_ids: Opgenomen voorstellen
+        proposals: Inbegrepen voorstellen
         start_date: Begin datum
         title: Titel
         updated_at: Bijgewerkt om
@@ -50,11 +50,17 @@ nl:
           edit:
             title: Bewerk resultaat
             update: Update resultaat
+          form:
+            add_proposal: Voeg voorstel toe
           index:
             title: Resultaten
           new:
             create: Maak resultaat
             title: Nieuw resultaat
+          proposals:
+            close: Dichtbij
+            current_selection: Huidige selectie
+            select: kiezen
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van dit resultaat
             success: Resultaat met succes bijgewerkt
