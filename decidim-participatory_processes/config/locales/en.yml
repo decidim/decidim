@@ -70,7 +70,7 @@ en:
           features: Features
           info: Info
           moderations: Moderations
-          private_users: Private users
+          private_users: Private Users
           process_admins: Process users
           steps: Steps
       models:

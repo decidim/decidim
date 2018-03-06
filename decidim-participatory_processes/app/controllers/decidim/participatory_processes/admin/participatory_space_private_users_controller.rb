@@ -9,7 +9,7 @@ module Decidim
         include Decidim::Admin::Concerns::HasPrivateUsers
 
         def after_destroy_path
-          participatory_space_private_users_path(current_assembly)
+          participatory_space_private_users_path(current_participatory_process)
         end
 
         def privatable_to
