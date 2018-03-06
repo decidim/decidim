@@ -30,6 +30,7 @@ eu:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> bilera itxita zegoen.
         meeting_created:
           email_intro: Bilera "%{resource_title}" | gehitu da "%{participatory_space_title}" " jarraitzen ari zarela.
+          email_outro: Jakinarazpena jaso duzu "%{participatory_space_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Bilera berria %{participatory_space_title}
           notification_title: Bilera <a href="%{resource_path}">%{resource_title}</a> gehitu da %{participatory_space_title}
         meeting_registrations_over_percentage:
@@ -129,6 +130,12 @@ eu:
           update:
             invalid: Arazo bat izan da izen-ematearen konfigurazioa gordetzean.
             success: Topaketen izen-emateen konfigurazioak zuzen gorde dira.
+      admin_log:
+        meeting:
+          close: "%{user_name} %{resource_name} bilera %{space_name} espazioan itxi zen"
+          create: "%{user_name} %{resource_name} bilera sortu zen %{space_name} espazioan"
+          delete: "%{user_name} %{resource_name} topaketa ezabatu da %{space_name} espazioan"
+          update: "%{user_name} %{resource_name} topaketa %{space_name} espazioan eguneratu zen"
       mailer:
         invite_join_meeting_mailer:
           invite:
