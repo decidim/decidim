@@ -59,7 +59,7 @@ fr:
         resend_invitation: Renvoyer l'invitation
         unpublish: Dépublier
       menu:
-        participatory_process_groups: Groupes de processus participatifs
+        participatory_process_groups: Groupes de processus
         participatory_processes: Processus participatifs
         participatory_processes_submenu:
           attachment_collections: Collections
@@ -82,7 +82,7 @@ fr:
         participatory_process_group:
           fields:
             name: Nom
-          name: Groupes de processus participatifs
+          name: Groupes de processus
         participatory_process_step:
           fields:
             end_date: Date de fin
@@ -116,7 +116,7 @@ fr:
           update: Mettre à jour
         new:
           create: Créer
-          title: Nouveau groupe de processus participatifs
+          title: Nouveau groupe de processus
         update:
           error: Il y a eu une erreur lors de la mise à jour de ce groupe de processus participatifs.
           success: Groupe de processus participatifs mis à jour avec succès.
@@ -199,7 +199,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'un nouveau groupe de processus participatif.
           success: Groupe de processus participatif créé avec succès.
       titles:
-        participatory_process_groups: Groupes de processus participatifs
+        participatory_process_groups: Groupes de processus
         participatory_processes: Processus participatifs
       users:
         resend_invitation:
@@ -237,7 +237,7 @@ fr:
     participatory_process_groups:
       show:
         group_participatory_processes: Processus participatifs pour %{group}
-        title: Groupes de processus participatifs
+        title: Groupes de processus
     participatory_process_steps:
       index:
         process_steps: Etapes du processus
