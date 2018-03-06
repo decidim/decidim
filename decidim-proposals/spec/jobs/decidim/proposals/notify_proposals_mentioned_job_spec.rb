@@ -20,6 +20,7 @@ module Decidim
           proposal_metadata[:linked_proposals] << linked_proposal.id
           proposal_metadata[:linked_proposals] << linked_proposal_no_author.id
         end
+
         it "notifies the author about it" do
           expect(Decidim::EventsManager)
             .to receive(:publish)
