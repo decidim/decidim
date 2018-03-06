@@ -12,7 +12,7 @@
           <div class="description">
             <%== translated_attribute result.description %>
           </div>
-          <%= render partial: "decidim/shared/tags", locals: { resource: result, tags_class_extra: "tags--result" } %>
+          <%= cell "decidim/tags", result, context: {extra_classes: ["tags--result"]} %>
         </div>
       </div>
       <%= render partial: "stats_box" %>

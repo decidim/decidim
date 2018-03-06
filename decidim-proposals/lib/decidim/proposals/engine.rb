@@ -87,7 +87,7 @@ module Decidim
           )
         end
       end
-      
+
       # Subscribes to ActiveSupport::Notifications that may affect a Proposal.
       initializer "decidim_proposals.subscribe_to_events" do
         # when a proposal is linked from a result
@@ -100,7 +100,7 @@ module Decidim
           end
         end
       end
-      
+
       initializer "decidim_proposals.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Proposals::Engine.root}/app/views") # for proposal partials

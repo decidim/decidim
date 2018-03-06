@@ -22,7 +22,7 @@
         <%= body %>
       </p>
 
-      <%= render partial: "decidim/shared/tags.html", locals: { resource: model, tags_class_extra: "tags--proposal" } %>
+      <%= cell "decidim/tags", model, context: {extra_classes: ["tags--proposal"]} %>
     </div>
 
     <%= cell("decidim/proposals/proposal_m", model).footer %>

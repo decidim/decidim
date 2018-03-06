@@ -41,7 +41,7 @@ module Decidim
       def current_settings
         model.feature.current_settings
       end
-      #
+
       def feature_settings
         controller.feature_settings
       end
