@@ -14,11 +14,16 @@ module Decidim
       desc "Install decidim"
       source_root File.expand_path("templates", __dir__)
 
-      class_option :app_name, type: :string, default: nil,
+      class_option :app_name, type: :string,
+                              default: nil,
                               desc: "The name of the app"
-      class_option :recreate_db, type: :boolean, default: false,
+
+      class_option :recreate_db, type: :boolean,
+                                 default: false,
                                  desc: "Recreate db after installing decidim"
-      class_option :seed_db, type: :boolean, default: false,
+
+      class_option :seed_db, type: :boolean,
+                             default: false,
                              desc: "Seed db after installing decidim"
 
       def install
