@@ -31,11 +31,11 @@ module Decidim
       end
 
       def i18n_scope
-        @scope ||= if extra[:type].to_s == "user"
-                     "decidim.events.debates.create_debate_event.user_followers"
-                   else
-                     "decidim.events.debates.create_debate_event.space_followers"
-                   end
+        @i18n_scope ||= if extra[:type].to_s == "user"
+                          "decidim.events.debates.create_debate_event.user_followers"
+                        else
+                          "decidim.events.debates.create_debate_event.space_followers"
+                        end
       end
     end
   end

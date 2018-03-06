@@ -11,7 +11,7 @@ describe("<AddCommentForm />", () => {
   let session: any = null;
   const commentable = {
     id: "1",
-    type: "Decidim::DummyResources::DummyResource",
+    type: "Decidim::DummyResources::DummyResource"
   };
   const orderBy = "older";
   const addCommentStub = (): any => {
@@ -22,12 +22,12 @@ describe("<AddCommentForm />", () => {
     loadLocaleTranslations("en");
     session = {
       user: generateUserData(),
-      verifiedUserGroups: [],
+      verifiedUserGroups: []
     };
     window.DecidimComments = {
       assets: {
-        "icons.svg": "/assets/icons.svg",
-      },
+        "icons.svg": "/assets/icons.svg"
+      }
     };
   });
 
@@ -72,8 +72,8 @@ describe("<AddCommentForm />", () => {
     const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} rootCommentable={commentable} orderBy={orderBy} />);
     wrapper.find("textarea").simulate("change", {
       target: {
-        value: "This is a comment",
-      },
+        value: "This is a comment"
+      }
     });
     expect(wrapper.find('button[type="submit"]').props()).not.toHaveProperty("disabled", true);
   });
@@ -82,13 +82,13 @@ describe("<AddCommentForm />", () => {
     const wrapper = mount(<AddCommentForm addComment={addCommentStub} session={session} commentable={commentable} rootCommentable={commentable} orderBy={orderBy} />);
     wrapper.find("textarea").simulate("change", {
       target: {
-        value: "This will be deleted",
-      },
+        value: "This will be deleted"
+      }
     });
     wrapper.find("textarea").simulate("change", {
       target: {
-        value: "",
-      },
+        value: ""
+      }
     });
     expect(wrapper.find('button[type="submit"]').props()).toHaveProperty("disabled", true);
   });
@@ -103,8 +103,8 @@ describe("<AddCommentForm />", () => {
     const commentBody = "This is a new comment!";
     wrapper.find("textarea").simulate("change", {
       target: {
-        value: commentBody,
-      },
+        value: commentBody
+      }
     });
     expect(wrapper.find(".remaining-character-count").text()).toContain(MAX_LENGTH - commentBody.length);
   });
@@ -200,7 +200,7 @@ describe("<AddCommentForm />", () => {
     beforeEach(() => {
       session.verifiedUserGroups = [
         generateUserGroupData(),
-        generateUserGroupData(),
+        generateUserGroupData()
       ];
     });
 

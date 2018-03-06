@@ -96,7 +96,7 @@ module Decidim
           payload = data[:this]
           if payload[:from_type] == Decidim::Accountability::Result.name && payload[:to_type] == Proposal.name
             proposal = Proposal.find(payload[:to_id])
-            proposal.update_attributes(state: "accepted")
+            proposal.update(state: "accepted")
           end
         end
       end

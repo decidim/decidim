@@ -120,4 +120,3 @@ exclude_patterns:
   - "spec/decidim_dummy_app/"
   - "coverage/"
   - "webpack.report.html"
-  - "yarn-error.log"

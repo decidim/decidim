@@ -41,7 +41,7 @@ module Decidim
         def deactivate_active_steps
           step.participatory_process.steps.where(active: true).each do |step|
             @previous_step = step if step.active?
-            step.update_attributes!(active: false)
+            step.update!(active: false)
           end
         end
 
@@ -51,7 +51,7 @@ module Decidim
             step,
             current_user
           ) do
-            step.update_attributes!(active: true)
+            step.update!(active: true)
           end
         end
 

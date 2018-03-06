@@ -20,7 +20,6 @@ module Decidim
             other_ids: @resource.ids
           }
         end
-        # rubocop:enable RSpec/InstanceVariable
       end
     end
 
