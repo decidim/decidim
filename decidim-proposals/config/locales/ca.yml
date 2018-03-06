@@ -3,7 +3,7 @@ ca:
     attributes:
       proposal:
         answer: Resposta
-        answered_at: Respost a
+        answered_at: Respost el
         body: Cos
         category_id: Categoria
         has_address: Té adreça
@@ -20,7 +20,7 @@ ca:
     events:
       proposals:
         creation_enabled:
-          email_intro: 'Ara pots crear noves propostes a %{participatory_space_title}. Comença a participar en aquesta pàgina:'
+          email_intro: 'Ara pots crear noves propostes a %{participatory_space_title}. Comença a participar a aquesta pàgina:'
           email_outro: Heu rebut aquesta notificació perquè esteu seguint %{participatory_space_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Les propostes ja estan disponibles en %{participatory_space_title}
           notification_title: Ara podeu començar <a href="%{resource_path}">noves propostes</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
