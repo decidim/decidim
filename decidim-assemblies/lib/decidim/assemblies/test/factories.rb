@@ -37,6 +37,10 @@ FactoryBot.define do
     trait :published do
       published_at { Time.current }
     end
+
+    trait :with_parent do
+      parent { create :assembly, orgainization: organization }
+    end
   end
 
   factory :assembly_user_role, class: "Decidim::AssemblyUserRole" do

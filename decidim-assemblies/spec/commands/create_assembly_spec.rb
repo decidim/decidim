@@ -35,6 +35,7 @@ module Decidim::Assemblies
         scopes_enabled: true,
         scope: scope,
         area: area,
+        parent_id: nil,
         errors: errors
       )
     end
