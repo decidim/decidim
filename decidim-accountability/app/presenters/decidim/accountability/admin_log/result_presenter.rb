@@ -31,6 +31,7 @@ module Decidim
             description: :i18n,
             title: :i18n,
             decidim_scope_id: :scope,
+            parent_id: "Decidim::Accountability::AdminLog::ValueTypes::ParentPresenter",
             progress: :percentage
           }
         end
