@@ -20,7 +20,7 @@ fr:
     events:
       proposals:
         creation_enabled:
-          email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title}! Commencez à participer à cette page:'
+          email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title} ! Commencez à participer sur cette page:'
           email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: Propositions maintenant disponibles en %{participatory_space_title}
           notification_title: Vous pouvez maintenant démarrer <a href="%{resource_path}">nouvelles propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
@@ -35,7 +35,7 @@ fr:
           email_subject: Une proposition que vous suivez a été acceptée
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
         proposal_created:
-          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a créé une nouvelle proposition, vérifiez-la et contribuez:"
+          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a créé une nouvelle proposition. Découvrez-la et contribuez:"
           email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: Nouvelle proposition par %{author_nickname}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
