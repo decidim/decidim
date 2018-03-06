@@ -67,7 +67,7 @@ fr:
         organization: Organisation
         parent_id: Parent
         scope_type: Type de zone de d'application
-        scope_type_id: Type de portée
+        scope_type_id: Type de zone d'application
       scope_type:
         name: Nom
         organization: Organisation
@@ -425,7 +425,7 @@ fr:
             officialized: Validé
           filter_by: Filtrer par
           name: Nom
-          nickname: Pseudo
+          nickname: Pseudonyme
           not_officialized: Non validé
           officialize: Valider
           officialized: Validé
