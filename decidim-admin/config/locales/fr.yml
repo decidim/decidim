@@ -87,17 +87,17 @@ fr:
         end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        local_area: Quartier
-        meta_scope: Metadonnée du périmètre d'application
-        participatory_scope: Objectif du processus participatif
-        participatory_structure: Organisations concernées
+        local_area: Périmètre
+        meta_scope: Échelle
+        participatory_scope: Objectif
+        participatory_structure: Modalités
         promoted: Mis en avant
         scope: Zone d’application
         short_description: Résumé
         slug: Identifiant
         start_date: Date de début
         subtitle: Sous-titre
-        target: Public visé
+        target: Participants
         title: Titre
       decidim/participatory_process_group:
         description: Description
