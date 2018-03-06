@@ -16,7 +16,7 @@ describe("<Application />", () => {
     shallow(
       <Application locale={locale}>
         <div>My application</div>
-      </Application>,
+      </Application>
     );
     expect(I18n.setLocale).toHaveBeenCalledWith(locale);
   });

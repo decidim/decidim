@@ -22,7 +22,7 @@ const VoteButton: React.SFC<VoteButtonProps> = ({
   voteAction,
   disabled,
   selectedClass,
-  userLoggedIn,
+  userLoggedIn
 }) => (
   <button
     className={`${buttonClassName} ${selectedClass}`}
@@ -40,7 +40,7 @@ VoteButton.defaultProps = {
   iconName: "",
   votes: 0,
   selectedClass: "selected",
-  disabled: false,
+  disabled: false
 };
 
 export default VoteButton;

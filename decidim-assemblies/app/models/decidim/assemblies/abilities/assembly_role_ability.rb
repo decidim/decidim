@@ -38,7 +38,7 @@ module Decidim
         # Returns a collection of Participatory assemblies where the given user has the
         # specific role privilege.
         def assemblies_with_role_privileges
-          @assemblies ||= Decidim::Assemblies::AssembliesWithUserRole.for(@user, role)
+          @assemblies_with_role_privileges ||= Decidim::Assemblies::AssembliesWithUserRole.for(@user, role)
         end
 
         # Whether the user has at least one assembly to manage or not.

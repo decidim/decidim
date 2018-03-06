@@ -17,13 +17,24 @@ module Decidim
       let!(:resource) { create(:dummy_resource, feature: current_feature) }
       let!(:target_resource) { create(:dummy_resource, feature: target_feature) }
 
-      context "when I'm linking to a resource" do
+      context "when linking to a resource" do
+        let(:received_on_create) { {} }
+
         before do
+          event_name = "decidim.resourceable.link-name.created"
+          ActiveSupport::Notifications.subscribe event_name do |_name, _started, _finished, _unique_id, data|
+            received_on_create.merge!(data)
+          end
           resource.link_resources(target_resource, "link-name")
         end
 
         it "includes the linked resource" do
           expect(resource.linked_resources(:dummy, "link-name")).to include(target_resource)
+        end
+
+        it "sends an event to notify the linking happened" do
+          payload = { from_type: "Decidim::DummyResources::DummyResource", from_id: resource.id, to_type: "Decidim::DummyResources::DummyResource", to_id: target_resource.id }
+          expect(received_on_create[:this]).to eq(payload)
         end
       end
 
