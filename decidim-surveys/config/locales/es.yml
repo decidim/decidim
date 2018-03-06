@@ -10,9 +10,9 @@ es:
     events:
       surveys:
         survey_closed:
-          email_intro: La encuesta %{resource_title} en %{participatory_space_title} ha sido cerrada.
-          email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: Una encuesta ha terminado en %{participatory_space_title}
+          email_intro: Se ha cerrado la encuesta %{resource_title} en %{participatory_space_title}.
+          email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones desde el enlace anterior.
+          email_subject: Ha terminado una encuesta en %{participatory_space_title}
           notification_title: La encuesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> ha terminado.
         survey_opened:
           email_intro: 'La encuesta %{resource_title} en %{participatory_space_title} ya está abierta. Puedes participar desde esta página:'
