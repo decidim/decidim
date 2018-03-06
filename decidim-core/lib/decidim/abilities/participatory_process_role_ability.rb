@@ -26,7 +26,7 @@ module Decidim
       def define_participatory_process_abilities; end
 
       # Abstract: A subclass must define this method returning a valid role.
-      # See ParticipatoryProcessUserRoles::ROLES for more information.
+      # See ParticipatoryProcessUserRole::ROLES for more information.
       def role
         raise "Needs implementation"
       end
@@ -39,7 +39,7 @@ module Decidim
       # Returns a collection of Participatory processes where the given user has the
       # specific role privilege.
       def participatory_processes_with_role_privileges
-        @participatory_processes ||= Decidim::ParticipatoryProcessesWithUserRole.for(@user, role)
+        @participatory_processes_with_role_privileges ||= Decidim::ParticipatoryProcessesWithUserRole.for(@user, role)
       end
 
       # Whether the user has at least one process to manage or not.

@@ -3,24 +3,22 @@ import assetUrl from "../support/asset_url";
 
 interface IconProps {
   name: string;
-  userAgent: string;
   iconExtraClassName?: string;
 }
 
-export const Icon: React.SFC<IconProps> = ({ name, userAgent, iconExtraClassName }) => {
-  if (userAgent.match(/Node/)) {
-    return <span className={`icon ${iconExtraClassName} ${name}`}>{name}</span>;
-  }
-
+export const Icon: React.SFC<IconProps> = ({ name, iconExtraClassName }) => {
   return (
     <svg className={`icon ${iconExtraClassName} ${name}`}>
-      <use xmlnsXlink="http://www.w3.org/1999/xlink" xlinkHref={`${assetUrl("icons.svg")}#${name}`} />
+      <use
+        xmlnsXlink="http://www.w3.org/1999/xlink"
+        xlinkHref={`${assetUrl("icons.svg")}#${name}`}
+      />
     </svg>
   );
 };
 
 Icon.defaultProps = {
-  iconExtraClassName: "icon--before",
+  iconExtraClassName: "icon--before"
 };
 
 interface IconWithoutUserAgentProps {
@@ -28,8 +26,9 @@ interface IconWithoutUserAgentProps {
   iconExtraClassName?: string;
 }
 
-const IconWithoutUserAgent: React.SFC<IconWithoutUserAgentProps> = ({ name, iconExtraClassName }) => (
-  <Icon name={name} userAgent={navigator.userAgent} iconExtraClassName={iconExtraClassName} />
-);
+const IconWithoutUserAgent: React.SFC<IconWithoutUserAgentProps> = ({
+  name,
+  iconExtraClassName
+}) => <Icon name={name} iconExtraClassName={iconExtraClassName} />;
 
 export default IconWithoutUserAgent;

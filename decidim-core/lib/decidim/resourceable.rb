@@ -63,12 +63,21 @@ module Decidim
         transaction do
           resource_links_from.where(name: link_name).delete_all
           Array.wrap(resources).each do |resource|
-            Decidim::ResourceLink.create!(
-              from: self,
-              to: resource,
-              name: link_name,
-              data: data
-            )
+            payload = {
+              from_type: self.class.name,
+              from_id: id,
+              to_type: resource.class.name,
+              to_id: resource.id
+            }
+            event_name = "decidim.resourceable.#{link_name}.created"
+            ActiveSupport::Notifications.instrument event_name, this: payload do
+              Decidim::ResourceLink.create!(
+                from: self,
+                to: resource,
+                name: link_name,
+                data: data
+              )
+            end
           end
         end
       end

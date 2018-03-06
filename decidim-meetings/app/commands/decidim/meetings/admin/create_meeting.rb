@@ -28,7 +28,9 @@ module Decidim
         private
 
         def create_meeting!
-          @meeting = Meeting.create!(
+          @meeting = Decidim.traceability.create!(
+            Meeting,
+            @form.current_user,
             scope: @form.scope,
             category: @form.category,
             title: @form.title,

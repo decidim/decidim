@@ -7,6 +7,18 @@ fr:
         mandatory: Requis
         question_type: Type de question
   decidim:
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Le sondage %{resource_title} dans %{participatory_space_title} a été fermé.
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Une enquête est terminée à %{participatory_space_title}
+          notification_title: Le sondage <a href="%{resource_path}">%{resource_title}</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a> est terminé.
+        survey_opened:
+          email_intro: 'Le sondage %{resource_title} dans %{participatory_space_title} est maintenant ouvert. Vous pouvez y participer à partir de cette page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Un nouveau sondage en %{participatory_space_title}
+          notification_title: Le sondage <a href="%{resource_path}">%{resource_title}</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a> est maintenant ouvert.
     features:
       surveys:
         actions:

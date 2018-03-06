@@ -9,7 +9,7 @@ import {
   CommentFragment,
   DownVoteButtonFragment,
   DownVoteMutation,
-  GetCommentsQuery,
+  GetCommentsQuery
 } from "../support/schema";
 
 interface DownVoteButtonProps {
@@ -25,7 +25,7 @@ interface DownVoteButtonProps {
 export const DownVoteButton: React.SFC<DownVoteButtonProps> = ({
   session,
   comment: { downVotes, upVoted, downVoted },
-  downVote,
+  downVote
 }) => {
   let selectedClass = "";
 
@@ -58,7 +58,7 @@ const DownVoteButtonWithMutation = graphql<DownVoteMutation, DownVoteButtonProps
   props: ({ ownProps, mutate }: { ownProps: DownVoteButtonProps, mutate: MutationFunc<DownVoteMutation> }) => ({
     downVote: () => mutate({
       variables: {
-        id: ownProps.comment.id,
+        id: ownProps.comment.id
       },
       optimisticResponse: {
         __typename: "Mutation",
@@ -68,15 +68,15 @@ const DownVoteButtonWithMutation = graphql<DownVoteMutation, DownVoteButtonProps
             __typename: "Comment",
             ...ownProps.comment,
             downVotes: ownProps.comment.downVotes + 1,
-            downVoted: true,
-          },
-        },
+            downVoted: true
+          }
+        }
       },
       update: (store, { data }: { data: DownVoteMutation }) => {
         const variables = {
           commentableId: ownProps.rootCommentable.id,
           commentableType: ownProps.rootCommentable.type,
-          orderBy: ownProps.orderBy,
+          orderBy: ownProps.orderBy
         };
 
         const commentReducer = (comment: CommentFragment): CommentFragment => {
@@ -88,7 +88,7 @@ const DownVoteButtonWithMutation = graphql<DownVoteMutation, DownVoteButtonProps
 
           return {
             ...comment,
-            comments: replies.map(commentReducer),
+            comments: replies.map(commentReducer)
           };
         };
 
@@ -101,15 +101,15 @@ const DownVoteButtonWithMutation = graphql<DownVoteMutation, DownVoteButtonProps
               ...prev,
               commentable: {
                 ...prev.commentable,
-                comments: prev.commentable.comments.map(commentReducer),
-              },
+                comments: prev.commentable.comments.map(commentReducer)
+              }
             },
-            variables,
+            variables
           });
         }
-      },
-    }),
-  }),
+      }
+    })
+  })
 })(DownVoteButton);
 
 export default DownVoteButtonWithMutation;

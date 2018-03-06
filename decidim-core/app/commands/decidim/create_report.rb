@@ -57,7 +57,7 @@ module Decidim
     end
 
     def update_report_count!
-      @moderation.update_attributes!(report_count: @moderation.report_count + 1)
+      @moderation.update!(report_count: @moderation.report_count + 1)
     end
 
     def participatory_space_admins

@@ -15,7 +15,6 @@ module Decidim
     default_scope { order(arel_table[:weight].asc) }
 
     delegate :organization, :categories, to: :participatory_space
-    delegate :scopes, to: :organization
 
     def self.log_presenter_class_for(_log)
       Decidim::AdminLog::FeaturePresenter
