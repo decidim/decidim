@@ -114,19 +114,19 @@ ca:
         assemblies: Assemblees
     admin_log:
       assembly:
-        create: "%{user_name} ha creat el conjunt %{resource_name}"
-        publish: "%{user_name} va publicar l'assemblea %{resource_name}"
-        unpublish: "%{user_name} no s'ha publicat l'assemblea %{resource_name}"
-        update: "%{user_name} ha actualitzat l'ensamblat %{resource_name}"
+        create: "%{user_name} ha creat l'assemblea %{resource_name}"
+        publish: "%{user_name} ha publicat l'assemblea %{resource_name}"
+        unpublish: "%{user_name} ha despublicat l'assemblea %{resource_name}"
+        update: "%{user_name} ha actualitzat l'assemblea %{resource_name}"
       assembly_user_role:
-        create: "%{user_name} convidat %{resource_name} al conjunt %{space_name}"
-        delete: "%{user_name} elimina l'usuari %{resource_name} del conjunt %{space_name}"
-        update: "%{user_name} ha canviat la funció de %{resource_name} a l'assemblea %{space_name}"
+        create: "%{user_name} ha convidat %{resource_name} a l'assemblea %{space_name}"
+        delete: "%{user_name} ha eliminat l'usuari %{resource_name} de l'assemblea %{space_name}"
+        update: "%{user_name} ha canviat el rol de %{resource_name} a l'assemblea %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
-            select_an_area: Seleccioneu un àrea
+            select_an_area: Selecciona una àrea
             slug_help: 'Els noms curts d''URL s''utilitzen per generar les URL que apunten a aquesta assemblea. Només accepta lletres, números i guions, i ha de començar amb una lletra. Exemple: %{url}'
         assembly_copies:
           form:
@@ -150,7 +150,7 @@ ca:
         answers_count: Respostes
         assemblies_count: Assemblees
         comments_count: Comentaris
-        endorsements_count: Aprovacions
+        endorsements_count: Adhesions
         headline: Activitat
         meetings_count: Trobades presencials
         orders_count: Vots
