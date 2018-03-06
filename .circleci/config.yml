@@ -80,10 +80,12 @@ jobs:
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Run main folder RSpec
-          command: bundle exec rspec
+          command: mkdir ~/rspec && bundle exec rspec --format progress --format RspecJunitFormatter -o ~/rspec/rspec.xml
       - run:
           name: Run rubocop
           command: bundle exec rubocop
+      - store_test_results:
+          path: ~/rspec
   core:
     <<: *defaults
     steps:
@@ -100,9 +102,11 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run core RSpec
-          command: cd decidim-core && rake
+          command: mkdir ~/rspec && cd decidim-core && rake
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/screenshots
+      - store_test_results:
+          path: ~/rspec
   assemblies:
     <<: *defaults
     steps:
@@ -119,9 +123,11 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run assemblies RSpec
-          command: cd decidim-assemblies && rake
+          command: mkdir ~/rspec && cd decidim-assemblies && rake
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/screenshots
+      - store_test_results:
+          path: ~/rspec
   api:
     <<: *defaults
     steps:
@@ -138,9 +144,11 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run api RSpec
-          command: cd decidim-api && rake
+          command: mkdir ~/rspec && cd decidim-api && rake
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/screenshots
+      - store_test_results:
+          path: ~/rspec
   processes:
     <<: *defaults
     steps:
@@ -157,9 +165,11 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run participatory_processes RSpec
-          command: cd decidim-participatory_processes && rake
+          command: mkdir ~/rspec && cd decidim-participatory_processes && rake
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/screenshots
+      - store_test_results:
+          path: ~/rspec
   admin:
     <<: *defaults
     steps:
@@ -176,9 +186,11 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run admin RSpec
-          command: cd decidim-admin && rake
+          command: mkdir ~/rspec && cd decidim-admin && rake
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/screenshots
+      - store_test_results:
+          path: ~/rspec
   system:
     <<: *defaults
     steps:
@@ -195,9 +207,11 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run system RSpec
-          command: cd decidim-system && rake
+          command: mkdir ~/rspec && cd decidim-system && rake
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/screenshots
+      - store_test_results:
+          path: ~/rspec
   proposals:
     <<: *defaults
     steps:
@@ -214,9 +228,11 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run proposals RSpec
-          command: cd decidim-proposals && rake
+          command: mkdir ~/rspec && cd decidim-proposals && rake
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/screenshots
+      - store_test_results:
+          path: ~/rspec
   comments:
     <<: *defaults
     steps:
@@ -246,9 +262,11 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run comments RSpec
-          command: cd decidim-comments && rake
+          command: mkdir ~/rspec && cd decidim-comments && rake
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/screenshots
+      - store_test_results:
+          path: ~/rspec
   meetings:
     <<: *defaults
     steps:
@@ -265,9 +283,11 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run meetings RSpec
-          command: cd decidim-meetings && rake
+          command: mkdir ~/rspec && cd decidim-meetings && rake
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/screenshots
+      - store_test_results:
+          path: ~/rspec
   pages:
     <<: *defaults
     steps:
@@ -284,9 +304,11 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run pages RSpec
-          command: cd decidim-pages && rake
+          command: mkdir ~/rspec && cd decidim-pages && rake
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/screenshots
+      - store_test_results:
+          path: ~/rspec
   accountability:
     <<: *defaults
     steps:
@@ -303,9 +325,11 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run accountability RSpec
-          command: cd decidim-accountability && rake
+          command: mkdir ~/rspec && cd decidim-accountability && rake
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/screenshots
+      - store_test_results:
+          path: ~/rspec
   budgets:
     <<: *defaults
     steps:
@@ -322,9 +346,11 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run budgets RSpec
-          command: cd decidim-budgets && rake
+          command: mkdir ~/rspec && cd decidim-budgets && rake
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/screenshots
+      - store_test_results:
+          path: ~/rspec
   surveys:
     <<: *defaults
     steps:
@@ -341,9 +367,11 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run surveys RSpec
-          command: cd decidim-surveys && rake
+          command: mkdir ~/rspec && cd decidim-surveys && rake
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/screenshots
+      - store_test_results:
+          path: ~/rspec
   verifications:
     <<: *defaults
     steps:
@@ -360,9 +388,11 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run verifications RSpec
-          command: cd decidim-verifications && rake
+          command: mkdir ~/rspec && cd decidim-verifications && rake
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/screenshots
+      - store_test_results:
+          path: ~/rspec
   debates:
     <<: *defaults
     steps:
@@ -379,9 +409,11 @@ jobs:
           command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
       - run:
           name: Run debates RSpec
-          command: cd decidim-debates && rake
+          command: mkdir ~/rspec && cd decidim-debates && rake
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/screenshots
+      - store_test_results:
+          path: ~/rspec
   build_design_app:
     working_directory: /app
     docker:
