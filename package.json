@@ -245,7 +245,8 @@
     "react-i18nify": "^1.8.8",
     "react-test-renderer": "^16.0.0",
     "unfetch": "^3.0.0",
-    "uuid": "^3.1.0"
+    "uuid": "^3.1.0",
+    "webpack-cli": "^2.0.10"
   },
   "jest": {
     "setupFiles": [
