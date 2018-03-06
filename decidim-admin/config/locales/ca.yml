@@ -142,37 +142,37 @@ ca:
       areas:
         create:
           error: S'ha produït un error en crear una nova àrea.
-          success: Àrea creada amb èxit.
+          success: Àrea creada correctament.
         destroy:
-          success: Àrea destruïda amb èxit
+          success: Àrea destruïda correctament
         edit:
           title: Editar àrea
-          update: Actualització
+          update: Actualitzar
         new:
-          create: Crea una àrea
+          create: Crea àrea
           title: Nova àrea
-        no_areas: Sense Àrees
+        no_areas: Sense àrees
         update:
           error: S'ha produït un error en actualitzar aquesta àrea.
-          success: Àrea actualitzada amb èxit
+          success: Àrea actualitzada correctament
       attachment_collections:
         create:
-          error: S'ha produït un error en crear una nova col · lecció.
-          success: S'ha creat la col·lecció amb èxit.
+          error: S'ha produït un error en crear la col·lecció.
+          success: Col·lecció creada correctament.
         destroy:
-          success: S'ha destruït la col·lecció amb èxit.
+          success: Col·lecció destruïda correctament.
         edit:
-          title: Edita la col·lecció
-          update: Actualització
+          title: Editar col·lecció
+          update: Actualitzar
         index:
-          attachment_collection_used: Aquesta col · lecció no es pot eliminar perquè està en ús.
-          attachment_collections_title: Col·leccions adjuntes
+          attachment_collection_used: Aquesta col·lecció no es pot eliminar perquè està en ús.
+          attachment_collections_title: Col·leccions d'adjunts
         new:
           create: Crear
-          title: Nova col · lecció
+          title: Nova col·lecció
         update:
           error: S'ha produït un error en actualitzar aquesta col·lecció.
-          success: S'ha actualitzat la col·lecció amb èxit.
+          success: Col·lecció actualitzada correctament.
       attachments:
         create:
           error: S'ha produït un error en crear un nou arxiu adjunt.
@@ -289,10 +289,10 @@ ca:
             new_managed_user_promotion: Nova promoció d'usuari gestionat
             promote: Promocionar
       menu:
-        admin_log: Registre d'activitat administratiu
+        admin_log: Registre d'activitat d'administració
         admins: Administradors
         appearance: Aparença
-        area_types: Tipus d'àrea
+        area_types: Tipus d'àrees
         areas: Àrees
         configuration: Configuració
         dashboard: Tauler de control
