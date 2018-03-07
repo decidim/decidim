@@ -254,6 +254,9 @@ fi:
         update:
           error: Tämän ominaisuuden päivityksessä tapahtui virhe.
           success: Ominaisuus päivitetty onnistuneesti.
+      logs:
+        logs_list:
+          no_logs_yet: Ei vielä lokeja
       managed_users:
         close_session:
           error: Toisena käyttäjänä esiintymisen istunnon sulkemisessa tapahtui virhe.

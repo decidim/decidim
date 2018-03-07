@@ -254,6 +254,9 @@ es:
         update:
           error: Se ha producido un error al actualizar esta funcionalidad.
           success: La funcionalidad se ha actualizado correctamente.
+      logs:
+        logs_list:
+          no_logs_yet: Aún no hay ningún registro de actividad
       managed_users:
         close_session:
           error: Se ha producido un error al cerrar la sesión de suplantación actual.
