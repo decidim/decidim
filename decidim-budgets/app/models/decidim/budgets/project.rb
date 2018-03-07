@@ -14,6 +14,7 @@ module Decidim
       include Decidim::HasReference
       include Decidim::Followable
       include Decidim::Comments::Commentable
+      include Decidim::Traceable
 
       component_manifest_name "budgets"
       has_many :line_items, class_name: "Decidim::Budgets::LineItem", foreign_key: "decidim_project_id", dependent: :destroy
