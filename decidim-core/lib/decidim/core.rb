@@ -333,4 +333,10 @@ module Decidim
   def self.traceability
     @traceability ||= Traceability.new
   end
+
+  module Core
+    autoload :ParticipatorySpaceInterface, "decidim/api/participatory_space_interface"
+    autoload :ComponentInterface, "decidim/api/component_interface"
+    autoload :AuthorInterface, "decidim/api/author_interface"
+  end
 end
