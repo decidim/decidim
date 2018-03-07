@@ -4,6 +4,10 @@
 
 **Added**:
 
+- **decidim-accountability**: Proposal selection from accountability with autoComplete [\#2348](https://github.com/decidim/decidim/pull/2584)
+- **decidim-assemblies**: Make admins auto follow assemblies [\#2855](https://github.com/decidim/decidim/pull/2855)
+- **decidim-participatory_processes**: Make admins auto follow participatory processes [\#2855](https://github.com/decidim/decidim/pull/2855)
+- **decidim-accountability**: Proposal followers are notified when a proposal is included in a result [\#2836](https://github.com/decidim/decidim/pull/2836)
 - **decidim-core**: Space followers are notified when a step changes its dates [\#2833](https://github.com/decidim/decidim/pull/2833)
 - **decidim-proposals**: Space followers are notified when the proposal can be created, endorsed or voted [\#2794](https://github.com/decidim/decidim/pull/2794)
 - **decidim-debates**: Space followers are notified when the debate creation is enabled or disabled [\#2794](https://github.com/decidim/decidim/pull/2794)
@@ -47,6 +51,24 @@
 - **decidim-core**: Enable a "permission_update" hook to be run upon feature permissions update [\#2809](https://github.com/decidim/decidim/pull/2809)
 - **decidim-participatory_processes**: Adds a basic API including steps and components. [\#2787](https://github.com/decidim/decidim/pull/2787)
 - **decidim-core**: Adds a statistics API to `Organization` and `ParticipatorySpace`. [\#2843](https://github.com/decidim/decidim/pull/2843)
+- **decidim-proposals**: Log proposal answers [\#2848](https://github.com/decidim/decidim/pull/2848)
+- **decidim-accountability**: Adds flag to control if the visualization of progress is visible [\#2847](https://github.com/decidim/decidim/pull/2847)
+- **decidim-proposals**: Adds a basic API that lists proposals. [\#2788](https://github.com/decidim/decidim/pull/2788)
+- **decidim-participatory_processes**: Log process updates[\#2860](https://github.com/decidim/decidim/pull/2860)
+- **decidim-admin**: Log actions on scopes [\#2854](https://github.com/decidim/decidim/pull/2854)
+- **decidim-core**: `scopes_picker_field` can now receive options such as `label: false` [\#2867](https://github.com/decidim/decidim/pull/2847)
+- **decidim-core**: `theDataPicker.activate("#my_data_picker_element")` can now be used to bind dinamically created inputs to a data picker [\#2867](https://github.com/decidim/decidim/pull/2847)
+- **decidim-assemblies**: Log assembly creation, update and (un)publication [\#2858](https://github.com/decidim/decidim/pull/2858)
+- **decidim-assemblies**: Log assembly user role creation, update and deletion [\#2874](https://github.com/decidim/decidim/pull/2874)
+- **decidim-participatory_processes**: Log actions on process steps [\#2876](https://github.com/decidim/decidim/pull/2876)
+- **decidim-admin**: Log feature (un)publication[\#2884](https://github.com/decidim/decidim/pull/2884)
+- **decidim-pages**: Log page updates [\#2886](https://github.com/decidim/decidim/pull/2886)
+- **decidim-debates**: Log debates creation and updates [\#2903](https://github.com/decidim/decidim/pull/2903)
+- **decidim-core**: Add missing `scopes_picker_tag` and `scopes_picker_field_tag` form helpers [\#2880](https://github.com/decidim/decidim/pull/2880)
+- **decidim-proposals**: Log official proposals creation [\#2905](https://github.com/decidim/decidim/pull/2905)
+- **decidim-proposals**: Log proposal private notes [\#2907](https://github.com/decidim/decidim/pull/2907)
+- **decidim-meetings**: Log actions on meetings [\#2911](https://github.com/decidim/decidim/pull/2911)
+- **decidim-debates**: Adds announcements to debates [\#2806](https://github.com/decidim/decidim/pull/2806)
 
 **Changed**:
 
@@ -55,9 +77,14 @@
 - **decidim-core**: `FeatureReferenceHelper#feature_reference` has been moved to `ResourceReferenceHelper#resource_reference` to clarify its use. [\#2557](https://github.com/decidim/decidim/pull/2557)
 - **decidim-core**: `Decidim.resource_reference_generator` has been moved to `Decidim.reference_generator` to clarify its use. [\#2557](https://github.com/decidim/decidim/pull/2557)
 - **decidim-system**: Default pages content are now wrapped in `<p>` HTML tags [\#2754](https://github.com/decidim/decidim/pull/2754)
+- **decidim-core**: The module to be included by components in order to add scopes to the component is now called `ScopableFeature` (instead of `HasScope`) [\#2895](https://github.com/decidim/decidim/pull/2895)
+- **decidim-core**: The `scopes_enabled?` helper method has been removed. Call `#scopes_enabled?` directly on the scopable resource instead [\#2895](https://github.com/decidim/decidim/pull/2895)
+- **decidim-core**: The `scopes` association has been removed from the `Feature` model. If you need to grab all organization scopes, use the equivalent method on the current organization or the current participatory space [\#2895](https://github.com/decidim/decidim/pull/2895)
 
 **Fixed**:
 
+- **decidim-core**: FIX Mispelling in available_locales initializer: pr-BR should be pt-BR. [\#2883](https://github.com/decidim/decidim/pull/2883)
+- **decidim-admin**: FIX Area and AreaType command specs [\#2859](https://github.com/decidim/decidim/pull/2859)
 - **decidim-proposals**: Fix wrong message when creating a proposal private note [\#2769](https://github.com/decidim/decidim/pull/2769)
 - **decidim-core**: Fix AuthorEvent when author is missing [\#2777](https://github.com/decidim/decidim/pull/2777)
 - **decidim-system**: Disable recover password for System admins. [\#2752](https://github.com/decidim/decidim/pull/2752)
@@ -78,5 +105,8 @@
 - **decidim-core**: Fix user invitations by generating their nickname. [\#2783](https://github.com/decidim/decidim/pull/2783)
 - **decidim-core**: Fix authorization modals not reopening [\#2811](https://github.com/decidim/decidim/pull/2811)
 - **decidim-core**: Fix ugly white stripe under flash message on pages with a picture as main background (such as the homepage) [\#2818](https://github.com/decidim/decidim/pull/2818)
+- **decidim-admin**: Fix a bug that lost the scope hierarchy when updating, making the updated scope top-level [\#2853](https://github.com/decidim/decidim/pull/2853)
+- **decidim-proposals**: Fix proposals scope not displayed on process group highlighted proposals cards in some cases. [\#2894](https://github.com/decidim/decidim/pull/2894)
+- **decidim-admin**: Fix officializations showing all users in the system instead of only the orgsanization ones [\#2912](https://github.com/decidim/decidim/pull/2912)
 
 Please check [0.9-stable](https://github.com/decidim/decidim/blob/0.9-stable/CHANGELOG.md) for previous changes.

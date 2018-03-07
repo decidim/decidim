@@ -24,6 +24,7 @@ en:
         parent_id: Parent
       feature:
         name: Name
+        published_at: Published at
         weight: Weight
       id: ID
       newsletter:
@@ -65,7 +66,9 @@ en:
         code: Code
         name: Name
         organization: Organization
+        parent_id: Parent
         scope_type: Scope type
+        scope_type_id: Scope type
       scope_type:
         name: Name
         organization: Organization
@@ -252,6 +255,9 @@ en:
         update:
           error: There has been an error updating this feature.
           success: The feature was updated successfully.
+      logs:
+        logs_list:
+          no_logs_yet: There are no logs yet
       managed_users:
         close_session:
           error: There has been an error closing the current impersonation session.

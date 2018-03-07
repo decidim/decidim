@@ -58,11 +58,11 @@ module Decidim
       end
 
       def promoted_participatory_processes
-        @promoted_processes ||= filtered_participatory_processes | PromotedParticipatoryProcesses.new
+        @promoted_participatory_processes ||= filtered_participatory_processes | PromotedParticipatoryProcesses.new
       end
 
       def participatory_process_groups
-        @process_groups ||= OrganizationPrioritizedParticipatoryProcessGroups.new(current_organization, filter)
+        @participatory_process_groups ||= OrganizationPrioritizedParticipatoryProcessGroups.new(current_organization, filter)
       end
 
       def stats

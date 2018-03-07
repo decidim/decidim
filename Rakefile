@@ -50,6 +50,16 @@ task :uninstall_all do
   )
 end
 
+Decidim::ComponentManager.all_dirs(include_root: false) do |dir|
+  manager = Decidim::ComponentManager.new(dir)
+  name = manager.short_name
+
+  desc "Runs tests on #{name}"
+  task "test_#{name}" do
+    manager.run("rake")
+  end
+end
+
 desc "Pushes a new build for each gem."
 task release_all: [:update_versions, :check_locale_completeness, :webpack] do
   Decidim::ComponentManager.run_all("rake release")
@@ -70,5 +80,5 @@ task development_app: "decidim:generate_external_development_app"
 
 desc "Build webpack bundle files"
 task :webpack do
-  sh "yarn install && yarn build:prod"
+  sh "npm install && npm run build:prod"
 end

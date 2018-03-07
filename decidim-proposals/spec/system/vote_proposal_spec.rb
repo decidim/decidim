@@ -199,7 +199,7 @@ describe "Vote Proposal", type: :system do
               }
             }
 
-            feature.update_attributes!(permissions: permissions)
+            feature.update!(permissions: permissions)
             visit_feature
           end
 
@@ -272,7 +272,7 @@ describe "Vote Proposal", type: :system do
       let!(:rejected_proposal) { create(:proposal, :rejected, feature: feature) }
 
       before do
-        feature.update_attributes!(settings: { proposal_answering_enabled: true })
+        feature.update!(settings: { proposal_answering_enabled: true })
       end
 
       it "cannot be voted" do

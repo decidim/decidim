@@ -7,13 +7,15 @@ module Decidim
       include Decidim::Resourceable
       include Decidim::Authorable
       include Decidim::HasFeature
-      include Decidim::HasScope
+      include Decidim::ScopableFeature
       include Decidim::HasReference
       include Decidim::HasCategory
       include Decidim::Reportable
       include Decidim::HasAttachments
       include Decidim::Followable
       include Decidim::Proposals::CommentableProposal
+      include Decidim::Traceable
+      include Decidim::Loggable
 
       feature_manifest_name "proposals"
 
@@ -37,6 +39,10 @@ module Decidim
           connection.execute("SELECT setseed(#{connection.quote(seed)})")
           order("RANDOM()").load
         end
+      end
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Proposals::AdminLog::ProposalPresenter
       end
 
       # Public: Check if the user has voted the proposal.

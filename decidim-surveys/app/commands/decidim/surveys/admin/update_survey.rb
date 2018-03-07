@@ -46,7 +46,7 @@ module Decidim
               if form_question.deleted?
                 question.destroy!
               else
-                question.update_attributes!(question_attributes)
+                question.update!(question_attributes)
               end
             else
               @survey.questions.create!(question_attributes)
@@ -55,9 +55,9 @@ module Decidim
         end
 
         def update_survey
-          @survey.update_attributes!(title: @form.title,
-                                     description: @form.description,
-                                     tos: @form.tos)
+          @survey.update!(title: @form.title,
+                          description: @form.description,
+                          tos: @form.tos)
         end
       end
     end

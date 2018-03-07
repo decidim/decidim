@@ -9,9 +9,10 @@ pl:
         end_date: Data zakończenia
         progress: Postęp
         project_ids: Uwzględnione projekty
-        proposal_ids: Zawarte propozycje
+        proposals: Uwzględnione propozycje
         start_date: Data rozpoczęcia
         title: Tytuł
+        updated_at: Zaktualizowano na
       status:
         description: Opis
         key: Klawisz
@@ -49,11 +50,17 @@ pl:
           edit:
             title: Edytuj wynik
             update: Zaktualizuj wynik
+          form:
+            add_proposal: Dodaj propozycję
           index:
             title: wyniki
           new:
             create: Utwórz wynik
             title: Nowy wynik
+          proposals:
+            close: Blisko
+            current_selection: Obecny wybór
+            select: Wybierz
           update:
             invalid: Podczas aktualizowania tego wyniku wystąpił problem
             success: Wynik został zaktualizowany
@@ -94,6 +101,10 @@ pl:
           update:
             invalid: Podczas aktualizowania tego wpisu wystąpił problem
             success: Wprowadzono pomyślnie
+      admin_log:
+        result:
+          create: "%{user_name} utworzony wynik %{resource_name} w %{space_name}"
+          update: "%{user_name} zaktualizowany wynik %{resource_name} w %{space_name}"
       models:
         result:
           fields:
@@ -113,11 +124,6 @@ pl:
             description: Opis
             entry_date: Data
       results:
-        count:
-          results_count:
-            one: 1 wynik
-            few: "%{count} wyników"
-            other: "%{count} wyników"
         filters:
           all: Wszystkie
           scopes: Zakresy
@@ -157,6 +163,13 @@ pl:
           changes_at_title: Zmiany w "%{title}"
         version:
           version_index: Wersja %{index}
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Wniosek "%{proposal_title}" został uwzględniony w wyniku. Możesz go zobaczyć na tej stronie:'
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{proposal_title}". Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Aktualizacja do %{proposal_title}
+          notification_title: Wniosek <a href="%{proposal_path}">%{proposal_title}</a> został uwzględniony w wyniku <a href="%{resource_path}">%{resource_title}</a>.
     features:
       accountability:
         name: Odpowiedzialność
@@ -164,12 +177,21 @@ pl:
           global:
             categories_label: Nazwa "Kategorie"
             comments_enabled: Komentarze włączone
+            display_progress_enabled: Wyświetl postęp
             heading_leaf_level_results: Nazwa "Projekty"
             heading_parent_level_results: Nazwa "Wyniki"
             intro: Intro
             subcategories_label: Nazwa "Podkategorie"
           step:
             comments_blocked: Komentarze zablokowane
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Wyniki
+    participatory_spaces:
+      highlighted_results:
+        results: Wyniki
+        see_all_results: Zobacz wszystkie wyniki
     resource_links:
       included_projects:
         result_projects: Projekty uwzględnione w tym wyniku

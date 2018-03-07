@@ -6,6 +6,7 @@ AllCops:
     - "**/vendor/**/*"
     - "development_app/**/*"
     - "spec/decidim_dummy_app/**/*"
+    - "node_modules/**/*"
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
   # Cop names are not displayed in offense messages by default. Change behavior
@@ -973,7 +974,14 @@ Style/TrailingCommaInArguments:
   # for all parenthesized method calls with arguments.
   EnforcedStyleForMultiline: no_comma
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
+  # If `comma`, the cop requires a comma after the last item in an array or
+  # hash, but only when each item is on its own line.
+  # If `consistent_comma`, the cop requires a comma after the last item of all
+  # non-empty array and hash literals.
+  EnforcedStyleForMultiline: no_comma
+
+Style/TrailingCommaInHashLiteral:
   # If `comma`, the cop requires a comma after the last item in an array or
   # hash, but only when each item is on its own line.
   # If `consistent_comma`, the cop requires a comma after the last item of all
@@ -1113,7 +1121,7 @@ Lint/AssignmentInCondition:
   AllowSafeAssignment: true
 
 # checks whether the end keywords are aligned properly for `do` `end` blocks.
-Lint/BlockAlignment:
+Layout/BlockAlignment:
   # The value `start_of_block` means that the `end` should be aligned with line
   # where the `do` keyword appears.
   # The value `start_of_line` means it should be aligned with the whole
@@ -1122,7 +1130,7 @@ Lint/BlockAlignment:
   EnforcedStyleAlignWith: either
 
 # Align ends correctly.
-Lint/EndAlignment:
+Layout/EndAlignment:
   # The value `keyword` means that `end` should be aligned with the matching
   # keyword (if, while, etc.).
   # The value `variable` means that in assignments, `end` should be aligned
@@ -1133,7 +1141,7 @@ Lint/EndAlignment:
   EnforcedStyleAlignWith: keyword
   AutoCorrect: false
 
-Lint/DefEndAlignment:
+Layout/DefEndAlignment:
   # The value `def` means that `end` should be aligned with the def keyword.
   # The value `start_of_line` means that `end` should be aligned with method
   # calls like `private`, `public`, etc, if present in front of the `def`
@@ -1163,103 +1171,6 @@ Lint/UnusedMethodArgument:
 Performance/RedundantMerge:
   # Max number of key-value pairs to consider an offense
   MaxKeyValuePairs: 2
-
-##################### Rails ##################################
-
-Rails:
-  Enabled: true
-
-Rails/ActionFilter:
-  EnforcedStyle: action
-  SupportedStyles:
-    - action
-    - filter
-  Include:
-    - "*/app/controllers/**/*.rb"
-
-Rails/Date:
-  # The value `strict` disallows usage of `Date.today`, `Date.current`,
-  # `Date#to_time` etc.
-  # The value `flexible` allows usage of `Date.current`, `Date.yesterday`, etc
-  # (but not `Date.today`) which are overridden by ActiveSupport to handle current
-  # time zone.
-  EnforcedStyle: flexible
-  SupportedStyles:
-    - strict
-    - flexible
-
-Rails/Exit:
-  Include:
-    - "*/app/**/*.rb"
-    - config/**/*.rb
-    - lib/**/*.rb
-
-Rails/FindBy:
-  Include:
-    - "*/app/models/**/*.rb"
-
-Rails/FindEach:
-  Include:
-    - "*/app/models/**/*.rb"
-
-Rails/HasAndBelongsToMany:
-  Include:
-    - "*/app/models/**/*.rb"
-
-Rails/NotNullColumn:
-  Include:
-    - db/migrate/*.rb
-
-Rails/Output:
-  Include:
-    - "*/app/**/*.rb"
-    - config/**/*.rb
-    - db/**/*.rb
-    - lib/**/*.rb
-
-Rails/OutputSafety:
-  Enabled: false
-
-Rails/ReadWriteAttribute:
-  Include:
-    - "*/app/models/**/*.rb"
-
-Rails/RequestReferer:
-  EnforcedStyle: referer
-  SupportedStyles:
-    - referer
-    - referrer
-
-Rails/SafeNavigation:
-  # This will convert usages of `try` to use safe navigation as well as `try!`.
-  # `try` and `try!` work slighly differently. `try!` and safe navigation will
-  # both raise a `NoMethodError` if the receiver of the method call does not
-  # implement the intended method. `try` will not raise an exception for this.
-  ConvertTry: false
-
-Rails/ScopeArgs:
-  Include:
-    - "*/app/models/**/*.rb"
-
-Rails/TimeZone:
-  # The value `strict` means that `Time` should be used with `zone`.
-  # The value `flexible` allows usage of `in_time_zone` instead of `zone`.
-  EnforcedStyle: flexible
-  SupportedStyles:
-    - strict
-    - flexible
-
-Rails/UniqBeforePluck:
-  EnforcedStyle: conservative
-  AutoCorrect: false
-
-Rails/Validation:
-  Include:
-    - "*/app/models/**/*.rb"
-
-Rails/HasManyOrHasOneDependent:
-  Include:
-    - "**/*/app/models/**/*.rb"
 
 Metrics/BlockLength:
   Enabled: false

@@ -3,11 +3,14 @@
 shared_examples "create a proposal" do |with_author|
   let(:feature) { create(:proposal_feature) }
   let(:organization) { feature.organization }
+  let(:user) { create :user, :admin, :confirmed, organization: organization }
   let(:form) do
     form_klass.from_params(
       form_params
     ).with_context(
+      current_user: user,
       current_organization: organization,
+      current_participatory_space: feature.participatory_space,
       current_feature: feature
     )
   end
@@ -122,6 +125,17 @@ shared_examples "create a proposal" do |with_author|
               expect { command.call }.to broadcast(:invalid)
             end
           end
+        end
+      else
+        it "traces the action", versioning: true do
+          expect(Decidim.traceability)
+            .to receive(:create!)
+            .with(Decidim::Proposals::Proposal, kind_of(Decidim::User), kind_of(Hash))
+            .and_call_original
+
+          expect { command.call }.to change(Decidim::ActionLog, :count)
+          action_log = Decidim::ActionLog.last
+          expect(action_log.version).to be_present
         end
       end
 

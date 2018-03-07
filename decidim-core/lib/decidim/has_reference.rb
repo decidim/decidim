@@ -29,7 +29,7 @@ module Decidim
       end
 
       # Internal: Sets the unique reference to the model. Note that if the resource
-      # implements `Decidim::Traceable` then any normal update (or `update_attributes`)
+      # implements `Decidim::Traceable` then any normal update (or `update`)
       # will create a new version through an ActiveRecord update callback, but here
       # we can't track the author of the version, so we use the `update_column` method
       # which does not trigger callbacks.

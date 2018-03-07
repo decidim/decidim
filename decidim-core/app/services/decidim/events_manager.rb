@@ -23,7 +23,7 @@ module Decidim
         event,
         event_class: event_class.name,
         resource: resource,
-        recipient_ids: recipient_ids,
+        recipient_ids: recipient_ids.compact.uniq,
         extra: extra
       )
     end

@@ -3,10 +3,13 @@ en:
   activemodel:
     attributes:
       proposal:
+        answer: Answer
+        answered_at: Answered at
         body: Body
         category_id: Category
         has_address: Has address
         scope_id: Scope
+        state: State
         title: Title
         user_group_id: Create proposal as
       proposal_answer:
@@ -189,6 +192,12 @@ en:
             created_at: Creation date
             proposal_votes_count: Votes count
             proposals: Proposals
+      admin_log:
+        proposal:
+          answer: "%{user_name} answered the %{resource_name} proposal on the %{space_name} space"
+          create: "%{user_name} created the %{resource_name} proposal on the %{space_name} space as an official proposal"
+        proposal_note:
+          create: "%{user_name} left a private note on the %{resource_name} proposal on the %{space_name} space"
       answers:
         accepted: Accepted
         evaluating: Evaluating

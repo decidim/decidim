@@ -11,6 +11,7 @@ fi:
   decidim:
     budgets:
       actions:
+        attachment_collections: kokoelmat
         attachments: Liitteet
         confirm_destroy: Haluatko varmasti poistaa tämän projektin?
         destroy: Poista

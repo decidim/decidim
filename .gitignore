@@ -9,13 +9,11 @@ development_app/
 .projectile
 npm-debug.log
 karma-*
-yarn-error.log
 coverage
 webpack.report.html
 .bundle
 .cache
 .bash_history
-.yarnrc
 .local
 .pki
 .graphqlconfig

@@ -93,7 +93,7 @@
         "id-blacklist": "error",
         "id-length": "error",
         "id-match": "error",
-        "indent": "off",
+        "indent": ["error", 2, { "VariableDeclarator": 2 }],
         "init-declarations": "error",
         "jsx-quotes": "error",
         "key-spacing": "error",
@@ -248,7 +248,7 @@
             "error",
             "never"
         ],
-        "space-infix-ops": "off",
+        "space-infix-ops": "error",
         "space-unary-ops": "error",
         "spaced-comment": [
             "error",

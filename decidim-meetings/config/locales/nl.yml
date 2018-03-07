@@ -28,6 +28,11 @@ nl:
           email_outro: U hebt deze melding ontvangen omdat u de vergadering "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
           email_subject: De vergadering "%{resource_title}" is gesloten
           notification_title: De <a href="%{resource_path}">%{resource_title}</a> vergadering was gesloten.
+        meeting_created:
+          email_intro: De vergadering "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" die je volgt.
+          email_outro: U hebt deze melding ontvangen omdat u "%{participatory_space_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_subject: Nieuwe vergadering toegevoegd aan %{participatory_space_title}
+          notification_title: De vergadering <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
         meeting_registrations_over_percentage:
           email_intro: De "%{resource_title}" vergadering bezet slots zijn meer dan %{percentage}%.
           email_outro: U hebt deze melding ontvangen omdat u een beheerder bent van de participatieruimte van de vergadering.
@@ -62,6 +67,7 @@ nl:
             comments_blocked: Reacties geblokkeerd
     meetings:
       actions:
+        attachment_collections: collecties
         attachments: Bijlagen
         close: Sluit
         confirm_destroy: Weet u zeker dat u deze vergadering wilt verwijderen?
@@ -124,6 +130,12 @@ nl:
           update:
             invalid: Er is een probleem opgetreden bij het opslaan van de registratie-instellingen.
             success: Instellingen bijeenkomst registraties succesvol opgeslagen.
+      admin_log:
+        meeting:
+          close: "%{user_name} sloot de %{resource_name} vergadering op de %{space_name} spatie"
+          create: "%{user_name} heeft de %{resource_name} -vergadering gemaakt op de %{space_name} -spatie"
+          delete: "%{user_name} heeft de %{resource_name} vergadering verwijderd op de %{space_name} spatie"
+          update: "%{user_name} heeft de %{resource_name} -vergadering bijgewerkt op de %{space_name} -spatie"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -183,6 +195,16 @@ nl:
         destroy:
           invalid: Er is een probleem geweest met het verlaten van deze vergadering.
           success: U heeft de vergadering succesvol verlaten.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Afgelopen vergaderingen
+          upcoming_meetings: Komende vergaderingen
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Afgelopen vergaderingen
+        see_all_meetings: Bekijk alle vergaderingen
+        upcoming_meetings: Komende vergaderingen
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Gerelateerde resultaten:'

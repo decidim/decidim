@@ -107,10 +107,6 @@ $datetime-bg: $primary;
 }
 
 .card__text{
-  .card__text--paragraph{
-    @include ellipsis();
-  }
-
   .card__text--status{
     font-weight: bold;
     text-transform: uppercase;

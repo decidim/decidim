@@ -11,6 +11,7 @@ nl:
   decidim:
     budgets:
       actions:
+        attachment_collections: collecties
         attachments: Bijlagen
         confirm_destroy: Weet u zeker dat u dit project wilt verwijderen?
         destroy: Verwijderen

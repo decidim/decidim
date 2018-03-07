@@ -22,7 +22,7 @@ module Decidim
       def call
         return broadcast(:invalid) if @proposal.author != current_user
 
-        @proposal.update_attributes published_at: Time.current
+        @proposal.update published_at: Time.current
 
         broadcast(:ok, @proposal)
       end
