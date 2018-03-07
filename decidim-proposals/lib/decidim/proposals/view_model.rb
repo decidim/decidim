@@ -5,6 +5,8 @@ module Decidim
     class ViewModel < Decidim::ViewModel
       include Decidim::Proposals::ApplicationHelper
       include Decidim::Proposals::Engine.routes.url_helpers
+      include Decidim::ActionAuthorization
+      include Decidim::ActionAuthorizationHelper
     end
   end
 end
