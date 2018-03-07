@@ -3,6 +3,7 @@ gl:
     attributes:
       debate:
         category_id: Categoría
+        decidim_category_id: Categoría
         description: Descrición
         end_time: Remata a
         information_updates: Actualizacións de información
@@ -39,6 +40,10 @@ gl:
         models:
           debate:
             name: Debate
+      admin_log:
+        debate:
+          create: "%{user_name} creou o %{resource_name} debate sobre o espazo %{space_name}"
+          update: "%{user_name} actualizou o %{resource_name} debate sobre o espazo %{space_name}"
       debates:
         count:
           debates_count:
@@ -118,7 +123,9 @@ gl:
         name: Debates
         settings:
           global:
+            announcement: Anuncio
             comments_enabled: Comentarios habilitados
           step:
+            announcement: Anuncio
             comments_blocked: Comentarios bloqueados
             creation_enabled: Debate creado polos usuarios activado

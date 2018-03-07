@@ -33,8 +33,8 @@ module Decidim
               end
 
               it "doesn't update the proposal" do
-                described_class.call(proposal.category.id, proposal.id).call
                 expect(proposal).not_to receive(:update!)
+                described_class.call(proposal.category.id, proposal.id)
               end
             end
 
