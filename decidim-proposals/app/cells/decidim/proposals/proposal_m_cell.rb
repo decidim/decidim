@@ -16,6 +16,10 @@ module Decidim
         render
       end
 
+      def header
+        render
+      end
+
       private
 
       def resource_path
@@ -38,20 +42,40 @@ module Decidim
         context[:controller] || controller
       end
 
+      def current_user
+        controller.current_user
+      end
+
       def current_settings
         model.feature.current_settings
       end
 
+      def current_feature
+        model.feature
+      end
+
+      def current_participatory_space
+        model.feature.participatory_space
+      end
+
       def feature_settings
-        controller.feature_settings
+        model.feature.settings
       end
 
-      def action_authorization(action)
-        controller.action_authorization(action)
+      def feature_name
+        translated_attribute current_feature.name
       end
 
-      def current_user
-        controller.current_user
+      def feature_type_name
+        model.class.model_name.human
+      end
+
+      def participatory_space_name
+        translated_attribute current_participatory_space.title
+      end
+
+      def participatory_space_type_name
+        translated_attribute current_participatory_space.model_name.human
       end
     end
   end
