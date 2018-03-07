@@ -70,6 +70,14 @@ module Decidim
           command.call
         end.to change(UserGroupMembership, :count).by(-1)
       end
+
+      it "deletes user's authorizations" do
+        create(:authorization, user: user)
+
+        expect do
+          command.call
+        end.to change(Authorization, :count).by(-1)
+      end
     end
   end
 end
