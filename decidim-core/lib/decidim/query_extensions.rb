@@ -1,4 +1,8 @@
 # frozen_string_literal: true
+
+# These two dependencies are explicitly required to prevent issues with autoloading on development.
+# Since creating a GraphQL type has side-effects (adds them to a registry), we must make sure common
+# interfaces are available since the beginning.
 require_dependency File.expand_path(File.join(Decidim::Core::Engine.root, "app", "types", "decidim", "core", "component_interface"))
 require_dependency File.expand_path(File.join(Decidim::Core::Engine.root, "app", "types", "decidim", "core", "participatory_space_interface"))
 
