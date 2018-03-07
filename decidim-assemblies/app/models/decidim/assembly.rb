@@ -16,7 +16,7 @@ module Decidim
     include Decidim::Loggable
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
-    
+
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization"
@@ -55,6 +55,18 @@ module Decidim
 
     def to_param
       slug
+    end
+
+    def open?
+      open_field == "open"
+    end
+
+    def public?
+      public_field == "public"
+    end
+
+    def transparent?
+      transparent_field == "transparent"
     end
   end
 end

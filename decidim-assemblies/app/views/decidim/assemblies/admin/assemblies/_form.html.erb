@@ -141,18 +141,18 @@
     </div>
 
     <div class="row column">
-      <%= form.select :open_field, [ ["Yes", "yes"], ["No", "no" ] ], {}, { multiple: false }  %>
+      <%= form.select :open_field, @form.open_field_for_select, {}, { multiple: false }  %>
     </div>
 
-    <div class="row column" data-depends-on="#assembly_open_field" data-depends-on-value="no" >
-      <%= form.select :public_field, [ ["Yes", "yes"], ["No", "no" ] ], {}, { multiple: false }  %>
+    <div class="row column" data-depends-on="#assembly_open_field" data-depends-on-value="close" >
+      <%= form.select :public_field, @form.public_field_for_select, {}, { multiple: false }  %>
     </div>
 
-    <div class="row column" data-depends-on="#assembly_public_field" data-depends-on-value="no">
-      <%= form.select :transparent_field, [ ["Yes", "yes"], ["No", "no" ] ], {}, { multiple: false }  %>
+    <div class="row column" data-depends-on="#assembly_public_field" data-depends-on-value="private">
+      <%= form.select :transparent_field, @form.transparent_field_for_select, {}, { multiple: false }  %>
     </div>
 
-    <div class="row column" data-depends-on="#assembly_open_field" data-depends-on-value="no">
+    <div class="row column" data-depends-on="#assembly_open_field" data-depends-on-value="close">
       <%= form.translated :editor, :special_features %>
     </div>
 

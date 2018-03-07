@@ -11,6 +11,9 @@ module Decidim
 
         TYPE_OF_ASSEMBLY = %w(government executive consultative_advisory participatory working_group commission others).freeze
         CREATED_BY = %w(city_council public others).freeze
+        OPEN_FIELD = %w(open close).freeze
+        PUBLIC_FIELD = %w(public private).freeze
+        TRANSPARENT_FIELD = %w(transparent opaque).freeze
 
         translatable_attribute :title, String
         translatable_attribute :subtitle, String
@@ -58,7 +61,6 @@ module Decidim
         attribute :youtube_handler, String
         attribute :github_handler, String
 
-
         validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
@@ -69,6 +71,10 @@ module Decidim
 
         validates :type_of_assembly_other, translatable_presence: true, if: ->(form) { form.type_of_assembly == "others" }
         validates :created_by_other, translatable_presence: true, if: ->(form) { form.created_by == "others" }
+
+        validates :public_field, presence: true, if: ->(form) { form.open_field == "close" }
+        validates :transparent_field, presence: true, if: ->(form) { form.public_field == "private" }
+        validates :special_features, translatable_presence: true, if: ->(form) { form.open_field == "close" }
 
         validate :slug_uniqueness
 
@@ -101,6 +107,33 @@ module Decidim
             [
               I18n.t(by.downcase, scope: "decidim.assemblies.created_by"),
               by
+            ]
+          end
+        end
+
+        def open_field_for_select
+          OPEN_FIELD.map do |open_field|
+            [
+              I18n.t(open_field.downcase, scope: "decidim.assemblies.admin.assemblies.form.open_field"),
+              open_field
+            ]
+          end
+        end
+
+        def public_field_for_select
+          PUBLIC_FIELD.map do |public_field|
+            [
+              I18n.t(public_field.downcase, scope: "decidim.assemblies.admin.assemblies.form.public_field"),
+              public_field
+            ]
+          end
+        end
+
+        def transparent_field_for_select
+          TRANSPARENT_FIELD.map do |transparent_field|
+            [
+              I18n.t(transparent_field.downcase, scope: "decidim.assemblies.admin.assemblies.form.transparent_field"),
+              transparent_field
             ]
           end
         end

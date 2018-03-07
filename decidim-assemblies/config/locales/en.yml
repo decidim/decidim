@@ -147,11 +147,20 @@ en:
         assemblies:
           form:
             created_by: Created by
+            open_field:
+              close: close
+              open: open
+            public_field:
+              private: private
+              public: public
             select_a_created_by: Select a created by
             select_an_area: Select an Area
             select_an_assembly_type: Select an assembly type
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             social_handlers: Social
+            transparent_field:
+              opaque: opaque
+              transparent: transparent
             type_of_assembly: Type of assembly
             url: URL
         assembly_copies:
@@ -163,14 +172,6 @@ en:
         others: Others
       index:
         title: Assemblies
-      types_of_assembly:
-        government: Government
-        executive: Executive
-        consultative_advisory: Consultative/Advisory
-        participatory: Participatory
-        working_group: Working group
-        commission: Comission
-        others: Others
       pages:
         home:
           highlighted_assemblies:
@@ -187,11 +188,21 @@ en:
         indefinite_duration: Indefinite
         internal_organisation: Internal organisation
         local_area: Local area
+        open_field:
+          close: close
+          open: open
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
+        public_field:
+          private: private
+          public: public
         purpose_of_action: Purpose of action
         scope: Scope
+        social_networks: Social Networks
         target: Target
+        transparent_field:
+          opaque: opaque
+          transparent: transparent
         type_of_assembly: Type of assembly
       statistics:
         answers_count: Answers
@@ -208,6 +219,14 @@ en:
         surveys_count: Surveys
         users_count: Participants
         votes_count: Votes
+      types_of_assembly:
+        government: Government
+        executive: Executive
+        consultative_advisory: Consultative/Advisory
+        participatory: Participatory
+        working_group: Working group
+        commission: Comission
+        others: Others
     menu:
       assemblies: Assemblies
   layouts:

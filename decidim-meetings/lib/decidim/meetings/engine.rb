@@ -63,6 +63,22 @@ module Decidim
             )
           end
         end
+
+
+        Decidim.view_hooks.register(:assembly_meetings, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
+          published_features = Decidim::Feature.where(participatory_space: view_context.current_participatory_space).published
+          meetings = Decidim::Meetings::Meeting.where(feature: published_features)
+
+          next unless meetings.any?
+
+          view_context.render(
+            partial: "decidim/participatory_spaces/highlighted_meetings",
+            locals: {
+              past_meetings: meetings.past.order(end_time: :desc, start_time: :desc).limit(3),
+              upcoming_meetings: meetings.upcoming.order(:start_time, :end_time).limit(3)
+            }
+          )
+        end
       end
     end
   end
