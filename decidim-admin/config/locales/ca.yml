@@ -254,6 +254,9 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquesta funcionalitat.
           success: La funcionalitat s'ha actualitzat correctament.
+      logs:
+        logs_list:
+          no_logs_yet: Encara no hi ha cap registre d'activitat
       managed_users:
         close_session:
           error: S'ha produït un error en tancar la sessió de suplantació actual.
