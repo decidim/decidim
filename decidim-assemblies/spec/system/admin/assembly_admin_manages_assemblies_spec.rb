@@ -12,8 +12,12 @@ describe "Assembly admin manages assemblies", type: :system do
   end
 
   shared_context "deleting an assembly" do
+    before do
+      click_link translated(assembly.title)
+    end
+
     it "cannot delete an assembly" do
-      within find("tr", text: translated(assembly.title)) do
+      within ".edit_assembly" do
         expect(page).to have_no_content("Destroy")
       end
     end
