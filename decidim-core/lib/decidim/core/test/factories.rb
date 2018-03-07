@@ -371,6 +371,7 @@ FactoryBot.define do
     resource_type { resource.class.name }
     organization { resource.feature.organization }
     decidim_participatory_space { resource.feature.participatory_space }
+    locale { I18n.locale }
     scope { resource.scope }
     content_a { Faker::Lorem.sentence }
   end

@@ -23,7 +23,7 @@ module Decidim
     #
     # Returns nothing.
     def call
-      query = SearchableRsrc.where(organization: @organization)
+      query = SearchableRsrc.where(organization: @organization, locale: I18n.locale)
       @filters.each_pair do |att_name, value|
         query = query.where(att_name => value) if permit_filter?(att_name, value)
       end
@@ -31,16 +31,18 @@ module Decidim
                    query.global_search(term)
                  else
                    query.all
-      end
+                 end
 
       broadcast(:ok, @results)
     end
 
     #---------------------------------------------------------------------
+
     private
+
     #---------------------------------------------------------------------
     def permit_filter?(att_name, value)
-      ACCEPTED_FILTERS.include?(att_name.to_sym) and value.present?
+      ACCEPTED_FILTERS.include?(att_name.to_sym) && value.present?
     end
   end
 end

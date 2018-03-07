@@ -44,7 +44,7 @@ module Decidim
     def update_index_for_search_rsrc
       fields = search_rsrc_indexable_fields
       searchable_rsrcs.each do |sr|
-        sr.update_attributes(contents_to_searchable_rsrc_attrs(fields, sr.locale))
+        sr.update(contents_to_searchable_rsrc_attrs(fields, sr.locale))
       end
     end
 
