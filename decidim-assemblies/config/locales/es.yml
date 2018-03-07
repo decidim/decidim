@@ -2,11 +2,12 @@ es:
   activemodel:
     attributes:
       assembly:
+        area_id: Área
         banner_image: Imagen de banner
         copy_categories: Copiar categorías
         copy_features: Copiar funcionalidades
-        decidim_area_id: Zona
-        decidim_scope_id: Alcance
+        decidim_area_id: Área
+        decidim_scope_id: Ámbito
         description: Descripción
         developer_group: Grupo promotor
         domain: Dominio
@@ -17,7 +18,7 @@ es:
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
         promoted: Destacado
-        published_at: Publicado en
+        published_at: Publicado
         scope_id: Ámbito
         scopes_enabled: Ámbitos habilitados
         short_description: Descripción breve
@@ -113,14 +114,14 @@ es:
         assemblies: Asambleas
     admin_log:
       assembly:
-        create: "%{user_name} creó el ensamblaje %{resource_name}"
-        publish: "%{user_name} publicó el ensamblaje %{resource_name}"
-        unpublish: "%{user_name} inédito el ensamblaje %{resource_name}"
-        update: "%{user_name} actualizó el ensamblaje %{resource_name}"
+        create: "%{user_name} creó la asamblea %{resource_name}"
+        publish: "%{user_name} publicó la asamblea %{resource_name}"
+        unpublish: "%{user_name} despublicó la asamblea %{resource_name}"
+        update: "%{user_name} actualizó la asamblea %{resource_name}"
       assembly_user_role:
-        create: "%{user_name} invitó %{resource_name} al ensamblaje %{space_name}"
-        delete: "%{user_name} eliminó al usuario %{resource_name} del ensamblaje %{space_name}"
-        update: "%{user_name} cambió la función de %{resource_name} en el ensamblaje %{space_name}"
+        create: "%{user_name} invitó %{resource_name} a la asamblea %{space_name}"
+        delete: "%{user_name} eliminó al usuario %{resource_name} de la asamblea %{space_name}"
+        update: "%{user_name} cambió el rol de %{resource_name} en la asamblea %{space_name}"
     assemblies:
       admin:
         assemblies:
@@ -149,6 +150,7 @@ es:
         answers_count: Respuestas
         assemblies_count: Asambleas
         comments_count: Comentarios
+        endorsements_count: Respaldos
         headline: Actividad
         meetings_count: Encuentros
         orders_count: Votos

@@ -2,6 +2,7 @@ fi:
   activemodel:
     attributes:
       assembly:
+        area_id: alue
         banner_image: Bannerikuva
         copy_categories: Kopioi aihepiirit
         copy_features: Kopioi ominaisuudet
@@ -149,6 +150,7 @@ fi:
         answers_count: Vastaukset
         assemblies_count: Kehitysryhmät
         comments_count: Kommentit
+        endorsements_count: merkintöjen
         headline: Tilastot
         meetings_count: Tapaamiset
         orders_count: Äänet
