@@ -47,7 +47,7 @@ module Decidim
       end
 
       def create_or_invite_user
-        @user ||= existing_user || new_user
+        @create_or_invite_user ||= existing_user || new_user
       end
 
       def existing_user
