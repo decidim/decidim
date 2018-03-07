@@ -254,6 +254,9 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze functionaliteit.
           success: De functionaliteit is succesvol bijgewerkt.
+      logs:
+        logs_list:
+          no_logs_yet: Er zijn nog geen logs
       managed_users:
         close_session:
           error: Er is een fout opgetreden bij het sluiten van de impersonatie-sessie.

@@ -17,7 +17,7 @@ fr:
         location: Lieu
         location_hints: Données de localisation
         registration_terms: Conditions d'inscription
-        registrations_enabled: Inscriptions activées
+        registrations_enabled: Conditions d'inscription
         start_time: Heure de début
         title: Titre
   decidim:
@@ -39,7 +39,7 @@ fr:
           email_subject: Les emplacements occupés par la réunion "%{resource_title}" sont au-dessus de %{percentage}%
           notification_title: Les <a href="%{resource_path}">%{resource_title}</a> salles de réunion occupées occupent plus de %{percentage}%.
         meeting_updated:
-          email_intro: 'La réunion "%{resource_title}" a été mise à jour. Vous pouvez lire la nouvelle version depuis sa page:'
+          email_intro: 'La réunion "%{resource_title}" a été mise à jour. Vous pouvez accéder à la nouvelle version depuis sa page:'
           email_outro: Vous avez reçu cette notification, car vous suivez la réunion "%{resource_title}". Vous pouvez le retirer du lien précédent.
           email_subject: La réunion "%{resource_title}" a été mise à jour
           notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> a été mise à jour.

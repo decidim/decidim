@@ -254,6 +254,9 @@ pl:
         update:
           error: Podczas aktualizowania tej funkcji wystąpił błąd.
           success: Funkcja została zaktualizowana pomyślnie.
+      logs:
+        logs_list:
+          no_logs_yet: Nie ma jeszcze dzienników
       managed_users:
         close_session:
           error: Podczas zamykania bieżącej sesji personifikacji wystąpił błąd.
