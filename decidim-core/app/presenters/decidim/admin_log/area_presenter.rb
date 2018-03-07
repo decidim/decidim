@@ -23,7 +23,7 @@ module Decidim
 
       def action_string
         case action
-        when "create"
+        when "create", "update"
           "decidim.admin_log.area.#{action}"
         else
           super
