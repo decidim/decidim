@@ -74,7 +74,7 @@ describe "Assemblies", type: :system do
     end
 
     context "and accessing from the homepage" do
-      it "the menu link is not shown" do
+      it "the menu link is shown" do
         visit decidim.root_path
 
         within ".main-nav" do
@@ -168,6 +168,33 @@ describe "Assemblies", type: :system do
           expect(page).not_to have_content("3 PROPOSALS")
         end
       end
+    end
+
+    context "when the assembly has a child" do
+      let!(:child_assembly) { create :assembly, organization: organization, parent: assembly }
+
+      before do
+        visit decidim_assemblies.assembly_path(assembly)
+      end
+
+      it "shows the children" do
+        within("#assemblies-grid") do
+          expect(page).to have_link translated(child_assembly.title)
+        end
+      end
+    end
+  end
+
+  describe "when going to the assembly child page" do
+    let!(:parent_assembly) { base_assembly }
+    let!(:child_assembly) { create :assembly, organization: organization, parent: parent_assembly }
+
+    before do
+      visit decidim_assemblies.assembly_path(child_assembly)
+    end
+
+    it "have a link to the parent assembly" do
+      expect(page).to have_link translated(parent_assembly.title)
     end
   end
 end
