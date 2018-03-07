@@ -39,7 +39,7 @@ FactoryBot.define do
     end
 
     trait :with_parent do
-      parent { create :assembly, orgainization: organization }
+      parent { create :assembly, organization: organization }
     end
   end
 
