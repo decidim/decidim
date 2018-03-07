@@ -35,8 +35,6 @@ require "paper_trail"
 
 require "decidim/api"
 
-require "decidim/query_extensions"
-
 module Decidim
   module Core
     # Decidim's core Rails Engine.

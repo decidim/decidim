@@ -1,4 +1,6 @@
 # frozen_string_literal: true
+require_dependency File.expand_path(File.join(Decidim::Core::Engine.root, "app", "types", "decidim", "core", "component_interface"))
+require_dependency File.expand_path(File.join(Decidim::Core::Engine.root, "app", "types", "decidim", "core", "participatory_space_interface"))
 
 module Decidim
   # This module's job is to extend the API with custom fields related to

@@ -49,6 +49,7 @@ module Decidim
   autoload :Events, "decidim/events"
   autoload :ViewHooks, "decidim/view_hooks"
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
+  autoload :QueryExtensions, "decidim/query_extensions"
 
   include ActiveSupport::Configurable
 
