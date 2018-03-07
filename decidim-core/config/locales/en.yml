@@ -55,6 +55,8 @@ en:
         success: Your account was updated successfully.
         success_with_email_confirmation: Your account was updated successfully. You'll receive an email to confirm your new email address.
     admin_log:
+      area:
+        create: "%{user_name} created the %{resource_name} area"
       component:
         create: "%{user_name} added the %{resource_name} component to the %{space_name} space"
         delete: "%{user_name} removed the %{resource_name} component from the %{space_name} space"
