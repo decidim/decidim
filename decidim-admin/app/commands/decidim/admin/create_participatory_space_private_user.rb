@@ -26,7 +26,7 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         ActiveRecord::Base.transaction do
-          @user = @user ||= existing_user || new_user
+          @user ||= existing_user || new_user
           create_private_user
         end
 
