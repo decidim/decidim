@@ -254,6 +254,9 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette fonctionnalité.
           success: La fonctionnalité a été mise à jour avec succès.
+      logs:
+        logs_list:
+          no_logs_yet: Il n'y a pas encore de journaux
       managed_users:
         close_session:
           error: Une erreur s'est produite lors de la fermeture de la session de l'utilisateur que vous représentez.
