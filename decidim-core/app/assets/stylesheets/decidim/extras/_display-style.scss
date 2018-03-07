@@ -25,3 +25,18 @@ $order-border: $border;
 .display-block{
   display: block!important;
 }
+
+.card--side-container{
+  flex-basis: 16rem;
+}
+
+.tags--proposal-list{
+  max-width: 35em;
+}
+
+@include breakpoint(large down){
+  .card--side-container{
+    width: 100%;
+    flex-basis: initial;
+  }
+}
