@@ -33,8 +33,6 @@ module Decidim
       end
 
       def author_belongs_to_organization
-        organization = feature&.organization
-
         return if !author || !organization
         errors.add(:author, :invalid) unless author.organization == organization
       end
