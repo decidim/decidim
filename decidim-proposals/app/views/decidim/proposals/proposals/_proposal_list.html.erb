@@ -14,18 +14,20 @@
           </div>
           <%= render partial: "proposal_badge", locals: { proposal: proposal } %>
           <br/>
-          <%= render partial: "decidim/shared/tags", locals: { resource: proposal, tags_class_extra: "tags--proposal" } %>
+          <%= render partial: "decidim/shared/tags", locals: { resource: proposal, tags_class_extra: "tags--proposal tags--proposal-list" } %>
         </div>
-          <div class="card--list__data budget-list__data ">
+          <div class="card--list__data card--side-container ">
             <% if current_settings.votes_enabled? %>
-              <div class="card__content display-block">
-                <div>
-                  <%= render partial: "votes_count", locals: { proposal: proposal, from_proposals_list: true } %>
+              <% unless proposal.rejected? %>
+                <div class="card__content display-block">
+                  <div>
+                      <%= render partial: "votes_count", locals: { proposal: proposal, from_proposals_list: true } %>
+                  </div>
+                  <div>
+                    <%= render partial: "vote_button", locals: { proposal: proposal, from_proposals_list: true } %>
+                  </div>
                 </div>
-                <div>
-                  <%= render partial: "vote_button", locals: { proposal: proposal, from_proposals_list: true } %>
-                </div>
-              </div>
+              <% end %>
             <% else %>
               <div class="card__support__data"></div>
               <%= link_to t(".view_proposal"), proposal, class: "card__button button small secondary" %>
