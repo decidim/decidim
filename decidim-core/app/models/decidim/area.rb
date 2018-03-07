@@ -4,6 +4,8 @@ module Decidim
   # Areas are used in Assemblies to help users know which is
   # the Area of a participatory space.
   class Area < ApplicationRecord
+    include Traceable
+
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization",
