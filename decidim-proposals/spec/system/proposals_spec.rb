@@ -326,7 +326,7 @@ describe "Proposals", type: :system do
     context "when filtering" do
       context "when official_proposals setting is enabled" do
         before do
-          feature.update_attributes!(settings: { official_proposals_enabled: true })
+          feature.update!(settings: { official_proposals_enabled: true })
         end
 
         it "can be filtered by origin" do
@@ -370,7 +370,7 @@ describe "Proposals", type: :system do
 
       context "when official_proposals setting is not enabled" do
         before do
-          feature.update_attributes!(settings: { official_proposals_enabled: false })
+          feature.update!(settings: { official_proposals_enabled: false })
         end
 
         it "cannot be filtered by origin" do
@@ -474,12 +474,12 @@ describe "Proposals", type: :system do
 
       context "when proposal_answering feature setting is enabled" do
         before do
-          feature.update_attributes!(settings: { proposal_answering_enabled: true })
+          feature.update!(settings: { proposal_answering_enabled: true })
         end
 
         context "when proposal_answering step setting is enabled" do
           before do
-            feature.update_attributes!(
+            feature.update!(
               step_settings: {
                 feature.participatory_space.active_step.id => {
                   proposal_answering_enabled: true
@@ -531,7 +531,7 @@ describe "Proposals", type: :system do
 
         context "when proposal_answering step setting is disabled" do
           before do
-            feature.update_attributes!(
+            feature.update!(
               step_settings: {
                 feature.participatory_space.active_step.id => {
                   proposal_answering_enabled: false
@@ -552,7 +552,7 @@ describe "Proposals", type: :system do
 
       context "when proposal_answering feature setting is not enabled" do
         before do
-          feature.update_attributes!(settings: { proposal_answering_enabled: false })
+          feature.update!(settings: { proposal_answering_enabled: false })
         end
 
         it "cannot be filtered by state" do

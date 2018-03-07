@@ -40,7 +40,15 @@ module Decidim
         attr_reader :form, :proposal, :attachment
 
         def create_proposal
-          @proposal = Proposal.create!(
+          @proposal = Decidim.traceability.create!(
+            Proposal,
+            form.current_user,
+            attributes
+          )
+        end
+
+        def attributes
+          {
             title: form.title,
             body: form.body,
             category: form.category,
@@ -50,7 +58,7 @@ module Decidim
             latitude: form.latitude,
             longitude: form.longitude,
             published_at: Time.current
-          )
+          }
         end
 
         def build_attachment

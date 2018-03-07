@@ -47,7 +47,7 @@ module Decidim
 
       context "when the user doesn't have an email" do
         before do
-          user.update_attributes(email: nil)
+          user.update(email: nil)
         end
 
         it "does nothing" do

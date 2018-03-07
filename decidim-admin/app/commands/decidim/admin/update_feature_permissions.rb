@@ -42,7 +42,7 @@ module Decidim
           result.update(key => serialized)
         end
 
-        @feature.update_attributes!(
+        @feature.update!(
           permissions: permissions
         )
       end

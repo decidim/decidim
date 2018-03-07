@@ -20,8 +20,8 @@ module Decidim
       let(:proposals) { create_list(:proposal, 2, feature: proposal_feature) }
 
       before do
-        result.update_attributes!(category: category)
-        result.update_attributes!(scope: scope)
+        result.update!(category: category)
+        result.update!(scope: scope)
         result.link_resources(proposals, "included_proposals")
       end
 

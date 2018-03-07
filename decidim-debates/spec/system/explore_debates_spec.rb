@@ -55,6 +55,40 @@ describe "Explore debates", type: :system do
       end
     end
 
+    context "when there's an announcement set" do
+      let(:announcement) do
+        { en: "Important announcement" }
+      end
+
+      context "with the feature's settings" do
+        before do
+          feature.update_attributes!(settings: { announcement: announcement })
+        end
+
+        it "shows the announcement" do
+          visit_feature
+          expect(page).to have_content("Important announcement")
+        end
+      end
+
+      context "with the step's settings" do
+        before do
+          feature.update_attributes!(
+            step_settings: {
+              feature.participatory_space.active_step.id => {
+                announcement: announcement
+              }
+            }
+          )
+        end
+
+        it "shows the announcement" do
+          visit_feature
+          expect(page).to have_content("Important announcement")
+        end
+      end
+    end
+
     context "when filtering" do
       context "when filtering by origin" do
         context "with 'official' origin" do

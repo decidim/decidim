@@ -41,7 +41,7 @@ module Decidim
             reportable_type: @reportable.class.name
           }
         ) do
-          @reportable.moderation.update_attributes!(hidden_at: Time.current)
+          @reportable.moderation.update!(hidden_at: Time.current)
         end
       end
     end
