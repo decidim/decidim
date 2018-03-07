@@ -19,6 +19,7 @@ module Decidim
         destroy_user_account!
         destroy_user_identities
         destroy_user_group_memberships
+        destroy_user_authorizations
       end
 
       broadcast(:ok)
@@ -43,6 +44,10 @@ module Decidim
 
     def destroy_user_group_memberships
       Decidim::UserGroupMembership.where(user: @user).destroy_all
+    end
+
+    def destroy_user_authorizations
+      Decidim::Authorization.where(user: @user).destroy_all
     end
   end
 end
