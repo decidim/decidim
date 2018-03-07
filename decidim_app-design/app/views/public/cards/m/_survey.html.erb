@@ -1,7 +1,7 @@
 <div class="row">
   <div class="columns small-12 medium-6">
-    <pre>Resultado</pre>
-    <article class="card card--result">
+    <pre>Encuesta</pre>
+    <article class="card card--survey">
       <div class="card__content">
         <div class="card__header">
           <%= link_to page_path("proposal-view"), class: "card__link" do %>
@@ -14,7 +14,6 @@
           <div class="card__text--paragraph">
             <%= Faker::Hipster.paragraph[0..140] %>
           </div>
-          <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
         </div>
       </div>
       <div class="card__status">
@@ -28,12 +27,6 @@
             </a>
           </li>
           <li class="card-data__item">
-            <a href="">
-              <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-              <%= Faker::Number.between(0, 100) %>
-            </a>
-          </li>
-          <li class="card-data__item">
             <a href="" title="Comentarios">
               <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
               <%= Faker::Number.between(0, 100) %>
@@ -43,17 +36,21 @@
       </div>
       <div class="card__footer">
         <div class="card__support">
-          <%= partial "progress_bar", { progress: Faker::Number.between(0, 100), text: "Ejecutado", display: "percent" } %>
+          <div class="text-uppercase">
+            <strong class="text-large"><%= Faker::Number.between(0, 1000) %></strong>
+            <small class="text-medium">respuestas</small>
+          </div>
           <button class="card__button button button--sc secondary light small">
-            Ver
+            Responder
           </button>
         </div>
       </div>
     </article>
   </div>
   <div class="columns small-12 medium-6">
-    <pre>Resultado con fechas</pre>
-    <article class="card card--result">
+    <pre>Encuesta con identificador</pre><br>
+    <article class="card card--survey">
+      <div class="card__label"><%= icon "task", class: "icon--big" %>&nbsp;encuesta</div>
       <div class="card__content">
         <div class="card__header">
           <%= link_to page_path("proposal-view"), class: "card__link" do %>
@@ -66,25 +63,7 @@
           <div class="card__text--paragraph">
             <%= Faker::Hipster.paragraph[0..140] %>
           </div>
-          <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
         </div>
-      </div>
-      <div class="card__icondata">
-        <ul class="card-data">
-          <li class="card-data__item">
-            <%= icon "clock", class: "icon--big" %>
-          </li>
-          <li class="card-data__item">
-            <div>
-              <strong>Comienzo</strong>&nbsp;<%= Faker::Date.forward(365).strftime('%d/%m/%y') %>
-            </div>
-          </li>
-          <li class="card-data__item">
-            <div>
-              <strong>Fin</strong>&nbsp;<%= Faker::Date.forward(365).strftime('%d/%m/%y') %>
-            </div>
-          </li>
-        </ul>
       </div>
       <div class="card__status">
         <ul class="card-data">
@@ -97,12 +76,6 @@
             </a>
           </li>
           <li class="card-data__item">
-            <a href="">
-              <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-              <%= Faker::Number.between(0, 100) %>
-            </a>
-          </li>
-          <li class="card-data__item">
             <a href="" title="Comentarios">
               <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
               <%= Faker::Number.between(0, 100) %>
@@ -112,9 +85,12 @@
       </div>
       <div class="card__footer">
         <div class="card__support">
-          <%= partial "progress_bar", { progress: Faker::Number.between(0, 100), text: "Ejecutado", display: "percent" } %>
+          <div class="text-uppercase">
+            <strong class="text-large"><%= Faker::Number.between(0, 1000) %></strong>
+            <small class="text-medium">respuestas</small>
+          </div>
           <button class="card__button button button--sc secondary light small">
-            Ver
+            Responder
           </button>
         </div>
       </div>
@@ -123,8 +99,8 @@
 </div>
 <div class="row">
   <div class="columns small-12 medium-6">
-    <pre>Resultado ejecutado</pre>
-    <article class="card card--result success">
+    <pre>Encuesta cerrada</pre>
+    <article class="card card--survey alert">
       <div class="card__content">
         <div class="card__header">
           <%= link_to page_path("proposal-view"), class: "card__link" do %>
@@ -135,9 +111,8 @@
         </div>
         <div class="card__text">
           <div class="card__text--paragraph">
-            <span class="card__text--status success">ejecutado</span><%= Faker::Hipster.paragraph[0..140] %>
+            <span class="card__text--status alert">cerrada</span><%= Faker::Hipster.paragraph[0..140] %>
           </div>
-          <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
         </div>
       </div>
       <div class="card__status">
@@ -151,12 +126,6 @@
             </a>
           </li>
           <li class="card-data__item">
-            <a href="">
-              <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-              <%= Faker::Number.between(0, 100) %>
-            </a>
-          </li>
-          <li class="card-data__item">
             <a href="" title="Comentarios">
               <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
               <%= Faker::Number.between(0, 100) %>
@@ -166,17 +135,20 @@
       </div>
       <div class="card__footer">
         <div class="card__support">
-          <%= partial "progress_bar", { progress: Faker::Number.between(0, 100), text: "Ejecutado", display: "percent" } %>
+          <div class="text-uppercase">
+            <strong class="text-large"><%= Faker::Number.between(0, 1000) %></strong>
+            <small class="text-medium">respuestas</small>
+          </div>
           <button class="card__button button button--sc secondary light small">
-            Ver
+            Responder
           </button>
         </div>
       </div>
     </article>
   </div>
   <div class="columns small-12 medium-6">
-    <pre>Resultado ejecutado con fechas</pre>
-    <article class="card card--result success">
+    <pre>Encuesta publicada</pre>
+    <article class="card card--survey success">
       <div class="card__content">
         <div class="card__header">
           <%= link_to page_path("proposal-view"), class: "card__link" do %>
@@ -187,27 +159,9 @@
         </div>
         <div class="card__text">
           <div class="card__text--paragraph">
-            <span class="card__text--status success">ejecutado</span><%= Faker::Hipster.paragraph[0..140] %>
+            <span class="card__text--status success">resultado publicado</span><%= Faker::Hipster.paragraph[0..120] %>
           </div>
-          <a class="card__text--category"><%= Faker::Lovecraft.tome %></a>
         </div>
-      </div>
-      <div class="card__icondata">
-        <ul class="card-data">
-          <li class="card-data__item">
-            <%= icon "clock", class: "icon--big" %>
-          </li>
-          <li class="card-data__item">
-            <div>
-              <strong>Comienzo</strong>&nbsp;<%= Faker::Date.forward(365).strftime('%d/%m/%y') %>
-            </div>
-          </li>
-          <li class="card-data__item">
-            <div>
-              <strong>Fin</strong>&nbsp;<%= Faker::Date.forward(365).strftime('%d/%m/%y') %>
-            </div>
-          </li>
-        </ul>
       </div>
       <div class="card__status">
         <ul class="card-data">
@@ -220,12 +174,6 @@
             </a>
           </li>
           <li class="card-data__item">
-            <a href="">
-              <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-              <%= Faker::Number.between(0, 100) %>
-            </a>
-          </li>
-          <li class="card-data__item">
             <a href="" title="Comentarios">
               <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
               <%= Faker::Number.between(0, 100) %>
@@ -235,9 +183,12 @@
       </div>
       <div class="card__footer">
         <div class="card__support">
-          <%= partial "progress_bar", { progress: Faker::Number.between(0, 100), text: "Ejecutado", display: "percent" } %>
+          <div class="text-uppercase">
+            <strong class="text-large"><%= Faker::Number.between(0, 1000) %></strong>
+            <small class="text-medium">respuestas</small>
+          </div>
           <button class="card__button button button--sc secondary light small">
-            Ver
+            Responder
           </button>
         </div>
       </div>

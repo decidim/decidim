@@ -66,8 +66,6 @@ $datetime-bg: $primary;
 }
 
 .card__title{
-  @include ellipsis(2);
-
   @extend .heading5;
 }
 
