@@ -26,9 +26,10 @@ module Decidim
         return broadcast(:invalid) if form.invalid?
 
         ActiveRecord::Base.transaction do
-          create_or_invite_user
+          @user = @user ||= existing_user || new_user
           create_private_user
         end
+
         broadcast(:ok)
       rescue ActiveRecord::RecordInvalid
         form.errors.add(:email, :taken)
@@ -44,10 +45,6 @@ module Decidim
           user: user,
           privatable_to: @private_user_to
         )
-      end
-
-      def create_or_invite_user
-        @create_or_invite_user ||= existing_user || new_user
       end
 
       def existing_user
