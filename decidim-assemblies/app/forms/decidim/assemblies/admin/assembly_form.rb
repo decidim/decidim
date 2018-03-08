@@ -69,9 +69,9 @@ module Decidim
         validates :assembly_type_other, translatable_presence: true, if: ->(form) { form.assembly_type == "others" }
         validates :created_by_other, translatable_presence: true, if: ->(form) { form.created_by == "others" }
 
-        # validates :is_public, presence: true, if: ->(form) { form.is_open }
-        # validates :is_transparent, presence: true, if: ->(form) { form.is_public }
-        validates :special_features, translatable_presence: true, if: ->(form) { form.is_open }
+        validates :is_public, presence: true, if: ->(form) { !form.is_open }
+        validates :is_transparent, presence: true, if: ->(form) { !form.is_public }
+        validates :special_features, translatable_presence: true, if: ->(form) { !form.is_open }
 
         validate :slug_uniqueness
 
@@ -93,7 +93,7 @@ module Decidim
         def assembly_types_for_select
           ASSEMBLY_TYPES.map do |type|
             [
-              I18n.t(type.downcase, scope: "decidim.assemblies.assembly_types"),
+              I18n.t("assembly_types.#{type}", scope: "decidim.assemblies"),
               type
             ]
           end
@@ -102,7 +102,7 @@ module Decidim
         def created_by_for_select
           CREATED_BY.map do |by|
             [
-              I18n.t(by.downcase, scope: "decidim.assemblies.created_by"),
+              I18n.t("created_by.#{by}", scope: "decidim.assemblies"),
               by
             ]
           end

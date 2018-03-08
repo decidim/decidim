@@ -25,6 +25,26 @@ FactoryBot.define do
     participatory_scope { Decidim::Faker::Localized.sentence(1) }
     participatory_structure { Decidim::Faker::Localized.sentence(2) }
     show_statistics true
+    purpose_of_action { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    assembly_type { Decidim::Faker::Localized.word }
+    assembly_type_other { Decidim::Faker::Localized.sentence(1) }
+    creation_date 2.months.since_now.at_midnight
+    created_by { Decidim::Faker::Localized.word }
+    created_by_other { Decidim::Faker::Localized.word }
+    duration 2.months.from_now.at_midnight
+    included_at 1.months.since_now.at_midnight
+    closing_date 2.months.from_now.at_midnight
+    closing_date_reason { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    internal_organisation { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    is_open false
+    is_public false
+    is_transparent false
+    special_features { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    twitter_handler { Decidim::Faker::Localized.word }
+    facebook_handler { Decidim::Faker::Localized.word }
+    instagram_handler { Decidim::Faker::Localized.word }
+    youtube_handler { Decidim::Faker::Localized.word }
+    github_handler { Decidim::Faker::Localized.word }
 
     trait :promoted do
       promoted true

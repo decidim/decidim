@@ -11,24 +11,6 @@ $(() => {
       exports.theDataPicker.enabled($assemblyScopeId, $assemblyScopeEnabled.prop('checked'));
     }
 
-    const $checkbox = $('#assembly_has_closed');
-    const $closingDateInput = $('#closing_date_div');
-    const $closingDateReasonInput = $('#closing_date_reason_div');
-
-    if ($checkbox.length > 0) {
-      const toggleInput = () => {
-        if ($checkbox[0].checked) {
-          $closingDateInput.show();
-          $closingDateReasonInput.show();
-        } else {
-          $closingDateInput.hide();
-          $closingDateReasonInput.hide();
-        }
-      }
-      toggleInput();
-      $checkbox.on('change', toggleInput);
-    }
-
     (function( $ ){
 
       $.fn.dependsOn = function(element, value) {

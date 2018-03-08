@@ -16,6 +16,8 @@ module Decidim
     include Decidim::Loggable
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
+    ASSEMBLY_TYPES = %w(government executive consultative_advisory participatory working_group commission others).freeze
+    CREATED_BY = %w(city_council public others).freeze
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",

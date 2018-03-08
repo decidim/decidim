@@ -146,17 +146,22 @@ en:
       admin:
         assemblies:
           form:
-            assembly_type: Assembly type
-            created_by: Created by
             select_a_created_by: Select a created by
             select_an_area: Select an Area
             select_an_assembly_type: Select an assembly type
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             social_handlers: Social
-            url: URL
         assembly_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+      assembly_types:
+        commission: Comission
+        consultative_advisory: Consultative/Advisory
+        executive: Executive
+        government: Government
+        others: Others
+        participatory: Participatory
+        working_group: Working group
       created_by:
         city_council: City Council
         others: Others
@@ -180,14 +185,14 @@ en:
         indefinite_duration: Indefinite
         internal_organisation: Internal organisation
         is_open:
-          "false": close
-          "true": open
+          'false': close
+          'true': open
         is_public:
-          "false": private
-          "true": public
+          'false': private
+          'true': public
         is_transparent:
-          "false": opaque
-          "true": transparent
+          'false': opaque
+          'true': transparent
         local_area: Local area
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
@@ -210,14 +215,6 @@ en:
         surveys_count: Surveys
         users_count: Participants
         votes_count: Votes
-      assembly_types:
-        commission: Comission
-        consultative_advisory: Consultative/Advisory
-        executive: Executive
-        government: Government
-        others: Others
-        participatory: Participatory
-        working_group: Working group
     menu:
       assemblies: Assemblies
   errors:
