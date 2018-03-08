@@ -94,6 +94,7 @@ ignore_missing:
 # Consider these keys used:
 ignore_unused:
   - activemodel.attributes.*
+  - activemodel.errors.*
   - activerecord.attributes.*
   - booleans.*
   - '{date,time.formats}.*'
@@ -125,6 +126,7 @@ ignore_unused:
   - decidim.meetings.admin_log.*
   - decidim.budgets.admin_log.*
   - decidim.events.*
+  - doorkeeper.scopes.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:
 # ignore_eq_base:

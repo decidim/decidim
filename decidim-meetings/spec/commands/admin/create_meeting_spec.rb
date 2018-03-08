@@ -85,8 +85,9 @@ module Decidim::Meetings
       end
 
       it "schedules a upcoming meeting notification job 48h before start time" do
-        expect_any_instance_of(Meeting) # rubocop:disable RSpec/AnyInstance
-          .to receive(:id).at_least(:once).and_return 1
+        expect(Decidim.traceability)
+          .to receive(:create!)
+          .and_return(instance_double(Meeting, id: 1, start_time: start_time, participatory_space: participatory_process))
 
         expect(UpcomingMeetingNotificationJob)
           .to receive(:generate_checksum).and_return "1234"
@@ -94,6 +95,8 @@ module Decidim::Meetings
         expect(UpcomingMeetingNotificationJob)
           .to receive_message_chain(:set, :perform_later) # rubocop:disable RSpec/MessageChain
           .with(set: start_time - 2.days).with(1, "1234")
+
+        allow(Decidim::EventsManager).to receive(:publish).and_return(true)
 
         subject.call
       end
