@@ -9,7 +9,6 @@ module Decidim
       include FilterResource
       include Orderable
       include Paginable
-      include Displayable
 
       helper_method :officials_proposals
       helper_method :citizens_proposals
