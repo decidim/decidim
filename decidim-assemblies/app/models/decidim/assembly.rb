@@ -56,17 +56,5 @@ module Decidim
     def to_param
       slug
     end
-
-    def open?
-      open_field == "open"
-    end
-
-    def public?
-      public_field == "public"
-    end
-
-    def transparent?
-      transparent_field == "transparent"
-    end
   end
 end

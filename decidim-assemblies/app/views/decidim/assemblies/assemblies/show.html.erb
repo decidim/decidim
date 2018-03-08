@@ -15,7 +15,7 @@
         </div>
         <%= decidim_sanitize translated_attribute(current_participatory_space.description) %>
 
-        <% unless current_participatory_space.open? %>
+        <% unless current_participatory_space.is_open? %>
           <%= assembly_features(current_participatory_space) %>
         <% end %>
       </div>
@@ -102,22 +102,21 @@
           </div>
         <% end %>
 
-
-        <% if current_participatory_space.type_of_assembly.presence %>
-          <div class="definition-data__item type_of_assembly">
-            <span class="definition-data__title"><%= t("assemblies.show.type_of_assembly", scope: "decidim") %></span>
-            <% if current_participatory_space.type_of_assembly == "others" %>
-              <%= translated_attribute(current_participatory_space.type_of_assembly_other) %>
+        <% if current_participatory_space.assembly_type.presence %>
+          <div class="definition-data__item assembly_type">
+            <span class="definition-data__title"><%= t("assemblies.show.assembly_type", scope: "decidim") %></span>
+            <% if current_participatory_space.assembly_type == "others" %>
+              <%= translated_attribute(current_participatory_space.assembly_type_other) %>
             <% else %>
-              <%= current_participatory_space.type_of_assembly %>
+              <%= current_participatory_space.assembly_type %>
             <% end %>
           </div>
         <% end %>
 
-        <% if current_participatory_space.date_created.presence %>
-          <div class="definition-data__item date_created">
-            <span class="definition-data__title"><%= t("assemblies.show.date_created", scope: "decidim") %></span>
-            <%= l current_participatory_space.date_created, format: :datepicker %>
+        <% if current_participatory_space.creation_date.presence %>
+          <div class="definition-data__item creation_date">
+            <span class="definition-data__title"><%= t("assemblies.show.creation_date", scope: "decidim") %></span>
+            <%= l current_participatory_space.creation_date, format: :datepicker %>
           </div>
         <% end %>
 
@@ -141,10 +140,10 @@
           <% end %>
         </div>
 
-        <% if current_participatory_space.date_of_inclusion.presence %>
-          <div class="definition-data__item date_of_inclusion">
-            <span class="definition-data__title"><%= t("assemblies.show.date_of_inclusion", scope: "decidim") %></span>
-            <%= l current_participatory_space.date_of_inclusion, format: :datepicker %>
+        <% if current_participatory_space.included_at.presence %>
+          <div class="definition-data__item included_at">
+            <span class="definition-data__title"><%= t("assemblies.show.included_at", scope: "decidim") %></span>
+            <%= l current_participatory_space.included_at, format: :datepicker %>
           </div>
         <% end %>
 
@@ -156,15 +155,13 @@
           </div>
         <% end %>
 
-        <%= render partial: 'decidim/assemblies/assemblies/social_media_links' %>
-
+        <%= social_handler_links(current_participatory_space) %>
       </div>
       <%= resource_reference(current_participatory_space) %>
       <%= render partial: "decidim/shared/share_modal" %>
       <%= embed_modal_for assembly_assembly_widget_url(current_participatory_space, format: :js) %>
     </div>
   </div>
-
 
   <% if current_participatory_space.show_statistics? %>
     <%= render partial: 'statistics' %>

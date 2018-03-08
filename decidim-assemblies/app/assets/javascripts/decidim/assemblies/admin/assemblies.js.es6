@@ -37,7 +37,7 @@ $(() => {
           var $this = $(this);
           var showEm;
           if ( $this.is('input[type="checkbox"]') ) {
-            showEm = $this.is(':checked');
+            showEm = !$this.is(':checked');
           } else if ($this.is('select')) {
             var fieldValue = $this.find('option:selected').val();
             if (typeof(value) == 'undefined') {

@@ -3,20 +3,19 @@
 class AddFieldsToAssemblies < ActiveRecord::Migration[5.1]
   def change
     add_column :decidim_assemblies, :purpose_of_action, :jsonb
-    add_column :decidim_assemblies, :type_of_assembly, :string
-    add_column :decidim_assemblies, :type_of_assembly_other, :jsonb
-    add_column :decidim_assemblies, :date_created, :date
+    add_column :decidim_assemblies, :assembly_type, :string
+    add_column :decidim_assemblies, :assembly_type_other, :jsonb
+    add_column :decidim_assemblies, :creation_date, :date
     add_column :decidim_assemblies, :created_by, :string
     add_column :decidim_assemblies, :created_by_other, :jsonb
     add_column :decidim_assemblies, :duration, :date
-    add_column :decidim_assemblies, :date_of_inclusion, :date
-    add_column :decidim_assemblies, :has_closed, :boolean
+    add_column :decidim_assemblies, :included_at, :date
     add_column :decidim_assemblies, :closing_date, :date
     add_column :decidim_assemblies, :closing_date_reason, :jsonb
     add_column :decidim_assemblies, :internal_organisation, :jsonb
-    add_column :decidim_assemblies, :open_field, :string
-    add_column :decidim_assemblies, :public_field, :string
-    add_column :decidim_assemblies, :transparent_field, :string
+    add_column :decidim_assemblies, :is_open, :boolean, default: true
+    add_column :decidim_assemblies, :is_public, :boolean
+    add_column :decidim_assemblies, :is_transparent, :boolean
     add_column :decidim_assemblies, :special_features, :jsonb
     add_column :decidim_assemblies, :twitter_handler, :string
     add_column :decidim_assemblies, :instagram_handler, :string

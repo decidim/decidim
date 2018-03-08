@@ -4,6 +4,8 @@ en:
     attributes:
       assembly:
         area_id: Area
+        assembly_type: Assembly type
+        assembly_type_other: Assembly type other
         banner_image: Banner image
         closing_date: Closing date
         closing_date_reason: Closing date reason
@@ -11,8 +13,7 @@ en:
         copy_features: Copy features
         created_by: Created by
         created_by_other: Created by other
-        date_created: Date created
-        date_of_inclusion: Date of inclusion
+        creation_date: Date created
         decidim_area_id: Area
         decidim_scope_id: Scope
         description: Description
@@ -23,15 +24,17 @@ en:
         github: GitHub
         hashtag: Hashtag
         hero_image: Home image
+        included_at: Included at
         instagram: Instagram
         internal_organisation: Internal organisation
+        is_open: Is open
+        is_public: Is public
+        is_transparent: Is transparent
         local_area: Local area
         meta_scope: Scope metadata
-        open_field: Assembly open
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         promoted: Promoted
-        public_field: Public Assembly
         published_at: Published at
         purpose_of_action: Purpose of action
         scope_id: Scope
@@ -42,10 +45,7 @@ en:
         subtitle: Subtitle
         target: Target
         title: Title
-        transparent_field: Transparent assembly
         twitter: Twitter
-        type_of_assembly: Type of assembly
-        type_of_assembly_other: Type of assembly other
         youtube: YouTube
   decidim:
     admin:
@@ -146,30 +146,21 @@ en:
       admin:
         assemblies:
           form:
+            assembly_type: Assembly type
             created_by: Created by
-            open_field:
-              close: close
-              open: open
-            public_field:
-              private: private
-              public: public
             select_a_created_by: Select a created by
             select_an_area: Select an Area
             select_an_assembly_type: Select an assembly type
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
             social_handlers: Social
-            transparent_field:
-              opaque: opaque
-              transparent: transparent
-            type_of_assembly: Type of assembly
             url: URL
         assembly_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
       created_by:
         city_council: City Council
-        public: Public
         others: Others
+        public: Public
       index:
         title: Assemblies
       pages:
@@ -179,31 +170,31 @@ en:
             see_all_assemblies: See all assemblies
       show:
         area: Area
+        assembly_type: Assembly type
         closing_date: Closing date
         created_by: Created by
-        date_created: Date created
-        date_of_inclusion: Date of inclusion
+        creation_date: Date created
         developer_group: Developer group
         duration: Duration
+        included_at: Included at
         indefinite_duration: Indefinite
         internal_organisation: Internal organisation
+        is_open:
+          "false": close
+          "true": open
+        is_public:
+          "false": private
+          "true": public
+        is_transparent:
+          "false": opaque
+          "true": transparent
         local_area: Local area
-        open_field:
-          close: close
-          open: open
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
-        public_field:
-          private: private
-          public: public
         purpose_of_action: Purpose of action
         scope: Scope
         social_networks: Social Networks
         target: Target
-        transparent_field:
-          opaque: opaque
-          transparent: transparent
-        type_of_assembly: Type of assembly
       statistics:
         answers_count: Answers
         assemblies_count: Assemblies
@@ -219,16 +210,19 @@ en:
         surveys_count: Surveys
         users_count: Participants
         votes_count: Votes
-      types_of_assembly:
-        government: Government
-        executive: Executive
+      assembly_types:
+        commission: Comission
         consultative_advisory: Consultative/Advisory
+        executive: Executive
+        government: Government
+        others: Others
         participatory: Participatory
         working_group: Working group
-        commission: Comission
-        others: Others
     menu:
       assemblies: Assemblies
+  errors:
+    messages:
+      cannot_be_blank: can not be blank
   layouts:
     decidim:
       assemblies:
@@ -249,6 +243,3 @@ en:
       assembly_widgets:
         show:
           take_part: Take part
-  errors:
-    messages:
-      cannot_be_blank: can not be blank

@@ -9,11 +9,8 @@ module Decidim
       class AssemblyForm < Form
         include TranslatableAttributes
 
-        TYPE_OF_ASSEMBLY = %w(government executive consultative_advisory participatory working_group commission others).freeze
+        ASSEMBLY_TYPES = %w(government executive consultative_advisory participatory working_group commission others).freeze
         CREATED_BY = %w(city_council public others).freeze
-        OPEN_FIELD = %w(open close).freeze
-        PUBLIC_FIELD = %w(public private).freeze
-        TRANSPARENT_FIELD = %w(transparent opaque).freeze
 
         translatable_attribute :title, String
         translatable_attribute :subtitle, String
@@ -26,7 +23,7 @@ module Decidim
         translatable_attribute :participatory_scope, String
         translatable_attribute :participatory_structure, String
         translatable_attribute :purpose_of_action, String
-        translatable_attribute :type_of_assembly_other, String
+        translatable_attribute :assembly_type_other, String
         translatable_attribute :created_by_other, String
         translatable_attribute :closing_date_reason, String
         translatable_attribute :internal_organisation, String
@@ -45,16 +42,16 @@ module Decidim
         attribute :remove_banner_image
         attribute :show_statistics, Boolean
         attribute :area_id, Integer
-        attribute :type_of_assembly, String
-        attribute :date_created, Decidim::Attributes::TimeWithZone
+        attribute :assembly_type, String
+        attribute :creation_date, Decidim::Attributes::TimeWithZone
         attribute :created_by, String
         attribute :duration, Decidim::Attributes::TimeWithZone
-        attribute :date_of_inclusion, Decidim::Attributes::TimeWithZone
+        attribute :included_at, Decidim::Attributes::TimeWithZone
         attribute :has_closed, Boolean
         attribute :closing_date, Decidim::Attributes::TimeWithZone
-        attribute :open_field, String
-        attribute :public_field, String
-        attribute :transparent_field, String
+        attribute :is_open, Boolean
+        attribute :is_public, Boolean
+        attribute :is_transparent, Boolean
         attribute :twitter_handler, String
         attribute :facebook_handler, String
         attribute :instagram_handler, String
@@ -69,12 +66,12 @@ module Decidim
         validates :closing_date, presence: true, if: ->(form) { form.has_closed }
         validates :closing_date_reason, translatable_presence: true, if: ->(form) { form.has_closed }
 
-        validates :type_of_assembly_other, translatable_presence: true, if: ->(form) { form.type_of_assembly == "others" }
+        validates :assembly_type_other, translatable_presence: true, if: ->(form) { form.assembly_type == "others" }
         validates :created_by_other, translatable_presence: true, if: ->(form) { form.created_by == "others" }
 
-        validates :public_field, presence: true, if: ->(form) { form.open_field == "close" }
-        validates :transparent_field, presence: true, if: ->(form) { form.public_field == "private" }
-        validates :special_features, translatable_presence: true, if: ->(form) { form.open_field == "close" }
+        # validates :is_public, presence: true, if: ->(form) { form.is_open }
+        # validates :is_transparent, presence: true, if: ->(form) { form.is_public }
+        validates :special_features, translatable_presence: true, if: ->(form) { form.is_open }
 
         validate :slug_uniqueness
 
@@ -93,10 +90,10 @@ module Decidim
           @area ||= current_organization.areas.where(id: area_id).first
         end
 
-        def types_of_assembly_for_select
-          TYPE_OF_ASSEMBLY.map do |type|
+        def assembly_types_for_select
+          ASSEMBLY_TYPES.map do |type|
             [
-              I18n.t(type.downcase, scope: "decidim.assemblies.types_of_assembly"),
+              I18n.t(type.downcase, scope: "decidim.assemblies.assembly_types"),
               type
             ]
           end
@@ -107,33 +104,6 @@ module Decidim
             [
               I18n.t(by.downcase, scope: "decidim.assemblies.created_by"),
               by
-            ]
-          end
-        end
-
-        def open_field_for_select
-          OPEN_FIELD.map do |open_field|
-            [
-              I18n.t(open_field.downcase, scope: "decidim.assemblies.admin.assemblies.form.open_field"),
-              open_field
-            ]
-          end
-        end
-
-        def public_field_for_select
-          PUBLIC_FIELD.map do |public_field|
-            [
-              I18n.t(public_field.downcase, scope: "decidim.assemblies.admin.assemblies.form.public_field"),
-              public_field
-            ]
-          end
-        end
-
-        def transparent_field_for_select
-          TRANSPARENT_FIELD.map do |transparent_field|
-            [
-              I18n.t(transparent_field.downcase, scope: "decidim.assemblies.admin.assemblies.form.transparent_field"),
-              transparent_field
             ]
           end
         end
