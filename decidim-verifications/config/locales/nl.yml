@@ -9,6 +9,13 @@ nl:
         document_type: Type van uw document
         user: Gebruiker
         verification_attachment: Gescande kopie van uw document
+      postal_letter_address:
+        full_address: Volledig adres
+      postal_letter_confirmation:
+        verification_code: Verificatie code
+      postal_letter_postage:
+        full_address: Volledig adres
+        verification_code: Verificatie code
   decidim:
     admin:
       menu:
