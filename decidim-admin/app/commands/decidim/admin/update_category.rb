@@ -34,7 +34,7 @@ module Decidim
       attr_reader :form
 
       def update_category
-        category.update_attributes!(attributes)
+        category.update!(attributes)
       end
 
       def attributes

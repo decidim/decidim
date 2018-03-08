@@ -32,8 +32,11 @@ module Decidim
       attr_reader :form, :organization
 
       def update_organization
-        @organization.assign_attributes(attributes)
-        @organization.save! if @organization.valid?
+        @organization = Decidim.traceability.update!(
+          @organization,
+          form.current_user,
+          attributes
+        )
       end
 
       def attributes

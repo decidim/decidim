@@ -7,7 +7,7 @@ module Decidim
     class Result < Accountability::ApplicationRecord
       include Decidim::Resourceable
       include Decidim::HasFeature
-      include Decidim::HasScope
+      include Decidim::ScopableFeature
       include Decidim::HasCategory
       include Decidim::HasReference
       include Decidim::Comments::Commentable
@@ -24,6 +24,13 @@ module Decidim
                                                              class_name: "Decidim::Accountability::TimelineEntry", inverse_of: :result, dependent: :destroy
 
       after_save :update_parent_progress, if: -> { parent_id.present? }
+
+      def self.order_randomly(seed)
+        transaction do
+          connection.execute("SELECT setseed(#{connection.quote(seed)})")
+          order("RANDOM()").load
+        end
+      end
 
       def update_parent_progress
         return if parent.blank?

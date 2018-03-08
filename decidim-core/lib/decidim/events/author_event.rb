@@ -13,23 +13,24 @@ module Decidim
         i18n_attributes :author_name, :author_nickname, :author_path, :author_url
 
         def author_nickname
-          author_presenter.nickname
+          author_presenter&.nickname.to_s
         end
 
         def author_name
-          author_presenter.name
+          author_presenter&.name.to_s
         end
 
         def author_path
-          author_presenter.profile_path
+          author_presenter&.profile_path.to_s
         end
 
         def author_url
-          author_presenter.profile_url
+          author_presenter&.profile_url.to_s
         end
 
         def author_presenter
-          @author ||= Decidim::UserPresenter.new(author)
+          return unless author
+          @author_presenter ||= Decidim::UserPresenter.new(author)
         end
 
         def author

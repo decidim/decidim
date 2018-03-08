@@ -7,8 +7,10 @@ module Decidim
       # Initializes the command.
       #
       # newsletter - The newsletter to deliver.
-      def initialize(newsletter)
+      # user - the Decidim::USer that delivers the newsletter
+      def initialize(newsletter, user)
         @newsletter = newsletter
+        @user = user
       end
 
       def call
@@ -23,7 +25,13 @@ module Decidim
       private
 
       def send_newsletter!
-        NewsletterJob.perform_later(@newsletter)
+        Decidim.traceability.perform_action!(
+          "deliver",
+          @newsletter,
+          @user
+        ) do
+          NewsletterJob.perform_later(@newsletter)
+        end
       end
     end
   end

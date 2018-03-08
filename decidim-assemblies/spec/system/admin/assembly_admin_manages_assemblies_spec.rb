@@ -17,7 +17,6 @@ describe "Assembly admin manages assemblies", type: :system do
 
   context "when deleting an assembly" do
     let!(:assembly2) { create(:assembly, organization: organization) }
-    let!(:process_user_role2) { create :assembly_user_role, user: user, assembly: assembly2 }
 
     before do
       switch_to_host(organization.host)

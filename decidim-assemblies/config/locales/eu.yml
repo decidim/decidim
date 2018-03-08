@@ -2,9 +2,12 @@ eu:
   activemodel:
     attributes:
       assembly:
+        area_id: Area
         banner_image: Bannerra
         copy_categories: Kopiatu kategoriak
         copy_features: Kopiatu funtzionalitateak
+        decidim_area_id: Area
+        decidim_scope_id: esparrua
         description: Deskribapena
         developer_group: Talde sustatzailea
         domain: Domeinua
@@ -15,9 +18,11 @@ eu:
         participatory_scope: Partehartze esparrua
         participatory_structure: Partehartze egitura
         promoted: Nabarmendua
+        published_at: Argitaratu at
         scope_id: Esparrua
         scopes_enabled: Esparru gaituak
         short_description: Deskribapen laburra
+        show_statistics: Erakutsi estatistikak
         slug: URL laburra
         subtitle: Azpititulua
         target: Nori zuzentzen zaio?
@@ -80,6 +85,8 @@ eu:
         assemblies: Biltzarrak
         assemblies_submenu:
           assembly_admins: Batzar erabiltzaileak
+          attachment_collections: Bilduma
+          attachment_files: Fitxategiak
           attachments: Eranskinak
           categories: Kategoriak
           features: Funtzionalitateak
@@ -105,10 +112,21 @@ eu:
             moderator: Moderatzaile
       titles:
         assemblies: Biltzarrak
+    admin_log:
+      assembly:
+        create: "%{user_name} %{resource_name} muntaia sortu zuen"
+        publish: "%{user_name} %{resource_name} muntaia argitaratu du"
+        unpublish: "%{user_name} %{resource_name} muntaia argitaratu gabe"
+        update: "%{user_name} %{resource_name} muntaia eguneratu du"
+      assembly_user_role:
+        create: "%{user_name} %{resource_name} gonbidatu %{space_name} muntaira"
+        delete: "%{user_name} erabiltzaileak %{resource_name} %{space_name} muntaia ezabatu du"
+        update: "%{user_name} %{resource_name} %{space_name} muntaiarako rola aldatu da"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Hautatu eremu bat
             slug_help: 'URL slugs erabiltzen dira muntatze hau adierazten duten URLak sortzeko. Letrak, zenbakiak eta marratxoak soilik onartzen ditu eta letra batekin hasi behar duzu. Adibidea: %{url}'
         assembly_copies:
           form:
@@ -121,6 +139,7 @@ eu:
             active_assemblies: Batzar aktiboak
             see_all_assemblies: Ikusi muntaia guztiak
       show:
+        area: Area
         developer_group: Talde sustatzailea
         local_area: Udal-alorrak
         participatory_scope: Esparru partizipatiboa
@@ -131,6 +150,7 @@ eu:
         answers_count: Erantzunak
         assemblies_count: Biltzarrak
         comments_count: Iruzkinak
+        endorsements_count: Oniritziak
         headline: Jarduera
         meetings_count: Topaketak
         orders_count: Euskarriak

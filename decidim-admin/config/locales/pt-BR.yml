@@ -1,31 +1,43 @@
 pt-BR:
   activemodel:
     attributes:
+      area:
+        area_type: Tipo de área
+        name: Nome
+        organization: Organização
+      area_type:
+        name: Nome
+        organization: Organização
+        plural: Plural
       attachment:
+        attachment_collection_id: Coleção
         description: Descrição
         file: Arquivo
         title: Título
+      attachment_collection:
+        description: Descrição
+        name: Nome
       category:
         description: Descrição
         name: Nome
         parent_id: Superior
       feature:
         name: Nome
+        published_at: Publicado em
         weight: Peso
       id: ID
       newsletter:
         body: Corpo
         subject: Assunto
       organization:
+        cta_button_path: Caminho do botão Chamar para Ação
+        cta_button_text: Texto do botão Chamar para Ação
         default_locale: Idioma por defeito
-        name: Nome
-        reference_prefix: Prefixo de referência
-      organization_appearance:
-        cta_button_path: Link do botão principal
-        cta_button_text: Texto do botão principal
         description: Descrição
         enable_omnipresent_banner: Mostrar bandeira omnipresente
+        facebook_handler: Manipulador do Facebook
         favicon: Ícone
+        github_handler: GitHub handler
         header_snippets: Snippets de cabeçalho
         highlighted_content_banner_action_subtitle: Legenda do botão de ação
         highlighted_content_banner_action_title: Título do botão Ação
@@ -34,21 +46,28 @@ pt-BR:
         highlighted_content_banner_image: Imagem
         highlighted_content_banner_short_description: Pequena descrição
         highlighted_content_banner_title: Título
-        homepage_image: Imagem da página principal
+        homepage_image: Imagem do site inicial
+        instagram_handler: Instagram handler
         logo: Logotipo
-        official_img_footer: Logotipo oficial no rodapé
-        official_img_header: Logotipo oficial no cabeçalho
-        official_url: URL oficial da organização
+        name: Nome
+        official_img_footer: Símbolo oficial do rodapé
+        official_img_header: Cabeçalho do logotipo oficial
+        official_url: URL da organização oficial
         omnipresent_banner_short_description: Pequena descrição
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
-        show_statistics: Mostrar estatísticas
+        reference_prefix: Prefixo de referência
+        show_statistics: Mostre estatisticas
+        twitter_handler: Manipulador do Twitter
         welcome_text: Texto de boas-vindas
+        youtube_handler: Manipulador do YouTube
       scope:
         code: Código
         name: Nome
         organization: Organização
+        parent_id: Pai
         scope_type: Tipo de âmbito
+        scope_type_id: Tipo de escopo
       scope_type:
         name: Nome
         organization: Organização
@@ -105,6 +124,55 @@ pt-BR:
         permissions: Permissões
         reject: Rejeitar
         verify: Verificar
+      area_types:
+        create:
+          error: Ocorreu um erro ao criar um novo tipo de área.
+          success: Tipo de área criado com sucesso.
+        destroy:
+          success: Tipo de área destruído com sucesso
+        edit:
+          title: Editar tipo de área
+          update: Atualizar
+        new:
+          create: Criar tipo de área
+          title: Novo tipo de área
+        update:
+          error: Ocorreu um erro ao atualizar este tipo de área.
+          success: Tipo de área atualizado com sucesso
+      areas:
+        create:
+          error: Ocorreu um erro ao criar uma nova área.
+          success: Área criada com sucesso.
+        destroy:
+          success: Área destruída com sucesso
+        edit:
+          title: Editar área
+          update: Atualizar
+        new:
+          create: Criar área
+          title: Nova área
+        no_areas: No Areas
+        update:
+          error: Ocorreu um erro ao atualizar esta área.
+          success: Área atualizada com sucesso
+      attachment_collections:
+        create:
+          error: Ocorreu um erro ao criar uma nova coleção.
+          success: Coleção criada com sucesso.
+        destroy:
+          success: Coleção destruída com sucesso.
+        edit:
+          title: Editar coleção
+          update: Atualizar
+        index:
+          attachment_collection_used: Esta coleção não pode ser removida porque está em uso.
+          attachment_collections_title: Coleções de anexos
+        new:
+          create: Crio
+          title: Nova coleção
+        update:
+          error: Ocorreu um erro ao atualizar essa coleção.
+          success: Coleção atualizada com sucesso.
       attachments:
         create:
           error: Ocorreu um erro ao criar um novo anexo.
@@ -143,6 +211,7 @@ pt-BR:
           success: Categoria atualizada com sucesso.
       dashboard:
         show:
+          view_more_logs: Ver mais logs
           welcome: Bem-vindo ao Decidim Admin Panel.
       exports:
         export_as: "%{name} como %{export_format}"
@@ -185,6 +254,9 @@ pt-BR:
         update:
           error: Ocorreu um erro ao atualizar essa funcionalidade.
           success: A funcionalidade foi atualizada com sucesso.
+      logs:
+        logs_list:
+          no_logs_yet: Ainda não há logs
       managed_users:
         close_session:
           error: Ocorreu um erro ao encerrar a sessão de representação atual.
@@ -220,8 +292,11 @@ pt-BR:
             new_managed_user_promotion: Nova promoção de usuário gerenciado
             promote: Destacar
       menu:
+        admin_log: Log de atividade de administração
         admins: Administradores
         appearance: Aparência
+        area_types: Tipos de área
+        areas: Áreas
         configuration: Configuração
         dashboard: Painel de controlo
         managed_users: Utilizadores geridos
@@ -234,11 +309,23 @@ pt-BR:
         user_groups: Grupos de usuários
         users: Utilizadores
       models:
+        area:
+          fields:
+            area_type: Tipo de área
+            name: Nome
+        area_type:
+          fields:
+            name: Nome
+            plural: Plural
         attachment:
           fields:
+            collection: Coleção
             content_type: Tipo
+            file_size: Tamanho
             title: Título
           name: Anexo
+        attachment_collection:
+          name: Coleção
         category:
           name: Categoria
         impersonation_log:
@@ -428,6 +515,9 @@ pt-BR:
           error: Ocorreu um erro ao atualizar esta página.
           success: Página atualizada com sucesso
       titles:
+        admin_log: Log de administração
+        area_types: Tipos de área
+        areas: Áreas
         authorization_workflows: Métodos de verificação
         dashboard: painel de controle
         impersonations: Personagens

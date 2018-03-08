@@ -3,9 +3,12 @@ en:
   activemodel:
     attributes:
       assembly:
+        area_id: Area
         banner_image: Banner image
         copy_categories: Copy categories
         copy_features: Copy features
+        decidim_area_id: Area
+        decidim_scope_id: Scope
         description: Description
         developer_group: Developer group
         domain: Domain
@@ -16,9 +19,11 @@ en:
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         promoted: Promoted
+        published_at: Published at
         scope_id: Scope
         scopes_enabled: Scopes enabled
         short_description: Short description
+        show_statistics: Show statistics
         slug: URL slug
         subtitle: Subtitle
         target: Target
@@ -81,6 +86,8 @@ en:
         assemblies: Assemblies
         assemblies_submenu:
           assembly_admins: Assembly users
+          attachment_collections: Collections
+          attachment_files: Files
           attachments: Attachments
           categories: Categories
           features: Features
@@ -106,10 +113,21 @@ en:
             moderator: Moderator
       titles:
         assemblies: Assemblies
+    admin_log:
+      assembly:
+        create: "%{user_name} created the %{resource_name} assembly"
+        publish: "%{user_name} published the %{resource_name} assembly"
+        unpublish: "%{user_name} unpublished the %{resource_name} assembly"
+        update: "%{user_name} updated the %{resource_name} assembly"
+      assembly_user_role:
+        create: "%{user_name} invited %{resource_name} to the %{space_name} assembly"
+        delete: "%{user_name} removed the user %{resource_name} from the %{space_name} assembly"
+        update: "%{user_name} changed the role of %{resource_name} in the %{space_name} assembly"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Select an Area
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
         assembly_copies:
           form:
@@ -122,6 +140,7 @@ en:
             active_assemblies: Active assemblies
             see_all_assemblies: See all assemblies
       show:
+        area: Area
         developer_group: Developer group
         local_area: Local area
         participatory_scope: Participatory scope
@@ -132,6 +151,7 @@ en:
         answers_count: Answers
         assemblies_count: Assemblies
         comments_count: Comments
+        endorsements_count: Endorsements
         headline: Activity
         meetings_count: Meetings
         orders_count: Votes

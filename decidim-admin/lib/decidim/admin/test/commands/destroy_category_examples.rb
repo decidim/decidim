@@ -24,7 +24,7 @@ module Decidim
           it "doesn't destroy the category" do
             expect do
               command.call
-            end.not_to change { Category.count }
+            end.not_to change(Category, :count)
           end
         end
 
@@ -37,7 +37,7 @@ module Decidim
             category
             expect do
               command.call
-            end.to change { Category.count }.by(-1)
+            end.to change(Category, :count).by(-1)
           end
         end
       end

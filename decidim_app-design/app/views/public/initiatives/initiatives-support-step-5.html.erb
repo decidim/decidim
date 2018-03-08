@@ -1,0 +1,51 @@
+<%
+@title = "Apoyo a iniciativas -- Decidim Barcelona"
+@activeuser = "logged"
+%>
+
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <div class="row">
+    <div class="columns large-3">
+      <div class="m-bottom">
+        <%= link_to page_path("") do %>
+          <%= icon "chevron-left", class: "icon--small" %> Volver
+        <% end %>
+      </div>
+    </div>
+    <div class="columns large-6">
+      <div class="callout secondary mb-sm">
+        <p>
+          ¡Enhorabuena! Tu iniciativa ciudadana se ha creado con éxito.
+        </p>
+      </div>
+      <h2 class="section-heading">Iniciativa creada</h2>
+      <div class="card">
+        <div class="card__content">
+          <form class="initiatives-form">
+            <p>
+              Recuerda que para tramitar correctamente la iniciativa tienes que acceder al panel de administración que se encuenra en el menú de usuario, subir la información requerida y enviarla a trámite.
+            </p>
+            <ul>
+              <li>Si eres una asociación, deberás subir el acta firmada de los órganos de dirección de las organizaciones miembros de la Comisión Promotora</li>
+              <li>Si has seleccionado la opción de recogida de firmas presencial o mixta, deberás subir la información requerida</li>
+            </ul>
+            <p>
+              Puedes consultar toda esta información en la <a href="#">página de información de iniciativas</a>.
+            </p>
+            <p>
+              Recuerda que siempre podrás acceder a tus iniciativas desde el menú de usuario.
+            </p>
+            <%= link_to page_path("initiatives") do %>
+            <button type="submit" class="button expanded mt-s mb-none">Ir a mis iniciativas</button>
+            <% end %>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="columns large-3"></div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

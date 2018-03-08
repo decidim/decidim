@@ -79,7 +79,7 @@ module Decidim::Accountability
       let(:result) { Result.last }
 
       it "creates the result" do
-        expect { subject.call }.to change { Result.count }.by(1)
+        expect { subject.call }.to change(Result, :count).by(1)
       end
 
       it "sets the scope" do
@@ -124,6 +124,49 @@ module Decidim::Accountability
         linked_meetings = result.linked_resources(:meetings, "meetings_through_proposals")
 
         expect(linked_meetings).to eq [meeting]
+      end
+
+      it "notifies the process followers" do
+        follower = create(:user, organization: organization)
+        create(:follow, followable: proposals.first, user: follower)
+
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.accountability.proposal_linked",
+            event_class: Decidim::Accountability::ProposalLinkedEvent,
+            resource: kind_of(Result),
+            recipient_ids: [proposals.first.author.id, follower.id],
+            extra: {
+              proposal_id: proposals.first.id
+            }
+          )
+
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.accountability.proposal_linked",
+            event_class: Decidim::Accountability::ProposalLinkedEvent,
+            resource: kind_of(Result),
+            recipient_ids: [proposals.second.author.id],
+            extra: {
+              proposal_id: proposals.second.id
+            }
+          )
+
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.accountability.proposal_linked",
+            event_class: Decidim::Accountability::ProposalLinkedEvent,
+            resource: kind_of(Result),
+            recipient_ids: [proposals.third.author.id],
+            extra: {
+              proposal_id: proposals.third.id
+            }
+          )
+
+        subject.call
       end
     end
   end

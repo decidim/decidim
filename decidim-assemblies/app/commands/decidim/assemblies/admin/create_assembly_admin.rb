@@ -27,8 +27,9 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           ActiveRecord::Base.transaction do
-            create_or_invite_user
+            @user = @user ||= existing_user || new_user
             create_role
+            add_admin_as_follower
           end
 
           broadcast(:ok)
@@ -42,15 +43,20 @@ module Decidim
         attr_reader :form, :assembly, :current_user, :user
 
         def create_role
-          Decidim::AssemblyUserRole.find_or_create_by!(
-            role: form.role.to_sym,
-            user: user,
-            assembly: @assembly
-          )
-        end
-
-        def create_or_invite_user
-          @user ||= existing_user || new_user
+          Decidim.traceability.perform_action!(
+            :create,
+            Decidim::AssemblyUserRole,
+            current_user,
+            resource: {
+              title: user.name
+            }
+          ) do
+            Decidim::AssemblyUserRole.find_or_create_by!(
+              role: form.role.to_sym,
+              user: user,
+              assembly: @assembly
+            )
+          end
         end
 
         def existing_user
@@ -86,6 +92,19 @@ module Decidim
         def invitation_instructions
           return "invite_admin" if form.role == "admin"
           "invite_collaborator"
+        end
+
+        def add_admin_as_follower
+          return if user.follows?(assembly)
+
+          form = Decidim::FollowForm
+                 .from_params(followable_gid: assembly.to_signed_global_id.to_s)
+                 .with_context(
+                   current_organization: assembly.organization,
+                   current_user: user
+                 )
+
+          Decidim::CreateFollow.new(form, user).call
         end
       end
     end

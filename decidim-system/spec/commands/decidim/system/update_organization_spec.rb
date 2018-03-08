@@ -27,7 +27,7 @@ module Decidim
           end
 
           it "updates the organization" do
-            expect { command.call }.to change { Organization.count }.by(1)
+            expect { command.call }.to change(Organization, :count).by(1)
             organization = Organization.last
 
             expect(organization.name).to eq("Gotham City")
