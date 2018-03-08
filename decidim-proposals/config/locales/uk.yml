@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -149,9 +150,9 @@ uk:
           title: Подібні пропозиції
         count:
           proposals_count:
-            one: 1 пропозиція
             few: "%{count} пропозиції"
             many: "%{count} пропозицій"
+            one: 1 пропозиція
             other: "%{count} пропозицій"
         edit:
           back: Назад
@@ -194,9 +195,9 @@ uk:
           view_proposal: Переглянути пропозицію
         linked_proposals:
           proposal_votes:
-            one: голосувати
             few: голоси
             many: голоси
+            one: голосувати
             other: голоси
         new:
           attachment_legend: "(Необов'язково) Додати вкладений файл"
@@ -232,9 +233,9 @@ uk:
           votes_blocked: Голосування вимкнене
         votes_count:
           count:
-            one: ГОЛОС
             few: ГОЛОСИ
             many: ГОЛОСІВ
+            one: ГОЛОС
             other: ГОЛОСІВ
           most_popular_proposal: Найпопулярніша пропозиція
           need_more_votes: Потрібно більше голосів

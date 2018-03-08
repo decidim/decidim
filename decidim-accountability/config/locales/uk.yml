@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -115,9 +116,9 @@ uk:
       results:
         count:
           results_count:
-            one: 1 підсумок
             few: "%{count} підсумків"
             many: "%{count} підсумків"
+            one: 1 підсумок
             other: "%{count} підсумків"
         filters:
           all: Усі

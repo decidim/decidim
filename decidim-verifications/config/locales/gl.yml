@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -24,16 +25,16 @@ gl:
       admin:
         id_documents:
           help:
-            - Os usuarios encherán a súa información de identidade e cargarán unha copia do seu documento.
-            - Enche a información presente na imaxe cargada.
-            - A información debe coincidir co que o usuario enche.
-            - Se non pode ver claramente a información ou non pode verificala, pode rexeitar a solicitude e o usuario poderá solucionalo.
+          - Os usuarios encherán a súa información de identidade e cargarán unha copia do seu documento.
+          - Enche a información presente na imaxe cargada.
+          - A información debe coincidir co que o usuario enche.
+          - Se non pode ver claramente a información ou non pode verificala, pode rexeitar a solicitude e o usuario poderá solucionalo.
         postal_letter:
           help:
-            - Os usuarios solicitan que se envíe un código de verificación ao seu enderezo.
-            - Envía a carta ao seu enderezo co código de verificación.
-            - Marca a letra como enviada.
-            - Unha vez que marca a letra enviada, o usuario poderá introducir o código e verificarse.
+          - Os usuarios solicitan que se envíe un código de verificación ao seu enderezo.
+          - Envía a carta ao seu enderezo co código de verificación.
+          - Marca a letra como enviada.
+          - Unha vez que marca a letra enviada, o usuario poderá introducir o código e verificarse.
       direct: Directo
       help: Axuda
       id_documents:

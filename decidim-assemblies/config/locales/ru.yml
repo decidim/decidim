@@ -1,3 +1,4 @@
+---
 ru:
   activemodel:
     attributes:
@@ -124,9 +125,9 @@ ru:
           promoted_assemblies: Рекомендуемые собрания
         order_by_assemblies:
           assemblies:
-            one: "%{count} собрание"
             few: "%{count} собрания"
             many: "%{count} собраний"
+            one: "%{count} собрание"
             other: "%{count} собраний"
         promoted_assembly:
           more_info: Узнать больше

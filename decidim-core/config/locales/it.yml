@@ -1,3 +1,4 @@
+---
 it:
   activemodel:
     attributes:
@@ -29,7 +30,7 @@ it:
         user_group_phone: Numero di telefono dell'organizzazione
   booleans:
     'false': 'No'
-    'true': 'Si'
+    'true': Si
   carrierwave:
     errors:
       image_too_big: L'immagine è troppo grande
@@ -401,8 +402,7 @@ it:
         accept: Accetta l'invito
         accept_until: Questo invito scade il %{due_date}.
         hello: Ciao %{email},
-        ignore: |-
-          Se non desideri accettare l'invito, ignora questa email.<br /> Il tuo account non verrà creato finché non accedi al link precedente e imposti la tua password.
+        ignore: Se non desideri accettare l'invito, ignora questa email.<br /> Il tuo account non verrà creato finché non accedi al link precedente e imposti la tua password.
         invited_you_as_admin: "%{invited_by} ti ha invitato come amministratore di %{application}. Puoi accettare l'invito facendo clic sul link sottostante."
         someone_invited_you: Qualcuno ti ha invitato a %{application}. Puoi accettare l'invito facendo clic sul link sottostante.
         someone_invited_you_as_admin: Qualcuno ti ha invitato come amministratore di %{application}. Puoi accettare l'invito facendo clic sul link sottostante.

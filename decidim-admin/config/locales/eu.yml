@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -282,7 +283,7 @@ eu:
           new_managed_user: Erabiltzaile kudeatu berria
           no_authorization_handlers: Ez dago baimendutako baimendun erabilgarririk erabiltzaileak kudeatzeko. Mesedez, jarri harremanetan sistemaren administratzailearekin.
           select_authorization_method: Hautatu autorizazio metodoa
-          step: '%{total} fasetatik %{current}.a'
+          step: "%{total} fasetatik %{current}.a"
         promotion:
           error: Errorea gertatu da kudeatutako erabiltzailea mailaz igotzean.
           success: Kudeatutako erabiltzailea zuzen igo da mailaz.
@@ -340,8 +341,8 @@ eu:
         newsletter:
           fields:
             created_at: Sortze-data
-            progress: ' Aurrerapena '
-            sent_at: ' Bidalketa-data: '
+            progress: " Aurrerapena "
+            sent_at: " Bidalketa-data: "
             subject: Gaia
           name: Buletina
         scope:
@@ -378,7 +379,7 @@ eu:
             users_count: Erabiltzaile kopurua
       moderations:
         index:
-          title: ' Salaketak'
+          title: " Salaketak"
         report:
           reasons:
             does_not_belong: Ez du zer ikusirik
@@ -386,7 +387,7 @@ eu:
             spam: Spam
       newsletters:
         create:
-          error: ' Errorea gertatu da buletin hau sortzean.'
+          error: " Errorea gertatu da buletin hau sortzean."
           success: Buletina ongi sortu da. Mesedez, berrikusi bidali baino lehen.
         deliver:
           error: Errorea gertatu da buletin hau entregatzean.
@@ -564,7 +565,7 @@ eu:
           title: Gonbit egin erabiltzaile bati administratzaile gisa
     moderations:
       actions:
-        hidden: ' Ezkutatuta'
+        hidden: " Ezkutatuta"
         hide: Ezkutatu
         not_hidden: Ezkutatu gabe
         title: Ekintzak

@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -320,7 +321,7 @@ gl:
           sign_in_or_up: "%{in} ou %{up} para participar"
           sign_up: Rexistrarse
           withdraw_btn_hint: Pode retirar a súa proposta se cambia de opinión, sempre que non teña recibido ningún apoio. A proposta non se elimina, aparecerá na lista de propostas retiradas.
-          withdraw_confirmation: '¿Estás seguro de retirar esta proposta?'
+          withdraw_confirmation: "¿Estás seguro de retirar esta proposta?"
           withdraw_proposal: Retire a proposta
         vote_button:
           already_voted: Xa votou

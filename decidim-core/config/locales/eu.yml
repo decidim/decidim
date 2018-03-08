@@ -1,3 +1,4 @@
+---
 eu:
   activemodel:
     attributes:
@@ -28,8 +29,8 @@ eu:
         user_group_name: Erakundearen izena
         user_group_phone: Erakundearen telefonoa
   booleans:
-    'false': 'Ez'
-    'true': 'Bai'
+    'false': Ez
+    'true': Bai
   carrierwave:
     errors:
       image_too_big: Irudia pisuegia da
@@ -106,8 +107,8 @@ eu:
         name: Dummy baimena eragiketa
       errors:
         duplicate_authorization: Badago erabiltzaile bat, datu berberekin baimendua.
-      expired_at: '%{timestamp} iraungita dago'
-      expires_at: '%{timestamp} iraungitzen da'
+      expired_at: "%{timestamp} iraungita dago"
+      expires_at: "%{timestamp} iraungitzen da"
       foo_authorization:
         fields:
           bar: Bar
@@ -164,18 +165,18 @@ eu:
         attachment_created:
           email_intro: 'Dokumentu berri bat gehitu zaio %{resource_title}. Orrialde hau ikusi dezakezu:'
           email_outro: Jakinarazpen hau jaso duzulako %{resource_title} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{resource_title} eguneratzea'
+          email_subject: "%{resource_title} eguneratzea"
           notification_title: <a href="%{resource_path}"> dokumentu berri bat</a> gehitu zaio <a href="%{attached_to_url}">%{resource_title}</a>
       email_event:
         email_greeting: Kaixo, %{user_name},
         email_intro: 'Eguneratze da "%{resource_title}". Orri honetan ikus daiteke:'
         email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
-        email_subject: '%{resource_title} eguneratzea'
+        email_subject: "%{resource_title} eguneratzea"
       features:
         feature_published:
-          email_intro: '%{resource_title} osagaia %{participatory_space_title} da aktibo dagoenean. Orrialde hau ikusi dezakezu:'
+          email_intro: "%{resource_title} osagaia %{participatory_space_title} da aktibo dagoenean. Orrialde hau ikusi dezakezu:"
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{participatory_space_title} eguneratze bat'
+          email_subject: "%{participatory_space_title} eguneratze bat"
           notification_title: '%{resource_title} osagaia aktibo dago orain <a href="%{resource_path}">%{participatory_space_title}</a>'
       notification_event:
         notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
@@ -259,7 +260,7 @@ eu:
           greeting: Kaixo, %{recipient}!
           intro: "%{sender} elkarrizketan mezu berriak argitaratu ditu. Egin klik hemen ikusteko:"
           outro: Gozatu erabaki!
-          subject: '%{sender}-tik mezu berriak dituzu'
+          subject: "%{sender}-tik mezu berriak dituzu"
       conversations:
         create:
           error: Ez da elkarrizketa hasi. Saiatu berriro geroago
@@ -398,8 +399,7 @@ eu:
         accept: Onartu gonbita
         accept_until: 'Gonbit hau data honetan iraungiko da: %{due_date}.'
         hello: Kaixo, %{email},
-        ignore: |-
-          Nahi ez baduzu onartu gonbit hau, ez egin kasu mezu honi.<br />Zure kontua ez da sortuko beheko estekara jo eta zure pasahitza aukeratu arte.
+        ignore: Nahi ez baduzu onartu gonbit hau, ez egin kasu mezu honi.<br />Zure kontua ez da sortuko beheko estekara jo eta zure pasahitza aukeratu arte.
         invited_you_as_admin: "%{invited_by} %{application} administratzaile gisa gonbidatu zaitu. Beheko estekan onartu dezakezu."
         someone_invited_you: Norbaitek %{application} gonbidatu zaitu. Beheko estekan onartu dezakezu.
         someone_invited_you_as_admin: Norbaitek %{application} admin gisa gonbidatu zaitu, beheko estekan onartu dezakezu.
@@ -493,7 +493,7 @@ eu:
         assemblies_count: Batzar
         comments_count: Iruzkinak
         endorsements_count: Oniritziak
-        headline: '%{organization} erakundearen egungo egoera'
+        headline: "%{organization} erakundearen egungo egoera"
         meetings_count: Topaketak
         orders_count: Euskarriak
         pages_count: Orriak

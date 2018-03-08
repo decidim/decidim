@@ -1,3 +1,4 @@
+---
 uk:
   activemodel:
     attributes:
@@ -40,17 +41,17 @@ uk:
       debates:
         count:
           debates_count:
-            one: "%{count} обговорення"
             few: "%{count} обговорення"
             many: "%{count} обговорень"
+            one: "%{count} обговорення"
             other: "%{count} обговорень"
         create:
           success: Обговорення успішно створено.
         debate:
           comments:
-            one: Коментар
             few: Коментарі
             many: Коментарів
+            one: Коментар
             other: Коментарів
           participate: Взяти участь
         filters:

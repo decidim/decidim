@@ -1,3 +1,4 @@
+---
 gl:
   activemodel:
     attributes:
@@ -28,8 +29,8 @@ gl:
         user_group_name: Nome da organización
         user_group_phone: Organización do teléfono
   booleans:
-    'false': 'Non'
-    'true': 'Si'
+    'false': Non
+    'true': Si
   carrierwave:
     errors:
       image_too_big: A imaxe é demasiado grande
@@ -70,7 +71,7 @@ gl:
       organization:
         update: "%{user_name} actualizou a configuración da organización"
       scope:
-        create: "O %{user_name} creou o alcance %{resource_name}"
+        create: O %{user_name} creou o alcance %{resource_name}
         create_with_parent: "%{user_name} creou o alcance %{resource_name} no ámbito %{parent_scope}"
         delete: "%{user_name} eliminou o alcance %{resource_name}"
         delete_with_parent: "%{user_name} eliminou o alcance %{resource_name} no ámbito %{parent_scope}"
@@ -357,7 +358,7 @@ gl:
           title: A autorización aínda está en progreso
         unauthorized:
           explanation: Non podes realizar esta acción porque algúns dos teus datos de autorización non coinciden.
-          invalid_field: "O %{field} valor %{value} non é válido."
+          invalid_field: O %{field} valor %{value} non é válido.
           ok: Ok
           title: Non autorizado
       author:
@@ -401,8 +402,7 @@ gl:
         accept: Aceptar invitación
         accept_until: Esta invitación farase en %{due_date}.
         hello: Ola %{email},
-        ignore: |-
-          Se non queres aceptar a invitación, ignore este correo electrónico.23_6_0_321 A túa conta non se creará ata que accedas á ligazón de arriba e configure o teu contrasinal.
+        ignore: Se non queres aceptar a invitación, ignore este correo electrónico.23_6_0_321 A túa conta non se creará ata que accedas á ligazón de arriba e configure o teu contrasinal.
         invited_you_as_admin: "%{invited_by} invitoute como administrador de %{application}. Podes aceptalo a través da seguinte ligazón."
         someone_invited_you: Alguén te invitou a %{application}. Podes aceptalo a través da seguinte ligazón.
         someone_invited_you_as_admin: Alguén te convidou como administrador de %{application}, podes aceptalo a través da seguinte ligazón.
@@ -478,7 +478,7 @@ gl:
       extended:
         debates: Debates
         debates_explanation: Debate e discute, comparte as túas opinións e enriquece os temas relevantes.
-        how_to_participate: '¿Como participo nun proceso?'
+        how_to_participate: "¿Como participo nun proceso?"
         meetings: Reunións
         meetings_explanation: Descubra onde e cando pode participar en reunións públicas.
         more_info: Máis información
@@ -535,7 +535,7 @@ gl:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
-      decidim_day_of_year: "123_2_0_321 %B 123_2_2_321 |"
+      decidim_day_of_year: 123_2_0_321 %B 123_2_2_321 |
       decidim_short: "%d/%m/%Y %H:%M"
       time_of_day: "%H:%M"
   views:

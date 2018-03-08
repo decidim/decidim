@@ -1,3 +1,4 @@
+---
 eu:
   decidim:
     comments:
@@ -18,7 +19,7 @@ eu:
         opinion:
           neutral: Neutrala
         remaining_characters: "%{count} karaktere geratzen dira"
-        remaining_characters_1: "karaktere %{count} geratzen da"
+        remaining_characters_1: karaktere %{count} geratzen da
         title: Egin hemen zure iruzkina
       comment:
         alignment:
@@ -58,7 +59,7 @@ eu:
           comment:
             email_intro: '"%{resource_title}" iruzkindu da. Orri honetan iruzkina irakur dezakezu:'
             email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zaren edo bere egileak direlako. Aurreko esteka estekan jarrai dezakezu.
-            email_subject: '%{author_name} helbidean %{resource_title} iruzkin berri bat dago'
+            email_subject: "%{author_name} helbidean %{resource_title} iruzkin berri bat dago"
             notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>-en iruzkin berri bat dago.
           reply:
             email_intro: '"%{resource_title}" iruzkindu da'
@@ -68,7 +69,7 @@ eu:
         user_mentioned:
           email_intro: Esan zaizu
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" aipatu duzulako.
-          email_subject: '%{resource_title} aipatu zaituzte'
+          email_subject: "%{resource_title} aipatu zaituzte"
           notification_title: <a href="%{resource_path}">%{resource_title}</a> <a href="%{author_path}">%{author_name} %{author_nickname}</a> bidez aipatu zaituzte.
   errors:
     messages:

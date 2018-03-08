@@ -12,18 +12,20 @@ $order-border: $border;
 .display-style__all{
   display: flex;
   flex-wrap: wrap;
-  &>a {
+
+  & > a{
     margin-left: 15px;
     display: flex;
     align-items: center;
   }
-  .icon--list {
+
+  .icon--list{
     height: 17px;
   }
 }
 
 .display-block{
-  display: block!important;
+  display: block !important;
 }
 
 .card--side-container{
@@ -39,4 +41,5 @@ $order-border: $border;
     width: 100%;
     flex-basis: initial;
   }
+
 }

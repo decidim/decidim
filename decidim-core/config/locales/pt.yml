@@ -1,3 +1,4 @@
+---
 pt:
   activemodel:
     attributes:
@@ -28,8 +29,8 @@ pt:
         user_group_name: Nome da organização
         user_group_phone: Telefone da organização
   booleans:
-    'false': 'Não'
-    'true': 'Sim'
+    'false': Não
+    'true': Sim
   carrierwave:
     errors:
       image_too_big: A imagem é demasiado grande
@@ -401,8 +402,7 @@ pt:
         accept: Aceitar convite
         accept_until: Este convite será devido em %{due_date}.
         hello: Olá %{email},
-        ignore: |-
-          Se você não quiser aceitar o convite, ignore este email.<br /> Sua conta não será criada até você acessar o link acima e definir sua senha.
+        ignore: Se você não quiser aceitar o convite, ignore este email.<br /> Sua conta não será criada até você acessar o link acima e definir sua senha.
         invited_you_as_admin: "%{invited_by} convidou você como administrador de %{application}. Você pode aceitá-lo através do link abaixo."
         someone_invited_you: Alguém convidou você para %{application}. Você pode aceitá-lo através do link abaixo.
         someone_invited_you_as_admin: Alguém convidou você como administrador de %{application}, você pode aceitá-lo através do link abaixo.
