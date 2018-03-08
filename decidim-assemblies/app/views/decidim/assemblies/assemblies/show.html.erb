@@ -147,7 +147,7 @@
           </div>
         <% end %>
 
-        <% if current_participatory_space.has_closed.presence %>
+        <% if current_participatory_space.closing_date.presence %>
           <div class="definition-data__item closing_date">
             <span class="definition-data__title"><%= t("assemblies.show.closing_date", scope: "decidim") %></span>
             <%= l current_participatory_space.closing_date, format: :datepicker %>

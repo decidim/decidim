@@ -47,7 +47,6 @@ module Decidim
         attribute :created_by, String
         attribute :duration, Decidim::Attributes::TimeWithZone
         attribute :included_at, Decidim::Attributes::TimeWithZone
-        attribute :has_closed, Boolean
         attribute :closing_date, Decidim::Attributes::TimeWithZone
         attribute :is_open, Boolean
         attribute :is_public, Boolean
@@ -62,9 +61,6 @@ module Decidim
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
         validates :area, presence: true, if: proc { |object| object.area_id.present? }
-
-        validates :closing_date, presence: true, if: ->(form) { form.has_closed }
-        validates :closing_date_reason, translatable_presence: true, if: ->(form) { form.has_closed }
 
         validates :assembly_type_other, translatable_presence: true, if: ->(form) { form.assembly_type == "others" }
         validates :created_by_other, translatable_presence: true, if: ->(form) { form.created_by == "others" }
