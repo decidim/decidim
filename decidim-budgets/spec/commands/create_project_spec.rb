@@ -7,6 +7,7 @@ module Decidim::Budgets
     subject { described_class.new(form) }
 
     let(:organization) { create :organization, available_locales: [:en] }
+    let(:current_user) { create :user, :admin, :confirmed, organization: organization }
     let(:participatory_process) { create :participatory_process, organization: organization }
     let(:current_component) { create :component, manifest_name: :budgets, participatory_space: participatory_process }
     let(:scope) { create :scope, organization: organization }
@@ -24,6 +25,7 @@ module Decidim::Budgets
     let(:form) do
       double(
         invalid?: invalid,
+        current_user: current_user,
         title: { en: "title" },
         description: { en: "description" },
         budget: 10_000_000,
@@ -63,6 +65,17 @@ module Decidim::Budgets
       it "sets the component" do
         subject.call
         expect(project.component).to eq current_component
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:create!)
+          .with(Project, current_user, hash_including(:scope, :category, :feature, :title, :description, :budget))
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
       end
 
       it "links proposals" do

@@ -43,6 +43,9 @@ en:
           update:
             invalid: There's been a problem updating this project
             success: Project successfully updated
+      admin_log:
+        project:
+          create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
       models:
         project:
           fields:
