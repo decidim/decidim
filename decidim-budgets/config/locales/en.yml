@@ -46,6 +46,7 @@ en:
       admin_log:
         project:
           create: "%{user_name} created the %{resource_name} project in the %{space_name} space"
+          update: "%{user_name} updated the %{resource_name} project in the %{space_name} space"
       models:
         project:
           fields:

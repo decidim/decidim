@@ -17,7 +17,7 @@ module Decidim
 
         def action_string
           case action
-          when "create"
+          when "create", "update"
             "decidim.budgets.admin_log.project.#{action}"
           else
             super

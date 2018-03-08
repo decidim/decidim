@@ -11,6 +11,7 @@ controller or added a new module you need to rename `feature` to `component`.
 **Added**:
 
 - **decidim**: Rename features to components [\#2913](https://github.com/decidim/decidim/pull/2913)
+- **decidim-budgets**: Log actions on projects [\#2949](https://github.com/decidim/decidim/pull/2949)
 
 **Changed**:
 
