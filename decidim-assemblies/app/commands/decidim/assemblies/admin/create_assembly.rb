@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-assembly_type # frozen_string_literal: true
-
 module Decidim
   module Assemblies
     module Admin

@@ -52,10 +52,6 @@ $(() => {
             $this.dependsOn(master);
           }
         });
-
-        $("#assembly_closing_date").on("change", function(){
-          alert("holllaaaa");
-        });
       });
 
     })( jQuery );
