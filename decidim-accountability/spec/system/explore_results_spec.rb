@@ -102,6 +102,7 @@ describe "Explore results", versioning: true, type: :system do
       expect(page).to have_i18n_content(result.title)
       expect(page).to have_i18n_content(result.description)
       expect(page).to have_content(result.reference)
+      expect(page).to have_content("#{result.progress.to_i}%")
     end
 
     context "when it has no versions" do
