@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
   s.add_dependency "byebug", "~> 10.0"
   s.add_dependency "codecov", "~> 0.1.9"
   s.add_dependency "db-query-matchers", "~> 0.9.0"
+  s.add_dependency "erb_lint", "~> 0.0.22"
   s.add_dependency "i18n-tasks", "~> 0.9.18"
   s.add_dependency "nokogiri", "~> 1.8", ">= 1.8.2"
   s.add_dependency "rails-controller-testing", "~> 1.0"
