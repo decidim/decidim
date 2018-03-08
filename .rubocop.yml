@@ -601,6 +601,7 @@ Style/Lambda:
     - literal
   Exclude:
     - "**/types/**/*"
+    - "**/*_interface.rb"
 
 Style/LambdaCall:
   EnforcedStyle: call

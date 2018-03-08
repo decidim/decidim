@@ -49,6 +49,7 @@ module Decidim
   autoload :Events, "decidim/events"
   autoload :ViewHooks, "decidim/view_hooks"
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
+  autoload :QueryExtensions, "decidim/query_extensions"
 
   include ActiveSupport::Configurable
 
@@ -331,5 +332,11 @@ module Decidim
   # Public: Stores an instance of Traceability
   def self.traceability
     @traceability ||= Traceability.new
+  end
+
+  module Core
+    autoload :ParticipatorySpaceInterface, "decidim/api/participatory_space_interface"
+    autoload :ComponentInterface, "decidim/api/component_interface"
+    autoload :AuthorInterface, "decidim/api/author_interface"
   end
 end

@@ -19,7 +19,7 @@
           <% @areas.each do |area| %>
             <tr>
               <td>
-                <%= link_to translated_attribute(area.name), area_path(area) %>
+                <%= translated_attribute(area.name) %>
               </td>
               <td>
                 <%= area.area_type ? translated_attribute(area.area_type.name) : "-" %>
