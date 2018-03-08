@@ -9,6 +9,13 @@ gl:
         document_type: Tipo do documento
         user: Usuario
         verification_attachment: Copia escaneada do documento
+      postal_letter_address:
+        full_address: Enderezo completo
+      postal_letter_confirmation:
+        verification_code: Código de verificación
+      postal_letter_postage:
+        full_address: Enderezo completo
+        verification_code: Código de verificación
   decidim:
     admin:
       menu:
