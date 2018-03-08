@@ -213,9 +213,11 @@ uk:
           modify: Внеасти зміни в пропозицію
           publish: Опублікувати
           title: Опублікувати свою пропозицію
-        proposal:
+        proposal_column:
           creation_date: 'Створено: %{date}'
-          view_proposal: Переглянути пропозицію
+          view_proposal:  Переглянути пропозицію
+        proposal_list:
+          view_proposal:   Переглянути пропозицію
         show:
           edit_proposal: Редагувати пропозицію
           proposal_accepted_reason: 'Ця пропозиція була прийнята, тому що:'

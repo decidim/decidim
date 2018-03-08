@@ -308,8 +308,10 @@ eu:
             other: Proposamen hau editatu ahal izango duzu lehenengo %{count} Proposamenaren ondoren argitaratutako minutuak. Behin leiho hau igarotzen denean, ezingo duzu proposamen hori editatu.
           publish: Argitaratu
           title: Argitaratu zure proposamena
-        proposal:
+        proposal_column:
           creation_date: 'Sorkuntza: %{date}'
+          view_proposal: Ikusi proposamena
+        proposal_list:
           view_proposal: Ikusi proposamena
         show:
           edit_proposal: Editatu proposamena

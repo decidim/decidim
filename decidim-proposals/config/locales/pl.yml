@@ -297,9 +297,11 @@ pl:
           modify: Zmodyfikuj propozycję
           publish: Publikować
           title: Opublikuj swoją propozycję
-        proposal:
+        proposal_column:
           creation_date: 'Tworzenie: %{date}'
           view_proposal: Wyświetl propozycję
+        proposal_list:
+          view_proposal:  Wyświetl propozycję
         show:
           edit_proposal: Edytuj propozycję
           proposal_accepted_reason: 'Niniejszy wniosek został zaakceptowany, ponieważ:'
