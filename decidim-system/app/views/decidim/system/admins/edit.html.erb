@@ -3,7 +3,7 @@
 <% end %>
 
 <%=  decidim_form_for(@form) do |f| %>
-  <%= render partial: 'form', object: f %>
+  <%= render partial: "form", object: f %>
 
   <div class="actions">
     <%= f.submit t(".update") %>
