@@ -10,6 +10,13 @@ en:
         document_type: Type of your document
         user: User
         verification_attachment: Scanned copy of your document
+      postal_letter_address:
+        full_address: Full address
+      postal_letter_confirmation:
+        verification_code: Verification code
+      postal_letter_postage:
+        full_address: Full address
+        verification_code: Verification code
   decidim:
     admin:
       menu:

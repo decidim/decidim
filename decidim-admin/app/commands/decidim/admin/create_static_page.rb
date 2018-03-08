@@ -29,7 +29,9 @@ module Decidim
       attr_reader :form
 
       def create_page
-        StaticPage.create!(
+        Decidim.traceability.create!(
+          StaticPage,
+          form.current_user,
           title: form.title,
           slug: form.slug,
           content: form.content,

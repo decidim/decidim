@@ -29,6 +29,7 @@ module Decidim
           transaction do
             create_proposal
             create_attachment if process_attachments?
+            send_notification
           end
 
           broadcast(:ok, proposal)
@@ -39,7 +40,15 @@ module Decidim
         attr_reader :form, :proposal, :attachment
 
         def create_proposal
-          @proposal = Proposal.create!(
+          @proposal = Decidim.traceability.create!(
+            Proposal,
+            form.current_user,
+            attributes
+          )
+        end
+
+        def attributes
+          {
             title: form.title,
             body: form.body,
             category: form.category,
@@ -47,8 +56,9 @@ module Decidim
             feature: form.feature,
             address: form.address,
             latitude: form.latitude,
-            longitude: form.longitude
-          )
+            longitude: form.longitude,
+            published_at: Time.current
+          }
         end
 
         def build_attachment
@@ -81,6 +91,18 @@ module Decidim
 
         def process_attachments?
           attachments_allowed? && attachment_present?
+        end
+
+        def send_notification
+          Decidim::EventsManager.publish(
+            event: "decidim.events.proposals.proposal_created",
+            event_class: Decidim::Proposals::CreateProposalEvent,
+            resource: proposal,
+            recipient_ids: @proposal.participatory_space.followers.pluck(:id),
+            extra: {
+              participatory_space: true
+            }
+          )
         end
       end
     end

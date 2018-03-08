@@ -46,6 +46,14 @@ describe "Action Authorization", type: :system do
         expect(page).to have_content("In order to perform this action, you need to be authorized with \"Example authorization\"")
       end
 
+      it "prompts the user to authorize again after modal reopening" do
+        click_button "×"
+        click_link "New proposal"
+
+        expect(page).to have_content("Authorization required")
+        expect(page).to have_content("In order to perform this action, you need to be authorized with \"Example authorization\"")
+      end
+
       it "redirects to authorization when modal clicked" do
         click_link "Authorize with \"Example authorization\""
 
@@ -110,7 +118,7 @@ describe "Action Authorization", type: :system do
       end
 
       it "goes directly to action" do
-        expect(page).to have_selector("h2", text: "NEW PROPOSAL")
+        expect(page).to have_selector("p", text: "You are creating a proposal")
       end
     end
   end
@@ -197,7 +205,7 @@ describe "Action Authorization", type: :system do
       end
 
       it "goes directly to action" do
-        expect(page).to have_selector("h2", text: "NEW PROPOSAL")
+        expect(page).to have_selector("p", text: "You are creating a proposal")
       end
     end
   end

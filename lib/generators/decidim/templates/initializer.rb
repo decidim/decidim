@@ -16,7 +16,7 @@ Decidim.configure do |config|
   # }
 
   # Custom resource reference generator method
-  # config.resource_reference_generator = lambda do |resource, feature|
+  # config.reference_generator = lambda do |resource, feature|
   #   # Implement your custom method to generate resources references
   #   "1234-#{resource.id}"
   # end

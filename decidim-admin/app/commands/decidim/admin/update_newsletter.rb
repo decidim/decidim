@@ -21,7 +21,9 @@ module Decidim
         return broadcast(:invalid) if @newsletter.sent?
         return broadcast(:invalid) unless @organization == @newsletter.organization
 
-        @newsletter.update_attributes!(
+        @newsletter = Decidim.traceability.update!(
+          @newsletter,
+          @user,
           subject: @form.subject,
           body: @form.body,
           author: @user

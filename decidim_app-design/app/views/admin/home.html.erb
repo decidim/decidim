@@ -14,6 +14,10 @@
     <p>
       A possible place for a Dashboard.
     </p>
+    <%= partial 'logs_list' %>
+    <div class="text-center">
+      <%= link_to "See more logs", page_path("logs") %>
+    </div>
   </div>
 </div>
 <%= partial 'template_bottom' %>

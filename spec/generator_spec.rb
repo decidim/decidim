@@ -17,11 +17,15 @@ describe "Application generation" do
 
   # rubocop:disable RSpec/BeforeAfterAll
   before(:all) do
-    system("bundle exec rake install_all", out: File::NULL)
+    Bundler.with_original_env do
+      system("rake install_all", out: File::NULL)
+    end
   end
 
   after(:all) do
-    system("bundle exec rake uninstall_all", out: File::NULL)
+    Bundler.with_original_env do
+      system("rake uninstall_all", out: File::NULL)
+    end
   end
   # rubocop:enable RSpec/BeforeAfterAll
 

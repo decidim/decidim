@@ -9,9 +9,9 @@ uk:
         end_date: Дата закінчення
         progress: Перебіг
         project_ids: Включені проекти
-        proposal_ids: Включені пропозиції
         start_date: Дата початку
-        title: Назва
+        title: Заголовок
+        updated_at: 'Оновлено:'
       status:
         description: Опис
         key: Ключ
@@ -101,7 +101,7 @@ uk:
             progress: Перебіг
             start_date: Дата початку
             status: Стан
-            title: Назва
+            title: Заголовок
         status:
           fields:
             description: Опис

@@ -17,7 +17,7 @@
           <%= render partial: "decidim/shared/tags", locals: { resource: proposal, tags_class_extra: "tags--proposal tags--proposal-list" } %>
         </div>
           <div class="card--list__data card--side-container ">
-            <% if current_settings.votes_enabled? %>
+            <% if current_settings.votes_enabled? && !proposal.draft? %>
               <% unless proposal.rejected? %>
                 <div class="card__content display-block">
                   <div>

@@ -17,7 +17,7 @@
           <div class="columns medium-4 large-3">
             <div class="side-panel">
               <ul class="tabs vertical side-panel__tabs" id="pattern-library-tabs"
-                data-tabs>
+                data-tabs data-deep-link="true">
                 <li class="tabs-title is-active">
                   <a href="#patternTypography" aria-selected="true">Tipografía</a>
                 </li>
@@ -31,10 +31,16 @@
                   <a href="#patternCards">Tarjetas y contenedores</a>
                 </li>
                 <li class="tabs-title">
+                  <a href="#patternCardsM">Tarjetas tamaño M</a>
+                </li>
+                <li class="tabs-title">
                   <a href="#patternMarkers">Marcadores</a>
                 </li>
                 <li class="tabs-title">
                   <a href="#patternBars">Barras</a>
+                </li>
+                <li class="tabs-title">
+                  <a href="#patternPaginator">Paginador</a>
                 </li>
               </ul>
             </div>
@@ -43,7 +49,7 @@
             <div class="main-container__content">
               <div class="tabs-content vertical"
                 data-tabs-content="pattern-library-tabs">
-                <div class="tabs-panel" id="patternTypography">
+                <div class="tabs-panel is-active" id="patternTypography">
                   <h2 class="section-heading">Encabezados básicos</h2>
                   <p>Lista de encabezados que aparecen en la interfaz.</p>
                   <h1 class="heading1">Encabezado .heading1</h1>
@@ -56,6 +62,7 @@
                 </div>
 
                 <div class="tabs-panel" id="patternButtons">
+
                   <h2 class="section-heading">Botones principales</h2>
                   <button class="button">.button</button>
                   <button class="button secondary">.secondary</button>
@@ -63,30 +70,7 @@
                   <button class="button button--sc">.button--sc</button>
                   <button class="button hollow">.hollow</button>
                   <button class="button hollow secondary">.hollow .secondary</button>
-                  <hr>
-                  <h2 class="section-heading">Paginación</h2>
-                  <div class="section">
-                    <div class="show-more">
-                      <!--primary load more -->
-                      <button class="button button--muted small">
-                        Ver más propouestas
-                      </button>
-                    </div>
-                    <div class="show-more">
-                      <!--primary load more -->
-                      <button class="button button--muted small">
-                        Ver más comentarios
-                      </button>
-                    </div>
-                    <div class="show-more">
-                      <!--secondary load more -->
-                      <button class="muted-link">
-                        Ver más comentarios
-                      </button>
-                    </div>
-                  </div>
-                  <%= partial "pagination" %>
-                  <hr>
+
                   <h2 class="section-heading">Botones y estados</h2>
                   <button class="button small">Apoyar</button>
                   <button class="button small success">Apoyando</button>
@@ -189,7 +173,26 @@
                       <%= icon "thumb-down", aria_label: "En contra" %>
                     </button>
                   </div>
+
+                  <div class="row column">
+                    <h2 class="section-heading">Botones con sombra</h2>
+                    <pre>.button--shadow</pre>
+                    <button class="button button--shadow primary">.primary</button>
+                    <button class="button button--shadow success">.success</button>
+                    <button class="button button--shadow secondary">.secondary</button>
+                    <button class="button button--shadow warning">.warning</button>
+                    <button class="button button--shadow alert">.alert</button>
+                    <button class="button button--shadow muted button--muted">.button--muted.muted</button>
+                  </div>
+
+                  <div class="row column">
+                    <h2 class="section-heading">Botones texto blanco</h2>
+                    <pre>.button.light</pre>
+                    <button class="button light success">.success</button>
+                    <button class="button light secondary">.secondary</button>
+                  </div>
                 </div>
+
                 <div class="tabs-panel" id="patternIcons">
                   <h2 class="section-heading">Iconos de componente</h2>
                   <p>
@@ -205,7 +208,11 @@
                       <a href="http://useiconic.com/open" target="_blank">useiconic.com/open</a>.
                   </p>
                 </div>
-                <div class="tabs-panel is-active" id="patternCards">
+
+                <div class="tabs-panel" id="patternCards">
+                  <div class="callout alert">
+                    Esta sección quedará en gran parte obsoleta. Para ver las nuevas tarjetas de tamaño M, haz click <a href="#patternCardsM" data-tabs-target="patternCardsM">aquí</a>
+                  </div>
                   <h2 class="section-heading">Card básico</h2>
                   <div class="row">
                     <div class="columns small-12 medium-6">
@@ -242,33 +249,6 @@
                     </div>
                   </div>
 
-                  <h2 class="section-heading">Card con footer</h2>
-                  <div class="row">
-                    <div class="small-12 medium-6">
-                      <article class="card card--debate">
-                        <div class="card__content">
-                          <div class="card__header">
-                            <a href="#" class="card__link">
-                              <h5 class="card__title">Título</h5>
-                            </a>
-                          </div>
-                          <p>
-                           Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam…
-                          </p>
-                        </div>
-                        <div class="card__footer">
-                          <div class="card__support">
-                            <div class="card__support__data"></div>
-                            <a href="#" class="button small secondary card__button">
-                              Acción</a>
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                  </div>
-
                   <h2 class="section-heading">Card de proceso</h2>
                   <div class="row">
                     <div class="small-12 medium-6">
@@ -297,504 +277,6 @@
                       </article>
                     </div>
                   </div>
-
-
-                  <h2 class="section-heading">Card de encuentro</h2>
-                  <div class="row">
-                    <div class="small-12 medium-6">
-                      <article class="card">
-                        <div class="card__content">
-                          <div class="card__header">
-                            <h5 class="card__title">
-                              <a href="#" class="card__link">
-                                Título
-                              </a>
-                            </h5>
-                          </div>
-                          <div class="card__datetime">
-                              <div class="card__datetime__date">
-                                20 <span class="card__datetime__month">Ago</span>
-                              </div>
-                              <div class="card__datetime__time">
-                                16:00 - 18:00
-                              </div>
-                            </div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam…
-                          </p>
-                          <div class="address card__extra">
-                            <div class="address__icon">
-                              <%= icon "meetings" %>
-                            </div>
-                            <div class="address__details">
-                              <strong>Seu del Districte Sants-Montjuïc</strong><br>
-                              <span>Carrer de la Creu Coberta, 104</span><br>
-                              <span>Barcelona</span>
-                            </div>
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                  </div>
-
-                  <h2 class="section-heading">Card de debate</h2>
-                  <div class="row">
-                    <div class="small-12 medium-6">
-                      <article class="card card--debate">
-                        <div class="card__content">
-                          <div class="card__header">
-                            <%= link_to page_path("debate-view-AMA"), class: "card__link" do %>
-                              <h5 class="card__title">Título</h5>
-                            <% end %>
-                          </div>
-                          <div class="card__datetime">
-                            <div class="card__datetime__date">
-                              20 <span class="card__datetime__month">Agosto</span>
-                            </div>
-                            <div class="card__datetime__time">
-                              16:00 - 18:00
-                            </div>
-                          </div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam…
-                          </p>
-                        </div>
-                        <div class="card__footer">
-                          <div class="card__support">
-                            <div class="card__support__data"></div>
-                            <a href="#" class="button small secondary card__button">
-                              Acción</a>
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                  </div>
-
-                  <!-- <h2 class="section-heading">Card propuesta</h2>
-                  <div class="row">
-                    <div class="columns small-12 medium-6">
-                      <article class="card card--proposal">
-                        <div class="card__content">
-                          <div class="card__header">
-                            <%= link_to page_path("proposal-view"), class: "card__link" do %>
-                              <h5 class="card__title">
-                                Título
-                              </h5>
-                            <% end %>
-                            <div class="card__author author-data author-data--small">
-                              <div class="author-data__main">
-                                <div class="author author--inline">
-                                  <a href="#" class="author__avatar author__avatar--small">
-                                    <%= image_tag "demo-avatar.jpg" %>
-                                  </a>
-                                  <a href="#" class="author__name">
-                                    Autor
-                                  </a>
-                                  01/08/2016
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam…</p>
-                        </div>
-                        <div class="card__footer">
-                          <div class="card__support">
-                            <div class="card__support__data"></div>
-                            <button class="card__button button small secondary">
-                              Ver propuesta
-                            </button>
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                    <div class="columns small-12 medium-6">
-                      <article class="card card--proposal">
-                        <div class="card__content">
-                          <div class="card__header">
-                            <%= link_to page_path("proposal-view"), class: "card__link" do %>
-                              <h5 class="card__title">
-                                Título
-                              </h5>
-                            <% end %>
-                            <div class="card__author author-data author-data--small">
-                              <div class="author-data__main">
-                                <div class="author author--inline">
-                                  <a href="#" class="author__avatar author__avatar--small">
-                                    <%= image_tag "demo-avatar.jpg" %>
-                                  </a>
-                                  <a href="#" class="author__name">
-                                    Autor
-                                  </a>
-                                  01/08/2016
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam…</p>
-                        </div>
-                        <div class="card__footer">
-                          <div class="card__support">
-                            <div class="card__support__data">
-                              <div class="card__support__data">
-                                <span class="card__support__number">27</span>suports
-                                <div class="popularity popularity--level3">
-                                  <span class="popularity__item"></span>
-                                  <span class="popularity__item"></span>
-                                  <span class="popularity__item"></span>
-                                  <span class="popularity__item"></span>
-                                  <span class="popularity__item"></span>
-                                </div>
-                              </div>
-                            </div>
-                            <button class="card__button button small">
-                              Apoyar
-                            </button>
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                  </div> -->
-
-                  <h2 class="section-heading">Card de propuesta con barra de estados</h2>
-                  <div class="row">
-                    <div class="columns small-12 medium-6">
-                      <article class="card card--proposal success">
-                        <div class="card__content">
-                          <div class="card__header">
-                            <%= link_to page_path("proposal-view"), class: "card__link" do %>
-                              <h5 class="card__title">
-                                Título
-                              </h5>
-                            <% end %>
-                            <div class="card__author author-data author-data--small">
-                              <div class="author-data__main">
-                                <div class="author author--inline">
-                                  <a href="#" class="author__avatar author__avatar--small">
-                                    <%= image_tag "demo-avatar.jpg" %>
-                                  </a>
-                                  <a href="#" class="author__name">
-                                    Autor
-                                  </a>
-                                  01/08/2016
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam…</p>
-                        </div>
-                        <div class="card__status">
-                          <ul class="card-data">
-                            <li class="card-data__item">
-                              <span class="card-status__text success">aceptada</span>
-                            </li>
-                            <li class="card-data__item">
-                              04/06/2003
-                            </li>
-                            <li class="card-data__item">
-                              <a href="#comments" title="Respaldos">
-                                <%= icon "bullhorn", class: "icon--small", aria_label: "Respaldos", role: "img" %>
-                                  500
-                              </a>
-                            </li>
-                            <li class="card-data__item">
-                              <a href="#comments" title="Comentarios">
-                                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-                                  23
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="card__footer">
-                          <div class="card__support">
-                            <div class="card__support__data"></div>
-                            <button class="card__button button small secondary">
-                              Ver propuesta
-                            </button>
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                    <div class="columns small-12 medium-6">
-                      <article class="card card--proposal warning">
-                        <div class="card__content">
-                          <div class="card__header">
-                            <%= link_to page_path("proposal-view"), class: "card__link" do %>
-                              <h5 class="card__title">
-                                Título
-                              </h5>
-                            <% end %>
-                            <div class="card__author author-data author-data--small">
-                              <div class="author-data__main">
-                                <div class="author author--inline">
-                                  <a href="#" class="author__avatar author__avatar--small">
-                                    <%= image_tag "demo-avatar.jpg" %>
-                                  </a>
-                                  <a href="#" class="author__name">
-                                    Autor
-                                  </a>
-                                  01/08/2016
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam…</p>
-                        </div>
-                        <div class="card__status">
-                          <ul class="card-data">
-                            <li class="card-data__item">
-                              <span class="card-status__text warning">en evaluación</span>
-                            </li>
-                            <li class="card-data__item">
-                              04/06/2003
-                            </li>
-                            <li class="card-data__item">
-                              <a href="#comments" title="Difusión">
-                                <%= icon "bullhorn", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-                                  500
-                              </a>
-                            </li>
-                            <li class="card-data__item">
-                              <a href="#comments" title="Comentarios">
-                                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-                                  23
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="card__footer">
-                          <div class="card__support">
-                            <div class="card__support__data"></div>
-                            <button class="card__button button small secondary">
-                              Ver propuesta
-                            </button>
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="columns small-12 medium-6">
-                      <article class="card card--proposal alert">
-                        <div class="card__content">
-                          <div class="card__header">
-                            <%= link_to page_path("proposal-view"), class: "card__link" do %>
-                              <h5 class="card__title">
-                                Título
-                              </h5>
-                            <% end %>
-                            <div class="card__author author-data author-data--small">
-                              <div class="author-data__main">
-                                <div class="author author--inline">
-                                  <a href="#" class="author__avatar author__avatar--small">
-                                    <%= image_tag "demo-avatar.jpg" %>
-                                  </a>
-                                  <a href="#" class="author__name">
-                                    Autor
-                                  </a>
-                                  01/08/2016
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam…</p>
-                        </div>
-                        <div class="card__status">
-                          <ul class="card-data">
-                            <li class="card-data__item">
-                              <span class="card-status__text alert">rechazada</span>
-                            </li>
-                            <li class="card-data__item">
-                              04/06/2003
-                            </li>
-                            <li class="card-data__item">
-                              <a href="#comments" title="Difusión">
-                                <%= icon "bullhorn", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-                                  500
-                              </a>
-                            </li>
-                            <li class="card-data__item">
-                              <a href="#comments" title="Comentarios">
-                                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-                                  23
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="card__footer">
-                          <div class="card__support">
-                            <div class="card__support__data"></div>
-                            <button class="card__button button small secondary">
-                              Ver propuesta
-                            </button>
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                    <div class="columns small-12 medium-6">
-                      <article class="card card--proposal muted">
-                        <div class="card__content">
-                          <div class="card__header">
-                            <%= link_to page_path("proposal-view"), class: "card__link" do %>
-                              <h5 class="card__title">
-                                Título
-                              </h5>
-                            <% end %>
-                            <div class="card__author author-data author-data--small">
-                              <div class="author-data__main">
-                                <div class="author author--inline">
-                                  <a href="#" class="author__avatar author__avatar--small">
-                                    <%= image_tag "demo-avatar.jpg" %>
-                                  </a>
-                                  <a href="#" class="author__name">
-                                    Autor
-                                  </a>
-                                  01/08/2016
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam…</p>
-                        </div>
-                        <div class="card__status">
-                          <ul class="card-data">
-                            <li class="card-data__item">
-                              <span class="card-status__text muted">sin respuesta</span>
-                            </li>
-                            <li class="card-data__item">
-                              04/06/2003
-                            </li>
-                            <li class="card-data__item">
-                              <a href="#comments" title="Difusión">
-                                <%= icon "bullhorn", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-                                  500
-                              </a>
-                            </li>
-                            <li class="card-data__item">
-                              <a href="#comments" title="Comentarios">
-                                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-                                  23
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                        <div class="card__footer">
-                          <div class="card__support">
-                            <div class="card__support__data"></div>
-                            <button class="card__button button small secondary">
-                              Ver propuesta
-                            </button>
-                          </div>
-                        </div>
-                      </article>
-                    </div>
-                  </div>
-
-                  <h2 class="section-heading">Card de resultado</h2>
-                  <div class="row">
-                    <div class="small-12 medium-6">
-                      <article class="card card--action">
-                        <div class="card__content">
-                          <%= link_to page_path("action-view"), class: "card__link" do %>
-                            <h5 class="card__title">Título</h5>
-                          <% end %>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam…
-                          </p>
-                        </div>
-                        <div class="card__footer">
-                          <ul class="card-data">
-                            <li class="card-data__item">
-                              <span class="card-data__item__number">130</span>propostes
-                            </li>
-                            <li class="card-data__item">
-                              <span class="card-data__item__number">27</span>suports
-                            </li>
-                            <li class="card-data__item">
-                              <span class="card-data__item__number">2567</span>comentaris
-                            </li>
-                          </ul>
-                        </div>
-                      </article>
-                    </div>
-                  </div>
-
-                  <h2 class="section-heading">Card de blog</h2>
-                  <div class="row">
-                    <div class="small-12 medium-6">
-                      <article class="card card--blog">
-                        <div class="card__content">
-                          <div class="card__header">
-                            <%= link_to page_path("blog-view"), class: "card__link" do %>
-                              <h5 class="card__title">
-                                Exercitationem qui, error ad quas aut ea veritatis eligendi doloribus nobis, quam.
-                              </h5>
-                            <% end %>
-                            <div class="card__author author-data author-data--small">
-                              <div class="author-data__main">
-                                <div class="author author--inline">
-                                  <a href="#" class="author__avatar author__avatar--small">
-                                    <%= image_tag "demo-avatar.jpg" %>
-                                  </a>
-                                  <a href="#" class="author__name">
-                                    Autor
-                                  </a>
-                                  <a href="#" class="author__nickname">
-                                    @autor
-                                  </a>
-                                  <%= icon "verified-badge", class: "author__verified" %>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing
-                            elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam…</p>
-                            <a href="#">Economia col·laborativa i gestió</a>
-                        </div>
-                        <div class="card__status">
-                          <ul class="card-data">
-                            <li class="card-data__item"></li>
-                            <li class="card-data__item"></li>
-                            <li class="card-data__item">
-                              01/08/2556
-                            </li>
-                            <li class="card-data__item">
-                              <a href="#comments" title="Comentarios">
-                                <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %>
-                                23
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </article>
-                    </div>
-                  </div>
-
 
                   <h2 class="section-heading">Card list</h2>
                   <div class="row">
@@ -1007,6 +489,10 @@
 
                 </div>
 
+                <div class="tabs-panel" id="patternCardsM">
+                  <%= render partial: page_path("cards") + "/m" %>
+                </div>
+
                 <div class="tabs-panel" id="patternMarkers">
                   <h2 class="section-heading">Badges de usuario</h2>
                   <p>Lorena Ipsum
@@ -1027,6 +513,31 @@
                   <p>Usuaria Verificada
                     <%= icon "verified-badge", class: "author__verified" %>
                   </p>
+                </div>
+
+                <div class="tabs-panel" id="patternPaginator">
+                  <h2 class="section-heading">Paginación</h2>
+                  <div class="section">
+                    <div class="show-more">
+                      <!--primary load more -->
+                      <button class="button button--muted small">
+                        Ver más propuestas
+                      </button>
+                    </div>
+                    <div class="show-more">
+                      <!--primary load more -->
+                      <button class="button button--muted small">
+                        Ver más comentarios
+                      </button>
+                    </div>
+                    <div class="show-more">
+                      <!--secondary load more -->
+                      <button class="muted-link">
+                        Ver más comentarios
+                      </button>
+                    </div>
+                  </div>
+                  <%= partial "pagination" %>
                 </div>
 
                 <div class="tabs-panel" id="patternBars">

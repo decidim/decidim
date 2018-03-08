@@ -12,6 +12,7 @@ module Decidim
 
       routes do
         resources :projects do
+          resources :attachment_collections
           resources :attachments
         end
 

@@ -28,6 +28,8 @@ module Decidim
         let(:form) do
           CommentForm.from_params(
             form_params
+          ).with_context(
+            current_organization: organization
           )
         end
         let(:command) { described_class.new(form, author, commentable) }
@@ -44,7 +46,7 @@ module Decidim
           it "doesn't create a comment" do
             expect do
               command.call
-            end.not_to change { Comment.count }
+            end.not_to change(Comment, :count)
           end
         end
 
@@ -65,7 +67,7 @@ module Decidim
 
             expect do
               command.call
-            end.to change { Comment.count }.by(1)
+            end.to change(Comment, :count).by(1)
           end
 
           it "sends a notification to the corresponding users except the comment's author" do
@@ -117,6 +119,7 @@ module Decidim
 
           context "and comment contains a user mention" do
             let(:mentioned_user) { create(:user, organization: organization) }
+            let(:parser_context) { { current_organization: organization } }
             let(:body) { ::Faker::Lorem.paragraph + " @#{mentioned_user.nickname}" }
 
             it "creates a new comment with user mention replaced" do
@@ -124,14 +127,14 @@ module Decidim
                 author: author,
                 commentable: commentable,
                 root_commentable: commentable,
-                body: Decidim::ContentProcessor.parse(body).rewrite,
+                body: Decidim::ContentProcessor.parse(body, parser_context).rewrite,
                 alignment: alignment,
                 decidim_user_group_id: user_group_id
               ).and_call_original
 
               expect do
                 command.call
-              end.to change { Comment.count }.by(1)
+              end.to change(Comment, :count).by(1)
             end
 
             it "sends a notification to the mentioned users" do

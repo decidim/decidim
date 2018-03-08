@@ -24,11 +24,16 @@ shared_context "simple event" do
   let(:resource_path) { resource_locator(resource).path }
   let(:resource_url) { resource_locator(resource).url }
   let(:resource_title) { resource.title["en"] }
+  let(:participatory_space) { resource.participatory_space }
+  let(:participatory_space_title) { participatory_space.title["en"] }
+  let(:participatory_space_path) { Decidim::ResourceLocatorPresenter.new(participatory_space).path }
+  let(:participatory_space_url) { Decidim::ResourceLocatorPresenter.new(participatory_space).url }
   let(:author) { resource.author }
   let(:author_presenter) { Decidim::UserPresenter.new(author) }
+  let(:i18n_scope) { event_name }
 end
 
-shared_examples_for "an simple event" do
+shared_examples_for "a simple event" do |skip_space_checks|
   describe "types" do
     subject { described_class }
 
@@ -81,6 +86,29 @@ shared_examples_for "an simple event" do
     it "is generated correctly" do
       expect(subject.resource_url).to be_kind_of(String)
       expect(subject.resource_url).to start_with("http")
+    end
+  end
+
+  unless skip_space_checks
+    describe "participatory_space_url" do
+      it "is generated correctly" do
+        expect(subject.participatory_space_url).to be_kind_of(String)
+        expect(subject.participatory_space_url).to start_with("http")
+      end
+    end
+  end
+
+  describe "i18n_options" do
+    subject { super().i18n_options }
+
+    it { is_expected.to include(resource_path: satisfy(&:present?)) }
+    it { is_expected.to include(resource_title: satisfy(&:present?)) }
+    it { is_expected.to include(resource_url: start_with("http")) }
+    it { is_expected.to include(scope: i18n_scope) }
+
+    unless skip_space_checks
+      it { is_expected.to include(participatory_space_title: satisfy(&:present?)) }
+      it { is_expected.to include(participatory_space_url: start_with("http")) }
     end
   end
 end

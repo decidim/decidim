@@ -20,16 +20,16 @@ module Decidim
       private
 
       # Public: Calculates a unique reference for the model using the function
-      # provided by configuration
+      # provided by configuration. Works for both feature resources and
+      # participatory spaces.
       #
       # Returns a String.
       def calculate_reference
-        return unless feature
-        Decidim.resource_reference_generator.call(self, feature)
+        Decidim.reference_generator.call(self, respond_to?(:feature) ? feature : nil)
       end
 
       # Internal: Sets the unique reference to the model. Note that if the resource
-      # implements `Decidim::Traceable` then any normal update (or `update_attributes`)
+      # implements `Decidim::Traceable` then any normal update (or `update`)
       # will create a new version through an ActiveRecord update callback, but here
       # we can't track the author of the version, so we use the `update_column` method
       # which does not trigger callbacks.

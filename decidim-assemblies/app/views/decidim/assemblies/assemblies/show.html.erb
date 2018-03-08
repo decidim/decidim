@@ -65,7 +65,16 @@
               <%= translated_attribute(current_participatory_space.participatory_structure) %>
           </div>
         <% end %>
+
+        <% if translated_attribute(current_participatory_space.try(:area).try(:name)).present? %>
+          <div class="definition-data__item area">
+            <span class="definition-data__title"><%= t("assemblies.show.area", scope: "decidim") %></span>
+              <%= translated_attribute(current_participatory_space.area.area_type.name) %> - <%= translated_attribute(current_participatory_space.area.name) %>
+          </div>
+        <% end %>
+
       </div>
+      <%= resource_reference(current_participatory_space) %>
       <%= render partial: "decidim/shared/share_modal" %>
       <%= embed_modal_for assembly_assembly_widget_url(current_participatory_space, format: :js) %>
     </div>

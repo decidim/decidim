@@ -43,6 +43,14 @@ module Decidim
 
         expect(subject.nicknamize("Felipe Rocks So Much")).to eq("felipe_rocks_so_mu_2")
       end
+
+      it "resolves conflicts with other existing nicknames" do
+        create(:user, nickname: "existing")
+        create(:user, nickname: "existing_1")
+        create(:user, nickname: "existing_2")
+
+        expect(subject.nicknamize("existing")).to eq("existing_3")
+      end
     end
   end
 end

@@ -7,13 +7,18 @@ module Decidim
   class Feature < ApplicationRecord
     include HasSettings
     include Publicable
+    include Traceable
+    include Loggable
 
     belongs_to :participatory_space, polymorphic: true
 
     default_scope { order(arel_table[:weight].asc) }
 
     delegate :organization, :categories, to: :participatory_space
-    delegate :scopes, to: :organization
+
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::FeaturePresenter
+    end
 
     # Public: Finds the manifest this feature is associated to.
     #

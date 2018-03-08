@@ -56,6 +56,7 @@ search:
       <%= "- #{path}/app/helpers\n" %>
       <%= "- #{path}/app/mailers\n" %>
       <%= "- #{path}/app/presenters\n" %>
+      <%= "- #{path}/app/services\n" %>
       <%= "- #{path}/app/views\n" %>
     <% end -%>
 
@@ -115,7 +116,13 @@ ignore_unused:
   - decidim.features.accountability.name
   - decidim.features.accountability.settings.*
   - decidim.accountability.models.project.valid_statuses.*
+  - decidim.accountability.admin_log.*
+  - decidim.proposals.admin_log.*
+  - decidim.log.base_presenter.*
+  - decidim.admin_log.*
   - decidim.debates.debates.filters.*
+  - decidim.debates.admin_log.*
+  - decidim.meetings.admin_log.*
   - decidim.events.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:

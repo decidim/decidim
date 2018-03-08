@@ -1,0 +1,30 @@
+.consultations-home-intro{
+  margin-top: $margin-s;
+
+  > :first-child{
+    margin-bottom: $margin-s;
+  }
+
+  @include breakpoint(medium){
+    margin-top: $margin-sm;
+    display: flex;
+    justify-content: center;
+
+    > :first-child{
+      margin-right: $margin-sm;
+      margin-bottom: 0;
+    }
+
+    p:last-child{
+      margin-bottom: 0;
+    }
+  }
+
+  @include breakpoint(large){
+    align-items: center;
+  }
+
+  .heading6{
+    margin-bottom: 0;
+  }
+}

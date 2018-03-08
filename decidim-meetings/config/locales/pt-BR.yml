@@ -28,6 +28,11 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
           email_subject: A reunião "%{resource_title}" foi fechada
           notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi fechada.
+        meeting_created:
+          email_intro: A reunião "%{resource_title}" foi adicionado a "%{participatory_space_title}" que você está seguindo.
+          email_outro: Você recebeu esta notificação porque está seguindo "%{participatory_space_title}". Você pode ignorá-lo do link anterior.
+          email_subject: Nova reunião adicionada a %{participatory_space_title}
+          notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> foi adicionado a %{participatory_space_title}
         meeting_registrations_over_percentage:
           email_intro: Os slots ocupados pela reunião "%{resource_title}" estão acima de %{percentage}%.
           email_outro: Você recebeu esta notificação porque você é administrador do espaço participativo da reunião.
@@ -62,6 +67,7 @@ pt-BR:
             comments_blocked: Comentários bloqueados
     meetings:
       actions:
+        attachment_collections: Coleções
         attachments: Anexos
         close: Fechar
         confirm_destroy: Tem certeza de que deseja excluir esta reunião?
@@ -124,6 +130,12 @@ pt-BR:
           update:
             invalid: Ocorreu um problema ao salvar as configurações de registro.
             success: Configurações de registro de reunião salvas com sucesso.
+      admin_log:
+        meeting:
+          close: "%{user_name} fechou a reunião %{resource_name} no espaço %{space_name}"
+          create: "%{user_name} criou a reunião %{resource_name} no espaço %{space_name}"
+          delete: "%{user_name} eliminou a reunião %{resource_name} no espaço %{space_name}"
+          update: "%{user_name} atualizou a reunião %{resource_name} no espaço %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -183,6 +195,16 @@ pt-BR:
         destroy:
           invalid: Tem havido um problema ao sair desta reunião.
           success: Você saiu da reunião com sucesso.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Reuniões anteriores
+          upcoming_meetings: Próximas reuniões
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Reuniões anteriores
+        see_all_meetings: Veja todas as reuniões
+        upcoming_meetings: Próximas reuniões
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Resultados relacionados:'

@@ -7,8 +7,10 @@ module Decidim
       # Public: Initializes the command.
       #
       # user_group - The user_group to reject
-      def initialize(user_group)
+      # current_user - The user performing the action
+      def initialize(user_group, current_user)
         @user_group = user_group
+        @current_user = current_user
       end
 
       # Executes the command. Broadcasts these events:
@@ -26,7 +28,13 @@ module Decidim
       private
 
       def reject_user_group
-        @user_group.update_attributes!(rejected_at: Time.current, verified_at: nil)
+        Decidim.traceability.perform_action!(
+          "reject",
+          @user_group,
+          @current_user
+        ) do
+          @user_group.update!(rejected_at: Time.current, verified_at: nil)
+        end
       end
     end
   end

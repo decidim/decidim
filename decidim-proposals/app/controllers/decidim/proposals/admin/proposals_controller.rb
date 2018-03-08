@@ -32,10 +32,39 @@ module Decidim
           end
         end
 
+        def update_category
+          authorize! :update, Proposal
+          @proposal_ids = params[:proposal_ids]
+
+          Admin::UpdateProposalCategory.call(params[:category][:id], params[:proposal_ids]) do
+            on(:invalid_category) do
+              flash.now[:error] = I18n.t(
+                "proposals.update_category.select_a_category",
+                scope: "decidim.proposals.admin"
+              )
+            end
+
+            on(:invalid_proposal_ids) do
+              flash.now[:alert] = I18n.t(
+                "proposals.update_category.select_a_proposal",
+                scope: "decidim.proposals.admin"
+              )
+            end
+
+            on(:update_proposals_category) do
+              flash.now[:notice] = update_proposals_category_response_successful @response
+              flash.now[:alert] = update_proposals_category_response_errored @response
+            end
+            respond_to do |format|
+              format.js
+            end
+          end
+        end
+
         private
 
         def query
-          @query ||= Proposal.where(feature: current_feature).ransack(params[:q])
+          @query ||= Proposal.where(feature: current_feature).published.ransack(params[:q])
         end
 
         def proposals
@@ -44,6 +73,26 @@ module Decidim
 
         def proposal
           @proposal ||= Proposal.where(feature: current_feature).find(params[:id])
+        end
+
+        def update_proposals_category_response_successful(response)
+          return if response[:successful].blank?
+          I18n.t(
+            "proposals.update_category.success",
+            category: response[:category_name],
+            proposals: response[:successful].to_sentence,
+            scope: "decidim.proposals.admin"
+          )
+        end
+
+        def update_proposals_category_response_errored(response)
+          return if response[:errored].blank?
+          I18n.t(
+            "proposals.update_category.invalid",
+            category: response[:category_name],
+            proposals: response[:errored].to_sentence,
+            scope: "decidim.proposals.admin"
+          )
         end
       end
     end

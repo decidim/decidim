@@ -41,7 +41,7 @@ describe Decidim::Proposals::Abilities::CurrentUserAbility do
         }
       end
 
-      it { is_expected.not_to be_able_to(:unvote, proposal) }
+      it { is_expected.not_to be_able_to(:vote, proposal) }
     end
 
     context "when user is authorized" do
@@ -52,7 +52,7 @@ describe Decidim::Proposals::Abilities::CurrentUserAbility do
         }
       end
 
-      it { is_expected.to be_able_to(:unvote, Decidim::Proposals::Proposal) }
+      it { is_expected.to be_able_to(:vote, Decidim::Proposals::Proposal) }
     end
   end
 
@@ -135,6 +135,56 @@ describe Decidim::Proposals::Abilities::CurrentUserAbility do
 
         it { is_expected.not_to be_able_to(:withdraw, proposal) }
       end
+    end
+  end
+
+  describe "endorsing" do
+    context "when endorsing is disabled" do
+      let(:proposal) { build :proposal, feature: proposal_feature }
+      let(:extra_settings) do
+        {
+          endorsements_enabled?: false,
+          endorsements_blocked?: true
+        }
+      end
+
+      it { is_expected.not_to be_able_to(:endorse, proposal) }
+    end
+
+    context "when user is authorized" do
+      let(:extra_settings) do
+        {
+          endorsements_enabled?: true,
+          endorsements_blocked?: false
+        }
+      end
+
+      it { is_expected.to be_able_to(:endorse, Decidim::Proposals::Proposal) }
+    end
+  end
+
+  describe "unendorsing" do
+    context "when endorsing is disabled" do
+      let(:proposal) { build :proposal, feature: proposal_feature }
+      let(:extra_settings) do
+        {
+          endorsements_enabled?: false,
+          endorsements_blocked?: true
+        }
+      end
+
+      it { is_expected.not_to be_able_to(:unendorse, proposal) }
+    end
+
+    context "when user is authorized" do
+      let(:extra_settings) do
+        {
+          endorsements_enabled?: true,
+          endorsements_blocked?: false
+        }
+      end
+
+      it { is_expected.to be_able_to(:unendorse, Decidim::Proposals::Proposal) }
     end
   end
 end

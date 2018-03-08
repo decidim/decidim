@@ -21,6 +21,16 @@ module Decidim
           config.abilities += ["Decidim::Debates::Abilities::CurrentUserAbility"]
         end
       end
+
+      initializer "decidim_changes" do
+        Decidim::SettingsChange.subscribe "debates" do |changes|
+          Decidim::Debates::SettingsChangeJob.perform_later(
+            changes[:feature_id],
+            changes[:previous_settings],
+            changes[:current_settings]
+          )
+        end
+      end
     end
   end
 end

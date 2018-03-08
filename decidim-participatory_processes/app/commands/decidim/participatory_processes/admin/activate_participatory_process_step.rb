@@ -9,8 +9,10 @@ module Decidim
         # Public: Initializes the command.
         #
         # step - A ParticipatoryProcessStep that will be activated
-        def initialize(step)
+        # current_user - the user performing the action
+        def initialize(step, current_user)
           @step = step
+          @current_user = current_user
         end
 
         # Executes the command. Broadcasts these events:
@@ -26,6 +28,7 @@ module Decidim
             deactivate_active_steps
             activate_step
             notify_followers
+            publish_step_settings_change
           end
 
           broadcast(:ok)
@@ -33,16 +36,23 @@ module Decidim
 
         private
 
-        attr_reader :step
+        attr_reader :step, :current_user
 
         def deactivate_active_steps
           step.participatory_process.steps.where(active: true).each do |step|
-            step.update_attributes!(active: false)
+            @previous_step = step if step.active?
+            step.update!(active: false)
           end
         end
 
         def activate_step
-          step.update_attributes!(active: true)
+          Decidim.traceability.perform_action!(
+            :activate,
+            step,
+            current_user
+          ) do
+            step.update!(active: true)
+          end
         end
 
         def notify_followers
@@ -52,6 +62,26 @@ module Decidim
             resource: step,
             recipient_ids: step.participatory_process.followers.pluck(:id)
           )
+        end
+
+        def publish_step_settings_change
+          step.participatory_process.features.each do |feature|
+            Decidim::SettingsChange.publish(
+              feature,
+              previous_step_settings(feature).to_h,
+              current_step_settings(feature).to_h
+            )
+          end
+        end
+
+        def current_step_settings(feature)
+          feature.step_settings.fetch(step.id.to_s)
+        end
+
+        def previous_step_settings(feature)
+          return {} unless @previous_step
+
+          feature.step_settings.fetch(@previous_step.id.to_s)
         end
       end
     end

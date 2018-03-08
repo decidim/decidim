@@ -16,14 +16,8 @@ module Decidim
           @user = user
           @context = context
 
-          can :vote, Proposal do |_proposal|
-            authorized?(:vote) && voting_enabled? && remaining_votes.positive?
-          end
-
-          can :unvote, Proposal do |_proposal|
-            authorized?(:vote) && voting_enabled?
-          end
-
+          setup_endorsement_related_abilities
+          setup_voting_related_abilities
           can :create, Proposal if authorized?(:create) && creation_enabled?
           can :edit, Proposal do |proposal|
             proposal.editable_by?(user)
@@ -37,6 +31,24 @@ module Decidim
         end
 
         private
+
+        def setup_endorsement_related_abilities
+          can :endorse, Proposal do |_proposal|
+            authorized?(:endorse) && endorsements_enabled? && !endorsements_blocked?
+          end
+          can :unendorse, Proposal do |_proposal|
+            authorized?(:unendorse) && endorsements_enabled?
+          end
+        end
+
+        def setup_voting_related_abilities
+          can :vote, Proposal do |_proposal|
+            authorized?(:vote) && voting_enabled? && remaining_votes.positive?
+          end
+          can :unvote, Proposal do |_proposal|
+            authorized?(:vote) && voting_enabled?
+          end
+        end
 
         def authorized?(action)
           return unless feature
@@ -60,6 +72,16 @@ module Decidim
           proposals = Proposal.where(feature: feature)
           votes_count = ProposalVote.where(author: user, proposal: proposals).size
           feature_settings.vote_limit - votes_count
+        end
+
+        def endorsements_enabled?
+          return unless current_settings
+          current_settings.endorsements_enabled?
+        end
+
+        def endorsements_blocked?
+          return unless current_settings
+          current_settings.endorsements_blocked?
         end
 
         def voting_enabled?

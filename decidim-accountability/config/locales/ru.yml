@@ -9,7 +9,6 @@ ru:
         end_date: Дата завершения
         progress: Продвижение
         project_ids: Включенные проекты
-        proposal_ids: Включенные предложения
         start_date: Дата начала
         title: Название
       status:
