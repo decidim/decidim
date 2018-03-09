@@ -54,6 +54,11 @@ ca:
         success: El seu compte s'ha actualitzat correctament.
         success_with_email_confirmation: El teu compte s'ha actualitzat correctament. Rebràs un correu electrònic per confirmar la teva nova adreça de correu electrònic.
     admin_log:
+      component:
+        create: "%{user_name} ha afegit el component %{resource_name} a l'espai %{space_name}"
+        delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
+        publish: "%{user_name} va publicar el component %{resource_name} en l'espai %{space_name}"
+        unpublish: "%{user_name} no s'ha publicat el component %{resource_name} de l'espai %{space_name}"
       moderation:
         hide: "%{user_name} ha ocultat un recurs del tipus %{resource_type} a l'espai %{space_name}"
         unreport: "%{user_name} ha publicat un recurs del tipus %{resource_type} a l'espai %{space_name}"
@@ -113,6 +118,21 @@ ca:
         name: Autorització foo
       granted_at: Atorgada el %{timestamp}
       started_at: Iniciat el %{timestamp}
+    components:
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Component maniquí
+        settings:
+          global:
+            comments_enabled: Comentaris habilitats
+            dummy_global_attribute_1: Atribut maniquí 1
+            dummy_global_attribute_2: Atribut maniquí 2
+          step:
+            comments_blocked: Comentaris bloquejats
+            dummy_step_attribute_1: Dummy Step Attribute 1
+            dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contacte
     core:
       actions:
@@ -164,6 +184,12 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{resource_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: S'ha produït un esdeveniment a %{resource_title}
           notification_title: S'ha afegit un <a href="%{resource_path}"> nou document</a> a <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: 'El component %{resource_title} ja està actiu per %{participatory_space_title}. Podeu veure-ho des d''aquesta pàgina:'
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{participatory_space_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una actualització a %{participatory_space_title}
+          notification_title: El component %{resource_title} ja està actiu per <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hola %{user_name},
         email_intro: 'Hi ha hagut una actualització a "%{resource_title}". Es pot veure en aquesta pàgina:'
