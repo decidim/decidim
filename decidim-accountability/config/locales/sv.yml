@@ -167,6 +167,20 @@ sv:
           changes_at_title: Ändringar vid "%{title}"
         version:
           version_index: Version %{index}
+    components:
+      accountability:
+        name: Ansvarighet
+        settings:
+          global:
+            categories_label: Namn för "kategorier"
+            comments_enabled: Kommentarer aktiverade
+            display_progress_enabled: Visningsframsteg
+            heading_leaf_level_results: Namn på "Projekt"
+            heading_parent_level_results: Namn på "Resultat"
+            intro: Intro
+            subcategories_label: Namn på "Underkategorier"
+          step:
+            comments_blocked: Kommentarer blockerad
     events:
       accountability:
         proposal_linked:
