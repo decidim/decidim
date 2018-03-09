@@ -50,8 +50,6 @@ nl:
         blocked_comments_warning: Reacties zijn op dit moment uitgeschakeld, maar u kunt de vorige berichten lezen.
         loading: Reacties laden...
         title: "%{count} reacties"
-      featured_comment:
-        title: Aanbevolen reactie
     events:
       comments:
         comment_created:
