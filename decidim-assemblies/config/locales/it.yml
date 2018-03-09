@@ -5,6 +5,7 @@ it:
         area_id: La zona
         banner_image: Immagine del banner
         copy_categories: Copia le categorie
+        copy_components: Copia componenti
         decidim_area_id: La zona
         decidim_scope_id: Scopo
         description: Descrizione
@@ -88,6 +89,7 @@ it:
           attachment_files: File
           attachments: Allegati
           categories: Categorie
+          components: componenti
           info: Informazioni
           moderations: Moderazione
       models:
