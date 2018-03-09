@@ -54,11 +54,6 @@ pt-BR:
         success: A sua conta foi atualizada com sucesso.
         success_with_email_confirmation: Sua conta foi atualizada com sucesso. Você receberá um e-mail de confirmação de seu novo endereço de e-mail.
     admin_log:
-      feature:
-        create: "%{user_name} adicionou o %{resource_name} recurso para o %{space_name} espaço"
-        delete: "%{user_name} removeu o %{resource_name} recurso do %{space_name} espaço"
-        publish: "%{user_name} publicou o recurso %{resource_name} no espaço %{space_name}"
-        unpublish: "%{user_name} não publicado o recurso %{resource_name} do espaço %{space_name}"
       moderation:
         hide: "%{user_name} Escondeu um recurso de tipo %{resource_type} no %{space_name} espaço"
         unreport: "%{user_name} Não declarou um recurso de tipo %{resource_type} no %{space_name} espaço"
@@ -174,12 +169,6 @@ pt-BR:
         email_intro: 'Houve uma atualização em "%{resource_title}". Você pode vê-la nesta página:'
         email_outro: Você recebeu esta notificação porque está seguindo "%{resource_title}". Se desejar parar de segui-la, clique no link anterior.
         email_subject: Há uma atualização em %{resource_title}
-      features:
-        feature_published:
-          email_intro: 'O componente %{resource_title} agora está ativo para %{participatory_space_title}. Você pode vê-lo a partir desta página:'
-          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
-          email_subject: Uma atualização para %{participatory_space_title}
-          notification_title: O componente %{resource_title} agora está ativo para <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Ocorreu um evento em <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -192,21 +181,6 @@ pt-BR:
       export:
         ready: Uma versão comprimida do documento exportado está em anexo.
       subject: Seu documento "%{name}" foi exportado
-    features:
-      dummy:
-        actions:
-          bar: Bar
-          foo: Foo
-        name: Prova de funcionalidade
-        settings:
-          global:
-            comments_enabled: Comentários ativados
-            dummy_global_attribute_1: Atributo de prova 1
-            dummy_global_attribute_2: Atributo de prova 2
-          step:
-            comments_blocked: Comentários bloqueados
-            dummy_step_attribute_1: Atributo de fase de prova 1
-            dummy_step_attribute_2: Atributo de fase de prova 2
     filters:
       linked_classes:
         all: Todos
