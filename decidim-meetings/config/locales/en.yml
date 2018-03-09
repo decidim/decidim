@@ -137,6 +137,7 @@ en:
           close: "%{user_name} closed the %{resource_name} meeting on the %{space_name} space"
           create: "%{user_name} created the %{resource_name} meeting on the %{space_name} space"
           delete: "%{user_name} deleted the %{resource_name} meeting on the %{space_name} space"
+          export_registrations: "%{user_name} exported the registrations of the %{resource_name} meeting on the %{space_name} space"
           update: "%{user_name} updated the %{resource_name} meeting on the %{space_name} space"
       mailer:
         invite_join_meeting_mailer:
