@@ -42,6 +42,11 @@ es:
           update:
             invalid: Ha habido un problema al actualizar este proyecto
             success: Proyecto actualizado correctamente
+      admin_log:
+        project:
+          create: "%{user_name} creó el proyecto %{resource_name} en el espacio %{space_name}"
+          delete: "%{user_name} borró el proyecto %{resource_name} en el espacio %{space_name}"
+          update: "%{user_name} actualizó el proyecto %{resource_name} en el espacio %{space_name}"
       models:
         project:
           fields:
