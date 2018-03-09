@@ -2,6 +2,7 @@ sv:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: Status
         decidim_category_id: Kategori
         decidim_scope_id: Omfattning
         description: Beskrivning
@@ -103,7 +104,11 @@ sv:
       admin_log:
         result:
           create: "%{user_name} skapat resultat %{resource_name} i %{space_name}"
+          delete: "%{user_name} raderade resultatet %{resource_name} i %{space_name}"
           update: "%{user_name} uppdaterat resultat %{resource_name} i %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Föräldern hittades inte i databasen (ID: %{id})'
       models:
         result:
           fields:
