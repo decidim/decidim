@@ -2,7 +2,6 @@ uk:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: стан
         decidim_category_id: Розділ
         decidim_scope_id: Терен
         description: Опис
