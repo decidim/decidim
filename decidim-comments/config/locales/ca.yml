@@ -50,8 +50,6 @@ ca:
         blocked_comments_warning: Els comentaris estan desactivats en aquest moment, però podeu llegir els anteriors.
         loading: Carregant els comentaris ...
         title: "%{count} comentaris"
-      featured_comment:
-        title: Comentari destacat
     events:
       comments:
         comment_created:
