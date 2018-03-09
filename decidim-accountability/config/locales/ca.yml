@@ -2,7 +2,6 @@ ca:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: Estat
         decidim_category_id: Categoria
         decidim_scope_id: Àmbit
         description: Descripció
