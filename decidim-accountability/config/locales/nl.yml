@@ -174,20 +174,6 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je "%{proposal_title}" volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
           email_subject: Een update voor %{proposal_title}
           notification_title: Het voorstel <a href="%{proposal_path}">%{proposal_title}</a> is opgenomen in het <a href="%{resource_path}">%{resource_title}</a> resultaat.
-    features:
-      accountability:
-        name: Verantwoording
-        settings:
-          global:
-            categories_label: Naam voor "Categorieën"
-            comments_enabled: Reacties ingeschakeld
-            display_progress_enabled: Geef de voortgang weer
-            heading_leaf_level_results: Naam voor "Projecten"
-            heading_parent_level_results: Naam voor "Resultaten"
-            intro: Intro
-            subcategories_label: Naam voor "Subcategorieën"
-          step:
-            comments_blocked: Reacties geblokkeerd
     participatory_processes:
       participatory_process_groups:
         highlighted_results:
