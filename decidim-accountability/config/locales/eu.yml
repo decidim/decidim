@@ -2,6 +2,7 @@ eu:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: Egoera
         decidim_category_id: Kategoria
         decidim_scope_id: Esparrua
         description: Deskribapena
@@ -103,7 +104,11 @@ eu:
       admin_log:
         result:
           create: "%{user_name} emaitza sortu da %{resource_name} en %{space_name}"
+          delete: "%{user_name} %{resource_name} %{space_name} emaitza ezabatu da"
           update: "%{user_name} emaitza eguneratu %{resource_name} en %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Gurasoa ez zen datu-basean aurkitu (ID: %{id})'
       models:
         result:
           fields:
