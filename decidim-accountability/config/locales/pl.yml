@@ -2,7 +2,6 @@ pl:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: status
         decidim_category_id: Kategoria
         decidim_scope_id: Zakres
         description: Opis
