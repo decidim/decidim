@@ -2,6 +2,7 @@ nl:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: staat
         decidim_category_id: Categorie
         decidim_scope_id: Scope
         description: Beschrijving
@@ -103,7 +104,11 @@ nl:
       admin_log:
         result:
           create: "%{user_name} gemaakt resultaat %{resource_name} in %{space_name}"
+          delete: "%{user_name} verwijderde het %{resource_name} resultaat in %{space_name}"
           update: "%{user_name} bijgewerkt resultaat %{resource_name} in %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Het bovenliggende element is niet gevonden in de database (ID: %{id})'
       models:
         result:
           fields:
