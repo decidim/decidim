@@ -167,6 +167,20 @@ nl:
           changes_at_title: Veranderingen bij "%{title}"
         version:
           version_index: Versie %{index}
+    components:
+      accountability:
+        name: Verantwoording
+        settings:
+          global:
+            categories_label: Naam voor "Categorieën"
+            comments_enabled: Reacties ingeschakeld
+            display_progress_enabled: Geef de voortgang weer
+            heading_leaf_level_results: Naam voor "Projecten"
+            heading_parent_level_results: Naam voor "Resultaten"
+            intro: Intro
+            subcategories_label: Naam voor 'Subcategorieën'
+          step:
+            comments_blocked: Reacties geblokkeerd
     events:
       accountability:
         proposal_linked:
