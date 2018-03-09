@@ -100,6 +100,22 @@ eu:
         show:
           budget: Aurrekontua
           view_all_projects: Ikusi proiektu guztiak
+    components:
+      budgets:
+        actions:
+          vote: Bozkatu
+        name: Aurrekontuak
+        settings:
+          global:
+            announcement: Anuntzio
+            comments_enabled: Iruzkinak gaituta
+            total_budget: Aurrekontu osoa
+            vote_threshold_percent: Votuen ehuneko atalasea
+          step:
+            announcement: Anuntzio
+            comments_blocked: Iruzkinak blokeatuta
+            show_votes: Erakutsi botoak
+            votes_enabled: Botoiak gaituta
     orders:
       checkout:
         error: Errorea gertatu da zure botoa prozesatzean
