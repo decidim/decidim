@@ -2,6 +2,7 @@ es:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: Estado
         decidim_category_id: Categoría
         decidim_scope_id: Ámbito
         description: Descripción
@@ -103,7 +104,11 @@ es:
       admin_log:
         result:
           create: "%{user_name} creó el resultado %{resource_name} en %{space_name}"
+          delete: "%{user_name} borró el resultado %{resource_name} en %{space_name}"
           update: "%{user_name} actualizó el resultado %{resource_name} en %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'El padre no se encontró en la base de datos (ID: %{id})'
       models:
         result:
           fields:
