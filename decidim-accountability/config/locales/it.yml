@@ -2,6 +2,7 @@ it:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: Stato
         decidim_category_id: Categoria
         decidim_scope_id: Scopi
         description: Descrizione
@@ -103,7 +104,11 @@ it:
       admin_log:
         result:
           create: "%{user_name} risultato creato %{resource_name} in %{space_name}"
+          delete: "%{user_name} eliminato il risultato %{resource_name} in %{space_name}"
           update: "%{user_name} risultato aggiornato %{resource_name} in %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Il genitore non è stato trovato sul database (ID: %{id})'
       models:
         result:
           fields:
