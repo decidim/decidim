@@ -54,6 +54,10 @@ fi:
         success: Tilisi on onnistuneesti päivitetty.
         success_with_email_confirmation: Tilisi päivitettiin onnistuneesti. Sähköpostiisi on lähetetty viesti uuden sähköpostiosoitteesi vahvistamiseksi.
     admin_log:
+      area:
+        create: "%{user_name} luonut %{resource_name} -alueen"
+        delete: "%{user_name} poistanut %{resource_name} -alueen"
+        update: "%{user_name} päivitti %{resource_name} -alueen"
       component:
         create: "%{user_name} lisäsi %{resource_name} -osion %{space_name} -tilaan"
         delete: "%{user_name} poistanut %{resource_name} -komponentin %{space_name} -tilasta"
@@ -242,6 +246,8 @@ fi:
       value_types:
         area_presenter:
           not_found: 'Aluetta ei löytynyt tietokannasta (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Aluetyyppiä ei löytynyt tietokannasta (ID: %{id})'
         scope_presenter:
           not_found: 'Soveltamisalaa ei löytynyt tietokannasta (ID: %{id})'
         scope_type_presenter:
