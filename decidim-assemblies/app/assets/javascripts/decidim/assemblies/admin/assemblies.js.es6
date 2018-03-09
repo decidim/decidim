@@ -30,12 +30,12 @@ $(() => {
         $isTransparent.hide();
         $specialFeatures.hide();
 
-        if (!enabledIsOpen){
+        if (!enabledIsOpen) {
           $isPublic.find('input[type="checkbox"]').attr('disabled', enabledIsOpen);
           $isPublic.show();
           $specialFeatures.show();
 
-          if (!enabledIsPublic){
+          if (!enabledIsPublic) {
             $isTransparent.find('input[type="checkbox"]').attr('disabled', enabledIsPublic);
             $isTransparent.show();
           }
