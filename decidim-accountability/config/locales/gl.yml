@@ -2,7 +2,6 @@ gl:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: estado
         decidim_category_id: Categoría
         decidim_scope_id: Alcance
         description: Descrición
