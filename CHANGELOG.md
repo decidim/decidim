@@ -6,6 +6,8 @@
 
 **Changed**:
 
+- **decidim**: New installs will have the `jquery` and `jquery_ujs` JS dependencies removed, as they are already included by `decidim` and having them duplicated causes JS errors [\#2961](https://github.com/decidim/decidim/pull/2961)
+
 **Fixed**:
 
 - **decidim-accountability**: Fix parent results progress [\#2954](https://github.com/decidim/decidim/pull/2954)
