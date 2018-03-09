@@ -9,6 +9,13 @@ sv:
         document_type: Typ av ditt dokument
         user: Användare
         verification_attachment: Skannad kopia av ditt dokument
+      postal_letter_address:
+        full_address: Hela adressen
+      postal_letter_confirmation:
+        verification_code: Verifierings kod
+      postal_letter_postage:
+        full_address: Hela adressen
+        verification_code: Verifierings kod
   decidim:
     admin:
       menu:

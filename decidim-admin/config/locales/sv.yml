@@ -254,6 +254,9 @@ sv:
         update:
           error: Det har uppstått ett fel vid uppdateringen av den här funktionen.
           success: Funktionen uppdaterades framgångsrikt.
+      logs:
+        logs_list:
+          no_logs_yet: Det finns inga loggar än
       managed_users:
         close_session:
           error: Det har uppstått ett fel att stänga den aktuella efterföljande sessionen.
