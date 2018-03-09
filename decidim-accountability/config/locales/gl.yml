@@ -2,6 +2,7 @@ gl:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: Estado
         decidim_category_id: Categoría
         decidim_scope_id: Alcance
         description: Descrición
@@ -103,7 +104,11 @@ gl:
       admin_log:
         result:
           create: "%{user_name} resultado creado %{resource_name} en %{space_name}"
+          delete: "%{user_name} eliminou o %{resource_name} resultado en %{space_name}"
           update: "%{user_name} resultado actualizado %{resource_name} en %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Non se atopou o pai na base de datos (ID: %{id})'
       models:
         result:
           fields:
