@@ -12,7 +12,7 @@
         <% if resource.previous_category.present? && action_name == "show" %>
           &nbsp;
           <small class="text-small">
-            <%= t("changed_from", previous_category: resource.previous_category.translated_name, scope: "decidim.proposals.proposals.tags").html_safe %>
+            <%= t("changed_from", previous_category: "#{resource.previous_category.translated_name}", scope: "decidim.proposals.proposals.tags").html_safe %>
           </small>
         <% end %>
       </li>
