@@ -50,8 +50,6 @@ pl:
         blocked_comments_warning: Komentarze są w tej chwili wyłączone, ale możesz przeczytać poprzednie.
         loading: Ładowanie komentarzy ...
         title: "%{count} komentarzy"
-      featured_comment:
-        title: Wyróżniony komentarz
     events:
       comments:
         comment_created:
