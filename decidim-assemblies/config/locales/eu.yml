@@ -5,7 +5,6 @@ eu:
         area_id: Area
         banner_image: Bannerra
         copy_categories: Kopiatu kategoriak
-        copy_features: Kopiatu funtzionalitateak
         decidim_area_id: Area
         decidim_scope_id: esparrua
         description: Deskribapena
@@ -89,7 +88,6 @@ eu:
           attachment_files: Fitxategiak
           attachments: Eranskinak
           categories: Kategoriak
-          features: Funtzionalitateak
           info: Informazioa
           moderations: Moderazioak
       models:
