@@ -28,17 +28,17 @@ FactoryBot.define do
     purpose_of_action { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     assembly_type { Decidim::Faker::Localized.word }
     assembly_type_other { Decidim::Faker::Localized.sentence(1) }
-    creation_date 2.months.since_now.at_midnight
+    creation_date 1.month.ago
     created_by { Decidim::Faker::Localized.word }
     created_by_other { Decidim::Faker::Localized.word }
     duration 2.months.from_now.at_midnight
-    included_at 1.months.since_now.at_midnight
+    included_at 1.month.ago
     closing_date 2.months.from_now.at_midnight
     closing_date_reason { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     internal_organisation { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
-    is_open false
-    is_public false
-    is_transparent false
+    is_open true
+    is_public true
+    is_transparent true
     special_features { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     twitter_handler { Decidim::Faker::Localized.word }
     facebook_handler { Decidim::Faker::Localized.word }

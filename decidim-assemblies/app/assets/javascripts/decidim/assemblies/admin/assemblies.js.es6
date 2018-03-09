@@ -11,49 +11,40 @@ $(() => {
       exports.theDataPicker.enabled($assemblyScopeId, $assemblyScopeEnabled.prop('checked'));
     }
 
-    (function( $ ){
 
-      $.fn.dependsOn = function(element, value) {
-        var elements = this;
-        var hideOrShow = function() {
-          var $this = $(this);
-          var showEm;
-          if ( $this.is('input[type="checkbox"]') ) {
-            showEm = !$this.is(':checked');
-          } else if ($this.is('select')) {
-            var fieldValue = $this.find('option:selected').val();
-            if (typeof(value) == 'undefined') {
-              showEm = fieldValue && $.trim(fieldValue) != '';
-            } else if ($.isArray(value)) {
-              showEm = $.inArray(fieldValue, value.map(function(v) {return v.toString()})) >= 0;
-            } else {
-              showEm = value.toString() == fieldValue;
-            }
+    const $form = $('.assembly_form_admin');
+
+    if ($form.length > 0) {
+
+      const $isOpen = $form.find('#is_open');
+      const $isPublic = $form.find('#is_public');
+      const $isTransparent = $form.find('#is_transparent');
+      const $specialFeatures = $form.find('#special_features');
+
+
+      const toggleDisabledHiddenFields = () => {
+        const enabledIsOpen = $isOpen.find('input[type="checkbox"]').prop('checked');
+        const enabledIsPublic = $isPublic.find('input[type="checkbox"]').prop('checked');
+
+        $isPublic.hide();
+        $isTransparent.hide();
+        $specialFeatures.hide();
+
+        if (!enabledIsOpen){
+          $isPublic.find('input[type="checkbox"]').attr('disabled', enabledIsOpen);
+          $isPublic.show();
+          $specialFeatures.show();
+
+          if (!enabledIsPublic){
+            $isTransparent.find('input[type="checkbox"]').attr('disabled', enabledIsPublic);
+            $isTransparent.show();
           }
-          elements.toggle(showEm);
         }
-        //add change handler to element
-        $(element).change(hideOrShow);
-
-        //hide the dependent fields
-        $(element).each(hideOrShow);
-
-        return elements;
       };
+      $isOpen.on('change', toggleDisabledHiddenFields);
+      $isPublic.on('change', toggleDisabledHiddenFields);
+      toggleDisabledHiddenFields();
+    }
 
-      $(document).on('ready page:load', function() {
-        $('*[data-depends-on]').each(function() {
-          var $this = $(this);
-          var master = $this.data('dependsOn').toString();
-          var value = $this.data('dependsOnValue');
-          if (typeof(value) != 'undefined') {
-            $this.dependsOn(master, value);
-          } else {
-            $this.dependsOn(master);
-          }
-        });
-      });
-
-    })( jQuery );
   })(window);
 });

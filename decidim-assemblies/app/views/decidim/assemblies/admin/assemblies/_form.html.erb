@@ -135,19 +135,19 @@
       <%= form.translated :editor, :internal_organisation %>
     </div>
 
-    <div class="row column">
+    <div class="row column" id="is_open">
       <%= form.check_box :is_open, checked: true  %>
     </div>
 
-    <div class="row column" data-depends-on="#assembly_is_open">
+    <div class="row column" id="is_public">
       <%= form.check_box :is_public, checked: true  %>
     </div>
 
-    <div class="row column" data-depends-on="#assembly_is_public">
+    <div class="row column" id="is_transparent">
       <%= form.check_box :is_transparent, checked: true  %>
     </div>
 
-    <div class="row column" data-depends-on="#assembly_is_open">
+    <div class="row column" id="special_features">
       <%= form.translated :editor, :special_features %>
     </div>
 

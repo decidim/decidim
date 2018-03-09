@@ -98,7 +98,7 @@ module Decidim
           tabs_panels = content_tag(:ul, class: "tabs tabs--lang", id: tabs_id, data: { tabs: true }) do
             handlers.each_with_index.inject("".html_safe) do |string, (handler, index)|
               string + content_tag(:li, class: tab_element_class_for("title", index)) do
-                title = I18n.t(".#{handler}", scope: "activemodel.attributes.#{object_name}" )
+                title = I18n.t(".#{handler}", scope: "activemodel.attributes.#{object_name}")
                 tab_content_id = "#{tabs_id}-#{name}-panel-#{index}"
                 content_tag(:a, title, href: "##{tab_content_id}")
               end
@@ -120,7 +120,6 @@ module Decidim
 
       safe_join [label_tabs, tabs_content]
     end
-
 
     # Public: generates a hidden field and a container for WYSIWYG editor
     #

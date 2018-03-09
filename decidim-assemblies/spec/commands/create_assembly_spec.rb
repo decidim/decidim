@@ -35,7 +35,28 @@ module Decidim::Assemblies
         scopes_enabled: true,
         scope: scope,
         area: area,
-        errors: errors
+        errors: errors,
+        show_statistics: false,
+        purpose_of_action: { en: "purpose of action" },
+        assembly_type: "others",
+        assembly_type_other: "others",
+        creation_date: 1.day.from_now,
+        created_by: "others",
+        created_by_other: "other created by",
+        duration: 2.days.from_now,
+        included_at: 5.days.from_now,
+        closing_date: 5.days.from_now,
+        closing_date_reason: { en: "closing date reason" },
+        internal_organisation: { en: "internal organisation" },
+        is_open: true,
+        is_public: true,
+        is_transparent: true,
+        special_features: { en: "special features" },
+        twitter_handler: "lorem",
+        facebook_handler: "lorem",
+        instagram_handler: "lorem",
+        youtube_handler: "lorem",
+        github_handler: "lorem"
       )
     end
     let(:invalid) { false }
