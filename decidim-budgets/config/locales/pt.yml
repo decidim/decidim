@@ -100,6 +100,22 @@ pt:
         show:
           budget: Despesas
           view_all_projects: Ver todos os projetos
+    components:
+      budgets:
+        actions:
+          vote: Voto
+        name: Orçamentos
+        settings:
+          global:
+            announcement: Anúncio
+            comments_enabled: Comentários ativados
+            total_budget: Orçamento total
+            vote_threshold_percent: Porcentagem do limiar de voto
+          step:
+            announcement: Anúncio
+            comments_blocked: Comentários bloqueados
+            show_votes: Mostrar votos
+            votes_enabled: Votos ativados
     orders:
       checkout:
         error: Ocorreu um erro ao processar seu voto
