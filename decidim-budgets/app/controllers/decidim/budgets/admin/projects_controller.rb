@@ -48,11 +48,12 @@ module Decidim
         end
 
         def destroy
-          project.destroy!
-
-          flash[:notice] = I18n.t("projects.destroy.success", scope: "decidim.budgets.admin")
-
-          redirect_to projects_path
+          DestroyProject.call(project, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("projects.destroy.success", scope: "decidim.budgets.admin")
+              redirect_to projects_path
+            end
+          end
         end
 
         private
