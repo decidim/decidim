@@ -21,6 +21,10 @@ nl:
         description: Beschrijving
         name: Naam
         parent_id: Ouder
+      component:
+        name: Naam
+        published_at: Gepubliceerd op
+        weight: Gewicht
       id: ID
       newsletter:
         body: Body
@@ -205,6 +209,44 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze categorie.
           success: Categorie is succesvol bijgewerkt.
+      component_permissions:
+        edit:
+          everyone: Iedereen
+          submit: Bewaar rechten
+          title: Bewerk rechten
+        update:
+          success: Machtigingen succesvol bijgewerkt.
+      components:
+        create:
+          error: Er is een fout opgetreden bij het maken van dit onderdeel.
+          success: Component met succes gemaakt.
+        destroy:
+          error: Er is een fout opgetreden bij het vernietigen van dit onderdeel.
+          success: Component succesvol verwijderd.
+        edit:
+          title: Bewerk component
+          update: Bijwerken
+        form:
+          default_step_settings: Standaard step-instellingen
+          global_settings: Algemene instellingen
+          step_settings: Stapinstellingen
+        index:
+          add: Voeg component toe
+          headers:
+            actions: acties
+            name: Naam van component
+            type: Component type
+        new:
+          add: Voeg component toe
+          title: 'Voeg component toe: %{name}'
+        publish:
+          success: Het onderdeel is met succes gepubliceerd.
+        title: Components
+        unpublish:
+          success: Het onderdeel is met succes ongepubliceerd.
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van dit onderdeel.
+          success: Het onderdeel is met succes bijgewerkt.
       dashboard:
         show:
           view_more_logs: Bekijk meer logs
