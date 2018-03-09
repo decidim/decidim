@@ -21,6 +21,10 @@ pl:
         description: Opis
         name: Nazwa
         parent_id: Roślina mateczna
+      component:
+        name: Nazwa
+        published_at: Opublikowano na
+        weight: Waga
       id: ID
       newsletter:
         body: Ciało
@@ -205,6 +209,44 @@ pl:
         update:
           error: Podczas aktualizowania tej kategorii wystąpił błąd.
           success: Kategoria została zaktualizowana.
+      component_permissions:
+        edit:
+          everyone: Każdy
+          submit: Zapisz uprawnienia
+          title: Edytuj uprawnienia
+        update:
+          success: Uprawnienia zostały pomyślnie zaktualizowane.
+      components:
+        create:
+          error: Wystąpił błąd podczas tworzenia tego składnika.
+          success: Komponent został pomyślnie utworzony.
+        destroy:
+          error: Wystąpił błąd podczas niszczenia tego składnika.
+          success: Komponent został pomyślnie usunięty.
+        edit:
+          title: Edytuj komponent
+          update: Aktualizacja
+        form:
+          default_step_settings: Domyślne ustawienia kroków
+          global_settings: Ustawienia ogólne
+          step_settings: Ustawienia kroku
+        index:
+          add: Dodaj składnik
+          headers:
+            actions: działania
+            name: Nazwa składnika
+            type: Typ komponentu
+        new:
+          add: Dodaj składnik
+          title: 'Dodaj składnik: %{name}'
+        publish:
+          success: Komponent został pomyślnie opublikowany.
+        title: składniki
+        unpublish:
+          success: Komponent został pomyślnie niepublikowany.
+        update:
+          error: Wystąpił błąd podczas aktualizowania tego składnika.
+          success: Komponent został pomyślnie zaktualizowany.
       dashboard:
         show:
           view_more_logs: Zobacz więcej dzienników
