@@ -5,7 +5,6 @@ fr:
         area_id: Région
         banner_image: Image d'en-tête
         copy_categories: Copier les catégories
-        copy_features: Copier les fonctionnalités
         decidim_area_id: Région
         decidim_scope_id: Portée
         description: Description
@@ -89,7 +88,6 @@ fr:
           attachment_files: Des dossiers
           attachments: Documents liés
           categories: Catégories
-          features: Fonctionnalités
           info: Information
           moderations: Modérations
       models:
