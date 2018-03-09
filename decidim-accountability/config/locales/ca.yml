@@ -167,6 +167,20 @@ ca:
           changes_at_title: Canvis a "%{title}"
         version:
           version_index: Versió %{index}
+    components:
+      accountability:
+        name: Rendició de comptes
+        settings:
+          global:
+            categories_label: Nom de "Categories"
+            comments_enabled: Comentaris habilitats
+            display_progress_enabled: Mostra el progrés
+            heading_leaf_level_results: Nom de "Projectes"
+            heading_parent_level_results: Nom de "Resultats"
+            intro: Introducció
+            subcategories_label: Nom per a "subcategories"
+          step:
+            comments_blocked: Comentaris bloquejats
     events:
       accountability:
         proposal_linked:
