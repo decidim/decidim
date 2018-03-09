@@ -100,22 +100,6 @@ gl:
         show:
           budget: Orzamento
           view_all_projects: Ver todos os proxectos
-    features:
-      budgets:
-        actions:
-          vote: Vota
-        name: Orzamentos
-        settings:
-          global:
-            announcement: Anuncio
-            comments_enabled: Comentarios habilitados
-            total_budget: Orzamento total
-            vote_threshold_percent: Porcentaxe de límite de voto
-          step:
-            announcement: Anuncio
-            comments_blocked: Comentarios bloqueados
-            show_votes: Mostrar votos
-            votes_enabled: Votos habilitados
     orders:
       checkout:
         error: Produciuse un erro ao procesar o teu voto
