@@ -167,6 +167,20 @@ pt:
           changes_at_title: Alterações em "%{title}"
         version:
           version_index: Versão %{index}
+    components:
+      accountability:
+        name: Prestação de contas
+        settings:
+          global:
+            categories_label: Nome para "Categorias"
+            comments_enabled: Comentários ativados
+            display_progress_enabled: Mostrar progresso
+            heading_leaf_level_results: Nome para "Projetos"
+            heading_parent_level_results: Nome para "Resultados"
+            intro: Introdução
+            subcategories_label: Nome para "Subcategorias"
+          step:
+            comments_blocked: Comentários bloqueados
     events:
       accountability:
         proposal_linked:
