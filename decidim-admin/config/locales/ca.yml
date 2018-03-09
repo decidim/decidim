@@ -21,6 +21,10 @@ ca:
         description: Descripció
         name: Nom
         parent_id: Superior
+      component:
+        name: Nom
+        published_at: Publicat a
+        weight: Pes
       id: ID
       newsletter:
         body: Cos
@@ -205,6 +209,44 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquesta categoria.
           success: Categoria actualitzada correctament.
+      component_permissions:
+        edit:
+          everyone: Tothom
+          submit: Desa els permisos
+          title: Edita els permisos
+        update:
+          success: S'han actualitzat els permisos amb èxit.
+      components:
+        create:
+          error: S'ha produït un error en crear aquest component.
+          success: El component s'ha creat correctament.
+        destroy:
+          error: S'ha produït un error en destruir aquest component.
+          success: El component s'ha suprimit correctament.
+        edit:
+          title: Edita el component
+          update: Actualització
+        form:
+          default_step_settings: Configuració del pas per defecte
+          global_settings: Configuració global
+          step_settings: Configuració del pas
+        index:
+          add: Afegeix un component
+          headers:
+            actions: Accions
+            name: Nom del component
+            type: Tipus de component
+        new:
+          add: Afegeix un component
+          title: 'Afegeix un component: %{name}'
+        publish:
+          success: El component s'ha publicat correctament.
+        title: Components
+        unpublish:
+          success: El component s'ha publicat sense èxit.
+        update:
+          error: S'ha produït un error en actualitzar aquest component.
+          success: El component s'ha actualitzat correctament.
       dashboard:
         show:
           view_more_logs: Veure més registres
