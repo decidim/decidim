@@ -21,6 +21,10 @@ it:
         description: Descrizione
         name: Nome
         parent_id: Su
+      component:
+        name: Nome
+        published_at: Pubblicato a
+        weight: Peso
       id: ID
       newsletter:
         body: Testo
@@ -205,6 +209,44 @@ it:
         update:
           error: Si è verificato un errore aggiornando questa categoria.
           success: OK, la categoria è stata aggiornata.
+      component_permissions:
+        edit:
+          everyone: Tutti
+          submit: Salva permessi
+          title: Modifica permessi
+        update:
+          success: Autorizzazioni aggiornate correttamente.
+      components:
+        create:
+          error: Si è verificato un errore durante la creazione di questo componente.
+          success: Componente creato con successo.
+        destroy:
+          error: C'è stato un errore nel distruggere questo componente.
+          success: Componente cancellato con successo.
+        edit:
+          title: Modifica componente
+          update: Aggiornare
+        form:
+          default_step_settings: Impostazioni del passo predefinite
+          global_settings: Impostazioni globali
+          step_settings: Impostazioni del passo
+        index:
+          add: Aggiungi componente
+          headers:
+            actions: Azioni
+            name: Nome del componente
+            type: Tipo di componente
+        new:
+          add: Aggiungi componente
+          title: 'Aggiungi componente: %{name}'
+        publish:
+          success: Il componente è stato pubblicato con successo.
+        title: componenti
+        unpublish:
+          success: Il componente è stato pubblicato con successo.
+        update:
+          error: Si è verificato un errore durante l'aggiornamento di questo componente.
+          success: Il componente è stato aggiornato correttamente.
       dashboard:
         show:
           view_more_logs: Visualizza più registri
