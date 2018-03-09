@@ -5,7 +5,6 @@ ca:
         area_id: Àrea
         banner_image: Imatge de bàner
         copy_categories: Copiar categories
-        copy_features: Copiar funcionalitats
         decidim_area_id: Àrea
         decidim_scope_id: Abast
         description: Descripció
@@ -89,7 +88,6 @@ ca:
           attachment_files: Fitxers
           attachments: Adjunts
           categories: Categories
-          features: Funcionalitats
           info: Informació
           moderations: Moderacions
       models:
