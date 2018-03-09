@@ -50,6 +50,8 @@ pl:
         blocked_comments_warning: Komentarze są w tej chwili wyłączone, ale możesz przeczytać poprzednie.
         loading: Ładowanie komentarzy ...
         title: "%{count} komentarzy"
+      componentd_comment:
+        title: Komentarz komponentu
     events:
       comments:
         comment_created:
