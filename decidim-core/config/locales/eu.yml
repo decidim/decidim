@@ -54,6 +54,11 @@ eu:
         success: Zure kontua zuzen eguneratu da.
         success_with_email_confirmation: Zure kontua zuzen eguneratu da. Mezu elektroniko bat jasoko duzu zure helbide elektroniko berria baieztatzeko.
     admin_log:
+      component:
+        create: "%{user_name} %{resource_name} osagaia %{space_name} espaziora gehitu da"
+        delete: "%{user_name} %{resource_name} osagai %{space_name} espaziotik kendu da"
+        publish: "%{user_name} %{resource_name} osagaia %{space_name} espazioan argitaratu zen"
+        unpublish: "%{user_name} %{resource_name} osagaia %{space_name} espaziotik argitaratu gabe"
       moderation:
         hide: "%{user_name} ezkutatu motako baliabide bat %{resource_type} en %{space_name} espazioa"
         unreport: "%{user_name} %{resource_type} motako baliabide bat ez da %{space_name} espazioan"
@@ -110,6 +115,21 @@ eu:
         name: foo baimena
       granted_at: Onartua %{timestamp}
       started_at: Hasi zen %{timestamp}
+    components:
+      dummy:
+        actions:
+          bar: Bar
+          foo: foo
+        name: Dummy osagaia
+        settings:
+          global:
+            comments_enabled: Iruzkinak gaituta
+            dummy_global_attribute_1: Dummy Atributua 1
+            dummy_global_attribute_2: Dummy Attribute 2
+          step:
+            comments_blocked: Iruzkinak blokeatuta
+            dummy_step_attribute_1: Dummy Step Attribute 1
+            dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Harremanetarako
     core:
       actions:
@@ -161,6 +181,12 @@ eu:
           email_outro: Jakinarazpen hau jaso duzulako %{resource_title} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: '%{resource_title} eguneratzea'
           notification_title: <a href="%{resource_path}"> dokumentu berri bat</a> gehitu zaio <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: '%{resource_title} osagaia %{participatory_space_title}da aktibo dagoenean. Orrialde hau ikusi dezakezu:'
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: '%{participatory_space_title} eguneratze bat'
+          notification_title: '%{resource_title} osagaia aktibo dago <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
         email_greeting: Kaixo, %{user_name},
         email_intro: 'Eguneratze da "%{resource_title}". Orri honetan ikus daiteke:'
