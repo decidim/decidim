@@ -42,6 +42,10 @@ eu:
           update:
             invalid: Arazo bat izan da proiektu hau eguneratzean
             success: Proiektua zuzen eguneratu da
+      admin_log:
+        project:
+          create: "%{user_name} %{resource_name} proiektua %{space_name} espazioan sortu zen"
+          delete: "%{user_name} %{resource_name} proiektua %{space_name} espazioan ezabatu da"
       models:
         project:
           fields:
