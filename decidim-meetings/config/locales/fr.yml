@@ -21,6 +21,18 @@ fr:
         start_time: Heure de début
         title: Titre
   decidim:
+    components:
+      meetings:
+        actions:
+          join: Joindre
+        name: Réunions
+        settings:
+          global:
+            announcement: Annonce
+            comments_enabled: Commentaires activés
+          step:
+            announcement: Annonce
+            comments_blocked: Commentaires bloqués
     events:
       meetings:
         meeting_closed:
@@ -53,18 +65,6 @@ fr:
           email_outro: Vous avez reçu cette notification, car vous suivez la réunion "%{resource_title}". Vous pouvez le retirer du lien précédent.
           email_subject: La réunion "%{resource_title}" commencera dans moins de 48h.
           notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
-    features:
-      meetings:
-        actions:
-          join: Joindre
-        name: Rencontres
-        settings:
-          global:
-            announcement: Message d'annonce
-            comments_enabled: Commentaires activés
-          step:
-            announcement: Message d'annonce
-            comments_blocked: Commentaires bloqués
     meetings:
       actions:
         attachment_collections: Collections
@@ -135,6 +135,7 @@ fr:
           close: "%{user_name} a fermé la réunion %{resource_name} sur l'espace %{space_name}"
           create: "%{user_name} a créé la réunion %{resource_name} sur l'espace %{space_name}"
           delete: "%{user_name} a supprimé la réunion %{resource_name} sur l'espace %{space_name}"
+          export_registrations: "%{user_name} a exporté les enregistrements de la réunion %{resource_name} sur l'espace %{space_name}"
           update: "%{user_name} a mis à jour la réunion %{resource_name} sur l'espace %{space_name}"
       mailer:
         invite_join_meeting_mailer:
