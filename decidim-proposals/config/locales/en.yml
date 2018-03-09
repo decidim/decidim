@@ -95,8 +95,8 @@ en:
             proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
             proposal_wizard_step_2_help_text: Proposal wizard "Compare" step help text
             proposal_wizard_step_3_help_text: Proposal wizard "Publish" step help text
-            split_proposal_enabled: Split officials and citizens proposals
             vote_limit: Vote limit per user
+            split_proposal_enabled: Split officials and citizens proposals
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
@@ -237,24 +237,26 @@ en:
         create:
           error: There's been errors when voting the proposal.
       proposals:
+        display_type:
+          label: 'Display :'
         citizens_proposals:
           see_all: See all citizens proposals
+        officials_proposals:
+          see_all: See all officials proposals
         compare:
           mine_is_different: My proposal is different
           no_similars_found: Well done! No similar proposals found
           title: Similar Proposals
         count:
+          proposals_count:
+            one: 1 proposal
+            other: "%{count} proposals"
           citizens_proposals_count:
             one: 1 citizen proposal
             other: "%{count} citizens proposals"
           officials_proposals_count:
             one: 1 official proposal
             other: "%{count} officials proposals"
-          proposals_count:
-            one: 1 proposal
-            other: "%{count} proposals"
-        display_type:
-          label: 'Display :'
         edit:
           back: Back
           select_a_category: Please select a category
@@ -307,13 +309,15 @@ en:
           select_a_category: Please select a category
           send: Continue
           title: Create Your Proposal
-        officials_proposals:
-          see_all: See all officials proposals
         orders:
           label: 'Order proposals by:'
           most_voted: Most voted
           random: Random
           recent: Recent
+        proposal_column:
+          creation_date: 'Creation: %{date}'
+          view_proposal: View proposal
+        proposal_list:
         preview:
           modify: Modify the proposal
           proposal_edit_before_minutes:
@@ -324,10 +328,6 @@ en:
         proposal:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
-        proposal_column:
-          creation_date: 'Creation: %{date}'
-          view_proposal: View proposal
-        proposal_list: 
         show:
           edit_proposal: Edit proposal
           proposal_accepted_reason: 'This proposal has been accepted because:'

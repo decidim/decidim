@@ -1,4 +1,3 @@
----
 ru:
   activemodel:
     attributes:
@@ -102,9 +101,9 @@ ru:
       proposals:
         count:
           proposals_count:
+            one: 1 предложение
             few: "%{count} предложения"
             many: "%{count} предложений"
-            one: 1 предложение
             other: "%{count} предложений"
         edit:
           back: Вернуться
@@ -136,9 +135,9 @@ ru:
           view_proposal: Просмотреть предложение
         linked_proposals:
           proposal_votes:
+            one: голосовать
             few: голоса
             many: голоса
-            one: голосовать
             other: голоса
         new:
           attachment_legend: "(Необязательно) Добавить вложение"
@@ -166,9 +165,9 @@ ru:
           votes_blocked: Голосование отключено
         votes_count:
           count:
+            one: ГОЛОС
             few: ГОЛОСА
             many: ГОЛОСОВ
-            one: ГОЛОС
             other: ГОЛОСА
         voting_rules:
           maximum_votes_per_proposal:

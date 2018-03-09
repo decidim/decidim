@@ -1,4 +1,3 @@
----
 sv:
   activemodel:
     attributes:
@@ -29,8 +28,8 @@ sv:
         user_group_name: Organisations namn
         user_group_phone: Organisationstelefon
   booleans:
-    'false': Nej
-    'true': Ja
+    'false': 'Nej'
+    'true': 'Ja'
   carrierwave:
     errors:
       image_too_big: Bilden är för stor
@@ -402,7 +401,8 @@ sv:
         accept: Acceptera inbjudan
         accept_until: Denna inbjudan beror på %{due_date}.
         hello: Hej %{email},
-        ignore: Om du inte vill acceptera inbjudan, ignorerar du detta email.<br /> Ditt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt lösenord.
+        ignore: |-
+          Om du inte vill acceptera inbjudan, ignorerar du detta email.<br /> Ditt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt lösenord.
         invited_you_as_admin: "%{invited_by} har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan."
         someone_invited_you: Någon har bjudit in dig till %{application}. Du kan acceptera det via länken nedan.
         someone_invited_you_as_admin: Någon har bjudit in dig som administratör av %{application}, du kan acceptera den via länken nedan.

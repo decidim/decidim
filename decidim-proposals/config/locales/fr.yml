@@ -1,4 +1,3 @@
----
 fr:
   activemodel:
     attributes:
@@ -95,8 +94,8 @@ fr:
             proposal_wizard_step_1_help_text: Assistant d'aide à la proposition "Créer" étape texte d'aide
             proposal_wizard_step_2_help_text: Assistant d'aide à la proposition "Comparer" étape texte d'aide
             proposal_wizard_step_3_help_text: Assistant d'aide à la proposition "Publier" étape texte d'aide
-            split_proposal_enabled: Séparer propositions officielles et citoyennes
             vote_limit: Nombre maximum de votes par utilisateur
+            split_proposal_enabled: Séparer propositions officielles et citoyennes
           step:
             announcement: Message d'annonce
             comments_blocked: Commentaires bloqués
@@ -237,24 +236,26 @@ fr:
         create:
           error: Des erreurs se sont produites lors du vote de la proposition.
       proposals:
+        display_type:
+          label: 'Affichage :'
         citizens_proposals:
           see_all: Voir toutes les propositions citoyennes
+        officials_proposals:
+          see_all: Voir toutes les propositions officielles
         compare:
           mine_is_different: Ma proposition est différente
           no_similars_found: Bien joué! Aucune proposition similaire trouvée
           title: Propositions similaires
         count:
+          proposals_count:
+            one: 1 proposition
+            other: "%{count} propositions"
           citizens_proposals_count:
             one: 1 proposition citoyenne
             other: "%{count} propositions citoyennes"
           officials_proposals_count:
             one: 1 proposition officielle
             other: "%{count} propositions officielles"
-          proposals_count:
-            one: 1 proposition
-            other: "%{count} propositions"
-        display_type:
-          label: 'Affichage :'
         edit:
           back: Retour
           select_a_category: Veuillez sélectionner une catégorie
@@ -307,13 +308,15 @@ fr:
           select_a_category: Veuillez sélectionner une catégorie
           send: Continuer
           title: Créez votre proposition
-        officials_proposals:
-          see_all: Voir toutes les propositions officielles
         orders:
           label: 'Classement des propositions par:'
           most_voted: Les plus votées
           random: Aléatoire
           recent: Les plus récents
+        proposal_column:
+          creation_date: 'Création: %{date}'
+          view_proposal: Voir la proposition
+        proposal_list:
         preview:
           modify: Modifier la proposition
           proposal_edit_before_minutes:
@@ -324,10 +327,6 @@ fr:
         proposal:
           creation_date: 'Création: %{date}'
           view_proposal: Voir la proposition
-        proposal_column:
-          creation_date: 'Création: %{date}'
-          view_proposal: Voir la proposition
-        proposal_list: 
         show:
           edit_proposal: Modifier la proposition
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'

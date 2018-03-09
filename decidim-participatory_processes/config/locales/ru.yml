@@ -1,4 +1,3 @@
----
 ru:
   activemodel:
     attributes:
@@ -275,9 +274,9 @@ ru:
           promoted_processes: Рекомендуемые движения
         order_by_processes:
           processes:
+            one: "%{count} движение"
             few: "%{count} движения"
             many: "%{count} движений"
-            one: "%{count} движение"
             other: "%{count} движений"
         participatory_process:
           active_step: 'Текущий шаг:'

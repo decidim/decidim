@@ -1,4 +1,3 @@
----
 fi:
   activemodel:
     attributes:
@@ -29,8 +28,8 @@ fi:
         user_group_name: Organisaation nimi
         user_group_phone: Organisaation puhelinnumero
   booleans:
-    'false': Ei
-    'true': Kyllä
+    'false': 'Ei'
+    'true': 'Kyllä'
   carrierwave:
     errors:
       image_too_big: Kuva on liian suuri
@@ -177,7 +176,7 @@ fi:
         email_subject: Kohteen %{resource_title} päivitys
       features:
         feature_published:
-          email_intro: "%{resource_title} -komponentti on nyt käytössä %{participatory_space_title}. Voit nähdä sen tällä sivulla:"
+          email_intro: '%{resource_title} -komponentti on nyt käytössä %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
           email_subject: Päivitys %{participatory_space_title}
           notification_title: '%{resource_title} -komponentti on nyt aktiivinen <a href="%{resource_path}">%{participatory_space_title}</a>'
@@ -358,7 +357,7 @@ fi:
           title: Valtuutus on edelleen kesken
         unauthorized:
           explanation: Pahoittelut, et voi suorittaa tätä toimintoa, koska varmennustietosi eivät täsmää.
-          invalid_field: Kentän %{field} arvo %{value} ei ole kelvollinen.
+          invalid_field: "Kentän %{field} arvo %{value} ei ole kelvollinen."
           ok: Ok
           title: Ei varmennettu
       author:

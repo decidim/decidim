@@ -1,4 +1,3 @@
----
 gl:
   decidim:
     comments:
@@ -18,8 +17,8 @@ gl:
             label: Comentar como
         opinion:
           neutral: Neutro
-        remaining_characters: Faltan %{count} caracteres
-        remaining_characters_1: Faltou o personaxe %{count}
+        remaining_characters: "Faltan %{count} caracteres"
+        remaining_characters_1: "Faltou o personaxe %{count}"
         title: Engade o teu comentario
       comment:
         alignment:

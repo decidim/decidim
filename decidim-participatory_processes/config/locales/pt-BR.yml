@@ -1,4 +1,3 @@
----
 pt-BR:
   activemodel:
     attributes:
@@ -308,7 +307,7 @@ pt-BR:
           promoted_processes: Processos destacados
         order_by_processes:
           processes:
-            one: Processo %{count}
+            one: "Processo %{count}"
             other: "%{count} processos"
         participatory_process:
           active_step: 'Etapa atual:'

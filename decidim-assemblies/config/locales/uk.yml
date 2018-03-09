@@ -1,4 +1,3 @@
----
 uk:
   activemodel:
     attributes:
@@ -149,9 +148,9 @@ uk:
           promoted_assemblies: Висвітлені збори
         order_by_assemblies:
           assemblies:
+            one: "%{count} (одні) збори"
             few: "%{count} зборів"
             many: "%{count} зборів"
-            one: "%{count} (одні) збори"
             other: "%{count} зборів"
         promoted_assembly:
           more_info: Дізнатися більше

@@ -1,4 +1,3 @@
----
 fi:
   activemodel:
     attributes:
@@ -127,7 +126,7 @@ fi:
             invite_user: Kutsu käyttäjä
             registrations_count:
               one: 1 ilmoittautuminen.
-              other: "%{count} ilmoittautumista."
+              other: '%{count} ilmoittautumista.'
           update:
             invalid: Ilmoittautumisasetusten tallentamisessa on ollut ongelma.
             success: Tapahtumailmoittautumisasetukset tallennettiin onnistuneesti.

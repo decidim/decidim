@@ -1,4 +1,3 @@
----
 eu:
   activemodel:
     attributes:
@@ -127,7 +126,7 @@ eu:
             invite_user: Gonbidatu erabiltzailea
             registrations_count:
               one: Izen-emate bat egin da.
-              other: "%{count} izen-emate egin dira."
+              other: '%{count} izen-emate egin dira.'
           update:
             invalid: Arazo bat izan da izen-ematearen konfigurazioa gordetzean.
             success: Topaketen izen-emateen konfigurazioak zuzen gorde dira.
