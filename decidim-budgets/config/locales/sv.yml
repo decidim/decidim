@@ -42,6 +42,11 @@ sv:
           update:
             invalid: Det har varit ett problem att uppdatera projektet
             success: Projektet har blivit uppdaterat
+      admin_log:
+        project:
+          create: "%{user_name} skapade projektet %{resource_name} i %{space_name} -utrymmet"
+          delete: "%{user_name} raderade projektet %{resource_name} i %{space_name} -utrymmet"
+          update: "%{user_name} uppdaterade projektet %{resource_name} i %{space_name} -utrymmet"
       models:
         project:
           fields:
