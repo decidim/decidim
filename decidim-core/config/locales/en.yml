@@ -247,6 +247,8 @@ en:
       value_types:
         area_presenter:
           not_found: 'The area was not found on the database (ID: %{id})'
+        area_type_presenter:
+          not_found: 'The area type was not found on the database (ID: %{id})'
         scope_presenter:
           not_found: 'The scope was not found on the database (ID: %{id})'
         scope_type_presenter:
