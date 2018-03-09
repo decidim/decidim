@@ -12,6 +12,7 @@ module Decidim
       include Decidim::HasReference
       include Decidim::Comments::Commentable
       include Decidim::Traceable
+      include Decidim::Loggable
 
       component_manifest_name "accountability"
 
@@ -30,6 +31,10 @@ module Decidim
           connection.execute("SELECT setseed(#{connection.quote(seed)})")
           order("RANDOM()").load
         end
+      end
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Accountability::AdminLog::ResultPresenter
       end
 
       def update_parent_progress
