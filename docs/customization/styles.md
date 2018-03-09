@@ -8,4 +8,4 @@ We use [SASS, with SCSS syntax](http://sass-lang.com/guide) as CSS preprocessor.
 
 ## **Accesibility**
 
-To maintain accesibility level, if you add new colors use a[ Color contrast checker](http://webaim.org/resources/contrastchecker/) (WCAG AA is mandatory, WCAG AAA is recommended)
+To maintain accesibility level, if you add new colors use a [Color contrast checker](http://webaim.org/resources/contrastchecker/) (WCAG AA is mandatory, WCAG AAA is recommended)
