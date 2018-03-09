@@ -50,6 +50,8 @@ ca:
         blocked_comments_warning: Els comentaris estan desactivats en aquest moment, però podeu llegir els anteriors.
         loading: Carregant els comentaris ...
         title: "%{count} comentaris"
+      componentd_comment:
+        title: Component de comentari
     events:
       comments:
         comment_created:
