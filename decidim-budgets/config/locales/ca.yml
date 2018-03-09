@@ -42,6 +42,10 @@ ca:
           update:
             invalid: Hi ha hagut un problema actualitzant aquest projecte
             success: Projecte actualitzat correctament
+      admin_log:
+        project:
+          create: "%{user_name} ha creat el projecte %{resource_name} a l'espai %{space_name}"
+          delete: "%{user_name} ha eliminat el projecte %{resource_name} a l'espai %{space_name}"
       models:
         project:
           fields:
