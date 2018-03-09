@@ -100,6 +100,22 @@ es:
         show:
           budget: Presupuesto
           view_all_projects: Ver todos los proyectos
+    components:
+      budgets:
+        actions:
+          vote: Votar
+        name: Presupuestos
+        settings:
+          global:
+            announcement: Anuncio
+            comments_enabled: Comentarios habilitados
+            total_budget: Presupuesto total
+            vote_threshold_percent: Porcentaje de votos
+          step:
+            announcement: Anuncio
+            comments_blocked: Comentarios bloqueados
+            show_votes: Mostrar los votos
+            votes_enabled: Votos habilitados
     orders:
       checkout:
         error: Se ha producido un error al procesar tu voto
