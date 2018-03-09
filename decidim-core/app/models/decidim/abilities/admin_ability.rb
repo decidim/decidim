@@ -17,7 +17,7 @@ module Decidim
 
       def define_abilities
         can :read, :admin_dashboard
-        can :read, Feature
+        can :read, Component
         can :impersonate, :managed_users
       end
 

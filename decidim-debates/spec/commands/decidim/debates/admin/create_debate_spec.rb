@@ -7,7 +7,7 @@ describe Decidim::Debates::Admin::CreateDebate do
 
   let(:organization) { create :organization, available_locales: [:en, :ca, :es], default_locale: :en }
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "debates" }
+  let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "debates" }
   let(:category) { create :category, participatory_space: participatory_process }
   let(:user) { create :user, :admin, :confirmed, organization: organization }
   let(:form) do
@@ -21,7 +21,7 @@ describe Decidim::Debates::Admin::CreateDebate do
       end_time: 1.day.from_now + 1.hour,
       category: category,
       current_user: user,
-      current_feature: current_feature
+      current_component: current_component
     )
   end
   let(:invalid) { false }
@@ -46,15 +46,15 @@ describe Decidim::Debates::Admin::CreateDebate do
       expect(debate.category).to eq category
     end
 
-    it "sets the feature" do
+    it "sets the component" do
       subject.call
-      expect(debate.feature).to eq current_feature
+      expect(debate.component).to eq current_component
     end
 
     it "traces the action", versioning: true do
       expect(Decidim.traceability)
         .to receive(:create!)
-        .with(Decidim::Debates::Debate, user, hash_including(:category, :title, :description, :information_updates, :instructions, :end_time, :start_time, :feature))
+        .with(Decidim::Debates::Debate, user, hash_including(:category, :title, :description, :information_updates, :instructions, :end_time, :start_time, :component))
         .and_call_original
 
       expect { subject.call }.to change(Decidim::ActionLog, :count)

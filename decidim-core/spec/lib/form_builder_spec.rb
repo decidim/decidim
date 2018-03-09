@@ -136,11 +136,11 @@ module Decidim
     describe "categories_for_select" do
       subject { Nokogiri::HTML(output) }
 
-      let!(:feature) { create(:feature) }
-      let!(:category) { create(:category, name: { "en" => "Nice category" }, participatory_space: feature.participatory_space) }
-      let!(:other_category) { create(:category, name: { "en" => "A better category" }, participatory_space: feature.participatory_space) }
-      let!(:subcategory) { create(:category, name: { "en" => "Subcategory" }, parent: category, participatory_space: feature.participatory_space) }
-      let(:scope) { feature.categories }
+      let!(:component) { create(:component) }
+      let!(:category) { create(:category, name: { "en" => "Nice category" }, participatory_space: component.participatory_space) }
+      let!(:other_category) { create(:category, name: { "en" => "A better category" }, participatory_space: component.participatory_space) }
+      let!(:subcategory) { create(:category, name: { "en" => "Subcategory" }, parent: category, participatory_space: component.participatory_space) }
+      let(:scope) { component.categories }
 
       let(:options) { {} }
       let(:output) { builder.categories_select(:category_id, scope, options) }
@@ -177,7 +177,7 @@ module Decidim
       end
 
       it "sorts subcategories by name" do
-        subcategory2 = create(:category, name: { "en" => "First subcategory" }, parent: category, participatory_space: feature.participatory_space)
+        subcategory2 = create(:category, name: { "en" => "First subcategory" }, parent: category, participatory_space: component.participatory_space)
 
         expect(subject.css("option")[2].text).to eq("- #{subcategory2.name["en"]}")
         expect(subject.css("option")[3].text).to eq("- #{subcategory.name["en"]}")
@@ -186,7 +186,7 @@ module Decidim
       context "when a category doesn't have the translation in the current locale" do
         before do
           I18n.locale = "zh"
-          create(:category, name: { "en" => "Subcategory 2", "zh" => "Something" }, parent: category, participatory_space: feature.participatory_space)
+          create(:category, name: { "en" => "Subcategory 2", "zh" => "Something" }, parent: category, participatory_space: component.participatory_space)
         end
 
         after do

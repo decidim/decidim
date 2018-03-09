@@ -25,8 +25,8 @@ module Decidim
       field :voteCount, types.Int do
         description "The total amount of votes the proposal has received"
         resolve ->(proposal, _args, _ctx) {
-          current_feature = proposal.feature
-          proposal.proposal_votes_count unless current_feature.current_settings.votes_hidden?
+          current_component = proposal.component
+          proposal.proposal_votes_count unless current_component.current_settings.votes_hidden?
         }
       end
     end

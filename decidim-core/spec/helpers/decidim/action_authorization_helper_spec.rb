@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim
   describe ActionAuthorizationHelper do
-    let!(:feature) { create(:feature) }
+    let!(:component) { create(:component) }
     let!(:user) { create(:user) }
     let!(:action) { "foo" }
 

@@ -8,15 +8,15 @@ module Decidim
       subject { described_class }
 
       let(:survey) { create(:survey) }
-      let(:feature) { survey.feature }
+      let(:component) { survey.component }
       let(:previous_settings) do
         { allow_answers: previously_allowing_answers }
       end
       let(:current_settings) do
         { allow_answers: currently_allowing_answers }
       end
-      let(:user) { create :user, organization: feature.organization }
-      let!(:follow) { create :follow, followable: feature.participatory_space, user: user }
+      let(:user) { create :user, organization: component.organization }
+      let!(:follow) { create :follow, followable: component.participatory_space, user: user }
 
       context "when there are relevant setting changes" do
         context "when the survey becomes open" do
@@ -29,11 +29,11 @@ module Decidim
               .with(
                 event: "decidim.events.surveys.survey_opened",
                 event_class: Decidim::Surveys::OpenedSurveyEvent,
-                resource: feature,
+                resource: component,
                 recipient_ids: [user.id]
               )
 
-            subject.perform_now(feature.id, previous_settings, current_settings)
+            subject.perform_now(component.id, previous_settings, current_settings)
           end
         end
 
@@ -47,11 +47,11 @@ module Decidim
               .with(
                 event: "decidim.events.surveys.survey_closed",
                 event_class: Decidim::Surveys::ClosedSurveyEvent,
-                resource: feature,
+                resource: component,
                 recipient_ids: [user.id]
               )
 
-            subject.perform_now(feature.id, previous_settings, current_settings)
+            subject.perform_now(component.id, previous_settings, current_settings)
           end
         end
       end
@@ -64,7 +64,7 @@ module Decidim
           expect(Decidim::EventsManager)
             .not_to receive(:publish)
 
-          subject.perform_now(feature.id, previous_settings, current_settings)
+          subject.perform_now(component.id, previous_settings, current_settings)
         end
       end
     end

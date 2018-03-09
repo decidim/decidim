@@ -25,7 +25,7 @@ module Decidim
       initializer "decidim_changes" do
         Decidim::SettingsChange.subscribe "debates" do |changes|
           Decidim::Debates::SettingsChangeJob.perform_later(
-            changes[:feature_id],
+            changes[:component_id],
             changes[:previous_settings],
             changes[:current_settings]
           )

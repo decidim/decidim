@@ -20,7 +20,7 @@
     <%= scopes_picker_filter form, :scope_id %>
   <% end %>
 
-  <% if current_feature.categories.any? %>
-    <%= form.categories_select :category_id, current_feature.categories, legend_title: t(".category"), disable_parents: false, label: false, prompt: t('.category_prompt') %>
+  <% if current_component.categories.any? %>
+    <%= form.categories_select :category_id, current_component.categories, legend_title: t(".category"), disable_parents: false, label: false, prompt: t('.category_prompt') %>
   <% end %>
 <% end %>

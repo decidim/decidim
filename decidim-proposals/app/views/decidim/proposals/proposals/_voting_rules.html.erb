@@ -6,7 +6,7 @@
           <h3 class="heading3"><%= t('.title') %></h3>
           <ul>
             <% if vote_limit_enabled? %>
-              <li><%= t('.vote_limit.description', limit: feature_settings.vote_limit) %></li>
+              <li><%= t('.vote_limit.description', limit: component_settings.vote_limit) %></li>
             <% end %>
 
             <% if proposal_limit_enabled? %>
@@ -26,7 +26,7 @@
           <div class="columns medium-4 large-3">
             <div class="card card--nomargin text-center remaining-votes-counter">
               <div class="card__content">
-                <span class="definition-data__title"><%= t('.vote_limit.left', limit: feature_settings.vote_limit) %></span>
+                <span class="definition-data__title"><%= t('.vote_limit.left', limit: component_settings.vote_limit) %></span>
                 <%= render partial: "remaining_votes_count" %>
                 <span class="extra__suport-text"><%= t('.vote_limit.votes') %></span>
               </div>

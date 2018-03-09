@@ -6,7 +6,7 @@ module Decidim
   module Proposals
     describe EndorseProposal do
       let(:proposal) { create(:proposal) }
-      let(:current_user) { create(:user, organization: proposal.feature.organization) }
+      let(:current_user) { create(:user, organization: proposal.component.organization) }
 
       before do
         proposal.update author: current_user

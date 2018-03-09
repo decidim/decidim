@@ -8,8 +8,8 @@ module Decidim
       describe UpdateSurvey do
         let(:current_organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-        let(:feature) { create(:feature, manifest_name: "surveys", participatory_space: participatory_process) }
-        let(:survey) { create(:survey, feature: feature) }
+        let(:component) { create(:component, manifest_name: "surveys", participatory_space: participatory_process) }
+        let(:survey) { create(:survey, component: component) }
         let(:published_at) { nil }
         let(:form_params) do
           {

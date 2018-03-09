@@ -113,7 +113,7 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
           )
         end
 
-        Decidim.feature_manifests.each do |manifest|
+        Decidim.component_manifests.each do |manifest|
           manifest.seed!(current_assembly.reload)
         end
       end

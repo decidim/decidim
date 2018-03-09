@@ -24,7 +24,7 @@ module Decidim
 
     attribute :query_type, String, default: "Decidim::Core::ParticipatorySpaceType"
 
-    # A String with the feature's icon. The icon must be stored in the
+    # A String with the component's icon. The icon must be stored in the
     # engine's assets path.
     attribute :icon, String
 
@@ -56,14 +56,14 @@ module Decidim
       @contexts.fetch(name)
     end
 
-    # Public: A block that gets called when seeding for this feature takes place.
+    # Public: A block that gets called when seeding for this component takes place.
     #
     # Returns nothing.
     def seeds(&block)
       @seeds = block
     end
 
-    # Public: Creates the seeds for this features in order to populate the database.
+    # Public: Creates the seeds for this components in order to populate the database.
     #
     # Returns nothing.
     def seed!

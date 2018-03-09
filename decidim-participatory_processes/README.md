@@ -2,7 +2,7 @@
 
 Participatory processes are the standard Decidim's participatory space.
 
-A participatory process can define its own steps, and attach different features
+A participatory process can define its own steps, and attach different components
 (such as meetings or proposals) with different configurations to each of them.
 
 A participatory process can have attachments, be associated to custom

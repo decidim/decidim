@@ -4,8 +4,8 @@ require "decidim/core/test/factories"
 require "decidim/participatory_processes/test/factories"
 
 FactoryBot.define do
-  factory :proposal_feature, parent: :feature do
-    name { Decidim::Features::Namer.new(participatory_space.organization.available_locales, :proposals).i18n_name }
+  factory :proposal_component, parent: :component do
+    name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :proposals).i18n_name }
     manifest_name :proposals
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
 
@@ -139,12 +139,12 @@ FactoryBot.define do
   factory :proposal, class: "Decidim::Proposals::Proposal" do
     title { Faker::Lorem.sentence }
     body { Faker::Lorem.sentences(3).join("\n") }
-    feature { create(:proposal_feature) }
+    component { create(:proposal_component) }
     published_at { Time.current }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
 
     author do
-      create(:user, organization: feature.organization) if feature
+      create(:user, organization: component.organization) if component
     end
 
     trait :official do

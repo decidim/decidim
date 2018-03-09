@@ -5,9 +5,9 @@
       <%= link_to t(".invite_user"), meeting.registrations_enabled ? new_meeting_registrations_invites_path(meeting) : "#", class: "button tiny button--title #{'disabled' unless meeting.registrations_enabled?}" %>
       <span class="exports dropdown tiny button button--simple button--title" data-toggle="export-dropdown"><%= t "actions.export", scope: "decidim.admin" %></span>
       <div class="dropdown-pane" id="export-dropdown" data-dropdown data-auto-focus="true" data-close-on-click="true">
-        <ul class="vertical menu add-features">
+        <ul class="vertical menu add-components">
           <% %w{CSV JSON Excel}.each do |format| %>
-            <li class="exports--format--<%= format.downcase %> exports--registrations"><%= link_to t("decidim.admin.exports.export_as", name: t("decidim.#{current_feature.manifest.name}.admin.exports.registrations"), export_format: format), export_meeting_registrations_path(meeting_id: meeting, format: format) %></li>
+            <li class="exports--format--<%= format.downcase %> exports--registrations"><%= link_to t("decidim.admin.exports.export_as", name: t("decidim.#{current_component.manifest.name}.admin.exports.registrations"), export_format: format), export_meeting_registrations_path(meeting_id: meeting, format: format) %></li>
           <% end %>
         </ul>
       </div>

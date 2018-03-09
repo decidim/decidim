@@ -3,7 +3,7 @@
 require "active_support/concern"
 
 module Decidim
-  # A concern with the features needed when you want a model to be reportable
+  # A concern with the components needed when you want a model to be reportable
   module Reportable
     extend ActiveSupport::Concern
 

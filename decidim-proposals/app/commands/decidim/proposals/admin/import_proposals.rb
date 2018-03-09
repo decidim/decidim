@@ -38,7 +38,7 @@ module Decidim
               "state",
               "answer",
               "answered_at",
-              "decidim_feature_id",
+              "decidim_component_id",
               "reference",
               "proposal_votes_count",
               "proposal_notes_count"
@@ -46,7 +46,7 @@ module Decidim
 
             proposal = Decidim::Proposals::Proposal.new(origin_attributes)
             proposal.category = original_proposal.category
-            proposal.feature = target_feature
+            proposal.component = target_component
             proposal.save!
 
             proposal.link_resources([original_proposal], "copied_from_component")
@@ -55,7 +55,7 @@ module Decidim
 
         def proposals
           Decidim::Proposals::Proposal
-            .where(feature: origin_feature)
+            .where(component: origin_component)
             .where(state: proposal_states)
         end
 
@@ -70,12 +70,12 @@ module Decidim
           @proposal_states
         end
 
-        def origin_feature
-          @form.origin_feature
+        def origin_component
+          @form.origin_component
         end
 
-        def target_feature
-          @form.current_feature
+        def target_component
+          @form.current_component
         end
       end
     end

@@ -7,7 +7,7 @@ module Decidim
     module Admin
       describe SurveyQuestionForm do
         subject do
-          described_class.from_params(attributes).with_context(current_feature: survey.feature, current_organization: organization)
+          described_class.from_params(attributes).with_context(current_component: survey.component, current_organization: organization)
         end
 
         let!(:survey) { create(:survey) }

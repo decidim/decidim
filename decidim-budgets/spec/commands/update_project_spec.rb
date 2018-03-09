@@ -7,18 +7,18 @@ module Decidim::Budgets
     subject { described_class.new(form, project) }
 
     let(:project) { create :project }
-    let(:organization) { project.feature.organization }
+    let(:organization) { project.component.organization }
     let(:scope) { create :scope, organization: organization }
-    let(:category) { create :category, participatory_space: project.feature.participatory_space }
-    let(:participatory_process) { project.feature.participatory_space }
-    let(:proposal_feature) do
-      create(:feature, manifest_name: :proposals, participatory_space: participatory_process)
+    let(:category) { create :category, participatory_space: project.component.participatory_space }
+    let(:participatory_process) { project.component.participatory_space }
+    let(:proposal_component) do
+      create(:component, manifest_name: :proposals, participatory_space: participatory_process)
     end
     let(:proposals) do
       create_list(
         :proposal,
         3,
-        feature: proposal_feature
+        component: proposal_component
       )
     end
     let(:form) do

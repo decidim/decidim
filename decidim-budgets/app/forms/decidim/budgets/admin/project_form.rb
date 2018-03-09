@@ -25,7 +25,7 @@ module Decidim
 
         validate :scope_belongs_to_participatory_space_scope
 
-        delegate :categories, to: :current_feature
+        delegate :categories, to: :current_component
 
         def map_model(model)
           self.proposal_ids = model.linked_resources(:proposals, "included_proposals").pluck(:id)
@@ -36,7 +36,7 @@ module Decidim
         end
 
         def proposals
-          @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, current_feature)&.order(title: :asc)&.pluck(:title, :id)
+          @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, current_component)&.order(title: :asc)&.pluck(:title, :id)
         end
 
         # Finds the Category from the decidim_category_id.

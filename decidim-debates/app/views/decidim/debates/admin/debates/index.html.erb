@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t(".title") %>
 
-      <%= link_to t("actions.new", scope: "decidim.debates", name: t("models.debate.name", scope: "decidim.debates.admin")), new_debate_path, class: 'button tiny button--title' if can? :manage, current_feature %>
+      <%= link_to t("actions.new", scope: "decidim.debates", name: t("models.debate.name", scope: "decidim.debates.admin")), new_debate_path, class: 'button tiny button--title' if can? :manage, current_component %>
     </h2>
   </div>
 

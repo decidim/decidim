@@ -6,8 +6,8 @@ describe Decidim::Debates::Admin::UpdateDebate do
   subject { described_class.new(form, debate) }
 
   let(:debate) { create :debate }
-  let(:organization) { debate.feature.organization }
-  let(:category) { create :category, participatory_space: debate.feature.participatory_space }
+  let(:organization) { debate.component.organization }
+  let(:category) { create :category, participatory_space: debate.component.participatory_space }
   let(:user) { create :user, :admin, :confirmed, organization: organization }
   let(:form) do
     double(

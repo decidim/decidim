@@ -6,8 +6,8 @@ module Decidim
     # title, description and any other useful information to render a custom project.
     class Project < Budgets::ApplicationRecord
       include Decidim::Resourceable
-      include Decidim::HasFeature
-      include Decidim::ScopableFeature
+      include Decidim::HasComponent
+      include Decidim::ScopableComponent
       include Decidim::HasCategory
       include Decidim::HasAttachments
       include Decidim::HasAttachmentCollections
@@ -15,18 +15,18 @@ module Decidim
       include Decidim::Followable
       include Decidim::Comments::Commentable
 
-      feature_manifest_name "budgets"
+      component_manifest_name "budgets"
       has_many :line_items, class_name: "Decidim::Budgets::LineItem", foreign_key: "decidim_project_id", dependent: :destroy
       has_many :orders, through: :line_items, foreign_key: "decidim_project_id", class_name: "Decidim::Budgets::Order"
 
       # Public: Overrides the `commentable?` Commentable concern method.
       def commentable?
-        feature.settings.comments_enabled?
+        component.settings.comments_enabled?
       end
 
       # Public: Overrides the `accepts_new_comments?` Commentable concern method.
       def accepts_new_comments?
-        commentable? && !feature.current_settings.comments_blocked
+        commentable? && !component.current_settings.comments_blocked
       end
 
       # Public: Overrides the `comments_have_votes?` Commentable concern method.
