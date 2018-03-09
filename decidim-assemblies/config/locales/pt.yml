@@ -5,6 +5,7 @@ pt:
         area_id: Área
         banner_image: Imagem da bandeira
         copy_categories: Cópiar categorias
+        copy_components: Copiar componentes
         decidim_area_id: Área
         decidim_scope_id: Escopo
         description: Descrição
@@ -88,6 +89,7 @@ pt:
           attachment_files: arquivos
           attachments: Anexos
           categories: Categorias
+          components: Componentes
           info: Info
           moderations: Moderação
       models:
