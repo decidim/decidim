@@ -6,12 +6,6 @@ In [decidim-core/app/assets/stylesheets/decidim/_variables.scss](https://github.
 
 We use [SASS, with SCSS syntax](http://sass-lang.com/guide) as CSS preprocessor.
 
-Also you can check your scss files syntax with
-
-```
-scss-lint
-```
-
 ## **Accesibility**
 
 To maintain accesibility level, if you add new colors use a[ Color contrast checker](http://webaim.org/resources/contrastchecker/) (WCAG AA is mandatory, WCAG AAA is recommended)
