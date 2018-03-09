@@ -54,6 +54,10 @@ ca:
         success: El seu compte s'ha actualitzat correctament.
         success_with_email_confirmation: El teu compte s'ha actualitzat correctament. Rebràs un correu electrònic per confirmar la teva nova adreça de correu electrònic.
     admin_log:
+      area:
+        create: "%{user_name} ha creat l'àrea %{resource_name}"
+        delete: "%{user_name} suprimit l'àrea %{resource_name}"
+        update: "%{user_name} ha actualitzat l'àrea %{resource_name}"
       component:
         create: "%{user_name} ha afegit el component %{resource_name} a l'espai %{space_name}"
         delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
@@ -242,6 +246,8 @@ ca:
       value_types:
         area_presenter:
           not_found: 'L''àrea no s''ha trobat a la base de dades (ID: %{id})'
+        area_type_presenter:
+          not_found: 'El tipus d''àrea no es va trobar a la base de dades (ID: %{id})'
         scope_presenter:
           not_found: 'L''àmbit no s''ha trobat a la base de dades (ID: %{id})'
         scope_type_presenter:
