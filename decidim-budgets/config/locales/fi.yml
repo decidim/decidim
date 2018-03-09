@@ -100,22 +100,6 @@ fi:
         show:
           budget: Budjetti
           view_all_projects: Näytä kaikki projektit
-    features:
-      budgets:
-        actions:
-          vote: Äänestä
-        name: Budjetit
-        settings:
-          global:
-            announcement: Ilmoitus
-            comments_enabled: Kommentointi sallittu
-            total_budget: Koko budjetti
-            vote_threshold_percent: Äänestyskynnyksen prosentti
-          step:
-            announcement: Ilmoitus
-            comments_blocked: Kommentointi kielletty
-            show_votes: Näytä äänet
-            votes_enabled: Äänestys sallittu
     orders:
       checkout:
         error: Äänesi käsittelyssä tapahtui virhe
