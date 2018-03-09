@@ -21,6 +21,10 @@ es:
         description: Descripción
         name: Nombre
         parent_id: Superior
+      component:
+        name: Nombre
+        published_at: Publicado en
+        weight: Peso
       id: ID
       newsletter:
         body: Cuerpo
@@ -205,6 +209,44 @@ es:
         update:
           error: Se ha producido un error al actualizar esta categoría.
           success: Categoría actualizada correctamente.
+      component_permissions:
+        edit:
+          everyone: Todo el mundo
+          submit: Guardar permisos
+          title: Editar permisos
+        update:
+          success: Permisos actualizados con éxito.
+      components:
+        create:
+          error: Hubo un error al crear este componente.
+          success: Componente creado con éxito.
+        destroy:
+          error: Ha habido un error al destruir este componente.
+          success: Componente eliminado con éxito.
+        edit:
+          title: Editar componente
+          update: Actualizar
+        form:
+          default_step_settings: Configuraciones de paso predeterminadas
+          global_settings: Ajustes globales
+          step_settings: Configuración de paso
+        index:
+          add: Agregar componente
+          headers:
+            actions: Comportamiento
+            name: Nombre del componente
+            type: Tipo de componente
+        new:
+          add: Agregar componente
+          title: 'Agregar componente: %{name}'
+        publish:
+          success: El componente ha sido publicado con éxito.
+        title: Componentes
+        unpublish:
+          success: El componente se ha publicado sin éxito.
+        update:
+          error: Ha habido un error al actualizar este componente.
+          success: El componente se actualizó con éxito.
       dashboard:
         show:
           view_more_logs: Ver más registros
