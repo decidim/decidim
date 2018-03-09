@@ -90,22 +90,6 @@ pl:
         show:
           budget: Budżet
           view_all_projects: Wyświetl wszystkie projekty
-    features:
-      budgets:
-        actions:
-          vote: Głosować
-        name: Budżety
-        settings:
-          global:
-            announcement: Ogłoszenie
-            comments_enabled: Włączone komentarze
-            total_budget: Cały budżet
-            vote_threshold_percent: Procentowy procent głosu
-          step:
-            announcement: Ogłoszenie
-            comments_blocked: Komentarze zablokowane
-            show_votes: Pokaż głosy
-            votes_enabled: Głosy włączone
     orders:
       checkout:
         error: Podczas przetwarzania Twojego głosu wystąpił błąd
