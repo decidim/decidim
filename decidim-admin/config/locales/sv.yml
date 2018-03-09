@@ -21,6 +21,10 @@ sv:
         description: Beskrivning
         name: namn
         parent_id: Förälder
+      component:
+        name: namn
+        published_at: Publicerad på
+        weight: Vikt
       id: ID
       newsletter:
         body: Kropp
@@ -205,6 +209,44 @@ sv:
         update:
           error: Det uppstod ett fel vid uppdateringen av den här kategorin.
           success: Kategori uppdaterad framgångsrikt.
+      component_permissions:
+        edit:
+          everyone: Alla
+          submit: Spara behörigheter
+          title: Redigera behörigheter
+        update:
+          success: Tillstånd uppdaterade framgångsrikt.
+      components:
+        create:
+          error: Det uppstod ett fel vid skapandet av den här komponenten.
+          success: Komponent skapad framgångsrikt.
+        destroy:
+          error: Det har inträffat ett fel som förstörde denna komponent.
+          success: Komponenten har tagits bort.
+        edit:
+          title: Redigera komponent
+          update: Uppdatering
+        form:
+          default_step_settings: Standard steginställningar
+          global_settings: Globala inställningar
+          step_settings: Steginställningar
+        index:
+          add: Lägg till komponent
+          headers:
+            actions: Handlingar
+            name: Komponentnamn
+            type: Komponenttyp
+        new:
+          add: Lägg till komponent
+          title: 'Lägg till komponent: %{name}'
+        publish:
+          success: Komponenten har publicerats framgångsrikt.
+        title: Komponenter
+        unpublish:
+          success: Komponenten har blivit framgångsrikt opublicerad.
+        update:
+          error: Det har uppstått ett fel vid uppdateringen av den här komponenten.
+          success: Komponenten uppdaterades framgångsrikt.
       dashboard:
         show:
           view_more_logs: Visa fler loggar
