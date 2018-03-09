@@ -46,6 +46,7 @@ eu:
         project:
           create: "%{user_name} %{resource_name} proiektua %{space_name} espazioan sortu zen"
           delete: "%{user_name} %{resource_name} proiektua %{space_name} espazioan ezabatu da"
+          update: "%{user_name} %{resource_name} proiektuaren %{space_name} espazio eguneratu du"
       models:
         project:
           fields:
