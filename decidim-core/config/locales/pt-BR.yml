@@ -54,6 +54,10 @@ pt-BR:
         success: A sua conta foi atualizada com sucesso.
         success_with_email_confirmation: Sua conta foi atualizada com sucesso. Você receberá um e-mail de confirmação de seu novo endereço de e-mail.
     admin_log:
+      area:
+        create: "%{user_name} criou a área %{resource_name}"
+        delete: "%{user_name} excluiu a área %{resource_name}"
+        update: "%{user_name} atualizou a área %{resource_name}"
       component:
         create: "%{user_name} adicionou o componente %{resource_name} ao espaço %{space_name}"
         delete: "%{user_name} removeu o componente %{resource_name} do espaço %{space_name}"
@@ -242,6 +246,8 @@ pt-BR:
       value_types:
         area_presenter:
           not_found: 'A área não foi encontrada no banco de dados (ID: %{id})'
+        area_type_presenter:
+          not_found: 'O tipo de área não foi encontrado no banco de dados (ID: %{id})'
         scope_presenter:
           not_found: 'O escopo não foi encontrado no banco de dados (ID: %{id})'
         scope_type_presenter:
