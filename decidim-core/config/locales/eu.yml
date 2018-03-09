@@ -54,6 +54,10 @@ eu:
         success: Zure kontua zuzen eguneratu da.
         success_with_email_confirmation: Zure kontua zuzen eguneratu da. Mezu elektroniko bat jasoko duzu zure helbide elektroniko berria baieztatzeko.
     admin_log:
+      area:
+        create: "%{user_name} %{resource_name} eremua sortu zen"
+        delete: "%{user_name} %{resource_name} eremua ezabatu da"
+        update: "%{user_name} %{resource_name} eremua eguneratu du"
       component:
         create: "%{user_name} %{resource_name} osagaia %{space_name} espaziora gehitu da"
         delete: "%{user_name} %{resource_name} osagai %{space_name} espaziotik kendu da"
@@ -239,6 +243,8 @@ eu:
       value_types:
         area_presenter:
           not_found: 'Ez zen datu-basea aurkitu (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Eremu mota ez da datu basean aurkitu (ID: %{id})'
         scope_presenter:
           not_found: 'Esparrua ez da aurkitu datu-basean (ID: %{id})'
         scope_type_presenter:
