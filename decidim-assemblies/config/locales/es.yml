@@ -5,7 +5,6 @@ es:
         area_id: Área
         banner_image: Imagen de banner
         copy_categories: Copiar categorías
-        copy_features: Copiar funcionalidades
         decidim_area_id: Área
         decidim_scope_id: Ámbito
         description: Descripción
@@ -89,7 +88,6 @@ es:
           attachment_files: Archivos
           attachments: Archivos adjuntos
           categories: Categorías
-          features: Funcionalidades
           info: Información
           moderations: Moderaciones
       models:
