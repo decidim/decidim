@@ -46,6 +46,7 @@ fi:
         project:
           create: "%{user_name} loi %{resource_name} -projektin %{space_name} -tilaan"
           delete: "%{user_name} poistanut %{resource_name} -projektin %{space_name} -tilassa"
+          update: "%{user_name} päivitti %{resource_name} -projektin %{space_name} -tilaan"
       models:
         project:
           fields:
