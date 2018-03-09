@@ -100,22 +100,6 @@ fr:
         show:
           budget: Budget
           view_all_projects: Voir tous les projets
-    features:
-      budgets:
-        actions:
-          vote: Voter
-        name: Budgets
-        settings:
-          global:
-            announcement: Message d'annonce
-            comments_enabled: Commentaires activés
-            total_budget: Budget total
-            vote_threshold_percent: Pourcentage de seuil de vote
-          step:
-            announcement: Message d'annonce
-            comments_blocked: Commentaires bloqués
-            show_votes: Afficher les votes
-            votes_enabled: Votes activés
     orders:
       checkout:
         error: Une erreur s'est produite lors du traitement de votre vote
