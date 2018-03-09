@@ -5,6 +5,7 @@ sv:
         area_id: Område
         banner_image: Banner image
         copy_categories: Kopiera kategorier
+        copy_components: Kopiera komponenter
         decidim_area_id: Område
         decidim_scope_id: Omfattning
         description: Beskrivning
@@ -88,6 +89,7 @@ sv:
           attachment_files: filer
           attachments: bilagor
           categories: kategorier
+          components: Komponenter
           info: Info
           moderations: modere
       models:
