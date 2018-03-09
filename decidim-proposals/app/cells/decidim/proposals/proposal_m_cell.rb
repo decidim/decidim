@@ -7,6 +7,9 @@ module Decidim
     # This cell renders a proposal with its M-size card.
     class ProposalMCell < Decidim::Proposals::ViewModel
       property :title
+      property :state
+      property :answered?
+      property :withdrawn?
 
       def show
         render
@@ -17,6 +20,10 @@ module Decidim
       end
 
       def header
+        render
+      end
+
+      def badge
         render
       end
 
@@ -76,6 +83,25 @@ module Decidim
 
       def participatory_space_type_name
         translated_attribute current_participatory_space.model_name.human
+      end
+
+      def state_name
+        humanize_proposal_state state
+      end
+
+      def badge_state_css
+        case state
+        when "accepted"
+          "success"
+        when "rejected"
+          "warning"
+        when "evaluating"
+          "muted"
+        when "withdrawn"
+          "alert"
+        else
+          ""
+        end
       end
     end
   end

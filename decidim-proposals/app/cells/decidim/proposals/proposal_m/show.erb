@@ -13,7 +13,7 @@
         <%= resource_reference(model, class: "tech-info--text-left") %>
       </div>
 
-      <%= render partial: "decidim/proposals/proposals/proposal_badge.html", locals: { proposal: model } %>
+      <%= cell("decidim/proposals/proposal_m", model).badge %>
 
       <p>
         <%= body %>

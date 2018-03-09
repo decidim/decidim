@@ -1,0 +1,10 @@
+<% if answered? %>
+  <span class="<%= badge_state_css %> label proposal-status">
+    <%= state_name %>
+  </span>
+<% end %>
+<% if withdrawn? %>
+  <span class="<%= badge_state_css %> label proposal-status">
+    <%= state_name %>
+  </span>
+<% end %>
