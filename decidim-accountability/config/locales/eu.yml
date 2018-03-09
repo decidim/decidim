@@ -167,6 +167,20 @@ eu:
           changes_at_title: Aldaketak "%{title}" atalean
         version:
           version_index: '%{index} bertsioa'
+    components:
+      accountability:
+        name: Kontuak
+        settings:
+          global:
+            categories_label: '"Kategoriak" izena'
+            comments_enabled: Iruzkinak gaituta
+            display_progress_enabled: Bistaratze aurrerapena
+            heading_leaf_level_results: '"Proiektuak" izena'
+            heading_parent_level_results: '"Emaitzak" izena'
+            intro: Intro
+            subcategories_label: Izena "Azpikategoriak" izenarekin
+          step:
+            comments_blocked: Iruzkinak blokeatuta
     events:
       accountability:
         proposal_linked:
