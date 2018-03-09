@@ -42,6 +42,10 @@ nl:
           update:
             invalid: Er is een probleem opgetreden bij het bijwerken van dit project
             success: Project succesvol bijgewerkt
+      admin_log:
+        project:
+          create: "%{user_name} heeft het project %{resource_name} gemaakt in de ruimte %{space_name}"
+          delete: "%{user_name} verwijderde het %{resource_name} project in de %{space_name} spatie"
       models:
         project:
           fields:
