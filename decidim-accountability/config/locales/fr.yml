@@ -2,7 +2,6 @@ fr:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: statut
         decidim_category_id: Catégorie
         decidim_scope_id: Périmètre d'application
         description: Description
