@@ -50,8 +50,6 @@ uk:
         blocked_comments_warning: Коментарі зараз вимкнені, але ви можете прочитати попередні.
         loading: Завантаження коментарів...
         title: "%{count} коментарів"
-      featured_comment:
-        title: Рекомендований коментар
     events:
       comments:
         comment_created:
