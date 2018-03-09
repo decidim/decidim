@@ -54,11 +54,6 @@ fr:
         success: Votre compte a été mis à jour avec succès.
         success_with_email_confirmation: Votre compte a été mis à jour avec succès. Vous recevrez un email pour confirmer votre nouvelle adresse e-mail.
     admin_log:
-      feature:
-        create: "%{user_name} ajouté le %{resource_name} caractéristique de la %{space_name} espace"
-        delete: "%{user_name} retiré le %{resource_name} caractéristique de la %{space_name} espace"
-        publish: "%{user_name} a publié la fonctionnalité %{resource_name} dans l'espace %{space_name}"
-        unpublish: "%{user_name} non publié la fonctionnalité %{resource_name} de l'espace %{space_name}"
       moderation:
         hide: "%{user_name} a caché une ressource de type %{resource_type} dans le %{space_name} espace"
         unreport: "%{user_name} non déclaré une ressource de type %{resource_type} dans le %{space_name} espace"
@@ -174,12 +169,6 @@ fr:
         email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez le voir sur cette page :'
         email_outro: Vous recevez cet notification car vous suivez « %{resource_title} ». Vous pouvez cesser de le suivre en allant sur le lien précédent.
         email_subject: Mise à jour de %{resource_title}
-      features:
-        feature_published:
-          email_intro: 'Le composant %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
-          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-          email_subject: Une mise à jour de %{participatory_space_title}
-          notification_title: Le composant %{resource_title} est maintenant actif pour <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un événement a eu lieu à <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -192,21 +181,6 @@ fr:
       export:
         ready: Vous trouverez ci-joint une version zippée de votre exportation.
       subject: Votre export "%{name}" est prêt
-    features:
-      dummy:
-        actions:
-          bar: Machin
-          foo: Truc
-        name: Fonctionnalité exemple
-        settings:
-          global:
-            comments_enabled: Commentaires activés
-            dummy_global_attribute_1: Exemple d'attribut 1
-            dummy_global_attribute_2: Exemple d'attribut 2
-          step:
-            comments_blocked: Commentaires bloqués
-            dummy_step_attribute_1: Exemple d'attribut pour une étape 1
-            dummy_step_attribute_2: Exemple d'attribut pour une étape 2
     filters:
       linked_classes:
         all: Tout
