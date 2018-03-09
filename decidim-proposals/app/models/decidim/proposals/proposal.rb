@@ -27,6 +27,8 @@ module Decidim
 
       geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.feature.organization.host } }
 
+      scope :officials, -> { where(author: nil) }
+      scope :citizens, -> { where.not(author: nil) }
       scope :accepted, -> { where(state: "accepted") }
       scope :rejected, -> { where(state: "rejected") }
       scope :evaluating, -> { where(state: "evaluating") }
@@ -39,6 +41,13 @@ module Decidim
           connection.execute("SELECT setseed(#{connection.quote(seed)})")
           order("RANDOM()").load
         end
+      end
+
+      # Public: Check if the settings split_proposals is activated.
+      #
+      # Returns Boolean.
+      def split_proposal_enabled?
+        feature.settings.split_proposal_enabled?
       end
 
       def self.log_presenter_class_for(_log)

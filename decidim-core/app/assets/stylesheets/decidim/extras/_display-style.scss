@@ -1,0 +1,42 @@
+//Variables
+$order-border: $border;
+
+/* type of display styles */
+.display-style{
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+
+.display-style__all{
+  display: flex;
+  flex-wrap: wrap;
+  &>a {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+  }
+  .icon--list {
+    height: 17px;
+  }
+}
+
+.display-block{
+  display: block!important;
+}
+
+.card--side-container{
+  flex-basis: 16rem;
+}
+
+.tags--proposal-list{
+  max-width: 35em;
+}
+
+@include breakpoint(large down){
+  .card--side-container{
+    width: 100%;
+    flex-basis: initial;
+  }
+}
