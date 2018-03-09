@@ -100,6 +100,22 @@ nl:
         show:
           budget: Begroting
           view_all_projects: Bekijk alle projecten
+    components:
+      budgets:
+        actions:
+          vote: Stemmen
+        name: begrotingen
+        settings:
+          global:
+            announcement: Aankondiging
+            comments_enabled: Reacties ingeschakeld
+            total_budget: Totale budget
+            vote_threshold_percent: Stemdrempel procent
+          step:
+            announcement: Aankondiging
+            comments_blocked: Reacties geblokkeerd
+            show_votes: Toon stemmen
+            votes_enabled: Stemmen ingeschakeld
     orders:
       checkout:
         error: Er is een fout opgetreden tijdens het verwerken van uw stem
