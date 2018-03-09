@@ -106,22 +106,6 @@ uk:
         show:
           budget: Бюджет
           view_all_projects: Переглянути всi проекти
-    features:
-      budgets:
-        actions:
-          vote: Голосувати
-        name: Бюджети
-        settings:
-          global:
-            announcement: Оголошення
-            comments_enabled: Коментарі ввімкнено
-            total_budget: Загальний бюджет
-            vote_threshold_percent: Мінімальний відсоток бюджету для голосування
-          step:
-            announcement: Оголошення
-            comments_blocked: Коментарі вимкнено
-            show_votes: Показати голоси
-            votes_enabled: Голосування ввімкнене
     orders:
       checkout:
         error: При обробці вашого голосу сталася помилка
