@@ -2,7 +2,6 @@ fi:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: tila
         decidim_category_id: Aihepiiri
         decidim_scope_id: Konteksti
         description: Kuvaus
