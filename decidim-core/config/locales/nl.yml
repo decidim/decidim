@@ -54,6 +54,10 @@ nl:
         success: Uw account is bijgewerkt.
         success_with_email_confirmation: Uw account is bijgewerkt. U ontvangt een e-mail ter bevestiging van uw nieuwe e-mailadres.
     admin_log:
+      area:
+        create: "%{user_name} heeft het gebied %{resource_name} gemaakt"
+        delete: "%{user_name} heeft het gebied %{resource_name} verwijderd"
+        update: "%{user_name} heeft het gebied %{resource_name} bijgewerkt"
       component:
         create: "%{user_name} voegde de %{resource_name} component toe aan de %{space_name} spatie"
         delete: "%{user_name} heeft de %{resource_name} component uit de %{space_name} spatie verwijderd"
@@ -242,6 +246,8 @@ nl:
       value_types:
         area_presenter:
           not_found: 'Het gebied is niet gevonden in de database (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Het gebiedstype is niet gevonden in de database (ID: %{id})'
         scope_presenter:
           not_found: 'Het bereik is niet gevonden in de database (ID: %{id})'
         scope_type_presenter:
