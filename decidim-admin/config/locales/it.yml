@@ -21,10 +21,6 @@ it:
         description: Descrizione
         name: Nome
         parent_id: Su
-      feature:
-        name: Nome
-        published_at: Pubblicato a
-        weight: Peso
       id: ID
       newsletter:
         body: Testo
@@ -216,44 +212,6 @@ it:
       exports:
         export_as: "%{name} esporta come %{export_format}"
         notice: Export in fase di elaborazione.  Riceverai un'email quando l'export sarà terminato.
-      feature_permissions:
-        edit:
-          everyone: Tutti
-          submit: Salva la configurazione dei permessi
-          title: Modifica i permessi
-        update:
-          success: OK, i permessi sono stati aggiornati.
-      features:
-        create:
-          error: Si è verificato un errore durante l'aggiunta di questa funzionalità (feature).
-          success: OK, la feature è stata creata.
-        destroy:
-          error: Si è verificato un errore durante l'eliminazione di questa funzionalità (feature).
-          success: OK, la feature è stata cancellata.
-        edit:
-          title: Modifica feature
-          update: Aggiorna
-        form:
-          default_step_settings: Impostazioni del passo predefinite
-          global_settings: Impostazioni globali
-          step_settings: Imposta le fasi (Step)
-        index:
-          add: Aggiungi una funzionalità (feature)
-          headers:
-            actions: Azioni
-            name: Nome della funzionalità (feature)
-            type: Tipo di funzionalità (feature)
-        new:
-          add: Aggiungi una funzionalità (feature)
-          title: 'Aggiungi la feature: %{name}'
-        publish:
-          success: OK, la feature è stata pubblicata.
-        title: Funzionalità (features)
-        unpublish:
-          success: OK, questa feature adesso non è più pubblicata.
-        update:
-          error: Si è verificato un errore durante l'aggiornamento di questa funzionalità (feature).
-          success: OK, la funzionalità (feature) è stata aggiornata.
       logs:
         logs_list:
           no_logs_yet: Non ci sono ancora i log
