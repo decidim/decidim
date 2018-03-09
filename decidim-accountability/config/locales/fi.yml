@@ -167,6 +167,20 @@ fi:
           changes_at_title: Muutokset kohteessa "%{title}"
         version:
           version_index: Versio %{index}
+    components:
+      accountability:
+        name: vastuullisuutta
+        settings:
+          global:
+            categories_label: Nimi "Luokat"
+            comments_enabled: Kommentit ovat käytössä
+            display_progress_enabled: Näytä edistyminen
+            heading_leaf_level_results: Nimi "Projektit"
+            heading_parent_level_results: Nimi "Tulokset"
+            intro: intro
+            subcategories_label: Nimi "Alaluokat"
+          step:
+            comments_blocked: Kommentit on estetty
     events:
       accountability:
         proposal_linked:
