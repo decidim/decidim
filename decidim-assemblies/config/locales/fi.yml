@@ -5,6 +5,7 @@ fi:
         area_id: alue
         banner_image: Bannerikuva
         copy_categories: Kopioi aihepiirit
+        copy_components: Kopioi komponentit
         decidim_area_id: alue
         decidim_scope_id: laajuus
         description: Kuvaus
@@ -88,6 +89,7 @@ fi:
           attachment_files: Tiedostot
           attachments: Liitteet
           categories: Aihepiirit
+          components: komponentit
           info: Tiedot
           moderations: Moderoinnit
       models:
