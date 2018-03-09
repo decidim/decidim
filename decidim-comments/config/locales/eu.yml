@@ -50,8 +50,6 @@ eu:
         blocked_comments_warning: Iruzkinak desgaituta daude une honetan, baina aurrekoak irakur ditzakezu.
         loading: Iruzkinak kargatzen...
         title: "%{count} iruzkin"
-      featured_comment:
-        title: Iruzkin nabarmendua
     events:
       comments:
         comment_created:
