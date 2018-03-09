@@ -76,15 +76,15 @@ module Decidim
       end
 
       def active_authorization_methods
-        Authorizations.new(user: current_user).pluck(:name)
+        Authorizations.new(organization: current_organization, user: current_user).pluck(:name)
       end
 
       def granted_authorizations
-        Authorizations.new(user: current_user, granted: true)
+        Authorizations.new(organization: current_organization, user: current_user, granted: true)
       end
 
       def pending_authorizations
-        Authorizations.new(user: current_user, granted: false)
+        Authorizations.new(organization: current_organization, user: current_user, granted: false)
       end
 
       def store_current_location
