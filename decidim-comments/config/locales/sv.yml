@@ -50,8 +50,6 @@ sv:
         blocked_comments_warning: Kommentarer är inaktiverade just nu, men du kan läsa de föregående.
         loading: Laddar kommentarer ...
         title: "%{count} kommentarer"
-      featured_comment:
-        title: Utvalda kommentarer
     events:
       comments:
         comment_created:
