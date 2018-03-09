@@ -54,6 +54,10 @@ gl:
         success: A túa conta foi actualizada correctamente.
         success_with_email_confirmation: A túa conta foi actualizada correctamente. Recibirá un correo electrónico para confirmar o seu novo enderezo de correo electrónico.
     admin_log:
+      area:
+        create: "%{user_name} creou a área %{resource_name}"
+        delete: "%{user_name} eliminou a área %{resource_name}"
+        update: "%{user_name} actualizou a área %{resource_name}"
       component:
         create: "%{user_name} engadiu o compoñente %{resource_name} ao espazo %{space_name}"
         delete: "%{user_name} eliminaron o %{resource_name} compoñente do espazo %{space_name}"
@@ -242,6 +246,8 @@ gl:
       value_types:
         area_presenter:
           not_found: 'A área non se atopou na base de datos (ID: %{id})'
+        area_type_presenter:
+          not_found: 'O tipo de área non se atopou na base de datos (ID: %{id})'
         scope_presenter:
           not_found: 'O alcance non se atopou na base de datos (ID: %{id})'
         scope_type_presenter:
