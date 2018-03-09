@@ -84,6 +84,9 @@ jobs:
       - run:
           name: Run rubocop
           command: bundle exec rubocop
+      - run:
+          name: Run erb_lint
+          command: bundle exec erblint --lint-all
       - store_test_results:
           path: ~/rspec
   core:
