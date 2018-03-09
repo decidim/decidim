@@ -21,6 +21,10 @@ fr:
         description: Description
         name: Nom
         parent_id: Parent
+      component:
+        name: prénom
+        published_at: Publié à
+        weight: Poids
       id: ID
       newsletter:
         body: Corps de texte
@@ -205,6 +209,44 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette catégorie.
           success: Catégorie mise à jour avec succès.
+      component_permissions:
+        edit:
+          everyone: Toutes les personnes
+          submit: Enregistrer les autorisations
+          title: Modifier les autorisations
+        update:
+          success: Autorisations mises à jour avec succès.
+      components:
+        create:
+          error: Une erreur s'est produite lors de la création de ce composant.
+          success: Composant créé avec succès.
+        destroy:
+          error: Une erreur s'est produite lors de la destruction de ce composant.
+          success: Le composant a été supprimé avec succès.
+        edit:
+          title: Modifier le composant
+          update: Mettre à jour
+        form:
+          default_step_settings: Paramètres d'étape par défaut
+          global_settings: Paramètres globaux
+          step_settings: Paramètres de l'étape
+        index:
+          add: Ajouter un composant
+          headers:
+            actions: actes
+            name: Nom du composant
+            type: Type de composant
+        new:
+          add: Ajouter un composant
+          title: 'Ajouter un composant: %{name}'
+        publish:
+          success: Le composant a été publié avec succès.
+        title: Composants
+        unpublish:
+          success: Le composant a été non publié avec succès.
+        update:
+          error: Une erreur est survenue lors de la mise à jour de ce composant.
+          success: Le composant a été mis à jour avec succès.
       dashboard:
         show:
           view_more_logs: Voir plus de journaux
