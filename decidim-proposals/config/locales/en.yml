@@ -318,6 +318,7 @@ en:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
         proposal_list:
+          view_proposal: View proposal
         preview:
           modify: Modify the proposal
           proposal_edit_before_minutes:
