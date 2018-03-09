@@ -15,7 +15,7 @@
             <%= form.text_area :body, rows: 10 %>
           </div>
 
-          <% if feature_settings.geocoding_enabled? %>
+          <% if component_settings.geocoding_enabled? %>
             <div class="field">
               <%= form.check_box :has_address %>
             </div>
@@ -42,7 +42,7 @@
             </div>
           <% end %>
 
-          <% if feature_settings.attachments_allowed? %>
+          <% if component_settings.attachments_allowed? %>
             <fieldset>
               <legend><%= t('.attachment_legend') %></legend>
               <%= form.fields_for :attachment, @form.attachment do |form| %>

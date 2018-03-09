@@ -22,6 +22,18 @@ en:
         start_time: Start Time
         title: Title
   decidim:
+    components:
+      meetings:
+        actions:
+          join: Join
+        name: Meetings
+        settings:
+          global:
+            announcement: Announcement
+            comments_enabled: Comments enabled
+          step:
+            announcement: Announcement
+            comments_blocked: Comments blocked
     events:
       meetings:
         meeting_closed:
@@ -54,18 +66,6 @@ en:
           email_outro: You have received this notification because you are following the "%{resource_title}" meeting. You can unfollow it from the previous link.
           email_subject: The "%{resource_title}" meeting will start in less than 48h.
           notification_title: The <a href="%{resource_path}">%{resource_title}</a> meeting will start in less than 48h.
-    features:
-      meetings:
-        actions:
-          join: Join
-        name: Meetings
-        settings:
-          global:
-            announcement: Announcement
-            comments_enabled: Comments enabled
-          step:
-            announcement: Announcement
-            comments_blocked: Comments blocked
     meetings:
       actions:
         attachment_collections: Collections

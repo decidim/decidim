@@ -63,7 +63,7 @@ module Decidim
             end
             format.json do
               query = Decidim.find_resource_manifest(:proposals)
-                             .try(:resource_scope, current_feature)&.order(title: :asc)
+                             .try(:resource_scope, current_component)&.order(title: :asc)
               term = params[:term]
               if term&.start_with?("#")
                 term.delete!("#")
@@ -80,23 +80,23 @@ module Decidim
 
         def results
           parent_id = params[:parent_id].presence
-          @results ||= Result.where(feature: current_feature, parent_id: parent_id).page(params[:page]).per(15)
+          @results ||= Result.where(component: current_component, parent_id: parent_id).page(params[:page]).per(15)
         end
 
         def result
-          @result ||= Result.where(feature: current_feature).find(params[:id])
+          @result ||= Result.where(component: current_component).find(params[:id])
         end
 
         def parent_result
-          @parent_result ||= Result.where(feature: current_feature, id: params[:parent_id]).first
+          @parent_result ||= Result.where(component: current_component, id: params[:parent_id]).first
         end
 
         def parent_results
-          @parent_results ||= Result.where(feature: current_feature, parent_id: nil)
+          @parent_results ||= Result.where(component: current_component, parent_id: nil)
         end
 
         def statuses
-          @statuses ||= Status.where(feature: current_feature)
+          @statuses ||= Status.where(component: current_component)
         end
       end
     end

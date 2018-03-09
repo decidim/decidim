@@ -6,7 +6,7 @@ module Decidim
     # proposals in a participatory process.
     class ProposalSearch < ResourceSearch
       # Public: Initializes the service.
-      # feature     - A Decidim::Feature to get the proposals from.
+      # component     - A Decidim::Component to get the proposals from.
       # page        - The page number to paginate the results.
       # per_page    - The number of proposals to return per page.
       def initialize(options = {})

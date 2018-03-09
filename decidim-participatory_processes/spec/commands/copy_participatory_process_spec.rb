@@ -11,7 +11,7 @@ module Decidim::ParticipatoryProcesses
     let(:scope) { create :scope, organization: organization }
     let(:errors) { double.as_null_object }
     let!(:participatory_process) { create :participatory_process, :with_steps }
-    let!(:feature) { create :feature, manifest_name: :dummy, participatory_space: participatory_process }
+    let!(:component) { create :component, manifest_name: :dummy, participatory_space: participatory_process }
     let(:form) do
       instance_double(
         Admin::ParticipatoryProcessCopyForm,
@@ -20,7 +20,7 @@ module Decidim::ParticipatoryProcesses
         slug: "copied-slug",
         copy_steps?: copy_steps,
         copy_categories?: copy_categories,
-        copy_features?: copy_features
+        copy_components?: copy_components
       )
     end
     let!(:category) do
@@ -33,7 +33,7 @@ module Decidim::ParticipatoryProcesses
     let(:invalid) { false }
     let(:copy_steps) { false }
     let(:copy_categories) { false }
-    let(:copy_features) { false }
+    let(:copy_components) { false }
 
     context "when the form is not valid" do
       let(:invalid) { true }
@@ -106,24 +106,24 @@ module Decidim::ParticipatoryProcesses
       end
     end
 
-    context "when copy_features exists" do
-      let(:copy_features) { true }
+    context "when copy_components exists" do
+      let(:copy_components) { true }
 
-      it "duplicates a participatory process and the features" do
+      it "duplicates a participatory process and the components" do
         dummy_hook = proc {}
-        feature.manifest.on :copy, &dummy_hook
-        expect(dummy_hook).to receive(:call).with(new_feature: an_instance_of(Decidim::Feature), old_feature: feature)
+        component.manifest.on :copy, &dummy_hook
+        expect(dummy_hook).to receive(:call).with(new_component: an_instance_of(Decidim::Component), old_component: component)
 
-        expect { subject.call }.to change { Decidim::Feature.count }.by(1)
+        expect { subject.call }.to change { Decidim::Component.count }.by(1)
 
         last_participatory_process = Decidim::ParticipatoryProcess.last
-        last_feature = Decidim::Feature.all.reorder(:id).last
+        last_component = Decidim::Component.all.reorder(:id).last
 
-        expect(last_feature.participatory_space).to eq(last_participatory_process)
-        expect(last_feature.name).to eq(feature.name)
-        expect(last_feature.settings.attributes).to eq(feature.settings.attributes)
-        expect(last_feature.step_settings.keys).not_to eq(feature.step_settings.keys)
-        expect(last_feature.step_settings.values).not_to eq(feature.step_settings.values)
+        expect(last_component.participatory_space).to eq(last_participatory_process)
+        expect(last_component.name).to eq(component.name)
+        expect(last_component.settings.attributes).to eq(component.settings.attributes)
+        expect(last_component.step_settings.keys).not_to eq(component.step_settings.keys)
+        expect(last_component.step_settings.values).not_to eq(component.step_settings.values)
       end
     end
   end

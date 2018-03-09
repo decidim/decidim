@@ -6,14 +6,14 @@ module Decidim
     # title, description and any other useful information to render a custom result.
     class Result < Accountability::ApplicationRecord
       include Decidim::Resourceable
-      include Decidim::HasFeature
-      include Decidim::ScopableFeature
+      include Decidim::HasComponent
+      include Decidim::ScopableComponent
       include Decidim::HasCategory
       include Decidim::HasReference
       include Decidim::Comments::Commentable
       include Decidim::Traceable
 
-      feature_manifest_name "accountability"
+      component_manifest_name "accountability"
 
       has_many :children, foreign_key: "parent_id", class_name: "Decidim::Accountability::Result", inverse_of: :parent, dependent: :destroy
       belongs_to :parent, foreign_key: "parent_id", class_name: "Decidim::Accountability::Result", inverse_of: :children, optional: true, counter_cache: :children_count
@@ -45,12 +45,12 @@ module Decidim
 
       # Public: Overrides the `commentable?` Commentable concern method.
       def commentable?
-        feature.settings.comments_enabled?
+        component.settings.comments_enabled?
       end
 
       # Public: Overrides the `accepts_new_comments?` Commentable concern method.
       def accepts_new_comments?
-        commentable? && !feature.current_settings.comments_blocked
+        commentable? && !component.current_settings.comments_blocked
       end
 
       # Public: Overrides the `comments_have_alignment?` Commentable concern method.

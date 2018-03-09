@@ -18,5 +18,5 @@ describe Decidim::Abilities::AdminAbility do
   end
 
   it { is_expected.to be_able_to(:read, :admin_dashboard) }
-  it { is_expected.to be_able_to(:read, Decidim::Feature) }
+  it { is_expected.to be_able_to(:read, Decidim::Component) }
 end

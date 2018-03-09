@@ -17,20 +17,20 @@ module Decidim
           assembly ? "/assemblies/#{assembly.slug}" : "/404"
         }, constraints: { assembly_id: /[0-9]+/ }
 
-        get "/assemblies/:assembly_id/f/:feature_id", to: redirect { |params, _request|
+        get "/assemblies/:assembly_id/f/:component_id", to: redirect { |params, _request|
           assembly = Decidim::Assembly.find(params[:assembly_id])
-          assembly ? "/assemblies/#{assembly.slug}/f/#{params[:feature_id]}" : "/404"
+          assembly ? "/assemblies/#{assembly.slug}/f/#{params[:component_id]}" : "/404"
         }, constraints: { assembly_id: /[0-9]+/ }
 
         resources :assemblies, only: [:index, :show], param: :slug, path: "assemblies" do
           resource :assembly_widget, only: :show, path: "embed"
         end
 
-        scope "/assemblies/:assembly_slug/f/:feature_id" do
-          Decidim.feature_manifests.each do |manifest|
+        scope "/assemblies/:assembly_slug/f/:component_id" do
+          Decidim.component_manifests.each do |manifest|
             next unless manifest.engine
 
-            constraints CurrentFeature.new(manifest) do
+            constraints CurrentComponent.new(manifest) do
               mount manifest.engine, at: "/", as: "decidim_assembly_#{manifest.name}"
             end
           end

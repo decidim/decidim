@@ -65,23 +65,23 @@ module Decidim
         end
 
         def publish_step_settings_change
-          step.participatory_process.features.each do |feature|
+          step.participatory_process.components.each do |component|
             Decidim::SettingsChange.publish(
-              feature,
-              previous_step_settings(feature).to_h,
-              current_step_settings(feature).to_h
+              component,
+              previous_step_settings(component).to_h,
+              current_step_settings(component).to_h
             )
           end
         end
 
-        def current_step_settings(feature)
-          feature.step_settings.fetch(step.id.to_s)
+        def current_step_settings(component)
+          component.step_settings.fetch(step.id.to_s)
         end
 
-        def previous_step_settings(feature)
+        def previous_step_settings(component)
           return {} unless @previous_step
 
-          feature.step_settings.fetch(@previous_step.id.to_s)
+          component.step_settings.fetch(@previous_step.id.to_s)
         end
       end
     end

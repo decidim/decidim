@@ -16,8 +16,44 @@ en:
         answer: Answer
       proposals_copy:
         copy_proposals: I understand that this will import all proposals from the selected component to the current one and that this action can't be reversed.
-        origin_feature_id: Component to copy the proposals from
+        origin_component_id: Component to copy the proposals from
   decidim:
+    components:
+      proposals:
+        actions:
+          create: Create
+          endorse: Endorse
+          vote: Vote
+          withdraw: Withdraw
+        name: Proposals
+        settings:
+          global:
+            announcement: Announcement
+            attachments_allowed: Allow attachments
+            can_accumulate_supports_beyond_threshold: Can accumulate supports beyond threshold
+            comments_enabled: Comments enabled
+            geocoding_enabled: Geocoding enabled
+            maximum_votes_per_proposal: Maximum votes per proposal
+            new_proposal_help_text: New proposal help text
+            official_proposals_enabled: Official proposals enabled
+            proposal_answering_enabled: Proposal answering enabled
+            proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
+            proposal_length: Maximum proposal body length
+            proposal_limit: Proposal limit per user
+            proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
+            proposal_wizard_step_2_help_text: Proposal wizard "Compare" step help text
+            proposal_wizard_step_3_help_text: Proposal wizard "Publish" step help text
+            vote_limit: Vote limit per user
+          step:
+            announcement: Announcement
+            comments_blocked: Comments blocked
+            creation_enabled: Proposal creation enabled
+            endorsements_blocked: Endorsements blocked
+            endorsements_enabled: Endorsements enabled
+            proposal_answering_enabled: Proposal answering enabled
+            votes_blocked: Votes blocked
+            votes_enabled: Votes enabled
+            votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
     events:
       proposals:
         creation_enabled:
@@ -70,42 +106,6 @@ en:
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: Proposals voting has started for %{participatory_space_title}
           notification_title: You can now start <a href="%{resource_path}">voting proposals</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
-    features:
-      proposals:
-        actions:
-          create: Create
-          endorse: Endorse
-          vote: Vote
-          withdraw: Withdraw
-        name: Proposals
-        settings:
-          global:
-            announcement: Announcement
-            attachments_allowed: Allow attachments
-            can_accumulate_supports_beyond_threshold: Can accumulate supports beyond threshold
-            comments_enabled: Comments enabled
-            geocoding_enabled: Geocoding enabled
-            maximum_votes_per_proposal: Maximum votes per proposal
-            new_proposal_help_text: New proposal help text
-            official_proposals_enabled: Official proposals enabled
-            proposal_answering_enabled: Proposal answering enabled
-            proposal_edit_before_minutes: Proposals can be edited by authors before this many minutes passes
-            proposal_length: Maximum proposal body length
-            proposal_limit: Proposal limit per user
-            proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
-            proposal_wizard_step_2_help_text: Proposal wizard "Compare" step help text
-            proposal_wizard_step_3_help_text: Proposal wizard "Publish" step help text
-            vote_limit: Vote limit per user
-          step:
-            announcement: Announcement
-            comments_blocked: Comments blocked
-            creation_enabled: Proposal creation enabled
-            endorsements_blocked: Endorsements blocked
-            endorsements_enabled: Endorsements enabled
-            proposal_answering_enabled: Proposal answering enabled
-            votes_blocked: Votes blocked
-            votes_enabled: Votes enabled
-            votes_hidden: Votes hidden (if votes are enabled, checking this will hide the number of votes)
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -183,8 +183,8 @@ en:
             success: "%{number} proposals successfully imported"
           new:
             create: Import proposals
-            no_features: There are no other proposal features in this participatory space to import the proposals from.
-            select_feature: Please select a component
+            no_components: There are no other proposal components in this participatory space to import the proposals from.
+            select_component: Please select a component
             select_states: Check the states of the proposals to import
         shared:
           info_proposal:

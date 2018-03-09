@@ -101,7 +101,7 @@ en:
         show:
           budget: Budget
           view_all_projects: View all projects
-    features:
+    components:
       budgets:
         actions:
           vote: Vote

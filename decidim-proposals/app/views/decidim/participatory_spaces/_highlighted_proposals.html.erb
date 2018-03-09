@@ -1,7 +1,7 @@
 <% if proposals.any? %>
   <section class="section row collapse highlighted_proposals">
     <h4 class="section-heading">
-      <%= t(".proposals") %>  <a href="<%= main_feature_path(proposals.first.feature) %>" class="text-small"><%= t(".see_all_proposals") %></a>
+      <%= t(".proposals") %>  <a href="<%= main_component_path(proposals.first.component) %>" class="text-small"><%= t(".see_all_proposals") %></a>
     </h4>
     <div class="row small-up-1 medium-up-2 card-grid">
       <%= render partial: 'decidim/participatory_spaces/proposal', collection: proposals %>

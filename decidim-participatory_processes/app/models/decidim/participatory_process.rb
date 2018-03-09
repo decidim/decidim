@@ -3,7 +3,7 @@
 module Decidim
   # Interaction between a user and an organization is done via a
   # ParticipatoryProcess. It's a unit of action from the Organization point of
-  # view that groups several features (proposals, debates...) distributed in
+  # view that groups several components (proposals, debates...) distributed in
   # steps that get enabled or disabled depending on which step is currently
   # active.
   class ParticipatoryProcess < ApplicationRecord
@@ -43,7 +43,7 @@ module Decidim
              dependent: :destroy,
              as: :participatory_space
 
-    has_many :features, as: :participatory_space, dependent: :destroy
+    has_many :components, as: :participatory_space, dependent: :destroy
 
     attr_readonly :active_step
 

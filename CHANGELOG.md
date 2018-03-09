@@ -2,7 +2,15 @@
 
 ## [Unreleased](https://github.com/decidim/decidim/tree/HEAD)
 
+**Upgrade notes**:
+
+This version has breaking changes, `Decidim::Feature` has been renamed to `Decidim::Component`,
+and also everything related to it (controllers, views, etc.). If you have customised some
+controller or added a new module you need to rename `feature` to `component`.
+
 **Added**:
+
+- **decidim**: Rename features to components [\#2913](https://github.com/decidim/decidim/pull/2913)
 
 **Changed**:
 

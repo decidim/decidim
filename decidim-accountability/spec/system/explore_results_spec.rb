@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Explore results", versioning: true, type: :system do
-  include_context "with a feature"
+  include_context "with a component"
 
   let(:manifest_name) { "accountability" }
   let(:results_count) { 5 }
@@ -12,7 +12,7 @@ describe "Explore results", versioning: true, type: :system do
     create_list(
       :result,
       results_count,
-      feature: feature
+      component: component
     )
   end
 
@@ -21,11 +21,11 @@ describe "Explore results", versioning: true, type: :system do
   end
 
   describe "home" do
-    let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_slug: participatory_process.slug, feature_id: feature.id) }
+    let(:path) { decidim_participatory_process_accountability.root_path(participatory_process_slug: participatory_process.slug, component_id: component.id) }
 
     it "shows categories and subcategories with results" do
       participatory_process.categories.each do |category|
-        results_count = Decidim::Accountability::ResultsCalculator.new(feature, nil, category.id).count
+        results_count = Decidim::Accountability::ResultsCalculator.new(component, nil, category.id).count
         expect(page).to have_content(translated(category.name)) if !category.subcategories.empty? || results_count.positive?
       end
     end
@@ -37,7 +37,7 @@ describe "Explore results", versioning: true, type: :system do
 
     context "with progress disabled" do
       before do
-        feature.update!(settings: { display_progress_enabled: false })
+        component.update!(settings: { display_progress_enabled: false })
       end
 
       it "doesn't show progress" do
@@ -50,7 +50,7 @@ describe "Explore results", versioning: true, type: :system do
   end
 
   describe "index" do
-    let(:path) { decidim_participatory_process_accountability.results_path(participatory_process_slug: participatory_process.slug, feature_id: feature.id) }
+    let(:path) { decidim_participatory_process_accountability.results_path(participatory_process_slug: participatory_process.slug, component_id: component.id) }
 
     it "shows all results for the given process and category" do
       expect(page).to have_selector(".card--list__item", count: results_count)
@@ -73,7 +73,7 @@ describe "Explore results", versioning: true, type: :system do
 
       let(:path) do
         decidim_participatory_process_accountability.results_path(
-          participatory_process_slug: participatory_process.slug, feature_id: feature.id, filter: { category_id: category.id, scope_id: scope.id }
+          participatory_process_slug: participatory_process.slug, component_id: component.id, filter: { category_id: category.id, scope_id: scope.id }
         )
       end
 
@@ -94,7 +94,7 @@ describe "Explore results", versioning: true, type: :system do
   end
 
   describe "show" do
-    let(:path) { decidim_participatory_process_accountability.result_path(id: result.id, participatory_process_slug: participatory_process.slug, feature_id: feature.id) }
+    let(:path) { decidim_participatory_process_accountability.result_path(id: result.id, participatory_process_slug: participatory_process.slug, component_id: component.id) }
     let(:results_count) { 1 }
     let(:result) { results.first }
 
@@ -162,7 +162,7 @@ describe "Explore results", versioning: true, type: :system do
 
     context "when a proposal has comments" do
       let(:result) { results.first }
-      let(:author) { create(:user, :confirmed, organization: feature.organization) }
+      let(:author) { create(:user, :confirmed, organization: component.organization) }
       let!(:comments) { create_list(:comment, 3, commentable: result) }
 
       before do
@@ -177,10 +177,10 @@ describe "Explore results", versioning: true, type: :system do
     end
 
     context "with linked proposals" do
-      let(:proposal_feature) do
-        create(:feature, manifest_name: :proposals, participatory_space: result.feature.participatory_space)
+      let(:proposal_component) do
+        create(:component, manifest_name: :proposals, participatory_space: result.component.participatory_space)
       end
-      let(:proposals) { create_list(:proposal, 3, feature: proposal_feature) }
+      let(:proposals) { create_list(:proposal, 3, component: proposal_component) }
       let(:proposal) { proposals.first }
 
       before do
@@ -203,10 +203,10 @@ describe "Explore results", versioning: true, type: :system do
     end
 
     context "with linked projects" do
-      let(:project_feature) do
-        create(:feature, manifest_name: :budgets, participatory_space: result.feature.participatory_space)
+      let(:project_component) do
+        create(:component, manifest_name: :budgets, participatory_space: result.component.participatory_space)
       end
-      let(:budgets) { create_list(:project, 3, feature: project_feature) }
+      let(:budgets) { create_list(:project, 3, component: project_component) }
       let(:project) { budgets.first }
 
       before do
@@ -227,10 +227,10 @@ describe "Explore results", versioning: true, type: :system do
     end
 
     context "with linked meetings" do
-      let(:meeting_feature) do
-        create(:feature, manifest_name: :meetings, participatory_space: result.feature.participatory_space)
+      let(:meeting_component) do
+        create(:component, manifest_name: :meetings, participatory_space: result.component.participatory_space)
       end
-      let(:meetings) { create_list(:meeting, 3, feature: meeting_feature) }
+      let(:meetings) { create_list(:meeting, 3, component: meeting_component) }
       let(:meeting) { meetings.first }
 
       before do
@@ -253,8 +253,8 @@ describe "Explore results", versioning: true, type: :system do
 
     context "when filtering" do
       before do
-        create(:result, feature: feature, scope: scope)
-        visit_feature
+        create(:result, component: component, scope: scope)
+        visit_component
       end
 
       context "when the process has a linked scope" do

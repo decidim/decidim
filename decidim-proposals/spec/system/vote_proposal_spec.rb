@@ -3,11 +3,11 @@
 require "spec_helper"
 
 describe "Vote Proposal", type: :system do
-  include_context "with a feature"
+  include_context "with a component"
   let(:manifest_name) { "proposals" }
 
-  let!(:proposals) { create_list(:proposal, 3, feature: feature) }
-  let!(:proposal) { Decidim::Proposals::Proposal.where(feature: feature).first }
+  let!(:proposals) { create_list(:proposal, 3, component: component) }
+  let!(:proposal) { Decidim::Proposals::Proposal.where(component: component).first }
   let!(:user) { create :user, :confirmed, organization: organization }
 
   def expect_page_not_to_include_votes
@@ -18,7 +18,7 @@ describe "Vote Proposal", type: :system do
   context "when votes are not enabled" do
     context "when the user is not logged in" do
       it "doesn't show the vote proposal button and counts" do
-        visit_feature
+        visit_component
         expect_page_not_to_include_votes
 
         click_link proposal.title
@@ -32,7 +32,7 @@ describe "Vote Proposal", type: :system do
       end
 
       it "doesn't show the vote proposal button and counts" do
-        visit_feature
+        visit_component
         expect_page_not_to_include_votes
 
         click_link proposal.title
@@ -42,22 +42,22 @@ describe "Vote Proposal", type: :system do
   end
 
   context "when votes are blocked" do
-    let!(:feature) do
-      create(:proposal_feature,
+    let!(:component) do
+      create(:proposal_component,
              :with_votes_blocked,
              manifest: manifest,
              participatory_space: participatory_process)
     end
 
     it "shows the vote count and the vote button is disabled" do
-      visit_feature
+      visit_component
       expect_page_not_to_include_votes
     end
   end
 
   context "when votes are enabled" do
-    let!(:feature) do
-      create(:proposal_feature,
+    let!(:component) do
+      create(:proposal_component,
              :with_votes_enabled,
              manifest: manifest,
              participatory_space: participatory_process)
@@ -65,7 +65,7 @@ describe "Vote Proposal", type: :system do
 
     context "when the user is not logged in" do
       it "is given the option to sign in" do
-        visit_feature
+        visit_component
 
         within ".card__support", match: :first do
           click_button "Vote"
@@ -82,7 +82,7 @@ describe "Vote Proposal", type: :system do
 
       context "when the proposal is not voted yet" do
         before do
-          visit_feature
+          visit_component
         end
 
         it "is able to vote the proposal" do
@@ -100,7 +100,7 @@ describe "Vote Proposal", type: :system do
       context "when the proposal is already voted" do
         before do
           create(:proposal_vote, proposal: proposal, author: user)
-          visit_feature
+          visit_component
         end
 
         it "is not able to vote it again" do
@@ -126,11 +126,11 @@ describe "Vote Proposal", type: :system do
         end
       end
 
-      context "when the feature has a vote limit" do
+      context "when the component has a vote limit" do
         let(:vote_limit) { 10 }
 
-        let!(:feature) do
-          create(:proposal_feature,
+        let!(:component) do
+          create(:proposal_component,
                  :with_votes_enabled,
                  :with_vote_limit,
                  vote_limit: vote_limit,
@@ -140,8 +140,8 @@ describe "Vote Proposal", type: :system do
 
         describe "vote counter" do
           context "when votes are blocked" do
-            let!(:feature) do
-              create(:proposal_feature,
+            let!(:component) do
+              create(:proposal_component,
                      :with_votes_blocked,
                      :with_vote_limit,
                      vote_limit: vote_limit,
@@ -150,7 +150,7 @@ describe "Vote Proposal", type: :system do
             end
 
             it "doesn't show the remaining votes counter" do
-              visit_feature
+              visit_component
 
               expect(page).to have_css(".voting-rules")
               expect(page).to have_no_css(".remaining-votes-counter")
@@ -158,8 +158,8 @@ describe "Vote Proposal", type: :system do
           end
 
           context "when votes are enabled" do
-            let!(:feature) do
-              create(:proposal_feature,
+            let!(:component) do
+              create(:proposal_component,
                      :with_votes_enabled,
                      :with_vote_limit,
                      vote_limit: vote_limit,
@@ -168,7 +168,7 @@ describe "Vote Proposal", type: :system do
             end
 
             it "shows the remaining votes counter" do
-              visit_feature
+              visit_component
 
               expect(page).to have_css(".voting-rules")
               expect(page).to have_css(".remaining-votes-counter")
@@ -178,7 +178,7 @@ describe "Vote Proposal", type: :system do
 
         context "when the proposal is not voted yet" do
           before do
-            visit_feature
+            visit_component
           end
 
           it "updates the remaining votes counter" do
@@ -199,8 +199,8 @@ describe "Vote Proposal", type: :system do
               }
             }
 
-            feature.update!(permissions: permissions)
-            visit_feature
+            component.update!(permissions: permissions)
+            visit_component
           end
 
           it "shows a modal dialog" do
@@ -215,7 +215,7 @@ describe "Vote Proposal", type: :system do
         context "when the proposal is already voted" do
           before do
             create(:proposal_vote, proposal: proposal, author: user)
-            visit_feature
+            visit_component
           end
 
           it "is not able to vote it again" do
@@ -244,7 +244,7 @@ describe "Vote Proposal", type: :system do
 
           before do
             create(:proposal_vote, proposal: proposal, author: user)
-            visit_feature
+            visit_component
           end
 
           it "is not able to vote other proposals" do
@@ -252,8 +252,8 @@ describe "Vote Proposal", type: :system do
           end
 
           context "when votes are blocked" do
-            let!(:feature) do
-              create(:proposal_feature,
+            let!(:component) do
+              create(:proposal_component,
                      :with_votes_blocked,
                      manifest: manifest,
                      participatory_space: participatory_process)
@@ -269,14 +269,14 @@ describe "Vote Proposal", type: :system do
     end
 
     context "when the proposal is rejected" do
-      let!(:rejected_proposal) { create(:proposal, :rejected, feature: feature) }
+      let!(:rejected_proposal) { create(:proposal, :rejected, component: component) }
 
       before do
-        feature.update!(settings: { proposal_answering_enabled: true })
+        component.update!(settings: { proposal_answering_enabled: true })
       end
 
       it "cannot be voted" do
-        visit_feature
+        visit_component
         expect(page).not_to have_selector("#proposal-#{rejected_proposal.id}-vote-button")
 
         click_link rejected_proposal.title
@@ -285,8 +285,8 @@ describe "Vote Proposal", type: :system do
     end
 
     context "when proposals have a voting limit" do
-      let!(:feature) do
-        create(:proposal_feature,
+      let!(:component) do
+        create(:proposal_component,
                :with_votes_enabled,
                :with_maximum_votes_per_proposal,
                manifest: manifest,
@@ -299,7 +299,7 @@ describe "Vote Proposal", type: :system do
 
       it "doesn't allow users to vote to a proposal that's reached the limit" do
         create(:proposal_vote, proposal: proposal)
-        visit_feature
+        visit_component
 
         proposal_element = page.find("article", text: proposal.reference)
 
@@ -311,7 +311,7 @@ describe "Vote Proposal", type: :system do
       end
 
       it "allows users to vote on proposals under the limit" do
-        visit_feature
+        visit_component
 
         proposal_element = page.find("article", text: proposal.reference)
 
@@ -324,8 +324,8 @@ describe "Vote Proposal", type: :system do
       end
     end
     context "when proposals have vote limit but can accumulate more votes" do
-      let!(:feature) do
-        create(:proposal_feature,
+      let!(:component) do
+        create(:proposal_component,
                :with_votes_enabled,
                :with_maximum_votes_per_proposal,
                :with_can_accumulate_supports_beyond_threshold,
@@ -339,7 +339,7 @@ describe "Vote Proposal", type: :system do
 
       it "allows users to vote on proposals over the limit" do
         create(:proposal_vote, proposal: proposal)
-        visit_feature
+        visit_component
 
         proposal_element = page.find("article", text: proposal.reference)
 

@@ -17,9 +17,9 @@ module Decidim
           process ? "/processes/#{process.slug}" : "/404"
         }, constraints: { process_id: /[0-9]+/ }
 
-        get "/processes/:process_id/f/:feature_id", to: redirect { |params, _request|
+        get "/processes/:process_id/f/:component_id", to: redirect { |params, _request|
           process = Decidim::ParticipatoryProcess.find(params[:process_id])
-          process ? "/processes/#{process.slug}/f/#{params[:feature_id]}" : "/404"
+          process ? "/processes/#{process.slug}/f/#{params[:component_id]}" : "/404"
         }, constraints: { process_id: /[0-9]+/ }
 
         resources :participatory_process_groups, only: :show, path: "processes_groups"
@@ -28,11 +28,11 @@ module Decidim
           resource :participatory_process_widget, only: :show, path: "embed"
         end
 
-        scope "/processes/:participatory_process_slug/f/:feature_id" do
-          Decidim.feature_manifests.each do |manifest|
+        scope "/processes/:participatory_process_slug/f/:component_id" do
+          Decidim.component_manifests.each do |manifest|
             next unless manifest.engine
 
-            constraints CurrentFeature.new(manifest) do
+            constraints CurrentComponent.new(manifest) do
               mount manifest.engine, at: "/", as: "decidim_participatory_process_#{manifest.name}"
             end
           end

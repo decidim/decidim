@@ -8,25 +8,25 @@ module Decidim
 
       # Syntactic sugar to initialize the class and return the queried objects.
       #
-      # features - Decidim::CurrentFeature
+      # components - Decidim::CurrentComponent
       # proposal - Decidim::Proposals::Proposal
-      def self.for(features, proposal)
-        new(features, proposal).query
+      def self.for(components, proposal)
+        new(components, proposal).query
       end
 
       # Initializes the class.
       #
-      # features - Decidim::CurrentFeature
+      # components - Decidim::CurrentComponent
       # proposal - Decidim::Proposals::Proposal
-      def initialize(features, proposal)
-        @features = features
+      def initialize(components, proposal)
+        @components = components
         @proposal = proposal
       end
 
       # Retrieves similar proposals
       def query
         Decidim::Proposals::Proposal
-          .where(feature: @features)
+          .where(component: @components)
           .published
           .where(
             "GREATEST(#{title_similarity}, #{body_similarity}) >= ?",

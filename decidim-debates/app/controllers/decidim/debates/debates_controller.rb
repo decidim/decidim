@@ -20,7 +20,7 @@ module Decidim
 
       def create
         authorize! :create, Debate
-        @form = form(DebateForm).from_params(params, current_feature: current_feature)
+        @form = form(DebateForm).from_params(params, current_component: current_component)
 
         CreateDebate.call(@form) do
           on(:ok) do |debate|

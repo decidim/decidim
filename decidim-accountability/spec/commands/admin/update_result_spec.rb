@@ -7,44 +7,44 @@ module Decidim::Accountability
     subject { described_class.new(form, result) }
 
     let(:result) { create :result }
-    let(:organization) { result.feature.organization }
+    let(:organization) { result.component.organization }
     let(:user) { create :user, organization: organization }
     let(:scope) { create :scope, organization: organization }
     let(:category) { create :category, participatory_space: participatory_process }
-    let(:participatory_process) { result.feature.participatory_space }
-    let(:meeting_feature) do
-      create(:feature, manifest_name: :meetings, participatory_space: participatory_process)
+    let(:participatory_process) { result.component.participatory_space }
+    let(:meeting_component) do
+      create(:component, manifest_name: :meetings, participatory_space: participatory_process)
     end
 
     let(:start_date) { Date.yesterday }
     let(:end_date) { Date.tomorrow }
-    let(:status) { create :status, feature: result.feature, key: "finished", name: { en: "Finished" } }
+    let(:status) { create :status, component: result.component, key: "finished", name: { en: "Finished" } }
     let(:progress) { 95 }
 
     let(:meeting) do
       create(
         :meeting,
-        feature: meeting_feature
+        component: meeting_component
       )
     end
-    let(:proposal_feature) do
-      create(:feature, manifest_name: :proposals, participatory_space: participatory_process)
+    let(:proposal_component) do
+      create(:component, manifest_name: :proposals, participatory_space: participatory_process)
     end
     let(:proposals) do
       create_list(
         :proposal,
         3,
-        feature: proposal_feature
+        component: proposal_component
       )
     end
-    let(:project_feature) do
-      create(:feature, manifest_name: :budgets, participatory_space: participatory_process)
+    let(:project_component) do
+      create(:component, manifest_name: :budgets, participatory_space: participatory_process)
     end
     let(:projects) do
       create_list(
         :project,
         2,
-        feature: project_feature
+        component: project_component
       )
     end
     let(:form) do

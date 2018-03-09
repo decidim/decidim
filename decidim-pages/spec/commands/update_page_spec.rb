@@ -9,8 +9,8 @@ module Decidim
         let(:current_organization) { create(:organization) }
         let(:user) { create(:user, organization: current_organization) }
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-        let(:feature) { create(:feature, manifest_name: "pages", participatory_space: participatory_process) }
-        let(:page) { create(:page, feature: feature) }
+        let(:component) { create(:component, manifest_name: "pages", participatory_space: participatory_process) }
+        let(:page) { create(:page, component: component) }
         let(:form_params) do
           {
             "body" => { "en" => "My new body" }
@@ -46,7 +46,7 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "creates a new page with the same name as the feature" do
+          it "creates a new page with the same name as the component" do
             expect(page).to receive(:update!)
             command.call
           end

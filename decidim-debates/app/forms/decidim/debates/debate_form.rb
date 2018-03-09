@@ -17,7 +17,7 @@ module Decidim
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
 
       def category
-        @category ||= current_feature.categories.where(id: category_id).first
+        @category ||= current_component.categories.where(id: category_id).first
       end
     end
   end

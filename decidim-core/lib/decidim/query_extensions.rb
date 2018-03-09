@@ -44,8 +44,8 @@ module Decidim
         argument :id, !types.ID, "The ID of the component to be found"
 
         resolve lambda { |_, args, ctx|
-                  feature = Decidim::Feature.published.find_by(id: args[:id])
-                  feature&.organization == ctx[:current_organization] ? feature : nil
+                  component = Decidim::Component.published.find_by(id: args[:id])
+                  component&.organization == ctx[:current_organization] ? component : nil
                 }
       end
 
