@@ -5,7 +5,6 @@ pl:
         area_id: Powierzchnia
         banner_image: Obraz baneru
         copy_categories: Kopiuj kategorie
-        copy_features: Kopiuj funkcje
         decidim_area_id: Powierzchnia
         decidim_scope_id: Zakres
         description: Opis
@@ -89,7 +88,6 @@ pl:
           attachment_files: Akta
           attachments: Załączniki
           categories: Kategorie
-          features: cechy
           info: Informacje
           moderations: Modernizacje
       models:
