@@ -308,11 +308,9 @@ gl:
             other: Poderás editar esta proposta durante o primeiro %{count} minutos despois da publicación da proposta. Unha vez que pase esta xanela de tempo, non poderás editar a proposta.
           publish: Publicar
           title: Publica a túa proposta
-        proposal_column:
+        proposal:
           creation_date: 'Creación: %{date}'
-          view_proposal:  Ver proposta
-        proposal_list:
-          view_proposal:  Ver proposta
+          view_proposal: Ver proposta
         show:
           edit_proposal: Editar proposta
           proposal_accepted_reason: 'Esta proposta foi aceptada porque:'

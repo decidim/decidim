@@ -308,11 +308,9 @@ fi:
             other: 'Voit muokata tätä ehdotusta ensimmäisen %{count}: n aikana minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna läpäisee, et pysty muokkaamaan ehdotusta.'
           publish: Julkaista
           title: Julkaise ehdotuksesi
-        proposal_column:
+        proposal:
           creation_date: 'Luontiaika: %{date}'
-          view_proposal:  Näytä ehdotus
-        proposal_list:
-          view_proposal:  Näytä ehdotus
+          view_proposal: Näytä ehdotus
         show:
           edit_proposal: Muokkaa ehdotusta
           proposal_accepted_reason: 'Tämä ehdotus on hyväksytty, koska:'

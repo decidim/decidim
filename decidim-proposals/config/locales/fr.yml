@@ -321,11 +321,13 @@ fr:
             other: Vous serez en mesure de modifier cette proposition au cours de la première %{count} minutes après la publication de la proposition. Une fois cette fenêtre de temps passée, vous ne pourrez pas modifier la proposition.
           publish: Publier
           title: Publiez votre proposition
+        proposal:
+          creation_date: 'Création: %{date}'
+          view_proposal: Voir la proposition
         proposal_column:
           creation_date: 'Création: %{date}'
           view_proposal: Voir la proposition
-        proposal_list:
-          view_proposal: Voir la proposition
+        proposal_list: 
         show:
           edit_proposal: Modifier la proposition
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'

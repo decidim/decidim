@@ -308,11 +308,9 @@ sv:
             other: Du kommer att kunna redigera detta förslag under den första %{count} minuter efter att förslaget har publicerats. När det här gångfönstret passerar kommer du inte att kunna redigera förslaget.
           publish: Publicera
           title: Publicera ditt förslag
-        proposal_column:
+        proposal:
           creation_date: 'Skapelse: %{date}'
-          view_proposal:  Visa förslag
-        proposal_list:
-          view_proposal:   Visa förslag
+          view_proposal: Visa förslag
         show:
           edit_proposal: Redigera förslag
           proposal_accepted_reason: 'Detta förslag har godkänts eftersom:'

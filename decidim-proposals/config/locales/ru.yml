@@ -148,11 +148,9 @@ ru:
           most_voted: С наибольшим количеством голосов
           random: Произвольно
           recent: Недавние
-        proposal_column:
+        proposal:
           creation_date: 'Создано: %{date}'
           view_proposal: Просмотреть предложение
-        proposal_list:
-          view_proposal:  Просмотреть предложение
         show:
           edit_proposal: Редактировать предложение
           proposal_accepted_reason: 'Это предложение было принято, поскольку:'

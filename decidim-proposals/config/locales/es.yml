@@ -308,10 +308,8 @@ es:
             other: Podrás editar esta propuesta durante los primeros %{count} minutos después de que se publique. Una vez que pase este tiempo, no podrás editar la propuesta.
           publish: Publicar
           title: Publica tu propuesta
-        proposal_column:
+        proposal:
           creation_date: 'Creación: %{date}'
-          view_proposal: Ver propuesta
-        proposal_list:
           view_proposal: Ver propuesta
         show:
           edit_proposal: Editar propuesta

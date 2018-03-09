@@ -308,11 +308,9 @@ nl:
             other: U kunt dit voorstel bewerken tijdens de eerste %{count} minuten nadat het voorstel is gepubliceerd. Zodra dit tijdvenster is verstreken, kunt u het voorstel niet bewerken.
           publish: Publiceren
           title: Publiceer uw voorstel
-        proposal_column:
+        proposal:
           creation_date: 'Aangemaakt op: %{date}'
-          view_proposal:  Bekijk voorstel
-        proposal_list:
-          view_proposal:  Bekijk voorstel
+          view_proposal: Bekijk voorstel
         show:
           edit_proposal: Bewerk voorstel
           proposal_accepted_reason: 'Dit voorstel is geaccepteerd omdat:'

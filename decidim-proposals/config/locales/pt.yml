@@ -308,11 +308,9 @@ pt:
             other: Você poderá editar esta proposta durante o primeiro %{count} minutos após a publicação da proposta. Uma vez que esta janela de tempo passa, você não poderá editar a proposta.
           publish: Publicar
           title: Publique sua proposta
-        proposal_column:
+        proposal:
           creation_date: 'Criação: %{date}'
           view_proposal: Ver proposta
-        proposal_list:
-          view_proposal:  Ver proposta
         show:
           edit_proposal: Editar proposta
           proposal_accepted_reason: 'Esta proposta foi aceita porque:'

@@ -321,11 +321,13 @@ en:
             other: You will be able to edit this proposal during the first %{count} minutes after the proposal is published. Once this time window passes, you will not be able to edit the proposal.
           publish: Publish
           title: Publish your proposal
+        proposal:
+          creation_date: 'Creation: %{date}'
+          view_proposal: View proposal
         proposal_column:
           creation_date: 'Creation: %{date}'
           view_proposal: View proposal
-        proposal_list:
-          view_proposal: View proposal
+        proposal_list: 
         show:
           edit_proposal: Edit proposal
           proposal_accepted_reason: 'This proposal has been accepted because:'

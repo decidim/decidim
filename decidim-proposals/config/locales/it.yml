@@ -308,11 +308,9 @@ it:
             other: Sarai in grado di modificare questa proposta durante il primo %{count} pochi minuti dopo la pubblicazione della proposta. Una volta passata questa finestra, non sarai in grado di modificare la proposta.
           publish: Pubblicare
           title: Pubblica la tua proposta
-        proposal_column:
+        proposal:
           creation_date: 'Creazione: %{date}'
-          view_proposal:  Visualizza la proposta
-        proposal_list:
-          view_proposal:  Visualizza la proposta
+          view_proposal: Visualizza la proposta
         show:
           edit_proposal: Modifica la proposta
           proposal_accepted_reason: 'Questa proposta è stata accettata perché:'

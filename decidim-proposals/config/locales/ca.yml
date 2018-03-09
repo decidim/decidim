@@ -308,10 +308,8 @@ ca:
             other: Podràs editar aquesta proposta durant els primers %{count} minuts després de la publicació de la proposta. Un cop passada aquesta finestra de temps, no podràs editar la proposta.
           publish: Publica
           title: Publica la teva proposta
-        proposal_column:
-          creation_date: 'Création: %{date}'
-          view_proposal: Veure proposta
-        proposal_list:
+        proposal:
+          creation_date: 'Creació: %{date}'
           view_proposal: Veure proposta
         show:
           edit_proposal: Editar proposta
