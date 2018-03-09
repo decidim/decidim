@@ -21,10 +21,6 @@ nl:
         description: Beschrijving
         name: Naam
         parent_id: Ouder
-      feature:
-        name: Naam
-        published_at: Gepubliceerd op
-        weight: Gewicht
       id: ID
       newsletter:
         body: Body
@@ -216,44 +212,6 @@ nl:
       exports:
         export_as: "%{name} als %{export_format}"
         notice: Uw export is momenteel aan de gang. U ontvangt een email wanneer het klaar is.
-      feature_permissions:
-        edit:
-          everyone: Iedereen
-          submit: Bewaar permissies
-          title: Wijzig permissies
-        update:
-          success: Permissies succesvol bijgewerkt.
-      features:
-        create:
-          error: Er is een fout opgetreden bij het maken van deze functie.
-          success: Functionaliteit is succesvol gemaakt.
-        destroy:
-          error: Er is een fout onstaan bij het vernietigingen van deze functionaliteit.
-          success: Functionaliteit is succesvol verwijderd.
-        edit:
-          title: Bewerk functie
-          update: Bijwerken
-        form:
-          default_step_settings: Standaard stapinstellingen
-          global_settings: Algemene instellingen
-          step_settings: Stap instellingen
-        index:
-          add: Functionaliteit toevoegen
-          headers:
-            actions: Acties
-            name: Naam functionaliteit
-            type: Functionaliteitstype
-        new:
-          add: Functionaliteit toevoegen
-          title: 'Functionaliteit toevoegen: %{name}'
-        publish:
-          success: De functionaliteit is succesvol gepubliceerd.
-        title: Functionaliteiten
-        unpublish:
-          success: De functionaliteit is succesvol ongepubliceerd.
-        update:
-          error: Er is een fout opgetreden bij het bijwerken van deze functionaliteit.
-          success: De functionaliteit is succesvol bijgewerkt.
       logs:
         logs_list:
           no_logs_yet: Er zijn nog geen logs
