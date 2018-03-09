@@ -7,7 +7,7 @@ module Decidim::Accountability
     subject { described_class.new(result, user) }
 
     let(:result) { create :result }
-    let(:organization) { result.feature.organization }
+    let(:organization) { result.component.organization }
     let(:user) { create :user, organization: organization }
 
     context "when everything is ok" do
