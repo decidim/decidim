@@ -100,6 +100,22 @@ ca:
         show:
           budget: Pressupost
           view_all_projects: Veure tots els projectes
+    components:
+      budgets:
+        actions:
+          vote: Votació
+        name: Pressupostos
+        settings:
+          global:
+            announcement: Anunci
+            comments_enabled: Comentaris habilitats
+            total_budget: Pressupost total
+            vote_threshold_percent: Percentatge de llindar de vot
+          step:
+            announcement: Anunci
+            comments_blocked: Comentaris bloquejats
+            show_votes: Mostra els vots
+            votes_enabled: Vots habilitats
     orders:
       checkout:
         error: S'ha produït un error en processar el teu vot
