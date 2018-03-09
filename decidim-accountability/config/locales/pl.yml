@@ -2,6 +2,7 @@ pl:
   activemodel:
     attributes:
       result:
+        decidim_accountability_status_id: Status
         decidim_category_id: Kategoria
         decidim_scope_id: Zakres
         description: Opis
@@ -103,7 +104,11 @@ pl:
       admin_log:
         result:
           create: "%{user_name} utworzony wynik %{resource_name} w %{space_name}"
+          delete: "%{user_name} usunął %{resource_name} wynik w %{space_name}"
           update: "%{user_name} zaktualizowany wynik %{resource_name} w %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Nie znaleziono elementu nadrzędnego w bazie danych (ID: %{id})'
       models:
         result:
           fields:
