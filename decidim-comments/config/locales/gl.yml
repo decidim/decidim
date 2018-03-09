@@ -50,8 +50,6 @@ gl:
         blocked_comments_warning: Os comentarios están desactivados neste momento, pero podes ler os anteriores.
         loading: Cargando comentarios ...
         title: "%{count} comentarios"
-      featured_comment:
-        title: Comentario destacado
     events:
       comments:
         comment_created:
