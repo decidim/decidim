@@ -21,10 +21,6 @@ gl:
         description: Descrición
         name: Nome
         parent_id: Pai
-      feature:
-        name: Nome
-        published_at: Publicado en
-        weight: Peso
       id: ID
       newsletter:
         body: Corpo
@@ -216,44 +212,6 @@ gl:
       exports:
         export_as: "%{name} como %{export_format}"
         notice: A súa exportación está en progreso. Recibirás un correo electrónico cando finalice.
-      feature_permissions:
-        edit:
-          everyone: Todo o mundo
-          submit: Gardar permisos
-          title: Editar permisos
-        update:
-          success: Permisos actualizados con éxito.
-      features:
-        create:
-          error: Produciuse un erro ao crear esta función.
-          success: Función creada con éxito.
-        destroy:
-          error: Produciuse un erro ao destruír esta función.
-          success: A función eliminouse con éxito.
-        edit:
-          title: Editar característica
-          update: Actualización
-        form:
-          default_step_settings: Configuración de paso predeterminada
-          global_settings: Configuración global
-          step_settings: Configuración do paso
-        index:
-          add: Engadir recurso
-          headers:
-            actions: Accións
-            name: Nome da función
-            type: Tipo de característica
-        new:
-          add: Engadir recurso
-          title: 'Engadir recurso: %{name}'
-        publish:
-          success: A función publicouse con éxito.
-        title: características
-        unpublish:
-          success: A función foi publicado sen éxito.
-        update:
-          error: Houbo un erro ao actualizar esta función.
-          success: A función actualizouse con éxito.
       logs:
         logs_list:
           no_logs_yet: Aínda non hai rexistros
