@@ -10,6 +10,7 @@ describe "I18n sanity" do
   let(:i18n) { I18n::Tasks::BaseTask.new(locales: locales) }
   let(:missing_keys) { i18n.missing_keys }
   let(:unused_keys) { i18n.unused_keys }
+  let(:non_normalized_paths) { i18n.non_normalized_paths }
 
   it "does not have missing keys" do
     expect(missing_keys).to be_empty, "#{missing_keys.inspect} are missing"
@@ -21,19 +22,11 @@ describe "I18n sanity" do
 
   unless ENV["SKIP_NORMALIZATION"]
     it "is normalized" do
-      previous_locale_hashes = locale_hashes
-      i18n.normalize_store!
-      new_locale_hashes = locale_hashes
+      error_message = "The following files need to be normalized:\n" \
+                      "#{non_normalized_paths.map { |path| "  #{path}" }.join("\n")}\n" \
+                      "Please run `i18n-tasks normalize` to fix them"
 
-      expect(previous_locale_hashes).to eq(new_locale_hashes),
-                                        "Please normalize your locale files with `i18n-tasks normalize`"
-    end
-  end
-
-  def locale_hashes
-    Dir.glob("decidim-*/config/locales/**/*.yml").inject({}) do |results, file|
-      md5 = Digest::MD5.file(file).hexdigest
-      results.merge(file => md5)
+      expect(non_normalized_paths).to be_empty, error_message
     end
   end
 end

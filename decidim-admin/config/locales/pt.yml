@@ -254,6 +254,9 @@ pt:
         update:
           error: Ocorreu um erro ao atualizar essa funcionalidade.
           success: A funcionalidade foi atualizada com sucesso.
+      logs:
+        logs_list:
+          no_logs_yet: Ainda não há logs
       managed_users:
         close_session:
           error: Ocorreu um erro ao encerrar a sessão de representação atual.

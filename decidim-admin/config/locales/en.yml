@@ -255,6 +255,9 @@ en:
         update:
           error: There has been an error updating this feature.
           success: The feature was updated successfully.
+      logs:
+        logs_list:
+          no_logs_yet: There are no logs yet
       managed_users:
         close_session:
           error: There has been an error closing the current impersonation session.

@@ -9,6 +9,13 @@ pt:
         document_type: Tipo do seu documento
         user: Do utilizador
         verification_attachment: Cópia digitalizada do seu documento
+      postal_letter_address:
+        full_address: Endereço completo
+      postal_letter_confirmation:
+        verification_code: Código de verificação
+      postal_letter_postage:
+        full_address: Endereço completo
+        verification_code: Código de verificação
   decidim:
     admin:
       menu:

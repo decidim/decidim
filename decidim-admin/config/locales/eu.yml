@@ -254,6 +254,9 @@ eu:
         update:
           error: Errorea gertatu da funtzionalitate hau eguneratzean.
           success: Funtzionalitatea zuzen eguneratu da.
+      logs:
+        logs_list:
+          no_logs_yet: Ez dago oraindik erregistroik
       managed_users:
         close_session:
           error: Errore bat gertatu da egungo suplifikaziorako saioa ixtean.
