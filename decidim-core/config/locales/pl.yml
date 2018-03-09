@@ -54,6 +54,10 @@ pl:
         success: Twoje konto zostało zaktualizowane pomyślnie.
         success_with_email_confirmation: Twoje konto zostało pomyślnie zaktualizowane. W celu potwierdzenia Twojego nowego adresu e-mail otrzymasz na niego wiadomość.
     admin_log:
+      area:
+        create: "%{user_name} utworzył obszar %{resource_name}"
+        delete: "%{user_name} usunął obszar %{resource_name}"
+        update: "%{user_name} zaktualizował obszar %{resource_name}"
       component:
         create: "%{user_name} dodał element %{resource_name} do przestrzeni %{space_name}"
         delete: "%{user_name} usunął komponent %{resource_name} z przestrzeni %{space_name}"
@@ -238,6 +242,8 @@ pl:
       value_types:
         area_presenter:
           not_found: 'Obszar nie został znaleziony w bazie danych (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Typ obszaru nie został znaleziony w bazie danych (ID: %{id})'
         scope_presenter:
           not_found: 'Zakres nie został znaleziony w bazie danych (ID: %{id})'
         scope_type_presenter:
