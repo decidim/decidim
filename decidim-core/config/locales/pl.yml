@@ -54,11 +54,6 @@ pl:
         success: Twoje konto zostało zaktualizowane pomyślnie.
         success_with_email_confirmation: Twoje konto zostało pomyślnie zaktualizowane. W celu potwierdzenia Twojego nowego adresu e-mail otrzymasz na niego wiadomość.
     admin_log:
-      feature:
-        create: "%{user_name} dodano %{resource_name} funkcja do %{space_name} przestrzeń"
-        delete: "%{user_name} usunięto %{resource_name} funkcja od %{space_name} przestrzeń"
-        publish: "%{user_name} opublikował funkcję %{resource_name} w przestrzeni %{space_name}"
-        unpublish: "%{user_name} cofnął publikację funkcji %{resource_name} z przestrzeni %{space_name}"
       moderation:
         hide: "%{user_name} ukrył zasób typu %{resource_type} w %{space_name} przestrzeń"
         unreport: "%{user_name} niezgłoszony zasób typu %{resource_type} w %{space_name} przestrzeń"
@@ -170,12 +165,6 @@ pl:
         email_intro: 'Nastąpiła aktualizacja do "%{resource_title}". Widać go z tej strony:'
         email_outro: Otrzymałeś powiadomienie, ponieważ są po "%{resource_title}". Możesz przestać obserwować go od poprzedniego łącza.
         email_subject: Aktualizacja %{resource_title}
-      features:
-        feature_published:
-          email_intro: 'Komponent %{resource_title} jest teraz aktywny dla %{participatory_space_title}. Możesz go zobaczyć na tej stronie:'
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-          email_subject: Aktualizacja do %{participatory_space_title}
-          notification_title: Komponent %{resource_title} jest teraz aktywny dla <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Zdarzenie miało miejsce na <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -188,21 +177,6 @@ pl:
       export:
         ready: Znajdź załączoną wersję eksportowanego pliku.
       subject: Twój eksport "%{name}" jest gotowy
-    features:
-      dummy:
-        actions:
-          bar: Bar
-          foo: Foo
-        name: Funkcja testowa
-        settings:
-          global:
-            comments_enabled: Włączone komentarze
-            dummy_global_attribute_1: Cecha testowa 1
-            dummy_global_attribute_2: Cecha testowa 2
-          step:
-            comments_blocked: Komentarze zablokowane
-            dummy_step_attribute_1: Testowa cecha kroku 1
-            dummy_step_attribute_2: Testowa cecha kroku 2
     filters:
       linked_classes:
         all: Wszystkie
