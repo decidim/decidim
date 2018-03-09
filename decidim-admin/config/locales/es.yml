@@ -21,10 +21,6 @@ es:
         description: Descripción
         name: Nombre
         parent_id: Superior
-      feature:
-        name: Nombre
-        published_at: Publicado en
-        weight: Peso
       id: ID
       newsletter:
         body: Cuerpo
@@ -216,44 +212,6 @@ es:
       exports:
         export_as: "%{name} como %{export_format}"
         notice: Su exportación está actualmente en curso. Recibirá un correo electrónico cuando esté completo.
-      feature_permissions:
-        edit:
-          everyone: Todo el mundo
-          submit: Guardar permisos
-          title: Editar permisos
-        update:
-          success: Permisos actualizados correctamente.
-      features:
-        create:
-          error: Se ha producido un error al añadir esta funcionalidad.
-          success: Funcionalidad añadida correctamente.
-        destroy:
-          error: Se ha producido un error destruir esta funcionalidad.
-          success: Funcionalidad eliminada correctamente.
-        edit:
-          title: Editar funcionalidad
-          update: Actualizar
-        form:
-          default_step_settings: Configuración por defecto
-          global_settings: Ajustes globales
-          step_settings: Configuración de fase
-        index:
-          add: Añadir funcionalidad
-          headers:
-            actions: Acciones
-            name: Nombre de la funcionalidad
-            type: Tipo de funcionalidad
-        new:
-          add: Añadir funcionalidad
-          title: 'Añadir funcionalidad: %{name}'
-        publish:
-          success: La funcionalidad se ha publicado correctamente.
-        title: Funcionalidades
-        unpublish:
-          success: La funcionalidad se ha despublicado correctamente.
-        update:
-          error: Se ha producido un error al actualizar esta funcionalidad.
-          success: La funcionalidad se ha actualizado correctamente.
       logs:
         logs_list:
           no_logs_yet: Aún no hay ningún registro de actividad
