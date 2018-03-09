@@ -21,6 +21,10 @@ fi:
         description: Kuvaus
         name: Nimi
         parent_id: Yläaihepiiri
+      component:
+        name: Nimi
+        published_at: Julkaistu osoitteessa
+        weight: Paino
       id: ID
       newsletter:
         body: Runko
@@ -205,6 +209,44 @@ fi:
         update:
           error: Tämän aihepiirin luonnissa tapahtui virhe.
           success: Aihepiiri päivitetty onnistuneesti.
+      component_permissions:
+        edit:
+          everyone: jokainen
+          submit: Tallenna käyttöoikeudet
+          title: Muokkaa käyttöoikeuksia
+        update:
+          success: Käyttöoikeudet päivitettiin onnistuneesti.
+      components:
+        create:
+          error: Tämän komponentin luomisessa tapahtui virhe.
+          success: Komponentti on luotu onnistuneesti.
+        destroy:
+          error: Tämän komponentin tuhoaminen on tapahtunut.
+          success: Komponentti poistettiin onnistuneesti.
+        edit:
+          title: Muokkaa komponenttia
+          update: Päivittää
+        form:
+          default_step_settings: Oletusasetusasetukset
+          global_settings: Yleiset asetukset
+          step_settings: Vaiheasetukset
+        index:
+          add: Lisää osa
+          headers:
+            actions: Toimet
+            name: Komponentin nimi
+            type: Osien tyyppi
+        new:
+          add: Lisää osa
+          title: 'Lisää osa: %{name}'
+        publish:
+          success: Komponentti on julkaistu onnistuneesti.
+        title: komponentit
+        unpublish:
+          success: Komponentti on julkaistu onnistuneesti.
+        update:
+          error: Tämän komponentin päivittämisessä tapahtui virhe.
+          success: Komponentti päivitettiin onnistuneesti.
       dashboard:
         show:
           view_more_logs: Näytä lisää lokeja
