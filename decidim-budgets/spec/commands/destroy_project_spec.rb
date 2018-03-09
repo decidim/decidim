@@ -7,7 +7,7 @@ module Decidim::Budgets
     subject { described_class.new(project, current_user) }
 
     let(:project) { create :project }
-    let(:organization) { project.feature.organization }
+    let(:organization) { project.component.organization }
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
 
     context "when everything is ok" do

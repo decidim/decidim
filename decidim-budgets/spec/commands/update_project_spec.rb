@@ -9,10 +9,10 @@ module Decidim::Budgets
     let(:project) { create :project }
     let(:organization) { project.component.organization }
     let(:scope) { create :scope, organization: organization }
-    let(:category) { create :category, participatory_space: project.feature.participatory_space }
-    let(:participatory_process) { project.feature.participatory_space }
+    let(:category) { create :category, participatory_space: project.component.participatory_space }
+    let(:participatory_process) { project.component.participatory_space }
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
-    let(:proposal_feature) do
+    let(:proposal_component) do
       create(:component, manifest_name: :proposals, participatory_space: participatory_process)
     end
     let(:proposals) do
