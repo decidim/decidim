@@ -21,6 +21,10 @@ gl:
         description: Descrición
         name: Nome
         parent_id: Pai
+      component:
+        name: Nome
+        published_at: Publicado en
+        weight: Peso
       id: ID
       newsletter:
         body: Corpo
@@ -205,6 +209,44 @@ gl:
         update:
           error: Produciuse un erro ao actualizar esta categoría.
           success: A categoría actualizouse con éxito.
+      component_permissions:
+        edit:
+          everyone: Todo o mundo
+          submit: Gardar permisos
+          title: Editar permisos
+        update:
+          success: Permisos actualizados con éxito.
+      components:
+        create:
+          error: Produciuse un erro ao crear este compoñente.
+          success: Compoñente creado con éxito.
+        destroy:
+          error: Produciuse un erro ao destruír este compoñente.
+          success: Componente eliminado con éxito.
+        edit:
+          title: Editar compoñente
+          update: Actualización
+        form:
+          default_step_settings: Configuración de paso predeterminada
+          global_settings: Configuración global
+          step_settings: Configuración do paso
+        index:
+          add: Engadir compoñente
+          headers:
+            actions: Accións
+            name: Nome do compoñente
+            type: Tipo de compoñente
+        new:
+          add: Engadir compoñente
+          title: 'Engadir compoñente: %{name}'
+        publish:
+          success: O compoñente foi publicado con éxito.
+        title: Compoñentes
+        unpublish:
+          success: O compoñente foi publicado sen éxito.
+        update:
+          error: Houbo un erro ao actualizar este compoñente.
+          success: O compoñente foi actualizado correctamente.
       dashboard:
         show:
           view_more_logs: Ver máis rexistros
