@@ -5,6 +5,7 @@ nl:
         area_id: Gebied
         banner_image: Bannerafbeelding
         copy_categories: Categorieën kopiëren
+        copy_components: Kopieer componenten
         decidim_area_id: Gebied
         decidim_scope_id: strekking
         description: Beschrijving
@@ -88,6 +89,7 @@ nl:
           attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
+          components: Components
           info: info
           moderations: Moderaties
       models:
