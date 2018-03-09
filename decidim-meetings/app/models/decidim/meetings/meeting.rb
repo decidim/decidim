@@ -29,6 +29,13 @@ module Decidim
       scope :past, -> { where(arel_table[:end_time].lteq(Time.current)) }
       scope :upcoming, -> { where(arel_table[:start_time].gt(Time.current)) }
 
+      searchable_fields(
+        scope_id: :decidim_scope_id,
+        participatory_space: { feature: :participatory_space },
+        A: :title,
+        D: [:description, :address]
+      )
+
       def self.log_presenter_class_for(_log)
         Decidim::Meetings::AdminLog::MeetingPresenter
       end
@@ -73,25 +80,6 @@ module Decidim
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`
       def users_to_notify_on_comment_created
         followers
-      end
-
-      # Public: As Searchable, does the mapping of fields to be indexed.
-      #
-      #
-      def search_rsrc_indexable_fields
-        org = feature.organization
-        fields = {
-          decidim_scope_id: decidim_scope_id,
-          decidim_participatory_space_id: feature.participatory_space_id,
-          decidim_participatory_space_type: feature.participatory_space_type,
-          decidim_organization_id: org.id,
-          i18n: {}
-        }
-        i18n = fields[:i18n]
-        org.available_locales.each do |locale|
-          i18n[locale] = { A: [title[locale]], D: [description[locale], address] }
-        end
-        fields
       end
     end
   end

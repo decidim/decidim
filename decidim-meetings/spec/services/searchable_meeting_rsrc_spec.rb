@@ -56,11 +56,21 @@ module Decidim
 
     describe "Search" do
       context "when searching by Meeting resource_type" do
+        let!(:meeting2) do
+          create(
+            :meeting,
+            feature: current_feature,
+            scope: scope1,
+            title: Decidim::Faker::Localized.name,
+            description: Decidim::Faker::Localized.paragraph,
+            address: "Some address in the suburbs containing Nulla"
+          )
+        end
+
         it "returns Meeting results" do
           Decidim::Search.call("Nulla", organization, resource_type: meeting.class.name) do
             on(:ok) do |results|
-              expect(results.count).to eq(organization.available_locales.size)
-              results.each { |result| expect(result.resource).to eq meeting }
+              expect(results.count).to eq 2
             end
             on(:invalid) { raise("Should not happen") }
           end
