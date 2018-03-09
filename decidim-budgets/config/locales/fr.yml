@@ -42,6 +42,10 @@ fr:
           update:
             invalid: Il y a eu un problème de mise à jour de ce projet
             success: Projet mis à jour avec succès
+      admin_log:
+        project:
+          create: "%{user_name} a créé le projet %{resource_name} dans l'espace %{space_name}"
+          delete: "%{user_name} a supprimé le projet %{resource_name} dans l'espace %{space_name}"
       models:
         project:
           fields:
