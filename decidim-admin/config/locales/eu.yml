@@ -21,6 +21,10 @@ eu:
         description: Descripción
         name: Izena
         parent_id: Nagusia
+      component:
+        name: izena
+        published_at: Argitaratu at
+        weight: pisu
       id: NAN
       newsletter:
         body: Testua
@@ -205,6 +209,44 @@ eu:
         update:
           error: Errorea gertatu da kategoria hau eguneratzean.
           success: Kategoria zuzen eguneratu da.
+      component_permissions:
+        edit:
+          everyone: Denek
+          submit: Gorde baimenak
+          title: Editatu baimenak
+        update:
+          success: Baimenak behar bezala eguneratu dira.
+      components:
+        create:
+          error: Errore bat gertatu da osagaia sortzean.
+          success: Osagaia zuzen sortu da.
+        destroy:
+          error: Errore bat gertatu da osagaia suntsitzen.
+          success: Osagaia zuzen ezabatu da.
+        edit:
+          title: Editatu osagaia
+          update: eguneratzearen
+        form:
+          default_step_settings: Urratsen ezarpen lehenetsiak
+          global_settings: Ezarpen globalak
+          step_settings: Ezarpenen urratsak
+        index:
+          add: Gehitu osagaia
+          headers:
+            actions: Ekintzak
+            name: Osagaiaren izena
+            type: Osagai mota
+        new:
+          add: Gehitu osagaia
+          title: 'Gehitu osagaia: %{name}'
+        publish:
+          success: Osagaia arrakastaz argitaratu da.
+        title: Osagaiak
+        unpublish:
+          success: Osagaia arrakastaz argitaratu da.
+        update:
+          error: Errore bat gertatu da osagaia eguneratzean.
+          success: Osagaia behar bezala eguneratu da.
       dashboard:
         show:
           view_more_logs: Ikusi gehiago erregistroak
