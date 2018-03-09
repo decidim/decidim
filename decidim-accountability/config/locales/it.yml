@@ -167,6 +167,20 @@ it:
           changes_at_title: Modifiche a "%{title}"
         version:
           version_index: Versione %{index}
+    components:
+      accountability:
+        name: Responsabilità
+        settings:
+          global:
+            categories_label: Nome per "Categorie"
+            comments_enabled: Commenti abilitati
+            display_progress_enabled: Mostra progressi
+            heading_leaf_level_results: Nome per "Progetti"
+            heading_parent_level_results: Nome per "Risultati"
+            intro: Intro
+            subcategories_label: Nome per "Sottocategorie"
+          step:
+            comments_blocked: Commenti bloccati
     events:
       accountability:
         proposal_linked:
