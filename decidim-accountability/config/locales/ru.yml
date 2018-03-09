@@ -2,7 +2,6 @@ ru:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: состояние
         decidim_category_id: Категория
         decidim_scope_id: Охват
         description: Описание
