@@ -21,10 +21,6 @@ fr:
         description: Description
         name: Nom
         parent_id: Parent
-      feature:
-        name: Nom
-        published_at: Publié à
-        weight: Rang d'affichage
       id: ID
       newsletter:
         body: Corps de texte
@@ -216,44 +212,6 @@ fr:
       exports:
         export_as: "%{name} comme %{export_format}"
         notice: Votre exportation est en cours. Vous recevrez un e-mail quand elle sera terminée.
-      feature_permissions:
-        edit:
-          everyone: Tout le monde
-          submit: Enregistrer les autorisations
-          title: Modifier les autorisations
-        update:
-          success: Autorisations mises à jour avec succès.
-      features:
-        create:
-          error: Une erreur s'est produite lors de la création de cette fonctionnalité.
-          success: Fonctionnalité créée avec succès.
-        destroy:
-          error: Erreur lors de la suppression de la fonctionnalité.
-          success: Fonctionnalité supprimée avec succès.
-        edit:
-          title: Editer la fonctionnalité
-          update: Mettre à jour
-        form:
-          default_step_settings: Paramètres d'étape par défaut
-          global_settings: Paramètres généraux
-          step_settings: Définition des étapes
-        index:
-          add: Ajouter une fonctionnalité
-          headers:
-            actions: Actions
-            name: Nom de la fonctionnalité
-            type: Type de fonctionnalité
-        new:
-          add: Ajouter une fonctionnalité
-          title: 'Ajouter la fonctionnalité : %{name}'
-        publish:
-          success: La fonctionnalité a été publiée avec succès.
-        title: Fonctionnalités
-        unpublish:
-          success: La fonctionnalité a été dépubliée avec succès.
-        update:
-          error: Une erreur s'est produite lors de la mise à jour de cette fonctionnalité.
-          success: La fonctionnalité a été mise à jour avec succès.
       logs:
         logs_list:
           no_logs_yet: Il n'y a pas encore de journaux
