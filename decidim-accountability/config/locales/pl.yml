@@ -163,6 +163,20 @@ pl:
           changes_at_title: Zmiany w "%{title}"
         version:
           version_index: Wersja %{index}
+    components:
+      accountability:
+        name: Odpowiedzialność
+        settings:
+          global:
+            categories_label: Nazwa dla "kategorii"
+            comments_enabled: Komentarze włączone
+            display_progress_enabled: Wyświetl postęp
+            heading_leaf_level_results: Nazwa dla "projektów"
+            heading_parent_level_results: Nazwa dla "Wyniki"
+            intro: Wprowadzenie
+            subcategories_label: Nazwa dla "podkategorii"
+          step:
+            comments_blocked: Komentarze zablokowane
     events:
       accountability:
         proposal_linked:
