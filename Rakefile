@@ -60,6 +60,16 @@ Decidim::GemManager.all_dirs(include_root: false) do |dir|
   end
 end
 
+desc "Runs tests for a random participatory space"
+task :test_participatory_space do
+  Decidim::GemManager.test_participatory_space
+end
+
+desc "Runs tests for a random component"
+task :test_component do
+  Decidim::GemManager.test_component
+end
+
 desc "Pushes a new build for each gem."
 task release_all: [:update_versions, :check_locale_completeness, :webpack] do
   Decidim::GemManager.run_all("rake release")

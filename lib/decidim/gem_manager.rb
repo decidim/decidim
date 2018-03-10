@@ -16,6 +16,21 @@ module Decidim
   #   of the repository.
   #
   class GemManager
+    PARTICIPATORY_SPACES = %w(
+      participatory_processes
+      assemblies
+    ).freeze
+
+    COMPONENTS = %w(
+      accountability
+      budgets
+      debates
+      meetings
+      pages
+      proposals
+      surveys
+    ).freeze
+
     def initialize(dir)
       @dir = File.expand_path(dir)
     end
@@ -43,6 +58,14 @@ module Decidim
     end
 
     class << self
+      def test_participatory_space
+        new("decidim-#{PARTICIPATORY_SPACES.sample}").run("rake")
+      end
+
+      def test_component
+        new("decidim-#{COMPONENTS.sample}").run("rake")
+      end
+
       def replace_versions
         replace_file(
           "package.json",
