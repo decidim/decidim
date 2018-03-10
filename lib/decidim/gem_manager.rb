@@ -15,7 +15,7 @@ module Decidim
   # * Updating version files from the main `.decidim-version` file in the root
   #   of the repository.
   #
-  class ComponentManager
+  class GemManager
     def initialize(dir)
       @dir = File.expand_path(dir)
     end
