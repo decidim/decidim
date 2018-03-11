@@ -12,7 +12,10 @@ controller or added a new module you need to rename `feature` to `component`.
 
 - **decidim-assemblies**: Allow an assembly to have children [\#2938](https://github.com/decidim/decidim/pull/2938)
 - **decidim**: Rename features to components [\#2913](https://github.com/decidim/decidim/pull/2913)
+- **decidim-admin**: Log actions on areas [\#2944](https://github.com/decidim/decidim/pull/2944)
+- **decidim-budgets**: Log actions on projects [\#2949](https://github.com/decidim/decidim/pull/2949)
 - **decidim-meetings**: Log meeting registration exports [\#2922](https://github.com/decidim/decidim/pull/2922)
+- **decidim-accountability**: Log results deletion [\#2923](https://github.com/decidim/decidim/pull/2923)
 
 **Changed**:
 

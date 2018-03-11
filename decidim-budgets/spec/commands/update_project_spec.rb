@@ -11,6 +11,7 @@ module Decidim::Budgets
     let(:scope) { create :scope, organization: organization }
     let(:category) { create :category, participatory_space: project.component.participatory_space }
     let(:participatory_process) { project.component.participatory_space }
+    let(:current_user) { create :user, :admin, :confirmed, organization: organization }
     let(:proposal_component) do
       create(:component, manifest_name: :proposals, participatory_space: participatory_process)
     end
@@ -24,6 +25,7 @@ module Decidim::Budgets
     let(:form) do
       double(
         invalid?: invalid,
+        current_user: current_user,
         title: { en: "title" },
         description: { en: "description" },
         budget: 10_000_000,
@@ -56,6 +58,17 @@ module Decidim::Budgets
       it "sets the category" do
         subject.call
         expect(project.category).to eq category
+      end
+
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:update!)
+          .with(project, current_user, hash_including(:scope, :category, :title, :description, :budget))
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
       end
 
       it "links proposals" do

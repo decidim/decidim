@@ -11,6 +11,7 @@ module Decidim::Budgets
     include_examples "has reference"
 
     it { is_expected.to be_valid }
+    it { is_expected.to be_versioned }
 
     context "without a component" do
       let(:project) { build :project, component: nil }

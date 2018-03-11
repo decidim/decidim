@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= link_to "#{translated_attribute(parent_assembly.title)} > ", edit_assembly_path(parent_assembly) if parent_assembly %>
       <%= t "decidim.admin.titles.assemblies" %>
-      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.assembly.name", scope: "decidim.admin")), new_assembly_path(parent_id: parent_assembly&.id), class: 'button tiny button--title' if can? :create, Decidim::Assembly %>
+      <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.assembly.name", scope: "decidim.admin")), new_assembly_path(parent_id: parent_assembly&.id), class: "button tiny button--title" if can? :create, Decidim::Assembly %>
     </h2>
   </div>
   <div class="card-section">
@@ -41,9 +41,9 @@
               </td>
               <td class="table-list__state">
                 <% if assembly.published? %>
-                  <strong class="text-success"><%= t('assemblies.index.published', scope: "decidim.admin") %></strong>
+                  <strong class="text-success"><%= t("assemblies.index.published", scope: "decidim.admin") %></strong>
                 <% else %>
-                  <strong class="text-alert"><%= t('assemblies.index.not_published', scope: "decidim.admin") %></strong>
+                  <strong class="text-alert"><%= t("assemblies.index.not_published", scope: "decidim.admin") %></strong>
                 <% end %>
               </td>
               <td class="table-list__actions">

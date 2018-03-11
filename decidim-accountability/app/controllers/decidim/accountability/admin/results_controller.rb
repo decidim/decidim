@@ -49,11 +49,13 @@ module Decidim
         end
 
         def destroy
-          result.destroy!
+          DestroyResult.call(result, current_user) do
+            on(:ok) do
+              flash[:notice] = I18n.t("results.destroy.success", scope: "decidim.accountability.admin")
 
-          flash[:notice] = I18n.t("results.destroy.success", scope: "decidim.accountability.admin")
-
-          redirect_to results_path(parent_id: result.parent_id)
+              redirect_to results_path(parent_id: result.parent_id)
+            end
+          end
         end
 
         def proposals

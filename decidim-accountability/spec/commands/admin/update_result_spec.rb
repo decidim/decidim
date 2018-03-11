@@ -87,6 +87,17 @@ module Decidim::Accountability
         expect(result.versions.last.whodunnit).to eq user.to_gid.to_s
       end
 
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:update!)
+          .with(result, form.current_user, kind_of(Hash))
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+      end
+
       it "sets the scope" do
         subject.call
         expect(result.scope).to eq scope
