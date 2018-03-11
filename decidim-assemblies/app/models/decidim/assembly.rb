@@ -39,6 +39,9 @@ module Decidim
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::BannerImageUploader
 
+    after_create :set_parents_path
+    after_update :set_parents_path, :update_children_paths, if: :saved_change_to_parent_id?
+
     # Scope to return only the promoted assemblies.
     #
     # Returns an ActiveRecord::Relation.
@@ -59,15 +62,23 @@ module Decidim
     end
 
     def ancestors
-      @ancestors ||= begin
-        current_assembly = self
-        [].tap do |ancestors|
-          until current_assembly.parent.nil?
-            current_assembly = current_assembly.parent
-            ancestors.unshift current_assembly
-          end
-        end
-      end
+      self.class.where("#{self.class.table_name}.parents_path @> ? AND #{self.class.table_name}.id != ?", parents_path, id)
     end
+
+    private
+
+    def set_parents_path
+      update_column(:parents_path, [parent&.parents_path, id].select(&:present?).join("."))
+    end
+
+    # rubocop:disable Rails/SkipsModelValidations
+    def update_children_paths
+      self.class.where(
+        ["#{self.class.table_name}.parents_path <@ :old_path AND #{self.class.table_name}.id != :id", old_path: parents_path_before_last_save, id: id]
+      ).update_all(
+        ["parents_path = :new_path || subpath(parents_path, nlevel(:old_path))", new_path: parents_path, old_path: parents_path_before_last_save]
+      )
+    end
+    # rubocop:enable Rails/SkipsModelValidations
   end
 end
