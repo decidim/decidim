@@ -65,10 +65,6 @@ module Decidim
         validates :assembly_type_other, translatable_presence: true, if: ->(form) { form.assembly_type == "others" }
         validates :created_by_other, translatable_presence: true, if: ->(form) { form.created_by == "others" }
 
-        validates :is_public, presence: true, if: ->(form) { !form.is_open }
-        validates :is_transparent, presence: true, if: ->(form) { !form.is_public }
-        validates :special_features, translatable_presence: true, if: ->(form) { !form.is_open }
-
         validate :slug_uniqueness
 
         validates :hero_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
