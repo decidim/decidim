@@ -30,8 +30,9 @@ module Decidim
               html += link_to handler.capitalize, "https://#{handler}.com/#{assembly.send(handler_name)}", target: "_blank", class: "", title: handler.capitalize
             end
           end
+          html += "</div>".html_safe
         end
-        html += "</div>".html_safe
+
         html.html_safe
       end
     end

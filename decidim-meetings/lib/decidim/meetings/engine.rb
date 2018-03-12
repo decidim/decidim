@@ -65,8 +65,8 @@ module Decidim
         end
 
         Decidim.view_hooks.register(:assembly_meetings, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
-          published_features = Decidim::Feature.where(participatory_space: view_context.current_participatory_space).published
-          meetings = Decidim::Meetings::Meeting.where(feature: published_features)
+          published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
+          meetings = Decidim::Meetings::Meeting.where(component: published_components)
 
           next unless meetings.any?
 
