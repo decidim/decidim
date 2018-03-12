@@ -24,7 +24,7 @@ fr:
     components:
       meetings:
         actions:
-          join: Joindre
+          join: Rejoindre
         name: Réunions
         settings:
           global:
@@ -36,7 +36,7 @@ fr:
     events:
       meetings:
         meeting_closed:
-          email_intro: 'La réunion "%{resource_title}" a été fermée. Vous pouvez lire les conclusions de sa page:'
+          email_intro: 'La réunion "%{resource_title}" a été fermée. Vous pouvez lire les conclusions de sa page :'
           email_outro: Vous avez reçu cette notification, car vous suivez la réunion "%{resource_title}". Vous pouvez le retirer du lien précédent.
           email_subject: La réunion "%{resource_title}" a été fermée
           notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> a été fermée.
