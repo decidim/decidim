@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::Proposals::ProposalEndorsedEvent do
   include_context "simple event"
 
-  let(:event_name) { "decidim.events.users.profile_updated" }
+  let(:event_name) { "decidim.events.proposals.proposal_endorsed" }
   let(:resource) { proposal }
   let(:author) { create :user, organization: proposal.organization }
 
