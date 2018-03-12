@@ -120,10 +120,6 @@ describe "Admin manages newsletters", type: :system do
 
       expect(page).to have_content("NEWSLETTERS")
       expect(page).to have_content("successfully")
-
-      within "tbody" do
-        expect(page).to have_content("5 / 5")
-      end
     end
   end
 
