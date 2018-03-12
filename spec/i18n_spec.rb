@@ -24,7 +24,7 @@ describe "I18n sanity" do
     it "is normalized" do
       error_message = "The following files need to be normalized:\n" \
                       "#{non_normalized_paths.map { |path| "  #{path}" }.join("\n")}\n" \
-                      "Please run `i18n-tasks normalize` to fix them"
+                      "Please run `bundle exec i18n-tasks normalize` to fix them"
 
       expect(non_normalized_paths).to be_empty, error_message
     end
