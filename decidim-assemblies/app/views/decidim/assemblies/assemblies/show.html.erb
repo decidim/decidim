@@ -10,7 +10,7 @@
   <% if current_participatory_space.parent.present? %>
     <div class="row">
       <div class="small-12 columns">
-        <%= render partial: "decidim/assemblies/assemblies/nav_breadcumb", locals: { assemblies: current_participatory_space.ancestors } %>
+        <%= render partial: "decidim/assemblies/assemblies/nav_breadcumb", locals: { assemblies: current_participatory_space.ancestors.to_a } %>
       </div>
     </div>
   <% end %>

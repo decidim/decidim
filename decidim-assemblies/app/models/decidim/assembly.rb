@@ -67,11 +67,11 @@ module Decidim
 
     private
 
+    # rubocop:disable Rails/SkipsModelValidations
     def set_parents_path
       update_column(:parents_path, [parent&.parents_path, id].select(&:present?).join("."))
     end
 
-    # rubocop:disable Rails/SkipsModelValidations
     def update_children_paths
       self.class.where(
         ["#{self.class.table_name}.parents_path <@ :old_path AND #{self.class.table_name}.id != :id", old_path: parents_path_before_last_save, id: id]
