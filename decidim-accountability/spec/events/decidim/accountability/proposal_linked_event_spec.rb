@@ -7,10 +7,10 @@ describe Decidim::Accountability::ProposalLinkedEvent do
 
   let(:event_name) { "decidim.events.accountability.proposal_linked" }
   let(:resource) { create(:result) }
-  let(:proposal_feature) do
-    create(:feature, manifest_name: "proposals", participatory_space: resource.feature.participatory_space)
+  let(:proposal_component) do
+    create(:component, manifest_name: "proposals", participatory_space: resource.component.participatory_space)
   end
-  let(:proposal) { create :proposal, feature: proposal_feature }
+  let(:proposal) { create :proposal, component: proposal_component }
   let(:extra) { { proposal_id: proposal.id } }
   let(:proposal_path) { resource_locator(proposal).path }
   let(:proposal_title) { proposal.title }

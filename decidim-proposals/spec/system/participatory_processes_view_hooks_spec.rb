@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Proposals in process home", type: :system do
-  include_context "with a feature"
+  include_context "with a component"
   let(:manifest_name) { "proposals" }
   let(:proposals_count) { 5 }
 
@@ -16,7 +16,7 @@ describe "Proposals in process home", type: :system do
 
   context "when there are proposals" do
     let!(:proposals) do
-      create_list(:proposal, proposals_count, feature: feature)
+      create_list(:proposal, proposals_count, component: component)
     end
 
     it "shows the highlighted proposals section" do

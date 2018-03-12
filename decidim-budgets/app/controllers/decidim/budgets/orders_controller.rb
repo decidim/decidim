@@ -9,7 +9,7 @@ module Decidim
       def checkout
         authorize_action! "vote"
 
-        Checkout.call(current_order, current_feature) do
+        Checkout.call(current_order, current_component) do
           on(:ok) do
             flash[:notice] = I18n.t("orders.checkout.success", scope: "decidim")
             redirect_to projects_path

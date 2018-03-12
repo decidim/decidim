@@ -6,7 +6,7 @@
       <% end %>
     </div>
 
-    <%= grouped_collection_select(:category, :id, current_feature.categories.first_class, :descendants, :translated_name, :id, :translated_name, prompt: t("decidim.proposals.admin.proposals.index.change_category")) %>
+    <%= grouped_collection_select(:category, :id, current_component.categories.first_class, :descendants, :translated_name, :id, :translated_name, prompt: t("decidim.proposals.admin.proposals.index.change_category")) %>
 
     <%= submit_tag(t("decidim.proposals.admin.proposals.index.update"), id: "js-submit-edit-category", class: "button small button--simple float-left") %>
 

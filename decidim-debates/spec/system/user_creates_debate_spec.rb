@@ -3,18 +3,18 @@
 require "spec_helper"
 
 describe "User creates debate", type: :system do
-  include_context "with a feature"
+  include_context "with a component"
   let(:manifest_name) { "debates" }
 
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
-  let(:current_feature) { create :debates_feature, participatory_space: participatory_process }
+  let(:current_component) { create :debates_component, participatory_space: participatory_process }
   let(:debates_count) { 5 }
   let!(:debates) do
     create_list(
       :debate,
       debates_count,
-      feature: current_feature,
+      component: current_component,
       start_time: Time.zone.local(2016, 12, 13, 14, 15),
       end_time: Time.zone.local(2016, 12, 13, 16, 17)
     )
@@ -34,14 +34,14 @@ describe "User creates debate", type: :system do
       end
 
       context "with creation enabled" do
-        let!(:feature) do
-          create(:debates_feature,
+        let!(:component) do
+          create(:debates_component,
                  :with_creation_enabled,
                  participatory_space: participatory_process)
         end
 
         it "creates a new debate", :slow do
-          visit_feature
+          visit_component
 
           click_link "New debate"
 
@@ -64,7 +64,7 @@ describe "User creates debate", type: :system do
           let!(:user_group) { create :user_group, :verified, organization: organization, users: [user] }
 
           it "creates a new debate", :slow do
-            visit_feature
+            visit_component
 
             click_link "New debate"
 
@@ -93,11 +93,11 @@ describe "User creates debate", type: :system do
               }
             }
 
-            feature.update!(permissions: permissions)
+            component.update!(permissions: permissions)
           end
 
           it "shows a modal dialog" do
-            visit_feature
+            visit_component
             click_link "New debate"
             expect(page).to have_content("Authorization required")
           end
@@ -106,7 +106,7 @@ describe "User creates debate", type: :system do
 
       context "when creation is not enabled" do
         it "does not show the creation button" do
-          visit_feature
+          visit_component
           expect(page).to have_no_link("New debate")
         end
       end

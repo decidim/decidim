@@ -4,11 +4,11 @@ require "spec_helper"
 
 module Decidim
   describe ResourceHelper do
-    let(:feature) { create(:feature) }
-    let(:resource) { create(:dummy_resource, feature: feature) }
+    let(:component) { create(:component) }
+    let(:resource) { create(:dummy_resource, component: component) }
 
     describe "linked_resources_for" do
-      let(:linked_resource) { create(:dummy_resource, feature: feature, title: "Dummy title") }
+      let(:linked_resource) { create(:dummy_resource, component: component, title: "Dummy title") }
 
       before do
         resource.link_resources(linked_resource, "test_link")
@@ -40,8 +40,8 @@ module Decidim
       context "when it is resourceable" do
         before do
           allow(helper)
-            .to receive(:current_feature)
-            .and_return(feature)
+            .to receive(:current_component)
+            .and_return(component)
           allow(DummyResources::DummyResource)
             .to receive(:linked_classes_for)
             .and_return(["Decidim::Meetings::Meeting"])

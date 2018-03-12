@@ -4,17 +4,17 @@ require "spec_helper"
 
 module Decidim::Accountability
   describe ResultsCalculator do
-    subject { described_class.new(current_feature, scope.id, category.id) }
+    subject { described_class.new(current_component, scope.id, category.id) }
 
     let(:participatory_process) { create(:participatory_process, :with_steps) }
-    let(:current_feature) { create :accountability_feature, participatory_space: participatory_process }
-    let(:scope) { create :scope, organization: current_feature.organization }
-    let(:other_scope) { create :scope, organization: current_feature.organization }
-    let(:category) { create :category, participatory_space: current_feature.participatory_space }
+    let(:current_component) { create :accountability_component, participatory_space: participatory_process }
+    let(:scope) { create :scope, organization: current_component.organization }
+    let(:other_scope) { create :scope, organization: current_component.organization }
+    let(:category) { create :category, participatory_space: current_component.participatory_space }
     let!(:result1) do
       create(
         :result,
-        feature: current_feature,
+        component: current_component,
         category: category,
         scope: scope,
         parent: nil,
@@ -24,7 +24,7 @@ module Decidim::Accountability
     let!(:result2) do
       create(
         :result,
-        feature: current_feature,
+        component: current_component,
         category: category,
         scope: scope,
         parent: nil,
@@ -34,7 +34,7 @@ module Decidim::Accountability
     let!(:result3) do
       create(
         :result,
-        feature: current_feature,
+        component: current_component,
         category: category,
         scope: scope,
         parent: nil,
@@ -44,7 +44,7 @@ module Decidim::Accountability
     let!(:result4) do
       create(
         :result,
-        feature: current_feature,
+        component: current_component,
         category: category,
         scope: other_scope,
         parent: nil,

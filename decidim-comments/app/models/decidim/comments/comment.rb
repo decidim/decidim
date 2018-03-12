@@ -34,7 +34,7 @@ module Decidim
 
       before_save :compute_depth
 
-      delegate :organization, :feature, to: :commentable
+      delegate :organization, :component, to: :commentable
 
       # Public: Override Commentable concern method `accepts_new_comments?`
       def accepts_new_comments?

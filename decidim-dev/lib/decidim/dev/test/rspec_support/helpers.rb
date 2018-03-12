@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-# Helpers that get automatically included in feature specs.
-module Decidim::FeatureTestHelpers
+# Helpers that get automatically included in component specs.
+module Decidim::ComponentTestHelpers
   def click_submenu_link(text)
     within ".secondary-nav--subnav" do
       click_link text
@@ -42,5 +42,5 @@ module Decidim::FeatureTestHelpers
 end
 
 RSpec.configure do |config|
-  config.include Decidim::FeatureTestHelpers, type: :system
+  config.include Decidim::ComponentTestHelpers, type: :system
 end

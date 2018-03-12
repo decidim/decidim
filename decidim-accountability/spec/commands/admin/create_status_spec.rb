@@ -8,7 +8,7 @@ module Decidim::Accountability
 
     let(:organization) { create :organization, available_locales: [:en] }
     let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:current_feature) { create :feature, manifest_name: "accountability", participatory_space: participatory_process }
+    let(:current_component) { create :component, manifest_name: "accountability", participatory_space: participatory_process }
 
     let(:key) { "planned" }
     let(:name) { "Planned" }
@@ -18,7 +18,7 @@ module Decidim::Accountability
     let(:form) do
       double(
         invalid?: invalid,
-        current_feature: current_feature,
+        current_component: current_component,
         key: key,
         name: { en: name },
         description: { en: description },

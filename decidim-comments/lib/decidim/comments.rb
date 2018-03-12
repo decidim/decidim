@@ -5,7 +5,7 @@ require "decidim/comments/engine"
 require "decidim/comments/admin_engine"
 
 module Decidim
-  # This module contains all the logic related to the comments feature.
+  # This module contains all the logic related to the comments component.
   # It exposes a single entry point as a rails helper method to render
   # a React component which handle all the comments render and logic.
   module Comments

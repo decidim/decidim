@@ -8,8 +8,8 @@ describe Decidim::Debates::Abilities::Admin::ParticipatoryProcessAdminAbility do
   let(:user) { build(:user) }
   let(:user_process) { create :participatory_process, organization: user.organization }
   let!(:user_process_role) { create :participatory_process_user_role, user: user, participatory_process: user_process, role: :admin }
-  let(:feature) { create :debate_feature, participatory_space: user_process }
-  let(:debates) { create_list :debate, 3, feature: feature }
+  let(:component) { create :debate_component, participatory_space: user_process }
+  let(:debates) { create_list :debate, 3, component: component }
   let(:other_debates) { create_list :debate, 3 }
   let(:context) { { current_participatory_space: user_process } }
 

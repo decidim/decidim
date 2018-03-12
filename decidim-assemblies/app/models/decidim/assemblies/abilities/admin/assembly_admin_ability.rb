@@ -23,8 +23,8 @@ module Decidim
           end
 
           def define_assembly_abilities
-            can :manage, Feature do |feature|
-              can_manage_assembly?(feature.participatory_space)
+            can :manage, Component do |component|
+              can_manage_assembly?(component.participatory_space)
             end
 
             can :manage, Category do |category|
@@ -48,7 +48,7 @@ module Decidim
             end
 
             can [:unreport, :hide], Reportable do |reportable|
-              can_manage_assembly?(reportable.feature.participatory_space)
+              can_manage_assembly?(reportable.component.participatory_space)
             end
           end
         end

@@ -24,7 +24,7 @@ module Decidim
       private
 
       def survey
-        @survey ||= Survey.where(feature: current_feature).first
+        @survey ||= Survey.where(component: current_component).first
       end
 
       def body_not_blank
