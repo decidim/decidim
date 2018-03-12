@@ -92,12 +92,14 @@ PATH
       codecov (~> 0.1.9)
       db-query-matchers (~> 0.9.0)
       decidim (= 0.11.0.pre)
+      erb_lint (~> 0.0.22)
       factory_bot_rails (~> 4.8)
       i18n-tasks (~> 0.9.18)
       nokogiri (~> 1.8, >= 1.8.2)
       rails-controller-testing (~> 1.0)
       rspec-html-matchers (~> 0.9.1)
       rspec-rails (~> 3.7)
+      rspec_junit_formatter (~> 0.3.0)
       rubocop (~> 0.53.0)
       rubocop-rspec (~> 1.21)
       selenium-webdriver (~> 3.7)
@@ -193,6 +195,14 @@ GEM
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
     bcrypt (3.1.11)
+    better_html (1.0.6)
+      actionview (>= 4.0)
+      activesupport (>= 4.0)
+      ast (~> 2.0)
+      erubi (~> 1.4)
+      html_tokenizer (~> 0.0.6)
+      parser (>= 2.4)
+      smart_properties
     bindex (0.5.0)
     builder (3.2.3)
     byebug (10.0.0)
@@ -223,6 +233,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
+    colorize (0.8.1)
     concurrent-ruby (1.0.5)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -254,6 +265,13 @@ GEM
       thread
       thread_safe
     equalizer (0.0.11)
+    erb_lint (0.0.22)
+      activesupport
+      better_html (~> 1.0.6)
+      colorize
+      html_tokenizer
+      rubocop (~> 0.51)
+      smart_properties
     erubi (1.7.0)
     execjs (2.7.0)
     factory_bot (4.8.2)
@@ -289,6 +307,7 @@ GEM
     hashie (3.5.7)
     high_voltage (3.0.0)
     highline (1.7.10)
+    html_tokenizer (0.0.6)
     htmlentities (4.3.4)
     httparty (0.16.0)
       multi_xml (>= 0.5.2)
@@ -485,6 +504,8 @@ GEM
       rspec-mocks (~> 3.7.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
+    rspec_junit_formatter (0.3.0)
+      rspec-core (>= 2, < 4, != 2.12.0)
     rubocop (0.53.0)
       parallel (~> 1.10)
       parser (>= 2.5)
@@ -520,6 +541,7 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
+    smart_properties (1.13.1)
     social-share-button (1.1.0)
       coffee-rails
     spreadsheet (1.1.5)

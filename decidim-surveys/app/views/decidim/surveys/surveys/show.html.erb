@@ -3,7 +3,7 @@
   description: translated_attribute(survey.description),
 }) %>
 
-<%= render partial: "decidim/shared/feature_announcement" %>
+<%= render partial: "decidim/shared/component_announcement" %>
 
 <div class="row columns">
   <h2 class="section-heading"><%= translated_attribute survey.title %></h2>
@@ -23,8 +23,8 @@
             <% if survey.answered_by?(current_user) %>
               <div class="section">
                 <div class="callout success">
-                  <h5><%= t('.survey_answered.title') %></h5>
-                  <p><%= t('.survey_answered.body') %></p>
+                  <h5><%= t(".survey_answered.title") %></h5>
+                  <p><%= t(".survey_answered.body") %></p>
                 </div>
               </div>
             <% else %>
@@ -33,7 +33,7 @@
                   <% @form.answers.each_with_index do |answer, answer_idx| %>
                     <div class="row column">
                       <% field_id = "survey_#{survey.id}_question_#{answer.question.id}_answer_body" %>
-                      <%= label_tag field_id , "#{answer_idx + 1}. #{translated_attribute(answer.question.body)} #{'*' if answer.question.mandatory?}", class: 'survey-question' %>
+                      <%= label_tag field_id , "#{answer_idx + 1}. #{translated_attribute(answer.question.body)} #{'*' if answer.question.mandatory?}", class: "survey-question" %>
 
                       <% case answer.question.question_type %>
                         <% when "short_answer" %>
@@ -76,24 +76,24 @@
                   </div>
 
                   <div class="button--double form-general-submit">
-                    <%= form.submit t(".submit"), class: "button", data: { confirm: t('.are_you_sure'), disable: true } %>
+                    <%= form.submit t(".submit"), class: "button", data: { confirm: t(".are_you_sure"), disable: true } %>
                   </div>
                 <% end %>
               </div>
             <% end %>
           <% else %>
             <div class="answer-survey">
-              <h5 class="section-heading"><%= t('.answer_survey.title') %></h5>
+              <h5 class="section-heading"><%= t(".answer_survey.title") %></h5>
               <p>
-                <%= t('.answer_survey.anonymous_user_message', sign_in_link: decidim.new_user_session_path, sign_up_link: decidim.new_user_registration_path).html_safe %>
+                <%= t(".answer_survey.anonymous_user_message", sign_in_link: decidim.new_user_session_path, sign_up_link: decidim.new_user_registration_path).html_safe %>
               </p>
             </div>
           <% end %>
         <% else %>
           <div class="section">
             <div class="callout warning">
-              <h5><%= t('.survey_closed.title') %></h5>
-              <p><%= t('.survey_closed.body') %></p>
+              <h5><%= t(".survey_closed.title") %></h5>
+              <p><%= t(".survey_closed.body") %></p>
             </div>
           </div>
         <% end %>

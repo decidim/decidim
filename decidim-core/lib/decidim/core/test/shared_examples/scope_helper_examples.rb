@@ -6,9 +6,9 @@ shared_examples "scope helpers" do
   let(:organization) { create(:organization) }
   let(:scopes_enabled) { true }
   let(:participatory_space_scope) { nil }
-  let(:feature) { create(:feature, manifest_name: "dummy", participatory_space: participatory_space) }
+  let(:component) { create(:component, manifest_name: "dummy", participatory_space: participatory_space) }
   let(:scope) { create(:scope, organization: organization) }
-  let(:resource) { create(:dummy_resource, feature: feature, scope: scope) }
+  let(:resource) { create(:dummy_resource, component: component, scope: scope) }
 
   before do
     allow(helper).to receive(:current_participatory_space).and_return(participatory_space)

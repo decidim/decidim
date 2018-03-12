@@ -17,13 +17,13 @@ module Decidim
         attribute :attachment, AttachmentForm
 
         validates :title, :body, presence: true
-        validates :address, geocoding: true, if: -> { current_feature.settings.geocoding_enabled? }
+        validates :address, geocoding: true, if: -> { current_component.settings.geocoding_enabled? }
         validates :category, presence: true, if: ->(form) { form.category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
 
         validate :scope_belongs_to_participatory_space_scope
 
-        delegate :categories, to: :current_feature
+        delegate :categories, to: :current_component
 
         def map_model(model)
           return unless model.categorization
@@ -31,7 +31,7 @@ module Decidim
           self.category_id = model.categorization.decidim_category_id
         end
 
-        alias feature current_feature
+        alias component current_component
 
         # Finds the Category from the category_id.
         #

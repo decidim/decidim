@@ -8,11 +8,11 @@ module Decidim
       class ProposalsImportForm < Decidim::Form
         mimic :proposals_import
 
-        attribute :origin_feature_id, Integer
+        attribute :origin_component_id, Integer
         attribute :import_proposals, Boolean
         attribute :states, Array
 
-        validates :origin_feature_id, :origin_feature, :states, :current_feature, presence: true
+        validates :origin_component_id, :origin_component, :states, :current_component, presence: true
         validates :import_proposals, allow_nil: false, acceptance: true
         validate :valid_states
 
@@ -31,17 +31,17 @@ module Decidim
           super.reject(&:blank?)
         end
 
-        def origin_feature
-          @origin_feature ||= origin_features.find_by(id: origin_feature_id)
+        def origin_component
+          @origin_component ||= origin_components.find_by(id: origin_component_id)
         end
 
-        def origin_features
-          @origin_features ||= current_participatory_space.features.where.not(id: current_feature.id).where(manifest_name: :proposals)
+        def origin_components
+          @origin_components ||= current_participatory_space.components.where.not(id: current_component.id).where(manifest_name: :proposals)
         end
 
-        def origin_features_collection
-          origin_features.map do |feature|
-            [feature.name[I18n.locale.to_s], feature.id]
+        def origin_components_collection
+          origin_components.map do |component|
+            [component.name[I18n.locale.to_s], component.id]
           end
         end
 

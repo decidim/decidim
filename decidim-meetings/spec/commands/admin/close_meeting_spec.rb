@@ -20,15 +20,15 @@ module Decidim::Meetings
         current_user: user
       )
     end
-    let(:proposal_feature) do
-      create(:feature, manifest_name: :proposals, participatory_space: meeting.feature.participatory_space)
+    let(:proposal_component) do
+      create(:component, manifest_name: :proposals, participatory_space: meeting.component.participatory_space)
     end
     let(:invalid) { false }
     let(:proposals) do
       create_list(
         :proposal,
         3,
-        feature: proposal_feature
+        component: proposal_component
       )
     end
     let(:proposal_ids) { proposals.map(&:id) }
@@ -67,7 +67,7 @@ module Decidim::Meetings
       end
 
       context "when previous proposals had been linked" do
-        let(:previous_proposals) { create_list(:proposal, 3, feature: proposal_feature) }
+        let(:previous_proposals) { create_list(:proposal, 3, component: proposal_component) }
 
         before do
           meeting.link_resources(previous_proposals, "proposals_from_meeting")

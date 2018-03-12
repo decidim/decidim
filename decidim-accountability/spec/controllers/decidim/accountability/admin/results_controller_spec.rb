@@ -11,18 +11,18 @@ module Decidim
         let(:organization) { create(:organization) }
         let(:current_user) { create(:user, :confirmed, :admin, organization: organization) }
         let(:participatory_space) { create(:participatory_process, organization: organization) }
-        let!(:feature) do
+        let!(:component) do
           create(
-            :accountability_feature,
+            :accountability_component,
             participatory_space: participatory_space
           )
         end
-        let(:result) { create(:result, feature: feature) }
+        let(:result) { create(:result, component: component) }
         let(:params) { { id: result.id } }
 
         before do
           request.env["decidim.current_organization"] = organization
-          request.env["decidim.current_feature"] = feature
+          request.env["decidim.current_component"] = component
           sign_in current_user
         end
 
@@ -34,8 +34,8 @@ module Decidim
         end
 
         describe "GET proposals in json format" do
-          let(:proposal_feature) { create(:proposal_feature, participatory_space: participatory_space) }
-          let(:proposal) { create(:proposal, feature: proposal_feature) }
+          let(:proposal_component) { create(:proposal_component, participatory_space: participatory_space) }
+          let(:proposal) { create(:proposal, component: proposal_component) }
 
           context "when there are no results" do
             it "returns an empty json array" do

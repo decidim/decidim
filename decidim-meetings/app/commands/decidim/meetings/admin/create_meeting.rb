@@ -42,7 +42,7 @@ module Decidim
             longitude: @form.longitude,
             location: @form.location,
             location_hints: @form.location_hints,
-            feature: @form.current_feature
+            component: @form.current_component
           )
         end
 

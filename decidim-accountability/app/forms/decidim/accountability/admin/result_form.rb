@@ -32,7 +32,7 @@ module Decidim
 
         validate :scope_belongs_to_participatory_space_scope
 
-        delegate :categories, to: :current_feature
+        delegate :categories, to: :current_component
 
         def map_model(model)
           self.proposal_ids = model.linked_resources(:proposals, "included_proposals").pluck(:id)
@@ -42,13 +42,13 @@ module Decidim
 
         def proposals
           @proposals ||= Decidim.find_resource_manifest(:proposals)
-                                .try(:resource_scope, current_feature)
+                                .try(:resource_scope, current_component)
                                 &.where(id: proposal_ids)
                                 &.order(title: :asc)
         end
 
         def projects
-          @projects ||= Decidim.find_resource_manifest(:projects).try(:resource_scope, current_feature)&.order(title: :asc)
+          @projects ||= Decidim.find_resource_manifest(:projects).try(:resource_scope, current_component)&.order(title: :asc)
                                &.select(:title, :id)&.map { |a| [a.title[I18n.locale.to_s], a.id] }
         end
 
@@ -71,11 +71,11 @@ module Decidim
         end
 
         def parent
-          @parent ||= Decidim::Accountability::Result.find_by(feature: current_feature, id: parent_id)
+          @parent ||= Decidim::Accountability::Result.find_by(component: current_component, id: parent_id)
         end
 
         def status
-          @status ||= Decidim::Accountability::Status.find_by(feature: current_feature, id: decidim_accountability_status_id)
+          @status ||= Decidim::Accountability::Status.find_by(component: current_component, id: decidim_accountability_status_id)
         end
 
         private

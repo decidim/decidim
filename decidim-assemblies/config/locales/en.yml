@@ -10,10 +10,14 @@ en:
         closing_date: Closing date
         closing_date_reason: Closing date reason
         copy_categories: Copy categories
+<<<<<<< HEAD
         copy_features: Copy features
         created_by: Created by
         created_by_other: Created by other
         creation_date: Date created
+=======
+        copy_components: Copy components
+>>>>>>> master
         decidim_area_id: Area
         decidim_scope_id: Scope
         description: Description
@@ -109,7 +113,7 @@ en:
           attachment_files: Files
           attachments: Attachments
           categories: Categories
-          features: Features
+          components: Components
           info: Info
           moderations: Moderations
       models:

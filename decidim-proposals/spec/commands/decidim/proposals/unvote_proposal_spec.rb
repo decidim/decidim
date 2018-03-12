@@ -7,7 +7,7 @@ module Decidim
     describe UnvoteProposal do
       describe "call" do
         let(:proposal) { create(:proposal) }
-        let(:current_user) { create(:user, organization: proposal.feature.organization) }
+        let(:current_user) { create(:user, organization: proposal.component.organization) }
         let!(:proposal_vote) { create(:proposal_vote, author: current_user, proposal: proposal) }
         let(:command) { described_class.new(proposal, current_user) }
 
