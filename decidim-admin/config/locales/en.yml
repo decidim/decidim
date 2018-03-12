@@ -22,7 +22,7 @@ en:
         description: Description
         name: Name
         parent_id: Parent
-      feature:
+      component:
         name: Name
         published_at: Published at
         weight: Weight
@@ -210,6 +210,44 @@ en:
         update:
           error: There was an error updating this category.
           success: Category updated successfully.
+      component_permissions:
+        edit:
+          everyone: Everyone
+          submit: Save permissions
+          title: Edit permissions
+        update:
+          success: Permissions updated successfully.
+      components:
+        create:
+          error: There was an error creating this component.
+          success: Component created successfully.
+        destroy:
+          error: There has been an error destroying this component.
+          success: Component deleted successfully.
+        edit:
+          title: Edit component
+          update: Update
+        form:
+          default_step_settings: Default step settings
+          global_settings: Global settings
+          step_settings: Step settings
+        index:
+          add: Add component
+          headers:
+            actions: Actions
+            name: Component name
+            type: Component type
+        new:
+          add: Add component
+          title: 'Add component: %{name}'
+        publish:
+          success: The component has been successfully published.
+        title: Components
+        unpublish:
+          success: The component has been successfully unpublished.
+        update:
+          error: There has been an error updating this component.
+          success: The component was updated successfully.
       dashboard:
         show:
           view_more_logs: View more logs
@@ -217,44 +255,6 @@ en:
       exports:
         export_as: "%{name} as %{export_format}"
         notice: Your export is currently in progress. You'll receive an email when it's complete.
-      feature_permissions:
-        edit:
-          everyone: Everyone
-          submit: Save permissions
-          title: Edit permissions
-        update:
-          success: Permissions updated successfully.
-      features:
-        create:
-          error: There was an error creating this feature.
-          success: Feature created successfully.
-        destroy:
-          error: There has been an error destroying this feature.
-          success: Feature deleted successfully.
-        edit:
-          title: Edit feature
-          update: Update
-        form:
-          default_step_settings: Default step settings
-          global_settings: Global settings
-          step_settings: Step settings
-        index:
-          add: Add feature
-          headers:
-            actions: Actions
-            name: Feature name
-            type: Feature type
-        new:
-          add: Add feature
-          title: 'Add feature: %{name}'
-        publish:
-          success: The feature has been successfully published.
-        title: Features
-        unpublish:
-          success: The feature has been successfully unpublished.
-        update:
-          error: There has been an error updating this feature.
-          success: The feature was updated successfully.
       logs:
         logs_list:
           no_logs_yet: There are no logs yet

@@ -10,13 +10,13 @@ module Decidim
       end
 
       let!(:proposal) { create(:proposal) }
-      let!(:category) { create(:category, participatory_space: feature.participatory_space) }
-      let!(:scope) { create(:scope, organization: feature.participatory_space.organization) }
-      let(:participatory_process) { feature.participatory_space }
-      let(:feature) { proposal.feature }
+      let!(:category) { create(:category, participatory_space: component.participatory_space) }
+      let!(:scope) { create(:scope, organization: component.participatory_space.organization) }
+      let(:participatory_process) { component.participatory_space }
+      let(:component) { proposal.component }
 
-      let!(:meetings_feature) { create(:feature, manifest_name: "meetings", participatory_space: participatory_process) }
-      let(:meetings) { create_list(:meeting, 2, feature: meetings_feature) }
+      let!(:meetings_component) { create(:component, manifest_name: "meetings", participatory_space: participatory_process) }
+      let(:meetings) { create_list(:meeting, 2, component: meetings_component) }
 
       before do
         proposal.update!(category: category)
@@ -65,8 +65,8 @@ module Decidim
           expect(serialized[:url]).to include("http", proposal.id.to_s)
         end
 
-        it "serializes the feature" do
-          expect(serialized[:feature]).to include(id: proposal.feature.id)
+        it "serializes the component" do
+          expect(serialized[:component]).to include(id: proposal.component.id)
         end
 
         it "serializes the meetings" do

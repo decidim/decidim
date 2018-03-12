@@ -25,8 +25,8 @@ module Decidim
 
       initializer "decidim_accountability.view_hooks" do
         Decidim.view_hooks.register(:participatory_space_highlighted_elements, priority: Decidim::ViewHooks::LOW_PRIORITY) do |view_context|
-          published_features = Decidim::Feature.where(participatory_space: view_context.current_participatory_space).published
-          results = Decidim::Accountability::Result.where(feature: published_features).order_randomly(rand * 2 - 1).limit(4)
+          published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
+          results = Decidim::Accountability::Result.where(component: published_components).order_randomly(rand * 2 - 1).limit(4)
 
           next unless results.any?
 
@@ -41,8 +41,8 @@ module Decidim
 
         if defined? Decidim::ParticipatoryProcesses
           Decidim::ParticipatoryProcesses.view_hooks.register(:process_group_highlighted_elements, priority: Decidim::ViewHooks::LOW_PRIORITY) do |view_context|
-            published_features = Decidim::Feature.where(participatory_space: view_context.participatory_processes).published
-            results = Decidim::Accountability::Result.where(feature: published_features).order_randomly(rand * 2 - 1).limit(4)
+            published_components = Decidim::Component.where(participatory_space: view_context.participatory_processes).published
+            results = Decidim::Accountability::Result.where(component: published_components).order_randomly(rand * 2 - 1).limit(4)
 
             next unless results.any?
 

@@ -7,9 +7,9 @@ module Decidim::Meetings
     subject { described_class.new(form, meeting) }
 
     let(:meeting) { create(:meeting) }
-    let(:organization) { meeting.feature.organization }
+    let(:organization) { meeting.component.organization }
     let(:scope) { create :scope, organization: organization }
-    let(:category) { create :category, participatory_space: meeting.feature.participatory_space }
+    let(:category) { create :category, participatory_space: meeting.component.participatory_space }
     let(:address) { meeting.address }
     let(:invalid) { false }
     let(:latitude) { 40.1234 }

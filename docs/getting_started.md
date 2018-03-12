@@ -81,7 +81,7 @@ Visit [http://localhost:3000](http://localhost:3000) to see your app running.
 
 Decidim comes pre-configured with some safe defaults, but can be changed through the `config/initializers/decidim.rb` file in your app. Check the comments there or read the comments in [the source file](https://github.com/decidim/decidim/blob/master/decidim-core/lib/decidim/core.rb) (the part with the `config_accessor` calls) for more up-to-date info.
 
-We also have other guides on how to configure some extra features:
+We also have other guides on how to configure some extra components:
 
 - [ActiveJob](https://github.com/decidim/decidim/blob/master/docs/services/activejob.md)
 - [Analytics](https://github.com/decidim/decidim/blob/master/docs/services/analytics.md): How to enable analytics

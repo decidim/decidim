@@ -10,7 +10,7 @@ shared_examples "edit surveys" do
   end
 
   it "updates the survey" do
-    visit_feature_admin
+    visit_component_admin
 
     new_description = {
       en: "<p>New description</p>",
@@ -25,14 +25,14 @@ shared_examples "edit surveys" do
 
     expect(page).to have_admin_callout("successfully")
 
-    visit_feature
+    visit_component
 
     expect(page).to have_content("New description")
   end
 
   context "when the survey is not already answered" do
     it "adds a few questions to the survey" do
-      visit_feature_admin
+      visit_component_admin
 
       questions_body = [
         {
@@ -66,14 +66,14 @@ shared_examples "edit surveys" do
 
       expect(page).to have_admin_callout("successfully")
 
-      visit_feature_admin
+      visit_component_admin
 
       expect(page).to have_selector("input[value='This is the first question']")
       expect(page).to have_selector("input[value='This is the second question']")
     end
 
     it "adds a question with answer options" do
-      visit_feature_admin
+      visit_component_admin
 
       question_body = {
         en: "This is the first question",
@@ -128,7 +128,7 @@ shared_examples "edit surveys" do
 
       expect(page).to have_admin_callout("successfully")
 
-      visit_feature_admin
+      visit_component_admin
 
       expect(page).to have_selector("input[value='This is the first question']")
       expect(page).to have_selector("input[value='This is the first option']")
@@ -139,7 +139,7 @@ shared_examples "edit surveys" do
       let!(:survey_question) { create(:survey_question, survey: survey, body: body) }
 
       it "modifies the question" do
-        visit_feature_admin
+        visit_component_admin
 
         within "form.edit_survey" do
           expect(page).to have_selector(".survey-question", count: 1)
@@ -155,7 +155,7 @@ shared_examples "edit surveys" do
 
         expect(page).to have_admin_callout("successfully")
 
-        visit_feature_admin
+        visit_component_admin
 
         expect(page).to have_selector("input[value='Modified question']")
         expect(page).to have_no_selector("input[value='This is the first question']")
@@ -164,7 +164,7 @@ shared_examples "edit surveys" do
       end
 
       it "removes the question" do
-        visit_feature_admin
+        visit_component_admin
 
         within "form.edit_survey" do
           expect(page).to have_selector(".survey-question", count: 1)
@@ -178,7 +178,7 @@ shared_examples "edit surveys" do
 
         expect(page).to have_admin_callout("successfully")
 
-        visit_feature_admin
+        visit_component_admin
 
         within "form.edit_survey" do
           expect(page).to have_selector(".survey-question", count: 0)
@@ -192,7 +192,7 @@ shared_examples "edit surveys" do
     let!(:survey_answer) { create(:survey_answer, survey: survey, question: survey_question) }
 
     it "cannot modify survey questions" do
-      visit_feature_admin
+      visit_component_admin
 
       expect(page).to have_no_content("Add question")
       expect(page).to have_no_content("Remove question")

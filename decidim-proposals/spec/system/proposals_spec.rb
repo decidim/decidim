@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Proposals", type: :system do
-  include_context "with a feature"
+  include_context "with a component"
   let(:manifest_name) { "proposals" }
 
   let!(:category) { create :category, participatory_space: participatory_process }
@@ -28,18 +28,18 @@ describe "Proposals", type: :system do
   end
 
   context "when viewing a single proposal" do
-    let!(:feature) do
-      create(:proposal_feature,
+    let!(:component) do
+      create(:proposal_component,
              manifest: manifest,
              participatory_space: participatory_process)
     end
 
-    let!(:proposals) { create_list(:proposal, 3, feature: feature) }
+    let!(:proposals) { create_list(:proposal, 3, component: component) }
 
     it "allows viewing a single proposal" do
       proposal = proposals.first
 
-      visit_feature
+      visit_component
 
       click_link proposal.title
 
@@ -50,43 +50,43 @@ describe "Proposals", type: :system do
     end
 
     context "when process is not related to any scope" do
-      let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
+      let!(:proposal) { create(:proposal, component: component, scope: scope) }
 
       it "can be filtered by scope" do
-        visit_feature
+        visit_component
         click_link proposal.title
         expect(page).to have_content(translated(scope.name))
       end
     end
 
     context "when process is related to a child scope" do
-      let!(:proposal) { create(:proposal, feature: feature, scope: scope) }
+      let!(:proposal) { create(:proposal, component: component, scope: scope) }
       let(:participatory_process) { scoped_participatory_process }
 
       it "does not show the scope name" do
-        visit_feature
+        visit_component
         click_link proposal.title
         expect(page).to have_no_content(translated(scope.name))
       end
     end
 
     context "when it is an official proposal" do
-      let!(:official_proposal) { create(:proposal, feature: feature, author: nil) }
+      let!(:official_proposal) { create(:proposal, component: component, author: nil) }
 
       it "shows the author as official" do
-        visit_feature
+        visit_component
         click_link official_proposal.title
         expect(page).to have_content("Official proposal")
       end
     end
 
     context "when a proposal has comments" do
-      let(:proposal) { create(:proposal, feature: feature) }
-      let(:author) { create(:user, :confirmed, organization: feature.organization) }
+      let(:proposal) { create(:proposal, component: component) }
+      let(:author) { create(:user, :confirmed, organization: component.organization) }
       let!(:comments) { create_list(:comment, 3, commentable: proposal) }
 
       it "shows the comments" do
-        visit_feature
+        visit_component
         click_link proposal.title
 
         comments.each do |comment|
@@ -96,18 +96,18 @@ describe "Proposals", type: :system do
     end
 
     context "when a proposal has been linked in a meeting" do
-      let(:proposal) { create(:proposal, feature: feature) }
-      let(:meeting_feature) do
-        create(:feature, manifest_name: :meetings, participatory_space: proposal.feature.participatory_space)
+      let(:proposal) { create(:proposal, component: component) }
+      let(:meeting_component) do
+        create(:component, manifest_name: :meetings, participatory_space: proposal.component.participatory_space)
       end
-      let(:meeting) { create(:meeting, feature: meeting_feature) }
+      let(:meeting) { create(:meeting, component: meeting_component) }
 
       before do
         meeting.link_resources([proposal], "proposals_from_meeting")
       end
 
       it "shows related meetings" do
-        visit_feature
+        visit_component
         click_link proposal.title
 
         expect(page).to have_i18n_content(meeting.title)
@@ -115,18 +115,18 @@ describe "Proposals", type: :system do
     end
 
     context "when a proposal has been linked in a result" do
-      let(:proposal) { create(:proposal, feature: feature) }
-      let(:dummy_feature) do
-        create(:feature, manifest_name: :dummy, participatory_space: proposal.feature.participatory_space)
+      let(:proposal) { create(:proposal, component: component) }
+      let(:dummy_component) do
+        create(:component, manifest_name: :dummy, participatory_space: proposal.component.participatory_space)
       end
-      let(:dummy_resource) { create(:dummy_resource, feature: dummy_feature) }
+      let(:dummy_resource) { create(:dummy_resource, component: dummy_component) }
 
       before do
         dummy_resource.link_resources([proposal], "included_proposals")
       end
 
       it "shows related resources" do
-        visit_feature
+        visit_component
         click_link proposal.title
 
         expect(page).to have_i18n_content(dummy_resource.title)
@@ -134,10 +134,10 @@ describe "Proposals", type: :system do
     end
 
     context "when a proposal is in evaluation" do
-      let!(:proposal) { create(:proposal, :evaluating, :with_answer, feature: feature) }
+      let!(:proposal) { create(:proposal, :evaluating, :with_answer, component: component) }
 
       it "shows a badge and an answer" do
-        visit_feature
+        visit_component
         click_link proposal.title
 
         expect(page).to have_content("Evaluating")
@@ -150,10 +150,10 @@ describe "Proposals", type: :system do
     end
 
     context "when a proposal has been rejected" do
-      let!(:proposal) { create(:proposal, :rejected, :with_answer, feature: feature) }
+      let!(:proposal) { create(:proposal, :rejected, :with_answer, component: component) }
 
       it "shows the rejection reason" do
-        visit_feature
+        visit_component
         click_link proposal.title
 
         expect(page).to have_content("Rejected")
@@ -166,10 +166,10 @@ describe "Proposals", type: :system do
     end
 
     context "when a proposal has been accepted" do
-      let!(:proposal) { create(:proposal, :accepted, :with_answer, feature: feature) }
+      let!(:proposal) { create(:proposal, :accepted, :with_answer, component: component) }
 
       it "shows the acceptance reason" do
-        visit_feature
+        visit_component
         click_link proposal.title
 
         expect(page).to have_content("Accepted")
@@ -189,7 +189,7 @@ describe "Proposals", type: :system do
       end
 
       it "the user is displayed as a deleted user" do
-        visit_feature
+        visit_component
 
         click_link proposal.title
 
@@ -199,23 +199,23 @@ describe "Proposals", type: :system do
   end
 
   context "when a proposal has been linked in a project" do
-    let(:feature) do
-      create(:proposal_feature,
+    let(:component) do
+      create(:proposal_component,
              manifest: manifest,
              participatory_space: participatory_process)
     end
-    let(:proposal) { create(:proposal, feature: feature) }
-    let(:budget_feature) do
-      create(:feature, manifest_name: :budgets, participatory_space: proposal.feature.participatory_space)
+    let(:proposal) { create(:proposal, component: component) }
+    let(:budget_component) do
+      create(:component, manifest_name: :budgets, participatory_space: proposal.component.participatory_space)
     end
-    let(:project) { create(:project, feature: budget_feature) }
+    let(:project) { create(:project, component: budget_component) }
 
     before do
       project.link_resources([proposal], "included_proposals")
     end
 
     it "shows related projects" do
-      visit_feature
+      visit_component
       click_link proposal.title
 
       expect(page).to have_i18n_content(project.title)
@@ -224,11 +224,11 @@ describe "Proposals", type: :system do
 
   context "when listing proposals in a participatory process" do
     shared_examples_for "a random proposal ordering" do
-      let!(:lucky_proposal) { create(:proposal, feature: feature) }
-      let!(:unlucky_proposal) { create(:proposal, feature: feature) }
+      let!(:lucky_proposal) { create(:proposal, component: component) }
+      let!(:unlucky_proposal) { create(:proposal, component: component) }
 
       it "lists the proposals ordered randomly by default" do
-        visit_feature
+        visit_component
 
         expect(page).to have_selector("a", text: "Random")
         expect(page).to have_selector(".card--proposal", count: 2)
@@ -238,13 +238,13 @@ describe "Proposals", type: :system do
     end
 
     it "lists all the proposals" do
-      create(:proposal_feature,
+      create(:proposal_component,
              manifest: manifest,
              participatory_space: participatory_process)
 
-      create_list(:proposal, 3, feature: feature)
+      create_list(:proposal, 3, component: component)
 
-      visit_feature
+      visit_component
       expect(page).to have_css(".card--proposal", count: 3)
     end
 
@@ -253,22 +253,22 @@ describe "Proposals", type: :system do
     end
 
     context "when voting phase is over" do
-      let!(:feature) do
-        create(:proposal_feature,
+      let!(:component) do
+        create(:proposal_component,
                :with_votes_blocked,
                manifest: manifest,
                participatory_space: participatory_process)
       end
 
       let!(:most_voted_proposal) do
-        proposal = create(:proposal, feature: feature)
+        proposal = create(:proposal, component: component)
         create_list(:proposal_vote, 3, proposal: proposal)
         proposal
       end
 
-      let!(:less_voted_proposal) { create(:proposal, feature: feature) }
+      let!(:less_voted_proposal) { create(:proposal, component: component) }
 
-      before { visit_feature }
+      before { visit_component }
 
       it "lists the proposals ordered by votes by default" do
         expect(page).to have_selector("a", text: "Most voted")
@@ -283,8 +283,8 @@ describe "Proposals", type: :system do
     end
 
     context "when voting is disabled" do
-      let!(:feature) do
-        create(:proposal_feature,
+      let!(:component) do
+        create(:proposal_component,
                :with_votes_disabled,
                manifest: manifest,
                participatory_space: participatory_process)
@@ -295,9 +295,9 @@ describe "Proposals", type: :system do
       end
 
       it "shows only links to full proposals" do
-        create_list(:proposal, 2, feature: feature)
+        create_list(:proposal, 2, component: component)
 
-        visit_feature
+        visit_component
 
         expect(page).to have_no_button("Voting disabled", disabled: true)
         expect(page).to have_no_button("Vote")
@@ -307,11 +307,11 @@ describe "Proposals", type: :system do
 
     context "when there are a lot of proposals" do
       before do
-        create_list(:proposal, Decidim::Paginable::OPTIONS.first + 5, feature: feature)
+        create_list(:proposal, Decidim::Paginable::OPTIONS.first + 5, component: component)
       end
 
       it "paginates them" do
-        visit_feature
+        visit_component
 
         expect(page).to have_css(".card--proposal", count: Decidim::Paginable::OPTIONS.first)
 
@@ -326,11 +326,11 @@ describe "Proposals", type: :system do
     context "when filtering" do
       context "when official_proposals setting is enabled" do
         before do
-          feature.update!(settings: { official_proposals_enabled: true })
+          component.update!(settings: { official_proposals_enabled: true })
         end
 
         it "can be filtered by origin" do
-          visit_feature
+          visit_component
 
           within "form.new_filter" do
             expect(page).to have_content(/Origin/i)
@@ -339,9 +339,9 @@ describe "Proposals", type: :system do
 
         context "with 'official' origin" do
           it "lists the filtered proposals" do
-            create_list(:proposal, 2, :official, feature: feature, scope: scope)
-            create(:proposal, feature: feature, scope: scope)
-            visit_feature
+            create_list(:proposal, 2, :official, component: component, scope: scope)
+            create(:proposal, component: component, scope: scope)
+            visit_component
 
             within ".filters" do
               choose "Official"
@@ -354,9 +354,9 @@ describe "Proposals", type: :system do
 
         context "with 'citizens' origin" do
           it "lists the filtered proposals" do
-            create_list(:proposal, 2, feature: feature, scope: scope)
-            create(:proposal, :official, feature: feature, scope: scope)
-            visit_feature
+            create_list(:proposal, 2, component: component, scope: scope)
+            create(:proposal, :official, component: component, scope: scope)
+            visit_component
 
             within ".filters" do
               choose "Citizens"
@@ -370,11 +370,11 @@ describe "Proposals", type: :system do
 
       context "when official_proposals setting is not enabled" do
         before do
-          feature.update!(settings: { official_proposals_enabled: false })
+          component.update!(settings: { official_proposals_enabled: false })
         end
 
         it "cannot be filtered by origin" do
-          visit_feature
+          visit_component
 
           within "form.new_filter" do
             expect(page).to have_no_content(/Origin/i)
@@ -387,10 +387,10 @@ describe "Proposals", type: :system do
         let!(:scope2) { create :scope, organization: participatory_process.organization }
 
         before do
-          create_list(:proposal, 2, feature: feature, scope: scope)
-          create(:proposal, feature: feature, scope: scope2)
-          create(:proposal, feature: feature, scope: nil)
-          visit_feature
+          create_list(:proposal, 2, component: component, scope: scope)
+          create(:proposal, component: component, scope: scope2)
+          create(:proposal, component: component, scope: nil)
+          visit_component
         end
 
         it "can be filtered by scope" do
@@ -464,7 +464,7 @@ describe "Proposals", type: :system do
         let(:participatory_process) { scoped_participatory_process }
 
         it "cannot be filtered by scope" do
-          visit_feature
+          visit_component
 
           within "form.new_filter" do
             expect(page).to have_no_content(/Scopes/i)
@@ -472,16 +472,16 @@ describe "Proposals", type: :system do
         end
       end
 
-      context "when proposal_answering feature setting is enabled" do
+      context "when proposal_answering component setting is enabled" do
         before do
-          feature.update!(settings: { proposal_answering_enabled: true })
+          component.update!(settings: { proposal_answering_enabled: true })
         end
 
         context "when proposal_answering step setting is enabled" do
           before do
-            feature.update!(
+            component.update!(
               step_settings: {
-                feature.participatory_space.active_step.id => {
+                component.participatory_space.active_step.id => {
                   proposal_answering_enabled: true
                 }
               }
@@ -489,7 +489,7 @@ describe "Proposals", type: :system do
           end
 
           it "can be filtered by state" do
-            visit_feature
+            visit_component
 
             within "form.new_filter" do
               expect(page).to have_content(/State/i)
@@ -497,8 +497,8 @@ describe "Proposals", type: :system do
           end
 
           it "lists accepted proposals" do
-            create(:proposal, :accepted, feature: feature, scope: scope)
-            visit_feature
+            create(:proposal, :accepted, component: component, scope: scope)
+            visit_component
 
             within ".filters" do
               choose "Accepted"
@@ -513,8 +513,8 @@ describe "Proposals", type: :system do
           end
 
           it "lists the filtered proposals" do
-            create(:proposal, :rejected, feature: feature, scope: scope)
-            visit_feature
+            create(:proposal, :rejected, component: component, scope: scope)
+            visit_component
 
             within ".filters" do
               choose "Rejected"
@@ -531,9 +531,9 @@ describe "Proposals", type: :system do
 
         context "when proposal_answering step setting is disabled" do
           before do
-            feature.update!(
+            component.update!(
               step_settings: {
-                feature.participatory_space.active_step.id => {
+                component.participatory_space.active_step.id => {
                   proposal_answering_enabled: false
                 }
               }
@@ -541,7 +541,7 @@ describe "Proposals", type: :system do
           end
 
           it "cannot be filtered by state" do
-            visit_feature
+            visit_component
 
             within "form.new_filter" do
               expect(page).to have_no_content(/State/i)
@@ -550,13 +550,13 @@ describe "Proposals", type: :system do
         end
       end
 
-      context "when proposal_answering feature setting is not enabled" do
+      context "when proposal_answering component setting is not enabled" do
         before do
-          feature.update!(settings: { proposal_answering_enabled: false })
+          component.update!(settings: { proposal_answering_enabled: false })
         end
 
         it "cannot be filtered by state" do
-          visit_feature
+          visit_component
 
           within "form.new_filter" do
             expect(page).to have_no_content(/State/i)
@@ -570,10 +570,10 @@ describe "Proposals", type: :system do
         end
 
         it "can be filtered by category" do
-          create_list(:proposal, 3, feature: feature)
-          create(:proposal, feature: feature, category: category)
+          create_list(:proposal, 3, component: component)
+          create(:proposal, component: component, category: category)
 
-          visit_feature
+          visit_component
 
           within "form.new_filter" do
             select category.name[I18n.locale.to_s], from: :filter_category_id
@@ -585,19 +585,19 @@ describe "Proposals", type: :system do
     end
 
     context "when ordering by 'most_voted'" do
-      let!(:feature) do
-        create(:proposal_feature,
+      let!(:component) do
+        create(:proposal_component,
                :with_votes_enabled,
                manifest: manifest,
                participatory_space: participatory_process)
       end
 
       it "lists the proposals ordered by votes" do
-        most_voted_proposal = create(:proposal, feature: feature)
+        most_voted_proposal = create(:proposal, component: component)
         create_list(:proposal_vote, 3, proposal: most_voted_proposal)
-        less_voted_proposal = create(:proposal, feature: feature)
+        less_voted_proposal = create(:proposal, component: component)
 
-        visit_feature
+        visit_component
 
         within ".order-by" do
           expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
@@ -612,10 +612,10 @@ describe "Proposals", type: :system do
 
     context "when ordering by 'recent'" do
       it "lists the proposals ordered by created at" do
-        older_proposal = create(:proposal, feature: feature, created_at: 1.month.ago)
-        recent_proposal = create(:proposal, feature: feature)
+        older_proposal = create(:proposal, component: component, created_at: 1.month.ago)
+        recent_proposal = create(:proposal, component: component)
 
-        visit_feature
+        visit_component
 
         within ".order-by" do
           expect(page).to have_selector("ul[data-dropdown-menu$=dropdown-menu]", text: "Random")
@@ -629,7 +629,7 @@ describe "Proposals", type: :system do
     end
 
     context "when paginating" do
-      let!(:collection) { create_list :proposal, collection_size, feature: feature }
+      let!(:collection) { create_list :proposal, collection_size, component: component }
       let!(:resource_selector) { ".card--proposal" }
 
       it_behaves_like "a paginated resource"

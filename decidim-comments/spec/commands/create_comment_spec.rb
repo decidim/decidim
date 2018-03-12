@@ -8,10 +8,10 @@ module Decidim
       describe "call" do
         let(:organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization: organization) }
-        let(:feature) { create(:feature, participatory_space: participatory_process) }
+        let(:component) { create(:component, participatory_space: participatory_process) }
         let(:user) { create(:user, organization: organization) }
         let(:author) { create(:user, organization: organization) }
-        let(:dummy_resource) { create :dummy_resource, feature: feature }
+        let(:dummy_resource) { create :dummy_resource, component: component }
         let(:commentable) { dummy_resource }
         let(:body) { ::Faker::Lorem.paragraph }
         let(:alignment) { 1 }

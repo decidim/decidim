@@ -8,8 +8,8 @@ module Decidim
       let(:current_organization) { create(:organization) }
       let(:current_user) { create(:user, organization: current_organization) }
       let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-      let(:feature) { create(:feature, manifest_name: "surveys", participatory_space: participatory_process) }
-      let(:survey) { create(:survey, feature: feature) }
+      let(:component) { create(:component, manifest_name: "surveys", participatory_space: participatory_process) }
+      let(:survey) { create(:survey, component: component) }
       let(:survey_question_1) { create(:survey_question, survey: survey) }
       let(:survey_question_2) { create(:survey_question, survey: survey) }
       let(:form_params) do
@@ -32,7 +32,7 @@ module Decidim
           form_params
         ).with_context(
           current_organization: current_organization,
-          current_feature: feature
+          current_component: component
         )
       end
       let(:command) { described_class.new(form, current_user, survey) }

@@ -9,7 +9,7 @@
   <% end %>
   <%= link_to projects_path, class: "muted-link" do %>
     <%= icon "chevron-left", class: "icon--small" %>
-    <%= t('.view_all_projects') %>
+    <%= t(".view_all_projects") %>
   <% end %>
   <h2 class="heading2"><%= translated_attribute project.title %></h2>
 </div>
@@ -19,16 +19,16 @@
     <div class="card extra">
       <div class="card__content">
         <div class="m-bottom">
-          <span class="definition-data__title"><%= t('.budget') %></span>
+          <span class="definition-data__title"><%= t(".budget") %></span>
           <span class="definition-data__number"><%= budget_to_currency project.budget %></span>
         </div>
         <% if current_settings.show_votes? %>
           <div class="card__support__data">
-            <span><%= t('decidim.budgets.projects.project.count', count: project.confirmed_orders_count) %></span>
+            <span><%= t("decidim.budgets.projects.project.count", count: project.confirmed_orders_count) %></span>
           </div>
         <% end %>
         <div id="project-<%= project.id %>-budget-button">
-          <%= render partial: 'project_budget_button', locals: { project: project } %>
+          <%= render partial: "project_budget_button", locals: { project: project } %>
         </div>
         <%= render partial: "decidim/shared/follow_button", locals: { followable: project } %>
       </div>

@@ -13,10 +13,10 @@ module Decidim
                foreign_key: :decidim_user_id,
                class_name: "Decidim::User"
 
-    belongs_to :feature,
-               foreign_key: :decidim_feature_id,
+    belongs_to :component,
+               foreign_key: :decidim_component_id,
                optional: true,
-               class_name: "Decidim::Feature"
+               class_name: "Decidim::Component"
 
     belongs_to :resource,
                polymorphic: true

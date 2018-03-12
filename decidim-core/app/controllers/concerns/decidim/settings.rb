@@ -4,19 +4,19 @@ require "active_support/concern"
 
 module Decidim
   # This concern groups methods and helpers related to accessing the settings
-  # of a feature from a controller.
+  # of a component from a controller.
   module Settings
     extend ActiveSupport::Concern
 
     included do
-      helper_method :feature_settings, :current_settings
+      helper_method :component_settings, :current_settings
 
-      def feature_settings
-        @feature_settings ||= current_feature.settings
+      def component_settings
+        @component_settings ||= current_component.settings
       end
 
       def current_settings
-        @current_settings ||= current_feature.current_settings
+        @current_settings ||= current_component.current_settings
       end
     end
   end

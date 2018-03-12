@@ -6,10 +6,10 @@ module Decidim
   module Pages
     describe CopyPage do
       describe "call" do
-        let(:feature) { create(:feature, manifest_name: "pages") }
-        let!(:page) { create(:page, feature: feature) }
-        let(:new_feature) { create(:feature, manifest_name: "pages") }
-        let(:context) { { new_feature: new_feature, old_feature: feature } }
+        let(:component) { create(:component, manifest_name: "pages") }
+        let!(:page) { create(:page, component: component) }
+        let(:new_component) { create(:component, manifest_name: "pages") }
+        let(:context) { { new_component: new_component, old_component: component } }
         let(:command) { described_class.new(context) }
 
         describe "when the page is not duplicated" do
@@ -34,7 +34,7 @@ module Decidim
           end
 
           it "duplicates the page and its values" do
-            expect(Page).to receive(:create!).with(feature: new_feature, body: page.body).and_call_original
+            expect(Page).to receive(:create!).with(component: new_component, body: page.body).and_call_original
 
             expect do
               command.call

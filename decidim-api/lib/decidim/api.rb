@@ -15,7 +15,7 @@ module Decidim
     # graphql-ruby and the way it deals with loading types, in combination with
     # rail's infamous autoloading.
     def self.orphan_types
-      Decidim.feature_manifests.map(&:query_type).map(&:constantize).uniq +
+      Decidim.component_manifests.map(&:query_type).map(&:constantize).uniq +
         Decidim.participatory_space_manifests.map(&:query_type).map(&:constantize).uniq
     end
   end

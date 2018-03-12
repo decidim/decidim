@@ -7,27 +7,27 @@ module Decidim
     describe ProposalVotesController, type: :controller do
       routes { Decidim::Proposals::Engine.routes }
 
-      let(:proposal) { create(:proposal, feature: feature) }
-      let(:user) { create(:user, :confirmed, organization: feature.organization) }
+      let(:proposal) { create(:proposal, component: component) }
+      let(:user) { create(:user, :confirmed, organization: component.organization) }
 
       let(:params) do
         {
           proposal_id: proposal.id,
-          feature_id: feature.id
+          component_id: component.id
         }
       end
 
       before do
-        request.env["decidim.current_organization"] = feature.organization
-        request.env["decidim.current_participatory_space"] = feature.participatory_space
-        request.env["decidim.current_feature"] = feature
+        request.env["decidim.current_organization"] = component.organization
+        request.env["decidim.current_participatory_space"] = component.participatory_space
+        request.env["decidim.current_component"] = component
         sign_in user
       end
 
       describe "POST create" do
         context "with votes enabled" do
-          let(:feature) do
-            create(:proposal_feature, :with_votes_enabled)
+          let(:component) do
+            create(:proposal_component, :with_votes_enabled)
           end
 
           it "allows voting" do
@@ -41,8 +41,8 @@ module Decidim
         end
 
         context "with votes disabled" do
-          let(:feature) do
-            create(:proposal_feature)
+          let(:component) do
+            create(:proposal_component)
           end
 
           it "doesn't allow voting" do
@@ -56,8 +56,8 @@ module Decidim
         end
 
         context "with votes enabled but votes blocked" do
-          let(:feature) do
-            create(:proposal_feature, :with_votes_blocked)
+          let(:component) do
+            create(:proposal_component, :with_votes_blocked)
           end
 
           it "doesn't allow voting" do
@@ -77,8 +77,8 @@ module Decidim
         end
 
         context "with vote limit enabled" do
-          let(:feature) do
-            create(:proposal_feature, :with_votes_enabled, :with_vote_limit)
+          let(:component) do
+            create(:proposal_component, :with_votes_enabled, :with_vote_limit)
           end
 
           it "deletes the vote" do
@@ -91,8 +91,8 @@ module Decidim
         end
 
         context "with vote limit disabled" do
-          let(:feature) do
-            create(:proposal_feature, :with_votes_enabled)
+          let(:component) do
+            create(:proposal_component, :with_votes_enabled)
           end
 
           it "deletes the vote" do

@@ -33,8 +33,8 @@ module Decidim
 
       initializer "decidim_meetings.view_hooks" do
         Decidim.view_hooks.register(:participatory_space_highlighted_elements, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
-          published_features = Decidim::Feature.where(participatory_space: view_context.current_participatory_space).published
-          meetings = Decidim::Meetings::Meeting.where(feature: published_features)
+          published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
+          meetings = Decidim::Meetings::Meeting.where(component: published_components)
 
           next unless meetings.any?
 
@@ -49,8 +49,8 @@ module Decidim
 
         if defined? Decidim::ParticipatoryProcesses
           Decidim::ParticipatoryProcesses.view_hooks.register(:process_group_highlighted_elements, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
-            published_features = Decidim::Feature.where(participatory_space: view_context.participatory_processes).published
-            meetings = Decidim::Meetings::Meeting.where(feature: published_features)
+            published_components = Decidim::Component.where(participatory_space: view_context.participatory_processes).published
+            meetings = Decidim::Meetings::Meeting.where(component: published_components)
 
             next unless meetings.any?
 

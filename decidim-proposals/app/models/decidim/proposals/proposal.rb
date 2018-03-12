@@ -6,8 +6,8 @@ module Decidim
     class Proposal < Proposals::ApplicationRecord
       include Decidim::Resourceable
       include Decidim::Authorable
-      include Decidim::HasFeature
-      include Decidim::ScopableFeature
+      include Decidim::HasComponent
+      include Decidim::ScopableComponent
       include Decidim::HasReference
       include Decidim::HasCategory
       include Decidim::Reportable
@@ -17,7 +17,7 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
 
-      feature_manifest_name "proposals"
+      component_manifest_name "proposals"
 
       has_many :endorsements, foreign_key: "decidim_proposal_id", class_name: "ProposalEndorsement", dependent: :destroy, counter_cache: "proposal_endorsements_count"
       has_many :votes, foreign_key: "decidim_proposal_id", class_name: "ProposalVote", dependent: :destroy, counter_cache: "proposal_votes_count"
@@ -25,7 +25,7 @@ module Decidim
 
       validates :title, :body, presence: true
 
-      geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.feature.organization.host } }
+      geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.component.organization.host } }
 
       scope :accepted, -> { where(state: "accepted") }
       scope :rejected, -> { where(state: "rejected") }
@@ -109,7 +109,7 @@ module Decidim
       #
       # Returns an Integer with the maximum amount of votes, nil otherwise.
       def maximum_votes
-        maximum_votes = feature.settings.maximum_votes_per_proposal
+        maximum_votes = component.settings.maximum_votes_per_proposal
         return nil if maximum_votes.zero?
 
         maximum_votes
@@ -128,7 +128,7 @@ module Decidim
       #
       # Returns true if can accumulate, false otherwise
       def can_accumulate_supports_beyond_threshold
-        feature.settings.can_accumulate_supports_beyond_threshold
+        component.settings.can_accumulate_supports_beyond_threshold
       end
 
       # Checks whether the user can edit the given proposal.
@@ -169,7 +169,7 @@ module Decidim
       # Checks whether the proposal is inside the time window to be editable or not once published.
       def within_edit_time_limit?
         return true if draft?
-        limit = updated_at + feature.settings.proposal_edit_before_minutes.minutes
+        limit = updated_at + component.settings.proposal_edit_before_minutes.minutes
         Time.current < limit
       end
 
