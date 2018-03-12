@@ -18,6 +18,8 @@ controller or added a new module you need to rename `feature` to `component`.
 
 **Changed**:
 
+- **decidim-participatory_processes**: Render documents in first place (before view hooks). [\#2977](https://github.com/decidim/decidim/pull/2977)
+
 **Fixed**:
 
 - **decidim-proposals**: Fix proposal endorsed event [\#2970](https://github.com/decidim/decidim/pull/2970)
