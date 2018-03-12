@@ -1,5 +1,15 @@
 # Change Log
 
+## Unreleased
+
+**Added**:
+
+**Changed**:
+
+**Fixed**:
+
+- **decidim-comments**: Fix mentions not working properly. [\#2972](https://github.com/decidim/decidim/pull/2972)
+
 ## [0.10-pre](https://github.com/decidim/decidim/tree/0.10-stable)
 
 **Added**:
