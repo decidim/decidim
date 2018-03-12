@@ -96,7 +96,7 @@
     </div>
 
     <div class="row column">
-      <%= form.select :assembly_type, @form.assembly_types_for_select, { include_blank: t(".select_an_assembly_type") }, { multiple: false }  %>
+      <%= form.select :assembly_type, @form.assembly_types_for_select, { include_blank: t(".select_an_assembly_type") }, { multiple: false } %>
     </div>
 
     <div class="row column" data-depends-on="#assembly_assembly_type" data-depends-on-value="others">
@@ -108,7 +108,7 @@
     </div>
 
     <div class="row column">
-      <%= form.select :created_by, @form.created_by_for_select, { include_blank: t(".select_a_created_by") }, { multiple: false }  %>
+      <%= form.select :created_by, @form.created_by_for_select, { include_blank: t(".select_a_created_by") }, { multiple: false } %>
     </div>
 
     <div class="row column" data-depends-on="#assembly_created_by" data-depends-on-value="others">
@@ -136,15 +136,15 @@
     </div>
 
     <div class="row column" id="is_open">
-      <%= form.check_box :is_open, checked: true  %>
+      <%= form.check_box :is_open, checked: true %>
     </div>
 
     <div class="row column" id="is_public">
-      <%= form.check_box :is_public, checked: true  %>
+      <%= form.check_box :is_public, checked: true %>
     </div>
 
     <div class="row column" id="is_transparent">
-      <%= form.check_box :is_transparent, checked: true  %>
+      <%= form.check_box :is_transparent, checked: true %>
     </div>
 
     <div class="row column" id="special_features">
