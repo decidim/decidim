@@ -50,8 +50,6 @@ es:
         blocked_comments_warning: Los comentarios están deshabilitados en este momento, pero puedes leer los anteriores.
         loading: Cargando los comentarios ...
         title: "%{count} comentarios"
-      componentd_comment:
-        title: Comentario Componentd
     events:
       comments:
         comment_created:
