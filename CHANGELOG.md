@@ -8,9 +8,13 @@
 
 **Fixed**:
 
-- **decidim-comments**: Fix mentions not working properly. [\#2972](https://github.com/decidim/decidim/pull/2972)
-
 ## [0.10-pre](https://github.com/decidim/decidim/tree/0.10-stable)
+
+**Note**: As per [\#2983](https://github.com/decidim/decidim/pull/2983), if you've been using `0.10.pre` version of Decidim for a while you'll need to fix some values in the database. In order to fix them,  run this script in your Rails console:
+
+```ruby
+Decidim::Notification.where(event_class: "Decidim::Proposals::ProposalEndorsedEvent").find_each{|ev| ev.extra = { endorser_id: ev.extra.dig("endorser", "id") }; ev.save! }
+```
 
 **Added**:
 
@@ -122,5 +126,7 @@
 - **decidim-core**: Fix `Decidim::UserPresenter#nickname` [\#2958](https://github.com/decidim/decidim/pull/2958)
 - **decidim-verifications**: Only show authorizations from current organization [\#2959](https://github.com/decidim/decidim/pull/2959)
 - **decidim-proposals**: Fix proposal endorsed event [\#2970](https://github.com/decidim/decidim/pull/2970)
+- **decidim-comments**: Fix mentions not working properly. [\#2972](https://github.com/decidim/decidim/pull/2972)
+- **decidim-proposals**: Fix proposal endorsed event  generation [\#2983](https://github.com/decidim/decidim/pull/2983)
 
 Please check [0.9-stable](https://github.com/decidim/decidim/blob/0.9-stable/CHANGELOG.md) for previous changes.

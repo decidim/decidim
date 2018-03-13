@@ -18,7 +18,11 @@ module Decidim
       private
 
       def endorser
-        @endorser ||= Decidim::UserPresenter.new(extra[:endorser])
+        @endorser ||= Decidim::UserPresenter.new(endorser_user)
+      end
+
+      def endorser_user
+        @endorser_user ||= Decidim::User.find_by(id: extra[:endorser_id])
       end
     end
   end
