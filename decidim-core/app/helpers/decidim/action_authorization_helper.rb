@@ -105,7 +105,6 @@ module Decidim
       @action_authorizations[action_name] = _action_authorizer(action_name).authorize
     end
 
-
     # Public: Returns the authorization path for a failed authorization with
     # the populated redirect url.
     #
@@ -120,7 +119,7 @@ module Decidim
     end
 
     def _action_authorizer(action_name)
-      ::Decidim::ActionAuthorizer.new(current_user, current_feature, action_name)
+      ::Decidim::ActionAuthorizer.new(current_user, current_component, action_name)
     end
 
     class Unauthorized < StandardError; end

@@ -54,26 +54,26 @@ module Decidim
       end
 
       def current_settings
-        model.feature.current_settings
+        model.component.current_settings
       end
 
-      def current_feature
-        model.feature
+      def current_component
+        model.component
       end
 
       def current_participatory_space
-        model.feature.participatory_space
+        model.component.participatory_space
       end
 
-      def feature_settings
-        model.feature.settings
+      def component_settings
+        model.component.settings
       end
 
-      def feature_name
-        translated_attribute current_feature.name
+      def component_name
+        translated_attribute current_component.name
       end
 
-      def feature_type_name
+      def component_type_name
         model.class.model_name.human
       end
 
