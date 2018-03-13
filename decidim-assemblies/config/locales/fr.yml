@@ -27,6 +27,10 @@ fr:
         subtitle: Sous-titre
         target: Participants
         title: Titre
+      assembly_user_role:
+        email: Email
+        name: prénom
+        role: Rôle
   decidim:
     admin:
       assemblies:
