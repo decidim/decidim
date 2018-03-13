@@ -27,6 +27,10 @@ ca:
         subtitle: Subtítol
         target: A qui va dirigit?
         title: Títol
+      assembly_user_role:
+        email: Correu electrònic
+        name: Nom
+        role: Paper
   decidim:
     admin:
       assemblies:
