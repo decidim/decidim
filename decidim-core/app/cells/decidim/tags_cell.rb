@@ -9,7 +9,6 @@ module Decidim
   #   <%= cell("decidim/category", model.category, context: {resource: model}) %>
   #
   class TagsCell < Decidim::ViewModel
-    include LayoutHelper
 
     def show
       render if category? || scope?

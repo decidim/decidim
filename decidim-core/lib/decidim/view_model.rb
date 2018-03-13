@@ -5,12 +5,10 @@ module Decidim
     include ActionView::Helpers::TranslationHelper
     include ::Cell::Translation
     include Decidim::ResourceHelper
-    include Decidim::LayoutHelper
-    include Decidim::ApplicationHelper
-    include Decidim::ActionAuthorizationHelper
     include Decidim::TranslationsHelper
     include Decidim::ResourceReferenceHelper
     include Decidim::TranslatableAttributes
+    include Decidim::ScopesHelper
 
     include Partial
   end
