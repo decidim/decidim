@@ -50,8 +50,6 @@ fr:
         blocked_comments_warning: Les commentaires sont actuellement désactivés, mais vous pouvez lire ceux déjà saisis.
         loading: Chargement des commentaires ...
         title: "%{count} commentaires"
-      componentd_comment:
-        title: Commentaire constituant
     events:
       comments:
         comment_created:
