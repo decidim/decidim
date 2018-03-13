@@ -50,8 +50,6 @@ gl:
         blocked_comments_warning: Os comentarios están desactivados neste momento, pero podes ler os anteriores.
         loading: Cargando comentarios ...
         title: "%{count} comentarios"
-      componentd_comment:
-        title: Comentario do compoñente
     events:
       comments:
         comment_created:
