@@ -9,12 +9,12 @@ module Decidim
       subject { described_class }
 
       let(:comment) { create(:comment, commentable: commentable) }
-      let(:proposal_feature) { create(:proposal_feature, organization: organization) }
+      let(:proposal_component) { create(:proposal_component, organization: organization) }
       let(:proposal_metadata) { Decidim::ContentParsers::ProposalParser::Metadata.new([]) }
 
       describe "with mentioned proposals" do
-        let(:linked_proposal) { create(:proposal, feature: proposal_feature) }
-        let(:linked_proposal_no_author) { create(:proposal, feature: proposal_feature, decidim_author_id: nil) }
+        let(:linked_proposal) { create(:proposal, feature: proposal_component) }
+        let(:linked_proposal_no_author) { create(:proposal, feature: proposal_component, decidim_author_id: nil) }
 
         before do
           proposal_metadata[:linked_proposals] << linked_proposal.id

@@ -3,25 +3,25 @@
 module Decidim
   module Admin
     module ExportsHelper
-      # Renders an export dropdown for the provided feature, including an item
+      # Renders an export dropdown for the provided component, including an item
       # for each exportable artifact and format.
       #
-      # feature - The feature to render the export dropdown for. Defaults to the
-      #           current feature.
+      # component - The component to render the export dropdown for. Defaults to the
+      #           current component.
       #
       # Returns a rendered dropdown.
-      def export_dropdown(feature = current_feature)
-        render partial: "decidim/admin/exports/dropdown", locals: { feature: feature }
+      def export_dropdown(component = current_component)
+        render partial: "decidim/admin/exports/dropdown", locals: { component: component }
       end
 
-      # Routes to the correct exporter for a feature.
+      # Routes to the correct exporter for a component.
       #
-      # feature - The feature to be routed.
+      # component - The component to be routed.
       # options - Extra options that need to be passed to the route.
       #
-      # Returns the path to the feature exporter.
-      def exports_path(feature, options)
-        EngineRouter.admin_proxy(feature.participatory_space).feature_exports_path(options.merge(feature_id: feature))
+      # Returns the path to the component exporter.
+      def exports_path(component, options)
+        EngineRouter.admin_proxy(component.participatory_space).component_exports_path(options.merge(component_id: component))
       end
     end
   end

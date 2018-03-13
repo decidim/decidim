@@ -86,8 +86,8 @@ module Decidim
           spaces = Decidim.participatory_space_manifests.flat_map do |manifest|
             manifest.participatory_spaces.call(context[:current_organization]).public_spaces
           end
-          features = Feature.where(participatory_space: spaces).published
-          Decidim::Proposals::Proposal.where(feature: features).find_by(id: id)
+          components = Component.where(participatory_space: spaces).published
+          Decidim::Proposals::Proposal.where(component: components).find_by(id: id)
         end
       end
     end

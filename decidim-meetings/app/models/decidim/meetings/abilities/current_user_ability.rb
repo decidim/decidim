@@ -26,16 +26,16 @@ module Decidim
         private
 
         def authorized?(action)
-          return unless feature
+          return unless component
 
-          ActionAuthorizer.new(user, feature, action).authorize.ok?
+          ActionAuthorizer.new(user, component, action).authorize.ok?
         end
 
-        def feature
-          feature = context.fetch(:current_feature, nil)
-          return nil unless feature && feature.manifest.name == :meetings
+        def component
+          component = context.fetch(:current_component, nil)
+          return nil unless component && component.manifest.name == :meetings
 
-          feature
+          component
         end
       end
     end

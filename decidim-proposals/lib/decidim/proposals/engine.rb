@@ -51,8 +51,8 @@ module Decidim
 
       initializer "decidim_proposals.view_hooks" do
         Decidim.view_hooks.register(:participatory_space_highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
-          published_features = Decidim::Feature.where(participatory_space: view_context.current_participatory_space).published
-          proposals = Decidim::Proposals::Proposal.where(feature: published_features).order_randomly(rand * 2 - 1).limit(4)
+          published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
+          proposals = Decidim::Proposals::Proposal.where(component: published_components).order_randomly(rand * 2 - 1).limit(4)
 
           next unless proposals.any?
 
@@ -67,8 +67,8 @@ module Decidim
 
         if defined? Decidim::ParticipatoryProcesses
           Decidim::ParticipatoryProcesses.view_hooks.register(:process_group_highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
-            published_features = Decidim::Feature.where(participatory_space: view_context.participatory_processes).published
-            proposals = Decidim::Proposals::Proposal.where(feature: published_features).order_randomly(rand * 2 - 1).limit(3)
+            published_components = Decidim::Component.where(participatory_space: view_context.participatory_processes).published
+            proposals = Decidim::Proposals::Proposal.where(component: published_components).order_randomly(rand * 2 - 1).limit(3)
 
             next unless proposals.any?
 
@@ -87,7 +87,7 @@ module Decidim
       initializer "decidim_changes" do
         Decidim::SettingsChange.subscribe "surveys" do |changes|
           Decidim::Proposals::SettingsChangeJob.perform_later(
-            changes[:feature_id],
+            changes[:component_id],
             changes[:previous_settings],
             changes[:current_settings]
           )
@@ -109,7 +109,7 @@ module Decidim
           payload = data[:this]
           if payload[:from_type] == Decidim::Accountability::Result.name && payload[:to_type] == Proposal.name
             proposal = Proposal.find(payload[:to_id])
-            proposal.update_attributes(state: "accepted")
+            proposal.update(state: "accepted")
           end
         end
       end

@@ -9,7 +9,6 @@ uk:
         end_date: Дата закінчення
         progress: Перебіг
         project_ids: Включені проекти
-        proposal_ids: Включені пропозиції
         start_date: Дата початку
         title: Заголовок
         updated_at: 'Оновлено:'

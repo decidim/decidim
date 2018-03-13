@@ -42,7 +42,7 @@ module Decidim
 
         it "returns false if the comment depth is equal to MAX_DEPTH" do
           FactoryBot.create(:comment, commentable: model)
-          model.update_attributes!(depth: Comment::MAX_DEPTH)
+          model.update!(depth: Comment::MAX_DEPTH)
           expect(response).to include("hasComments" => false)
         end
       end

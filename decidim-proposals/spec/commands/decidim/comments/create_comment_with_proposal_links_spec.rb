@@ -9,9 +9,9 @@ module Decidim
       it_behaves_like "create comment"
 
       context "and comment contains a link to a proposal" do
-        let(:prop_feature) { create(:proposal_feature, organization: organization) }
-        let(:source_proposal) { create(:proposal, feature: prop_feature) }
-        let(:linked_proposal) { create(:proposal, feature: prop_feature) }
+        let(:prop_component) { create(:proposal_component, organization: organization) }
+        let(:source_proposal) { create(:proposal, feature: prop_component) }
+        let(:linked_proposal) { create(:proposal, feature: prop_component) }
         let(:parser_context) { { current_organization: organization } }
         let(:body) { ::Faker::Lorem.paragraph + " ~#{linked_proposal.id}" }
 

@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t("participatory_process_steps.index.steps_title", scope: "decidim.admin") %>
       <% if can? :create, Decidim::ParticipatoryProcessStep %>
-        <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process_step.name", scope: "decidim.admin")), new_participatory_process_step_path(current_participatory_process), class: 'button tiny button--title' %>
+        <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.participatory_process_step.name", scope: "decidim.admin")), new_participatory_process_step_path(current_participatory_process), class: "button tiny button--title" %>
       <% end %>
     </h2>
   </div>
@@ -33,12 +33,12 @@
                 <td>
                   <% if step.start_date %>
                     <%= l step.start_date.to_date, format: :long %>
-                  <%  end%>
+                  <% end %>
                 </td>
                 <td>
                   <% if step.end_date %>
                     <%= l step.end_date.to_date, format: :long %>
-                  <%  end%>
+                  <% end %>
                 </td>
                 <td class="table-list__actions">
                   <% if can?(:activate, step) && !step.active? %>

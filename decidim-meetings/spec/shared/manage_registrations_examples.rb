@@ -47,7 +47,7 @@ shared_examples "manage registrations" do
   end
 
   context "when registrations are enabled" do
-    let!(:meeting) { create :meeting, scope: scope, feature: current_feature, registrations_enabled: true }
+    let!(:meeting) { create :meeting, scope: scope, component: current_component, registrations_enabled: true }
     let!(:registrations) { create_list :registration, 10, meeting: meeting }
 
     context "and a few registrations have been created" do

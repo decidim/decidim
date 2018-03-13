@@ -27,7 +27,7 @@ module Decidim
       end)
     end
 
-    # Gets the classes linked to the given class for the `current_feature`, and formats
+    # Gets the classes linked to the given class for the `current_component`, and formats
     # them in a nice way so that they can be used in a form. Resulting format looks like
     # this, considering the given class is related to `Decidim::Meetings::Meeting`:
     #
@@ -44,7 +44,7 @@ module Decidim
     def linked_classes_for(klass)
       return [] unless klass.respond_to?(:linked_classes_for)
 
-      klass.linked_classes_for(current_feature).map do |k|
+      klass.linked_classes_for(current_component).map do |k|
         [k.underscore, t(k.demodulize.downcase, scope: "decidim.filters.linked_classes")]
       end
     end

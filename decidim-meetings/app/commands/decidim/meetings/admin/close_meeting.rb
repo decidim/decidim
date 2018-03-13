@@ -39,7 +39,7 @@ module Decidim
             meeting,
             form.current_user
           ) do
-            meeting.update_attributes!(
+            meeting.update!(
               closing_report: form.closing_report,
               attendees_count: form.attendees_count,
               contributions_count: form.contributions_count,

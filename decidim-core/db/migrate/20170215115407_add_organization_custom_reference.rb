@@ -9,7 +9,7 @@ class AddOrganizationCustomReference < ActiveRecord::Migration[5.0]
     add_column :decidim_organizations, :reference_prefix, :string
 
     Organization.find_each do |organization|
-      organization.update_attributes!(reference_prefix: organization.name[0])
+      organization.update!(reference_prefix: organization.name[0])
     end
 
     change_column_null :decidim_organizations, :reference_prefix, false

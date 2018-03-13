@@ -2,6 +2,7 @@ pl:
   activemodel:
     attributes:
       assembly:
+        area_id: Powierzchnia
         banner_image: Obraz baneru
         copy_categories: Kopiuj kategorie
         copy_features: Kopiuj funkcje
@@ -149,6 +150,7 @@ pl:
         answers_count: Odpowiedzi
         assemblies_count: Zespoły
         comments_count: Komentarze
+        endorsements_count: Adnotacje
         headline: Czynność
         meetings_count: Spotkania
         orders_count: Głosowania

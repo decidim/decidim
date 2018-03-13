@@ -77,10 +77,10 @@ Decidim implements two type of authorization methods:
 
 ## Custom action authorizers
 
-Custom action authorizers are an advanced feature that can be used in both types of
+Custom action authorizers are an advanced component that can be used in both types of
 authorization methods to customize some parts of the authorization process.
 These are particulary useful when used within verification options, which are
-set in the admin zone related to a feature action. As a result, a verification
+set in the admin zone related to a component action. As a result, a verification
 method will be allowed to change the authorization logic and the appearance based
 on the context where the authorization is being performed.
 

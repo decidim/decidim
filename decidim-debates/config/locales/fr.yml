@@ -3,6 +3,7 @@ fr:
     attributes:
       debate:
         category_id: Catégorie
+        decidim_category_id: Catégorie
         description: Description
         end_time: Prend fin à
         information_updates: Informations mises à jour
@@ -39,6 +40,10 @@ fr:
         models:
           debate:
             name: Débat
+      admin_log:
+        debate:
+          create: "%{user_name} a créé le débat %{resource_name} sur l'espace %{space_name}"
+          update: "%{user_name} a mis à jour le débat %{resource_name} sur l'espace %{space_name}"
       debates:
         count:
           debates_count:
@@ -118,7 +123,9 @@ fr:
         name: Débats
         settings:
           global:
+            announcement: Annonce
             comments_enabled: Commentaires activés
           step:
+            announcement: Annonce
             comments_blocked: Commentaires bloqués
             creation_enabled: Création de débats par les utilisateurs activés

@@ -29,7 +29,7 @@ module Decidim::Budgets
         expect(new_line_item).to be_invalid
       end
 
-      it "is invalid when order and project are from a different feature" do
+      it "is invalid when order and project are from a different component" do
         subject.order = build(:order)
         expect(subject).to be_invalid
       end

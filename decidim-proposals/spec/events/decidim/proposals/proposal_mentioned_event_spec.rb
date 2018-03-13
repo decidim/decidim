@@ -9,8 +9,8 @@ describe Decidim::Proposals::ProposalMentionedEvent do
   let(:organization) { create :organization }
   let(:author) { create :user, organization: organization }
 
-  let(:source_proposal) { create :proposal, feature: create(:proposal_feature, organization: organization) }
-  let(:mentioned_proposal) { create :proposal, feature: create(:proposal_feature, organization: organization) }
+  let(:source_proposal) { create :proposal, component: create(:proposal_component, organization: organization) }
+  let(:mentioned_proposal) { create :proposal, component: create(:proposal_component, organization: organization) }
   let(:resource) { source_proposal }
   let(:extra) do
     {

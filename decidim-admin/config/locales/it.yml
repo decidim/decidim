@@ -254,6 +254,9 @@ it:
         update:
           error: Si è verificato un errore durante l'aggiornamento di questa funzionalità (feature).
           success: OK, la funzionalità (feature) è stata aggiornata.
+      logs:
+        logs_list:
+          no_logs_yet: Non ci sono ancora i log
       managed_users:
         close_session:
           error: Si è verificato un errore durante la chiusura della sessione di impersonazione corrente.

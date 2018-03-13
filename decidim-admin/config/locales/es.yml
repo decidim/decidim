@@ -30,44 +30,44 @@ es:
         body: Cuerpo
         subject: Asunto
       organization:
-        cta_button_path: Ruta del botón de llamada a la acción
-        cta_button_text: Texto del botón de llamada a la acción
+        cta_button_path: Ruta del botón de acción principal
+        cta_button_text: Texto del botón de acción principal
         default_locale: Idioma predeterminado
         description: Descripción
         enable_omnipresent_banner: Mostrar banner omnipresente
-        facebook_handler: Manejador de Facebook
+        facebook_handler: Nombre en Facebook
         favicon: Icono
-        github_handler: Gestor de GitHub
-        header_snippets: Fragmentos de encabezado
+        github_handler: Nombre en GitHub
+        header_snippets: Snippets de encabezado
         highlighted_content_banner_action_subtitle: Subtítulo del botón de acción
         highlighted_content_banner_action_title: Título del botón de acción
-        highlighted_content_banner_action_url: Botón de acción URL
+        highlighted_content_banner_action_url: URL del botón de acción
         highlighted_content_banner_enabled: Mostrar el banner de contenido resaltado
         highlighted_content_banner_image: Imagen
-        highlighted_content_banner_short_description: Breve descripción
+        highlighted_content_banner_short_description: Descripción breve
         highlighted_content_banner_title: Título
-        homepage_image: Imagen de inicio
-        instagram_handler: Controlador de Instagram
+        homepage_image: Imagen de portada
+        instagram_handler: Nombre de Instagram
         logo: Logo
         name: Nombre
-        official_img_footer: Pie de página del logotipo oficial
-        official_img_header: Encabezado del logotipo oficial
+        official_img_footer: Logotipo oficial de pie de página
+        official_img_header: Logotipo oficial de cabecera
         official_url: URL oficial de la organización
-        omnipresent_banner_short_description: Breve descripción
+        omnipresent_banner_short_description: Descripción breve
         omnipresent_banner_title: Título
         omnipresent_banner_url: URL
         reference_prefix: Prefijo de la referencia
         show_statistics: Mostrar estadísticas
-        twitter_handler: Manejador de Twitter
+        twitter_handler: Nombre de Twitter
         welcome_text: Texto de bienvenida
-        youtube_handler: Manejador de YouTube
+        youtube_handler: Nombre de YouTube
       scope:
         code: Código
         name: Nombre
         organization: Organización
-        parent_id: Padre
+        parent_id: Superior
         scope_type: Tipo de ámbito
-        scope_type_id: Tipo de alcance
+        scope_type_id: Tipo de ámbito
       scope_type:
         name: Nombre
         organization: Organización
@@ -129,7 +129,7 @@ es:
           error: Hubo un error al crear un nuevo tipo de área.
           success: Tipo de área creada con éxito.
         destroy:
-          success: Área destruida con éxito
+          success: Tipo de área destruido con éxito
         edit:
           title: Editar tipo de área
           update: Actualizar
@@ -138,29 +138,29 @@ es:
           title: Nuevo tipo de área
         update:
           error: Hubo un error al actualizar este tipo de área.
-          success: Tipo de área actualizada con éxito
+          success: Tipo de área actualizado con éxito
       areas:
         create:
           error: Hubo un error al crear una nueva área.
-          success: Área creada con éxito.
+          success: Área creada correctamente.
         destroy:
-          success: Área destruida con éxito
+          success: Área destruida correctamente
         edit:
-          title: Área de edición
+          title: Editar área
           update: Actualizar
         new:
           create: Crear área
-          title: NUEVA Área
+          title: Nueva área
         no_areas: Sin áreas
         update:
           error: Hubo un error al actualizar esta área.
-          success: Área actualizada con éxito
+          success: Área actualizada correctamente
       attachment_collections:
         create:
           error: Hubo un error al crear una nueva colección.
-          success: Colección creada con éxito.
+          success: Colección creada correctamente.
         destroy:
-          success: Colección destruida con éxito.
+          success: Colección destruida correctamente.
         edit:
           title: Editar colección
           update: Actualizar
@@ -172,7 +172,7 @@ es:
           title: Nueva colección
         update:
           error: Hubo un error al actualizar esta colección.
-          success: Colección actualizada con éxito.
+          success: Colección actualizada correctamente.
       attachments:
         create:
           error: Se ha producido un error al crear un nuevo archivo adjunto.
@@ -254,6 +254,9 @@ es:
         update:
           error: Se ha producido un error al actualizar esta funcionalidad.
           success: La funcionalidad se ha actualizado correctamente.
+      logs:
+        logs_list:
+          no_logs_yet: Aún no hay ningún registro de actividad
       managed_users:
         close_session:
           error: Se ha producido un error al cerrar la sesión de suplantación actual.
@@ -318,7 +321,7 @@ es:
           fields:
             collection: Colección
             content_type: Tipo
-            file_size: tamaño
+            file_size: Tamaño
             title: Título
           name: Archivo adjunto
         attachment_collection:
@@ -512,7 +515,7 @@ es:
           error: Se ha producido un error en la actualización de ésta página.
           success: La página se ha actualizado correctamente.
       titles:
-        admin_log: Registro de administrador
+        admin_log: Registro de actividad de administradores
         area_types: Tipos de área
         areas: Áreas
         authorization_workflows: Métodos de verificación
