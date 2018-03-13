@@ -27,6 +27,10 @@ es:
         subtitle: Subtítulo
         target: '¿A quién va dirigido?'
         title: Título
+      assembly_user_role:
+        email: Email
+        name: Nombre
+        role: Papel
   decidim:
     admin:
       assemblies:
