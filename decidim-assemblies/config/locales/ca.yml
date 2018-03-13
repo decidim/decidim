@@ -30,7 +30,7 @@ ca:
       assembly_user_role:
         email: Correu electrònic
         name: Nom
-        role: Paper
+        role: Rol
   decidim:
     admin:
       assemblies:
