@@ -49,7 +49,7 @@
   </div>
   <div class="columns mediumlarge-8 mediumlarge-pull-4">
     <div class="section">
-      <%= render partial: "proposal_badge", locals: { proposal: @proposal } %>
+      <%== cell("decidim/proposals/proposal_m", @proposal).badge %>
       <%= simple_format @proposal.body %>
       <% if feature_settings.geocoding_enabled? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
