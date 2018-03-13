@@ -3,8 +3,19 @@
 require "active_support/concern"
 
 module Decidim
-  # A concern with the features needed when you want a model to be able to create
-  # links from it to another resource.
+  # Participatory Space Resourceable is a concern with the
+  # features needed when you want to link a space
+  # (for example `Participatory Process`) to another space (`Assembly`).
+  #
+  # The main difference between the two concerns `Resourceable` and
+  # `ParticipatorySpaceResourceable` is that the first one is linking
+  # component types between them, for example `Budgets` with `Proposals` and
+  # therefore depend on a `Component`.
+  #
+  # The second one, `ParticipatorySpaceResourceable`, it is used for linking
+  # `ParticipatorySpaces` to each other, and therefore don't depend on a
+  # `Component` but rather that they depend to the `Organization`.
+
   module ParticipatorySpaceResourceable
     extend ActiveSupport::Concern
 
