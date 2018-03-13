@@ -84,7 +84,7 @@ ca:
           email_intro: "%{endorser_name} %{endorser_nickname}, a qui segueixes, acaba d'adherir-se a una proposta que et pot resultar interessant, revisar-la i contribueix:"
           email_outro: Has rebut aquesta notificació perquè estàs seguint a %{endorser_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: "%{endorser_nickname} s'ha adherit a una proposta"
-          notification_title: La proposta <a href="%{resource_path}">%{resource_title}</a> ha estat aprovada per <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
+          notification_title: <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a> s'ha adherit a la proposta <a href="%{resource_path}">%{resource_title}</a>.
         proposal_evaluating:
           email_intro: 'La proposta "%{resource_title}" s''està avaluant actualment. Pots consultar una resposta en aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
@@ -223,7 +223,7 @@ ca:
         limit_reached: No pots crear noves propostes ja que has superat el límit.
       proposal_endorsements:
         create:
-          error: Hi ha hagut errors en aprovar la proposta.
+          error: Hi ha hagut errors en adherir-te a la proposta.
         identities:
           done: Fet
           select_identity: Selecciona identitat
