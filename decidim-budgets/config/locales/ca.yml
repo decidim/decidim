@@ -45,8 +45,8 @@ ca:
       admin_log:
         project:
           create: "%{user_name} ha creat el projecte %{resource_name} a l'espai %{space_name}"
-          delete: "%{user_name} ha eliminat el projecte %{resource_name} a l'espai %{space_name}"
-          update: "%{user_name} ha actualitzat el projecte %{resource_name} a l'espai %{space_name}"
+          delete: "%{user_name} ha eliminat el projecte %{resource_name} de l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat el projecte %{resource_name} de l'espai %{space_name}"
       models:
         project:
           fields:
@@ -108,19 +108,19 @@ ca:
     components:
       budgets:
         actions:
-          vote: Votació
+          vote: Donar suport
         name: Pressupostos
         settings:
           global:
             announcement: Anunci
             comments_enabled: Comentaris habilitats
             total_budget: Pressupost total
-            vote_threshold_percent: Percentatge de llindar de vot
+            vote_threshold_percent: Percentatge del pressupost mínim per fer el vot
           step:
             announcement: Anunci
             comments_blocked: Comentaris bloquejats
-            show_votes: Mostra els vots
-            votes_enabled: Vots habilitats
+            show_votes: Mostra els suports
+            votes_enabled: Suports habilitats
     orders:
       checkout:
         error: S'ha produït un error en processar el teu vot
