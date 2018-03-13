@@ -27,6 +27,10 @@ fi:
         subtitle: Alaotsikko
         target: Kohde
         title: Otsikko
+      assembly_user_role:
+        email: Sähköposti
+        name: Nimi
+        role: Rooli
   decidim:
     admin:
       assemblies:
