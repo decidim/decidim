@@ -50,8 +50,6 @@ eu:
         blocked_comments_warning: Iruzkinak desgaituta daude une honetan, baina aurrekoak irakur ditzakezu.
         loading: Iruzkinak kargatzen...
         title: "%{count} iruzkin"
-      componentd_comment:
-        title: Osagaiaren iruzkina
     events:
       comments:
         comment_created:
