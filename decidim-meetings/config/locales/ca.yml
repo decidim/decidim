@@ -24,8 +24,8 @@ ca:
     components:
       meetings:
         actions:
-          join: Uniu-vos
-        name: Reunions
+          join: Inscriu-t'hi
+        name: Trobades
         settings:
           global:
             announcement: Anunci
@@ -135,7 +135,7 @@ ca:
           close: "%{user_name} ha tancat la trobada %{resource_name} a l'espai %{space_name}"
           create: "%{user_name} ha creat la trobada %{resource_name} a l'espai %{space_name}"
           delete: "%{user_name} ha eliminat la trobada %{resource_name} a l'espai %{space_name}"
-          export_registrations: "%{user_name} va exportar els registres de la %{resource_name} reunió a l'espai %{space_name}"
+          export_registrations: "%{user_name} va exportar les inscripcions de la trobada %{resource_name} de l'espai %{space_name}"
           update: "%{user_name} ha actualitzat la trobada %{resource_name} a l'espai %{space_name}"
       mailer:
         invite_join_meeting_mailer:
