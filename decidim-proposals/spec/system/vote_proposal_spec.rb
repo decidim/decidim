@@ -92,7 +92,7 @@ describe "Vote Proposal", type: :system do
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("1/0 VOTE")
+            expect(page).to have_content("1 VOTE")
           end
         end
       end
@@ -110,7 +110,7 @@ describe "Vote Proposal", type: :system do
           end
 
           within "#proposal-#{proposal.id}-votes-count" do
-            expect(page).to have_content("1/0 VOTE")
+            expect(page).to have_content("1 VOTE")
           end
         end
 
@@ -260,7 +260,7 @@ describe "Vote Proposal", type: :system do
             end
 
             it "shows the vote count but not the vote button" do
-              expect(page).to have_css(".card__support__data", text: "1/0 VOTE")
+              expect(page).to have_css(".card__support__data", text: "1 VOTE")
               expect(page).to have_content("Voting disabled")
             end
           end
@@ -345,7 +345,7 @@ describe "Vote Proposal", type: :system do
 
         within proposal_element do
           within ".card__support", match: :first do
-            expect(page).to have_content("1/0 VOTE")
+            expect(page).to have_content("1 VOTE")
           end
         end
       end
