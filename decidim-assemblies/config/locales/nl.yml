@@ -27,6 +27,10 @@ nl:
         subtitle: Ondertiteling
         target: Doel
         title: Titel
+      assembly_user_role:
+        email: E-mail
+        name: Naam
+        role: Rol
   decidim:
     admin:
       assemblies:
