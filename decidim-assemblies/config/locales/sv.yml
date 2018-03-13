@@ -27,6 +27,10 @@ sv:
         subtitle: Texta
         target: Mål
         title: Titel
+      assembly_user_role:
+        email: E-post
+        name: namn
+        role: Roll
   decidim:
     admin:
       assemblies:
