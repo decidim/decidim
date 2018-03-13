@@ -120,6 +120,8 @@ PATH
     decidim-participatory_processes (0.11.0.pre)
       decidim-core (= 0.11.0.pre)
     decidim-proposals (0.11.0.pre)
+      cells-erb (~> 0.1.0)
+      cells-rails (~> 0.0.8)
       decidim-comments (= 0.11.0.pre)
       decidim-core (= 0.11.0.pre)
       kaminari (~> 1.0)
@@ -288,6 +290,8 @@ GEM
       html_tokenizer
       rubocop (~> 0.51)
       smart_properties
+    erbse (0.1.2)
+      temple
     erubi (1.7.1)
     execjs (2.7.0)
     factory_bot (4.8.2)
@@ -591,6 +595,7 @@ GEM
       nokogiri (~> 1.8.0, >= 1.7.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
+    uber (0.1.0)
     uglifier (4.1.7)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.3.0)
