@@ -170,7 +170,7 @@ shared_examples "edit surveys" do
           expect(page).to have_selector(".survey-question", count: 1)
 
           within ".survey-question" do
-            click_button "Remove question"
+            click_button "Remove"
           end
 
           click_button "Save"
@@ -195,7 +195,7 @@ shared_examples "edit surveys" do
       visit_component_admin
 
       expect(page).to have_no_content("Add question")
-      expect(page).to have_no_content("Remove question")
+      expect(page).to have_no_content("Remove")
       expect(page).to have_selector("input[value='This is the first question'][disabled]")
     end
   end
