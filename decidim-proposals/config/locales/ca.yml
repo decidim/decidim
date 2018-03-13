@@ -15,44 +15,44 @@ ca:
         answer: Resposta
       proposals_copy:
         copy_proposals: Entenc que això importarà totes les propostes del component seleccionat a l'actual i que aquesta acció no es pot revertir.
-        origin_component_id: Component per copiar les propostes de
+        origin_component_id: Component des d'on copiar les propostes
   decidim:
     components:
       proposals:
         actions:
           create: Crear
-          endorse: Endossar
-          vote: Votació
-          withdraw: Retirada
+          endorse: Adherir-se
+          vote: Donar suport
+          withdraw: Retirar
         name: Propostes
         settings:
           global:
             announcement: Anunci
-            attachments_allowed: Permet els fitxers adjunts
+            attachments_allowed: Permetre arxius adjunts
             can_accumulate_supports_beyond_threshold: Pot acumular suports més enllà del llindar
             comments_enabled: Comentaris habilitats
-            geocoding_enabled: Geocoding habilitat
-            maximum_votes_per_proposal: Vot màxim per proposta
-            new_proposal_help_text: Nova proposta de text d'ajuda
+            geocoding_enabled: Geocodificació habilitada
+            maximum_votes_per_proposal: Suports màxims per proposta
+            new_proposal_help_text: Text d'ajuda al crear una nova proposta
             official_proposals_enabled: Propostes oficials habilitades
-            proposal_answering_enabled: S'ha habilitat la resposta de la proposta
-            proposal_edit_before_minutes: Les propostes poden ser editades pels autors abans que passin molts minuts
-            proposal_length: Durada màxima del cos de la proposta
-            proposal_limit: Límit de la proposta per usuari
-            proposal_wizard_step_1_help_text: Assistent de proposta "Crear" text d'ajuda al pas
-            proposal_wizard_step_2_help_text: Assistent de proposta "Comparar" text d'ajuda al pas
-            proposal_wizard_step_3_help_text: Assistent de proposta "Publica" text d'ajuda al pas
-            vote_limit: Límit de vot per usuari
+            proposal_answering_enabled: Resposta oficial a propostes activades
+            proposal_edit_before_minutes: Les propostes poden ser editades pels autors abans que passin aquest nombre de minuts
+            proposal_length: Longitud màxima del cos de la proposta
+            proposal_limit: Límit de propostes per usuari
+            proposal_wizard_step_1_help_text: Text del pas "Crear" de l'assistent de propostes
+            proposal_wizard_step_2_help_text: Text del pas "Comparar" de l'assistent de propostes
+            proposal_wizard_step_3_help_text: Text del pas "Publicar" de l'assistent de propostes
+            vote_limit: Límit de suports per usuari
           step:
             announcement: Anunci
             comments_blocked: Comentaris bloquejats
-            creation_enabled: S'ha activat la creació de la proposta
-            endorsements_blocked: S'han bloquejat les recomanacions
-            endorsements_enabled: Aprovacions habilitades
+            creation_enabled: Habilitar de creació de propostes
+            endorsements_blocked: Bloquejar adhesions
+            endorsements_enabled: Adhesions habilitades
             proposal_answering_enabled: S'ha habilitat la resposta de la proposta
-            votes_blocked: Vots bloquejats
-            votes_enabled: Vots habilitats
-            votes_hidden: Vots amagats (si els vots estan activats, si comprova això, s'amagarà el nombre de vots)
+            votes_blocked: Suports bloquejats
+            votes_enabled: Suports habilitats
+            votes_hidden: Suports ocults (si els suports estan habilitats, marcant aquesta opció amagarà el nombre de suports)
     events:
       proposals:
         creation_enabled:
@@ -182,8 +182,8 @@ ca:
             success: "%{number} propostes importades correctament"
           new:
             create: Importa propostes
-            no_components: No hi ha altres components de la proposta en aquest espai participatiu per importar les propostes.
-            select_component: Seleccioneu un component
+            no_components: No hi ha cap altre component de propostes en aquest espai participatiu des d'on importar-les.
+            select_component: Escull un continent
             select_states: Consulteu els estats de les propostes per importar
         shared:
           info_proposal:
@@ -324,6 +324,7 @@ ca:
           withdraw_proposal: Retirar proposta
         tags:
           changed_from: "(modificat de <u>%{previous_category}</u> per un administrador)"
+          filed_as: Arxivat com a
         vote_button:
           already_voted: Ja li has donat suport
           already_voted_hover: Retirar suport
