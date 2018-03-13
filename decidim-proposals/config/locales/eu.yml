@@ -182,6 +182,8 @@ eu:
             success: "%{number} proposamenak behar bezala inportatu dira"
           new:
             create: Inportatzeko proposamenak
+            no_components: Proposamenen inportazioa inportatzeko espazio parte hartzaile honetan ez dago proposamenrik.
+            select_component: Hautatu osagaia
             select_states: Egiaztatu inportatzeko proposamenen egoera
         shared:
           info_proposal:
@@ -320,6 +322,8 @@ eu:
           withdraw_btn_hint: Zure proposamena uka dezakezu zure kontuan aldatzen baduzu, laguntza jaso ez baduzu. Proposamena ez da ezabatu, kendutako proposamenen zerrendan agertuko da.
           withdraw_confirmation: Ziur al zaude proposamen hau kendu nahi duzula?
           withdraw_proposal: Ezabatu proposamena
+        tags:
+          changed_from: "( <u>%{previous_category}</u> administratzaile batek aldatu du)"
         vote_button:
           already_voted: Bozkatuta duzu
           already_voted_hover: Unvote
