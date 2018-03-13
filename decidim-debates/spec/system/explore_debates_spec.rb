@@ -62,7 +62,7 @@ describe "Explore debates", type: :system do
 
       context "with the component's settings" do
         before do
-          component.update_attributes!(settings: { announcement: announcement })
+          component.update!(settings: { announcement: announcement })
         end
 
         it "shows the announcement" do
@@ -73,7 +73,7 @@ describe "Explore debates", type: :system do
 
       context "with the step's settings" do
         before do
-          component.update_attributes!(
+          component.update!(
             step_settings: {
               component.participatory_space.active_step.id => {
                 announcement: announcement
