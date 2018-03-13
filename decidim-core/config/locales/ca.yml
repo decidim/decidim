@@ -127,16 +127,16 @@ ca:
         actions:
           bar: Bar
           foo: Foo
-        name: Component maniquí
+        name: Component de prova
         settings:
           global:
             comments_enabled: Comentaris habilitats
-            dummy_global_attribute_1: Atribut maniquí 1
-            dummy_global_attribute_2: Atribut maniquí 2
+            dummy_global_attribute_1: Atribut de prova 1
+            dummy_global_attribute_2: Atribut de prova 2
           step:
             comments_blocked: Comentaris bloquejats
-            dummy_step_attribute_1: Dummy Step Attribute 1
-            dummy_step_attribute_2: Dummy Step Attribute 2
+            dummy_step_attribute_1: Atribut de fase de prova 1
+            dummy_step_attribute_2: Atribut de fase de prova 2
     contact: Contacte
     core:
       actions:
@@ -190,8 +190,8 @@ ca:
           notification_title: S'ha afegit un <a href="%{resource_path}"> nou document</a> a <a href="%{attached_to_url}">%{resource_title}</a>
       components:
         component_published:
-          email_intro: 'El component %{resource_title} ja està actiu per %{participatory_space_title}. Podeu veure-ho des d''aquesta pàgina:'
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{participatory_space_title}. Podeu deixar de rebre notificacions seguint l'enllaç anterior.
+          email_intro: 'Ja està actiu el component %{resource_title} per %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una actualització a %{participatory_space_title}
           notification_title: El component %{resource_title} ja està actiu per <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
