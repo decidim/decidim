@@ -27,6 +27,10 @@ gl:
         subtitle: Subtítulo
         target: Obxectivo
         title: Título
+      assembly_user_role:
+        email: Correo electrónico
+        name: Nome
+        role: Rol
   decidim:
     admin:
       assemblies:
