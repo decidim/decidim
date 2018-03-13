@@ -50,8 +50,6 @@ fi:
         blocked_comments_warning: Kommentit on poistettu käytöstä tällä hetkellä, mutta voit lukea aikaisempia kommentteja.
         loading: Ladataan kommentteja ...
         title: "%{count} kommenttia"
-      componentd_comment:
-        title: Componentd kommentti
     events:
       comments:
         comment_created:
