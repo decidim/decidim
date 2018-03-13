@@ -9,7 +9,7 @@ describe Decidim::Proposals::ProposalEndorsedEvent do
   let(:resource) { proposal }
   let(:author) { create :user, organization: proposal.organization }
 
-  let(:extra) { { endorser: author } }
+  let(:extra) { { endorser_id: author.id } }
   let(:proposal) { create :proposal }
   let(:endorsement) { create :proposal_endorsement, proposal: proposal, author: author }
   let(:resource_path) { resource_locator(proposal).path }
