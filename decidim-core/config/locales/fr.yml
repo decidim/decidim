@@ -67,31 +67,31 @@ fr:
         hide: "%{user_name} a caché une ressource de type %{resource_type} dans le %{space_name} espace"
         unreport: "%{user_name} n'a pas signalé une ressource de type %{resource_type} dans l'espace %{space_name}"
       newsletter:
-        create: "%{user_name} créé la newsletter %{resource_name}"
-        delete: "%{user_name} supprimé la newsletter %{resource_name}"
+        create: "%{user_name} a créé la newsletter %{resource_name}"
+        delete: "%{user_name} a supprimé la newsletter %{resource_name}"
         deliver: "%{user_name} a envoyé la newsletter %{resource_name}"
-        update: "%{user_name} mis à jour le %{resource_name} bulletin"
+        update: "%{user_name} a mis à jour la newsletter %{resource_name}"
       organization:
-        update: "%{user_name} mis à jour les paramètres de l'organisation"
+        update: "%{user_name} a mis à jour les paramètres de l'organisation"
       scope:
-        create: "%{user_name} a créé la portée %{resource_name}"
-        create_with_parent: "%{user_name} a créé la portée %{resource_name} à l'intérieur de la portée %{parent_scope}"
-        delete: "%{user_name} a supprimé la portée %{resource_name}"
+        create: "%{user_name} a créé l'échelle %{resource_name}"
+        create_with_parent: "%{user_name} a créé le périmètre %{resource_name} à l'intérieur de l'échelle %{parent_scope}"
+        delete: "%{user_name} a supprimé le périmètre %{resource_name}"
         delete_with_parent: "%{user_name} a supprimé la portée %{resource_name} à l'intérieur de la portée %{parent_scope}"
-        update: "%{user_name} a mis à jour la portée %{resource_name}"
-        update_with_parent: "%{user_name} a mis à jour la portée %{resource_name} à l'intérieur de la portée %{parent_scope}"
+        update: "%{user_name} a mis à jour l'échelle %{resource_name}"
+        update_with_parent: "%{user_name} a mis à jour le périmètre %{resource_name} à l'intérieur du périmètre %{parent_scope}"
       static_page:
-        create: "%{user_name} créé le %{resource_name} page statique"
-        delete: "%{user_name} supprimé le %{resource_name} page statique"
-        update: "%{user_name} mis à jour le %{resource_name} page statique"
+        create: "%{user_name} créé la page statique %{resource_name}"
+        delete: "%{user_name} a supprimé la page statique %{resource_name}"
+        update: "%{user_name} a mis à jour la page statique %{resource_name}"
       user:
-        invite: "%{user_name} invité l'utilisateur %{resource_name} avec rôle: %{role}"
-        officialize: "%{user_name} officialisé l'utilisateur %{resource_name}"
-        remove_from_admin: "%{user_name} supprimé l'utilisateur %{resource_name} avec rôle: %{role}"
-        unofficialize: "%{user_name} non officialisé l'utilisateur %{resource_name}"
+        invite: "%{user_name} a invité l'utilisateur %{resource_name} avec le rôle: %{role}"
+        officialize: "%{user_name} a officialisé l'utilisateur %{resource_name}"
+        remove_from_admin: "%{user_name} a retiré le rôle: %{role} de l'utilisateur %{resource_name}"
+        unofficialize: "%{user_name} a retiré l'officialisation de l'utilisateur %{resource_name}"
       user_group:
-        reject: "%{user_name} rejeté le %{resource_name} vérification du groupe d'utilisateurs"
-        verify: "%{user_name} vérifié le %{resource_name} groupe d'utilisateurs"
+        reject: "%{user_name} a rejeté la vérification du groupe d'utilisateurs %{resource_name}"
+        verify: "%{user_name} a vérifié le groupe d'utilisateurs %{resource_name}"
     anonymous_user: Anonyme
     application:
       collection:
@@ -193,7 +193,7 @@ fr:
           email_intro: 'Le composant %{resource_title} est maintenant actif pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
           email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: Une mise à jour de %{participatory_space_title}
-          notification_title: Le composant %{resource_title} est maintenant actif pour <a href="%{resource_path}">%{participatory_space_title}</a>
+          notification_title: Le module %{resource_title} est maintenant actif pour <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Bonjour %{user_name},
         email_intro: '« %{resource_title} » a été mis à jour. Vous pouvez le voir sur cette page :'
@@ -235,23 +235,23 @@ fr:
       remove_this_file: Supprimer ce fichier
     log:
       base_presenter:
-        create: "%{user_name} créé %{resource_name}"
-        create_with_space: "%{user_name} créé %{resource_name} dans %{space_name}"
-        delete: "%{user_name} supprimé %{resource_name}"
-        delete_with_space: "%{user_name} supprimé %{resource_name} dans %{space_name}"
-        unknown_action: "%{user_name} effectué une action sur %{resource_name}"
-        unknown_action_with_space: "%{user_name} effectué une action sur %{resource_name} dans %{space_name}"
-        update: "%{user_name} mis à jour %{resource_name}"
-        update_with_space: "%{user_name} mis à jour %{resource_name} dans %{space_name}"
+        create: "%{user_name} a créé %{resource_name}"
+        create_with_space: "%{user_name} a créé %{resource_name} dans %{space_name}"
+        delete: "%{user_name} a supprimé %{resource_name}"
+        delete_with_space: "%{user_name} a supprimé %{resource_name} dans %{space_name}"
+        unknown_action: "%{user_name} a effectué une action sur %{resource_name}"
+        unknown_action_with_space: "%{user_name} a effectué une action sur %{resource_name} dans %{space_name}"
+        update: "%{user_name} a mis à jour %{resource_name}"
+        update_with_space: "%{user_name} a mis à jour %{resource_name} dans %{space_name}"
       value_types:
         area_presenter:
           not_found: 'La zone n''a pas été trouvée sur la base de données (ID: %{id})'
         area_type_presenter:
           not_found: 'Le type de zone n''a pas été trouvé sur la base de données (ID: %{id})'
         scope_presenter:
-          not_found: 'La portée n''a pas été trouvée sur la base de données (ID: %{id})'
+          not_found: 'Le périmètre n''a pas été trouvée sur la base de données (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Le type d''étendue n''a pas été trouvé sur la base de données (ID: %{id})'
+          not_found: 'Le type de périmètre n''a pas été trouvé sur la base de données (ID: %{id})'
     managed_users:
       expired_session: La session de connexion a expiré.
     menu:
@@ -501,7 +501,7 @@ fr:
         answers_count: Enquêtes terminées
         assemblies_count: Assemblées
         comments_count: Commentaires
-        endorsements_count: Les avenants
+        endorsements_count: Soutiens
         headline: État actuel de %{organization}
         meetings_count: Rencontres
         orders_count: Votes
