@@ -9,10 +9,6 @@ module Decidim
       module AssembliesHelper
         # Public: A formatted collection of ParticipatoryProcesses to be used
         # in forms.
-        # # Public: A formatted collection of ParticipatoryProcesses selected on
-        # # Assemblies to be used in forms.
-        # #
-        # # Returns an Array.
         def processes_selected
           if current_assembly.present?
             @processes_selected ||= current_assembly.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes").pluck(:id)
