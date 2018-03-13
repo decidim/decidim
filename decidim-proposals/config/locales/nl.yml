@@ -15,8 +15,44 @@ nl:
         answer: Antwoord
       proposals_copy:
         copy_proposals: Ik begrijp dat dit alle voorstellen van het geselecteerde onderdeel zal importeren naar het huidige en dat deze actie niet ongedaan kan worden gemaakt.
-        origin_feature_id: Component om de voorstellen van te kopiëren
+        origin_component_id: Component om de voorstellen van te kopiëren
   decidim:
+    components:
+      proposals:
+        actions:
+          create: creëren
+          endorse: Onderschrijven
+          vote: Stemmen
+          withdraw: terugtrekken
+        name: voorstellen
+        settings:
+          global:
+            announcement: Aankondiging
+            attachments_allowed: Bijlagen toestaan
+            can_accumulate_supports_beyond_threshold: Kan ondersteuningen verzamelen die de drempel overschrijden
+            comments_enabled: Reacties ingeschakeld
+            geocoding_enabled: Geocoding ingeschakeld
+            maximum_votes_per_proposal: Maximaal aantal stemmen per voorstel
+            new_proposal_help_text: Nieuwe helptekst van het voorstel
+            official_proposals_enabled: Officiële voorstellen mogelijk gemaakt
+            proposal_answering_enabled: Voorstelantwoord ingeschakeld
+            proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat dit vele minuten verstrijkt
+            proposal_length: Maximale lengte van het voorstel
+            proposal_limit: Voorstellimiet per gebruiker
+            proposal_wizard_step_1_help_text: Voorstel wizard "Maak" stap helptekst
+            proposal_wizard_step_2_help_text: Voorstel assistent tekst "Vergelijken" stap
+            proposal_wizard_step_3_help_text: Voorstel assistent "Publiceren" stap helptekst
+            vote_limit: Stemlimiet per gebruiker
+          step:
+            announcement: Aankondiging
+            comments_blocked: Reacties geblokkeerd
+            creation_enabled: Voorstelcreatie ingeschakeld
+            endorsements_blocked: Goedkeuringen geblokkeerd
+            endorsements_enabled: Goedgekeurde endorsements
+            proposal_answering_enabled: Voorstelantwoord ingeschakeld
+            votes_blocked: Stemmen geblokkeerd
+            votes_enabled: Stemmen ingeschakeld
+            votes_hidden: Stemmen verborgen (als stemmen is ingeschakeld, zal dit controleren het aantal stemmen verbergen)
     events:
       proposals:
         creation_enabled:
@@ -69,42 +105,6 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
           email_subject: Voorstellen stemmen is gestart voor %{participatory_space_title}
           notification_title: U kunt nu beginnen met <a href="%{resource_path}">stemvoorstellen</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
-    features:
-      proposals:
-        actions:
-          create: Creër
-          endorse: Onderschrijven
-          vote: Stem
-          withdraw: terugtrekken
-        name: Voorstellen
-        settings:
-          global:
-            announcement: Aankondiging
-            attachments_allowed: Bijlagen toestaan
-            can_accumulate_supports_beyond_threshold: Kan ondersteuningen verzamelen die de drempel overschrijden
-            comments_enabled: Reacties ingeschakeld
-            geocoding_enabled: Geocoding ingeschakeld
-            maximum_votes_per_proposal: Maximale stemmen per voorstel
-            new_proposal_help_text: Nieuw voorstel help-tekst
-            official_proposals_enabled: Officiële voorstellen ingeschakeld
-            proposal_answering_enabled: Voorstel beantwoorden ingeschakeld
-            proposal_edit_before_minutes: Voorstellen kunnen door auteurs worden bewerkt voordat dit aantal minuten zijn verlopen
-            proposal_length: Maximale lengte van het voorstel
-            proposal_limit: Voorstellimiet per gebruiker
-            proposal_wizard_step_1_help_text: Voorstel wizard "Maak" stap helptekst
-            proposal_wizard_step_2_help_text: Voorstel assistent tekst "Vergelijken" stap
-            proposal_wizard_step_3_help_text: Voorstel assistent "Publiceren" stap helptekst
-            vote_limit: Stemlimiet per gebruiker
-          step:
-            announcement: Aankondiging
-            comments_blocked: Reacties geblokkeerd
-            creation_enabled: Voorstellen creëren ingeschakeld
-            endorsements_blocked: Goedkeuringen geblokkeerd
-            endorsements_enabled: Goedgekeurde endorsements
-            proposal_answering_enabled: Antwoordbericht geactiveerd
-            votes_blocked: Stemmen geblokkeerd
-            votes_enabled: Stemmen ingeschakeld
-            votes_hidden: Stemmen verborgen (als stemmen zijn ingeschakeld, zal door dit aanvinken het aantal stemmen verbergen)
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -182,8 +182,6 @@ nl:
             success: "%{number} voorstellen succesvol geïmporteerd"
           new:
             create: Voorstellen importeren
-            no_features: Er zijn geen andere voorstelfuncties in deze participatieruimte om de voorstellen van te importeren.
-            select_feature: Selecteer een component
             select_states: Controleer de toestanden van de voorstellen om te importeren
         shared:
           info_proposal:
