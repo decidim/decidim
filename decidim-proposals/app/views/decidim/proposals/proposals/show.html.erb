@@ -60,7 +60,8 @@
       <% if component_settings.geocoding_enabled? %>
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "proposals", geolocalizable: @proposal } %>
       <% end %>
-      <%= render partial: "decidim/shared/tags", locals: { resource: @proposal, tags_class_extra: "tags--proposal" } %>
+      <%= render partial: "tags", locals: { resource: @proposal } %>
+
     </div>
     <% if @proposal.answered? && translated_attribute(@proposal.answer).present? %>
       <% if @proposal.accepted? %>
