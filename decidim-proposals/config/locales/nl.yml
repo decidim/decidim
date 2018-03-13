@@ -182,6 +182,8 @@ nl:
             success: "%{number} voorstellen succesvol geïmporteerd"
           new:
             create: Voorstellen importeren
+            no_components: Er zijn geen andere componenten van het voorstel in deze participatieruimte om de voorstellen in te voeren.
+            select_component: Selecteer een component
             select_states: Controleer de toestanden van de voorstellen om te importeren
         shared:
           info_proposal:
@@ -320,6 +322,8 @@ nl:
           withdraw_btn_hint: U kunt uw voorstel intrekken als u van gedachten verandert, zolang u geen ondersteuning hebt ontvangen. Het voorstel wordt niet verwijderd; het wordt weergegeven in de lijst met ingetrokken voorstellen.
           withdraw_confirmation: Weet je zeker dat je dit voorstel wilt intrekken?
           withdraw_proposal: Voorstel intrekken
+        tags:
+          changed_from: "(gewijzigd van <u>%{previous_category}</u> door een beheerder)"
         vote_button:
           already_voted: Al gestemd
           already_voted_hover: Stem Intrekken
