@@ -56,13 +56,13 @@ ca:
     admin_log:
       area:
         create: "%{user_name} ha creat l'àrea %{resource_name}"
-        delete: "%{user_name} suprimit l'àrea %{resource_name}"
+        delete: "%{user_name} ha eliminat l'àrea %{resource_name}"
         update: "%{user_name} ha actualitzat l'àrea %{resource_name}"
       component:
         create: "%{user_name} ha afegit el component %{resource_name} a l'espai %{space_name}"
         delete: "%{user_name} ha eliminat el component %{resource_name} de l'espai %{space_name}"
-        publish: "%{user_name} va publicar el component %{resource_name} en l'espai %{space_name}"
-        unpublish: "%{user_name} no s'ha publicat el component %{resource_name} de l'espai %{space_name}"
+        publish: "%{user_name} ha publicat el component %{resource_name} a l'espai %{space_name}"
+        unpublish: "%{user_name} ha despublicat el component %{resource_name} de l'espai %{space_name}"
       moderation:
         hide: "%{user_name} ha ocultat un recurs del tipus %{resource_type} a l'espai %{space_name}"
         unreport: "%{user_name} ha publicat un recurs del tipus %{resource_type} a l'espai %{space_name}"
@@ -193,7 +193,7 @@ ca:
           email_intro: 'Ja està actiu el component %{resource_title} per %{participatory_space_title}. Pots veure-ho des d''aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una actualització a %{participatory_space_title}
-          notification_title: El component %{resource_title} ja està actiu per <a href="%{resource_path}">%{participatory_space_title}</a>
+          notification_title: Ja està actiu el component %{resource_title} per <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hola %{user_name},
         email_intro: 'Hi ha hagut una actualització a "%{resource_title}". Es pot veure en aquesta pàgina:'
@@ -247,7 +247,7 @@ ca:
         area_presenter:
           not_found: 'L''àrea no s''ha trobat a la base de dades (ID: %{id})'
         area_type_presenter:
-          not_found: 'El tipus d''àrea no es va trobar a la base de dades (ID: %{id})'
+          not_found: 'El tipus d''àrea no s''ha trobat a la base de dades (ID: %{id})'
         scope_presenter:
           not_found: 'L''àmbit no s''ha trobat a la base de dades (ID: %{id})'
         scope_type_presenter:
