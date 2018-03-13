@@ -33,7 +33,7 @@ en:
             can_accumulate_supports_beyond_threshold: Can accumulate supports beyond threshold
             comments_enabled: Comments enabled
             geocoding_enabled: Geocoding enabled
-            maximum_votes_per_proposal: Maximum votes per proposal
+            maximum_votes_per_proposal: Treshold per proposal
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
@@ -341,9 +341,9 @@ en:
           need_more_votes: Need more votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Each proposal can accumulate more than maximum votes
-          maximum_votes_per_proposal:
-            description: Each proposal can receive a maximum of %{limit} votes.
+            description: Each proposal can accumulate more than %{limit} supports
+          threshold_per_proposal:
+            description: In order to be accepted proposals need to reach %{limit} supports
           proposal_limit:
             description: You can create up to %{limit} proposals.
           title: 'Voting is subject to the following rules:'

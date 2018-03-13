@@ -14,11 +14,11 @@
             <% end %>
 
             <% if maximum_votes_per_proposal_enabled? %>
-              <li><%= t(".maximum_votes_per_proposal.description", limit: maximum_votes_per_proposal) %></li>
+              <li><%= t(".threshold_per_proposal.description", limit: maximum_votes_per_proposal) %></li>
             <% end %>
 
             <% if can_accumulate_supports_beyond_threshold? %>
-              <li><%= t(".can_accumulate_supports_beyond_threshold.description") %></li>
+              <li><%= t(".can_accumulate_supports_beyond_threshold.description", limit: maximum_votes_per_proposal) %></li>
             <% end %>
           </ul>
         </div>
