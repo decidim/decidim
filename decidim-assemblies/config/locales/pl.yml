@@ -27,6 +27,10 @@ pl:
         subtitle: Podtytuł
         target: Cel
         title: Tytuł
+      assembly_user_role:
+        email: E-mail
+        name: Nazwa
+        role: Rola
   decidim:
     admin:
       assemblies:
