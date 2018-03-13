@@ -223,8 +223,8 @@ fr:
     events:
       participatory_process:
         step_activated:
-          email_intro: 'L''étape %{resource_title} est maintenant active pour %{participatory_space_title}. Vous pouvez le voir sur cette page:'
-          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_intro: 'L''étape %{resource_title} vient d''être activée pour %{participatory_space_title}. Vous pouvez désormais la consulter sur cette page :'
+          email_outro: Vous venez de recevoir cette notification car vous suivez %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir ces notifications en suivant le lien précédent.
           email_subject: Une mise à jour de %{participatory_space_title}
           notification_title: L'étape %{resource_title} est maintenant active pour <a href="%{resource_path}">%{participatory_space_title}</a>
         step_changed:
