@@ -23,7 +23,7 @@ ca:
         parent_id: Superior
       component:
         name: Nom
-        published_at: Publicat a
+        published_at: Publicat el
         weight: Pes
       id: ID
       newsletter:
@@ -212,7 +212,7 @@ ca:
       component_permissions:
         edit:
           everyone: Tothom
-          submit: Desa els permisos
+          submit: Desar permisos
           title: Edita els permisos
         update:
           success: S'han actualitzat els permisos amb èxit.
