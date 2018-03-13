@@ -6,11 +6,11 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 
 1. Choose a **domain** for your application. Some typical names involve "Participation" or "Decision" conjugations.
 
-1. Choose which **languages** do you want for your application. In case that your language isn't supported you should translate it on [Crowdin](https://crowdin.com/).
+1. Choose which **languages** do you want for your application. In case that your language isn't supported you should translate it on [Crowdin](https://crowdin.com/project/decidim).
 
 1. Customize the **look and feel** (colors, pictures, fonts, etc).
 
-1. Configure **SSL**. We recommend using at least [Let's Encrypt](https://letsencrypt.org/) for a minimun security.
+1. Configure **SSL**. We recommend using at least [Let's Encrypt](https://letsencrypt.org/) for a minimum security.
 
 1. Configure your **SMTP** server.
 
@@ -32,7 +32,7 @@ As a technopolitical project, Decidim needs several things to work. This is a no
 
 1. Comply with your current **legal requirements**, like to registrate your privacy policy with the autorities (eg LOPD on Spain).
 
-1. Fill the **Participatory Processes Configuration Form** for preparing your Participatory Process for Decidim.
+1. Fill the **Participatory Processes Configuration Form** to prepare your Participatory Process for Decidim.
 
 1. Read the **[Administration manual](https://decidim.org/docs/)**.
 
