@@ -48,6 +48,10 @@ en:
         title: Title
         twitter: Twitter
         youtube: YouTube
+      assembly_user_role:
+        email: Email
+        name: Name
+        role: Role
   decidim:
     admin:
       assemblies:
