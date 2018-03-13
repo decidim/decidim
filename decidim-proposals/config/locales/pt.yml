@@ -52,6 +52,7 @@ pt:
             proposal_answering_enabled: Resposta de proposta ativada
             votes_blocked: Votos bloqueados
             votes_enabled: Votos ativados
+            votes_hidden: Votos ocultos (se os votos estiverem ativados, verificar isso esconderá o número de votos)
     events:
       proposals:
         creation_enabled:
@@ -181,6 +182,8 @@ pt:
             success: "%{number} propostas importadas com sucesso"
           new:
             create: Propostas de importação
+            no_components: Não há outros componentes da proposta neste espaço participativo para importar as propostas.
+            select_component: Selecione um componente
             select_states: Verifique os estados das propostas para importar
         shared:
           info_proposal:
@@ -319,6 +322,8 @@ pt:
           withdraw_btn_hint: Você pode retirar sua proposta se mudar de idéia, desde que não tenha recebido nenhum suporte. A proposta não é excluída, ela aparecerá na lista de propostas retiradas.
           withdraw_confirmation: Tem certeza de retirar essa proposta?
           withdraw_proposal: Retirar proposta
+        tags:
+          changed_from: "(alterado de <u>%{previous_category}</u> por um administrador)"
         vote_button:
           already_voted: Já votou
           already_voted_hover: Unvote
