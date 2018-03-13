@@ -183,6 +183,7 @@ fi:
           new:
             create: Tuo ehdotuksia
             no_components: Tässä osallistuvalle tilalle ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
+            select_component: Valitse komponentti
             select_states: Tarkista tuontiehdotusten tilat
         shared:
           info_proposal:
@@ -321,6 +322,8 @@ fi:
           withdraw_btn_hint: Voit peruuttaa ehdotuksesi, jos muutat mieltäsi, kunhan et ole saanut tukea. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
           withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?
           withdraw_proposal: Peruuta ehdotus
+        tags:
+          changed_from: "(muutettu ylläpitäjältä <u>%{previous_category}</u>)"
         vote_button:
           already_voted: Jo äänestetty
           already_voted_hover: Peru äänesi
