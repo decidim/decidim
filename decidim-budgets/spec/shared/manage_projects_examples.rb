@@ -41,10 +41,10 @@ shared_examples "manage projects" do
   end
 
   context "when seeing finished and pending votes" do
-    let!(:project) { create(:project, budget: 70_000_000, feature: current_feature) }
+    let!(:project) { create(:project, budget: 70_000_000, component: current_component) }
 
     let!(:finished_orders) do
-      orders = create_list(:order, 10, feature: current_feature)
+      orders = create_list(:order, 10, component: current_component)
       orders.each do |order|
         order.update!(line_items: [create(:line_item, project: project, order: order)])
         order.reload
@@ -53,7 +53,7 @@ shared_examples "manage projects" do
     end
 
     let!(:pending_orders) do
-      create_list(:order, 5, feature: current_feature, checked_out_at: nil)
+      create_list(:order, 5, component: current_component, checked_out_at: nil)
     end
 
     it "shows the order count" do
@@ -97,7 +97,7 @@ shared_examples "manage projects" do
   end
 
   context "when deleting a project" do
-    let!(:project2) { create(:project, feature: current_feature) }
+    let!(:project2) { create(:project, component: current_component) }
 
     before do
       visit current_path

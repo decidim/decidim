@@ -3,11 +3,11 @@
 module Decidim
   module Debates
     # This class handles search and filtering of debates. Needs a
-    # `current_feature` param with a `Decidim::Feature` in order to
+    # `current_component` param with a `Decidim::Component` in order to
     # find the debates.
     class DebateSearch < ResourceSearch
       # Public: Initializes the service.
-      # feature     - A Decidim::Feature to get the debates from.
+      # component     - A Decidim::Component to get the debates from.
       # page        - The page number to paginate the results.
       # per_page    - The number of proposals to return per page.
       def initialize(options = {})

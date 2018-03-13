@@ -29,10 +29,12 @@ module Decidim
         attr_reader :project
 
         def create_project
-          @project = Project.create!(
+          @project = Decidim.traceability.create!(
+            Project,
+            @form.current_user,
             scope: @form.scope,
             category: @form.category,
-            feature: @form.current_feature,
+            component: @form.current_component,
             title: @form.title,
             description: @form.description,
             budget: @form.budget

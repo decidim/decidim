@@ -16,7 +16,7 @@ Decidim.configure do |config|
   # }
 
   # Custom resource reference generator method
-  # config.reference_generator = lambda do |resource, feature|
+  # config.reference_generator = lambda do |resource, component|
   #   # Implement your custom method to generate resources references
   #   "1234-#{resource.id}"
   # end
@@ -36,7 +36,7 @@ Decidim.configure do |config|
   #
   # Before enabling this you should ensure that any tracking that might be done
   # is in accordance with the rules and regulations that apply to your
-  # environment and usage scenarios. This feature also comes with the risk
+  # environment and usage scenarios. This component also comes with the risk
   # that an organization's administrator injects malicious scripts to spy on or
   # take over user accounts.
   #

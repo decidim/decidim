@@ -8,11 +8,11 @@ module Decidim
       subject { proposal_endorsement }
 
       let!(:organization) { create(:organization) }
-      let!(:feature) { create(:feature, organization: organization, manifest_name: "proposals") }
+      let!(:component) { create(:component, organization: organization, manifest_name: "proposals") }
       let!(:participatory_process) { create(:participatory_process, organization: organization) }
       let!(:author) { create(:user, organization: organization) }
       let!(:user_group) { create(:user_group, verified_at: DateTime.current) }
-      let!(:proposal) { create(:proposal, feature: feature, author: author) }
+      let!(:proposal) { create(:proposal, component: component, author: author) }
       let!(:proposal_endorsement) do
         build(:proposal_endorsement, proposal: proposal, author: author,
                                      user_group: user_group)
@@ -73,7 +73,7 @@ module Decidim
       end
 
       context "when proposal is rejected" do
-        let!(:proposal) { create(:proposal, :rejected, feature: feature, author: author) }
+        let!(:proposal) { create(:proposal, :rejected, component: component, author: author) }
 
         it { is_expected.to be_invalid }
       end

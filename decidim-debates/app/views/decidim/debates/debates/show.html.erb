@@ -16,8 +16,8 @@
         <%= link_to_current_or_new_conversation_with(debate.author) %>
       <% end %>
     <% if debate.commentable? %>
-      <a href="#comments" title="<%= t('.comments') %>">
-        <%= icon "comment-square", aria_label: t('.comments'), role: "img" %> <%= debate.comments.count %>
+      <a href="#comments" title="<%= t(".comments") %>">
+        <%= icon "comment-square", aria_label: t(".comments"), role: "img" %> <%= debate.comments.count %>
       </a>
     <% end %>
   <% end) %>

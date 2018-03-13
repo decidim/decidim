@@ -5,12 +5,12 @@ require "spec_helper"
 module Decidim
   module Admin
     describe ExportJob do
-      let!(:feature) { create(:feature, manifest_name: "dummy") }
-      let(:organization) { feature.organization }
+      let!(:component) { create(:component, manifest_name: "dummy") }
+      let(:organization) { component.organization }
       let!(:user) { create(:user, organization: organization) }
 
       it "sends an email with the result of the export" do
-        ExportJob.perform_now(user, feature, "dummies", "CSV")
+        ExportJob.perform_now(user, component, "dummies", "CSV")
 
         email = last_email
         expect(email.subject).to include("dummies")
@@ -33,7 +33,7 @@ module Decidim
             .to(receive(:export).with(user, anything, export_data))
             .and_return(double(deliver_now: true))
 
-          ExportJob.perform_now(user, feature, "dummies", "CSV")
+          ExportJob.perform_now(user, component, "dummies", "CSV")
         end
       end
 
@@ -49,7 +49,7 @@ module Decidim
             .to(receive(:export).with(user, anything, export_data))
             .and_return(double(deliver_now: true))
 
-          ExportJob.perform_now(user, feature, "dummies", "JSON")
+          ExportJob.perform_now(user, component, "dummies", "JSON")
         end
       end
     end

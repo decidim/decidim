@@ -2,7 +2,7 @@
 
 module Decidim
   # This class serves as a DSL that enables specifying an arbitrary settings
-  # to a feature, so the admin panel can show a standarized UI to configure them.
+  # to a component, so the admin panel can show a standarized UI to configure them.
   #
   class SettingsManifest
     attr_reader :attributes

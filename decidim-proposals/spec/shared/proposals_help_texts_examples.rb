@@ -2,9 +2,9 @@
 
 shared_examples "manage proposals help texts" do
   before do
-    current_feature.update!(
+    current_component.update!(
       step_settings: {
-        current_feature.participatory_space.active_step.id => {
+        current_component.participatory_space.active_step.id => {
           creation_enabled: true
         }
       }
@@ -12,10 +12,10 @@ shared_examples "manage proposals help texts" do
   end
 
   it "customize a help text for the new proposal page" do
-    visit edit_feature_path(current_feature)
+    visit edit_component_path(current_component)
 
     fill_in_i18n_editor(
-      :feature_settings_new_proposal_help_text,
+      :component_settings_new_proposal_help_text,
       "#global-settings-new_proposal_help_text-tabs",
       en: "Create a proposal following our guidelines.",
       es: "Crea una propuesta siguiendo nuestra guía de estilo.",
@@ -24,7 +24,7 @@ shared_examples "manage proposals help texts" do
 
     click_button "Update"
 
-    visit new_proposal_path(current_feature)
+    visit new_proposal_path(current_component)
 
     within ".callout.secondary" do
       expect(page).to have_content("Create a proposal following our guidelines.")
@@ -33,7 +33,7 @@ shared_examples "manage proposals help texts" do
 
   private
 
-  def new_proposal_path(feature)
-    Decidim::EngineRouter.main_proxy(feature).new_proposal_path(current_feature.id)
+  def new_proposal_path(component)
+    Decidim::EngineRouter.main_proxy(component).new_proposal_path(current_component.id)
   end
 end

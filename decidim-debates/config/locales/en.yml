@@ -13,6 +13,19 @@ en:
         title: Title
         user_group_id: Create debate as
   decidim:
+    components:
+      debates:
+        actions:
+          create: Create
+        name: Debates
+        settings:
+          global:
+            announcement: Announcement
+            comments_enabled: Comments enabled
+          step:
+            announcement: Announcement
+            comments_blocked: Comments blocked
+            creation_enabled: Debate creation by users enabled
     debates:
       actions:
         confirm_destroy: Are you sure?
@@ -119,16 +132,3 @@ en:
           email_outro: You have received this notification because you are following %{participatory_space_title}. You can stop receiving notifications following the previous link.
           email_subject: Debates now available in %{participatory_space_title}
           notification_title: You can now start <a href="%{resource_path}">new debates</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
-    features:
-      debates:
-        actions:
-          create: Create
-        name: Debates
-        settings:
-          global:
-            announcement: Announcement
-            comments_enabled: Comments enabled
-          step:
-            announcement: Announcement
-            comments_blocked: Comments blocked
-            creation_enabled: Debate creation by users enabled

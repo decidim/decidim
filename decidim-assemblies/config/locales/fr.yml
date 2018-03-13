@@ -9,14 +9,14 @@ fr:
         decidim_area_id: Région
         decidim_scope_id: Portée
         description: Description
-        developer_group: Groupe d'initiateurs
+        developer_group: Promoteur
         domain: Domaine
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        local_area: Localisation
-        meta_scope: Metadonnée de la zone d’application
-        participatory_scope: Objectif du processus participatif
-        participatory_structure: Organisations concernées
+        local_area: Périmètre
+        meta_scope: Échelle
+        participatory_scope: Objectif
+        participatory_structure: Modalités
         promoted: Mis en avant
         published_at: Publié à
         scope_id: Zone d'application
@@ -25,7 +25,7 @@ fr:
         show_statistics: Montrez les statistiques
         slug: Identifiant
         subtitle: Sous-titre
-        target: Public visé
+        target: Participants
         title: Titre
   decidim:
     admin:
@@ -140,12 +140,12 @@ fr:
             see_all_assemblies: Voir toutes les assemblées
       show:
         area: Région
-        developer_group: Groupe d'initiateurs
-        local_area: Localisation
-        participatory_scope: Objectif du processus participatif
-        participatory_structure: Organisations concernées
+        developer_group: Promoteur
+        local_area: Périmètre
+        participatory_scope: Objectif
+        participatory_structure: Modalités
         scope: Zone d'application
-        target: Public visé
+        target: Participants
       statistics:
         answers_count: Réponses
         assemblies_count: Assemblées

@@ -6,7 +6,7 @@ en:
         announcement: Announcement
         banner_image: Banner image
         copy_categories: Copy categories
-        copy_features: Copy features
+        copy_components: Copy components
         copy_steps: Copy steps
         description: Description
         developer_group: Developer group
@@ -67,7 +67,7 @@ en:
           attachment_files: Files
           attachments: Attachments
           categories: Categories
-          features: Features
+          components: Components
           info: Info
           moderations: Moderations
           process_admins: Process users

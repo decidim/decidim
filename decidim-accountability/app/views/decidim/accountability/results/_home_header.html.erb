@@ -1,10 +1,10 @@
 <div class="intro section">
   <div class="row">
     <div class="small-12 medium-7 columns">
-      <%== translated_attribute feature_settings.intro %>
+      <%== translated_attribute component_settings.intro %>
     </div>
 
-    <% if feature_settings.display_progress_enabled? && progress_calculator(current_scope, nil).present? %>
+    <% if component_settings.display_progress_enabled? && progress_calculator(current_scope, nil).present? %>
       <div class="small-12 medium-5 columns">
         <div class="progress-level">
           <p><%= t(".global_status") %></p>

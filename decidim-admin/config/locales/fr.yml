@@ -3,10 +3,10 @@ fr:
     attributes:
       area:
         area_type: Type de zone
-        name: prénom
+        name: Prénom
         organization: Organisation
       area_type:
-        name: prénom
+        name: Prénom
         organization: Organisation
         plural: Pluriel
       attachment:
@@ -16,7 +16,7 @@ fr:
         title: Titre
       attachment_collection:
         description: La description
-        name: prénom
+        name: Prénom
       category:
         description: Description
         name: Nom
@@ -30,15 +30,15 @@ fr:
         body: Corps de texte
         subject: Objet
       organization:
-        cta_button_path: Call to Action chemin du bouton
-        cta_button_text: Appel à l'action texte du bouton
+        cta_button_path: Chemin du bouton d'action
+        cta_button_text: Chemin du bouton d'action
         default_locale: Langue par défaut
-        description: La description
+        description: Description
         enable_omnipresent_banner: Montrer une bannière omniprésente
-        facebook_handler: Gestionnaire de Facebook
+        facebook_handler: Gestionnaire Facebook
         favicon: Icône
-        github_handler: GitHub gestionnaire
-        header_snippets: Extraits d'en-tête
+        github_handler: Gestionnaire GitHub
+        header_snippets: Éléments à ajouter entre les balises HTML
         highlighted_content_banner_action_subtitle: Sous-titre du bouton d'action
         highlighted_content_banner_action_title: Titre du bouton d'action
         highlighted_content_banner_action_url: URL du bouton d'action
@@ -67,7 +67,7 @@ fr:
         organization: Organisation
         parent_id: Parent
         scope_type: Type de zone de d'application
-        scope_type_id: Type de portée
+        scope_type_id: Type de zone d'application
       scope_type:
         name: Nom
         organization: Organisation
@@ -87,17 +87,17 @@ fr:
         end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        local_area: Quartier
-        meta_scope: Metadonnée du périmètre d'application
-        participatory_scope: Objectif du processus participatif
-        participatory_structure: Organisations concernées
+        local_area: Périmètre
+        meta_scope: Échelle
+        participatory_scope: Objectif
+        participatory_structure: Modalités
         promoted: Mis en avant
         scope: Zone d’application
         short_description: Résumé
         slug: Identifiant
         start_date: Date de début
         subtitle: Sous-titre
-        target: Public visé
+        target: Participants
         title: Titre
       decidim/participatory_process_group:
         description: Description
@@ -254,6 +254,9 @@ fr:
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette fonctionnalité.
           success: La fonctionnalité a été mise à jour avec succès.
+      logs:
+        logs_list:
+          no_logs_yet: Il n'y a pas encore de journaux
       managed_users:
         close_session:
           error: Une erreur s'est produite lors de la fermeture de la session de l'utilisateur que vous représentez.
@@ -425,7 +428,7 @@ fr:
             officialized: Validé
           filter_by: Filtrer par
           name: Nom
-          nickname: Pseudo
+          nickname: Pseudonyme
           not_officialized: Non validé
           officialize: Valider
           officialized: Validé

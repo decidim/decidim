@@ -254,6 +254,9 @@ gl:
         update:
           error: Houbo un erro ao actualizar esta función.
           success: A función actualizouse con éxito.
+      logs:
+        logs_list:
+          no_logs_yet: Aínda non hai rexistros
       managed_users:
         close_session:
           error: Houbo un erro ao pechar a sesión de suplantación actual.

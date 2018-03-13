@@ -1,7 +1,7 @@
 {
   "name": "decidim",
   "description": "The participatory democracy framework",
-  "version": "0.10.0-pre",
+  "version": "0.11.0-pre",
   "repository": {
     "url": "git@github.com:decidim/decidim.git",
     "type": "git"
@@ -187,11 +187,11 @@
     "@types/es6-promise": "^3.3.0",
     "@types/faker": "^4.1.1",
     "@types/jest": "^22.2.0",
-    "@types/jquery": "^3.2.15",
+    "@types/jquery": "^3.3.1",
     "@types/react": "^16.0.7",
     "@types/react-dom": "^16.0.2",
     "@types/uuid": "^3.4.2",
-    "awesome-typescript-loader": "^3.2.3",
+    "awesome-typescript-loader": "^4.0.1",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",
     "babel-jest": "^22.4.1",
@@ -209,7 +209,7 @@
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
-    "expose-loader": "~0.7.3",
+    "expose-loader": "^0.7.5",
     "faker": "^4.1.0",
     "jest": "^22.4.2",
     "json-loader": "~0.5.7",
@@ -221,7 +221,7 @@
     "tslint-react": "^3.2.0",
     "typescript": "^2.5.3",
     "typescript-babel-jest": "^1.0.5",
-    "webpack": "^4.1.0",
+    "webpack": "^4.1.1",
     "webpack-bundle-analyzer": "^2.9.0",
     "webpack-config-utils": "~2.3.0",
     "yaml-jest": "^1.0.5",
@@ -246,7 +246,7 @@
     "react-test-renderer": "^16.0.0",
     "unfetch": "^3.0.0",
     "uuid": "^3.2.1",
-    "webpack-cli": "^2.0.10"
+    "webpack-cli": "^2.0.11"
   },
   "jest": {
     "setupFiles": [

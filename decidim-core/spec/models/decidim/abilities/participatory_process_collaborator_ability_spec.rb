@@ -11,10 +11,10 @@ describe Decidim::Abilities::ParticipatoryProcessCollaboratorAbility do
 
   let(:user_process) { create :participatory_process }
 
-  let(:published_feature) { create(:feature, participatory_space: user_process) }
-  let(:unpublished_feature) { create(:feature, participatory_space: user_process) }
+  let(:published_component) { create(:component, participatory_space: user_process) }
+  let(:unpublished_component) { create(:component, participatory_space: user_process) }
 
   it { is_expected.to be_able_to(:read, user_process) }
-  it { is_expected.to be_able_to(:read, published_feature) }
-  it { is_expected.to be_able_to(:read, unpublished_feature) }
+  it { is_expected.to be_able_to(:read, published_component) }
+  it { is_expected.to be_able_to(:read, unpublished_component) }
 end

@@ -8,16 +8,16 @@ fr:
         copy_features: Copier les fonctionnalités
         copy_steps: Copier les étapes
         description: Description
-        developer_group: Groupe d'initiateurs
+        developer_group: Promoteur
         domain: Domaine
         end_date: Date de fin
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
-        local_area: Localisation
-        meta_scope: Métadonnée du périmètre d’application
+        local_area: Périmètre
+        meta_scope: Échelle
         participatory_process_group_id: Groupe de processus
-        participatory_scope: Objectif du processus participatif
-        participatory_structure: Organisations concernées
+        participatory_scope: Objectif
+        participatory_structure: Modalités
         promoted: Mis en avant
         published_at: Publié à
         scope_id: Périmètre d'application
@@ -27,7 +27,7 @@ fr:
         slug: Identifiant
         start_date: Date de début
         subtitle: Sous-titre
-        target: Public visé
+        target: Participants
         title: Titre
       participatory_process_group:
         description: Description
@@ -59,7 +59,7 @@ fr:
         resend_invitation: Renvoyer l'invitation
         unpublish: Dépublier
       menu:
-        participatory_process_groups: Groupes de processus participatifs
+        participatory_process_groups: Groupes de processus
         participatory_processes: Processus participatifs
         participatory_processes_submenu:
           attachment_collections: Collections
@@ -82,7 +82,7 @@ fr:
         participatory_process_group:
           fields:
             name: Nom
-          name: Groupes de processus participatifs
+          name: Groupes de processus
         participatory_process_step:
           fields:
             end_date: Date de fin
@@ -116,7 +116,7 @@ fr:
           update: Mettre à jour
         new:
           create: Créer
-          title: Nouveau groupe de processus participatifs
+          title: Nouveau groupe de processus
         update:
           error: Il y a eu une erreur lors de la mise à jour de ce groupe de processus participatifs.
           success: Groupe de processus participatifs mis à jour avec succès.
@@ -199,7 +199,7 @@ fr:
           error: Une erreur s'est produite lors de la création d'un nouveau groupe de processus participatif.
           success: Groupe de processus participatif créé avec succès.
       titles:
-        participatory_process_groups: Groupes de processus participatifs
+        participatory_process_groups: Groupes de processus
         participatory_processes: Processus participatifs
       users:
         resend_invitation:
@@ -237,7 +237,7 @@ fr:
     participatory_process_groups:
       show:
         group_participatory_processes: Processus participatifs pour %{group}
-        title: Groupes de processus participatifs
+        title: Groupes de processus
     participatory_process_steps:
       index:
         process_steps: Etapes du processus
@@ -270,14 +270,14 @@ fr:
         index:
           loading: Chargement des résultats...
       show:
-        developer_group: Groupe d'initiateurs
+        developer_group: Promoteur
         end_date: Date de fin
         local_area: Espace d'organisation
-        participatory_scope: Ce qui est décidé
-        participatory_structure: Comment est-il décidé
+        participatory_scope: Objectifs
+        participatory_structure: Modalités
         scope: Zone d'application
         start_date: Date de début
-        target: Qui participe
+        target: Participants
       statistics:
         answers_count: Réponses
         comments_count: Commentaires

@@ -11,11 +11,11 @@ module Decidim
     describe "linked_resources" do
       let(:participatory_process) { create(:participatory_process) }
 
-      let!(:target_feature) { create(:feature, manifest_name: :dummy, participatory_space: participatory_process) }
-      let!(:current_feature) { create(:feature, manifest_name: :dummy, participatory_space: participatory_process) }
+      let!(:target_component) { create(:component, manifest_name: :dummy, participatory_space: participatory_process) }
+      let!(:current_component) { create(:component, manifest_name: :dummy, participatory_space: participatory_process) }
 
-      let!(:resource) { create(:dummy_resource, feature: current_feature) }
-      let!(:target_resource) { create(:dummy_resource, feature: target_feature) }
+      let!(:resource) { create(:dummy_resource, component: current_component) }
+      let!(:target_resource) { create(:dummy_resource, component: target_component) }
 
       context "when linking to a resource" do
         let(:received_on_create) { {} }
@@ -51,24 +51,24 @@ module Decidim
 
     describe "sibling_scope" do
       context "when there's a resource manifest" do
-        context "when there are no feature for the sibling" do
+        context "when there are no component for the sibling" do
           it "returns a none relation" do
             expect(resource.sibling_scope(:foo)).to be_none
           end
         end
 
-        context "when there are sibling features" do
+        context "when there are sibling components" do
           let(:participatory_process) { create(:participatory_process) }
 
-          let!(:other_feature) { create(:feature, manifest_name: :dummy) }
-          let!(:target_feature) { create(:feature, manifest_name: :dummy, participatory_space: participatory_process) }
-          let!(:current_feature) { create(:feature, manifest_name: :dummy, participatory_space: participatory_process) }
+          let!(:other_component) { create(:component, manifest_name: :dummy) }
+          let!(:target_component) { create(:component, manifest_name: :dummy, participatory_space: participatory_process) }
+          let!(:current_component) { create(:component, manifest_name: :dummy, participatory_space: participatory_process) }
 
-          let!(:resource) { create(:dummy_resource, feature: current_feature) }
-          let!(:target_resource) { create(:dummy_resource, feature: target_feature) }
-          let!(:other_resource) { create(:dummy_resource, feature: other_feature) }
+          let!(:resource) { create(:dummy_resource, component: current_component) }
+          let!(:target_resource) { create(:dummy_resource, component: target_component) }
+          let!(:other_resource) { create(:dummy_resource, component: other_component) }
 
-          it "returns a relation scoped to the sibling feature" do
+          it "returns a relation scoped to the sibling component" do
             expect(resource.sibling_scope(:dummy)).to include(target_resource)
             expect(resource.sibling_scope(:dummy)).not_to include(resource)
             expect(resource.sibling_scope(:dummy)).not_to include(other_resource)
@@ -94,22 +94,22 @@ module Decidim
     describe "#linked_classes_for" do
       subject { Decidim::Proposals::Proposal }
 
-      let(:proposals_feature_1) { create :feature, manifest_name: "proposals" }
-      let(:proposals_feature_2) { create :feature, manifest_name: "proposals" }
-      let(:meetings_feature) { create :feature, manifest_name: "meetings", participatory_space: proposals_feature_1.participatory_space }
-      let(:dummy_feature) { create :feature, manifest_name: "dummy", participatory_space: proposals_feature_2.participatory_space }
-      let(:proposal_1) { create :proposal, feature: proposals_feature_1 }
-      let(:proposal_2) { create :proposal, feature: proposals_feature_2 }
-      let(:meeting) { create :meeting, feature: meetings_feature }
-      let(:dummy_resource) { create :dummy_resource, feature: dummy_feature }
+      let(:proposals_component_1) { create :component, manifest_name: "proposals" }
+      let(:proposals_component_2) { create :component, manifest_name: "proposals" }
+      let(:meetings_component) { create :component, manifest_name: "meetings", participatory_space: proposals_component_1.participatory_space }
+      let(:dummy_component) { create :component, manifest_name: "dummy", participatory_space: proposals_component_2.participatory_space }
+      let(:proposal_1) { create :proposal, component: proposals_component_1 }
+      let(:proposal_2) { create :proposal, component: proposals_component_2 }
+      let(:meeting) { create :meeting, component: meetings_component }
+      let(:dummy_resource) { create :dummy_resource, component: dummy_component }
 
       before do
         proposal_1.link_resources([meeting], "proposals_from_meeting")
         proposal_2.link_resources([dummy_resource], "included_proposals")
       end
 
-      it "finds the linked classes for a given feature" do
-        expect(subject.linked_classes_for(proposals_feature_1)).to eq ["Decidim::Meetings::Meeting"]
+      it "finds the linked classes for a given component" do
+        expect(subject.linked_classes_for(proposals_component_1)).to eq ["Decidim::Meetings::Meeting"]
       end
     end
   end

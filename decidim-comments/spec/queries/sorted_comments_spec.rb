@@ -8,9 +8,9 @@ module Decidim::Comments
 
     let!(:organization) { create(:organization) }
     let!(:participatory_process) { create(:participatory_process, organization: organization) }
-    let!(:feature) { create(:feature, participatory_space: participatory_process) }
+    let!(:component) { create(:component, participatory_space: participatory_process) }
     let!(:author) { create(:user, organization: organization) }
-    let!(:commentable) { create(:dummy_resource, feature: feature) }
+    let!(:commentable) { create(:dummy_resource, component: component) }
     let!(:comment) { create(:comment, commentable: commentable, author: author) }
     let!(:order_by) {}
 
@@ -35,7 +35,7 @@ module Decidim::Comments
 
     context "when the comment is hidden" do
       before do
-        moderation = create(:moderation, reportable: comment, participatory_space: comment.feature.participatory_space, report_count: 1, hidden_at: Time.current)
+        moderation = create(:moderation, reportable: comment, participatory_space: comment.component.participatory_space, report_count: 1, hidden_at: Time.current)
         create(:report, moderation: moderation)
       end
 
