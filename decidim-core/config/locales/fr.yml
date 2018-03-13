@@ -57,19 +57,19 @@ fr:
       area:
         create: "%{user_name} a créé la zone %{resource_name}"
         delete: "%{user_name} a supprimé la zone %{resource_name}"
-        update: "%{user_name} a mis à jour le secteur %{resource_name}"
+        update: "%{user_name} a mis à jour la zone %{resource_name}"
       component:
-        create: "%{user_name} a ajouté le composant %{resource_name} à l'espace %{space_name}"
-        delete: "%{user_name} a supprimé le composant %{resource_name} de l'espace %{space_name}"
-        publish: "%{user_name} a publié le composant %{resource_name} dans l'espace %{space_name}"
-        unpublish: "%{user_name} non publié le composant %{resource_name} de l'espace %{space_name}"
+        create: "%{user_name} a ajouté le module %{resource_name} à l'espace %{space_name}"
+        delete: "%{user_name} a supprimé le module %{resource_name} de l'espace %{space_name}"
+        publish: "%{user_name} a publié le module %{resource_name} dans l'espace %{space_name}"
+        unpublish: "%{user_name} a dépublié le module %{resource_name} de l'espace %{space_name}"
       moderation:
         hide: "%{user_name} a caché une ressource de type %{resource_type} dans le %{space_name} espace"
-        unreport: "%{user_name} non déclaré une ressource de type %{resource_type} dans le %{space_name} espace"
+        unreport: "%{user_name} n'a pas signalé une ressource de type %{resource_type} dans l'espace %{space_name}"
       newsletter:
-        create: "%{user_name} créé le %{resource_name} bulletin"
-        delete: "%{user_name} supprimé le %{resource_name} bulletin"
-        deliver: "%{user_name} livré le %{resource_name} bulletin"
+        create: "%{user_name} créé la newsletter %{resource_name}"
+        delete: "%{user_name} supprimé la newsletter %{resource_name}"
+        deliver: "%{user_name} a envoyé la newsletter %{resource_name}"
         update: "%{user_name} mis à jour le %{resource_name} bulletin"
       organization:
         update: "%{user_name} mis à jour les paramètres de l'organisation"
