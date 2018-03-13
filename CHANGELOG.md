@@ -28,5 +28,6 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-verifications**: Only show authorizations from current organization [\#2959](https://github.com/decidim/decidim/pull/2959)
 - **decidim-comments**: Fix mentions not working properly.  [\#2947](https://github.com/decidim/decidim/pull/2947)
 - **decidim-proposals**: Fix proposal endorsed event  generation [\#2983](https://github.com/decidim/decidim/pull/2983)
+- **decidim-core**: Locked foundation-rails dependency to under 6.4.2 because later version are currently incompatible with decidim [\#2995](https://github.com/decidim/decidim/pull/2995)
 
 Please check [0.10-stable](https://github.com/decidim/decidim/blob/0.10-stable/CHANGELOG.md) for previous changes.
