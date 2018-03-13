@@ -8,7 +8,7 @@ fr:
         category_id: Catégorie
         has_address: Renseignez une adresse
         scope_id: Zone d'application
-        state: Etat
+        state: État
         title: Titre
         user_group_id: Créer une proposition en tant que
       proposal_answer:
