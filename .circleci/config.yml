@@ -4,7 +4,7 @@ defaults: &defaults
   docker:
     # This is the sha of the latest `decidim/decidim:latest-test` docker image. You can retrieve the
     # latest digest by doing `$ docker pull decidim/decidim:latest-dev`.
-    - image: decidim/decidim@sha256:348fb1faa49cfe76ba7cbeafc67ca09002cf95f0ffa7a76eefa9d5b3774e0ee9
+    - image: decidim/decidim@sha256:dd04865a3c6f1715a9ea17e4730b6c70bc40e963b8506b84217e7eaed123da89
       environment:
         BUNDLE_GEMFILE: /app/Gemfile
         SIMPLECOV: true
@@ -246,7 +246,7 @@ jobs:
             - npm-dependencies-{{ checksum "package-lock.json" }}
       - run:
           name: Install npm dependencies
-          command: npm install
+          command: npm ci
       - save_cache:
           key: npm-dependencies-{{ checksum "package-lock.json" }}
           paths:
