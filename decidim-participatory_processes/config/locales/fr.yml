@@ -63,7 +63,7 @@ fr:
         participatory_processes: Processus participatifs
         participatory_processes_submenu:
           attachment_collections: Collections
-          attachment_files: Des dossiers
+          attachment_files: Fichiers
           attachments: Documents liés
           categories: Catégories
           features: Fonctionnalités
@@ -207,8 +207,8 @@ fr:
           success: Invitation renvoyée avec succès.
     admin_log:
       participatory_process:
-        create: "%{user_name} créé le %{resource_name} processus participatif"
-        publish: "%{user_name} publié le %{resource_name} processus participatif"
+        create: "%{user_name} a créé le processus participatif %{resource_name}"
+        publish: "%{user_name} a publié le processus participatif %{resource_name}"
         unpublish: "%{user_name} non publié le %{resource_name} processus participatif"
         update: "%{user_name} a mis à jour le processus participatif %{resource_name}"
       participatory_process_step:
