@@ -322,6 +322,8 @@ fr:
           withdraw_btn_hint: Vous pouvez retirer votre proposition si vous changez d'avis, tant que vous n'avez reçu aucun support. La proposition n'est pas supprimée, elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation: Êtes-vous sûr de retirer cette proposition?
           withdraw_proposal: Retirer la proposition
+        tags:
+          changed_from: "(changé de <u>%{previous_category}</u> par un administrateur)"
         vote_button:
           already_voted: Déjà voté
           already_voted_hover: Retirer le vote
