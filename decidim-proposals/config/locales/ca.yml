@@ -182,6 +182,8 @@ ca:
             success: "%{number} propostes importades correctament"
           new:
             create: Importa propostes
+            no_components: No hi ha altres components de la proposta en aquest espai participatiu per importar les propostes.
+            select_component: Seleccioneu un component
             select_states: Consulteu els estats de les propostes per importar
         shared:
           info_proposal:
@@ -320,6 +322,8 @@ ca:
           withdraw_btn_hint: Pots retirar la teva proposta si canvies d'opinió, sempre que no hagis rebut cap suport. La proposta no s'esborra, apareixerà a la llista de propostes retirades.
           withdraw_confirmation: Estàs segur que vols retirar aquesta proposta?
           withdraw_proposal: Retirar proposta
+        tags:
+          changed_from: "(modificat de <u>%{previous_category}</u> per un administrador)"
         vote_button:
           already_voted: Ja li has donat suport
           already_voted_hover: Retirar suport
