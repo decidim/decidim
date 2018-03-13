@@ -215,7 +215,7 @@ ca:
           submit: Desar permisos
           title: Edita els permisos
         update:
-          success: S'han actualitzat els permisos amb èxit.
+          success: Permisos actualitzats correctament.
       components:
         create:
           error: S'ha produït un error en crear aquest component.
@@ -225,11 +225,11 @@ ca:
           success: El component s'ha suprimit correctament.
         edit:
           title: Edita el component
-          update: Actualització
+          update: Actualitzar
         form:
-          default_step_settings: Configuració del pas per defecte
+          default_step_settings: Configuració per defecte
           global_settings: Configuració global
-          step_settings: Configuració del pas
+          step_settings: Configuració de fase
         index:
           add: Afegeix un component
           headers:
@@ -238,12 +238,12 @@ ca:
             type: Tipus de component
         new:
           add: Afegeix un component
-          title: 'Afegeix un component: %{name}'
+          title: 'Afegir component: %{name}'
         publish:
           success: El component s'ha publicat correctament.
         title: Components
         unpublish:
-          success: El component s'ha publicat sense èxit.
+          success: El component s'ha despublicat correctament.
         update:
           error: S'ha produït un error en actualitzar aquest component.
           success: El component s'ha actualitzat correctament.
