@@ -1,5 +1,7 @@
 # How to add dummy content to a development application?
+
 ## Proposals example
+
 1. In decidim-proposals open `lib/decidim/proposals/component.rb`.
 1. Find the `component.seeds do...` block.
 1. Create your dummy content as if you were in a `db/seed.rb` script.
