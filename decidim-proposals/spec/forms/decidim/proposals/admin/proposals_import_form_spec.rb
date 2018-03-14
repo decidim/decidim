@@ -9,22 +9,22 @@ module Decidim
         subject { form }
 
         let(:proposal) { create(:proposal) }
-        let(:feature) { proposal.feature }
-        let(:origin_feature) { create(:proposal_feature, participatory_space: feature.participatory_space) }
+        let(:component) { proposal.component }
+        let(:origin_component) { create(:proposal_component, participatory_space: component.participatory_space) }
         let(:states) { %w(accepted) }
         let(:import_proposals) { true }
         let(:params) do
           {
             states: states,
-            origin_feature_id: origin_feature.try(:id),
+            origin_component_id: origin_component.try(:id),
             import_proposals: import_proposals
           }
         end
 
         let(:form) do
           described_class.from_params(params).with_context(
-            current_feature: feature,
-            current_participatory_space: feature.participatory_space
+            current_component: component,
+            current_participatory_space: component.participatory_space
           )
         end
 
@@ -44,8 +44,8 @@ module Decidim
           it { is_expected.to be_invalid }
         end
 
-        context "when there's no target feature" do
-          let(:origin_feature) { nil }
+        context "when there's no target component" do
+          let(:origin_component) { nil }
 
           it { is_expected.to be_invalid }
         end
@@ -64,22 +64,22 @@ module Decidim
           end
         end
 
-        describe "origin_feature" do
-          let(:origin_feature) { create(:proposal_feature) }
+        describe "origin_component" do
+          let(:origin_component) { create(:proposal_component) }
 
-          it "ignores features from other participatory spaces" do
-            expect(form.origin_feature).to be_nil
+          it "ignores components from other participatory spaces" do
+            expect(form.origin_component).to be_nil
           end
         end
 
-        describe "origin_features" do
+        describe "origin_components" do
           before do
-            create(:feature, participatory_space: feature.participatory_space)
+            create(:component, participatory_space: component.participatory_space)
           end
 
-          it "returns available target features" do
-            expect(form.origin_features).to include(origin_feature)
-            expect(form.origin_features.length).to eq(1)
+          it "returns available target components" do
+            expect(form.origin_components).to include(origin_component)
+            expect(form.origin_components.length).to eq(1)
           end
         end
       end

@@ -28,8 +28,8 @@ Once geocoding is configured, you'll need to activate it. As of April 2017, only
 
 ### Proposals
 
-In order to enable geocoding for proposals you'll need to edit the fature configuration and set the global flag to true. This works for that specific feature, so you can have geocoding enabled for meetings in a participatory process, and disabled for another one.
+In order to enable geocoding for proposals you'll need to edit the fature configuration and set the global flag to true. This works for that specific component, so you can have geocoding enabled for meetings in a participatory process, and disabled for another one.
 
 ### Meetings
 
-Meetings do not have a configuration option for geocoding. Instead, if geocoding is configured it will try to geocode the address every time you create or update a meeting.. As of April 2017 there's no way to enable or disable geocoding per meetings feature.
+Meetings do not have a configuration option for geocoding. Instead, if geocoding is configured it will try to geocode the address every time you create or update a meeting.. As of April 2017 there's no way to enable or disable geocoding per meetings component.

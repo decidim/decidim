@@ -5,14 +5,14 @@ require "spec_helper"
 module Decidim
   module Surveys
     describe ClosedSurveyEvent do
-      include Decidim::FeaturePathHelper
+      include Decidim::ComponentPathHelper
 
       include_context "simple event"
 
       let(:event_name) { "decidim.events.surveys.survey_closed" }
-      let(:resource) { create(:surveys_feature) }
+      let(:resource) { create(:surveys_component) }
       let(:participatory_space) { resource.participatory_space }
-      let(:resource_path) { main_feature_path(resource) }
+      let(:resource_path) { main_component_path(resource) }
 
       it_behaves_like "a simple event"
 

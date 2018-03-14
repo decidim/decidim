@@ -6,7 +6,7 @@ en:
         area_id: Area
         banner_image: Banner image
         copy_categories: Copy categories
-        copy_features: Copy features
+        copy_components: Copy components
         decidim_area_id: Area
         decidim_scope_id: Scope
         description: Description
@@ -28,6 +28,10 @@ en:
         subtitle: Subtitle
         target: Target
         title: Title
+      assembly_user_role:
+        email: Email
+        name: Name
+        role: Role
   decidim:
     admin:
       assemblies:
@@ -90,7 +94,7 @@ en:
           attachment_files: Files
           attachments: Attachments
           categories: Categories
-          features: Features
+          components: Components
           info: Info
           moderations: Moderations
       models:

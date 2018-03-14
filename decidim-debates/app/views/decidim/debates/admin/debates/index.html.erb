@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t(".title") %>
 
-      <%= link_to t("actions.new", scope: "decidim.debates", name: t("models.debate.name", scope: "decidim.debates.admin")), new_debate_path, class: 'button tiny button--title' if can? :manage, current_feature %>
+      <%= link_to t("actions.new", scope: "decidim.debates", name: t("models.debate.name", scope: "decidim.debates.admin")), new_debate_path, class: "button tiny button--title" if can? :manage, current_component %>
     </h2>
   </div>
 
@@ -27,12 +27,12 @@
               <td>
                 <% if debate.start_time %>
                   <%= l debate.start_time, format: :long %>
-                <%  end%>
+                <% end %>
               </td>
               <td>
                 <% if debate.end_time %>
                   <%= l debate.end_time, format: :long %>
-                <%  end%>
+                <% end %>
               </td>
               <td class="table-list__actions">
                 <% if can? :update, debate %>

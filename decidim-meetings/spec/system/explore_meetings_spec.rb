@@ -3,17 +3,17 @@
 require "spec_helper"
 
 describe "Explore meetings", type: :system do
-  include_context "with a feature"
+  include_context "with a component"
   let(:manifest_name) { "meetings" }
 
   let(:meetings_count) { 5 }
   let!(:meetings) do
-    create_list(:meeting, meetings_count, feature: feature)
+    create_list(:meeting, meetings_count, component: component)
   end
 
   describe "index" do
     it "shows all meetings for the given process" do
-      visit_feature
+      visit_component
       expect(page).to have_selector("article.card", count: meetings_count)
 
       meetings.each do |meeting|
@@ -23,7 +23,7 @@ describe "Explore meetings", type: :system do
 
     context "when filtering" do
       it "allows searching by text" do
-        visit_feature
+        visit_component
         within ".filters" do
           fill_in :filter_search_text, with: translated(meetings.first.title)
 
@@ -38,8 +38,8 @@ describe "Explore meetings", type: :system do
       end
 
       it "allows filtering by date" do
-        past_meeting = create(:meeting, feature: feature, start_time: 1.day.ago)
-        visit_feature
+        past_meeting = create(:meeting, component: component, start_time: 1.day.ago)
+        visit_component
 
         within ".filters" do
           choose "Past"
@@ -61,7 +61,7 @@ describe "Explore meetings", type: :system do
         meeting.scope = scope
         meeting.save
 
-        visit_feature
+        visit_component
 
         within ".filters" do
           scope_pick scopes_picker_find(:filter_scope_id, multiple: true, global_value: "global"), scope
@@ -73,16 +73,16 @@ describe "Explore meetings", type: :system do
 
     context "when no upcoming meetings scheduled" do
       let!(:meetings) do
-        create_list(:meeting, 2, feature: feature, start_time: Time.current - 4.days, end_time: Time.current - 2.days)
+        create_list(:meeting, 2, component: component, start_time: Time.current - 4.days, end_time: Time.current - 2.days)
       end
 
       it "only shows the past meetings" do
-        visit_feature
+        visit_component
         expect(page).to have_css(".card--meeting", count: 2)
       end
 
       it "shows the correct warning" do
-        visit_feature
+        visit_component
         within ".callout" do
           expect(page).to have_content("no scheduled meetings")
         end
@@ -93,7 +93,7 @@ describe "Explore meetings", type: :system do
       let!(:meetings) { [] }
 
       it "shows the correct warning" do
-        visit_feature
+        visit_component
         within ".callout" do
           expect(page).to have_content("any meeting scheduled")
         end
@@ -105,7 +105,7 @@ describe "Explore meetings", type: :system do
         Decidim::Meetings::Meeting.destroy_all
       end
 
-      let!(:collection) { create_list :meeting, collection_size, feature: feature }
+      let!(:collection) { create_list :meeting, collection_size, component: component }
       let!(:resource_selector) { ".card--meeting" }
 
       it_behaves_like "a paginated resource"
@@ -196,17 +196,17 @@ describe "Explore meetings", type: :system do
     end
 
     context "with linked proposals" do
-      let(:proposal_feature) do
-        create(:feature, manifest_name: :proposals, participatory_space: meeting.feature.participatory_space)
+      let(:proposal_component) do
+        create(:component, manifest_name: :proposals, participatory_space: meeting.component.participatory_space)
       end
-      let(:proposals) { create_list(:proposal, 3, feature: proposal_feature) }
+      let(:proposals) { create_list(:proposal, 3, component: proposal_component) }
 
       before do
         meeting.link_resources(proposals, "proposals_from_meeting")
       end
 
       it "shows related proposals" do
-        visit_feature
+        visit_component
         click_link translated(meeting.title)
         proposals.each do |proposal|
           expect(page).to have_content(proposal.title)
@@ -217,17 +217,17 @@ describe "Explore meetings", type: :system do
     end
 
     context "with linked resources" do
-      let(:dummy_feature) do
-        create(:feature, manifest_name: :dummy, participatory_space: meeting.feature.participatory_space)
+      let(:dummy_component) do
+        create(:component, manifest_name: :dummy, participatory_space: meeting.component.participatory_space)
       end
-      let(:dummy_resources) { create_list(:dummy_resource, 3, feature: dummy_feature) }
+      let(:dummy_resources) { create_list(:dummy_resource, 3, component: dummy_component) }
 
       before do
         meeting.link_resources(dummy_resources, "meetings_through_dummy_resources")
       end
 
       it "shows related resources" do
-        visit_feature
+        visit_component
         click_link translated(meeting.title)
         dummy_resources.each do |dummy_resource|
           expect(page).to have_i18n_content(dummy_resource.title)
@@ -241,7 +241,7 @@ describe "Explore meetings", type: :system do
 
     shared_examples_for "a closing report page" do
       it "shows the closing report" do
-        visit_feature
+        visit_component
         click_link translated(meeting.title)
         expect(page).to have_i18n_content(meeting.closing_report)
 
@@ -253,7 +253,7 @@ describe "Explore meetings", type: :system do
     end
 
     context "when the meeting is closed and had no contributions" do
-      let!(:meeting) { create(:meeting, :closed, contributions_count: 0, feature: feature) }
+      let!(:meeting) { create(:meeting, :closed, contributions_count: 0, component: component) }
 
       it_behaves_like "a closing report page"
 
@@ -265,7 +265,7 @@ describe "Explore meetings", type: :system do
     end
 
     context "when the meeting is closed and had contributions" do
-      let!(:meeting) { create(:meeting, :closed, contributions_count: 1, feature: feature) }
+      let!(:meeting) { create(:meeting, :closed, contributions_count: 1, component: component) }
 
       it_behaves_like "a closing report page"
 

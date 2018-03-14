@@ -10,13 +10,13 @@
               </h5>
               <span class="text-small"><%= l(user_group.created_at, format: :long) %></span>
               <% if user_group.verified? %>
-                <span class="success label"><%= t('.verified') %></span>
+                <span class="success label"><%= t(".verified") %></span>
               <% end %>
               <% if user_group.rejected? %>
-                <span class="alert label"><%= t('.rejected') %></span>
+                <span class="alert label"><%= t(".rejected") %></span>
               <% end %>
               <% if user_group.pending? %>
-                <span class="warning label"><%= t('.pending') %></span>
+                <span class="warning label"><%= t(".pending") %></span>
               <% end %>
             </div>
           </div>

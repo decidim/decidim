@@ -3,11 +3,11 @@
 module Decidim
   module Budgets
     # This class handles search and filtering of projects. Needs a
-    # `current_feature` param with a `Decidim::Feature` in order to
+    # `current_component` param with a `Decidim::Component` in order to
     # find the projects.
     class ProjectSearch < ResourceSearch
       # Public: Initializes the service.
-      # feature     - A Decidim::Feature to get the projects from.
+      # component     - A Decidim::Component to get the projects from.
       def initialize(options = {})
         super(Project.all, options)
         @random_seed = options[:random_seed].to_f

@@ -14,15 +14,15 @@ module Decidim
           described_class.new(form, author)
         end
 
-        let(:feature) { create(:proposal_feature) }
-        let(:organization) { feature.organization }
+        let(:component) { create(:proposal_component) }
+        let(:organization) { component.organization }
         let(:form) do
           form_klass.from_params(
             form_params
           ).with_context(
             current_organization: organization,
-            current_participatory_space: feature.participatory_space,
-            current_feature: feature
+            current_participatory_space: component.participatory_space,
+            current_component: component
           )
         end
         let(:form_params) do
@@ -41,8 +41,8 @@ module Decidim
 
         it "notifies the change" do
           other_follower = create(:user, organization: organization)
-          create(:follow, followable: feature.participatory_space, user: follower)
-          create(:follow, followable: feature.participatory_space, user: other_follower)
+          create(:follow, followable: component.participatory_space, user: follower)
+          create(:follow, followable: component.participatory_space, user: other_follower)
 
           expect(Decidim::EventsManager)
             .to receive(:publish)

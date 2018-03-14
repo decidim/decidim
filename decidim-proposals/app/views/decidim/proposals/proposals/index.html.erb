@@ -1,6 +1,6 @@
-<%= render partial: "decidim/shared/feature_announcement" %>
+<%= render partial: "decidim/shared/component_announcement" %>
 
-<% if feature_settings.geocoding_enabled? %>
+<% if component_settings.geocoding_enabled? %>
   <%= dynamic_map_for proposals_data_for_map(geocoded_proposals) do %>
     <template id="marker-popup">
       <div class="map-info__content">
@@ -17,7 +17,7 @@
           </div>
           <div class="map-info__button">
             <a href="${link}" class="button button--sc">
-              <%= t('.view_proposal') %>
+              <%= t(".view_proposal") %>
             </a>
           </div>
         </div>
@@ -59,7 +59,7 @@
 </div>
 <div class="row">
 <div class="text-right">
-  <%= link_to t('.see_all_withdrawn'), proposals_path('filter[state]' => 'withdrawn') %>
+  <%= link_to t(".see_all_withdrawn"), proposals_path("filter[state]" => "withdrawn") %>
 </div>
 </div>
 <%= javascript_include_tag("decidim/filters") %>
