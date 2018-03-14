@@ -61,8 +61,8 @@ eu:
           reply:
             email_intro: '"%{resource_title}" iruzkindu da'
             email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zaren edo bere egileak direlako. Aurreko esteka estekan jarrai dezakezu.
-            email_subject: Zure iruzkina erantzun berria da %{author_name} <a href="%{resource_url}">%{resource_title}</a>-n.
-            notification_title: Zure iruzkinaren erantzun berria dago <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a>
+            email_subject: "%{author_name} Zure iruzkina erantzun %{resource_title}"
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> <a href="%{resource_path}">%{resource_title}</a> zenbakian zure iruzkina erantzun dio.
         user_mentioned:
           email_intro: Esan zaizu
           email_outro: Jakinarazpen hau jaso duzu "%{resource_title}" aipatu duzulako.
