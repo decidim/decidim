@@ -44,6 +44,19 @@ module Decidim
             end.to change(Comment, :count).by(1)
           end
 
+          it "calls content processors" do
+            user_parser = instance_double("kind of UserParser", users: [])
+            parsed_metadata = { user: user_parser }
+            parser = instance_double("kind of parser", rewrite: "whatever", metadata: parsed_metadata)
+            expect(Decidim::ContentProcessor).to receive(:parse).with(
+              form.body,
+              current_organization: form.current_organization
+            ).and_return(parser)
+            expect(CommentCreation).to receive(:publish).with(a_kind_of(Comment), parsed_metadata)
+
+            command.call
+          end
+
           it "sends a notification to the corresponding users except the comment's author" do
             follower = create(:user, organization: organization)
 
