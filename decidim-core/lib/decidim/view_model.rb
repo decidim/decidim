@@ -9,7 +9,5 @@ module Decidim
     include Decidim::ResourceReferenceHelper
     include Decidim::TranslatableAttributes
     include Decidim::ScopesHelper
-
-    include Partial
   end
 end

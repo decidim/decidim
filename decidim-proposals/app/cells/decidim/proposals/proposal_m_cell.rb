@@ -6,6 +6,8 @@ module Decidim
   module Proposals
     # This cell renders a proposal with its M-size card.
     class ProposalMCell < Decidim::Proposals::ViewModel
+      include Partial
+
       property :title
       property :state
       property :answered?
