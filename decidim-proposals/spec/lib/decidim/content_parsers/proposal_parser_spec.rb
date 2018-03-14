@@ -14,7 +14,6 @@ module Decidim
         let(:content) { "" }
 
         it "must call ProposalParser.parse" do
-          # parser= instance_double(described_class, rewrite: content, metadata: {})
           expect(described_class).to receive(:new).with(content, context).and_return(parser)
 
           result = Decidim::ContentProcessor.parse(content, context)
