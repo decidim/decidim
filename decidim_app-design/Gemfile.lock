@@ -1,5 +1,5 @@
 PATH
-  remote: .
+  remote: ..
   specs:
     decidim (0.11.0.pre)
       decidim-accountability (= 0.11.0.pre)
@@ -50,8 +50,6 @@ PATH
       autoprefixer-rails (~> 8.0)
       cancancan (~> 2.0)
       carrierwave (~> 1.1)
-      cells-erb (~> 0.1.0)
-      cells-rails (~> 0.0.8)
       date_validator (~> 0.9.0)
       decidim-api (= 0.11.0.pre)
       devise (~> 4.3)
@@ -120,8 +118,6 @@ PATH
     decidim-participatory_processes (0.11.0.pre)
       decidim-core (= 0.11.0.pre)
     decidim-proposals (0.11.0.pre)
-      cells-erb (~> 0.1.0)
-      cells-rails (~> 0.0.8)
       decidim-comments (= 0.11.0.pre)
       decidim-core (= 0.11.0.pre)
       kaminari (~> 1.0)
@@ -207,7 +203,6 @@ GEM
       html_tokenizer (~> 0.0.6)
       parser (>= 2.4)
       smart_properties
-    bindex (0.5.0)
     builder (3.2.3)
     byebug (10.0.0)
     cancancan (2.1.3)
@@ -222,17 +217,6 @@ GEM
       activemodel (>= 4.0.0)
       activesupport (>= 4.0.0)
       mime-types (>= 1.16)
-    cells (4.1.7)
-      declarative-builder (< 0.2.0)
-      declarative-option (< 0.2.0)
-      tilt (>= 1.4, < 3)
-      uber (< 0.2.0)
-    cells-erb (0.1.0)
-      cells (~> 4.0)
-      erbse (>= 0.1.1)
-    cells-rails (0.0.8)
-      actionpack (>= 3.0)
-      cells (>= 4.1.6, < 5.0.0)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     codecov (0.1.10)
@@ -261,9 +245,6 @@ GEM
     db-query-matchers (0.9.0)
       activesupport (>= 4.0, <= 6.0)
       rspec (~> 3.0)
-    declarative-builder (0.1.0)
-      declarative-option (< 0.2.0)
-    declarative-option (0.1.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (4.4.1)
@@ -290,8 +271,6 @@ GEM
       html_tokenizer
       rubocop (~> 0.51)
       smart_properties
-    erbse (0.1.2)
-      temple
     erubi (1.7.1)
     execjs (2.7.0)
     factory_bot (4.8.2)
@@ -330,7 +309,7 @@ GEM
     highline (1.7.10)
     html_tokenizer (0.0.6)
     htmlentities (4.3.4)
-    httparty (0.16.0)
+    httparty (0.16.1)
       multi_xml (>= 0.5.2)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
@@ -368,14 +347,6 @@ GEM
       activerecord
       kaminari-core (= 1.1.1)
     kaminari-core (1.1.1)
-    launchy (2.4.3)
-      addressable (~> 2.3)
-    letter_opener (1.6.0)
-      launchy (~> 2.2)
-    letter_opener_web (1.3.3)
-      actionmailer (>= 3.2)
-      letter_opener (~> 1.0)
-      railties (>= 3.2)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -554,7 +525,7 @@ GEM
       sprockets-rails
       tilt
     searchlight (4.1.0)
-    selenium-webdriver (3.10.0)
+    selenium-webdriver (3.11.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.2)
     simplecov (0.15.1)
@@ -583,7 +554,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    temple (0.8.0)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
     thor (0.20.0)
@@ -595,7 +565,6 @@ GEM
       nokogiri (~> 1.8.0, >= 1.7.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
-    uber (0.1.0)
     uglifier (4.1.7)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.3.0)
@@ -610,11 +579,6 @@ GEM
       equalizer (~> 0.0, >= 0.0.9)
     warden (1.2.7)
       rack (>= 1.0)
-    web-console (3.5.1)
-      actionview (>= 5.0)
-      activemodel (>= 5.0)
-      bindex (>= 0.4.0)
-      railties (>= 5.0)
     webmock (3.3.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
@@ -631,20 +595,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  byebug (~> 10.0)
+  byebug
   decidim!
   decidim-dev!
-  faker (~> 1.8)
-  letter_opener_web (~> 1.3)
-  listen (~> 3.1)
-  puma (~> 3.0)
-  spring (~> 2.0)
-  spring-watcher-listen (~> 2.0)
-  uglifier (~> 4.1)
-  web-console (~> 3.5)
-
-RUBY VERSION
-   ruby 2.5.0p0
+  faker
+  listen (>= 3.0.5, < 3.2)
+  puma (~> 3.7)
+  spring-watcher-listen (~> 2.0.0)
+  uglifier (>= 1.3.0)
 
 BUNDLED WITH
    1.16.1

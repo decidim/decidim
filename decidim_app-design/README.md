@@ -1,5 +1,7 @@
 # decidim_app-design
 
+* In order to see the design libray in action visit https://decidim-design.herokuapp.com/
+
 `decidim_app-design` is a full-fledged *application* that mounts the assets from `decidim`, thus allowing rapid prototyping of functionalities. It mounts the `decidim` gem present on this same repository so you can safely modify its assets and see changes real-time.
 
 This approach has several benefits:
