@@ -61,8 +61,8 @@ es:
           reply:
             email_intro: Se ha comentado en "%{resource_title}"
             email_outro: Has recibido esta notificación porque sigues "%{resource_title}" o su autor/a. Puedes dejar de seguirlo en el enlace anterior.
-            email_subject: Hay una nueva respuesta de tu comentario de %{author_name} en <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Hay una nueva respuesta de tu comentario de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
+            email_subject: "%{author_name} respondió a su comentario en %{resource_title}"
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> respondió a tu comentario en <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Has sido mencionado
           email_outro: Has recibido esta notificación porque has sido mencionado en "%{resource_title}".
