@@ -61,8 +61,8 @@ fr:
           reply:
             email_intro: '"%{resource_title}" a été commenté'
             email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}" ou son auteur. Vous pouvez annuler ces notifications en suivant ce dernier lien.
-            email_subject: Il y a une nouvelle réponse à votre commentaire de %{author_name} dans <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Il y a une nouvelle réponse de votre commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>
+            email_subject: "%{author_name} a répondu à votre commentaire en %{resource_title}"
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a répondu à votre commentaire en <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Vous avez été mentionné
           email_outro: Vous avez reçu cette notification parce que vous avez été mentionné dans "%{resource_title}".
