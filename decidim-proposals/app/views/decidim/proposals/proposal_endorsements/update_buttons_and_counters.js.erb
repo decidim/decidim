@@ -1,4 +1,10 @@
 <% fully_endorsed= fully_endorsed?(proposal, current_user) %>
+<%# main page button %>
+<% if current_user.user_groups.empty? %>
+var $proposalEndorsementButton = $('#proposal-<%= proposal.id %>-endorsement-button');
+morphdom($proposalEndorsementButton[0], '<%= j(endorsement_button(proposal, false)).strip.html_safe %>');
+<% end %>
+<%# identities rows %>
 var $proposalEndorsementsRowCount = $('#proposal-<%= proposal.id %>-endorsements-count');
 morphdom($proposalEndorsementsRowCount[0], '<%= j(render partial: 'decidim/proposals/proposals/endorsements_count', locals: { proposal: proposal, fully_endorsed: fully_endorsed }).strip.html_safe %>');
 var $proposalEndorsementsRowButton = $($('#select-identity-button')[0]);
