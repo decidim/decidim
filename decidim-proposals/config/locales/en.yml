@@ -228,9 +228,11 @@ en:
         identities:
           done: Done
           select_identity: Select identity
+        update_buttons_and_counters:
+          endorse: Endorse
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Already endorsed
+          already_endorsed: Endorsed
           endorse: Endorse
       proposal_votes:
         create:
@@ -253,7 +255,7 @@ en:
           send: Preview
           title: Edit Proposal Draft
         endorsement_button:
-          already_endorsed: Already endorsed
+          already_endorsed: Endorsed
           already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: Endorse
