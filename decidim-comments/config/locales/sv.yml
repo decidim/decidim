@@ -61,8 +61,8 @@ sv:
           reply:
             email_intro: '"%{resource_title}" har kommenterats'
             email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}" eller dess författare. Du kan följa det från föregående länk.
-            email_subject: Det finns ett nytt svar på din kommentar från %{author_name} i <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Det finns ett nytt svar på din kommentar från <a href="%{author_path}">%{author_name} %{author_nickname}</a> i <a href="%{resource_path}">%{resource_title}</a>
+            email_subject: "%{author_name} svarade på din kommentar i %{resource_title}"
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> svarade på din kommentar i <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Du har nämnts
           email_outro: Du har fått den här meddelandet eftersom du har nämnts i "%{resource_title}".
