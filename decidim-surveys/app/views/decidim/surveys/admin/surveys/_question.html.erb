@@ -10,6 +10,14 @@
     </span>
 
     <% if survey.questions_editable? %>
+      <button class="button small alert hollow move-up-question button--title">
+        <%== "#{icon("arrow-top")} #{t(".up")}" %>
+      </button>
+
+      <button class="button small alert hollow move-down-question button--title">
+        <%== "#{icon("arrow-bottom")} #{t(".down")}" %>
+      </button>
+
       <button class="button small alert hollow remove-question button--title">
         <%= t(".remove") %>
       </button>

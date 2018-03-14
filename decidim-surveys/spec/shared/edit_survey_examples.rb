@@ -184,6 +184,111 @@ shared_examples "edit surveys" do
           expect(page).to have_selector(".survey-question", count: 0)
         end
       end
+
+      it "cannot be moved up" do
+        visit_component_admin
+
+        within "form.edit_survey" do
+          within ".survey-question" do
+            expect(page).to have_no_button("Up")
+          end
+        end
+      end
+
+      it "cannot be moved down" do
+        visit_component_admin
+
+        within "form.edit_survey" do
+          within ".survey-question" do
+            expect(page).to have_no_button("Down")
+          end
+        end
+      end
+    end
+
+    context "when a survey has multiple existing questions" do
+      let!(:survey_question_1) do
+        create(:survey_question, survey: survey, body: first_body, position: 0)
+      end
+
+      let!(:survey_question_2) do
+        create(:survey_question, survey: survey, body: second_body, position: 1)
+      end
+
+      let(:first_body) do
+        { en: "First", ca: "Primera", es: "Primera" }
+      end
+
+      let(:second_body) do
+        { en: "Second", ca: "Segunda", es: "Segunda" }
+      end
+
+      before do
+        visit_component_admin
+      end
+
+      shared_examples_for "switching questions order" do
+        it "properly reorders the questions" do
+          first_question = page.find(".survey-question:first-of-type")
+
+          expect(first_question).to have_field("survey[questions][][body_en]", with: "Second")
+          expect(first_question).to look_like_first_question
+
+          last_question = page.find(".survey-question:last-of-type")
+
+          expect(last_question).to have_field("survey[questions][][body_en]", with: "First")
+          expect(last_question).to look_like_last_question
+        end
+      end
+
+      context "when moving a question up" do
+        before do
+          within "#survey-question-#{survey_question_2.id}-field" do
+            click_button "Up"
+          end
+
+          it_behaves_like "switching questions order"
+        end
+      end
+
+      context "when moving a question down" do
+        before do
+          within "#survey-question-#{survey_question_1.id}-field" do
+            click_button "Down"
+          end
+        end
+
+        it_behaves_like "switching questions order"
+      end
+
+      it "properly decides which button to show after adding/removing questions" do
+        click_button "Add question"
+
+        expect(page.find(".survey-question:nth-child(1)")).to look_like_first_question
+        expect(page.find(".survey-question:nth-child(2)")).to look_like_intermediate_question
+        expect(page.find(".survey-question:nth-child(3)")).to look_like_last_question
+
+        within "#survey-question-#{survey_question_1.id}-field" do
+          click_button "Remove"
+        end
+
+        expect(page.all(".survey-question").first).to look_like_first_question
+        expect(page.all(".survey-question").last).to look_like_last_question
+      end
+
+      private
+
+      def look_like_first_question
+        have_no_button("Up").and have_button("Down")
+      end
+
+      def look_like_intermediate_question
+        have_button("Up").and have_button("Down")
+      end
+
+      def look_like_last_question
+        have_button("Up").and have_no_button("Down")
+      end
     end
   end
 
