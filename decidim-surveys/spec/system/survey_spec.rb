@@ -168,6 +168,55 @@ describe "Answer a survey", type: :system do
         end
       end
 
+      describe "free text options" do
+        let(:answer_option_bodies) { Array.new(3) { Decidim::Faker::Localized.sentence } }
+
+        let!(:survey_question_1) do
+          create(
+            :survey_question,
+            survey: survey,
+            question_type: question_type,
+            answer_options: [
+              { "body" => answer_option_bodies[0] },
+              { "body" => answer_option_bodies[1] },
+              { "body" => answer_option_bodies[2], "free_text_option" => true }
+            ]
+          )
+        end
+
+        before do
+          visit_component
+        end
+
+        context "when question is single_option type" do
+          let(:question_type) { "single_option" }
+
+          it "renders them as radio buttons with attached text fields disabled by default" do
+            expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type=radio]", count: 3)
+
+            expect(page).to have_field("survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_custom_body_2", disabled: true, count: 1)
+
+            choose answer_option_bodies[2]["en"]
+
+            expect(page).to have_field("survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_custom_body_2", disabled: false, count: 1)
+          end
+        end
+
+        context "when question is multiple_option type" do
+          let(:question_type) { "multiple_option" }
+
+          it "renders them as check boxes with attached text fields disabled by default" do
+            expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type=checkbox]", count: 3)
+
+            expect(page).to have_field("survey_answers_1_choices_2_custom_body", disabled: true, count: 1)
+
+            check answer_option_bodies[2]["en"]
+
+            expect(page).to have_field("survey_answers_1_choices_2_custom_body", disabled: false, count: 1)
+          end
+        end
+      end
+
       context "when question type is long answer" do
         let!(:survey_question_1) { create(:survey_question, survey: survey, question_type: "long_answer") }
         let!(:survey_question_2) { create(:survey_question, survey: survey, question_type: "long_answer") }

@@ -39,6 +39,7 @@ module Decidim
             form_answer.selected_choices.each do |choice|
               answer.choices.build(
                 body: choice.body,
+                custom_body: choice.custom_body,
                 decidim_survey_answer_option_id: choice.decidim_survey_answer_option_id
               )
             end

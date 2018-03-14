@@ -16,19 +16,43 @@
     <div id="<%= field_id %>_answer_options" class="radio-button-collection">
       <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
         <%= label_tag "#{field_id}_option_#{idx}" do %>
-          <%= radio_button_tag "survey[answers][#{answer_idx}][choices][][body]", translated_attribute(answer_option.body), answer.choices.map(&:body).include?(translated_attribute(answer_option.body)), id: "#{field_id}_option_#{idx}" %>
+          <%= radio_button_tag "survey[answers][#{answer_idx}][choices][][body]",
+                               translated_attribute(answer_option.body),
+                               answer.choices.map(&:body).include?(translated_attribute(answer_option.body)),
+                               id: "#{field_id}_option_#{idx}" %>
+
           <%= translated_attribute(answer_option.body) %>
+
+          <% if answer_option.free_text_option %>
+            <%= text_field_tag "survey[answers][#{answer_idx}][choices][][custom_body]",
+                               answer.choices.find { |choice| choice.decidim_survey_answer_option_id == answer_option.id }.body,
+                               id: "#{field_id}_custom_body_#{idx}",
+                               disabled: true %>
+          <% end %>
         <% end %>
-        <%= hidden_field_tag "survey[answers][#{answer_idx}][choices][][decidim_survey_answer_option_id]", answer_option.id %>
+
+        <%= hidden_field_tag "survey[answers][#{answer_idx}][choices][][decidim_survey_answer_option_id]",
+                             answer_option.id,
+                             id: "#{field_id}_answer_option_#{answer_option.id}" %>
       <% end %>
     </div>
   <% when "multiple_option" %>
     <div id="<%= field_id %>_answer_options" class="check-box-collection">
       <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
         <%= label_tag "#{field_id}_option_#{idx}" do %>
-          <%= check_box_tag "survey[answers][#{answer_idx}][choices][#{idx}][body]", translated_attribute(answer_option.body), answer.choices.map(&:body).include?(translated_attribute(answer_option.body)), id: "#{field_id}_option_#{idx}" %>
+          <%= check_box_tag "survey[answers][#{answer_idx}][choices][#{idx}][body]",
+                            translated_attribute(answer_option.body),
+                            answer.choices.map(&:body).include?(translated_attribute(answer_option.body)) %>
+
           <%= translated_attribute(answer_option.body) %>
+
+          <% if answer_option.free_text_option %>
+            <%= text_field_tag "survey[answers][#{answer_idx}][choices][#{idx}][custom_body]",
+                               answer.choices.find { |choice| choice.decidim_survey_answer_option_id == answer_option.id }.body,
+                               disabled: true %>
+          <% end %>
         <% end %>
+
         <%= hidden_field_tag "survey[answers][#{answer_idx}][choices][#{idx}][decidim_survey_answer_option_id]", answer_option.id %>
       <% end %>
     </div>
