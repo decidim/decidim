@@ -38,7 +38,7 @@ module Decidim
       end
 
       def show
-        @proposal = Proposal.published.not_hidden.where(feature: current_feature).find(params[:id])
+        @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
         @report_form = form(Decidim::ReportForm).from_params(reason: "spam")
       end
 
@@ -76,7 +76,7 @@ module Decidim
       def compare
         @step = :step_2
         @similar_proposals ||= Decidim::Proposals::SimilarProposals
-                               .for(current_feature, @proposal)
+                               .for(current_component, @proposal)
                                .all
 
         if @similar_proposals.blank?
@@ -130,14 +130,14 @@ module Decidim
       end
 
       def edit
-        @proposal = Proposal.published.not_hidden.where(feature: current_feature).find(params[:id])
+        @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
         authorize! :edit, @proposal
 
         @form = form(ProposalForm).from_model(@proposal)
       end
 
       def update
-        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        @proposal = Proposal.not_hidden.where(component: current_component).find(params[:id])
         authorize! :edit, @proposal
 
         @form = form(ProposalForm).from_params(params)
@@ -155,7 +155,7 @@ module Decidim
       end
 
       def withdraw
-        @proposal = Proposal.published.not_hidden.where(feature: current_feature).find(params[:id])
+        @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
         authorize! :withdraw, @proposal
 
         WithdrawProposal.call(@proposal, current_user) do
@@ -193,11 +193,11 @@ module Decidim
       end
 
       def proposal_draft
-        Proposal.not_hidden.where(feature: current_feature).find_by(published_at: nil)
+        Proposal.not_hidden.where(component: current_component).find_by(published_at: nil)
       end
 
       def ensure_is_draft
-        @proposal = Proposal.not_hidden.where(feature: current_feature).find(params[:id])
+        @proposal = Proposal.not_hidden.where(component: current_component).find(params[:id])
         redirect_to Decidim::ResourceLocatorPresenter.new(@proposal).path unless @proposal.draft?
       end
     end

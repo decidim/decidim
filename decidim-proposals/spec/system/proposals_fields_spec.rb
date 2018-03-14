@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Proposals", type: :system do
-  include_context "with a feature"
+  include_context "with a component"
   let(:manifest_name) { "proposals" }
 
   let!(:category) { create :category, participatory_space: participatory_process }
@@ -36,8 +36,8 @@ describe "Proposals", type: :system do
       end
 
       context "with creation enabled" do
-        let!(:feature) do
-          create(:proposal_feature,
+        let!(:component) do
+          create(:proposal_component,
                  :with_creation_enabled,
                  manifest: manifest,
                  participatory_space: participatory_process)
@@ -45,7 +45,7 @@ describe "Proposals", type: :system do
 
         context "when process is not related to any scope" do
           it "can be related to a scope" do
-            visit_feature
+            visit_component
             click_link "New proposal"
 
             within "form.new_proposal" do
@@ -58,7 +58,7 @@ describe "Proposals", type: :system do
           let(:participatory_process) { scoped_participatory_process }
 
           it "cannot be related to a scope" do
-            visit_feature
+            visit_component
             click_link "New proposal"
 
             within "form.new_proposal" do
@@ -68,7 +68,7 @@ describe "Proposals", type: :system do
         end
 
         it "creates a new proposal", :slow do
-          visit_feature
+          visit_component
 
           click_link "New proposal"
 
@@ -92,8 +92,8 @@ describe "Proposals", type: :system do
         end
 
         context "when geocoding is enabled", :serves_map do
-          let!(:feature) do
-            create(:proposal_feature,
+          let!(:component) do
+            create(:proposal_component,
                    :with_creation_enabled,
                    :with_geocoding_enabled,
                    manifest: manifest,
@@ -101,9 +101,9 @@ describe "Proposals", type: :system do
           end
 
           it "creates a new proposal", :slow do
-            create(:proposal, feature: feature, title: "Homer for president", body: "He will not solve everything")
+            create(:proposal, component: component, title: "Homer for president", body: "He will not solve everything")
 
-            visit_feature
+            visit_component
 
             click_link "New proposal"
 
@@ -142,7 +142,7 @@ describe "Proposals", type: :system do
           end
 
           it "creates a new proposal as a user group", :slow do
-            visit_feature
+            visit_component
             click_link "New proposal"
 
             within ".new_proposal" do
@@ -166,8 +166,8 @@ describe "Proposals", type: :system do
           end
 
           context "when geocoding is enabled", :serves_map do
-            let!(:feature) do
-              create(:proposal_feature,
+            let!(:component) do
+              create(:proposal_component,
                      :with_creation_enabled,
                      :with_geocoding_enabled,
                      manifest: manifest,
@@ -175,9 +175,9 @@ describe "Proposals", type: :system do
             end
 
             it "creates a new proposal as a user group", :slow do
-              create(:proposal, feature: feature, title: "Homer for president", body: "He will not solve everything")
+              create(:proposal, component: component, title: "Homer for president", body: "He will not solve everything")
 
-              visit_feature
+              visit_component
               click_link "New proposal"
 
               within ".new_proposal" do
@@ -217,19 +217,19 @@ describe "Proposals", type: :system do
               }
             }
 
-            feature.update!(permissions: permissions)
+            component.update!(permissions: permissions)
           end
 
           it "shows a modal dialog" do
-            visit_feature
+            visit_component
             click_link "New proposal"
             expect(page).to have_content("Authorization required")
           end
         end
 
         context "when attachments are allowed", processing_uploads_for: Decidim::AttachmentUploader do
-          let!(:feature) do
-            create(:proposal_feature,
+          let!(:component) do
+            create(:proposal_component,
                    :with_creation_enabled,
                    :with_attachments_allowed,
                    manifest: manifest,
@@ -237,7 +237,7 @@ describe "Proposals", type: :system do
           end
 
           it "creates a new proposal with attachments" do
-            visit_feature
+            visit_component
 
             click_link "New proposal"
 
@@ -262,14 +262,14 @@ describe "Proposals", type: :system do
 
       context "when creation is not enabled" do
         it "does not show the creation button" do
-          visit_feature
+          visit_component
           expect(page).to have_no_link("New proposal")
         end
       end
 
       context "when the proposal limit is 1" do
-        let!(:feature) do
-          create(:proposal_feature,
+        let!(:component) do
+          create(:proposal_component,
                  :with_creation_enabled,
                  :with_proposal_limit,
                  manifest: manifest,
@@ -277,7 +277,7 @@ describe "Proposals", type: :system do
         end
 
         it "allows the creation of a single new proposal" do
-          visit_feature
+          visit_component
 
           click_link "New proposal"
           within ".new_proposal" do
@@ -290,7 +290,7 @@ describe "Proposals", type: :system do
 
           expect(page).to have_content("successfully")
 
-          visit_feature
+          visit_component
 
           click_link "New proposal"
           within ".new_proposal" do

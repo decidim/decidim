@@ -7,8 +7,8 @@ module Decidim
   module Proposals
     describe ProposalType, type: :graphql do
       include_context "with a graphql type"
-      let(:feature) { create(:proposal_feature) }
-      let(:model) { create(:proposal, :with_votes, :with_endorsements, feature: feature) }
+      let(:component) { create(:proposal_component) }
+      let(:model) { create(:proposal, :with_votes, :with_endorsements, component: component) }
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -28,7 +28,7 @@ module Decidim
         end
 
         context "when votes are hidden" do
-          let(:feature) { create(:proposal_feature, :with_votes_hidden) }
+          let(:component) { create(:proposal_component, :with_votes_hidden) }
 
           it "returns nil" do
             expect(response["voteCount"]).to eq(nil)

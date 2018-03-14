@@ -11,7 +11,7 @@ module Decidim
             super
 
             can [:unreport, :hide], Debate do |debate|
-              can_manage_process?(debate.feature.participatory_space)
+              can_manage_process?(debate.component.participatory_space)
             end
           end
         end

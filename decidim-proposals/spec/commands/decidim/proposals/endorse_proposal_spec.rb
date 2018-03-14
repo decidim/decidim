@@ -6,7 +6,7 @@ module Decidim
   module Proposals
     describe EndorseProposal do
       let(:proposal) { create(:proposal) }
-      let(:current_user) { create(:user, organization: proposal.feature.organization) }
+      let(:current_user) { create(:user, organization: proposal.component.organization) }
 
       describe "User endorses Proposal" do
         let(:command) { described_class.new(proposal, current_user) }

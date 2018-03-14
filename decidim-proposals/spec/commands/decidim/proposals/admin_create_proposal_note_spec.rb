@@ -8,7 +8,7 @@ module Decidim
       describe CreateProposalNote do
         describe "call" do
           let(:proposal) { create(:proposal) }
-          let(:current_user) { create(:user, :admin, organization: proposal.feature.organization) }
+          let(:current_user) { create(:user, :admin, organization: proposal.component.organization) }
           let(:form) { ProposalNoteForm.from_params(form_params).with_context(current_user: current_user) }
 
           let(:form_params) do
