@@ -36,11 +36,11 @@ fr:
             new_proposal_help_text: Nouveau texte d'aide à la proposition
             official_proposals_enabled: Propositions officielles activées
             proposal_answering_enabled: Réponse à la proposition activée
-            proposal_edit_before_minutes: Les propositions peuvent être éditées par les auteurs avant que ces nombreuses minutes passent
-            proposal_length: Longueur maximale du corps de la proposition
+            proposal_edit_before_minutes: Les propositions peuvent être éditées par les auteurs avant que ce nombre de minutes soit écoulé
+            proposal_length: Nombre maximum de caractères du corps de la proposition
             proposal_limit: Limite de proposition par utilisateur
-            proposal_wizard_step_1_help_text: Assistant d'aide à la proposition "Créer" étape texte d'aide
-            proposal_wizard_step_2_help_text: Assistant d'aide à la proposition "Comparer" étape texte d'aide
+            proposal_wizard_step_1_help_text: Texte d'aide à la création de proposition
+            proposal_wizard_step_2_help_text: Texte d'aide à la comparaison de proposition
             proposal_wizard_step_3_help_text: Assistant d'aide à la proposition "Publier" étape texte d'aide
             vote_limit: Limite de vote par utilisateur
           step:
