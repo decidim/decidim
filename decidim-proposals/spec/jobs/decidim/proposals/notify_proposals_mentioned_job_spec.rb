@@ -13,8 +13,8 @@ module Decidim
       let(:proposal_metadata) { Decidim::ContentParsers::ProposalParser::Metadata.new([]) }
 
       describe "with mentioned proposals" do
-        let(:linked_proposal) { create(:proposal, feature: proposal_component) }
-        let(:linked_proposal_no_author) { create(:proposal, feature: proposal_component, decidim_author_id: nil) }
+        let(:linked_proposal) { create(:proposal, component: proposal_component) }
+        let(:linked_proposal_no_author) { create(:proposal, component: proposal_component, decidim_author_id: nil) }
 
         before do
           proposal_metadata[:linked_proposals] << linked_proposal.id
