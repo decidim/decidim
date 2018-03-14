@@ -17,13 +17,18 @@ module Decidim
         end
 
         def mandatory_id_for_question(question)
-          return "survey_questions_#{question.id}_mandatory" if question.persisted?
-          "${tabsId}_mandatory"
+          question_attribute_id(question, "mandatory")
         end
 
         def question_type_id_for_question(question)
-          return "survey_questions_#{question.id}_question_type" if question.persisted?
-          "${tabsId}_question_type"
+          question_attribute_id(question, "question_type")
+        end
+
+        private
+
+        def question_attribute_id(question, attribute)
+          return "survey_questions_#{question.id}_#{attribute}" if question.persisted?
+          "${tabsId}_#{attribute}"
         end
       end
     end
