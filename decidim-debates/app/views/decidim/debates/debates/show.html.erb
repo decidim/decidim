@@ -9,8 +9,8 @@
     <%== translated_attribute debate.title %>
   </h2>
   <%= cell "decidim/author_box", Decidim::Debates::DebatePresenter.new(debate).author,  context: {extra_classes: ["author-data--small"]}, extra: (capture do %>
-      <button type="button" data-open="<%= current_user.present? ? 'flagModal' : 'loginModal' %>" title="<%= t('.report') %>" aria-controls="<%= current_user.present? ? 'flagModal' : 'loginModal' %>" aria-haspopup="true" tabindex="0">
-        <%= icon "flag", aria_label: t('.report'), class: 'icon--small' %>
+      <button type="button" data-open="<%= current_user.present? ? "flagModal" : "loginModal" %>" title="<%= t(".report") %>" aria-controls="<%= current_user.present? ? "flagModal" : "loginModal" %>" aria-haspopup="true" tabindex="0">
+        <%= icon "flag", aria_label: t(".report"), class: "icon--small" %>
       </button>
       <% unless debate.official? %>
         <%= link_to_current_or_new_conversation_with(debate.author) %>
