@@ -10,6 +10,20 @@ module Decidim
       let(:context) { { current_organization: organization } }
       let!(:parser) { Decidim::ContentParsers::ProposalParser.new(content, context) }
 
+      describe "ContentParser#parse is invoked" do
+        let(:content) { "" }
+
+        it "must call ProposalParser.parse" do
+          # parser= instance_double(described_class, rewrite: content, metadata: {})
+          expect(described_class).to receive(:new).with(content, context).and_return(parser)
+
+          result = Decidim::ContentProcessor.parse(content, context)
+
+          expect(result.rewrite).to eq ""
+          expect(result.metadata[:proposal].class).to eq Decidim::ContentParsers::ProposalParser::Metadata
+        end
+      end
+
       describe "on parse" do
         subject { parser.rewrite }
 
@@ -48,7 +62,7 @@ module Decidim
 
         context "when content links to an organization different from current" do
           let(:proposal) { create(:proposal, component: component) }
-          let(:external_proposal) { create(:proposal, component: create(:proposal_feature, organization: create(:organization))) }
+          let(:external_proposal) { create(:proposal, component: create(:proposal_component, organization: create(:organization))) }
           let(:content) do
             url = proposal_url(external_proposal)
             "This content references proposal #{url}."
