@@ -48,6 +48,14 @@ en:
         title: Title
         twitter: Twitter
         youtube: YouTube
+      assembly_member:
+        birthday: Birthday
+        designation_date: Designation date
+        designation_mode: Designation mode
+        full_name: Full name
+        gender: Gender
+        origin: Origin
+        position: Position
       assembly_user_role:
         email: Email
         name: Name
@@ -84,6 +92,23 @@ en:
           copy: Copy
           select: Select which data you would like to duplicate
           title: Duplicate assembly
+      assembly_members:
+        create:
+          error: There was an error adding a member for this assembly.
+          success: Member created successfully for this assembly.
+        destroy:
+          success: Member destroyed successfully for this assembly.
+        edit:
+          title: Update assembly member.
+          update: Update
+        index:
+          assembly_members_title: Assembly members
+        new:
+          create: Create
+          title: New assembly member.
+        update:
+          error: There was an error updating the member for this assembly.
+          success: Member updated successfully for this assembly.
       assembly_publications:
         create:
           error: There was an error publishing this assembly.
@@ -112,6 +137,7 @@ en:
         assemblies: Assemblies
         assemblies_submenu:
           assembly_admins: Assembly users
+          assembly_members: Members
           attachment_collections: Collections
           attachment_files: Files
           attachments: Attachments
@@ -129,6 +155,20 @@ en:
             published: Published
             title: Title
           name: Assembly
+        assembly_member:
+          fields:
+            designation_date: Designation date
+            full_name: Name
+            position: Position
+          genders:
+            man: Man
+            woman: Woman
+          name: Member
+          positions:
+            other: Other
+            president: President
+            secretary: Secretary
+            vice_president: Vice president
         assembly_user_role:
           fields:
             email: Email
@@ -163,6 +203,10 @@ en:
         assembly_copies:
           form:
             slug_help: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+        assembly_members:
+          form:
+            select_a_gender: Select a gender
+            select_a_position: Select a position
       assembly_types:
         commission: Comission
         consultative_advisory: Consultative/Advisory

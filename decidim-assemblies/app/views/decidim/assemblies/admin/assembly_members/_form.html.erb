@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-divider">
+    <h2 class="card-title">
+      <%= title %>
+    </h2>
+  </div>
+
+  <div class="card-section">
+    <div class="row column">
+      <%= form.text_field :full_name, autofocus: true %>
+    </div>
+
+    <div class="row column">
+      <%= form.select :position, @form.positions_for_select, { include_blank: t(".select_a_position") }, { multiple: false } %>
+    </div>
+
+    <div class="row column" data-depends-on="#assembly_member_position" data-depends-on-value="other">
+      <%= form.text_field :position_other %>
+    </div>
+
+    <div class="row column">
+      <%= form.date_field :designation_date %>
+    </div>
+
+    <div class="row column">
+      <%= form.text_field :designation_mode %>
+    </div>
+
+    <div class="row column">
+      <%= form.select :gender, @form.genders_for_select, { include_blank: t(".select_a_gender") }, { multiple: false } %>
+    </div>
+
+    <div class="row column">
+      <%= form.date_field :birthday %>
+    </div>
+
+    <div class="row column">
+      <%= form.text_field :origin %>
+    </div>
+  </div>
+</div>

@@ -39,6 +39,10 @@ module Decidim
               attachment_collection.collection_for.is_a?(Decidim::Assembly) && can_manage_assembly?(attachment_collection.collection_for)
             end
 
+            can :manage, AssemblyMember do |member|
+              can_manage_assembly?(member.assembly)
+            end
+
             can :manage, AssemblyUserRole do |role|
               can_manage_assembly?(role.assembly) && role.user != @user
             end
