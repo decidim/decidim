@@ -5,6 +5,7 @@ eu:
         announcement: Anuntzio
         banner_image: Bannerra
         copy_categories: Kopiatu kategoriak
+        copy_components: Kopiatu osagaiak
         copy_steps: Kopiatu faseak
         description: Deskribapena
         developer_group: Talde sustatzailea
@@ -65,14 +66,17 @@ eu:
           attachment_files: Fitxategiak
           attachments: Eranskinak
           categories: Kategoriak
+          components: Osagaiak
           info: Informazioa
           moderations: Moderazioak
+          private_users: Erabiltzaile pribatuak
           process_admins: Prozesuaren erabiltzaileak
           steps: Prozesuaren faseak
       models:
         participatory_process:
           fields:
             created_at: Sortze-data
+            private: Pribatua
             promoted: Nabarmendua
             published: Argitaratua
             title: Titulua
@@ -181,6 +185,8 @@ eu:
           title: Informazio orokorra
         index:
           not_published: Argitaratu gabe
+          private: Pribatua
+          public: Publiko
           published: Argitaratua
         new:
           create: Sortu
@@ -273,6 +279,7 @@ eu:
         local_area: Antolakuntza eremua
         participatory_scope: Zer erabaki
         participatory_structure: Nola erabakitzen da?
+        private_space: Prozesu pribatua da
         scope: Esparrua
         start_date: Hasiera-data
         target: Nork parte hartzen du
