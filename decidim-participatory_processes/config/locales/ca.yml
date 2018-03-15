@@ -5,7 +5,6 @@ ca:
         announcement: Anunci
         banner_image: Imatge de bàner
         copy_categories: Copiar categories
-        copy_features: Copiar funcionalitats
         copy_steps: Copiar fases
         description: Descripció
         developer_group: Grup promotor
@@ -66,7 +65,6 @@ ca:
           attachment_files: Fitxers
           attachments: Adjunts
           categories: Categories
-          features: Funcionalitats
           info: Informació
           moderations: Moderacions
           process_admins: Usuaris del procés
