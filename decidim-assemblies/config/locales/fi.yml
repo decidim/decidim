@@ -15,6 +15,7 @@ fi:
         hero_image: Etusivun kuva
         local_area: Paikallisalue
         meta_scope: Kontekstin metadata
+        participatory_processes_ids: Asiaan liittyvät osallistumisprosessit
         participatory_scope: Osallistumiskonteksti
         participatory_structure: Osallistumisen rakenne
         promoted: Korostettu
@@ -148,6 +149,7 @@ fi:
         local_area: Paikallisalue
         participatory_scope: Osallistumiskonteksti
         participatory_structure: Osallistumisen rakenne
+        related_participatory_processes: Asiaan liittyvät osallistumisprosessit
         scope: Konteksti
         target: Kohde
       statistics:
