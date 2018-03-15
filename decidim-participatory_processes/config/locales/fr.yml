@@ -5,6 +5,7 @@ fr:
         announcement: Annonce
         banner_image: Image d'en-tête
         copy_categories: Copier les catégories
+        copy_components: Copier les composants
         copy_steps: Copier les étapes
         description: Description
         developer_group: Promoteur
@@ -65,14 +66,17 @@ fr:
           attachment_files: Fichiers
           attachments: Documents liés
           categories: Catégories
+          components: Composants
           info: Information
           moderations: Modérations
+          private_users: Utilisateurs privés
           process_admins: Administrateurs du processus participatif
           steps: Etapes
       models:
         participatory_process:
           fields:
             created_at: Crée le
+            private: Privé
             promoted: Mis en évidence
             published: Publié
             title: Titre
@@ -181,6 +185,8 @@ fr:
           title: Informations générales
         index:
           not_published: Non publié
+          private: Privé
+          public: Publique
           published: Publié
         new:
           create: Créer
@@ -273,6 +279,7 @@ fr:
         local_area: Espace d'organisation
         participatory_scope: Objectifs
         participatory_structure: Modalités
+        private_space: Ceci est un processus privé
         scope: Zone d'application
         start_date: Date de début
         target: Participants
