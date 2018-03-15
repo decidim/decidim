@@ -22,7 +22,7 @@ module Decidim
       end
 
       def url_params
-        comment_type == :comment ? {} : { anchor: "comment_#{comment.id}" }
+        { anchor: "comment_#{comment.id}" }
       end
     end
   end
