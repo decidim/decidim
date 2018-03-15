@@ -23,7 +23,7 @@ module Decidim
 
       describe "email_subject" do
         it "is generated correctly" do
-          expect(subject.email_subject).to eq("There is a new comment from #{author_name} in #{resource_title}")
+          expect(subject.email_subject).to eq("There is a new comment by #{author_name} in #{resource_title}")
         end
       end
 
