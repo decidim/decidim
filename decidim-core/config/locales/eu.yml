@@ -54,11 +54,15 @@ eu:
         success: Zure kontua zuzen eguneratu da.
         success_with_email_confirmation: Zure kontua zuzen eguneratu da. Mezu elektroniko bat jasoko duzu zure helbide elektroniko berria baieztatzeko.
     admin_log:
-      feature:
-        create: "%{user_name} gehitu %{resource_name} ezaugarri %{space_name} espazioa"
-        delete: "%{user_name} kendu %{resource_name} Ezaugarri %{space_name} espazioa"
-        publish: "%{user_name} %{resource_name} funtzioak %{space_name} espazioan argitaratu zituen"
-        unpublish: "%{user_name} %{resource_name} funtzioak %{space_name} espaziotik argitaratu gabe argitaratu du"
+      area:
+        create: "%{user_name} %{resource_name} eremua sortu zen"
+        delete: "%{user_name} %{resource_name} eremua ezabatu da"
+        update: "%{user_name} %{resource_name} eremua eguneratu du"
+      component:
+        create: "%{user_name} %{resource_name} osagaia %{space_name} espaziora gehitu da"
+        delete: "%{user_name} %{resource_name} osagai %{space_name} espaziotik kendu da"
+        publish: "%{user_name} %{resource_name} osagaia %{space_name} espazioan argitaratu zen"
+        unpublish: "%{user_name} %{resource_name} osagaia %{space_name} espaziotik argitaratu gabe"
       moderation:
         hide: "%{user_name} ezkutatu motako baliabide bat %{resource_type} en %{space_name} espazioa"
         unreport: "%{user_name} %{resource_type} motako baliabide bat ez da %{space_name} espazioan"
@@ -115,6 +119,21 @@ eu:
         name: foo baimena
       granted_at: Onartua %{timestamp}
       started_at: Hasi zen %{timestamp}
+    components:
+      dummy:
+        actions:
+          bar: Bar
+          foo: foo
+        name: Dummy osagaia
+        settings:
+          global:
+            comments_enabled: Iruzkinak gaituta
+            dummy_global_attribute_1: Dummy Atributua 1
+            dummy_global_attribute_2: Dummy Attribute 2
+          step:
+            comments_blocked: Iruzkinak blokeatuta
+            dummy_step_attribute_1: Dummy Step Attribute 1
+            dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Harremanetarako
     core:
       actions:
@@ -166,17 +185,17 @@ eu:
           email_outro: Jakinarazpen hau jaso duzulako %{resource_title} jarraitzen duzulako. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: '%{resource_title} eguneratzea'
           notification_title: <a href="%{resource_path}"> dokumentu berri bat</a> gehitu zaio <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: '%{resource_title} osagaia %{participatory_space_title}da aktibo dagoenean. Orrialde hau ikusi dezakezu:'
+          email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
+          email_subject: '%{participatory_space_title} eguneratze bat'
+          notification_title: '%{resource_title} osagaia aktibo dago <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
         email_greeting: Kaixo, %{user_name},
         email_intro: 'Eguneratze da "%{resource_title}". Orri honetan ikus daiteke:'
         email_outro: Jakinarazpen hau jaso duzu "%{resource_title}” jarraitzen duzulako. Jarraitzeari utzi diezaiokezu aurreko estekan.
         email_subject: '%{resource_title} eguneratzea'
-      features:
-        feature_published:
-          email_intro: '%{resource_title} osagaia %{participatory_space_title} da aktibo dagoenean. Orrialde hau ikusi dezakezu:'
-          email_outro: Jakinarazpena jaso duzu %{participatory_space_title} jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
-          email_subject: '%{participatory_space_title} eguneratze bat'
-          notification_title: '%{resource_title} osagaia aktibo dago orain <a href="%{resource_path}">%{participatory_space_title}</a>'
       notification_event:
         notification_title: 'Gertaera bat gertatu da hemen: <a href="%{resource_path}">%{resource_title}</a>.'
       users:
@@ -189,21 +208,6 @@ eu:
       export:
         ready: Atxikita aurkituko duzu zure esportazioaren bertsio trinkotua.
       subject: Prest duzu "%{name}" izeneko esportazioa
-    features:
-      dummy:
-        actions:
-          bar: Bar
-          foo: foo
-        name: Funtzionaltasun-proba
-        settings:
-          global:
-            comments_enabled: Iruzkinak gaituta
-            dummy_global_attribute_1: Atributu-proba, 1
-            dummy_global_attribute_2: Atributu-proba, 2
-          step:
-            comments_blocked: Iruzkinak blokeatuta
-            dummy_step_attribute_1: Atributu-faseko proba, 1
-            dummy_step_attribute_2: Atributu-faseko proba, 2
     filters:
       linked_classes:
         all: Guztiak
@@ -239,6 +243,8 @@ eu:
       value_types:
         area_presenter:
           not_found: 'Ez zen datu-basea aurkitu (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Eremu mota ez da datu basean aurkitu (ID: %{id})'
         scope_presenter:
           not_found: 'Esparrua ez da aurkitu datu-basean (ID: %{id})'
         scope_type_presenter:

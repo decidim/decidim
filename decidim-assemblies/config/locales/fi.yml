@@ -5,7 +5,7 @@ fi:
         area_id: alue
         banner_image: Bannerikuva
         copy_categories: Kopioi aihepiirit
-        copy_features: Kopioi ominaisuudet
+        copy_components: Kopioi komponentit
         decidim_area_id: alue
         decidim_scope_id: laajuus
         description: Kuvaus
@@ -15,6 +15,7 @@ fi:
         hero_image: Etusivun kuva
         local_area: Paikallisalue
         meta_scope: Kontekstin metadata
+        participatory_processes_ids: Asiaan liittyvät osallistumisprosessit
         participatory_scope: Osallistumiskonteksti
         participatory_structure: Osallistumisen rakenne
         promoted: Korostettu
@@ -27,6 +28,10 @@ fi:
         subtitle: Alaotsikko
         target: Kohde
         title: Otsikko
+      assembly_user_role:
+        email: Sähköposti
+        name: Nimi
+        role: Rooli
   decidim:
     admin:
       assemblies:
@@ -89,7 +94,7 @@ fi:
           attachment_files: Tiedostot
           attachments: Liitteet
           categories: Aihepiirit
-          features: Ominaisuudet
+          components: komponentit
           info: Tiedot
           moderations: Moderoinnit
       models:
@@ -144,6 +149,7 @@ fi:
         local_area: Paikallisalue
         participatory_scope: Osallistumiskonteksti
         participatory_structure: Osallistumisen rakenne
+        related_participatory_processes: Asiaan liittyvät osallistumisprosessit
         scope: Konteksti
         target: Kohde
       statistics:

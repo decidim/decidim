@@ -2,7 +2,7 @@ sv:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: status
+        decidim_accountability_status_id: Status
         decidim_category_id: Kategori
         decidim_scope_id: Omfattning
         description: Beskrivning
@@ -104,7 +104,11 @@ sv:
       admin_log:
         result:
           create: "%{user_name} skapat resultat %{resource_name} i %{space_name}"
+          delete: "%{user_name} raderade resultatet %{resource_name} i %{space_name}"
           update: "%{user_name} uppdaterat resultat %{resource_name} i %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Föräldern hittades inte i databasen (ID: %{id})'
       models:
         result:
           fields:
@@ -167,14 +171,7 @@ sv:
           changes_at_title: Ändringar vid "%{title}"
         version:
           version_index: Version %{index}
-    events:
-      accountability:
-        proposal_linked:
-          email_intro: 'Förslaget "%{proposal_title}" har inkluderats i ett resultat. Du kan se den från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{proposal_title}". Du kan sluta ta emot meddelanden efter föregående länk.
-          email_subject: En uppdatering till %{proposal_title}
-          notification_title: Förslaget <a href="%{proposal_path}">%{proposal_title}</a> har inkluderats i <a href="%{resource_path}">%{resource_title}</a> resultat.
-    features:
+    components:
       accountability:
         name: Ansvarighet
         settings:
@@ -188,6 +185,13 @@ sv:
             subcategories_label: Namn på "Underkategorier"
           step:
             comments_blocked: Kommentarer blockerad
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'Förslaget "%{proposal_title}" har inkluderats i ett resultat. Du kan se den från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{proposal_title}". Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: En uppdatering till %{proposal_title}
+          notification_title: Förslaget <a href="%{proposal_path}">%{proposal_title}</a> har inkluderats i <a href="%{resource_path}">%{resource_title}</a> resultat.
     participatory_processes:
       participatory_process_groups:
         highlighted_results:

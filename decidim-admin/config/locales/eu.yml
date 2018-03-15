@@ -21,10 +21,10 @@ eu:
         description: Descripción
         name: Izena
         parent_id: Nagusia
-      feature:
-        name: Izena
+      component:
+        name: izena
         published_at: Argitaratu at
-        weight: Pisua
+        weight: pisu
       id: NAN
       newsletter:
         body: Testua
@@ -209,6 +209,44 @@ eu:
         update:
           error: Errorea gertatu da kategoria hau eguneratzean.
           success: Kategoria zuzen eguneratu da.
+      component_permissions:
+        edit:
+          everyone: Denek
+          submit: Gorde baimenak
+          title: Editatu baimenak
+        update:
+          success: Baimenak behar bezala eguneratu dira.
+      components:
+        create:
+          error: Errore bat gertatu da osagaia sortzean.
+          success: Osagaia zuzen sortu da.
+        destroy:
+          error: Errore bat gertatu da osagaia suntsitzen.
+          success: Osagaia zuzen ezabatu da.
+        edit:
+          title: Editatu osagaia
+          update: eguneratzearen
+        form:
+          default_step_settings: Urratsen ezarpen lehenetsiak
+          global_settings: Ezarpen globalak
+          step_settings: Ezarpenen urratsak
+        index:
+          add: Gehitu osagaia
+          headers:
+            actions: Ekintzak
+            name: Osagaiaren izena
+            type: Osagai mota
+        new:
+          add: Gehitu osagaia
+          title: 'Gehitu osagaia: %{name}'
+        publish:
+          success: Osagaia arrakastaz argitaratu da.
+        title: Osagaiak
+        unpublish:
+          success: Osagaia arrakastaz argitaratu da.
+        update:
+          error: Errore bat gertatu da osagaia eguneratzean.
+          success: Osagaia behar bezala eguneratu da.
       dashboard:
         show:
           view_more_logs: Ikusi gehiago erregistroak
@@ -216,44 +254,6 @@ eu:
       exports:
         export_as: "%{name} honako hau gisa: %{export_format}"
         notice: Zure esportazioa bidean da. Mezu elektroniko bat jasoko duzu bukatutakoan.
-      feature_permissions:
-        edit:
-          everyone: Edonor
-          submit: Gorde baimenak
-          title: Editatu baimenak
-        update:
-          success: Baimenak zuzen eguneratu dira.
-      features:
-        create:
-          error: Errorea gertatu da funtzionalitate hau gehitzean.
-          success: Funtzionalitatea zuzen gehitu da.
-        destroy:
-          error: Errorea gertatu da funtzionalitate hau ezabatzean.
-          success: Funtzionalitatea zuzen ezabatu da.
-        edit:
-          title: Editatu funtzionalitatea
-          update: Eguneratu
-        form:
-          default_step_settings: Urrats ezarpen lehenetsiak
-          global_settings: Ezarpen orokorrak
-          step_settings: Fase-konfigurazioa
-        index:
-          add: Erantsi funtzionalitatea
-          headers:
-            actions: Ekintzak
-            name: Funtzionalitatearen izena
-            type: Funtzionalitate-mota
-        new:
-          add: Erantsi funtzionalitatea
-          title: 'Gehitu funtzionalitatea: %{name}'
-        publish:
-          success: Funtzionalitatea zuzen argitaratu da
-        title: Funtzionalitateak
-        unpublish:
-          success: Funtzionalitatea zuzen desargitaratu da.
-        update:
-          error: Errorea gertatu da funtzionalitate hau eguneratzean.
-          success: Funtzionalitatea zuzen eguneratu da.
       logs:
         logs_list:
           no_logs_yet: Ez dago oraindik erregistroik

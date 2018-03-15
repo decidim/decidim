@@ -7,17 +7,6 @@ uk:
         mandatory: Обов’язкове поле
         question_type: Різновид
   decidim:
-    features:
-      surveys:
-        actions:
-          answer: Відповісти
-        name: Опитування
-        settings:
-          global:
-            announcement: Оголошення
-          step:
-            allow_answers: Дозволити відповіді
-            announcement: Оголошення
     surveys:
       admin:
         exports:
@@ -29,7 +18,6 @@ uk:
         surveys:
           answer_option:
             answer_option: Варіант відповіді
-            remove_answer_option: Вилучити варіант відповіді
             statement: Висловлювання
           edit:
             save: Зберегти
@@ -40,7 +28,6 @@ uk:
           question:
             add_answer_option: Додати варіант відповіді
             question: Питання
-            remove_question: Видалити питання
             statement: Висловлювання
           update:
             invalid: При збереженні цього опитування сталися помилки.
