@@ -7,6 +7,17 @@ ca:
         mandatory: Obligatori
         question_type: Tipus
   decidim:
+    components:
+      surveys:
+        actions:
+          answer: Resposta
+        name: Enquesta
+        settings:
+          global:
+            announcement: Anunci
+          step:
+            allow_answers: Permet respostes
+            announcement: Anunci
     events:
       surveys:
         survey_closed:
@@ -19,17 +30,6 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint %{participatory_space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
           email_subject: Una nova enquesta a %{participatory_space_title}
           notification_title: L'enquesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> ja està oberta.
-    features:
-      surveys:
-        actions:
-          answer: Resposta
-        name: Enquesta
-        settings:
-          global:
-            announcement: Avís
-          step:
-            allow_answers: Permetre respostes
-            announcement: Avís
     surveys:
       admin:
         exports:
@@ -41,7 +41,7 @@ ca:
         surveys:
           answer_option:
             answer_option: Opció de resposta
-            remove_answer_option: Elimina l'opció de resposta
+            remove: Elimina
             statement: Enunciat
           edit:
             save: Desar
@@ -51,9 +51,11 @@ ca:
             already_answered_warning: L'enquesta ja està contestada per alguns usuaris i per tant no pots modificar les seves preguntes.
           question:
             add_answer_option: Afegir opció de resposta
+            down: Avall
             question: Pregunta
-            remove_question: Elimina pregunta
+            remove: Elimina
             statement: Enunciat
+            up: Pujar
           update:
             invalid: Hi ha hagut errors en desar l'enquesta.
             success: Enquesta desada correctament.
