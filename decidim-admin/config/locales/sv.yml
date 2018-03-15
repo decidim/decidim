@@ -344,6 +344,8 @@ sv:
             sent_at: Skickat på
             subject: Ämne
           name: Nyhetsbrev
+        participatory_space_private_user:
+          name: Deltagande utrymme privat användare
         scope:
           fields:
             name: namn
@@ -466,6 +468,17 @@ sv:
           homepage_highlighted_content_banner_title: Högupplysad innehållsbanner
           layout_appearance_title: Ändra layoututseende
           omnipresent_banner_appearance_title: Ändra allmänt
+      participatory_space_private_users:
+        create:
+          error: Det gick inte att lägga till en privat användare för detta deltagande utrymme.
+          success: Deltagande utrymme privat användaråtkomst skapades framgångsrikt.
+        destroy:
+          success: Deltagande utrymme privat användaråtkomst förstörs framgångsrikt.
+        index:
+          title: Deltagande utrymme privat användare
+        new:
+          create: Skapa
+          title: Ny deltagande utrymme privat användare.
       scope_types:
         create:
           error: Ett fel uppstod med att skapa en ny räckviddstyp.
