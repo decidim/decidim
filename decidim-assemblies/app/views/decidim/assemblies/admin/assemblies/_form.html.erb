@@ -94,6 +94,15 @@
     <div class="row column">
       <%= form.check_box :show_statistics %>
     </div>
+
+    <div class="row column">
+      <% if @form.processes_for_select %>
+        <%= form.select :participatory_processes_ids,
+                        options_for_select(@form.processes_for_select, selected: processes_selected ),
+                        { include_blank: false },
+                        { multiple: true, class: "chosen-select" } %>
+      <% end %>
+    </div>
   </div>
 </div>
 

@@ -3,7 +3,9 @@
     <h2 class="card-title">
     <span><%= t(".answer_option") %></span>
     <% if survey.questions_editable? %>
-      <button class="button small alert hollow remove-answer-option button--title"><%= t(".remove_answer_option") %></button>
+      <button class="button small alert hollow remove-answer-option button--title">
+        <%= t(".remove") %>
+      </button>
     <% end %>
     </h2>
   </div>

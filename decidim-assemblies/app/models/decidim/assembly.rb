@@ -14,6 +14,7 @@ module Decidim
     include Decidim::HasReference
     include Decidim::Traceable
     include Decidim::Loggable
+    include Decidim::ParticipatorySpaceResourceable
     include Decidim::HasPrivateUsers
 
     belongs_to :organization,

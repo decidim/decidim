@@ -9,13 +9,14 @@ and also everything related to it (controllers, views, etc.). If you have custom
 controller or added a new module you need to rename `feature` to `component`.
 
 **Added**:
-
 - **decidim**: Added private_space and participatory space private users. [\#2618](https://github.com/decidim/decidim/pull/2618)
+- **decidim-core**: Add ParticipatorySpaceResourceable between Assemblies and ParticipatoryProcesses [\#2851](https://github.com/decidim/decidim/pull/2851)
 - **decidim**: Rename features to components [\#2913](https://github.com/decidim/decidim/pull/2913)
 - **decidim-admin**: Log actions on areas [\#2944](https://github.com/decidim/decidim/pull/2944)
 - **decidim-budgets**: Log actions on projects [\#2949](https://github.com/decidim/decidim/pull/2949)
 - **decidim-meetings**: Log meeting registration exports [\#2922](https://github.com/decidim/decidim/pull/2922)
 - **decidim-accountability**: Log results deletion [\#2923](https://github.com/decidim/decidim/pull/2923)
+- **decidim-surveys**: Allow reordering questions via "Up" & "Down" buttons [\#3005](https://github.com/decidim/decidim/pull/3005)
 
 **Changed**:
 

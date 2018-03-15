@@ -1,9 +1,10 @@
 // = require jquery-tmpl
 // = require ./auto_label_by_position.component
+// = require ./auto_buttons_by_position.component
 // = require ./dynamic_fields.component
 
 ((exports) => {
-  const { AutoLabelByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
+  const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
 
   const wrapperSelector = '.survey-questions';
   const fieldSelector = '.survey-question';
@@ -16,6 +17,12 @@
     onPositionComputed: (el, idx) => {
       $(el).find('input[name="survey[questions][][position]"]').val(idx);
     }
+  });
+
+  const autoButtonsByPosition = new AutoButtonsByPositionComponent({
+    listSelector: '.survey-question:not(.hidden)',
+    hideOnFirstSelector: '.move-up-question',
+    hideOnLastSelector: '.move-down-question'
   });
 
   const createSortableList = () => {
@@ -58,16 +65,28 @@
     fieldSelector: fieldSelector,
     addFieldButtonSelector: '.add-question',
     removeFieldButtonSelector: '.remove-question',
+    moveUpFieldButtonSelector: '.move-up-question',
+    moveDownFieldButtonSelector: '.move-down-question',
     onAddField: ($field) => {
       const fieldId = $field.attr('id');
 
       createSortableList();
       autoLabelByPosition.run();
+      autoButtonsByPosition.run();
       createDynamicFieldsForAnswerOptions(fieldId);
       setAnswerOptionsWrapperVisibility($field.find(questionTypeSelector));
     },
     onRemoveField: () => {
       autoLabelByPosition.run();
+      autoButtonsByPosition.run();
+    },
+    onMoveUpField: () => {
+      autoLabelByPosition.run();
+      autoButtonsByPosition.run();
+    },
+    onMoveDownField: () => {
+      autoLabelByPosition.run();
+      autoButtonsByPosition.run();
     }
   });
 
