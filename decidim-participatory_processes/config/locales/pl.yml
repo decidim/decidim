@@ -5,7 +5,6 @@ pl:
         announcement: Ogłoszenie
         banner_image: Obraz baneru
         copy_categories: Kopiuj kategorie
-        copy_features: Kopiuj funkcje
         copy_steps: Skopiuj kolejne etapy
         description: Opis
         developer_group: Grupa programistyczna
@@ -66,7 +65,6 @@ pl:
           attachment_files: Akta
           attachments: Załączniki
           categories: Kategorie
-          features: cechy
           info: Informacje
           moderations: Modernizacje
           process_admins: Użytkownicy procesu
