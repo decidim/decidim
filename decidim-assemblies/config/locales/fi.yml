@@ -46,6 +46,8 @@ fi:
           title: Yleiset tiedot
         index:
           not_published: Ei julkaistu
+          private: yksityinen
+          public: Julkinen
           published: Julkaistu
         new:
           create: Luo
@@ -97,10 +99,12 @@ fi:
           components: komponentit
           info: Tiedot
           moderations: Moderoinnit
+          private_users: Yksityiset käyttäjät
       models:
         assembly:
           fields:
             created_at: Luonnin ajankohta
+            private: yksityinen
             promoted: Korostettu
             published: Julkaistu
             title: Otsikko
@@ -149,6 +153,7 @@ fi:
         local_area: Paikallisalue
         participatory_scope: Osallistumiskonteksti
         participatory_structure: Osallistumisen rakenne
+        private_space: Tämä on yksityinen kokoonpano
         related_participatory_processes: Asiaan liittyvät osallistumisprosessit
         scope: Konteksti
         target: Kohde
