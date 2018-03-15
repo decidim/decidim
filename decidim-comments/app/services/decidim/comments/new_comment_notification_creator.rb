@@ -28,7 +28,7 @@ module Decidim
       end
 
       def notify_parent_comment_author
-        return if comment.depth == 0
+        return if comment.depth.zero?
 
         recipient_ids = [comment.commentable.decidim_author_id] - already_notified_ids
         @already_notified_ids += recipient_ids
@@ -55,7 +55,7 @@ module Decidim
 
         event_class = "Decidim::Comments::#{event.to_s.camelcase}Event".constantize
 
-        a={
+        Decidim::EventsManager.publish(
           event: "decidim.events.comments.#{event}",
           event_class: event_class,
           resource: comment.root_commentable,
@@ -63,9 +63,6 @@ module Decidim
           extra: {
             comment_id: comment.id
           }
-        }
-        Decidim::EventsManager.publish(
-          a
         )
       end
     end
