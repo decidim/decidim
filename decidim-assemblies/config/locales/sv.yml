@@ -15,6 +15,7 @@ sv:
         hero_image: Hembild
         local_area: Lokalt område
         meta_scope: Omfattning metadata
+        participatory_processes_ids: Relaterade deltagande processer
         participatory_scope: Deltagande räckvidd
         participatory_structure: Deltagande struktur
         promoted: främjas
@@ -148,6 +149,7 @@ sv:
         local_area: Lokalt område
         participatory_scope: Deltagande räckvidd
         participatory_structure: Deltagande struktur
+        related_participatory_processes: Relaterade deltagande processer
         scope: Omfattning
         target: Mål
       statistics:
