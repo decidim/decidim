@@ -21,6 +21,18 @@ sv:
         start_time: Starttid
         title: Titel
   decidim:
+    components:
+      meetings:
+        actions:
+          join: Ansluta sig
+        name: möten
+        settings:
+          global:
+            announcement: Meddelande
+            comments_enabled: Kommentarer aktiverade
+          step:
+            announcement: Meddelande
+            comments_blocked: Kommentarer blockerad
     events:
       meetings:
         meeting_closed:
@@ -53,18 +65,6 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer mötet "%{resource_title}". Du kan följa det från föregående länk.
           email_subject: '"%{resource_title}" -mötet börjar på mindre än 48 timmar.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> mötet startar inom mindre än 48 timmar.
-    features:
-      meetings:
-        actions:
-          join: Ansluta sig
-        name: möten
-        settings:
-          global:
-            announcement: Meddelande
-            comments_enabled: Kommentarer aktiverade
-          step:
-            announcement: Meddelande
-            comments_blocked: Kommentarer blockerad
     meetings:
       actions:
         attachment_collections: samlingar
@@ -135,6 +135,7 @@ sv:
           close: "%{user_name} stängde %{resource_name} mötet på %{space_name} -platsen"
           create: "%{user_name} skapade %{resource_name} mötet på %{space_name} -platsen"
           delete: "%{user_name} raderade mötet %{resource_name} på %{space_name} -platsen"
+          export_registrations: "%{user_name} exporterade registreringen av %{resource_name} mötet på %{space_name} -platsen"
           update: "%{user_name} uppdaterade mötet %{resource_name} på %{space_name} -platsen"
       mailer:
         invite_join_meeting_mailer:

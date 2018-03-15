@@ -54,11 +54,15 @@ es:
         success: Tu cuenta se ha actualizado correctamente.
         success_with_email_confirmation: Tu cuenta se ha actualizado correctamente. Recibirás un correo electrónico para confirmar tu nueva dirección de correo electrónico.
     admin_log:
-      feature:
+      area:
+        create: "%{user_name} creó el área %{resource_name}"
+        delete: "%{user_name} borró el área %{resource_name}"
+        update: "%{user_name} actualizó el área %{resource_name}"
+      component:
         create: "%{user_name} agregó el componente %{resource_name} al espacio %{space_name}"
         delete: "%{user_name} eliminó el componente %{resource_name} del espacio %{space_name}"
         publish: "%{user_name} publicó el componente %{resource_name} en el espacio %{space_name}"
-        unpublish: "%{user_name} despublicó el componente %{resource_name} del espacio %{space_name}"
+        unpublish: "%{user_name} no publicado el componente %{resource_name} del espacio %{space_name}"
       moderation:
         hide: "%{user_name} escondió un recurso de tipo %{resource_type} en el espacio %{space_name}"
         unreport: "%{user_name} publicó un recurso de tipo %{resource_type} en el espacio %{space_name}"
@@ -118,6 +122,21 @@ es:
         name: Autorización foo
       granted_at: Concedida el %{timestamp}
       started_at: Comenzó el %{timestamp}
+    components:
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Componente ficticio
+        settings:
+          global:
+            comments_enabled: Comentarios habilitados
+            dummy_global_attribute_1: Dummy Attribute 1
+            dummy_global_attribute_2: Dummy Attribute 2
+          step:
+            comments_blocked: Comentarios bloqueados
+            dummy_step_attribute_1: Dummy Step Attribute 1
+            dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contacto
     core:
       actions:
@@ -169,17 +188,17 @@ es:
           email_outro: Has recibido esta notificación porque estás siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Un evento ha ocurrido en %{resource_title}
           notification_title: Se ha agregado un <a href="%{resource_path}">nuevo documento</a> a <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: 'El componente %{resource_title} ahora está activo para %{participatory_space_title}. Puedes verlo desde esta página:'
+          email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: Una actualización de %{participatory_space_title}
+          notification_title: El componente %{resource_title} ahora está activo para <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hola %{user_name},
         email_intro: 'Ha habido una actualización de "%{resource_title}". Se puede ver en esta página:'
         email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
         email_subject: Una actualización de %{resource_title}
-      features:
-        feature_published:
-          email_intro: 'Ya está activo el componente %{resource_title} para %{participatory_space_title}. Puedes verlo desde esta página:'
-          email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: Una actualización de %{participatory_space_title}
-          notification_title: Ya está activo el componente %{resource_title} para <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -192,21 +211,6 @@ es:
       export:
         ready: Adjunto encontrará una versión comprimida de su exportación.
       subject: Su exportación "%{name}" está lista
-    features:
-      dummy:
-        actions:
-          bar: Bar
-          foo: Foo
-        name: Funcionalidad de prueba
-        settings:
-          global:
-            comments_enabled: Comentarios habilitados
-            dummy_global_attribute_1: Atributo de prueba 1
-            dummy_global_attribute_2: Atributo de prueba 2
-          step:
-            comments_blocked: Comentarios bloqueados
-            dummy_step_attribute_1: Atributo de fase de prueba 1
-            dummy_step_attribute_2: Atributo de fase de prueba 2
     filters:
       linked_classes:
         all: Todas
@@ -242,6 +246,8 @@ es:
       value_types:
         area_presenter:
           not_found: 'No se encontró el área en la base de datos (ID: %{id})'
+        area_type_presenter:
+          not_found: 'El tipo de área no se encontró en la base de datos (ID: %{id})'
         scope_presenter:
           not_found: 'No se encontró el ámbito en la base de datos (ID: %{id})'
         scope_type_presenter:
