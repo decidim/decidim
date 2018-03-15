@@ -32,7 +32,6 @@ fi:
             can_accumulate_supports_beyond_threshold: Voidaan kerätä tukia kynnysarvon ulkopuolella
             comments_enabled: Kommentit ovat käytössä
             geocoding_enabled: Geokoodaus on käytössä
-            maximum_votes_per_proposal: Suurin äänimäärä ehdotusta kohden
             new_proposal_help_text: Uusi ehdotusohje teksti
             official_proposals_enabled: Viralliset ehdotukset ovat mahdollisia
             proposal_answering_enabled: Ehdotuksen vastaus on käytössä
@@ -42,6 +41,7 @@ fi:
             proposal_wizard_step_1_help_text: Ohjattu ohjattu "Luo" vaiheen ohjeteksti
             proposal_wizard_step_2_help_text: Ohjattu ohjattu "Vertaile" vaiheen ohjeteksti
             proposal_wizard_step_3_help_text: Ohjattu ohjattu "julkaise" vaiheen ohjeteksti
+            treshold_per_proposal: Kynnys per ehdotus
             vote_limit: Äänestysraja käyttäjää kohden
           step:
             announcement: Ilmoitus
@@ -324,6 +324,7 @@ fi:
           withdraw_proposal: Peruuta ehdotus
         tags:
           changed_from: "(muutettu ylläpitäjältä <u>%{previous_category}</u>)"
+          filed_as: Filed as
         vote_button:
           already_voted: Jo äänestetty
           already_voted_hover: Peru äänesi
@@ -339,11 +340,11 @@ fi:
           need_more_votes: Tarvitset enemmän ääniä
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Jokainen ehdotus voi kerätä enemmän kuin enimmäisäänestykset
-          maximum_votes_per_proposal:
-            description: Jokainen ehdotus voi saada enintään %{limit} ääntä.
+            description: Jokainen ehdotus voi kerätä yli %{limit} tukee
           proposal_limit:
             description: Voit luoda enintään %{limit} ehdotusta.
+          threshold_per_proposal:
+            description: Jotta ehdotukset hyväksytään, niiden on saavutettava %{limit} tukee
           title: 'Äänestykseen sovelletaan seuraavia sääntöjä:'
           vote_limit:
             description: Voit äänestää enintään %{limit} ehdotusta.
