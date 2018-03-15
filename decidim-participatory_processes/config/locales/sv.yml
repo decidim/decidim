@@ -5,7 +5,6 @@ sv:
         announcement: Meddelande
         banner_image: Banner image
         copy_categories: Kopiera kategorier
-        copy_features: Kopiera funktioner
         copy_steps: Kopiera steg
         description: Beskrivning
         developer_group: Utvecklargrupp
@@ -66,7 +65,6 @@ sv:
           attachment_files: filer
           attachments: bilagor
           categories: kategorier
-          features: Funktioner
           info: Info
           moderations: modere
           process_admins: Processanvändare
