@@ -15,6 +15,9 @@ sv:
         settings:
           global:
             announcement: Meddelande
+          step:
+            allow_answers: Tillåt svar
+            announcement: Meddelande
     events:
       surveys:
         survey_closed:
@@ -38,6 +41,7 @@ sv:
         surveys:
           answer_option:
             answer_option: Svaralternativ
+            remove: Avlägsna
             statement: Påstående
           edit:
             save: Spara
@@ -47,8 +51,11 @@ sv:
             already_answered_warning: Undersökningen är redan besvarad av vissa användare så att du inte kan ändra sina frågor.
           question:
             add_answer_option: Lägg till svaralternativ
+            down: Ner
             question: Fråga
+            remove: Avlägsna
             statement: Påstående
+            up: Upp
           update:
             invalid: Det har varit fel när du sparat undersökningen.
             success: Undersökningen sparades framgångsrikt.
