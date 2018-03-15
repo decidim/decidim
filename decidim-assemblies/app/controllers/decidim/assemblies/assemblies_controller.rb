@@ -14,7 +14,7 @@ module Decidim
       helper Decidim::SanitizeHelper
       helper Decidim::ResourceReferenceHelper
 
-      helper_method :collection, :promoted_assemblies, :assemblies, :stats
+      helper_method :collection, :promoted_assemblies, :assemblies, :stats, :assembly_participatory_processes
 
       def index
         redirect_to "/404" if published_assemblies.none?
@@ -50,6 +50,10 @@ module Decidim
 
       def stats
         @stats ||= AssemblyStatsPresenter.new(assembly: current_participatory_space)
+      end
+
+      def assembly_participatory_processes
+        @assembly_participatory_processes ||= @current_participatory_space.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes")
       end
     end
   end

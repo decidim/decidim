@@ -16,6 +16,7 @@ en:
         hero_image: Home image
         local_area: Local area
         meta_scope: Scope metadata
+        participatory_processes_ids: Related Participatory processes
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         promoted: Promoted
@@ -149,6 +150,7 @@ en:
         local_area: Local area
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
+        related_participatory_processes: Related participatory processes
         scope: Scope
         target: Target
       statistics:

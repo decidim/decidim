@@ -7,8 +7,12 @@
       this.fieldSelector = options.fieldSelector;
       this.addFieldButtonSelector = options.addFieldButtonSelector;
       this.removeFieldButtonSelector = options.removeFieldButtonSelector;
+      this.moveUpFieldButtonSelector = options.moveUpFieldButtonSelector;
+      this.moveDownFieldButtonSelector = options.moveDownFieldButtonSelector;
       this.onAddField = options.onAddField;
       this.onRemoveField = options.onRemoveField;
+      this.onMoveUpField = options.onMoveUpField;
+      this.onMoveDownField = options.onMoveDownField;
       this.tabsPrefix = options.tabsPrefix;
       this._compileTemplate();
       this._bindEvents();
@@ -25,6 +29,14 @@
 
       $(this.wrapperSelector).on('click', this.removeFieldButtonSelector, (event) =>
         this._bindSafeEvent(event, (target) => this._removeField(target))
+      );
+
+      $(this.wrapperSelector).on('click', this.moveUpFieldButtonSelector, (event) =>
+        this._bindSafeEvent(event, (target) => this._moveUpField(target))
+      );
+
+      $(this.wrapperSelector).on('click', this.moveDownFieldButtonSelector, (event) =>
+        this._bindSafeEvent(event, (target) => this._moveDownField(target))
       );
     }
 
@@ -79,6 +91,28 @@
 
       if (this.onRemoveField) {
         this.onRemoveField($removedField);
+      }
+    }
+
+    _moveUpField(target) {
+      const $target = $(target);
+      const $movedUpField = $target.parents(this.fieldSelector);
+
+      $movedUpField.prev().before($movedUpField);
+
+      if (this.onMoveUpField) {
+        this.onMoveUpField($movedUpField);
+      }
+    }
+
+    _moveDownField(target) {
+      const $target = $(target);
+      const $movedDownField = $target.parents(this.fieldSelector);
+
+      $movedDownField.next().after($movedDownField);
+
+      if (this.onMoveDownField) {
+        this.onMoveDownField($movedDownField);
       }
     }
 
