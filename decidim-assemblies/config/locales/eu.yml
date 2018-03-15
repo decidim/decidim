@@ -15,6 +15,7 @@ eu:
         hero_image: Orri nagusiko irudia
         local_area: Udal-alorrak
         meta_scope: 'Metadatuak: esparrua'
+        participatory_processes_ids: Parte hartutako prozesu erlazionatuak
         participatory_scope: Partehartze esparrua
         participatory_structure: Partehartze egitura
         promoted: Nabarmendua
@@ -148,6 +149,7 @@ eu:
         local_area: Udal-alorrak
         participatory_scope: Esparru partizipatiboa
         participatory_structure: Egitura partizipatiboa
+        related_participatory_processes: Partaidetza prozesu erlazionatuak
         scope: Esparrua
         target: Nori zuzentzen zaio?
       statistics:
