@@ -46,6 +46,8 @@ it:
           title: Informazioni generali
         index:
           not_published: Non pubblicato
+          private: Privato
+          public: Pubblico
           published: Pubblicato
         new:
           create: Crea
@@ -97,10 +99,12 @@ it:
           components: componenti
           info: Informazioni
           moderations: Moderazione
+          private_users: Utenti privati
       models:
         assembly:
           fields:
             created_at: Data/ora di creazione
+            private: Privato
             promoted: Evidenziato
             published: Pubblicato
             title: Nome
@@ -149,6 +153,7 @@ it:
         local_area: Municipi
         participatory_scope: Visibilità/ambito partecipativo
         participatory_structure: Struttura partecipativa
+        private_space: Questo è un assemblaggio privato
         related_participatory_processes: Processi partecipativi correlati
         scope: Objetivos
         target: A chi è destinato il processo?
