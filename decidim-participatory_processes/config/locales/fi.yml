@@ -5,7 +5,6 @@ fi:
         announcement: Ilmoitus
         banner_image: Bannerikuva
         copy_categories: Kopioi aihepiirit
-        copy_features: Kopioi ominaisuudet
         copy_steps: Kopioi vaiheet
         description: Kuvaus
         developer_group: Kehitysryhmä
@@ -66,7 +65,6 @@ fi:
           attachment_files: Tiedostot
           attachments: Liitteet
           categories: Aihepiirit
-          features: Ominaisuudet
           info: Tiedot
           moderations: Moderoinnit
           process_admins: Prosessin käyttäjät
