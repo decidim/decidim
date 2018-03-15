@@ -32,7 +32,6 @@ sv:
             can_accumulate_supports_beyond_threshold: Kan ackumulera stöd över gränsen
             comments_enabled: Kommentarer aktiverade
             geocoding_enabled: Geocoding aktiverad
-            maximum_votes_per_proposal: Maximalt antal röster per förslag
             new_proposal_help_text: Nytt förslag till hjälptext
             official_proposals_enabled: Officiella förslag möjliga
             proposal_answering_enabled: Förslagsvarning aktiverat
@@ -42,6 +41,7 @@ sv:
             proposal_wizard_step_1_help_text: Förslagsguiden "Skapa" steg hjälptext
             proposal_wizard_step_2_help_text: Förslagsguiden "Jämför" steg hjälptext
             proposal_wizard_step_3_help_text: Förslagsguiden "Publicera" steg hjälptext
+            treshold_per_proposal: Tröskel per förslag
             vote_limit: Rösta per användare
           step:
             announcement: Meddelande
@@ -324,6 +324,7 @@ sv:
           withdraw_proposal: Dra ut förslaget
         tags:
           changed_from: "(ändrad från <u>%{previous_category}</u> av en administratör)"
+          filed_as: Filed as
         vote_button:
           already_voted: Redan röstade
           already_voted_hover: Unvote
@@ -339,11 +340,11 @@ sv:
           need_more_votes: Behöver flera röster
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Varje förslag kan ackumuleras mer än högsta röster
-          maximum_votes_per_proposal:
-            description: Varje förslag får maximalt %{limit} röster.
+            description: Varje förslag kan samla mer än %{limit} stöd
           proposal_limit:
             description: Du kan skapa upp till %{limit} förslag.
+          threshold_per_proposal:
+            description: För att accepteras måste förslag nå %{limit} stöd
           title: 'Röstning är föremål för följande regler:'
           vote_limit:
             description: Du kan rösta upp till %{limit} förslag.
