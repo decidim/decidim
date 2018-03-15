@@ -7,6 +7,10 @@ pt:
         mandatory: Obrigatório
         question_type: Tipo
   decidim:
+    components:
+      surveys:
+        actions:
+          answer: Responda
     events:
       surveys:
         survey_closed:
@@ -19,17 +23,6 @@ pt:
           email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
           email_subject: Uma nova pesquisa em %{participatory_space_title}
           notification_title: A pesquisa <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberta.
-    features:
-      surveys:
-        actions:
-          answer: Responda
-        name: Pesquisa
-        settings:
-          global:
-            announcement: Anúncio
-          step:
-            allow_answers: Permitir respostas
-            announcement: Anúncio
     surveys:
       admin:
         exports:
@@ -41,7 +34,6 @@ pt:
         surveys:
           answer_option:
             answer_option: Opção de resposta
-            remove_answer_option: Eliminar opção de resposta
             statement: Declaração
           edit:
             save: Salve 
@@ -52,7 +44,6 @@ pt:
           question:
             add_answer_option: Adicionar opção de resposta
             question: Questão
-            remove_question: Remova a pergunta
             statement: Declaração
           update:
             invalid: Houve erros ao salvar a pesquisa.
