@@ -46,6 +46,8 @@ sv:
           title: Allmän information
         index:
           not_published: Ej publicerad
+          private: Privat
+          public: offentlig
           published: Publicerad
         new:
           create: Skapa
@@ -97,10 +99,12 @@ sv:
           components: Komponenter
           info: Info
           moderations: modere
+          private_users: Privata användare
       models:
         assembly:
           fields:
             created_at: Skapad vid
+            private: Privat
             promoted: Markerad
             published: Publicerad
             title: Titel
@@ -149,6 +153,7 @@ sv:
         local_area: Lokalt område
         participatory_scope: Deltagande räckvidd
         participatory_structure: Deltagande struktur
+        private_space: Detta är en privat sammansättning
         related_participatory_processes: Relaterade deltagande processer
         scope: Omfattning
         target: Mål
