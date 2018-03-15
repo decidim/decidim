@@ -7,10 +7,6 @@ module Decidim
 
       delegate :author, to: :comment
 
-      def i18n_scope
-        "decidim.events.comments.user_mentioned"
-      end
-
       def resource_path
         resource_locator.path(url_params)
       end
@@ -23,10 +19,6 @@ module Decidim
 
       def comment
         @comment ||= Decidim::Comments::Comment.find(extra[:comment_id])
-      end
-
-      def comment_type
-        comment.depth.zero? ? :comment : :reply
       end
 
       def url_params
