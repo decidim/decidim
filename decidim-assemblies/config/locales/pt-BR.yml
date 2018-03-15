@@ -15,6 +15,7 @@ pt-BR:
         hero_image: Imagem inicial
         local_area: Área Local
         meta_scope: Metadados do âmbito
+        participatory_processes_ids: Processos participativos relacionados
         participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
         promoted: Destacado
@@ -148,6 +149,7 @@ pt-BR:
         local_area: Área Local
         participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
+        related_participatory_processes: Processos participativos relacionados
         scope: Âmbito
         target: Alvo
       statistics:
