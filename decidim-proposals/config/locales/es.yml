@@ -32,7 +32,6 @@ es:
             can_accumulate_supports_beyond_threshold: Puede acumular apoyos más allá del umbral
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocodificación habilitada
-            maximum_votes_per_proposal: Máximos votos por propuesta
             new_proposal_help_text: Nuevo texto de ayuda de propuesta
             official_proposals_enabled: Propuestas oficiales habilitadas
             proposal_answering_enabled: Contestación de propuesta habilitada
@@ -42,6 +41,7 @@ es:
             proposal_wizard_step_1_help_text: Asistente de propuesta "Crear" paso texto de ayuda
             proposal_wizard_step_2_help_text: Asistente de propuesta "Comparar" texto de ayuda paso
             proposal_wizard_step_3_help_text: Asistente de propuesta Texto de ayuda paso "Publicar"
+            treshold_per_proposal: Treshold por propuesta
             vote_limit: Límite de voto por usuario
           step:
             announcement: Anuncio
@@ -324,6 +324,7 @@ es:
           withdraw_proposal: Retirar propuesta
         tags:
           changed_from: "(cambiado de <u>%{previous_category}</u> por un administrador)"
+          filed_as: Archivado como
         vote_button:
           already_voted: Ya votado
           already_voted_hover: Retirar voto
@@ -339,11 +340,11 @@ es:
           need_more_votes: Necesita más votos
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Cada propuesta puede acumular más que el máximo de votos
-          maximum_votes_per_proposal:
-            description: Cada propuesta puede recibir un máximo de %{limit} votos.
+            description: Cada propuesta puede acumular más de %{limit} soportes
           proposal_limit:
             description: Puedes crear hasta %{limit} propuestas.
+          threshold_per_proposal:
+            description: Para ser aceptado, las propuestas deben llegar a %{limit} soportes
           title: 'La votación se rige por las siguientes normas:'
           vote_limit:
             description: Puedes votar hasta %{limit} propuestas.
