@@ -5,7 +5,6 @@ gl:
         announcement: Anuncio
         banner_image: Imaxe do banner
         copy_categories: Copiar categorías
-        copy_features: Copiar funcións
         copy_steps: Copiar os pasos
         description: Descrición
         developer_group: Grupo de desenvolvedores
@@ -66,7 +65,6 @@ gl:
           attachment_files: Arquivos
           attachments: Anexos
           categories: Categorías
-          features: características
           info: Información
           moderations: Moderacións
           process_admins: Usuarios do proceso
