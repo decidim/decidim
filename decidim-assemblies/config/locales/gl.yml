@@ -46,6 +46,8 @@ gl:
           title: Información xeral
         index:
           not_published: Non publicado
+          private: Privado
+          public: Público
           published: Publicado
         new:
           create: Crear
@@ -97,10 +99,12 @@ gl:
           components: Compoñentes
           info: Información
           moderations: Moderacións
+          private_users: Usuarios privados
       models:
         assembly:
           fields:
             created_at: Creado en
+            private: Privado
             promoted: Destacado
             published: Publicado
             title: Título
@@ -149,6 +153,7 @@ gl:
         local_area: Área local
         participatory_scope: Alcance participativo
         participatory_structure: Estrutura participativa
+        private_space: Esta é unha asemblea privada
         related_participatory_processes: Procesos participativos relacionados
         scope: Alcance
         target: Obxectivo
