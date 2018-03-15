@@ -15,6 +15,7 @@ es:
         hero_image: Imagen de portada
         local_area: Áreas municipales
         meta_scope: 'Metadatos: ámbito'
+        participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
         promoted: Destacado
@@ -148,6 +149,7 @@ es:
         local_area: Áreas municipales
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
+        related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
         target: '¿A quién va dirigida?'
       statistics:
