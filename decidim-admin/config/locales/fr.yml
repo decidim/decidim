@@ -344,6 +344,8 @@ fr:
             sent_at: Envoyé à
             subject: Objet
           name: Bulletin d'information (newsletter)
+        participatory_space_private_user:
+          name: Espace privé participatif
         scope:
           fields:
             name: Nom
@@ -466,6 +468,17 @@ fr:
           homepage_highlighted_content_banner_title: Bannière de contenu Highligted
           layout_appearance_title: Modifier l’aspect de la mise en page
           omnipresent_banner_appearance_title: Modifier omniprésent
+      participatory_space_private_users:
+        create:
+          error: Une erreur s'est produite lors de l'ajout d'un utilisateur privé pour cet espace participatif.
+          success: L'accès utilisateur privé de l'espace participatif a été créé avec succès.
+        destroy:
+          success: L'accès utilisateur privé de l'espace participatif a été détruit avec succès.
+        index:
+          title: Espace privé participatif
+        new:
+          create: Créer
+          title: Nouvel utilisateur privé Participatory Space.
       scope_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de zone d'application.
