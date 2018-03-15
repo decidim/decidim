@@ -46,6 +46,8 @@ fr:
           title: Informations générales
         index:
           not_published: Non publié
+          private: Privé
+          public: Publique
           published: Publié
         new:
           create: Créer
@@ -97,10 +99,12 @@ fr:
           components: Composants
           info: Information
           moderations: Modérations
+          private_users: Utilisateurs privés
       models:
         assembly:
           fields:
             created_at: Crée le
+            private: Privé
             promoted: Mis en évidence
             published: Publié
             title: Titre
@@ -149,6 +153,7 @@ fr:
         local_area: Périmètre
         participatory_scope: Objectif
         participatory_structure: Modalités
+        private_space: Ceci est une assemblée privée
         related_participatory_processes: Processus participatifs connexes
         scope: Zone d'application
         target: Participants
