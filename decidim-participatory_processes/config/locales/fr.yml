@@ -5,7 +5,6 @@ fr:
         announcement: Annonce
         banner_image: Image d'en-tête
         copy_categories: Copier les catégories
-        copy_features: Copier les fonctionnalités
         copy_steps: Copier les étapes
         description: Description
         developer_group: Promoteur
@@ -66,7 +65,6 @@ fr:
           attachment_files: Fichiers
           attachments: Documents liés
           categories: Catégories
-          features: Fonctionnalités
           info: Information
           moderations: Modérations
           process_admins: Administrateurs du processus participatif
