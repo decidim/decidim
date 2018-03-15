@@ -44,6 +44,21 @@ $(() => {
       $isOpen.on('change', toggleDisabledHiddenFields);
       $isPublic.on('change', toggleDisabledHiddenFields);
       toggleDisabledHiddenFields();
+
+
+
+      const $assemblyType = $form.find('#assembly_assembly_type');
+      const $assemblyTypeOther = $form.find('#assembly_type_other');
+
+      const toggleDependsOnSelect = (this) => {
+        alert("You Clicked a!");
+
+        if($(this).val() === 'others'){
+          alert("You Clicked a!");
+        }
+      };
+      $assemblyType.on('change', toggleDependsOnSelect);
+
     }
 
   })(window);
