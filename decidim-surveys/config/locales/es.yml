@@ -7,6 +7,16 @@ es:
         mandatory: Obligatorio
         question_type: Tipo
   decidim:
+    components:
+      surveys:
+        actions:
+          answer: Responder
+        name: Encuesta
+        settings:
+          global:
+            announcement: Anuncio
+          step:
+            allow_answers: Permitir respuestas
     events:
       surveys:
         survey_closed:
@@ -19,17 +29,6 @@ es:
           email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Nueva encuesta en %{participatory_space_title}
           notification_title: Ya está abierta la encuesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
-    features:
-      surveys:
-        actions:
-          answer: Respuesta
-        name: Encuesta
-        settings:
-          global:
-            announcement: Aviso
-          step:
-            allow_answers: Permitir respuestas
-            announcement: Aviso
     surveys:
       admin:
         exports:
@@ -41,7 +40,6 @@ es:
         surveys:
           answer_option:
             answer_option: Opción de respuesta
-            remove_answer_option: Eliminar opción de respuesta
             statement: Enunciado
           edit:
             save: Guardar
@@ -52,7 +50,6 @@ es:
           question:
             add_answer_option: Agregar opción de respuesta
             question: Pregunta
-            remove_question: Eliminar pregunta
             statement: Enunciado
           update:
             invalid: Se han producido errores al guardar la encuesta.
