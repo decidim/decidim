@@ -5,7 +5,6 @@ nl:
         announcement: Aankondiging
         banner_image: Bannerafbeelding
         copy_categories: Categorieën kopiëren
-        copy_features: Functies kopiëren
         copy_steps: Kopieer stappen
         description: Beschrijving
         developer_group: Ontwikkelaarsgroep
@@ -66,7 +65,6 @@ nl:
           attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
-          features: Functionaliteiten
           info: Info
           moderations: Moderaties
           process_admins: Gebruikers verwerken
