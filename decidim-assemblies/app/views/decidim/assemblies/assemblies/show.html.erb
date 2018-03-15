@@ -42,11 +42,22 @@
         </div>
       <% end %>
 
-      <%= render_hook(:assembly_meetings) %>
+      <% if translated_attribute(current_participatory_space.composition).present? %>
+        <div class="row">
+          <div class="columns large-12">
+            <div class="section">
+              <h4 class="section-heading"><%= t("assemblies.show.composition", scope: "decidim") %></h4>
+              <%= decidim_sanitize translated_attribute(current_participatory_space.composition) %>
+            </div>
+          </div>
+        </div>
+      <% end %>
 
       <%= attachments_for current_participatory_space %>
 
       <%= participatory_processes_for_assembly(assembly_participatory_processes) if assembly_participatory_processes.present? %>
+
+      <%= render_hook(:assembly_meetings) %>
     </div>
     <div class="section columns medium-5 mediumlarge-4 large-3">
       <div class="card extra">
@@ -110,7 +121,7 @@
             <% if current_participatory_space.assembly_type == "others" %>
               <%= translated_attribute(current_participatory_space.assembly_type_other) %>
             <% else %>
-              <%= current_participatory_space.assembly_type %>
+              <%= t("assembly_types.#{current_participatory_space.assembly_type }", scope: "decidim.assemblies") %>
             <% end %>
           </div>
         <% end %>
@@ -128,7 +139,7 @@
             <% if current_participatory_space.created_by == "others" %>
               <%= translated_attribute(current_participatory_space.created_by_other) %>
             <% else %>
-              <%= current_participatory_space.created_by %>
+              <%= t("created_by.#{current_participatory_space.created_by }", scope: "decidim.assemblies") %>
             <% end %>
           </div>
         <% end %>
@@ -153,6 +164,7 @@
           <div class="definition-data__item closing_date">
             <span class="definition-data__title"><%= t("assemblies.show.closing_date", scope: "decidim") %></span>
             <%= l current_participatory_space.closing_date, format: :datepicker %>
+            <br/>
             <%= decidim_sanitize translated_attribute(current_participatory_space.closing_date_reason) %>
           </div>
         <% end %>

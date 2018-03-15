@@ -26,6 +26,7 @@ FactoryBot.define do
     participatory_structure { Decidim::Faker::Localized.sentence(2) }
     show_statistics true
     purpose_of_action { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
+    composition { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     assembly_type { "others" }
     assembly_type_other { Decidim::Faker::Localized.sentence(1) }
     creation_date 1.month.ago

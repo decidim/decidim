@@ -20,7 +20,7 @@ module Decidim
 
         html.html_safe
       end
-      
+
       def assembly_features(assembly)
         html = "".html_safe
         html += "<strong>#{translated_attribute(assembly.title)}: </strong>".html_safe

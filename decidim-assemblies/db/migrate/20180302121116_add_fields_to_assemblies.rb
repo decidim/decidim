@@ -3,6 +3,7 @@
 class AddFieldsToAssemblies < ActiveRecord::Migration[5.1]
   def change
     add_column :decidim_assemblies, :purpose_of_action, :jsonb
+    add_column :decidim_assemblies, :composition, :jsonb
     add_column :decidim_assemblies, :assembly_type, :string
     add_column :decidim_assemblies, :assembly_type_other, :jsonb
     add_column :decidim_assemblies, :creation_date, :date

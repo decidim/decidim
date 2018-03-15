@@ -77,6 +77,7 @@ module Decidim
             meta_scope: form.meta_scope,
             show_statistics: form.show_statistics,
             purpose_of_action: form.purpose_of_action,
+            composition: form.composition,
             assembly_type: form.assembly_type,
             assembly_type_other: form.assembly_type_other,
             creation_date: form.creation_date,

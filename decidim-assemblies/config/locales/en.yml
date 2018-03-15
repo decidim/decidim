@@ -9,6 +9,7 @@ en:
         banner_image: Banner image
         closing_date: Closing date
         closing_date_reason: Closing date reason
+        composition: Composition
         copy_categories: Copy categories
         copy_components: Copy components
         copy_features: Copy features
@@ -183,6 +184,7 @@ en:
         area: Area
         assembly_type: Assembly type
         closing_date: Closing date
+        composition: Composition
         created_by: Created by
         creation_date: Date created
         developer_group: Developer group

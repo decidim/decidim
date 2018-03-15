@@ -99,8 +99,13 @@
                         { multiple: true, class: "chosen-select" } %>
       <% end %>
     </div>
+
     <div class="row column">
       <%= form.translated :editor, :purpose_of_action %>
+    </div>
+
+    <div class="row column">
+      <%= form.translated :editor, :composition %>
     </div>
 
     <div class="row column">
@@ -119,7 +124,7 @@
       <%= form.select :created_by, @form.created_by_for_select, { include_blank: t(".select_a_created_by") }, { multiple: false } %>
     </div>
 
-    <div class="row column">
+    <div class="row column" id="created_by_other">
       <%= form.translated :text_field, :created_by_other %>
     </div>
 

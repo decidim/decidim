@@ -45,20 +45,32 @@ $(() => {
       $isPublic.on('change', toggleDisabledHiddenFields);
       toggleDisabledHiddenFields();
 
-
-
       const $assemblyType = $form.find('#assembly_assembly_type');
       const $assemblyTypeOther = $form.find('#assembly_type_other');
 
-      const toggleDependsOnSelect = (this) => {
-        alert("You Clicked a!");
+      const $assemblyCreatedBy = $form.find('#assembly_created_by');
+      const $assemblyCreatedByOther = $form.find('#created_by_other');
 
-        if($(this).val() === 'others'){
-          alert("You Clicked a!");
+      const toggleDependsOnSelect = ($target, $showDiv) => {
+        const value = $target.val();
+        $showDiv.hide();
+        if (value === 'others') {
+          $showDiv.show();
         }
       };
-      $assemblyType.on('change', toggleDependsOnSelect);
 
+      $assemblyType.on('change', (ev) => {
+        const $target = $(ev.target);
+        toggleDependsOnSelect($target, $assemblyTypeOther);
+      });
+
+      $assemblyCreatedBy.on('change', (ev) => {
+        const $target = $(ev.target);
+        toggleDependsOnSelect($target, $assemblyCreatedByOther);
+      });
+
+      toggleDependsOnSelect($assemblyType, $assemblyTypeOther);
+      toggleDependsOnSelect($assemblyCreatedBy, $assemblyCreatedByOther);
     }
 
   })(window);

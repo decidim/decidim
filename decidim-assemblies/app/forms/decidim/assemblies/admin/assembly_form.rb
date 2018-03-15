@@ -23,6 +23,7 @@ module Decidim
         translatable_attribute :participatory_scope, String
         translatable_attribute :participatory_structure, String
         translatable_attribute :purpose_of_action, String
+        translatable_attribute :composition, String
         translatable_attribute :assembly_type_other, String
         translatable_attribute :created_by_other, String
         translatable_attribute :closing_date_reason, String
@@ -83,7 +84,6 @@ module Decidim
           @area ||= current_organization.areas.where(id: area_id).first
         end
 
-<<<<<<< HEAD
         def assembly_types_for_select
           ASSEMBLY_TYPES.map do |type|
             [
@@ -98,14 +98,16 @@ module Decidim
             [
               I18n.t("created_by.#{by}", scope: "decidim.assemblies"),
               by
-=======
+            ]
+          end
+        end
+
         def processes_for_select
           @processes_for_select ||= Decidim.find_participatory_space_manifest(:participatory_processes)
                                            .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |process|
             [
               translated_attribute(process.title),
               process.id
->>>>>>> master
             ]
           end
         end

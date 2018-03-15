@@ -47,6 +47,13 @@ module Decidim
             ca: "propòsit d'acció"
           }
         end
+        let(:composition) do
+          {
+            en: "Composition of internal working groups",
+            es: "Composición de los grupos internos",
+            ca: "Composició dels grups interns"
+          }
+        end
         let(:assembly_type) { "others" }
         let(:assembly_type_other) do
           {

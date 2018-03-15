@@ -46,6 +46,7 @@ module Decidim::Assemblies
         participatory_processes_ids: participatory_processes.map(&:id),
         show_statistics: false,
         purpose_of_action: { en: "purpose of action" },
+        composition: { en: "composition of internal working groups" },
         assembly_type: "others",
         assembly_type_other: "others",
         creation_date: 1.day.from_now,

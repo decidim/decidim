@@ -46,6 +46,7 @@ module Decidim::Assemblies
             show_statistics: my_assembly.show_statistics,
             participatory_processes_ids: participatory_processes.map(&:id),
             purpose_of_action: my_assembly.purpose_of_action,
+            composition: my_assembly.composition,
             assembly_type: my_assembly.assembly_type,
             assembly_type_other: my_assembly.assembly_type_other,
             creation_date: my_assembly.creation_date,
