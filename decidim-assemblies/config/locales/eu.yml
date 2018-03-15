@@ -46,6 +46,8 @@ eu:
           title: Informazio orokorra
         index:
           not_published: Argitaratu gabe
+          private: Pribatua
+          public: Publiko
           published: Argitaratua
         new:
           create: Sortu
@@ -97,10 +99,12 @@ eu:
           components: Osagaiak
           info: Informazioa
           moderations: Moderazioak
+          private_users: Erabiltzaile pribatuak
       models:
         assembly:
           fields:
             created_at: Sortze-data
+            private: Pribatua
             promoted: Nabarmendua
             published: Argitaratua
             title: Prozesu partizipatiboen multzoak
@@ -149,6 +153,7 @@ eu:
         local_area: Udal-alorrak
         participatory_scope: Esparru partizipatiboa
         participatory_structure: Egitura partizipatiboa
+        private_space: Hau muntaia pribatua da
         related_participatory_processes: Partaidetza prozesu erlazionatuak
         scope: Esparrua
         target: Nori zuzentzen zaio?
