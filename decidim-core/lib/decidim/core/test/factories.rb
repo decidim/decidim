@@ -113,6 +113,16 @@ FactoryBot.define do
     end
   end
 
+  factory :participatory_space_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
+    user
+    privatable_to { create :participatory_process, organization: user.organization }
+  end
+
+  factory :assembly_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
+    user
+    privatable_to { create :assembly, organization: user.organization }
+  end
+
   factory :user_group, class: "Decidim::UserGroup" do
     name { Faker::Educator.course }
     document_number { Faker::Number.number(8) + "X" }

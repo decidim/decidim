@@ -2,7 +2,7 @@ gl:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: estado
+        decidim_accountability_status_id: Estado
         decidim_category_id: Categoría
         decidim_scope_id: Alcance
         description: Descrición
@@ -104,7 +104,11 @@ gl:
       admin_log:
         result:
           create: "%{user_name} resultado creado %{resource_name} en %{space_name}"
+          delete: "%{user_name} eliminou o %{resource_name} resultado en %{space_name}"
           update: "%{user_name} resultado actualizado %{resource_name} en %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Non se atopou o pai na base de datos (ID: %{id})'
       models:
         result:
           fields:
@@ -167,14 +171,7 @@ gl:
           changes_at_title: Cambios en "%{title}"
         version:
           version_index: Versión %{index}
-    events:
-      accountability:
-        proposal_linked:
-          email_intro: 'A proposta "%{proposal_title}" foi incluída nun resultado. Podes velo desde esta páxina:'
-          email_outro: Recibiches esta notificación porque estás seguindo "%{proposal_title}". Podes deixar de recibir notificacións seguindo a ligazón anterior.
-          email_subject: Unha actualización a %{proposal_title}
-          notification_title: A proposta <a href="%{proposal_path}">%{proposal_title}</a> foi incluída no <a href="%{resource_path}">%{resource_title}</a> resultado.
-    features:
+    components:
       accountability:
         name: Responsabilidade
         settings:
@@ -188,6 +185,13 @@ gl:
             subcategories_label: Nome para "Subcategorías"
           step:
             comments_blocked: Comentarios bloqueados
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'A proposta "%{proposal_title}" foi incluída nun resultado. Podes velo desde esta páxina:'
+          email_outro: Recibiches esta notificación porque estás seguindo "%{proposal_title}". Podes deixar de recibir notificacións seguindo a ligazón anterior.
+          email_subject: Unha actualización a %{proposal_title}
+          notification_title: A proposta <a href="%{proposal_path}">%{proposal_title}</a> foi incluída no <a href="%{resource_path}">%{resource_title}</a> resultado.
     participatory_processes:
       participatory_process_groups:
         highlighted_results:

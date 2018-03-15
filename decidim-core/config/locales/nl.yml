@@ -54,11 +54,15 @@ nl:
         success: Uw account is bijgewerkt.
         success_with_email_confirmation: Uw account is bijgewerkt. U ontvangt een e-mail ter bevestiging van uw nieuwe e-mailadres.
     admin_log:
-      feature:
-        create: "%{user_name} de %{resource_name} toegevoegd functie naar de %{space_name} ruimte"
-        delete: "%{user_name} de %{resource_name} verwijderd functie van de %{space_name} ruimte"
-        publish: "%{user_name} heeft de functie %{resource_name} in de ruimte %{space_name} gepubliceerd"
-        unpublish: "%{user_name} ongepubliceerd de functie %{resource_name} van de %{space_name} spatie"
+      area:
+        create: "%{user_name} heeft het gebied %{resource_name} gemaakt"
+        delete: "%{user_name} heeft het gebied %{resource_name} verwijderd"
+        update: "%{user_name} heeft het gebied %{resource_name} bijgewerkt"
+      component:
+        create: "%{user_name} voegde de %{resource_name} component toe aan de %{space_name} spatie"
+        delete: "%{user_name} heeft de %{resource_name} component uit de %{space_name} spatie verwijderd"
+        publish: "%{user_name} heeft de %{resource_name} component in de %{space_name} spatie gepubliceerd"
+        unpublish: "%{user_name} ongepubliceerd de %{resource_name} component uit de %{space_name} spatie"
       moderation:
         hide: "%{user_name} verborg een hulpbron van het type %{resource_type} in de %{space_name} ruimte"
         unreport: "%{user_name} niet gerapporteerd een hulpbron van het type %{resource_type} in de %{space_name} ruimte"
@@ -118,6 +122,21 @@ nl:
         name: Foo machtiging
       granted_at: Toegekend op %{timestamp}
       started_at: Gestart om %{timestamp}
+    components:
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Dummy component
+        settings:
+          global:
+            comments_enabled: Reacties ingeschakeld
+            dummy_global_attribute_1: Dummy-kenmerk 1
+            dummy_global_attribute_2: Dummy-kenmerk 2
+          step:
+            comments_blocked: Reacties geblokkeerd
+            dummy_step_attribute_1: Dummy stapkenmerk 1
+            dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contact
     core:
       actions:
@@ -169,17 +188,17 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je %{resource_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
           email_subject: Een update voor %{resource_title}
           notification_title: Een <a href="%{resource_path}">nieuw document</a> is toegevoegd aan <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: 'Het %{resource_title} -onderdeel is nu actief voor %{participatory_space_title}. Je kunt het vanaf deze pagina bekijken:'
+          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Een update naar %{participatory_space_title}
+          notification_title: De %{resource_title} component is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hallo %{user_name},
         email_intro: 'Er is een update voor ''%{resource_title}''. Je kunt het vanaf deze pagina bekijken:'
         email_outro: U heeft deze melding ontvangen omdat u "%{resource_title}" volgt. U kan stoppen met deze te volgen via vorige link.
         email_subject: Een update voor %{resource_title}
-      features:
-        feature_published:
-          email_intro: 'Het %{resource_title}-onderdeel is nu actief voor %{participatory_space_title}. Je kunt het vanaf deze pagina bekijken:'
-          email_outro: Je hebt deze melding ontvangen omdat je %{participatory_space_title} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-          email_subject: Een update naar %{participatory_space_title}
-          notification_title: De %{resource_title} component is nu actief voor <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Er is een gebeurtenis opgetreden bij <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -192,21 +211,6 @@ nl:
       export:
         ready: In de bijlage vindt u een versie van uw export.
       subject: Uw export "%{name}" is klaar
-    features:
-      dummy:
-        actions:
-          bar: Bar
-          foo: Foo
-        name: Dummy functie
-        settings:
-          global:
-            comments_enabled: Reacties ingeschakeld
-            dummy_global_attribute_1: Dummy Kenmerk 1
-            dummy_global_attribute_2: Dummy kenmerk 2
-          step:
-            comments_blocked: Reacties geblokkeerd
-            dummy_step_attribute_1: Dummy Stap Kenmerk 1
-            dummy_step_attribute_2: Dummy Stap Kenmerk 2
     filters:
       linked_classes:
         all: Alle
@@ -242,6 +246,8 @@ nl:
       value_types:
         area_presenter:
           not_found: 'Het gebied is niet gevonden in de database (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Het gebiedstype is niet gevonden in de database (ID: %{id})'
         scope_presenter:
           not_found: 'Het bereik is niet gevonden in de database (ID: %{id})'
         scope_type_presenter:

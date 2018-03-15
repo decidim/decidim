@@ -7,6 +7,17 @@ eu:
         mandatory: Derrigorrezkoa
         question_type: Mota
   decidim:
+    components:
+      surveys:
+        actions:
+          answer: Erantzuna
+        name: Inkesta
+        settings:
+          global:
+            announcement: Anuntzio
+          step:
+            allow_answers: Baimendu erantzunak
+            announcement: Anuntzio
     events:
       surveys:
         survey_closed:
@@ -19,17 +30,6 @@ eu:
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: '%{participatory_space_title} inkesta berri bat'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> inkesta orain irekita dago.
-    features:
-      surveys:
-        actions:
-          answer: Erantzuna
-        name: Inkesta
-        settings:
-          global:
-            announcement: Oharra
-          step:
-            allow_answers: Baimendu erantzunak
-            announcement: Oharra
     surveys:
       admin:
         exports:
@@ -41,7 +41,7 @@ eu:
         surveys:
           answer_option:
             answer_option: Erantzuna aukera
-            remove_answer_option: Kendu erantzun aukera
+            remove: Kendu
             statement: Adierazpena
           edit:
             save: Gorde
@@ -51,9 +51,11 @@ eu:
             already_answered_warning: Inkesta dagoeneko erabiltzaile batzuek erantzun dute, beraz, ezin dituzu bere galderak aldatu.
           question:
             add_answer_option: Gehitu erantzun aukera
+            down: Down
             question: Galdera
-            remove_question: Galdera kendu
+            remove: Kendu
             statement: Adierazpena
+            up: up
           update:
             invalid: Inkesta gordetzean erroreak gertatu dira.
             success: Inkesta ondo gorde da.
