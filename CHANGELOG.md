@@ -15,6 +15,7 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-budgets**: Log actions on projects [\#2949](https://github.com/decidim/decidim/pull/2949)
 - **decidim-meetings**: Log meeting registration exports [\#2922](https://github.com/decidim/decidim/pull/2922)
 - **decidim-accountability**: Log results deletion [\#2923](https://github.com/decidim/decidim/pull/2923)
+- **decidim-surveys**: Allow reordering questions via "Up" & "Down" buttons [\#3005](https://github.com/decidim/decidim/pull/3005)
 
 **Changed**:
 
