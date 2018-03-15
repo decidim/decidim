@@ -7,6 +7,14 @@ sv:
         mandatory: Obligatorisk
         question_type: Typ
   decidim:
+    components:
+      surveys:
+        actions:
+          answer: Svar
+        name: Undersökning
+        settings:
+          global:
+            announcement: Meddelande
     events:
       surveys:
         survey_closed:
@@ -19,17 +27,6 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
           email_subject: En ny undersökning i %{participatory_space_title}
           notification_title: Undersökningen <a href="%{resource_path}">%{resource_title}</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a> är nu öppen.
-    features:
-      surveys:
-        actions:
-          answer: Svar
-        name: Undersökning
-        settings:
-          global:
-            announcement: Meddelande
-          step:
-            allow_answers: Tillåt svar
-            announcement: Meddelande
     surveys:
       admin:
         exports:
@@ -41,7 +38,6 @@ sv:
         surveys:
           answer_option:
             answer_option: Svaralternativ
-            remove_answer_option: Ta bort svaralternativet
             statement: Påstående
           edit:
             save: Spara
@@ -52,7 +48,6 @@ sv:
           question:
             add_answer_option: Lägg till svaralternativ
             question: Fråga
-            remove_question: Ta bort fråga
             statement: Påstående
           update:
             invalid: Det har varit fel när du sparat undersökningen.
