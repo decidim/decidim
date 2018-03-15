@@ -46,6 +46,8 @@ es:
           title: Información general
         index:
           not_published: No publicado
+          private: Privado
+          public: Público
           published: Publicado
         new:
           create: Crear
@@ -97,10 +99,12 @@ es:
           components: Componentes
           info: Información
           moderations: Moderaciones
+          private_users: Usuarios privados
       models:
         assembly:
           fields:
             created_at: Fecha de creación
+            private: Privado
             promoted: Destacado
             published: Publicada
             title: Título
@@ -149,6 +153,7 @@ es:
         local_area: Áreas municipales
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
+        private_space: Esta es una asamblea privada
         related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
         target: '¿A quién va dirigida?'
