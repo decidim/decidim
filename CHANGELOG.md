@@ -9,6 +9,7 @@ and also everything related to it (controllers, views, etc.). If you have custom
 controller or added a new module you need to rename `feature` to `component`.
 
 **Added**:
+
 - **decidim**: Added private_space and participatory space private users. [\#2618](https://github.com/decidim/decidim/pull/2618)
 - **decidim-core**: Add ParticipatorySpaceResourceable between Assemblies and ParticipatoryProcesses [\#2851](https://github.com/decidim/decidim/pull/2851)
 - **decidim**: Rename features to components [\#2913](https://github.com/decidim/decidim/pull/2913)
@@ -24,6 +25,7 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-participatory_processes**: Render documents in first place (before view hooks). [\#2977](https://github.com/decidim/decidim/pull/2977)
 
 **Fixed**:
+
 - **decidim-proposals**: Fix treshold absolute view and rename the field maximum_votes_per_proposal to treshold_per_proposal. [\#2994](https://github.com/decidim/decidim/pull/2994)
 - **decidim-proposals**: Fix proposal endorsed event [\#2970](https://github.com/decidim/decidim/pull/2970)
 - **decidim-accountability**: Fix parent results progress [\#2954](https://github.com/decidim/decidim/pull/2954)
