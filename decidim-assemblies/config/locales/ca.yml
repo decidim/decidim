@@ -46,6 +46,8 @@ ca:
           title: Informació general
         index:
           not_published: No publicada
+          private: Privat
+          public: Públic
           published: Publicat
         new:
           create: Crear
@@ -97,10 +99,12 @@ ca:
           components: Components
           info: Informació
           moderations: Moderacions
+          private_users: Usuaris privats
       models:
         assembly:
           fields:
             created_at: Data de creació
+            private: Privat
             promoted: Destacat
             published: Publicat
             title: Títol
@@ -149,6 +153,7 @@ ca:
         local_area: Àrea municipal
         participatory_scope: Àmbit participatiu
         participatory_structure: Estructura participativa
+        private_space: Aquesta és una assemblea privada
         related_participatory_processes: Processos participatius relacionats
         scope: Àmbit
         target: A qui va dirigit
