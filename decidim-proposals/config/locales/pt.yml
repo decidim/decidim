@@ -32,7 +32,6 @@ pt:
             can_accumulate_supports_beyond_threshold: Pode acumular suportes além do limiar
             comments_enabled: Comentários ativados
             geocoding_enabled: Geocoding habilitado
-            maximum_votes_per_proposal: Máximo de votos por proposta
             new_proposal_help_text: Novo texto de ajuda da proposta
             official_proposals_enabled: Proposta oficial habilitada
             proposal_answering_enabled: Resposta de proposta ativada
@@ -42,6 +41,7 @@ pt:
             proposal_wizard_step_1_help_text: Assistente de propostas "Criar" passo ajuda texto
             proposal_wizard_step_2_help_text: Assistente de propostas "Compare" passo ajuda texto
             proposal_wizard_step_3_help_text: Assistente de propostas "Publicar" passo ajuda texto
+            treshold_per_proposal: Limite por proposta
             vote_limit: Limite de voto por usuário
           step:
             announcement: Anúncio
@@ -324,6 +324,7 @@ pt:
           withdraw_proposal: Retirar proposta
         tags:
           changed_from: "(alterado de <u>%{previous_category}</u> por um administrador)"
+          filed_as: Arquivado como
         vote_button:
           already_voted: Já votou
           already_voted_hover: Unvote
@@ -339,11 +340,11 @@ pt:
           need_more_votes: Precisa de mais votos
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Cada proposta pode acumular mais de votos máximos
-          maximum_votes_per_proposal:
-            description: Cada proposta pode receber um máximo de %{limit} votos.
+            description: Cada proposta pode acumular mais de %{limit} suporta
           proposal_limit:
             description: Você pode criar até %{limit} propostas.
+          threshold_per_proposal:
+            description: Para serem aceitos, as propostas precisam chegar aos apoios %{limit}
           title: 'A votação está sujeita às seguintes regras:'
           vote_limit:
             description: Você pode votar até %{limit} propostas.
