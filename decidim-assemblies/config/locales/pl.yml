@@ -46,6 +46,8 @@ pl:
           title: Informacje ogólne
         index:
           not_published: Nie opublikowane
+          private: Prywatny
+          public: Publiczny
           published: Opublikowany
         new:
           create: Utwórz
@@ -97,10 +99,12 @@ pl:
           components: składniki
           info: Informacje
           moderations: Modernizacje
+          private_users: Użytkownicy prywatni
       models:
         assembly:
           fields:
             created_at: Utworzono w
+            private: Prywatny
             promoted: Podświetlony
             published: Opublikowany
             title: Tytuł
@@ -149,6 +153,7 @@ pl:
         local_area: Okolica
         participatory_scope: Zakres partycypacji
         participatory_structure: Struktura partycypacji
+        private_space: To jest prywatne zgromadzenie
         related_participatory_processes: Powiązane procesy uczestnictwa
         scope: Zakres
         target: Cel
