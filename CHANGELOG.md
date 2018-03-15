@@ -9,7 +9,7 @@ and also everything related to it (controllers, views, etc.). If you have custom
 controller or added a new module you need to rename `feature` to `component`.
 
 **Added**:
-
+- **decidim-core**: Add ParticipatorySpaceResourceable between Assemblies and ParticipatoryProcesses [\#2851](https://github.com/decidim/decidim/pull/2851)
 - **decidim**: Rename features to components [\#2913](https://github.com/decidim/decidim/pull/2913)
 - **decidim-admin**: Log actions on areas [\#2944](https://github.com/decidim/decidim/pull/2944)
 - **decidim-budgets**: Log actions on projects [\#2949](https://github.com/decidim/decidim/pull/2949)
