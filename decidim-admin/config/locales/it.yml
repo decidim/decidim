@@ -344,6 +344,8 @@ it:
             sent_at: Inviato alle
             subject: Oggetto
           name: notiziario
+        participatory_space_private_user:
+          name: Utente privato dello spazio partecipativo
         scope:
           fields:
             name: Nome
@@ -466,6 +468,17 @@ it:
           homepage_highlighted_content_banner_title: Banner con contenuti Highligted
           layout_appearance_title: Modifica aspetto del layout
           omnipresent_banner_appearance_title: Modifica onnipresente
+      participatory_space_private_users:
+        create:
+          error: Si è verificato un errore durante l'aggiunta di un utente privato per questo spazio partecipativo.
+          success: Accesso utente privato spazio partecipativo creato con successo.
+        destroy:
+          success: Accesso utente privato spazio distruttivo distrutto con successo.
+        index:
+          title: Utente privato dello spazio partecipativo
+        new:
+          create: Creare
+          title: Nuovo utente privato dello spazio partecipativo.
       scope_types:
         create:
           error: Si è verificato un errore durante la creazione di un nuovo tipo di ambito.
