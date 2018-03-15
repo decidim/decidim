@@ -17,6 +17,7 @@ es:
             announcement: Anuncio
           step:
             allow_answers: Permitir respuestas
+            announcement: Anuncio
     events:
       surveys:
         survey_closed:
@@ -40,6 +41,7 @@ es:
         surveys:
           answer_option:
             answer_option: Opción de respuesta
+            remove: retirar
             statement: Enunciado
           edit:
             save: Guardar
@@ -49,8 +51,11 @@ es:
             already_answered_warning: La encuesta ya está contestada por algunos usuarios, así que no puedes modificar sus preguntas.
           question:
             add_answer_option: Agregar opción de respuesta
+            down: Abajo
             question: Pregunta
+            remove: retirar
             statement: Enunciado
+            up: Arriba
           update:
             invalid: Se han producido errores al guardar la encuesta.
             success: Encuesta guardada correctamente.
