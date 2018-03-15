@@ -15,6 +15,7 @@ ca:
         hero_image: Imatge de portada
         local_area: Àrea municipal
         meta_scope: Metadades d'àmbit
+        participatory_processes_ids: Processos participatius relacionats
         participatory_scope: Àmbit participatiu
         participatory_structure: Estructura participativa
         promoted: Destacat
@@ -148,6 +149,7 @@ ca:
         local_area: Àrea municipal
         participatory_scope: Àmbit participatiu
         participatory_structure: Estructura participativa
+        related_participatory_processes: Processos participatius relacionats
         scope: Àmbit
         target: A qui va dirigit
       statistics:
