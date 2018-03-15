@@ -32,7 +32,6 @@ it:
             can_accumulate_supports_beyond_threshold: Può accumulare supporti oltre la soglia
             comments_enabled: Commenti abilitati
             geocoding_enabled: Geocoding abilitato
-            maximum_votes_per_proposal: Numero massimo di voti per proposta
             new_proposal_help_text: Nuovo testo di aiuto per la proposta
             official_proposals_enabled: Proposte ufficiali abilitate
             proposal_answering_enabled: Risposta alla proposta abilitata
@@ -42,6 +41,7 @@ it:
             proposal_wizard_step_1_help_text: Procedura guidata proposta "Crea" testo guida passo
             proposal_wizard_step_2_help_text: Procedura guidata di proposta "Confronta" il testo della guida del passo
             proposal_wizard_step_3_help_text: Procedura guidata "Pubblica" del testo della guida per la procedura guidata
+            treshold_per_proposal: Treshold per proposta
             vote_limit: Limite di voto per utente
           step:
             announcement: Annuncio
@@ -324,6 +324,7 @@ it:
           withdraw_proposal: Ritirare la proposta
         tags:
           changed_from: "(modificato da <u>%{previous_category}</u> da un amministratore)"
+          filed_as: Archiviato come
         vote_button:
           already_voted: Già votata
           already_voted_hover: Annullare il voto
@@ -339,11 +340,11 @@ it:
           need_more_votes: Hai bisogno di più voti
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Ogni proposta può accumulare oltre il numero massimo di voti
-          maximum_votes_per_proposal:
-            description: Ogni proposta può ricevere un massimo di %{limit} voti.
+            description: Ogni proposta può accumulare più di %{limit} supporti
           proposal_limit:
             description: Puoi creare fino a %{limit} proposte.
+          threshold_per_proposal:
+            description: Per essere accettate le proposte devono raggiungere %{limit} supporti
           title: 'Il voto è soggetto alle seguenti regole:'
           vote_limit:
             description: Puoi votare fino a %{limit} proposte.
