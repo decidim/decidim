@@ -54,7 +54,7 @@ en:
     events:
       comments:
         comment_by_followed_user:
-          email_intro: '%{author_name} has left a comment in %{resource_title}. You can read it in this page:'
+          email_intro: "%{author_name} has left a comment in %{resource_title}. You can read it in this page:"
           email_outro: You have received this notification because you are following %{author_name}. You can unfollow this user from their profile page.
           email_subject: There is a new comment by %{author_name} in %{resource_title}
           notification_title: There is a new comment by <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>.
