@@ -5,6 +5,7 @@ sv:
         announcement: Meddelande
         banner_image: Banner image
         copy_categories: Kopiera kategorier
+        copy_components: Kopiera komponenter
         copy_steps: Kopiera steg
         description: Beskrivning
         developer_group: Utvecklargrupp
@@ -65,14 +66,17 @@ sv:
           attachment_files: filer
           attachments: bilagor
           categories: kategorier
+          components: Komponenter
           info: Info
           moderations: modere
+          private_users: Privata användare
           process_admins: Processanvändare
           steps: Steg
       models:
         participatory_process:
           fields:
             created_at: Skapad vid
+            private: Privat
             promoted: Markerad
             published: Publicerad
             title: Titel
@@ -181,6 +185,8 @@ sv:
           title: Allmän information
         index:
           not_published: Ej publicerad
+          private: Privat
+          public: offentlig
           published: Publicerad
         new:
           create: Skapa
@@ -273,6 +279,7 @@ sv:
         local_area: Organisationsområde
         participatory_scope: Vad bestäms
         participatory_structure: Hur bestäms det
+        private_space: Detta är en privat process
         scope: Omfattning
         start_date: Start datum
         target: Vem deltar
