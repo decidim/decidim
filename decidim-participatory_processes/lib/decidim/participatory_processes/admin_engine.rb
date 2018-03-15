@@ -52,6 +52,11 @@ module Decidim
               put :hide
             end
           end
+          resources :participatory_space_private_users, controller: "participatory_space_private_users" do
+            member do
+              post :resend_invitation, to: "participatory_space_private_users#resend_invitation"
+            end
+          end
         end
 
         scope "/participatory_processes/:participatory_process_slug/components/:component_id/manage" do
