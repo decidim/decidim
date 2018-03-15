@@ -32,7 +32,6 @@ fr:
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
             comments_enabled: Commentaires activés
             geocoding_enabled: Géocodage activé
-            maximum_votes_per_proposal: Nombre maximum de votes par proposition
             new_proposal_help_text: Nouveau texte d'aide à la proposition
             official_proposals_enabled: Propositions officielles activées
             proposal_answering_enabled: Réponse à la proposition activée
@@ -42,6 +41,7 @@ fr:
             proposal_wizard_step_1_help_text: Texte d'aide à la création de proposition
             proposal_wizard_step_2_help_text: Texte d'aide à la comparaison de proposition
             proposal_wizard_step_3_help_text: Texte d'aide à la publication de proposition
+            treshold_per_proposal: Teuil par proposition
             vote_limit: Limite de vote par utilisateur
           step:
             announcement: Annonce
@@ -340,11 +340,11 @@ fr:
           need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Chaque proposition peut accumuler plus que le nombre maximum de votes
-          maximum_votes_per_proposal:
-            description: Chaque proposition peut recevoir un maximum de %{limit} votes.
+            description: Chaque proposition peut accumuler plus de %{limit} soutiens
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
+          threshold_per_proposal:
+            description: Pour être acceptées, les propositions doivent atteindre %{limit} soutiens
           title: 'Le vote est soumis aux règles suivantes:'
           vote_limit:
             description: Vous pouvez voter pour %{limit} propositions au maximum.
