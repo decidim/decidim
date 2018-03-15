@@ -5,7 +5,6 @@ pt:
         announcement: Anúncio
         banner_image: Imagem da bandeira
         copy_categories: Cópiar categorias
-        copy_features: Recursos de cópia
         copy_steps: Copie etapas
         description: Descrição
         developer_group: Grupo de desenvolvedores
@@ -66,7 +65,6 @@ pt:
           attachment_files: arquivos
           attachments: Anexos
           categories: Categorias
-          features: Características
           info: Info
           moderations: Moderação
           process_admins: Processar usuários
