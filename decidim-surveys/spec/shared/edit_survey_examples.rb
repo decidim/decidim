@@ -56,7 +56,7 @@ shared_examples "edit surveys" do
           questions_body[idx].each do |locale, value|
             within survey_question do
               click_link I18n.with_locale(locale) { t("name", scope: "locale") }
-              find("input[name='survey[questions][][body_#{locale}]']").send_keys value
+              fill_in "survey[questions][][body_#{locale}]", with: value
             end
           end
         end
@@ -102,7 +102,7 @@ shared_examples "edit surveys" do
         question_body.each do |locale, value|
           within ".survey-question" do
             click_link I18n.with_locale(locale) { t("name", scope: "locale") }
-            find("input[name='survey[questions][][body_#{locale}]']").send_keys value
+            fill_in "survey[questions][][body_#{locale}]", with: value
           end
         end
 
@@ -118,7 +118,7 @@ shared_examples "edit surveys" do
           answer_options_body[idx].each do |locale, value|
             within survey_question_answer_option do
               click_link I18n.with_locale(locale) { t("name", scope: "locale") }
-              find("input[name='survey[questions][][answer_options][][body_#{locale}]']").send_keys value
+              fill_in "survey[questions][][answer_options][][body_#{locale}]", with: value
             end
           end
         end
