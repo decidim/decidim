@@ -5,7 +5,6 @@ eu:
         announcement: Anuntzio
         banner_image: Bannerra
         copy_categories: Kopiatu kategoriak
-        copy_features: Kopiatu funtzionalitateak
         copy_steps: Kopiatu faseak
         description: Deskribapena
         developer_group: Talde sustatzailea
@@ -66,7 +65,6 @@ eu:
           attachment_files: Fitxategiak
           attachments: Eranskinak
           categories: Kategoriak
-          features: Funtzionalitateak
           info: Informazioa
           moderations: Moderazioak
           process_admins: Prozesuaren erabiltzaileak
