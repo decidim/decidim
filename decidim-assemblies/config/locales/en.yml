@@ -33,6 +33,7 @@ en:
         is_transparent: Is transparent
         local_area: Local area
         meta_scope: Scope metadata
+        participatory_processes_ids: Related Participatory processes
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         promoted: Promoted
@@ -202,6 +203,7 @@ en:
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         purpose_of_action: Purpose of action
+        related_participatory_processes: Related participatory processes
         scope: Scope
         social_networks: Social Networks
         target: Target

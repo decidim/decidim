@@ -45,6 +45,8 @@
       <%= render_hook(:assembly_meetings) %>
 
       <%= attachments_for current_participatory_space %>
+
+      <%= participatory_processes_for_assembly(assembly_participatory_processes) if assembly_participatory_processes.present? %>
     </div>
     <div class="section columns medium-5 mediumlarge-4 large-3">
       <div class="card extra">

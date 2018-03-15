@@ -42,6 +42,7 @@ module Decidim
         attribute :remove_banner_image
         attribute :show_statistics, Boolean
         attribute :area_id, Integer
+        attribute :participatory_processes_ids, Array[Integer]
         attribute :assembly_type, String
         attribute :creation_date, Decidim::Attributes::TimeWithZone
         attribute :created_by, String
@@ -82,6 +83,7 @@ module Decidim
           @area ||= current_organization.areas.where(id: area_id).first
         end
 
+<<<<<<< HEAD
         def assembly_types_for_select
           ASSEMBLY_TYPES.map do |type|
             [
@@ -96,6 +98,14 @@ module Decidim
             [
               I18n.t("created_by.#{by}", scope: "decidim.assemblies"),
               by
+=======
+        def processes_for_select
+          @processes_for_select ||= Decidim.find_participatory_space_manifest(:participatory_processes)
+                                           .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |process|
+            [
+              translated_attribute(process.title),
+              process.id
+>>>>>>> master
             ]
           end
         end

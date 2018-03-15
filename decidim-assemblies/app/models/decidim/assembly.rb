@@ -14,6 +14,7 @@ module Decidim
     include Decidim::HasReference
     include Decidim::Traceable
     include Decidim::Loggable
+    include Decidim::ParticipatorySpaceResourceable
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
     ASSEMBLY_TYPES = %w(government executive consultative_advisory participatory working_group commission others).freeze
