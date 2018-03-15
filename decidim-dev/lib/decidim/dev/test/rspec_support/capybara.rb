@@ -48,10 +48,6 @@ module Capybara
   end
 end
 
-Capybara.configure do |config|
-  config.always_include_port = true
-end
-
 Capybara.asset_host = "http://localhost:3000"
 
 RSpec.configure do |config|
