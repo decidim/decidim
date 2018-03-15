@@ -46,7 +46,7 @@ module Decidim
       # the `commentable`. This will cause the comment author to be notified when the
       # comment is replied
       def users_to_notify_on_comment_created
-        commentable.users_to_notify_on_comment_created.or(
+        Decidim::User.where(id: commentable.users_to_notify_on_comment_created).or(
           Decidim::User.where(id: decidim_author_id)
         )
       end
