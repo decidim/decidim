@@ -15,6 +15,7 @@ gl:
         hero_image: Imaxe na casa
         local_area: Área local
         meta_scope: Metadatos de ámbito
+        participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: Alcance participativo
         participatory_structure: Estrutura participativa
         promoted: Promocionado
@@ -148,6 +149,7 @@ gl:
         local_area: Área local
         participatory_scope: Alcance participativo
         participatory_structure: Estrutura participativa
+        related_participatory_processes: Procesos participativos relacionados
         scope: Alcance
         target: Obxectivo
       statistics:
