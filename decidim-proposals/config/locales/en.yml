@@ -33,7 +33,6 @@ en:
             can_accumulate_supports_beyond_threshold: Can accumulate supports beyond threshold
             comments_enabled: Comments enabled
             geocoding_enabled: Geocoding enabled
-            treshold_per_proposal: Treshold per proposal
             new_proposal_help_text: New proposal help text
             official_proposals_enabled: Official proposals enabled
             proposal_answering_enabled: Proposal answering enabled
@@ -43,6 +42,7 @@ en:
             proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
             proposal_wizard_step_2_help_text: Proposal wizard "Compare" step help text
             proposal_wizard_step_3_help_text: Proposal wizard "Publish" step help text
+            treshold_per_proposal: Treshold per proposal
             vote_limit: Vote limit per user
           step:
             announcement: Announcement
