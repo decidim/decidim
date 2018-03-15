@@ -32,7 +32,6 @@ nl:
             can_accumulate_supports_beyond_threshold: Kan ondersteuningen verzamelen die de drempel overschrijden
             comments_enabled: Reacties ingeschakeld
             geocoding_enabled: Geocoding ingeschakeld
-            maximum_votes_per_proposal: Maximaal aantal stemmen per voorstel
             new_proposal_help_text: Nieuwe helptekst van het voorstel
             official_proposals_enabled: Officiële voorstellen mogelijk gemaakt
             proposal_answering_enabled: Voorstelantwoord ingeschakeld
@@ -42,6 +41,7 @@ nl:
             proposal_wizard_step_1_help_text: Voorstel wizard "Maak" stap helptekst
             proposal_wizard_step_2_help_text: Voorstel assistent tekst "Vergelijken" stap
             proposal_wizard_step_3_help_text: Voorstel assistent "Publiceren" stap helptekst
+            treshold_per_proposal: Treshold per voorstel
             vote_limit: Stemlimiet per gebruiker
           step:
             announcement: Aankondiging
@@ -324,6 +324,7 @@ nl:
           withdraw_proposal: Voorstel intrekken
         tags:
           changed_from: "(gewijzigd van <u>%{previous_category}</u> door een beheerder)"
+          filed_as: Opgeslagen als
         vote_button:
           already_voted: Al gestemd
           already_voted_hover: Stem Intrekken
@@ -339,11 +340,11 @@ nl:
           need_more_votes: Meer stemmen nodig
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Elk voorstel kan meer dan maximale stemmen verzamelen
-          maximum_votes_per_proposal:
-            description: Elk voorstel kan maximaal %{limit} stemmen ontvangen.
+            description: Elk voorstel kan meer dan %{limit} ondersteuningen verzamelen
           proposal_limit:
             description: U kunt maximaal %{limit} voorstellen maken.
+          threshold_per_proposal:
+            description: Om te worden geaccepteerd, moeten voorstellen %{limit} steunen bereiken
           title: 'Stemmen zijn onderworpen aan de volgende regels:'
           vote_limit:
             description: U kunt tot %{limit} voorstellen stemmen.
