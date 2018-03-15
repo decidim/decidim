@@ -32,7 +32,6 @@ gl:
             can_accumulate_supports_beyond_threshold: Pode acumular soportes máis aló do limiar
             comments_enabled: Comentarios habilitados
             geocoding_enabled: Geocoding habilitado
-            maximum_votes_per_proposal: Votos máximos por proposta
             new_proposal_help_text: Nova proposta de axuda de texto
             official_proposals_enabled: Propostas oficiais habilitadas
             proposal_answering_enabled: Contestando a proposta habilitada
@@ -42,6 +41,7 @@ gl:
             proposal_wizard_step_1_help_text: Asistente de propostas "Crear" texto de axuda paso a paso
             proposal_wizard_step_2_help_text: Asistente de propostas "Comparar" texto de axuda paso a paso
             proposal_wizard_step_3_help_text: Asistente de propostas "Publica" o texto de axuda paso a paso
+            treshold_per_proposal: Treshold por proposta
             vote_limit: Límite de voto por usuario
           step:
             announcement: Anuncio
@@ -324,6 +324,7 @@ gl:
           withdraw_proposal: Retire a proposta
         tags:
           changed_from: "(cambiado de <u>%{previous_category}</u> por un administrador)"
+          filed_as: Arquivo como
         vote_button:
           already_voted: Xa votou
           already_voted_hover: Unvocar
@@ -339,11 +340,11 @@ gl:
           need_more_votes: Necesita máis votos
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Cada proposta pode acumular máis que o máximo de votos
-          maximum_votes_per_proposal:
-            description: Cada proposta pode recibir un máximo de %{limit} votos.
+            description: Cada proposta pode acumular máis de %{limit} apoios
           proposal_limit:
             description: Podes crear ata %{limit} propostas.
+          threshold_per_proposal:
+            description: Para ser aceptado, as propostas deben chegar a %{limit} apoios
           title: 'A votación está suxeita ás seguintes regras:'
           vote_limit:
             description: Podes votar ata %{limit} propostas.
