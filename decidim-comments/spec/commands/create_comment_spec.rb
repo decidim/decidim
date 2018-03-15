@@ -71,7 +71,7 @@ module Decidim
           end
 
           it "sends the notifications" do
-            creator_double = double(create: true)
+            creator_double = instance_double(NewCommentNotificationCreator, create: true)
 
             expect(NewCommentNotificationCreator)
               .to receive(:new)
@@ -105,7 +105,7 @@ module Decidim
             end
 
             it "sends the notifications" do
-              creator_double = double(create: true)
+              creator_double = instance_double(NewCommentNotificationCreator, create: true)
 
               expect(NewCommentNotificationCreator)
                 .to receive(:new)
