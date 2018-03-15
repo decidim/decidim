@@ -313,6 +313,8 @@ sv:
     pages:
       index:
         title: Mer information
+    participatory_space_private_users:
+      not_allowed: Du får inte se det här innehållet
     profiles:
       default_officialization_text: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
@@ -410,12 +412,16 @@ sv:
         ignore: |-
           Om du inte vill acceptera inbjudan, ignorerar du detta email.<br /> Ditt konto kommer inte att skapas förrän du öppnar länken ovan och anger ditt lösenord.
         invited_you_as_admin: "%{invited_by} har bjudit in dig som administratör av %{application}. Du kan acceptera det via länken nedan."
+        invited_you_as_private_user: "%{invited_by} har bjudit in dig som privatperson av %{application}. Du kan acceptera det via länken nedan."
         someone_invited_you: Någon har bjudit in dig till %{application}. Du kan acceptera det via länken nedan.
         someone_invited_you_as_admin: Någon har bjudit in dig som administratör av %{application}, du kan acceptera den via länken nedan.
+        someone_invited_you_as_private_user: Någon har bjudit in dig som privat_användare av %{application}, du kan acceptera den via länken nedan.
       invite_admin:
         subject: Du har blivit inbjuden att hantera %{organization}
       invite_collaborator:
         subject: Du har blivit inbjuden att samarbeta på %{organization}
+      invite_private_user:
+        subject: Du har blivit inbjuden till en privat deltagande process på %{organization}
       organization_admin_invitation_instructions:
         subject: Du har blivit inbjuden att hantera %{organization}
       password_change:
