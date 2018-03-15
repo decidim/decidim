@@ -15,6 +15,7 @@ fr:
         hero_image: Image de la page d'accueil
         local_area: Périmètre
         meta_scope: Échelle
+        participatory_processes_ids: Processus participatifs associés
         participatory_scope: Objectif
         participatory_structure: Modalités
         promoted: Mis en avant
@@ -148,6 +149,7 @@ fr:
         local_area: Périmètre
         participatory_scope: Objectif
         participatory_structure: Modalités
+        related_participatory_processes: Processus participatifs connexes
         scope: Zone d'application
         target: Participants
       statistics:
