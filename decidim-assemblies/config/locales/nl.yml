@@ -15,6 +15,7 @@ nl:
         hero_image: Afbeelding van de startpagina
         local_area: Lokaal gebied
         meta_scope: Omvang metadata
+        participatory_processes_ids: Verwante participatieve processen
         participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
         promoted: gepromoveerd
@@ -148,6 +149,7 @@ nl:
         local_area: Lokaal gebied
         participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
+        related_participatory_processes: Verwante participatieve processen
         scope: Scope
         target: Doel
       statistics:
