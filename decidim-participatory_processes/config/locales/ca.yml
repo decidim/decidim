@@ -5,6 +5,7 @@ ca:
         announcement: Anunci
         banner_image: Imatge de bàner
         copy_categories: Copiar categories
+        copy_components: Copiar components
         copy_steps: Copiar fases
         description: Descripció
         developer_group: Grup promotor
@@ -65,14 +66,17 @@ ca:
           attachment_files: Fitxers
           attachments: Adjunts
           categories: Categories
+          components: Components
           info: Informació
           moderations: Moderacions
+          private_users: Usuaris privats
           process_admins: Usuaris del procés
           steps: Fases del procés
       models:
         participatory_process:
           fields:
             created_at: Data de creació
+            private: Privat
             promoted: Destacat
             published: Publicat
             title: Títol
@@ -181,6 +185,8 @@ ca:
           title: Informació general
         index:
           not_published: No publicada
+          private: Privat
+          public: Públic
           published: Publicat
         new:
           create: Crear
@@ -273,6 +279,7 @@ ca:
         local_area: Àrea d'organització
         participatory_scope: Què es decideix
         participatory_structure: Com es decideix
+        private_space: Aquest és un procés privat
         scope: Àmbit
         start_date: Data d'inici
         target: Qui participa
