@@ -32,7 +32,6 @@ pl:
             can_accumulate_supports_beyond_threshold: Może gromadzić podpory przekraczające próg
             comments_enabled: Komentarze włączone
             geocoding_enabled: Włączono geokodowanie
-            maximum_votes_per_proposal: Maksymalna liczba głosów na jedną propozycję
             new_proposal_help_text: Nowy tekst pomocy dla wniosku
             official_proposals_enabled: Oficjalne propozycje włączone
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
@@ -42,6 +41,7 @@ pl:
             proposal_wizard_step_1_help_text: Kreator propozycji "Utwórz" tekst pomocy krok
             proposal_wizard_step_2_help_text: Kreator propozycji "Porównaj" tekst pomocy
             proposal_wizard_step_3_help_text: Kreator propozycji "Pomoc do opublikowania" tekstu pomocy
+            treshold_per_proposal: Próg na wniosek
             vote_limit: Limit głosowania na użytkownika
           step:
             announcement: Ogłoszenie
@@ -313,6 +313,7 @@ pl:
           withdraw_proposal: Wycofaj propozycję
         tags:
           changed_from: "(zmieniono z <u>%{previous_category}</u> przez administratora)"
+          filed_as: Zapisano jako
         vote_button:
           already_voted: Już głosował
           already_voted_hover: Unvote
@@ -325,11 +326,11 @@ pl:
           need_more_votes: Potrzebujesz więcej głosów
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Każda propozycja może zgromadzić więcej niż maksymalną liczbę głosów
-          maximum_votes_per_proposal:
-            description: Każda propozycja może otrzymać maksymalnie %{limit} głosów.
+            description: Każda propozycja może zebrać więcej niż %{limit} podpory
           proposal_limit:
             description: Możesz utworzyć do %{limit} propozycji.
+          threshold_per_proposal:
+            description: Aby zostać zaakceptowanym, wnioski muszą dotrzeć do %{limit} wsparcia
           title: 'Głosowanie podlega następującym zasadom:'
           vote_limit:
             description: Możesz zgłosić do %{limit} propozycje.
