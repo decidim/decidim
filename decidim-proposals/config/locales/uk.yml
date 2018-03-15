@@ -204,8 +204,6 @@ uk:
           most_popular_proposal: Найпопулярніша пропозиція
           need_more_votes: Потрібно більше голосів
         voting_rules:
-          maximum_votes_per_proposal:
-            description: Кожна пропозиція може отримати максимум %{limit} голосів.
           proposal_limit:
             description: Ви можете висунути до %{limit} пропозицій.
           title: 'Голосування регулюється наступними правилами:'
