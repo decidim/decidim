@@ -344,6 +344,8 @@ pl:
             sent_at: Wysłano w
             subject: Przedmiot
           name: Biuletyn
+        participatory_space_private_user:
+          name: Prywatny użytkownik przestrzeni prywatnej
         scope:
           fields:
             name: Nazwa
@@ -466,6 +468,17 @@ pl:
           homepage_highlighted_content_banner_title: Baner treści o wysokim priorytecie
           layout_appearance_title: Edytuj wygląd układu
           omnipresent_banner_appearance_title: Edytuj wszechobecny
+      participatory_space_private_users:
+        create:
+          error: Wystąpił błąd podczas dodawania użytkownika prywatnego do tej partycji uczestniczącej.
+          success: Prywatny dostęp użytkowników prywatnych do przestrzeni utworzonej pomyślnie.
+        destroy:
+          success: Dostęp prywatny użytkownika do przestrzeni dyskowej został pomyślnie zniszczony.
+        index:
+          title: Prywatny użytkownik przestrzeni prywatnej
+        new:
+          create: Stwórz
+          title: Nowy prywatny użytkownik przestrzeni partycypacyjnej.
       scope_types:
         create:
           error: Podczas tworzenia nowego typu zakresu wystąpił błąd.
