@@ -135,6 +135,32 @@ shared_examples "edit surveys" do
       expect(page).to have_selector("input[value='This is the second option']")
     end
 
+    it "does not incorrectly reorder when clicking answer options" do
+      click_button "Add question"
+      select "Single option", from: "Type"
+      2.times { click_button "Add answer option" }
+
+      within ".survey-question-answer-option:first-of-type" do
+        fill_in "survey[questions][][answer_options][][body_en]", with: "Something"
+      end
+
+      within ".survey-question-answer-option:last-of-type" do
+        fill_in "survey[questions][][answer_options][][body_en]", with: "Else"
+      end
+
+      # If JS events for option reordering are incorrectly bound, clicking on
+      # the field to gain focus can cause the options to get inverted... :S
+      within ".survey-question-answer-option:first-of-type" do
+        find("input[name='survey[questions][][answer_options][][body_en]']").click
+      end
+
+      first_answer_option = page.find(".survey-question-answer-option:first-of-type")
+      expect(first_answer_option).to have_field("survey[questions][][answer_options][][body_en]", with: "Something")
+
+      second_answer_option = page.find(".survey-question-answer-option:last-of-type")
+      expect(second_answer_option).to have_field("survey[questions][][answer_options][][body_en]", with: "Else")
+    end
+
     describe "when a survey has an existing question" do
       let!(:survey_question) { create(:survey_question, survey: survey, body: body) }
 

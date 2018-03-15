@@ -31,13 +31,17 @@
         this._bindSafeEvent(event, (target) => this._removeField(target))
       );
 
-      $(this.wrapperSelector).on('click', this.moveUpFieldButtonSelector, (event) =>
-        this._bindSafeEvent(event, (target) => this._moveUpField(target))
-      );
+      if (this.moveUpFieldButtonSelector) {
+        $(this.wrapperSelector).on('click', this.moveUpFieldButtonSelector, (event) =>
+          this._bindSafeEvent(event, (target) => this._moveUpField(target))
+        );
+      }
 
-      $(this.wrapperSelector).on('click', this.moveDownFieldButtonSelector, (event) =>
-        this._bindSafeEvent(event, (target) => this._moveDownField(target))
-      );
+      if (this.moveDownFieldButtonSelector) {
+        $(this.wrapperSelector).on('click', this.moveDownFieldButtonSelector, (event) =>
+          this._bindSafeEvent(event, (target) => this._moveDownField(target))
+        );
+      }
     }
 
     _bindSafeEvent(event, cb) {
