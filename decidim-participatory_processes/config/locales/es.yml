@@ -5,7 +5,6 @@ es:
         announcement: Anuncio
         banner_image: Imagen de banner
         copy_categories: Copiar categorías
-        copy_features: Copiar funcionalidades
         copy_steps: Copiar las fases
         description: Descripción
         developer_group: Grupo promotor
@@ -66,7 +65,6 @@ es:
           attachment_files: Archivos
           attachments: Archivos adjuntos
           categories: Categorías
-          features: Funcionalidades
           info: Información
           moderations: Moderaciones
           process_admins: Usuarios del proceso
