@@ -2,7 +2,7 @@
 
 module Decidim
   module Comments
-    class UserMentionedEvent < Decidim::Events::SimpleEvent
+    class ReplyCreatedEvent < Decidim::Events::SimpleEvent
       include Decidim::Events::AuthorEvent
 
       delegate :author, to: :comment
