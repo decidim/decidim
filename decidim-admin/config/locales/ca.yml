@@ -344,6 +344,8 @@ ca:
             sent_at: Enviat el
             subject: Assumpte
           name: Butlletí
+        participatory_space_private_user:
+          name: Usuari privat de l'espai participatiu
         scope:
           fields:
             name: Nom
@@ -466,6 +468,17 @@ ca:
           homepage_highlighted_content_banner_title: Bàner de contingut ressaltat
           layout_appearance_title: Edita l'aparença del disseny global
           omnipresent_banner_appearance_title: Edita bàner omnipresent
+      participatory_space_private_users:
+        create:
+          error: S'ha produït un error en afegir un usuari privat a aquest espai participatiu.
+          success: S'ha creat l'espai d'accés privat de l'espai participatiu.
+        destroy:
+          success: L'accés a usuaris privats de l'espai participatiu s'ha destruït amb èxit.
+        index:
+          title: Usuari privat de l'espai participatiu
+        new:
+          create: Crear
+          title: Nou usuari privat de l'espai participatiu.
       scope_types:
         create:
           error: S'ha produït un error en crear un nou tipus d'àmbit.
