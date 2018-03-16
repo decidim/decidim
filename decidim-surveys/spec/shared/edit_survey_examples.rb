@@ -186,9 +186,11 @@ shared_examples "edit surveys" do
     describe "when a survey has an existing question" do
       let!(:survey_question) { create(:survey_question, survey: survey, body: body) }
 
-      it "modifies the question" do
+      before do
         visit_component_admin
+      end
 
+      it "modifies the question" do
         within "form.edit_survey" do
           expect(page).to have_selector(".survey-question", count: 1)
 
@@ -212,8 +214,6 @@ shared_examples "edit surveys" do
       end
 
       it "removes the question" do
-        visit_component_admin
-
         within "form.edit_survey" do
           expect(page).to have_selector(".survey-question", count: 1)
 
@@ -234,8 +234,6 @@ shared_examples "edit surveys" do
       end
 
       it "cannot be moved up" do
-        visit_component_admin
-
         within "form.edit_survey" do
           within ".survey-question" do
             expect(page).to have_no_button("Up")
@@ -244,8 +242,6 @@ shared_examples "edit surveys" do
       end
 
       it "cannot be moved down" do
-        visit_component_admin
-
         within "form.edit_survey" do
           within ".survey-question" do
             expect(page).to have_no_button("Down")
