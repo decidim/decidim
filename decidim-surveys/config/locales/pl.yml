@@ -7,6 +7,17 @@ pl:
         mandatory: Obowiązkowy
         question_type: Rodzaj
   decidim:
+    components:
+      surveys:
+        actions:
+          answer: Odpowiedź
+        name: Ankieta
+        settings:
+          global:
+            announcement: Ogłoszenie
+          step:
+            allow_answers: Pozwól odpowiedzi
+            announcement: Ogłoszenie
     events:
       surveys:
         survey_closed:
@@ -19,17 +30,6 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{participatory_space_title}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
           email_subject: Nowa ankieta w %{participatory_space_title}
           notification_title: Ankieta <a href="%{resource_path}">%{resource_title}</a> w <a href="%{participatory_space_url}">%{participatory_space_title}</a> jest teraz otwarta.
-    features:
-      surveys:
-        actions:
-          answer: Odpowiedź
-        name: Ankieta
-        settings:
-          global:
-            announcement: Ogłoszenie
-          step:
-            allow_answers: Pozwól na odpowiedzi
-            announcement: Ogłoszenie
     surveys:
       admin:
         exports:
@@ -41,7 +41,7 @@ pl:
         surveys:
           answer_option:
             answer_option: Odpowiedź
-            remove_answer_option: Usuń opcję odpowiedzi
+            remove: Usunąć
             statement: Komunikat
           edit:
             save: Zapisać
@@ -51,9 +51,11 @@ pl:
             already_answered_warning: Ankieta jest już udzielana przez niektórych użytkowników, więc nie można modyfikować jej pytań.
           question:
             add_answer_option: Dodaj odpowiedź
+            down: Na dół
             question: Pytanie
-            remove_question: Usuń pytanie
+            remove: Usunąć
             statement: Komunikat
+            up: W górę
           update:
             invalid: Podczas zapisywania ankiety wystąpiły błędy.
             success: Ankieta została zapisana pomyślnie.

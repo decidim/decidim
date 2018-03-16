@@ -33,6 +33,8 @@ module Decidim
         attribute :remove_banner_image
         attribute :show_statistics, Boolean
         attribute :area_id, Integer
+        attribute :participatory_processes_ids, Array[Integer]
+        attribute :private_space, Boolean
 
         validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
@@ -54,6 +56,16 @@ module Decidim
 
         def area
           @area ||= current_organization.areas.where(id: area_id).first
+        end
+
+        def processes_for_select
+          @processes_for_select ||= Decidim.find_participatory_space_manifest(:participatory_processes)
+                                           .participatory_spaces.call(current_organization)&.order(title: :asc)&.map do |process|
+            [
+              translated_attribute(process.title),
+              process.id
+            ]
+          end
         end
 
         private

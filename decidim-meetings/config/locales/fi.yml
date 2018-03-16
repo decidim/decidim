@@ -21,6 +21,18 @@ fi:
         start_time: Aloitusaika
         title: Otsikko
   decidim:
+    components:
+      meetings:
+        actions:
+          join: Liittyä seuraan
+        name: kokoukset
+        settings:
+          global:
+            announcement: Ilmoitus
+            comments_enabled: Kommentit ovat käytössä
+          step:
+            announcement: Ilmoitus
+            comments_blocked: Kommentit on estetty
     events:
       meetings:
         meeting_closed:
@@ -53,18 +65,6 @@ fi:
           email_outro: Olet saanut tämän ilmoituksen, koska olet seuraamassa "%{resource_title}" -kokousta. Voit purkaa sen edellisestä linkistä.
           email_subject: Kokous "%{resource_title}" alkaa alle 48 tunnissa.
           notification_title: <a href="%{resource_path}">%{resource_title}</a> kokous alkaa alle 48 tuntia.
-    features:
-      meetings:
-        actions:
-          join: Liity
-        name: Tapaamiset
-        settings:
-          global:
-            announcement: Ilmoitus
-            comments_enabled: Kommentointi sallittu
-          step:
-            announcement: Ilmoitus
-            comments_blocked: Kommentointi kielletty
     meetings:
       actions:
         attachment_collections: kokoelmat
@@ -135,6 +135,7 @@ fi:
           close: "%{user_name} sulki %{resource_name} kokouksen %{space_name} -tilaan"
           create: "%{user_name} loi %{resource_name} kokouksen %{space_name} -tilaan"
           delete: "%{user_name} poistanut %{resource_name} kokouksen %{space_name} -tilasta"
+          export_registrations: "%{user_name} vietti %{resource_name} kokouksen rekisteröinnit %{space_name} -tilaan"
           update: "%{user_name} päivitti %{resource_name} kokouksen %{space_name} -tilaan"
       mailer:
         invite_join_meeting_mailer:

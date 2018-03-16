@@ -2,7 +2,6 @@ ru:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: состояние
         decidim_category_id: Категория
         decidim_scope_id: Охват
         description: Описание
@@ -157,19 +156,6 @@ ru:
           changes_at_title: Изменения в «%{title}»
         version:
           version_index: Версия %{index}
-    features:
-      accountability:
-        name: Отчетность
-        settings:
-          global:
-            categories_label: Название для "Категории"
-            comments_enabled: Комментарии включены
-            heading_leaf_level_results: Название для "Проекты"
-            heading_parent_level_results: Название для "Результаты"
-            intro: Вступление
-            subcategories_label: Название для "Подкатегории"
-          step:
-            comments_blocked: Комментарии выключены
     resource_links:
       included_projects:
         result_projects: Проекты, включенные в эти итоги
