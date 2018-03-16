@@ -140,7 +140,7 @@ fr:
             accepted: Retenue
             answer_proposal: Répondre
             evaluating: En cours d'évaluation
-            rejected: Refusée
+            rejected: Non retenue
             title: Réponse à la proposition %{title}
         proposal_notes:
           create:
@@ -201,7 +201,7 @@ fr:
         accepted: Retenue
         evaluating: En cours d'évaluation
         not_answered: Resté sans réponse
-        rejected: Refusée
+        rejected: Non retenue
         withdrawn: Retiré
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
@@ -272,7 +272,7 @@ fr:
           evaluating: En cours d'évaluation
           official: Propositions officielles
           origin: Auteurs
-          rejected: Refusée
+          rejected: Non retenue
           related_to: Liée à
           search: Rechercher
           state: État
@@ -314,7 +314,7 @@ fr:
           edit_proposal: Modifier la proposition
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
-          proposal_rejected_reason: 'Cette proposition a été refusée parce que:'
+          proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que:'
           report: Signaler
           sign_in: se connecter
           sign_in_or_up: "%{in} ou %{up} pour participer"
