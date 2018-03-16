@@ -553,13 +553,13 @@ fr:
           filter:
             all: Tous
             pending: En attente
-            rejected: Refusé
+            rejected: Non retenu
             verified: Vérifié
           filter_by: Filtrer par
           search: Rechercher
           state:
             pending: En attente
-            rejected: Refusé
+            rejected: Non retenu
             verified: Vérifié
       users:
         create:
