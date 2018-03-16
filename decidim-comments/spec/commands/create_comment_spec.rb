@@ -57,34 +57,6 @@ module Decidim
             command.call
           end
 
-          it "sends a notification to the corresponding users except the comment's author" do
-            follower = create(:user, organization: organization)
-
-            expect(commentable)
-              .to receive(:users_to_notify_on_comment_created)
-              .and_return([follower, author])
-
-            expect_any_instance_of(Decidim::Comments::Comment) # rubocop:disable RSpec/AnyInstance
-              .to receive(:id).at_least(:once).and_return 1
-
-            expect_any_instance_of(Decidim::Comments::Comment) # rubocop:disable RSpec/AnyInstance
-              .to receive(:root_commentable).at_least(:once).and_return commentable
-
-            expect(Decidim::EventsManager)
-              .to receive(:publish)
-              .with(
-                event: "decidim.events.comments.comment_created",
-                event_class: Decidim::Comments::CommentCreatedEvent,
-                resource: commentable,
-                recipient_ids: [follower.id],
-                extra: {
-                  comment_id: a_kind_of(Integer)
-                }
-              )
-
-            command.call
-          end
-
           it "sends the notifications" do
             creator_double = instance_double(NewCommentNotificationCreator, create: true)
 
