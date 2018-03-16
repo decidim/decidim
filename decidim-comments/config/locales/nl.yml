@@ -50,8 +50,6 @@ nl:
         blocked_comments_warning: Reacties zijn op dit moment uitgeschakeld, maar u kunt de vorige berichten lezen.
         loading: Reacties laden...
         title: "%{count} reacties"
-      featured_comment:
-        title: Aanbevolen reactie
     events:
       comments:
         comment_created:
@@ -63,8 +61,8 @@ nl:
           reply:
             email_intro: De "%{resource_title}" is becommentarieerd
             email_outro: Je hebt deze melding ontvangen omdat je '%{resource_title}' of de auteur ervan volgt. Je kunt het niet meer volgen vanaf de vorige link.
-            email_subject: Er is een nieuw antwoord van je reactie van %{author_name} in <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Er is een nieuw antwoord van je reactie van <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>
+            email_subject: "%{author_name} heeft gereageerd op je reactie in %{resource_title}"
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> heeft gereageerd op je reactie in <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Je bent genoemd
           email_outro: Je hebt deze melding ontvangen omdat je bent genoemd in "%{resource_title}".

@@ -42,7 +42,7 @@ en:
         surveys:
           answer_option:
             answer_option: Answer option
-            remove_answer_option: Remove answer option
+            remove: Remove
             statement: Statement
           edit:
             save: Save
@@ -52,9 +52,11 @@ en:
             already_answered_warning: The survey is already answered by some users so you cannot modify its questions.
           question:
             add_answer_option: Add answer option
+            down: Down
             question: Question
-            remove_question: Remove question
+            remove: Remove
             statement: Statement
+            up: Up
           update:
             invalid: There's been errors when saving the survey.
             success: Survey saved successfully.

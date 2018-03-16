@@ -15,7 +15,9 @@ module Decidim
     include Decidim::Followable
     include Decidim::HasReference
     include Decidim::Traceable
+    include Decidim::HasPrivateUsers
     include Decidim::Loggable
+    include Decidim::ParticipatorySpaceResourceable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -74,6 +76,10 @@ module Decidim
 
     def to_param
       slug
+    end
+
+    def self.private_processes
+      where(private_space: true)
     end
   end
 end

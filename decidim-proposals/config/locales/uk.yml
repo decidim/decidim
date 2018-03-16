@@ -10,8 +10,6 @@ uk:
         user_group_id: Внести пропозицію як
       proposal_answer:
         answer: Відповісти
-      proposals_copy:
-        origin_feature_id: Складова, звідки потрібно скопіювати пропозиції
   decidim:
     events:
       proposals:
@@ -20,38 +18,6 @@ uk:
           email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
           email_subject: Нова пропозиція від %{author_nickname}
           notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> вніс пропозицію <a href="%{resource_path}">%{resource_title}</a>.
-    features:
-      proposals:
-        actions:
-          create: Внести
-          endorse: Підтримати
-          vote: Голосувати
-          withdraw: Відкликати підтримку
-        name: Пропозиції
-        settings:
-          global:
-            announcement: Оголошення
-            attachments_allowed: Дозволити вкладення
-            can_accumulate_supports_beyond_threshold: Можна накопичувати підтримку більше порогового значення
-            comments_enabled: Коментарі ввімкнено
-            geocoding_enabled: Геокодування ввімкнено
-            maximum_votes_per_proposal: Максимальна кількість голосів на пропозицію
-            new_proposal_help_text: Підказки зі створення нової пропозиції
-            official_proposals_enabled: Офіційні пропозиції ввімкнені
-            proposal_answering_enabled: Ввімкнуто відповіді на пропозиції
-            proposal_edit_before_minutes: Пропозиції можуть бути відредаговані авторами до того, як пройде стільки хвилин
-            proposal_limit: Максимальна кількість пропозицій на одного учасника
-            vote_limit: Максимальна кількість голосів для одного користувача
-          step:
-            announcement: Оголошення
-            comments_blocked: Коментарі вимкнено
-            creation_enabled: Ввімкнено створення пропозицій
-            endorsements_blocked: Надання підтримки заблоковано
-            endorsements_enabled: Надання підтримки увімкнено
-            proposal_answering_enabled: Ввімкнуто відповіді на пропозиції
-            votes_blocked: Голосування вимкнене
-            votes_enabled: Голосування ввімкнене
-            votes_hidden: Голосування приховане (якщо голосування ввімкнене, то при галочці тут буде сховано кількість голосів)
     proposals:
       actions:
         answer: Відповісти
@@ -101,7 +67,6 @@ uk:
         proposals_imports:
           new:
             create: Імпортувати пропозиції
-            select_feature: Будь ласка, оберіть складову
         shared:
           info_proposal:
             body: Основний текст
