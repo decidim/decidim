@@ -27,7 +27,7 @@ controller or added a new module you need to rename `feature` to `component`.
 **Fixed**:
 
 - **decidim-proposals**: Fix Feedback needed after Endorsing when user has no user_groups [\#2968](https://github.com/decidim/decidim/pull/2998)
-- **decidim-proposals**: Fix treshold absolute view and rename the field maximum_votes_per_proposal to treshold_per_proposal. [\#2994](https://github.com/decidim/decidim/pull/2994)
+- **decidim-proposals**: Fix threshold absolute view and rename the field maximum_votes_per_proposal to threshold_per_proposal. [\#2994](https://github.com/decidim/decidim/pull/2994)
 - **decidim-proposals**: Fix proposal endorsed event [\#2970](https://github.com/decidim/decidim/pull/2970)
 - **decidim-accountability**: Fix parent results progress [\#2954](https://github.com/decidim/decidim/pull/2954)
 - **decidim-core**: Fix `Decidim::UserPresenter#nickname` [\#2958](https://github.com/decidim/decidim/pull/2958)
