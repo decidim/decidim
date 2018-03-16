@@ -61,12 +61,12 @@ describe "Endorse Proposal", type: :system do
   end
 
   context "when endorsements are enabled" do
-    before do
-      visit_component
-      click_link proposal.title
-    end
-
     context "when the user is not logged in" do
+      before do
+        visit_component
+        click_link proposal.title
+      end
+
       it "is given the option to sign in" do
         within ".buttons__row", match: :first do
           click_button "Endorse"
@@ -78,10 +78,14 @@ describe "Endorse Proposal", type: :system do
 
     context "when the user is logged in" do
       before do
+        endorsement
         login_as user, scope: :user
+        visit_component
+        click_link proposal.title
       end
 
       context "when the proposal is not endorsed yet" do
+        let(:endorsement) {}
         it "is able to endorse the proposal" do
           within ".card__content" do
             click_button "Endorse"
@@ -89,24 +93,22 @@ describe "Endorse Proposal", type: :system do
           end
 
           within "#proposal-#{proposal.id}-endorsements-count" do
-            expect(page).to have_content("1/0 VOTE")
+            expect(page).to have_content("1")
           end
         end
       end
 
       context "when the proposal is already endorsed" do
-        before do
-          create(:proposal_endorsement, proposal: proposal, author: user)
-        end
+        let(:endorsement) { create(:proposal_endorsement, proposal: proposal, author: user) }
 
         it "is not able to endorse it again" do
           within ".buttons__row" do
             expect(page).to have_button("Endorsed")
-            expect(page).to have_no_button("Endorse")
+            expect(page).to have_no_button("Endorse ")
           end
 
           within "#proposal-#{proposal.id}-endorsements-count" do
-            expect(page).to have_content("1/0 VOTE")
+            expect(page).to have_content("1")
           end
         end
 
@@ -117,7 +119,7 @@ describe "Endorse Proposal", type: :system do
           end
 
           within "#proposal-#{proposal.id}-endorsements-count" do
-            expect(page).to have_content("0 VOTES")
+            expect(page).to have_content("0")
           end
         end
       end
