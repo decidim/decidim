@@ -129,13 +129,13 @@ fr:
         update: "%{user_name} a mis à jour l'agora %{resource_name}"
       assembly_user_role:
         create: "%{user_name} invité %{resource_name} à l'assembly %{space_name}"
-        delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'assembly %{space_name}"
-        update: "%{user_name} a changé le rôle de %{resource_name} dans l'assembly %{space_name}"
+        delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'agora%{space_name}"
+        update: "%{user_name} a changé le rôle de %{resource_name} dans l'agora %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
-            select_an_area: Sélectionnez une zone
+            select_an_area: Sélectionnez une région
             slug_help: 'Les identifiants d''URL sont utilisés pour générer les URL qui envoient vers cette assemblée. N''accepte que des lettres, des chiffres et des tirets et doit commencer par une lettre. Exemple: %{url}'
         assembly_copies:
           form:
@@ -153,7 +153,7 @@ fr:
         local_area: Périmètre
         participatory_scope: Objectif
         participatory_structure: Modalités
-        private_space: Ceci est une assemblée privée
+        private_space: Ceci est une agora privée
         related_participatory_processes: Processus participatifs connexes
         scope: Zone d'application
         target: Participants
