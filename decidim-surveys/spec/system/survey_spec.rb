@@ -132,7 +132,7 @@ describe "Answer a survey", type: :system do
         let!(:survey_question_1) { create(:survey_question, survey: survey, question_type: "long_answer") }
         let!(:survey_question_2) { create(:survey_question, survey: survey, question_type: "long_answer") }
 
-        it "the question answer is rendered as a textarea" do
+        it "renders the answer as a textarea" do
           visit_component
 
           expect(page).to have_selector("textarea#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body")
@@ -145,7 +145,7 @@ describe "Answer a survey", type: :system do
         let!(:survey_question_1) { create(:survey_question, survey: survey, question_type: "single_option", answer_options: [answer_options[0], answer_options[1]]) }
         let!(:survey_question_2) { create(:survey_question, survey: survey, question_type: "single_option", answer_options: [answer_options[2], answer_options[3]]) }
 
-        it "the question answers are rendered as a collection of radio buttons" do
+        it "renders answers as a collection of radio buttons" do
           visit_component
 
           expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type='radio']", count: 2)
@@ -178,7 +178,7 @@ describe "Answer a survey", type: :system do
         let!(:survey_question_1) { create(:survey_question, survey: survey, question_type: "multiple_option", answer_options: [answer_options[0], answer_options[1]]) }
         let!(:survey_question_2) { create(:survey_question, survey: survey, question_type: "multiple_option", answer_options: [answer_options[2], answer_options[3], answer_options[4]]) }
 
-        it "the question answers are rendered as a collection of radio buttons" do
+        it "renders answers as a collection of radio buttons" do
           visit_component
 
           expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type='checkbox']", count: 2)
