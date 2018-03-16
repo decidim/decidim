@@ -41,7 +41,7 @@ fr:
             proposal_wizard_step_1_help_text: Texte d'aide à la création de proposition
             proposal_wizard_step_2_help_text: Texte d'aide à la comparaison de proposition
             proposal_wizard_step_3_help_text: Texte d'aide à la publication de proposition
-            treshold_per_proposal: Teuil par proposition
+            threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de vote par utilisateur
           step:
             announcement: Annonce
