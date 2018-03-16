@@ -229,7 +229,7 @@ es:
           select_identity: Seleccionar identidad
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Ya reivindicado
+          already_endorsed: Aprobado
           endorse: Reivindicar
       proposal_votes:
         create:
@@ -251,9 +251,6 @@ es:
         edit_draft:
           send: Previsualizar
           title: Editar borrador de propuesta
-        endorsement_button:
-          already_endorsed: Ya reivindicado
-          already_endorsed_hover: Des-reivindicar
         endorsement_identities_cabin:
           endorse: Reivindicar
         endorsements_card_row:
