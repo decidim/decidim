@@ -127,22 +127,22 @@ fr:
       area_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de zone.
-          success: Le type de zone a été créé avec succès.
+          success: Fonctionnalité créée avec succès.
         destroy:
-          success: Type de zone détruit avec succès
+          success: La fonctionnalité a bien été supprimée
         edit:
-          title: Modifier le type de zone
+          title: Editer la fonctionnalité
           update: Mettre à jour
         new:
           create: Créer un type de zone
           title: Nouveau type de zone
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce type de zone.
-          success: Type de zone mis à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de la fonctionnalité.
+          success: La fonctionnalité a été mise à jour avec succès
       areas:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone.
-          success: Zone créée avec succès.
+          success: Fonctionnalité créée avec succès.
         destroy:
           success: Zone détruite avec succès
         edit:
