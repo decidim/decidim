@@ -41,7 +41,7 @@ nl:
             proposal_wizard_step_1_help_text: Voorstel wizard "Maak" stap helptekst
             proposal_wizard_step_2_help_text: Voorstel assistent tekst "Vergelijken" stap
             proposal_wizard_step_3_help_text: Voorstel assistent "Publiceren" stap helptekst
-            treshold_per_proposal: Treshold per voorstel
+            threshold_per_proposal: Drempel per voorstel
             vote_limit: Stemlimiet per gebruiker
           step:
             announcement: Aankondiging
