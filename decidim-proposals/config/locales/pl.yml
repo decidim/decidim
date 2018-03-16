@@ -229,7 +229,7 @@ pl:
           select_identity: Wybierz tożsamość
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Już zatwierdzony
+          already_endorsed: Zatwierdzony
           endorse: Podpisać się
       proposal_votes:
         create:
@@ -247,9 +247,6 @@ pl:
         edit_draft:
           send: Zapowiedź
           title: Edytuj wersję roboczą oferty
-        endorsement_button:
-          already_endorsed: Już zatwierdzony
-          already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: Podpisać się
         endorsements_card_row:
