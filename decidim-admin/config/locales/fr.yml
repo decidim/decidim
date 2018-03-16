@@ -144,9 +144,9 @@ fr:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone.
           success: Fonctionnalité créée avec succès.
         destroy:
-          success: Zone détruite avec succès
+          success: Fonctionnalité supprimée avec succès
         edit:
-          title: Modifier la zone
+          title: Editer la fonctionnalité
           update: Mettre à jour
         new:
           create: Créer une zone
