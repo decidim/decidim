@@ -4,6 +4,8 @@ module Decidim
   module Surveys
     # This class holds a Form to update survey unswers from Decidim's public page
     class SurveyAnswerForm < Decidim::Form
+      include Decidim::TranslationsHelper
+
       attribute :question_id, String
       attribute :body, String
 
@@ -12,6 +14,12 @@ module Decidim
 
       def question
         @question ||= survey.questions.find(question_id)
+      end
+
+      def label
+        base = "#{question.position + 1}. #{translated_attribute(question.body)}"
+        base += " #{mandatory_label}" if question.mandatory?
+        base
       end
 
       # Public: Map the correct fields.
@@ -30,6 +38,10 @@ module Decidim
       def body_not_blank
         return if body.nil?
         errors.add("body", :blank) if body.all?(&:blank?)
+      end
+
+      def mandatory_label
+        "*"
       end
     end
   end
