@@ -123,10 +123,10 @@ fr:
         assemblies: Assemblées
     admin_log:
       assembly:
-        create: "%{user_name} a créé l'assemblée %{resource_name}"
-        publish: "%{user_name} a publié l'assembly %{resource_name}"
-        unpublish: "%{user_name} non publié l'assemblage %{resource_name}"
-        update: "%{user_name} a mis à jour l'assemblage %{resource_name}"
+        create: "%{user_name} a créé l'agora %{resource_name}"
+        publish: "%{user_name} a publié l'agora %{resource_name}"
+        unpublish: "%{user_name} n'a pas publié l'agora %{resource_name}"
+        update: "%{user_name} a mis à jour l'agora %{resource_name}"
       assembly_user_role:
         create: "%{user_name} invité %{resource_name} à l'assembly %{space_name}"
         delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'assembly %{space_name}"
