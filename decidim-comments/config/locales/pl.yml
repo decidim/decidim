@@ -50,8 +50,6 @@ pl:
         blocked_comments_warning: Komentarze są w tej chwili wyłączone, ale możesz przeczytać poprzednie.
         loading: Ładowanie komentarzy ...
         title: "%{count} komentarzy"
-      featured_comment:
-        title: Wyróżniony komentarz
     events:
       comments:
         comment_created:
@@ -63,8 +61,8 @@ pl:
           reply:
             email_intro: Komentarz "%{resource_title}" został skomentowany
             email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}" lub jego autora. Możesz przestać go obserwować z poprzedniego linku.
-            email_subject: Nowa odpowiedź na Twój komentarz od %{author_name} w <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: Pojawiła się nowa odpowiedź Twojego komentarza z <a href="%{author_path}">%{author_name} %{author_nickname}</a> w <a href="%{resource_path}">%{resource_title}</a>
+            email_subject: "%{author_name} odpowiedział na Twój komentarz w %{resource_title}"
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> odpowiedział na Twój komentarz w <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Zostałeś wspomniany
           email_outro: Otrzymałeś to powiadomienie, ponieważ wspomniano Cię w "%{resource_title}".

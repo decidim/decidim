@@ -95,7 +95,7 @@ module Decidim
 
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`
       def users_to_notify_on_comment_created
-        return (followers | component.participatory_space.admins).uniq if official?
+        return Decidim::User.where(id: followers).or(Decidim::User.where(id: component.participatory_space.admins)).distinct if official?
         followers
       end
 

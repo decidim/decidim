@@ -16,6 +16,7 @@ en:
         hero_image: Home image
         local_area: Local area
         meta_scope: Scope metadata
+        participatory_processes_ids: Related Participatory processes
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         promoted: Promoted
@@ -46,6 +47,8 @@ en:
           title: General Information
         index:
           not_published: Not published
+          private: Private
+          public: Public
           published: Published
         new:
           create: Create
@@ -97,10 +100,12 @@ en:
           components: Components
           info: Info
           moderations: Moderations
+          private_users: Private Users
       models:
         assembly:
           fields:
             created_at: Created at
+            private: Private
             promoted: Highlighted
             published: Published
             title: Title
@@ -149,6 +154,8 @@ en:
         local_area: Local area
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
+        private_space: This is a private assembly
+        related_participatory_processes: Related participatory processes
         scope: Scope
         target: Target
       statistics:

@@ -26,18 +26,6 @@ uk:
         meeting_closed:
           email_intro: 'Зустріч "%{resource_title}" було завершено. Ви можете ознайомитися з підсумками на сторінці зустрічі:'
           email_outro: Ви отримали це сповіщення, оскільки ви стежите за зустріччю "%{resource_title}". Ви можете припинити стежити за нею, перейшовши за наведеним вище посиланням.
-    features:
-      meetings:
-        actions:
-          join: Долучитись
-        name: Зустрічі
-        settings:
-          global:
-            announcement: Оголошення
-            comments_enabled: Коментарі ввімкнено
-          step:
-            announcement: Оголошення
-            comments_blocked: Коментарі вимкнено
     meetings:
       actions:
         attachment_collections: Збірки

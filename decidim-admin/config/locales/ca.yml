@@ -21,7 +21,7 @@ ca:
         description: Descripció
         name: Nom
         parent_id: Superior
-      feature:
+      component:
         name: Nom
         published_at: Publicat el
         weight: Pes
@@ -209,6 +209,44 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquesta categoria.
           success: Categoria actualitzada correctament.
+      component_permissions:
+        edit:
+          everyone: Tothom
+          submit: Desar permisos
+          title: Edita els permisos
+        update:
+          success: Permisos actualitzats correctament.
+      components:
+        create:
+          error: S'ha produït un error en crear aquest component.
+          success: El component s'ha creat correctament.
+        destroy:
+          error: S'ha produït un error en destruir aquest component.
+          success: El component s'ha suprimit correctament.
+        edit:
+          title: Edita el component
+          update: Actualitzar
+        form:
+          default_step_settings: Configuració per defecte
+          global_settings: Configuració global
+          step_settings: Configuració de fase
+        index:
+          add: Afegeix un component
+          headers:
+            actions: Accions
+            name: Nom del component
+            type: Tipus de component
+        new:
+          add: Afegeix un component
+          title: 'Afegir component: %{name}'
+        publish:
+          success: El component s'ha publicat correctament.
+        title: Components
+        unpublish:
+          success: El component s'ha despublicat correctament.
+        update:
+          error: S'ha produït un error en actualitzar aquest component.
+          success: El component s'ha actualitzat correctament.
       dashboard:
         show:
           view_more_logs: Veure més registres
@@ -216,44 +254,6 @@ ca:
       exports:
         export_as: "%{name} com a %{export_format}"
         notice: La teva exportació està actualment en curs. Rebràs un correu electrònic quan hagi finalitzat.
-      feature_permissions:
-        edit:
-          everyone: Tothom
-          submit: Desar permisos
-          title: Permisos d'edició
-        update:
-          success: Permisos actualitzats correctament.
-      features:
-        create:
-          error: S'ha produït un error en afegir aquesta funcionalitat.
-          success: Funcionalitat creada correctament.
-        destroy:
-          error: S'ha produït un error destruir aquesta funcionalitat.
-          success: Funcionalitat eliminada correctament.
-        edit:
-          title: Editar funcionalitat
-          update: Actualitza
-        form:
-          default_step_settings: Configuració per defecte
-          global_settings: Configuració global
-          step_settings: Configuració de fase
-        index:
-          add: Afegir funcionalitat
-          headers:
-            actions: Accions
-            name: Nom de la funcionalitat
-            type: Tipus de funcionalitat
-        new:
-          add: Afegir funcionalitat
-          title: 'Afegir funcionalitat: %{name}'
-        publish:
-          success: La funcionalitat s'ha publicat correctament.
-        title: Funcionalitats
-        unpublish:
-          success: La funcionalitat ha estat despublicada exitosament.
-        update:
-          error: S'ha produït un error en actualitzar aquesta funcionalitat.
-          success: La funcionalitat s'ha actualitzat correctament.
       logs:
         logs_list:
           no_logs_yet: Encara no hi ha cap registre d'activitat

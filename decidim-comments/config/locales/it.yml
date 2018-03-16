@@ -50,8 +50,6 @@ it:
         blocked_comments_warning: I commenti sono disabilitati in questo momento, ma puoi leggere quelli precedenti.
         loading: Sto caricando i commenti ...
         title: "%{count} commenti"
-      featured_comment:
-        title: Commento in primo piano
     events:
       comments:
         comment_created:
@@ -63,8 +61,8 @@ it:
           reply:
             email_intro: Il "%{resource_title}" è stato commentato
             email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}" o il suo autore. Puoi smettere di seguirlo dal link precedente.
-            email_subject: C'è una nuova risposta del tuo commento da %{author_name} in <a href="%{resource_url}">%{resource_title}</a>
-            notification_title: C'è una nuova risposta del tuo commento da <a href="%{author_path}">%{author_name} %{author_nickname}</a> in <a href="%{resource_path}">%{resource_title}</a>
+            email_subject: "%{author_name} ha risposto al tuo commento in %{resource_title}"
+            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> risposto al tuo commento <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Sei stato menzionato
           email_outro: Hai ricevuto questa notifica perché sei stato citato in "%{resource_title}".

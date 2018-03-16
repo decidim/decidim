@@ -32,6 +32,7 @@ module Decidim
       before_action do
         authorize! :read, current_component
       end
+      before_action :redirect_unless_feature_private
 
       def current_participatory_space
         request.env["decidim.current_participatory_space"]
@@ -54,6 +55,10 @@ module Decidim
           current_settings: current_settings,
           component_settings: component_settings
         )
+      end
+
+      def redirect_unless_feature_private
+        raise ActionController::RoutingError, "Not Found" unless current_user_can_visit_space?
       end
     end
   end

@@ -18,3 +18,4 @@ webpack.report.html
 .graphqlconfig
 schema.json
 .yardoc
+.rspec-failures
