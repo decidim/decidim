@@ -41,7 +41,7 @@ pl:
             proposal_wizard_step_1_help_text: Kreator propozycji "Utwórz" tekst pomocy krok
             proposal_wizard_step_2_help_text: Kreator propozycji "Porównaj" tekst pomocy
             proposal_wizard_step_3_help_text: Kreator propozycji "Pomoc do opublikowania" tekstu pomocy
-            treshold_per_proposal: Próg na wniosek
+            threshold_per_proposal: Próg na wniosek
             vote_limit: Limit głosowania na użytkownika
           step:
             announcement: Ogłoszenie
