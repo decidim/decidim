@@ -50,18 +50,10 @@ module Decidim
 
           it { is_expected.to eq("This content references the following proposals: #{proposal_as_html_link(proposal_1)}, #{proposal_as_html_link(proposal_2)} and #{proposal_as_html_link(proposal_3)}. Great?I like them!") }
         end
-
-        context "when proposal in content does not exist" do
-          let(:content) { "Proposal to be removed gid://decidim-dummy-app/Decidim::Proposals::Proposal/9876543210" }
-
-          it { is_expected.to eq("Proposal to be removed <the proposal that was referenced here with id 9876543210 but doesn't exist anymore>") }
-        end
       end
 
       def proposal_url(proposal)
-        f = proposal.component
-        url = "/processes/#{f.participatory_space.slug}/f/#{f.id}/proposals/#{proposal.id}"
-        url
+        Decidim::ResourceLocatorPresenter.new(proposal).path
       end
 
       def proposal_as_html_link(proposal)
