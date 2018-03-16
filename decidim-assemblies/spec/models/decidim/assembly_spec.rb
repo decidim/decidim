@@ -65,6 +65,28 @@ module Decidim
       end
     end
 
+    describe "#self_and_ancestors" do
+      subject { assembly.self_and_ancestors }
+
+      context "when the assembly is a root assembly" do
+        let!(:assembly) { create(:assembly, slug: "my-slug") }
+
+        it { is_expected.to eq([assembly]) }
+      end
+
+      context "when the assembly has one ancestor" do
+        let!(:assembly) { create :assembly, :with_parent }
+
+        it { is_expected.to eq([assembly.parent, assembly]) }
+      end
+
+      context "when the assembly has two or more ancestors" do
+        let!(:assembly) { create :assembly, parent: create(:assembly, :with_parent) }
+
+        it { is_expected.to eq([assembly.parent.parent, assembly.parent, assembly]) }
+      end
+    end
+
     describe "#ancestors" do
       subject { assembly.ancestors }
 

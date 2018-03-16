@@ -61,8 +61,12 @@ module Decidim
       slug
     end
 
+    def self_and_ancestors
+      self.class.where("#{self.class.table_name}.parents_path @> ?", parents_path)
+    end
+
     def ancestors
-      self.class.where("#{self.class.table_name}.parents_path @> ? AND #{self.class.table_name}.id != ?", parents_path, id)
+      self_and_ancestors.where.not(id: id)
     end
 
     private
