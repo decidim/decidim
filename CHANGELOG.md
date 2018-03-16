@@ -1,13 +1,5 @@
 # Change Log
-
-## Unreleased
-
-**Added**:
-
-**Changed**:
-
-**Fixed**:
-
+  
 ## [0.10-pre](https://github.com/decidim/decidim/tree/0.10-stable)
 
 **Note**: As per [\#2983](https://github.com/decidim/decidim/pull/2983), if you've been using `0.10.pre` version of Decidim for a while you'll need to fix some values in the database. In order to fix them,  run this script in your Rails console:
@@ -15,7 +7,7 @@
 ```ruby
 Decidim::Notification.where(event_class: "Decidim::Proposals::ProposalEndorsedEvent").find_each{|ev| ev.extra = { endorser_id: ev.extra.dig("endorser", "id") }; ev.save! }
 ```
-
+  
 **Upgrade notes**:
 
 This version has breaking changes, `Decidim::Feature` has been renamed to `Decidim::Component`,
@@ -23,17 +15,16 @@ and also everything related to it (controllers, views, etc.). If you have custom
 controller or added a new module you need to rename `feature` to `component`.
 
 **Added**:
-
+  
 - **decidim**: Rename features to components [\#2913](https://github.com/decidim/decidim/pull/2913)
 - **decidim-admin**: Log actions on areas [\#2944](https://github.com/decidim/decidim/pull/2944)
 - **decidim-budgets**: Log actions on projects [\#2949](https://github.com/decidim/decidim/pull/2949)
 - **decidim-meetings**: Log meeting registration exports [\#2922](https://github.com/decidim/decidim/pull/2922)
 - **decidim-accountability**: Log results deletion [\#2923](https://github.com/decidim/decidim/pull/2923)
-
+  
 **Changed**:
-
-- **decidim-participatory_processes**: Render documents in first place (before view hooks). [\#2977](https://github.com/decidim/decidim/pull/2977)
-
+  
+  
 **Fixed**:
 
 - **decidim-proposals**: Fix Feedback needed after Endorsing when user has no user_groups [\#2968](https://github.com/decidim/decidim/pull/2998)
@@ -75,5 +66,5 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-comments**: Fix mentions not working properly.  [\#2947](https://github.com/decidim/decidim/pull/2947)
 - **decidim-proposals**: Fix proposal endorsed event  generation [\#2983](https://github.com/decidim/decidim/pull/2983)
 - **decidim-core**: foundation-rails 6.4.3 support [\#2995](https://github.com/decidim/decidim/pull/2995)
-
+  
 Please check [0.10-stable](https://github.com/decidim/decidim/blob/0.10-stable/CHANGELOG.md) for previous changes.
