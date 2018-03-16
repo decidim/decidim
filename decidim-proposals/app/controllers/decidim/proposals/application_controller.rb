@@ -5,9 +5,9 @@ module Decidim
     # This controller is the abstract class from which all other controllers of
     # this engine inherit.
     #
-    # Note that it inherits from `Decidim::Features::BaseController`, which
+    # Note that it inherits from `Decidim::Components::BaseController`, which
     # override its layout and provide all kinds of useful methods.
-    class ApplicationController < Decidim::Features::BaseController
+    class ApplicationController < Decidim::Components::BaseController
       helper Decidim::Messaging::ConversationHelper
 
       helper_method :proposal_limit_reached?
@@ -15,8 +15,8 @@ module Decidim
       private
 
       def proposal_limit
-        return nil if feature_settings.proposal_limit.zero?
-        feature_settings.proposal_limit
+        return nil if component_settings.proposal_limit.zero?
+        component_settings.proposal_limit
       end
 
       def proposal_limit_reached?
@@ -26,7 +26,7 @@ module Decidim
       end
 
       def proposals
-        Proposal.where(feature: current_feature)
+        Proposal.where(component: current_component)
       end
     end
   end

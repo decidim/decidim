@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Results in process group home", type: :system do
-  include_context "with a feature"
+  include_context "with a component"
   let(:manifest_name) { "accountability" }
   let(:results_count) { 5 }
 
@@ -25,7 +25,7 @@ describe "Results in process group home", type: :system do
 
   context "when there are results" do
     let!(:results) do
-      create_list(:result, results_count, feature: feature)
+      create_list(:result, results_count, component: component)
     end
 
     it "shows the highlighted results section" do

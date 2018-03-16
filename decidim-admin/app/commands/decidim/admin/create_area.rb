@@ -29,7 +29,9 @@ module Decidim
       attr_reader :form
 
       def create_area
-        Area.create!(
+        Decidim.traceability.create!(
+          Area,
+          form.current_user,
           name: form.name,
           organization: form.organization,
           area_type: form.area_type

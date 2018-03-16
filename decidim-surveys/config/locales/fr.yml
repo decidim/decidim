@@ -7,17 +7,29 @@ fr:
         mandatory: Requis
         question_type: Type de question
   decidim:
-    features:
+    components:
       surveys:
         actions:
           answer: Répondre
         name: Enquête
         settings:
           global:
-            announcement: Message d'annonce
+            announcement: Annonce
           step:
             allow_answers: Autoriser les réponses
-            announcement: Message d'annonce
+            announcement: Annonce
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Le sondage %{resource_title} dans %{participatory_space_title} a été fermé.
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Une enquête est terminée à %{participatory_space_title}
+          notification_title: Le sondage <a href="%{resource_path}">%{resource_title}</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a> est terminé.
+        survey_opened:
+          email_intro: 'Le sondage %{resource_title} dans %{participatory_space_title} est maintenant ouvert. Vous pouvez y participer à partir de cette page:'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Un nouveau sondage en %{participatory_space_title}
+          notification_title: Le sondage <a href="%{resource_path}">%{resource_title}</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a> est maintenant ouvert.
     surveys:
       admin:
         exports:
@@ -29,7 +41,7 @@ fr:
         surveys:
           answer_option:
             answer_option: Option de réponse
-            remove_answer_option: Supprimer l'option de réponse
+            remove: Retirer
             statement: Déclaration
           edit:
             save: Sauvegarder
@@ -39,9 +51,11 @@ fr:
             already_answered_warning: Votre enquête a déjà reçu des réponses, vous ne pouvez donc pas modifier ses questions.
           question:
             add_answer_option: Ajouter une option de réponse
+            down: Vers le bas
             question: Question
-            remove_question: Supprimer la question
+            remove: Retirer
             statement: Déclaration
+            up: Up
           update:
             invalid: Il y a eu des erreurs lors de la sauvegarde de l'enquête.
             success: Enquête enregistrée avec succès.

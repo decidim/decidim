@@ -71,7 +71,7 @@ module Decidim
       def notifiable?
         return false if resource.is_a?(Decidim::Publicable) && !resource.published?
         return false if participatory_space.is_a?(Decidim::Publicable) && !participatory_space&.published?
-        return false unless feature&.published?
+        return false unless component&.published?
 
         true
       end
@@ -80,13 +80,13 @@ module Decidim
 
       attr_reader :event_name, :resource, :user, :extra
 
-      def feature
-        return resource.feature if resource.is_a?(Decidim::HasFeature)
-        return resource if resource.is_a?(Decidim::Feature)
+      def component
+        return resource.component if resource.is_a?(Decidim::HasComponent)
+        return resource if resource.is_a?(Decidim::Component)
       end
 
       def participatory_space
-        feature&.participatory_space
+        component&.participatory_space
       end
 
       def resource_title

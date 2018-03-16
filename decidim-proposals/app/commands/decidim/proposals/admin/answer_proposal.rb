@@ -39,7 +39,7 @@ module Decidim
             proposal,
             form.current_user
           ) do
-            proposal.update_attributes!(
+            proposal.update!(
               state: @form.state,
               answer: @form.answer,
               answered_at: Time.current

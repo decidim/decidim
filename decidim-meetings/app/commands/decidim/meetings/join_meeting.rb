@@ -44,7 +44,7 @@ module Decidim
       end
 
       def participatory_space_admins
-        @meeting.feature.participatory_space.admins
+        @meeting.component.participatory_space.admins
       end
 
       def send_notification

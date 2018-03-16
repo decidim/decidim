@@ -8,7 +8,7 @@ module Decidim
     describe ComponentType do
       include_context "with a graphql type"
 
-      let(:model) { create(:dummy_feature) }
+      let(:model) { create(:dummy_component) }
 
       describe "name" do
         let(:query) { %[{ name { translation(locale: "en") } }] }

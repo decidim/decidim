@@ -5,7 +5,7 @@ require "spec_helper"
 shared_examples_for "reportable" do
   context "is reportable" do
     let(:user) { create(:user, organization: subject.organization) }
-    let(:participatory_space) { subject.feature.participatory_space }
+    let(:participatory_space) { subject.component.participatory_space }
     let(:moderation) { create(:moderation, reportable: subject, participatory_space: participatory_space, report_count: 1) }
     let!(:report) { create(:report, moderation: moderation, user: user) }
 

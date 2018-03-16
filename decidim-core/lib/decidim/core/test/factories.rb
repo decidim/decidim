@@ -113,6 +113,16 @@ FactoryBot.define do
     end
   end
 
+  factory :participatory_space_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
+    user
+    privatable_to { create :participatory_process, organization: user.organization }
+  end
+
+  factory :assembly_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
+    user
+    privatable_to { create :assembly, organization: user.organization }
+  end
+
   factory :user_group, class: "Decidim::UserGroup" do
     name { Faker::Educator.course }
     document_number { Faker::Number.number(8) + "X" }
@@ -208,7 +218,7 @@ FactoryBot.define do
     end
   end
 
-  factory :feature, class: "Decidim::Feature" do
+  factory :component, class: "Decidim::Component" do
     transient do
       organization { create(:organization) }
     end
@@ -261,14 +271,14 @@ FactoryBot.define do
 
   factory :dummy_resource, class: "Decidim::DummyResources::DummyResource" do
     title { generate(:name) }
-    feature { create(:feature, manifest_name: "dummy") }
-    author { create(:user, :confirmed, organization: feature.organization) }
+    component { create(:component, manifest_name: "dummy") }
+    author { create(:user, :confirmed, organization: component.organization) }
   end
 
   factory :resource_link, class: "Decidim::ResourceLink" do
     name { generate(:slug) }
     to { build(:dummy_resource) }
-    from { build(:dummy_resource, feature: to.feature) }
+    from { build(:dummy_resource, component: to.component) }
   end
 
   factory :newsletter, class: "Decidim::Newsletter" do
@@ -285,7 +295,7 @@ FactoryBot.define do
 
   factory :moderation, class: "Decidim::Moderation" do
     reportable { build(:dummy_resource) }
-    participatory_space { reportable.feature.participatory_space }
+    participatory_space { reportable.component.participatory_space }
 
     trait :hidden do
       hidden_at { 1.day.ago }
@@ -339,14 +349,14 @@ FactoryBot.define do
     organization { user.organization }
     user
     participatory_space { build :participatory_process, organization: organization }
-    feature { build :feature, participatory_space: participatory_space }
-    resource { build(:dummy_resource, feature: feature) }
+    component { build :component, participatory_space: participatory_space }
+    resource { build(:dummy_resource, component: component) }
     action { "create" }
     extra do
       {
-        feature: {
-          manifest_name: feature.try(:manifest_name),
-          title: feature.try(:name) || feature.try(:title)
+        component: {
+          manifest_name: component.try(:manifest_name),
+          title: component.try(:name) || component.try(:title)
         }.compact,
         participatory_space: {
           manifest_name: participatory_space.try(:class).try(:participatory_space_manifest).try(:name),

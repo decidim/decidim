@@ -10,15 +10,15 @@
 <html lang="<%= I18n.locale %>" class="no-js">
   <head>
     <title><%= decidim_page_title %></title>
-    <%= render partial: 'layouts/decidim/head' %>
+    <%= render partial: "layouts/decidim/head" %>
   </head>
 
   <body>
-    <%= render partial: 'layouts/decidim/impersonation_warning' %>
-    <%= render partial: 'layouts/decidim/cookie_warning' %>
+    <%= render partial: "layouts/decidim/impersonation_warning" %>
+    <%= render partial: "layouts/decidim/cookie_warning" %>
     <%= render partial: "layouts/decidim/omnipresent_banner" %>
 
-    <%= render 'layouts/decidim/wrapper' do %>
+    <%= render "layouts/decidim/wrapper" do %>
       <%= yield %>
     <% end %>
 

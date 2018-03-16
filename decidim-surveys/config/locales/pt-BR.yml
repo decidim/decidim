@@ -7,7 +7,7 @@ pt-BR:
         mandatory: Obrigatório
         question_type: Tipo
   decidim:
-    features:
+    components:
       surveys:
         actions:
           answer: Responda
@@ -18,6 +18,18 @@ pt-BR:
           step:
             allow_answers: Permitir respostas
             announcement: Anúncio
+    events:
+      surveys:
+        survey_closed:
+          email_intro: A pesquisa %{resource_title} em %{participatory_space_title} foi fechada.
+          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Uma pesquisa terminou em %{participatory_space_title}
+          notification_title: A pesquisa <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> terminou.
+        survey_opened:
+          email_intro: 'A pesquisa %{resource_title} em %{participatory_space_title} está agora aberta. Você pode participar desta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo %{participatory_space_title}. Você pode parar de receber notificações após o link anterior.
+          email_subject: Uma nova pesquisa em %{participatory_space_title}
+          notification_title: A pesquisa <a href="%{resource_path}">%{resource_title}</a> em <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberta.
     surveys:
       admin:
         exports:
@@ -29,7 +41,7 @@ pt-BR:
         surveys:
           answer_option:
             answer_option: Opção de resposta
-            remove_answer_option: Eliminar opção de resposta
+            remove: Remover
             statement: Declaração
           edit:
             save: Salve 
@@ -39,9 +51,11 @@ pt-BR:
             already_answered_warning: A pesquisa já foi respondida por alguns usuários para que você não possa modificar suas perguntas.
           question:
             add_answer_option: Adicionar opção de resposta
+            down: Baixa
             question: Questão
-            remove_question: Remova a pergunta
+            remove: Remover
             statement: Declaração
+            up: Acima
           update:
             invalid: Houve erros ao salvar a pesquisa.
             success: Pesquisa salva com sucesso.

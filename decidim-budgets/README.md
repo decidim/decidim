@@ -4,7 +4,7 @@ The Budgets module adds projects to any participatory process. It adds a CRUD en
 
 ## Usage
 
-Budgets will be available as a Feature for a Participatory Process.
+Budgets will be available as a Component for a Participatory Process.
 
 ## Installation
 

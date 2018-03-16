@@ -24,8 +24,8 @@ module Decidim
         def define_participatory_process_abilities
           super
 
-          can :manage, Feature do |feature|
-            can_manage_process?(feature.participatory_space)
+          can :manage, Component do |component|
+            can_manage_process?(component.participatory_space)
           end
 
           can :manage, Category do |category|

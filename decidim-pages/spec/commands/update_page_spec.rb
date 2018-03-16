@@ -7,21 +7,20 @@ module Decidim
     module Admin
       describe UpdatePage do
         let(:current_organization) { create(:organization) }
+        let(:user) { create(:user, organization: current_organization) }
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-        let(:feature) { create(:feature, manifest_name: "pages", participatory_space: participatory_process) }
-        let(:page) { create(:page, feature: feature) }
+        let(:component) { create(:component, manifest_name: "pages", participatory_space: participatory_process) }
+        let(:page) { create(:page, component: component) }
         let(:form_params) do
           {
-            "body" => page.body,
-            "page" => {
-              "commentable" => false
-            }
+            "body" => { "en" => "My new body" }
           }
         end
         let(:form) do
           PageForm.from_params(
             form_params
           ).with_context(
+            current_user: user,
             current_organization: current_organization
           )
         end
@@ -37,7 +36,7 @@ module Decidim
           end
 
           it "doesn't update the page" do
-            expect(page).not_to receive(:update_attributes!)
+            expect(page).not_to receive(:update!)
             command.call
           end
         end
@@ -47,9 +46,21 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "creates a new page with the same name as the feature" do
-            expect(page).to receive(:update_attributes!)
+          it "creates a new page with the same name as the component" do
+            expect(page).to receive(:update!)
             command.call
+          end
+
+          it "traces tyhe action", versioning: true do
+            expect(Decidim.traceability)
+              .to receive(:update!)
+              .with(page, user, body: form.body)
+              .and_call_original
+
+            expect { command.call }.to change(Decidim::ActionLog, :count)
+            action_log = Decidim::ActionLog.last
+            expect(action_log.version).to be_present
+            expect(action_log.version.event).to eq "update"
           end
         end
       end

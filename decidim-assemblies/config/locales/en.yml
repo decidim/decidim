@@ -3,9 +3,10 @@ en:
   activemodel:
     attributes:
       assembly:
+        area_id: Area
         banner_image: Banner image
         copy_categories: Copy categories
-        copy_features: Copy features
+        copy_components: Copy components
         decidim_area_id: Area
         decidim_scope_id: Scope
         description: Description
@@ -15,6 +16,7 @@ en:
         hero_image: Home image
         local_area: Local area
         meta_scope: Scope metadata
+        participatory_processes_ids: Related Participatory processes
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
         promoted: Promoted
@@ -27,6 +29,10 @@ en:
         subtitle: Subtitle
         target: Target
         title: Title
+      assembly_user_role:
+        email: Email
+        name: Name
+        role: Role
   decidim:
     admin:
       assemblies:
@@ -41,6 +47,8 @@ en:
           title: General Information
         index:
           not_published: Not published
+          private: Private
+          public: Public
           published: Published
         new:
           create: Create
@@ -89,13 +97,15 @@ en:
           attachment_files: Files
           attachments: Attachments
           categories: Categories
-          features: Features
+          components: Components
           info: Info
           moderations: Moderations
+          private_users: Private Users
       models:
         assembly:
           fields:
             created_at: Created at
+            private: Private
             promoted: Highlighted
             published: Published
             title: Title
@@ -144,12 +154,15 @@ en:
         local_area: Local area
         participatory_scope: Participatory scope
         participatory_structure: Participatory structure
+        private_space: This is a private assembly
+        related_participatory_processes: Related participatory processes
         scope: Scope
         target: Target
       statistics:
         answers_count: Answers
         assemblies_count: Assemblies
         comments_count: Comments
+        endorsements_count: Endorsements
         headline: Activity
         meetings_count: Meetings
         orders_count: Votes
