@@ -229,7 +229,7 @@ gl:
           select_identity: Seleccionar identidade
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Xa aprobado
+          already_endorsed: Aprobado
           endorse: Endosar
       proposal_votes:
         create:
@@ -251,9 +251,6 @@ gl:
         edit_draft:
           send: Vista previa
           title: Editar borrador de proposta
-        endorsement_button:
-          already_endorsed: Xa aprobado
-          already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: Endosar
         endorsements_card_row:
