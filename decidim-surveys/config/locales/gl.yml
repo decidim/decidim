@@ -7,6 +7,17 @@ gl:
         mandatory: Obrigatorio
         question_type: Tipo
   decidim:
+    components:
+      surveys:
+        actions:
+          answer: Resposta
+        name: Enquisa
+        settings:
+          global:
+            announcement: Anuncio
+          step:
+            allow_answers: Permitir respostas
+            announcement: Anuncio
     events:
       surveys:
         survey_closed:
@@ -19,17 +30,6 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo %{participatory_space_title}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
           email_subject: Unha nova enquisa en %{participatory_space_title}
           notification_title: A enquisa <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> está agora aberta.
-    features:
-      surveys:
-        actions:
-          answer: Resposta
-        name: Enquisa
-        settings:
-          global:
-            announcement: Anuncio
-          step:
-            allow_answers: Permitir respostas
-            announcement: Anuncio
     surveys:
       admin:
         exports:
@@ -41,7 +41,7 @@ gl:
         surveys:
           answer_option:
             answer_option: Opción de resposta
-            remove_answer_option: Eliminar a opción de resposta
+            remove: Quitar
             statement: Declaración
           edit:
             save: Gardar
@@ -51,9 +51,11 @@ gl:
             already_answered_warning: Algunha xente xa respondeu a enquisa para que non poida modificar as súas preguntas.
           question:
             add_answer_option: Engadir unha opción de resposta
+            down: Baixo
             question: Pregunta
-            remove_question: Elimina a pregunta
+            remove: Quitar
             statement: Declaración
+            up: Arriba
           update:
             invalid: Houbo erros ao gardar a enquisa.
             success: A enquisa gardouse correctamente.

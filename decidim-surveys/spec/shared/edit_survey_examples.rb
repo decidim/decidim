@@ -56,7 +56,7 @@ shared_examples "edit surveys" do
           questions_body[idx].each do |locale, value|
             within survey_question do
               click_link I18n.with_locale(locale) { t("name", scope: "locale") }
-              find("input[name='survey[questions][][body_#{locale}]']").send_keys value
+              fill_in "survey[questions][][body_#{locale}]", with: value
             end
           end
         end
@@ -102,7 +102,7 @@ shared_examples "edit surveys" do
         question_body.each do |locale, value|
           within ".survey-question" do
             click_link I18n.with_locale(locale) { t("name", scope: "locale") }
-            find("input[name='survey[questions][][body_#{locale}]']").send_keys value
+            fill_in "survey[questions][][body_#{locale}]", with: value
           end
         end
 
@@ -118,7 +118,7 @@ shared_examples "edit surveys" do
           answer_options_body[idx].each do |locale, value|
             within survey_question_answer_option do
               click_link I18n.with_locale(locale) { t("name", scope: "locale") }
-              find("input[name='survey[questions][][answer_options][][body_#{locale}]']").send_keys value
+              fill_in "survey[questions][][answer_options][][body_#{locale}]", with: value
             end
           end
         end
@@ -133,6 +133,54 @@ shared_examples "edit surveys" do
       expect(page).to have_selector("input[value='This is the first question']")
       expect(page).to have_selector("input[value='This is the first option']")
       expect(page).to have_selector("input[value='This is the second option']")
+    end
+
+    it "does not incorrectly reorder when clicking answer options" do
+      click_button "Add question"
+      select "Single option", from: "Type"
+      2.times { click_button "Add answer option" }
+
+      within ".survey-question-answer-option:first-of-type" do
+        fill_in "survey[questions][][answer_options][][body_en]", with: "Something"
+      end
+
+      within ".survey-question-answer-option:last-of-type" do
+        fill_in "survey[questions][][answer_options][][body_en]", with: "Else"
+      end
+
+      # If JS events for option reordering are incorrectly bound, clicking on
+      # the field to gain focus can cause the options to get inverted... :S
+      within ".survey-question-answer-option:first-of-type" do
+        find("input[name='survey[questions][][answer_options][][body_en]']").click
+      end
+
+      first_answer_option = page.find(".survey-question-answer-option:first-of-type")
+      expect(first_answer_option).to have_field("survey[questions][][answer_options][][body_en]", with: "Something")
+
+      second_answer_option = page.find(".survey-question-answer-option:last-of-type")
+      expect(second_answer_option).to have_field("survey[questions][][answer_options][][body_en]", with: "Else")
+    end
+
+    it "persists question form across submission failures" do
+      click_button "Add question"
+      select "Long answer", from: "Type"
+      click_button "Save"
+
+      expect(page).to have_select("Type", selected: "Long answer")
+    end
+
+    it "persists answer options form across submission failures" do
+      click_button "Add question"
+      select "Single option", from: "Type"
+      click_button "Add answer option"
+
+      within ".survey-question-answer-option:first-of-type" do
+        fill_in "survey[questions][][answer_options][][body_en]", with: "Something"
+      end
+
+      click_button "Save"
+
+      expect(page).to have_field("survey[questions][][answer_options][][body_en]", with: "Something")
     end
 
     describe "when a survey has an existing question" do

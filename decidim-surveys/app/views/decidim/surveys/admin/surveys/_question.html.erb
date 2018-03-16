@@ -36,7 +36,7 @@
           object: question,
           tabs_id: tabs_id_for_question(question),
           label: t(".statement"),
-          disabled: disabled_for_question(survey, question),
+          disabled: !survey.questions_editable?,
           enable_tabs: question.persisted?
         )
       %>
@@ -49,7 +49,7 @@
           "1",
           question.mandatory,
           id: mandatory_id_for_question(question),
-          disabled: disabled_for_question(survey, question)
+          disabled: !survey.questions_editable?
         )
       %>
       <%= label_tag "", t("activemodel.attributes.survey_question.mandatory"), for: mandatory_id_for_question(question) %>
@@ -57,15 +57,15 @@
 
     <div class="row column">
       <%= label_tag "", t("activemodel.attributes.survey_question.question_type"), for: question_type_id_for_question(question) %>
-      <%= select_tag "survey[questions][][question_type]", options_from_collection_for_select(question_types, :first, :last, question.question_type), id: question_type_id_for_question(question), disabled: disabled_for_question(survey, question) %>
+      <%= select_tag "survey[questions][][question_type]", options_from_collection_for_select(question_types, :first, :last, question.question_type), id: question_type_id_for_question(question), disabled: !survey.questions_editable? %>
     </div>
 
     <% if question.persisted? %>
-      <%= hidden_field_tag "survey[questions][][id]", question.id, disabled: disabled_for_question(survey, question) %>
+      <%= hidden_field_tag "survey[questions][][id]", question.id, disabled: !survey.questions_editable? %>
     <% end %>
 
-    <%= hidden_field_tag "survey[questions][][position]", question.position || 0, disabled: disabled_for_question(survey, question) %>
-    <%= hidden_field_tag "survey[questions][][deleted]", false, disabled: disabled_for_question(survey, question) %>
+    <%= hidden_field_tag "survey[questions][][position]", question.position || 0, disabled: !survey.questions_editable? %>
+    <%= hidden_field_tag "survey[questions][][deleted]", false, disabled: !survey.questions_editable? %>
 
     <div class="survey-question-answer-options">
       <% if survey.questions_editable? %>

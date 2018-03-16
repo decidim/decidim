@@ -40,6 +40,7 @@ module Decidim
         let(:slug) { "slug" }
         let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
         let(:show_statistics) { true }
+        let(:private_space) { true }
         let(:purpose_of_action) do
           {
             en: "Purpose of action",
@@ -122,6 +123,7 @@ module Decidim
               "banner_image" => attachment,
               "slug" => slug,
               "show_statistics" => show_statistics,
+              "private_space" => private_space,
               "purpose_of_action_en" => purpose_of_action[:en],
               "purpose_of_action_es" => purpose_of_action[:es],
               "purpose_of_action_ca" => purpose_of_action[:ca],

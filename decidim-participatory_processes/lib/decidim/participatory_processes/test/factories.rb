@@ -27,6 +27,7 @@ FactoryBot.define do
     participatory_scope { Decidim::Faker::Localized.sentence(1) }
     participatory_structure { Decidim::Faker::Localized.sentence(2) }
     show_statistics true
+    private_space false
     start_date { Time.current }
     end_date 2.months.from_now.at_midnight
 

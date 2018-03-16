@@ -22,7 +22,9 @@ module Decidim
         authorize! :read, Assembly
       end
 
-      def show; end
+      def show
+        check_current_user_can_visit_space
+      end
 
       private
 
@@ -35,11 +37,11 @@ module Decidim
       end
 
       def published_assemblies
-        @published_assemblies ||= OrganizationPublishedAssemblies.new(current_organization)
+        @published_assemblies ||= OrganizationPublishedAssemblies.new(current_organization, current_user)
       end
 
       def assemblies
-        @assemblies ||= OrganizationPrioritizedAssemblies.new(current_organization)
+        @assemblies ||= OrganizationPrioritizedAssemblies.new(current_organization, current_user)
       end
 
       alias collection assemblies

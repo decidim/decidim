@@ -21,10 +21,10 @@ fi:
         description: Kuvaus
         name: Nimi
         parent_id: Yläaihepiiri
-      feature:
+      component:
         name: Nimi
         published_at: Julkaistu osoitteessa
-        weight: Painoarvo
+        weight: Paino
       id: ID
       newsletter:
         body: Runko
@@ -209,6 +209,44 @@ fi:
         update:
           error: Tämän aihepiirin luonnissa tapahtui virhe.
           success: Aihepiiri päivitetty onnistuneesti.
+      component_permissions:
+        edit:
+          everyone: jokainen
+          submit: Tallenna käyttöoikeudet
+          title: Muokkaa käyttöoikeuksia
+        update:
+          success: Käyttöoikeudet päivitettiin onnistuneesti.
+      components:
+        create:
+          error: Tämän komponentin luomisessa tapahtui virhe.
+          success: Komponentti on luotu onnistuneesti.
+        destroy:
+          error: Tämän komponentin tuhoaminen on tapahtunut.
+          success: Komponentti poistettiin onnistuneesti.
+        edit:
+          title: Muokkaa komponenttia
+          update: Päivittää
+        form:
+          default_step_settings: Oletusasetusasetukset
+          global_settings: Yleiset asetukset
+          step_settings: Vaiheasetukset
+        index:
+          add: Lisää osa
+          headers:
+            actions: Toimet
+            name: Komponentin nimi
+            type: Osien tyyppi
+        new:
+          add: Lisää osa
+          title: 'Lisää osa: %{name}'
+        publish:
+          success: Komponentti on julkaistu onnistuneesti.
+        title: komponentit
+        unpublish:
+          success: Komponentti on julkaistu onnistuneesti.
+        update:
+          error: Tämän komponentin päivittämisessä tapahtui virhe.
+          success: Komponentti päivitettiin onnistuneesti.
       dashboard:
         show:
           view_more_logs: Näytä lisää lokeja
@@ -216,44 +254,6 @@ fi:
       exports:
         export_as: "%{name} muodossa %{export_format}"
         notice: Tietojen vienti on käynnissä. Saat sähköpostiviestin, kun se valmistuu.
-      feature_permissions:
-        edit:
-          everyone: Kaikki
-          submit: Tallenna oikeudet
-          title: Muokkaa oikeuksia
-        update:
-          success: Oikeudet päivitetty onnistuneesti.
-      features:
-        create:
-          error: Tämän ominaisuuden luonnissa tapahtui virhe.
-          success: Ominaisuus luotu onnistuneesti.
-        destroy:
-          error: Tämän ominaisuuden tuhoamisessa tapahtui virhe.
-          success: Ominaisuus poistettu onnistuneesti.
-        edit:
-          title: Muokkaa ominaisuutta
-          update: Päivitä
-        form:
-          default_step_settings: Oletusvaiheen asetukset
-          global_settings: Globaalit asetukset
-          step_settings: Vaiheen asetukset
-        index:
-          add: Lisää ominaisuus
-          headers:
-            actions: Toiminnot
-            name: Ominaisuuden nimi
-            type: Ominaisuuden tyyppi
-        new:
-          add: Lisää ominaisuus
-          title: 'Lisää ominaisuus: %{name}'
-        publish:
-          success: Tämä ominaisuus on onnistuneesti julkaistu.
-        title: Ominaisuudet
-        unpublish:
-          success: Tämän ominaisuuden julkaisu on onnistuneesti peruttu.
-        update:
-          error: Tämän ominaisuuden päivityksessä tapahtui virhe.
-          success: Ominaisuus päivitetty onnistuneesti.
       logs:
         logs_list:
           no_logs_yet: Ei vielä lokeja

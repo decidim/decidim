@@ -44,6 +44,7 @@ module Decidim
         attribute :show_statistics, Boolean
         attribute :area_id, Integer
         attribute :participatory_processes_ids, Array[Integer]
+        attribute :private_space, Boolean
         attribute :assembly_type, String
         attribute :creation_date, Decidim::Attributes::TimeWithZone
         attribute :created_by, String

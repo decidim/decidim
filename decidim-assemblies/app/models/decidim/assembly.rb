@@ -15,6 +15,7 @@ module Decidim
     include Decidim::Traceable
     include Decidim::Loggable
     include Decidim::ParticipatorySpaceResourceable
+    include Decidim::HasPrivateUsers
 
     SOCIAL_HANDLERS = [:twitter, :facebook, :instagram, :youtube, :github].freeze
     ASSEMBLY_TYPES = %w(government executive consultative_advisory participatory working_group commission others).freeze
@@ -58,6 +59,10 @@ module Decidim
 
     def to_param
       slug
+    end
+
+    def self.private_assemblies
+      where(private_space: true)
     end
   end
 end
