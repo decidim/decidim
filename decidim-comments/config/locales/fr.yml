@@ -66,7 +66,7 @@ fr:
           email_intro: "%{author_name} a répondu à votre commentaire dans %{resource_title}. Vous pouvez le lire depuis la page suivante :"
           email_outro: Vous venez de recevoir une notification à votre commentaire.
           email_subject: "%{author_name} a répondu à votre commentaire dans %{resource_title}"
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a répondu oui dans <a href="%{resource_path}">%{resource_title}</a>
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> a réagit à votre commentaire sur <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Vous avez été mentionné
           email_outro: Vous avez reçu cette notification parce que vous avez été mentionné dans %{resource_title}.
