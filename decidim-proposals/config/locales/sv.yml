@@ -41,7 +41,7 @@ sv:
             proposal_wizard_step_1_help_text: Förslagsguiden "Skapa" steg hjälptext
             proposal_wizard_step_2_help_text: Förslagsguiden "Jämför" steg hjälptext
             proposal_wizard_step_3_help_text: Förslagsguiden "Publicera" steg hjälptext
-            treshold_per_proposal: Tröskel per förslag
+            threshold_per_proposal: Tröskel per förslag
             vote_limit: Rösta per användare
           step:
             announcement: Meddelande
