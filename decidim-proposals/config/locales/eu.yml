@@ -41,7 +41,7 @@ eu:
             proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
             proposal_wizard_step_2_help_text: Proposamen laguntzailea "Konparatu" urrats laguntza testua
             proposal_wizard_step_3_help_text: Proposamen laguntzailea "Argitaratu" urrats laguntza testua
-            treshold_per_proposal: Treshold proposamen bakoitzeko
+            threshold_per_proposal: Proposamen bakoitzeko atalasea
             vote_limit: Erabiltzaile bakoitzari botoa emateko muga
           step:
             announcement: Anuntzio
