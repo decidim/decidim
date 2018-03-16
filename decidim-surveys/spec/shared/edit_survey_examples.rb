@@ -190,7 +190,7 @@ shared_examples "edit surveys" do
         visit_component_admin
       end
 
-      it "modifies the question" do
+      it "modifies the question when the information is valid" do
         within "form.edit_survey" do
           expect(page).to have_selector(".survey-question", count: 1)
 
@@ -211,6 +211,27 @@ shared_examples "edit surveys" do
         expect(page).to have_no_selector("input[value='This is the first question']")
         expect(page).to have_selector("input#survey_questions_#{survey_question.id}_mandatory[checked]")
         expect(page).to have_selector("select#survey_questions_#{survey_question.id}_question_type option[value='long_answer'][selected]")
+      end
+
+      it "re-renders the form when the information is invalid" do
+        within "form.edit_survey" do
+          expect(page).to have_selector(".survey-question", count: 1)
+
+          within ".survey-question" do
+            fill_in "survey-question-#{survey_question.id}_body_en", with: ""
+            check "Mandatory"
+            select "Multiple option", from: "Type"
+          end
+
+          click_button "Save"
+        end
+
+        expect(page).to have_admin_callout("There's been errors when saving the survey")
+
+        expect(page).to have_selector("input[value='']")
+        expect(page).to have_no_selector("input[value='This is the first question']")
+        expect(page).to have_selector("input#survey_questions_#{survey_question.id}_mandatory[checked]")
+        expect(page).to have_selector("select#survey_questions_#{survey_question.id}_question_type option[value='multiple_option'][selected]")
       end
 
       it "removes the question" do
