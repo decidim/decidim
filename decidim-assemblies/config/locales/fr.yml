@@ -23,15 +23,15 @@ fr:
         scope_id: Zone d'application
         scopes_enabled: Zone d'application activées
         short_description: Résumé
-        show_statistics: Montrez les statistiques
+        show_statistics: Afficher les statistiques
         slug: Identifiant
         subtitle: Sous-titre
         target: Participants
         title: Titre
       assembly_user_role:
-        email: Email
-        name: prénom
-        role: Rôle
+        email: E-mail
+        name: "Nom\n"
+        role: Fonction
   decidim:
     admin:
       assemblies:
@@ -93,7 +93,7 @@ fr:
         assemblies_submenu:
           assembly_admins: Utilisateurs de l'assemblée
           attachment_collections: Collections
-          attachment_files: Des dossiers
+          attachment_files: Fichiers
           attachments: Documents liés
           categories: Catégories
           components: Composants
@@ -123,7 +123,7 @@ fr:
         assemblies: Assemblées
     admin_log:
       assembly:
-        create: "%{user_name} a créé l'assemblage %{resource_name}"
+        create: "%{user_name} a créé l'assemblée %{resource_name}"
         publish: "%{user_name} a publié l'assembly %{resource_name}"
         unpublish: "%{user_name} non publié l'assemblage %{resource_name}"
         update: "%{user_name} a mis à jour l'assemblage %{resource_name}"
