@@ -17,10 +17,10 @@
           :text_field_tag,
           "survey[questions][][answer_options][]",
           "body",
-          answer_option.body,
+          answer_option.body.with_indifferent_access,
           tabs_id: tabs_id_for_question_answer_option(question, idx),
           label: t(".statement"),
-          disabled: question.nil? || disabled_for_question(survey, question),
+          disabled: question.nil? || !survey.questions_editable?,
           enable_tabs: question.present?
         )
       %>

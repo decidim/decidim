@@ -25,10 +25,6 @@ module Decidim
           return "survey_questions_#{question.id}_question_type" if question.persisted?
           "${tabsId}_question_type"
         end
-
-        def disabled_for_question(survey, question)
-          !question.persisted? || !survey.questions_editable?
-        end
       end
     end
   end
