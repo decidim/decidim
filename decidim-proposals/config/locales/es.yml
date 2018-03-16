@@ -41,7 +41,7 @@ es:
             proposal_wizard_step_1_help_text: Asistente de propuesta "Crear" paso texto de ayuda
             proposal_wizard_step_2_help_text: Asistente de propuesta "Comparar" texto de ayuda paso
             proposal_wizard_step_3_help_text: Asistente de propuesta Texto de ayuda paso "Publicar"
-            treshold_per_proposal: Treshold por propuesta
+            threshold_per_proposal: Umbral por propuesta
             vote_limit: Límite de voto por usuario
           step:
             announcement: Anuncio
