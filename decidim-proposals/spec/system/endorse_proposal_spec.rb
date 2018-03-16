@@ -86,6 +86,7 @@ describe "Endorse Proposal", type: :system do
 
       context "when the proposal is not endorsed yet" do
         let(:endorsement) {}
+
         it "is able to endorse the proposal" do
           within ".card__content" do
             click_button "Endorse"
