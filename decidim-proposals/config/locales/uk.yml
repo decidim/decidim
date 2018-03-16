@@ -102,7 +102,6 @@ uk:
           select_identity: Оберіть особу
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Вже підтримано
           endorse: Підтримати
       proposal_votes:
         create:
@@ -126,9 +125,6 @@ uk:
         edit_draft:
           send: Попередній перегляд
           title: Редагувати чернетку пропозиції
-        endorsement_button:
-          already_endorsed: Вже підтримано
-          already_endorsed_hover: Відкликати підтримку
         endorsement_identities_cabin:
           endorse: Підтримати
         endorsements_listing:
