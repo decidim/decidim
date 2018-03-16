@@ -229,7 +229,7 @@ it:
           select_identity: Seleziona identità
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Già approvato
+          already_endorsed: approvato
           endorse: Approvare
       proposal_votes:
         create:
@@ -251,9 +251,6 @@ it:
         edit_draft:
           send: Anteprima
           title: Modifica bozza di proposta
-        endorsement_button:
-          already_endorsed: Già approvato
-          already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: Approvare
         endorsements_card_row:
