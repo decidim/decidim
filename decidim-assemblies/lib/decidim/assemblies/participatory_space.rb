@@ -70,11 +70,11 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         special_features: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end,
-        twitter_handler: Decidim::Faker::Localized.word,
-        facebook_handler: Decidim::Faker::Localized.word,
-        instagram_handler: Decidim::Faker::Localized.word,
-        youtube_handler: Decidim::Faker::Localized.word,
-        github_handler: Decidim::Faker::Localized.word
+        twitter_handler: Faker::Lorem.word,
+        facebook_handler: Faker::Lorem.word,
+        instagram_handler: Faker::Lorem.word,
+        youtube_handler: Faker::Lorem.word,
+        github_handler: Faker::Lorem.word
       )
 
       attachment_collection = Decidim::AttachmentCollection.create!(
