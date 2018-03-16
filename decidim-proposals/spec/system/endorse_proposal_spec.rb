@@ -22,6 +22,7 @@ describe "Endorse Proposal", type: :system do
              manifest: manifest,
              participatory_space: participatory_process)
     end
+
     before do
       visit_component
       click_link proposal.title
@@ -51,6 +52,7 @@ describe "Endorse Proposal", type: :system do
              manifest: manifest,
              participatory_space: participatory_process)
     end
+
     it "shows the endorsements count and the endorse button is disabled" do
       visit_component
       click_link proposal.title
