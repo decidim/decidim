@@ -24,6 +24,7 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
           update_assembly
+          link_participatory_processes(@assembly)
 
           if @assembly.valid?
             broadcast(:ok, @assembly)
@@ -69,6 +70,7 @@ module Decidim
             scope: form.scope,
             area: form.area,
             parent_id: form.parent_id,
+            private_space: form.private_space,
             developer_group: form.developer_group,
             local_area: form.local_area,
             target: form.target,
@@ -77,6 +79,14 @@ module Decidim
             meta_scope: form.meta_scope,
             show_statistics: form.show_statistics
           }
+        end
+
+        def participatory_processes(assembly)
+          @participatory_processes ||= assembly.participatory_space_sibling_scope(:participatory_processes).where(id: @form.participatory_processes_ids)
+        end
+
+        def link_participatory_processes(assembly)
+          assembly.link_participatory_spaces_resources(participatory_processes(assembly), "included_participatory_processes")
         end
       end
     end

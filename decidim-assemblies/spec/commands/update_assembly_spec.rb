@@ -8,6 +8,14 @@ module Decidim::Assemblies
       let(:my_assembly) { create :assembly }
       let(:user) { create :user, :admin, :confirmed, organization: my_assembly.organization }
 
+      let(:participatory_processes) do
+        create_list(
+          :participatory_process,
+          3,
+          organization: my_assembly.organization
+        )
+      end
+
       let(:params) do
         {
           assembly: {
@@ -36,7 +44,8 @@ module Decidim::Assemblies
             area: my_assembly.area,
             parent_id: nil,
             errors: my_assembly.errors,
-            show_statistics: my_assembly.show_statistics
+            show_statistics: my_assembly.show_statistics,
+            participatory_processes_ids: participatory_processes.map(&:id)
           }
         }
       end
@@ -110,6 +119,13 @@ module Decidim::Assemblies
           expect { command.call }.to change(Decidim::ActionLog, :count)
           action_log = Decidim::ActionLog.last
           expect(action_log.version).to be_present
+        end
+
+        it "links participatory processes" do
+          command.call
+
+          linked_participatory_processes = my_assembly.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes")
+          expect(linked_participatory_processes).to match_array(participatory_processes)
         end
 
         context "when no homepage image is set" do

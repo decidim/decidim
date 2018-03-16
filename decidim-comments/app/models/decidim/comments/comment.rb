@@ -41,8 +41,15 @@ module Decidim
         depth < MAX_DEPTH
       end
 
-      # Public: Override Commentable concern method `users_to_notify_on_comment_created`
-      delegate :users_to_notify_on_comment_created, to: :root_commentable
+      # Public: Override Commentable concern method `users_to_notify_on_comment_created`.
+      # Return the comment author together with whatever ActiveRecord::Relation is returned by
+      # the `commentable`. This will cause the comment author to be notified when the
+      # comment is replied
+      def users_to_notify_on_comment_created
+        Decidim::User.where(id: commentable.users_to_notify_on_comment_created).or(
+          Decidim::User.where(id: decidim_author_id)
+        )
+      end
 
       # Public: Check if the user has upvoted the comment
       #

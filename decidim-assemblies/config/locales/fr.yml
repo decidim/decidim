@@ -5,7 +5,7 @@ fr:
         area_id: Région
         banner_image: Image d'en-tête
         copy_categories: Copier les catégories
-        copy_features: Copier les fonctionnalités
+        copy_components: Copier les composants
         decidim_area_id: Région
         decidim_scope_id: Portée
         description: Description
@@ -15,6 +15,7 @@ fr:
         hero_image: Image de la page d'accueil
         local_area: Périmètre
         meta_scope: Échelle
+        participatory_processes_ids: Processus participatifs associés
         participatory_scope: Objectif
         participatory_structure: Modalités
         promoted: Mis en avant
@@ -27,6 +28,10 @@ fr:
         subtitle: Sous-titre
         target: Participants
         title: Titre
+      assembly_user_role:
+        email: Email
+        name: prénom
+        role: Rôle
   decidim:
     admin:
       assemblies:
@@ -89,7 +94,7 @@ fr:
           attachment_files: Des dossiers
           attachments: Documents liés
           categories: Catégories
-          features: Fonctionnalités
+          components: Composants
           info: Information
           moderations: Modérations
       models:
@@ -144,6 +149,7 @@ fr:
         local_area: Périmètre
         participatory_scope: Objectif
         participatory_structure: Modalités
+        related_participatory_processes: Processus participatifs connexes
         scope: Zone d'application
         target: Participants
       statistics:

@@ -50,8 +50,6 @@ ru:
         blocked_comments_warning: Комментарии сейчас отключены, но вы можете прочитать предыдущие.
         loading: Загрузка комментариев ...
         title: "%{count} комментариев"
-      featured_comment:
-        title: Избранный комментарий
   errors:
     messages:
       cannot_have_comments: не подлежит комментированию

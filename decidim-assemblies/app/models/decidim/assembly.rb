@@ -14,6 +14,8 @@ module Decidim
     include Decidim::HasReference
     include Decidim::Traceable
     include Decidim::Loggable
+    include Decidim::ParticipatorySpaceResourceable
+    include Decidim::HasPrivateUsers
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -67,6 +69,10 @@ module Decidim
 
     def ancestors
       self_and_ancestors.where.not(id: id)
+    end
+
+    def self.private_assemblies
+      where(private_space: true)
     end
 
     private

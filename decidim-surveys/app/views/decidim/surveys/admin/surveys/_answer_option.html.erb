@@ -3,7 +3,9 @@
     <h2 class="card-title">
     <span><%= t(".answer_option") %></span>
     <% if survey.questions_editable? %>
-      <button class="button small alert hollow remove-answer-option button--title"><%= t(".remove_answer_option") %></button>
+      <button class="button small alert hollow remove-answer-option button--title">
+        <%= t(".remove") %>
+      </button>
     <% end %>
     </h2>
   </div>
@@ -15,10 +17,10 @@
           :text_field_tag,
           "survey[questions][][answer_options][]",
           "body",
-          answer_option.body,
+          answer_option.body.with_indifferent_access,
           tabs_id: tabs_id_for_question_answer_option(question, idx),
           label: t(".statement"),
-          disabled: question.nil? || disabled_for_question(survey, question),
+          disabled: question.nil? || !survey.questions_editable?,
           enable_tabs: question.present?
         )
       %>

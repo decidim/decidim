@@ -55,7 +55,7 @@ module Decidim
 
       initializer "decidim.stats" do
         Decidim.stats.register :assemblies_count, priority: StatsRegistry::HIGH_PRIORITY do |organization, _start_at, _end_at|
-          Decidim::Assembly.where(organization: organization).published.count
+          Decidim::Assembly.where(organization: organization).public_spaces.count
         end
       end
 
@@ -71,7 +71,7 @@ module Decidim
 
       initializer "decidim_assemblies.view_hooks" do
         Decidim.view_hooks.register(:highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
-          highlighted_assemblies = OrganizationPrioritizedAssemblies.new(view_context.current_organization)
+          highlighted_assemblies = OrganizationPrioritizedAssemblies.new(view_context.current_organization, view_context.current_user)
 
           next unless highlighted_assemblies.any?
 
