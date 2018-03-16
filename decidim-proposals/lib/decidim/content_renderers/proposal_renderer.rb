@@ -23,8 +23,8 @@ module Decidim
             proposal = GlobalID::Locator.locate(proposal_gid)
             Decidim::Proposals::ProposalPresenter.new(proposal).display_mention
           rescue ActiveRecord::RecordNotFound
-            Rails.logger.warn("ProposalRenderer can not render unexisting proposal with gid: #{proposal_gid}")
-            "<RecordNotFound #{proposal_gid}>"
+            proposal_id = proposal_gid.split("/").last
+            "~#{proposal_id}"
           end
         end
       end
