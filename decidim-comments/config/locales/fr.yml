@@ -53,7 +53,7 @@ fr:
     events:
       comments:
         comment_by_followed_user:
-          email_intro: "%{author_name} a laissé un commentaire dans %{resource_title}. Vous pouvez le lire dans cette page:"
+          email_intro: "%{author_name} a laissé un commentaire dans %{resource_title}. Vous pouvez le lire sur la page suivante :"
           email_outro: Vous avez reçu cette notification, car vous suivez %{author_name}. Vous pouvez désabonner cet utilisateur de sa page de profil.
           email_subject: Il y a un nouveau commentaire par %{author_name} dans %{resource_title}
           notification_title: Il y a un nouveau commentaire de <a href="%{author_path}">%{author_name} %{author_nickname}</a> dans <a href="%{resource_path}">%{resource_title}</a>.
