@@ -41,7 +41,7 @@ ca:
             proposal_wizard_step_1_help_text: Text del pas "Crear" de l'assistent de propostes
             proposal_wizard_step_2_help_text: Text del pas "Comparar" de l'assistent de propostes
             proposal_wizard_step_3_help_text: Text del pas "Publicar" de l'assistent de propostes
-            treshold_per_proposal: Treshold per proposta
+            threshold_per_proposal: Llindar per proposta
             vote_limit: Límit de suports per usuari
           step:
             announcement: Anunci
