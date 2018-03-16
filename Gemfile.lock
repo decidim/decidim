@@ -109,6 +109,8 @@ PATH
       webmock (~> 3.0)
       wisper-rspec (~> 1.0)
     decidim-meetings (0.11.0.pre)
+      cells-erb (~> 0.1.0)
+      cells-rails (~> 0.0.8)
       decidim-core (= 0.11.0.pre)
       httparty (~> 0.16.0)
       icalendar (~> 2.4)
@@ -281,8 +283,6 @@ GEM
       thread
       thread_safe
     equalizer (0.0.11)
-    erbse (0.1.2)
-      temple
     erb_lint (0.0.22)
       activesupport
       better_html (~> 1.0.6)
@@ -290,6 +290,8 @@ GEM
       html_tokenizer
       rubocop (~> 0.51)
       smart_properties
+    erbse (0.1.2)
+      temple
     erubi (1.7.1)
     execjs (2.7.0)
     factory_bot (4.8.2)
@@ -328,7 +330,7 @@ GEM
     highline (1.7.10)
     html_tokenizer (0.0.6)
     htmlentities (4.3.4)
-    httparty (0.16.0)
+    httparty (0.16.1)
       multi_xml (>= 0.5.2)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
