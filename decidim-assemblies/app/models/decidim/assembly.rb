@@ -4,6 +4,21 @@ module Decidim
   # Interaction between a user and an organization can be done via an Assembly.
   # It's a unit of action from the Organization point of view that groups
   # several components (proposals, debates...) that can be enabled or disabled.
+  #
+  # An assembly can have children. This is implemented using a PostgreSQL extension: LTREE
+  # The LTREE extension allows us to save, query on and manipulate trees (hierarchical data
+  # structures). It uses the path enumeration algorithm, which calls for each node in the
+  # tree to record the path from the root you would have to follow to reach that node.
+  #
+  # We use the `parents_path` column to save the path and query the tree. Example:
+  #
+  # A (root assembly) parent = null, parents_path = A
+  # B (root assembly) parent = null, parents_path = B
+  # |- C (child assembly of B, descendant of B) parent = B, parents_path = B.C
+  #    |- D (child assembly of C, descendant of B,C) parent = C, parents_path = B.C.D
+  #    |- E (child assembly of C, descendant of B,C) parent = C, parents_path = B.C.E
+  #       |- F (child assembly of E, descendant of B,C,E) parent = E, parents_path = B.C.E.F
+  #
   class Assembly < ApplicationRecord
     include Decidim::HasAttachments
     include Decidim::HasAttachmentCollections
@@ -77,11 +92,46 @@ module Decidim
 
     private
 
+    # When an assembly changes their parent, we need to update the parents_path attribute
+    # E.g. If we have the following tree:
+    #
+    # A (root assembly) parent = null, parents_path = A
+    # B (root assembly) parent = null, parents_path = B
+    # |- C (child assembly of B, descendant of B) parent = B, parents_path = B.C
+    #    |- D (child assembly of C, descendant of B,C) parent = C, parents_path = B.C.D
+    #
+    # And we change the parent of C to A, this function updates their parents_path attribute:
+    #
+    # |- C (child assembly of *A*, descendant of *A*) parent = *A*, parents_path = *A*.C
+    #
+    # Note: updating parents_path in their descendants is done in the `update_children_paths` function.
+    #
     # rubocop:disable Rails/SkipsModelValidations
     def set_parents_path
       update_column(:parents_path, [parent&.parents_path, id].select(&:present?).join("."))
     end
+    # rubocop:enable Rails/SkipsModelValidations
 
+    # When an assembly changes their parent, we need to update the parents_path attribute on their descendants
+    # E.g. If we have the following tree:
+    #
+    # A (root assembly) parent = null, parents_path = A
+    # B (root assembly) parent = null, parents_path = B
+    # |- C (child assembly of B, descendant of B) parent = B, parents_path = B.C
+    #    |- D (child assembly of C, descendant of B,C) parent = C, parents_path = B.C.D
+    #    |- E (child assembly of C, descendant of B,C) parent = C, parents_path = B.C.E
+    #       |- F (child assembly of E, descendant of B,C,E) parent = E, parents_path = B.C.E.F
+    #
+    # And we change the parent of C to A, this function updates the parents_path attribute in their
+    # descendants assemblies (D, E and F):
+    #
+    #    |- D (child assembly of C, descendant of *A*,C) parent = C, parents_path = *A*.C.D
+    #    |- E (child assembly of C, descendant of *A*,C) parent = C, parents_path = *A*.C.E
+    #       |- F (child assembly of E, descendant of *A*,C,E) parent = E, parents_path = *A*.C.E.F
+    #
+    # Note: updating parents_path of C (the assembly in which we have changed the parent) is done in the `set_parents_path` function.
+    #
+    # rubocop:disable Rails/SkipsModelValidations
     def update_children_paths
       self.class.where(
         ["#{self.class.table_name}.parents_path <@ :old_path AND #{self.class.table_name}.id != :id", old_path: parents_path_before_last_save, id: id]
