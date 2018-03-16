@@ -161,6 +161,28 @@ shared_examples "edit surveys" do
       expect(second_answer_option).to have_field("survey[questions][][answer_options][][body_en]", with: "Else")
     end
 
+    it "persists question form across submission failures" do
+      click_button "Add question"
+      select "Long answer", from: "Type"
+      click_button "Save"
+
+      expect(page).to have_select("Type", selected: "Long answer")
+    end
+
+    it "persists answer options form across submission failures" do
+      click_button "Add question"
+      select "Single option", from: "Type"
+      click_button "Add answer option"
+
+      within ".survey-question-answer-option:first-of-type" do
+        fill_in "survey[questions][][answer_options][][body_en]", with: "Something"
+      end
+
+      click_button "Save"
+
+      expect(page).to have_field("survey[questions][][answer_options][][body_en]", with: "Something")
+    end
+
     describe "when a survey has an existing question" do
       let!(:survey_question) { create(:survey_question, survey: survey, body: body) }
 
