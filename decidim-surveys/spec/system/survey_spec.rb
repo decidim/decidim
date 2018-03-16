@@ -140,6 +140,18 @@ describe "Answer a survey", type: :system do
         end
       end
 
+      context "when question type is short answer" do
+        let!(:survey_question_1) { create(:survey_question, survey: survey, question_type: "short_answer") }
+        let!(:survey_question_2) { create(:survey_question, survey: survey, question_type: "short_answer") }
+
+        it "renders the answer as a text field" do
+          visit_component
+
+          expect(page).to have_selector("input[type=text]#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body")
+          expect(page).to have_selector("input[type=text]#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body")
+        end
+      end
+
       context "when question type is single option" do
         let(:answer_options) { Array.new(4) { { "body" => Decidim::Faker::Localized.sentence } } }
         let!(:survey_question_1) { create(:survey_question, survey: survey, question_type: "single_option", answer_options: [answer_options[0], answer_options[1]]) }
