@@ -41,7 +41,7 @@ fi:
             proposal_wizard_step_1_help_text: Ohjattu ohjattu "Luo" vaiheen ohjeteksti
             proposal_wizard_step_2_help_text: Ohjattu ohjattu "Vertaile" vaiheen ohjeteksti
             proposal_wizard_step_3_help_text: Ohjattu ohjattu "julkaise" vaiheen ohjeteksti
-            treshold_per_proposal: Kynnys per ehdotus
+            threshold_per_proposal: Kynnys per ehdotus
             vote_limit: Äänestysraja käyttäjää kohden
           step:
             announcement: Ilmoitus
