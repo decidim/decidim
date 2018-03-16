@@ -308,7 +308,7 @@ fr:
     own_user_groups:
       index:
         pending: En attente
-        rejected: Refusée
+        rejected: Non retenue
         verified: Vérifié
     pages:
       index:
