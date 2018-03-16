@@ -8,6 +8,12 @@ en:
         mandatory: Mandatory
         max_choices: Maximum number of choices
         question_type: Type
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            body:
+              too_many_choices: has too many options checked
   decidim:
     components:
       surveys:

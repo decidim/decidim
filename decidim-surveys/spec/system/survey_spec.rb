@@ -207,12 +207,36 @@ describe "Answer a survey", type: :system do
           expect(page).to have_no_i18n_content(survey_question_2.body)
         end
 
-        it "includes the max number of choices in the label when they are set for the question" do
+        it "respects the max number of choices" do
           survey_question_2.update!(max_choices: 2)
 
           visit_component
 
           expect(page).to have_content("Max choices: 2")
+
+          within "#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options" do
+            check answer_options[2]["body"][:en]
+            check answer_options[3]["body"][:en]
+            check answer_options[4]["body"][:en]
+          end
+
+          check "survey_tos_agreement"
+
+          accept_confirm { click_button "Submit" }
+
+          within ".alert.flash" do
+            expect(page).to have_content("There's been errors when answering the survey.")
+          end
+
+          expect(page).to have_content("has too many options checked")
+
+          uncheck answer_options[4]["body"][:en]
+
+          accept_confirm { click_button "Submit" }
+
+          within ".success.flash" do
+            expect(page).to have_content("successfully")
+          end
         end
       end
 
