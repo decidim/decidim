@@ -62,7 +62,7 @@ module Decidim
 
         def parent
           @parent ||= OrganizationAssemblies.new(current_organization).query.where(id: parent_id).first
-		end
+        end
 
         def processes_for_select
           @processes_for_select ||= Decidim.find_participatory_space_manifest(:participatory_processes)
