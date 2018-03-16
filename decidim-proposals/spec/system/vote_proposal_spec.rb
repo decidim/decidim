@@ -288,7 +288,7 @@ describe "Vote Proposal", type: :system do
       let!(:component) do
         create(:proposal_component,
                :with_votes_enabled,
-               :with_treshold_per_proposal,
+               :with_threshold_per_proposal,
                manifest: manifest,
                participatory_space: participatory_process)
       end
@@ -327,7 +327,7 @@ describe "Vote Proposal", type: :system do
       let!(:component) do
         create(:proposal_component,
                :with_votes_enabled,
-               :with_treshold_per_proposal,
+               :with_threshold_per_proposal,
                :with_can_accumulate_supports_beyond_threshold,
                manifest: manifest,
                participatory_space: participatory_process)
