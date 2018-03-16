@@ -24,6 +24,8 @@ module Decidim
 
           if assembly.persisted?
             add_admins_as_followers(assembly)
+            link_participatory_processes(assembly)
+
             broadcast(:ok, assembly)
           else
             form.errors.add(:hero_image, assembly.errors[:hero_image]) if assembly.errors.include? :hero_image
@@ -53,6 +55,7 @@ module Decidim
             scopes_enabled: form.scopes_enabled,
             scope: form.scope,
             area: form.area,
+            private_space: form.private_space,
             developer_group: form.developer_group,
             local_area: form.local_area,
             target: form.target,
@@ -73,6 +76,14 @@ module Decidim
 
             Decidim::CreateFollow.new(form, admin).call
           end
+        end
+
+        def participatory_processes(assembly)
+          @participatory_processes ||= assembly.participatory_space_sibling_scope(:participatory_processes).where(id: @form.participatory_processes_ids)
+        end
+
+        def link_participatory_processes(assembly)
+          assembly.link_participatory_spaces_resources(participatory_processes(assembly), "included_participatory_processes")
         end
       end
     end

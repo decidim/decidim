@@ -11,6 +11,7 @@ it:
   decidim:
     budgets:
       actions:
+        attachment_collections: collezioni
         attachments: Allegati
         confirm_destroy: Sei certo di voler cancellare questo progetto?
         destroy: Cancella
@@ -41,6 +42,11 @@ it:
           update:
             invalid: C'è stato un problema durante l'aggiornamento di questo progetto.
             success: OK, progetto aggiornato.
+      admin_log:
+        project:
+          create: "%{user_name} ha creato il progetto %{resource_name} nello spazio %{space_name}"
+          delete: "%{user_name} eliminato il progetto %{resource_name} nello spazio %{space_name}"
+          update: "%{user_name} ha aggiornato il progetto %{resource_name} nello spazio %{space_name}"
       models:
         project:
           fields:
@@ -99,21 +105,21 @@ it:
         show:
           budget: Budget
           view_all_projects: Visualizza tutti i progetti
-    features:
+    components:
       budgets:
         actions:
           vote: Votazione
-        name: Investimenti
+        name: i bilanci
         settings:
           global:
             announcement: Annuncio
             comments_enabled: Commenti abilitati
             total_budget: Budget totale
-            vote_threshold_percent: Soglia voti (percentuale)
+            vote_threshold_percent: Vota la percentuale di soglia
           step:
             announcement: Annuncio
             comments_blocked: Commenti bloccati
-            show_votes: Visualizza voti
+            show_votes: Mostra voti
             votes_enabled: Voti abilitati
     orders:
       checkout:

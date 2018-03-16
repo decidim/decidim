@@ -11,7 +11,7 @@ module Decidim
 
       it { is_expected.to be_valid }
 
-      include_examples "has feature"
+      include_examples "has component"
     end
   end
 end

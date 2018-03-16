@@ -4,11 +4,11 @@ require "spec_helper"
 
 module Decidim
   describe ActionController::Base, type: :controller do
-    let(:feature) { create(:feature) }
-    let(:participatory_process) { feature.participatory_space }
+    let(:component) { create(:component) }
+    let(:participatory_process) { component.participatory_space }
 
     before do
-      allow(controller).to receive(:current_feature).and_return(feature)
+      allow(controller).to receive(:current_component).and_return(component)
     end
 
     controller do
@@ -21,10 +21,10 @@ module Decidim
       end
     end
 
-    describe "#feature_settings" do
-      it "returns the current feature's configuration" do
-        expect(controller.feature_settings)
-          .to be_equivalent_to(feature.settings)
+    describe "#component_settings" do
+      it "returns the current component's configuration" do
+        expect(controller.component_settings)
+          .to be_equivalent_to(component.settings)
       end
     end
 
@@ -32,7 +32,7 @@ module Decidim
       context "when no step is active" do
         it "returns the default step settings" do
           expect(controller.current_settings)
-            .to be_equivalent_to(feature.default_step_settings)
+            .to be_equivalent_to(component.default_step_settings)
         end
       end
 
@@ -45,7 +45,7 @@ module Decidim
 
         it "returns the settings for the active step" do
           expect(controller.current_settings)
-            .to be_equivalent_to(feature.step_settings[step.id.to_s])
+            .to be_equivalent_to(component.step_settings[step.id.to_s])
         end
       end
     end

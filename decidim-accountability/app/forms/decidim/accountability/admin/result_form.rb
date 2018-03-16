@@ -26,12 +26,13 @@ module Decidim
 
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
-        validate { errors.add(:decidim_scope_id, :invalid) if current_participatory_space&.scope && !current_participatory_space&.scope&.ancestor_of?(scope) }
 
         validates :parent, presence: true, if: ->(form) { form.parent_id.present? }
         validates :status, presence: true, if: ->(form) { form.decidim_accountability_status_id.present? }
 
-        delegate :categories, to: :current_feature
+        validate :scope_belongs_to_participatory_space_scope
+
+        delegate :categories, to: :current_component
 
         def map_model(model)
           self.proposal_ids = model.linked_resources(:proposals, "included_proposals").pluck(:id)
@@ -40,11 +41,14 @@ module Decidim
         end
 
         def proposals
-          @proposals ||= Decidim.find_resource_manifest(:proposals).try(:resource_scope, current_feature)&.order(title: :asc)&.pluck(:title, :id)
+          @proposals ||= Decidim.find_resource_manifest(:proposals)
+                                .try(:resource_scope, current_component)
+                                &.where(id: proposal_ids)
+                                &.order(title: :asc)
         end
 
         def projects
-          @projects ||= Decidim.find_resource_manifest(:projects).try(:resource_scope, current_feature)&.order(title: :asc)
+          @projects ||= Decidim.find_resource_manifest(:projects).try(:resource_scope, current_component)&.order(title: :asc)
                                &.select(:title, :id)&.map { |a| [a.title[I18n.locale.to_s], a.id] }
         end
 
@@ -52,7 +56,7 @@ module Decidim
         #
         # Returns a Decidim::Scope
         def scope
-          @scope ||= @decidim_scope_id ? current_feature.scopes.find_by(id: @decidim_scope_id) : current_participatory_space&.scope
+          @scope ||= @decidim_scope_id ? current_participatory_space.scopes.find_by(id: @decidim_scope_id) : current_participatory_space.scope
         end
 
         # Scope identifier
@@ -67,11 +71,17 @@ module Decidim
         end
 
         def parent
-          @parent ||= Decidim::Accountability::Result.find_by(feature: current_feature, id: parent_id)
+          @parent ||= Decidim::Accountability::Result.find_by(component: current_component, id: parent_id)
         end
 
         def status
-          @status ||= Decidim::Accountability::Status.find_by(feature: current_feature, id: decidim_accountability_status_id)
+          @status ||= Decidim::Accountability::Status.find_by(component: current_component, id: decidim_accountability_status_id)
+        end
+
+        private
+
+        def scope_belongs_to_participatory_space_scope
+          errors.add(:decidim_scope_id, :invalid) if current_participatory_space.out_of_scope?(scope)
         end
       end
     end

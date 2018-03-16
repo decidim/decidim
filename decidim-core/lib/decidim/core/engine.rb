@@ -37,8 +37,6 @@ require "cells-erb"
 
 require "decidim/api"
 
-require "decidim/query_extensions"
-
 module Decidim
   module Core
     # Decidim's core Rails Engine.
@@ -60,8 +58,8 @@ module Decidim
         app.config.assets.paths << File.expand_path("../../../app/assets/stylesheets", __dir__)
         app.config.assets.precompile += %w(decidim_core_manifest.js)
 
-        Decidim.feature_manifests.each do |feature|
-          app.config.assets.precompile += [feature.icon]
+        Decidim.component_manifests.each do |component|
+          app.config.assets.precompile += [component.icon]
         end
 
         app.config.assets.debug = true if Rails.env.test?

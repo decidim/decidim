@@ -10,12 +10,12 @@ module Decidim::Accountability
     let(:context) do
       {
         current_organization: organization,
-        current_feature: current_feature,
+        current_component: current_component,
         current_participatory_space: participatory_process
       }
     end
     let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:current_feature) { create :accountability_feature, participatory_space: participatory_process }
+    let(:current_component) { create :accountability_component, participatory_space: participatory_process }
     let(:title) do
       Decidim::Faker::Localized.sentence(3)
     end
@@ -26,11 +26,11 @@ module Decidim::Accountability
     let(:scope_id) { scope.id }
     let(:category) { create :category, participatory_space: participatory_process }
     let(:category_id) { category.id }
-    let(:parent) { create :result, scope: scope, feature: current_feature }
+    let(:parent) { create :result, scope: scope, component: current_component }
     let(:parent_id) { parent.id }
     let(:start_date) { "12/3/2017" }
     let(:end_date) { "21/6/2017" }
-    let(:status) { create :status, feature: current_feature, key: "ongoing", name: { en: "Ongoing" } }
+    let(:status) { create :status, component: current_component, key: "ongoing", name: { en: "Ongoing" } }
     let(:status_id) { status.id }
     let(:progress) { 89 }
 
@@ -87,28 +87,32 @@ module Decidim::Accountability
     end
 
     context "with proposals" do
-      let(:proposals_feature) { create :feature, manifest_name: :proposals, participatory_space: participatory_process }
-      let!(:proposal) { create :proposal, feature: proposals_feature }
+      subject { described_class.from_model(result).with_context(context) }
+
+      let(:proposals_component) { create :component, manifest_name: :proposals, participatory_space: participatory_process }
+      let!(:proposal) { create :proposal, component: proposals_component }
+
+      let(:result) do
+        create(
+          :result,
+          component: current_component,
+          scope: scope,
+          category: category
+        )
+      end
 
       describe "#proposals" do
+        before do
+          result.link_resources([proposal], "included_proposals")
+        end
+
         it "returns the available proposals in a way suitable for the form" do
           expect(subject.proposals)
-            .to eq([[proposal.title, proposal.id]])
+            .to eq([proposal])
         end
       end
 
       describe "#map_model" do
-        subject { described_class.from_model(result).with_context(context) }
-
-        let(:result) do
-          create(
-            :result,
-            feature: current_feature,
-            scope: scope,
-            category: category
-          )
-        end
-
         it "sets the proposal_ids correctly" do
           result.link_resources([proposal], "included_proposals")
           expect(subject.proposal_ids).to eq [proposal.id]
@@ -118,8 +122,8 @@ module Decidim::Accountability
     end
 
     context "with projects" do
-      let(:projects_feature) { create :feature, manifest_name: :budgets, participatory_space: participatory_process }
-      let!(:project) { create :project, feature: projects_feature }
+      let(:projects_component) { create :component, manifest_name: :budgets, participatory_space: participatory_process }
+      let!(:project) { create :project, component: projects_component }
 
       describe "#projects" do
         it "returns the available projects in a way suitable for the form" do
@@ -134,7 +138,7 @@ module Decidim::Accountability
         let(:result) do
           create(
             :result,
-            feature: current_feature,
+            component: current_component,
             scope: scope,
             category: category
           )

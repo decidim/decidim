@@ -109,7 +109,7 @@ shared_examples "manage meetings" do
   end
 
   describe "deleting a meeting" do
-    let!(:meeting2) { create(:meeting, feature: current_feature) }
+    let!(:meeting2) { create(:meeting, component: current_component) }
 
     before do
       visit current_path
@@ -217,10 +217,10 @@ shared_examples "manage meetings" do
   end
 
   describe "closing a meeting" do
-    let(:proposal_feature) do
-      create(:feature, manifest_name: :proposals, participatory_space: meeting.feature.participatory_space)
+    let(:proposal_component) do
+      create(:component, manifest_name: :proposals, participatory_space: meeting.component.participatory_space)
     end
-    let!(:proposals) { create_list(:proposal, 3, feature: proposal_feature) }
+    let!(:proposals) { create_list(:proposal, 3, component: proposal_component) }
 
     it "closes a meeting with a report" do
       within find("tr", text: translated(meeting.title)) do
@@ -250,7 +250,7 @@ shared_examples "manage meetings" do
     end
 
     context "when a meeting has alredy been closed" do
-      let!(:meeting) { create(:meeting, :closed, feature: current_feature) }
+      let!(:meeting) { create(:meeting, :closed, component: current_component) }
 
       it "can update the information" do
         within find("tr", text: translated(meeting.title)) do

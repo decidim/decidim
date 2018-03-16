@@ -74,16 +74,16 @@ module Decidim::ParticipatoryProcesses
         subject.call
       end
 
-      context "when the process has some features" do
-        let!(:feature) do
-          create(:feature, manifest_name: "dummy", participatory_space: participatory_process)
+      context "when the process has some components" do
+        let!(:component) do
+          create(:component, manifest_name: "dummy", participatory_space: participatory_process)
         end
 
-        it "publishes the settings change for each feature in the process" do
+        it "publishes the settings change for each component in the process" do
           expect(Decidim::SettingsChange).to receive(:publish).with(
-            feature,
-            feature.step_settings[active_step.id.to_s].to_h,
-            feature.step_settings[process_step.id.to_s].to_h
+            component,
+            component.step_settings[active_step.id.to_s].to_h,
+            component.step_settings[process_step.id.to_s].to_h
           )
 
           subject.call

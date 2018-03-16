@@ -8,12 +8,10 @@ module Decidim
         # Public: Initializes the command.
         #
         # form         - A form object with the params.
-        # current_user - The current user.
         # proposal - the proposal to relate.
-        def initialize(form, proposal, current_user)
+        def initialize(form, proposal)
           @form = form
           @proposal = proposal
-          @current_user = current_user
         end
 
         # Executes the command. Broadcasts these events:
@@ -32,13 +30,20 @@ module Decidim
 
         private
 
-        attr_reader :form, :proposal_note
+        attr_reader :form, :proposal_note, :proposal
 
         def create_proposal_note
-          @proposal_note = ProposalNote.create!(
-            body: form.body,
-            proposal: @proposal,
-            author: @current_user
+          @proposal_note = Decidim.traceability.create!(
+            ProposalNote,
+            form.current_user,
+            {
+              body: form.body,
+              proposal: proposal,
+              author: form.current_user
+            },
+            resource: {
+              title: proposal.title
+            }
           )
         end
       end

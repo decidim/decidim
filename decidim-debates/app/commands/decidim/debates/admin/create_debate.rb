@@ -28,7 +28,9 @@ module Decidim
         attr_reader :debate, :form
 
         def create_debate
-          @debate = Debate.create!(
+          @debate = Decidim.traceability.create!(
+            Debate,
+            form.current_user,
             category: form.category,
             title: form.title,
             description: form.description,
@@ -36,7 +38,7 @@ module Decidim
             instructions: form.instructions,
             end_time: form.end_time,
             start_time: form.start_time,
-            feature: form.current_feature
+            component: form.current_component
           )
         end
 
@@ -45,7 +47,7 @@ module Decidim
             event: "decidim.events.debates.debate_created",
             event_class: Decidim::Debates::CreateDebateEvent,
             resource: debate,
-            recipient_ids: form.current_feature.participatory_space.followers.pluck(:id),
+            recipient_ids: form.current_component.participatory_space.followers.pluck(:id),
             extra: {
               type: "participatory_space"
             }

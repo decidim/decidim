@@ -3,7 +3,7 @@
 require "decidim/accountability/admin"
 require "decidim/accountability/engine"
 require "decidim/accountability/admin_engine"
-require "decidim/accountability/feature"
+require "decidim/accountability/component"
 
 module Decidim
   # Base module for this engine.

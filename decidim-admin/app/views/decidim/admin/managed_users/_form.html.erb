@@ -1,5 +1,5 @@
 <div class="row column">
-  <%= form.text_field :name, label: t('.name') %>
+  <%= form.text_field :name, label: t(".name") %>
 
   <%= form.fields_for :authorization, form.object.authorization, builder: Decidim::AuthorizationFormBuilder do |f| %>
     <% if lookup_context.exists?(form.object.authorization.to_partial_path, [], true) %>

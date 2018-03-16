@@ -22,10 +22,11 @@ module Decidim
       validates :address, presence: true, if: ->(form) { form.has_address? }
       validates :category, presence: true, if: ->(form) { form.category_id.present? }
       validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
-      validate { errors.add(:scope_id, :invalid) if current_participatory_space&.scope && !current_participatory_space&.scope&.ancestor_of?(scope) }
-      validate :proposal_length
 
-      delegate :categories, to: :current_feature
+      validate :proposal_length
+      validate :scope_belongs_to_participatory_space_scope
+
+      delegate :categories, to: :current_component
 
       def map_model(model)
         return unless model.categorization
@@ -33,7 +34,7 @@ module Decidim
         self.category_id = model.categorization.decidim_category_id
       end
 
-      alias feature current_feature
+      alias component current_component
       # Finds the Category from the category_id.
       #
       # Returns a Decidim::Category
@@ -45,7 +46,7 @@ module Decidim
       #
       # Returns a Decidim::Scope
       def scope
-        @scope ||= @scope_id ? current_feature.scopes.find_by(id: @scope_id) : current_participatory_space&.scope
+        @scope ||= @scope_id ? current_participatory_space.scopes.find_by(id: @scope_id) : current_participatory_space.scope
       end
 
       # Scope identifier
@@ -56,13 +57,19 @@ module Decidim
       end
 
       def has_address?
-        current_feature.settings.geocoding_enabled? && has_address
+        current_component.settings.geocoding_enabled? && has_address
       end
+
+      private
 
       def proposal_length
         return unless body.presence
-        length = current_feature.settings.proposal_length
+        length = current_component.settings.proposal_length
         errors.add(:body, :too_long, count: length) if body.length > length
+      end
+
+      def scope_belongs_to_participatory_space_scope
+        errors.add(:scope_id, :invalid) if current_participatory_space.out_of_scope?(scope)
       end
     end
   end

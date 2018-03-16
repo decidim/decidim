@@ -24,8 +24,8 @@ module Decidim
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
 
         def category
-          return unless current_feature
-          @category ||= current_feature.categories.where(id: decidim_category_id).first
+          return unless current_component
+          @category ||= current_component.categories.where(id: decidim_category_id).first
         end
       end
     end

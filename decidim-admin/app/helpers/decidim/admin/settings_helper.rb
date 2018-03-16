@@ -2,7 +2,7 @@
 
 module Decidim
   module Admin
-    # This class contains helpers needed in order for feature settings to
+    # This class contains helpers needed in order for component settings to
     # properly render.
     module SettingsHelper
       TYPES = {

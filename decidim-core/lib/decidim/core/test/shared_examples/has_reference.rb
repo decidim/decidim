@@ -14,7 +14,7 @@ shared_examples_for "has reference" do
 
     context "when there is a custom resource reference generator present" do
       before do
-        allow(Decidim).to receive(:reference_generator).and_return(->(resource, _feature) { "1234-#{resource.id}" })
+        allow(Decidim).to receive(:reference_generator).and_return(->(resource, _component) { "1234-#{resource.id}" })
       end
 
       it "generates a valid reference" do

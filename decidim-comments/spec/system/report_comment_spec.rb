@@ -3,18 +3,18 @@
 require "spec_helper"
 
 describe "Report Comment", type: :system do
-  include_context "with a feature"
+  include_context "with a component"
 
   let(:manifest_name) { "dummy" }
-  let!(:commentable) { create(:dummy_resource, feature: feature) }
+  let!(:commentable) { create(:dummy_resource, component: component) }
   let!(:reportable) { create(:comment, commentable: commentable) }
   let(:reportable_path) { resource_locator(commentable).path }
 
   let!(:user) { create :user, :confirmed, organization: organization }
 
-  let!(:feature) do
+  let!(:component) do
     create(
-      :feature,
+      :component,
       manifest: manifest,
       participatory_space: participatory_process
     )
