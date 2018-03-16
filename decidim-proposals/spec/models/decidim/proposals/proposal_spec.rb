@@ -110,7 +110,7 @@ module Decidim
 
         context "when the feature's settings are set to an integer bigger than 0" do
           before do
-            feature[:settings]["global"] = { maximum_votes_per_proposal: 10 }
+            feature[:settings]["global"] = { threshold_per_proposal: 10 }
             feature.save!
           end
 
@@ -121,7 +121,7 @@ module Decidim
 
         context "when the feature's settings are set to 0" do
           before do
-            feature[:settings]["global"] = { maximum_votes_per_proposal: 0 }
+            feature[:settings]["global"] = { threshold_per_proposal: 0 }
             feature.save!
           end
 
