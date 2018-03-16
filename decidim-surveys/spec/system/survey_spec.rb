@@ -174,15 +174,16 @@ describe "Answer a survey", type: :system do
       end
 
       context "when question type is multiple option" do
-        let(:answer_options) { Array.new(4) { { "body" => Decidim::Faker::Localized.sentence } } }
+        let(:answer_options) { Array.new(5) { { "body" => Decidim::Faker::Localized.sentence } } }
         let!(:survey_question_1) { create(:survey_question, survey: survey, question_type: "multiple_option", answer_options: [answer_options[0], answer_options[1]]) }
-        let!(:survey_question_2) { create(:survey_question, survey: survey, question_type: "multiple_option", answer_options: [answer_options[2], answer_options[3]]) }
+        let!(:survey_question_2) { create(:survey_question, survey: survey, question_type: "multiple_option", answer_options: [answer_options[2], answer_options[3], answer_options[4]]) }
 
         it "the question answers are rendered as a collection of radio buttons" do
           visit_component
 
           expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type='checkbox']", count: 2)
-          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type='checkbox']", count: 2)
+          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type='checkbox']", count: 3)
+          expect(page).to have_no_content("Max choices:")
 
           within "#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options" do
             check answer_options[0]["body"][:en]
@@ -204,6 +205,14 @@ describe "Answer a survey", type: :system do
           expect(page).to have_content("You have already answered this survey.")
           expect(page).to have_no_i18n_content(survey_question_1.body)
           expect(page).to have_no_i18n_content(survey_question_2.body)
+        end
+
+        it "includes the max number of choices in the label when they are set for the question" do
+          survey_question_2.update!(max_choices: 2)
+
+          visit_component
+
+          expect(page).to have_content("Max choices: 2")
         end
       end
 
