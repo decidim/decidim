@@ -22,8 +22,6 @@
 
 <div class="survey-questions">
   <% if survey.questions_editable? %>
-    <button class="button add-question"><%= t(".add_question") %></button>
-
     <template id="survey-question-tmpl">
       <%= render "question", question: blank_question %>
     </template>
@@ -42,6 +40,10 @@
       <%= render "question", question: question %>
     <% end %>
   </div>
+
+  <% if survey.questions_editable? %>
+    <button class="button add-question"><%= t(".add_question") %></button>
+  <% end %>
 </div>
 
 <%= javascript_include_tag "decidim/surveys/admin/surveys" %>
