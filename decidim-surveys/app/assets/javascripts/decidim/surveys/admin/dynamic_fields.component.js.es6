@@ -63,7 +63,6 @@
 
       const $newField = $.tmpl(this.templateId, { tabsId });
 
-      $newField.attr('id', `${tabsId}-field`);
       $newField.find('[disabled]').attr('disabled', false);
       $newField.find('ul.tabs').attr('data-tabs', true);
 
