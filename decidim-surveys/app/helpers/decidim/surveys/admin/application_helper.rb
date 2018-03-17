@@ -11,8 +11,8 @@ module Decidim
           "${tabsId}"
         end
 
-        def tabs_id_for_question_answer_option(question, idx)
-          return "survey-question-answer-option-#{question.id}-#{idx}" if question.persisted?
+        def tabs_id_for_question_answer_option(answer_option, idx)
+          return "survey-question-answer-option-#{answer_option.question.id}-#{idx}" if answer_option.persisted?
           "${tabsId}"
         end
       end

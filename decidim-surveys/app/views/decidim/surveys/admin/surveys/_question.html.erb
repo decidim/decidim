@@ -74,7 +74,7 @@
 
       <div class="survey-question-answer-options-list">
         <% question.answer_options.each_with_index do |answer_option, idx| %>
-          <%= render "answer_option", question: question, answer_option: answer_option, idx: idx %>
+          <%= render "answer_option", answer_option: answer_option, idx: idx %>
         <% end %>
       </div>
     </div>
