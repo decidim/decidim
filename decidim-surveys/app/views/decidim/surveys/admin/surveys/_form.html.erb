@@ -38,7 +38,7 @@
   <% end %>
 
   <div class="survey-questions-list">
-    <% @form.questions.each_with_index do |question, idx| %>
+    <% @form.questions.each do |question| %>
       <%= render "question", question: question, id: tabs_id_for_question(question) %>
     <% end %>
   </div>
