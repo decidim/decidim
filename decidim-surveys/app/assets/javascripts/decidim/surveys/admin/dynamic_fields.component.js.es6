@@ -14,12 +14,14 @@
       this.onMoveUpField = options.onMoveUpField;
       this.onMoveDownField = options.onMoveDownField;
       this.tabsPrefix = options.tabsPrefix;
-      this._compileTemplate();
+      this._enableInterpolation();
       this._bindEvents();
     }
 
-    _compileTemplate() {
-      $.template(this.templateId, $(`#${this.templateId}`).html());
+    _enableInterpolation() {
+      $.fn.template = function(placeholder, value) {
+        return $($(this).html().replace(new RegExp(placeholder, "g"), value));
+      }
     }
 
     _bindEvents() {
@@ -60,8 +62,9 @@
       const $container = $(this.wrapperSelector).find(this.containerSelector);
       const uid = this._getUID();
       const tabsId = `${this.tabsPrefix}-${uid}`;
+      const oldTabsId = `${this.tabsPrefix}-id`;
 
-      const $newField = $.tmpl(this.templateId, { tabsId });
+      const $newField = $(`#${this.templateId}`).template(oldTabsId, tabsId);
 
       $newField.find('[disabled]').attr('disabled', false);
       $newField.find('ul.tabs').attr('data-tabs', true);
