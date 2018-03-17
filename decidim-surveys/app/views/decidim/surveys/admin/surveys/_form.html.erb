@@ -25,7 +25,7 @@
     <button class="button add-question"><%= t(".add_question") %></button>
 
     <template id="survey-question-tmpl">
-      <%= render "question", question: blank_question %>
+      <%= render "question", question: blank_question, id: tabs_id_for_question(blank_question) %>
     </template>
 
     <template id="survey-question-answer-option-tmpl">
@@ -39,7 +39,7 @@
 
   <div class="survey-questions-list">
     <% @form.questions.each_with_index do |question, idx| %>
-      <%= render "question", question: question %>
+      <%= render "question", question: question, id: tabs_id_for_question(question) %>
     <% end %>
   </div>
 </div>

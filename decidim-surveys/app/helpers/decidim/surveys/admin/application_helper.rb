@@ -15,20 +15,6 @@ module Decidim
           return "survey-question-answer-option-#{question.id}-#{idx}" if question.present?
           "${tabsId}"
         end
-
-        def mandatory_id_for_question(question)
-          question_attribute_id(question, "mandatory")
-        end
-
-        def question_type_id_for_question(question)
-          question_attribute_id(question, "question_type")
-        end
-
-        private
-
-        def question_attribute_id(question, attribute)
-          "#{tabs_id_for_question(question)}-#{attribute}"
-        end
       end
     end
   end
