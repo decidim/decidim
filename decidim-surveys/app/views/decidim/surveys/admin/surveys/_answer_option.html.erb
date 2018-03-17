@@ -21,7 +21,7 @@
           tabs_id: tabs_id_for_question_answer_option(question, idx),
           label: t(".statement"),
           disabled: !survey.questions_editable?,
-          enable_tabs: question.present?
+          enable_tabs: question.persisted?
         )
       %>
     </div>
