@@ -209,8 +209,8 @@ shared_examples "edit surveys" do
 
         expect(page).to have_selector("input[value='Modified question']")
         expect(page).to have_no_selector("input[value='This is the first question']")
-        expect(page).to have_selector("input#survey_questions_#{survey_question.id}_mandatory[checked]")
-        expect(page).to have_selector("select#survey_questions_#{survey_question.id}_question_type option[value='long_answer'][selected]")
+        expect(page).to have_selector("input#survey-question-#{survey_question.id}-mandatory[checked]")
+        expect(page).to have_selector("select#survey-question-#{survey_question.id}-question_type option[value='long_answer'][selected]")
       end
 
       it "re-renders the form when the information is invalid" do
@@ -230,8 +230,8 @@ shared_examples "edit surveys" do
 
         expect(page).to have_selector("input[value='']")
         expect(page).to have_no_selector("input[value='This is the first question']")
-        expect(page).to have_selector("input#survey_questions_#{survey_question.id}_mandatory[checked]")
-        expect(page).to have_selector("select#survey_questions_#{survey_question.id}_question_type option[value='multiple_option'][selected]")
+        expect(page).to have_selector("input#survey-question-#{survey_question.id}-mandatory[checked]")
+        expect(page).to have_selector("select#survey-question-#{survey_question.id}-question_type option[value='multiple_option'][selected]")
       end
 
       it "removes the question" do

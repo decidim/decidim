@@ -27,8 +27,8 @@ module Decidim
         private
 
         def question_attribute_id(question, attribute)
-          return "survey_questions_#{question.id}_#{attribute}" if question.persisted?
-          "${tabsId}_#{attribute}"
+          return "survey-question-#{question.id}-#{attribute}" if question.persisted?
+          "${tabsId}-#{attribute}"
         end
       end
     end
