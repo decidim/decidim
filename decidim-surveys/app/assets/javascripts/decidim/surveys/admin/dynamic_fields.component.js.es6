@@ -63,7 +63,6 @@
       const $container = $(this.wrapperSelector).find(this.containerSelector);
       const $newField = $($(`#${this.templateId}`).html()).template(this._getPlaceholderTabId(), this._getUniqueTabId());
 
-      $newField.find('[disabled]').attr('disabled', false);
       $newField.find('ul.tabs').attr('data-tabs', true);
 
       $newField.appendTo($container);
