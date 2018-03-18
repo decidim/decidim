@@ -183,6 +183,22 @@ shared_examples "edit surveys" do
       expect(page).to have_field("survey[questions][][answer_options][][body_en]", with: "Something")
     end
 
+    it "allows switching translated field tabs after form failures" do
+      click_button "Add question"
+      click_button "Save"
+
+      within ".survey-question:first-of-type" do
+        fill_in "survey[questions][][body_en]", with: "Bye"
+        click_link "Català"
+
+        fill_in "survey[questions][][body_ca]", with: "Adeu"
+        click_link "English"
+      end
+
+      expect(page).to have_field("survey[questions][][body_en]", with: "Bye")
+      expect(page).to have_no_field("survey[questions][][body_ca]", with: "Adeu")
+    end
+
     describe "when a survey has an existing question" do
       let!(:survey_question) { create(:survey_question, survey: survey, body: body) }
 

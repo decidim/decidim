@@ -15,12 +15,13 @@
       this.onMoveDownField = options.onMoveDownField;
       this.tabsPrefix = options.tabsPrefix;
       this._enableInterpolation();
+      this._activateFields();
       this._bindEvents();
     }
 
     _enableInterpolation() {
       $.fn.template = function(placeholder, value) {
-        return $($(this).html().replace(new RegExp(placeholder, "g"), value));
+        return $(this).html((id, oldHtml) => oldHtml.replace(new RegExp(placeholder, "g"), value));
       }
     }
 
@@ -60,7 +61,7 @@
 
     _addField() {
       const $container = $(this.wrapperSelector).find(this.containerSelector);
-      const $newField = $(`#${this.templateId}`).template(this._getPlaceholderTabId(), this._getUniqueTabId());
+      const $newField = $($(`#${this.templateId}`).html()).template(this._getPlaceholderTabId(), this._getUniqueTabId());
 
       $newField.find('[disabled]').attr('disabled', false);
       $newField.find('ul.tabs').attr('data-tabs', true);
@@ -116,6 +117,14 @@
       if (this.onMoveDownField) {
         this.onMoveDownField($movedDownField);
       }
+    }
+
+    _activateFields() {
+      $(this.fieldSelector).each((idx, el) => {
+        $(el).template(this._getPlaceholderTabId(), this._getUniqueTabId());
+
+        $(el).find('ul.tabs').attr('data-tabs', true);
+      })
     }
 
     _getPlaceholderTabId() {
