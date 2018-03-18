@@ -60,11 +60,7 @@
 
     _addField() {
       const $container = $(this.wrapperSelector).find(this.containerSelector);
-      const uid = this._getUID();
-      const tabsId = `${this.tabsPrefix}-${uid}`;
-      const oldTabsId = `${this.tabsPrefix}-id`;
-
-      const $newField = $(`#${this.templateId}`).template(oldTabsId, tabsId);
+      const $newField = $(`#${this.templateId}`).template(this._getPlaceholderTabId(), this._getUniqueTabId());
 
       $newField.find('[disabled]').attr('disabled', false);
       $newField.find('ul.tabs').attr('data-tabs', true);
@@ -120,6 +116,14 @@
       if (this.onMoveDownField) {
         this.onMoveDownField($movedDownField);
       }
+    }
+
+    _getPlaceholderTabId() {
+      return `${this.tabsPrefix}-id`;
+    }
+
+    _getUniqueTabId() {
+      return `${this.tabsPrefix}-${this._getUID()}`;
     }
 
     _getUID() {
