@@ -21,7 +21,28 @@
 
     _enableInterpolation() {
       $.fn.template = function(placeholder, value) {
-        return $(this).html((id, oldHtml) => oldHtml.replace(new RegExp(placeholder, "g"), value));
+        $(this).find(`[id^=${placeholder}]`).each((index, element) => {
+          $(element).attr("id", $(element).attr("id").replace(placeholder, value));
+        });
+
+        $(this).find(`[data-tabs-content=${placeholder}]`).each((index, element) => {
+          $(element).attr("data-tabs-content", value);
+        });
+
+        $(this).find(`[for^=${placeholder}]`).each((index, element) => {
+          $(element).attr("for", $(element).attr("for").replace(placeholder, value));
+        });
+
+        $(this).find(`[tabs_id=${placeholder}]`).each((index, element) => {
+          $(element).attr("tabs_id", value);
+        });
+
+
+        $(this).find(`[href^='#${placeholder}']`).each((index, element) => {
+          $(element).attr("href", $(element).attr("href").replace(placeholder, value));
+        });
+
+        return this;
       }
     }
 
