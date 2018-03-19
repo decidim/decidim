@@ -286,6 +286,7 @@ pl:
       statistics:
         answers_count: Odpowiedzi
         comments_count: Komentarze
+        debates_count: Debaty
         endorsements_count: Adnotacje
         headline: Czynność
         meetings_count: Spotkania
