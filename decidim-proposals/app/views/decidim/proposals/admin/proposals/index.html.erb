@@ -48,7 +48,7 @@
               </th>
             <% end %>
 
-            <% if can? :create, Decidim::Proposals::ProposalNote %>
+            <% if allowed_to? :create, :proposal_note %>
               <th>
                 <%= sort_link(query, :proposal_notes_count, t("models.proposal.fields.notes", scope: "decidim.proposals") ) %>
               </th>
