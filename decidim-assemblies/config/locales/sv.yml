@@ -161,6 +161,7 @@ sv:
         answers_count: svar
         assemblies_count: Assemblies
         comments_count: kommentarer
+        debates_count: debatter
         endorsements_count: påskrifter
         headline: Aktivitet
         meetings_count: möten
