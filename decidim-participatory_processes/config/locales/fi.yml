@@ -286,6 +286,7 @@ fi:
       statistics:
         answers_count: Vastaukset
         comments_count: Kommentit
+        debates_count: keskustelut
         endorsements_count: merkintöjen
         headline: Tilastot
         meetings_count: Tapaamiset
