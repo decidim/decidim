@@ -508,6 +508,7 @@ ca:
         answers_count: Enquestes realitzades
         assemblies_count: Assemblees
         comments_count: Comentaris
+        debates_count: Debats
         endorsements_count: Adhesions
         headline: Estat actual de %{organization}
         meetings_count: Trobades
