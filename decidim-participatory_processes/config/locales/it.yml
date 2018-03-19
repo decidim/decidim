@@ -286,6 +286,7 @@ it:
       statistics:
         answers_count: risposte
         comments_count: Commenti
+        debates_count: dibattiti
         endorsements_count: Riconoscimenti
         headline: Attività
         meetings_count: Riunioni
