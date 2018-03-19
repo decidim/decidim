@@ -286,6 +286,7 @@ fr:
       statistics:
         answers_count: Réponses
         comments_count: Commentaires
+        debates_count: Débats
         endorsements_count: Les avenants
         headline: Activité
         meetings_count: Réunions
