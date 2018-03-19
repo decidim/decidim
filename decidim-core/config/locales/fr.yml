@@ -507,6 +507,7 @@ fr:
         answers_count: Enquêtes terminées
         assemblies_count: Assemblées
         comments_count: Commentaires
+        debates_count: Débats
         endorsements_count: Soutiens
         headline: État actuel de %{organization}
         meetings_count: Rencontres
