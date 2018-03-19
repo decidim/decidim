@@ -1,7 +1,6 @@
 ((exports) => {
   class DynamicFieldsComponent {
     constructor(options = {}) {
-      this.templateId = options.templateId;
       this.wrapperSelector = options.wrapperSelector;
       this.containerSelector = options.containerSelector;
       this.fieldSelector = options.fieldSelector;
@@ -82,7 +81,8 @@
 
     _addField() {
       const $container = $(this.wrapperSelector).find(this.containerSelector);
-      const $newField = $($(`#${this.templateId}`).html()).template(this._getPlaceholderTabId(), this._getUniqueTabId());
+      const $template = $(this.wrapperSelector).children("template");
+      const $newField = $($template.html()).template(this._getPlaceholderTabId(), this._getUniqueTabId());
 
       $newField.find('ul.tabs').attr('data-tabs', true);
 

@@ -35,7 +35,6 @@
 
   const createDynamicFieldsForAnswerOptions = (fieldId) => {
     createDynamicFields({
-      templateId: `survey-question-answer-option-tmpl`,
       tabsPrefix: `survey-question-answer-option`,
       wrapperSelector: `#${fieldId} ${answerOptionsWrapperSelector}`,
       containerSelector: `.survey-question-answer-options-list`,
@@ -57,7 +56,6 @@
   };
 
   createDynamicFields({
-    templateId: 'survey-question-tmpl',
     tabsPrefix: 'survey-question',
     wrapperSelector: wrapperSelector,
     containerSelector: '.survey-questions-list',

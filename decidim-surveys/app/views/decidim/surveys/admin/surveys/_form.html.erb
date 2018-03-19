@@ -22,12 +22,8 @@
 
 <div class="survey-questions">
   <% if survey.questions_editable? %>
-    <template id="survey-question-tmpl">
+    <template>
       <%= render "question", question: blank_question, id: tabs_id_for_question(blank_question) %>
-    </template>
-
-    <template id="survey-question-answer-option-tmpl">
-      <%= render "answer_option", answer_option: blank_answer_option, idx: nil %>
     </template>
   <% else %>
     <div class="callout warning">
