@@ -503,6 +503,7 @@ pl:
         answers_count: Ankiety zakończone
         assemblies_count: Złożenia
         comments_count: Komentarze
+        debates_count: Debaty
         endorsements_count: Adnotacje
         headline: Aktualny stan %{organization}
         meetings_count: Spotkania
