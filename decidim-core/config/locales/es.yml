@@ -508,6 +508,7 @@ es:
         answers_count: Encuestas completadas
         assemblies_count: Asambleas
         comments_count: Comentarios
+        debates_count: Debates
         endorsements_count: Respaldos
         headline: Estado actual de %{organization}
         meetings_count: Encuentros
