@@ -97,6 +97,7 @@ Decidim::Notification.where(event_class: "Decidim::Proposals::ProposalEndorsedEv
 
 **Fixed**:
 
+- **decidim-proposals**: Fix treshold absolute view and rename the field maximum_votes_per_proposal to threshold_per_proposal. [\#3017](https://github.com/decidim/decidim/pull/3017)
 - **decidim-core**: FIX Mispelling in available_locales initializer: pr-BR should be pt-BR. [\#2883](https://github.com/decidim/decidim/pull/2883)
 - **decidim-admin**: FIX Area and AreaType command specs [\#2859](https://github.com/decidim/decidim/pull/2859)
 - **decidim-proposals**: Fix wrong message when creating a proposal private note [\#2769](https://github.com/decidim/decidim/pull/2769)
