@@ -286,6 +286,7 @@ gl:
       statistics:
         answers_count: Respostas
         comments_count: Comentarios
+        debates_count: Debates
         endorsements_count: Aprobacións
         headline: Actividade
         meetings_count: Reunións
