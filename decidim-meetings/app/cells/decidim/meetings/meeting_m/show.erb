@@ -1,7 +1,7 @@
 <div class="column">
   <article class="card card--meeting">
     <div class="card__content">
-      <%= cell("decidim/meetings/meeting_m", model).header %>
+      <%= render :header %>
 
       <%= render partial: "decidim/meetings/meetings/datetime.html", locals: { meeting: model } %>
 
