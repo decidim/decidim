@@ -68,15 +68,15 @@
     <%= hidden_field_tag "survey[questions][][deleted]", false, disabled: !survey.questions_editable? %>
 
     <div class="survey-question-answer-options">
-      <% if survey.questions_editable? %>
-        <button class="button add-answer-option"><%= t(".add_answer_option") %></button>
-      <% end %>
-
       <div class="survey-question-answer-options-list">
         <% question.answer_options.each_with_index do |answer_option, idx| %>
           <%= render "answer_option", question: question, answer_option: answer_option, idx: idx %>
         <% end %>
       </div>
+
+      <% if survey.questions_editable? %>
+        <button class="button add-answer-option"><%= t(".add_answer_option") %></button>
+      <% end %>
     </div>
   </div>
 </div>
