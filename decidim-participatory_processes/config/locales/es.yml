@@ -286,6 +286,7 @@ es:
       statistics:
         answers_count: Respuestas
         comments_count: Comentarios
+        debates_count: Debates
         endorsements_count: Respaldos
         headline: Actividad
         meetings_count: Encuentros
