@@ -38,12 +38,6 @@ module Decidim
                                            decidim/proposals/identity_selector_dialog.js)
       end
 
-      initializer "decidim_proposals.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.abilities += ["Decidim::Proposals::Abilities::CurrentUserAbility"]
-        end
-      end
-
       initializer "decidim.content_processors" do |_app|
         Decidim.configure do |config|
           config.content_processors += [:proposal]
