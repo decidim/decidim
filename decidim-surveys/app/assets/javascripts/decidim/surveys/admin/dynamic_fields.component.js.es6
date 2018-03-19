@@ -7,15 +7,43 @@
       this.fieldSelector = options.fieldSelector;
       this.addFieldButtonSelector = options.addFieldButtonSelector;
       this.removeFieldButtonSelector = options.removeFieldButtonSelector;
+      this.moveUpFieldButtonSelector = options.moveUpFieldButtonSelector;
+      this.moveDownFieldButtonSelector = options.moveDownFieldButtonSelector;
       this.onAddField = options.onAddField;
       this.onRemoveField = options.onRemoveField;
+      this.onMoveUpField = options.onMoveUpField;
+      this.onMoveDownField = options.onMoveDownField;
       this.tabsPrefix = options.tabsPrefix;
-      this._compileTemplate();
+      this._enableInterpolation();
+      this._activateFields();
       this._bindEvents();
     }
 
-    _compileTemplate() {
-      $.template(this.templateId, $(`#${this.templateId}`).html());
+    _enableInterpolation() {
+      $.fn.template = function(placeholder, value) {
+        $(this).find(`[id^=${placeholder}]`).each((index, element) => {
+          $(element).attr("id", $(element).attr("id").replace(placeholder, value));
+        });
+
+        $(this).find(`[data-tabs-content=${placeholder}]`).each((index, element) => {
+          $(element).attr("data-tabs-content", value);
+        });
+
+        $(this).find(`[for^=${placeholder}]`).each((index, element) => {
+          $(element).attr("for", $(element).attr("for").replace(placeholder, value));
+        });
+
+        $(this).find(`[tabs_id=${placeholder}]`).each((index, element) => {
+          $(element).attr("tabs_id", value);
+        });
+
+
+        $(this).find(`[href^='#${placeholder}']`).each((index, element) => {
+          $(element).attr("href", $(element).attr("href").replace(placeholder, value));
+        });
+
+        return this;
+      }
     }
 
     _bindEvents() {
@@ -26,6 +54,18 @@
       $(this.wrapperSelector).on('click', this.removeFieldButtonSelector, (event) =>
         this._bindSafeEvent(event, (target) => this._removeField(target))
       );
+
+      if (this.moveUpFieldButtonSelector) {
+        $(this.wrapperSelector).on('click', this.moveUpFieldButtonSelector, (event) =>
+          this._bindSafeEvent(event, (target) => this._moveUpField(target))
+        );
+      }
+
+      if (this.moveDownFieldButtonSelector) {
+        $(this.wrapperSelector).on('click', this.moveDownFieldButtonSelector, (event) =>
+          this._bindSafeEvent(event, (target) => this._moveDownField(target))
+        );
+      }
     }
 
     _bindSafeEvent(event, cb) {
@@ -42,13 +82,8 @@
 
     _addField() {
       const $container = $(this.wrapperSelector).find(this.containerSelector);
-      const uid = this._getUID();
-      const tabsId = `${this.tabsPrefix}-${uid}`;
+      const $newField = $($(`#${this.templateId}`).html()).template(this._getPlaceholderTabId(), this._getUniqueTabId());
 
-      const $newField = $.tmpl(this.templateId, { tabsId });
-
-      $newField.attr('id', `${tabsId}-field`);
-      $newField.find('[disabled]').attr('disabled', false);
       $newField.find('ul.tabs').attr('data-tabs', true);
 
       $newField.appendTo($container);
@@ -80,6 +115,44 @@
       if (this.onRemoveField) {
         this.onRemoveField($removedField);
       }
+    }
+
+    _moveUpField(target) {
+      const $target = $(target);
+      const $movedUpField = $target.parents(this.fieldSelector);
+
+      $movedUpField.prev().before($movedUpField);
+
+      if (this.onMoveUpField) {
+        this.onMoveUpField($movedUpField);
+      }
+    }
+
+    _moveDownField(target) {
+      const $target = $(target);
+      const $movedDownField = $target.parents(this.fieldSelector);
+
+      $movedDownField.next().after($movedDownField);
+
+      if (this.onMoveDownField) {
+        this.onMoveDownField($movedDownField);
+      }
+    }
+
+    _activateFields() {
+      $(this.fieldSelector).each((idx, el) => {
+        $(el).template(this._getPlaceholderTabId(), this._getUniqueTabId());
+
+        $(el).find('ul.tabs').attr('data-tabs', true);
+      })
+    }
+
+    _getPlaceholderTabId() {
+      return `${this.tabsPrefix}-id`;
+    }
+
+    _getUniqueTabId() {
+      return `${this.tabsPrefix}-${this._getUID()}`;
     }
 
     _getUID() {

@@ -9,6 +9,13 @@ eu:
         document_type: Zure dokumentuaren mota
         user: Erabiltzaileak
         verification_attachment: Zure dokumentuaren eskaneatutako kopia
+      postal_letter_address:
+        full_address: Helbide osoa
+      postal_letter_confirmation:
+        verification_code: Egiaztapen kodea
+      postal_letter_postage:
+        full_address: Helbide osoa
+        verification_code: Egiaztapen kodea
   decidim:
     admin:
       menu:

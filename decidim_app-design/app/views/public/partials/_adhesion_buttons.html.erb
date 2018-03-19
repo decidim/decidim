@@ -1,4 +1,4 @@
-<% status ||= 'secondary' %>
+<% status ||= "secondary" %>
 <% closed ||= false %>
 <div class="row collapse buttons__row">
   <% if !closed %>
@@ -8,12 +8,12 @@
         <%= icon "bullhorn", class: "icon--small", aria_label: "Endorsements", role: "img" %> 332
       </button>
       <button type="button" name="button" class="button small compact light <%= status %> button--sc">
-        <%= (status == 'secondary')? 'Reivindicar' : 'Reivindicada' %>
+        <%= (status == "secondary")? "Reivindicar" : "Reivindicada" %>
       </button>
     </div>
   </div>
   <% end %>
-  <div class="column collapse <%= closed ? '' : 'small-3' %>">
+  <div class="column collapse <%= closed ? "" : "small-3" %>">
     <button type="button" name="button" class="button small compact hollow secondary button--nomargin expanded">
       <a href="#comments" title="Comentarios">
         <%= icon "comment-square", class: "icon--small", aria_label: "Comentarios", role: "img" %> 108 <% if closed %>Comentarios<% end %>

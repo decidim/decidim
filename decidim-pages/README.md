@@ -4,7 +4,7 @@ The Pages module adds static page capabilities to any participatory process. It 
 
 ## Usage
 
-Pages will be available as a Feature for a Participatory Process.
+Pages will be available as a Component for a Participatory Process.
 
 ## Installation
 

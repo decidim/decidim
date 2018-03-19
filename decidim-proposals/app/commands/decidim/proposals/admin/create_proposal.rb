@@ -53,7 +53,7 @@ module Decidim
             body: form.body,
             category: form.category,
             scope: form.scope,
-            feature: form.feature,
+            component: form.component,
             address: form.address,
             latitude: form.latitude,
             longitude: form.longitude,
@@ -86,7 +86,7 @@ module Decidim
         end
 
         def attachments_allowed?
-          form.current_feature.settings.attachments_allowed?
+          form.current_component.settings.attachments_allowed?
         end
 
         def process_attachments?

@@ -4,8 +4,8 @@
 # an existing address and computes its coordinates.
 class GeocodingValidator < ActiveModel::EachValidator
   def validate_each(record, attribute, value)
-    if Decidim.geocoder.present? && record.feature.present?
-      organization = record.feature.organization
+    if Decidim.geocoder.present? && record.component.present?
+      organization = record.component.organization
       Geocoder.configure(Geocoder.config.merge(http_headers: { "Referer" => organization.host }))
       coordinates = Geocoder.coordinates(value)
 

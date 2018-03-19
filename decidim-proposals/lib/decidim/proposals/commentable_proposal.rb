@@ -10,12 +10,12 @@ module Decidim
       included do
         # Public: Overrides the `commentable?` Commentable concern method.
         def commentable?
-          feature.settings.comments_enabled?
+          component.settings.comments_enabled?
         end
 
         # Public: Overrides the `accepts_new_comments?` Commentable concern method.
         def accepts_new_comments?
-          commentable? && !feature.current_settings.comments_blocked
+          commentable? && !component.current_settings.comments_blocked
         end
 
         # Public: Overrides the `comments_have_alignment?` Commentable concern method.
@@ -30,7 +30,7 @@ module Decidim
 
         # Public: Override Commentable concern method `users_to_notify_on_comment_created`
         def users_to_notify_on_comment_created
-          return (followers | feature.participatory_space.admins).uniq if official?
+          return (followers | component.participatory_space.admins).uniq if official?
           followers
         end
       end

@@ -1,7 +1,6 @@
 spec/decidim_dummy_app/
 .byebug_history
 pkg/
-*/Gemfile.lock
 .DS_Store
 node_modules/
 .vscode
@@ -19,3 +18,4 @@ webpack.report.html
 .graphqlconfig
 schema.json
 .yardoc
+.rspec-failures

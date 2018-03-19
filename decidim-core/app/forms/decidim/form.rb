@@ -6,7 +6,7 @@ module Decidim
   class Form < Rectify::Form
     delegate :current_organization,
              :current_user,
-             :current_feature,
+             :current_component,
              :current_participatory_space,
              to: :context, prefix: false, allow_nil: true
 

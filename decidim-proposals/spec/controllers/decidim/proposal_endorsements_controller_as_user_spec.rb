@@ -9,8 +9,8 @@ module Decidim
 
       describe "As User" do
         context "when endorsements are enabled" do
-          let(:feature) do
-            create(:proposal_feature, :with_endorsements_enabled)
+          let(:component) do
+            create(:proposal_component, :with_endorsements_enabled)
           end
 
           it "allows endorsements" do
@@ -67,8 +67,8 @@ module Decidim
         end
 
         context "when endorsements are disabled" do
-          let(:feature) do
-            create(:proposal_feature, :with_endorsements_disabled)
+          let(:component) do
+            create(:proposal_component, :with_endorsements_disabled)
           end
 
           it "does not allow endorsing" do
@@ -89,8 +89,8 @@ module Decidim
         end
 
         context "when endorsements are enabled but endorsements are blocked" do
-          let(:feature) do
-            create(:proposal_feature, :with_endorsements_enabled, :with_endorsements_blocked)
+          let(:component) do
+            create(:proposal_component, :with_endorsements_enabled, :with_endorsements_blocked)
           end
 
           it "does not allow endorsing" do
@@ -117,8 +117,8 @@ module Decidim
         end
 
         context "when endorsements are enabled" do
-          let(:feature) do
-            create(:proposal_feature, :with_endorsements_enabled)
+          let(:component) do
+            create(:proposal_component, :with_endorsements_enabled)
           end
 
           it "deletes the endorsement" do
@@ -131,8 +131,8 @@ module Decidim
         end
 
         context "when endorsements are disabled" do
-          let(:feature) do
-            create(:proposal_feature, :with_endorsements_disabled)
+          let(:component) do
+            create(:proposal_component, :with_endorsements_disabled)
           end
 
           it "does not delete the endorsement" do

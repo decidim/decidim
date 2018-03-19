@@ -24,6 +24,7 @@ RSpec.configure do |config|
   config.mock_with :rspec
   config.order = :random
   config.raise_errors_for_deprecations!
+  config.example_status_persistence_file_path = ".rspec-failures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, comment the following line or assign false

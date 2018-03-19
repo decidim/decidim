@@ -5,7 +5,7 @@ sv:
         area_id: Område
         banner_image: Banner image
         copy_categories: Kopiera kategorier
-        copy_features: Kopiera funktioner
+        copy_components: Kopiera komponenter
         decidim_area_id: Område
         decidim_scope_id: Omfattning
         description: Beskrivning
@@ -15,6 +15,7 @@ sv:
         hero_image: Hembild
         local_area: Lokalt område
         meta_scope: Omfattning metadata
+        participatory_processes_ids: Relaterade deltagande processer
         participatory_scope: Deltagande räckvidd
         participatory_structure: Deltagande struktur
         promoted: främjas
@@ -27,6 +28,10 @@ sv:
         subtitle: Texta
         target: Mål
         title: Titel
+      assembly_user_role:
+        email: E-post
+        name: namn
+        role: Roll
   decidim:
     admin:
       assemblies:
@@ -89,7 +94,7 @@ sv:
           attachment_files: filer
           attachments: bilagor
           categories: kategorier
-          features: Funktioner
+          components: Komponenter
           info: Info
           moderations: modere
       models:
@@ -144,6 +149,7 @@ sv:
         local_area: Lokalt område
         participatory_scope: Deltagande räckvidd
         participatory_structure: Deltagande struktur
+        related_participatory_processes: Relaterade deltagande processer
         scope: Omfattning
         target: Mål
       statistics:

@@ -6,19 +6,19 @@ module Decidim
     # title, description and any other useful information to render a custom page.
     class Page < Pages::ApplicationRecord
       include Decidim::Resourceable
-      include Decidim::HasFeature
+      include Decidim::HasComponent
       include Decidim::Traceable
       include Decidim::Loggable
 
-      feature_manifest_name "pages"
+      component_manifest_name "pages"
 
       def self.log_presenter_class_for(_log)
         Decidim::Pages::AdminLog::PagePresenter
       end
 
-      # Public: Pages doesn't have title so we assign the feature one to it.
+      # Public: Pages doesn't have title so we assign the component one to it.
       def title
-        feature.name
+        component.name
       end
     end
   end

@@ -26,7 +26,7 @@ module Decidim
       validate :proposal_length
       validate :scope_belongs_to_participatory_space_scope
 
-      delegate :categories, to: :current_feature
+      delegate :categories, to: :current_component
 
       def map_model(model)
         return unless model.categorization
@@ -34,7 +34,7 @@ module Decidim
         self.category_id = model.categorization.decidim_category_id
       end
 
-      alias feature current_feature
+      alias component current_component
       # Finds the Category from the category_id.
       #
       # Returns a Decidim::Category
@@ -57,14 +57,14 @@ module Decidim
       end
 
       def has_address?
-        current_feature.settings.geocoding_enabled? && has_address
+        current_component.settings.geocoding_enabled? && has_address
       end
 
       private
 
       def proposal_length
         return unless body.presence
-        length = current_feature.settings.proposal_length
+        length = current_component.settings.proposal_length
         errors.add(:body, :too_long, count: length) if body.length > length
       end
 

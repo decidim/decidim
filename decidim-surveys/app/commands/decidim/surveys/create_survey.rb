@@ -2,15 +2,15 @@
 
 module Decidim
   module Surveys
-    # Command that gets called whenever a feature's survey has to be created. It
-    # usually happens as a callback when the feature itself is created.
+    # Command that gets called whenever a component's survey has to be created. It
+    # usually happens as a callback when the component itself is created.
     class CreateSurvey < Rectify::Command
-      def initialize(feature)
-        @feature = feature
+      def initialize(component)
+        @component = component
       end
 
       def call
-        @survey = Survey.new(feature: @feature)
+        @survey = Survey.new(component: @component)
 
         @survey.save ? broadcast(:ok) : broadcast(:invalid)
       end

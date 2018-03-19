@@ -6,14 +6,13 @@ class FixNicknameIndex < ActiveRecord::Migration[5.1]
   end
 
   def change
-    Decidim::User.where(nickname: nil)
-                 .where(deleted_at: nil)
-                 .where(managed: false)
-                 .find_each { |u| u.update(nickname: Decidim::User.nicknamize(u.name)) }
+    User.where(nickname: nil)
+        .where(deleted_at: nil)
+        .where(managed: false)
+        .find_each { |u| u.update(nickname: User.nicknamize(u.name)) }
 
     # rubocop:disable Rails/SkipsModelValidations
-    Decidim::User.where(nickname: nil)
-                 .update_all("nickname = ''")
+    User.where(nickname: nil).update_all("nickname = ''")
     # rubocop:enable Rails/SkipsModelValidations
 
     change_column_default :decidim_users, :nickname, ""

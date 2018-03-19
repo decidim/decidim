@@ -17,7 +17,7 @@ module Decidim
     helper Decidim::CookiesHelper
     helper Decidim::AriaSelectedLinkToHelper
     helper Decidim::MenuHelper
-    helper Decidim::FeaturePathHelper
+    helper Decidim::ComponentPathHelper
     helper Decidim::ViewHooksHelper
 
     # Saves the location before loading each page so we can return to the
