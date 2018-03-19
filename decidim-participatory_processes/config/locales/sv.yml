@@ -286,6 +286,7 @@ sv:
       statistics:
         answers_count: svar
         comments_count: kommentarer
+        debates_count: debatter
         endorsements_count: påskrifter
         headline: Aktivitet
         meetings_count: möten
