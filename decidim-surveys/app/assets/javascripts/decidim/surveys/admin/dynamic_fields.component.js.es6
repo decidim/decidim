@@ -19,27 +19,21 @@
     }
 
     _enableInterpolation() {
+      $.fn.replaceAttribute = function(attribute, placeholder, value) {
+        $(this).find(`[${attribute}*=${placeholder}]`).each((index, element) => {
+          $(element).attr(attribute, $(element).attr(attribute).replace(placeholder, value));
+        });
+
+        return this;
+      }
+
       $.fn.template = function(placeholder, value) {
-        $(this).find(`[id^=${placeholder}]`).each((index, element) => {
-          $(element).attr("id", $(element).attr("id").replace(placeholder, value));
-        });
-
-        $(this).find(`[data-tabs-content=${placeholder}]`).each((index, element) => {
-          $(element).attr("data-tabs-content", value);
-        });
-
-        $(this).find(`[for^=${placeholder}]`).each((index, element) => {
-          $(element).attr("for", $(element).attr("for").replace(placeholder, value));
-        });
-
-        $(this).find(`[tabs_id=${placeholder}]`).each((index, element) => {
-          $(element).attr("tabs_id", value);
-        });
-
-
-        $(this).find(`[href^='#${placeholder}']`).each((index, element) => {
-          $(element).attr("href", $(element).attr("href").replace(placeholder, value));
-        });
+        $(this).replaceAttribute("id", placeholder, value);
+        $(this).replaceAttribute("name", placeholder, value);
+        $(this).replaceAttribute("data-tabs-content", placeholder, value);
+        $(this).replaceAttribute("for", placeholder, value);
+        $(this).replaceAttribute("tabs_id", placeholder, value);
+        $(this).replaceAttribute("href", placeholder, value);
 
         return this;
       }
