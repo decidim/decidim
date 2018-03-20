@@ -215,7 +215,7 @@ shared_examples "edit surveys" do
           expect(page).to have_selector(".survey-question", count: 1)
 
           within ".survey-question" do
-            fill_in "survey-question-#{survey_question.id}_body_en", with: "Modified question"
+            fill_in "survey_question_#{survey_question.id}_body_en", with: "Modified question"
             check "Mandatory"
             select "Long answer", from: "Type"
           end
@@ -229,8 +229,8 @@ shared_examples "edit surveys" do
 
         expect(page).to have_selector("input[value='Modified question']")
         expect(page).to have_no_selector("input[value='This is the first question']")
-        expect(page).to have_selector("input#survey-question-#{survey_question.id}-mandatory[checked]")
-        expect(page).to have_selector("select#survey-question-#{survey_question.id}-question_type option[value='long_answer'][selected]")
+        expect(page).to have_selector("input#survey_question_#{survey_question.id}_mandatory[checked]")
+        expect(page).to have_selector("select#survey_question_#{survey_question.id}_question_type option[value='long_answer'][selected]")
       end
 
       it "re-renders the form when the information is invalid" do
@@ -238,7 +238,7 @@ shared_examples "edit surveys" do
           expect(page).to have_selector(".survey-question", count: 1)
 
           within ".survey-question" do
-            fill_in "survey-question-#{survey_question.id}_body_en", with: ""
+            fill_in "survey_question_#{survey_question.id}_body_en", with: ""
             check "Mandatory"
             select "Multiple option", from: "Type"
           end
@@ -250,8 +250,8 @@ shared_examples "edit surveys" do
 
         expect(page).to have_selector("input[value='']")
         expect(page).to have_no_selector("input[value='This is the first question']")
-        expect(page).to have_selector("input#survey-question-#{survey_question.id}-mandatory[checked]")
-        expect(page).to have_selector("select#survey-question-#{survey_question.id}-question_type option[value='multiple_option'][selected]")
+        expect(page).to have_selector("input#survey_question_#{survey_question.id}_mandatory[checked]")
+        expect(page).to have_selector("select#survey_question_#{survey_question.id}_question_type option[value='multiple_option'][selected]")
       end
 
       it "removes the question" do
@@ -328,7 +328,7 @@ shared_examples "edit surveys" do
 
       context "when moving a question up" do
         before do
-          within "#survey-question-#{survey_question_2.id}-field" do
+          within "#survey_question_#{survey_question_2.id}-field" do
             click_button "Up"
           end
 
@@ -338,7 +338,7 @@ shared_examples "edit surveys" do
 
       context "when moving a question down" do
         before do
-          within "#survey-question-#{survey_question_1.id}-field" do
+          within "#survey_question_#{survey_question_1.id}-field" do
             click_button "Down"
           end
         end
@@ -353,7 +353,7 @@ shared_examples "edit surveys" do
         expect(page.find(".survey-question:nth-child(2)")).to look_like_intermediate_question
         expect(page.find(".survey-question:nth-child(3)")).to look_like_last_question
 
-        within "#survey-question-#{survey_question_1.id}-field" do
+        within "#survey_question_#{survey_question_1.id}-field" do
           click_button "Remove"
         end
 

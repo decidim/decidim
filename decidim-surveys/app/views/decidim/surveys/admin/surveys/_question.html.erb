@@ -48,16 +48,16 @@
           "survey[questions][][mandatory]",
           "1",
           question.mandatory,
-          id: "#{id}-mandatory",
+          id: "#{id}_mandatory",
           disabled: !survey.questions_editable?
         )
       %>
-      <%= label_tag "", t("activemodel.attributes.survey_question.mandatory"), for: "#{id}-mandatory" %>
+      <%= label_tag "", t("activemodel.attributes.survey_question.mandatory"), for: "#{id}_mandatory" %>
     </div>
 
     <div class="row column">
-      <%= label_tag "", t("activemodel.attributes.survey_question.question_type"), for: "#{id}-question_type" %>
-      <%= select_tag "survey[questions][][question_type]", options_from_collection_for_select(question_types, :first, :last, question.question_type), id: "#{id}-question_type", disabled: !survey.questions_editable? %>
+      <%= label_tag "", t("activemodel.attributes.survey_question.question_type"), for: "#{id}_question_type" %>
+      <%= select_tag "survey[questions][][question_type]", options_from_collection_for_select(question_types, :first, :last, question.question_type), id: "#{id}_question_type", disabled: !survey.questions_editable? %>
     </div>
 
     <% if question.persisted? %>
