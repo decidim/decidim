@@ -37,7 +37,7 @@ module Decidim
                 },
                 "position" => "0",
                 "question_type" => "short_answer",
-                "options" => {}
+                "answer_options" => {}
               },
               "1" => {
                 "body" => {
@@ -48,7 +48,7 @@ module Decidim
                 "position" => "1",
                 "mandatory" => "1",
                 "question_type" => "long_answer",
-                "options" => {}
+                "answer_options" => {}
               },
               "2" => {
                 "body" => {
@@ -58,7 +58,7 @@ module Decidim
                 },
                 "position" => "2",
                 "question_type" => "single_option",
-                "options" => {
+                "answer_options" => {
                   "0" => {
                     "body" => {
                       "en" => "First answer",
@@ -121,7 +121,7 @@ module Decidim
 
             expect(survey.questions[1]).to be_mandatory
             expect(survey.questions[1].question_type).to eq("long_answer")
-            expect(survey.questions[2].answer_options[1]["body"]["en"]).to eq(form_params["questions"]["2"]["options"]["1"]["body"]["en"])
+            expect(survey.questions[2].answer_options[1]["body"]["en"]).to eq(form_params["questions"]["2"]["answer_options"]["1"]["body"]["en"])
           end
         end
 
