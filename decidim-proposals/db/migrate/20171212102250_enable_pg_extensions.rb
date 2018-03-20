@@ -2,7 +2,7 @@
 
 class EnablePgExtensions < ActiveRecord::Migration[5.1]
   def change
-    return unless extension_enabled?("pg_trgm")
+    return if extension_enabled?("pg_trgm")
 
     begin
       # required so that test suite works in ci env
