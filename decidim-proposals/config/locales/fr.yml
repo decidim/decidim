@@ -200,7 +200,7 @@ fr:
       answers:
         accepted: Retenue
         evaluating: En cours d'évaluation
-        not_answered: Resté sans réponse
+        not_answered: En attente de réponse
         rejected: Non retenue
         withdrawn: Retiré
       create:
