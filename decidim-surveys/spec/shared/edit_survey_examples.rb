@@ -118,7 +118,7 @@ shared_examples "edit surveys" do
           answer_options_body[idx].each do |locale, value|
             within survey_question_answer_option do
               click_link I18n.with_locale(locale) { t("name", scope: "locale") }
-              fill_in "survey[questions][][answer_options][][body_#{locale}]", with: value
+              fill_in "survey[questions][][options][][body_#{locale}]", with: value
             end
           end
         end
@@ -141,24 +141,24 @@ shared_examples "edit surveys" do
       2.times { click_button "Add answer option" }
 
       within ".survey-question-answer-option:first-of-type" do
-        fill_in "survey[questions][][answer_options][][body_en]", with: "Something"
+        fill_in "survey[questions][][options][][body_en]", with: "Something"
       end
 
       within ".survey-question-answer-option:last-of-type" do
-        fill_in "survey[questions][][answer_options][][body_en]", with: "Else"
+        fill_in "survey[questions][][options][][body_en]", with: "Else"
       end
 
       # If JS events for option reordering are incorrectly bound, clicking on
       # the field to gain focus can cause the options to get inverted... :S
       within ".survey-question-answer-option:first-of-type" do
-        find("input[name='survey[questions][][answer_options][][body_en]']").click
+        find("input[name='survey[questions][][options][][body_en]']").click
       end
 
       first_answer_option = page.find(".survey-question-answer-option:first-of-type")
-      expect(first_answer_option).to have_field("survey[questions][][answer_options][][body_en]", with: "Something")
+      expect(first_answer_option).to have_field("survey[questions][][options][][body_en]", with: "Something")
 
       second_answer_option = page.find(".survey-question-answer-option:last-of-type")
-      expect(second_answer_option).to have_field("survey[questions][][answer_options][][body_en]", with: "Else")
+      expect(second_answer_option).to have_field("survey[questions][][options][][body_en]", with: "Else")
     end
 
     it "persists question form across submission failures" do
@@ -175,12 +175,12 @@ shared_examples "edit surveys" do
       click_button "Add answer option"
 
       within ".survey-question-answer-option:first-of-type" do
-        fill_in "survey[questions][][answer_options][][body_en]", with: "Something"
+        fill_in "survey[questions][][options][][body_en]", with: "Something"
       end
 
       click_button "Save"
 
-      expect(page).to have_field("survey[questions][][answer_options][][body_en]", with: "Something")
+      expect(page).to have_field("survey[questions][][options][][body_en]", with: "Something")
     end
 
     it "allows switching translated field tabs after form failures" do

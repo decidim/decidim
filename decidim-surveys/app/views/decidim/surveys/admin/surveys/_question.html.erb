@@ -73,7 +73,7 @@
       </template>
 
       <div class="survey-question-answer-options-list">
-        <% question.answer_options.each_with_index do |answer_option, idx| %>
+        <% question.options.each_with_index do |answer_option, idx| %>
           <%= render "answer_option", answer_option: answer_option, idx: idx %>
         <% end %>
       </div>
