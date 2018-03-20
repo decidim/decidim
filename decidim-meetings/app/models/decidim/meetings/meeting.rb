@@ -31,7 +31,7 @@ module Decidim
 
       searchable_fields(
         scope_id: :decidim_scope_id,
-        participatory_space: { feature: :participatory_space },
+        participatory_space: { component: :participatory_space },
         A: :title,
         D: [:description, :address]
       )
