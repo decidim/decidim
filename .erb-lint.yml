@@ -1,6 +1,9 @@
 ---
 
 linters:
+  ExtraNewline:
+    enabled: true
+
   SpaceAroundErbTag:
     enabled: true
 
