@@ -13,6 +13,7 @@
       this.onMoveUpField = options.onMoveUpField;
       this.onMoveDownField = options.onMoveDownField;
       this.tabsPrefix = options.tabsPrefix;
+      this.elementCounter = 0;
       this._enableInterpolation();
       this._activateFields();
       this._bindEvents();
@@ -150,7 +151,9 @@
     }
 
     _getUID() {
-      return `${new Date().getTime()}-${Math.floor(Math.random() * 1000000)}`;
+      this.elementCounter += 1;
+
+      return (new Date().getTime()) + this.elementCounter;
     }
   }
 
