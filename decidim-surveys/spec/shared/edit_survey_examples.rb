@@ -154,11 +154,13 @@ shared_examples "edit surveys" do
         find("input[name='survey[questions][][options][][body_en]']").click
       end
 
-      first_answer_option = page.find(".survey-question-answer-option:first-of-type")
-      expect(first_answer_option).to have_field("survey[questions][][options][][body_en]", with: "Something")
+      within ".survey-question-answer-option:first-of-type" do
+        expect(page).to have_field("survey[questions][][options][][body_en]", with: "Something")
+      end
 
-      second_answer_option = page.find(".survey-question-answer-option:last-of-type")
-      expect(second_answer_option).to have_field("survey[questions][][options][][body_en]", with: "Else")
+      within ".survey-question-answer-option:last-of-type" do
+        expect(page).to have_field("survey[questions][][options][][body_en]", with: "Else")
+      end
     end
 
     it "persists question form across submission failures" do
@@ -180,7 +182,9 @@ shared_examples "edit surveys" do
 
       click_button "Save"
 
-      expect(page).to have_field("survey[questions][][options][][body_en]", with: "Something")
+      within ".survey-question-answer-option:first-of-type" do
+        expect(page).to have_field("survey[questions][][options][][body_en]", with: "Something")
+      end
     end
 
     it "allows switching translated field tabs after form failures" do
@@ -193,10 +197,10 @@ shared_examples "edit surveys" do
 
         fill_in "survey[questions][][body_ca]", with: "Adeu"
         click_link "English"
-      end
 
-      expect(page).to have_field("survey[questions][][body_en]", with: "Bye")
-      expect(page).to have_no_field("survey[questions][][body_ca]", with: "Adeu")
+        expect(page).to have_field("survey[questions][][body_en]", with: "Bye")
+        expect(page).to have_no_field("survey[questions][][body_ca]", with: "Adeu")
+      end
     end
 
     describe "when a survey has an existing question" do
@@ -310,15 +314,15 @@ shared_examples "edit surveys" do
 
       shared_examples_for "switching questions order" do
         it "properly reorders the questions" do
-          first_question = page.find(".survey-question:first-of-type")
+          within ".survey-question:first-of-type" do
+            expect(page).to have_field("survey[questions][][body_en]", with: "Second")
+            expect(page).to look_like_first_question
+          end
 
-          expect(first_question).to have_field("survey[questions][][body_en]", with: "Second")
-          expect(first_question).to look_like_first_question
-
-          last_question = page.find(".survey-question:last-of-type")
-
-          expect(last_question).to have_field("survey[questions][][body_en]", with: "First")
-          expect(last_question).to look_like_last_question
+          within ".survey-question:last-of-type" do
+            expect(page).to have_field("survey[questions][][body_en]", with: "First")
+            expect(page).to look_like_last_question
+          end
         end
       end
 
