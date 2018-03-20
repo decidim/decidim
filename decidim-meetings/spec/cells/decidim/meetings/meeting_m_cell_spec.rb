@@ -7,7 +7,7 @@ module Decidim::Meetings
     let!(:meeting) { create(:meeting) }
 
     context "when rendering" do
-      it do
+      it "renders the card" do
         html = cell("decidim/meetings/meeting_m", meeting).call
         expect(html).to have_css(".card--meeting")
       end
