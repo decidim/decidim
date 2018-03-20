@@ -29,8 +29,8 @@ en:
           success: Duplicated meeting successfully.
         new:
           copy: Copy
-          title: Duplicate meeting
           select: Select which data you would like to duplicate
+          title: Duplicate meeting
     components:
       meetings:
         actions:
