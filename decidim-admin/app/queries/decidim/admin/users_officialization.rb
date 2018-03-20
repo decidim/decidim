@@ -6,24 +6,27 @@ module Decidim
     class UsersOfficialization < Rectify::Query
       # Syntactic sugar to initialize the class and return the queried objects.
       #
+      # organization - the Decidim::Organization where search will be scoped to
       # q - query to filter user group names
       # state - evaluation state to be used as a filter
-      def self.for(q = nil, state = nil)
-        new(q, state).query
+      def self.for(organization, q = nil, state = nil)
+        new(organization, q, state).query
       end
 
       # Initializes the class.
       #
+      # organization - the Decidim::Organization where search will be scoped to
       # q - query to filter user group names
       # state - officialization state to be used as a filter
-      def initialize(q = nil, state = nil)
+      def initialize(organization, q = nil, state = nil)
+        @organization = organization
         @q = q
         @state = state
       end
 
       # List the User groups by the diferents filters.
       def query
-        users = Decidim::User.all
+        users = Decidim::User.where(organization: organization)
         users = filter_by_search(users)
         users = filter_by_state(users)
         users
@@ -31,7 +34,7 @@ module Decidim
 
       private
 
-      attr_reader :q, :state
+      attr_reader :q, :state, :organization
 
       def filter_by_search(users)
         return users if q.blank?
