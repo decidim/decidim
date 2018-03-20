@@ -22,6 +22,15 @@ en:
         start_time: Start Time
         title: Title
   decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: There was en error duplicating this meeting.
+          success: Duplicated meeting successfully.
+        new:
+          copy: Copy
+          title: Duplicate meeting
+          select: Select which data you would like to duplicate
     components:
       meetings:
         actions:
