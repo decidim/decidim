@@ -56,6 +56,21 @@
     }
   };
 
+  const setupInitialQuestionAttributes = ($target) => {
+    const fieldId = $target.attr('id');
+    const $fieldQuestionTypeSelect = $target.find(questionTypeSelector);
+
+    createDynamicFieldsForAnswerOptions(fieldId);
+
+    const onQuestionTypeChange = () => {
+      setAnswerOptionsWrapperVisibility($fieldQuestionTypeSelect);
+    };
+
+    $fieldQuestionTypeSelect.on('change', onQuestionTypeChange);
+
+    onQuestionTypeChange();
+  }
+
   createDynamicFields({
     placeholderId: 'survey-question-id',
     wrapperSelector: wrapperSelector,
@@ -66,8 +81,7 @@
     moveUpFieldButtonSelector: '.move-up-question',
     moveDownFieldButtonSelector: '.move-down-question',
     onAddField: ($field) => {
-      const fieldId = $field.attr('id');
-
+      setupInitialQuestionAttributes($field);
       createSortableList();
 
       $field.find(".editor-container").each((idx, el) => {
@@ -76,8 +90,6 @@
 
       autoLabelByPosition.run();
       autoButtonsByPosition.run();
-      createDynamicFieldsForAnswerOptions(fieldId);
-      setAnswerOptionsWrapperVisibility($field.find(questionTypeSelector));
     },
     onRemoveField: () => {
       autoLabelByPosition.run();
@@ -96,12 +108,8 @@
   createSortableList();
 
   $(fieldSelector).each((idx, el) => {
-    createDynamicFieldsForAnswerOptions($(el).attr('id'));
-    setAnswerOptionsWrapperVisibility($(el).find(questionTypeSelector));
-  });
+    const $target = $(el);
 
-  $(wrapperSelector).on('change', questionTypeSelector, (ev) => {
-    const $target = $(ev.target);
-    setAnswerOptionsWrapperVisibility($target);
+    setupInitialQuestionAttributes($target);
   });
 })(window);
