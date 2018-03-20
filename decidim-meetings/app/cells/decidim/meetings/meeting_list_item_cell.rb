@@ -2,7 +2,11 @@
 
 module Decidim
   module Meetings
-    class MeetingHCell < Decidim::Meetings::MeetingCell
+    class MeetingListItemCell < Decidim::Meetings::MeetingCell
+      # This cell renders the List Item Card (:list_item) meeting card
+      # for an instance of a Meeting
+      #
+      # This cell must be wrapped in a "<div class="card card--list"></div>"
       def show
         render
       end
