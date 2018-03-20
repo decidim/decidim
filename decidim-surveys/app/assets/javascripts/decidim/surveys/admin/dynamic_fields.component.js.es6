@@ -12,7 +12,7 @@
       this.onRemoveField = options.onRemoveField;
       this.onMoveUpField = options.onMoveUpField;
       this.onMoveDownField = options.onMoveDownField;
-      this.tabsPrefix = options.tabsPrefix;
+      this.placeholderId = options.placeholderId;
       this.elementCounter = 0;
       this._enableInterpolation();
       this._activateFields();
@@ -77,7 +77,7 @@
     _addField() {
       const $container = $(this.wrapperSelector).find(this.containerSelector);
       const $template = $(this.wrapperSelector).children("template");
-      const $newField = $($template.html()).template(this._getPlaceholderTabId(), this._getUniqueTabId());
+      const $newField = $($template.html()).template(this.placeholderId, this._getUID());
 
       $newField.find('ul.tabs').attr('data-tabs', true);
 
@@ -136,18 +136,10 @@
 
     _activateFields() {
       $(this.fieldSelector).each((idx, el) => {
-        $(el).template(this._getPlaceholderTabId(), this._getUniqueTabId());
+        $(el).template(this.placeholderId, this._getUID());
 
         $(el).find('ul.tabs').attr('data-tabs', true);
       })
-    }
-
-    _getPlaceholderTabId() {
-      return `${this.tabsPrefix}-id`;
-    }
-
-    _getUniqueTabId() {
-      return `${this.tabsPrefix}-${this._getUID()}`;
     }
 
     _getUID() {
