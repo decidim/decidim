@@ -7,14 +7,14 @@
 
   const wrapperSelector = '.survey-questions';
   const fieldSelector = '.survey-question';
-  const questionTypeSelector = '[name="survey[questions][][question_type]"]';
+  const questionTypeSelector = 'select[name$=\\[question_type\\]]';
   const answerOptionsWrapperSelector = '.survey-question-answer-options';
 
   const autoLabelByPosition = new AutoLabelByPositionComponent({
     listSelector: '.survey-question:not(.hidden)',
     labelSelector: '.card-title span:first',
     onPositionComputed: (el, idx) => {
-      $(el).find('input[name="survey[questions][][position]"]').val(idx);
+      $(el).find('input[name$=\\[position\\]]').val(idx);
     }
   });
 

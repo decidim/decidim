@@ -29,6 +29,12 @@
       }
 
       $.fn.template = function(placeholder, value) {
+        const $subtemplate = $(this).find("template");
+
+        if ($subtemplate.length > 0) {
+          $subtemplate.html((index, oldHtml) => $(oldHtml).template(placeholder, value)[0].outerHTML);
+        }
+
         $(this).replaceAttribute("id", placeholder, value);
         $(this).replaceAttribute("name", placeholder, value);
         $(this).replaceAttribute("data-tabs-content", placeholder, value);

@@ -13,12 +13,10 @@
   <div class="card-section">
     <div class="row column">
       <%=
-        translated_field_tag(
-          :text_field_tag,
-          "survey[questions][][options][]",
-          "body",
-          answer_option.body.with_indifferent_access,
-          tabs_id: tabs_id_for_question_answer_option(answer_option, idx),
+        form.translated(
+          :text_field,
+          :body,
+          tabs_id: tabs_id_for_question_answer_option(question, answer_option),
           label: t(".statement"),
           disabled: !survey.questions_editable?,
           enable_tabs: answer_option.persisted?

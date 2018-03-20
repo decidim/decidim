@@ -28,12 +28,9 @@
   <div class="card-section">
     <div class="row column">
       <%=
-        translated_field_tag(
-          :text_field_tag,
-          "survey[questions][]",
-          "body",
-          question.body.with_indifferent_access,
-          object: question,
+        form.translated(
+          :text_field,
+          :body,
           tabs_id: id,
           label: t(".statement"),
           disabled: !survey.questions_editable?,
@@ -44,37 +41,43 @@
 
     <div class="row column">
       <%=
-        check_box_tag(
-          "survey[questions][][mandatory]",
-          "1",
-          question.mandatory,
-          id: "#{id}_mandatory",
-          disabled: !survey.questions_editable?
+        form.check_box(
+          :mandatory,
+          disabled: !survey.questions_editable?,
+          label: t("activemodel.attributes.survey_question.mandatory")
         )
       %>
-      <%= label_tag "", t("activemodel.attributes.survey_question.mandatory"), for: "#{id}_mandatory" %>
     </div>
 
     <div class="row column">
-      <%= label_tag "", t("activemodel.attributes.survey_question.question_type"), for: "#{id}_question_type" %>
-      <%= select_tag "survey[questions][][question_type]", options_from_collection_for_select(question_types, :first, :last, question.question_type), id: "#{id}_question_type", disabled: !survey.questions_editable? %>
+      <%=
+        form.select(
+          :question_type,
+          options_from_collection_for_select(question_types, :first, :last, question.question_type),
+          disabled: !survey.questions_editable?
+        )
+      %>
     </div>
 
     <% if question.persisted? %>
-      <%= hidden_field_tag "survey[questions][][id]", question.id, disabled: !survey.questions_editable? %>
+      <%= form.hidden_field :id, disabled: !survey.questions_editable? %>
     <% end %>
 
-    <%= hidden_field_tag "survey[questions][][position]", question.position || 0, disabled: !survey.questions_editable? %>
-    <%= hidden_field_tag "survey[questions][][deleted]", false, disabled: !survey.questions_editable? %>
+    <%= form.hidden_field :position, value: question.position || 0, disabled: !survey.questions_editable? %>
+    <%= form.hidden_field :deleted, value: false, disabled: !survey.questions_editable? %>
 
     <div class="survey-question-answer-options">
       <template>
-        <%= render "answer_option", answer_option: blank_answer_option, idx: nil %>
+        <%= fields_for "survey[questions][#{question.to_param}][options][]", blank_answer_option do |answer_option_form| %>
+          <%= render "answer_option", answer_option: blank_answer_option, form: answer_option_form, question: question %>
+        <% end %>
       </template>
 
       <div class="survey-question-answer-options-list">
-        <% question.options.each_with_index do |answer_option, idx| %>
-          <%= render "answer_option", answer_option: answer_option, idx: idx %>
+        <% question.options.each do |answer_option| %>
+          <%= fields_for "survey[questions][#{question.to_param}][options][]", answer_option do |answer_option_form| %>
+            <%= render "answer_option", answer_option: answer_option, form: answer_option_form, question: question %>
+          <% end %>
         <% end %>
       </div>
 

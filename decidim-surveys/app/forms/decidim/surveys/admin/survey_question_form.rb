@@ -20,13 +20,19 @@ module Decidim
         validates :body, translatable_presence: true, unless: :deleted
 
         def map_model(model)
-          self.options = model.answer_options
+          self.options = model.answer_options.each_with_index.map do |option, id|
+            [id + 1, option]
+          end
         end
 
         def options=(value)
-          @options = value.map do |option|
-            SurveyQuestionAnswerOptionForm.new(option)
+          @options = value.map do |id, option|
+            SurveyQuestionAnswerOptionForm.new(option.merge(id: id.to_s.to_i))
           end
+        end
+
+        def to_param
+          id || "survey-question-id"
         end
       end
     end

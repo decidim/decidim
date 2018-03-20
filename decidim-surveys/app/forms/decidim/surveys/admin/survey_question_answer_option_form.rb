@@ -8,6 +8,10 @@ module Decidim
         include TranslatableAttributes
 
         translatable_attribute :body, String
+
+        def to_param
+          id || "survey-question-answer-option-id"
+        end
       end
     end
   end

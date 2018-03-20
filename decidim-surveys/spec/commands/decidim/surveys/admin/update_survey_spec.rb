@@ -37,7 +37,7 @@ module Decidim
                 },
                 "position" => "0",
                 "question_type" => "short_answer",
-                "options" => []
+                "options" => {}
               },
               {
                 "body" => {
@@ -48,7 +48,7 @@ module Decidim
                 "position" => "1",
                 "mandatory" => "1",
                 "question_type" => "long_answer",
-                "options" => []
+                "options" => {}
               },
               {
                 "body" => {
@@ -58,22 +58,22 @@ module Decidim
                 },
                 "position" => "2",
                 "question_type" => "single_option",
-                "options" => [
-                  {
+                "options" => {
+                  0 => {
                     "body" => {
                       "en" => "First answer",
                       "ca" => "Primera resposta",
                       "es" => "Primera respuesta"
                     }
                   },
-                  {
+                  1 => {
                     "body" => {
                       "en" => "Second answer",
                       "ca" => "Segona resposta",
                       "es" => "Segunda respuesta"
                     }
                   }
-                ]
+                }
               }
             ],
             "published_at" => published_at

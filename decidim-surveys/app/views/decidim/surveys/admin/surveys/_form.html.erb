@@ -23,7 +23,9 @@
 <div class="survey-questions">
   <% if survey.questions_editable? %>
     <template>
-      <%= render "question", question: blank_question, id: tabs_id_for_question(blank_question) %>
+      <%= fields_for "survey[questions][#{blank_question.to_param}]", blank_question do |question_form| %>
+        <%= render "question", question: blank_question, form: question_form, id: tabs_id_for_question(blank_question) %>
+      <% end %>
     </template>
   <% else %>
     <div class="callout warning">
@@ -33,7 +35,9 @@
 
   <div class="survey-questions-list">
     <% @form.questions.each do |question| %>
-      <%= render "question", question: question, id: tabs_id_for_question(question) %>
+      <%= fields_for "survey[questions][]", question do |question_form| %>
+        <%= render "question", question: question, form: question_form, id: tabs_id_for_question(question) %>
+      <% end %>
     <% end %>
   </div>
 
