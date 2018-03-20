@@ -28,8 +28,8 @@ module Decidim
               "ca" => "<p>Contingut</p>",
               "es" => "<p>Contenido</p>"
             },
-            "questions" => [
-              {
+            "questions" => {
+              0 => {
                 "body" => {
                   "en" => "First question",
                   "ca" => "Primera pregunta",
@@ -39,7 +39,7 @@ module Decidim
                 "question_type" => "short_answer",
                 "options" => {}
               },
-              {
+              1 => {
                 "body" => {
                   "en" => "Second question",
                   "ca" => "Segona pregunta",
@@ -50,7 +50,7 @@ module Decidim
                 "question_type" => "long_answer",
                 "options" => {}
               },
-              {
+              2 => {
                 "body" => {
                   "en" => "Third question",
                   "ca" => "Tercera pregunta",
@@ -75,13 +75,13 @@ module Decidim
                   }
                 }
               }
-            ],
+            },
             "published_at" => published_at
           }
         end
         let(:form) do
           SurveyForm.from_params(
-            form_params
+            survey: form_params
           ).with_context(
             current_organization: current_organization
           )
