@@ -99,8 +99,8 @@ shared_examples "edit surveys" do
 
         expect(page).to have_selector(".survey-question", count: 1)
 
-        question_body.each do |locale, value|
-          within ".survey-question" do
+        within ".survey-question" do
+          question_body.each do |locale, value|
             click_link I18n.with_locale(locale) { t("name", scope: "locale") }
             fill_in "survey[questions][][body_#{locale}]", with: value
           end
