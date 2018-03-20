@@ -39,19 +39,19 @@ module Decidim
         vote_limit.present?
       end
 
-      # Public: Checks if treshold per proposal are set.
+      # Public: Checks if threshold per proposal are set.
       #
       # Returns true if set, false otherwise.
-      def treshold_per_proposal_enabled?
-        treshold_per_proposal.present?
+      def threshold_per_proposal_enabled?
+        threshold_per_proposal.present?
       end
 
       # Public: Fetches the maximum amount of votes per proposal.
       #
       # Returns an Integer with the maximum amount of votes, nil otherwise.
-      def treshold_per_proposal
-        return nil unless component_settings.treshold_per_proposal.positive?
-        component_settings.treshold_per_proposal
+      def threshold_per_proposal
+        return nil unless component_settings.threshold_per_proposal.positive?
+        component_settings.threshold_per_proposal
       end
 
       # Public: Checks if can accumulate more than maxium is enabled

@@ -7,23 +7,15 @@ module Decidim
       #
       module ApplicationHelper
         def tabs_id_for_question(question)
-          return "survey-question-#{question.id}" if question.persisted?
-          "${tabsId}"
+          id = question.persisted? ? question.id : "id"
+
+          "survey-question-#{id}"
         end
 
-        def tabs_id_for_question_answer_option(question, idx)
-          return "survey-question-answer-option-#{question.id}-#{idx}" if question.present?
-          "${tabsId}"
-        end
+        def tabs_id_for_question_answer_option(answer_option, idx)
+          id = answer_option.persisted? ? "#{answer_option.question.id}-#{idx}" : "id"
 
-        def mandatory_id_for_question(question)
-          return "survey_questions_#{question.id}_mandatory" if question.persisted?
-          "${tabsId}_mandatory"
-        end
-
-        def question_type_id_for_question(question)
-          return "survey_questions_#{question.id}_question_type" if question.persisted?
-          "${tabsId}_question_type"
+          "survey-question-answer-option-#{id}"
         end
       end
     end

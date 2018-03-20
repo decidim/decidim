@@ -22,14 +22,12 @@
 
 <div class="survey-questions">
   <% if survey.questions_editable? %>
-    <button class="button add-question"><%= t(".add_question") %></button>
-
     <template id="survey-question-tmpl">
-      <%= render "question", question: blank_question %>
+      <%= render "question", question: blank_question, id: tabs_id_for_question(blank_question) %>
     </template>
 
     <template id="survey-question-answer-option-tmpl">
-      <%= render "answer_option", answer_option: blank_answer_option, question: nil, idx: nil %>
+      <%= render "answer_option", answer_option: blank_answer_option, idx: nil %>
     </template>
   <% else %>
     <div class="callout warning">
@@ -38,10 +36,14 @@
   <% end %>
 
   <div class="survey-questions-list">
-    <% @form.questions.each_with_index do |question, idx| %>
-      <%= render "question", question: question %>
+    <% @form.questions.each do |question| %>
+      <%= render "question", question: question, id: tabs_id_for_question(question) %>
     <% end %>
   </div>
+
+  <% if survey.questions_editable? %>
+    <button class="button add-question"><%= t(".add_question") %></button>
+  <% end %>
 </div>
 
 <%= javascript_include_tag "decidim/surveys/admin/surveys" %>

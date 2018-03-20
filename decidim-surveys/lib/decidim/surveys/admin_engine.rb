@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "jquery-tmpl-rails"
-
 module Decidim
   module Surveys
     # This is the engine that runs on the public interface of `Surveys`.

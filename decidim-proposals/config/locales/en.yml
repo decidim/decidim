@@ -42,7 +42,7 @@ en:
             proposal_wizard_step_1_help_text: Proposal wizard "Create" step help text
             proposal_wizard_step_2_help_text: Proposal wizard "Compare" step help text
             proposal_wizard_step_3_help_text: Proposal wizard "Publish" step help text
-            treshold_per_proposal: Treshold per proposal
+            threshold_per_proposal: Threshold per proposal
             vote_limit: Vote limit per user
           step:
             announcement: Announcement
@@ -234,7 +234,7 @@ en:
           select_identity: Select identity
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Already endorsed
+          already_endorsed: Endorsed
           endorse: Endorse
       proposal_votes:
         create:
@@ -256,9 +256,6 @@ en:
         edit_draft:
           send: Preview
           title: Edit Proposal Draft
-        endorsement_button:
-          already_endorsed: Already endorsed
-          already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: Endorse
         endorsements_card_row:

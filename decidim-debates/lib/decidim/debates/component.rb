@@ -22,6 +22,10 @@ Decidim.register_component(:debates) do |component|
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end
 
+  component.register_stat :debates_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |components, _start_at, _end_at|
+    Decidim::Debates::Debate.where(component: components).count
+  end
+
   component.register_resource do |resource|
     resource.model_class_name = "Decidim::Debates::Debate"
   end
