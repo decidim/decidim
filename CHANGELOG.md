@@ -10,6 +10,7 @@ controller or added a new module you need to rename `feature` to `component`.
 
 **Added**:
 
+- **decidim-meetings**: Allows admins to duplicate or copy face-to-face meetings. [\#3051](https://github.com/decidim/decidim/pull/3051)
 - **decidim**: Added private_space and participatory space private users. [\#2618](https://github.com/decidim/decidim/pull/2618)
 - **decidim-core**: Add ParticipatorySpaceResourceable between Assemblies and ParticipatoryProcesses [\#2851](https://github.com/decidim/decidim/pull/2851)
 - **decidim**: Rename features to components [\#2913](https://github.com/decidim/decidim/pull/2913)
