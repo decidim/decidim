@@ -29,7 +29,7 @@ module Decidim
               "es" => "<p>Contenido</p>"
             },
             "questions" => {
-              0 => {
+              "0" => {
                 "body" => {
                   "en" => "First question",
                   "ca" => "Primera pregunta",
@@ -39,7 +39,7 @@ module Decidim
                 "question_type" => "short_answer",
                 "options" => {}
               },
-              1 => {
+              "1" => {
                 "body" => {
                   "en" => "Second question",
                   "ca" => "Segona pregunta",
@@ -50,7 +50,7 @@ module Decidim
                 "question_type" => "long_answer",
                 "options" => {}
               },
-              2 => {
+              "2" => {
                 "body" => {
                   "en" => "Third question",
                   "ca" => "Tercera pregunta",
@@ -59,14 +59,14 @@ module Decidim
                 "position" => "2",
                 "question_type" => "single_option",
                 "options" => {
-                  0 => {
+                  "0" => {
                     "body" => {
                       "en" => "First answer",
                       "ca" => "Primera resposta",
                       "es" => "Primera respuesta"
                     }
                   },
-                  1 => {
+                  "1" => {
                     "body" => {
                       "en" => "Second answer",
                       "ca" => "Segona resposta",
@@ -116,12 +116,12 @@ module Decidim
             expect(survey.questions.length).to eq(3)
 
             survey.questions.each_with_index do |question, idx|
-              expect(question.body["en"]).to eq(form_params["questions"][idx]["body"]["en"])
+              expect(question.body["en"]).to eq(form_params["questions"][idx.to_s]["body"]["en"])
             end
 
             expect(survey.questions[1]).to be_mandatory
             expect(survey.questions[1].question_type).to eq("long_answer")
-            expect(survey.questions[2].answer_options[1]["body"]["en"]).to eq(form_params["questions"][2]["options"][1]["body"]["en"])
+            expect(survey.questions[2].answer_options[1]["body"]["en"]).to eq(form_params["questions"]["2"]["options"]["1"]["body"]["en"])
           end
         end
 
