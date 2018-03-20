@@ -6,13 +6,13 @@ module Decidim
   describe Search do
     subject { described_class.new(params) }
 
-    let(:current_feature) { create :proposal_feature, manifest_name: "proposals" }
-    let(:organization) { current_feature.organization }
+    let(:current_component) { create :proposal_component, manifest_name: "proposals" }
+    let(:organization) { current_component.organization }
     let(:scope1) { create :scope, organization: organization }
     let!(:proposal) do
       create(
         :proposal,
-        feature: current_feature,
+        component: current_component,
         scope: scope1,
         title: "Nulla TestCheck accumsan tincidunt.",
         body: "Nulla TestCheck accumsan tincidunt description Ow!"
@@ -56,7 +56,7 @@ module Decidim
         let!(:proposal2) do
           create(
             :proposal,
-            feature: current_feature,
+            component: current_component,
             scope: scope1,
             title: Decidim::Faker.name,
             body: "Chewie, I'll be waiting for your signal. Take care, you two. May the Force be with you. Ow!"
@@ -96,9 +96,9 @@ module Decidim
         "content_d" => proposal.body,
         "locale" => locale,
 
-        "decidim_organization_id" => proposal.feature.organization.id,
-        "decidim_participatory_space_id" => current_feature.participatory_space_id,
-        "decidim_participatory_space_type" => current_feature.participatory_space_type,
+        "decidim_organization_id" => proposal.component.organization.id,
+        "decidim_participatory_space_id" => current_component.participatory_space_id,
+        "decidim_participatory_space_type" => current_component.participatory_space_type,
         "decidim_scope_id" => proposal.decidim_scope_id,
         "resource_id" => proposal.id,
         "resource_type" => "Decidim::Proposals::Proposal"
