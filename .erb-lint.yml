@@ -4,6 +4,9 @@ linters:
   ExtraNewline:
     enabled: true
 
+  FinalNewline:
+    enabled: true
+
   SpaceAroundErbTag:
     enabled: true
 
