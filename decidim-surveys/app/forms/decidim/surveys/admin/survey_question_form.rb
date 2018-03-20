@@ -7,7 +7,6 @@ module Decidim
       class SurveyQuestionForm < Decidim::Form
         include TranslatableAttributes
 
-        attribute :id, String
         attribute :position, Integer
         attribute :mandatory, Boolean, default: false
         attribute :question_type, String
