@@ -17,6 +17,8 @@ module Decidim
     belongs_to :resource, polymorphic: true
     belongs_to :decidim_participatory_space, polymorphic: true
 
+    validates :locale, uniqueness: { scope: :resource }
+
     pg_search_scope :global_search, against: { content_a: "A", content_b: "B", content_c: "C", content_d: "D" }
   end
 end
