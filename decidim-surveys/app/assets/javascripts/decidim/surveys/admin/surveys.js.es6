@@ -1,21 +1,27 @@
-// = require jquery-tmpl
 // = require ./auto_label_by_position.component
+// = require ./auto_buttons_by_position.component
 // = require ./dynamic_fields.component
 
 ((exports) => {
-  const { AutoLabelByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
+  const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
 
   const wrapperSelector = '.survey-questions';
   const fieldSelector = '.survey-question';
-  const questionTypeSelector = '[name="survey[questions][][question_type]"]';
+  const questionTypeSelector = 'select[name$=\\[question_type\\]]';
   const answerOptionsWrapperSelector = '.survey-question-answer-options';
 
   const autoLabelByPosition = new AutoLabelByPositionComponent({
     listSelector: '.survey-question:not(.hidden)',
     labelSelector: '.card-title span:first',
     onPositionComputed: (el, idx) => {
-      $(el).find('input[name="survey[questions][][position]"]').val(idx);
+      $(el).find('input[name$=\\[position\\]]').val(idx);
     }
+  });
+
+  const autoButtonsByPosition = new AutoButtonsByPositionComponent({
+    listSelector: '.survey-question:not(.hidden)',
+    hideOnFirstSelector: '.move-up-question',
+    hideOnLastSelector: '.move-down-question'
   });
 
   const createSortableList = () => {
@@ -29,8 +35,7 @@
 
   const createDynamicFieldsForAnswerOptions = (fieldId) => {
     createDynamicFields({
-      templateId: `survey-question-answer-option-tmpl`,
-      tabsPrefix: `survey-question-answer-option`,
+      placeholderId: `survey-question-answer-option-id`,
       wrapperSelector: `#${fieldId} ${answerOptionsWrapperSelector}`,
       containerSelector: `.survey-question-answer-options-list`,
       fieldSelector: `.survey-question-answer-option`,
@@ -51,23 +56,34 @@
   };
 
   createDynamicFields({
-    templateId: 'survey-question-tmpl',
-    tabsPrefix: 'survey-question',
+    placeholderId: 'survey-question-id',
     wrapperSelector: wrapperSelector,
     containerSelector: '.survey-questions-list',
     fieldSelector: fieldSelector,
     addFieldButtonSelector: '.add-question',
     removeFieldButtonSelector: '.remove-question',
+    moveUpFieldButtonSelector: '.move-up-question',
+    moveDownFieldButtonSelector: '.move-down-question',
     onAddField: ($field) => {
       const fieldId = $field.attr('id');
 
       createSortableList();
       autoLabelByPosition.run();
+      autoButtonsByPosition.run();
       createDynamicFieldsForAnswerOptions(fieldId);
       setAnswerOptionsWrapperVisibility($field.find(questionTypeSelector));
     },
     onRemoveField: () => {
       autoLabelByPosition.run();
+      autoButtonsByPosition.run();
+    },
+    onMoveUpField: () => {
+      autoLabelByPosition.run();
+      autoButtonsByPosition.run();
+    },
+    onMoveDownField: () => {
+      autoLabelByPosition.run();
+      autoButtonsByPosition.run();
     }
   });
 

@@ -8,8 +8,8 @@ module Decidim
       describe "call" do
         let(:organization) { create :organization }
         let(:participatory_process) { create(:participatory_process, organization: organization) }
-        let(:feature) { create(:feature, participatory_space: participatory_process) }
-        let(:commentable) { create(:dummy_resource, feature: feature) }
+        let(:component) { create(:component, participatory_space: participatory_process) }
+        let(:commentable) { create(:dummy_resource, component: component) }
         let(:author) { create(:user, organization: organization) }
         let(:comment) { create(:comment, commentable: commentable) }
         let(:command) { described_class.new(comment, author) }

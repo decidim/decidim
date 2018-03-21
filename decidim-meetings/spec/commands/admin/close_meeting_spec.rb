@@ -20,15 +20,15 @@ module Decidim::Meetings
         current_user: user
       )
     end
-    let(:proposal_feature) do
-      create(:feature, manifest_name: :proposals, participatory_space: meeting.feature.participatory_space)
+    let(:proposal_component) do
+      create(:component, manifest_name: :proposals, participatory_space: meeting.component.participatory_space)
     end
     let(:invalid) { false }
     let(:proposals) do
       create_list(
         :proposal,
         3,
-        feature: proposal_feature
+        component: proposal_component
       )
     end
     let(:proposal_ids) { proposals.map(&:id) }
@@ -41,7 +41,7 @@ module Decidim::Meetings
       end
 
       it "doesn't perform any other action" do
-        expect(meeting).not_to receive(:update_attributes!)
+        expect(meeting).not_to receive(:update!)
         expect(Decidim::ResourceLink).not_to receive(:create!)
 
         subject.call
@@ -55,8 +55,19 @@ module Decidim::Meetings
         expect(meeting).to be_closed
       end
 
+      it "traces the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with(:close, meeting, user)
+          .and_call_original
+
+        expect { subject.call }.to change(Decidim::ActionLog, :count)
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+      end
+
       context "when previous proposals had been linked" do
-        let(:previous_proposals) { create_list(:proposal, 3, feature: proposal_feature) }
+        let(:previous_proposals) { create_list(:proposal, 3, component: proposal_component) }
 
         before do
           meeting.link_resources(previous_proposals, "proposals_from_meeting")

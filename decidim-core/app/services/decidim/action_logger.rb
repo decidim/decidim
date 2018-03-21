@@ -49,7 +49,7 @@ module Decidim
         action: action,
         resource: resource,
         participatory_space: participatory_space,
-        feature: feature,
+        component: component,
         version_id: version_id,
         extra: extra_data
       )
@@ -63,12 +63,12 @@ module Decidim
       user.organization
     end
 
-    def feature
-      resource.feature if resource.respond_to?(:feature)
+    def component
+      resource.component if resource.respond_to?(:component)
     end
 
     def participatory_space
-      return feature.participatory_space if feature.respond_to?(:participatory_space)
+      return component.participatory_space if component.respond_to?(:participatory_space)
       resource.participatory_space if resource.respond_to?(:participatory_space)
     end
 
@@ -86,9 +86,9 @@ module Decidim
     # Returns a Hash.
     def extra_data
       {
-        feature: {
-          manifest_name: feature.try(:manifest_name),
-          title: title_for(feature)
+        component: {
+          manifest_name: component.try(:manifest_name),
+          title: title_for(component)
         }.compact,
         participatory_space: {
           manifest_name: participatory_space_manifest_name,

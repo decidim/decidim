@@ -31,7 +31,7 @@
             <%= render partial: "layouts/decidim/language_chooser" %>
             <div class="hide-for-medium topbar__menu">
               <button type="button" data-toggle="offCanvas">
-                <%= icon "menu", aria_label: t('layouts.decidim.header.navigation'), role: "img" %>
+                <%= icon "menu", aria_label: t("layouts.decidim.header.navigation"), role: "img" %>
               </button>
             </div>
             <% if current_user %>
@@ -60,8 +60,8 @@
             <% else %>
               <div class="topbar__user show-for-medium" data-set="nav-login-holder">
                 <div class="topbar__user__login js-append">
-                  <%= link_to t('layouts.decidim.header.sign_up'), decidim.new_user_registration_path, class: "sign-up-link" %>
-                  <%= link_to t('layouts.decidim.header.sign_in'), decidim.new_user_session_path, class: "sign-in-link" %>
+                  <%= link_to t("layouts.decidim.header.sign_up"), decidim.new_user_registration_path, class: "sign-up-link" %>
+                  <%= link_to t("layouts.decidim.header.sign_in"), decidim.new_user_session_path, class: "sign-in-link" %>
                 </div>
               </div>
             <% end %>
@@ -96,7 +96,7 @@
               </ul>
             <% end %>
           </div>
-          <%= render partial: 'layouts/decidim/social_media_links' %>
+          <%= render partial: "layouts/decidim/social_media_links" %>
         </div>
       </div>
       <div class="mini-footer">
@@ -107,7 +107,7 @@
                target="_blank">
               <%= image_tag("decidim/cc-badge.png", alt: "Creative Commons License" ) %>
             </a>
-            <%= t('layouts.decidim.footer.made_with_open_source').html_safe %>
+            <%= t("layouts.decidim.footer.made_with_open_source").html_safe %>
           </div>
           <div class="medium-3 large-2 column">
             <div class="decidim-logo">

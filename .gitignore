@@ -1,7 +1,6 @@
 spec/decidim_dummy_app/
 .byebug_history
 pkg/
-*/Gemfile.lock
 .DS_Store
 node_modules/
 .vscode
@@ -9,15 +8,14 @@ development_app/
 .projectile
 npm-debug.log
 karma-*
-yarn-error.log
 coverage
 webpack.report.html
 .bundle
 .cache
 .bash_history
-.yarnrc
 .local
 .pki
 .graphqlconfig
 schema.json
 .yardoc
+.rspec-failures

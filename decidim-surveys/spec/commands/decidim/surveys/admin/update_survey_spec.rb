@@ -8,8 +8,8 @@ module Decidim
       describe UpdateSurvey do
         let(:current_organization) { create(:organization) }
         let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-        let(:feature) { create(:feature, manifest_name: "surveys", participatory_space: participatory_process) }
-        let(:survey) { create(:survey, feature: feature) }
+        let(:component) { create(:component, manifest_name: "surveys", participatory_space: participatory_process) }
+        let(:survey) { create(:survey, component: component) }
         let(:published_at) { nil }
         let(:form_params) do
           {
@@ -37,7 +37,7 @@ module Decidim
                 },
                 "position" => "0",
                 "question_type" => "short_answer",
-                "answer_options" => []
+                "options" => {}
               },
               {
                 "body" => {
@@ -48,7 +48,7 @@ module Decidim
                 "position" => "1",
                 "mandatory" => "1",
                 "question_type" => "long_answer",
-                "answer_options" => []
+                "options" => {}
               },
               {
                 "body" => {
@@ -58,22 +58,22 @@ module Decidim
                 },
                 "position" => "2",
                 "question_type" => "single_option",
-                "answer_options" => [
-                  {
+                "options" => {
+                  0 => {
                     "body" => {
                       "en" => "First answer",
                       "ca" => "Primera resposta",
                       "es" => "Primera respuesta"
                     }
                   },
-                  {
+                  1 => {
                     "body" => {
                       "en" => "Second answer",
                       "ca" => "Segona resposta",
                       "es" => "Segunda respuesta"
                     }
                   }
-                ]
+                }
               }
             ],
             "published_at" => published_at
@@ -98,7 +98,7 @@ module Decidim
           end
 
           it "doesn't update the survey" do
-            expect(survey).not_to receive(:update_attributes!)
+            expect(survey).not_to receive(:update!)
             command.call
           end
         end
@@ -121,7 +121,7 @@ module Decidim
 
             expect(survey.questions[1]).to be_mandatory
             expect(survey.questions[1].question_type).to eq("long_answer")
-            expect(survey.questions[2].answer_options[1]["body"]["en"]).to eq(form_params["questions"][2]["answer_options"][1]["body"]["en"])
+            expect(survey.questions[2].answer_options[1]["body"]["en"]).to eq(form_params["questions"][2]["options"][1]["body"]["en"])
           end
         end
 

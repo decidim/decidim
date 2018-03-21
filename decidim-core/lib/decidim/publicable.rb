@@ -31,19 +31,19 @@ module Decidim
     end
 
     #
-    # Public: Publishes this feature
+    # Public: Publishes this component
     #
     # Returns true if the record was properly saved, false otherwise.
     def publish!
-      update_attributes!(published_at: Time.current)
+      update!(published_at: Time.current)
     end
 
     #
-    # Public: Unpublishes this feature
+    # Public: Unpublishes this component
     #
     # Returns true if the record was properly saved, false otherwise.
     def unpublish!
-      update_attributes!(published_at: nil)
+      update!(published_at: nil)
     end
   end
 end

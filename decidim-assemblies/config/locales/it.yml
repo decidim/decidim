@@ -2,9 +2,10 @@ it:
   activemodel:
     attributes:
       assembly:
+        area_id: La zona
         banner_image: Immagine del banner
         copy_categories: Copia le categorie
-        copy_features: Copia le caratteristiche
+        copy_components: Copia componenti
         decidim_area_id: La zona
         decidim_scope_id: Scopo
         description: Descrizione
@@ -14,6 +15,7 @@ it:
         hero_image: Immagine della Home
         local_area: Municipi
         meta_scope: Metadati di ambito
+        participatory_processes_ids: Processi partecipativi correlati
         participatory_scope: Visibilità/ambito partecipativo
         participatory_structure: Struttura partecipativa
         promoted: Promosso
@@ -26,6 +28,10 @@ it:
         subtitle: Sottotitolo
         target: Target
         title: Titolo
+      assembly_user_role:
+        email: E-mail
+        name: Nome
+        role: Ruolo
   decidim:
     admin:
       assemblies:
@@ -88,7 +94,7 @@ it:
           attachment_files: File
           attachments: Allegati
           categories: Categorie
-          features: Funzionalità (features)
+          components: componenti
           info: Informazioni
           moderations: Moderazione
       models:
@@ -143,12 +149,14 @@ it:
         local_area: Municipi
         participatory_scope: Visibilità/ambito partecipativo
         participatory_structure: Struttura partecipativa
+        related_participatory_processes: Processi partecipativi correlati
         scope: Objetivos
         target: A chi è destinato il processo?
       statistics:
         answers_count: risposte
         assemblies_count: assemblee
         comments_count: Commenti
+        endorsements_count: Riconoscimenti
         headline: Attività
         meetings_count: Riunioni
         orders_count: Voti

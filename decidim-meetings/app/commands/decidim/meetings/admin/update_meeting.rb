@@ -35,7 +35,9 @@ module Decidim
         attr_reader :form, :meeting
 
         def update_meeting!
-          meeting.update_attributes!(
+          Decidim.traceability.update!(
+            meeting,
+            form.current_user,
             scope: form.scope,
             category: form.category,
             title: form.title,

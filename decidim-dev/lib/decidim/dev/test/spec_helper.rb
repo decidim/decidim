@@ -4,6 +4,7 @@ ENV["RAILS_ENV"] ||= "test"
 
 require "rails-controller-testing"
 require "rspec/rails"
+require "rspec/cells"
 require "factory_bot_rails"
 require "byebug"
 require "cancan/matchers"
@@ -24,6 +25,7 @@ RSpec.configure do |config|
   config.mock_with :rspec
   config.order = :random
   config.raise_errors_for_deprecations!
+  config.example_status_persistence_file_path = ".rspec-failures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
   # examples within a transaction, comment the following line or assign false

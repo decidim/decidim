@@ -2,8 +2,8 @@ es:
   activemodel:
     attributes:
       proposal:
-        answer: Responder
-        answered_at: Respondido en
+        answer: Respuesta
+        answered_at: Respondido
         body: Cuerpo
         category_id: Categoría
         has_address: Tiene dirección
@@ -15,20 +15,56 @@ es:
         answer: Respuesta
       proposals_copy:
         copy_proposals: Entiendo que esto importará todas las propuestas del componente seleccionado al actual y que esta acción no se puede revertir.
-        origin_feature_id: Componente desde dónde copiar las propuestas
+        origin_component_id: Componente para copiar las propuestas de
   decidim:
+    components:
+      proposals:
+        actions:
+          create: Crear
+          endorse: Endosar
+          vote: Votar
+          withdraw: Retirar
+        name: Propuestas
+        settings:
+          global:
+            announcement: Anuncio
+            attachments_allowed: Permitir archivos adjuntos
+            can_accumulate_supports_beyond_threshold: Puede acumular apoyos más allá del umbral
+            comments_enabled: Comentarios habilitados
+            geocoding_enabled: Geocodificación habilitada
+            maximum_votes_per_proposal: Máximos votos por propuesta
+            new_proposal_help_text: Nuevo texto de ayuda de propuesta
+            official_proposals_enabled: Propuestas oficiales habilitadas
+            proposal_answering_enabled: Contestación de propuesta habilitada
+            proposal_edit_before_minutes: Las propuestas pueden ser editadas por los autores antes de que pasen estos minutos
+            proposal_length: Longitud máxima del cuerpo de la propuesta
+            proposal_limit: Límite de propuesta por usuario
+            proposal_wizard_step_1_help_text: Asistente de propuesta "Crear" paso texto de ayuda
+            proposal_wizard_step_2_help_text: Asistente de propuesta "Comparar" texto de ayuda paso
+            proposal_wizard_step_3_help_text: Asistente de propuesta Texto de ayuda paso "Publicar"
+            vote_limit: Límite de voto por usuario
+          step:
+            announcement: Anuncio
+            comments_blocked: Comentarios bloqueados
+            creation_enabled: Creación de propuesta habilitada
+            endorsements_blocked: Endosos bloqueados
+            endorsements_enabled: Endosos habilitados
+            proposal_answering_enabled: Contestación de propuesta habilitada
+            votes_blocked: Votos bloqueados
+            votes_enabled: Votos habilitados
+            votes_hidden: Votos ocultos (si los votos están habilitados, marcar esto ocultará el número de votos)
     events:
       proposals:
         creation_enabled:
-          email_intro: '¡Ahora puede crear nuevas propuestas en %{participatory_space_title}! Comience a participar en esta página:'
-          email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_intro: '¡Ahora puedes crear nuevas propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
+          email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Propuestas ahora disponibles en %{participatory_space_title}
-          notification_title: Ahora puede iniciar <a href="%{resource_path}">nuevas propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Puedes crear <a href="%{resource_path}">nuevas propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: '¡Puede aprobar propuestas en %{participatory_space_title}! Comience a participar en esta página:'
-          email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: Propuestas que respaldan han comenzado para %{participatory_space_title}
-          notification_title: Ahora puede comenzar <a href="%{resource_path}">respaldando propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_intro: '¡Puede reivindicar propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
+          email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: La reivindicación de propuestas ha comenzado para %{participatory_space_title}
+          notification_title: Ahora puedes comenzar <a href="%{resource_path}">reivindicar propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'La propuesta "%{resource_title}" ha sido aceptada. Puedes leer la respuesta en esta página:'
           email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
@@ -60,51 +96,15 @@ es:
           email_subject: Una propuesta que estás siguiendo ha sido rechazada
           notification_title: La propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido rechazada.
         proposal_update_category:
-          email_intro: 'Un administrador ha actualizado la categoría de su propuesta "%{resource_title}", compruébalo:'
-          email_outro: Recibió esta notificación porque usted es el autor de la propuesta.
+          email_intro: 'Un/a administrador/a ha actualizado la categoría de tu propuesta "%{resource_title}", compruébalo:'
+          email_outro: Recibiste esta notificación porque eres autor/a de la propuesta.
           email_subject: La categoría de la propuesta %{resource_title} ha sido actualizada
-          notification_title: La categoría de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada por un administrador.
+          notification_title: La categoría de la propuesta <a href="%{resource_path}">%{resource_title}</a> ha sido actualizada por un/a administrador/a.
         voting_enabled:
-          email_intro: '¡Puedes votar propuestas en %{participatory_space_title}! Comience a participar en esta página:'
-          email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: Propuestas de votación ha comenzado para %{participatory_space_title}
-          notification_title: Ahora puede comenzar <a href="%{resource_path}">propuestas de votación</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
-    features:
-      proposals:
-        actions:
-          create: Crear
-          endorse: Reivindicar
-          vote: Dar apoyo
-          withdraw: Retirar
-        name: Propuestas
-        settings:
-          global:
-            announcement: Aviso
-            attachments_allowed: Permitir archivos adjuntos
-            can_accumulate_supports_beyond_threshold: Puede acumular apoyos más allá del umbral
-            comments_enabled: Comentarios habilitados
-            geocoding_enabled: Geocodificación habilitada
-            maximum_votes_per_proposal: Máximo de votos por propuesta
-            new_proposal_help_text: Texto de ayuda al crear una propuesta
-            official_proposals_enabled: Propuestas oficiales habilitadas
-            proposal_answering_enabled: Respuesta oficial a propuestas habilitadas
-            proposal_edit_before_minutes: Las propuestas pueden ser editadas por los autores antes de que pasen estos minutos
-            proposal_length: Longitud máxima del cuerpo de la propuesta
-            proposal_limit: Límite de propuestas por usuario
-            proposal_wizard_step_1_help_text: Texto de ayuda para el paso "Crear" del asistente de propuesta
-            proposal_wizard_step_2_help_text: Texto de ayuda para el paso "Comparar" del asistente de propuesta
-            proposal_wizard_step_3_help_text: Texto de ayuda para el paso "Publicar" del asistente de propuesta
-            vote_limit: Límite de votos por usuario
-          step:
-            announcement: Aviso
-            comments_blocked: Comentarios bloqueados
-            creation_enabled: Habilitar creación de propuestas
-            endorsements_blocked: Reivindicaciones bloqueadas
-            endorsements_enabled: Reivindicaciones habilitadas
-            proposal_answering_enabled: Respuesta a propuestas activadas
-            votes_blocked: Votación bloqueada
-            votes_enabled: Votos habilitados
-            votes_hidden: Votos ocultos (si los votos están habilitados, marcando esta opción ocultará el número de votos)
+          email_intro: '¡Puedes votar propuestas en %{participatory_space_title}! Comienza a participar en esta página:'
+          email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: La posibilidad de dar apoyo a las propuestas ha comenzado para %{participatory_space_title}
+          notification_title: Ahora puedes comenzar <a href="%{resource_path}">apoyar propuestas</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -162,7 +162,7 @@ es:
             attachment_legend: "(Opcional) Añadir un archivo adjunto"
             select_a_category: Seleccione una categoría
           index:
-            actions: Comportamiento
+            actions: Acciones
             cancel: Cancelar
             change_category: Cambiar categoría
             selected: seleccionado
@@ -173,7 +173,7 @@ es:
             title: Crear propuesta
           update_category:
             invalid: 'Estas propuestas ya tenían la categoría %{category} : %{proposals}.'
-            select_a_category: Porfavor seleccione una categoría
+            select_a_category: Por favor selecciona una categoría
             select_a_proposal: Por favor selecciona una propuesta
             success: 'Propuestas correctamente actualizadas a la categoría %{category} : %{proposals}.'
         proposals_imports:
@@ -182,8 +182,8 @@ es:
             success: "%{number} propuestas importadas correctamente"
           new:
             create: Importar propuestas
-            no_features: No hay ningún otro component de propuestas en este espacio participativo desde dónde importar las propuestas.
-            select_feature: Por favor selecciona un componente
+            no_components: No hay otros componentes de la propuesta en este espacio participativo para importar las propuestas.
+            select_component: Por favor seleccione un componente
             select_states: Verifique los estados de las propuestas para importar
         shared:
           info_proposal:
@@ -194,6 +194,9 @@ es:
       admin_log:
         proposal:
           answer: "%{user_name} respondió la propuesta %{resource_name} en el espacio %{space_name}"
+          create: "%{user_name} creó la propuesta %{resource_name} en el espacio %{space_name} como una propuesta oficial"
+        proposal_note:
+          create: "%{user_name} dejó una nota privada sobre la propuesta %{resource_name} en el espacio %{space_name}"
       answers:
         accepted: Aceptadas
         evaluating: En evaluación
@@ -254,11 +257,11 @@ es:
         endorsement_identities_cabin:
           endorse: Reivindicar
         endorsements_card_row:
-          endorse: Endosar
+          endorse: Reivindicar
         endorsements_listing:
           see_all: Ver todo
           see_less: Ver menos
-          title: Lista de Endosos
+          title: Lista de Reivindicaciones
         filters:
           accepted: Aceptadas
           activity: Actividad
@@ -300,8 +303,8 @@ es:
         preview:
           modify: Modificar la propuesta
           proposal_edit_before_minutes:
-            one: Podrá editar esta propuesta durante el primer minuto posterior a la publicación de la propuesta. Una vez que pase esta ventana de tiempo, no podrá editar la propuesta.
-            other: Podrás editar esta propuesta durante el primer %{count} minutos después de que se publique la propuesta. Una vez que pase esta ventana de tiempo, no podrá editar la propuesta.
+            one: Podrás editar esta propuesta durante el primer minuto posterior a la publicación de la misma. Una vez que pase este tiempo, ya no podrás editarla.
+            other: Podrás editar esta propuesta durante los primeros %{count} minutos después de que se publique. Una vez que pase este tiempo, no podrás editar la propuesta.
           publish: Publicar
           title: Publica tu propuesta
         proposal:
@@ -319,6 +322,8 @@ es:
           withdraw_btn_hint: Puedes retirar tu propuesta si cambias de opinión, siempre que no haya recibido ningún soporte. La propuesta no se elimina, aparecerá en la lista de propuestas retiradas.
           withdraw_confirmation: '¿Seguro que quieres retirar esta propuesta?'
           withdraw_proposal: Retirar propuesta
+        tags:
+          changed_from: "(cambiado de <u>%{previous_category}</u> por un administrador)"
         vote_button:
           already_voted: Ya votado
           already_voted_hover: Retirar voto

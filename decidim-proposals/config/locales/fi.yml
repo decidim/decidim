@@ -15,8 +15,44 @@ fi:
         answer: Vastaa
       proposals_copy:
         copy_proposals: Ymmärrän, että tämä tuo kaikki valitun komponentin ehdotukset nykyiseen ja että tätä toimintaa ei voi peruuttaa.
-        origin_feature_id: Komponentti kopioida ehdotukset osoitteesta
+        origin_component_id: Komponentti kopioida ehdotukset osoitteesta
   decidim:
+    components:
+      proposals:
+        actions:
+          create: Luoda
+          endorse: hyväksyä
+          vote: Äänestys
+          withdraw: Peruuttaa
+        name: ehdotukset
+        settings:
+          global:
+            announcement: Ilmoitus
+            attachments_allowed: Salli liitteet
+            can_accumulate_supports_beyond_threshold: Voidaan kerätä tukia kynnysarvon ulkopuolella
+            comments_enabled: Kommentit ovat käytössä
+            geocoding_enabled: Geokoodaus on käytössä
+            maximum_votes_per_proposal: Suurin äänimäärä ehdotusta kohden
+            new_proposal_help_text: Uusi ehdotusohje teksti
+            official_proposals_enabled: Viralliset ehdotukset ovat mahdollisia
+            proposal_answering_enabled: Ehdotuksen vastaus on käytössä
+            proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia ennen tämän monen minuutin kuluttua
+            proposal_length: Suurin ehdotuksen pituus
+            proposal_limit: Ehdotuksen raja käyttäjää kohden
+            proposal_wizard_step_1_help_text: Ohjattu ohjattu "Luo" vaiheen ohjeteksti
+            proposal_wizard_step_2_help_text: Ohjattu ohjattu "Vertaile" vaiheen ohjeteksti
+            proposal_wizard_step_3_help_text: Ohjattu ohjattu "julkaise" vaiheen ohjeteksti
+            vote_limit: Äänestysraja käyttäjää kohden
+          step:
+            announcement: Ilmoitus
+            comments_blocked: Kommentit on estetty
+            creation_enabled: Ehdotuksen luominen käyttöön
+            endorsements_blocked: Hyväksynnät estetty
+            endorsements_enabled: Hyväksynnät käytössä
+            proposal_answering_enabled: Ehdotuksen vastaus on käytössä
+            votes_blocked: Äänet ovat tukossa
+            votes_enabled: Äänet käytössä
+            votes_hidden: Piilotetut äänet (jos äänet ovat käytössä, tarkistamalla tämä piilottaa äänimäärän)
     events:
       proposals:
         creation_enabled:
@@ -69,42 +105,6 @@ fi:
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
           email_subject: Äänestys ehdotuksista on alkanut %{participatory_space_title}
           notification_title: Voit nyt aloittaa <a href="%{resource_path}">äänestyssuosituksen</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
-    features:
-      proposals:
-        actions:
-          create: Luo
-          endorse: hyväksyä
-          vote: Äänestä
-          withdraw: Peruuttaa
-        name: Ehdotukset
-        settings:
-          global:
-            announcement: Ilmoitus
-            attachments_allowed: Salli liitteet
-            can_accumulate_supports_beyond_threshold: Voidaan kerätä tukia kynnysarvon ulkopuolella
-            comments_enabled: Kommentointi sallittu
-            geocoding_enabled: Geokoodaus päällä
-            maximum_votes_per_proposal: Suurin äänimäärä ehdotusta kohden
-            new_proposal_help_text: Uuden ehdotuksen ohjeteksti
-            official_proposals_enabled: Viralliset ehdotukset sallittu
-            proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
-            proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän aikamääreen sisällä sen luonnista
-            proposal_length: Suurin ehdotuksen pituus
-            proposal_limit: Ehdotuksien raja käyttäjää kohden
-            proposal_wizard_step_1_help_text: Ohjattu ohjattu "Luo" vaiheen ohjeteksti
-            proposal_wizard_step_2_help_text: Ohjattu ohjattu "Vertaile" vaiheen ohjeteksti
-            proposal_wizard_step_3_help_text: Ohjattu ohjattu "julkaise" vaiheen ohjeteksti
-            vote_limit: Äänestysraja käyttäjää kohden
-          step:
-            announcement: Ilmoitus
-            comments_blocked: Kommentointi estetty
-            creation_enabled: Ehdotusten luonti sallittu
-            endorsements_blocked: Hyväksynnät estetty
-            endorsements_enabled: Hyväksynnät käytössä
-            proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
-            votes_blocked: Äänestys estetty
-            votes_enabled: Äänestys sallittu
-            votes_hidden: Äänten määrä piilotettu (jos äänestys on käytössä, äänten määrä piilotetaan valitsemalla tämä)
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -182,8 +182,8 @@ fi:
             success: "%{number} ehdotukset tuodaan onnistuneesti"
           new:
             create: Tuo ehdotuksia
-            no_features: Ehdotuksessa tuodaan ehdotusominaisuuksiltaan muita ehdotusominaisuuksia.
-            select_feature: Valitse komponentti
+            no_components: Tässä osallistuvalle tilalle ei ole muita ehdotuskomponentteja ehdotusten tuomiseksi.
+            select_component: Valitse komponentti
             select_states: Tarkista tuontiehdotusten tilat
         shared:
           info_proposal:
@@ -194,6 +194,9 @@ fi:
       admin_log:
         proposal:
           answer: "%{user_name} vastasi %{resource_name} -ehdotusta %{space_name} -tilaan"
+          create: "%{user_name} loi %{resource_name} ehdotuksen %{space_name} tilaa viralliseksi ehdotukseksi"
+        proposal_note:
+          create: "%{user_name} jätti yksityisen huomautuksen %{resource_name} ehdotuksesta %{space_name} -tilaan"
       answers:
         accepted: Hyväksytty
         evaluating: Arvioitavana
@@ -319,6 +322,8 @@ fi:
           withdraw_btn_hint: Voit peruuttaa ehdotuksesi, jos muutat mieltäsi, kunhan et ole saanut tukea. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
           withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?
           withdraw_proposal: Peruuta ehdotus
+        tags:
+          changed_from: "(muutettu ylläpitäjältä <u>%{previous_category}</u>)"
         vote_button:
           already_voted: Jo äänestetty
           already_voted_hover: Peru äänesi

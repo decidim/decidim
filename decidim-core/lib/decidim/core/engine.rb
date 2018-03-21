@@ -32,10 +32,10 @@ require "invisible_captcha"
 require "premailer/rails"
 require "geocoder"
 require "paper_trail"
+require "cells/rails"
+require "cells-erb"
 
 require "decidim/api"
-
-require "decidim/query_extensions"
 
 module Decidim
   module Core
@@ -58,8 +58,8 @@ module Decidim
         app.config.assets.paths << File.expand_path("../../../app/assets/stylesheets", __dir__)
         app.config.assets.precompile += %w(decidim_core_manifest.js)
 
-        Decidim.feature_manifests.each do |feature|
-          app.config.assets.precompile += [feature.icon]
+        Decidim.component_manifests.each do |component|
+          app.config.assets.precompile += [component.icon]
         end
 
         app.config.assets.debug = true if Rails.env.test?
@@ -208,6 +208,11 @@ module Decidim
 
       initializer "paper_trail" do
         PaperTrail.config.track_associations = false
+      end
+
+      initializer "add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/views") # for partials
       end
     end
   end

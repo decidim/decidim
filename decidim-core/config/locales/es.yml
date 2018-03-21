@@ -54,40 +54,44 @@ es:
         success: Tu cuenta se ha actualizado correctamente.
         success_with_email_confirmation: Tu cuenta se ha actualizado correctamente. Recibirás un correo electrónico para confirmar tu nueva dirección de correo electrónico.
     admin_log:
-      feature:
-        create: "%{user_name} agregó el %{resource_name} característica al %{space_name} espacio"
-        delete: "%{user_name} eliminado el %{resource_name} característica de %{space_name} espacio"
-        publish: "%{user_name} publicó la función %{resource_name} en el espacio %{space_name}"
-        unpublish: "%{user_name} sin publicar la función %{resource_name} del espacio %{space_name}"
+      area:
+        create: "%{user_name} creó el área %{resource_name}"
+        delete: "%{user_name} borró el área %{resource_name}"
+        update: "%{user_name} actualizó el área %{resource_name}"
+      component:
+        create: "%{user_name} agregó el componente %{resource_name} al espacio %{space_name}"
+        delete: "%{user_name} eliminó el componente %{resource_name} del espacio %{space_name}"
+        publish: "%{user_name} publicó el componente %{resource_name} en el espacio %{space_name}"
+        unpublish: "%{user_name} no publicado el componente %{resource_name} del espacio %{space_name}"
       moderation:
-        hide: "%{user_name} escondió un recurso de tipo %{resource_type} en el %{space_name} espacio"
-        unreport: "%{user_name} no reportó un recurso de tipo %{resource_type} en el %{space_name} espacio"
+        hide: "%{user_name} escondió un recurso de tipo %{resource_type} en el espacio %{space_name}"
+        unreport: "%{user_name} publicó un recurso de tipo %{resource_type} en el espacio %{space_name}"
       newsletter:
-        create: "%{user_name} creó el %{resource_name} hoja informativa"
-        delete: "%{user_name} eliminado el %{resource_name} hoja informativa"
-        deliver: "%{user_name} entregado el %{resource_name} hoja informativa"
-        update: "%{user_name} actualizado el %{resource_name} hoja informativa"
+        create: "%{user_name} creó el newsletter %{resource_name}"
+        delete: "%{user_name} eliminó el newsletter %{resource_name}"
+        deliver: "%{user_name} envió el newsletter %{resource_name}"
+        update: "%{user_name} actualizó el newsletter %{resource_name}"
       organization:
-        update: "%{user_name} actualizado la configuración de la organización"
+        update: "%{user_name} actualizó la configuración de la organización"
       scope:
-        create: "%{user_name} creó el alcance %{resource_name}"
-        create_with_parent: "%{user_name} creó el ámbito %{resource_name} dentro del alcance %{parent_scope}"
-        delete: "%{user_name} borró el alcance %{resource_name}"
-        delete_with_parent: "%{user_name} borró el alcance %{resource_name} dentro del alcance %{parent_scope}"
-        update: "%{user_name} actualizó el alcance %{resource_name}"
-        update_with_parent: "%{user_name} actualizó el alcance %{resource_name} dentro del alcance %{parent_scope}"
+        create: "%{user_name} creó el ámbito %{resource_name}"
+        create_with_parent: "%{user_name} creó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
+        delete: "%{user_name} eliminó el ámbito %{resource_name}"
+        delete_with_parent: "%{user_name} eliminó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
+        update: "%{user_name} actualizó el ámbito %{resource_name}"
+        update_with_parent: "%{user_name} actualizó el ámbito %{resource_name} dentro del ámbito %{parent_scope}"
       static_page:
-        create: "%{user_name} creó el %{resource_name} página estática"
-        delete: "%{user_name} eliminado el %{resource_name} página estática"
-        update: "%{user_name} actualizado el %{resource_name} página estática"
+        create: "%{user_name} creó la página estática %{resource_name}"
+        delete: "%{user_name} eliminó la página estática %{resource_name}"
+        update: "%{user_name} actualizó la página estática %{resource_name}"
       user:
         invite: "%{user_name} invitó al usuario %{resource_name} con el rol: %{role}"
         officialize: "%{user_name} oficializó al usuario %{resource_name}"
-        remove_from_admin: "%{user_name} eliminado al usuario %{resource_name} con el rol: %{role}"
-        unofficialize: "%{user_name} no oficializado el usuario %{resource_name}"
+        remove_from_admin: "%{user_name} eliminó al usuario %{resource_name} con el rol: %{role}"
+        unofficialize: "%{user_name} desoficializó al usuario %{resource_name}"
       user_group:
-        reject: "%{user_name} rechazó el %{resource_name} Verificación del grupo de usuarios"
-        verify: "%{user_name} verificado el %{resource_name} grupo de usuario"
+        reject: "%{user_name} rechazó la verificación del grupo de usuarios %{resource_name}"
+        verify: "%{user_name} verificó al grupo de usuarios %{resource_name}"
     anonymous_user: Anónimo
     application:
       collection:
@@ -118,6 +122,21 @@ es:
         name: Autorización foo
       granted_at: Concedida el %{timestamp}
       started_at: Comenzó el %{timestamp}
+    components:
+      dummy:
+        actions:
+          bar: Bar
+          foo: Foo
+        name: Componente ficticio
+        settings:
+          global:
+            comments_enabled: Comentarios habilitados
+            dummy_global_attribute_1: Dummy Attribute 1
+            dummy_global_attribute_2: Dummy Attribute 2
+          step:
+            comments_blocked: Comentarios bloqueados
+            dummy_step_attribute_1: Dummy Step Attribute 1
+            dummy_step_attribute_2: Dummy Step Attribute 2
     contact: Contacto
     core:
       actions:
@@ -169,17 +188,17 @@ es:
           email_outro: Has recibido esta notificación porque estás siguiendo %{resource_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
           email_subject: Un evento ha ocurrido en %{resource_title}
           notification_title: Se ha agregado un <a href="%{resource_path}">nuevo documento</a> a <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: 'El componente %{resource_title} ahora está activo para %{participatory_space_title}. Puedes verlo desde esta página:'
+          email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: Una actualización de %{participatory_space_title}
+          notification_title: El componente %{resource_title} ahora está activo para <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Hola %{user_name},
         email_intro: 'Ha habido una actualización de "%{resource_title}". Se puede ver en esta página:'
         email_outro: Has recibido esta notificación porque sigues "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
         email_subject: Una actualización de %{resource_title}
-      features:
-        feature_published:
-          email_intro: 'El componente %{resource_title} ahora está activo para %{participatory_space_title}. Puedes verlo desde esta página:'
-          email_outro: Recibió esta notificación porque está siguiendo %{participatory_space_title}. Puede dejar de recibir notificaciones siguiendo el enlace anterior.
-          email_subject: Una actualización de %{participatory_space_title}
-          notification_title: El componente %{resource_title} ahora está activo para <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Un evento ha ocurrido en <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -192,21 +211,6 @@ es:
       export:
         ready: Adjunto encontrará una versión comprimida de su exportación.
       subject: Su exportación "%{name}" está lista
-    features:
-      dummy:
-        actions:
-          bar: Bar
-          foo: Foo
-        name: Funcionalidad de prueba
-        settings:
-          global:
-            comments_enabled: Comentarios habilitados
-            dummy_global_attribute_1: Atributo de prueba 1
-            dummy_global_attribute_2: Atributo de prueba 2
-          step:
-            comments_blocked: Comentarios bloqueados
-            dummy_step_attribute_1: Atributo de fase de prueba 1
-            dummy_step_attribute_2: Atributo de fase de prueba 2
     filters:
       linked_classes:
         all: Todas
@@ -231,21 +235,23 @@ es:
       remove_this_file: Eliminar este archivo
     log:
       base_presenter:
-        create: "%{user_name} creado %{resource_name}"
-        create_with_space: "%{user_name} creado %{resource_name} en %{space_name}"
-        delete: "%{user_name} borrado %{resource_name}"
-        delete_with_space: "%{user_name} borrado %{resource_name} en %{space_name}"
-        unknown_action: "%{user_name} realizó alguna acción en %{resource_name}"
-        unknown_action_with_space: "%{user_name} realizó alguna acción en %{resource_name} en %{space_name}"
-        update: "%{user_name} actualizado %{resource_name}"
-        update_with_space: "%{user_name} actualizado %{resource_name} en %{space_name}"
+        create: "%{user_name} creó %{resource_name}"
+        create_with_space: "%{user_name} creó %{resource_name} en %{space_name}"
+        delete: "%{user_name} eliminó %{resource_name}"
+        delete_with_space: "%{user_name} eliminó %{resource_name} en %{space_name}"
+        unknown_action: "%{user_name} realizó una acción en %{resource_name}"
+        unknown_action_with_space: "%{user_name} realizó una acción en %{resource_name} en %{space_name}"
+        update: "%{user_name} actualizó %{resource_name}"
+        update_with_space: "%{user_name} actualizó %{resource_name} en %{space_name}"
       value_types:
         area_presenter:
-          not_found: 'El área no se encontró en la base de datos (ID: %{id})'
+          not_found: 'No se encontró el área en la base de datos (ID: %{id})'
+        area_type_presenter:
+          not_found: 'El tipo de área no se encontró en la base de datos (ID: %{id})'
         scope_presenter:
-          not_found: 'El alcance no se encontró en la base de datos (ID: %{id})'
+          not_found: 'No se encontró el ámbito en la base de datos (ID: %{id})'
         scope_type_presenter:
-          not_found: 'El tipo de ámbito no se encontró en la base de datos (ID: %{id})'
+          not_found: 'No se encontró el tipo de ámbito en la base de datos (ID: %{id})'
     managed_users:
       expired_session: La sesión de suplantación actual ha caducado.
     menu:
@@ -496,7 +502,7 @@ es:
         answers_count: Encuestas completadas
         assemblies_count: Asambleas
         comments_count: Comentarios
-        endorsements_count: Endosos
+        endorsements_count: Respaldos
         headline: Estado actual de %{organization}
         meetings_count: Encuentros
         orders_count: Votos

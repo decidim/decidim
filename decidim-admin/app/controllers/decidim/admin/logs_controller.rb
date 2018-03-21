@@ -15,7 +15,7 @@ module Decidim
         @logs ||= Decidim::ActionLog
                   .where(organization: current_organization)
                   .order(created_at: :desc)
-                  .includes(:participatory_space, :user, :resource, :feature, :version)
+                  .includes(:participatory_space, :user, :resource, :component, :version)
                   .page(params[:page])
                   .per(20)
       end

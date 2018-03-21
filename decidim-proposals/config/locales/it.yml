@@ -15,8 +15,44 @@ it:
         answer: Risposta
       proposals_copy:
         copy_proposals: Capisco che questo importerà tutte le proposte dal componente selezionato a quello corrente e che questa azione non può essere annullata.
-        origin_feature_id: Componente per copiare le proposte da
+        origin_component_id: Componente per copiare le proposte da
   decidim:
+    components:
+      proposals:
+        actions:
+          create: Creare
+          endorse: Approvare
+          vote: Votazione
+          withdraw: ritirarsi
+        name: proposte
+        settings:
+          global:
+            announcement: Annuncio
+            attachments_allowed: Consenti allegati
+            can_accumulate_supports_beyond_threshold: Può accumulare supporti oltre la soglia
+            comments_enabled: Commenti abilitati
+            geocoding_enabled: Geocoding abilitato
+            maximum_votes_per_proposal: Numero massimo di voti per proposta
+            new_proposal_help_text: Nuovo testo di aiuto per la proposta
+            official_proposals_enabled: Proposte ufficiali abilitate
+            proposal_answering_enabled: Risposta alla proposta abilitata
+            proposal_edit_before_minutes: Le proposte possono essere modificate dagli autori prima che passi questo minuto
+            proposal_length: Lunghezza massima della proposta
+            proposal_limit: Limite della proposta per utente
+            proposal_wizard_step_1_help_text: Procedura guidata proposta "Crea" testo guida passo
+            proposal_wizard_step_2_help_text: Procedura guidata di proposta "Confronta" il testo della guida del passo
+            proposal_wizard_step_3_help_text: Procedura guidata "Pubblica" del testo della guida per la procedura guidata
+            vote_limit: Limite di voto per utente
+          step:
+            announcement: Annuncio
+            comments_blocked: Commenti bloccati
+            creation_enabled: Creazione della proposta abilitata
+            endorsements_blocked: Approvazioni bloccate
+            endorsements_enabled: Approvazioni abilitate
+            proposal_answering_enabled: Risposta alla proposta abilitata
+            votes_blocked: Voti bloccati
+            votes_enabled: Voti abilitati
+            votes_hidden: Voti nascosti (se i voti sono abilitati, controllando questo si nasconderà il numero di voti)
     events:
       proposals:
         creation_enabled:
@@ -69,42 +105,6 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Il voto delle proposte è iniziato per %{participatory_space_title}
           notification_title: Ora puoi iniziare <a href="%{resource_path}">proposte di voto</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a>
-    features:
-      proposals:
-        actions:
-          create: Crea
-          endorse: Approvare
-          vote: Vota
-          withdraw: ritirarsi
-        name: Proposte
-        settings:
-          global:
-            announcement: Annuncio
-            attachments_allowed: Autorizzare allegati
-            can_accumulate_supports_beyond_threshold: Può accumulare supporti oltre la soglia
-            comments_enabled: Commenti abilitati
-            geocoding_enabled: Geocoding abilitato
-            maximum_votes_per_proposal: Numero massimo di voti per proposta
-            new_proposal_help_text: Nuovo testo di aiuto per la proposta
-            official_proposals_enabled: Proposte ufficiali abilitate
-            proposal_answering_enabled: Risposta Proposte abilitata
-            proposal_edit_before_minutes: Le proposte possono essere modificate dagli autori prima che passi questo minuto
-            proposal_length: Lunghezza massima della proposta
-            proposal_limit: Limite di proposta per utente
-            proposal_wizard_step_1_help_text: Procedura guidata proposta "Crea" testo guida passo
-            proposal_wizard_step_2_help_text: Procedura guidata di proposta "Confronta" il testo della guida del passo
-            proposal_wizard_step_3_help_text: Procedura guidata "Pubblica" del testo della guida per la procedura guidata
-            vote_limit: Limite di voto per utente
-          step:
-            announcement: Annuncio
-            comments_blocked: Commenti bloccati
-            creation_enabled: Creazione delle Proposte abilitata
-            endorsements_blocked: Approvazioni bloccate
-            endorsements_enabled: Approvazioni abilitate
-            proposal_answering_enabled: Risposta Proposte abilitata
-            votes_blocked: Votazioni bloccate
-            votes_enabled: Votazioni abilitate
-            votes_hidden: Voti nascosti (se i voti sono abilitati, spuntando questa casella verrà nascosto il numero dei voti)
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -182,8 +182,8 @@ it:
             success: "%{number} proposte importate con successo"
           new:
             create: Importa proposte
-            no_features: Non ci sono altre funzionalità di proposta in questo spazio partecipativo per importare le proposte da.
-            select_feature: Si prega di selezionare un componente
+            no_components: Non ci sono altri componenti di proposta in questo spazio partecipativo per importare le proposte da.
+            select_component: Si prega di selezionare un componente
             select_states: Controlla gli stati delle proposte da importare
         shared:
           info_proposal:
@@ -194,6 +194,9 @@ it:
       admin_log:
         proposal:
           answer: "%{user_name} ha risposto alla proposta %{resource_name} sullo spazio %{space_name}"
+          create: "%{user_name} ha creato la proposta %{resource_name} nello spazio %{space_name} come proposta ufficiale"
+        proposal_note:
+          create: "%{user_name} ha lasciato una nota privata sulla proposta %{resource_name} sullo spazio %{space_name}"
       answers:
         accepted: Accettata
         evaluating: Valutare
@@ -319,6 +322,8 @@ it:
           withdraw_btn_hint: Puoi ritirare la tua proposta se cambi idea, purché non abbia ricevuto alcun supporto. La proposta non viene cancellata, apparirà nell'elenco delle proposte ritirate.
           withdraw_confirmation: Sei sicuro di ritirare questa proposta?
           withdraw_proposal: Ritirare la proposta
+        tags:
+          changed_from: "(modificato da <u>%{previous_category}</u> da un amministratore)"
         vote_button:
           already_voted: Già votata
           already_voted_hover: Annullare il voto

@@ -4,8 +4,8 @@ require "decidim/core/test/factories"
 require "decidim/participatory_processes/test/factories"
 
 FactoryBot.define do
-  factory :meeting_feature, parent: :feature do
-    name { Decidim::Features::Namer.new(participatory_space.organization.available_locales, :meetings).i18n_name }
+  factory :meeting_component, parent: :component do
+    name { Decidim::Components::Namer.new(participatory_space.organization.available_locales, :meetings).i18n_name }
     manifest_name :meetings
     participatory_space { create(:participatory_process, :with_steps, organization: organization) }
   end
@@ -20,7 +20,7 @@ FactoryBot.define do
     longitude { Faker::Address.longitude }
     start_time { 1.day.from_now }
     end_time { start_time.advance(hours: 2) }
-    feature { build(:feature, manifest_name: "meetings") }
+    component { build(:component, manifest_name: "meetings") }
 
     trait :closed do
       closing_report { Decidim::Faker::Localized.sentence(3) }

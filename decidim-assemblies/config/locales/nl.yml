@@ -2,9 +2,10 @@ nl:
   activemodel:
     attributes:
       assembly:
+        area_id: Gebied
         banner_image: Bannerafbeelding
         copy_categories: Categorieën kopiëren
-        copy_features: Functies kopiëren
+        copy_components: Kopieer componenten
         decidim_area_id: Gebied
         decidim_scope_id: strekking
         description: Beschrijving
@@ -14,6 +15,7 @@ nl:
         hero_image: Afbeelding van de startpagina
         local_area: Lokaal gebied
         meta_scope: Omvang metadata
+        participatory_processes_ids: Verwante participatieve processen
         participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
         promoted: gepromoveerd
@@ -26,6 +28,10 @@ nl:
         subtitle: Ondertiteling
         target: Doel
         title: Titel
+      assembly_user_role:
+        email: E-mail
+        name: Naam
+        role: Rol
   decidim:
     admin:
       assemblies:
@@ -88,7 +94,7 @@ nl:
           attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
-          features: Kenmerken
+          components: Components
           info: info
           moderations: Moderaties
       models:
@@ -143,12 +149,14 @@ nl:
         local_area: Lokaal gebied
         participatory_scope: Participatieve scope
         participatory_structure: Participatieve structuur
+        related_participatory_processes: Verwante participatieve processen
         scope: Scope
         target: Doel
       statistics:
         answers_count: Antwoorden
         assemblies_count: Bijeenkomsten
         comments_count: Reacties
+        endorsements_count: Endorsements
         headline: Activiteit
         meetings_count: Vergaderingen
         orders_count: Stemmen

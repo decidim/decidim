@@ -2,9 +2,10 @@ pt-BR:
   activemodel:
     attributes:
       assembly:
+        area_id: Área
         banner_image: Imagem da bandeira
         copy_categories: Cópiar categorias
-        copy_features: Recursos de cópia
+        copy_components: Copiar componentes
         decidim_area_id: Área
         decidim_scope_id: Escopo
         description: Descrição
@@ -14,6 +15,7 @@ pt-BR:
         hero_image: Imagem inicial
         local_area: Área Local
         meta_scope: Metadados do âmbito
+        participatory_processes_ids: Processos participativos relacionados
         participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
         promoted: Destacado
@@ -26,6 +28,10 @@ pt-BR:
         subtitle: Subtítulo
         target: Alvo
         title: Título
+      assembly_user_role:
+        email: O email
+        name: Nome
+        role: Função
   decidim:
     admin:
       assemblies:
@@ -88,7 +94,7 @@ pt-BR:
           attachment_files: arquivos
           attachments: Anexos
           categories: Categorias
-          features: Características
+          components: Componentes
           info: Info
           moderations: Moderação
       models:
@@ -143,12 +149,14 @@ pt-BR:
         local_area: Área Local
         participatory_scope: Âmbito participativo
         participatory_structure: Estrutura participativa
+        related_participatory_processes: Processos participativos relacionados
         scope: Âmbito
         target: Alvo
       statistics:
         answers_count: Respostas
         assemblies_count: Assembléias
         comments_count: Comentários
+        endorsements_count: Endossos
         headline: Atividade
         meetings_count: Reuniões
         orders_count: Votos

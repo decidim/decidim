@@ -2,10 +2,10 @@
     <h2 id="data_picker-title"><%= title %></h2>
     <ul>
       <% unless root %>
-        <li><a href="<%= scopes_picker_path(**context)%>"><%= t("decidim.scopes.global") %></a></li>
+        <li><a href="<%= scopes_picker_path(**context) %>"><%= t("decidim.scopes.global") %></a></li>
       <% end %>
       <% parent_scopes.each do |scope| %>
-        <li><a href="<%= scopes_picker_path(current: scope.id, **context)%>"><%= translated_attribute(scope.name) %></a></li>
+        <li><a href="<%= scopes_picker_path(current: scope.id, **context) %>"><%= translated_attribute(scope.name) %></a></li>
       <% end %>
     </ul>
   </div>
@@ -15,7 +15,7 @@
       <% if scopes.any? %>
         <ul>
           <% scopes.each do |scope| %>
-            <li><a href="<%= scopes_picker_path(current: scope.id, **context)%>"><%= translated_attribute(scope.name) %></a></li>
+            <li><a href="<%= scopes_picker_path(current: scope.id, **context) %>"><%= translated_attribute(scope.name) %></a></li>
           <% end %>
         </ul>
       <% end %>

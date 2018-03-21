@@ -21,6 +21,18 @@ pt-BR:
         start_time: Hora de início
         title: Título
   decidim:
+    components:
+      meetings:
+        actions:
+          join: Junte-se
+        name: Reuniões
+        settings:
+          global:
+            announcement: Anúncio
+            comments_enabled: Comentários ativados
+          step:
+            announcement: Anúncio
+            comments_blocked: Comentários bloqueados
     events:
       meetings:
         meeting_closed:
@@ -53,18 +65,6 @@ pt-BR:
           email_outro: Você recebeu esta notificação porque está seguindo a reunião "%{resource_title}". Você pode ignorá-lo do link anterior.
           email_subject: A reunião "%{resource_title}" começará em menos de 48h.
           notification_title: A reunião <a href="%{resource_path}">%{resource_title}</a> começará em menos de 48h.
-    features:
-      meetings:
-        actions:
-          join: Junte-se
-        name: Reuniões
-        settings:
-          global:
-            announcement: Anúncio
-            comments_enabled: Comentários ativados
-          step:
-            announcement: Anúncio
-            comments_blocked: Comentários bloqueados
     meetings:
       actions:
         attachment_collections: Coleções
@@ -130,6 +130,13 @@ pt-BR:
           update:
             invalid: Ocorreu um problema ao salvar as configurações de registro.
             success: Configurações de registro de reunião salvas com sucesso.
+      admin_log:
+        meeting:
+          close: "%{user_name} fechou a reunião %{resource_name} no espaço %{space_name}"
+          create: "%{user_name} criou a reunião %{resource_name} no espaço %{space_name}"
+          delete: "%{user_name} eliminou a reunião %{resource_name} no espaço %{space_name}"
+          export_registrations: "%{user_name} exportou os registros da reunião %{resource_name} no espaço %{space_name}"
+          update: "%{user_name} atualizou a reunião %{resource_name} no espaço %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:

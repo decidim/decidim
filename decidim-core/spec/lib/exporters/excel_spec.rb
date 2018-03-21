@@ -22,7 +22,6 @@ module Decidim
             date: @resource.date
           }
         end
-        # rubocop:enable RSpec/InstanceVariable
       end
     end
 

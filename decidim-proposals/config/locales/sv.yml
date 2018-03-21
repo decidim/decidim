@@ -15,8 +15,44 @@ sv:
         answer: Svar
       proposals_copy:
         copy_proposals: Jag förstår att detta kommer att importera alla förslag från den valda komponenten till den nuvarande och att den här åtgärden inte kan reverseras.
-        origin_feature_id: Komponent för att kopiera förslagen från
+        origin_component_id: Komponent för att kopiera förslagen från
   decidim:
+    components:
+      proposals:
+        actions:
+          create: Skapa
+          endorse: Stödja
+          vote: Rösta
+          withdraw: Dra tillbaka
+        name: förslag
+        settings:
+          global:
+            announcement: Meddelande
+            attachments_allowed: Tillåt bilagor
+            can_accumulate_supports_beyond_threshold: Kan ackumulera stöd över gränsen
+            comments_enabled: Kommentarer aktiverade
+            geocoding_enabled: Geocoding aktiverad
+            maximum_votes_per_proposal: Maximalt antal röster per förslag
+            new_proposal_help_text: Nytt förslag till hjälptext
+            official_proposals_enabled: Officiella förslag möjliga
+            proposal_answering_enabled: Förslagsvarning aktiverat
+            proposal_edit_before_minutes: Förslag kan redigeras av författare innan detta många minuter passerar
+            proposal_length: Maximal förslag kroppslängd
+            proposal_limit: Förslagsgräns per användare
+            proposal_wizard_step_1_help_text: Förslagsguiden "Skapa" steg hjälptext
+            proposal_wizard_step_2_help_text: Förslagsguiden "Jämför" steg hjälptext
+            proposal_wizard_step_3_help_text: Förslagsguiden "Publicera" steg hjälptext
+            vote_limit: Rösta per användare
+          step:
+            announcement: Meddelande
+            comments_blocked: Kommentarer blockerad
+            creation_enabled: Förslagstillverkning möjliggjorde
+            endorsements_blocked: Anmärkningar blockerade
+            endorsements_enabled: Anmärkningar aktiverade
+            proposal_answering_enabled: Förslagsvarning aktiverat
+            votes_blocked: Röster blockerade
+            votes_enabled: Röster aktiverade
+            votes_hidden: Röster dolda (om röster är aktiverade, kommer detta att gömma antalet röster)
     events:
       proposals:
         creation_enabled:
@@ -69,42 +105,6 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
           email_subject: Förslagets röstning har börjat för %{participatory_space_title}
           notification_title: Du kan nu börja <a href="%{resource_path}">röstningsförslag</a> i <a href="%{participatory_space_url}">%{participatory_space_title}</a>
-    features:
-      proposals:
-        actions:
-          create: Skapa
-          endorse: Stödja
-          vote: Rösta
-          withdraw: Dra tillbaka
-        name: förslag
-        settings:
-          global:
-            announcement: Meddelande
-            attachments_allowed: Tillåt bilagor
-            can_accumulate_supports_beyond_threshold: Kan ackumulera stöd över gränsen
-            comments_enabled: Kommentarer aktiverade
-            geocoding_enabled: Geocoding aktiverad
-            maximum_votes_per_proposal: Maximalt antal röster per förslag
-            new_proposal_help_text: Nytt förslag till hjälptext
-            official_proposals_enabled: Officiella förslag möjliga
-            proposal_answering_enabled: Förslagsvarning aktiverat
-            proposal_edit_before_minutes: Förslag kan redigeras av författare innan detta många minuter passerar
-            proposal_length: Maximal förslag kroppslängd
-            proposal_limit: Förslagsgräns per användare
-            proposal_wizard_step_1_help_text: Förslagsguiden "Skapa" steg hjälptext
-            proposal_wizard_step_2_help_text: Förslagsguiden "Jämför" steg hjälptext
-            proposal_wizard_step_3_help_text: Förslagsguiden "Publicera" steg hjälptext
-            vote_limit: Rösta per användare
-          step:
-            announcement: Meddelande
-            comments_blocked: Kommentarer blockerad
-            creation_enabled: Förslagstillverkning möjliggjorde
-            endorsements_blocked: Anmärkningar blockerade
-            endorsements_enabled: Anmärkningar aktiverade
-            proposal_answering_enabled: Förslagsvarning aktiverat
-            votes_blocked: Röster blockerade
-            votes_enabled: Röster aktiverade
-            votes_hidden: Röster dolda (om röster är aktiverade, kommer detta att gömma antalet röster)
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -182,8 +182,8 @@ sv:
             success: "%{number} Förslag som framgångsrikt importerats"
           new:
             create: Importera förslag
-            no_features: Det finns inga andra förslagsfunktioner i detta deltagande utrymme för att importera förslagen från.
-            select_feature: Var god välj en komponent
+            no_components: Det finns inga andra förslagskomponenter i detta deltagande utrymme för att importera förslagen från.
+            select_component: Var god välj en komponent
             select_states: Kontrollera tillstånden för de förslag som ska importeras
         shared:
           info_proposal:
@@ -194,6 +194,9 @@ sv:
       admin_log:
         proposal:
           answer: "%{user_name} svarade på %{resource_name} -förslaget på %{space_name} -utrymmet"
+          create: "%{user_name} skapade förslaget %{resource_name} på %{space_name} -utrymmet som ett officiellt förslag"
+        proposal_note:
+          create: "%{user_name} lämnade en privat anteckning på %{resource_name} -förslaget på %{space_name} -platsen"
       answers:
         accepted: Accepterad
         evaluating: utvärdera
@@ -319,6 +322,8 @@ sv:
           withdraw_btn_hint: Du kan dra tillbaka ditt förslag om du ändrar dig, så länge du inte har fått något stöd. Förslaget är inte borttaget, det kommer att visas i listan över återkallade förslag.
           withdraw_confirmation: Är du säker på att dra tillbaka detta förslag?
           withdraw_proposal: Dra ut förslaget
+        tags:
+          changed_from: "(ändrad från <u>%{previous_category}</u> av en administratör)"
         vote_button:
           already_voted: Redan röstade
           already_voted_hover: Unvote

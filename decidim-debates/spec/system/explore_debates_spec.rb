@@ -3,18 +3,18 @@
 require "spec_helper"
 
 describe "Explore debates", type: :system do
-  include_context "with a feature"
+  include_context "with a component"
   let(:manifest_name) { "debates" }
 
   let(:organization) { create(:organization) }
   let(:participatory_process) { create(:participatory_process, :with_steps, organization: organization) }
-  let(:current_feature) { create :debates_feature, participatory_space: participatory_process }
+  let(:current_component) { create :debates_component, participatory_space: participatory_process }
   let(:debates_count) { 5 }
   let!(:debates) do
     create_list(
       :debate,
       debates_count,
-      feature: current_feature,
+      component: current_component,
       start_time: Time.zone.local(2016, 12, 13, 14, 15),
       end_time: Time.zone.local(2016, 12, 13, 16, 17)
     )
@@ -25,7 +25,7 @@ describe "Explore debates", type: :system do
   end
 
   describe "index" do
-    let(:path) { decidim_participatory_process_debates.debates_path(participatory_process_slug: participatory_process.slug, feature_id: current_feature.id) }
+    let(:path) { decidim_participatory_process_debates.debates_path(participatory_process_slug: participatory_process.slug, component_id: current_component.id) }
 
     it "lists all debates for the given process" do
       visit path
@@ -39,11 +39,11 @@ describe "Explore debates", type: :system do
 
     context "when there are a lot of debates" do
       before do
-        create_list(:debate, Decidim::Paginable::OPTIONS.first + 5, feature: feature)
+        create_list(:debate, Decidim::Paginable::OPTIONS.first + 5, component: component)
       end
 
       it "paginates them" do
-        visit_feature
+        visit_component
 
         expect(page).to have_css(".card--debate", count: Decidim::Paginable::OPTIONS.first)
 
@@ -55,13 +55,47 @@ describe "Explore debates", type: :system do
       end
     end
 
+    context "when there's an announcement set" do
+      let(:announcement) do
+        { en: "Important announcement" }
+      end
+
+      context "with the component's settings" do
+        before do
+          component.update!(settings: { announcement: announcement })
+        end
+
+        it "shows the announcement" do
+          visit_component
+          expect(page).to have_content("Important announcement")
+        end
+      end
+
+      context "with the step's settings" do
+        before do
+          component.update!(
+            step_settings: {
+              component.participatory_space.active_step.id => {
+                announcement: announcement
+              }
+            }
+          )
+        end
+
+        it "shows the announcement" do
+          visit_component
+          expect(page).to have_content("Important announcement")
+        end
+      end
+    end
+
     context "when filtering" do
       context "when filtering by origin" do
         context "with 'official' origin" do
           it "lists the filtered debates" do
-            create_list(:debate, 2, feature: feature)
-            create(:debate, :with_author, feature: feature)
-            visit_feature
+            create_list(:debate, 2, component: component)
+            create(:debate, :with_author, component: component)
+            visit_component
 
             within ".filters" do
               choose "Official"
@@ -74,9 +108,9 @@ describe "Explore debates", type: :system do
 
         context "with 'citizens' origin" do
           it "lists the filtered debates" do
-            create_list(:debate, 2, :with_author, feature: feature)
-            create(:debate, feature: feature)
-            visit_feature
+            create_list(:debate, 2, :with_author, component: component)
+            create(:debate, component: component)
+            visit_component
 
             within ".filters" do
               choose "Citizens"
@@ -94,10 +128,10 @@ describe "Explore debates", type: :system do
         end
 
         it "can be filtered by category" do
-          create_list(:debate, 3, feature: feature)
-          create(:debate, feature: feature, category: category)
+          create_list(:debate, 3, component: component)
+          create(:debate, component: component, category: category)
 
-          visit_feature
+          visit_component
 
           within "form.new_filter" do
             select category.name[I18n.locale.to_s], from: :filter_category_id
@@ -130,7 +164,7 @@ describe "Explore debates", type: :system do
       decidim_participatory_process_debates.debate_path(
         id: debate.id,
         participatory_process_slug: participatory_process.slug,
-        feature_id: current_feature.id
+        component_id: current_component.id
       )
     end
     let(:debates_count) { 1 }

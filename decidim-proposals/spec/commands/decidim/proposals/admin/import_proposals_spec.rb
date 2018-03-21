@@ -8,17 +8,17 @@ module Decidim
       describe ImportProposals do
         describe "call" do
           let!(:proposal) { create(:proposal, :accepted) }
-          let(:current_feature) do
+          let(:current_component) do
             create(
-              :proposal_feature,
-              participatory_space: proposal.feature.participatory_space
+              :proposal_component,
+              participatory_space: proposal.component.participatory_space
             )
           end
           let(:form) do
             instance_double(
               ProposalsImportForm,
-              origin_feature: proposal.feature,
-              current_feature: current_feature,
+              origin_component: proposal.component,
+              current_component: current_component,
               states: states,
               valid?: valid
             )
@@ -50,14 +50,14 @@ module Decidim
             it "creates the proposals" do
               expect do
                 command.call
-              end.to change { Proposal.where(feature: current_feature).count }.by(1)
+              end.to change { Proposal.where(component: current_component).count }.by(1)
             end
 
             it "links the proposals" do
               command.call
 
               linked = proposal.linked_resources(:proposals, "copied_from_component")
-              new_proposal = Proposal.where(feature: current_feature).last
+              new_proposal = Proposal.where(component: current_component).last
 
               expect(linked).to include(new_proposal)
             end
@@ -65,7 +65,7 @@ module Decidim
             it "only imports wanted attributes" do
               command.call
 
-              new_proposal = Proposal.where(feature: current_feature).last
+              new_proposal = Proposal.where(component: current_component).last
 
               expect(new_proposal.title).to eq(proposal.title)
               expect(new_proposal.body).to eq(proposal.body)
@@ -82,16 +82,16 @@ module Decidim
               let(:states) { %w(not_answered rejected) }
 
               before do
-                create(:proposal, :rejected, feature: proposal.feature)
-                create(:proposal, feature: proposal.feature)
+                create(:proposal, :rejected, component: proposal.component)
+                create(:proposal, component: proposal.component)
               end
 
               it "only imports proposals from the selected states" do
                 expect do
                   command.call
-                end.to change { Proposal.where(feature: current_feature).count }.by(2)
+                end.to change { Proposal.where(component: current_component).count }.by(2)
 
-                expect(Proposal.where(feature: current_feature).pluck(:title)).not_to include(proposal.title)
+                expect(Proposal.where(component: current_component).pluck(:title)).not_to include(proposal.title)
               end
             end
           end

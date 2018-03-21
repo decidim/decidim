@@ -9,10 +9,10 @@ ca:
         end_date: Fi
         progress: Progrés
         project_ids: Projectes inclosos
-        proposal_ids: Propostes incloses
+        proposals: Propostes incloses
         start_date: Inici
         title: Títol
-        updated_at: Actualitzat a
+        updated_at: Actualitzat el
       status:
         description: Descripció
         key: Clau
@@ -50,11 +50,17 @@ ca:
           edit:
             title: Edita resultat
             update: Actualitza resultat
+          form:
+            add_proposal: Afegir proposta
           index:
             title: Resultats
           new:
             create: Crea resultat
             title: Nou resultat
+          proposals:
+            close: Tanca
+            current_selection: Selecció actual
+            select: Selecciona
           update:
             invalid: Hi ha hagut un problema en actualitzar aquest resultat
             success: El resultat ha estat actualitzat correctament
@@ -97,8 +103,12 @@ ca:
             success: El element ha estat actualitzat correctament
       admin_log:
         result:
-          create: "%{user_name} va crear el resultat %{resource_name} en %{space_name}"
-          update: "%{user_name} resultat actualitzat %{resource_name} en %{space_name}"
+          create: "%{user_name} ha creat el resultat %{resource_name} en %{space_name}"
+          delete: "%{user_name} ha eliminat el resultat %{resource_name} de l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat el resultat %{resource_name} en %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'No s''ha trobat el pare a la base de dades (ID: %{id})'
       models:
         result:
           fields:
@@ -161,14 +171,7 @@ ca:
           changes_at_title: Canvis a "%{title}"
         version:
           version_index: Versió %{index}
-    events:
-      accountability:
-        proposal_linked:
-          email_intro: 'La proposta "%{proposal_title}" s''ha inclòs en un resultat. Podeu veure-ho des d''aquesta pàgina:'
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint "%{proposal_title}". Podeu deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: Una actualització a %{proposal_title}
-          notification_title: La proposta <a href="%{proposal_path}">%{proposal_title}</a> s'ha inclòs al <a href="%{resource_path}">%{resource_title}</a> resultat.
-    features:
+    components:
       accountability:
         name: Seguiment
         settings:
@@ -182,6 +185,13 @@ ca:
             subcategories_label: Nom per a "Subcategories"
           step:
             comments_blocked: Comentaris bloquejats
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'La proposta "%{proposal_title}" s''ha inclòs en un resultat. Pots veure-ho des d''aquesta pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{proposal_title}". Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Una actualització a %{proposal_title}
+          notification_title: La proposta <a href="%{proposal_path}">%{proposal_title}</a> s'ha inclòs al resultat <a href="%{resource_path}">%{resource_title}</a>.
     participatory_processes:
       participatory_process_groups:
         highlighted_results:

@@ -1,0 +1,21 @@
+---
+
+linters:
+  ExtraNewline:
+    enabled: true
+
+  FinalNewline:
+    enabled: true
+
+  SpaceAroundErbTag:
+    enabled: true
+
+  Rubocop:
+    enabled: true
+
+    rubocop_config:
+      AllCops:
+        DisabledByDefault: true
+
+      Style/StringLiterals:
+        EnforcedStyle: double_quotes

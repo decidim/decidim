@@ -3,12 +3,12 @@
 require "spec_helper"
 
 describe "Edit proposals", type: :system do
-  include_context "with a feature"
+  include_context "with a component"
   let(:manifest_name) { "proposals" }
 
   let!(:user) { create :user, :confirmed, organization: participatory_process.organization }
   let!(:another_user) { create :user, :confirmed, organization: participatory_process.organization }
-  let!(:proposal) { create :proposal, author: user, feature: feature }
+  let!(:proposal) { create :proposal, author: user, component: component }
 
   before do
     switch_to_host user.organization.host
@@ -23,7 +23,7 @@ describe "Edit proposals", type: :system do
     end
 
     it "can be updated" do
-      visit_feature
+      visit_component
 
       click_link proposal.title
       click_link "Edit proposal"
@@ -39,10 +39,10 @@ describe "Edit proposals", type: :system do
     end
 
     context "when updating with wrong data" do
-      let(:feature) { create(:proposal_feature, :with_creation_enabled, :with_attachments_allowed, participatory_space: participatory_process) }
+      let(:component) { create(:proposal_component, :with_creation_enabled, :with_attachments_allowed, participatory_space: participatory_process) }
 
       it "returns an error message" do
-        visit_feature
+        visit_component
 
         click_link proposal.title
         click_link "Edit proposal"
@@ -63,7 +63,7 @@ describe "Edit proposals", type: :system do
     end
 
     it "renders an error" do
-      visit_feature
+      visit_component
 
       click_link proposal.title
       expect(page).to have_no_content("Edit proposal")
@@ -74,14 +74,14 @@ describe "Edit proposals", type: :system do
   end
 
   describe "editing my proposal outside the time limit" do
-    let!(:proposal) { create :proposal, author: user, feature: feature, created_at: 1.hour.ago }
+    let!(:proposal) { create :proposal, author: user, component: component, created_at: 1.hour.ago }
 
     before do
       login_as another_user, scope: :user
     end
 
     it "renders an error" do
-      visit_feature
+      visit_component
 
       click_link proposal.title
       expect(page).to have_no_content("Edit proposal")

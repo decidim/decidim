@@ -6,11 +6,11 @@ module Decidim
   module Surveys
     describe SurveyAnswerForm do
       subject do
-        described_class.from_model(survey_answer).with_context(current_feature: survey.feature)
+        described_class.from_model(survey_answer).with_context(current_component: survey.component)
       end
 
       let!(:survey) { create(:survey) }
-      let!(:user) { create(:user, organization: survey.feature.participatory_space.organization) }
+      let!(:user) { create(:user, organization: survey.component.participatory_space.organization) }
       let!(:survey_question) { create(:survey_question, survey: survey) }
       let!(:survey_answer) { create(:survey_answer, user: user, survey: survey, question: survey_question) }
 

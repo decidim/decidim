@@ -62,10 +62,10 @@ module Decidim::Meetings
     describe "map_model" do
       subject { described_class.from_model(meeting) }
 
-      let(:proposal_feature) do
-        create(:feature, manifest_name: :proposals, participatory_space: meeting.feature.participatory_space)
+      let(:proposal_component) do
+        create(:component, manifest_name: :proposals, participatory_space: meeting.component.participatory_space)
       end
-      let(:proposals) { create_list(:proposal, 3, feature: proposal_feature) }
+      let(:proposals) { create_list(:proposal, 3, component: proposal_component) }
       let(:meeting) { create(:meeting) }
 
       before do

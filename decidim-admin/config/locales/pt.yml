@@ -21,7 +21,7 @@ pt:
         description: Descrição
         name: Nome
         parent_id: Superior
-      feature:
+      component:
         name: Nome
         published_at: Publicado em
         weight: Peso
@@ -209,6 +209,44 @@ pt:
         update:
           error: Ocorreu um erro ao atualizar esta categoria.
           success: Categoria atualizada com sucesso.
+      component_permissions:
+        edit:
+          everyone: Todos
+          submit: Salvar permissões
+          title: Editar permissões
+        update:
+          success: Permissões atualizadas com sucesso.
+      components:
+        create:
+          error: Ocorreu um erro ao criar esse componente.
+          success: Componente criado com sucesso.
+        destroy:
+          error: Ocorreu um erro ao destruir esse componente.
+          success: Componente excluído com sucesso.
+        edit:
+          title: Editar componente
+          update: Atualizar
+        form:
+          default_step_settings: Configurações de etapa padrão
+          global_settings: Configurações globais
+          step_settings: Configurações de etapa
+        index:
+          add: Adicionar componente
+          headers:
+            actions: Ações
+            name: Nome do componente
+            type: Tipo de componente
+        new:
+          add: Adicionar componente
+          title: 'Adicionar componente: %{name}'
+        publish:
+          success: O componente foi publicado com sucesso.
+        title: Componentes
+        unpublish:
+          success: O componente não foi publicado com sucesso.
+        update:
+          error: Ocorreu um erro ao atualizar este componente.
+          success: O componente foi atualizado com sucesso.
       dashboard:
         show:
           view_more_logs: Ver mais logs
@@ -216,44 +254,9 @@ pt:
       exports:
         export_as: "%{name} como %{export_format}"
         notice: Sua exportação está atualmente em andamento. Você receberá um e-mail quando estiver completo.
-      feature_permissions:
-        edit:
-          everyone: Todos
-          submit: Guardar permissões
-          title: Editar permissões
-        update:
-          success: Permissões atualizadas com sucesso.
-      features:
-        create:
-          error: Ocorreu um erro na criação da funcionalidade.
-          success: Recurso criado com sucesso.
-        destroy:
-          error: Ocorreu um erro ao apagar esse recurso.
-          success: Recurso apagado com sucesso.
-        edit:
-          title: Editar funcionalidade
-          update: Atualizar
-        form:
-          default_step_settings: Configurações por defeito
-          global_settings: Configurações globais
-          step_settings: Configurações de etapa
-        index:
-          add: Adicionar funcionalidade
-          headers:
-            actions: Ações
-            name: Nome da funcionalidade
-            type: Tipo de funcionalidade
-        new:
-          add: Adicionar funcionalidade
-          title: 'Adicionar funcionalidade: %{name}'
-        publish:
-          success: A funcionalidade foi publicada com sucesso.
-        title: Funcionalidades
-        unpublish:
-          success: A funcionalidade foi despublicada com sucesso.
-        update:
-          error: Ocorreu um erro ao atualizar essa funcionalidade.
-          success: A funcionalidade foi atualizada com sucesso.
+      logs:
+        logs_list:
+          no_logs_yet: Ainda não há logs
       managed_users:
         close_session:
           error: Ocorreu um erro ao encerrar a sessão de representação atual.

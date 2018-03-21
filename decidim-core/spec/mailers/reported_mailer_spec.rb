@@ -6,9 +6,9 @@ module Decidim
   describe ReportedMailer, type: :mailer do
     let(:organization) { create(:organization) }
     let(:user) { create(:user, :admin, organization: organization) }
-    let(:feature) { create(:feature, organization: organization) }
-    let(:reportable) { create(:dummy_resource, feature: feature) }
-    let(:moderation) { create(:moderation, reportable: reportable, participatory_space: feature.participatory_space, report_count: 1) }
+    let(:component) { create(:component, organization: organization) }
+    let(:reportable) { create(:dummy_resource, component: component) }
+    let(:moderation) { create(:moderation, reportable: reportable, participatory_space: component.participatory_space, report_count: 1) }
     let!(:report) { create(:report, moderation: moderation) }
 
     describe "#report" do
