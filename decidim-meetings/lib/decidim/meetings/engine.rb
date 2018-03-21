@@ -4,6 +4,9 @@ require "searchlight"
 require "kaminari"
 require "jquery-tmpl-rails"
 require "icalendar"
+require "cells/rails"
+require "cells-erb"
+require "cell/partial"
 
 module Decidim
   module Meetings
@@ -78,6 +81,11 @@ module Decidim
             }
           )
         end
+      end
+
+      initializer "decidim_meetings.add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Meetings::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Meetings::Engine.root}/app/views") # for partials
       end
     end
   end
