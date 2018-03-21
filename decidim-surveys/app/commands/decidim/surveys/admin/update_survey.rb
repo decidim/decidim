@@ -35,6 +35,7 @@ module Decidim
           @form.questions.each do |form_question|
             question_attributes = {
               body: form_question.body,
+              description: form_question.description,
               position: form_question.position,
               mandatory: form_question.mandatory,
               question_type: form_question.question_type,

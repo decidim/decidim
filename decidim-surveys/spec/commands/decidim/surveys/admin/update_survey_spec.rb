@@ -45,6 +45,7 @@ module Decidim
                   "ca" => "Segona pregunta",
                   "es" => "Segunda pregunta"
                 },
+                "description" => { "en" => "Description" },
                 "position" => "1",
                 "mandatory" => "1",
                 "question_type" => "long_answer",
@@ -120,6 +121,7 @@ module Decidim
             end
 
             expect(survey.questions[1]).to be_mandatory
+            expect(survey.questions[1].description["en"]).to eq(form_params["questions"][1]["description"]["en"])
             expect(survey.questions[1].question_type).to eq("long_answer")
             expect(survey.questions[2].answer_options[1]["body"]["en"]).to eq(form_params["questions"][2]["options"][1]["body"]["en"])
           end

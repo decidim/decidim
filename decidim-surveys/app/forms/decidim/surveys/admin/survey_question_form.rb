@@ -14,6 +14,7 @@ module Decidim
         attribute :deleted, Boolean, default: false
 
         translatable_attribute :body, String
+        translatable_attribute :description, String
 
         validates :position, numericality: { greater_than_or_equal_to: 0 }
         validates :question_type, inclusion: { in: SurveyQuestion::TYPES }

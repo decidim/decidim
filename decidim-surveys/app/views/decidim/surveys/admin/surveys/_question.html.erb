@@ -40,6 +40,19 @@
 
     <div class="row column">
       <%=
+        form.translated(
+          :editor,
+          :description,
+          toolbar: :full,
+          tabs_id: id,
+          label: t(".description"),
+          disabled: !survey.questions_editable?
+        )
+      %>
+    </div>
+
+    <div class="row column">
+      <%=
         form.check_box(
           :mandatory,
           disabled: !survey.questions_editable?,

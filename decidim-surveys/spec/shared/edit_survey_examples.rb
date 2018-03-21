@@ -58,6 +58,36 @@ shared_examples "edit surveys" do
       expect(page).to have_selector("input[value='This is the second question']")
     end
 
+    it "adds a question with a rich text description" do
+      visit_component_admin
+
+      within "form.edit_survey" do
+        click_button "Add question"
+
+        within ".survey-question" do
+          fill_in find_nested_form_field_locator("body_en"), with: "Body"
+
+          fill_in_editor find_nested_form_field_locator("description_en", visible: false), with: "<b>Superkalifragilistic description</b>"
+        end
+
+        click_button "Save"
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      component.update!(
+        step_settings: {
+          component.participatory_space.active_step.id => {
+            allow_answers: true
+          }
+        }
+      )
+
+      visit_component
+
+      expect(page).to have_selector("strong", text: "Superkalifragilistic description")
+    end
+
     it "adds a question with answer options" do
       visit_component_admin
 
@@ -157,10 +187,10 @@ shared_examples "edit surveys" do
 
       within ".survey-question:first-of-type" do
         fill_in find_nested_form_field_locator("body_en"), with: "Bye"
-        click_link "Català"
+        click_link "Català", match: :first
 
         fill_in find_nested_form_field_locator("body_ca"), with: "Adeu"
-        click_link "English"
+        click_link "English", match: :first
 
         expect(page).to have_nested_field("body_en", with: "Bye")
         expect(page).to have_no_nested_field("body_ca", with: "Adeu")
@@ -358,12 +388,12 @@ shared_examples "edit surveys" do
 
   private
 
-  def find_nested_form_field_locator(attribute)
-    find_nested_form_field(attribute)["id"]
+  def find_nested_form_field_locator(attribute, visible: true)
+    find_nested_form_field(attribute, visible: visible)["id"]
   end
 
-  def find_nested_form_field(attribute)
-    current_scope.find(nested_form_field_selector(attribute))
+  def find_nested_form_field(attribute, visible: true)
+    current_scope.find(nested_form_field_selector(attribute), visible: visible)
   end
 
   def have_nested_field(attribute, with:)
