@@ -23,7 +23,7 @@ module Decidim
     end
 
     def resource_cell
-      model.component.manifest.card
+      @resource_cell ||= model.component.manifest.card
     end
   end
 end
