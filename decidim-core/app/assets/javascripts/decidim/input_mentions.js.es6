@@ -3,7 +3,7 @@
 $(() => {
   const $mentionContainer = $('.js-mentions');
   const nodatafound = $mentionContainer.attr('data-noresults');
-  const sources = []; // TODO: Object with remote data. See Tribute.js DOCS
+  const sources = [];
 
   // EXAMPLE DATA
   // tag & name properties are mandatory
