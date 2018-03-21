@@ -2,7 +2,6 @@
 // = require_self
 
 $(() => {
-  const $container = $('.editor-container');
   const quillFormats = ['bold', 'italic', 'link', 'underline', 'header', 'list', 'video'];
 
   const createQuillEditor = (container) => {
@@ -48,7 +47,7 @@ $(() => {
     quill.root.innerHTML = $input.val() || '';
   };
 
-  $container.each((idx, container) => {
+  $('.editor-container').each((idx, container) => {
     createQuillEditor(container);
   });
 
