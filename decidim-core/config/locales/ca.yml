@@ -315,6 +315,8 @@ ca:
         title: Més informació
     participatory_space_private_users:
       not_allowed: No tens permís per visualitzar aquest contingut
+    profile:
+      deleted: Usuari eliminat
     profiles:
       default_officialization_text: Aquest participant es verifica públicament. El seu nom o la seva funció s'ha verificat perquè es correspongui amb el seu nom i funció reals
       show:
