@@ -1,7 +1,7 @@
 // = require quill.min
 // = require_self
 
-$(() => {
+((exports) => {
   const quillFormats = ['bold', 'italic', 'link', 'underline', 'header', 'list', 'video'];
 
   const createQuillEditor = (container) => {
@@ -47,10 +47,12 @@ $(() => {
     quill.root.innerHTML = $input.val() || '';
   };
 
-  $('.editor-container').each((idx, container) => {
-    createQuillEditor(container);
-  });
+  const quillEditor = () => {
+    $('.editor-container').each((idx, container) => {
+      createQuillEditor(container);
+    });
+  };
 
-  window.Decidim = window.Decidim || {};
-  window.Decidim.createQuillEditor = createQuillEditor;
-});
+  exports.Decidim = exports.Decidim || {};
+  exports.Decidim.quillEditor = quillEditor;
+})(window);
