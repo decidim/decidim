@@ -99,7 +99,7 @@ ca:
               S'ha creat un nou debat a l'espai participatiu %{space_title}, fes-hi un cop d'ull i contribueix:
             email_outro: Has rebut aquesta notificació perquè estàs seguint %{space_title}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
             email_subject: Nou debat a %{space_title}
-            notification_title: El <a href="%{resource_path}">%{resource_title}</a> debat s'ha creat a <a href="%{space_path}">%{space_title}</a>.
+            notification_title: El debat <a href="%{resource_path}">%{resource_title}</a> s'ha creat a <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
               %{author_name} %{author_nickname}, a qui segueixes, ha creat un nou debat. Revisa'l i contribueix:

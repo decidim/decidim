@@ -67,7 +67,7 @@ module Decidim
           from_proposals_list: from_proposals_list,
           user_group_id: user_group&.id
         )
-        endorse_label = btn_label || t(".endorse")
+        endorse_label = btn_label || t("decidim.proposals.proposal_endorsements_helper.endorsement_button.endorse")
         unendorse_label = btn_label || t("decidim.proposals.proposal_endorsements_helper.endorsement_button.already_endorsed")
 
         render partial: "decidim/proposals/proposals/endorsement_button", locals: { proposal: proposal,

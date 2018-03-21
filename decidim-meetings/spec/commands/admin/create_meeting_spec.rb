@@ -9,7 +9,7 @@ module Decidim::Meetings
     let(:organization) { create :organization, available_locales: [:en] }
     let(:current_user) { create :user, :admin, :confirmed, organization: organization }
     let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "meetings" }
+    let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
     let(:scope) { create :scope, organization: organization }
     let(:category) { create :category, participatory_space: participatory_process }
     let(:address) { "address" }
@@ -32,7 +32,7 @@ module Decidim::Meetings
         scope: scope,
         category: category,
         current_user: current_user,
-        current_feature: current_feature
+        current_component: current_component
       )
     end
 
@@ -61,9 +61,9 @@ module Decidim::Meetings
         expect(meeting.category).to eq category
       end
 
-      it "sets the feature" do
+      it "sets the component" do
         subject.call
-        expect(meeting.feature).to eq current_feature
+        expect(meeting.component).to eq current_component
       end
 
       it "sets the longitude and latitude" do

@@ -20,7 +20,7 @@ module Decidim
       attribute :default_locale, String
 
       validates :name, presence: true
-      validates :default_locale, presence: true
+      validates :default_locale, :reference_prefix, presence: true
       validates :default_locale, inclusion: { in: :available_locales }
 
       private

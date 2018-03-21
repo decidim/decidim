@@ -54,11 +54,15 @@ it:
         success: Il tuo account è stato aggiornato correttamente.
         success_with_email_confirmation: Il tuo account è stato aggiornato correttamente. Riceverai un'email per confermare il tuo nuovo indirizzo email.
     admin_log:
-      feature:
-        create: "%{user_name} aggiunto il %{resource_name} funzione per %{space_name} spazio"
-        delete: "%{user_name} rimosso il %{resource_name} funzione dal %{space_name} spazio"
-        publish: "%{user_name} ha pubblicato la funzione %{resource_name} nello spazio %{space_name}"
-        unpublish: "%{user_name} non pubblicato la funzione %{resource_name} dallo spazio %{space_name}"
+      area:
+        create: "%{user_name} ha creato l'area %{resource_name}"
+        delete: "%{user_name} ha eliminato l'area %{resource_name}"
+        update: "%{user_name} ha aggiornato l'area %{resource_name}"
+      component:
+        create: "%{user_name} ha aggiunto il componente %{resource_name} allo spazio %{space_name}"
+        delete: "%{user_name} rimosso il componente %{resource_name} dallo spazio %{space_name}"
+        publish: "%{user_name} ha pubblicato il componente %{resource_name} nello spazio %{space_name}"
+        unpublish: "%{user_name} non pubblicato il componente %{resource_name} dallo spazio %{space_name}"
       moderation:
         hide: "%{user_name} nascosto una risorsa di tipo %{resource_type} nel %{space_name} spazio"
         unreport: "%{user_name} non segnalata una risorsa di tipo %{resource_type} nel %{space_name} spazio"
@@ -118,6 +122,21 @@ it:
         name: Autorizzazione Foo
       granted_at: Concesso a %{timestamp}
       started_at: Iniziato a %{timestamp}
+    components:
+      dummy:
+        actions:
+          bar: Bar
+          foo: foo
+        name: Dummy Component
+        settings:
+          global:
+            comments_enabled: Commenti abilitati
+            dummy_global_attribute_1: Attributo fittizio 1
+            dummy_global_attribute_2: Attributo fittizio 2
+          step:
+            comments_blocked: Commenti bloccati
+            dummy_step_attribute_1: Attributo Dummy Step 1
+            dummy_step_attribute_2: Attributo Dummy Step 2
     contact: Contatto
     core:
       actions:
@@ -169,17 +188,17 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{resource_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Un aggiornamento a %{resource_title}
           notification_title: È stato aggiunto un <a href="%{resource_path}">nuovo documento</a> a <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: 'Il componente %{resource_title} è ora attivo per %{participatory_space_title}. Puoi vederlo da questa pagina:'
+          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
+          email_subject: Un aggiornamento a %{participatory_space_title}
+          notification_title: Il componente %{resource_title} è ora attivo per <a href="%{resource_path}">%{participatory_space_title}</a>
       email_event:
         email_greeting: Ciao %{user_name},
         email_intro: 'C''è stato un aggiornamento a "%{resource_title}". Si può vedere da questa pagina:'
         email_outro: Hai ricevuto questa notifica perché stai seguendo "%{resource_title}". Puoi smettere di seguirlo dal link precedente.
         email_subject: Un aggiornamento per %{resource_title}
-      features:
-        feature_published:
-          email_intro: 'Il componente %{resource_title} è ora attivo per %{participatory_space_title}. Puoi vederlo da questa pagina:'
-          email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
-          email_subject: Un aggiornamento a %{participatory_space_title}
-          notification_title: Il componente %{resource_title} è ora attivo per <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: Si è verificato un evento di <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -192,21 +211,6 @@ it:
       export:
         ready: In allegato una versione zippata (Zip) dei dati esportati.
       subject: Ecco i dati che hai chiesto di esportare per "%{name}"
-    features:
-      dummy:
-        actions:
-          bar: Barra
-          foo: foo
-        name: Funzionalità di prova
-        settings:
-          global:
-            comments_enabled: Commenti abilitati
-            dummy_global_attribute_1: Attributo di prova 1
-            dummy_global_attribute_2: Attributo di prova 2
-          step:
-            comments_blocked: Commenti bloccati
-            dummy_step_attribute_1: Attributo 1 della fase di prova
-            dummy_step_attribute_2: Attributo 2 della fase di prova
     filters:
       linked_classes:
         all: Tutto
@@ -242,6 +246,8 @@ it:
       value_types:
         area_presenter:
           not_found: 'L''area non è stata trovata nel database (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Il tipo di area non è stato trovato nel database (ID: %{id})'
         scope_presenter:
           not_found: 'L''ambito non è stato trovato nel database (ID: %{id})'
         scope_type_presenter:

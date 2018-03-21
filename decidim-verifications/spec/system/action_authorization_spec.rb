@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe "Action Authorization", type: :system do
-  include_context "with a feature"
+  include_context "with a component"
 
   let(:manifest_name) { "proposals" }
 
@@ -11,11 +11,11 @@ describe "Action Authorization", type: :system do
     create(:organization, available_authorizations: [authorization])
   end
 
-  let!(:proposal) { create(:proposal, feature: feature) }
+  let!(:proposal) { create(:proposal, component: component) }
 
-  let!(:feature) do
+  let!(:component) do
     create(
-      :proposal_feature,
+      :proposal_component,
       :with_creation_enabled,
       manifest: manifest,
       participatory_space: participatory_space,
@@ -37,7 +37,7 @@ describe "Action Authorization", type: :system do
       end
 
       before do
-        visit main_feature_path(feature)
+        visit main_component_path(component)
         click_link "New proposal"
       end
 
@@ -67,7 +67,7 @@ describe "Action Authorization", type: :system do
       end
 
       before do
-        visit main_feature_path(feature)
+        visit main_component_path(component)
         click_link "New proposal"
       end
 
@@ -92,7 +92,7 @@ describe "Action Authorization", type: :system do
 
       before do
         create(:authorization, name: "dummy_authorization_handler", user: user, granted_at: 1.month.ago)
-        visit main_feature_path(feature)
+        visit main_component_path(component)
         click_link "New proposal"
       end
 
@@ -113,7 +113,7 @@ describe "Action Authorization", type: :system do
       let(:permissions) { nil }
 
       before do
-        visit main_feature_path(feature)
+        visit main_component_path(component)
         click_link "New proposal"
       end
 
@@ -132,7 +132,7 @@ describe "Action Authorization", type: :system do
       end
 
       before do
-        visit main_feature_path(feature)
+        visit main_component_path(component)
         click_link "New proposal"
       end
 
@@ -155,7 +155,7 @@ describe "Action Authorization", type: :system do
 
       before do
         create(:authorization, :pending, name: "dummy_authorization_workflow", user: user)
-        visit main_feature_path(feature)
+        visit main_component_path(component)
         click_link "New proposal"
       end
 
@@ -179,7 +179,7 @@ describe "Action Authorization", type: :system do
 
       before do
         create(:authorization, name: "dummy_authorization_workflow", user: user, granted_at: 1.month.ago)
-        visit main_feature_path(feature)
+        visit main_component_path(component)
         click_link "New proposal"
       end
 
@@ -200,7 +200,7 @@ describe "Action Authorization", type: :system do
       let(:permissions) { nil }
 
       before do
-        visit main_feature_path(feature)
+        visit main_component_path(component)
         click_link "New proposal"
       end
 

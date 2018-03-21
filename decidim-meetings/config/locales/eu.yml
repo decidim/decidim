@@ -21,6 +21,18 @@ eu:
         start_time: Hasiera-ordua
         title: Titulua
   decidim:
+    components:
+      meetings:
+        actions:
+          join: Parte hartu
+        name: Bilerak
+        settings:
+          global:
+            announcement: Anuntzio
+            comments_enabled: Iruzkinak gaituta
+          step:
+            announcement: Anuntzio
+            comments_blocked: Iruzkinak blokeatuta
     events:
       meetings:
         meeting_closed:
@@ -53,18 +65,6 @@ eu:
           email_outro: Jakinarazpen hori jaso duzu "%{resource_title}" bilera jarraitzen duzulako. Aurreko esteka estekan jarrai dezakezu.
           email_subject: '"%{resource_title}" topaketa 48 ordu baino gutxiagotan hasiko da.'
           notification_title: <a href="%{resource_path}">%{resource_title}</a> topaketa 48 ordu baino gutxiagoan hasiko da.
-    features:
-      meetings:
-        actions:
-          join: Bat egin
-        name: Topaketa-zerrenda
-        settings:
-          global:
-            announcement: Oharra
-            comments_enabled: Iruzkinak gaituta
-          step:
-            announcement: Oharra
-            comments_blocked: Iruzkinak blokeatuta
     meetings:
       actions:
         attachment_collections: Bilduma
@@ -135,6 +135,7 @@ eu:
           close: "%{user_name} %{resource_name} bilera %{space_name} espazioan itxi zen"
           create: "%{user_name} %{resource_name} bilera sortu zen %{space_name} espazioan"
           delete: "%{user_name} %{resource_name} topaketa ezabatu da %{space_name} espazioan"
+          export_registrations: "%{user_name} %{resource_name} bilera erregistratu dira %{space_name} espazioan"
           update: "%{user_name} %{resource_name} topaketa %{space_name} espazioan eguneratu zen"
       mailer:
         invite_join_meeting_mailer:

@@ -32,20 +32,20 @@ shared_examples "manage proposals" do
   describe "creation" do
     context "when official_proposals setting is enabled" do
       before do
-        current_feature.update!(settings: { official_proposals_enabled: true })
+        current_component.update!(settings: { official_proposals_enabled: true })
       end
 
       context "when creation is enabled" do
         before do
-          current_feature.update!(
+          current_component.update!(
             step_settings: {
-              current_feature.participatory_space.active_step.id => {
+              current_component.participatory_space.active_step.id => {
                 creation_enabled: true
               }
             }
           )
 
-          visit_feature_admin
+          visit_component_admin
         end
 
         context "when process is not related to any scope" do
@@ -151,7 +151,7 @@ shared_examples "manage proposals" do
 
           context "when geocoding is enabled" do
             before do
-              current_feature.update!(settings: { geocoding_enabled: true })
+              current_component.update!(settings: { geocoding_enabled: true })
             end
 
             it "creates a new proposal related to the process scope" do
@@ -181,7 +181,7 @@ shared_examples "manage proposals" do
 
         context "when attachments are allowed", processing_uploads_for: Decidim::AttachmentUploader do
           before do
-            current_feature.update!(settings: { attachments_allowed: true })
+            current_component.update!(settings: { attachments_allowed: true })
           end
 
           it "creates a new proposal with attachments" do
@@ -205,9 +205,9 @@ shared_examples "manage proposals" do
 
       context "when creation is not enabled" do
         before do
-          current_feature.update!(
+          current_component.update!(
             step_settings: {
-              current_feature.participatory_space.active_step.id => {
+              current_component.participatory_space.active_step.id => {
                 creation_enabled: false
               }
             }
@@ -215,12 +215,12 @@ shared_examples "manage proposals" do
         end
 
         it "cannot create a new proposal from the main site" do
-          visit_feature
+          visit_component
           expect(page).to have_no_button("New Proposal")
         end
 
         it "cannot create a new proposal from the admin site" do
-          visit_feature_admin
+          visit_component_admin
           expect(page).to have_no_link(/New/)
         end
       end
@@ -228,31 +228,31 @@ shared_examples "manage proposals" do
 
     context "when official_proposals setting is disabled" do
       before do
-        current_feature.update!(settings: { official_proposals_enabled: false })
+        current_component.update!(settings: { official_proposals_enabled: false })
       end
 
       it "cannot create a new proposal from the main site" do
-        visit_feature
+        visit_component
         expect(page).to have_no_button("New Proposal")
       end
 
       it "cannot create a new proposal from the admin site" do
-        visit_feature_admin
+        visit_component_admin
         expect(page).to have_no_link(/New/)
       end
     end
   end
 
-  context "when the proposal_answering feature setting is enabled" do
+  context "when the proposal_answering component setting is enabled" do
     before do
-      current_feature.update!(settings: { proposal_answering_enabled: true })
+      current_component.update!(settings: { proposal_answering_enabled: true })
     end
 
     context "when the proposal_answering step setting is enabled" do
       before do
-        current_feature.update!(
+        current_component.update!(
           step_settings: {
-            current_feature.participatory_space.active_step.id => {
+            current_component.participatory_space.active_step.id => {
               proposal_answering_enabled: true
             }
           }
@@ -320,7 +320,7 @@ shared_examples "manage proposals" do
           answered_at: Time.current
         )
 
-        visit_feature_admin
+        visit_component_admin
 
         within find("tr", text: proposal.title) do
           expect(page).to have_content("Rejected")
@@ -343,9 +343,9 @@ shared_examples "manage proposals" do
 
     context "when the proposal_answering step setting is disabled" do
       before do
-        current_feature.update!(
+        current_component.update!(
           step_settings: {
-            current_feature.participatory_space.active_step.id => {
+            current_component.participatory_space.active_step.id => {
               proposal_answering_enabled: false
             }
           }
@@ -362,9 +362,9 @@ shared_examples "manage proposals" do
     end
   end
 
-  context "when the proposal_answering feature setting is disabled" do
+  context "when the proposal_answering component setting is disabled" do
     before do
-      current_feature.update!(settings: { proposal_answering_enabled: false })
+      current_component.update!(settings: { proposal_answering_enabled: false })
     end
 
     it "cannot answer a proposal" do
@@ -376,11 +376,11 @@ shared_examples "manage proposals" do
     end
   end
 
-  context "when the votes_enabled feature setting is disabled" do
+  context "when the votes_enabled component setting is disabled" do
     before do
-      current_feature.update!(
+      current_component.update!(
         step_settings: {
-          feature.participatory_space.active_step.id => {
+          component.participatory_space.active_step.id => {
             votes_enabled: false
           }
         }
@@ -396,11 +396,11 @@ shared_examples "manage proposals" do
     end
   end
 
-  context "when the votes_enabled feature setting is enabled" do
+  context "when the votes_enabled component setting is enabled" do
     before do
-      current_feature.update!(
+      current_component.update!(
         step_settings: {
-          feature.participatory_space.active_step.id => {
+          component.participatory_space.active_step.id => {
             votes_enabled: true
           }
         }

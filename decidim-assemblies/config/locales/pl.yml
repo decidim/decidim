@@ -5,7 +5,7 @@ pl:
         area_id: Powierzchnia
         banner_image: Obraz baneru
         copy_categories: Kopiuj kategorie
-        copy_features: Kopiuj funkcje
+        copy_components: Skopiuj komponenty
         decidim_area_id: Powierzchnia
         decidim_scope_id: Zakres
         description: Opis
@@ -15,6 +15,7 @@ pl:
         hero_image: Obraz w domu
         local_area: Okolica
         meta_scope: Zakres metadanych
+        participatory_processes_ids: Powiązane procesy uczestnictwa
         participatory_scope: Zakres partycypacji
         participatory_structure: Struktura partycypacji
         promoted: Lansowany
@@ -27,6 +28,10 @@ pl:
         subtitle: Podtytuł
         target: Cel
         title: Tytuł
+      assembly_user_role:
+        email: E-mail
+        name: Nazwa
+        role: Rola
   decidim:
     admin:
       assemblies:
@@ -89,7 +94,7 @@ pl:
           attachment_files: Akta
           attachments: Załączniki
           categories: Kategorie
-          features: cechy
+          components: składniki
           info: Informacje
           moderations: Modernizacje
       models:
@@ -144,6 +149,7 @@ pl:
         local_area: Okolica
         participatory_scope: Zakres partycypacji
         participatory_structure: Struktura partycypacji
+        related_participatory_processes: Powiązane procesy uczestnictwa
         scope: Zakres
         target: Cel
       statistics:

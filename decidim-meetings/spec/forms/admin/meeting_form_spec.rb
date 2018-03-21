@@ -10,12 +10,12 @@ module Decidim::Meetings
     let(:context) do
       {
         current_organization: organization,
-        current_feature: current_feature,
+        current_component: current_component,
         current_participatory_space: participatory_process
       }
     end
     let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:current_feature) { create :feature, participatory_space: participatory_process, manifest_name: "meetings" }
+    let(:current_component) { create :component, participatory_space: participatory_process, manifest_name: "meetings" }
     let(:title) do
       Decidim::Faker::Localized.sentence(3)
     end
@@ -137,7 +137,7 @@ module Decidim::Meetings
     end
 
     it "properly maps category id from model" do
-      meeting = create(:meeting, feature: current_feature, category: category)
+      meeting = create(:meeting, component: current_component, category: category)
 
       expect(described_class.from_model(meeting).decidim_category_id).to eq(category_id)
     end

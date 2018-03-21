@@ -9,6 +9,13 @@ fr:
         document_type: Type de votre document
         user: Utilisateur
         verification_attachment: Copie scannée de votre document
+      postal_letter_address:
+        full_address: Adresse complète
+      postal_letter_confirmation:
+        verification_code: Code de vérification
+      postal_letter_postage:
+        full_address: Adresse complète
+        verification_code: Code de vérification
   decidim:
     admin:
       menu:

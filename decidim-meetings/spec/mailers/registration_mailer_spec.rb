@@ -8,9 +8,9 @@ module Decidim::Meetings
 
     let(:organization) { create(:organization) }
     let(:participatory_process) { create(:participatory_process, organization: organization) }
-    let(:feature) { create(:feature, manifest_name: :meetings, participatory_space: participatory_process) }
+    let(:component) { create(:component, manifest_name: :meetings, participatory_space: participatory_process) }
     let(:user) { create(:user, organization: organization) }
-    let(:meeting) { create(:meeting, feature: feature) }
+    let(:meeting) { create(:meeting, component: component) }
     let(:mail) { described_class.confirmation(user, meeting) }
 
     describe "confirmation" do

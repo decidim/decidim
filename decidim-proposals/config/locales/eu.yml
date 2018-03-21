@@ -15,8 +15,44 @@ eu:
         answer: Erantzuna
       proposals_copy:
         copy_proposals: Honek hautatutako osagaiaren unekoaren proposamen guztiak inportatuko ditu eta ekintza hori ezin da alderantzikatu.
-        origin_feature_id: Proposamenen kopia egiteko osagaia
+        origin_component_id: Proposamenen kopia egiteko osagaia
   decidim:
+    components:
+      proposals:
+        actions:
+          create: Sortu
+          endorse: gatoz
+          vote: Bozkatu
+          withdraw: Erretiratuko
+        name: proposamenak
+        settings:
+          global:
+            announcement: Anuntzio
+            attachments_allowed: Onartu eranskinak
+            can_accumulate_supports_beyond_threshold: Atalasetik haratago doazen euskarriak pilatu ditzakezu
+            comments_enabled: Iruzkinak gaituta
+            geocoding_enabled: Geokodifikazioa gaituta dago
+            maximum_votes_per_proposal: Proposamen bakoitzeko gehienezko botoak
+            new_proposal_help_text: Proposamen berriaren laguntza testu
+            official_proposals_enabled: Proposamen ofizialak gaituta
+            proposal_answering_enabled: Proposamena erantzutea gaituta dago
+            proposal_edit_before_minutes: Proposamenak egileek editatu ahal izango dituzte minutu asko igaro aurretik
+            proposal_length: Proposamen maximoa gorputzaren luzera
+            proposal_limit: Proposamenaren muga erabiltzaile bakoitzeko
+            proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
+            proposal_wizard_step_2_help_text: Proposamen laguntzailea "Konparatu" urrats laguntza testua
+            proposal_wizard_step_3_help_text: Proposamen laguntzailea "Argitaratu" urrats laguntza testua
+            vote_limit: Erabiltzaile bakoitzari botoa emateko muga
+          step:
+            announcement: Anuntzio
+            comments_blocked: Iruzkinak blokeatuta
+            creation_enabled: Proposamenaren sorrera gaituta
+            endorsements_blocked: Onarpen blokeatuak
+            endorsements_enabled: Onarpen gaituak
+            proposal_answering_enabled: Proposamena erantzutea gaituta dago
+            votes_blocked: Botoiak blokeatuta
+            votes_enabled: Botoiak gaituta
+            votes_hidden: Botoiak ezkutatuta (botoak gaituta badago, hau egiaztatuz boto kopurua ezkutatuko da)
     events:
       proposals:
         creation_enabled:
@@ -69,42 +105,6 @@ eu:
           email_outro: Jakinarazpena jaso duzu %{participatory_space_title}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
           email_subject: Proposamenak hauteskundeak hasi dira %{participatory_space_title}erako
           notification_title: <a href="%{resource_path}">boto-proposamen</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>-n has dezakezu orain
-    features:
-      proposals:
-        actions:
-          create: Sortu
-          endorse: gatoz
-          vote: Proiektuaren alde egin
-          withdraw: Erretiratuko
-        name: Proposamenak
-        settings:
-          global:
-            announcement: Oharra
-            attachments_allowed: Baimendu eranskinak
-            can_accumulate_supports_beyond_threshold: Atalasetik haratago doazen euskarriak pilatu ditzakezu
-            comments_enabled: Iruzkinak gaituta
-            geocoding_enabled: Geokodeketa gaituta
-            maximum_votes_per_proposal: Proposamen bakoitzeko gehienezko botoak
-            new_proposal_help_text: Laguntza-testua proposamen bat sortzean
-            official_proposals_enabled: Proposamen ofizialak gaituta
-            proposal_answering_enabled: Erantzuna aktibatutako proposamenei
-            proposal_edit_before_minutes: Proposamenak egileek editatu ahal izango dituzte minutu asko igaro aurretik
-            proposal_length: Proposamen maximoa gorputzaren luzera
-            proposal_limit: Proposamenaren muga erabiltzaile bakoitzeko
-            proposal_wizard_step_1_help_text: Proposamen laguntzailea "Sortu" urrats laguntza testua
-            proposal_wizard_step_2_help_text: Proposamen laguntzailea "Konparatu" urrats laguntza testua
-            proposal_wizard_step_3_help_text: Proposamen laguntzailea "Argitaratu" urrats laguntza testua
-            vote_limit: Erabiltzaile bakoitzari botoa emateko muga
-          step:
-            announcement: Oharra
-            comments_blocked: Iruzkinak blokeatuta
-            creation_enabled: Gaitu proposamenen sorrera
-            endorsements_blocked: Onarpen blokeatuak
-            endorsements_enabled: Onarpen gaituak
-            proposal_answering_enabled: Erantzun ofiziala gaitutako proposamenei
-            votes_blocked: Bozketa blokeatuta
-            votes_enabled: Botoak gaituta
-            votes_hidden: Boto ezkutuak (Botoak gaituta egon eta aukera hau markatuz gero, ezkutuan geldituko da botoen kopurua)
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -182,8 +182,8 @@ eu:
             success: "%{number} proposamenak behar bezala inportatu dira"
           new:
             create: Inportatzeko proposamenak
-            no_features: Proposamenen inportazioa inportatzeko espazio parte hartzaile honetan ez dago proposamenrik.
-            select_feature: Hautatu osagaia
+            no_components: Proposamenen inportazioa inportatzeko espazio parte hartzaile honetan ez dago proposamenrik.
+            select_component: Hautatu osagaia
             select_states: Egiaztatu inportatzeko proposamenen egoera
         shared:
           info_proposal:
@@ -322,6 +322,8 @@ eu:
           withdraw_btn_hint: Zure proposamena uka dezakezu zure kontuan aldatzen baduzu, laguntza jaso ez baduzu. Proposamena ez da ezabatu, kendutako proposamenen zerrendan agertuko da.
           withdraw_confirmation: Ziur al zaude proposamen hau kendu nahi duzula?
           withdraw_proposal: Ezabatu proposamena
+        tags:
+          changed_from: "( <u>%{previous_category}</u> administratzaile batek aldatu du)"
         vote_button:
           already_voted: Bozkatuta duzu
           already_voted_hover: Unvote

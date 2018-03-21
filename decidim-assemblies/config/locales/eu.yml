@@ -5,7 +5,7 @@ eu:
         area_id: Area
         banner_image: Bannerra
         copy_categories: Kopiatu kategoriak
-        copy_features: Kopiatu funtzionalitateak
+        copy_components: Kopiatu osagaiak
         decidim_area_id: Area
         decidim_scope_id: esparrua
         description: Deskribapena
@@ -15,6 +15,7 @@ eu:
         hero_image: Orri nagusiko irudia
         local_area: Udal-alorrak
         meta_scope: 'Metadatuak: esparrua'
+        participatory_processes_ids: Parte hartutako prozesu erlazionatuak
         participatory_scope: Partehartze esparrua
         participatory_structure: Partehartze egitura
         promoted: Nabarmendua
@@ -27,6 +28,10 @@ eu:
         subtitle: Azpititulua
         target: Nori zuzentzen zaio?
         title: Prozesu partizipatiboen multzoak
+      assembly_user_role:
+        email: Emaila
+        name: izena
+        role: Role
   decidim:
     admin:
       assemblies:
@@ -89,7 +94,7 @@ eu:
           attachment_files: Fitxategiak
           attachments: Eranskinak
           categories: Kategoriak
-          features: Funtzionalitateak
+          components: Osagaiak
           info: Informazioa
           moderations: Moderazioak
       models:
@@ -144,6 +149,7 @@ eu:
         local_area: Udal-alorrak
         participatory_scope: Esparru partizipatiboa
         participatory_structure: Egitura partizipatiboa
+        related_participatory_processes: Partaidetza prozesu erlazionatuak
         scope: Esparrua
         target: Nori zuzentzen zaio?
       statistics:

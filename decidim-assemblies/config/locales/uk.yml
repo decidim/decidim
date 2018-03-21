@@ -4,7 +4,6 @@ uk:
       assembly:
         banner_image: Банерне зображення
         copy_categories: Скопіювати розділи
-        copy_features: Скопіювати складові
         description: Опис
         developer_group: Група зачинальників
         domain: Домен
@@ -76,7 +75,6 @@ uk:
           attachment_files: Файли
           attachments: Вкладені файли
           categories: Розділи
-          features: Складові
           info: Відомості
           moderations: Дії з модерації
       models:

@@ -40,6 +40,7 @@ module Decidim
         let(:slug) { "slug" }
         let(:attachment) { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
         let(:show_statistics) { true }
+        let(:private_space) { true }
         let(:attributes) do
           {
             "assembly" => {
@@ -58,7 +59,8 @@ module Decidim
               "hero_image" => attachment,
               "banner_image" => attachment,
               "slug" => slug,
-              "show_statistics" => show_statistics
+              "show_statistics" => show_statistics,
+              "private_space" => private_space
             }
           }
         end

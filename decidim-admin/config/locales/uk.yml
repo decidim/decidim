@@ -21,9 +21,6 @@ uk:
         description: Опис
         name: Ім'я
         parent_id: Батьківський об'єкт
-      feature:
-        name: Ім'я
-        weight: Вага
       id: Псевдонім
       newsletter:
         body: Основний текст
@@ -213,44 +210,6 @@ uk:
       exports:
         export_as: "%{name} як %{export_format}"
         notice: Зараз відбувається збереження у вигляді файлу. Ви отримаєте електронного листа після його завершення.
-      feature_permissions:
-        edit:
-          everyone: Будь-хто
-          submit: Зберегти права доступу
-          title: Редагувати права доступу
-        update:
-          success: Права доступу успішно оновлено.
-      features:
-        create:
-          error: При додаванні цієї складової сталася помилка.
-          success: Складову успішно додано.
-        destroy:
-          error: При видаленні цієї складової сталася помилка.
-          success: Складову успішно видалено.
-        edit:
-          title: Редагувати складову
-          update: Оновити
-        form:
-          default_step_settings: Налаштування за замовчуванням для кроків
-          global_settings: Загальні налаштування
-          step_settings: Налаштування кроку
-        index:
-          add: Додати складову
-          headers:
-            actions: Дії
-            name: Назва складової
-            type: Різновид складової
-        new:
-          add: Додати складову
-          title: 'Додати складову: %{name}'
-        publish:
-          success: Складову було успішно опубліковано.
-        title: Складові
-        unpublish:
-          success: Публікацію складової було успішно скасовано.
-        update:
-          error: При оновленні цієї складової сталася помилка.
-          success: Цю складову було успішно оновлено.
       managed_users:
         close_session:
           error: При закритті поточного сеансу уособлення сталася помилка.

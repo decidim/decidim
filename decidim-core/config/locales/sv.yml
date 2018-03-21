@@ -54,11 +54,15 @@ sv:
         success: Ditt konto har uppdaterats framgångsrikt.
         success_with_email_confirmation: Ditt konto har uppdaterats framgångsrikt. Du får ett mail för att bekräfta din nya e-postadress.
     admin_log:
-      feature:
-        create: "%{user_name} lagt till %{resource_name} funktion till %{space_name} rymden"
-        delete: "%{user_name} tog bort %{resource_name} funktion från %{space_name} rymden"
-        publish: "%{user_name} publicerade %{resource_name} -funktionen i %{space_name} -utrymmet"
-        unpublish: "%{user_name} opublicerade %{resource_name} -funktionen från %{space_name} -platsen"
+      area:
+        create: "%{user_name} skapade området %{resource_name}"
+        delete: "%{user_name} raderade området %{resource_name}"
+        update: "%{user_name} uppdaterade området %{resource_name}"
+      component:
+        create: "%{user_name} lade till %{resource_name} komponenten till %{space_name} -utrymmet"
+        delete: "%{user_name} tog bort komponenten %{resource_name} från %{space_name} -utrymmet"
+        publish: "%{user_name} publicerade %{resource_name} -komponenten i %{space_name} -utrymmet"
+        unpublish: "%{user_name} opublicerade %{resource_name} -komponenten från %{space_name} -utrymmet"
       moderation:
         hide: "%{user_name} gömde en resurs av typ %{resource_type} i %{space_name} rymden"
         unreport: "%{user_name} unreported en resurs av typ %{resource_type} i %{space_name} rymden"
@@ -118,6 +122,21 @@ sv:
         name: Foo godkännande
       granted_at: Beviljas vid %{timestamp}
       started_at: Börjat vid %{timestamp}
+    components:
+      dummy:
+        actions:
+          bar: Bar
+          foo: foo
+        name: Dummy Component
+        settings:
+          global:
+            comments_enabled: Kommentarer aktiverade
+            dummy_global_attribute_1: Dummy Attribut 1
+            dummy_global_attribute_2: Dummy Attribut 2
+          step:
+            comments_blocked: Kommentarer blockerad
+            dummy_step_attribute_1: Dummy Step Attribut 1
+            dummy_step_attribute_2: Dummy Step Attribut 2
     contact: Kontakta
     core:
       actions:
@@ -169,17 +188,17 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer %{resource_title}. Du kan sluta ta emot meddelanden efter föregående länk.
           email_subject: En uppdatering till %{resource_title}
           notification_title: Ett <a href="%{resource_path}"> nytt dokument</a> har lagts till <a href="%{attached_to_url}">%{resource_title}</a>
+      components:
+        component_published:
+          email_intro: 'Komponenten %{resource_title} är nu aktiv för %{participatory_space_title}. Du kan se den från den här sidan:'
+          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: En uppdatering till %{participatory_space_title}
+          notification_title: '%{resource_title} komponenten är nu aktiv för <a href="%{resource_path}">%{participatory_space_title}</a>'
       email_event:
         email_greeting: Hej %{user_name},
         email_intro: 'Det har skett en uppdatering till "%{resource_title}". Du kan se den från den här sidan:'
         email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
         email_subject: En uppdatering till %{resource_title}
-      features:
-        feature_published:
-          email_intro: 'Komponenten %{resource_title} är nu aktiv för %{participatory_space_title}. Du kan se den från den här sidan:'
-          email_outro: Du har fått den här meddelandet eftersom du följer %{participatory_space_title}. Du kan sluta ta emot meddelanden efter föregående länk.
-          email_subject: En uppdatering till %{participatory_space_title}
-          notification_title: Komponenten %{resource_title} är nu aktiv för <a href="%{resource_path}">%{participatory_space_title}</a>
       notification_event:
         notification_title: En händelse uppstod till <a href="%{resource_path}">%{resource_title}</a>.
       users:
@@ -192,21 +211,6 @@ sv:
       export:
         ready: Vänligen se bifogad en zippad version av din export.
       subject: Din export "%{name}" är klar
-    features:
-      dummy:
-        actions:
-          bar: Bar
-          foo: foo
-        name: Dummy-funktionen
-        settings:
-          global:
-            comments_enabled: Kommentarer aktiverade
-            dummy_global_attribute_1: Dummy Attribut 1
-            dummy_global_attribute_2: Dummy Attribut 2
-          step:
-            comments_blocked: Kommentarer blockerad
-            dummy_step_attribute_1: Dummy Step Attribut 1
-            dummy_step_attribute_2: Dummy Step Attribut 2
     filters:
       linked_classes:
         all: Allt
@@ -242,6 +246,8 @@ sv:
       value_types:
         area_presenter:
           not_found: 'Området hittades inte i databasen (ID: %{id})'
+        area_type_presenter:
+          not_found: 'Områdetypen hittades inte i databasen (ID: %{id})'
         scope_presenter:
           not_found: 'Omfattningen hittades inte i databasen (ID: %{id})'
         scope_type_presenter:
