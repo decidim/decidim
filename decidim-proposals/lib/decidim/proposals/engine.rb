@@ -23,6 +23,7 @@ module Decidim
             patch :update_draft
             get :preview
             post :publish
+            delete :destroy_draft
             put :withdraw
           end
           resource :proposal_vote, only: [:create, :destroy]
