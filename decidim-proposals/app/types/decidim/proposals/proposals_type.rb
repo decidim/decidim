@@ -3,7 +3,7 @@
 module Decidim
   module Proposals
     ProposalsType = GraphQL::ObjectType.define do
-      interfaces [Decidim::Core::ComponentInterface]
+      interfaces [-> { Decidim::Core::ComponentInterface }]
 
       name "Proposals"
       description "A proposals component of a participatory space."

@@ -19,6 +19,7 @@ module Decidim
     helper Decidim::MenuHelper
     helper Decidim::ComponentPathHelper
     helper Decidim::ViewHooksHelper
+    helper Decidim::CardHelper
 
     # Saves the location before loading each page so we can return to the
     # right page.
