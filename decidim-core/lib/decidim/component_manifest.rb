@@ -49,6 +49,10 @@ module Decidim
     # The cell path to use to render the card of a resource.
     attribute :card, String
 
+    # The name of the class that handles the permissions for this component. It will
+    # probably have the form of `Decidim::<MyComponent>::Permissions`.
+    attribute :permissions_class_name, String, default: "Decidim::DefaultPermissions"
+
     validates :name, presence: true
 
     # Public: Registers a hook to this manifest. Hooks get fired when some
@@ -193,6 +197,15 @@ module Decidim
     # Returns nothing.
     def register_stat(name, options = {}, &block)
       stats.register(name, options, &block)
+    end
+
+    # Public: Finds the permission class from its name, using the
+    # `permissions_class_name` attribute. If the class does not exist,
+    # it raises an exception. If the class name is not set, it returns nil.
+    #
+    # Returns a Class.
+    def permissions_class
+      permissions_class_name&.constantize
     end
   end
 end

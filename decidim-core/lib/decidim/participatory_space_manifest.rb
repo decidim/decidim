@@ -28,6 +28,10 @@ module Decidim
     # engine's assets path.
     attribute :icon, String
 
+    # The name of the class that handles the permissions for this space. It will
+    # probably have the form of `Decidim::<MySpace>::Permissions`.
+    attribute :permissions_class_name, String, default: "Decidim::DefaultPermissions"
+
     validates :name, presence: true
 
     # A context used to set the layout and behavior of a participatory space. Full documentation can
@@ -84,6 +88,15 @@ module Decidim
     # Returns nothing.
     def participatory_spaces(&block)
       @participatory_spaces ||= block
+    end
+
+    # Public: Finds the permission class from its name, using the
+    # `permissions_class_name` attribute. If the class does not exist,
+    # it raises an exception. If the class name is not set, it returns nil.
+    #
+    # Returns a Class.
+    def permissions_class
+      permissions_class_name&.constantize
     end
   end
 end
