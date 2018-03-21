@@ -187,6 +187,10 @@ en:
         publish: "%{user_name} published the %{resource_name} assembly"
         unpublish: "%{user_name} unpublished the %{resource_name} assembly"
         update: "%{user_name} updated the %{resource_name} assembly"
+      assembly_member:
+        create: "%{user_name} created the %{resource_name} member in the %{space_name} assembly"
+        delete: "%{user_name} removed the %{resource_name} member from the %{space_name} assembly"
+        update: "%{user_name} updated the %{resource_name} member in the %{space_name} assembly"
       assembly_user_role:
         create: "%{user_name} invited %{resource_name} to the %{space_name} assembly"
         delete: "%{user_name} removed the user %{resource_name} from the %{space_name} assembly"

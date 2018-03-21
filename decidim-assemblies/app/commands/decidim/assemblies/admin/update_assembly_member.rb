@@ -36,7 +36,10 @@ module Decidim
         def update_assembly_member!
           log_info = {
             resource: {
-              title: assembly_member.gender # TODO
+              title: assembly_member.full_name
+            },
+            participatory_space: {
+              title: assembly_member.assembly.title
             }
           }
 

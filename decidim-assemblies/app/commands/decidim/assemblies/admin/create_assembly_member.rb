@@ -37,6 +37,15 @@ module Decidim
         attr_reader :form, :assembly, :current_user, :user
 
         def create_assembly_member!
+          log_info = {
+            resource: {
+              title: form.full_name
+            },
+            participatory_space: {
+              title: assembly.title
+            }
+          }
+
           @assembly_member = Decidim.traceability.create!(
             Decidim::AssemblyMember,
             current_user,
@@ -51,7 +60,8 @@ module Decidim
               :position_other
             ).merge(
               assembly: assembly
-            )
+            ),
+            log_info
           )
         end
       end
