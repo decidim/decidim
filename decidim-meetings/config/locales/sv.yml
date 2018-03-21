@@ -21,6 +21,15 @@ sv:
         start_time: Starttid
         title: Titel
   decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: Det gick inte att duplicera det här mötet.
+          success: Duplicerat möte framgångsrikt.
+        new:
+          copy: Kopiera
+          select: Välj vilken data du vill duplicera
+          title: Duplikat möte
     components:
       meetings:
         actions:
