@@ -14,7 +14,7 @@
       <%= form.select :position, @form.positions_for_select, { include_blank: t(".select_a_position") }, { multiple: false } %>
     </div>
 
-    <div class="row column" data-depends-on="#assembly_member_position" data-depends-on-value="other">
+    <div class="row column">
       <%= form.text_field :position_other %>
     </div>
 
@@ -39,3 +39,5 @@
     </div>
   </div>
 </div>
+
+<%= javascript_include_tag "decidim/assemblies/admin/assembly_members" %>
