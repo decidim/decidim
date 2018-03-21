@@ -315,6 +315,8 @@ gl:
         title: Máis información
     participatory_space_private_users:
       not_allowed: Non tes permiso para ver este contido
+    profile:
+      deleted: Usuario eliminado
     profiles:
       default_officialization_text: Este participante está verificado públicamente, verificouse o seu nome ou o seu papel para corresponder co seu nome e rol real
       show:
