@@ -315,6 +315,8 @@ nl:
         title: Meer informatie
     participatory_space_private_users:
       not_allowed: Het is niet toegestaan ​​om deze inhoud te bekijken
+    profile:
+      deleted: Verwijderde gebruiker
     profiles:
       default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn / haar naam of rol is geverifieerd om overeen te komen met zijn / haar echte naam en rol
       show:
