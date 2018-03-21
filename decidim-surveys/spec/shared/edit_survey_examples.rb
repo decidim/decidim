@@ -34,18 +34,7 @@ shared_examples "edit surveys" do
     it "adds a few questions to the survey" do
       visit_component_admin
 
-      questions_body = [
-        {
-          en: "This is the first question",
-          ca: "Aquesta es la primera pregunta",
-          es: "Esta es la primera pregunta"
-        },
-        {
-          en: "This is the second question",
-          ca: "Aquesta es la segona pregunta",
-          es: "Esta es la segunda pregunta"
-        }
-      ]
+      questions_body = ["This is the first question", "This is the second question"]
 
       within "form.edit_survey" do
         2.times { click_button "Add question" }
@@ -53,11 +42,8 @@ shared_examples "edit surveys" do
         expect(page).to have_selector(".survey-question", count: 2)
 
         page.all(".survey-question").each_with_index do |survey_question, idx|
-          questions_body[idx].each do |locale, value|
-            within survey_question do
-              click_link I18n.with_locale(locale) { t("name", scope: "locale") }
-              fill_in find_nested_form_field_locator("body_#{locale}"), with: value
-            end
+          within survey_question do
+            fill_in find_nested_form_field_locator("body_en"), with: questions_body[idx]
           end
         end
 
@@ -75,24 +61,8 @@ shared_examples "edit surveys" do
     it "adds a question with answer options" do
       visit_component_admin
 
-      question_body = {
-        en: "This is the first question",
-        ca: "Aquesta es la primera pregunta",
-        es: "Esta es la primera pregunta"
-      }
-
-      answer_options_body = [
-        {
-          en: "This is the first option",
-          ca: "Aquesta es la primera opció",
-          es: "Esta es la primera opción"
-        },
-        {
-          en: "This is the second option",
-          ca: "Aquesta es la segona opció",
-          es: "Esta es la segunda opción"
-        }
-      ]
+      question_body = "This is the first question"
+      answer_options_body = ["This is the first option", "This is the second option"]
 
       within "form.edit_survey" do
         click_button "Add question"
@@ -100,10 +70,7 @@ shared_examples "edit surveys" do
         expect(page).to have_selector(".survey-question", count: 1)
 
         within ".survey-question" do
-          question_body.each do |locale, value|
-            click_link I18n.with_locale(locale) { t("name", scope: "locale") }
-            fill_in find_nested_form_field_locator("body_#{locale}"), with: value
-          end
+          fill_in find_nested_form_field_locator("body_en"), with: question_body
         end
 
         expect(page).to have_no_content "Add answer option"
@@ -115,11 +82,8 @@ shared_examples "edit surveys" do
         2.times { click_button "Add answer option" }
 
         page.all(".survey-question-answer-option").each_with_index do |survey_question_answer_option, idx|
-          answer_options_body[idx].each do |locale, value|
-            within survey_question_answer_option do
-              click_link I18n.with_locale(locale) { t("name", scope: "locale") }
-              fill_in find_nested_form_field_locator("body_#{locale}"), with: value
-            end
+          within survey_question_answer_option do
+            fill_in find_nested_form_field_locator("body_en"), with: answer_options_body[idx]
           end
         end
 
