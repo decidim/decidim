@@ -312,6 +312,8 @@ eu:
         title: Argibide gehiago
     participatory_space_private_users:
       not_allowed: Ez duzu edukia ikusteko baimenik
+    profile:
+      deleted: Erabiltzailea ezabatua
     profiles:
       default_officialization_text: Partehartzaile hau publikoki egiaztatua dago, bere izena edo rol egiaztatua dago bere benetako izena eta rolarekin bat etorriz
       show:
