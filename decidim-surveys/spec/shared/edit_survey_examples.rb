@@ -375,6 +375,38 @@ shared_examples "edit surveys" do
         expect { click_button "Add question" }.to change { page.all(".ql-toolbar").size }.by(1)
       end
 
+      it "properly decides which button to show after adding/removing answer options" do
+        click_button "Add question"
+
+        within ".survey-question:last-of-type" do
+          select "Single option", from: "Type"
+
+          within ".survey-question-answer-options-list" do
+            expect(page).to have_no_button("Remove")
+          end
+
+          click_button "Add answer option"
+
+          expect(page.all(".survey-question-answer-option")).to all(have_button("Remove"))
+
+          within ".survey-question-answer-option:first-of-type" do
+            click_button "Remove"
+          end
+
+          within ".survey-question-answer-options-list" do
+            expect(page).to have_no_button("Remove")
+          end
+        end
+
+        click_button "Save"
+
+        within ".survey-question:last-of-type" do
+          within ".survey-question-answer-options-list" do
+            expect(page).to have_no_button("Remove")
+          end
+        end
+      end
+
       private
 
       def look_like_first_question

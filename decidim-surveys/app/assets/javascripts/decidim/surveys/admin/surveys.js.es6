@@ -1,9 +1,10 @@
 // = require ./auto_label_by_position.component
 // = require ./auto_buttons_by_position.component
+// = require ./auto_buttons_by_min_items.component
 // = require ./dynamic_fields.component
 
 ((exports) => {
-  const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
+  const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, AutoButtonsByMinItemsComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
   const { createQuillEditor } = exports.Decidim;
 
   const wrapperSelector = '.survey-questions';
@@ -11,6 +12,7 @@
   const questionTypeSelector = 'select[name$=\\[question_type\\]]';
   const answerOptionFieldSelector = '.survey-question-answer-option';
   const answerOptionsWrapperSelector = '.survey-question-answer-options';
+  const answerOptionRemoveFieldButtonSelector = `.remove-answer-option`;
 
   const autoLabelByPosition = new AutoLabelByPositionComponent({
     listSelector: '.survey-question:not(.hidden)',
@@ -26,6 +28,14 @@
     hideOnLastSelector: '.move-down-question'
   });
 
+  const createAutoButtonsByMinItemsForAnswerOptions = (fieldId) => {
+    return new AutoButtonsByMinItemsComponent({
+      listSelector: `#${fieldId} ${answerOptionsWrapperSelector} .survey-question-answer-option:not(.hidden)`,
+      minItems: 2,
+      hideOnMinItemsOrLessSelector: answerOptionRemoveFieldButtonSelector
+    })
+  };
+
   const createSortableList = () => {
     createSortList('.survey-questions-list:not(.published)', {
       handle: '.question-divider',
@@ -36,13 +46,21 @@
   };
 
   const createDynamicFieldsForAnswerOptions = (fieldId) => {
+    const autoButtons = createAutoButtonsByMinItemsForAnswerOptions(fieldId);
+
     return createDynamicFields({
       placeholderId: `survey-question-answer-option-id`,
       wrapperSelector: `#${fieldId} ${answerOptionsWrapperSelector}`,
       containerSelector: `.survey-question-answer-options-list`,
       fieldSelector: answerOptionFieldSelector,
       addFieldButtonSelector: `.add-answer-option`,
-      removeFieldButtonSelector: `.remove-answer-option`
+      removeFieldButtonSelector: answerOptionRemoveFieldButtonSelector,
+      onAddField: () => {
+        autoButtons.run();
+      },
+      onRemoveField: () => {
+        autoButtons.run();
+      }
     });
   };
 
