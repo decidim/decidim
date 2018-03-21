@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 module Decidim
+  # This cell renders the card of the given instance of a Component
+  # delegated to the components' cell if specified in the manifest
+  # otherwise a primary cell wil be shown.
   class CardCell < Decidim::ViewModel
-    # This cell renders the card of the given instance of a Component
-    # delegated to the components' cell if specified in the manifest
-    # otherwise a primary cell wil be shown.
     property :body
     property :title
 

@@ -2,9 +2,9 @@
 
 module Decidim
   module Meetings
+    # This cell renders the Medium (:m) meeting card
+    # for an given instance of a Meeting
     class MeetingMCell < Decidim::Meetings::MeetingCell
-      # This cell renders the Medium (:m) meeting card
-      # for an given instance of a Meeting
       def show
         render
       end
