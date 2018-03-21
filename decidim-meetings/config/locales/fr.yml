@@ -21,6 +21,15 @@ fr:
         start_time: Heure de début
         title: Titre
   decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: Il y avait erreur en dupliquant cette réunion.
+          success: La réunion en double a réussi.
+        new:
+          copy: Copie
+          select: Sélectionnez les données que vous souhaitez dupliquer
+          title: Dupliquer une réunion
     components:
       meetings:
         actions:
