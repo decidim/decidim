@@ -1083,6 +1083,8 @@ Metrics/ModuleLength:
 # Avoid complex methods.
 Metrics/CyclomaticComplexity:
   Max: 9
+  Exclude:
+    - "**/*/permissions.rb"
 
 Metrics/LineLength:
   Max: 180
@@ -1109,6 +1111,8 @@ Metrics/ParameterLists:
 
 Metrics/PerceivedComplexity:
   Max: 10
+  Exclude:
+    - "**/*/permissions.rb"
 
 ##################### Lint ##################################
 
