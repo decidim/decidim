@@ -241,6 +241,10 @@ $datetime-bg: $primary;
   margin-right: -1px;
   border-top: $border;
   margin-top: -1px;
+
+  .card-data__item--centerblock{
+    margin: 0 auto;
+  }
 }
 
 .card-data__item__number{
