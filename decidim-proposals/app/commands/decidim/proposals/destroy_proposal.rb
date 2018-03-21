@@ -21,7 +21,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if !@proposal.draft?
+        return broadcast(:invalid) unless @proposal.draft?
         return broadcast(:invalid) if @proposal.author != @current_user
 
         @proposal.destroy!

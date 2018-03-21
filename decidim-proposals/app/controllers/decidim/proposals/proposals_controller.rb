@@ -92,7 +92,7 @@ module Decidim
       def publish
         @step = :step_3
         PublishProposal.call(@proposal, current_user) do
-          on(:ok) do |proposal|
+          on(:ok) do
             flash[:notice] = I18n.t("proposals.publish.success", scope: "decidim")
             redirect_to proposal_path(proposal)
           end
@@ -133,7 +133,7 @@ module Decidim
         authorize! :edit, Proposal
 
         DestroyProposal.call(@proposal, current_user) do
-          on(:ok) do |proposal|
+          on(:ok) do
             flash[:notice] = I18n.t("proposals.destroy_draft.success", scope: "decidim")
             redirect_to new_proposal_path
           end

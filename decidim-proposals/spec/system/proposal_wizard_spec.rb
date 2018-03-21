@@ -25,7 +25,7 @@ describe "Proposal", type: :system do
            participatory_space: participatory_process)
   end
 
-  let!(:proposal_draft) { create(:proposal, :draft, author: user,component: component, title: proposal_title, body: proposal_body) }
+  let!(:proposal_draft) { create(:proposal, :draft, author: user, component: component, title: proposal_title, body: proposal_body) }
 
   let!(:compare_proposal_path) do
     Decidim::EngineRouter.main_proxy(component).compare_proposal_path(proposal_draft)
@@ -139,7 +139,6 @@ describe "Proposal", type: :system do
         end
 
         it "show current step_1 highlighted" do
-          puts "#{edit_draft_proposal_path}"
           within ".wizard__steps" do
             expect(page).to have_css(".step--active", count: 1)
             expect(page).to have_css(".step--past", count: 0)
