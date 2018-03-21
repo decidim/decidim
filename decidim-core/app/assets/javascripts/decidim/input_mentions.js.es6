@@ -1,8 +1,8 @@
 // = require tribute
 
 $(() => {
-  const $mentionContainer = $('.js-mentions');
-  const nodatafound = $mentionContainer.attr('data-noresults');
+  const $mentionContainer = $(".js-mentions");
+  const nodatafound = $mentionContainer.attr("data-noresults");
   const sources = [];
 
   // EXAMPLE DATA
@@ -19,8 +19,8 @@ $(() => {
   //   ...]
 
   // Listener for the event triggered by quilljs
-  let cursor = '';
-  $mentionContainer.on('quill-position', function(event) {
+  let cursor = "";
+  $mentionContainer.on("quill-position", function(event) {
     cursor = event.detail.index;
   });
 
@@ -30,19 +30,19 @@ $(() => {
     values: sources,
     positionMenu: false,
     menuContainer: null,
-    fillAttr: 'tag',
+    fillAttr: "tag",
     noMatchTemplate: () => `<li>${nodatafound}</li>`,
     lookup: (item) => item.tag + item.name,
     selectTemplate: function(item) {
-      if (typeof item === 'undefined') {
+      if (typeof item === "undefined") {
         return null;
       }
       if (this.range.isContentEditable(this.current.element)) {
         // Check quill.js
-        if ($(this.current.element).hasClass('editor-container')) {
+        if ($(this.current.element).hasClass("editor-container")) {
           let quill = this.current.element.__quill;
           quill.insertText(cursor - 1, `@${item.original.tag} `, Quill.sources.API);
-          // cursor position + nickname length + '@' sign + space
+          // cursor position + nickname length + "@" sign + space
           let position = cursor + item.original.tag.length + 2;
 
           let next = 0;
@@ -56,7 +56,7 @@ $(() => {
             quill.setSelection(next, 0);
           }, 500);
 
-          return ''
+          return ""
         }
         return `<span contenteditable="false">@${item.original.tag}</span>`;
       }
@@ -71,30 +71,30 @@ $(() => {
   tribute.attach($mentionContainer);
 
   // DOM manipulation
-  $mentionContainer.on('focusin', (event) => {
+  $mentionContainer.on("focusin", (event) => {
     // Set the parent container relative to the current element
     tribute.menuContainer = event.target.parentNode;
   });
-  $mentionContainer.on('focusout', (event) => {
+  $mentionContainer.on("focusout", (event) => {
     let $parent = $(event.target).parent();
 
-    if ($parent.hasClass('is-active')) {
-      $parent.removeClass('is-active');
+    if ($parent.hasClass("is-active")) {
+      $parent.removeClass("is-active");
     }
   });
-  $mentionContainer.on('input', (event) => {
+  $mentionContainer.on("input", (event) => {
     let $parent = $(event.target).parent();
 
     if (tribute.isActive) {
       // We need to move the container to the wrapper selected
-      let $tribute = $('.tribute-container');
+      let $tribute = $(".tribute-container");
       $tribute.appendTo($parent);
       // Remove the inline styles, relative to absolute positioning
-      $tribute.removeAttr('style');
+      $tribute.removeAttr("style");
       // Parent adaptation
-      $parent.addClass('is-active');
+      $parent.addClass("is-active");
     } else {
-      $parent.removeClass('is-active');
+      $parent.removeClass("is-active");
     }
   });
 });
