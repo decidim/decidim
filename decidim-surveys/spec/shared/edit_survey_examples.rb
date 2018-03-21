@@ -180,6 +180,25 @@ shared_examples "edit surveys" do
       expect(page).to have_select("Type", selected: "Long answer")
     end
 
+    it "does not persist spurious answer options from previous type selections" do
+      click_button "Add question"
+      select "Single option", from: "Type"
+
+      within ".survey-question-answer-option:first-of-type" do
+        fill_in find_nested_form_field_locator("body_en"), with: "Something"
+      end
+
+      select "Long answer", from: "Type"
+
+      click_button "Save"
+
+      select "Single option", from: "Type"
+
+      within ".survey-question-answer-option:first-of-type" do
+        expect(page).to have_no_nested_field("body_en", with: "Something")
+      end
+    end
+
     it "persists answer options form across submission failures" do
       click_button "Add question"
       select "Single option", from: "Type"
@@ -207,7 +226,8 @@ shared_examples "edit surveys" do
         click_link "English", match: :first
 
         expect(page).to have_nested_field("body_en", with: "Bye")
-        expect(page).to have_no_nested_field("body_ca", with: "Adeu")
+        expect(page).to have_no_selector(nested_form_field_selector("body_ca"))
+        expect(page).to have_no_content("Adeu")
       end
     end
 
@@ -451,8 +471,7 @@ shared_examples "edit surveys" do
   end
 
   def have_no_nested_field(attribute, with:)
-    have_no_selector(nested_form_field_selector(attribute)) ||
-      have_no_field(find_nested_form_field_locator(attribute), with: with)
+    have_no_field(find_nested_form_field_locator(attribute), with: with)
   end
 
   def nested_form_field_selector(attribute)

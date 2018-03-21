@@ -67,10 +67,13 @@
   const setAnswerOptionsWrapperVisibility = ($target) => {
     const $answerOptionsWrapper = $target.parents(fieldSelector).find(answerOptionsWrapperSelector);
     const value = $target.val();
+    const $answerOptionsInputs = $answerOptionsWrapper.find(`${answerOptionFieldSelector} input`);
 
     if (value === 'single_option' || value === 'multiple_option') {
+      $answerOptionsInputs.prop('disabled', false);
       $answerOptionsWrapper.show();
     } else {
+      $answerOptionsInputs.prop('disabled', true);
       $answerOptionsWrapper.hide();
     }
   };
