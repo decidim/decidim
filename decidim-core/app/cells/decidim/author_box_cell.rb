@@ -12,9 +12,7 @@ module Decidim
       render
     end
 
-    delegate :user_signed_in?, to: :parent_controller
-
-    delegate :current_user, to: :parent_controller
+    delegate :user_signed_in?, :current_user, to: :parent_controller
 
     def author_box_classes
       (["author-data"] + options[:extra_classes].to_a).join(" ")
