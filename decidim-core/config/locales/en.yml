@@ -316,6 +316,8 @@ en:
         title: More information
     participatory_space_private_users:
       not_allowed: You are not allowed to view this content
+    profile:
+      deleted: Deleted user
     profiles:
       default_officialization_text: This participant is publicly verified, his/her name or role has been verified to correspond with his/her real name and role
       show:
@@ -509,6 +511,7 @@ en:
         answers_count: Completed Surveys
         assemblies_count: Assemblies
         comments_count: Comments
+        debates_count: Debates
         endorsements_count: Endorsements
         headline: Current state of %{organization}
         meetings_count: Meetings

@@ -29,7 +29,7 @@ Gem::Specification.new do |s|
     "README.md"
   ]
 
-  s.bindir = "bin"
+  s.bindir = "exe"
   s.executables = ["decidim"]
   s.require_paths = ["lib"]
 

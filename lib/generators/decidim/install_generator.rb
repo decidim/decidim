@@ -14,11 +14,16 @@ module Decidim
       desc "Install decidim"
       source_root File.expand_path("templates", __dir__)
 
-      class_option :app_name, type: :string, default: nil,
+      class_option :app_name, type: :string,
+                              default: nil,
                               desc: "The name of the app"
-      class_option :recreate_db, type: :boolean, default: false,
+
+      class_option :recreate_db, type: :boolean,
+                                 default: false,
                                  desc: "Recreate db after installing decidim"
-      class_option :seed_db, type: :boolean, default: false,
+
+      class_option :seed_db, type: :boolean,
+                             default: false,
                              desc: "Seed db after installing decidim"
 
       def install
@@ -110,8 +115,19 @@ module Decidim
       def recreate_db
         soft_rails "db:environment:set", "db:drop"
         rails "db:create"
-        rails "db:migrate"
-        rails "db:seed" if options[:seed_db]
+
+        # In order to ensure that migrations don't eager load models with not
+        # yet fully populated schemas (which could break commands which load
+        # migrations and seeds in the same process, such as `rails db:migrate
+        # db:seed`), we make sure to run them in the same process if seeds are
+        # requested so that we can catch these situations earlier than end
+        # users.
+        if options[:seed_db]
+          rails "db:migrate", "db:seed"
+        else
+          rails "db:migrate"
+        end
+
         rails "db:test:prepare"
       end
 
