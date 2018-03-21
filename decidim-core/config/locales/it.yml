@@ -315,6 +315,8 @@ it:
         title: Informazione
     participatory_space_private_users:
       not_allowed: Non sei autorizzato a visualizzare questo contenuto
+    profile:
+      deleted: Utente eliminato
     profiles:
       default_officialization_text: Questo partecipante è verificato pubblicamente, il suo nome o ruolo è stato verificato per corrispondere con il suo vero nome e ruolo
       show:
