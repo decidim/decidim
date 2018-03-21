@@ -107,10 +107,6 @@ shared_examples "edit surveys" do
 
         select "Single option", from: "Type"
 
-        expect(page).to have_content "Add answer option"
-
-        2.times { click_button "Add answer option" }
-
         page.all(".survey-question-answer-option").each_with_index do |survey_question_answer_option, idx|
           within survey_question_answer_option do
             fill_in find_nested_form_field_locator("body_en"), with: answer_options_body[idx]
@@ -127,6 +123,25 @@ shared_examples "edit surveys" do
       expect(page).to have_selector("input[value='This is the first question']")
       expect(page).to have_selector("input[value='This is the first option']")
       expect(page).to have_selector("input[value='This is the second option']")
+    end
+
+    it "adds a sane number of options for each attribute type" do
+      click_button "Add question"
+
+      select "Long answer", from: "Type"
+      expect(page).to have_no_selector(".survey-question-answer-option")
+
+      select "Single option", from: "Type"
+      expect(page).to have_selector(".survey-question-answer-option", count: 2)
+
+      select "Multiple option", from: "Type"
+      expect(page).to have_selector(".survey-question-answer-option", count: 2)
+
+      select "Single option", from: "Type"
+      expect(page).to have_selector(".survey-question-answer-option", count: 2)
+
+      select "Short answer", from: "Type"
+      expect(page).to have_no_selector(".survey-question-answer-option")
     end
 
     it "does not incorrectly reorder when clicking answer options" do
@@ -168,7 +183,6 @@ shared_examples "edit surveys" do
     it "persists answer options form across submission failures" do
       click_button "Add question"
       select "Single option", from: "Type"
-      click_button "Add answer option"
 
       within ".survey-question-answer-option:first-of-type" do
         fill_in find_nested_form_field_locator("body_en"), with: "Something"

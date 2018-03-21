@@ -9,6 +9,7 @@
   const wrapperSelector = '.survey-questions';
   const fieldSelector = '.survey-question';
   const questionTypeSelector = 'select[name$=\\[question_type\\]]';
+  const answerOptionFieldSelector = '.survey-question-answer-option';
   const answerOptionsWrapperSelector = '.survey-question-answer-options';
 
   const autoLabelByPosition = new AutoLabelByPositionComponent({
@@ -35,11 +36,11 @@
   };
 
   const createDynamicFieldsForAnswerOptions = (fieldId) => {
-    createDynamicFields({
+    return createDynamicFields({
       placeholderId: `survey-question-answer-option-id`,
       wrapperSelector: `#${fieldId} ${answerOptionsWrapperSelector}`,
       containerSelector: `.survey-question-answer-options-list`,
-      fieldSelector: `.survey-question-answer-option`,
+      fieldSelector: answerOptionFieldSelector,
       addFieldButtonSelector: `.add-answer-option`,
       removeFieldButtonSelector: `.remove-answer-option`
     });
@@ -59,10 +60,20 @@
   const setupInitialQuestionAttributes = ($target) => {
     const fieldId = $target.attr('id');
     const $fieldQuestionTypeSelect = $target.find(questionTypeSelector);
-
-    createDynamicFieldsForAnswerOptions(fieldId);
+    const dynamicFields = createDynamicFieldsForAnswerOptions(fieldId);
 
     const onQuestionTypeChange = () => {
+      const value = $fieldQuestionTypeSelect.val();
+
+      if (value === 'single_option' || value === 'multiple_option') {
+        const nOptions = $fieldQuestionTypeSelect.parents(fieldSelector).find(answerOptionFieldSelector).length;
+
+        if (nOptions === 0) {
+          dynamicFields._addField();
+          dynamicFields._addField();
+        }
+      }
+
       setAnswerOptionsWrapperVisibility($fieldQuestionTypeSelect);
     };
 
