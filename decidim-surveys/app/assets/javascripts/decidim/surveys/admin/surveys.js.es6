@@ -68,10 +68,10 @@
     const $answerOptionsWrapper = $target.parents(fieldSelector).find(answerOptionsWrapperSelector);
     const value = $target.val();
 
-    $answerOptionsWrapper.hide();
-
     if (value === 'single_option' || value === 'multiple_option') {
       $answerOptionsWrapper.show();
+    } else {
+      $answerOptionsWrapper.hide();
     }
   };
 
