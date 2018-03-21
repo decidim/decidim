@@ -89,8 +89,6 @@ module Decidim
             closing_date: form.closing_date,
             closing_date_reason: form.closing_date_reason,
             internal_organisation: form.internal_organisation,
-            is_open: form.is_open,
-            is_public: form.is_public,
             is_transparent: form.is_transparent,
             special_features: form.special_features,
             twitter_handler: form.twitter_handler,

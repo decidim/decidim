@@ -16,33 +16,25 @@ $(() => {
 
     if ($form.length > 0) {
 
-      const $isOpen = $form.find('#is_open');
-      const $isPublic = $form.find('#is_public');
+      const $private_space = $form.find('#private_space');
       const $isTransparent = $form.find('#is_transparent');
       const $specialFeatures = $form.find('#special_features');
 
 
       const toggleDisabledHiddenFields = () => {
-        const enabledIsOpen = $isOpen.find('input[type="checkbox"]').prop('checked');
-        const enabledIsPublic = $isPublic.find('input[type="checkbox"]').prop('checked');
+        const enabledPrivateSpace = $private_space.find('input[type="checkbox"]').prop('checked');
+        const enabledTransparent = $isTransparent.find('input[type="checkbox"]').prop('checked');
 
-        $isPublic.hide();
-        $isTransparent.hide();
+        $isTransparent.find('input[type="checkbox"]').attr('disabled', 'disabled');
         $specialFeatures.hide();
 
-        if (!enabledIsOpen) {
-          $isPublic.find('input[type="checkbox"]').attr('disabled', enabledIsOpen);
-          $isPublic.show();
+        if (enabledPrivateSpace) {
+          $isTransparent.find('input[type="checkbox"]').attr('disabled', !enabledPrivateSpace);
           $specialFeatures.show();
-
-          if (!enabledIsPublic) {
-            $isTransparent.find('input[type="checkbox"]').attr('disabled', enabledIsPublic);
-            $isTransparent.show();
-          }
         }
       };
-      $isOpen.on('change', toggleDisabledHiddenFields);
-      $isPublic.on('change', toggleDisabledHiddenFields);
+
+      $private_space.on('change', toggleDisabledHiddenFields);
       toggleDisabledHiddenFields();
 
       const $assemblyType = $form.find('#assembly_assembly_type');

@@ -51,8 +51,6 @@ module Decidim
         attribute :duration, Decidim::Attributes::TimeWithZone
         attribute :included_at, Decidim::Attributes::TimeWithZone
         attribute :closing_date, Decidim::Attributes::TimeWithZone
-        attribute :is_open, Boolean
-        attribute :is_public, Boolean
         attribute :is_transparent, Boolean
         attribute :twitter_handler, String
         attribute :facebook_handler, String

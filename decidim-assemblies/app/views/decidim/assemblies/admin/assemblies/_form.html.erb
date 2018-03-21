@@ -88,10 +88,6 @@
     </div>
 
     <div class="row column">
-      <%= form.check_box :private_space %>
-    </div>
-
-    <div class="row column">
       <%= form.check_box :show_statistics %>
     </div>
 
@@ -152,16 +148,12 @@
       <%= form.translated :editor, :internal_organisation %>
     </div>
 
-    <div class="row column" id="is_open">
-      <%= form.check_box :is_open, checked: true %>
-    </div>
-
-    <div class="row column" id="is_public">
-      <%= form.check_box :is_public, checked: true %>
+    <div class="row column" id="private_space">
+      <%= form.check_box :private_space %>
     </div>
 
     <div class="row column" id="is_transparent">
-      <%= form.check_box :is_transparent, checked: true %>
+      <%= form.check_box :is_transparent %>
     </div>
 
     <div class="row column" id="special_features">

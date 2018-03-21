@@ -29,8 +29,6 @@ en:
         included_at: Included at
         instagram: Instagram
         internal_organisation: Internal organisation
-        is_open: Is open
-        is_public: Is public
         is_transparent: Is transparent
         local_area: Local area
         meta_scope: Scope metadata
@@ -196,12 +194,6 @@ en:
         included_at: Included at
         indefinite_duration: Indefinite
         internal_organisation: Internal organisation
-        is_open:
-          'false': close
-          'true': open
-        is_public:
-          'false': private
-          'true': public
         is_transparent:
           'false': opaque
           'true': transparent
@@ -218,6 +210,7 @@ en:
         answers_count: Answers
         assemblies_count: Assemblies
         comments_count: Comments
+        debates_count: Debates
         endorsements_count: Endorsements
         headline: Activity
         meetings_count: Meetings

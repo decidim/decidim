@@ -89,8 +89,6 @@ module Decidim
             ca: "Organització interna"
           }
         end
-        let(:is_open) { true }
-        let(:is_public) { true }
         let(:is_transparent) { true }
         let(:special_features) do
           {
@@ -145,8 +143,6 @@ module Decidim
               "internal_organisation_en" => internal_organisation[:en],
               "internal_organisation_es" => internal_organisation[:es],
               "internal_organisation_ca" => internal_organisation[:ca],
-              "is_open" => is_open,
-              "is_public" => is_public,
               "is_transparent" => is_transparent,
               "special_features_en" => special_features[:en],
               "special_features_es" => special_features[:es],

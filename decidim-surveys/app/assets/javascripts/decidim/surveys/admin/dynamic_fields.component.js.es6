@@ -1,7 +1,6 @@
 ((exports) => {
   class DynamicFieldsComponent {
     constructor(options = {}) {
-      this.templateId = options.templateId;
       this.wrapperSelector = options.wrapperSelector;
       this.containerSelector = options.containerSelector;
       this.fieldSelector = options.fieldSelector;
@@ -13,13 +12,38 @@
       this.onRemoveField = options.onRemoveField;
       this.onMoveUpField = options.onMoveUpField;
       this.onMoveDownField = options.onMoveDownField;
-      this.tabsPrefix = options.tabsPrefix;
-      this._compileTemplate();
+      this.placeholderId = options.placeholderId;
+      this.elementCounter = 0;
+      this._enableInterpolation();
+      this._activateFields();
       this._bindEvents();
     }
 
-    _compileTemplate() {
-      $.template(this.templateId, $(`#${this.templateId}`).html());
+    _enableInterpolation() {
+      $.fn.replaceAttribute = function(attribute, placeholder, value) {
+        $(this).find(`[${attribute}*=${placeholder}]`).each((index, element) => {
+          $(element).attr(attribute, $(element).attr(attribute).replace(placeholder, value));
+        });
+
+        return this;
+      }
+
+      $.fn.template = function(placeholder, value) {
+        const $subtemplate = $(this).find("template");
+
+        if ($subtemplate.length > 0) {
+          $subtemplate.html((index, oldHtml) => $(oldHtml).template(placeholder, value)[0].outerHTML);
+        }
+
+        $(this).replaceAttribute("id", placeholder, value);
+        $(this).replaceAttribute("name", placeholder, value);
+        $(this).replaceAttribute("data-tabs-content", placeholder, value);
+        $(this).replaceAttribute("for", placeholder, value);
+        $(this).replaceAttribute("tabs_id", placeholder, value);
+        $(this).replaceAttribute("href", placeholder, value);
+
+        return this;
+      }
     }
 
     _bindEvents() {
@@ -58,13 +82,9 @@
 
     _addField() {
       const $container = $(this.wrapperSelector).find(this.containerSelector);
-      const uid = this._getUID();
-      const tabsId = `${this.tabsPrefix}-${uid}`;
+      const $template = $(this.wrapperSelector).children("template");
+      const $newField = $($template.html()).template(this.placeholderId, this._getUID());
 
-      const $newField = $.tmpl(this.templateId, { tabsId });
-
-      $newField.attr('id', `${tabsId}-field`);
-      $newField.find('[disabled]').attr('disabled', false);
       $newField.find('ul.tabs').attr('data-tabs', true);
 
       $newField.appendTo($container);
@@ -120,8 +140,18 @@
       }
     }
 
+    _activateFields() {
+      $(this.fieldSelector).each((idx, el) => {
+        $(el).template(this.placeholderId, this._getUID());
+
+        $(el).find('ul.tabs').attr('data-tabs', true);
+      })
+    }
+
     _getUID() {
-      return `${new Date().getTime()}-${Math.floor(Math.random() * 1000000)}`;
+      this.elementCounter += 1;
+
+      return (new Date().getTime()) + this.elementCounter;
     }
   }
 

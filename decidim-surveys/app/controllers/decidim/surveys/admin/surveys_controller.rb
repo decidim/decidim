@@ -37,11 +37,11 @@ module Decidim
         end
 
         def blank_question
-          @blank_question ||= survey.questions.build(body: {}, answer_options: [])
+          @blank_question ||= Admin::SurveyQuestionForm.new
         end
 
         def blank_answer_option
-          @blank_answer_option ||= OpenStruct.new(body: {})
+          @blank_answer_option ||= Admin::SurveyQuestionAnswerOptionForm.new
         end
 
         def question_types

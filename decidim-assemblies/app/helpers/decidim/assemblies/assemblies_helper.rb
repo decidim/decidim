@@ -24,12 +24,9 @@ module Decidim
       def assembly_features(assembly)
         html = "".html_safe
         html += "<strong>#{translated_attribute(assembly.title)}: </strong>".html_safe
-        html += t("assemblies.show.is_open.#{assembly.is_open}", scope: "decidim").to_s.html_safe
-        unless assembly.is_open?
-          html += ", #{t("assemblies.show.is_public.#{assembly.is_public}", scope: "decidim")}".html_safe
-          html += ", #{t("assemblies.show.is_transparent.#{assembly.is_transparent}", scope: "decidim")}".html_safe unless assembly.is_public?
-          html += " #{decidim_sanitize translated_attribute(assembly.special_features)}".html_safe
-        end
+        html += t("assemblies.show.private_space", scope: "decidim").to_s.html_safe
+        html += ", #{t("assemblies.show.is_transparent.#{assembly.is_transparent}", scope: "decidim")}".html_safe if assembly.is_transparent?
+        html += " #{decidim_sanitize translated_attribute(assembly.special_features)}".html_safe
         html.html_safe
       end
 

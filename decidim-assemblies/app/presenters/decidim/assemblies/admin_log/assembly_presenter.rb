@@ -47,8 +47,6 @@ module Decidim
             closing_date: :date,
             closing_date_reason: :i18n,
             internal_organisation: :i18n,
-            is_open: :boolean,
-            is_public: :boolean,
             is_transparent: :boolean,
             special_features: :i18n,
             twitter_handler: :string,

@@ -19,7 +19,7 @@
         </div>
         <%= decidim_sanitize translated_attribute(current_participatory_space.description) %>
 
-        <% unless current_participatory_space.is_open? %>
+        <% if current_participatory_space.private_space? %>
           <%= assembly_features(current_participatory_space) %>
         <% end %>
       </div>

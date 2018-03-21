@@ -57,8 +57,6 @@ module Decidim::Assemblies
             closing_date: my_assembly.closing_date,
             closing_date_reason: my_assembly.closing_date_reason,
             internal_organisation: my_assembly.internal_organisation,
-            is_open: my_assembly.is_open,
-            is_public: my_assembly.is_public,
             is_transparent: my_assembly.is_transparent,
             special_features: my_assembly.special_features,
             twitter_handler: my_assembly.twitter_handler,

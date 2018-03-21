@@ -58,8 +58,6 @@ module Decidim::Assemblies
         closing_date: 5.days.from_now,
         closing_date_reason: { en: "closing date reason" },
         internal_organisation: { en: "internal organisation" },
-        is_open: true,
-        is_public: true,
         is_transparent: true,
         special_features: { en: "special features" },
         twitter_handler: "lorem",

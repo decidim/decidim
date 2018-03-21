@@ -56,7 +56,7 @@ shared_examples "edit surveys" do
           questions_body[idx].each do |locale, value|
             within survey_question do
               click_link I18n.with_locale(locale) { t("name", scope: "locale") }
-              fill_in "survey[questions][][body_#{locale}]", with: value
+              fill_in find_nested_form_field_locator("body_#{locale}"), with: value
             end
           end
         end
@@ -99,10 +99,10 @@ shared_examples "edit surveys" do
 
         expect(page).to have_selector(".survey-question", count: 1)
 
-        question_body.each do |locale, value|
-          within ".survey-question" do
+        within ".survey-question" do
+          question_body.each do |locale, value|
             click_link I18n.with_locale(locale) { t("name", scope: "locale") }
-            fill_in "survey[questions][][body_#{locale}]", with: value
+            fill_in find_nested_form_field_locator("body_#{locale}"), with: value
           end
         end
 
@@ -118,7 +118,7 @@ shared_examples "edit surveys" do
           answer_options_body[idx].each do |locale, value|
             within survey_question_answer_option do
               click_link I18n.with_locale(locale) { t("name", scope: "locale") }
-              fill_in "survey[questions][][answer_options][][body_#{locale}]", with: value
+              fill_in find_nested_form_field_locator("body_#{locale}"), with: value
             end
           end
         end
@@ -141,24 +141,26 @@ shared_examples "edit surveys" do
       2.times { click_button "Add answer option" }
 
       within ".survey-question-answer-option:first-of-type" do
-        fill_in "survey[questions][][answer_options][][body_en]", with: "Something"
+        fill_in find_nested_form_field_locator("body_en"), with: "Something"
       end
 
       within ".survey-question-answer-option:last-of-type" do
-        fill_in "survey[questions][][answer_options][][body_en]", with: "Else"
+        fill_in find_nested_form_field_locator("body_en"), with: "Else"
       end
 
       # If JS events for option reordering are incorrectly bound, clicking on
       # the field to gain focus can cause the options to get inverted... :S
       within ".survey-question-answer-option:first-of-type" do
-        find("input[name='survey[questions][][answer_options][][body_en]']").click
+        find_nested_form_field("body_en").click
       end
 
-      first_answer_option = page.find(".survey-question-answer-option:first-of-type")
-      expect(first_answer_option).to have_field("survey[questions][][answer_options][][body_en]", with: "Something")
+      within ".survey-question-answer-option:first-of-type" do
+        expect(page).to have_nested_field("body_en", with: "Something")
+      end
 
-      second_answer_option = page.find(".survey-question-answer-option:last-of-type")
-      expect(second_answer_option).to have_field("survey[questions][][answer_options][][body_en]", with: "Else")
+      within ".survey-question-answer-option:last-of-type" do
+        expect(page).to have_nested_field("body_en", with: "Else")
+      end
     end
 
     it "persists question form across submission failures" do
@@ -175,25 +177,45 @@ shared_examples "edit surveys" do
       click_button "Add answer option"
 
       within ".survey-question-answer-option:first-of-type" do
-        fill_in "survey[questions][][answer_options][][body_en]", with: "Something"
+        fill_in find_nested_form_field_locator("body_en"), with: "Something"
       end
 
       click_button "Save"
 
-      expect(page).to have_field("survey[questions][][answer_options][][body_en]", with: "Something")
+      within ".survey-question-answer-option:first-of-type" do
+        expect(page).to have_nested_field("body_en", with: "Something")
+      end
+    end
+
+    it "allows switching translated field tabs after form failures" do
+      click_button "Add question"
+      click_button "Save"
+
+      within ".survey-question:first-of-type" do
+        fill_in find_nested_form_field_locator("body_en"), with: "Bye"
+        click_link "Català"
+
+        fill_in find_nested_form_field_locator("body_ca"), with: "Adeu"
+        click_link "English"
+
+        expect(page).to have_nested_field("body_en", with: "Bye")
+        expect(page).to have_no_nested_field("body_ca", with: "Adeu")
+      end
     end
 
     describe "when a survey has an existing question" do
       let!(:survey_question) { create(:survey_question, survey: survey, body: body) }
 
-      it "modifies the question" do
+      before do
         visit_component_admin
+      end
 
+      it "modifies the question when the information is valid" do
         within "form.edit_survey" do
           expect(page).to have_selector(".survey-question", count: 1)
 
           within ".survey-question" do
-            fill_in "survey-question-#{survey_question.id}_body_en", with: "Modified question"
+            fill_in "survey_questions_#{survey_question.id}_body_en", with: "Modified question"
             check "Mandatory"
             select "Long answer", from: "Type"
           end
@@ -211,9 +233,30 @@ shared_examples "edit surveys" do
         expect(page).to have_selector("select#survey_questions_#{survey_question.id}_question_type option[value='long_answer'][selected]")
       end
 
-      it "removes the question" do
-        visit_component_admin
+      it "re-renders the form when the information is invalid and displays errors" do
+        within "form.edit_survey" do
+          expect(page).to have_selector(".survey-question", count: 1)
 
+          within ".survey-question" do
+            expect(page).to have_content("Statement*")
+            fill_in "survey_questions_#{survey_question.id}_body_en", with: ""
+            check "Mandatory"
+            select "Multiple option", from: "Type"
+          end
+
+          click_button "Save"
+        end
+
+        expect(page).to have_admin_callout("There's been errors when saving the survey")
+        expect(page).to have_content("can't be blank")
+
+        expect(page).to have_selector("input[value='']")
+        expect(page).to have_no_selector("input[value='This is the first question']")
+        expect(page).to have_selector("input#survey_questions_#{survey_question.id}_mandatory[checked]")
+        expect(page).to have_selector("select#survey_questions_#{survey_question.id}_question_type option[value='multiple_option'][selected]")
+      end
+
+      it "removes the question" do
         within "form.edit_survey" do
           expect(page).to have_selector(".survey-question", count: 1)
 
@@ -234,8 +277,6 @@ shared_examples "edit surveys" do
       end
 
       it "cannot be moved up" do
-        visit_component_admin
-
         within "form.edit_survey" do
           within ".survey-question" do
             expect(page).to have_no_button("Up")
@@ -244,8 +285,6 @@ shared_examples "edit surveys" do
       end
 
       it "cannot be moved down" do
-        visit_component_admin
-
         within "form.edit_survey" do
           within ".survey-question" do
             expect(page).to have_no_button("Down")
@@ -277,21 +316,21 @@ shared_examples "edit surveys" do
 
       shared_examples_for "switching questions order" do
         it "properly reorders the questions" do
-          first_question = page.find(".survey-question:first-of-type")
+          within ".survey-question:first-of-type" do
+            expect(page).to have_nested_field("body_en", with: "Second")
+            expect(page).to look_like_first_question
+          end
 
-          expect(first_question).to have_field("survey[questions][][body_en]", with: "Second")
-          expect(first_question).to look_like_first_question
-
-          last_question = page.find(".survey-question:last-of-type")
-
-          expect(last_question).to have_field("survey[questions][][body_en]", with: "First")
-          expect(last_question).to look_like_last_question
+          within ".survey-question:last-of-type" do
+            expect(page).to have_nested_field("body_en", with: "First")
+            expect(page).to look_like_last_question
+          end
         end
       end
 
       context "when moving a question up" do
         before do
-          within "#survey-question-#{survey_question_2.id}-field" do
+          within "#survey_question_#{survey_question_2.id}-field" do
             click_button "Up"
           end
 
@@ -301,7 +340,7 @@ shared_examples "edit surveys" do
 
       context "when moving a question down" do
         before do
-          within "#survey-question-#{survey_question_1.id}-field" do
+          within "#survey_question_#{survey_question_1.id}-field" do
             click_button "Down"
           end
         end
@@ -316,7 +355,7 @@ shared_examples "edit surveys" do
         expect(page.find(".survey-question:nth-child(2)")).to look_like_intermediate_question
         expect(page.find(".survey-question:nth-child(3)")).to look_like_last_question
 
-        within "#survey-question-#{survey_question_1.id}-field" do
+        within "#survey_question_#{survey_question_1.id}-field" do
           click_button "Remove"
         end
 
@@ -351,5 +390,28 @@ shared_examples "edit surveys" do
       expect(page).to have_no_content("Remove")
       expect(page).to have_selector("input[value='This is the first question'][disabled]")
     end
+  end
+
+  private
+
+  def find_nested_form_field_locator(attribute)
+    find_nested_form_field(attribute)["id"]
+  end
+
+  def find_nested_form_field(attribute)
+    current_scope.find(nested_form_field_selector(attribute))
+  end
+
+  def have_nested_field(attribute, with:)
+    have_field find_nested_form_field_locator(attribute), with: with
+  end
+
+  def have_no_nested_field(attribute, with:)
+    have_no_selector(nested_form_field_selector(attribute)) ||
+      have_no_field(find_nested_form_field_locator(attribute), with: with)
+  end
+
+  def nested_form_field_selector(attribute)
+    "[id$=#{attribute}]"
   end
 end

@@ -64,8 +64,6 @@ Decidim.register_participatory_space(:assemblies) do |participatory_space|
         internal_organisation: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)
         end,
-        is_open: true,
-        is_public: true,
         is_transparent: true,
         special_features: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
           Decidim::Faker::Localized.paragraph(3)

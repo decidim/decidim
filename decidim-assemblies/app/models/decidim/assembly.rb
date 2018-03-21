@@ -42,6 +42,13 @@ module Decidim
     mount_uploader :hero_image, Decidim::HeroImageUploader
     mount_uploader :banner_image, Decidim::BannerImageUploader
 
+    scope :visible_for, lambda { |user|
+                          joins("LEFT JOIN decidim_participatory_space_private_users ON
+                          decidim_participatory_space_private_users.privatable_to_id = #{table_name}.id")
+                            .where("(private_space = ? and decidim_participatory_space_private_users.decidim_user_id = ?)
+                            or private_space = ? or (private_space = ? and is_transparent = ?)", true, user, false, true, true)
+                        }
+
     # Scope to return only the promoted assemblies.
     #
     # Returns an ActiveRecord::Relation.
@@ -63,6 +70,10 @@ module Decidim
 
     def self.private_assemblies
       where(private_space: true)
+    end
+
+    def self.public_spaces
+      super.where(private_space: false).or(Decidim::Assembly.where(private_space: true).where(is_transparent: true))
     end
   end
 end

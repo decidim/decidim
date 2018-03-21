@@ -38,8 +38,6 @@ FactoryBot.define do
     closing_date 2.months.from_now.at_midnight
     closing_date_reason { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     internal_organisation { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
-    is_open true
-    is_public true
     is_transparent true
     special_features { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
     twitter_handler { "others" }
