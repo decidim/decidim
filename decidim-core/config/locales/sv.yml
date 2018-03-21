@@ -315,6 +315,8 @@ sv:
         title: Mer information
     participatory_space_private_users:
       not_allowed: Du får inte se det här innehållet
+    profile:
+      deleted: Ta bort användare
     profiles:
       default_officialization_text: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
