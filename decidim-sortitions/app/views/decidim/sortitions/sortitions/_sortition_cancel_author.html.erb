@@ -6,7 +6,7 @@
     <span class="author__name">
       <% if sortition.cancelled_by_user&.deleted? %>
         <span class="label label--small label--basic">
-          <%= t('.deleted') %>
+          <%= t(".deleted") %>
         </span>
       <% else %>
         <%= sortition.cancelled_by_user.name %>

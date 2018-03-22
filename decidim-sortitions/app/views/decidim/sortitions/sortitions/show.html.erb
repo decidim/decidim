@@ -6,7 +6,7 @@
 
 <div class="row column">
   <div class="callout success">
-    <p><%=t ".introduction", reference: sortition.id, target_items: sortition.target_items %></p>
+    <p><%= t ".introduction", reference: sortition.id, target_items: sortition.target_items %></p>
   </div>
 </div>
 
@@ -39,7 +39,7 @@
 <% if sortition.cancelled? %>
 <div class="row column">
   <div class="title-action">
-    <h2 class="title-action__title section-heading"><%=t ".cancelled" %></h2>
+    <h2 class="title-action__title section-heading"><%= t ".cancelled" %></h2>
   </div>
   <div class=section>
     <div class="author-data">
@@ -54,7 +54,7 @@
 
 <div class="row column">
   <div class="title-action">
-    <h2 class="title-action__title section-heading"><%=t ".witnesses" %></h2>
+    <h2 class="title-action__title section-heading"><%= t ".witnesses" %></h2>
   </div>
   <div class="section">
     <%= sanitize translated_attribute sortition.witnesses %>
@@ -65,7 +65,7 @@
   <div class="row columns">
     <div class="title-action">
       <h2 id="proposals-count" class="title-action__title section-heading">
-        <%=t ".proposals_selected_by_sortition" %>
+        <%= t ".proposals_selected_by_sortition" %>
       </h2>
     </div>
     <div class="row">
@@ -81,27 +81,27 @@
 <div class="row column">
   <section class="extended" id="sortition-details">
     <div class="row column">
-      <h4 class="section-heading"><%=t ".sortition_reproducibility_details" %></h4>
+      <h4 class="section-heading"><%= t ".sortition_reproducibility_details" %></h4>
     </div>
     <div class=row>
       <div class="columns small-centered mediumlarge-12 large-12 sortition-details">
         <div class="sortition-details-item">
-          <span class="sortition-details-title sortition-details-text"><%=t ".dice_result" %></span>
+          <span class="sortition-details-title sortition-details-text"><%= t ".dice_result" %></span>
           <span class=sortition-details-text><%= sortition.dice %></span>
         </div>
 
         <div class="sortition-details-item">
-          <span class="sortition-details-title sortition-details-text"><%=t ".time_seed" %></span>
+          <span class="sortition-details-title sortition-details-text"><%= t ".time_seed" %></span>
           <span class=sortition-details-text><%= sortition.request_timestamp.to_i %></span>
         </div>
 
         <div class="sortition-details-item">
-          <span class="sortition-details-title sortition-details-text"><%=t ".mathematical_result" %></span>
+          <span class="sortition-details-title sortition-details-text"><%= t ".mathematical_result" %></span>
           <span class=sortition-details-text><%= sortition.seed %></span>
         </div>
 
         <div class="sortition-details-item">
-          <span class="sortition-details-title sortition-details-text"><%=t ".algorithm" %></span><br>
+          <span class="sortition-details-title sortition-details-text"><%= t ".algorithm" %></span><br>
           <span class=sortition-details-text>
             <%= link_to Decidim::Sortitions.sortition_algorithm,
                         Decidim::Sortitions.sortition_algorithm,
@@ -115,10 +115,10 @@
 
   <section class=extended>
     <div class="row column">
-      <h4 class="section-heading"><%=t ".candidate_proposal_ids" %></h4>
+      <h4 class="section-heading"><%= t ".candidate_proposal_ids" %></h4>
     </div>
     <div class="row columns">
-      <%=t ".candidate_proposals_info", category_label: sortition_category_label(sortition) %>:
+      <%= t ".candidate_proposals_info", category_label: sortition_category_label(sortition) %>:
     </div>
     <div class=row>
       <div class="columns small-centered mediumlarge-12 large-12">

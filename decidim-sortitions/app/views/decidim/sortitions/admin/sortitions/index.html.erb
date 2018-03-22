@@ -4,7 +4,7 @@
       <%= t(".title") %>
       <div class="button--title">
         <% if can? :create, Decidim::Sortitions::Sortition %>
-          <%= link_to t("actions.new", scope: "decidim.sortitions.admin", name: t("models.sortition.name", scope: "decidim.sortitions.admin")), new_sortition_path, class: 'button tiny button--simple' if can? :manage, current_component %>
+          <%= link_to t("actions.new", scope: "decidim.sortitions.admin", name: t("models.sortition.name", scope: "decidim.sortitions.admin")), new_sortition_path, class: "button tiny button--simple" if can? :manage, current_component %>
         <% end %>
       </div>
     </h2>
@@ -26,7 +26,7 @@
           <tr>
             <td><%= sortition.reference %></td>
             <td><%= translated_attribute sortition.title %></td>
-            <td><%=l sortition.created_at, format: :short %></td>
+            <td><%= l sortition.created_at, format: :short %></td>
             <td class="table-list__actions">
               <%= icon_link_to "eye",
                                sortition_path(sortition),
