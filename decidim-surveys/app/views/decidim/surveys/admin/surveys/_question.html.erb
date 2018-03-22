@@ -1,3 +1,5 @@
+<% question = form.object %>
+
 <div class="card survey-question" id="<%= id %>-field">
   <div class="card-divider question-divider">
     <h2 class="card-title">
@@ -81,14 +83,14 @@
     <div class="survey-question-answer-options">
       <template>
         <%= fields_for "survey[questions][#{question.to_param}][answer_options][]", blank_answer_option do |answer_option_form| %>
-          <%= render "answer_option", answer_option: blank_answer_option, form: answer_option_form, question: question %>
+          <%= render "answer_option", form: answer_option_form, question: question %>
         <% end %>
       </template>
 
       <div class="survey-question-answer-options-list">
         <% question.answer_options.each do |answer_option| %>
           <%= fields_for "survey[questions][#{question.to_param}][answer_options][]", answer_option do |answer_option_form| %>
-            <%= render "answer_option", answer_option: answer_option, form: answer_option_form, question: question %>
+            <%= render "answer_option", form: answer_option_form, question: question %>
           <% end %>
         <% end %>
       </div>
