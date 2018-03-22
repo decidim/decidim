@@ -131,5 +131,6 @@ Decidim::Notification.where(event_class: "Decidim::Proposals::ProposalEndorsedEv
 - **decidim-comments**: Fix mentions not working properly. [\#2972](https://github.com/decidim/decidim/pull/2972)
 - **decidim-proposals**: Fix proposal endorsed event  generation [\#2983](https://github.com/decidim/decidim/pull/2983)
 - **decidim-core**: foundation-rails 6.4.3 support [\#2995](https://github.com/decidim/decidim/pull/2995)
+- **decidim-core**: Only require caps on the first line with `EtiquetteValidator` [\#3081](https://github.com/decidim/decidim/pull/3081)
 
 Please check [0.9-stable](https://github.com/decidim/decidim/blob/0.9-stable/CHANGELOG.md) for previous changes.
