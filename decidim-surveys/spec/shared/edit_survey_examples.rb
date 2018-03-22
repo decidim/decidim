@@ -170,7 +170,7 @@ shared_examples "edit surveys" do
       end
     end
 
-    it "persists question form across submission failures" do
+    it "preserves question form across submission failures" do
       click_button "Add question"
       select "Long answer", from: "Type"
       click_button "Save"
@@ -178,7 +178,7 @@ shared_examples "edit surveys" do
       expect(page).to have_select("Type", selected: "Long answer")
     end
 
-    it "does not persist spurious answer options from previous type selections" do
+    it "does not preserve spurious answer options from previous type selections" do
       click_button "Add question"
       select "Single option", from: "Type"
 
@@ -197,7 +197,7 @@ shared_examples "edit surveys" do
       end
     end
 
-    it "persists answer options form across submission failures" do
+    it "preserves answer options form across submission failures" do
       click_button "Add question"
       select "Single option", from: "Type"
 
