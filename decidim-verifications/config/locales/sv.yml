@@ -107,7 +107,7 @@ sv:
           pending_authorizations:
             index:
               address: Adress
-              letter_sent_at: Brevet skickat till
+              letter_sent_at: Brev skickat till
               mark_as_sent: Markera som skickat
               not_yet_sent: inte skickat än
               title: Pågående kontroller
@@ -119,7 +119,7 @@ sv:
               success: Brev framgångsrikt märkt som skickat
         authorizations:
           create:
-            error: Ett problem uppstod med din förfrågan
+            error: Det uppstod ett problem med din förfrågan
             success: Tack! Vi skickar en verifieringskod till din adress
           edit:
             send: Bekräfta
