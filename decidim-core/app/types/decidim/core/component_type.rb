@@ -3,7 +3,7 @@
 module Decidim
   module Core
     ComponentType = GraphQL::ObjectType.define do
-      interfaces [ComponentInterface]
+      interfaces [-> { ComponentInterface }]
 
       name "Component"
       description "A base component with no particular specificities."

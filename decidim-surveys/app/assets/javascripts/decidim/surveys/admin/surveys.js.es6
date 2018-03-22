@@ -4,17 +4,18 @@
 
 ((exports) => {
   const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
+  const { quillEditor } = exports.Decidim;
 
   const wrapperSelector = '.survey-questions';
   const fieldSelector = '.survey-question';
-  const questionTypeSelector = '[name="survey[questions][][question_type]"]';
+  const questionTypeSelector = 'select[name$=\\[question_type\\]]';
   const answerOptionsWrapperSelector = '.survey-question-answer-options';
 
   const autoLabelByPosition = new AutoLabelByPositionComponent({
     listSelector: '.survey-question:not(.hidden)',
     labelSelector: '.card-title span:first',
     onPositionComputed: (el, idx) => {
-      $(el).find('input[name="survey[questions][][position]"]').val(idx);
+      $(el).find('input[name$=\\[position\\]]').val(idx);
     }
   });
 
@@ -35,8 +36,7 @@
 
   const createDynamicFieldsForAnswerOptions = (fieldId) => {
     createDynamicFields({
-      templateId: `survey-question-answer-option-tmpl`,
-      tabsPrefix: `survey-question-answer-option`,
+      placeholderId: `survey-question-answer-option-id`,
       wrapperSelector: `#${fieldId} ${answerOptionsWrapperSelector}`,
       containerSelector: `.survey-question-answer-options-list`,
       fieldSelector: `.survey-question-answer-option`,
@@ -57,8 +57,7 @@
   };
 
   createDynamicFields({
-    templateId: 'survey-question-tmpl',
-    tabsPrefix: 'survey-question',
+    placeholderId: 'survey-question-id',
     wrapperSelector: wrapperSelector,
     containerSelector: '.survey-questions-list',
     fieldSelector: fieldSelector,
@@ -70,6 +69,7 @@
       const fieldId = $field.attr('id');
 
       createSortableList();
+      quillEditor();
       autoLabelByPosition.run();
       autoButtonsByPosition.run();
       createDynamicFieldsForAnswerOptions(fieldId);
