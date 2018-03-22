@@ -11,6 +11,8 @@ module Decidim
         translatable_attribute :description, String
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
+        translatable_attribute :conciliation_service_description, String
+        translatable_attribute :simultaneous_languages, String
 
         attribute :address, String
         attribute :latitude, Float
@@ -19,6 +21,9 @@ module Decidim
         attribute :end_time, Decidim::Attributes::TimeWithZone
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
+        attribute :has_conciliation_service, Boolean
+        attribute :has_space_adapted_for_functional_diversity, Boolean
+        attribute :has_simultaneous_translations, Boolean
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
@@ -27,6 +32,8 @@ module Decidim
         validates :address, geocoding: true, if: -> { Decidim.geocoder.present? }
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
+        validates :conciliation_service_description, translatable_presence: true, if: ->(form) { form.has_conciliation_service? }
+        validates :simultaneous_languages, translatable_presence: true, if: ->(form) { form.has_simultaneous_translations? }
 
         validates :current_component, presence: true
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }

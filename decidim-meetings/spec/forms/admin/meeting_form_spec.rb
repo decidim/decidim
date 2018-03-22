@@ -31,6 +31,12 @@ module Decidim::Meetings
     let(:location_hints) do
       Decidim::Faker::Localized.sentence(3)
     end
+    let(:conciliation_service_description) do
+      Decidim::Faker::Localized.sentence(3)
+    end
+    let(:simultaneous_languages) do
+      Decidim::Faker::Localized.sentence(3)
+    end
     let(:address) { "Carrer Pare Llaurador 113, baixos, 08224 Terrassa" }
     let(:latitude) { 40.1234 }
     let(:longitude) { 2.1234 }
@@ -51,7 +57,12 @@ module Decidim::Meetings
         location_hints_en: location_hints[:en],
         address: address,
         start_time: start_time,
-        end_time: end_time
+        end_time: end_time,
+        has_conciliation_service: true,
+        conciliation_service_description_en: conciliation_service_description[:en],
+        has_space_adapted_for_functional_diversity: true,
+        has_simultaneous_translations: true,
+        simultaneous_languages_en: simultaneous_languages[:en]
       }
     end
 

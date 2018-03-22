@@ -42,6 +42,11 @@ module Decidim
             longitude: @form.longitude,
             location: @form.location,
             location_hints: @form.location_hints,
+            has_conciliation_service: @form.has_conciliation_service,
+            conciliation_service_description: @form.conciliation_service_description,
+            has_space_adapted_for_functional_diversity: @form.has_space_adapted_for_functional_diversity,
+            has_simultaneous_translations: @form.has_simultaneous_translations,
+            simultaneous_languages: @form.simultaneous_languages,
             component: @form.current_component
           )
         end
