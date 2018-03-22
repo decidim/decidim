@@ -12,7 +12,7 @@ module Decidim
           :admin
         end
 
-        def permission_klass
+        def permission_class
           Decidim::ParticipatoryProcesses::Permissions
         end
 
