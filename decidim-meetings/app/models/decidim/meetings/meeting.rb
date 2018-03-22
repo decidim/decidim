@@ -76,8 +76,8 @@ module Decidim
 
       def can_participate?(user)
         return true unless participatory_space.try(:private_space?)
-        return false if participatory_space.try(:private_space?) && participatory_space.try(:is_transparent?)
         return true if participatory_space.try(:private_space?) && participatory_space.users.include?(user)
+        return false if participatory_space.try(:private_space?) && participatory_space.try(:is_transparent?)
       end
     end
   end
