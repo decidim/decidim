@@ -124,6 +124,7 @@ ignore_unused:
   - decidim.debates.admin_log.*
   - decidim.meetings.admin_log.*
   - decidim.budgets.admin_log.*
+  - decidim.sortitions.admin_log.*
   - decidim.events.*
 
 ## Exclude these keys from the `i18n-tasks eq-base' report:

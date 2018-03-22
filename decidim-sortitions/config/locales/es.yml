@@ -44,7 +44,6 @@ es:
               one: Sorteo
               other: Sorteos
             fields:
-              id: Identificador
               title: Título
               reference: Referencia
               dice: Dado
@@ -53,15 +52,10 @@ es:
               seed: Semilla
               category: Categoría
               decidim_proposals_component: Funcionalidad de propuestas
-              similar_count: Sorteos similares
               created_at: Fecha de creación
         sortitions:
           index:
             title: Sorteos
-          linked_sortitions:
-            selected_proposals:
-              one: propuesta seleccionada
-              other: propuestas seleccionadas
           new:
             title: Nuevo sorteo
             create: Crear
@@ -93,9 +87,6 @@ es:
           proposals_count:
             one: 1 propuesta
             other: "%{count} propuestas"
-        author:
-          deleted: Usuario eliminado
-          verified_user_group: Organización verificada
         proposal:
           view_proposal: Ver propuesta
         sortitions_count:
@@ -139,15 +130,17 @@ es:
           all: Todos
           active: Activos
           cancelled: Cancelados
+        linked_sortitions:
+          selected_proposals: Propuestas seleccionadas
+        sortition_author:
+          deleted: Usuario eliminado
+        sortition_cancel_author:
+          deleted: Usuario eliminado
         filters_small_view:
           close_modal: Cerrar ventana
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desplegar
-        orders:
-          label: 'Ordenar sorteos por:'
-          random: Aleatorio
-          recent: Reciente
         sortition:
           selected_proposals:
             one: 1 propuesta seleccionada

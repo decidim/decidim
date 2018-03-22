@@ -44,7 +44,6 @@ ca:
               one: Sorteig
               other: Sortejos
             fields:
-              id: Identificador
               title: Títol
               reference: Referència
               dice: Dau
@@ -53,15 +52,10 @@ ca:
               seed: Llavor
               category: Categoria
               decidim_proposals_component: Funcionalitat de propostes
-              similar_count: Sortejos similars
               created_at: Data de creació
         sortitions:
           index:
             title: Sortejos
-          linked_sortitions:
-            selected_proposals:
-              one: proposta seleccionada
-              other: propostes seleccionades
           new:
             title: Nou sorteig
             create: Crea
@@ -93,9 +87,6 @@ ca:
           proposals_count:
             one: 1 proposta
             other: "%{count} propostes"
-        author:
-          deleted: Usuari eliminat
-          verified_user_group: Organització verificada
         proposal:
           view_proposal: Veure proposta
         sortitions_count:
@@ -139,15 +130,17 @@ ca:
           all: Tots
           active: Actius
           cancelled: Cancelats
+        linked_sortitions:
+          selected_proposals: Propostes sel·leccionades
+        sortition_author:
+          deleted: Usuari eliminat
+        sortition_cancel_author:
+          deleted: Usuari eliminat
         filters_small_view:
           close_modal: Tancar finestra
           filter: Filtra
           filter_by: Filtrar per
           unfold: Desplegar
-        orders:
-          label: 'Ordenar sortejos per:'
-          random: Aleatori
-          recent: Recent
         sortition:
           selected_proposals:
             one: 1 proposta seleccionada.
