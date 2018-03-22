@@ -51,6 +51,7 @@ sv:
             already_answered_warning: Undersökningen är redan besvarad av vissa användare så att du inte kan ändra sina frågor.
           question:
             add_answer_option: Lägg till svaralternativ
+            description: Beskrivning
             down: Ner
             question: Fråga
             remove: Avlägsna
