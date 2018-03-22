@@ -1,3 +1,4 @@
+
 # Decidim::Sortitions
 This module makes possible to select amont a set of proposal by sortition.
 
