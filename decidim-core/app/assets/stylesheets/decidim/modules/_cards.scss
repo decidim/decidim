@@ -17,6 +17,7 @@ $card-proposal: $proposals;
 $card-action: $actions;
 $card-debate: $debates;
 $card-meeting: $meetings;
+$card-spaces: $card-meeting;
 
 $datetime-bg: $primary;
 
@@ -120,6 +121,10 @@ $datetime-bg: $primary;
     display: block;
     margin-top: $global-margin / 2;
   }
+
+  &:not(:last-child){
+    margin-bottom: $global-margin / 2;
+  }
 }
 
 .card__image{
@@ -167,6 +172,12 @@ $datetime-bg: $primary;
 
   .card__content{
     display: flex;
+  }
+
+  &.card__footer--spaces{
+    background: rgba($card-spaces, .2);
+    border-top-color: rgba($card-spaces, .6);
+    border-top-width: .25rem;
   }
 }
 
@@ -306,6 +317,22 @@ $datetime-bg: $primary;
   line-height: 1;
   margin-bottom: .2rem;
   color: $muted;
+}
+
+.card__support__data--left{
+  @extend .card__support__data;
+
+  text-align: left;
+  text-transform: none;
+  margin-bottom: 0;
+  color: $muted;
+
+  strong{
+    font-size: rem-calc(16);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .card__support__number{
@@ -715,6 +742,20 @@ $datetime-bg: $primary;
           margin-top: $global-margin;
         }
       }
+    }
+  }
+}
+
+.card__block{
+  @extend .card__icondata;
+
+  margin-bottom: $global-margin / 2;
+
+  ul{
+    border: $border;
+
+    li{
+      padding: .25em;
     }
   }
 }
