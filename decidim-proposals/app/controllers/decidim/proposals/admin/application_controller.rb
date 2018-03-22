@@ -13,7 +13,7 @@ module Decidim
 
         private
 
-        def permission_klass
+        def permission_class
           Decidim::Proposals::Permissions
         end
 

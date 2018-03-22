@@ -22,14 +22,14 @@ module Decidim
       end
 
       def allowed_to?(action, subject, extra_context = {})
-        permission_klass.new(
+        permission_class.new(
           current_user,
           Decidim::PermissionAction.new(scope: permission_scope, action: action, subject: subject),
           permissions_context.merge(extra_context)
         ).allowed?
       end
 
-      def permission_klass
+      def permission_class
         raise "Please, make this method return a class"
       end
 
