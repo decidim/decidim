@@ -35,6 +35,12 @@
                       <% field_id = "survey_#{survey.id}_question_#{answer.question.id}_answer_body" %>
                       <%= label_tag field_id , "#{answer_idx + 1}. #{translated_attribute(answer.question.body)} #{'*' if answer.question.mandatory?}", class: "survey-question" %>
 
+                      <% if translated_attribute(answer.question.description).present? %>
+                        <div class="help-text">
+                          <%= decidim_sanitize translated_attribute(answer.question.description) %>
+                        </div>
+                      <% end %>
+
                       <% case answer.question.question_type %>
                         <% when "short_answer" %>
                           <%= text_field_tag "survey[answers][#{answer_idx}][body][]", answer.body.try(:first), id: field_id, class: "#{'is-invalid-input' unless answer.errors.empty?}" %>

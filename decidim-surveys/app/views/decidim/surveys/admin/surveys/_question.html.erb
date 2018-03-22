@@ -33,8 +33,20 @@
           :body,
           tabs_id: id,
           label: t(".statement"),
-          disabled: !survey.questions_editable?,
-          enable_tabs: question.persisted?
+          disabled: !survey.questions_editable?
+        )
+      %>
+    </div>
+
+    <div class="row column">
+      <%=
+        form.translated(
+          :editor,
+          :description,
+          toolbar: :full,
+          tabs_id: id,
+          label: t(".description"),
+          disabled: !survey.questions_editable?
         )
       %>
     </div>
