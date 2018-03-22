@@ -10,12 +10,12 @@ sv:
         user: Användare
         verification_attachment: Skannad kopia av ditt dokument
       postal_letter_address:
-        full_address: Hela adressen
+        full_address: Fullständig adress
       postal_letter_confirmation:
-        verification_code: Verifierings kod
+        verification_code: Verifieringskod
       postal_letter_postage:
-        full_address: Hela adressen
-        verification_code: Verifierings kod
+        full_address: Fullständig adress
+        verification_code: Verifieringskod
   decidim:
     admin:
       menu:
@@ -40,7 +40,7 @@ sv:
         explanation: Ladda upp dina identitetshandlingar så att vi kan kontrollera din identitet
         name: Identitetsdokument
       multistep: Flerstegs
-      name: namn
+      name: Namn
       postal_letter:
         explanation: Vi skickar dig ett brev med en kod som du måste ange så vi kan verifiera din adress
         name: Kod med postbrev
@@ -112,7 +112,7 @@ sv:
               not_yet_sent: inte skickat än
               title: Pågående kontroller
               username: Användarnamn
-              verification_code: Verifierings kod
+              verification_code: Verifieringskod
           postages:
             create:
               error: Felmarkeringsbrev som skickat
@@ -133,4 +133,4 @@ sv:
             success: Grattis. Du har blivit verifierad
   errors:
     messages:
-      uppercase_only_letters_numbers: måste vara stort och endast innehålla bokstäver och / eller siffror
+      uppercase_only_letters_numbers: måste vara versaler och endast innehålla bokstäver och/eller siffror
