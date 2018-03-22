@@ -97,8 +97,6 @@ shared_examples "edit surveys" do
       within "form.edit_survey" do
         click_button "Add question"
 
-        expect(page).to have_selector(".survey-question", count: 1)
-
         within ".survey-question" do
           fill_in find_nested_form_field_locator("body_en"), with: question_body
         end
@@ -240,8 +238,6 @@ shared_examples "edit surveys" do
 
       it "modifies the question when the information is valid" do
         within "form.edit_survey" do
-          expect(page).to have_selector(".survey-question", count: 1)
-
           within ".survey-question" do
             fill_in "survey_questions_#{survey_question.id}_body_en", with: "Modified question"
             check "Mandatory"
@@ -263,8 +259,6 @@ shared_examples "edit surveys" do
 
       it "re-renders the form when the information is invalid and displays errors" do
         within "form.edit_survey" do
-          expect(page).to have_selector(".survey-question", count: 1)
-
           within ".survey-question" do
             expect(page).to have_content("Statement*")
             fill_in "survey_questions_#{survey_question.id}_body_en", with: ""
@@ -286,8 +280,6 @@ shared_examples "edit surveys" do
 
       it "removes the question" do
         within "form.edit_survey" do
-          expect(page).to have_selector(".survey-question", count: 1)
-
           within ".survey-question" do
             click_button "Remove"
           end
