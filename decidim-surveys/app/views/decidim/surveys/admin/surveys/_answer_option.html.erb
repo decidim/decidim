@@ -23,4 +23,10 @@
       %>
     </div>
   </div>
+
+  <% if answer_option.persisted? %>
+    <%= form.hidden_field :id, disabled: !survey.questions_editable? %>
+  <% end %>
+
+  <%= form.hidden_field :deleted, value: false, disabled: !survey.questions_editable? %>
 </div>

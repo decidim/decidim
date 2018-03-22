@@ -64,6 +64,8 @@
     });
   };
 
+  const dynamicFieldsForAnswerOptions = {};
+
   const setAnswerOptionsWrapperVisibility = ($target) => {
     const $answerOptionsWrapper = $target.parents(fieldSelector).find(answerOptionsWrapperSelector);
     const value = $target.val();
@@ -81,7 +83,10 @@
   const setupInitialQuestionAttributes = ($target) => {
     const fieldId = $target.attr('id');
     const $fieldQuestionTypeSelect = $target.find(questionTypeSelector);
-    const dynamicFields = createDynamicFieldsForAnswerOptions(fieldId);
+
+    dynamicFieldsForAnswerOptions[fieldId] = createDynamicFieldsForAnswerOptions(fieldId);
+
+    const dynamicFields = dynamicFieldsForAnswerOptions[fieldId];
 
     const onQuestionTypeChange = () => {
       const value = $fieldQuestionTypeSelect.val();
@@ -123,9 +128,13 @@
       autoLabelByPosition.run();
       autoButtonsByPosition.run();
     },
-    onRemoveField: () => {
+    onRemoveField: ($field) => {
       autoLabelByPosition.run();
       autoButtonsByPosition.run();
+
+      $field.find(answerOptionRemoveFieldButtonSelector).each((idx, el) => {
+        dynamicFieldsForAnswerOptions[$field.attr("id")]._removeField(el);
+      });
     },
     onMoveUpField: () => {
       autoLabelByPosition.run();

@@ -26,6 +26,10 @@ module Decidim
           end
         end
 
+        def answer_options_to_persist
+          answer_options.reject(&:deleted)
+        end
+
         def to_param
           id || "survey-question-id"
         end

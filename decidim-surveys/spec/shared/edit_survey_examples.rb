@@ -352,6 +352,30 @@ shared_examples "edit surveys" do
 
         expect(page).to have_selector(".survey-question-answer-option", count: 2)
       end
+
+      it "still removes the question even if previous editions rendered the options invalid" do
+        within "form.edit_survey" do
+          expect(page).to have_selector(".survey-question", count: 1)
+
+          within ".survey-question-answer-option:first-of-type" do
+            fill_in find_nested_form_field_locator("body_en"), with: ""
+          end
+
+          within ".survey-question" do
+            click_button "Remove", match: :first
+          end
+
+          click_button "Save"
+        end
+
+        expect(page).to have_admin_callout("successfully")
+
+        visit_component_admin
+
+        within "form.edit_survey" do
+          expect(page).to have_selector(".survey-question", count: 0)
+        end
+      end
     end
 
     context "when a survey has multiple existing questions" do
