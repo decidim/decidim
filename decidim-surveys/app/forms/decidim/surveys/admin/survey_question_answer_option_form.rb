@@ -9,6 +9,8 @@ module Decidim
 
         translatable_attribute :body, String
 
+        validates :body, translatable_presence: true
+
         def to_param
           id || "survey-question-answer-option-id"
         end
