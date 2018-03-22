@@ -20,7 +20,7 @@ module Decidim
         end
 
         it "correctly resolves untranslatable fields into available_locales" do
-          expect(subject.class.search_rsrc_fields_mapper).to be_a(Decidim::SearchRsrcFieldsMapper)
+          expect(subject.class.search_rsrc_fields_mapper).to be_a(Decidim::SearchResourceFieldsMapper)
         end
       end
     end

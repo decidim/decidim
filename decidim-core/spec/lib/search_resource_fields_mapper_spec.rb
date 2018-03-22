@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe SearchRsrcFieldsMapper do
+  describe SearchResourceFieldsMapper do
     subject { resource }
 
     let(:component) { create(:component, manifest_name: "dummy") }
