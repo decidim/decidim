@@ -13,7 +13,7 @@ sv:
         password_confirmation: Bekräfta ditt nya lösenord
         remove_avatar: Ta bort avatar
         user_group_document_number: Organisationsdokumentnummer
-        user_group_name: Organisations namn
+        user_group_name: Organisationsnamn
         user_group_phone: Organisationstelefon
   activerecord:
     attributes:
@@ -25,7 +25,7 @@ sv:
         password_confirmation: lösenordsbekräftelse
         remember_me: Kom ihåg mig
         user_group_document_number: Organisationsdokumentnummer
-        user_group_name: Organisations namn
+        user_group_name: Organisationsnamn
         user_group_phone: Organisationstelefon
   booleans:
     'false': 'Nej'
@@ -40,26 +40,26 @@ sv:
         confirm:
           close: Stäng fönstret
           ok: Ja, jag vill ta bort mitt konto
-          question: Är du säker på att du vill radera ditt konto?
+          question: Är du säker på att du vill ta bort ditt konto?
           title: Ta bort mitt konto
         explanation: Var god fyll i anledningen till att du vill radera ditt konto (valfritt).
       destroy:
         error: Det har varit ett fel att radera ditt konto.
         success: Ditt konto har tagits bort.
       show:
-        change_password: ändra lösenord
+        change_password: Ändra lösenord
         update_account: Uppdatera konto
       update:
         error: Det har uppstått ett fel när du uppdaterade ditt konto.
-        success: Ditt konto har uppdaterats framgångsrikt.
-        success_with_email_confirmation: Ditt konto har uppdaterats framgångsrikt. Du får ett mail för att bekräfta din nya e-postadress.
+        success: Ditt konto har uppdaterats.
+        success_with_email_confirmation: Ditt konto har uppdaterats. Du får ett e-postmeddelande för att bekräfta din nya e-postadress.
     admin_log:
       area:
         create: "%{user_name} skapade området %{resource_name}"
         delete: "%{user_name} raderade området %{resource_name}"
         update: "%{user_name} uppdaterade området %{resource_name}"
       component:
-        create: "%{user_name} lade till %{resource_name} komponenten till %{space_name} -utrymmet"
+        create: "%{user_name} lade till %{resource_name} komponenten till %{space_name} utrymmet"
         delete: "%{user_name} tog bort komponenten %{resource_name} från %{space_name} -utrymmet"
         publish: "%{user_name} publicerade %{resource_name} -komponenten i %{space_name} -utrymmet"
         unpublish: "%{user_name} opublicerade %{resource_name} -komponenten från %{space_name} -utrymmet"
