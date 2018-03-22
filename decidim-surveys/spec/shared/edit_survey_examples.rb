@@ -290,6 +290,11 @@ shared_examples "edit surveys" do
         click_button "Save"
 
         expect(page).to have_selector(".survey-question", count: 1)
+
+        within ".survey-question" do
+          expect(page).to have_selector(".card-title", text: "#1")
+          expect(page).to have_no_button("Up")
+        end
       end
 
       it "removes the question" do

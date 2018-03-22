@@ -163,4 +163,7 @@
     hideDeletedQuestion($target);
     setupInitialQuestionAttributes($target);
   });
+
+  autoLabelByPosition.run();
+  autoButtonsByPosition.run();
 })(window);
