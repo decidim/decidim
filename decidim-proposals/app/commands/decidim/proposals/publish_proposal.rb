@@ -20,7 +20,7 @@ module Decidim
       #
       # Returns nothing.
       def call
-        return broadcast(:invalid) if @proposal.author != current_user
+        return broadcast(:invalid) if @proposal.author != @current_user
 
         @proposal.update published_at: Time.current
 
@@ -38,8 +38,8 @@ module Decidim
         return if @proposal.author.blank?
 
         Decidim::EventsManager.publish(
-          event: "decidim.events.proposals.proposal_created",
-          event_class: Decidim::Proposals::CreateProposalEvent,
+          event: "decidim.events.proposals.proposal_published",
+          event_class: Decidim::Proposals::PublishProposalEvent,
           resource: @proposal,
           recipient_ids: @proposal.author.followers.pluck(:id)
         )
@@ -47,8 +47,8 @@ module Decidim
 
       def send_notification_to_participatory_space
         Decidim::EventsManager.publish(
-          event: "decidim.events.proposals.proposal_created",
-          event_class: Decidim::Proposals::CreateProposalEvent,
+          event: "decidim.events.proposals.proposal_published",
+          event_class: Decidim::Proposals::PublishProposalEvent,
           resource: @proposal,
           recipient_ids: @proposal.participatory_space.followers.pluck(:id) - @proposal.author.followers.pluck(:id),
           extra: {
