@@ -3,6 +3,9 @@
 module Decidim
   # A UserGroup is an organization of citizens
   class UserGroup < ApplicationRecord
+    include Decidim::Traceable
+    include Decidim::Loggable
+
     belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
 
     has_many :memberships, class_name: "Decidim::UserGroupMembership", foreign_key: :decidim_user_group_id, dependent: :destroy
@@ -19,6 +22,10 @@ module Decidim
 
     scope :verified, -> { where.not(verified_at: nil) }
     scope :rejected, -> { where.not(rejected_at: nil) }
+
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::UserGroupPresenter
+    end
 
     # Public: Checks if the user group is verified.
     def verified?

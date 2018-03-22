@@ -20,7 +20,7 @@ ca:
         registration_terms: Termes i condicions de l'inscripció
         registrations_enabled: Inscripcions obertes
         start_time: Hora d'inici
-        title: Editar trobada
+        title: Títol
   decidim:
     events:
       meetings:
@@ -29,6 +29,11 @@ ca:
           email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
           email_subject: S'ha tancat la trobada "%{resource_title}"
           notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
+        meeting_created:
+          email_intro: S'ha afegit la trobada "%{resource_title}" a l'espai "%{participatory_space_title}" que estàs seguint.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
+          email_subject: Nova trobada a %{participatory_space_title}
+          notification_title: S'ha afegit la trobada <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
         meeting_registrations_over_percentage:
           email_intro: La disponibilitat d'espais a la trobada "%{resource_title}" està per sobre del %{percentage}%.
           email_outro: Has rebut aquesta notificació perquè ets un administrador de l'espai participatiu d'aquesta trobada.
@@ -63,6 +68,7 @@ ca:
             comments_blocked: Comentaris bloquejats
     meetings:
       actions:
+        attachment_collections: Col·leccions
         attachments: Adjunts
         close: Tancar
         confirm_destroy: Segur que vols suprimir aquesta trobada?
@@ -125,6 +131,12 @@ ca:
           update:
             invalid: S'ha produït un problema en desar la configuració de la inscripció.
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
+      admin_log:
+        meeting:
+          close: "%{user_name} ha tancat la trobada %{resource_name} a l'espai %{space_name}"
+          create: "%{user_name} ha creat la trobada %{resource_name} a l'espai %{space_name}"
+          delete: "%{user_name} ha eliminat la trobada %{resource_name} a l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat la trobada %{resource_name} a l'espai %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -184,6 +196,16 @@ ca:
         destroy:
           invalid: Hi ha hagut un problema en sortir d'aquesta trobada.
           success: Heu deixat la trobada amb èxit.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Trobades anteriors
+          upcoming_meetings: Properes trobades
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Trobades anteriors
+        see_all_meetings: Veure totes les trobades
+        upcoming_meetings: Properes rrobades
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Resultats relacionats:'

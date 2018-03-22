@@ -10,9 +10,10 @@ en:
         end_date: End date
         progress: Progress
         project_ids: Included projects
-        proposal_ids: Included proposals
+        proposals: Included proposals
         start_date: Start date
         title: Title
+        updated_at: Updated at
       status:
         description: Description
         key: Key
@@ -50,11 +51,17 @@ en:
           edit:
             title: Edit result
             update: Update result
+          form:
+            add_proposal: Add proposal
           index:
             title: Results
           new:
             create: Create result
             title: New result
+          proposals:
+            close: Close
+            current_selection: Current selection
+            select: Select
           update:
             invalid: There's been a problem updating this result
             success: Result successfully updated
@@ -95,6 +102,10 @@ en:
           update:
             invalid: There's been a problem updating this entry
             success: Entry successfully updated
+      admin_log:
+        result:
+          create: "%{user_name} created result %{resource_name} in %{space_name}"
+          update: "%{user_name} updated result %{resource_name} in %{space_name}"
       models:
         result:
           fields:
@@ -157,6 +168,13 @@ en:
           changes_at_title: Changes at "%{title}"
         version:
           version_index: Version %{index}
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'The proposal "%{proposal_title}" has been included in a result. You can see it from this page:'
+          email_outro: You have received this notification because you are following "%{proposal_title}". You can stop receiving notifications following the previous link.
+          email_subject: An update to %{proposal_title}
+          notification_title: The proposal <a href="%{proposal_path}">%{proposal_title}</a> has been included in the <a href="%{resource_path}">%{resource_title}</a> result.
     features:
       accountability:
         name: Accountability
@@ -165,12 +183,21 @@ en:
             categories_label: Name for "Categories"
             comments_enabled: Comments enabled
             comments_upstream_moderation_enabled: Upstream moderation for comments enabled
+            display_progress_enabled: Display progress
             heading_leaf_level_results: Name for "Projects"
             heading_parent_level_results: Name for "Results"
             intro: Intro
             subcategories_label: Name for "Subcategories"
           step:
             comments_blocked: Comments blocked
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_results:
+          results: Results
+    participatory_spaces:
+      highlighted_results:
+        results: Results
+        see_all_results: See all results
     resource_links:
       included_projects:
         result_projects: Projects included in this result

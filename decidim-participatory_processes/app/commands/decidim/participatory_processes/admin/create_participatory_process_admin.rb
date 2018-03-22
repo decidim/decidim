@@ -9,6 +9,7 @@ module Decidim
         # Public: Initializes the command.
         #
         # form - A form object with the params.
+        # current_user - the user performing this action
         # participatory_process - The ParticipatoryProcess that will hold the
         #   user role
         def initialize(form, current_user, participatory_process)
@@ -27,8 +28,9 @@ module Decidim
           return broadcast(:invalid) if form.invalid?
 
           ActiveRecord::Base.transaction do
-            create_or_invite_user
-            create_role
+            @user = existing_user || new_user
+            existing_role || create_role
+            add_admin_as_follower
           end
 
           broadcast(:ok)
@@ -42,15 +44,31 @@ module Decidim
         attr_reader :form, :participatory_process, :current_user, :user
 
         def create_role
-          Decidim::ParticipatoryProcessUserRole.find_or_create_by!(
+          extra_info = {
+            resource: {
+              title: user.name
+            }
+          }
+          role_params = {
             role: form.role.to_sym,
             user: user,
             participatory_process: @participatory_process
+          }
+
+          Decidim.traceability.create!(
+            Decidim::ParticipatoryProcessUserRole,
+            current_user,
+            role_params,
+            extra_info
           )
         end
 
-        def create_or_invite_user
-          @user ||= existing_user || new_user
+        def existing_role
+          Decidim::ParticipatoryProcessUserRole.where(
+            role: form.role.to_sym,
+            user: user,
+            participatory_process: @participatory_process
+          ).first
         end
 
         def existing_user
@@ -86,6 +104,19 @@ module Decidim
         def invitation_instructions
           return "invite_admin" if form.role == "admin"
           "invite_collaborator"
+        end
+
+        def add_admin_as_follower
+          return if user.follows?(participatory_process)
+
+          form = Decidim::FollowForm
+                 .from_params(followable_gid: participatory_process.to_signed_global_id.to_s)
+                 .with_context(
+                   current_organization: participatory_process.organization,
+                   current_user: user
+                 )
+
+          Decidim::CreateFollow.new(form, user).call
         end
       end
     end

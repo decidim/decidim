@@ -6,13 +6,13 @@ module Decidim
       # A command with all the business logic when creating a new participatory
       # process in the system.
       class UpdateParticipatoryProcessStep < Rectify::Command
-        attr_reader :participatory_process_step
+        attr_reader :step
         # Public: Initializes the command.
         #
-        # participatory_process_step - the ParticipatoryProcessStep to update
+        # step - the ParticipatoryProcessStep to update
         # form - A form object with the params.
-        def initialize(participatory_process_step, form)
-          @participatory_process_step = participatory_process_step
+        def initialize(step, form)
+          @step = step
           @form = form
         end
 
@@ -25,7 +25,8 @@ module Decidim
         def call
           return broadcast(:invalid) if form.invalid?
 
-          update_participatory_process_step
+          update_step
+          notify_followers
           broadcast(:ok)
         end
 
@@ -33,8 +34,12 @@ module Decidim
 
         attr_reader :form
 
-        def update_participatory_process_step
-          participatory_process_step.update_attributes!(attributes)
+        def update_step
+          Decidim.traceability.update!(
+            step,
+            form.current_user,
+            attributes
+          )
         end
 
         def attributes
@@ -44,6 +49,17 @@ module Decidim
             end_date: form.end_date,
             description: form.description
           }
+        end
+
+        def notify_followers
+          return unless step.saved_change_to_start_date || step.saved_change_to_end_date
+
+          Decidim::EventsManager.publish(
+            event: "decidim.events.participatory_process.step_changed",
+            event_class: Decidim::ParticipatoryProcessStepChangedEvent,
+            resource: step,
+            recipient_ids: step.participatory_process.followers.pluck(:id)
+          )
         end
       end
     end

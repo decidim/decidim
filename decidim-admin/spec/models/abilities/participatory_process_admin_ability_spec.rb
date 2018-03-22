@@ -19,6 +19,8 @@ module Decidim::Admin
       let(:unmanaged_process_step) { create :participatory_process_step, participatory_process: unmanaged_process }
       let(:user_process_attachment) { create :attachment, attached_to: user_process }
       let(:unmanaged_process_attachment) { create :attachment, attached_to: unmanaged_process }
+      let(:user_process_attachment_collection) { create :attachment_collection, collection_for: user_process }
+      let(:unmanaged_process_attachment_collection) { create :attachment_collection, collection_for: unmanaged_process }
       let(:feature) { create(:feature, participatory_space: user_process) }
       let(:dummy_resource) { create(:dummy_resource, feature: feature) }
       let(:user_process_moderation) { create(:moderation, reportable: dummy_resource) }
@@ -43,6 +45,9 @@ module Decidim::Admin
 
       it { is_expected.to be_able_to(:manage, user_process_attachment) }
       it { is_expected.not_to be_able_to(:manage, unmanaged_process_attachment) }
+
+      it { is_expected.to be_able_to(:manage, user_process_attachment_collection) }
+      it { is_expected.not_to be_able_to(:manage, unmanaged_process_attachment_collection) }
 
       it { is_expected.to be_able_to(:manage, user_process_moderation) }
       it { is_expected.not_to be_able_to(:manage, unmanaged_process_moderation) }

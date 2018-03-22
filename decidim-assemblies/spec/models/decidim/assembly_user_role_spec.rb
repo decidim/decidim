@@ -10,6 +10,7 @@ module Decidim
     let(:role) { "admin" }
 
     it { is_expected.to be_valid }
+    it { is_expected.to be_versioned }
 
     context "when the role is not admin" do
       let(:role) { "fake_role" }

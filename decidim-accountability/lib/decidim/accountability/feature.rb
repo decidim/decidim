@@ -25,6 +25,7 @@ Decidim.register_feature(:accountability) do |feature|
     settings.attribute :subcategories_label, type: :string, translated: true, editor: true
     settings.attribute :heading_parent_level_results, type: :string, translated: true, editor: true
     settings.attribute :heading_leaf_level_results, type: :string, translated: true, editor: true
+    settings.attribute :display_progress_enabled, type: :boolean, default: true
   end
 
   feature.register_stat :results_count, primary: true, priority: Decidim::StatsRegistry::HIGH_PRIORITY do |features, _start_at, _end_at|

@@ -1,0 +1,107 @@
+<%
+@title = "Apoyo a iniciativas -- Decidim Barcelona"
+@activeuser = "logged"
+%>
+
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <div class="row column">
+    <div class="callout secondary mb-sm">
+      <p>
+        Las iniciativas ciudadanas son un medio con el que la ciudadanía interviene a fin de que el Ayuntamiento lleve a cabo una determinada actuación de interés general y competencia municipal. ¿Qué iniciativa quieres impulsar? <a href="#">Más información</a>.
+      </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="columns">
+      <%= link_to page_path("") do %>
+        <%= icon "chevron-left", class: "icon--small" %> Volver
+      <% end %>
+    </div>
+  </div>
+  <div class="row column">
+    <div class="title-action">
+      <h1 class="section-heading">Selecciona la iniciativa a impulsar</h1>
+    </div>
+  </div>
+  <div class="row column">
+    <div class="main-container">
+      <div class="row collapse main-container--side-panel">
+        <div class="columns medium-4 large-3">
+          <div class="side-panel">
+            <ul class="tabs vertical side-panel__tabs" id="initiatives-tabs"
+            data-tabs>
+            <li class="tabs-title is-active">
+              <a href="#initiativeParticipation" aria-selected="true">
+                Quiero crear un <strong>órgano de participación</strong>
+              </a>
+            </li>
+            <li class="tabs-title">
+              <a href="#initiativeCouncil">
+                Quiero convocar un <strong>consejo de barrio</strong>
+              </a>
+            </li>
+            <li class="tabs-title">
+              <a href="#initiativeNormative">
+                Quiero modificar o aprobar una <strong>normativa municipal</strong>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="columns medium-8 large-9">
+        <div class="main-container__content">
+          <div class="tabs-content vertical" data-tabs-content="initiatives-tabs">
+
+            <div class="tabs-panel is-active" id="initiativeParticipation">
+              <h2 class="section-heading">Creación de nuevo órgano de participación</h2>
+              <ul>
+                <li>Los órganos de participación son espacios de encuentro regular entre la ciudadanía y el Ayuntamiento para debatir sobre las políticas del Ayuntamiento de Barcelona en ámbitos concretos. </li>
+                <li>Pueden ser sectoriales (temáticos) como por ejemplo el Consejo de Mujeres, del Acuerdo por una Barcelona Inclusiva o el Consejo de Turismo, o bien de ámbito territorial, como los Consejos de Barrio, los Consejos Ciudadanos de Distrito o el Consejo de Ciudad, que es el máximo órgano de participación de Barcelona. </li>
+                <li>Estos órganos están formados por entidades, expertos y ciudadanía en general con la voluntad de conocer y mejorar las políticas municipales de un ámbito determinado. </li>
+                <li>A través de la iniciativa ciudadana, recogiendo 9000 firmas, se puede proponer la creación de un nuevo órgano de ámbito de ciudad, que se constituirá siempre que haya un dictamen favorable del Consejo de Ciudad.</li>
+              </ul>
+              <br>
+              <%= link_to page_path("initiatives/initiatives-support-step-2") do %>
+              <button type="button" class="button">Quiero impulsar esta iniciativa</button>
+              <% end %>
+            </div>
+
+            <div class="tabs-panel" id="initiativeCouncil">
+              <h2 class="section-heading">Convocar un nuevo consejo de barrio</h2>
+              <ul>
+                <li>Los órganos de participación son espacios de encuentro regular entre la ciudadanía y el Ayuntamiento para debatir sobre las políticas del Ayuntamiento de Barcelona en ámbitos concretos. </li>
+                <li>Pueden ser sectoriales (temáticos) como por ejemplo el Consejo de Mujeres, del Acuerdo por una Barcelona Inclusiva o el Consejo de Turismo, o bien de ámbito territorial, como los Consejos de Barrio, los Consejos Ciudadanos de Distrito o el Consejo de Ciudad, que es el máximo órgano de participación de Barcelona. </li>
+                <li>A través de la iniciativa ciudadana, recogiendo 9000 firmas, se puede proponer la creación de un nuevo órgano de ámbito de ciudad, que se constituirá siempre que haya un dictamen favorable del Consejo de Ciudad.</li>
+                <li>Estos órganos están formados por entidades, expertos y ciudadanía en general con la voluntad de conocer y mejorar las políticas municipales de un ámbito determinado. </li>
+              </ul>
+              <br>
+              <%= link_to page_path("initiatives/initiatives-support-step-2") do %>
+              <button type="button" class="button">Quiero impulsar esta iniciativa</button>
+              <% end %>
+            </div>
+
+            <div class="tabs-panel" id="initiativeNormative">
+              <h2 class="section-heading">Modificar una normativa municipal</h2>
+              <ul>
+                <li>Estos órganos están formados por entidades, expertos y ciudadanía en general con la voluntad de conocer y mejorar las políticas municipales de un ámbito determinado. </li>
+                <li>Los órganos de participación son espacios de encuentro regular entre la ciudadanía y el Ayuntamiento para debatir sobre las políticas del Ayuntamiento de Barcelona en ámbitos concretos. </li>
+                <li>Pueden ser sectoriales (temáticos) como por ejemplo el Consejo de Mujeres, del Acuerdo por una Barcelona Inclusiva o el Consejo de Turismo, o bien de ámbito territorial, como los Consejos de Barrio, los Consejos Ciudadanos de Distrito o el Consejo de Ciudad, que es el máximo órgano de participación de Barcelona. </li>
+                <li>A través de la iniciativa ciudadana, recogiendo 9000 firmas, se puede proponer la creación de un nuevo órgano de ámbito de ciudad, que se constituirá siempre que haya un dictamen favorable del Consejo de Ciudad.</li>
+              </ul>
+              <br>
+              <%= link_to page_path("initiatives/initiatives-support-step-2") do %>
+                <button type="button" class="button">Quiero impulsar esta iniciativa</button>
+              <% end %>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</main>
+
+<%= partial "template_bottom" %>

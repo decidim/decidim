@@ -10,6 +10,13 @@ es:
         document_type: Tipo de tu documento
         user: Usuario
         verification_attachment: Copia escaneada de tu documento
+      postal_letter_address:
+        full_address: Dirección completa
+      postal_letter_confirmation:
+        verification_code: Código de verificación
+      postal_letter_postage:
+        full_address: Dirección completa
+        verification_code: Código de verificación
   decidim:
     admin:
       menu:

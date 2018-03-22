@@ -8,6 +8,7 @@ uk:
       user:
         email: Адреса вашої електронної пошти
         name: Ваше ім’я
+        nickname: Ваш короткий, унікальний псевдонім в Десідім
         password: Новий пароль
         password_confirmation: Підтвердьте свій новий пароль
         remove_avatar: Видалити аватар
@@ -52,8 +53,40 @@ uk:
         error: При оновленні вашого облікового запису сталася помилка.
         success: Вашу обліковку успішно оновлено.
         success_with_email_confirmation: Ваш обліковий запис успішно оновлено. Ви отримаєте електронний лист для підтвердження адреси електронної пошти.
+    admin_log:
+      feature:
+        create: "%{user_name} додав складову %{resource_name} до простору %{space_name}"
+        delete: "%{user_name} вилучив складову %{resource_name} з простору %{space_name}"
+      moderation:
+        hide: "%{user_name} приховав ресурс типу %{resource_type} у просторі %{space_name}"
+        unreport: "%{user_name} відкликав скаргу на ресурс типу %{resource_type} у просторі %{space_name}"
+      newsletter:
+        create: "%{user_name} створив розсилання %{resource_name}"
+        delete: "%{user_name} видалив розсилання %{resource_name}"
+        deliver: "%{user_name} надіслав розсилання %{resource_name}"
+        update: "%{user_name} оновив розсилання %{resource_name}"
+      organization:
+        update: "%{user_name} оновив налаштування організації"
+      static_page:
+        create: "%{user_name} створив статичну сторінку %{resource_name}"
+        delete: "%{user_name} видалив статичну сторінку %{resource_name}"
+        update: "%{user_name} оновив статичну сторінку %{resource_name}"
+      user:
+        invite: "%{user_name} запросив учасника %{resource_name} на роль: %{role}"
+        officialize: "%{user_name} офіційно зареєстрував учасника %{resource_name}"
+        remove_from_admin: "%{user_name} видалив учасника %{resource_name} з роллю: %{role}"
+        unofficialize: "%{user_name} скасував офіційну реєстрацію учасника %{resource_name}"
+      user_group:
+        reject: "%{user_name} відхилив підтвердження групи користувачів %{resource_name}"
+        verify: "%{user_name} підтвердив групу користувачів %{resource_name}"
     anonymous_user: Анонімний вхід
     application:
+      collection:
+        documents:
+          one: Документ
+          few: Документи
+          many: Документів
+          other: Документів
       documents:
         related_documents: Супутні документи
       photos:
@@ -88,12 +121,15 @@ uk:
           email_already_exists: Інший обліковий запис використовує ту ж саму адресу електронної пошти
         new:
           complete_profile: Заповнити профіль
+          nickname_help: Ваш короткий, унікальний псевдонім в Десідім
           sign_up: Будь ласка, заповніть свій профіль
           subtitle: Щоб завершити реєстрацію, заповніть наступну форму
           username_help: Загальнодоступне ім'я, яке відображається у ваших публікаціях. З метою гарантування анонімності, може бути будь-яким.
       registrations:
         new:
           already_have_an_account?: Вже маєте обліковий запис?
+          newsletter: Отримувати іноді розсилання з цього приводу
+          nickname_help: Ваш короткий, унікальний псевдонім в Десідім
           sign_in: Увійти
           sign_up: Зареєструватися
           sign_up_as:
@@ -120,6 +156,12 @@ uk:
         content_doesnt_exist: Ця адреса невірна або була вилучена.
         title: Не вдалося знайти сторінку, яку ви шукаєте
     events:
+      attachments:
+        attachment_created:
+          email_intro: 'До %{resource_title} був доданий новий документ. Ви можете побачити його на цій сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{resource_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: Оновлення до %{resource_title}
+          notification_title: До <a href="%{attached_to_url}">%{resource_title}</a> додано <a href="%{resource_path}">новий документ</a>
       email_event:
         email_greeting: Доброго дня, %{user_name}%!
         email_intro: 'Було оновлено "%{resource_title}". Ви можете побачити це зі сторінки:'
@@ -128,8 +170,19 @@ uk:
         moderation:
           email_intro: 'There is a new content to moderate. You can see it from this page:'
           email_subject: New content waiting for moderation
+      features:
+        feature_published:
+          email_intro: 'У %{participatory_space_title} тепер працює складова %{resource_title}. Ви можете побачити її на сторінці:'
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{participatory_space_title}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: Оновлення до %{participatory_space_title}
       notification_event:
         notification_title: З <a href="%{resource_path}">%{resource_title}</a> відбулася подія.
+      users:
+        profile_updated:
+          email_intro: Сторінка <a href="%{resource_url}">профілю</a> учасника %{name} (%{nickname}), за яким ви стежите, була оновлена.
+          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
+          email_subject: "%{nickname} оновив свій профіль"
+          notification_title: Сторінка <a href="%{resource_path}">профілю</a> учасника %{name} (%{nickname}), за яким ви стежите, була оновлена.
     export_mailer:
       export:
         ready: Нижче додається стиснута в архів версія вашого збереженого файлу.
@@ -171,6 +224,11 @@ uk:
       errors:
         error: У цьому полі є помилка.
       remove_this_file: Видалити цей файл
+    log:
+      base_presenter:
+        create: "%{user_name} створив %{resource_name}"
+        delete: "%{user_name} видалив %{resource_name}"
+        update: "%{user_name} оновив %{resource_name}"
     managed_users:
       expired_session: Скінчився поточний сеанс виступу в ролі учасника.
     menu:
@@ -207,9 +265,16 @@ uk:
     newsletter_mailer:
       newsletter:
         note: Ви отримали цього електронного листа, оскільки ви підписалися на новини щодо %{organization_name}. Ви можете змінити свої налаштування на <a href="%{link}">сторінці сповіщень</a>.
+    newsletters:
+      unsubscribe:
+        error: При спробі скасування підписки сталася помилка
+        success: Ви успішно скасували підписку.
+        token_error: Термін дії посилання закінчився.
+        unsubscribe: Скасувати підписку
     notifications_settings:
       show:
         email_on_notification: Я хочу отримувати листа електронною поштою кожного разу, коли отримую сповіщення.
+        newsletter_notifications: Я хочу отримувати розсилання
         update_notifications_settings: Зберегти зміни
       update:
         error: При оновленні налаштувань сповіщень сталася помилка.
@@ -224,6 +289,9 @@ uk:
         title: Дізнатися більше
     profiles:
       default_officialization_text: Особу цього учасника публічно підтверджено, його ім'я чи роль перевірено на відповідність його справжньому імені та ролі
+      show:
+        about_me: Про мене
+        personal_url: Особистий веб-сайт
     reported_mailer:
       hide:
         hello: Доброго дня, %{name}%!
@@ -256,6 +324,7 @@ uk:
         incomplete:
           cancel: Скасувати
           explanation: 'Незважаючи на те, що ви наразі підтвердили свою особу за допомогою "%{authorization}", ми просимо вас знову підтвердити свою особу, оскільки нам не вистачає наступних даних:'
+          invalid_field: "Поле %{field}"
           reauthorize: Заново підтвердити свою особу
           title: Будь ласка, заново підтвердіть свою особу
         missing:
@@ -268,6 +337,7 @@ uk:
           title: Підтвердження особи все ще триває
         unauthorized:
           explanation: Вибачте, ви не можете виконати цю дію, оскільки деякі з ваших даних підтвердження особи не збігаються.
+          invalid_field: "Для поля %{field} значення %{value} недійсне."
           ok: Гаразд
           title: Недостатньо прав через відсутність підтвердження особи
       author:
@@ -405,6 +475,7 @@ uk:
         answers_count: Пройдено опитувань
         assemblies_count: Збори
         comments_count: Коментарі
+        endorsements_count: Підтримало
         headline: Поточний стан %{organization}
         meetings_count: Зустрічі
         orders_count: Голоси
@@ -444,6 +515,7 @@ uk:
       day_of_month: "%b %d"
       day_of_week: "%a"
       day_of_year: "%d.%m.%y"
+      decidim_day_of_year: "%d %B %Y"
       decidim_short: "%H:%M %d.%m.%Y"
       time_of_day: "%H:%M"
   views:

@@ -11,6 +11,7 @@ module Decidim::Admin
                organization: organization,
                body: Decidim::Faker::Localized.sentence(3))
       end
+      let(:delivering_user) { create :user, :admin, :confirmed, organization: organization }
 
       let!(:deliverable_users) do
         create_list(:user, 5, :confirmed, organization: organization, newsletter_notifications: true)
@@ -23,7 +24,7 @@ module Decidim::Admin
         create_list(:user, 3, organization: organization, newsletter_notifications: true)
       end
 
-      let(:command) { described_class.new(newsletter) }
+      let(:command) { described_class.new(newsletter, delivering_user) }
 
       it "updates the counters and delivers to the right users" do
         clear_emails
@@ -41,6 +42,21 @@ module Decidim::Admin
         newsletter.reload
         expect(newsletter.total_deliveries).to eq(5)
         expect(newsletter.total_recipients).to eq(5)
+      end
+
+      it "logs the action", versioning: true do
+        expect(Decidim.traceability)
+          .to receive(:perform_action!)
+          .with("deliver", newsletter, delivering_user)
+          .and_call_original
+
+        expect do
+          perform_enqueued_jobs { command.call }
+        end.to change(Decidim::ActionLog, :count)
+
+        action_log = Decidim::ActionLog.last
+        expect(action_log.version).to be_present
+        expect(action_log.version.event).to eq "update"
       end
     end
   end

@@ -13,12 +13,13 @@ uk:
         end_date: Дата закінчення
         hashtag: Хештег
         hero_image: Зображення головної сторінки
-        local_area: Місцевість
+        local_area: Терен
         meta_scope: Метадані терену
         participatory_process_group_id: Група рухів
         participatory_scope: Терен співучасті
         participatory_structure: Структура співучасті
         promoted: Рекламується
+        published_at: 'Опубліковано:'
         scope_id: Терен
         scopes_enabled: Ввімкнені терени
         short_description: Стислий опис
@@ -27,7 +28,7 @@ uk:
         start_date: Дата початку
         subtitle: Підзаголовок
         target: Мета
-        title: Назва
+        title: Заголовок
       participatory_process_group:
         description: Опис
         hero_image: Зображення
@@ -38,7 +39,7 @@ uk:
         end_date: Дата закінчення
         short_description: Стислий опис
         start_date: Дата початку
-        title: Назва
+        title: Заголовок
       participatory_process_user_role:
         email: Адреса електронної пошти
         name: Ім'я
@@ -61,6 +62,8 @@ uk:
         participatory_process_groups: Групи рухів
         participatory_processes: Рухи
         participatory_processes_submenu:
+          attachment_collections: Збірки
+          attachment_files: Файли
           attachments: Вкладені файли
           categories: Розділи
           features: Складова
@@ -74,7 +77,7 @@ uk:
             created_at: 'Додано:'
             promoted: Висвітлено
             published: Опубліковано
-            title: Назва
+            title: Заголовок
           name: Рух співучасті
         participatory_process_group:
           fields:
@@ -84,7 +87,7 @@ uk:
           fields:
             end_date: Дата закінчення
             start_date: Дата початку
-            title: Назва
+            title: Заголовок
           name: Крок руху співучасті
         participatory_process_user_role:
           fields:
@@ -249,6 +252,7 @@ uk:
       statistics:
         answers_count: Відповіді
         comments_count: Коментарі
+        endorsements_count: Підтримало
         headline: Діяльність
         meetings_count: Зустрічі
         orders_count: Голоси

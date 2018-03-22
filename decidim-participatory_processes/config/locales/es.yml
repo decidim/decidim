@@ -20,6 +20,7 @@ es:
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
         promoted: Destacado
+        published_at: Publicado en
         scope_id: Ámbito
         scopes_enabled: Ámbitos habilitados
         short_description: Descripción breve
@@ -62,6 +63,8 @@ es:
         participatory_process_groups: Grupos de procesos
         participatory_processes: Procesos
         participatory_processes_submenu:
+          attachment_collections: Colecciones
+          attachment_files: Archivos
           attachments: Archivos adjuntos
           categories: Categorías
           features: Funcionalidades
@@ -203,6 +206,33 @@ es:
         resend_invitation:
           error: Hubo un error al volver a enviar la invitación.
           success: Invitación reenviada con éxito.
+    admin_log:
+      participatory_process:
+        create: "%{user_name} creó el proceso participativo %{resource_name}"
+        publish: "%{user_name} publicó el proceso participativo %{resource_name}"
+        unpublish: "%{user_name} despublicó el proceso participativo %{resource_name}"
+        update: "%{user_name} actualizó el proceso participativo %{resource_name}"
+      participatory_process_step:
+        activate: "%{user_name} activó la fase %{resource_name} en el proceso participativo %{space_name}"
+        create: "%{user_name} creó la fase %{resource_name} en el proceso participativo %{space_name}"
+        delete: "%{user_name} eliminó la fase %{resource_name} en el proceso participativo %{space_name}"
+        update: "%{user_name} actualizó la fase %{resource_name} en el proceso participativo %{space_name}"
+      participatory_process_user_role:
+        create: "%{user_name} invitó al usuario %{resource_name} al proceso participativo %{space_name}"
+        delete: "%{user_name} eliminó al usuario %{resource_name} del proceso participativo %{space_name}"
+        update: "%{user_name} cambió el rol del usuario %{resource_name} en el proceso participativo %{space_name}"
+    events:
+      participatory_process:
+        step_activated:
+          email_intro: 'Ya está activa la fase %{resource_title} para %{participatory_space_title}. Puedes verla desde esta página:'
+          email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: Una actualización de %{participatory_space_title}
+          notification_title: Ya está activa la fase %{resource_title} para <a href="%{resource_path}">%{participatory_space_title}</a>
+        step_changed:
+          email_intro: 'Se han actualizado las fechas para la fase %{resource_title} en %{participatory_space_title}. Puedes verlas desde esta página:'
+          email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: Una actualización de %{participatory_space_title}
+          notification_title: Se han actualizado las fechas de la fase <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     menu:
       processes: Procesos
     participatory_process_groups:
@@ -250,8 +280,9 @@ es:
         start_date: Fecha de inicio
         target: Quién participa
       statistics:
-        answers_count: "¿A quién va dirigida?"
+        answers_count: Respuestas
         comments_count: Comentarios
+        endorsements_count: Respaldos
         headline: Actividad
         meetings_count: Encuentros
         orders_count: Votos

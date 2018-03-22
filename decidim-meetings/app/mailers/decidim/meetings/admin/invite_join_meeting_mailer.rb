@@ -35,7 +35,7 @@ module Decidim
         private
 
         def routes
-          @router ||= Decidim::EngineRouter.main_proxy(@meeting.feature)
+          @routes ||= Decidim::EngineRouter.main_proxy(@meeting.feature)
         end
       end
     end

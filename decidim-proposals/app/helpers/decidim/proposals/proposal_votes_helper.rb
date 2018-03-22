@@ -39,19 +39,26 @@ module Decidim
         vote_limit.present?
       end
 
-      # Public: Checks if maximum votes per proposal are set.
+      # Public: Checks if threshold per proposal are set.
       #
       # Returns true if set, false otherwise.
-      def maximum_votes_per_proposal_enabled?
-        maximum_votes_per_proposal.present?
+      def threshold_per_proposal_enabled?
+        threshold_per_proposal.present?
       end
 
       # Public: Fetches the maximum amount of votes per proposal.
       #
       # Returns an Integer with the maximum amount of votes, nil otherwise.
-      def maximum_votes_per_proposal
-        return nil unless feature_settings.maximum_votes_per_proposal.positive?
-        feature_settings.maximum_votes_per_proposal
+      def threshold_per_proposal
+        return nil unless feature_settings.threshold_per_proposal.positive?
+        feature_settings.threshold_per_proposal
+      end
+
+      # Public: Checks if can accumulate more than maxium is enabled
+      #
+      # Returns true if enabled, false otherwise.
+      def can_accumulate_supports_beyond_threshold?
+        feature_settings.can_accumulate_supports_beyond_threshold
       end
 
       # Public: Checks if voting is enabled in this step.

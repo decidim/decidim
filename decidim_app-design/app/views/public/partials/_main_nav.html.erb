@@ -9,6 +9,12 @@
           <% end %>
           "><%= link_to "Inici", page_path("home") %></li>
         <li class="main-nav__link
+          <% if @activesection == "consultations" %>
+           main-nav__link--active
+          <% end %>
+          "><%= link_to "Multiconsulta", page_path("consultations") %>
+        </li>
+        <li class="main-nav__link
           <% if @activesection == "processes" %>
            main-nav__link--active
           <% end %>

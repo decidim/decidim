@@ -28,7 +28,7 @@ module Decidim::Admin
         it "doesn't create a newsletter" do
           expect do
             command.call
-          end.not_to change { Decidim::Newsletter.count }
+          end.not_to change(Decidim::Newsletter, :count)
         end
       end
 
@@ -39,10 +39,23 @@ module Decidim::Admin
           expect { command.call }.to broadcast(:ok)
         end
 
+        it "traces the creation", versioning: true do
+          expect(Decidim.traceability)
+            .to receive(:create!)
+            .with(Decidim::Newsletter, user, a_kind_of(Hash))
+            .and_call_original
+
+          expect { command.call }.to change(Decidim::ActionLog, :count)
+
+          action_log = Decidim::ActionLog.last
+          expect(action_log.version).to be_present
+          expect(action_log.version.event).to eq "create"
+        end
+
         it "creates a new category" do
           expect do
             command.call
-          end.to change { Decidim::Newsletter.count }.by(1)
+          end.to change(Decidim::Newsletter, :count).by(1)
         end
 
         it "creates a newsletter with the right attributes" do

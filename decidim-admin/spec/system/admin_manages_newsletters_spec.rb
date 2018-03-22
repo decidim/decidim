@@ -110,16 +110,20 @@ describe "Admin manages newsletters", type: :system do
     let!(:newsletter) { create(:newsletter, organization: organization) }
 
     it "allows a newsletter to be created" do
-      visit decidim_admin.newsletter_path(newsletter)
+      perform_enqueued_jobs do
+        visit decidim_admin.newsletter_path(newsletter)
 
-      within ".button--double" do
-        perform_enqueued_jobs do
+        within ".button--double" do
           accept_confirm { find("*", text: "Deliver").click }
         end
+
+        expect(page).to have_content("NEWSLETTERS")
+        expect(page).to have_content("successfully")
       end
 
-      expect(page).to have_content("NEWSLETTERS")
-      expect(page).to have_content("successfully")
+      within "tbody" do
+        expect(page).to have_content("5 / 5")
+      end
     end
   end
 

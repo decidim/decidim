@@ -2,54 +2,73 @@
 ca:
   activemodel:
     attributes:
+      area:
+        area_type: Tipus d'àrea
+        name: Nom
+        organization: Organització
+      area_type:
+        name: Nom
+        organization: Organització
+        plural: Plural
       attachment:
+        attachment_collection_id: Col·lecció
         description: Descripció
         file: Arxiu
         title: Títol
+      attachment_collection:
+        description: Descripció
+        name: Nom
       category:
         description: Descripció
         name: Nom
         parent_id: Superior
       feature:
         name: Nom
+        published_at: Publicat el
         weight: Pes
       id: ID
       newsletter:
         body: Cos
         subject: Assumpte
       organization:
+        cta_button_path: URL del botó d'acció
+        cta_button_text: Text del botó d'acció
         default_locale: Idioma per defecte
-        name: Nom
-        reference_prefix: Prefix de referència
-      organization_appearance:
-        cta_button_path: Camí del botó d'acció principal
-        cta_button_text: Text del botó d'acció principal
         description: Descripció
-        enable_omnipresent_banner: Bàner omnipresent
+        enable_omnipresent_banner: Mostra pancarta omnipresent
+        facebook_handler: Nom a facebook
         favicon: Icona
-        header_snippets: Fragments de capçalera
+        github_handler: Nom a GitHub
+        header_snippets: Fragments de codi a la capçalera
         highlighted_content_banner_action_subtitle: Subtítol del botó d'acció
         highlighted_content_banner_action_title: Títol del botó d'acció
         highlighted_content_banner_action_url: URL del botó d'acció
-        highlighted_content_banner_enabled: Mostra el bàner de contingut ressaltat
+        highlighted_content_banner_enabled: Mostra la pancarta de contingut ressaltat
         highlighted_content_banner_image: Imatge
         highlighted_content_banner_short_description: Descripció breu
         highlighted_content_banner_title: Títol
-        homepage_image: Imatge de la portada
+        homepage_image: Imatge de la pàgina d'inici
+        instagram_handler: Nom d'usuari a Instagram
         logo: Logotip
-        official_img_footer: Logotip oficial del peu de pàgina
-        official_img_header: Logotip oficial de la capçalera
-        official_url: URL de l'organització oficial
+        name: Nom
+        official_img_footer: Logotip oficial al peu de pàgina
+        official_img_header: Logotip oficial a la capçalera
+        official_url: Pàgina web oficial de l'organització
         omnipresent_banner_short_description: Descripció breu
         omnipresent_banner_title: Títol
         omnipresent_banner_url: URL
+        reference_prefix: Prefix de referència
         show_statistics: Mostra estadístiques
+        twitter_handler: Nom d'usuari de Twitter
         welcome_text: Text de benvinguda
+        youtube_handler: Nom d'usuari de YouTube
       scope:
         code: Codi
         name: Nom
         organization: Organització
+        parent_id: Pare
         scope_type: Tipus d'àmbit
+        scope_type_id: Tipus d'àmbit
       scope_type:
         name: Nom
         organization: Organització
@@ -106,6 +125,55 @@ ca:
         permissions: Permisos
         reject: Rebutjar
         verify: Verificar
+      area_types:
+        create:
+          error: S'ha produït un error en crear un tipus d'àrea nova.
+          success: El tipus d'àrea ha estat creat correctament.
+        destroy:
+          success: El tipus d'àrea s'ha destruït amb èxit
+        edit:
+          title: Editar el tipus d'àrea
+          update: Actualitzar
+        new:
+          create: Crea un tipus d'àrea
+          title: Tipus d'àrea nou
+        update:
+          error: S'ha produït un error en actualitzar aquest tipus d'àrea.
+          success: El tipus d'àrea s'ha actualitzat correctament
+      areas:
+        create:
+          error: S'ha produït un error en crear una nova àrea.
+          success: Àrea creada correctament.
+        destroy:
+          success: Àrea destruïda correctament
+        edit:
+          title: Editar àrea
+          update: Actualitzar
+        new:
+          create: Crea àrea
+          title: Nova àrea
+        no_areas: Sense àrees
+        update:
+          error: S'ha produït un error en actualitzar aquesta àrea.
+          success: Àrea actualitzada correctament
+      attachment_collections:
+        create:
+          error: S'ha produït un error en crear la col·lecció.
+          success: Col·lecció creada correctament.
+        destroy:
+          success: Col·lecció destruïda correctament.
+        edit:
+          title: Editar col·lecció
+          update: Actualitzar
+        index:
+          attachment_collection_used: Aquesta col·lecció no es pot eliminar perquè està en ús.
+          attachment_collections_title: Col·leccions d'adjunts
+        new:
+          create: Crear
+          title: Nova col·lecció
+        update:
+          error: S'ha produït un error en actualitzar aquesta col·lecció.
+          success: Col·lecció actualitzada correctament.
       attachments:
         create:
           error: S'ha produït un error en crear un nou arxiu adjunt.
@@ -144,6 +212,7 @@ ca:
           success: Categoria actualitzada correctament.
       dashboard:
         show:
+          view_more_logs: Veure més registres
           welcome: Benvingut al tauler d'administració de Decidim.
       exports:
         export_as: "%{name} com a %{export_format}"
@@ -186,6 +255,9 @@ ca:
         update:
           error: S'ha produït un error en actualitzar aquesta funcionalitat.
           success: La funcionalitat s'ha actualitzat correctament.
+      logs:
+        logs_list:
+          no_logs_yet: Encara no hi ha cap registre d'activitat
       managed_users:
         close_session:
           error: S'ha produït un error en tancar la sessió de suplantació actual.
@@ -221,8 +293,11 @@ ca:
             new_managed_user_promotion: Nova promoció d'usuari gestionat
             promote: Promocionar
       menu:
+        admin_log: Registre d'activitat d'administració
         admins: Administradors
         appearance: Aparença
+        area_types: Tipus d'àrees
+        areas: Àrees
         configuration: Configuració
         dashboard: Tauler de control
         managed_users: Usuaris gestionats
@@ -235,11 +310,23 @@ ca:
         user_groups: Grups d'usuaris
         users: Usuaris
       models:
+        area:
+          fields:
+            area_type: Tipus d'àrea
+            name: Nom
+        area_type:
+          fields:
+            name: Nom
+            plural: Plural
         attachment:
           fields:
+            collection: Col·lecció
             content_type: Tipus
+            file_size: Mida
             title: Títol
           name: Arxiu adjunt
+        attachment_collection:
+          name: Col·lecció
         category:
           name: Categoria
         impersonation_log:
@@ -429,6 +516,9 @@ ca:
           error: S'ha produït un error en l'actualització d'aquests pàgina.
           success: La pàgina s'ha actualitzat correctament.
       titles:
+        admin_log: Registre d'administració
+        area_types: Tipus d'àrees
+        areas: Àrees
         authorization_workflows: Mètodes de verificació
         dashboard: Tauler de control
         impersonations: Suplantacions

@@ -19,6 +19,7 @@ module Decidim
       include_examples "reportable"
 
       it { is_expected.to be_valid }
+      it { is_expected.to be_versioned }
 
       it "has a votes association returning proposal votes" do
         expect(subject.votes.count).to eq(0)
@@ -34,6 +35,35 @@ module Decidim
         it "returns true if the proposal is not voted by the given user" do
           create(:proposal_vote, proposal: subject, author: user)
           expect(subject).to be_voted_by(user)
+        end
+      end
+
+      describe "#endorsed_by?" do
+        let(:user) { create(:user, organization: subject.organization) }
+
+        context "with User endorsement" do
+          it "returns false if the proposal is not endorsed by the given user" do
+            expect(subject).not_to be_endorsed_by(user)
+          end
+
+          it "returns true if the proposal is not endorsed by the given user" do
+            create(:proposal_endorsement, proposal: subject, author: user)
+            expect(subject).to be_endorsed_by(user)
+          end
+        end
+
+        context "with Organization endorsement" do
+          let(:user_group) { create(:user_group, verified_at: DateTime.current) }
+          let(:membership) { create(:user_group_membership, user: user, user_group: user_group) }
+
+          it "returns false if the proposal is not endorsed by the given organization" do
+            expect(subject).not_to be_endorsed_by(user, user_group)
+          end
+
+          it "returns true if the proposal is not endorsed by the given organization" do
+            create(:proposal_endorsement, proposal: subject, author: user, user_group: user_group)
+            expect(subject).to be_endorsed_by(user, user_group)
+          end
         end
       end
 
@@ -80,7 +110,7 @@ module Decidim
 
         context "when the feature's settings are set to an integer bigger than 0" do
           before do
-            feature[:settings]["global"] = { maximum_votes_per_proposal: 10 }
+            feature[:settings]["global"] = { threshold_per_proposal: 10 }
             feature.save!
           end
 
@@ -91,7 +121,7 @@ module Decidim
 
         context "when the feature's settings are set to 0" do
           before do
-            feature[:settings]["global"] = { maximum_votes_per_proposal: 0 }
+            feature[:settings]["global"] = { threshold_per_proposal: 0 }
             feature.save!
           end
 
@@ -105,32 +135,46 @@ module Decidim
         let(:author) { build(:user, organization: organization) }
 
         context "when user is author" do
-          let(:proposal) { build :proposal, feature: feature, author: author, created_at: Time.current }
+          let(:proposal) { build :proposal, feature: feature, author: author, updated_at: Time.current }
 
           it { is_expected.to be_editable_by(author) }
+
+          context "when the proposal has been linked to another one" do
+            let(:proposal) { create :proposal, feature: feature, author: author, updated_at: Time.current }
+            let(:original_proposal) do
+              original_feature = create(:proposal_feature, organization: organization, participatory_space: feature.participatory_space)
+              create(:proposal, feature: original_feature)
+            end
+
+            before do
+              proposal.link_resources([original_proposal], "copied_from_component")
+            end
+
+            it { is_expected.not_to be_editable_by(author) }
+          end
         end
 
         context "when proposal is from user group and user is admin" do
           let(:user_group) { create :user_group, users: [author], organization: author.organization }
-          let(:proposal) { build :proposal, feature: feature, author: author, created_at: Time.current, user_group: user_group }
+          let(:proposal) { build :proposal, feature: feature, author: author, updated_at: Time.current, user_group: user_group }
 
           it { is_expected.to be_editable_by(author) }
         end
 
         context "when user is not the author" do
-          let(:proposal) { build :proposal, feature: feature, created_at: Time.current }
+          let(:proposal) { build :proposal, feature: feature, updated_at: Time.current }
 
           it { is_expected.not_to be_editable_by(author) }
         end
 
         context "when proposal is answered" do
-          let(:proposal) { build :proposal, :with_answer, feature: feature, created_at: Time.current, author: author }
+          let(:proposal) { build :proposal, :with_answer, feature: feature, updated_at: Time.current, author: author }
 
           it { is_expected.not_to be_editable_by(author) }
         end
 
         context "when proposal editing time has run out" do
-          let(:proposal) { build :proposal, created_at: 10.minutes.ago, feature: feature, author: author }
+          let(:proposal) { build :proposal, updated_at: 10.minutes.ago, feature: feature, author: author }
 
           it { is_expected.not_to be_editable_by(author) }
         end
@@ -174,6 +218,20 @@ module Decidim
 
         context "when proposal is already withdrawn" do
           let(:proposal) { build :proposal, :withdrawn, feature: feature, author: author, created_at: Time.current }
+
+          it { is_expected.not_to be_withdrawable_by(author) }
+        end
+
+        context "when the proposal has been linked to another one" do
+          let(:proposal) { create :proposal, feature: feature, author: author, created_at: Time.current }
+          let(:original_proposal) do
+            original_feature = create(:proposal_feature, organization: organization, participatory_space: feature.participatory_space)
+            create(:proposal, feature: original_feature)
+          end
+
+          before do
+            proposal.link_resources([original_proposal], "copied_from_component")
+          end
 
           it { is_expected.not_to be_withdrawable_by(author) }
         end

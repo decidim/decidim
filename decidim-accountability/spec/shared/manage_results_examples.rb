@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage results" do
-  include_context "when admin"
-  include_context "when managing a feature as an admin"
+  include_context "when managing an accountability feature as an admin"
 
   it "updates a result" do
     within find("tr", text: translated(result.title)) do

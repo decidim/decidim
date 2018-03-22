@@ -25,7 +25,7 @@ const resolveGraphQLQuery = (document: any, options: any = {}) => {
     document,
     rootValue,
     context,
-    variables,
+    variables
   );
 
   if (filterResult) {

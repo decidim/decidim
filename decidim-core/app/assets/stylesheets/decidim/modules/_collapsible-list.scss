@@ -1,0 +1,19 @@
+// @Component
+.collapsible-list{
+  &.is-filtered{
+    > div:nth-of-type(1n+8){
+      display: none;
+    }
+
+    &.small{
+      > div:nth-of-type(1n+4){
+        display: none;
+      }
+    }
+  }
+
+  > *{
+    display: inline-block;
+    margin: 0 0 .5rem;
+  }
+}

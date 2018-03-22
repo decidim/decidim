@@ -11,7 +11,7 @@
         <div class="tech-info tech-info--text-left">
           <%= t(".creation_date", date: l(proposal.created_at, format: :decidim_short)) %>
         </div>
-        <%= feature_reference(proposal, class: "tech-info--text-left") %>
+        <%= resource_reference(proposal, class: "tech-info--text-left") %>
       </div>
       <%= render partial: "proposal_badge", locals: { proposal: proposal } %>
       <p><%= truncate(proposal.body, length: 100) %></p>
@@ -19,7 +19,7 @@
     </div>
     <div class="card__footer">
       <div class="card__support">
-        <% if current_settings.votes_enabled? %>
+        <% if current_settings.votes_enabled? && !proposal.draft? %>
           <%= render partial: "votes_count", locals: { proposal: proposal, from_proposals_list: true } %>
           <%= render partial: "vote_button", locals: { proposal: proposal, from_proposals_list: true } %>
         <% else %>

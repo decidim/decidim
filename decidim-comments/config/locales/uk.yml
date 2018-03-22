@@ -67,6 +67,24 @@ uk:
         title: "%{count} коментарів"
       featured_comment:
         title: Рекомендований коментар
+    events:
+      comments:
+        comment_created:
+          comment:
+            email_intro: '"%{resource_title}" прокоментували. Ви можете прочитати коментар на цій сторінці:'
+            email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}". Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+            email_subject: Надійшов новий коментар від %{author_name} на %{resource_title}
+            notification_title: Надійшов новий коментар від <a href="%{author_path}">%{author_name} %{author_nickname}</a> на <a href="%{resource_path}">%{resource_title}</a>
+          reply:
+            email_intro: '"%{resource_title}" прокоментували'
+            email_outro: Ви отримали це сповіщення, тому що ви стежите за "%{resource_title}" чи його автором. Ви можете припинити стежити за ним, перейшовши за наведеним вище посиланням.
+            email_subject: Надійшла нова відповідь на ваш коментар від %{author_name} на <a href="%{resource_url}">%{resource_title}</a>
+            notification_title: Надійшла нова відповідь на ваш коментар від <a href="%{author_path}">%{author_name} %{author_nickname}</a> на <a href="%{resource_path}">%{resource_title}</a>
+        user_mentioned:
+          email_intro: Вас згадали
+          email_outro: Ви отримали це сповіщення, оскільки вас згадали в "%{resource_title}".
+          email_subject: Вас згадали у %{resource_title}
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> згадав вас у <a href="%{resource_path}">%{resource_title}</a>
   errors:
     messages:
       cannot_have_comments: не підлягає коментуванню

@@ -18,7 +18,7 @@
       <% end %>
     </div>
     <% if @proposal.withdrawable_by?(current_user) %>
-      <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), method: :put, class: "title-action__action button small hollow", data: {confirm: t('.withdraw_confirmation')}  do %>
+      <%= action_authorized_link_to :withdraw, withdraw_proposal_path(@proposal), method: :put, class: "title-action__action button small hollow", title: t('.withdraw_btn_hint'), data: {confirm: t('.withdraw_confirmation')}  do %>
         <%= t('.withdraw_proposal') %>
         <%= icon "x" %>
       <% end %>
@@ -30,20 +30,26 @@
     <% if can?(:edit, @proposal) %>
       <%= link_to t(".edit_proposal"), edit_proposal_path(@proposal), class: "button secondary hollow expanded button-sc button--icon follow-button" %>
     <% end %>
-    <% if current_settings.votes_enabled? || current_user %>
-      <div class="card extra">
+    <% if current_settings.votes_enabled? || show_endorsements_card? || current_user %>
+      <div class="card">
         <div class="card__content">
           <% if current_settings.votes_enabled? %>
             <%= render partial: "votes_count", locals: { proposal: @proposal, from_proposals_list: false } %>
             <%= render partial: "vote_button", locals: { proposal: @proposal, from_proposals_list: false } %>
           <% end %>
+          <%= render partial: "endorsements_card_row", locals: { proposal: @proposal } %>
+          <br/>
           <% if current_user %>
             <%= render partial: "decidim/shared/follow_button", locals: { followable: @proposal } %>
+          <% else %>
+            <p class="mt-s mb-none">
+              <%= t(".sign_in_or_up", {in: link_to(t(".sign_in"), decidim.new_user_session_path), up: link_to(t(".sign_up"), decidim.new_user_registration_path)}).html_safe %>
+            </p>
           <% end %>
         </div>
       </div>
     <% end %>
-    <%= feature_reference(@proposal) %>
+    <%= resource_reference(@proposal) %>
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for proposal_proposal_widget_url(@proposal, format: :js) %>
   </div>
@@ -83,10 +89,13 @@
     <%= linked_resources_for @proposal, :results, "included_proposals" %>
     <%= linked_resources_for @proposal, :projects, "included_proposals" %>
     <%= linked_resources_for @proposal, :meetings, "proposals_from_meeting" %>
+    <%= linked_resources_for @proposal, :proposals, "copied_from_component" %>
   </div>
 </div>
 <%= attachments_for @proposal %>
 
+<a name="list-of-endorsements"></a>
+<%= render partial: 'endorsements_listing', locals: {proposal: @proposal} %>
 <%= comments_for @proposal %>
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>

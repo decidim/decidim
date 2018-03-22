@@ -29,6 +29,24 @@ describe "Explore results", versioning: true, type: :system do
         expect(page).to have_content(translated(category.name)) if !category.subcategories.empty? || results_count.positive?
       end
     end
+
+    it "shows progress" do
+      expect(page).to have_content("GLOBAL EXECUTION STATUS")
+      expect(page).to have_selector(".progress-figure")
+    end
+
+    context "with progress disabled" do
+      before do
+        feature.update!(settings: { display_progress_enabled: false })
+      end
+
+      it "doesn't show progress" do
+        visit path
+
+        expect(page).to have_no_content("Global execution status")
+        expect(page).to have_no_selector(".progress-figure")
+      end
+    end
   end
 
   describe "index" do
@@ -84,6 +102,7 @@ describe "Explore results", versioning: true, type: :system do
       expect(page).to have_i18n_content(result.title)
       expect(page).to have_i18n_content(result.description)
       expect(page).to have_content(result.reference)
+      expect(page).to have_content("#{result.progress.to_i}%")
     end
 
     context "when it has no versions" do
@@ -240,7 +259,7 @@ describe "Explore results", versioning: true, type: :system do
 
       context "when the process has a linked scope" do
         before do
-          participatory_process.update_attributes(scope: scope)
+          participatory_process.update(scope: scope)
           visit current_path
         end
 
@@ -253,7 +272,7 @@ describe "Explore results", versioning: true, type: :system do
 
       context "when the process has no linked scope" do
         before do
-          participatory_process.update_attributes(scope: nil)
+          participatory_process.update(scope: nil)
           visit current_path
         end
 

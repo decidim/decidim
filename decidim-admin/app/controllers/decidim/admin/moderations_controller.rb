@@ -27,7 +27,7 @@ module Decidim
       def unreport
         authorize! :unreport, reportable
 
-        Admin::UnreportResource.call(reportable) do
+        Admin::UnreportResource.call(reportable, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("reportable.unreport.success", scope: "decidim.moderations.admin")
             redirect_to moderations_path

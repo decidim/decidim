@@ -1,0 +1,21 @@
+<div class="reveal collapse" data-reveal id="identity-selector">
+  <div class="reveal__header reveal__header--nomargin reveal__bg p-s">
+    <h6 class="heading6 m-none">Select an identity</h6>
+  </div>
+  <ul class="reveal__list">
+    <li>
+      <%= partial "author_data" %>
+    </li>
+    <li>
+      <%= partial "author_data" %>
+    </li>
+    <li class="selected">
+      <%= partial "author_data" %>
+      <%= icon "circle-check", class: "icon--big" %>
+    </li>
+  </ul>
+  <div class="reveal__footer reveal__bg text-right p-s">
+    <button class="button button--nomargin secondary clear" type="button" name="button">Cancelar</button>
+    <button class="button button--nomargin button--sc" type="button" name="button">Select</button>
+  </div>
+</div>

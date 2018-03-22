@@ -2,31 +2,43 @@
 en:
   activemodel:
     attributes:
+      area:
+        area_type: Area type
+        name: Name
+        organization: Organization
+      area_type:
+        name: Name
+        organization: Organization
+        plural: Plural
       attachment:
+        attachment_collection_id: Collection
         description: Description
         file: File
         title: Title
+      attachment_collection:
+        description: Description
+        name: Name
       category:
         description: Description
         name: Name
         parent_id: Parent
       feature:
         name: Name
+        published_at: Published at
         weight: Weight
       id: ID
       newsletter:
         body: Body
         subject: Subject
       organization:
-        default_locale: Default locale
-        name: Name
-        reference_prefix: Reference prefix
-      organization_appearance:
         cta_button_path: Call To Action button path
         cta_button_text: Call To Action button text
+        default_locale: Default locale
         description: Description
         enable_omnipresent_banner: Show omnipresent banner
+        facebook_handler: Facebook handler
         favicon: Icon
+        github_handler: GitHub handler
         header_snippets: Header snippets
         highlighted_content_banner_action_subtitle: Action button subtitle
         highlighted_content_banner_action_title: Action button title
@@ -36,20 +48,27 @@ en:
         highlighted_content_banner_short_description: Short description
         highlighted_content_banner_title: Title
         homepage_image: Homepage image
+        instagram_handler: Instagram handler
         logo: Logo
+        name: Name
         official_img_footer: Official logo footer
         official_img_header: Official logo header
         official_url: Official organization URL
         omnipresent_banner_short_description: Short description
         omnipresent_banner_title: Title
         omnipresent_banner_url: URL
+        reference_prefix: Reference prefix
         show_statistics: Show statistics
+        twitter_handler: Twitter handler
         welcome_text: Welcome text
+        youtube_handler: YouTube handler
       scope:
         code: Code
         name: Name
         organization: Organization
+        parent_id: Parent
         scope_type: Scope type
+        scope_type_id: Scope type
       scope_type:
         name: Name
         organization: Organization
@@ -106,6 +125,55 @@ en:
         permissions: Permissions
         reject: Reject
         verify: Verify
+      area_types:
+        create:
+          error: There was an error creating a new area type.
+          success: Area type created successfully.
+        destroy:
+          success: Area type successfully destroyed
+        edit:
+          title: Edit area type
+          update: Update
+        new:
+          create: Create area type
+          title: New area type
+        update:
+          error: There was an error when updating this area type.
+          success: Area type updated successfully
+      areas:
+        create:
+          error: There was an error creating a new area.
+          success: Area created successfully.
+        destroy:
+          success: Area successfully destroyed
+        edit:
+          title: Edit area
+          update: Update
+        new:
+          create: Create area
+          title: New area
+        no_areas: No Areas
+        update:
+          error: There was an error when updating this area.
+          success: Area updated successfully
+      attachment_collections:
+        create:
+          error: There was an error creating a new collection.
+          success: Collection created successfully.
+        destroy:
+          success: Collection destroyed successfully.
+        edit:
+          title: Edit collection
+          update: Update
+        index:
+          attachment_collection_used: This collection cannot be removed because it is in use.
+          attachment_collections_title: Attachment collections
+        new:
+          create: Create
+          title: New collection
+        update:
+          error: There was an error when updating this collection.
+          success: Collection updated successfully.
       attachments:
         create:
           error: There was an error creating a new attachment.
@@ -144,6 +212,7 @@ en:
           success: Category updated successfully.
       dashboard:
         show:
+          view_more_logs: View more logs
           welcome: Welcome to the Decidim Admin Panel.
       exports:
         export_as: "%{name} as %{export_format}"
@@ -186,6 +255,9 @@ en:
         update:
           error: There has been an error updating this feature.
           success: The feature was updated successfully.
+      logs:
+        logs_list:
+          no_logs_yet: There are no logs yet
       managed_users:
         close_session:
           error: There has been an error closing the current impersonation session.
@@ -221,8 +293,11 @@ en:
             new_managed_user_promotion: New managed user promotion
             promote: Promote
       menu:
+        admin_log: Admin activity log
         admins: Admins
         appearance: Appearance
+        area_types: Area types
+        areas: Areas
         configuration: Configuration
         dashboard: Dashboard
         managed_users: Managed users
@@ -236,11 +311,23 @@ en:
         users: Users
         navbar_links: Navbar links
       models:
+        area:
+          fields:
+            area_type: Area type
+            name: Name
+        area_type:
+          fields:
+            name: Name
+            plural: Plural
         attachment:
           fields:
+            collection: Collection
             content_type: Type
+            file_size: Size
             title: Title
           name: Attachment
+        attachment_collection:
+          name: Collection
         category:
           name: Category
         impersonation_log:
@@ -440,6 +527,9 @@ en:
           error: There was an error when updating this page.
           success: Page updated successfully
       titles:
+        admin_log: Admin log
+        area_types: Area types
+        areas: Areas
         authorization_workflows: Verification methods
         dashboard: Dashboard
         impersonations: Impersonations

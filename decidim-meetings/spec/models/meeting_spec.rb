@@ -10,6 +10,7 @@ module Decidim::Meetings
     let(:meeting) { build :meeting, address: address }
 
     it { is_expected.to be_valid }
+    it { is_expected.to be_versioned }
 
     include_examples "has feature"
     include_examples "has scope"

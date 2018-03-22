@@ -35,9 +35,21 @@
           <%= aria_selected_link_to t("categories", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_participatory_processes.categories_path(current_participatory_space) %>
         </li>
       <% end %>
-      <% if can? :read, Decidim::Attachment %>
-        <li <% if is_active_link?(decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space)) %> class="is-active" <% end %>>
-          <%= aria_selected_link_to t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space) %>
+      <% if can?(:read, Decidim::AttachmentCollection) || can?(:read, Decidim::Attachment) %>
+        <li>
+          <span class="secondary-nav__subtitle"><%= t("attachments", scope: "decidim.admin.menu.participatory_processes_submenu") %></span>
+          <ul>
+            <% if can? :read, Decidim::AttachmentCollection %>
+              <li <% if is_active_link?(decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space)) %> class="is-active" <% end %>>
+                <%= aria_selected_link_to t("attachment_collections", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_participatory_processes.participatory_process_attachment_collections_path(current_participatory_space) %>
+              </li>
+            <% end %>
+            <% if can? :read, Decidim::Attachment %>
+              <li <% if is_active_link?(decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space)) %> class="is-active" <% end %>>
+                <%= aria_selected_link_to t("attachment_files", scope: "decidim.admin.menu.participatory_processes_submenu"), decidim_admin_participatory_processes.participatory_process_attachments_path(current_participatory_space) %>
+              </li>
+            <% end %>
+          </ul>
         </li>
       <% end %>
       <% if can? :read, Decidim::ParticipatoryProcessUserRole %>

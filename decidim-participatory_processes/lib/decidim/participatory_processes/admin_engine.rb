@@ -30,6 +30,7 @@ module Decidim
               post :resend_invitation, to: "participatory_process_user_roles#resend_invitation"
             end
           end
+          resources :attachment_collections, controller: "participatory_process_attachment_collections"
           resources :attachments, controller: "participatory_process_attachments"
         end
 

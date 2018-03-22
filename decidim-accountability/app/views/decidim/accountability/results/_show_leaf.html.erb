@@ -9,7 +9,7 @@
     </div>
 
     <div class="row">
-      <% if result.progress.present? %>
+      <% if feature_settings.display_progress_enabled? && result.progress.present? %>
         <div class="columns section mediumlarge-3 mediumlarge-push-9">
           <div class="progress-level">
             <div class="progress-label">

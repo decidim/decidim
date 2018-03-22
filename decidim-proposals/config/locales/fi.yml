@@ -2,17 +2,33 @@ fi:
   activemodel:
     attributes:
       proposal:
+        answer: Vastaus
+        answered_at: Vastattu osoitteessa
         body: Runko
         category_id: Aihepiiri
         has_address: Ehdotuksella on osoite
         scope_id: Konteksti
+        state: Osavaltio
         title: Otsikko
         user_group_id: Luo ehdotus käyttäjänä
       proposal_answer:
         answer: Vastaa
+      proposals_copy:
+        copy_proposals: Ymmärrän, että tämä tuo kaikki valitun komponentin ehdotukset nykyiseen ja että tätä toimintaa ei voi peruuttaa.
+        origin_feature_id: Komponentti kopioida ehdotukset osoitteesta
   decidim:
     events:
       proposals:
+        creation_enabled:
+          email_intro: 'Voit nyt luoda uusia ehdotuksia %{participatory_space_title}! Aloita osallistuminen tälle sivulle:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_subject: Ehdotukset nyt saatavilla %{participatory_space_title}
+          notification_title: Voit nyt aloittaa <a href="%{resource_path}">uutta ehdotusta</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        endorsing_enabled:
+          email_intro: 'Voit hyväksyä ehdotukset %{participatory_space_title}! Aloita osallistuminen tälle sivulle:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_subject: Ehdotusten hyväksyminen on alkanut %{participatory_space_title}
+          notification_title: Voit nyt aloittaa <a href="%{resource_path}">hyväksyntäehdotukset</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'Ehdotus "%{resource_title}" on hyväksytty. Voit lukea vastauksen tällä sivulla:'
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
@@ -23,6 +39,16 @@ fi:
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{author_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
           email_subject: Uusi ehdotus %{author_nickname}
           notification_title: <a href="%{resource_path}">%{resource_title}</a> -ehdotus luotiin <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_created_for_space:
+          email_intro: Ehdotus "%{resource_title}" on lisätty "%{participatory_space_title}" että seuraat.
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{participatory_space_title}". Voit purkaa sen edellisestä linkistä.
+          email_subject: Uusi ehdotus lisätty %{participatory_space_title}
+          notification_title: Ehdotus <a href="%{resource_path}">%{resource_title}</a> on lisätty %{participatory_space_title}
+        proposal_endorsed:
+          email_intro: "%{endorser_name} %{endorser_nickname}, jota seuraat, on juuri hyväksynyt ehdotuksen, joka voi olla kiinnostava sinulle, tarkista se ja osallistuta:"
+          email_outro: Olet saanut tämän ilmoituksen, koska olet seurannut %{endorser_nickname}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_subject: "%{endorser_nickname} on hyväksynyt uuden ehdotuksen"
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus on hyväksynyt <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
         proposal_evaluating:
           email_intro: 'Ehdotusta "%{resource_title}" arvioidaan parhaillaan. Voit tarkistaa vastauksen tällä sivulla:'
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
@@ -33,16 +59,29 @@ fi:
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{resource_title}". Voit purkaa sen edellisestä linkistä.
           email_subject: Seuraava ehdotus on hylätty
           notification_title: <a href="%{resource_path}">%{resource_title}</a> ehdotus on hylätty.
+        proposal_update_category:
+          email_intro: 'Järjestelmänvalvoja on päivittänyt ehdotuksesi luokkaan "%{resource_title}", tarkista se:'
+          email_outro: Olet saanut tämän ilmoituksen, koska olet ehdotuksen tekijä.
+          email_subject: Ehdotusluokka %{resource_title} on päivitetty
+          notification_title: Järjestelmänvalvoja on päivittänyt <a href="%{resource_path}">%{resource_title}</a> ehdotusluokan.
+        voting_enabled:
+          email_intro: 'Voit äänestää ehdotuksia %{participatory_space_title}! Aloita osallistuminen tälle sivulle:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
+          email_subject: Äänestys ehdotuksista on alkanut %{participatory_space_title}
+          notification_title: Voit nyt aloittaa <a href="%{resource_path}">äänestyssuosituksen</a> <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     features:
       proposals:
         actions:
           create: Luo
+          endorse: hyväksyä
           vote: Äänestä
+          withdraw: Peruuttaa
         name: Ehdotukset
         settings:
           global:
             announcement: Ilmoitus
             attachments_allowed: Salli liitteet
+            can_accumulate_supports_beyond_threshold: Voidaan kerätä tukia kynnysarvon ulkopuolella
             comments_enabled: Kommentointi sallittu
             geocoding_enabled: Geokoodaus päällä
             maximum_votes_per_proposal: Suurin äänimäärä ehdotusta kohden
@@ -50,19 +89,40 @@ fi:
             official_proposals_enabled: Viralliset ehdotukset sallittu
             proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
             proposal_edit_before_minutes: Tekijät voivat muokata ehdotuksia tämän aikamääreen sisällä sen luonnista
+            proposal_length: Suurin ehdotuksen pituus
             proposal_limit: Ehdotuksien raja käyttäjää kohden
+            proposal_wizard_step_1_help_text: Ohjattu ohjattu "Luo" vaiheen ohjeteksti
+            proposal_wizard_step_2_help_text: Ohjattu ohjattu "Vertaile" vaiheen ohjeteksti
+            proposal_wizard_step_3_help_text: Ohjattu ohjattu "julkaise" vaiheen ohjeteksti
             vote_limit: Äänestysraja käyttäjää kohden
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentointi estetty
             creation_enabled: Ehdotusten luonti sallittu
+            endorsements_blocked: Hyväksynnät estetty
+            endorsements_enabled: Hyväksynnät käytössä
             proposal_answering_enabled: Ehdotuksiin vastaaminen sallittu
             votes_blocked: Äänestys estetty
             votes_enabled: Äänestys sallittu
             votes_hidden: Äänten määrä piilotettu (jos äänestys on käytössä, äänten määrä piilotetaan valitsemalla tämä)
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_proposals:
+          proposals: ehdotukset
+        proposal:
+          creation_date: 'Luominen: %{date}'
+          view_proposal: Näytä ehdotus
+    participatory_spaces:
+      highlighted_proposals:
+        proposals: ehdotukset
+        see_all_proposals: Katso kaikki ehdotukset
+      proposal:
+        creation_date: 'Luominen: %{date}'
+        view_proposal: Näytä ehdotus
     proposals:
       actions:
         answer: Vastaa
+        import: Tuo toisesta komponentista
         new: Uusi
         private_notes: Omat muistiinpanot
         title: Toiminnot
@@ -83,6 +143,9 @@ fi:
             rejected: Hylätty
             title: 'Vastaa ehdotukseen: %{title}'
         proposal_notes:
+          create:
+            error: On tullut ongelma tämän ehdotusviestin luomisesta
+            success: Ehdotusviesti onnistuneesti luotu
           form:
             note: Huomautus
             submit: Lähetä
@@ -99,16 +162,41 @@ fi:
             attachment_legend: "(Valinnainen) Lisää liite"
             select_a_category: Valitse aihepiiri
           index:
+            actions: Toimet
+            cancel: Peruuttaa
+            change_category: Vaihda luokka
+            selected: valittu
             title: Ehdotukset
+            update: Päivittää
           new:
             create: Luo
             title: Luo ehdotus
+          update_category:
+            invalid: 'Näissä ehdotuksissa oli jo %{category} -luokka: %{proposals}.'
+            select_a_category: Valitse kategoria
+            select_a_proposal: Valitse ehdotus
+            success: 'Ehdotukset päivitettiin %{category} -luokkaan: %{proposals}.'
+        proposals_imports:
+          create:
+            invalid: Ehdotuksia tuodaan ongelmana
+            success: "%{number} ehdotukset tuodaan onnistuneesti"
+          new:
+            create: Tuo ehdotuksia
+            no_features: Ehdotuksessa tuodaan ehdotusominaisuuksiltaan muita ehdotusominaisuuksia.
+            select_feature: Valitse komponentti
+            select_states: Tarkista tuontiehdotusten tilat
         shared:
           info_proposal:
             body: Tekstin runko
             created_at: Luonnin ajankohta
             proposal_votes_count: Äänten määrä
             proposals: Ehdotukset
+      admin_log:
+        proposal:
+          answer: "%{user_name} vastasi %{resource_name} -ehdotusta %{space_name} -tilaan"
+          create: "%{user_name} loi %{resource_name} ehdotuksen %{space_name} tilaa viralliseksi ehdotukseksi"
+        proposal_note:
+          create: "%{user_name} jätti yksityisen huomautuksen %{resource_name} ehdotuksesta %{space_name} -tilaan"
       answers:
         accepted: Hyväksytty
         evaluating: Arvioitavana
@@ -117,7 +205,7 @@ fi:
         withdrawn: Peruutettu
       create:
         error: Ehdotuksen tallennuksessa tapahtui virhe.
-        success: Ehdotus luotu onnistuneesti.
+        success: Ehdotus luotiin onnistuneesti. Tallennetaan luonnoksena.
       models:
         proposal:
           fields:
@@ -133,10 +221,24 @@ fi:
             votes: Äänet
       new:
         limit_reached: Et voi luoda uusia ehdotuksia, koska olet ylittänyt rajan.
+      proposal_endorsements:
+        create:
+          error: Ehdotuksen hyväksymisessä on ollut virheitä.
+        identities:
+          done: Tehty
+          select_identity: Valitse henkilöllisyys
+      proposal_endorsements_helper:
+        endorsement_button:
+          already_endorsed: Jo hyväksytty
+          endorse: hyväksyä
       proposal_votes:
         create:
           error: Äänestettäessä ehdotusta tapahtui virhe.
       proposals:
+        compare:
+          mine_is_different: Ehdotukseni on erilainen
+          no_similars_found: Hyvin tehty! Vastaavia ehdotuksia ei löytynyt
+          title: Vastaavat ehdotukset
         count:
           proposals_count:
             one: 1 ehdotus
@@ -146,6 +248,20 @@ fi:
           select_a_category: Valitse kategoria
           send: Lähetä
           title: Muokkaa ehdotusta
+        edit_draft:
+          send: esikatselu
+          title: Muokkaa ehdotusluonnos
+        endorsement_button:
+          already_endorsed: Jo hyväksytty
+          already_endorsed_hover: Unendorse
+        endorsement_identities_cabin:
+          endorse: hyväksyä
+        endorsements_card_row:
+          endorse: hyväksyä
+        endorsements_listing:
+          see_all: Nähdä kaikki
+          see_less: Katso vähemmän
+          title: Luettelo hyväksynnästä
         filters:
           accepted: Hyväksytty
           activity: Aktiivisuus
@@ -176,18 +292,21 @@ fi:
             other: ääntä
         new:
           attachment_legend: "(Valinnainen) Lisää liite"
-          back: Takaisin
-          proposal_edit_before_minutes:
-            one: Voit muokata tätä ehdotusta ensimmäisen minuutin aikana ehdotuksen luomisesta. Kun tämä aikaikkuna tulee päätökseensä, et pysty enää muokkaamaan ehdotusta.
-            other: Voit muokata tätä ehdotusta ensimmäisten %{count} minuutin aikana ehdotuksen luomisesta. Kun tämä aikaikkuna tulee päätökseensä, et pysty enää muokkaamaan ehdotusta.
           select_a_category: Valitse aihepiiri
-          send: Lähetä
-          title: Uusi ehdotus
+          send: Jatkaa
+          title: Luo ehdotuksesi
         orders:
           label: 'Järjestä ehdotukset:'
           most_voted: Eniten ääniä saaneet
           random: Satunnainen
           recent: Viimeisimmät
+        preview:
+          modify: Muokkaa ehdotusta
+          proposal_edit_before_minutes:
+            one: Voit muokata tätä ehdotusta ensimmäisen minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna läpäisee, et pysty muokkaamaan ehdotusta.
+            other: 'Voit muokata tätä ehdotusta ensimmäisen %{count}: n aikana minuutin kuluttua ehdotuksen julkaisemisesta. Kun tämä aikaikkuna läpäisee, et pysty muokkaamaan ehdotusta.'
+          publish: Julkaista
+          title: Julkaise ehdotuksesi
         proposal:
           creation_date: 'Luontiaika: %{date}'
           view_proposal: Näytä ehdotus
@@ -197,6 +316,10 @@ fi:
           proposal_in_evaluation_reason: Tämä ehdotus on arvioitavana
           proposal_rejected_reason: 'Tämä ehdotus on hylätty, koska:'
           report: Ilmoita
+          sign_in: Kirjaudu sisään
+          sign_in_or_up: "%{in} tai %{up} osallistumiseen"
+          sign_up: Kirjaudu
+          withdraw_btn_hint: Voit peruuttaa ehdotuksesi, jos muutat mieltäsi, kunhan et ole saanut tukea. Ehdotusta ei poisteta, se näkyy peruutettujen ehdotusten luettelossa.
           withdraw_confirmation: Haluatko varmasti peruuttaa tämän ehdotuksen?
           withdraw_proposal: Peruuta ehdotus
         vote_button:
@@ -210,7 +333,11 @@ fi:
           count:
             one: ÄÄNI
             other: ÄÄNTÄ
+          most_popular_proposal: Suosituin ehdotus
+          need_more_votes: Tarvitset enemmän ääniä
         voting_rules:
+          can_accumulate_supports_beyond_threshold:
+            description: Jokainen ehdotus voi kerätä enemmän kuin enimmäisäänestykset
           maximum_votes_per_proposal:
             description: Jokainen ehdotus voi saada enintään %{limit} ääntä.
           proposal_limit:
@@ -220,10 +347,27 @@ fi:
             description: Voit äänestää enintään %{limit} ehdotusta.
             left: Jäljellä
             votes: Ääntä
+        wizard_aside:
+          back: Takaisin
+          info: Luo <strong>ehdotuksen</strong>.
+        wizard_steps:
+          see_steps: katso vaiheet
+          step_1: Luo ehdotuksesi
+          step_2: Vertailla
+          step_3: Julkaise ehdotuksesi
+          step_of: Vaihe %{current_step_num} %{total_steps}
+      publish:
+        error: Ehdotuksen julkaisemisessa on tapahtunut virheitä.
+        success: Ehdotus julkaistiin onnistuneesti.
       update:
         error: Ehdotuksen tallentamisessa tapahtui virheitä.
         success: Ehdotus on päivitetty onnistuneesti.
+      update_draft:
+        error: Ehdotushuutos tallennettaessa on ollut virheitä.
+        success: Ehdotusluonnos on päivitetty onnistuneesti.
     resource_links:
+      copied_from_component:
+        proposal_proposals: Vastaavat ehdotukset
       included_projects:
         project_results: 'Tässä projektissa näkyvät tulokset:'
       included_proposals:

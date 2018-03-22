@@ -2,9 +2,12 @@ gl:
   activemodel:
     attributes:
       assembly:
+        area_id: Área
         banner_image: Imaxe do banner
         copy_categories: Copiar categorías
         copy_features: Copiar funcións
+        decidim_area_id: Área
+        decidim_scope_id: Alcance
         description: Descrición
         developer_group: Grupo de desenvolvedores
         domain: Dominio
@@ -15,9 +18,11 @@ gl:
         participatory_scope: Alcance participativo
         participatory_structure: Estrutura participativa
         promoted: Promocionado
+        published_at: Publicado en
         scope_id: Alcance
         scopes_enabled: Ámbitos habilitados
         short_description: Descrición curta
+        show_statistics: Amosar estatísticas
         slug: URL slug
         subtitle: Subtítulo
         target: Obxectivo
@@ -80,6 +85,8 @@ gl:
         assemblies: Asembleas
         assemblies_submenu:
           assembly_admins: Usuarios da asemblea
+          attachment_collections: Coleccións
+          attachment_files: Arquivos
           attachments: Anexos
           categories: Categorías
           features: características
@@ -105,10 +112,21 @@ gl:
             moderator: Moderador
       titles:
         assemblies: Asembleas
+    admin_log:
+      assembly:
+        create: "%{user_name} creou o conxunto %{resource_name}"
+        publish: "%{user_name} publicou o conxunto %{resource_name}"
+        unpublish: "%{user_name} inédita a montaxe %{resource_name}"
+        update: "%{user_name} actualizou o conxunto %{resource_name}"
+      assembly_user_role:
+        create: "%{user_name} invitou %{resource_name} á xuntanza %{space_name}"
+        delete: "%{user_name} eliminou o usuario %{resource_name} do conxunto %{space_name}"
+        update: "%{user_name} cambiou o papel de %{resource_name} na xuntanza %{space_name}"
     assemblies:
       admin:
         assemblies:
           form:
+            select_an_area: Seleccione unha área
             slug_help: 'As babosas de URL úsanse para xerar os URL que apuntan a este conxunto. Só acepta letras, números e guións, e debe comezar cunha letra. Exemplo: %{url}'
         assembly_copies:
           form:
@@ -121,6 +139,7 @@ gl:
             active_assemblies: Asembleas activas
             see_all_assemblies: Ver todos os conxuntos
       show:
+        area: Área
         developer_group: Grupo de desenvolvedores
         local_area: Área local
         participatory_scope: Alcance participativo
@@ -131,6 +150,7 @@ gl:
         answers_count: Respostas
         assemblies_count: Asembleas
         comments_count: Comentarios
+        endorsements_count: Aprobacións
         headline: Actividade
         meetings_count: Reunións
         orders_count: Votos

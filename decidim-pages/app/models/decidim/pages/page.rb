@@ -7,8 +7,14 @@ module Decidim
     class Page < Pages::ApplicationRecord
       include Decidim::Resourceable
       include Decidim::HasFeature
+      include Decidim::Traceable
+      include Decidim::Loggable
 
       feature_manifest_name "pages"
+
+      def self.log_presenter_class_for(_log)
+        Decidim::Pages::AdminLog::PagePresenter
+      end
 
       # Public: Pages doesn't have title so we assign the feature one to it.
       def title
