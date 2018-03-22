@@ -129,6 +129,7 @@
                   <br />
                   <span><%= Faker::Address.street_address %>&nbsp;<%= Faker::Address.zip %>&nbsp;<%= Faker::Address.city %></span>
                 </div>
+                <a href="">Como llegar</a>
               </div>
             </li>
           </ul>
@@ -159,8 +160,8 @@
         </div>
         <div class="card__footer">
           <div class="card__support">
-            <button class="card__button button button--sc small">
-              Asistir
+            <button class="card__button button secondary button--sc small light">
+              <%= icon "check", class: "icon--small" %>&nbsp;Asistiendo
             </button>
           </div>
         </div>
@@ -190,22 +191,6 @@
             <li class="card-data__item">
               <div>
                 <strong><%= Faker::Date.forward(365).strftime('%e %B %Y') %></strong>&nbsp;·&nbsp;<%= Faker::Time.forward(365, :evening).strftime('%R') %> - <%= Faker::Time.forward(365, :evening).strftime('%R') %>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div class="card__icondata">
-          <ul class="card-data">
-            <li class="card-data__item">
-              <%= icon "map-marker", class: "icon--big" %>
-            </li>
-            <li class="card-data__item">
-              <div class="text-left">
-                <div class="card__icondata--address">
-                  <strong><%= Faker::Address.community %></strong>
-                  <br />
-                  <span><%= Faker::Address.street_address %>&nbsp;<%= Faker::Address.zip %>&nbsp;<%= Faker::Address.city %></span>
-                </div>
               </div>
             </li>
           </ul>
