@@ -63,4 +63,5 @@
 
   exports.Decidim = exports.Decidim || {};
   exports.Decidim.quillEditor = quillEditor;
+  exports.Decidim.createQuillEditor = createQuillEditor;
 })(window);
