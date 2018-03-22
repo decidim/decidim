@@ -2,9 +2,10 @@
 // = require ./auto_buttons_by_position.component
 // = require ./auto_buttons_by_min_items.component
 // = require ./dynamic_fields.component
+// = require ./select_field_dependent_inputs.component
 
 ((exports) => {
-  const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, AutoButtonsByMinItemsComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
+  const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, AutoButtonsByMinItemsComponent, SelectFieldDependentInputsComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
   const { createQuillEditor } = exports.Decidim;
 
   const wrapperSelector = ".survey-questions";
@@ -67,37 +68,25 @@
 
   const dynamicFieldsForAnswerOptions = {};
 
-  const setAnswerOptionsWrapperVisibility = ($target) => {
-    const $answerOptionsWrapper = $target.parents(fieldSelector).find(answerOptionsWrapperSelector);
-    const value = $target.val();
-    const $answerOptionsInputs = $answerOptionsWrapper.find(`${answerOptionFieldSelector} input`);
-
-    if (value === "single_option" || value === "multiple_option") {
-      $answerOptionsInputs.prop("disabled", false);
-      $answerOptionsWrapper.show();
-    } else {
-      $answerOptionsInputs.prop("disabled", true);
-      $answerOptionsWrapper.hide();
-    }
-  };
-
-  const setMaxChoicesWrapperVisibility = ($target) => {
-    const $maxChoicesWrapper = $target.parents(fieldSelector).find(maxChoicesWrapperSelector);
-    const $maxChoicesSelect = $maxChoicesWrapper.find("select");
-    const value = $target.val();
-
-    if (value === "multiple_option") {
-      $maxChoicesSelect.prop("disabled", false);
-      $maxChoicesWrapper.show();
-    } else {
-      $maxChoicesSelect.prop("disabled", true);
-      $maxChoicesWrapper.hide();
-    }
-  };
-
   const setupInitialQuestionAttributes = ($target) => {
     const fieldId = $target.attr("id");
     const $fieldQuestionTypeSelect = $target.find(questionTypeSelector);
+
+    const answerOptionsSelectFieldUpdater = new SelectFieldDependentInputsComponent({
+      selectField: $fieldQuestionTypeSelect,
+      wrapperSelector: fieldSelector,
+      dependentFieldsSelector: answerOptionsWrapperSelector,
+      dependentInputSelector: `${answerOptionFieldSelector} input`,
+      enablingValues: ["single_option", "multiple_option"]
+    });
+
+    const maxChoicesSelectFieldUpdater = new SelectFieldDependentInputsComponent({
+      selectField: $fieldQuestionTypeSelect,
+      wrapperSelector: fieldSelector,
+      dependentFieldsSelector: maxChoicesWrapperSelector,
+      dependentInputSelector: "select",
+      enablingValues: ["multiple_option"]
+    });
 
     dynamicFieldsForAnswerOptions[fieldId] = createDynamicFieldsForAnswerOptions(fieldId);
 
@@ -115,8 +104,8 @@
         }
       }
 
-      setAnswerOptionsWrapperVisibility($fieldQuestionTypeSelect);
-      setMaxChoicesWrapperVisibility($fieldQuestionTypeSelect);
+      answerOptionsSelectFieldUpdater.run();
+      maxChoicesSelectFieldUpdater.run();
     };
 
     $fieldQuestionTypeSelect.on("change", onQuestionTypeChange);
