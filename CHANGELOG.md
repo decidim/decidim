@@ -71,6 +71,7 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-accountability**: Include children information in main column [\#3217](https://github.com/decidim/decidim/pull/3217)
 - **decidim-core**: Open attachments in new tab [\#3245](https://github.com/decidim/decidim/pull/3245)
 - **decidim-core**: Open space hashtags in new tab [\#3246](https://github.com/decidim/decidim/pull/3246)
+- **decidim-proposals**: Drop support for abilities in favor of the new Permissions system [\#3029](https://github.com/decidim/decidim/pull/3029)
 
 **Fixed**:
 
