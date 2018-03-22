@@ -4,6 +4,7 @@
 
 ((exports) => {
   const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
+  const { quillEditor } = exports.Decidim;
 
   const wrapperSelector = '.survey-questions';
   const fieldSelector = '.survey-question';
@@ -68,6 +69,7 @@
       const fieldId = $field.attr('id');
 
       createSortableList();
+      quillEditor();
       autoLabelByPosition.run();
       autoButtonsByPosition.run();
       createDynamicFieldsForAnswerOptions(fieldId);

@@ -18,8 +18,7 @@
           :body,
           tabs_id: tabs_id_for_question_answer_option(question, answer_option),
           label: t(".statement"),
-          disabled: !survey.questions_editable?,
-          enable_tabs: answer_option.persisted?
+          disabled: !survey.questions_editable?
         )
       %>
     </div>
