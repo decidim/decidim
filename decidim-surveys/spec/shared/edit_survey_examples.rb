@@ -278,6 +278,20 @@ shared_examples "edit surveys" do
         expect(page).to have_selector("select#survey_questions_#{survey_question.id}_question_type option[value='multiple_option'][selected]")
       end
 
+      it "preserves deleted status across submission failures" do
+        within "form.edit_survey" do
+          within ".survey-question" do
+            click_button "Remove"
+          end
+        end
+
+        click_button "Add question"
+
+        click_button "Save"
+
+        expect(page).to have_selector(".survey-question", count: 1)
+      end
+
       it "removes the question" do
         within "form.edit_survey" do
           within ".survey-question" do
