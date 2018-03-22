@@ -16,15 +16,14 @@ $(() => {
 
     if ($form.length > 0) {
 
-      const $private_space = $form.find('#private_space');
+      const $privateSpace = $form.find('#private_space');
       const $isTransparent = $form.find('#is_transparent');
       const $specialFeatures = $form.find('#special_features');
 
 
       const toggleDisabledHiddenFields = () => {
-        const enabledPrivateSpace = $private_space.find('input[type="checkbox"]').prop('checked');
-        const enabledTransparent = $isTransparent.find('input[type="checkbox"]').prop('checked');
-
+        const enabledPrivateSpace = $privateSpace.find('input[type="checkbox"]').prop('checked');
+        
         $isTransparent.find('input[type="checkbox"]').attr('disabled', 'disabled');
         $specialFeatures.hide();
 
@@ -34,7 +33,7 @@ $(() => {
         }
       };
 
-      $private_space.on('change', toggleDisabledHiddenFields);
+      $privateSpace.on('change', toggleDisabledHiddenFields);
       toggleDisabledHiddenFields();
 
       const $assemblyType = $form.find('#assembly_assembly_type');
