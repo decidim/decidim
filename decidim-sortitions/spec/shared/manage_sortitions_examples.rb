@@ -56,6 +56,7 @@ shared_examples "manage sortitions" do
     context "when creates a sortition" do
       let(:sortition_dice) { ::Faker::Number.between(1, 6) }
       let(:sortition_target_items) { ::Faker::Number.between(1, 10) }
+      let!(:proposal) { create :proposal, component: proposal_component }
 
       it "shows the sortition details" do
         within ".new_sortition" do
@@ -91,7 +92,7 @@ shared_examples "manage sortitions" do
         expect(page).to have_admin_callout("successfully")
         expect(page).to have_content(/Title/i)
 
-        proposal = Decidim::Sortitions::Sortition.last
+        sortition = Decidim::Sortitions::Sortition.last
         within ".sortition" do
           expect(page).to have_content(/Draw time/i)
           expect(page).to have_content(/Dice/i)
@@ -101,13 +102,14 @@ shared_examples "manage sortitions" do
           expect(page).to have_content(/Proposals component/i)
           expect(page).to have_content(translated(proposal_component.name))
           expect(page).to have_content(/Seed/i)
-          expect(page).to have_content(proposal.seed)
+          expect(page).to have_content(sortition.seed)
         end
 
         within ".proposals" do
           expect(page).to have_content(/Proposals selected for draw/i)
-          proposal.selected_proposals.each do |p|
-            expect(page).to have_content(translated(p.title))
+          expect(sortition.proposals).not_to be_empty
+          sortition.proposals.each do |p|
+            expect(page).to have_content(p.title)
           end
         end
       end
