@@ -10,7 +10,7 @@ module Decidim
         attribute :position, Integer
         attribute :mandatory, Boolean, default: false
         attribute :question_type, String
-        attribute :options, Array[SurveyQuestionAnswerOptionForm]
+        attribute :answer_options, Array[SurveyQuestionAnswerOptionForm]
         attribute :deleted, Boolean, default: false
 
         translatable_attribute :body, String
@@ -20,14 +20,8 @@ module Decidim
         validates :body, translatable_presence: true, unless: :deleted
 
         def map_model(model)
-          self.options = model.answer_options.each_with_index.map do |option, id|
-            [id + 1, option]
-          end
-        end
-
-        def options=(value)
-          @options = value.map do |id, option|
-            SurveyQuestionAnswerOptionForm.new(option.merge(id: id.to_s.to_i))
+          self.answer_options = model.answer_options.each_with_index.map do |option, id|
+            SurveyQuestionAnswerOptionForm.new(option.merge(id: id + 1))
           end
         end
 
