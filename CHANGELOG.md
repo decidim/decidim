@@ -8,6 +8,29 @@
 
 **Fixed**:
 
+- **decidim-core**: Fixes missing translations for step activated event [\#2928](https://github.com/decidim/decidim/pull/2928)
+- **decidim-admin**: Fix officializations showing all users in the system instead of only the organization ones [\#2912](https://github.com/decidim/decidim/pull/2912)
+
+## [v0.9.3](https://github.com/decidim/decidim/tree/v0.9.3) (2018-2-27)
+
+**Added**:
+
+**decidim-core**: Add context to content parsers [\#2751](https://github.com/decidim/decidim/pull/2751)
+
+**Changed**:
+
+**Fixed**:
+* **decidim-proposals**: Fix wrong message when creating a proposal private note [\#2796](https://github.com/decidim/decidim/pull/2796)
+* **decidim-core**: Fix AuthorEvent when author is missing [\#2777](https://github.com/decidim/decidim/pull/2777)
+* **decidim-core**: Fix DefaultActionAuthorizer when options is nil [\#2753](https://github.com/decidim/decidim/pull/2753)
+* **decidim-core**: Fix mention parsing to only search users in current organization. [\2711](https://github.com/decidim/decidim/pull/2711)
+* **decidim-system**: Disable recover password for System admins. [\#2752](https://github.com/decidim/decidim/pull/2752)
+* **decidim-core**: Don't render notifications if the resource has been deleted. [\#2746](https://github.com/decidim/decidim/pull/2746)
+* **decidim-core**: Don't try to send notification emails to deleted users. [\#2743](https://github.com/decidim/decidim/pull/2743)
+* **decidim-core**: Fix categories select when missing translations. [\#2742](https://github.com/decidim/decidim/pull/2742)
+* **decidim-core**: Fix mention parsing to only search users in current organization. [\2711](https://github.com/decidim/decidim/pull/2711)
+- **decidim-core**: Fix user invitations by generating their nickname. [\#2783](https://github.com/decidim/decidim/pull/2789)
+
 ## [v0.9.2](https://github.com/decidim/decidim/tree/v0.9.2) (2018-2-9)
 
 **Fixed**:
@@ -149,6 +172,7 @@ you need to change the following line in `config/environments/production.rb`:
 * **decidim-accountability**: Top level search searches on all results (not only the first level) [\#2545](https://github.com/decidim/decidim/pull/2545)
 * **decidim-admin**: Visual bug in quilljs editor misleading admins into introducing blank lines to separate paragraphs. [\#2565](https://github.com/decidim/decidim/pull/2565).
 * **decidim-admin**: Properly highlight the Settings admin menu item when visiting the scope types section. [\#2642](https://github.com/decidim/decidim/pull/2642)
+- **decidim-core**: foundation-rails 6.4.3 support [\#2995](https://github.com/decidim/decidim/pull/2995)
 
 **Removed**:
 

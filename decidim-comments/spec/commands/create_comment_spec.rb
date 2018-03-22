@@ -28,6 +28,8 @@ module Decidim
         let(:form) do
           CommentForm.from_params(
             form_params
+          ).with_context(
+            current_organization: organization
           )
         end
         let(:command) { described_class.new(form, author, commentable) }
@@ -117,6 +119,7 @@ module Decidim
 
           context "and comment contains a user mention" do
             let(:mentioned_user) { create(:user, organization: organization) }
+            let(:parser_context) { { current_organization: organization } }
             let(:body) { ::Faker::Lorem.paragraph + " @#{mentioned_user.nickname}" }
 
             it "creates a new comment with user mention replaced" do
@@ -124,7 +127,7 @@ module Decidim
                 author: author,
                 commentable: commentable,
                 root_commentable: commentable,
-                body: Decidim::ContentProcessor.parse(body).rewrite,
+                body: Decidim::ContentProcessor.parse(body, parser_context).rewrite,
                 alignment: alignment,
                 decidim_user_group_id: user_group_id
               ).and_call_original

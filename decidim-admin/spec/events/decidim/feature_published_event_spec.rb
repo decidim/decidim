@@ -12,7 +12,7 @@ describe Decidim::FeaturePublishedEvent do
   let(:participatory_space) { resource.participatory_space }
   let(:resource_path) { main_feature_path(resource) }
 
-  it_behaves_like "an simple event"
+  it_behaves_like "a simple event"
 
   describe "email_subject" do
     it "is generated correctly" do

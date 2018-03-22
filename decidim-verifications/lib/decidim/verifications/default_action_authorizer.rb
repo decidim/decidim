@@ -11,7 +11,7 @@ module Decidim
       #
       def initialize(authorization, options)
         @authorization = authorization
-        @options = options.deep_dup # options hash is cloned to allow changes applied to it without risks
+        @options = options.deep_dup || {} # options hash is cloned to allow changes applied to it without risks
       end
 
       #

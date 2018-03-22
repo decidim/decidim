@@ -145,11 +145,12 @@ fi:
         notification_title: '%{resource_title} -komponentti on nyt aktiivinen osallistumistilassa <a href="%{resource_path}">%{participatory_space_title}</a>'
       notification_event:
         notification_title: Kohteelle <a href="%{resource_path}">%{resource_title}</a> järjestettiin tapahtuma.
-      participatory_process_step_activated_event:
-        email_intro: '%{resource_title} -vaihe on nyt aktiivinen osallistumistilalle %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
-        email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
-        email_subject: Päivitys kohteeseen %{participatory_space_title}
-        notification_title: '%{resource_title} -vaihe on nyt aktiivinen osallistumistilalle <a href="%{resource_path}">%{participatory_space_title}</a>'
+      participatory_process:
+        step_activated:
+          email_intro: '%{resource_title} -vaihe on nyt aktiivinen osallistumistilalle %{participatory_space_title}. Voit nähdä sen tällä sivulla:'
+          email_outro: Olet saanut tämän ilmoituksen, koska seuraat kohdetta %{participatory_space_title}. Voit lopettaa ilmoitusten vastaanottamisen edellä esitetyn linkin kautta.
+          email_subject: Päivitys kohteeseen %{participatory_space_title}
+          notification_title: '%{resource_title} -vaihe on nyt aktiivinen osallistumistilalle <a href="%{resource_path}">%{participatory_space_title}</a>'
       users:
         profile_updated:
           email_intro: <a href="%{resource_url}">profile page</a> %{name} (%{nickname}), jonka seuraat, on päivitetty.
