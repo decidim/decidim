@@ -10,8 +10,8 @@ module Decidim
         translatable_attribute :title, String
         translatable_attribute :description, String
         translatable_attribute :tos, String
-        attribute :published_at, DateTime
 
+        attribute :published_at, DateTime
         attribute :questions, Array[SurveyQuestionForm]
 
         validates :title, :tos, translatable_presence: true

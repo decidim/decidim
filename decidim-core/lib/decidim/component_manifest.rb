@@ -46,6 +46,9 @@ module Decidim
     # as well that allows checking for those permissions.
     attribute :actions, Array[String]
 
+    # The cell path to use to render the card of a resource.
+    attribute :card, String
+
     validates :name, presence: true
 
     # Public: Registers a hook to this manifest. Hooks get fired when some

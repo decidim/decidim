@@ -4,6 +4,7 @@ ENV["RAILS_ENV"] ||= "test"
 
 require "rails-controller-testing"
 require "rspec/rails"
+require "rspec/cells"
 require "factory_bot_rails"
 require "byebug"
 require "cancan/matchers"
