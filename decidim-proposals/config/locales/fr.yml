@@ -70,16 +70,6 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez arrêter de la suivre en cliquant sur ce dernier lien.
           email_subject: Une proposition que vous suivez a été acceptée
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
-        proposal_created:
-          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a créé une nouvelle proposition. Découvrez-la et contribuez:"
-          email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
-          email_subject: Nouvelle proposition par %{author_nickname}
-          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        proposal_created_for_space:
-          email_intro: La proposition "%{resource_title}" a été ajouté à "%{participatory_space_title}" que vous suivez.
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
-          email_subject: Nouvelle proposition ajoutée à %{participatory_space_title}
-          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajouté à %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, que vous suivez, vient d'endosser une proposition qui pourrait vous intéresser, vérifiez-la et contribuez:"
           email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
@@ -90,6 +80,16 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez le retirer du lien précédent.
           email_subject: Une proposition que vous suivez est en cours d'évaluation
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
+        proposal_published:
+          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a publié une nouvelle proposition, vérifiez-la et contribuez:"
+          email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Nouvelle proposition par %{author_nickname}
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été publiée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_published_for_space:
+          email_intro: La proposition "%{resource_title}" a été ajoutée à "%{participatory_space_title}" que vous suivez.
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez le retirer du lien précédent.
+          email_subject: Nouvelle proposition ajoutée à %{participatory_space_title}
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
         proposal_rejected:
           email_intro: 'La proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse dans cette page:'
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez le retirer du lien précédent.
