@@ -7,25 +7,25 @@
   const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, AutoButtonsByMinItemsComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
   const { createQuillEditor } = exports.Decidim;
 
-  const wrapperSelector = '.survey-questions';
-  const fieldSelector = '.survey-question';
-  const questionTypeSelector = 'select[name$=\\[question_type\\]]';
-  const answerOptionFieldSelector = '.survey-question-answer-option';
-  const answerOptionsWrapperSelector = '.survey-question-answer-options';
-  const answerOptionRemoveFieldButtonSelector = `.remove-answer-option`;
+  const wrapperSelector = ".survey-questions";
+  const fieldSelector = ".survey-question";
+  const questionTypeSelector = "select[name$=\\[question_type\\]]";
+  const answerOptionFieldSelector = ".survey-question-answer-option";
+  const answerOptionsWrapperSelector = ".survey-question-answer-options";
+  const answerOptionRemoveFieldButtonSelector = ".remove-answer-option";
 
   const autoLabelByPosition = new AutoLabelByPositionComponent({
-    listSelector: '.survey-question:not(.hidden)',
-    labelSelector: '.card-title span:first',
+    listSelector: ".survey-question:not(.hidden)",
+    labelSelector: ".card-title span:first",
     onPositionComputed: (el, idx) => {
-      $(el).find('input[name$=\\[position\\]]').val(idx);
+      $(el).find("input[name$=\\[position\\]]").val(idx);
     }
   });
 
   const autoButtonsByPosition = new AutoButtonsByPositionComponent({
-    listSelector: '.survey-question:not(.hidden)',
-    hideOnFirstSelector: '.move-up-question',
-    hideOnLastSelector: '.move-down-question'
+    listSelector: ".survey-question:not(.hidden)",
+    hideOnFirstSelector: ".move-up-question",
+    hideOnLastSelector: ".move-down-question"
   });
 
   const createAutoButtonsByMinItemsForAnswerOptions = (fieldId) => {
@@ -37,8 +37,8 @@
   };
 
   const createSortableList = () => {
-    createSortList('.survey-questions-list:not(.published)', {
-      handle: '.question-divider',
+    createSortList(".survey-questions-list:not(.published)", {
+      handle: ".question-divider",
       placeholder: '<div style="border-style: dashed; border-color: #000"></div>',
       forcePlaceholderSize: true,
       onSortUpdate: () => { autoLabelByPosition.run() }
@@ -49,11 +49,11 @@
     const autoButtons = createAutoButtonsByMinItemsForAnswerOptions(fieldId);
 
     return createDynamicFields({
-      placeholderId: `survey-question-answer-option-id`,
+      placeholderId: "survey-question-answer-option-id",
       wrapperSelector: `#${fieldId} ${answerOptionsWrapperSelector}`,
-      containerSelector: `.survey-question-answer-options-list`,
+      containerSelector: ".survey-question-answer-options-list",
       fieldSelector: answerOptionFieldSelector,
-      addFieldButtonSelector: `.add-answer-option`,
+      addFieldButtonSelector: ".add-answer-option",
       removeFieldButtonSelector: answerOptionRemoveFieldButtonSelector,
       onAddField: () => {
         autoButtons.run();
@@ -71,17 +71,17 @@
     const value = $target.val();
     const $answerOptionsInputs = $answerOptionsWrapper.find(`${answerOptionFieldSelector} input`);
 
-    if (value === 'single_option' || value === 'multiple_option') {
-      $answerOptionsInputs.prop('disabled', false);
+    if (value === "single_option" || value === "multiple_option") {
+      $answerOptionsInputs.prop("disabled", false);
       $answerOptionsWrapper.show();
     } else {
-      $answerOptionsInputs.prop('disabled', true);
+      $answerOptionsInputs.prop("disabled", true);
       $answerOptionsWrapper.hide();
     }
   };
 
   const setupInitialQuestionAttributes = ($target) => {
-    const fieldId = $target.attr('id');
+    const fieldId = $target.attr("id");
     const $fieldQuestionTypeSelect = $target.find(questionTypeSelector);
 
     dynamicFieldsForAnswerOptions[fieldId] = createDynamicFieldsForAnswerOptions(fieldId);
@@ -91,7 +91,7 @@
     const onQuestionTypeChange = () => {
       const value = $fieldQuestionTypeSelect.val();
 
-      if (value === 'single_option' || value === 'multiple_option') {
+      if (value === "single_option" || value === "multiple_option") {
         const nOptions = $fieldQuestionTypeSelect.parents(fieldSelector).find(answerOptionFieldSelector).length;
 
         if (nOptions === 0) {
@@ -103,7 +103,7 @@
       setAnswerOptionsWrapperVisibility($fieldQuestionTypeSelect);
     };
 
-    $fieldQuestionTypeSelect.on('change', onQuestionTypeChange);
+    $fieldQuestionTypeSelect.on("change", onQuestionTypeChange);
 
     onQuestionTypeChange();
   }
@@ -118,14 +118,14 @@
   }
 
   createDynamicFields({
-    placeholderId: 'survey-question-id',
+    placeholderId: "survey-question-id",
     wrapperSelector: wrapperSelector,
-    containerSelector: '.survey-questions-list',
+    containerSelector: ".survey-questions-list",
     fieldSelector: fieldSelector,
-    addFieldButtonSelector: '.add-question',
-    removeFieldButtonSelector: '.remove-question',
-    moveUpFieldButtonSelector: '.move-up-question',
-    moveDownFieldButtonSelector: '.move-down-question',
+    addFieldButtonSelector: ".add-question",
+    removeFieldButtonSelector: ".remove-question",
+    moveUpFieldButtonSelector: ".move-up-question",
+    moveDownFieldButtonSelector: ".move-down-question",
     onAddField: ($field) => {
       setupInitialQuestionAttributes($field);
       createSortableList();
