@@ -70,16 +70,6 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
           email_subject: Propozycja, którą obserwujesz, została zaakceptowana
           notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została zaakceptowana.
-        proposal_created:
-          email_intro: "%{author_name} %{author_nickname}, którego obserwujesz, stworzył nową propozycję, sprawdź i pomóż:"
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-          email_subject: Nowa propozycja %{author_nickname}
-          notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została utworzona przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        proposal_created_for_space:
-          email_intro: Wniosek "%{resource_title}" został dodany do "%{participatory_space_title}" że podążacie.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Możesz przestać go obserwować z poprzedniego linku.
-          email_subject: Nowa propozycja została dodana do %{participatory_space_title}
-          notification_title: Wniosek <a href="%{resource_path}">%{resource_title}</a> został dodany do %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, którego obserwujesz, właśnie poparł propozycję, która może Cię zainteresować, sprawdź i pomóż:"
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{endorser_nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
@@ -90,6 +80,16 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
           email_subject: Propozycja, którą obserwujesz, jest oceniana
           notification_title: Trwa ocena oferty <a href="%{resource_path}">%{resource_title}</a>.
+        proposal_published:
+          email_intro: "%{author_name} %{author_nickname}, którego obserwujesz, opublikuje nową propozycję, sprawdź i pomóż:"
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Nowa propozycja przez %{author_nickname}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> propozycja została opublikowana przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_published_for_space:
+          email_intro: Propozycja "%{resource_title}" została dodana do "%{participatory_space_title}", którą obserwujesz.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_subject: Nowa propozycja została dodana do %{participatory_space_title}
+          notification_title: Oferta <a href="%{resource_path}">%{resource_title}</a> została dodana do %{participatory_space_title}
         proposal_rejected:
           email_intro: 'Wniosek "%{resource_title}" został odrzucony. Możesz przeczytać odpowiedź na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
