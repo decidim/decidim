@@ -104,7 +104,7 @@
       <%=
         form.select(
           :max_choices,
-          (2..10),
+          (2..question.number_of_options),
           disabled: !survey.questions_editable?
         )
       %>

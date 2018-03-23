@@ -1,11 +1,12 @@
 // = require ./auto_label_by_position.component
 // = require ./auto_buttons_by_position.component
 // = require ./auto_buttons_by_min_items.component
+// = require ./auto_select_options_by_total_items.component
 // = require ./dynamic_fields.component
 // = require ./select_field_dependent_inputs.component
 
 ((exports) => {
-  const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, AutoButtonsByMinItemsComponent, SelectFieldDependentInputsComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
+  const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, AutoButtonsByMinItemsComponent, AutoSelectOptionsByTotalItemsComponent, SelectFieldDependentInputsComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
   const { createQuillEditor } = exports.Decidim;
 
   const wrapperSelector = ".survey-questions";
@@ -30,6 +31,13 @@
     hideOnLastSelector: ".move-down-question"
   });
 
+  const createAutoMaxChoicesByNumberOfAnswerOptions = (fieldId) => {
+    return new AutoSelectOptionsByTotalItemsComponent({
+      selectSelector: `${maxChoicesWrapperSelector} select`,
+      listSelector: `#${fieldId} ${answerOptionsWrapperSelector} .survey-question-answer-option:not(.hidden)`
+    })
+  };
+
   const createAutoButtonsByMinItemsForAnswerOptions = (fieldId) => {
     return new AutoButtonsByMinItemsComponent({
       listSelector: `#${fieldId} ${answerOptionsWrapperSelector} .survey-question-answer-option:not(.hidden)`,
@@ -49,6 +57,7 @@
 
   const createDynamicFieldsForAnswerOptions = (fieldId) => {
     const autoButtons = createAutoButtonsByMinItemsForAnswerOptions(fieldId);
+    const autoSelectOptions = createAutoMaxChoicesByNumberOfAnswerOptions(fieldId);
 
     return createDynamicFields({
       placeholderId: "survey-question-answer-option-id",
@@ -59,9 +68,11 @@
       removeFieldButtonSelector: answerOptionRemoveFieldButtonSelector,
       onAddField: () => {
         autoButtons.run();
+        autoSelectOptions.run();
       },
       onRemoveField: () => {
         autoButtons.run();
+        autoSelectOptions.run();
       }
     });
   };

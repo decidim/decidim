@@ -199,17 +199,31 @@ shared_examples "edit surveys" do
 
     it "preserves answer options form across submission failures" do
       click_button "Add question"
-      select "Single option", from: "Type"
+      select "Multiple option", from: "Type"
 
       within ".survey-question-answer-option:first-of-type" do
         fill_in find_nested_form_field_locator("body_en"), with: "Something"
       end
+
+      click_button "Add answer option"
+
+      within ".survey-question-answer-option:last-of-type" do
+        fill_in find_nested_form_field_locator("body_en"), with: "Else"
+      end
+
+      select "3", from: "Maximum number of choices"
 
       click_button "Save"
 
       within ".survey-question-answer-option:first-of-type" do
         expect(page).to have_nested_field("body_en", with: "Something")
       end
+
+      within ".survey-question-answer-option:last-of-type" do
+        fill_in find_nested_form_field_locator("body_en"), with: "Else"
+      end
+
+      expect(page).to have_select("Maximum number of choices", selected: "3")
     end
 
     it "allows switching translated field tabs after form failures" do
@@ -247,11 +261,21 @@ shared_examples "edit surveys" do
         end
       end
 
-      it "shows the max choices selector only in that case" do
-        expect(page).to have_select("Maximum number of choices")
+      it "updates the max choices selector according to the configured options" do
+        select "Multiple option", from: "Type"
+        expect(page).to have_select("Maximum number of choices", options: %w(2))
 
-        select "Short answer", from: "Type"
-        expect(page).to have_no_select("Maximum number of choices")
+        click_button "Add answer option"
+        expect(page).to have_select("Maximum number of choices", options: %w(2 3))
+
+        click_button "Add answer option"
+        expect(page).to have_select("Maximum number of choices", options: %w(2 3 4))
+
+        within(".survey-question-answer-option:last-of-type") { click_button "Remove" }
+        expect(page).to have_select("Maximum number of choices", options: %w(2 3))
+
+        within(".survey-question-answer-option:last-of-type") { click_button "Remove" }
+        expect(page).to have_select("Maximum number of choices", options: %w(2))
 
         select "Single option", from: "Type"
         expect(page).to have_no_select("Maximum number of choices")
