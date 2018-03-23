@@ -321,6 +321,39 @@ shared_examples "edit surveys" do
       end
     end
 
+    context "when a survey has an existing question with answer options" do
+      let!(:survey_question) do
+        create(
+          :survey_question,
+          survey: survey,
+          body: body,
+          question_type: "single_option",
+          answer_options: [
+            { "body" => { "en" => "cacarua" } },
+            { "body" => { "en" => "cat" } },
+            { "body" => { "en" => "dog" } }
+
+          ]
+        )
+      end
+
+      before do
+        visit_component_admin
+      end
+
+      it "allows deleting answer options" do
+        within ".survey-question-answer-option:last-of-type" do
+          click_button "Remove"
+        end
+
+        click_button "Save"
+
+        visit_component_admin
+
+        expect(page).to have_selector(".survey-question-answer-option", count: 2)
+      end
+    end
+
     context "when a survey has multiple existing questions" do
       let!(:survey_question_1) do
         create(:survey_question, survey: survey, body: first_body, position: 0)
