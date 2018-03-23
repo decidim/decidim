@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-admin", Decidim::Sortitions.version
   s.add_dependency "decidim-comments", Decidim::Sortitions.version
   s.add_dependency "decidim-core", Decidim::Sortitions.version
+  s.add_dependency "decidim-proposals", Decidim::Sortitions.version
   s.add_dependency "social-share-button", "~> 1.0"
 
   s.add_development_dependency "decidim-dev", Decidim::Sortitions.version
