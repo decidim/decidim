@@ -97,5 +97,15 @@
         <button class="button add-answer-option"><%= t(".add_answer_option") %></button>
       <% end %>
     </div>
+
+    <div class="row column survey-question-max-choices">
+      <%=
+        form.select(
+          :max_choices,
+          (2..10),
+          disabled: !survey.questions_editable?
+        )
+      %>
+    </div>
   </div>
 </div>

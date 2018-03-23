@@ -13,6 +13,7 @@
   const answerOptionFieldSelector = ".survey-question-answer-option";
   const answerOptionsWrapperSelector = ".survey-question-answer-options";
   const answerOptionRemoveFieldButtonSelector = ".remove-answer-option";
+  const maxChoicesWrapperSelector = ".survey-question-max-choices";
 
   const autoLabelByPosition = new AutoLabelByPositionComponent({
     listSelector: ".survey-question:not(.hidden)",
@@ -80,6 +81,20 @@
     }
   };
 
+  const setMaxChoicesWrapperVisibility = ($target) => {
+    const $maxChoicesWrapper = $target.parents(fieldSelector).find(maxChoicesWrapperSelector);
+    const $maxChoicesSelect = $maxChoicesWrapper.find("select");
+    const value = $target.val();
+
+    if (value === "multiple_option") {
+      $maxChoicesSelect.prop("disabled", false);
+      $maxChoicesWrapper.show();
+    } else {
+      $maxChoicesSelect.prop("disabled", true);
+      $maxChoicesWrapper.hide();
+    }
+  };
+
   const setupInitialQuestionAttributes = ($target) => {
     const fieldId = $target.attr("id");
     const $fieldQuestionTypeSelect = $target.find(questionTypeSelector);
@@ -101,6 +116,7 @@
       }
 
       setAnswerOptionsWrapperVisibility($fieldQuestionTypeSelect);
+      setMaxChoicesWrapperVisibility($fieldQuestionTypeSelect);
     };
 
     $fieldQuestionTypeSelect.on("change", onQuestionTypeChange);

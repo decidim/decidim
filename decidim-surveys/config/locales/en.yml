@@ -6,6 +6,7 @@ en:
         body: Answer
       survey_question:
         mandatory: Mandatory
+        max_choices: Maximum number of choices
         question_type: Type
   decidim:
     components:

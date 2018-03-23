@@ -229,6 +229,35 @@ shared_examples "edit surveys" do
       end
     end
 
+    context "when adding a multiple option question" do
+      before do
+        visit_component_admin
+
+        within "form.edit_survey" do
+          click_button "Add question"
+
+          within ".survey-question" do
+            fill_in find_nested_form_field_locator("body_en"), with: "This is the first question"
+          end
+
+          expect(page).to have_no_content "Add answer option"
+          expect(page).to have_no_select("Maximum number of choices")
+
+          select "Multiple option", from: "Type"
+        end
+      end
+
+      it "shows the max choices selector only in that case" do
+        expect(page).to have_select("Maximum number of choices")
+
+        select "Short answer", from: "Type"
+        expect(page).to have_no_select("Maximum number of choices")
+
+        select "Single option", from: "Type"
+        expect(page).to have_no_select("Maximum number of choices")
+      end
+    end
+
     context "when a survey has an existing question" do
       let!(:survey_question) { create(:survey_question, survey: survey, body: body) }
 
@@ -264,6 +293,7 @@ shared_examples "edit surveys" do
             fill_in "survey_questions_#{survey_question.id}_body_en", with: ""
             check "Mandatory"
             select "Multiple option", from: "Type"
+            select "2", from: "Maximum number of choices"
           end
 
           click_button "Save"
@@ -275,6 +305,7 @@ shared_examples "edit surveys" do
         expect(page).to have_selector("input[value='']")
         expect(page).to have_no_selector("input[value='This is the first question']")
         expect(page).to have_selector("input#survey_questions_#{survey_question.id}_mandatory[checked]")
+        expect(page).to have_select("Maximum number of choices", selected: "2")
         expect(page).to have_selector("select#survey_questions_#{survey_question.id}_question_type option[value='multiple_option'][selected]")
       end
 
