@@ -22,9 +22,8 @@ module Decidim
       def call
         return broadcast(:invalid) if @proposal.author != @current_user
 
-        @proposal.update published_at: Time.current
-
         transaction do
+          @proposal.update published_at: Time.current
           send_notification
           send_notification_to_participatory_space
         end
