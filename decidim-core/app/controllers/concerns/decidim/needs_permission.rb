@@ -18,7 +18,7 @@ module Decidim
       alias_method :permissions_context, :ability_context
 
       def enforce_permission_to(action, subject, extra_context = {})
-        raise Decidim::MissingPermission unless allowed_to?(action, subject, extra_context)
+        raise Decidim::ActionForbidden unless allowed_to?(action, subject, extra_context)
       end
 
       def allowed_to?(action, subject, extra_context = {})
