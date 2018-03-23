@@ -43,7 +43,7 @@ module Decidim
       end
 
       def new
-        check_permission_to :create, :proposal
+        enforce_permission_to :create, :proposal
         @step = :step_1
         if proposal_draft.present?
           redirect_to edit_draft_proposal_path(proposal_draft, component_id: proposal_draft.component.id, question_slug: proposal_draft.component.participatory_space.slug)
@@ -55,7 +55,7 @@ module Decidim
       end
 
       def create
-        check_permission_to :create, :proposal
+        enforce_permission_to :create, :proposal
         @step = :step_1
         @form = form(ProposalForm).from_params(params)
 
@@ -106,14 +106,14 @@ module Decidim
 
       def edit_draft
         @step = :step_1
-        check_permission_to :edit, :proposal, proposal: @proposal
+        enforce_permission_to :edit, :proposal, proposal: @proposal
 
         @form = form(ProposalForm).from_model(@proposal)
       end
 
       def update_draft
         @step = :step_1
-        check_permission_to :edit, :proposal, proposal: @proposal
+        enforce_permission_to :edit, :proposal, proposal: @proposal
 
         @form = form(ProposalForm).from_params(params)
         UpdateProposal.call(@form, current_user, @proposal) do
@@ -147,14 +147,14 @@ module Decidim
 
       def edit
         @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
-        check_permission_to :edit, :proposal, proposal: @proposal
+        enforce_permission_to :edit, :proposal, proposal: @proposal
 
         @form = form(ProposalForm).from_model(@proposal)
       end
 
       def update
         @proposal = Proposal.not_hidden.where(component: current_component).find(params[:id])
-        check_permission_to :edit, :proposal, proposal: @proposal
+        enforce_permission_to :edit, :proposal, proposal: @proposal
 
         @form = form(ProposalForm).from_params(params)
         UpdateProposal.call(@form, current_user, @proposal) do
@@ -172,7 +172,7 @@ module Decidim
 
       def withdraw
         @proposal = Proposal.published.not_hidden.where(component: current_component).find(params[:id])
-        check_permission_to :withdraw, :proposal, proposal: @proposal
+        enforce_permission_to :withdraw, :proposal, proposal: @proposal
 
         WithdrawProposal.call(@proposal, current_user) do
           on(:ok) do |_proposal|
