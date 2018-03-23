@@ -9,14 +9,14 @@ module Decidim
         helper_method :proposals, :query
 
         def new
-          check_permission_to :create, :proposal
+          enforce_permission_to :create, :proposal
           @form = form(Admin::ProposalForm).from_params(
             attachment: form(AttachmentForm).from_params({})
           )
         end
 
         def create
-          check_permission_to :create, :proposal
+          enforce_permission_to :create, :proposal
           @form = form(Admin::ProposalForm).from_params(params)
 
           Admin::CreateProposal.call(@form) do
@@ -33,7 +33,7 @@ module Decidim
         end
 
         def update_category
-          check_permission_to :update, :proposal_category
+          enforce_permission_to :update, :proposal_category
           @proposal_ids = params[:proposal_ids]
 
           Admin::UpdateProposalCategory.call(params[:category][:id], params[:proposal_ids]) do

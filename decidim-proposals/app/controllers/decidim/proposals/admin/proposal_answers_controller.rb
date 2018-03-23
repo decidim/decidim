@@ -8,12 +8,12 @@ module Decidim
         helper_method :proposal
 
         def edit
-          check_permission_to :create, :proposal_answer
+          enforce_permission_to :create, :proposal_answer
           @form = form(Admin::ProposalAnswerForm).from_model(proposal)
         end
 
         def update
-          check_permission_to :create, :proposal_answer
+          enforce_permission_to :create, :proposal_answer
           @form = form(Admin::ProposalAnswerForm).from_params(params)
 
           Admin::AnswerProposal.call(@form, proposal) do

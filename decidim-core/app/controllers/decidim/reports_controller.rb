@@ -37,7 +37,7 @@ module Decidim
     def ensure_access_to_action
       authorize! :report, reportable unless has_permission_class?
 
-      check_permission_to :create, :moderation
+      enforce_permission_to :create, :moderation
     end
 
     def has_permission_class?
