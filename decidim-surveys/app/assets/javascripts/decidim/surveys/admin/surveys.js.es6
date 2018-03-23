@@ -108,6 +108,15 @@
     onQuestionTypeChange();
   }
 
+  const hideDeletedQuestion = ($target) => {
+    const inputDeleted = $target.find("input[name$=\\[deleted\\]]").val();
+
+    if (inputDeleted === "true") {
+      $target.addClass('hidden');
+      $target.hide();
+    }
+  }
+
   createDynamicFields({
     placeholderId: 'survey-question-id',
     wrapperSelector: wrapperSelector,
@@ -151,6 +160,10 @@
   $(fieldSelector).each((idx, el) => {
     const $target = $(el);
 
+    hideDeletedQuestion($target);
     setupInitialQuestionAttributes($target);
   });
+
+  autoLabelByPosition.run();
+  autoButtonsByPosition.run();
 })(window);
