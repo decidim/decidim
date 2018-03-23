@@ -11,13 +11,6 @@ uk:
       proposal_answer:
         answer: Відповісти
   decidim:
-    events:
-      proposals:
-        proposal_created:
-          email_intro: "%{author_name} %{author_nickname}, за яким ви стежите, вніс нову пропозицію. Прочитайте її та зробіть свій внесок:"
-          email_outro: Ви отримали це сповіщення, тому що ви стежите за %{author_nickname}. Ви можете відписатися від цих сповіщень, перейшовши за наведеним вище посиланням.
-          email_subject: Нова пропозиція від %{author_nickname}
-          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> вніс пропозицію <a href="%{resource_path}">%{resource_title}</a>.
     proposals:
       actions:
         answer: Відповісти
