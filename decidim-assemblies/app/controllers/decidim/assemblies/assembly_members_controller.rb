@@ -18,7 +18,7 @@ module Decidim
       private
 
       def members
-        @members ||= current_participatory_space.members
+        @members ||= current_participatory_space.members.where(ceased_date: nil)
       end
 
       alias collection members

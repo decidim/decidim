@@ -31,6 +31,10 @@
     </div>
 
     <div class="row column">
+      <%= form.date_field :ceased_date %>
+    </div>
+
+    <div class="row column">
       <%= form.select :gender, @form.genders_for_select, { include_blank: t(".select_a_gender") }, { multiple: false } %>
     </div>
 

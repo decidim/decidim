@@ -13,6 +13,7 @@ class AddAssemblyMembers < ActiveRecord::Migration[5.1]
       t.string :designation_mode
       t.string :position
       t.string :position_other
+      t.date :ceased_date
 
       t.timestamps
     end

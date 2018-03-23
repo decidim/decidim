@@ -16,6 +16,7 @@
             <th><%= t("models.assembly_member.fields.full_name", scope: "decidim.admin") %></th>
             <th><%= t("models.assembly_member.fields.position", scope: "decidim.admin") %></th>
             <th><%= t("models.assembly_member.fields.designation_date", scope: "decidim.admin") %></th>
+            <th><%= t("models.assembly_member.fields.ceased_date", scope: "decidim.admin") %></th>
             <th class="actions"></th>
           </tr>
         </thead>
@@ -30,6 +31,9 @@
               </td>
               <td>
                 <%= l member.designation_date, format: :datepicker %>
+              </td>
+              <td>
+                <%= member.ceased_date ? l(member.ceased_date, format: :datepicker) : nil %>
               </td>
               <td class="table-list__actions">
                 <% if can? :update, member %>

@@ -54,6 +54,7 @@ module Decidim
               :gender,
               :origin,
               :birthday,
+              :ceased_date,
               :designation_date,
               :designation_mode,
               :position,

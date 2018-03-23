@@ -13,6 +13,7 @@ module Decidim
         attribute :gender, String
         attribute :origin, String
         attribute :birthday, Decidim::Attributes::TimeWithZone
+        attribute :ceased_date, Decidim::Attributes::TimeWithZone
         attribute :designation_date, Decidim::Attributes::TimeWithZone
         attribute :designation_mode, String
         attribute :position, String
@@ -22,6 +23,7 @@ module Decidim
         validates :gender, inclusion: { in: Decidim::AssemblyMember::GENDERS }
         validates :position, inclusion: { in: Decidim::AssemblyMember::POSITIONS }
         validates :position_other, presence: true, if: ->(form) { form.position == "other" }
+        validates :ceased_date, date: { after: :designation_date, allow_blank: true }
 
         def genders_for_select
           Decidim::AssemblyMember::GENDERS.map do |gender|
