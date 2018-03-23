@@ -31,7 +31,7 @@ fr:
         subject: Objet
       organization:
         cta_button_path: Chemin du bouton d'action
-        cta_button_text: Chemin du bouton d'action
+        cta_button_text: Texte du bouton d'action
         default_locale: Langue par défaut
         description: Description
         enable_omnipresent_banner: Montrer une bannière omniprésente
