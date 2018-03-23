@@ -141,6 +141,10 @@ es:
           filter: Filtrar
           filter_by: Filtrar por
           unfold: Desplegar
+        orders:
+          label: 'Ordenar sorteos por:'
+          random: Aleatorio
+          recent: Reciente
         sortition:
           selected_proposals:
             one: 1 propuesta seleccionada

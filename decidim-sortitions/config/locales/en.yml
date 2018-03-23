@@ -101,6 +101,10 @@ en:
           filter: Filter
           filter_by: Filter by
           unfold: Unfold
+        orders:
+          label: 'Order sortitions by:'
+          random: Random
+          recent: Recent
         linked_sortitions:
           selected_proposals: Selected proposals
         proposal:

@@ -141,6 +141,10 @@ ca:
           filter: Filtra
           filter_by: Filtrar per
           unfold: Desplegar
+        orders:
+          label: 'Ordenar sortejos per:'
+          random: Aleatori
+          recent: Recent
         sortition:
           selected_proposals:
             one: 1 proposta seleccionada.
