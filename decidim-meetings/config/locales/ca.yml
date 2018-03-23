@@ -214,7 +214,7 @@ ca:
       highlighted_meetings:
         past_meetings: Trobades anteriors
         see_all_meetings: Veure totes les trobades
-        upcoming_meetings: Properes rrobades
+        upcoming_meetings: Properes trobades
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Resultats relacionats:'
