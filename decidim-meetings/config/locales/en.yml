@@ -182,7 +182,10 @@ en:
           cancel: Cancel
           confirm: Confirm
         show:
+          accesibility: Accesibility
+          accesibility_desc: The venue is suited for people with functional diversities
           attendees: Attendees count
+          conciliation: Conciliation
           contributions: Contributions count
           going: Going
           join: Join meeting
@@ -193,6 +196,7 @@ en:
             one: 1 slot remaining
             other: "%{count} slots remaining"
             zero: No slots remaining
+          translation: Translation
       models:
         meeting:
           fields:
