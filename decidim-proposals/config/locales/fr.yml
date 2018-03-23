@@ -296,7 +296,7 @@ fr:
           label: 'Classement des propositions par:'
           most_voted: Les plus votées
           random: Aléatoire
-          recent: Les plus récents
+          recent: Les plus récentes
         preview:
           modify: Modifier la proposition
           proposal_edit_before_minutes:
