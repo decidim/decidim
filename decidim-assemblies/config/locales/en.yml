@@ -273,6 +273,11 @@ en:
         surveys_count: Surveys
         users_count: Participants
         votes_count: Votes
+    assembly_members:
+      assembly_member:
+        desiganted_on: Designated on
+      index:
+        title: Members
     log:
       value_types:
         assembly_presenter:
@@ -297,6 +302,7 @@ en:
           more_info: More info
           take_part: Take part
       assembly_header:
+        assembly_member_menu_item: Members
         assembly_menu_item: The assembly
         unfold: Unfold
       assembly_widgets:

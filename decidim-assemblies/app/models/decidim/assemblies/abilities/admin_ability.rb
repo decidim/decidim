@@ -9,6 +9,7 @@ module Decidim
           super
 
           can :read, Assembly
+          can :read, AssemblyMember
         end
       end
     end

@@ -20,6 +20,7 @@ module Decidim
         def define_abilities
           can :read, :admin_dashboard
           can :read, Assembly
+          can :read, AssemblyMember
         end
 
         private

@@ -10,6 +10,9 @@ module Decidim
           super(user, context)
 
           can :read, Assembly, &:published?
+          can :read, AssemblyMember do |member|
+            member.assembly.published?
+          end
         end
       end
     end
