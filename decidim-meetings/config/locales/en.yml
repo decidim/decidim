@@ -17,8 +17,8 @@ en:
         description: Description
         end_time: End Time
         has_conciliation_service: Has conciliation services
-        has_space_adapted_for_functional_diversity: Has space adapted for functional diveristy
         has_simultaneous_translations: Has simultaneous translations
+        has_space_adapted_for_functional_diversity: Has space adapted for functional diveristy
         location: Location
         location_hints: Location hints
         registration_terms: Registration terms

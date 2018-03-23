@@ -13,15 +13,15 @@ $(() => {
       $showDiv.find('input[type="text"]').attr('disabled', !value)
     };
 
-     $hasConciliationService.on('change', (ev) => {
-       const $target = $(ev.target);
-       toggleDependsOnSelect($target, $conciliationServiceDescription);
-     });
+    $hasConciliationService.on('change', (ev) => {
+      const $target = $(ev.target);
+      toggleDependsOnSelect($target, $conciliationServiceDescription);
+    });
 
-     $hasSimultaneousTranslations.on('change', (ev) => {
-       const $target = $(ev.target);
-       toggleDependsOnSelect($target, $simultaneousLanguages);
-     });
+    $hasSimultaneousTranslations.on('change', (ev) => {
+      const $target = $(ev.target);
+      toggleDependsOnSelect($target, $simultaneousLanguages);
+    });
 
     toggleDependsOnSelect($hasConciliationService, $conciliationServiceDescription);
     toggleDependsOnSelect($hasSimultaneousTranslations, $simultaneousLanguages);

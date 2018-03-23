@@ -30,6 +30,11 @@ module Decidim::Meetings
         scope: meeting.scope,
         category: meeting.category,
         current_user: current_user,
+        has_conciliation_service: meeting.has_conciliation_service,
+        conciliation_service_description: meeting.conciliation_service_description,
+        has_space_adapted_for_functional_diversity: meeting.has_space_adapted_for_functional_diversity,
+        has_simultaneous_translations: meeting.has_simultaneous_translations,
+        simultaneous_languages: meeting.simultaneous_languages,
         current_component: meeting.component
       )
     end
