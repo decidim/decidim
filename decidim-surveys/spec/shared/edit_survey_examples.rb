@@ -231,7 +231,7 @@ shared_examples "edit surveys" do
       end
     end
 
-    describe "when a survey has an existing question" do
+    context "when a survey has an existing question" do
       let!(:survey_question) { create(:survey_question, survey: survey, body: body) }
 
       before do
