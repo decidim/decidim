@@ -24,7 +24,8 @@ module Decidim
             designation_date: :date,
             designation_mode: :string,
             position: "Decidim::Assemblies::AdminLog::ValueTypes::MemberPositionPresenter",
-            position_other: :string
+            position_other: :string,
+            weight: :integer
           }
         end
 

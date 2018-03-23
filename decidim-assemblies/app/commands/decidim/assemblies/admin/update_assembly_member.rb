@@ -54,7 +54,8 @@ module Decidim
               :designation_date,
               :designation_mode,
               :position,
-              :position_other
+              :position_other,
+              :weight
             ),
             log_info
           )

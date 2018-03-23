@@ -13,6 +13,8 @@ module Decidim
     belongs_to :assembly, foreign_key: "decidim_assembly_id", class_name: "Decidim::Assembly"
     alias participatory_space assembly
 
+    default_scope { order(arel_table[:weight].asc) }
+
     def self.log_presenter_class_for(_log)
       Decidim::Assemblies::AdminLog::AssemblyMemberPresenter
     end

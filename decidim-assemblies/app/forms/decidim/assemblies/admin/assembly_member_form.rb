@@ -8,6 +8,7 @@ module Decidim
       class AssemblyMemberForm < Form
         mimic :assembly_member
 
+        attribute :weight, Integer, default: 0
         attribute :full_name, String
         attribute :gender, String
         attribute :origin, String
