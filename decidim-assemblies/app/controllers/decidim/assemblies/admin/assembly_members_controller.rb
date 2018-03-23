@@ -10,7 +10,11 @@ module Decidim
 
         def index
           authorize! :read, Decidim::AssemblyMember
-          @assembly_members = collection
+
+          @query = params[:q]
+          @status = params[:status]
+
+          @assembly_members = Decidim::Assemblies::Admin::AssemblyMembers.for(collection, @query, @status).page(params[:page]).per(15)
         end
 
         def new
