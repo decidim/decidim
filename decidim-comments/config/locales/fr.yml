@@ -42,7 +42,7 @@ fr:
           best_rated: Les mieux notés
           most_discussed: Les plus débattus
           older: Les plus anciens
-          recent: Les plus récents
+          recent: Les plus récentes
         title: 'Classement par :'
       comment_thread:
         title: Conversation avec %{authorName}
