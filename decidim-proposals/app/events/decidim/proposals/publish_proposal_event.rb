@@ -2,7 +2,7 @@
 
 module Decidim
   module Proposals
-    class CreateProposalEvent < Decidim::Events::SimpleEvent
+    class PublishProposalEvent < Decidim::Events::SimpleEvent
       include Decidim::Events::AuthorEvent
 
       private
@@ -10,7 +10,7 @@ module Decidim
       def i18n_scope
         return super unless participatory_space_event?
 
-        "decidim.events.proposals.proposal_created_for_space"
+        "decidim.events.proposals.proposal_published_for_space"
       end
 
       def participatory_space_event?
