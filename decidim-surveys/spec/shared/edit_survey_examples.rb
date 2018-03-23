@@ -357,6 +357,10 @@ shared_examples "edit surveys" do
         expect(page.all(".survey-question").last).to look_like_last_question
       end
 
+      it "does not duplicate editors when adding new questions" do
+        expect { click_button "Add question" }.to change { page.all(".ql-toolbar").size }.by(1)
+      end
+
       private
 
       def look_like_first_question

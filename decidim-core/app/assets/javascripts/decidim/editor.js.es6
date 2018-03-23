@@ -37,6 +37,14 @@
 
     quill.on('text-change', () => {
       const text = quill.getText();
+
+      // Triggers CustomEvent with the cursor position
+      // It is required in input_mentions.js
+      let event = new CustomEvent('quill-position', {
+        detail: quill.getSelection()
+      });
+      container.dispatchEvent(event);
+
       if (text === '\n') {
         $input.val('');
       } else {
@@ -55,4 +63,5 @@
 
   exports.Decidim = exports.Decidim || {};
   exports.Decidim.quillEditor = quillEditor;
+  exports.Decidim.createQuillEditor = createQuillEditor;
 })(window);
