@@ -263,19 +263,19 @@ shared_examples "edit surveys" do
 
       it "updates the max choices selector according to the configured options" do
         select "Multiple option", from: "Type"
-        expect(page).to have_select("Maximum number of choices", options: %w(2))
+        expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
 
         click_button "Add answer option"
-        expect(page).to have_select("Maximum number of choices", options: %w(2 3))
+        expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
 
         click_button "Add answer option"
-        expect(page).to have_select("Maximum number of choices", options: %w(2 3 4))
+        expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3 4))
 
         within(".survey-question-answer-option:last-of-type") { click_button "Remove" }
-        expect(page).to have_select("Maximum number of choices", options: %w(2 3))
+        expect(page).to have_select("Maximum number of choices", options: %w(Any 2 3))
 
         within(".survey-question-answer-option:last-of-type") { click_button "Remove" }
-        expect(page).to have_select("Maximum number of choices", options: %w(2))
+        expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
 
         select "Single option", from: "Type"
         expect(page).to have_no_select("Maximum number of choices")

@@ -9,7 +9,7 @@
       const $list = $(this.listSelector);
       const selectSelector = this.selectSelector;
 
-      $(selectSelector).empty();
+      $(`${selectSelector} option`).slice(1).remove();
 
       for (let idx = 2; idx <= $list.length; idx += 1) {
         $(`<option value="${idx}">${idx}</option>`).appendTo(selectSelector);
