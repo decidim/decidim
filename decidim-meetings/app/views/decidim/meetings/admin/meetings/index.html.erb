@@ -49,6 +49,10 @@
                 <%= icon_link_to "eye", resource_locator(meeting).path, t("actions.preview", scope: "decidim.meetings"), class: "action-icon--preview", target: :blank %>
 
                 <% if can? :update, current_component %>
+                  <%= icon_link_to "clipboard", new_meeting_copy_path(meeting), t("actions.duplicate", scope: "decidim.admin"), class: "action-icon--copy" %>
+                <% end %>
+
+                <% if can? :update, current_component %>
                   <%= icon_link_to "pencil", edit_meeting_path(meeting), t("actions.edit", scope: "decidim.meetings"), class: "action-icon--edit" %>
                   <%= icon_link_to "people", edit_meeting_registrations_path(meeting), t("actions.registrations", scope: "decidim.meetings"), class: "action-icon--registrations" %>
                 <% end %>

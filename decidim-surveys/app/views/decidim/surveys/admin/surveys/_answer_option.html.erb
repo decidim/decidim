@@ -13,17 +13,20 @@
   <div class="card-section">
     <div class="row column">
       <%=
-        translated_field_tag(
-          :text_field_tag,
-          "survey[questions][][answer_options][]",
-          "body",
-          answer_option.body.with_indifferent_access,
-          tabs_id: tabs_id_for_question_answer_option(question, idx),
+        form.translated(
+          :text_field,
+          :body,
+          tabs_id: tabs_id_for_question_answer_option(question, answer_option),
           label: t(".statement"),
-          disabled: question.nil? || !survey.questions_editable?,
-          enable_tabs: question.present?
+          disabled: !survey.questions_editable?
         )
       %>
     </div>
   </div>
+
+  <% if answer_option.persisted? %>
+    <%= form.hidden_field :id, disabled: !survey.questions_editable? %>
+  <% end %>
+
+  <%= form.hidden_field :deleted, value: false, disabled: !survey.questions_editable? %>
 </div>

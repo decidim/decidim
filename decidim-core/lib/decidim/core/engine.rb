@@ -15,7 +15,12 @@ require "foundation-rails"
 require "foundation_rails_helper"
 require "autoprefixer-rails"
 require "active_link_to"
+
+# Until https://github.com/andypike/rectify/pull/45 is attended, we're shipping
+# with a patched version of rectify
 require "rectify"
+require "decidim/rectify_ext"
+
 require "carrierwave"
 require "high_voltage"
 require "rails-i18n"
@@ -212,7 +217,7 @@ module Decidim
 
       initializer "add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells")
-        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/views")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/views") # for partials
       end
     end
   end

@@ -1,8 +1,7 @@
 // = require quill.min
 // = require_self
 
-$(() => {
-  const $container = $('.editor-container');
+((exports) => {
   const quillFormats = ['bold', 'italic', 'link', 'underline', 'header', 'list', 'video'];
 
   const createQuillEditor = (container) => {
@@ -38,6 +37,14 @@ $(() => {
 
     quill.on('text-change', () => {
       const text = quill.getText();
+
+      // Triggers CustomEvent with the cursor position
+      // It is required in input_mentions.js
+      let event = new CustomEvent('quill-position', {
+        detail: quill.getSelection()
+      });
+      container.dispatchEvent(event);
+
       if (text === '\n') {
         $input.val('');
       } else {
@@ -48,10 +55,13 @@ $(() => {
     quill.root.innerHTML = $input.val() || '';
   };
 
-  $container.each((idx, container) => {
-    createQuillEditor(container);
-  });
+  const quillEditor = () => {
+    $('.editor-container').each((idx, container) => {
+      createQuillEditor(container);
+    });
+  };
 
-  window.Decidim = window.Decidim || {};
-  window.Decidim.createQuillEditor = createQuillEditor;
-});
+  exports.Decidim = exports.Decidim || {};
+  exports.Decidim.quillEditor = quillEditor;
+  exports.Decidim.createQuillEditor = createQuillEditor;
+})(window);

@@ -110,7 +110,7 @@ module Decidim
 
         context "when the component's settings are set to an integer bigger than 0" do
           before do
-            component[:settings]["global"] = { treshold_per_proposal: 10 }
+            component[:settings]["global"] = { threshold_per_proposal: 10 }
             component.save!
           end
 
@@ -121,7 +121,7 @@ module Decidim
 
         context "when the component's settings are set to 0" do
           before do
-            component[:settings]["global"] = { treshold_per_proposal: 0 }
+            component[:settings]["global"] = { threshold_per_proposal: 0 }
             component.save!
           end
 

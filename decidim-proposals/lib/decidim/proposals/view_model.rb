@@ -9,7 +9,9 @@ module Decidim
       include Decidim::ApplicationHelper
       include Decidim::ActionAuthorization
       include Decidim::ActionAuthorizationHelper
-      include Decidim::ScopesHelper
+      include Decidim::TranslationsHelper
+      include Decidim::ResourceReferenceHelper
+      include Decidim::TranslatableAttributes
     end
   end
 end

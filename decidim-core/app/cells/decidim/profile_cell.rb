@@ -12,8 +12,6 @@ module Decidim
       render
     end
 
-    delegate :user_signed_in?, to: :parent_controller
-
-    delegate :current_user, to: :parent_controller
+    delegate :user_signed_in?, :current_user, to: :parent_controller
   end
 end

@@ -9,12 +9,6 @@ module Decidim
       belongs_to :survey, class_name: "Survey", foreign_key: "decidim_survey_id"
 
       validates :question_type, inclusion: { in: TYPES }
-
-      # Rectify can't handle a hash when using the from_model method so
-      # the answer options must be converted to struct.
-      def answer_options
-        self[:answer_options].map { |option| OpenStruct.new(option) }
-      end
     end
   end
 end

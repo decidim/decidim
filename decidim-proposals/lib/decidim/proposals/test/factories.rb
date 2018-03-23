@@ -119,10 +119,10 @@ FactoryBot.define do
       end
     end
 
-    trait :with_treshold_per_proposal do
+    trait :with_threshold_per_proposal do
       settings do
         {
-          treshold_per_proposal: 1
+          threshold_per_proposal: 1
         }
       end
     end

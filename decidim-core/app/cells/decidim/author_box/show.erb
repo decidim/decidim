@@ -1,12 +1,10 @@
-<div class="card__author">
-  <div class="<%= author_box_classes %>">
-    <div class="author-data__main">
-      <%= cell "decidim/profile", model %>
-    </div>
-    <% if @options[:extra] %>
-      <div class="author-data__extra">
-        <%= options[:extra] %>
-      </div>
-    <% end %>
+<div class="<%= author_box_classes %>">
+  <div class="author-data__main">
+    <%= cell "decidim/profile", model %>
   </div>
+  <% if @options[:extra] %>
+    <div class="author-data__extra">
+      <%= options[:extra] %>
+    </div>
+  <% end %>
 </div>

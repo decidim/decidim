@@ -4,7 +4,7 @@
 
 <% if model.deleted? %>
   <span class="label label--small label--basic">
-    <%= t('deleted', scope: 'decidim.shared.author') %>
+    <%= t("decidim.profile.deleted") %>
   </span>
 <% else %>
   <span class="author__name"><%= model.name %></span>
