@@ -4,7 +4,7 @@ module Decidim
   module Admin
     # This controller allows admins to manage moderations in a participatory process.
     class ModerationsController < Decidim::Admin::ApplicationController
-      helper_method :moderations, :check_permission_to, :allowed_to?
+      helper_method :moderations, :allowed_to?
 
       def index
         ensure_access_to :read, Decidim::Moderation

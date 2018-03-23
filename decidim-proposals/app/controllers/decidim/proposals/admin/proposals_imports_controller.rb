@@ -5,13 +5,13 @@ module Decidim
     module Admin
       class ProposalsImportsController < Admin::ApplicationController
         def new
-          check_permission_to :import, :proposals
+          enforce_permission_to :import, :proposals
 
           @form = form(Admin::ProposalsImportForm).instance
         end
 
         def create
-          check_permission_to :import, :proposals
+          enforce_permission_to :import, :proposals
 
           @form = form(Admin::ProposalsImportForm).from_params(params)
 

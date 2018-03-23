@@ -18,7 +18,7 @@ module Decidim
 
         # Overrides the method to use the permissions system logic.
         def ensure_access_to(action, _subject = reportable)
-          check_permission_to action, :moderation
+          enforce_permission_to action, :moderation
         end
       end
     end
