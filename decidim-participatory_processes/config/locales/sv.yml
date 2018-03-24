@@ -25,7 +25,7 @@ sv:
         short_description: Kort beskrivning
         show_statistics: Visa statistik
         slug: URL slug
-        start_date: Start datum
+        start_date: Startdatum
         subtitle: Underrubrik
         target: Mål
         title: Titel
@@ -38,7 +38,7 @@ sv:
         description: Beskrivning
         end_date: Slutdatum
         short_description: Kort beskrivning
-        start_date: Start datum
+        start_date: Startdatum
         title: Titel
       participatory_process_user_role:
         email: E-post
@@ -48,7 +48,7 @@ sv:
     admin:
       actions:
         activate: Aktivera
-        configure: konfigurera
+        configure: Konfigurera
         confirm_destroy: Bekräfta förstör
         destroy: Förstöra
         duplicate: Duplicera
@@ -60,12 +60,12 @@ sv:
         unpublish: Avpublicera
       menu:
         participatory_process_groups: Processgrupper
-        participatory_processes: processer
+        participatory_processes: Processer
         participatory_processes_submenu:
           attachment_collections: samlingar
           attachment_files: Filer
           attachments: bilagor
-          categories: kategorier
+          categories: Kategorier
           components: Komponenter
           info: Info
           moderations: modere
@@ -88,7 +88,7 @@ sv:
         participatory_process_step:
           fields:
             end_date: Slutdatum
-            start_date: Start datum
+            start_date: Startdatum
             title: Titel
           name: Deltagande processsteg
         participatory_process_user_role:
@@ -100,7 +100,7 @@ sv:
           roles:
             admin: Administratör
             collaborator: Medarbetare
-            moderator: moderator
+            moderator: Moderator
         user:
           fields:
             invitation_accepted_at: Inbjudan accepterad vid
@@ -237,7 +237,7 @@ sv:
           email_subject: En uppdatering till %{participatory_space_title}
           notification_title: Dagen för <a href="%{resource_path}">%{resource_title}</a> steg vid <a href="%{participatory_space_url}">%{participatory_space_title}</a> har uppdaterats.
     menu:
-      processes: processer
+      processes: Processer
     participatory_process_groups:
       show:
         group_participatory_processes: Bearbetar för %{group}
@@ -281,7 +281,7 @@ sv:
         participatory_structure: Hur bestäms det
         private_space: Detta är en privat process
         scope: Omfattning
-        start_date: Start datum
+        start_date: Startdatum
         target: Vem deltar
       statistics:
         answers_count: Svar
@@ -292,9 +292,9 @@ sv:
         meetings_count: Möten
         orders_count: Röster
         pages_count: Sidor
-        processes_count: processer
+        processes_count: Processer
         projects_count: Projekt
-        proposals_count: förslag
+        proposals_count: Förslag
         results_count: Resultat
         surveys_count: Undersökningar
         users_count: Deltagare
@@ -307,7 +307,7 @@ sv:
       participatory_process_widgets:
         show:
           active_step: Aktivt steg
-          take_part: Ta del
+          take_part: Delta
       participatory_processes:
         index:
           promoted_processes: Markerade processer
@@ -317,11 +317,11 @@ sv:
             other: "%{count} processer"
         participatory_process:
           active_step: 'Nuvarande steg:'
-          take_part: Ta del
+          take_part: Delta
         promoted_process:
           active_step: 'Nuvarande steg:'
           more_info: Mer information
-          take_part: Ta del
+          take_part: Delta
       process_header:
         process_menu_item: Processen
         unfold: Veckla ut
