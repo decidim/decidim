@@ -3,7 +3,7 @@ sv:
     attributes:
       participatory_process:
         announcement: Meddelande
-        banner_image: Banner image
+        banner_image: Bannerbild
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
         copy_steps: Kopiera steg
@@ -62,13 +62,13 @@ sv:
         participatory_process_groups: Processgrupper
         participatory_processes: Processer
         participatory_processes_submenu:
-          attachment_collections: samlingar
+          attachment_collections: Samlingar
           attachment_files: Filer
-          attachments: bilagor
+          attachments: Bifogade filer
           categories: Kategorier
           components: Komponenter
           info: Info
-          moderations: modere
+          moderations: Moderering
           private_users: Privata användare
           process_admins: Processanvändare
           steps: Steg
