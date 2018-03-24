@@ -429,7 +429,7 @@ sv:
       password_change:
         greeting: Hej %{recipient}!
         message: Vi kontaktar dig för att meddela dig att ditt lösenord har ändrats.
-        subject: lösenordet ändrat
+        subject: Lösenord ändrat
   errors:
     messages:
       content_type_whitelist_error: Filtypen är inte giltig
@@ -470,33 +470,33 @@ sv:
         no_notifications: Inga meddelanden ännu.
         title: anmälningar
       user_menu:
-        admin_dashboard: Admin-instrumentpanelen
-        conversations: samtal
-        notifications: anmälningar
+        admin_dashboard: Admin kontrollpanel
+        conversations: Konversationer
+        notifications: Notiser
         profile: Mitt konto
         public_profile: Min offentliga profil
         sign_out: Logga ut
       user_profile:
-        account: konto
+        account: Konto
         authorizations: Tillstånd
         delete_my_account: Ta bort mitt konto
-        notifications_settings: Anmälningsinställningar
+        notifications_settings: Notisinställningar
         title: Användarinställningar
-        user_groups: organisationer
+        user_groups: Organisationer
       widget:
         see_more: Se mer
   locale:
-    name: engelsk
+    name: Engelska
   pages:
     home:
       extended:
-        debates: debatter
+        debates: Debatter
         debates_explanation: Debatt och diskutera, dela med dig av dina åsikter och berika relevanta ämnen.
-        how_to_participate: Hur tar jag del i en process?
-        meetings: möten
+        how_to_participate: Hur deltar jag i en process?
+        meetings: Möten
         meetings_explanation: Ta reda på var och när du kan delta i offentliga möten.
         more_info: Mer information
-        proposals: förslag
+        proposals: Förslag
         proposals_explanation: Gör förslag, stödja befintliga och främja de förändringar du vill se.
       footer_sub_hero:
         footer_sub_hero_body: Låt oss bygga ett öppet, öppet och samarbetande samhälle.<br /> Gå med, delta och bestäm.
@@ -506,19 +506,19 @@ sv:
         participate: Delta
         welcome: Välkommen till %{organization}!
       statistics:
-        answers_count: Avslutade undersökningar
+        answers_count: Avslutade Undersökningar
         assemblies_count: Assemblies
-        comments_count: kommentarer
-        debates_count: debatter
+        comments_count: Kommentarer
+        debates_count: Debatter
         endorsements_count: påskrifter
         headline: Aktuellt tillstånd %{organization}
-        meetings_count: möten
+        meetings_count: Möten
         orders_count: röster
-        pages_count: sidor
-        processes_count: processer
-        projects_count: projekt
+        pages_count: Sidor
+        processes_count: Processer
+        projects_count: Projekt
         proposals_accepted: Godkända förslag
-        proposals_count: förslag
+        proposals_count: Förslag
         results_count: Resultat
         surveys_count: Undersökningar
         users_count: Deltagare
