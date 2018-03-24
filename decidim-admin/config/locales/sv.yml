@@ -3,10 +3,10 @@ sv:
     attributes:
       area:
         area_type: Typ av område
-        name: namn
+        name: Namn
         organization: Organisation
       area_type:
-        name: namn
+        name: Namn
         organization: Organisation
         plural: Flertal
       attachment:
@@ -16,18 +16,18 @@ sv:
         title: Titel
       attachment_collection:
         description: Beskrivning
-        name: namn
+        name: Namn
       category:
         description: Beskrivning
-        name: namn
+        name: Namn
         parent_id: Förälder
       component:
-        name: namn
+        name: Namn
         published_at: Publicerad på
         weight: Vikt
       id: ID
       newsletter:
-        body: Kropp
+        body: Innehåll
         subject: Ämne
       organization:
         cta_button_path: Call to Action-knappsökväg
@@ -48,8 +48,8 @@ sv:
         highlighted_content_banner_title: Titel
         homepage_image: Hemsida bild
         instagram_handler: Instagram handler
-        logo: Logotyp
-        name: namn
+        logo: Logo
+        name: Namn
         official_img_footer: Officiell logo footer
         official_img_header: Officiell logotyphuvud
         official_url: Officiell organisationsadress
@@ -62,14 +62,14 @@ sv:
         welcome_text: Välkommen text
         youtube_handler: YouTube-hanterare
       scope:
-        code: Koda
-        name: namn
+        code: Kod
+        name: Namn
         organization: Organisation
         parent_id: Förälder
         scope_type: Omfattningstyp
         scope_type_id: Omfattningstyp
       scope_type:
-        name: namn
+        name: Namn
         organization: Organisation
         plural: Flertal
       static_page:
@@ -102,7 +102,7 @@ sv:
       decidim/participatory_process_group:
         description: Beskrivning
         hero_image: Hembild
-        name: namn
+        name: Namn
         participatory_processes: Deltagande processer
       decidim/participatory_process_step:
         end_date: Slutdatum
@@ -265,7 +265,7 @@ sv:
           error: Det har uppstått ett fel med att skapa den hanterade användaren.
           success: Den hanterade användaren har skapats.
         form:
-          name: namn
+          name: Namn
         impersonate:
           error: Det har inträffat ett fel för att ersätta den hanterade användaren.
         impersonations:
@@ -312,10 +312,10 @@ sv:
         area:
           fields:
             area_type: Typ av område
-            name: namn
+            name: Namn
         area_type:
           fields:
-            name: namn
+            name: Namn
             plural: Flertal
         attachment:
           fields:
@@ -348,11 +348,11 @@ sv:
           name: Deltagande utrymme privat användare
         scope:
           fields:
-            name: namn
+            name: Namn
             scope_type: Omfattningstyp
         scope_type:
           fields:
-            name: namn
+            name: Namn
             plural: Flertal
         static_page:
           fields:
@@ -363,7 +363,7 @@ sv:
             created_at: Skapelsedagen
             email: E-post
             last_sign_in_at: Senast inloggningsdatum
-            name: namn
+            name: Namn
             role: Roll
             roles:
               admin: Administration
@@ -374,7 +374,7 @@ sv:
             actions: Handlingar
             created_at: Skapad vid
             document_number: Dokumentnummer
-            name: namn
+            name: Namn
             phone: Telefon
             state: stat
             users_count: Användare räknas
@@ -385,7 +385,7 @@ sv:
           reasons:
             does_not_belong: Hör inte hemma
             offensive: Offensiv
-            spam: spam
+            spam: Spam
       newsletters:
         create:
           error: Det har varit ett fel att skapa detta nyhetsbrev.
@@ -429,7 +429,7 @@ sv:
             not_officialized: Ej officiellt
             officialized: Officialized
           filter_by: Filtrera efter
-          name: namn
+          name: Namn
           nickname: smeknamn
           not_officialized: Ej officiellt
           officialize: Officialize
@@ -570,7 +570,7 @@ sv:
           success: Användaren är inte längre en administratör.
         form:
           email: E-post
-          name: namn
+          name: Namn
           role: Roll
         new:
           create: Inbjudan
