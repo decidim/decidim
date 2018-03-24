@@ -66,7 +66,7 @@ sv:
             success: Resultatet uppdaterades med framgång
         shared:
           subnav:
-            statuses: status
+            statuses: Statusar
         statuses:
           create:
             invalid: Det har varit ett problem att skapa denna status
@@ -77,7 +77,7 @@ sv:
             title: Redigera status
             update: Uppdatera status
           index:
-            title: status
+            title: Statusar
           new:
             create: Skapa status
             title: Ny status
@@ -148,12 +148,12 @@ sv:
           stats:
             attendees: Deltagare
             back_to_result: Gå tillbaka till resultatet
-            comments: kommentarer
+            comments: Kommentarer
             contributions: Bidrag
             last_edited_by: Senast ändrad av
             last_updated_at: Senast uppdaterad den
-            meetings: möten
-            number_of_versions: versioner
+            meetings: Möten
+            number_of_versions: Versioner
             proposals: förslag
             show_all_versions: Visa alla versioner
             version_author: Version författare
@@ -166,7 +166,7 @@ sv:
       versions:
         index:
           changes_at_title: Ändringar vid "%{title}"
-          title: versioner
+          title: Versioner
         show:
           changes_at_title: Ändringar vid "%{title}"
         version:
@@ -178,7 +178,7 @@ sv:
           global:
             categories_label: Namn för "kategorier"
             comments_enabled: Kommentarer aktiverade
-            display_progress_enabled: Visningsframsteg
+            display_progress_enabled: Visa framsteg
             heading_leaf_level_results: Namn på "Projekt"
             heading_parent_level_results: Namn på "Resultat"
             intro: Intro
