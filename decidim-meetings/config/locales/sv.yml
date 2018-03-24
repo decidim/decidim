@@ -34,7 +34,7 @@ sv:
       meetings:
         actions:
           join: Gå med
-        name: möten
+        name: Möten
         settings:
           global:
             announcement: Meddelande
