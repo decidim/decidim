@@ -41,7 +41,7 @@ sv:
         destroy:
           success: Församlingen förstördes framgångsrikt.
         edit:
-          update: Uppdatering
+          update: Uppdatera
         form:
           title: Allmän information
         index:
@@ -79,7 +79,7 @@ sv:
           success: Användaren förstördes framgångsrikt för denna montering.
         edit:
           title: Uppdatera monteringsanvändaren.
-          update: Uppdatering
+          update: Uppdatera
         index:
           assembly_admins_title: Monteringsanvändare
         new:
