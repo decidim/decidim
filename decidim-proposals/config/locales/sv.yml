@@ -28,7 +28,7 @@ sv:
         settings:
           global:
             announcement: Meddelande
-            attachments_allowed: Tillåt bilagor
+            attachments_allowed: Tillåt bifogade filer
             can_accumulate_supports_beyond_threshold: Kan ackumulera stöd över gränsen
             comments_enabled: Kommentarer aktiverade
             geocoding_enabled: Geocoding aktiverad
@@ -45,7 +45,7 @@ sv:
             vote_limit: Rösta per användare
           step:
             announcement: Meddelande
-            comments_blocked: Kommentarer blockerad
+            comments_blocked: Kommentarer blockerade
             creation_enabled: Förslagstillverkning möjliggjorde
             endorsements_blocked: Anmärkningar blockerade
             endorsements_enabled: Anmärkningar aktiverade
@@ -334,7 +334,7 @@ sv:
             one: RÖST
             other: RÖSTER
           most_popular_proposal: Mest populära förslaget
-          need_more_votes: Behöver flera röster
+          need_more_votes: Behöver fler röster
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Varje förslag kan samla mer än %{limit} stöd
