@@ -11,7 +11,7 @@ sv:
         description: Beskrivning
         developer_group: Utvecklargrupp
         domain: Domän
-        hashtag: hashtag
+        hashtag: Hashtag
         hero_image: Hembild
         local_area: Lokalt område
         meta_scope: Omfattning metadata
@@ -47,7 +47,7 @@ sv:
         index:
           not_published: Ej publicerad
           private: Privat
-          public: offentlig
+          public: Offentlig
           published: Publicerad
         new:
           create: Skapa
@@ -158,7 +158,7 @@ sv:
         scope: Omfattning
         target: Mål
       statistics:
-        answers_count: svar
+        answers_count: Svar
         assemblies_count: Assemblies
         comments_count: kommentarer
         debates_count: debatter
