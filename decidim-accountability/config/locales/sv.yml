@@ -49,7 +49,7 @@ sv:
             success: Resultatet har tagits bort
           edit:
             title: Ändra resultat
-            update: Uppdateringsresultat
+            update: Uppdatera resultat
           form:
             add_proposal: Lägg till förslag
           index:
@@ -134,7 +134,7 @@ sv:
             other: "%{count} resultat"
         filters:
           all: Alla
-          scopes: Scopes
+          scopes: Omfattningar
         home:
           categories_label: kategorier
           subcategories_label: kategorier
