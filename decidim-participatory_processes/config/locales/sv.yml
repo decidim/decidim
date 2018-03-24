@@ -32,7 +32,7 @@ sv:
       participatory_process_group:
         description: Beskrivning
         hero_image: Bild
-        name: namn
+        name: Namn
         participatory_process_ids: Relaterade processer
       participatory_process_step:
         description: Beskrivning
@@ -83,7 +83,7 @@ sv:
           name: Deltagande process
         participatory_process_group:
           fields:
-            name: namn
+            name: Namn
           name: Processgrupp
         participatory_process_step:
           fields:
@@ -94,7 +94,7 @@ sv:
         participatory_process_user_role:
           fields:
             email: E-post
-            name: namn
+            name: Namn
             role: Roll
           name: Deltagande processanvändare
           roles:
@@ -260,7 +260,7 @@ sv:
       order_by_processes:
         active: Aktiva
         all: Alla
-        past: Dåtid
+        past: Tidigare
         upcoming: kommande
       pages:
         home:
