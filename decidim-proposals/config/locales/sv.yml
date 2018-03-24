@@ -8,7 +8,7 @@ sv:
         category_id: Kategori
         has_address: Har adress
         scope_id: Omfattning
-        state: stat
+        state: Status
         title: Titel
         user_group_id: Skapa förslag som
       proposal_answer:
@@ -213,12 +213,12 @@ sv:
             comments: kommentarer
             created_at: Skapad vid
             id: ID
-            notes: anteckningar
+            notes: Anteckningar
             official_proposal: Officiellt förslag
             scope: Omfattning
-            state: stat
+            state: Status
             title: Titel
-            votes: röster
+            votes: Röster
       new:
         limit_reached: Du kan inte skapa nya förslag eftersom du har överskridit gränsen.
       proposal_endorsements:
@@ -272,8 +272,8 @@ sv:
           rejected: avvisade
           related_to: Relaterat till
           search: Sök
-          state: stat
-          voted: Framröstad
+          state: Status
+          voted: Röstade
         filters_small_view:
           close_modal: Stäng modal
           filter: Filtrera
@@ -346,7 +346,7 @@ sv:
           vote_limit:
             description: Du kan rösta upp till %{limit} förslag.
             left: Återstående
-            votes: röster
+            votes: Röster
         wizard_aside:
           back: Tillbaka
           info: Du skapar ett <strong>förslag</strong>.
