@@ -12,7 +12,7 @@ sv:
         title: Titel
         user_group_id: Skapa förslag som
       proposal_answer:
-        answer: Svar
+        answer: Svara
       proposals_copy:
         copy_proposals: Jag förstår att detta kommer att importera alla förslag från den valda komponenten till den nuvarande och att den här åtgärden inte kan reverseras.
         origin_component_id: Komponent för att kopiera förslagen från
@@ -121,7 +121,7 @@ sv:
         view_proposal: Visa förslag
     proposals:
       actions:
-        answer: Svar
+        answer: Svara
         import: Importera från en annan komponent
         new: Ny
         private_notes: Privata anteckningar
@@ -138,7 +138,7 @@ sv:
         proposal_answers:
           edit:
             accepted: Accepterad
-            answer_proposal: Svar
+            answer_proposal: Svara
             evaluating: utvärdera
             rejected: avvisade
             title: Svar för förslag %{title}
@@ -296,7 +296,7 @@ sv:
           label: 'Beställ förslag av:'
           most_voted: De flesta röstade
           random: Slumpmässig
-          recent: Nyligen
+          recent: Senaste
         preview:
           modify: Ändra förslaget
           proposal_edit_before_minutes:
