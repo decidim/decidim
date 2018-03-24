@@ -59,7 +59,7 @@ sv:
           description: Det här är de projekt du valt att vara en del av budgeten.
           title: Bekräfta omröstning
         budget_excess:
-          close: Stänga
+          close: Stäng
           description: Detta projekt överstiger den maximala budgeten och kan inte läggas till. Om du vill kan du ta bort ett projekt som du redan har valt för att lägga till eller göra din röst med dina önskemål.
           ok: OK
           title: Maximal budget överskridits
