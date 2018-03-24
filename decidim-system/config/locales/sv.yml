@@ -32,7 +32,7 @@ sv:
       menu:
         admins: Administratörer
         dashboard: Kontrollpanel
-        organizations: organisationer
+        organizations: Organisationer
       models:
         admin:
           fields:
@@ -55,7 +55,7 @@ sv:
         edit:
           secondary_hosts_hint: Ange var och en av dem i en ny rad
         index:
-          title: organisationer
+          title: Organisationer
         new:
           reference_prefix_hint: Referensprefixet används för att unikt identifiera resurser i alla organisationer
           secondary_hosts_hint: Ange var och en av dem i en ny rad
