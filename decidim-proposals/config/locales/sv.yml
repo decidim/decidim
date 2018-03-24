@@ -189,7 +189,7 @@ sv:
           info_proposal:
             body: Innehåll
             created_at: Skapelsedagen
-            proposal_votes_count: Röster räknas
+            proposal_votes_count: Antal röster
             proposals: Förslag
       admin_log:
         proposal:
@@ -275,7 +275,7 @@ sv:
           state: Status
           voted: Röstade
         filters_small_view:
-          close_modal: Stäng modal
+          close_modal: Stäng fönstret
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
