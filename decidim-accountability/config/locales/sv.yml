@@ -133,7 +133,7 @@ sv:
             one: 1 resultat
             other: "%{count} resultat"
         filters:
-          all: Allt
+          all: Alla
           scopes: Scopes
         home:
           categories_label: kategorier
