@@ -75,7 +75,7 @@ sv:
         new:
           back: Tillbaka
           create: Skapa
-          select_a_category: Var god välj en kategori
+          select_a_category: Välj en kategori
           title: Ny debatt
         share:
           close_window: Stäng fönstret
