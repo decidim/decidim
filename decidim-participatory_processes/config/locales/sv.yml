@@ -11,7 +11,7 @@ sv:
         developer_group: Utvecklargrupp
         domain: Domän
         end_date: Slutdatum
-        hashtag: hashtag
+        hashtag: Hashtag
         hero_image: Hembild
         local_area: Lokalt område
         meta_scope: Omfattning metadata
@@ -54,7 +54,7 @@ sv:
         duplicate: Duplicera
         edit: Redigera
         new: Ny
-        preview: Förhandsvisning
+        preview: Förhandsvisa
         publish: Publicera
         resend_invitation: Skicka inbjudan igen
         unpublish: Avpublicera
@@ -186,7 +186,7 @@ sv:
         index:
           not_published: Ej publicerad
           private: Privat
-          public: offentlig
+          public: Offentlig
           published: Publicerad
         new:
           create: Skapa
@@ -284,7 +284,7 @@ sv:
         start_date: Start datum
         target: Vem deltar
       statistics:
-        answers_count: svar
+        answers_count: Svar
         comments_count: kommentarer
         debates_count: debatter
         endorsements_count: påskrifter
