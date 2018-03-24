@@ -166,7 +166,7 @@ sv:
             cancel: Annullera
             change_category: Ändra kategori
             selected: vald
-            title: förslag
+            title: Förslag
             update: Uppdatera
           new:
             create: Skapa
@@ -210,7 +210,7 @@ sv:
         proposal:
           fields:
             category: Kategori
-            comments: kommentarer
+            comments: Kommentarer
             created_at: Skapad vid
             id: ID
             notes: Anteckningar
@@ -229,7 +229,7 @@ sv:
           select_identity: Välj identitet
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Endorsed
+          already_endorsed: Stött
           endorse: Stödja
       proposal_votes:
         create:
@@ -265,7 +265,7 @@ sv:
           all: Alla
           category: Kategori
           category_prompt: Välj en kategori
-          citizens: medborgare
+          citizens: Medborgare
           evaluating: utvärdera
           official: Officiell
           origin: Ursprung
@@ -290,7 +290,7 @@ sv:
         new:
           attachment_legend: "(Valfritt) Lägg till en bilaga"
           select_a_category: Var god välj en kategori
-          send: Fortsätta
+          send: Fortsätt
           title: Skapa ditt förslag
         orders:
           label: 'Beställ förslag av:'
