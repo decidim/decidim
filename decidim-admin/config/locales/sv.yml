@@ -425,7 +425,7 @@ sv:
           badge: Bricka
           created_at: Skapad vid
           filter:
-            all: Allt
+            all: Alla
             not_officialized: Ej officiellt
             officialized: Officialized
           filter_by: Filtrera efter
@@ -452,7 +452,7 @@ sv:
           instagram: Instagram
           social_handlers: Social
           twitter: Twitter
-          url: url
+          url: URL
           youtube: Youtube
         update:
           error: Det uppstod ett fel vid uppdateringen av den här organisationen.
@@ -551,7 +551,7 @@ sv:
       user_groups:
         index:
           filter:
-            all: Allt
+            all: Alla
             pending: Avvaktan
             rejected: avvisade
             verified: Verifierad
