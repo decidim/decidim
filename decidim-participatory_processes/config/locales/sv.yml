@@ -21,7 +21,7 @@ sv:
         promoted: främjas
         published_at: Publicerad på
         scope_id: Omfattning
-        scopes_enabled: Scopes aktiverade
+        scopes_enabled: Omfattningar aktiverade
         short_description: Kort beskrivning
         show_statistics: Visa statistik
         slug: URL slug
