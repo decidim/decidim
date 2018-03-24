@@ -37,7 +37,7 @@ sv:
         enable_omnipresent_banner: Visa omnipresent banner
         facebook_handler: Facebook-hanterare
         favicon: Ikon
-        github_handler: GitHub hanterare
+        github_handler: GitHub-hanterare
         header_snippets: Rubrikrubriker
         highlighted_content_banner_action_subtitle: Åtgärdsknapp textning
         highlighted_content_banner_action_title: Åtgärdsknappens titel
@@ -47,7 +47,7 @@ sv:
         highlighted_content_banner_short_description: Kort beskrivning
         highlighted_content_banner_title: Titel
         homepage_image: Hemsida bild
-        instagram_handler: Instagram handler
+        instagram_handler: Instagram-hanterare
         logo: Logo
         name: Namn
         official_img_footer: Officiell logo footer
@@ -180,7 +180,7 @@ sv:
         destroy:
           success: Bilagan förstördes framgångsrikt.
         edit:
-          title: Redigera bilagan
+          title: Redigera bifogade fil
           update: Uppdatera
         index:
           attachments_title: Bifogade filer
