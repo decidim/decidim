@@ -118,7 +118,7 @@ sv:
             vote_threshold_percent: Rösta tröskel procent
           step:
             announcement: Meddelande
-            comments_blocked: Kommentarer blockerad
+            comments_blocked: Kommentarer blockerade
             show_votes: Visa röster
             votes_enabled: Röster aktiverade
     orders:
