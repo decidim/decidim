@@ -15,7 +15,7 @@ sv:
         description: Beskrivning
         end_time: Sluttid
         location: Plats
-        location_hints: Plats tips
+        location_hints: Platstips
         registration_terms: Registreringsvillkor
         registrations_enabled: Registreringar aktiverade
         start_time: Starttid
@@ -84,11 +84,11 @@ sv:
         edit: Redigera
         new: Ny
         preview: Förhandsvisa
-        registrations: registreringar
+        registrations: Registreringar
         title: Handlingar
       admin:
         exports:
-          registrations: registreringar
+          registrations: Registreringar
         invite_join_meeting_mailer:
           invite:
             invited_you_to_join_a_meeting: "%{invited_by} har bjudit in dig till ett möte på %{application}. Du kan acceptera det via länken nedan."
@@ -104,7 +104,7 @@ sv:
         meeting_closes:
           edit:
             close: Stäng
-            title: Stängt möte
+            title: Stäng mötet
         meetings:
           close:
             invalid: Det här problemet har avslutats
@@ -175,7 +175,7 @@ sv:
           cancel: Avbryt
           confirm: Bekräfta
         show:
-          attendees: Deltagare räknas
+          attendees: Antal deltagare
           contributions: Bidragsräkning
           going: Jag kommer
           join: Gå med i mötet
