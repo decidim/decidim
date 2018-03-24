@@ -24,7 +24,7 @@ sv:
           endorse: Stödja
           vote: Rösta
           withdraw: Dra tillbaka
-        name: förslag
+        name: Förslag
         settings:
           global:
             announcement: Meddelande
@@ -108,13 +108,13 @@ sv:
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
-          proposals: förslag
+          proposals: Förslag
         proposal:
           creation_date: 'Skapelse: %{date}'
           view_proposal: Visa förslag
     participatory_spaces:
       highlighted_proposals:
-        proposals: förslag
+        proposals: Förslag
         see_all_proposals: Se alla förslag
       proposal:
         creation_date: 'Skapelse: %{date}'
@@ -131,7 +131,7 @@ sv:
           preview: Förhandsvisa
         exports:
           comments: Kommentarer
-          proposals: förslag
+          proposals: Förslag
         models:
           proposal:
             name: Förslag
@@ -190,7 +190,7 @@ sv:
             body: Innehåll
             created_at: Skapelsedagen
             proposal_votes_count: Röster räknas
-            proposals: förslag
+            proposals: Förslag
       admin_log:
         proposal:
           answer: "%{user_name} svarade på %{resource_name} -förslaget på %{space_name} -utrymmet"
@@ -270,7 +270,7 @@ sv:
           official: Officiell
           origin: Ursprung
           rejected: avvisade
-          related_to: Relaterat till
+          related_to: Relaterad till
           search: Sök
           state: Status
           voted: Röstade
@@ -294,7 +294,7 @@ sv:
           title: Skapa ditt förslag
         orders:
           label: 'Beställ förslag av:'
-          most_voted: De flesta röstade
+          most_voted: Mest röstade
           random: Slumpmässig
           recent: Senaste
         preview:
@@ -345,7 +345,7 @@ sv:
           title: 'Röstning är föremål för följande regler:'
           vote_limit:
             description: Du kan rösta upp till %{limit} förslag.
-            left: Återstående
+            left: Kvar
             votes: Röster
         wizard_aside:
           back: Tillbaka
