@@ -63,7 +63,7 @@ sv:
         participatory_processes: processer
         participatory_processes_submenu:
           attachment_collections: samlingar
-          attachment_files: filer
+          attachment_files: Filer
           attachments: bilagor
           categories: kategorier
           components: Komponenter
@@ -290,15 +290,15 @@ sv:
         endorsements_count: påskrifter
         headline: Aktivitet
         meetings_count: möten
-        orders_count: röster
-        pages_count: sidor
+        orders_count: Röster
+        pages_count: Sidor
         processes_count: processer
         projects_count: projekt
         proposals_count: förslag
         results_count: Resultat
         surveys_count: Undersökningar
         users_count: Deltagare
-        votes_count: röster
+        votes_count: Röster
   layouts:
     decidim:
       participatory_process_groups:
