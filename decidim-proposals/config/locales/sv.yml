@@ -2,7 +2,7 @@ sv:
   activemodel:
     attributes:
       proposal:
-        answer: Svar
+        answer: Svara
         answered_at: Besvaras vid
         body: Innehåll
         category_id: Kategori
@@ -128,7 +128,7 @@ sv:
         title: Handlingar
       admin:
         actions:
-          preview: Förhandsvisning
+          preview: Förhandsvisa
         exports:
           comments: kommentarer
           proposals: förslag
@@ -167,7 +167,7 @@ sv:
             change_category: Ändra kategori
             selected: vald
             title: förslag
-            update: Uppdatering
+            update: Uppdatera
           new:
             create: Skapa
             title: Skapa förslag
@@ -249,7 +249,7 @@ sv:
           send: Skicka
           title: Redigera förslag
         edit_draft:
-          send: Förhandsvisning
+          send: Förhandsvisa
           title: Redigera förslagskoncept
         endorsement_identities_cabin:
           endorse: Stödja
