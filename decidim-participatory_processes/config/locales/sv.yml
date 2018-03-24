@@ -259,7 +259,7 @@ sv:
         title: Deltagande processer
       order_by_processes:
         active: Aktiva
-        all: Allt
+        all: Alla
         past: Dåtid
         upcoming: kommande
       pages:
