@@ -96,7 +96,7 @@ sv:
         short_description: Kort beskrivning
         slug: URL slug
         start_date: Start datum
-        subtitle: Texta
+        subtitle: Underrubrik
         target: Mål
         title: Titel
       decidim/participatory_process_group:
@@ -113,7 +113,7 @@ sv:
         title: Titel
   date:
     formats:
-      datepicker: "%m / %d / %Y"
+      datepicker: "%d/%m/%Y"
   decidim:
     admin:
       actions:
@@ -397,7 +397,7 @@ sv:
           error_already_sent: 'Kan inte förstöra nyhetsbrev: Det har redan skickats.'
           success: Nyhetsbrevet förstördes framgångsrikt.
         edit:
-          save_and_preview: Spara och förhandsgranska
+          save_and_preview: Spara och förhandsvisa
           title: Redigera nyhetsbrev
         form:
           interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i kroppen eller ämnet och det kommer att ersättas av mottagarens namn.'
@@ -613,5 +613,5 @@ sv:
           title: Användare
   time:
     formats:
-      datepicker: "%m / %d / %Y"
+      datepicker: "%d/%m/%Y"
       timepicker: "%m / %d / %Y %H:%M"
