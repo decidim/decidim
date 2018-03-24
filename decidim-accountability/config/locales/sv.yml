@@ -184,7 +184,7 @@ sv:
             intro: Intro
             subcategories_label: Namn på "Underkategorier"
           step:
-            comments_blocked: Kommentarer blockerad
+            comments_blocked: Kommentarer blockerade
     events:
       accountability:
         proposal_linked:
