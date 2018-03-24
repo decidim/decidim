@@ -79,7 +79,7 @@ sv:
           pending_authorizations:
             index:
               title: Väntar på kontroller
-              verification_number: 'Verifiering # %{n}'
+              verification_number: 'Verifiering #%{n}'
           rejections:
             create:
               success: Verifikationen avvisades. Användaren kommer att uppmanas att ändra sina dokument
