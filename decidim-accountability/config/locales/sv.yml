@@ -137,7 +137,7 @@ sv:
           scopes: Omfattningar
         home:
           categories_label: Kategorier
-          subcategories_label: kategorier
+          subcategories_label: Underkategorier
         home_header:
           global_status: Global exekveringsstatus
         nav_breadcrumb:
