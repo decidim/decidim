@@ -163,7 +163,7 @@ sv:
             select_a_category: Välj en kategori
           index:
             actions: Handlingar
-            cancel: Annullera
+            cancel: Avbryt
             change_category: Ändra kategori
             selected: vald
             title: Förslag
