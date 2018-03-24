@@ -58,7 +58,7 @@ sv:
             other: kommentarer
           participate: Delta
         filters:
-          all: Allt
+          all: Alla
           category: Kategori
           category_prompt: Välj en kategori
           citizens: medborgare
