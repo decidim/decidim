@@ -263,7 +263,7 @@ sv:
           greeting: Hej, %{recipient}!
           intro: "%{sender} har startat en ny konversation med dig. Klicka här för att se det:"
           outro: Njut av decidim!
-          subject: "%{sender} har börjat samtala med dig"
+          subject: "%{sender} har startat en konversation med dig"
         new_message:
           greeting: Hej, %{recipient}!
           intro: "%{sender} har lagt upp nya meddelanden i din konversation. Klicka här för att se dem:"
@@ -277,14 +277,14 @@ sv:
           title: samtal
         reply:
           send: Skicka
-          title: Svar
+          title: Svara
         show:
           title: Samtal med %{usernames}
         start:
           send: Skicka
           title: Starta en konversation
         update:
-          error: Meddelandet är inte skickat. Försök igen senare
+          error: Meddelandet har inte skickats. Försök igen senare
     newsletter_mailer:
       newsletter:
         note: Du har fått det här e-postmeddelandet eftersom du prenumererar på nyhetsbrev på %{organization_name}. Du kan ändra dina inställningar på <a href="%{link}">anmälningssidan</a>.
@@ -296,10 +296,10 @@ sv:
         error: Ett fel har avbrutits
         success: Du är avstängd med framgång.
         token_error: Länken har löpt ut.
-        unsubscribe: Säga upp
+        unsubscribe: Avprenumerera
     notifications_settings:
       show:
-        email_on_notification: Jag vill ta emot ett mail varje gång jag får ett meddelande.
+        email_on_notification: Jag vill få ett e-postmeddelande varje gång jag får en avisering.
         newsletter_notifications: Jag vill få nyhetsbrev
         update_notifications_settings: Spara ändringar
       update:
@@ -321,7 +321,7 @@ sv:
       default_officialization_text: Denna deltagare är offentligt verifierad, hans / hennes namn eller roll har verifierats för att motsvara hans / hennes riktiga namn och roll
       show:
         about_me: Om mig
-        personal_url: Personlig hemsida
+        personal_url: Personlig webbplats
     reported_mailer:
       hide:
         hello: Hej %{name},
@@ -331,7 +331,7 @@ sv:
       report:
         hello: Hej %{name},
         manage_moderations: Hantera moderationer
-        report_html: <p>Följande <a href="%{url}">content</a> har rapporterats.</p>
+        report_html: <p>Följande <a href="%{url}">-innehåll</a> har rapporterats.</p>
         subject: En resurs har rapporterats
     reports:
       create:
@@ -371,14 +371,14 @@ sv:
           ok: Ok
           title: Inte behörig
       author:
-        deleted: Ta bort användare
+        deleted: Raderad användare
       embed_modal:
         close_window: Stäng fönstret
         embed: Vänligen klistra in den här koden på din sida
         embed_link: Bädda in
       flag_modal:
         already_reported: Det här innehållet är redan rapporterat och det kommer att granskas av en administratör.
-        close: Stänga
+        close: Stäng
         description: Är detta innehåll olämpligt?
         does_not_belong: Innehåller olaglig aktivitet, självmordshot, personlig information eller något annat du tror inte hör hemma på %{organization_name}.
         offensive: Innehåller rasism, sexism, slurkar, personliga attacker, dödshot, självmordsförfrågningar eller någon form av hattal.
@@ -388,7 +388,7 @@ sv:
       follow_button:
         sign_in_before_follow: Vänligen logga in innan du utför den här åtgärden
       login_modal:
-        please_sign_in: Var god logga in
+        please_sign_in: Vänligen logga in
         sign_up: Bli Medlem
       reference:
         reference: 'Referens: %{reference}'
@@ -396,10 +396,10 @@ sv:
         label: 'Resultat per sida:'
       share_modal:
         close_window: Stäng fönstret
-        share: Dela med sig
+        share: Dela
         share_link: Dela länk
       version_author:
-        deleted: Ta bort användare
+        deleted: Raderad användare
   devise:
     invitations:
       edit:
