@@ -147,7 +147,7 @@ sv:
             error: Det har varit ett problem att skapa denna förslagsnotering
             success: Förslagsmeddelande med framgång skapad
           form:
-            note: Notera
+            note: Annteckning
             submit: Lämna
           leave_your_note: Lämna din anteckning
           title: Privata anteckningar
@@ -187,7 +187,7 @@ sv:
             select_states: Kontrollera tillstånden för de förslag som ska importeras
         shared:
           info_proposal:
-            body: Kropp
+            body: Innehåll
             created_at: Skapelsedagen
             proposal_votes_count: Röster räknas
             proposals: förslag
@@ -225,7 +225,7 @@ sv:
         create:
           error: Det har varit fel när man godkände förslaget.
         identities:
-          done: Gjort
+          done: Klar
           select_identity: Välj identitet
       proposal_endorsements_helper:
         endorsement_button:
@@ -285,7 +285,7 @@ sv:
           view_proposal: Visa förslag
         linked_proposals:
           proposal_votes:
-            one: rösta
+            one: röst
             other: röster
         new:
           attachment_legend: "(Valfritt) Lägg till en bilaga"
