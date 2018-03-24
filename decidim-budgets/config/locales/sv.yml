@@ -35,7 +35,7 @@ sv:
           index:
             finished_orders: Avslutade röster
             pending_orders: Avventer röster
-            title: projekt
+            title: Projekt
           new:
             create: Skapa
             title: Nytt resultat
@@ -109,7 +109,7 @@ sv:
       budgets:
         actions:
           vote: Rösta
-        name: budgetar
+        name: Budgetar
         settings:
           global:
             announcement: Meddelande
