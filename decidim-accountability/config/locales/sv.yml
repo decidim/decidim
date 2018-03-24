@@ -58,7 +58,7 @@ sv:
             create: Skapa resultat
             title: Nytt resultat
           proposals:
-            close: Stänga
+            close: Stäng
             current_selection: Aktuellt urval
             select: Välj
           update:
