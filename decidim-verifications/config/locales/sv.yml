@@ -99,8 +99,8 @@ sv:
           update:
             error: Ett problem uppstod vid uppladdning av dokumentet
             success: Dokumentet uppladdades framgångsrikt
-        dni: DNI
-        nie: NIE
+        dni: ID-kort
+        nie: Personnummer
         passport: Pass
       postal_letter:
         admin:
