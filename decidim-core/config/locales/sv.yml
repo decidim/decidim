@@ -274,7 +274,7 @@ sv:
           error: Samtalet startade inte. Försök igen senare
         index:
           no_conversations: Du har inga samtal ännu
-          title: samtal
+          title: Konversationer
         reply:
           send: Skicka
           title: Svara
@@ -556,7 +556,7 @@ sv:
   views:
     pagination:
       first: "&laquo; Första"
-      last: Senaste &raquo;
+      last: Sista &raquo;
       next: Nästa &rsaquo;
-      previous: "&lsaquo; Föreg"
+      previous: "&lsaquo; Föregående"
       truncate: "&hellip;"
