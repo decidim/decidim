@@ -296,7 +296,7 @@ sv:
         admins: admins
         appearance: Utseende
         area_types: Areortyper
-        areas: områden
+        areas: Områden
         configuration: Konfiguration
         dashboard: instrumentbräda
         managed_users: Administrerade användare
@@ -305,9 +305,9 @@ sv:
         scope_types: Omfattningstyper
         scopes: Scopes
         settings: inställningar
-        static_pages: sidor
+        static_pages: Sidor
         user_groups: Användargrupper
-        users: användare
+        users: Användare
       models:
         area:
           fields:
@@ -330,7 +330,7 @@ sv:
           name: Kategori
         impersonation_log:
           fields:
-            admin: Administration
+            admin: Admin
             ended_at: Avslutad vid
             expired_at: Förfallit ut vid
             started_at: Börjat vid
@@ -366,7 +366,7 @@ sv:
             name: Namn
             role: Roll
             roles:
-              admin: Administration
+              admin: Admin
               user_manager: Användarhanteraren
           name: Användare
         user_group:
@@ -376,7 +376,7 @@ sv:
             document_number: Dokumentnummer
             name: Namn
             phone: Telefon
-            state: stat
+            state: Status
             users_count: Användare räknas
       moderations:
         index:
@@ -422,7 +422,7 @@ sv:
           success: Användaren inofficiellt framgångsrikt
         index:
           actions: Handlingar
-          badge: Bricka
+          badge: Emblem
           created_at: Skapad vid
           filter:
             all: Alla
@@ -530,7 +530,7 @@ sv:
       titles:
         admin_log: Admin logg
         area_types: Areortyper
-        areas: områden
+        areas: Områden
         authorization_workflows: Verifieringsmetoder
         dashboard: instrumentbräda
         impersonations: impersonations
@@ -538,9 +538,9 @@ sv:
         officializations: Officializations
         scope_types: Omfattningstyper
         scopes: Scopes
-        static_pages: sidor
+        static_pages: Sidor
         user_groups: Användargrupper
-        users: användare
+        users: Användare
       user_group:
         reject:
           invalid: Det uppstod ett fel när du avvisade den här användargruppen.
@@ -594,7 +594,7 @@ sv:
         moderation:
           fields:
             hidden_at: Dold vid
-            report_count: Räkna
+            report_count: Antal
             reportable: rapporter
             reported_content_url: Rapporterad innehållsadress
             reports: rapporter
@@ -610,7 +610,7 @@ sv:
         settings:
           title: inställningar
         users:
-          title: användare
+          title: Användare
   time:
     formats:
       datepicker: "%m / %d / %Y"
