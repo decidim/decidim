@@ -134,10 +134,10 @@ sv:
             dummy_global_attribute_1: Dummy Attribut 1
             dummy_global_attribute_2: Dummy Attribut 2
           step:
-            comments_blocked: Kommentarer blockerad
+            comments_blocked: Kommentarer blockerade
             dummy_step_attribute_1: Dummy Step Attribut 1
             dummy_step_attribute_2: Dummy Step Attribut 2
-    contact: Kontakta
+    contact: Kontakt
     core:
       actions:
         unauthorized: Du har inte behörighet att utföra denna åtgärd
@@ -157,11 +157,11 @@ sv:
           newsletter: Få ett tillfälligt nyhetsbrev med relevant information
           nickname_help: Din korta, unika identifierare i decidim
           sign_in: Logga in
-          sign_up: Bli Medlem
+          sign_up: Registrera
           sign_up_as:
             legend: Registrera dig som
-            user: Enskild
-            user_group: Organisation / Kollektiv
+            user: Privatperson
+            user_group: Organisation/Kollektiv
           subtitle: Anmäl dig för att delta i diskussioner och supportförslag.
           terms: användarvillkoren
           tos_agreement: Genom att registrera dig godkänner du %{link}.
@@ -205,7 +205,7 @@ sv:
         profile_updated:
           email_intro: <a href="%{resource_url}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
           email_outro: Du har fått den här meddelandet eftersom du följer %{nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
-          email_subject: "%{nickname} updated deras profile"
+          email_subject: "%{nickname} uppdaterade sin profil"
           notification_title: <a href="%{resource_path}">profilsidan</a> av %{name} (%{nickname}), som du följer, har uppdaterats.
     export_mailer:
       export:
@@ -213,11 +213,11 @@ sv:
       subject: Din export "%{name}" är klar
     filters:
       linked_classes:
-        all: Allt
+        all: Alla
         dummyresource: Dummy resurser
-        meeting: möten
-        project: projekt
-        proposal: förslag
+        meeting: Möten
+        project: Projekt
+        proposal: Förslag
         result: Resultat
     follows:
       create:
