@@ -15,7 +15,7 @@ sv:
       admin:
         models:
           components:
-            body: Kropp
+            body: Innehåll
         pages:
           edit:
             save: Uppdatering
