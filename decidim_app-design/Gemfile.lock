@@ -92,7 +92,6 @@ PATH
     decidim-dev (0.11.0.pre)
       byebug (~> 10.0)
       capybara (~> 2.15)
-      codecov (~> 0.1.9)
       db-query-matchers (~> 0.9.0)
       decidim (= 0.11.0.pre)
       erb_lint (~> 0.0.22)
@@ -235,10 +234,6 @@ GEM
       cells (>= 4.1.6, < 5.0.0)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
-    codecov (0.1.10)
-      json
-      simplecov
-      url
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     coffee-rails (4.2.2)
@@ -594,7 +589,6 @@ GEM
     uglifier (4.1.7)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.3.0)
-    url (0.3.2)
     valid_email2 (2.2.2)
       activemodel (>= 3.2)
       mail (~> 2.5)
