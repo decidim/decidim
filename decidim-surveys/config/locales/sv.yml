@@ -16,7 +16,7 @@ sv:
           global:
             announcement: Meddelande
           step:
-            allow_answers: Tillåt svar
+            allow_answers: Tillåta svar
             announcement: Meddelande
     events:
       surveys:
