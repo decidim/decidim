@@ -132,7 +132,7 @@ sv:
           success: Typ av område framgångsrikt förstört
         edit:
           title: Redigera områdets typ
-          update: Uppdatering
+          update: Uppdatera
         new:
           create: Skapa områdets typ
           title: Ny typ av område
@@ -147,7 +147,7 @@ sv:
           success: Området framgångsrikt förstörs
         edit:
           title: Redigera område
-          update: Uppdatering
+          update: Uppdatera
         new:
           create: Skapa område
           title: Nytt område
@@ -163,7 +163,7 @@ sv:
           success: Samlingen förstördes framgångsrikt.
         edit:
           title: Redigera samling
-          update: Uppdatering
+          update: Uppdatera
         index:
           attachment_collection_used: Denna samling kan inte tas bort eftersom den är i bruk.
           attachment_collections_title: Bilagor
@@ -225,7 +225,7 @@ sv:
           success: Komponenten har tagits bort.
         edit:
           title: Redigera komponent
-          update: Uppdatering
+          update: Uppdatera
         form:
           default_step_settings: Standard steginställningar
           global_settings: Globala inställningar
@@ -459,7 +459,7 @@ sv:
           success: Organisationen uppdateras framgångsrikt.
       organization_appearance:
         edit:
-          update: Uppdatering
+          update: Uppdatera
         form:
           cta_button_path_help: 'Du kan skriva över var knappen Kalla till handling på hemsidan länkar till. Använd partiella sökvägar, inte fullständiga webbadresser här. Accepterar bokstäver, siffror, bindestreck och snedstreck, och måste börja med ett brev. Knappen Ring till handling visas på hemsidan mellan välkomsttexten och beskrivningen. Exempel: %{url}'
           cta_button_text_help: Du kan skriva över textknappen Ring till handling på hemsidan för varje tillgängligt språk i din organisation. Om den inte är inställd kommer standardvärdet att användas. Knappen Ring till handling visas på hemsidan mellan välkomsttexten och beskrivningen.
@@ -487,7 +487,7 @@ sv:
           success: Omfattningstypen förstörs framgångsrikt
         edit:
           title: Redigera omfattningstyp
-          update: Uppdatering
+          update: Uppdatera
         new:
           create: Skapa omfattningstyp
           title: Nytt räckvidd
