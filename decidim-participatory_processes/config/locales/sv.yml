@@ -26,7 +26,7 @@ sv:
         show_statistics: Visa statistik
         slug: URL slug
         start_date: Start datum
-        subtitle: Texta
+        subtitle: Underrubrik
         target: Mål
         title: Titel
       participatory_process_group:
@@ -261,7 +261,7 @@ sv:
         active: Aktiva
         all: Alla
         past: Tidigare
-        upcoming: kommande
+        upcoming: Kommande
       pages:
         home:
           highlighted_processes:
@@ -285,15 +285,15 @@ sv:
         target: Vem deltar
       statistics:
         answers_count: Svar
-        comments_count: kommentarer
+        comments_count: Kommentarer
         debates_count: Debatter
         endorsements_count: påskrifter
         headline: Aktivitet
-        meetings_count: möten
+        meetings_count: Möten
         orders_count: Röster
         pages_count: Sidor
         processes_count: processer
-        projects_count: projekt
+        projects_count: Projekt
         proposals_count: förslag
         results_count: Resultat
         surveys_count: Undersökningar
