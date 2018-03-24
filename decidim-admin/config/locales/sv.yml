@@ -181,7 +181,7 @@ sv:
           success: Bilagan förstördes framgångsrikt.
         edit:
           title: Redigera bilagan
-          update: Uppdatering
+          update: Uppdatera
         index:
           attachments_title: bilagor
         new:
@@ -199,7 +199,7 @@ sv:
           success: Kategori raderas framgångsrikt.
         edit:
           title: Redigera kategori
-          update: Uppdatering
+          update: Uppdatera
         index:
           categories_title: kategorier
           category_used: Den här kategorin kan inte tas bort eftersom den används.
@@ -293,7 +293,7 @@ sv:
             promote: Främja
       menu:
         admin_log: Adminaktivitetslogg
-        admins: admins
+        admins: Administratörer
         appearance: Utseende
         area_types: Areortyper
         areas: Områden
@@ -303,7 +303,7 @@ sv:
         newsletters: nyhetsbrev
         officializations: Officializations
         scope_types: Omfattningstyper
-        scopes: Scopes
+        scopes: Omfattningar
         settings: inställningar
         static_pages: Sidor
         user_groups: Användargrupper
@@ -445,7 +445,7 @@ sv:
       organization:
         edit:
           title: Redigera organisation
-          update: Uppdatering
+          update: Uppdatera
         form:
           facebook: Facebook
           github: GitHub
@@ -502,7 +502,7 @@ sv:
           success: Omfattning framgångsrikt förstörs
         edit:
           title: Redigera räckvidd
-          update: Uppdatering
+          update: Uppdatera
         new:
           create: Skapa omfattning
           title: Nytt räckvidd
@@ -520,7 +520,7 @@ sv:
           success: Sidan förstördes framgångsrikt
         edit:
           title: Redigera sida
-          update: Uppdatering
+          update: Uppdatera
         new:
           create: Skapa
           title: Ny sida
@@ -537,7 +537,7 @@ sv:
         managed_users: Administrerade användare
         officializations: Officializations
         scope_types: Omfattningstyper
-        scopes: Scopes
+        scopes: Omfattningar
         static_pages: Sidor
         user_groups: Användargrupper
         users: Användare
@@ -573,7 +573,7 @@ sv:
           name: Namn
           role: Roll
         new:
-          create: Inbjudan
+          create: Bjud in
           title: Bjud in användaren som administratör
     moderations:
       actions:
