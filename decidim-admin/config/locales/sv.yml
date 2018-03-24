@@ -37,7 +37,7 @@ sv:
         enable_omnipresent_banner: Visa omnipresent banner
         facebook_handler: Facebook-hanterare
         favicon: Ikon
-        github_handler: GitHub handler
+        github_handler: GitHub hanterare
         header_snippets: Rubrikrubriker
         highlighted_content_banner_action_subtitle: Åtgärdsknapp textning
         highlighted_content_banner_action_title: Åtgärdsknappens titel
@@ -52,14 +52,14 @@ sv:
         name: Namn
         official_img_footer: Officiell logo footer
         official_img_header: Officiell logotyphuvud
-        official_url: Officiell organisationsadress
+        official_url: Officiell URL
         omnipresent_banner_short_description: Kort beskrivning
         omnipresent_banner_title: Titel
         omnipresent_banner_url: URL
         reference_prefix: Referensprefix
         show_statistics: Visa statistik
         twitter_handler: Twitter-hanterare
-        welcome_text: Välkommen text
+        welcome_text: Välkomsttext
         youtube_handler: YouTube-hanterare
       scope:
         code: Kod
@@ -169,7 +169,7 @@ sv:
           attachment_collections_title: Bilagor
         new:
           create: Skapa
-          title: Ny kollektion
+          title: Ny samling
         update:
           error: Det uppstod ett fel vid uppdateringen av denna samling.
           success: Samlingen uppdaterades framgångsrikt.
@@ -186,7 +186,7 @@ sv:
           attachments_title: Bifogade filer
         new:
           create: Skapa bifogad fil
-          title: Ny bilaga
+          title: Ny bifogad fil
         update:
           error: Det uppstod ett fel vid uppdateringen av den här bilagan.
           success: Bilagan uppdaterades framgångsrikt.
@@ -299,7 +299,7 @@ sv:
         areas: Områden
         configuration: Konfiguration
         dashboard: Kontrollpanel
-        managed_users: Administrerade användare
+        managed_users: Hanterade användare
         newsletters: Nyhetsbrev
         officializations: Officializations
         scope_types: Omfattningstyper
@@ -534,7 +534,7 @@ sv:
         authorization_workflows: Verifieringsmetoder
         dashboard: Kontrollpanel
         impersonations: impersonations
-        managed_users: Administrerade användare
+        managed_users: Hanterade användare
         officializations: Officializations
         scope_types: Omfattningstyper
         scopes: Omfattningar
@@ -614,4 +614,4 @@ sv:
   time:
     formats:
       datepicker: "%d/%m/%Y"
-      timepicker: "%m / %d / %Y %H:%M"
+      timepicker: "%d/%m/%Y %H:%M"
