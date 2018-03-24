@@ -11,8 +11,8 @@ sv:
   decidim:
     budgets:
       actions:
-        attachment_collections: samlingar
-        attachments: bilagor
+        attachment_collections: Samlingar
+        attachments: Bifogade filer
         confirm_destroy: Är du säker på att du vill radera detta projekt?
         destroy: Radera
         edit: Redigera
@@ -30,7 +30,7 @@ sv:
           destroy:
             success: Projektet förstördes framgångsrikt
           edit:
-            title: Redigera projektet
+            title: Redigera projekt
             update: Uppdatera
           index:
             finished_orders: Avslutade röster
@@ -81,7 +81,7 @@ sv:
           category_prompt: Välj en kategori
           search: Sök
         filters_small_view:
-          close_modal: Stäng modal
+          close_modal: Stäng fönstret
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
@@ -132,5 +132,5 @@ sv:
       included_proposals:
         project_proposals: 'Förslag som ingår i detta projekt:'
   index:
-    confirmed_orders_count: Röster räknas
+    confirmed_orders_count: Antal röster
   total_budget: Total budget
