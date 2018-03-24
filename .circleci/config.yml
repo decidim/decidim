@@ -82,14 +82,8 @@ jobs:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 2m
       - run:
-          name: Install CodeClimate test reporter
-          command: /app/.circleci/install_cc_test_reporter.sh
-      - run:
           name: Run main folder RSpec
           command: mkdir ~/rspec && bundle exec rspec --format progress --format RspecJunitFormatter -o ~/rspec/rspec.xml
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.main.json coverage/.resultset.json
       - run:
           name: Run rubocop
           command: bundle exec rubocop
@@ -98,10 +92,6 @@ jobs:
           command: bundle exec erblint --lint-all
       - store_test_results:
           path: ~/rspec
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.main.json
   core:
     <<: *defaults
     steps:
@@ -591,7 +581,7 @@ jobs:
       - run:
           name: Upload coverage results to Code Climate
           command: |
-            ./cc-test-reporter sum-coverage codeclimate.*.json -p 17 -o codeclimate.total.json
+            ./cc-test-reporter sum-coverage codeclimate.*.json -p 16 -o codeclimate.total.json
             ./cc-test-reporter upload-coverage -i codeclimate.total.json
 
 workflows:
