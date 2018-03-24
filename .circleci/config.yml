@@ -117,7 +117,7 @@ jobs:
       - store_test_results:
           path: ~/rspec
       - persist_to_workspace:
-          root: app/coverage
+          root: coverage
           paths:
             - codeclimate.core.json
   assemblies:
@@ -145,7 +145,7 @@ jobs:
       - store_test_results:
           path: ~/rspec
       - persist_to_workspace:
-          root: app/coverage
+          root: coverage
           paths:
             - codeclimate.assemblies.json
   api:
@@ -173,7 +173,7 @@ jobs:
       - store_test_results:
           path: ~/rspec
       - persist_to_workspace:
-          root: app/coverage
+          root: coverage
           paths:
             - codeclimate.api.json
   processes:
@@ -201,7 +201,7 @@ jobs:
       - store_test_results:
           path: ~/rspec
       - persist_to_workspace:
-          root: app/coverage
+          root: coverage
           paths:
             - codeclimate.processes.json
   admin:
@@ -229,7 +229,7 @@ jobs:
       - store_test_results:
           path: ~/rspec
       - persist_to_workspace:
-          root: app/coverage
+          root: coverage
           paths:
             - codeclimate.admin.json
   system:
@@ -257,7 +257,7 @@ jobs:
       - store_test_results:
           path: ~/rspec
       - persist_to_workspace:
-          root: app/coverage
+          root: coverage
           paths:
             - codeclimate.system.json
   proposals:
@@ -285,7 +285,7 @@ jobs:
       - store_test_results:
           path: ~/rspec
       - persist_to_workspace:
-          root: app/coverage
+          root: coverage
           paths:
             - codeclimate.proposals.json
   comments:
@@ -326,7 +326,7 @@ jobs:
       - store_test_results:
           path: ~/rspec
       - persist_to_workspace:
-          root: app/coverage
+          root: coverage
           paths:
             - codeclimate.comments.json
   meetings:
@@ -354,7 +354,7 @@ jobs:
       - store_test_results:
           path: ~/rspec
       - persist_to_workspace:
-          root: app/coverage
+          root: coverage
           paths:
             - codeclimate.meetings.json
   pages:
@@ -382,7 +382,7 @@ jobs:
       - store_test_results:
           path: ~/rspec
       - persist_to_workspace:
-          root: app/coverage
+          root: coverage
           paths:
             - codeclimate.pages.json
   accountability:
@@ -410,7 +410,7 @@ jobs:
       - store_test_results:
           path: ~/rspec
       - persist_to_workspace:
-          root: app/coverage
+          root: coverage
           paths:
             - codeclimate.accountability.json
   budgets:
@@ -438,7 +438,7 @@ jobs:
       - store_test_results:
           path: ~/rspec
       - persist_to_workspace:
-          root: app/coverage
+          root: coverage
           paths:
             - codeclimate.budgets.json
   surveys:
@@ -466,7 +466,7 @@ jobs:
       - store_test_results:
           path: ~/rspec
       - persist_to_workspace:
-          root: app/coverage
+          root: coverage
           paths:
             - codeclimate.surveys.json
   verifications:
@@ -494,7 +494,7 @@ jobs:
       - store_test_results:
           path: ~/rspec
       - persist_to_workspace:
-          root: app/coverage
+          root: coverage
           paths:
             - codeclimate.verifications.json
   debates:
@@ -522,7 +522,7 @@ jobs:
       - store_test_results:
           path: ~/rspec
       - persist_to_workspace:
-          root: app/coverage
+          root: coverage
           paths:
             - codeclimate.debates.json
   sortitions:
