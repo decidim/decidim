@@ -25,7 +25,7 @@ sv:
         short_description: Kort beskrivning
         show_statistics: Visa statistik
         slug: URL slug
-        subtitle: Texta
+        subtitle: Underrubrik
         target: Mål
         title: Titel
       assembly_user_role:
@@ -160,14 +160,14 @@ sv:
       statistics:
         answers_count: Svar
         assemblies_count: Assemblies
-        comments_count: kommentarer
+        comments_count: Kommentarer
         debates_count: Debatter
         endorsements_count: påskrifter
         headline: Aktivitet
-        meetings_count: möten
+        meetings_count: Möten
         orders_count: Röster
         pages_count: Sidor
-        projects_count: projekt
+        projects_count: Projekt
         proposals_count: förslag
         results_count: Resultat
         surveys_count: Undersökningar
