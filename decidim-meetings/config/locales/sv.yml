@@ -191,7 +191,7 @@ sv:
             closed: Stängd
             end_time: Slutdatum
             map: Karta
-            start_time: Start datum
+            start_time: Startdatum
             title: Titel
       read_more: "(Läs mer)"
       registration_mailer:
