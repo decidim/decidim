@@ -127,7 +127,7 @@ sv:
         actions:
           bar: Bar
           foo: foo
-        name: Dummy Component
+        name: Dummy Komponent
         settings:
           global:
             comments_enabled: Kommentarer aktiverade
@@ -168,7 +168,7 @@ sv:
           username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymitet kan det vara något namn.
       sessions:
         new:
-          are_you_new?: Nytt på plattformen?
+          are_you_new?: Ny på plattformen?
           register: Skapa ett konto
       shared:
         omniauth_buttons:
@@ -294,12 +294,12 @@ sv:
       unsubscribe:
         check_subscription: Om du vill ändra dina inställningar kan du göra det på sidan <a href="%{link}" target="_blank">konfiguration</a>
         error: Ett fel har avbrutits
-        success: Du är avstängd med framgång.
+        success: Du har avslutat prenumerationen.
         token_error: Länken har löpt ut.
         unsubscribe: Avprenumerera
     notifications_settings:
       show:
-        email_on_notification: Jag vill få ett e-postmeddelande varje gång jag får en avisering.
+        email_on_notification: Jag vill få ett e-postmeddelande varje gång jag får en notis.
         newsletter_notifications: Jag vill få nyhetsbrev
         update_notifications_settings: Spara ändringar
       update:
@@ -340,11 +340,11 @@ sv:
     scopes:
       global: Global omfattning
       picker:
-        cancel: Annullera
+        cancel: Avbryt
         choose: Välj
         title: Välj %{field}
-      prompt: Välj ett räckvidd
-      scopes: Scopes
+      prompt: Välj en omfattning
+      scopes: Omfattningar
     shared:
       action_authorization_modal:
         expired:
@@ -352,7 +352,7 @@ sv:
           explanation: Ditt godkännande har löpt ut. För att kunna utföra den här åtgärden måste du godkännas med "%{authorization}".
           title: Godkännandet har löpt ut
         incomplete:
-          cancel: Annullera
+          cancel: Avbryt
           explanation: 'Trots att du för närvarande är auktoriserad med "%{authorization}", behöver vi dig att reauthorize eftersom vi saknar följande data:'
           invalid_field: "%{field}"
           reauthorize: reauthorize
@@ -368,7 +368,7 @@ sv:
         unauthorized:
           explanation: Tyvärr, du kan inte utföra den här åtgärden eftersom vissa av dina auktoriseringsuppgifter inte matchar.
           invalid_field: "%{field} värde %{value} är inte giltigt."
-          ok: Ok
+          ok: Okej
           title: Inte behörig
       author:
         deleted: Raderad användare
@@ -451,24 +451,24 @@ sv:
   layouts:
     decidim:
       cookie_warning:
-        description_html: Den här sidan använder cookies. Genom att fortsätta att bläddra på webbplatsen godkänner du vår användning av cookies. Läs mer om det %{link}.
+        description_html: Denna webbplats använder cookies. Genom att fortsätta att surfa på webbplatsen godkänner du vår användning av cookies. Läs mer om det %{link}.
         link_label: här
-        ok: jag håller med
+        ok: Jag godkänner
       footer:
         made_with_open_source: Webbplats gjord med <a target="_blank" href="https://github.com/decidim/decidim">fri programvara</a>.
       header:
-        close_menu: Stäng menyn
+        close_menu: Stäng meny
         navigation: Navigering
         sign_in: Logga in
-        sign_up: Bli Medlem
+        sign_up: Registrera
       impersonation_warning:
-        close_session: Stäng sessionen
+        close_session: Stäng session
         description_html: Du utmärker användaren <b>%{user_name}</b>.
         expire_time_html: Din session löper ut i <b><span class="minutes">%{minutes}</span> minuter</b>.
       notifications_dashboard:
-        mark_all_as_read: Markera allt som läst
-        no_notifications: Inga meddelanden ännu.
-        title: anmälningar
+        mark_all_as_read: Markera alla som lästa
+        no_notifications: Inga notiser ännu.
+        title: Notiser
       user_menu:
         admin_dashboard: Admin kontrollpanel
         conversations: Konversationer
@@ -526,19 +526,19 @@ sv:
       sub_hero:
         register: Registrera
   social_share_button:
-    delicious: Utsökt
+    delicious: Delicious
     douban: Douban
     email: E-post
     facebook: Facebook
     google_bookmark: Google Bookmark
     google_plus: Google+
     hacker_news: Hacker News
-    linkedin: edin
+    linkedin: LinkedIn
     pinterest: Pinterest
     qq: Qzone
     reddit: Reddit
     share_to: Dela till %{name}
-    tumblr: tumblr
+    tumblr: Tumblr
     twitter: Twitter
     vkontakte: VKontakte
     wechat: WeChat
