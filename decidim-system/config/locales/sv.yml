@@ -46,7 +46,7 @@ sv:
             save_and_invite: Skapa organisation och bjud in admin
           fields:
             created_at: Skapad vid
-            name: namn
+            name: Namn
           name: Organisation
       organizations:
         create:
