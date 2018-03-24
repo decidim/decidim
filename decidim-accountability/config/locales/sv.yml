@@ -16,7 +16,7 @@ sv:
       status:
         description: Beskrivning
         key: Nyckel
-        name: namn
+        name: Namn
         progress: Framsteg
       timeline_entry:
         description: Beskrivning
@@ -121,7 +121,7 @@ sv:
           fields:
             description: Beskrivning
             key: Nyckel
-            name: namn
+            name: Namn
             progress: Framsteg
         timeline_entry:
           fields:
