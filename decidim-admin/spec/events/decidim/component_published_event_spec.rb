@@ -5,7 +5,7 @@ require "spec_helper"
 describe Decidim::ComponentPublishedEvent do
   include Decidim::ComponentPathHelper
 
-  include_context "simple event"
+  include_context "when a simple event"
 
   let(:event_name) { "decidim.events.components.component_published" }
   let(:resource) { create(:component) }

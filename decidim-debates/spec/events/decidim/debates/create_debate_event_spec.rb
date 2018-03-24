@@ -3,7 +3,7 @@
 require "spec_helper"
 
 describe Decidim::Debates::CreateDebateEvent do
-  include_context "simple event"
+  include_context "when a simple event"
 
   let(:resource) { create :debate, :with_author }
   let(:space) { resource.participatory_space }

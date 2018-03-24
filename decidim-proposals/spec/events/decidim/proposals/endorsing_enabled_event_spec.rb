@@ -7,7 +7,7 @@ module Decidim
     describe EndorsingEnabledEvent do
       include Decidim::ComponentPathHelper
 
-      include_context "simple event"
+      include_context "when a simple event"
 
       let(:event_name) { "decidim.events.proposals.endorsing_enabled" }
       let(:resource) { create(:proposal_component) }
