@@ -78,7 +78,7 @@ sv:
       actions:
         attachment_collections: samlingar
         attachments: bilagor
-        close: Stänga
+        close: Stäng
         confirm_destroy: Är du säker på att du vill radera detta möte?
         destroy: Radera
         edit: Redigera
@@ -103,7 +103,7 @@ sv:
             new_invite: Bjud in användare
         meeting_closes:
           edit:
-            close: Stänga
+            close: Stäng
             title: Stängt möte
         meetings:
           close:
@@ -177,7 +177,7 @@ sv:
         show:
           attendees: Deltagare räknas
           contributions: Bidragsräkning
-          going: Gående
+          going: Jag kommer
           join: Gå med i mötet
           meeting_report: Mötesrapport
           no_slots_available: Inga slots tillgängliga
