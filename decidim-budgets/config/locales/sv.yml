@@ -61,7 +61,7 @@ sv:
         budget_excess:
           close: Stänga
           description: Detta projekt överstiger den maximala budgeten och kan inte läggas till. Om du vill kan du ta bort ett projekt som du redan har valt för att lägga till eller göra din röst med dina önskemål.
-          ok: ok
+          ok: OK
           title: Maximal budget överskridits
         budget_summary:
           are_you_sure: Är du säker på att du vill avbryta din röst?
