@@ -76,8 +76,8 @@ sv:
           notification_title: <a href="%{resource_path}">%{resource_title}</a> mötet startar inom mindre än 48 timmar.
     meetings:
       actions:
-        attachment_collections: samlingar
-        attachments: bilagor
+        attachment_collections: Samlingar
+        attachments: Bifogade filer
         close: Stäng
         confirm_destroy: Är du säker på att du vill radera detta möte?
         destroy: Radera
@@ -162,7 +162,7 @@ sv:
           search: Sök
           upcoming: Kommande
         filters_small_view:
-          close_modal: Stäng modal
+          close_modal: Stäng fönstret
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
@@ -193,7 +193,7 @@ sv:
             map: Karta
             start_time: Startdatum
             title: Titel
-      read_more: "(Läs mer)"
+      read_more: "(läs mer)"
       registration_mailer:
         confirmation:
           confirmed_html: Din registrering för mötet <a href="%{url}">%{title}</a> har bekräftats.
