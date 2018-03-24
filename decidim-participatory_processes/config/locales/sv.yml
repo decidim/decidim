@@ -115,7 +115,7 @@ sv:
           success: Deltagande processgrupp förstördes framgångsrikt.
         edit:
           title: Redigera processgrupp
-          update: Uppdatering
+          update: Uppdatera
         new:
           create: Skapa
           title: Ny processgrupp
@@ -145,7 +145,7 @@ sv:
           success: Deltagande processsteg förstördes framgångsrikt.
         edit:
           title: Redigera deltagande processsteg
-          update: Uppdatering
+          update: Uppdatera
         index:
           steps_title: Steg
         new:
@@ -164,7 +164,7 @@ sv:
           success: Användaren förstördes framgångsrikt för denna deltagande process.
         edit:
           title: Uppdatera deltagande processanvändare.
-          update: Uppdatering
+          update: Uppdatera
         index:
           process_admins_title: Deltagande processanvändare
         new:
@@ -180,7 +180,7 @@ sv:
         destroy:
           success: Deltagande processen förstördes framgångsrikt.
         edit:
-          update: Uppdatering
+          update: Uppdatera
         form:
           title: Allmän information
         index:
