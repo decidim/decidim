@@ -176,11 +176,11 @@ sv:
           confirm: Bekräfta
         show:
           attendees: Antal deltagare
-          contributions: Bidragsräkning
+          contributions: Antal bidrag
           going: Jag kommer
           join: Gå med i mötet
           meeting_report: Mötesrapport
-          no_slots_available: Inga slots tillgängliga
+          no_slots_available: Inga platser kvar
           organizations: Delta i organisationer
           remaining_slots:
             one: 1 plats kvar
