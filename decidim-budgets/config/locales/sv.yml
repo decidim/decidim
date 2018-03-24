@@ -101,7 +101,7 @@ sv:
           remove: Avlägsna
         project_budget_button:
           add: Lägg till
-          added: Lagt till
+          added: Tillagd
         show:
           budget: Budget
           view_all_projects: Visa alla projekt
