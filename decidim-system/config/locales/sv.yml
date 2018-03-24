@@ -16,9 +16,9 @@ sv:
           success: Admin lyckades förstöras
         edit:
           title: Redigera admin
-          update: Uppdatering
+          update: Uppdatera
         index:
-          title: admins
+          title: Administratörer
         new:
           create: Skapa
           title: Ny admin
@@ -30,7 +30,7 @@ sv:
           content: Lägg till meningsfullt innehåll på den statiska sidan %{page} på adminpanelen.
           title: Standardtitel för %{page}
       menu:
-        admins: admins
+        admins: Administratörer
         dashboard: instrumentbräda
         organizations: organisationer
       models:
