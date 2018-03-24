@@ -115,7 +115,7 @@ sv:
           destroy:
             success: Mötet har tagits bort
           edit:
-            update: Uppdatering
+            update: Uppdatera
           index:
             title: möten
           new:
