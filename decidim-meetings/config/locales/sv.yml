@@ -33,7 +33,7 @@ sv:
     components:
       meetings:
         actions:
-          join: Ansluta sig
+          join: Gå med
         name: möten
         settings:
           global:
@@ -158,7 +158,7 @@ sv:
           category: Kategori
           category_prompt: Välj en kategori
           date: Datum
-          past: Dåtid
+          past: Tidigare
           search: Sök
           upcoming: kommande
         filters_small_view:
