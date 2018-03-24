@@ -281,6 +281,7 @@ en:
           filter_by: Filter by
           unfold: Unfold
         index:
+          collaborative_drafts_list: Access collaborative Drafts
           new_proposal: New proposal
           see_all_withdrawn: See all withdrawn proposals
           view_proposal: View proposal
