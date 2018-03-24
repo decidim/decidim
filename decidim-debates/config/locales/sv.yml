@@ -61,7 +61,7 @@ sv:
           all: Alla
           category: Kategori
           category_prompt: Välj en kategori
-          citizens: medborgare
+          citizens: Medborgare
           official: Officiell
           origin: Ursprung
           search: Sök
@@ -82,7 +82,7 @@ sv:
           share: Dela
           share_link: Dela länk
         show:
-          comments: kommentarer
+          comments: Kommentarer
           report: Rapportera
       models:
         debate:
