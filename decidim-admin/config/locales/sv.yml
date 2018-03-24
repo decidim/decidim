@@ -95,7 +95,7 @@ sv:
         scope: Omfattning
         short_description: Kort beskrivning
         slug: URL slug
-        start_date: Start datum
+        start_date: Startdatum
         subtitle: Underrubrik
         target: Mål
         title: Titel
@@ -106,7 +106,7 @@ sv:
         participatory_processes: Deltagande processer
       decidim/participatory_process_step:
         end_date: Slutdatum
-        start_date: Start datum
+        start_date: Startdatum
       decidim/static_page:
         content: Innehåll
         slug: URL slug
@@ -201,7 +201,7 @@ sv:
           title: Redigera kategori
           update: Uppdatera
         index:
-          categories_title: kategorier
+          categories_title: Kategorier
           category_used: Den här kategorin kan inte tas bort eftersom den används.
         new:
           create: Skapa kategori
@@ -323,7 +323,7 @@ sv:
             content_type: Typ
             file_size: Storlek
             title: Titel
-          name: Bilaga
+          name: Bifogad fil
         attachment_collection:
           name: Samling
         category:
@@ -490,7 +490,7 @@ sv:
           update: Uppdatera
         new:
           create: Skapa omfattningstyp
-          title: Nytt räckvidd
+          title: Ny omfattning
         update:
           error: Ett fel uppstod vid uppdatering av denna räckviddstyp.
           success: Omfattningstypen uppdateras framgångsrikt
@@ -501,7 +501,7 @@ sv:
         destroy:
           success: Omfattning framgångsrikt förstörs
         edit:
-          title: Redigera räckvidd
+          title: Redigera omfattning
           update: Uppdatera
         new:
           create: Skapa omfattning
@@ -579,7 +579,7 @@ sv:
       actions:
         hidden: Dold
         hide: Dölj
-        not_hidden: inte gömd
+        not_hidden: Inte dolt
         title: Handlingar
         unreport: Unreport
       admin:
