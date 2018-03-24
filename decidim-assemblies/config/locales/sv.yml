@@ -30,7 +30,7 @@ sv:
         title: Titel
       assembly_user_role:
         email: E-post
-        name: namn
+        name: Namn
         role: Roll
   decidim:
     admin:
@@ -112,7 +112,7 @@ sv:
         assembly_user_role:
           fields:
             email: E-post
-            name: namn
+            name: Namn
             role: Roll
           name: Monteringsanvändare
           roles:
