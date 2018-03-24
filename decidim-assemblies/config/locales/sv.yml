@@ -3,7 +3,7 @@ sv:
     attributes:
       assembly:
         area_id: Område
-        banner_image: Banner image
+        banner_image: Bannerbild
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
         decidim_area_id: Område
@@ -92,13 +92,13 @@ sv:
         assemblies: Assemblies
         assemblies_submenu:
           assembly_admins: Monteringsanvändare
-          attachment_collections: samlingar
+          attachment_collections: Samlingar
           attachment_files: Filer
-          attachments: bilagor
+          attachments: Bifogade filer
           categories: Kategorier
           components: Komponenter
           info: Info
-          moderations: modere
+          moderations: Moderering
           private_users: Privata användare
       models:
         assembly:
