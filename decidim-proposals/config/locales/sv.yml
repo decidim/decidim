@@ -130,7 +130,7 @@ sv:
         actions:
           preview: Förhandsvisa
         exports:
-          comments: kommentarer
+          comments: Kommentarer
           proposals: förslag
         models:
           proposal:
@@ -256,7 +256,7 @@ sv:
         endorsements_card_row:
           endorse: Stödja
         endorsements_listing:
-          see_all: Se allt
+          see_all: Se alla
           see_less: Se mindre
           title: Förteckning över godkännanden
         filters:
@@ -315,7 +315,7 @@ sv:
           report: Rapportera
           sign_in: Logga in
           sign_in_or_up: "%{in} eller %{up} att delta"
-          sign_up: Bli Medlem
+          sign_up: registrera
           withdraw_btn_hint: Du kan dra tillbaka ditt förslag om du ändrar dig, så länge du inte har fått något stöd. Förslaget är inte borttaget, det kommer att visas i listan över återkallade förslag.
           withdraw_confirmation: Är du säker på att dra tillbaka detta förslag?
           withdraw_proposal: Dra ut förslaget
