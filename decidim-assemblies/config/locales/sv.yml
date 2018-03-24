@@ -93,7 +93,7 @@ sv:
         assemblies_submenu:
           assembly_admins: Monteringsanvändare
           attachment_collections: samlingar
-          attachment_files: filer
+          attachment_files: Filer
           attachments: bilagor
           categories: kategorier
           components: Komponenter
@@ -165,14 +165,14 @@ sv:
         endorsements_count: påskrifter
         headline: Aktivitet
         meetings_count: möten
-        orders_count: röster
-        pages_count: sidor
+        orders_count: Röster
+        pages_count: Sidor
         projects_count: projekt
         proposals_count: förslag
         results_count: Resultat
         surveys_count: Undersökningar
         users_count: Deltagare
-        votes_count: röster
+        votes_count: Röster
     menu:
       assemblies: Assemblies
   layouts:
