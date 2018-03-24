@@ -4,7 +4,7 @@ sv:
       proposal:
         answer: Svar
         answered_at: Besvaras vid
-        body: Kropp
+        body: Innehåll
         category_id: Kategori
         has_address: Har adress
         scope_id: Omfattning
@@ -262,7 +262,7 @@ sv:
         filters:
           accepted: Accepterad
           activity: Aktivitet
-          all: Allt
+          all: Alla
           category: Kategori
           category_prompt: Välj en kategori
           citizens: medborgare
@@ -331,7 +331,7 @@ sv:
           votes_blocked: Röstning inaktiverad
         votes_count:
           count:
-            one: RÖSTA
+            one: RÖST
             other: RÖSTER
           most_popular_proposal: Mest populära förslaget
           need_more_votes: Behöver flera röster
