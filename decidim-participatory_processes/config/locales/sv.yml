@@ -240,7 +240,7 @@ sv:
       processes: Processer
     participatory_process_groups:
       show:
-        group_participatory_processes: Bearbetar för %{group}
+        group_participatory_processes: Processer för %{group}
         title: Deltagande processgrupper
     participatory_process_steps:
       index:
@@ -272,7 +272,7 @@ sv:
         none: Ingen
       participatory_processes:
         index:
-          loading: Laddar resultat ...
+          loading: Laddar resultat...
       show:
         developer_group: Utvecklargrupp
         end_date: Slutdatum
