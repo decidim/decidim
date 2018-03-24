@@ -117,7 +117,7 @@ sv:
           edit:
             update: Uppdatera
           index:
-            title: möten
+            title: Möten
           new:
             create: Skapa
             title: Skapa möte
@@ -160,7 +160,7 @@ sv:
           date: Datum
           past: Tidigare
           search: Sök
-          upcoming: kommande
+          upcoming: Kommande
         filters_small_view:
           close_modal: Stäng modal
           filter: Filtrera
