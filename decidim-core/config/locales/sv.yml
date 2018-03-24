@@ -6,7 +6,7 @@ sv:
       report:
         details: Ytterligare kommentarer
       user:
-        email: Din email
+        email: Din e-post
         name: Ditt namn
         nickname: Din korta, unika identifierare i decidim
         password: Nytt lösenord
@@ -96,7 +96,7 @@ sv:
     application:
       collection:
         documents:
-          one: Dokumentera
+          one: Dokument
           other: Dokument
       documents:
         related_documents: Relaterade dokument
