@@ -31,7 +31,7 @@ sv:
             success: Projektet förstördes framgångsrikt
           edit:
             title: Redigera projektet
-            update: Uppdatering
+            update: Uppdatera
           index:
             finished_orders: Avslutade röster
             pending_orders: Avventer röster
@@ -54,7 +54,7 @@ sv:
       projects:
         budget_confirm:
           are_you_sure: Håller du med? När du har bekräftat din röst kan du inte ändra den.
-          cancel: Annullera
+          cancel: Avbryt
           confirm: Bekräfta
           description: Det här är de projekt du valt att vara en del av budgeten.
           title: Bekräfta omröstning
