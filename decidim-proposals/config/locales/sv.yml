@@ -323,7 +323,7 @@ sv:
           changed_from: "(ändrad från <u>%{previous_category}</u> av en administratör)"
           filed_as: Filed as
         vote_button:
-          already_voted: Redan röstade
+          already_voted: Redan röstat
           already_voted_hover: Ta bort sin röst
           maximum_votes_reached: Rösta gränsen uppnådd
           no_votes_remaining: Inga röster kvar
