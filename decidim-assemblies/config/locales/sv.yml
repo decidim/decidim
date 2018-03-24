@@ -95,7 +95,7 @@ sv:
           attachment_collections: samlingar
           attachment_files: Filer
           attachments: bilagor
-          categories: kategorier
+          categories: Kategorier
           components: Komponenter
           info: Info
           moderations: modere
@@ -118,7 +118,7 @@ sv:
           roles:
             admin: Administratör
             collaborator: Medarbetare
-            moderator: moderator
+            moderator: Moderator
       titles:
         assemblies: Assemblies
     admin_log:
@@ -168,7 +168,7 @@ sv:
         orders_count: Röster
         pages_count: Sidor
         projects_count: Projekt
-        proposals_count: förslag
+        proposals_count: Förslag
         results_count: Resultat
         surveys_count: Undersökningar
         users_count: Deltagare
@@ -179,7 +179,7 @@ sv:
     decidim:
       assemblies:
         assembly:
-          take_part: Ta del
+          take_part: Delta
         index:
           promoted_assemblies: Utrustade församlingar
         order_by_assemblies:
@@ -188,10 +188,10 @@ sv:
             other: "%{count} sammansättningar"
         promoted_assembly:
           more_info: Mer information
-          take_part: Ta del
+          take_part: Delta
       assembly_header:
         assembly_menu_item: Sammansättningen
         unfold: Veckla ut
       assembly_widgets:
         show:
-          take_part: Ta del
+          take_part: Delta
