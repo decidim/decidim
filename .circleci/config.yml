@@ -82,6 +82,9 @@ jobs:
           name: Wait for db
           command: dockerize -wait tcp://localhost:5432 -timeout 2m
       - run:
+          name: Install CodeClimate test reporter
+          command: /app/.circleci/install_cc_test_reporter.sh
+      - run:
           name: Run main folder RSpec
           command: mkdir ~/rspec && bundle exec rspec --format progress --format RspecJunitFormatter -o ~/rspec/rspec.xml
       - run:
