@@ -176,7 +176,7 @@ sv:
         name: Ansvarighet
         settings:
           global:
-            categories_label: Namn för "kategorier"
+            categories_label: Namn för "Kategorier"
             comments_enabled: Kommentarer aktiverade
             display_progress_enabled: Visa framsteg
             heading_leaf_level_results: Namn på "Projekt"
