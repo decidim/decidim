@@ -38,7 +38,7 @@ sv:
           fields:
             created_at: Skapad vid
             email: E-post
-          name: Administration
+          name: Admin
           validations:
             email_uniqueness: En annan admin med samma e-post finns redan
         organization:
