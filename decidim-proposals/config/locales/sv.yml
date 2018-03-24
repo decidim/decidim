@@ -173,7 +173,7 @@ sv:
             title: Skapa förslag
           update_category:
             invalid: 'Dessa förslag hade redan %{category} kategorin: %{proposals}.'
-            select_a_category: Var god välj en kategori
+            select_a_category: Välj en kategori
             select_a_proposal: Vänligen välj ett förslag
             success: 'Förslag som har uppdaterats till %{category} kategorin: %{proposals}.'
         proposals_imports:
@@ -183,7 +183,7 @@ sv:
           new:
             create: Importera förslag
             no_components: Det finns inga andra förslagskomponenter i detta deltagande utrymme för att importera förslagen från.
-            select_component: Var god välj en komponent
+            select_component: Välj en komponent
             select_states: Kontrollera tillstånden för de förslag som ska importeras
         shared:
           info_proposal:
@@ -245,7 +245,7 @@ sv:
             other: "%{count} förslag"
         edit:
           back: Tillbaka
-          select_a_category: Var god välj en kategori
+          select_a_category: Välj en kategori
           send: Skicka
           title: Redigera förslag
         edit_draft:
@@ -289,7 +289,7 @@ sv:
             other: röster
         new:
           attachment_legend: "(Valfritt) Lägg till en bilaga"
-          select_a_category: Var god välj en kategori
+          select_a_category: Välj en kategori
           send: Fortsätt
           title: Skapa ditt förslag
         orders:
