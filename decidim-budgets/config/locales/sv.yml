@@ -92,7 +92,7 @@ sv:
           selected_projects:
             one: projekt valt
             other: utvalda projekt
-          view: Se
+          view: Visa
         project:
           add: Lägg till
           count:
