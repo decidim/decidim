@@ -10,7 +10,7 @@ sv:
     components:
       surveys:
         actions:
-          answer: Svar
+          answer: Svara
         name: Undersökning
         settings:
           global:
