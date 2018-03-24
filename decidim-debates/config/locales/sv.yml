@@ -30,7 +30,7 @@ sv:
             title: Redigera debatt
             update: Uppdatera debatt
           index:
-            title: debatter
+            title: Debatter
           new:
             create: Skapa debatt
             title: Ny debatt
@@ -55,7 +55,7 @@ sv:
         debate:
           comments:
             one: Kommentar
-            other: kommentarer
+            other: Kommentarer
           participate: Delta
         filters:
           all: Alla
@@ -120,7 +120,7 @@ sv:
       debates:
         actions:
           create: Skapa
-        name: debatter
+        name: Debatter
         settings:
           global:
             announcement: Meddelande
