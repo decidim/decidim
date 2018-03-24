@@ -89,7 +89,7 @@ sv:
           fields:
             end_time: Slutdatum
             official_debate: Officiell debatt
-            start_time: Start datum
+            start_time: Startdatum
             title: Titel
     events:
       debates:
