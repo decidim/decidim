@@ -48,7 +48,7 @@ sv:
           destroy:
             success: Resultatet har tagits bort
           edit:
-            title: Ändra resultat
+            title: Redigera resultat
             update: Uppdatera resultat
           form:
             add_proposal: Lägg till förslag
@@ -96,7 +96,7 @@ sv:
           index:
             title: Projekt tidslinje poster
           new:
-            create: Skapa inmatning
+            create: Skapa post
             title: Ny ingång
           update:
             invalid: Det har varit ett problem att uppdatera den här posten
