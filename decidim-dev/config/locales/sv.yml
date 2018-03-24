@@ -4,7 +4,7 @@ sv:
       dummy_resource:
         created_at: Skapad vid
         field: Mitt fält
-        start_date: Start datum
+        start_date: Startdatum
         title: Titel
         updated_at: Uppdaterad på
   decidim:
