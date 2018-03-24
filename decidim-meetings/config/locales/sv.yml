@@ -29,7 +29,7 @@ sv:
         new:
           copy: Kopiera
           select: Välj vilken data du vill duplicera
-          title: Duplikat möte
+          title: Duplicera möte
     components:
       meetings:
         actions:
@@ -41,7 +41,7 @@ sv:
             comments_enabled: Kommentarer aktiverade
           step:
             announcement: Meddelande
-            comments_blocked: Kommentarer blockerad
+            comments_blocked: Kommentarer blockerade
     events:
       meetings:
         meeting_closed:
@@ -183,8 +183,8 @@ sv:
           no_slots_available: Inga slots tillgängliga
           organizations: Delta i organisationer
           remaining_slots:
-            one: 1 slits kvar
-            other: "%{count} luckor kvar"
+            one: 1 plats kvar
+            other: "%{count} platser kvar"
       models:
         meeting:
           fields:
