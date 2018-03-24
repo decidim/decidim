@@ -99,7 +99,7 @@ sv:
             success: Användaren framgångsrikt inbjuden att delta i mötet.
           new:
             explanation: Användaren kommer att bli inbjuden att delta i ett möte. Om e-postmeddelandet inte är registrerat kommer de bjudas in till organisationen också.
-            invite: Inbjudan
+            invite: Bjud in
             new_invite: Bjud in användare
         meeting_closes:
           edit:
@@ -172,7 +172,7 @@ sv:
           no_meetings_warning: Inga möten matchar dina sökkriterier eller det finns inget möte planerat.
           upcoming_meetings_warning: För närvarande finns det inga planerade möten, men här hittar du alla tidigare möten listade.
         registration_confirm:
-          cancel: Annullera
+          cancel: Avbryt
           confirm: Bekräfta
         show:
           attendees: Deltagare räknas
