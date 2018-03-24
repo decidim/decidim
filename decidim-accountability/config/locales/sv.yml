@@ -28,7 +28,7 @@ sv:
         destroy: Radera
         edit: Redigera
         new: Ny %{name}
-        preview: Förhandsvisning
+        preview: Förhandsvisa
         timeline_entries: Projektutveckling
         title: Handlingar
       admin:
