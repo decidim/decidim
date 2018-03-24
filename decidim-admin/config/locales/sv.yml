@@ -80,7 +80,7 @@ sv:
   activerecord:
     attributes:
       decidim/participatory_process:
-        banner_image: Banner image
+        banner_image: Bannerbild
         description: Beskrivning
         developer_group: Utvecklargrupp
         domain: Domän
@@ -183,7 +183,7 @@ sv:
           title: Redigera bilagan
           update: Uppdatera
         index:
-          attachments_title: bilagor
+          attachments_title: Bifogade filer
         new:
           create: Skapa bifogad fil
           title: Ny bilaga
@@ -295,12 +295,12 @@ sv:
         admin_log: Adminaktivitetslogg
         admins: Administratörer
         appearance: Utseende
-        area_types: Areortyper
+        area_types: Typer av område
         areas: Områden
         configuration: Konfiguration
         dashboard: Kontrollpanel
         managed_users: Administrerade användare
-        newsletters: nyhetsbrev
+        newsletters: Nyhetsbrev
         officializations: Officializations
         scope_types: Omfattningstyper
         scopes: Omfattningar
@@ -336,7 +336,7 @@ sv:
             started_at: Börjat vid
             user: Användare
         managed_user:
-          name: Administrerad användare
+          name: Hanterad användare
         newsletter:
           fields:
             created_at: Skapad vid
@@ -377,10 +377,10 @@ sv:
             name: Namn
             phone: Telefon
             state: Status
-            users_count: Användare räknas
+            users_count: Antal användare
       moderations:
         index:
-          title: modere
+          title: Moderering
         report:
           reasons:
             does_not_belong: Hör inte hemma
@@ -403,7 +403,7 @@ sv:
           interpolations_hint: 'Tips: Du kan använda "%{name}" var som helst i kroppen eller ämnet och det kommer att ersättas av mottagarens namn.'
         index:
           confirm_delete: Är du säker på att du vill radera detta nyhetsbrev?
-          title: nyhetsbrev
+          title: Nyhetsbrev
         new:
           save: Spara
           title: Nytt nyhetsbrev
@@ -529,7 +529,7 @@ sv:
           success: Sidan uppdaterad framgångsrikt
       titles:
         admin_log: Admin logg
-        area_types: Areortyper
+        area_types: Typer av område
         areas: Områden
         authorization_workflows: Verifieringsmetoder
         dashboard: Kontrollpanel
@@ -606,7 +606,7 @@ sv:
     decidim:
       admin:
         newsletters:
-          title: nyhetsbrev
+          title: Nyhetsbrev
         settings:
           title: inställningar
         users:
