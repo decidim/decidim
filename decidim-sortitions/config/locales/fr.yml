@@ -30,7 +30,7 @@ fr:
       admin:
         actions:
           destroy: Annuler la tri
-          edit: modifier
+          edit: Éditer
           new: Nouveau
           show: Détails de tri
         models:
@@ -51,11 +51,11 @@ fr:
         sortitions:
           confirm_destroy:
             confirm_destroy: Êtes-vous sûr de vouloir annuler ce tri?
-            destroy: Annuler le tri
+            destroy: Annuler le tirage au sort
             title: Annulation de la tri
           create:
-            error: Une erreur s'est produite lors de la création d'un nouveau tri.
-            success: Le tri a été créé avec succès
+            error: Une erreur s'est produite lors de la création d'un nouveau tirage au sort.
+            success: Le tirage au sort a été créé avec succès
           destroy:
             error: Impossible d'annuler le tri.
             success: Le tri a été annulé avec succès
