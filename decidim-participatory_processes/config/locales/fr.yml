@@ -5,7 +5,7 @@ fr:
         announcement: Annonce
         banner_image: Image d'en-tête
         copy_categories: Copier les catégories
-        copy_components: Copier les composants
+        copy_components: Copier les fonctionnalités
         copy_steps: Copier les étapes
         description: Description
         developer_group: Promoteur
@@ -66,10 +66,10 @@ fr:
           attachment_files: Fichiers
           attachments: Documents liés
           categories: Catégories
-          components: Composants
+          components: Fonctionnalités
           info: Information
           moderations: Modérations
-          private_users: Utilisateurs privés
+          private_users: Utilisateurs
           process_admins: Administrateurs du processus participatif
           steps: Etapes
       models:
