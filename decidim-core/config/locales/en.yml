@@ -405,7 +405,7 @@ en:
     invitations:
       edit:
         header: Set your password
-        nickname_help: Your unique identifier in decidim.
+        nickname_help: Your unique identifier in %{organization}.
         submit_button: Save
     mailer:
       invitation_instructions:
