@@ -31,11 +31,12 @@ describe Decidim::Proposals::Admin::Permissions do
   let(:component_settings_proposal_answering_enabled?) { true }
   let(:current_settings_proposal_answering_enabled?) { true }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:space_permissions) { instance_double(Decidim::ParticipatoryProcesses::Permissions, allowed?: space_allows) }
 
   before do
     allow(Decidim::ParticipatoryProcesses::Permissions)
-      .to receive(:allows?)
-      .and_return(space_allows)
+      .to receive(:new)
+      .and_return(space_permissions)
   end
 
   describe "proposal note creation" do
