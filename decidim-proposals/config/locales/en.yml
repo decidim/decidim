@@ -204,6 +204,28 @@ en:
         not_answered: Not answered
         rejected: Rejected
         withdrawn: Withdrawn
+      collaborative_drafts:
+        filters:
+          all: All
+          category: Category
+          category_prompt: Category Prompt
+          search: Search
+        filters_small_view:
+          close_modal: Close modal
+          filter: Filter
+          filter_by: Filter by
+          unfold: Unfold
+        index:
+          drafts_count:
+            one: 1 collaborative draft
+            other: "%{count} collaborative drafts"
+        new_collaborative_draft_button:
+          new_collaborative_draft: New collaborative draft
+        orders:
+          label: 'Order drafts by:'
+          most_contributed: Most contributed
+          random: Random
+          recent: Recent
       create:
         error: There's been errors when saving the proposal.
         success: Proposal created successfully. Saved as a Draft.
@@ -281,7 +303,7 @@ en:
           filter_by: Filter by
           unfold: Unfold
         index:
-          collaborative_drafts_list: Access collaborative Drafts
+          collaborative_drafts_list: Access collaborative drafts
           new_proposal: New proposal
           see_all_withdrawn: See all withdrawn proposals
           view_proposal: View proposal

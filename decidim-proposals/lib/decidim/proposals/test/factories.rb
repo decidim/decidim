@@ -216,4 +216,29 @@ FactoryBot.define do
     proposal { build(:proposal) }
     author { build(:user, organization: proposal.organization) }
   end
+
+  factory :collaborative_draft, class: "Decidim::Proposals::CollaborativeDraft" do
+    title { Faker::Lorem.sentence }
+    body { Faker::Lorem.sentences(3).join("\n") }
+    component { create(:proposal_component) }
+    address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
+    state { 'open' }
+
+    author do
+      create(:user, organization: component.organization) if component
+    end
+
+    trait :published do
+      state "published"
+      published_at { Time.current }
+    end
+
+    trait :open do
+      state "open"
+    end
+
+    trait :closed do
+      state "closed"
+    end
+  end
 end

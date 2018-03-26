@@ -44,9 +44,7 @@
         <%= icon "plus" %>
       </span>
     <% end %>
-    <span class="title-action__action button small hollow ml-s">
-      <%= t(".collaborative_drafts_list") %>
-    </span>
+    <%= link_to t(".collaborative_drafts_list"), collaborative_drafts_path, class: "title-action__action button small hollow ml-s" %>
   </div>
 </div>
 <div class="row">

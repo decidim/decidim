@@ -28,6 +28,8 @@ module Decidim
           resource :proposal_vote, only: [:create, :destroy]
           resource :proposal_widget, only: :show, path: "embed"
         end
+        resources :collaborative_drafts, except: [:destroy] do
+        end
         root to: "proposals#index"
       end
 
