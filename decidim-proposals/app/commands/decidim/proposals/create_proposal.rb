@@ -35,37 +35,12 @@ module Decidim
         transaction do
           create_proposal
           create_attachment if process_attachments?
-          send_notification
-          send_notification_to_participatory_space
         end
 
         broadcast(:ok, proposal)
       end
 
       private
-
-      def send_notification
-        return if proposal.author.blank?
-
-        Decidim::EventsManager.publish(
-          event: "decidim.events.proposals.proposal_created",
-          event_class: Decidim::Proposals::CreateProposalEvent,
-          resource: proposal,
-          recipient_ids: proposal.author.followers.pluck(:id)
-        )
-      end
-
-      def send_notification_to_participatory_space
-        Decidim::EventsManager.publish(
-          event: "decidim.events.proposals.proposal_created",
-          event_class: Decidim::Proposals::CreateProposalEvent,
-          resource: proposal,
-          recipient_ids: proposal.participatory_space.followers.pluck(:id) - proposal.author.followers.pluck(:id),
-          extra: {
-            participatory_space: true
-          }
-        )
-      end
 
       attr_reader :form, :proposal, :attachment
 

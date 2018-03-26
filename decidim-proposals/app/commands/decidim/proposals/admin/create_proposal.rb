@@ -95,8 +95,8 @@ module Decidim
 
         def send_notification
           Decidim::EventsManager.publish(
-            event: "decidim.events.proposals.proposal_created",
-            event_class: Decidim::Proposals::CreateProposalEvent,
+            event: "decidim.events.proposals.proposal_published",
+            event_class: Decidim::Proposals::PublishProposalEvent,
             resource: proposal,
             recipient_ids: @proposal.participatory_space.followers.pluck(:id),
             extra: {
