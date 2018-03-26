@@ -471,14 +471,14 @@ fr:
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
-          success: L'accès utilisateur privé de l'espace participatif a été créé avec succès.
+          success: L'accès de l'utilisateur à l'espace participatif a été créé avec succès.
         destroy:
-          success: L'accès utilisateur privé de l'espace participatif a été détruit avec succès.
+          success: L'accès de l'utilisateur à l'espace participatif a été supprimé avec succès.
         index:
-          title: Espace privé participatif
+          title: Utilisateur de l'espace participatif
         new:
           create: Créer
-          title: Nouvel utilisateur privé Participatory Space.
+          title: Nouvel utilisateur de l'espace participatif.
       scope_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de zone d'application.
@@ -529,8 +529,8 @@ fr:
           success: Page mise à jour avec succès
       titles:
         admin_log: Journal d'administration
-        area_types: Types de zones
-        areas: Zones
+        area_types: Types d'espace
+        areas: Espaces
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
         impersonations: Représentations d'utilisateurs
