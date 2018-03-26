@@ -138,6 +138,8 @@ en:
               one: There has been 1 registration.
               other: There has been %{count} registrations.
               zero: There has not been registrations yet.
+            reserved_slots_help: Leave it to 0 if you don't have reserved slots
+            reserved_slots_less_than: Must be less than or equal to %{count}
           update:
             invalid: There's been a problem saving the registration settings.
             success: Meeting registrations settings successfully saved.
