@@ -80,6 +80,10 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
           email_subject: Ett förslag som du följer utvärderas
           notification_title: <a href="%{resource_path}">%{resource_title}</a> förslaget utvärderas.
+        proposal_mentioned:
+          email_intro: Ditt förslag "%{mentioned_proposal_title}" har nämnts <a href="%{resource_path}">i det här utrymmet</a> i kommentarerna.
+          email_subject: Ditt förslag "%{mentioned_proposal_title}" har nämnts
+          notification_title: Ditt förslag "%{mentioned_proposal_title}" har nämnts <a href="%{resource_path}">i det här utrymmet</a> i kommentarerna.
         proposal_published:
           email_intro: "%{author_name} %{author_nickname}, vem du följer har publicerat ett nytt förslag, kolla in det och bidra med:"
           email_outro: Du har fått den här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
