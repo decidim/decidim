@@ -550,7 +550,7 @@ jobs:
       - store_test_results:
           path: ~/rspec
       - persist_to_workspace:
-          root: app/coverage
+          root: coverage
           paths:
             - codeclimate.sortitions.json
   build_design_app:
