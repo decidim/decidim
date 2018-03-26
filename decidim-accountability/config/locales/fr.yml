@@ -103,9 +103,9 @@ fr:
             success: Entrée mise à jour avec succès
       admin_log:
         result:
-          create: "%{user_name} résultat créé %{resource_name} dans %{space_name}"
-          delete: "%{user_name} a supprimé le résultat %{resource_name} en %{space_name}"
-          update: "%{user_name} résultat mis à jour %{resource_name} dans %{space_name}"
+          create: "%{user_name} a créé le résultat %{resource_name} dans %{space_name}"
+          delete: "%{user_name} a supprimé le résultat %{resource_name} dans %{space_name}"
+          update: "%{user_name} a mis à jour le résultat %{resource_name} dans %{space_name}"
         value_types:
           parent_presenter:
             not_found: 'Le parent n''a pas été trouvé dans la base de données (ID: %{id})'
