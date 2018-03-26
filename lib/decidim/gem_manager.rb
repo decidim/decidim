@@ -29,6 +29,7 @@ module Decidim
       pages
       proposals
       surveys
+      sortitions
     ).freeze
 
     def initialize(dir)
