@@ -16,9 +16,9 @@ sv:
           success: Admin lyckades förstöras
         edit:
           title: Redigera admin
-          update: Uppdatering
+          update: Uppdatera
         index:
-          title: admins
+          title: Administratörer
         new:
           create: Skapa
           title: Ny admin
@@ -30,15 +30,15 @@ sv:
           content: Lägg till meningsfullt innehåll på den statiska sidan %{page} på adminpanelen.
           title: Standardtitel för %{page}
       menu:
-        admins: admins
-        dashboard: instrumentbräda
-        organizations: organisationer
+        admins: Administratörer
+        dashboard: Kontrollpanel
+        organizations: Organisationer
       models:
         admin:
           fields:
             created_at: Skapad vid
             email: E-post
-          name: Administration
+          name: Admin
           validations:
             email_uniqueness: En annan admin med samma e-post finns redan
         organization:
@@ -46,7 +46,7 @@ sv:
             save_and_invite: Skapa organisation och bjud in admin
           fields:
             created_at: Skapad vid
-            name: namn
+            name: Namn
           name: Organisation
       organizations:
         create:
@@ -55,7 +55,7 @@ sv:
         edit:
           secondary_hosts_hint: Ange var och en av dem i en ny rad
         index:
-          title: organisationer
+          title: Organisationer
         new:
           reference_prefix_hint: Referensprefixet används för att unikt identifiera resurser i alla organisationer
           secondary_hosts_hint: Ange var och en av dem i en ny rad
@@ -68,4 +68,4 @@ sv:
           no_organization_warning_html: Du måste skapa en organisation för att komma igång. Se till att du läser %{guide} innan du fortsätter.
           our_getting_started_guide: vår startguide
       titles:
-        dashboard: instrumentbräda
+        dashboard: Kontrollpanel

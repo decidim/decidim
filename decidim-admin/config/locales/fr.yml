@@ -31,7 +31,7 @@ fr:
         subject: Objet
       organization:
         cta_button_path: Chemin du bouton d'action
-        cta_button_text: Chemin du bouton d'action
+        cta_button_text: Texte du bouton d'action
         default_locale: Langue par défaut
         description: Description
         enable_omnipresent_banner: Montrer une bannière omniprésente
@@ -127,34 +127,34 @@ fr:
       area_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de zone.
-          success: Le type de zone a été créé avec succès.
+          success: Fonctionnalité créée avec succès.
         destroy:
-          success: Type de zone détruit avec succès
+          success: La fonctionnalité a bien été supprimée
         edit:
-          title: Modifier le type de zone
+          title: Editer la fonctionnalité
           update: Mettre à jour
         new:
           create: Créer un type de zone
           title: Nouveau type de zone
         update:
-          error: Une erreur s'est produite lors de la mise à jour de ce type de zone.
-          success: Type de zone mis à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de la fonctionnalité.
+          success: La fonctionnalité a été mise à jour avec succès
       areas:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle zone.
-          success: Zone créée avec succès.
+          success: Fonctionnalité créée avec succès.
         destroy:
-          success: Zone détruite avec succès
+          success: Fonctionnalité supprimée avec succès
         edit:
-          title: Modifier la zone
+          title: Editer la fonctionnalité
           update: Mettre à jour
         new:
           create: Créer une zone
           title: Nouvelle zone
-        no_areas: Pas de zones
+        no_areas: Aucune fonctionnalité
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette zone.
-          success: Zone mise à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de cette fonctionnalité.
+          success: Fonctionnalité mise à jour avec succès
       attachment_collections:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle collection.
@@ -344,6 +344,8 @@ fr:
             sent_at: Envoyé à
             subject: Objet
           name: Bulletin d'information (newsletter)
+        participatory_space_private_user:
+          name: Espace privé participatif
         scope:
           fields:
             name: Nom
@@ -466,6 +468,17 @@ fr:
           homepage_highlighted_content_banner_title: Bannière de contenu Highligted
           layout_appearance_title: Modifier l’aspect de la mise en page
           omnipresent_banner_appearance_title: Modifier omniprésent
+      participatory_space_private_users:
+        create:
+          error: Une erreur s'est produite lors de l'ajout d'un utilisateur privé pour cet espace participatif.
+          success: L'accès utilisateur privé de l'espace participatif a été créé avec succès.
+        destroy:
+          success: L'accès utilisateur privé de l'espace participatif a été détruit avec succès.
+        index:
+          title: Espace privé participatif
+        new:
+          create: Créer
+          title: Nouvel utilisateur privé Participatory Space.
       scope_types:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau type de zone d'application.
@@ -540,13 +553,13 @@ fr:
           filter:
             all: Tous
             pending: En attente
-            rejected: Refusé
+            rejected: Non retenu
             verified: Vérifié
           filter_by: Filtrer par
           search: Rechercher
           state:
             pending: En attente
-            rejected: Refusé
+            rejected: Non retenu
             verified: Vérifié
       users:
         create:

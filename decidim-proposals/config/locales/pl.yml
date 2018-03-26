@@ -32,7 +32,6 @@ pl:
             can_accumulate_supports_beyond_threshold: Może gromadzić podpory przekraczające próg
             comments_enabled: Komentarze włączone
             geocoding_enabled: Włączono geokodowanie
-            maximum_votes_per_proposal: Maksymalna liczba głosów na jedną propozycję
             new_proposal_help_text: Nowy tekst pomocy dla wniosku
             official_proposals_enabled: Oficjalne propozycje włączone
             proposal_answering_enabled: Włączono odpowiadanie na propozycję
@@ -42,6 +41,7 @@ pl:
             proposal_wizard_step_1_help_text: Kreator propozycji "Utwórz" tekst pomocy krok
             proposal_wizard_step_2_help_text: Kreator propozycji "Porównaj" tekst pomocy
             proposal_wizard_step_3_help_text: Kreator propozycji "Pomoc do opublikowania" tekstu pomocy
+            threshold_per_proposal: Próg na wniosek
             vote_limit: Limit głosowania na użytkownika
           step:
             announcement: Ogłoszenie
@@ -70,16 +70,6 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
           email_subject: Propozycja, którą obserwujesz, została zaakceptowana
           notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została zaakceptowana.
-        proposal_created:
-          email_intro: "%{author_name} %{author_nickname}, którego obserwujesz, stworzył nową propozycję, sprawdź i pomóż:"
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
-          email_subject: Nowa propozycja %{author_nickname}
-          notification_title: Propozycja <a href="%{resource_path}">%{resource_title}</a> została utworzona przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        proposal_created_for_space:
-          email_intro: Wniosek "%{resource_title}" został dodany do "%{participatory_space_title}" że podążacie.
-          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Możesz przestać go obserwować z poprzedniego linku.
-          email_subject: Nowa propozycja została dodana do %{participatory_space_title}
-          notification_title: Wniosek <a href="%{resource_path}">%{resource_title}</a> został dodany do %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, którego obserwujesz, właśnie poparł propozycję, która może Cię zainteresować, sprawdź i pomóż:"
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{endorser_nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
@@ -90,6 +80,16 @@ pl:
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
           email_subject: Propozycja, którą obserwujesz, jest oceniana
           notification_title: Trwa ocena oferty <a href="%{resource_path}">%{resource_title}</a>.
+        proposal_published:
+          email_intro: "%{author_name} %{author_nickname}, którego obserwujesz, opublikuje nową propozycję, sprawdź i pomóż:"
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz %{author_nickname}. Możesz przestać otrzymywać powiadomienia po poprzednim linku.
+          email_subject: Nowa propozycja przez %{author_nickname}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> propozycja została opublikowana przez <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_published_for_space:
+          email_intro: Propozycja "%{resource_title}" została dodana do "%{participatory_space_title}", którą obserwujesz.
+          email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{participatory_space_title}". Możesz przestać go obserwować z poprzedniego linku.
+          email_subject: Nowa propozycja została dodana do %{participatory_space_title}
+          notification_title: Oferta <a href="%{resource_path}">%{resource_title}</a> została dodana do %{participatory_space_title}
         proposal_rejected:
           email_intro: 'Wniosek "%{resource_title}" został odrzucony. Możesz przeczytać odpowiedź na tej stronie:'
           email_outro: Otrzymałeś to powiadomienie, ponieważ obserwujesz "%{resource_title}". Możesz przestać go obserwować z poprzedniego linku.
@@ -229,7 +229,7 @@ pl:
           select_identity: Wybierz tożsamość
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Już zatwierdzony
+          already_endorsed: Zatwierdzony
           endorse: Podpisać się
       proposal_votes:
         create:
@@ -247,9 +247,6 @@ pl:
         edit_draft:
           send: Zapowiedź
           title: Edytuj wersję roboczą oferty
-        endorsement_button:
-          already_endorsed: Już zatwierdzony
-          already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: Podpisać się
         endorsements_card_row:
@@ -313,6 +310,7 @@ pl:
           withdraw_proposal: Wycofaj propozycję
         tags:
           changed_from: "(zmieniono z <u>%{previous_category}</u> przez administratora)"
+          filed_as: Zapisano jako
         vote_button:
           already_voted: Już głosował
           already_voted_hover: Unvote
@@ -325,11 +323,11 @@ pl:
           need_more_votes: Potrzebujesz więcej głosów
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Każda propozycja może zgromadzić więcej niż maksymalną liczbę głosów
-          maximum_votes_per_proposal:
-            description: Każda propozycja może otrzymać maksymalnie %{limit} głosów.
+            description: Każda propozycja może zebrać więcej niż %{limit} podpory
           proposal_limit:
             description: Możesz utworzyć do %{limit} propozycji.
+          threshold_per_proposal:
+            description: Aby zostać zaakceptowanym, wnioski muszą dotrzeć do %{limit} wsparcia
           title: 'Głosowanie podlega następującym zasadom:'
           vote_limit:
             description: Możesz zgłosić do %{limit} propozycje.

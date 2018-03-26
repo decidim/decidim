@@ -32,7 +32,6 @@ nl:
             can_accumulate_supports_beyond_threshold: Kan ondersteuningen verzamelen die de drempel overschrijden
             comments_enabled: Reacties ingeschakeld
             geocoding_enabled: Geocoding ingeschakeld
-            maximum_votes_per_proposal: Maximaal aantal stemmen per voorstel
             new_proposal_help_text: Nieuwe helptekst van het voorstel
             official_proposals_enabled: Officiële voorstellen mogelijk gemaakt
             proposal_answering_enabled: Voorstelantwoord ingeschakeld
@@ -42,6 +41,7 @@ nl:
             proposal_wizard_step_1_help_text: Voorstel wizard "Maak" stap helptekst
             proposal_wizard_step_2_help_text: Voorstel assistent tekst "Vergelijken" stap
             proposal_wizard_step_3_help_text: Voorstel assistent "Publiceren" stap helptekst
+            threshold_per_proposal: Drempel per voorstel
             vote_limit: Stemlimiet per gebruiker
           step:
             announcement: Aankondiging
@@ -70,16 +70,6 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
           email_subject: Een voorstel dat u volgt, is geaccepteerd
           notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is geaccepteerd.
-        proposal_created:
-          email_intro: "%{author_name} %{author_nickname}, wie je volgt, heeft een nieuw voorstel gemaakt, bekijk het en draag bij:"
-          email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname} volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
-          email_subject: Nieuw voorstel van %{author_nickname}
-          notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is gemaakt door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        proposal_created_for_space:
-          email_intro: Het voorstel "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" die je volgt.
-          email_outro: U hebt deze melding ontvangen omdat u "%{participatory_space_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
-          email_subject: Nieuw voorstel toegevoegd aan %{participatory_space_title}
-          notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, die u volgt, heeft zojuist een voorstel goedgekeurd dat misschien interessant voor u is, bekijk het en draag bij:"
           email_outro: Je hebt deze melding ontvangen omdat je volgt %{endorser_nickname}. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
@@ -90,6 +80,16 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
           email_subject: Een voorstel dat u volgt, wordt geëvalueerd
           notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> wordt beoordeeld.
+        proposal_published:
+          email_intro: "%{author_name} %{author_nickname}, wie je volgt, heeft een nieuw voorstel gepubliceerd, bekijk het en draag een bijdrage:"
+          email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
+          email_subject: Nieuw voorstel van %{author_nickname}
+          notification_title: Het <a href="%{resource_path}">%{resource_title}</a> voorstel werd gepubliceerd door <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_published_for_space:
+          email_intro: Het voorstel "%{resource_title}" is toegevoegd aan "%{participatory_space_title}" dat u volgt.
+          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
+          email_subject: Nieuw voorstel toegevoegd aan %{participatory_space_title}
+          notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> is toegevoegd aan %{participatory_space_title}
         proposal_rejected:
           email_intro: 'Het voorstel "%{resource_title}" is afgewezen. U kunt het antwoord op deze pagina lezen:'
           email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
@@ -229,7 +229,7 @@ nl:
           select_identity: Selecteer identiteit
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Al goedgekeurd
+          already_endorsed: onderschreven
           endorse: Onderschrijven
       proposal_votes:
         create:
@@ -251,9 +251,6 @@ nl:
         edit_draft:
           send: Voorbeeld
           title: Bewerk voorstel concept
-        endorsement_button:
-          already_endorsed: Al goedgekeurd
-          already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: Onderschrijven
         endorsements_card_row:
@@ -324,6 +321,7 @@ nl:
           withdraw_proposal: Voorstel intrekken
         tags:
           changed_from: "(gewijzigd van <u>%{previous_category}</u> door een beheerder)"
+          filed_as: Opgeslagen als
         vote_button:
           already_voted: Al gestemd
           already_voted_hover: Stem Intrekken
@@ -339,11 +337,11 @@ nl:
           need_more_votes: Meer stemmen nodig
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Elk voorstel kan meer dan maximale stemmen verzamelen
-          maximum_votes_per_proposal:
-            description: Elk voorstel kan maximaal %{limit} stemmen ontvangen.
+            description: Elk voorstel kan meer dan %{limit} ondersteuningen verzamelen
           proposal_limit:
             description: U kunt maximaal %{limit} voorstellen maken.
+          threshold_per_proposal:
+            description: Om te worden geaccepteerd, moeten voorstellen %{limit} steunen bereiken
           title: 'Stemmen zijn onderworpen aan de volgende regels:'
           vote_limit:
             description: U kunt tot %{limit} voorstellen stemmen.

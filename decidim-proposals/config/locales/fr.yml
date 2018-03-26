@@ -32,7 +32,6 @@ fr:
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
             comments_enabled: Commentaires activés
             geocoding_enabled: Géocodage activé
-            maximum_votes_per_proposal: Nombre maximum de votes par proposition
             new_proposal_help_text: Nouveau texte d'aide à la proposition
             official_proposals_enabled: Propositions officielles activées
             proposal_answering_enabled: Réponse à la proposition activée
@@ -42,6 +41,7 @@ fr:
             proposal_wizard_step_1_help_text: Texte d'aide à la création de proposition
             proposal_wizard_step_2_help_text: Texte d'aide à la comparaison de proposition
             proposal_wizard_step_3_help_text: Texte d'aide à la publication de proposition
+            threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de vote par utilisateur
           step:
             announcement: Annonce
@@ -70,16 +70,6 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez arrêter de la suivre en cliquant sur ce dernier lien.
           email_subject: Une proposition que vous suivez a été acceptée
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
-        proposal_created:
-          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a créé une nouvelle proposition. Découvrez-la et contribuez:"
-          email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
-          email_subject: Nouvelle proposition par %{author_nickname}
-          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été créée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        proposal_created_for_space:
-          email_intro: La proposition "%{resource_title}" a été ajouté à "%{participatory_space_title}" que vous suivez.
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
-          email_subject: Nouvelle proposition ajoutée à %{participatory_space_title}
-          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajouté à %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, que vous suivez, vient d'endosser une proposition qui pourrait vous intéresser, vérifiez-la et contribuez:"
           email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
@@ -90,6 +80,16 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez le retirer du lien précédent.
           email_subject: Une proposition que vous suivez est en cours d'évaluation
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
+        proposal_published:
+          email_intro: "%{author_name} %{author_nickname}, que vous suivez, a publié une nouvelle proposition, vérifiez-la et contribuez:"
+          email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_subject: Nouvelle proposition par %{author_nickname}
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été publiée par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_published_for_space:
+          email_intro: La proposition "%{resource_title}" a été ajoutée à "%{participatory_space_title}" que vous suivez.
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez le retirer du lien précédent.
+          email_subject: Nouvelle proposition ajoutée à %{participatory_space_title}
+          notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
         proposal_rejected:
           email_intro: 'La proposition "%{resource_title}" a été rejetée. Vous pouvez lire la réponse dans cette page:'
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez le retirer du lien précédent.
@@ -140,7 +140,7 @@ fr:
             accepted: Retenue
             answer_proposal: Répondre
             evaluating: En cours d'évaluation
-            rejected: Refusée
+            rejected: Non retenue
             title: Réponse à la proposition %{title}
         proposal_notes:
           create:
@@ -200,8 +200,8 @@ fr:
       answers:
         accepted: Retenue
         evaluating: En cours d'évaluation
-        not_answered: Resté sans réponse
-        rejected: Refusée
+        not_answered: En attente de réponse
+        rejected: Non retenue
         withdrawn: Retiré
       create:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
@@ -229,7 +229,7 @@ fr:
           select_identity: Sélectionnez l'identité
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Déjà approuvé
+          already_endorsed: Approuvé
           endorse: Endosser
       proposal_votes:
         create:
@@ -251,9 +251,6 @@ fr:
         edit_draft:
           send: Aperçu
           title: Modifier le projet de proposition
-        endorsement_button:
-          already_endorsed: Déjà approuvé
-          already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: Endosser
         endorsements_card_row:
@@ -272,7 +269,7 @@ fr:
           evaluating: En cours d'évaluation
           official: Propositions officielles
           origin: Auteurs
-          rejected: Refusée
+          rejected: Non retenue
           related_to: Liée à
           search: Rechercher
           state: État
@@ -299,7 +296,7 @@ fr:
           label: 'Classement des propositions par:'
           most_voted: Les plus votées
           random: Aléatoire
-          recent: Les plus récents
+          recent: Les plus récentes
         preview:
           modify: Modifier la proposition
           proposal_edit_before_minutes:
@@ -314,7 +311,7 @@ fr:
           edit_proposal: Modifier la proposition
           proposal_accepted_reason: 'Cette proposition a été retenue parce que :'
           proposal_in_evaluation_reason: Cette proposition est en cours d'évaluation
-          proposal_rejected_reason: 'Cette proposition a été refusée parce que:'
+          proposal_rejected_reason: 'Cette proposition n''a pas été retenue parce que:'
           report: Signaler
           sign_in: se connecter
           sign_in_or_up: "%{in} ou %{up} pour participer"
@@ -340,11 +337,11 @@ fr:
           need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Chaque proposition peut accumuler plus que le nombre maximum de votes
-          maximum_votes_per_proposal:
-            description: Chaque proposition peut recevoir un maximum de %{limit} votes.
+            description: Chaque proposition peut accumuler plus de %{limit} soutiens
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
+          threshold_per_proposal:
+            description: Pour être acceptées, les propositions doivent atteindre %{limit} soutiens
           title: 'Le vote est soumis aux règles suivantes:'
           vote_limit:
             description: Vous pouvez voter pour %{limit} propositions au maximum.

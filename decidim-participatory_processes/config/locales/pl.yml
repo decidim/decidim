@@ -5,7 +5,7 @@ pl:
         announcement: Ogłoszenie
         banner_image: Obraz baneru
         copy_categories: Kopiuj kategorie
-        copy_features: Kopiuj funkcje
+        copy_components: Skopiuj komponenty
         copy_steps: Skopiuj kolejne etapy
         description: Opis
         developer_group: Grupa programistyczna
@@ -66,15 +66,17 @@ pl:
           attachment_files: Akta
           attachments: Załączniki
           categories: Kategorie
-          features: cechy
+          components: składniki
           info: Informacje
           moderations: Modernizacje
+          private_users: Użytkownicy prywatni
           process_admins: Użytkownicy procesu
           steps: Kroki
       models:
         participatory_process:
           fields:
             created_at: Utworzono w
+            private: Prywatny
             promoted: Podświetlony
             published: Opublikowany
             title: Tytuł
@@ -183,6 +185,8 @@ pl:
           title: Informacje ogólne
         index:
           not_published: Nie opublikowane
+          private: Prywatny
+          public: Publiczny
           published: Opublikowany
         new:
           create: Utwórz
@@ -275,12 +279,14 @@ pl:
         local_area: Obszar Organizacji
         participatory_scope: Co jest zdecydowane
         participatory_structure: Jak to się stało
+        private_space: To jest prywatny proces
         scope: Zakres
         start_date: Data rozpoczęcia
         target: Kto uczestniczy
       statistics:
         answers_count: Odpowiedzi
         comments_count: Komentarze
+        debates_count: Debaty
         endorsements_count: Adnotacje
         headline: Czynność
         meetings_count: Spotkania

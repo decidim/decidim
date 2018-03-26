@@ -313,6 +313,10 @@ gl:
     pages:
       index:
         title: Máis información
+    participatory_space_private_users:
+      not_allowed: Non tes permiso para ver este contido
+    profile:
+      deleted: Usuario eliminado
     profiles:
       default_officialization_text: Este participante está verificado públicamente, verificouse o seu nome ou o seu papel para corresponder co seu nome e rol real
       show:
@@ -410,12 +414,16 @@ gl:
         ignore: |-
           Se non queres aceptar a invitación, ignore este correo electrónico.23_6_0_321 A túa conta non se creará ata que accedas á ligazón de arriba e configure o teu contrasinal.
         invited_you_as_admin: "%{invited_by} invitoute como administrador de %{application}. Podes aceptalo a través da seguinte ligazón."
+        invited_you_as_private_user: "%{invited_by} convidoute como usuario privado de %{application}. Podes aceptalo a través da seguinte ligazón."
         someone_invited_you: Alguén te invitou a %{application}. Podes aceptalo a través da seguinte ligazón.
         someone_invited_you_as_admin: Alguén te convidou como administrador de %{application}, podes aceptalo a través da seguinte ligazón.
+        someone_invited_you_as_private_user: Alguén te convidou como usuario privado de %{application}, podes aceptalo a través da seguinte ligazón.
       invite_admin:
         subject: Invitaboute a xestionar %{organization}
       invite_collaborator:
         subject: Invitoute a colaborar en %{organization}
+      invite_private_user:
+        subject: Invitouse a un proceso participativo privado en %{organization}
       organization_admin_invitation_instructions:
         subject: Invitaboute a xestionar %{organization}
       password_change:
@@ -501,6 +509,7 @@ gl:
         answers_count: Enquisas concluídas
         assemblies_count: Asembleas
         comments_count: Comentarios
+        debates_count: Debates
         endorsements_count: Aprobacións
         headline: Estado actual de %{organization}
         meetings_count: Reunións

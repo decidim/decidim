@@ -21,6 +21,15 @@ ca:
         start_time: Hora d'inici
         title: Títol
   decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: S'ha produït un error en duplicar aquesta reunió.
+          success: Reunió duplicada amb èxit.
+        new:
+          copy: Copia
+          select: Selecciona quines dades vols duplicar
+          title: Reunió duplicada
     components:
       meetings:
         actions:
@@ -205,7 +214,7 @@ ca:
       highlighted_meetings:
         past_meetings: Trobades anteriors
         see_all_meetings: Veure totes les trobades
-        upcoming_meetings: Properes rrobades
+        upcoming_meetings: Properes trobades
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Resultats relacionats:'

@@ -344,6 +344,8 @@ gl:
             sent_at: Enviado en
             subject: Asunto
           name: Boletín informativo
+        participatory_space_private_user:
+          name: Espazo participativo usuario privado
         scope:
           fields:
             name: Nome
@@ -466,6 +468,17 @@ gl:
           homepage_highlighted_content_banner_title: Banner de contido de alto nivel
           layout_appearance_title: Editar aspecto de deseño
           omnipresent_banner_appearance_title: Editar omnipresente
+      participatory_space_private_users:
+        create:
+          error: Produciuse un erro engadindo un usuario privado a este espazo participativo.
+          success: O acceso ao usuario privado do espazo participativo creouse con éxito.
+        destroy:
+          success: O acceso ao usuario privado do espazo participativo foi destruído con éxito.
+        index:
+          title: Espazo participativo usuario privado
+        new:
+          create: Crear
+          title: Novo usuario privado do espazo participativo.
       scope_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de alcance.

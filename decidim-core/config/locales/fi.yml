@@ -313,6 +313,10 @@ fi:
     pages:
       index:
         title: Lisätietoa
+    participatory_space_private_users:
+      not_allowed: Et voi katsoa tätä sisältöä
+    profile:
+      deleted: Poistettu käyttäjä
     profiles:
       default_officialization_text: Tämä osallistuja on julkisesti vahvistettu. Hänen nimensä tai roolinsa on varmistettu vastaamaan hänen oikeaa nimeään ja rooliaan
       show:
@@ -411,12 +415,16 @@ fi:
           Jos et halua hyväksyä kutsua, jätä tämä viesti huomiotta.<br />
           Sinulle ei luoda tiliä, mikäli et seuraa linkkiä ja aseta salasanaasi.
         invited_you_as_admin: "%{invited_by} on kutsunut sinut hallinnoimaan kohdetta %{application}. Voit hyväksyä sen alla olevan linkin kautta."
+        invited_you_as_private_user: "%{invited_by} on kutsunut sinut yksityiseksi käyttäjäksi %{application}. Voit hyväksyä sen alla olevan linkin kautta."
         someone_invited_you: Joku on kutsunut sinut kohteeseen %{application}. Voit hyväksyä sen alla olevan linkin kautta.
         someone_invited_you_as_admin: Joku on kutsunut sinut ylläpitämään palvelua %{application}. Voit hyväksyä kutsun alla olevan linkin avulla.
+        someone_invited_you_as_private_user: Joku on kutsunut sinut %{application}-palveluntarjoajaksi, voit hyväksyä sen alla olevan linkin kautta.
       invite_admin:
         subject: Sinut on kutsuttu hallinnoimaan organisaatiota %{organization}
       invite_collaborator:
         subject: Sinut on kutsuttu osallistumaan organisaatioon %{organization}
+      invite_private_user:
+        subject: Sinut on kutsuttu yksityiseen osallistumisprosessiin %{organization}
       organization_admin_invitation_instructions:
         subject: Sinut on kutsuttu hallitsemaan organisaatiota %{organization}
       password_change:
@@ -502,6 +510,7 @@ fi:
         answers_count: Valmistuneet kyselyt
         assemblies_count: Kehitysryhmät
         comments_count: Kommentit
+        debates_count: keskustelut
         endorsements_count: merkintöjen
         headline: Tämänhetkinen tila organisaatiolle %{organization}
         meetings_count: Tapaamiset

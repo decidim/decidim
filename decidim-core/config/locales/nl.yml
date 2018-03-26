@@ -313,6 +313,10 @@ nl:
     pages:
       index:
         title: Meer informatie
+    participatory_space_private_users:
+      not_allowed: Het is niet toegestaan ​​om deze inhoud te bekijken
+    profile:
+      deleted: Verwijderde gebruiker
     profiles:
       default_officialization_text: Deze deelnemer wordt publiekelijk geverifieerd, zijn / haar naam of rol is geverifieerd om overeen te komen met zijn / haar echte naam en rol
       show:
@@ -410,12 +414,16 @@ nl:
         ignore: |-
           Negeer deze email als u de uitnodiging niet wilt accepteren.<br /> Uw account wordt niet aangemaakt totdat u via de link hierboven uw wachtwoord instelt.
         invited_you_as_admin: "%{invited_by} heeft je uitgenodigd als admin van %{application}. U kunt het accepteren via de onderstaande link."
+        invited_you_as_private_user: "%{invited_by} heeft je uitgenodigd als een privégebruiker van %{application}. Je kunt het accepteren via de onderstaande link."
         someone_invited_you: Iemand heeft u uitgenodigd voor %{application}. U kunt het accepteren via de onderstaande link.
         someone_invited_you_as_admin: Iemand heeft u uitgenodigd als administrator van %{application}, u kunt het accepteren via onderstaande link.
+        someone_invited_you_as_private_user: Iemand heeft je uitgenodigd als privé-gebruiker van %{application}, je kunt het accepteren via de onderstaande link.
       invite_admin:
         subject: U bent uitgenodigd om %{organization} te beheren
       invite_collaborator:
         subject: U bent uitgenodigd om samen te werken bij %{organization}
+      invite_private_user:
+        subject: Je bent uitgenodigd voor een persoonlijk participatieproces op %{organization}
       organization_admin_invitation_instructions:
         subject: U bent uitgenodigd om %{organization} te beheren
       password_change:
@@ -501,6 +509,7 @@ nl:
         answers_count: Voltooide enquêtes
         assemblies_count: Bijeenkomsten
         comments_count: Reacties
+        debates_count: debatten
         endorsements_count: Endorsements
         headline: Huidige stand van %{organization}
         meetings_count: Vergaderingen

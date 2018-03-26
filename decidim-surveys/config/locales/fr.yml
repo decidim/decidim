@@ -51,6 +51,7 @@ fr:
             already_answered_warning: Votre enquête a déjà reçu des réponses, vous ne pouvez donc pas modifier ses questions.
           question:
             add_answer_option: Ajouter une option de réponse
+            description: La description
             down: Vers le bas
             question: Question
             remove: Retirer

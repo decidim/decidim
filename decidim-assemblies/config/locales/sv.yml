@@ -3,7 +3,7 @@ sv:
     attributes:
       assembly:
         area_id: Område
-        banner_image: Banner image
+        banner_image: Bannerbild
         copy_categories: Kopiera kategorier
         copy_components: Kopiera komponenter
         decidim_area_id: Område
@@ -11,7 +11,7 @@ sv:
         description: Beskrivning
         developer_group: Utvecklargrupp
         domain: Domän
-        hashtag: hashtag
+        hashtag: Hashtag
         hero_image: Hembild
         local_area: Lokalt område
         meta_scope: Omfattning metadata
@@ -21,16 +21,16 @@ sv:
         promoted: främjas
         published_at: Publicerad på
         scope_id: Omfattning
-        scopes_enabled: Scopes aktiverade
+        scopes_enabled: Omfattningar aktiverade
         short_description: Kort beskrivning
         show_statistics: Visa statistik
         slug: URL slug
-        subtitle: Texta
+        subtitle: Underrubrik
         target: Mål
         title: Titel
       assembly_user_role:
         email: E-post
-        name: namn
+        name: Namn
         role: Roll
   decidim:
     admin:
@@ -41,11 +41,13 @@ sv:
         destroy:
           success: Församlingen förstördes framgångsrikt.
         edit:
-          update: Uppdatering
+          update: Uppdatera
         form:
           title: Allmän information
         index:
           not_published: Ej publicerad
+          private: Privat
+          public: Offentlig
           published: Publicerad
         new:
           create: Skapa
@@ -77,7 +79,7 @@ sv:
           success: Användaren förstördes framgångsrikt för denna montering.
         edit:
           title: Uppdatera monteringsanvändaren.
-          update: Uppdatering
+          update: Uppdatera
         index:
           assembly_admins_title: Monteringsanvändare
         new:
@@ -90,17 +92,19 @@ sv:
         assemblies: Assemblies
         assemblies_submenu:
           assembly_admins: Monteringsanvändare
-          attachment_collections: samlingar
-          attachment_files: filer
-          attachments: bilagor
-          categories: kategorier
+          attachment_collections: Samlingar
+          attachment_files: Filer
+          attachments: Bifogade filer
+          categories: Kategorier
           components: Komponenter
           info: Info
-          moderations: modere
+          moderations: Moderering
+          private_users: Privata användare
       models:
         assembly:
           fields:
             created_at: Skapad vid
+            private: Privat
             promoted: Markerad
             published: Publicerad
             title: Titel
@@ -108,13 +112,13 @@ sv:
         assembly_user_role:
           fields:
             email: E-post
-            name: namn
+            name: Namn
             role: Roll
           name: Monteringsanvändare
           roles:
             admin: Administratör
             collaborator: Medarbetare
-            moderator: moderator
+            moderator: Moderator
       titles:
         assemblies: Assemblies
     admin_log:
@@ -149,31 +153,33 @@ sv:
         local_area: Lokalt område
         participatory_scope: Deltagande räckvidd
         participatory_structure: Deltagande struktur
+        private_space: Detta är en privat sammansättning
         related_participatory_processes: Relaterade deltagande processer
         scope: Omfattning
         target: Mål
       statistics:
-        answers_count: svar
+        answers_count: Svar
         assemblies_count: Assemblies
-        comments_count: kommentarer
+        comments_count: Kommentarer
+        debates_count: Debatter
         endorsements_count: påskrifter
         headline: Aktivitet
-        meetings_count: möten
-        orders_count: röster
-        pages_count: sidor
-        projects_count: projekt
-        proposals_count: förslag
+        meetings_count: Möten
+        orders_count: Röster
+        pages_count: Sidor
+        projects_count: Projekt
+        proposals_count: Förslag
         results_count: Resultat
         surveys_count: Undersökningar
         users_count: Deltagare
-        votes_count: röster
+        votes_count: Röster
     menu:
       assemblies: Assemblies
   layouts:
     decidim:
       assemblies:
         assembly:
-          take_part: Ta del
+          take_part: Delta
         index:
           promoted_assemblies: Utrustade församlingar
         order_by_assemblies:
@@ -182,10 +188,10 @@ sv:
             other: "%{count} sammansättningar"
         promoted_assembly:
           more_info: Mer information
-          take_part: Ta del
+          take_part: Delta
       assembly_header:
         assembly_menu_item: Sammansättningen
         unfold: Veckla ut
       assembly_widgets:
         show:
-          take_part: Ta del
+          take_part: Delta

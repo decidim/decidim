@@ -344,6 +344,8 @@ fi:
             sent_at: Lähetyksen ajankohta
             subject: Otsikko
           name: Uutiskirje
+        participatory_space_private_user:
+          name: Osallistuva tila yksityinen käyttäjä
         scope:
           fields:
             name: Nimi
@@ -466,6 +468,17 @@ fi:
           homepage_highlighted_content_banner_title: Korkeatasoinen sisältöbanneri
           layout_appearance_title: Muokkaa sivupohjan ulkoasua
           omnipresent_banner_appearance_title: Muokkaa kaikkialla näkyvää banneria
+      participatory_space_private_users:
+        create:
+          error: Yksityishenkilöä oli lisätty tähän osallistuvaan tilaan.
+          success: Osallistumistilaa yksityisen käyttäjän käyttöoikeus luotiin onnistuneesti.
+        destroy:
+          success: Osallistuva tila yksityisen käyttäjän pääsy tuhoutui onnistuneesti.
+        index:
+          title: Osallistuva tila yksityinen käyttäjä
+        new:
+          create: Luoda
+          title: Uusi osallistuva tila yksityinen käyttäjä.
       scope_types:
         create:
           error: Uuden kontekstityypin luomisessa tapahtui virhe.
