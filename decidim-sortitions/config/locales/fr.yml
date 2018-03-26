@@ -1,0 +1,145 @@
+fr:
+  activemodel:
+    attributes:
+      sortition:
+        additional_info: Informations de tri
+        decidim_category_id: Catégories de l'ensemble de propositions dans lequel vous souhaitez appliquer le tirage
+        decidim_proposals_component_id: Ensemble de propositions
+        dice: Résultat du dé (rouler un dé à 6 faces (ou chercher une autre façon aléatoire de générer un nombre de 1 à 6) et entrer ici, au lieu d'être témoin du nombre résultant, cela contribue à la qualité et aux garanties de l'aléatoire de le résultat
+        target_items: Nombre de propositions à sélectionner (indique le nombre de propositions que vous voulez sélectionner en tirant beaucoup du groupe de propositions que vous avez choisi précédemment)
+        title: Titre
+        witnesses: Les témoins
+  decidim:
+    components:
+      sortitions:
+        name: Sortitions
+        settings:
+          global:
+            comments_enabled: Commentaires activés
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: Le tri "%{resource_title}" a été ajouté à "%{participatory_space_title}" que vous suivez.
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez le retirer du lien précédent.
+          email_subject: Nouveau tri ajouté à %{participatory_space_title}
+          notification_title: La sélection <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
+    participatory_processes:
+      statistics:
+        sortitions_count: Sortitions
+    sortitions:
+      admin:
+        actions:
+          destroy: Annuler la tri
+          edit: modifier
+          new: Nouveau
+          show: Détails de tri
+        models:
+          sortition:
+            fields:
+              category: Catégorie
+              created_at: Date de création
+              decidim_proposals_component: Composante de propositions
+              dice: Dé
+              reference: Référence
+              request_timestamp: Dessiner le temps
+              seed: La graine
+              target_items: Articles à sélectionner
+              title: Titre
+            name:
+              one: Sortition
+              other: Sortitions
+        sortitions:
+          confirm_destroy:
+            confirm_destroy: Êtes-vous sûr de vouloir annuler ce tri?
+            destroy: Annuler le tri
+            title: Annulation de la tri
+          create:
+            error: Une erreur s'est produite lors de la création d'un nouveau tri.
+            success: Le tri a été créé avec succès
+          destroy:
+            error: Impossible d'annuler le tri.
+            success: Le tri a été annulé avec succès
+          edit:
+            title: Mettre à jour les informations sur le tri
+            update: Mettre à jour
+          form:
+            all_categories: Toutes catégories
+            select_proposal_component: Sélectionnez l'ensemble de propositions
+            title: Nouvelle tri pour les propositions
+          index:
+            title: Sortitions
+          new:
+            confirm: En appuyant sur le bouton suivant, Decidim enregistrera la date et l'heure (avec une précision de quelques secondes) et, avec le jet de dé, cette information sera utilisée pour générer une sélection aléatoire. L'action sera irréversible, une fois le bouton cliqué le résultat de ce tirage sera publié, ainsi que les données saisies dans ce formulaire et ne peuvent pas être modifiés, s'il vous plaît vérifier le contenu attentivement
+            create: Créer
+            title: Nouvelle tri
+          show:
+            selected_proposals: Propositions sélectionnées pour le tirage
+          update:
+            error: Une erreur est survenue lors de la mise à jour du tri.
+            success: Le tri a bien été mis à jour
+      admin_log:
+        sortition:
+          create: "%{user_name} a créé la catégorie %{resource_name} dans %{space_name}"
+          delete: "%{user_name} a annulé le tri %{resource_name} dans %{space_name}"
+          update: "%{user_name} a mis à jour le %{resource_name} sortition dans %{space_name}"
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 proposition
+            other: "%{count} propositions"
+        filters:
+          active: actif
+          all: Tout
+          cancelled: Annulé
+          category: Catégorie
+          category_prompt: Choisir une catégorie
+          search: Chercher
+          state: Etat
+        filters_small_view:
+          close_modal: Fermer modal
+          filter: Filtre
+          filter_by: Filtrer par
+          unfold: Se dérouler
+        linked_sortitions:
+          selected_proposals: Propositions sélectionnées
+        orders:
+          label: 'Trier les sortitions par:'
+          random: au hasard
+          recent: Récent
+        proposal:
+          view_proposal: Voir la proposition
+        results_count:
+          count:
+            one: proposition sélectionnée
+            other: propositions sélectionnées
+        show:
+          algorithm: Code d'algorithme de Sortition
+          any_category: de toutes les catégories
+          cancelled: Tri oblitéré
+          candidate_proposal_ids: Ordre des propositions de tri et identifiants
+          candidate_proposals_info: 'Le tri a été effectué parmi les propositions suivantes (%{category_label}), avec les identifiants suivants (en gras les propositions sélectionnées)  '
+          category: de la catégorie %{category}
+          dice_result: "(1) Résultat du dé"
+          introduction: 'Cette page contient les résultats de la sélection %{reference}. Au moyen de cette sorte, %{target_items} nombre de résultats ont été sélectionnés aléatoirement et avec une distribution de probabilité égale à partir de l''ensemble des propositions affichées ci-dessous. Avec les résultats, les informations affichées sur cette page fournissent toutes les informations nécessaires pour maximiser les garanties et reproduire les résultats. La clé de la qualité de ce tri est le double hasard fourni par le lancer d''un dé (vérifié par des témoins) et l''heure précise du tri qui fournit l''entrée pour un algorithme qui génère une sélection aléatoire. La graine de temps pour la tri est si précise (secondes) qu''il est impossible de contrôler par les humains fournissant ainsi une double entrée "incontrôlable" pour garantir un résultat juste.  '
+          mathematical_result: Résultat (1) x (2)
+          proposals_selected_by_sortition: Propositions sélectionnées par tri
+          sortition_reproducibility_details: Détails de reproductibilité de tri
+          time_seed: "(2) Graine de temps"
+          witnesses: Les témoins
+        sortition:
+          selected_proposals:
+            one: 1 proposition sélectionnée
+            other: "%{count} propositions sélectionnées"
+          view_sortition: Voir la tri
+        sortition_author:
+          deleted: Utilisateur supprimé
+        sortition_cancel_author:
+          deleted: Utilisateur supprimé
+        sortitions_count:
+          count:
+            one: 1 tri
+            other: "%{count} sortitions"
+  pages:
+    home:
+      statistics:
+        sortitions_count: Sortitions
