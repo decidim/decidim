@@ -80,6 +80,10 @@ gl:
           email_outro: Recibiches esta notificación porque estás seguindo "%{resource_title}". Podes deixar de seguir desde a ligazón anterior.
           email_subject: Estase evaluando unha proposta que estás seguindo
           notification_title: A proposta <a href="%{resource_path}">%{resource_title}</a> está a ser avaliada.
+        proposal_mentioned:
+          email_intro: A túa proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_path}">neste espazo</a> nos comentarios.
+          email_subject: Enviouse a súa proposta "%{mentioned_proposal_title}"
+          notification_title: A túa proposta "%{mentioned_proposal_title}" foi mencionada <a href="%{resource_path}">neste espazo</a> nos comentarios.
         proposal_published:
           email_intro: "%{author_name} %{author_nickname}, a quen estás seguindo, publicou unha nova proposta, revisa e contribúe:"
           email_outro: Recibiches esta notificación porque estás seguindo %{author_nickname}. Podes deixar de recibir notificacións seguindo a ligazón anterior.
