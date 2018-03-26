@@ -94,6 +94,13 @@ module Decidim
         end
       end
 
+      initializer "decidim_proposals.mentions_listener" do
+        Decidim::Comments::CommentCreation.subscribe do |data|
+          metadata = data[:metadatas][:proposals]
+          Decidim::Proposals::NotifyProposalsMentionedJob.perform_later(data[:comment_id], metadata)
+        end
+      end
+
       # Subscribes to ActiveSupport::Notifications that may affect a Proposal.
       initializer "decidim_proposals.subscribe_to_events" do
         # when a proposal is linked from a result

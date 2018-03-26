@@ -42,27 +42,18 @@ module Decidim
           let(:proposal_2) { create(:proposal) }
           let(:proposal_3) { create(:proposal) }
           let(:content) do
-            gid_1 = proposal_1.to_global_id
-            gid_2 = proposal_2.to_global_id
-            gid_3 = proposal_3.to_global_id
-            "This content references the following proposals: #{gid_1}, #{gid_2} and #{gid_3}. Great?I like them!"
+            gid1 = proposal_1.to_global_id
+            gid2 = proposal_2.to_global_id
+            gid3 = proposal_3.to_global_id
+            "This content references the following proposals: #{gid1}, #{gid2} and #{gid3}. Great?I like them!"
           end
 
           it { is_expected.to eq("This content references the following proposals: #{proposal_as_html_link(proposal_1)}, #{proposal_as_html_link(proposal_2)} and #{proposal_as_html_link(proposal_3)}. Great?I like them!") }
         end
-
-        context "when proposal in content does not exist" do
-          let(:content) { "Proposal to be removed gid://decidim-dummy-app/Decidim::Proposals::Proposal/9876543210" }
-
-          it { is_expected.to eq("Proposal to be removed <???>") }
-        end
       end
 
       def proposal_url(proposal)
-        host = proposal.organization.host
-        f = proposal.feature
-        url = "/processes/#{f.participatory_space.slug}/f/#{f.id}/proposals/#{proposal.id}"
-        url
+        Decidim::ResourceLocatorPresenter.new(proposal).path
       end
 
       def proposal_as_html_link(proposal)
