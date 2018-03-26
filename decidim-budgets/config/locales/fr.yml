@@ -112,10 +112,10 @@ fr:
         name: Budgets
         settings:
           global:
-            announcement: Annonce
+            announcement: Message d'annonce
             comments_enabled: Commentaires activés
             total_budget: Budget total
-            vote_threshold_percent: Vote seuil de pourcentage
+            vote_threshold_percent: Pourcentage du budget à atteindre pour voter
           step:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
