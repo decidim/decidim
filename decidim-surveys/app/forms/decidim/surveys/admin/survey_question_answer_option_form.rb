@@ -7,7 +7,11 @@ module Decidim
       class SurveyQuestionAnswerOptionForm < Decidim::Form
         include TranslatableAttributes
 
+        attribute :deleted, Boolean
+
         translatable_attribute :body, String
+
+        validates :body, translatable_presence: true, unless: :deleted
 
         def to_param
           id || "survey-question-answer-option-id"

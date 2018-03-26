@@ -44,6 +44,12 @@ module Decidim
         end
       end
 
+      initializer "decidim.content_processors" do |_app|
+        Decidim.configure do |config|
+          config.content_processors += [:proposal]
+        end
+      end
+
       initializer "decidim_proposals.view_hooks" do
         Decidim.view_hooks.register(:participatory_space_highlighted_elements, priority: Decidim::ViewHooks::MEDIUM_PRIORITY) do |view_context|
           published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
@@ -86,6 +92,13 @@ module Decidim
             changes[:previous_settings],
             changes[:current_settings]
           )
+        end
+      end
+
+      initializer "decidim_proposals.mentions_listener" do
+        Decidim::Comments::CommentCreation.subscribe do |data|
+          metadata = data[:metadatas][:proposals]
+          Decidim::Proposals::NotifyProposalsMentionedJob.perform_later(data[:comment_id], metadata)
         end
       end
 

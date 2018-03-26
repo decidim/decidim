@@ -47,22 +47,22 @@
     }
 
     _bindEvents() {
-      $(this.wrapperSelector).on('click', this.addFieldButtonSelector, (event) =>
+      $(this.wrapperSelector).on("click", this.addFieldButtonSelector, (event) =>
         this._bindSafeEvent(event, () => this._addField())
       );
 
-      $(this.wrapperSelector).on('click', this.removeFieldButtonSelector, (event) =>
+      $(this.wrapperSelector).on("click", this.removeFieldButtonSelector, (event) =>
         this._bindSafeEvent(event, (target) => this._removeField(target))
       );
 
       if (this.moveUpFieldButtonSelector) {
-        $(this.wrapperSelector).on('click', this.moveUpFieldButtonSelector, (event) =>
+        $(this.wrapperSelector).on("click", this.moveUpFieldButtonSelector, (event) =>
           this._bindSafeEvent(event, (target) => this._moveUpField(target))
         );
       }
 
       if (this.moveDownFieldButtonSelector) {
-        $(this.wrapperSelector).on('click', this.moveDownFieldButtonSelector, (event) =>
+        $(this.wrapperSelector).on("click", this.moveDownFieldButtonSelector, (event) =>
           this._bindSafeEvent(event, (target) => this._moveDownField(target))
         );
       }
@@ -85,7 +85,7 @@
       const $template = $(this.wrapperSelector).children("template");
       const $newField = $($template.html()).template(this.placeholderId, this._getUID());
 
-      $newField.find('ul.tabs').attr('data-tabs', true);
+      $newField.find("ul.tabs").attr("data-tabs", true);
 
       $newField.appendTo($container);
       $newField.foundation();
@@ -98,16 +98,16 @@
     _removeField(target) {
       const $target = $(target);
       const $removedField = $target.parents(this.fieldSelector);
-      const idInput = $removedField.find('input').filter((idx, input) => input.name.match(/id/));
+      const idInput = $removedField.find("input").filter((idx, input) => input.name.match(/id/));
 
       if (idInput.length > 0) {
-        const deletedInput = $removedField.find('input').filter((idx, input) => input.name.match(/delete/));
+        const deletedInput = $removedField.find("input").filter((idx, input) => input.name.match(/delete/));
 
         if (deletedInput.length > 0) {
           $(deletedInput[0]).val(true);
         }
 
-        $removedField.addClass('hidden');
+        $removedField.addClass("hidden");
         $removedField.hide();
       } else {
         $removedField.remove();
@@ -144,7 +144,7 @@
       $(this.fieldSelector).each((idx, el) => {
         $(el).template(this.placeholderId, this._getUID());
 
-        $(el).find('ul.tabs').attr('data-tabs', true);
+        $(el).find("ul.tabs").attr("data-tabs", true);
       })
     }
 

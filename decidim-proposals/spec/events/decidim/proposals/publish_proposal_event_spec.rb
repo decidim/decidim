@@ -4,9 +4,9 @@ require "spec_helper"
 
 module Decidim
   module Proposals
-    describe CreateProposalEvent do
+    describe PublishProposalEvent do
       let(:resource) { create :proposal, title: "A nice proposal" }
-      let(:event_name) { "decidim.events.proposals.proposal_created" }
+      let(:event_name) { "decidim.events.proposals.proposal_published" }
 
       include_context "simple event"
       it_behaves_like "a simple event"
@@ -20,7 +20,7 @@ module Decidim
       describe "email_intro" do
         it "is generated correctly" do
           expect(subject.email_intro)
-            .to eq("#{author.name} @#{author.nickname}, who you are following, has created a new proposal, check it out and contribute:")
+            .to eq("#{author.name} @#{author.nickname}, who you are following, has published a new proposal, check it out and contribute:")
         end
       end
 
@@ -34,7 +34,7 @@ module Decidim
       describe "notification_title" do
         it "is generated correctly" do
           expect(subject.notification_title)
-            .to include("The <a href=\"#{resource_path}\">#{resource.title}</a> proposal was created by ")
+            .to include("The <a href=\"#{resource_path}\">#{resource.title}</a> proposal was published by ")
 
           expect(subject.notification_title)
             .to include("<a href=\"/profiles/#{author.nickname}\">#{author.name} @#{author.nickname}</a>.")
@@ -42,7 +42,7 @@ module Decidim
       end
 
       context "when the target are the participatory space followers" do
-        let(:event_name) { "decidim.events.proposals.proposal_created_for_space" }
+        let(:event_name) { "decidim.events.proposals.proposal_published_for_space" }
         let(:extra) { { participatory_space: true } }
 
         include_context "simple event"
