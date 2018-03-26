@@ -80,6 +80,10 @@ nl:
           email_outro: Je hebt deze melding ontvangen omdat je "%{resource_title}" volgt. Je kunt het niet meer volgen vanaf de vorige link.
           email_subject: Een voorstel dat u volgt, wordt geëvalueerd
           notification_title: Het voorstel <a href="%{resource_path}">%{resource_title}</a> wordt beoordeeld.
+        proposal_mentioned:
+          email_intro: Je voorstel '%{mentioned_proposal_title}' is in de reacties <a href="%{resource_path}">in deze spatie</a> genoemd.
+          email_subject: Uw voorstel "%{mentioned_proposal_title}" is genoemd
+          notification_title: Je voorstel '%{mentioned_proposal_title}' is in de reacties <a href="%{resource_path}">in deze spatie</a> genoemd.
         proposal_published:
           email_intro: "%{author_name} %{author_nickname}, wie je volgt, heeft een nieuw voorstel gepubliceerd, bekijk het en draag een bijdrage:"
           email_outro: Je hebt deze melding ontvangen omdat je %{author_nickname}volgt. Je kunt stoppen met het ontvangen van meldingen na de vorige link.
