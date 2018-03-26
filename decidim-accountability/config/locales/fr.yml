@@ -181,7 +181,7 @@ fr:
             display_progress_enabled: Afficher les progrès
             heading_leaf_level_results: Nom pour "Projets"
             heading_parent_level_results: Nom pour "Résultats"
-            intro: Intro
+            intro: Introduction
             subcategories_label: Nom pour "Sous-catégories"
           step:
             comments_blocked: Commentaires bloqués
