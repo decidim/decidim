@@ -9,7 +9,7 @@ en:
       user:
         email: Your email
         name: Your name
-        nickname: Your short, unique identifier in decidim
+        nickname: Your short, unique identifier
         password: New password
         password_confirmation: Confirm your new password
         remove_avatar: Remove avatar
