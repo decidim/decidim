@@ -43,9 +43,9 @@
           <% end %>
 
           <div class="row column flex-center">
-            <%= form.submit t(".send"), class: "button  button--nomargin small", data: { disable: true } %>
-
             <%= link_to t(".discard"), destroy_draft_proposal_path(@proposal), method: :delete, data: { confirm: t(".discard_confirmation") } %>
+
+            <%= form.submit t(".send"), class: "button  button--nomargin small", data: { disable: true } %>
           </div>
         <% end %>
       </div>
