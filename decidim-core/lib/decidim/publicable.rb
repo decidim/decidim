@@ -31,7 +31,7 @@ module Decidim
     end
 
     #
-    # Public: Publishes this feature
+    # Public: Publishes this component
     #
     # Returns true if the record was properly saved, false otherwise.
     def publish!
@@ -39,7 +39,7 @@ module Decidim
     end
 
     #
-    # Public: Unpublishes this feature
+    # Public: Unpublishes this component
     #
     # Returns true if the record was properly saved, false otherwise.
     def unpublish!

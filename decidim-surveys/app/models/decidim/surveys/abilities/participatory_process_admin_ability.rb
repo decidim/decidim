@@ -10,7 +10,7 @@ module Decidim
           super
 
           can :manage, Survey do |survey|
-            can_manage_process?(survey.feature.participatory_space)
+            can_manage_process?(survey.component.participatory_space)
           end
         end
       end

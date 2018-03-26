@@ -5,7 +5,7 @@
 <div class="actions">
   <hr />
   <% if can? :update, @page %>
-    <%= link_to t("decidim.admin.actions.edit"), ['edit', @page] %>
+    <%= link_to t("decidim.admin.actions.edit"), ["edit", @page] %>
   <% end %>
 
   <% if can? :destroy, @page %>

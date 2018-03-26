@@ -6,11 +6,7 @@ module Decidim
   module Proposals
     describe EndorseProposal do
       let(:proposal) { create(:proposal) }
-      let(:current_user) { create(:user, organization: proposal.feature.organization) }
-
-      before do
-        proposal.update author: current_user
-      end
+      let(:current_user) { create(:user, organization: proposal.component.organization) }
 
       describe "User endorses Proposal" do
         let(:command) { described_class.new(proposal, current_user) }
@@ -29,6 +25,8 @@ module Decidim
           it "notifies all followers of the endorser that the proposal has been endorsed" do
             follower = create(:user, organization: proposal.organization)
             create(:follow, followable: current_user, user: follower)
+            author_follower = create(:user, organization: proposal.organization)
+            create(:follow, followable: proposal.author, user: author_follower)
 
             expect(Decidim::EventsManager)
               .to receive(:publish)
@@ -38,7 +36,7 @@ module Decidim
                 resource: proposal,
                 recipient_ids: [follower.id],
                 extra: {
-                  endorser: current_user
+                  endorser_id: current_user.id
                 }
               )
 

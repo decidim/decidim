@@ -2,7 +2,7 @@ pt-BR:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: status
+        decidim_accountability_status_id: Status
         decidim_category_id: Categoria
         decidim_scope_id: Âmbito
         description: Descrição
@@ -104,7 +104,11 @@ pt-BR:
       admin_log:
         result:
           create: "%{user_name} resultado criado %{resource_name} em %{space_name}"
+          delete: "%{user_name} eliminou o resultado %{resource_name} em %{space_name}"
           update: "%{user_name} resultado atualizado %{resource_name} em %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'O pai não foi encontrado no banco de dados (ID: %{id})'
       models:
         result:
           fields:
@@ -167,14 +171,7 @@ pt-BR:
           changes_at_title: Alterações em "%{title}"
         version:
           version_index: Versão %{index}
-    events:
-      accountability:
-        proposal_linked:
-          email_intro: 'A proposta "%{proposal_title}" foi incluída em um resultado. Você pode vê-lo a partir desta página:'
-          email_outro: Você recebeu esta notificação porque está seguindo "%{proposal_title}". Você pode parar de receber notificações após o link anterior.
-          email_subject: Uma atualização para %{proposal_title}
-          notification_title: A proposta <a href="%{proposal_path}">%{proposal_title}</a> foi incluída no resultado <a href="%{resource_path}">%{resource_title}</a>.
-    features:
+    components:
       accountability:
         name: Prestação de contas
         settings:
@@ -188,6 +185,13 @@ pt-BR:
             subcategories_label: Nome para "Subcategorias"
           step:
             comments_blocked: Comentários bloqueados
+    events:
+      accountability:
+        proposal_linked:
+          email_intro: 'A proposta "%{proposal_title}" foi incluída em um resultado. Você pode vê-lo a partir desta página:'
+          email_outro: Você recebeu esta notificação porque está seguindo "%{proposal_title}". Você pode parar de receber notificações após o link anterior.
+          email_subject: Uma atualização para %{proposal_title}
+          notification_title: A proposta <a href="%{proposal_path}">%{proposal_title}</a> foi incluída no resultado <a href="%{resource_path}">%{resource_title}</a>.
     participatory_processes:
       participatory_process_groups:
         highlighted_results:

@@ -5,7 +5,7 @@ gl:
         area_id: Área
         banner_image: Imaxe do banner
         copy_categories: Copiar categorías
-        copy_features: Copiar funcións
+        copy_components: Copiar compoñentes
         decidim_area_id: Área
         decidim_scope_id: Alcance
         description: Descrición
@@ -15,6 +15,7 @@ gl:
         hero_image: Imaxe na casa
         local_area: Área local
         meta_scope: Metadatos de ámbito
+        participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: Alcance participativo
         participatory_structure: Estrutura participativa
         promoted: Promocionado
@@ -27,6 +28,10 @@ gl:
         subtitle: Subtítulo
         target: Obxectivo
         title: Título
+      assembly_user_role:
+        email: Correo electrónico
+        name: Nome
+        role: Rol
   decidim:
     admin:
       assemblies:
@@ -89,7 +94,7 @@ gl:
           attachment_files: Arquivos
           attachments: Anexos
           categories: Categorías
-          features: características
+          components: Compoñentes
           info: Información
           moderations: Moderacións
       models:
@@ -144,6 +149,7 @@ gl:
         local_area: Área local
         participatory_scope: Alcance participativo
         participatory_structure: Estrutura participativa
+        related_participatory_processes: Procesos participativos relacionados
         scope: Alcance
         target: Obxectivo
       statistics:

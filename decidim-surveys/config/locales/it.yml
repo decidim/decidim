@@ -7,6 +7,17 @@ it:
         mandatory: Obbligatorio
         question_type: Tipo
   decidim:
+    components:
+      surveys:
+        actions:
+          answer: Risposta
+        name: Sondaggio
+        settings:
+          global:
+            announcement: Annuncio
+          step:
+            allow_answers: Consenti risposte
+            announcement: Annuncio
     events:
       surveys:
         survey_closed:
@@ -19,17 +30,6 @@ it:
           email_outro: Hai ricevuto questa notifica perché stai seguendo %{participatory_space_title}. È possibile interrompere la ricezione di notifiche seguendo il collegamento precedente.
           email_subject: Una nuova indagine su %{participatory_space_title}
           notification_title: Il sondaggio <a href="%{resource_path}">%{resource_title}</a> in <a href="%{participatory_space_url}">%{participatory_space_title}</a> è ora aperto.
-    features:
-      surveys:
-        actions:
-          answer: Risposta
-        name: Questionario
-        settings:
-          global:
-            announcement: Annuncio
-          step:
-            allow_answers: Consenti risposte
-            announcement: Annuncio
     surveys:
       admin:
         exports:
@@ -41,7 +41,7 @@ it:
         surveys:
           answer_option:
             answer_option: Opzione di risposta
-            remove_answer_option: Rimuovere l'opzione di risposta
+            remove: Rimuovere
             statement: Dichiarazione
           edit:
             save: Salva
@@ -51,9 +51,11 @@ it:
             already_answered_warning: Dato che alcuni utenti hanno già risposto al questionario, non è più possibile modificare le domande.
           question:
             add_answer_option: Aggiungre opzione di risposta
+            down: Giù
             question: Domanda
-            remove_question: Rimuovere la domanda
+            remove: Rimuovere
             statement: Dichiarazione
+            up: Su
           update:
             invalid: Ci sono stati degli errori durante il salvataggio dell'indagine.
             success: Il questionario è stato salvato correttamente.

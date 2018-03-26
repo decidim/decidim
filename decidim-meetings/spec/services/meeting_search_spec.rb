@@ -6,15 +6,15 @@ module Decidim::Meetings
   describe MeetingSearch do
     subject { described_class.new(params) }
 
-    let(:current_feature) { create :feature, manifest_name: "meetings" }
-    let(:scope1) { create :scope, organization: current_feature.organization }
-    let(:scope2) { create :scope, organization: current_feature.organization }
-    let(:parent_category) { create :category, participatory_space: current_feature.participatory_space }
+    let(:current_component) { create :component, manifest_name: "meetings" }
+    let(:scope1) { create :scope, organization: current_component.organization }
+    let(:scope2) { create :scope, organization: current_component.organization }
+    let(:parent_category) { create :category, participatory_space: current_component.participatory_space }
     let(:subcategory) { create :subcategory, parent: parent_category }
     let!(:meeting1) do
       create(
         :meeting,
-        feature: current_feature,
+        component: current_component,
         start_time: 1.day.from_now,
         category: parent_category,
         scope: scope1,
@@ -24,7 +24,7 @@ module Decidim::Meetings
     let!(:meeting2) do
       create(
         :meeting,
-        feature: current_feature,
+        component: current_component,
         start_time: 2.days.from_now,
         category: subcategory,
         scope: scope2,
@@ -32,24 +32,24 @@ module Decidim::Meetings
       )
     end
     let(:external_meeting) { create :meeting }
-    let(:feature_id) { current_feature.id }
-    let(:organization_id) { current_feature.organization.id }
-    let(:default_params) { { feature: current_feature, organization: current_feature.organization } }
+    let(:component_id) { current_component.id }
+    let(:organization_id) { current_component.organization.id }
+    let(:default_params) { { component: current_component, organization: current_component.organization } }
     let(:params) { default_params }
 
     describe "base query" do
-      context "when no feature is passed" do
-        let(:default_params) { { feature: nil } }
+      context "when no component is passed" do
+        let(:default_params) { { component: nil } }
 
         it "raises an error" do
-          expect { subject.results }.to raise_error(StandardError, "Missing feature")
+          expect { subject.results }.to raise_error(StandardError, "Missing component")
         end
       end
     end
 
     describe "filters" do
-      context "with feature_id" do
-        it "only returns meetings from the given feature" do
+      context "with component_id" do
+        it "only returns meetings from the given component" do
           external_meeting = create(:meeting)
 
           expect(subject.results).not_to include(external_meeting)
@@ -59,7 +59,7 @@ module Decidim::Meetings
       context "with date" do
         let(:params) { default_params.merge(date: date) }
         let!(:past_meeting) do
-          create(:meeting, feature: current_feature, start_time: 1.day.ago)
+          create(:meeting, component: current_component, start_time: 1.day.ago)
         end
 
         context "when upcoming" do
@@ -106,7 +106,7 @@ module Decidim::Meetings
         end
 
         context "when `global` is being sent" do
-          let!(:resource_without_scope) { create(:meeting, feature: current_feature, scope: nil) }
+          let!(:resource_without_scope) { create(:meeting, component: current_component, scope: nil) }
           let(:params) { default_params.merge(scope_id: ["global"]) }
 
           it "returns resources without a scope" do
@@ -132,7 +132,7 @@ module Decidim::Meetings
           end
         end
 
-        context "when the category does not belong to the current feature" do
+        context "when the category does not belong to the current component" do
           let(:external_category) { create :category }
           let(:params) { default_params.merge(category_id: external_category.id) }
 

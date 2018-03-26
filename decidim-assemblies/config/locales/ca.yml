@@ -5,7 +5,7 @@ ca:
         area_id: Àrea
         banner_image: Imatge de bàner
         copy_categories: Copiar categories
-        copy_features: Copiar funcionalitats
+        copy_components: Copiar components
         decidim_area_id: Àrea
         decidim_scope_id: Abast
         description: Descripció
@@ -15,6 +15,7 @@ ca:
         hero_image: Imatge de portada
         local_area: Àrea municipal
         meta_scope: Metadades d'àmbit
+        participatory_processes_ids: Processos participatius relacionats
         participatory_scope: Àmbit participatiu
         participatory_structure: Estructura participativa
         promoted: Destacat
@@ -27,6 +28,10 @@ ca:
         subtitle: Subtítol
         target: A qui va dirigit?
         title: Títol
+      assembly_user_role:
+        email: Correu electrònic
+        name: Nom
+        role: Rol
   decidim:
     admin:
       assemblies:
@@ -89,7 +94,7 @@ ca:
           attachment_files: Fitxers
           attachments: Adjunts
           categories: Categories
-          features: Funcionalitats
+          components: Components
           info: Informació
           moderations: Moderacions
       models:
@@ -144,6 +149,7 @@ ca:
         local_area: Àrea municipal
         participatory_scope: Àmbit participatiu
         participatory_structure: Estructura participativa
+        related_participatory_processes: Processos participatius relacionats
         scope: Àmbit
         target: A qui va dirigit
       statistics:

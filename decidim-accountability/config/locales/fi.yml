@@ -2,7 +2,7 @@ fi:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: tila
+        decidim_accountability_status_id: Status
         decidim_category_id: Aihepiiri
         decidim_scope_id: Konteksti
         description: Kuvaus
@@ -104,7 +104,11 @@ fi:
       admin_log:
         result:
           create: "%{user_name} luotu tulos %{resource_name} vuonna %{space_name}"
+          delete: "%{user_name} poistanut %{resource_name} tuloksen %{space_name}"
           update: "%{user_name} päivitetty tulos %{resource_name} vuonna %{space_name}"
+        value_types:
+          parent_presenter:
+            not_found: 'Vanhempaa ei löytynyt tietokannasta (ID: %{id})'
       models:
         result:
           fields:
@@ -167,6 +171,20 @@ fi:
           changes_at_title: Muutokset kohteessa "%{title}"
         version:
           version_index: Versio %{index}
+    components:
+      accountability:
+        name: vastuullisuutta
+        settings:
+          global:
+            categories_label: Nimi "Luokat"
+            comments_enabled: Kommentit ovat käytössä
+            display_progress_enabled: Näytä edistyminen
+            heading_leaf_level_results: Nimi "Projektit"
+            heading_parent_level_results: Nimi "Tulokset"
+            intro: intro
+            subcategories_label: Nimi "Alaluokat"
+          step:
+            comments_blocked: Kommentit on estetty
     events:
       accountability:
         proposal_linked:
@@ -174,20 +192,6 @@ fi:
           email_outro: Olet saanut tämän ilmoituksen, koska seuraat "%{proposal_title}". Voit lopettaa ilmoitusten vastaanottamisen edellisen linkin jälkeen.
           email_subject: Päivitys %{proposal_title}
           notification_title: Ehdotus <a href="%{proposal_path}">%{proposal_title}</a> on sisällytetty <a href="%{resource_path}">%{resource_title}</a> tulokseen.
-    features:
-      accountability:
-        name: Tulokset
-        settings:
-          global:
-            categories_label: Nimi kohteelle "Luokat"
-            comments_enabled: Kommentointi sallittu
-            display_progress_enabled: Näytä edistyminen
-            heading_leaf_level_results: Nimi kohteelle "Projektit"
-            heading_parent_level_results: Nimi kohteelle "Tulokset"
-            intro: Esittelyteksti
-            subcategories_label: Nimi kohteelle "Ala-aihepiirit"
-          step:
-            comments_blocked: Kommentointi estetty
     participatory_processes:
       participatory_process_groups:
         highlighted_results:

@@ -5,7 +5,7 @@ es:
         area_id: Área
         banner_image: Imagen de banner
         copy_categories: Copiar categorías
-        copy_features: Copiar funcionalidades
+        copy_components: Copiar componentes
         decidim_area_id: Área
         decidim_scope_id: Ámbito
         description: Descripción
@@ -15,6 +15,7 @@ es:
         hero_image: Imagen de portada
         local_area: Áreas municipales
         meta_scope: 'Metadatos: ámbito'
+        participatory_processes_ids: Procesos participativos relacionados
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
         promoted: Destacado
@@ -27,6 +28,10 @@ es:
         subtitle: Subtítulo
         target: '¿A quién va dirigido?'
         title: Título
+      assembly_user_role:
+        email: Email
+        name: Nombre
+        role: Papel
   decidim:
     admin:
       assemblies:
@@ -89,7 +94,7 @@ es:
           attachment_files: Archivos
           attachments: Archivos adjuntos
           categories: Categorías
-          features: Funcionalidades
+          components: Componentes
           info: Información
           moderations: Moderaciones
       models:
@@ -144,6 +149,7 @@ es:
         local_area: Áreas municipales
         participatory_scope: Ámbito participativo
         participatory_structure: Estructura participativa
+        related_participatory_processes: Procesos participativos relacionados
         scope: Ámbito
         target: '¿A quién va dirigida?'
       statistics:

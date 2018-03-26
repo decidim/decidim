@@ -6,13 +6,13 @@ describe Decidim::Log::ResourcePresenter, type: :helper do
   subject { presenter.present }
 
   let(:presenter) { described_class.new(resource, helper, extra) }
-  let(:resource) { create :dummy_resource }
+  let(:resource) { create(:dummy_resource, title: "Jeffery O'Conner 246") }
   let(:extra) do
     {
       "title" => resource.title
     }
   end
-  let(:title) { h(extra["title"]) }
+  let(:title) { extra["title"] }
   let(:resource_path) { Decidim::ResourceLocatorPresenter.new(resource).path }
 
   before do
@@ -36,7 +36,7 @@ describe Decidim::Log::ResourcePresenter, type: :helper do
 
     it "doesn't link to its public page" do
       expect(subject).not_to have_link(title)
-      expect(subject).to include(title)
+      expect(subject).to include(h(title))
     end
   end
 
@@ -45,7 +45,7 @@ describe Decidim::Log::ResourcePresenter, type: :helper do
       allow(presenter).to receive(:resource_path).and_return(nil)
 
       expect(subject).not_to have_link(title)
-      expect(subject).to include(title)
+      expect(subject).to include(h(title))
     end
   end
 end

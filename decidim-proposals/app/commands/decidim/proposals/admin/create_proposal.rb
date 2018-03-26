@@ -53,7 +53,7 @@ module Decidim
             body: form.body,
             category: form.category,
             scope: form.scope,
-            feature: form.feature,
+            component: form.component,
             address: form.address,
             latitude: form.latitude,
             longitude: form.longitude,
@@ -86,7 +86,7 @@ module Decidim
         end
 
         def attachments_allowed?
-          form.current_feature.settings.attachments_allowed?
+          form.current_component.settings.attachments_allowed?
         end
 
         def process_attachments?
@@ -95,8 +95,8 @@ module Decidim
 
         def send_notification
           Decidim::EventsManager.publish(
-            event: "decidim.events.proposals.proposal_created",
-            event_class: Decidim::Proposals::CreateProposalEvent,
+            event: "decidim.events.proposals.proposal_published",
+            event_class: Decidim::Proposals::PublishProposalEvent,
             resource: proposal,
             recipient_ids: @proposal.participatory_space.followers.pluck(:id),
             extra: {

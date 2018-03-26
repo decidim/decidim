@@ -3,7 +3,7 @@
 module Decidim
   # Interaction between a user and an organization can be done via an Assembly.
   # It's a unit of action from the Organization point of view that groups
-  # several features (proposals, debates...) that can be enabled or disabled.
+  # several components (proposals, debates...) that can be enabled or disabled.
   class Assembly < ApplicationRecord
     include Decidim::HasAttachments
     include Decidim::HasAttachmentCollections
@@ -14,6 +14,8 @@ module Decidim
     include Decidim::HasReference
     include Decidim::Traceable
     include Decidim::Loggable
+    include Decidim::ParticipatorySpaceResourceable
+    include Decidim::HasPrivateUsers
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -28,7 +30,7 @@ module Decidim
              dependent: :destroy,
              as: :participatory_space
 
-    has_many :features, as: :participatory_space, dependent: :destroy
+    has_many :components, as: :participatory_space, dependent: :destroy
 
     validates :slug, uniqueness: { scope: :organization }
     validates :slug, presence: true, format: { with: Decidim::Assembly.slug_format }
@@ -53,6 +55,10 @@ module Decidim
 
     def to_param
       slug
+    end
+
+    def self.private_assemblies
+      where(private_space: true)
     end
   end
 end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 shared_examples "manage results" do
-  include_context "when managing an accountability feature as an admin"
+  include_context "when managing an accountability component as an admin"
 
   it "updates a result" do
     within find("tr", text: translated(result.title)) do
@@ -73,7 +73,7 @@ shared_examples "manage results" do
   end
 
   describe "deleting a result" do
-    let!(:result2) { create(:result, feature: current_feature) }
+    let!(:result2) { create(:result, component: current_component) }
 
     before do
       visit current_path

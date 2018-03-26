@@ -21,6 +21,18 @@ es:
         start_time: Hora de inicio
         title: Título
   decidim:
+    components:
+      meetings:
+        actions:
+          join: Unirse
+        name: Reuniones
+        settings:
+          global:
+            announcement: Anuncio
+            comments_enabled: Comentarios habilitados
+          step:
+            announcement: Anuncio
+            comments_blocked: Comentarios bloqueados
     events:
       meetings:
         meeting_closed:
@@ -53,18 +65,6 @@ es:
           email_outro: Has recibido esta notificación porque sigues el encuentro "%{resource_title}". Puedes dejar de seguirlo en el enlace anterior.
           email_subject: El encuentro "%{resource_title}" comenzará en menos de 48 h.
           notification_title: El encuentro <a href="%{resource_path}">%{resource_title}</a> comenzará en menos de 48 h.
-    features:
-      meetings:
-        actions:
-          join: Unirse
-        name: Encuentros
-        settings:
-          global:
-            announcement: Aviso
-            comments_enabled: Comentarios habilitados
-          step:
-            announcement: Aviso
-            comments_blocked: Comentarios bloqueados
     meetings:
       actions:
         attachment_collections: Colecciones
@@ -135,6 +135,7 @@ es:
           close: "%{user_name} cerró el encuentro %{resource_name} en el espacio %{space_name}"
           create: "%{user_name} creó el encuentro %{resource_name} en el espacio %{space_name}"
           delete: "%{user_name} eliminó el encuentro %{resource_name} en el espacio %{space_name}"
+          export_registrations: "%{user_name} exportó los registros de la reunión %{resource_name} en el espacio %{space_name}"
           update: "%{user_name} actualizó el encuentro %{resource_name} en el espacio %{space_name}"
       mailer:
         invite_join_meeting_mailer:

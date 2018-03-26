@@ -26,16 +26,17 @@ module Decidim
         end
 
         def export
-          format = params[:format]
-          export_data = Decidim::Exporters.find_exporter(format).new(meeting.registrations, Decidim::Meetings::RegistrationSerializer).export
-
-          send_data export_data.read, type: "text/#{export_data.extension}", filename: export_data.filename("registrations")
+          ExportMeetingRegistrations.call(meeting, params[:format], current_user) do
+            on(:ok) do |export_data|
+              send_data export_data.read, type: "text/#{export_data.extension}", filename: export_data.filename("registrations")
+            end
+          end
         end
 
         private
 
         def meeting
-          @meeting ||= Meeting.where(feature: current_feature).find(params[:meeting_id])
+          @meeting ||= Meeting.where(component: current_component).find(params[:meeting_id])
         end
       end
     end

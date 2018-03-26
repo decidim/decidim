@@ -21,7 +21,7 @@ sv:
         description: Beskrivning
         name: namn
         parent_id: Förälder
-      feature:
+      component:
         name: namn
         published_at: Publicerad på
         weight: Vikt
@@ -209,6 +209,44 @@ sv:
         update:
           error: Det uppstod ett fel vid uppdateringen av den här kategorin.
           success: Kategori uppdaterad framgångsrikt.
+      component_permissions:
+        edit:
+          everyone: Alla
+          submit: Spara behörigheter
+          title: Redigera behörigheter
+        update:
+          success: Tillstånd uppdaterade framgångsrikt.
+      components:
+        create:
+          error: Det uppstod ett fel vid skapandet av den här komponenten.
+          success: Komponent skapad framgångsrikt.
+        destroy:
+          error: Det har inträffat ett fel som förstörde denna komponent.
+          success: Komponenten har tagits bort.
+        edit:
+          title: Redigera komponent
+          update: Uppdatering
+        form:
+          default_step_settings: Standard steginställningar
+          global_settings: Globala inställningar
+          step_settings: Steginställningar
+        index:
+          add: Lägg till komponent
+          headers:
+            actions: Handlingar
+            name: Komponentnamn
+            type: Komponenttyp
+        new:
+          add: Lägg till komponent
+          title: 'Lägg till komponent: %{name}'
+        publish:
+          success: Komponenten har publicerats framgångsrikt.
+        title: Komponenter
+        unpublish:
+          success: Komponenten har blivit framgångsrikt opublicerad.
+        update:
+          error: Det har uppstått ett fel vid uppdateringen av den här komponenten.
+          success: Komponenten uppdaterades framgångsrikt.
       dashboard:
         show:
           view_more_logs: Visa fler loggar
@@ -216,44 +254,9 @@ sv:
       exports:
         export_as: "%{name} som %{export_format}"
         notice: Din export är pågående. Du får ett mail när det är klart.
-      feature_permissions:
-        edit:
-          everyone: Alla
-          submit: Spara behörigheter
-          title: Redigera behörigheter
-        update:
-          success: Tillstånd uppdaterade framgångsrikt.
-      features:
-        create:
-          error: Det uppstod ett fel vid skapandet av den här funktionen.
-          success: Funktionen skapades framgångsrikt.
-        destroy:
-          error: Det har inträffat ett fel som förstörde den här funktionen.
-          success: Funktionen raderas framgångsrikt.
-        edit:
-          title: Redigera funktionen
-          update: Uppdatering
-        form:
-          default_step_settings: Standard steginställningar
-          global_settings: Globala inställningar
-          step_settings: Steginställningar
-        index:
-          add: Lägg till funktion
-          headers:
-            actions: Handlingar
-            name: Funktionsnamn
-            type: Funktionstyp
-        new:
-          add: Lägg till funktion
-          title: 'Lägg till funktion: %{name}'
-        publish:
-          success: Funktionen har publicerats med framgång.
-        title: Funktioner
-        unpublish:
-          success: Funktionen har blivit framgångsrikt opublicerad.
-        update:
-          error: Det har uppstått ett fel vid uppdateringen av den här funktionen.
-          success: Funktionen uppdaterades framgångsrikt.
+      logs:
+        logs_list:
+          no_logs_yet: Det finns inga loggar än
       managed_users:
         close_session:
           error: Det har uppstått ett fel att stänga den aktuella efterföljande sessionen.
