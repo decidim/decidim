@@ -151,10 +151,10 @@ fr:
         new:
           create: Créer une zone
           title: Nouvelle zone
-        no_areas: Pas de zones
+        no_areas: Aucun espace
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette fonctionnalité.
-          success: Fonctionnalité mise à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de cet espace.
+          success: Espace mis à jour avec succès
       attachment_collections:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle collection.
