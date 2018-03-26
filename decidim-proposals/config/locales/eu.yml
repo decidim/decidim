@@ -80,6 +80,10 @@ eu:
           email_outro: Jakinarazpena jaso duzu "%{resource_title}" jarraitzen ari zarenagatik. Aurreko esteka estekan jarrai dezakezu.
           email_subject: Jarraitzen ari zaren proposamena ebaluatzen ari da
           notification_title: <a href="%{resource_path}">%{resource_title}</a> proposamena ebaluatzen ari da.
+        proposal_mentioned:
+          email_intro: '"%{mentioned_proposal_title}" zure proposamena <a href="%{resource_path}"></a> espazio honetan aipatu da iruzkinetan.'
+          email_subject: Zure proposamena "%{mentioned_proposal_title}" aipatu da
+          notification_title: '"%{mentioned_proposal_title}" zure proposamena <a href="%{resource_path}"></a> espazio honetan aipatu da iruzkinetan.'
         proposal_published:
           email_intro: "%{author_name} %{author_nickname}, jarraitzen ari zarenak, proposamen berri bat argitaratu du, egiaztatu eta lagundu:"
           email_outro: Jakinarazpena jaso duzu %{author_nickname}jarraituz gero. Aurreko esteka jarraituz jakinarazpenak jasotzeari uztea erabaki dezakezu.
