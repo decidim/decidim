@@ -21,8 +21,8 @@ fr:
     events:
       surveys:
         survey_closed:
-          email_intro: Le sondage %{resource_title} dans %{participatory_space_title} a été fermé.
-          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_intro: Le sondage %{resource_title} proposé dans %{participatory_space_title} est maintenant terminé.
+          email_outro: Vous venez de recevoir une notification venant de %{participatory_space_title}. Vous pouvez à tout moment arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: Une enquête est terminée à %{participatory_space_title}
           notification_title: Le sondage <a href="%{resource_path}">%{resource_title}</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a> est terminé.
         survey_opened:
