@@ -1,0 +1,69 @@
+<%
+@title = "Crear propuestas -- Decidim Barcelona"
+@activeuser = "logged"
+%>
+
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <div class="row">
+    <div class="columns large-3">
+      <div class="m-bottom">
+        <%= link_to page_path("") do %>
+          <%= icon "chevron-left", class: "icon--small" %> Volver
+        <% end %>
+      </div>
+      <div class="section">
+        <p>
+          Estás creando una <strong>propuesta.</strong>
+        </p>
+      </div>
+      <div class="show-for-large">
+        <!-- STEPS component: Set any kind of list with 'steps' class; Its children only require set the active element w/ 'step--active' class -->
+        <ol class="wizard__steps">
+          <li>Crea tu propuesta</li>
+          <li class="step--active">Compara</li>
+          <li>Publica tu propuesta</li>
+        </ol>
+      </div>
+    </div>
+    <div class="columns large-6">
+      <div class="callout secondary mb-sm">
+        <p>
+          Creemos que tu propuesta es similar a otras. Para evitar duplicados, apoya y comparte la propuesta que más se parezca a la tuya. Si crees que ninguna coincide, continua con el proceso de creación.
+        </p>
+      </div>
+      <h2 class="section-heading">Propuestas similares (5)</h2>
+      <div class="hide-for-large m-bottom">
+        <span class="text-small">Paso 1 de 3 (<a data-toggle="steps">ver pasos</a>)</span>
+        <!-- STEPS component: Set any kind of list with 'steps' class; Its children only require set the active element w/ 'step--active' class -->
+        <ol id="steps" class="wizard__steps steps-toggle is-hidden" data-toggler=".is-hidden">
+          <li>Crea tu propuesta</li>
+          <li class="step--active">Compara</li>
+          <li>Publica tu propuestad/li>
+        </ol>
+      </div>
+      <div class="card">
+        <div class="card__content">
+
+        </div>
+      </div>
+      <div class="card">
+        <div class="card__content">
+
+        </div>
+      </div>
+      <div class="card">
+        <div class="card__content">
+
+        </div>
+      </div>
+      <div class="row column text-center">
+        <button class="button small" type="button" name="button">Mi propuesta es diferente</button>
+      </div>
+    </div>
+    <div class="columns large-3"></div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

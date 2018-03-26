@@ -2,7 +2,7 @@
 
 module Decidim
   module Messaging
-    # A form object to be used when users want to follow a followable resource.
+    # A form object to be used when users want to message another user.
     class ConversationForm < Decidim::Form
       mimic :conversation
 
@@ -12,7 +12,10 @@ module Decidim
       validates :body, :recipient, presence: true
 
       def recipient
-        Decidim::User.find_by(id: recipient_id)
+        @recipient ||= Decidim::User
+                       .where.not(id: current_user.id)
+                       .where(organization: current_user.organization)
+                       .find_by(id: recipient_id)
       end
     end
   end

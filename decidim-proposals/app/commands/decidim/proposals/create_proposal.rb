@@ -35,24 +35,12 @@ module Decidim
         transaction do
           create_proposal
           create_attachment if process_attachments?
-          send_notification
         end
 
         broadcast(:ok, proposal)
       end
 
       private
-
-      def send_notification
-        return if proposal.author.blank?
-
-        Decidim::EventsManager.publish(
-          event: "decidim.events.proposals.proposal_created",
-          event_class: Decidim::Proposals::CreateProposalEvent,
-          resource: proposal,
-          recipient_ids: proposal.author.followers.pluck(:id)
-        )
-      end
 
       attr_reader :form, :proposal, :attachment
 
@@ -64,7 +52,7 @@ module Decidim
           scope: form.scope,
           author: @current_user,
           decidim_user_group_id: form.user_group_id,
-          feature: form.feature,
+          component: form.component,
           address: form.address,
           latitude: form.latitude,
           longitude: form.longitude
@@ -96,7 +84,7 @@ module Decidim
       end
 
       def attachments_allowed?
-        form.current_feature.settings.attachments_allowed?
+        form.current_component.settings.attachments_allowed?
       end
 
       def process_attachments?
@@ -104,7 +92,7 @@ module Decidim
       end
 
       def proposal_limit_reached?
-        proposal_limit = form.current_feature.settings.proposal_limit
+        proposal_limit = form.current_component.settings.proposal_limit
 
         return false if proposal_limit.zero?
 
@@ -124,11 +112,11 @@ module Decidim
       end
 
       def current_user_proposals
-        Proposal.where(author: @current_user, feature: form.current_feature)
+        Proposal.where(author: @current_user, component: form.current_component)
       end
 
       def user_group_proposals
-        Proposal.where(user_group: @user_group, feature: form.current_feature)
+        Proposal.where(user_group: @user_group, component: form.current_component)
       end
     end
   end

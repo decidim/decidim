@@ -1,0 +1,93 @@
+<%
+@title = "Apoyo a iniciativas -- Decidim Barcelona"
+@activeuser = "logged"
+%>
+
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <div class="row">
+    <div class="columns large-3">
+      <div class="m-bottom">
+        <%= link_to page_path("") do %>
+          <%= icon "chevron-left", class: "icon--small" %> Volver
+        <% end %>
+      </div>
+      <div class="section">
+        <p>
+          Estás creando una <strong>consulta ciudadana.</strong>
+        </p>
+        <p>
+          <a href="#">Más información</a>.
+        </p>
+      </div>
+      <div class="show-for-large">
+        <!-- STEPS component: Set any kind of list with 'steps' class; Its children only require set the active element w/ 'step--active' class -->
+        <ol class="wizard__steps">
+          <li class="step--active">Crea tu iniciativa</li>
+          <li>Validación</li>
+          <li>Crea la comisión promotora</li>
+        </ol>
+      </div>
+    </div>
+    <div class="columns large-6">
+      <div class="callout secondary mb-sm">
+        <p>
+          Explícanos en qué consiste tu iniciativa. Te recomendamos que el título sea conciso y la descripción se centre en la solución que se propone.
+        </p>
+      </div>
+      <h2 class="section-heading">Crea tu iniciativa</h2>
+      <div class="hide-for-large m-bottom">
+        <span class="text-small">Paso 1 de 3 (<a data-toggle="steps">ver pasos</a>)</span>
+        <!-- STEPS component: Set any kind of list with 'steps' class; Its children only require set the active element w/ 'step--active' class -->
+        <ol id="steps" class="wizard__steps steps-toggle is-hidden" data-toggler=".is-hidden">
+          <li class="step--active">Crea tu iniciativa</li>
+          <li>Validación</li>
+          <li>Crea la comisión promotora</li>
+        </ol>
+      </div>
+      <div class="card">
+        <div class="card__content">
+          <form>
+            <div>
+              <div>
+                <label>Título *
+                  <input type="text" placeholder="Nueva propuesta en decidim.barcelona">
+                </label>
+              </div>
+              <div>
+                <label>Descripción de la propuesta
+                  <textarea placeholder="¿Qué propones?" rows="10"></textarea>
+                </label>
+              </div>
+              <div>
+                <label>Tipo de firma *
+                  <select>
+                    <option disabled selected hidden>Seleciona el tipo de firma</option>
+                    <option>Categoría 1</option>
+                    <option>Categoría 2</option>
+                  </select>
+                </label>
+              </div>
+              <div>
+                <label>Ámbito *
+                  <select>
+                    <option disabled selected hidden>Selecciona el ámbito de tu iniciativa</option>
+                    <option>Subcategoría 1</option>
+                    <option>Subcategoría 2</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+            <%= link_to page_path("initiatives/initiatives-support-step-3") do %>
+              <button type="button" class="button expanded mt-s mb-none">Continuar</button>
+            <% end %>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="columns large-3"></div>
+  </div>
+</main>
+
+<%= partial "template_bottom" %>

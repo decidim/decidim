@@ -8,8 +8,8 @@ module Decidim
       describe "call" do
         let(:organization) { create :organization }
         let(:participatory_process) { create(:participatory_process, organization: organization) }
-        let(:feature) { create(:feature, participatory_space: participatory_process) }
-        let(:commentable) { create(:dummy_resource, feature: feature) }
+        let(:component) { create(:component, participatory_space: participatory_process) }
+        let(:commentable) { create(:dummy_resource, component: component) }
         let(:author) { create(:user, organization: organization) }
         let(:comment) { create(:comment, commentable: commentable) }
         let(:command) { described_class.new(comment, author) }
@@ -24,7 +24,7 @@ module Decidim
           it "doesn't create a comment vote" do
             expect do
               command.call
-            end.not_to change { CommentVote.count }
+            end.not_to change(CommentVote, :count)
           end
         end
 
@@ -40,7 +40,7 @@ module Decidim
           it "doesn't create a comment vote" do
             expect do
               command.call
-            end.not_to change { CommentVote.count }
+            end.not_to change(CommentVote, :count)
           end
         end
 
@@ -52,7 +52,7 @@ module Decidim
           it "creates a new comment vote" do
             expect do
               command.call
-            end.to change { CommentVote.count }.by(1)
+            end.to change(CommentVote, :count).by(1)
           end
         end
 
@@ -70,7 +70,7 @@ module Decidim
               it "doesn't create a comment vote" do
                 expect do
                   command.call
-                end.not_to change { CommentVote.count }
+                end.not_to change(CommentVote, :count)
               end
             end
 
@@ -86,7 +86,7 @@ module Decidim
               it "doesn't create a comment vote" do
                 expect do
                   command.call
-                end.not_to change { CommentVote.count }
+                end.not_to change(CommentVote, :count)
               end
             end
 
@@ -98,7 +98,7 @@ module Decidim
               it "creates a new comment vote" do
                 expect do
                   command.call
-                end.to change { CommentVote.count }.by(1)
+                end.to change(CommentVote, :count).by(1)
               end
             end
           end

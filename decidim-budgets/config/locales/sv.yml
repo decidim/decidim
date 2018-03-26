@@ -11,6 +11,7 @@ sv:
   decidim:
     budgets:
       actions:
+        attachment_collections: samlingar
         attachments: bilagor
         confirm_destroy: Är du säker på att du vill radera detta projekt?
         destroy: Radera
@@ -41,6 +42,11 @@ sv:
           update:
             invalid: Det har varit ett problem att uppdatera projektet
             success: Projektet har blivit uppdaterat
+      admin_log:
+        project:
+          create: "%{user_name} skapade projektet %{resource_name} i %{space_name} -utrymmet"
+          delete: "%{user_name} raderade projektet %{resource_name} i %{space_name} -utrymmet"
+          update: "%{user_name} uppdaterade projektet %{resource_name} i %{space_name} -utrymmet"
       models:
         project:
           fields:
@@ -99,7 +105,7 @@ sv:
         show:
           budget: Budget
           view_all_projects: Visa alla projekt
-    features:
+    components:
       budgets:
         actions:
           vote: Rösta

@@ -33,13 +33,16 @@ module Decidim::ParticipatoryProcesses
             scope: my_process.scope,
             errors: my_process.errors,
             participatory_process_group: my_process.participatory_process_group,
-            show_statistics: my_process.show_statistics
+            show_statistics: my_process.show_statistics,
+            private_space: my_process.private_space
           }
         }
       end
+      let(:user) { create :user, :admin, :confirmed, organization: my_process.organization }
       let(:context) do
         {
           current_organization: my_process.organization,
+          current_user: user,
           process_id: my_process.id
         }
       end
@@ -95,6 +98,18 @@ module Decidim::ParticipatoryProcesses
           my_process.reload
 
           expect(my_process.title["en"]).to eq("Foo title")
+        end
+
+        it "tracks the action", versioning: true do
+          expect(Decidim.traceability)
+            .to receive(:perform_action!)
+            .with(:update, my_process, user)
+            .and_call_original
+
+          expect { command.call }.to change(Decidim::ActionLog, :count)
+
+          action_log = Decidim::ActionLog.last
+          expect(action_log.version).to be_present
         end
 
         context "when no homepage image is set" do

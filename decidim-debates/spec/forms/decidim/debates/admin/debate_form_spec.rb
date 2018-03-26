@@ -9,11 +9,11 @@ describe Decidim::Debates::Admin::DebateForm do
   let(:context) do
     {
       current_organization: organization,
-      current_feature: current_feature
+      current_component: current_component
     }
   end
   let(:participatory_process) { create :participatory_process, organization: organization }
-  let(:current_feature) { create :feature, participatory_space: participatory_process }
+  let(:current_component) { create :component, participatory_space: participatory_process }
   let(:title) do
     Decidim::Faker::Localized.sentence(3)
   end
@@ -75,12 +75,6 @@ describe Decidim::Debates::Admin::DebateForm do
     let(:start_time) { nil }
 
     it { is_expected.to be_valid }
-  end
-
-  describe "when current_feature is missing" do
-    let(:current_feature) { nil }
-
-    it { is_expected.not_to be_valid }
   end
 
   describe "when start_time is after end_time" do

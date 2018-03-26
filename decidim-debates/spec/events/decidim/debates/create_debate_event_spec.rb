@@ -13,8 +13,9 @@ describe Decidim::Debates::CreateDebateEvent do
 
   context "when the notification is for user followers" do
     let(:type) { :user }
+    let(:i18n_scope) { "decidim.events.debates.create_debate_event.user_followers" }
 
-    it_behaves_like "an simple event"
+    it_behaves_like "a simple event"
 
     describe "email_subject" do
       it "is generated correctly" do
@@ -49,8 +50,9 @@ describe Decidim::Debates::CreateDebateEvent do
 
   context "when the notification is for space followers" do
     let(:type) { :space }
+    let(:i18n_scope) { "decidim.events.debates.create_debate_event.space_followers" }
 
-    it_behaves_like "an simple event"
+    it_behaves_like "a simple event"
 
     describe "email_subject" do
       it "is generated correctly" do

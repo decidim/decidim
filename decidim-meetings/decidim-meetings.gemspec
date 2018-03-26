@@ -20,8 +20,10 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
 
+  s.add_dependency "cells-erb", "~> 0.1.0"
+  s.add_dependency "cells-rails", "~> 0.0.8"
   s.add_dependency "decidim-core", Decidim::Meetings.version
-  s.add_dependency "httparty", "~> 0.15.0"
+  s.add_dependency "httparty", "~> 0.16.0"
   s.add_dependency "icalendar", "~> 2.4"
   s.add_dependency "jquery-tmpl-rails", "~> 1.1"
   s.add_dependency "kaminari", "~> 1.0"

@@ -7,33 +7,33 @@ module Decidim
     describe ProposalVotesController, type: :controller do
       routes { Decidim::Proposals::Engine.routes }
 
-      let(:proposal) { create(:proposal, feature: feature) }
-      let(:user) { create(:user, :confirmed, organization: feature.organization) }
+      let(:proposal) { create(:proposal, component: component) }
+      let(:user) { create(:user, :confirmed, organization: component.organization) }
 
       let(:params) do
         {
           proposal_id: proposal.id,
-          feature_id: feature.id
+          component_id: component.id
         }
       end
 
       before do
-        request.env["decidim.current_organization"] = feature.organization
-        request.env["decidim.current_participatory_space"] = feature.participatory_space
-        request.env["decidim.current_feature"] = feature
+        request.env["decidim.current_organization"] = component.organization
+        request.env["decidim.current_participatory_space"] = component.participatory_space
+        request.env["decidim.current_component"] = component
         sign_in user
       end
 
       describe "POST create" do
         context "with votes enabled" do
-          let(:feature) do
-            create(:proposal_feature, :with_votes_enabled)
+          let(:component) do
+            create(:proposal_component, :with_votes_enabled)
           end
 
           it "allows voting" do
             expect do
               post :create, format: :js, params: params
-            end.to change { ProposalVote.count }.by(1)
+            end.to change(ProposalVote, :count).by(1)
 
             expect(ProposalVote.last.author).to eq(user)
             expect(ProposalVote.last.proposal).to eq(proposal)
@@ -41,32 +41,32 @@ module Decidim
         end
 
         context "with votes disabled" do
-          let(:feature) do
-            create(:proposal_feature)
+          let(:component) do
+            create(:proposal_component)
           end
 
           it "doesn't allow voting" do
             expect do
               post :create, format: :js, params: params
-            end.not_to change { ProposalVote.count }
+            end.not_to change(ProposalVote, :count)
 
             expect(flash[:alert]).not_to be_empty
-            expect(response).to have_http_status(302)
+            expect(response).to have_http_status(:found)
           end
         end
 
         context "with votes enabled but votes blocked" do
-          let(:feature) do
-            create(:proposal_feature, :with_votes_blocked)
+          let(:component) do
+            create(:proposal_component, :with_votes_blocked)
           end
 
           it "doesn't allow voting" do
             expect do
               post :create, format: :js, params: params
-            end.not_to change { ProposalVote.count }
+            end.not_to change(ProposalVote, :count)
 
             expect(flash[:alert]).not_to be_empty
-            expect(response).to have_http_status(302)
+            expect(response).to have_http_status(:found)
           end
         end
       end
@@ -77,28 +77,28 @@ module Decidim
         end
 
         context "with vote limit enabled" do
-          let(:feature) do
-            create(:proposal_feature, :with_votes_enabled, :with_vote_limit)
+          let(:component) do
+            create(:proposal_component, :with_votes_enabled, :with_vote_limit)
           end
 
           it "deletes the vote" do
             expect do
               delete :destroy, format: :js, params: params
-            end.to change { ProposalVote.count }.by(-1)
+            end.to change(ProposalVote, :count).by(-1)
 
             expect(ProposalVote.count).to eq(0)
           end
         end
 
         context "with vote limit disabled" do
-          let(:feature) do
-            create(:proposal_feature, :with_votes_enabled)
+          let(:component) do
+            create(:proposal_component, :with_votes_enabled)
           end
 
           it "deletes the vote" do
             expect do
               delete :destroy, format: :js, params: params
-            end.to change { ProposalVote.count }.by(-1)
+            end.to change(ProposalVote, :count).by(-1)
 
             expect(ProposalVote.count).to eq(0)
           end

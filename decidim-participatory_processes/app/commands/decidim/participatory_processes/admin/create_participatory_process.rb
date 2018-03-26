@@ -24,6 +24,7 @@ module Decidim
           process = create_participatory_process
 
           if process.persisted?
+            add_admins_as_followers(process)
             broadcast(:ok, process)
           else
             form.errors.add(:hero_image, process.errors[:hero_image]) if process.errors.include? :hero_image
@@ -50,6 +51,7 @@ module Decidim
             promoted: form.promoted,
             scopes_enabled: form.scopes_enabled,
             scope: form.scope,
+            private_space: form.private_space,
             developer_group: form.developer_group,
             local_area: form.local_area,
             target: form.target,
@@ -65,6 +67,8 @@ module Decidim
           transaction do
             process.save!
 
+            log_process_creation(process)
+
             process.steps.create!(
               title: TranslationsHelper.multi_translation(
                 "decidim.admin.participatory_process_steps.default_title",
@@ -74,6 +78,38 @@ module Decidim
             )
 
             process
+          end
+        end
+
+        def log_process_creation(process)
+          Decidim::ActionLogger.log(
+            "create",
+            form.current_user,
+            process,
+            process.versions.last.id
+          )
+        end
+
+        def add_admins_as_followers(process)
+          process.organization.admins.each do |admin|
+            form = Decidim::FollowForm
+                   .from_params(followable_gid: process.to_signed_global_id.to_s)
+                   .with_context(
+                     current_organization: process.organization,
+                     current_user: admin
+                   )
+
+            Decidim::CreateFollow.new(form, admin).call
+          end
+        end
+
+        def create_participatory_process_users(process)
+          return unless form.private_process
+          form.users.each do |user|
+            ParticipatoryProcessUser.create!(
+              participatory_process: process,
+              user: user
+            )
           end
         end
       end

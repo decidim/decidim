@@ -8,8 +8,8 @@ module Decidim
       let(:current_organization) { create(:organization) }
       let(:current_user) { create(:user, organization: current_organization) }
       let(:participatory_process) { create(:participatory_process, organization: current_organization) }
-      let(:feature) { create(:feature, manifest_name: "surveys", participatory_space: participatory_process) }
-      let(:survey) { create(:survey, feature: feature) }
+      let(:component) { create(:component, manifest_name: "surveys", participatory_space: participatory_process) }
+      let(:survey) { create(:survey, component: component) }
       let(:survey_question_1) { create(:survey_question, survey: survey) }
       let(:survey_question_2) { create(:survey_question, survey: survey) }
       let(:form_params) do
@@ -32,7 +32,7 @@ module Decidim
           form_params
         ).with_context(
           current_organization: current_organization,
-          current_feature: feature
+          current_component: component
         )
       end
       let(:command) { described_class.new(form, current_user, survey) }
@@ -49,7 +49,7 @@ module Decidim
         it "doesn't create survey answers" do
           expect do
             command.call
-          end.not_to change { SurveyAnswer.count }
+          end.not_to change(SurveyAnswer, :count)
         end
       end
 
@@ -61,7 +61,7 @@ module Decidim
         it "creates a survey answer for each question answered" do
           expect do
             command.call
-          end.to change { SurveyAnswer.count }.by(2)
+          end.to change(SurveyAnswer, :count).by(2)
           last_answer = SurveyAnswer.last
           expect(last_answer.survey).to eq(survey)
         end

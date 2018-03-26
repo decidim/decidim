@@ -2,16 +2,15 @@ uk:
   activemodel:
     attributes:
       result:
-        decidim_accountability_status_id: стан
         decidim_category_id: Розділ
         decidim_scope_id: Терен
         description: Опис
         end_date: Дата закінчення
         progress: Перебіг
         project_ids: Включені проекти
-        proposal_ids: Включені пропозиції
         start_date: Дата початку
-        title: Назва
+        title: Заголовок
+        updated_at: 'Оновлено:'
       status:
         description: Опис
         key: Ключ
@@ -101,7 +100,7 @@ uk:
             progress: Перебіг
             start_date: Дата початку
             status: Стан
-            title: Назва
+            title: Заголовок
         status:
           fields:
             description: Опис
@@ -158,19 +157,6 @@ uk:
           changes_at_title: Зміни в "%{title}"
         version:
           version_index: Версія %{index}
-    features:
-      accountability:
-        name: Звітність
-        settings:
-          global:
-            categories_label: Назва для "Розділи"
-            comments_enabled: Коментарі ввімкнено
-            heading_leaf_level_results: Назва для "Проекти"
-            heading_parent_level_results: Назва для "Підсумки"
-            intro: Вступ
-            subcategories_label: Назва для «Підрозділи»
-          step:
-            comments_blocked: Коментарі вимкнено
     resource_links:
       included_projects:
         result_projects: Проекти, включені до цих підсумків

@@ -1,0 +1,7 @@
+<%= decidim_form_for(@form, url: url_for([@attachment_collection.collection_for, @attachment_collection]), html: { class: "form edit_attachment_collection" }) do |f| %>
+  <%= render partial: "decidim/admin/attachment_collections/form", object: f, locals: { title: t("attachment_collections.edit.title", scope: "decidim.admin") } %>
+
+  <div class="button--double form-general-submit">
+    <%= f.submit t("attachment_collections.edit.update", scope: "decidim.admin") %>
+  </div>
+<% end %>

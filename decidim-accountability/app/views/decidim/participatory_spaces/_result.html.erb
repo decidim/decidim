@@ -1,0 +1,32 @@
+<div class="card--list__item">
+  <%= icon "actions", class: "card--list__icon", remove_icon_class: true %>
+
+  <%= link_to resource_locator(result).path, class: "card--list__text card__link card__link--block" do %>
+      <h5 class="card--list__heading">
+        <%= translated_attribute(result.title) %>
+      </h5>
+
+      <div class="text-small card--meta">
+        <% if result.start_date %>
+            <strong><%= t("models.result.fields.start_date", scope: "decidim.accountability") %></strong>
+            <span><%= result.start_date %></span>
+        <% end %>
+
+        <% if result.end_date %>
+            <strong><%= t("models.result.fields.end_date", scope: "decidim.accountability") %></strong>
+            <span><%= result.end_date %></span>
+        <% end %>
+
+        <% if result.status %>
+            <strong><%= t("models.result.fields.status", scope: "decidim.accountability") %></strong>
+            <span><%= translated_attribute(result.status.name) %></span>
+        <% end %>
+      </div>
+  <% end %>
+
+  <% if result.progress.present? %>
+      <div class="card--list__data">
+        <span class="card--list__data__number"><%= display_percentage result.progress %></span>
+      </div>
+  <% end %>
+</div>

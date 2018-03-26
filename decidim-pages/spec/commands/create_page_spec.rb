@@ -6,8 +6,8 @@ module Decidim
   module Pages
     describe CreatePage do
       describe "call" do
-        let(:feature) { create(:feature, manifest_name: "pages") }
-        let(:command) { described_class.new(feature) }
+        let(:component) { create(:component, manifest_name: "pages") }
+        let(:command) { described_class.new(component) }
 
         describe "when the page is not saved" do
           before do
@@ -23,7 +23,7 @@ module Decidim
           it "doesn't create a page" do
             expect do
               command.call
-            end.not_to change { Page.count }
+            end.not_to change(Page, :count)
           end
         end
 
@@ -32,12 +32,12 @@ module Decidim
             expect { command.call }.to broadcast(:ok)
           end
 
-          it "creates a new page with the same name as the feature" do
-            expect(Page).to receive(:new).with(feature: feature).and_call_original
+          it "creates a new page with the same name as the component" do
+            expect(Page).to receive(:new).with(component: component).and_call_original
 
             expect do
               command.call
-            end.to change { Page.count }.by(1)
+            end.to change(Page, :count).by(1)
           end
         end
       end

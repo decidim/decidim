@@ -76,6 +76,10 @@
     </div>
 
     <div class="row column">
+      <%= form.select :area_id, option_groups_from_collection_for_select(current_organization.area_types, :areas, :translated_name, :id, :translated_name, current_assembly.try(:decidim_area_id)), include_blank: t(".select_an_area") %>
+    </div>
+
+    <div class="row column">
       <%= form.translated :text_field, :participatory_scope %>
     </div>
 
@@ -84,7 +88,20 @@
     </div>
 
     <div class="row column">
+      <%= form.check_box :private_space %>
+    </div>
+
+    <div class="row column">
       <%= form.check_box :show_statistics %>
+    </div>
+
+    <div class="row column">
+      <% if @form.processes_for_select %>
+        <%= form.select :participatory_processes_ids,
+                        options_for_select(@form.processes_for_select, selected: processes_selected ),
+                        { include_blank: false },
+                        { multiple: true, class: "chosen-select" } %>
+      <% end %>
     </div>
   </div>
 </div>

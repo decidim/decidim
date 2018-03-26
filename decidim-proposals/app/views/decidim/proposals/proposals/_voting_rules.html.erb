@@ -1,20 +1,24 @@
-<% if votes_enabled? && (vote_limit_enabled? || maximum_votes_per_proposal_enabled? || proposal_limit_enabled?) %>
+<% if votes_enabled? && (vote_limit_enabled? || threshold_per_proposal_enabled? || proposal_limit_enabled? || can_accumulate_supports_beyond_threshold?) %>
   <div class="row column">
     <div class="callout secondary voting-rules">
       <div class="row">
         <div class="columns medium-8 large-9">
-          <h3 class="heading3"><%= t('.title') %></h3>
+          <h3 class="heading3"><%= t(".title") %></h3>
           <ul>
             <% if vote_limit_enabled? %>
-              <li><%= t('.vote_limit.description', limit: feature_settings.vote_limit) %></li>
+              <li><%= t(".vote_limit.description", limit: component_settings.vote_limit) %></li>
             <% end %>
 
             <% if proposal_limit_enabled? %>
-              <li><%= t('.proposal_limit.description', limit: proposal_limit) %></li>
+              <li><%= t(".proposal_limit.description", limit: proposal_limit) %></li>
             <% end %>
 
-            <% if maximum_votes_per_proposal_enabled? %>
-              <li><%= t('.maximum_votes_per_proposal.description', limit: maximum_votes_per_proposal) %></li>
+            <% if threshold_per_proposal_enabled? %>
+              <li><%= t(".threshold_per_proposal.description", limit: threshold_per_proposal) %></li>
+            <% end %>
+
+            <% if can_accumulate_supports_beyond_threshold? %>
+              <li><%= t(".can_accumulate_supports_beyond_threshold.description", limit: threshold_per_proposal) %></li>
             <% end %>
           </ul>
         </div>
@@ -22,9 +26,9 @@
           <div class="columns medium-4 large-3">
             <div class="card card--nomargin text-center remaining-votes-counter">
               <div class="card__content">
-                <span class="definition-data__title"><%= t('.vote_limit.left', limit: feature_settings.vote_limit) %></span>
+                <span class="definition-data__title"><%= t(".vote_limit.left", limit: component_settings.vote_limit) %></span>
                 <%= render partial: "remaining_votes_count" %>
-                <span class="extra__suport-text"><%= t('.vote_limit.votes') %></span>
+                <span class="extra__suport-text"><%= t(".vote_limit.votes") %></span>
               </div>
             </div>
           </div>

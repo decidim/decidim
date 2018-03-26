@@ -107,8 +107,8 @@ shared_examples "manage process categories examples" do
     end
 
     context "when the category has associated content" do
-      let!(:feature) { create(:feature, participatory_space: participatory_process) }
-      let!(:dummy_resource) { create(:dummy_resource, feature: feature, category: category) }
+      let!(:component) { create(:component, participatory_space: participatory_process) }
+      let!(:dummy_resource) { create(:dummy_resource, component: component, category: category) }
 
       it "cannot delete it" do
         visit current_path

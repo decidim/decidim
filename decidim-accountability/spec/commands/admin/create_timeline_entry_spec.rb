@@ -8,8 +8,8 @@ module Decidim::Accountability
 
     let(:organization) { create :organization, available_locales: [:en] }
     let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:current_feature) { create :accountability_feature, participatory_space: participatory_process }
-    let(:result) { create :result, feature: current_feature }
+    let(:current_component) { create :accountability_component, participatory_space: participatory_process }
+    let(:result) { create :result, component: current_component }
 
     let(:date) { "2017-8-23" }
     let(:description) { "description" }
@@ -36,7 +36,7 @@ module Decidim::Accountability
       let(:timeline_entry) { TimelineEntry.last }
 
       it "creates the timeline entry" do
-        expect { subject.call }.to change { TimelineEntry.count }.by(1)
+        expect { subject.call }.to change(TimelineEntry, :count).by(1)
       end
 
       it "sets the entry date" do

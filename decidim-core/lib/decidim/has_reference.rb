@@ -3,7 +3,7 @@
 require "active_support/concern"
 
 module Decidim
-  # A concern with the features needed when you want a model to have a
+  # A concern with the components needed when you want a model to have a
   # reference.
   module HasReference
     extend ActiveSupport::Concern
@@ -20,16 +20,16 @@ module Decidim
       private
 
       # Public: Calculates a unique reference for the model using the function
-      # provided by configuration
+      # provided by configuration. Works for both component resources and
+      # participatory spaces.
       #
       # Returns a String.
       def calculate_reference
-        return unless feature
-        Decidim.resource_reference_generator.call(self, feature)
+        Decidim.reference_generator.call(self, respond_to?(:component) ? component : nil)
       end
 
       # Internal: Sets the unique reference to the model. Note that if the resource
-      # implements `Decidim::Traceable` then any normal update (or `update_attributes`)
+      # implements `Decidim::Traceable` then any normal update (or `update`)
       # will create a new version through an ActiveRecord update callback, but here
       # we can't track the author of the version, so we use the `update_column` method
       # which does not trigger callbacks.

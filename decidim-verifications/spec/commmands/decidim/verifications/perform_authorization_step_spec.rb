@@ -28,7 +28,7 @@ describe Decidim::Verifications::PerformAuthorizationStep do
   end
 
   let(:authorizations) do
-    Decidim::Verifications::Authorizations.new(user: user, granted: false)
+    Decidim::Verifications::Authorizations.new(organization: user.organization, user: user, granted: false)
   end
 
   let(:user) { create(:user) }
@@ -64,7 +64,7 @@ describe Decidim::Verifications::PerformAuthorizationStep do
       end
 
       it "updates the pending authorization for the user" do
-        expect { subject.call }.to change { authorizations.count }.by(1)
+        expect { subject.call }.to change(authorizations, :count).by(1)
       end
     end
   end
@@ -90,7 +90,7 @@ describe Decidim::Verifications::PerformAuthorizationStep do
       end
 
       it "creates a pending authorization for the user" do
-        expect { subject.call }.to change { authorizations.count }.by(1)
+        expect { subject.call }.to change(authorizations, :count).by(1)
       end
 
       it "overwrites the new verification information" do

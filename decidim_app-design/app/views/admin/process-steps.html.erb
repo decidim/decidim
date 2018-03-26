@@ -4,14 +4,14 @@
 @activepage = "process-steps"
 %>
 
-<%= partial 'template_top' %>
+<%= partial "template_top" %>
 
 <div class="layout-nav">
-  <%= partial 'process_sub_nav' %>
+  <%= partial "process_sub_nav" %>
 </div>
 <div class="layout-content has-process-title">
   <div class="container">
-    <%= partial 'process_title' %>
+    <%= partial "process_title" %>
     <div class="card">
       <div class="card-divider">
         <h2 class="card-title">Fases <%= link_to "Añadir", page_path("process-steps-new"), class: "Añadir" %></h2>
@@ -39,13 +39,13 @@
                   15/01/17
                 </td>
                 <td class="table-list__actions">
-                  <a href="#"  data-tooltip aria-haspopup="true"  data-disable-hover="false" title="Editar" class="action-icon"><%= icon "pencil" %></a>
-                  <a href="#" data-tooltip aria-haspopup="true"  data-disable-hover="false" title="Eliminar" class="action-icon action-icon--remove"><%= icon "circle-x" %></a>
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Editar" class="action-icon"><%= icon "pencil" %></a>
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Eliminar" class="action-icon action-icon--remove"><%= icon "circle-x" %></a>
                 </td>
               </tr>
               <tr>
                 <td>
-                  <span  data-tooltip aria-haspopup="true"  data-disable-hover="false" title="Fase activa" class="simple-has-tip">
+                  <span data-tooltip aria-haspopup="true" data-disable-hover="false" title="Fase activa">
                     <span class="icon-active"></span>
                   </span>
                   <a href="#">Fase 2: Recogida de propuestas</a>
@@ -57,8 +57,8 @@
                   08/06/17
                 </td>
                 <td class="table-list__actions">
-                  <a href="#"  data-tooltip aria-haspopup="true"  data-disable-hover="false" title="Editar" class="action-icon"><%= icon "pencil" %></a>
-                  <a href="#" data-tooltip aria-haspopup="true"  data-disable-hover="false" title="Eliminar" class="action-icon action-icon--remove"><%= icon "circle-x" %></a>
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Editar" class="action-icon"><%= icon "pencil" %></a>
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Eliminar" class="action-icon action-icon--remove"><%= icon "circle-x" %></a>
                 </td>
               </tr>
               <tr>
@@ -72,8 +72,8 @@
                   12/09/17
                 </td>
                 <td class="table-list__actions">
-                  <a href="#"  data-tooltip aria-haspopup="true"  data-disable-hover="false" title="Editar" class="action-icon"><%= icon "pencil" %></a>
-                  <a href="#" data-tooltip aria-haspopup="true"  data-disable-hover="false" title="Eliminar" class="action-icon action-icon--remove"><%= icon "circle-x" %></a>
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Editar" class="action-icon"><%= icon "pencil" %></a>
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Eliminar" class="action-icon action-icon--remove"><%= icon "circle-x" %></a>
                 </td>
               </tr>
             </tbody>
@@ -83,4 +83,4 @@
     </div>
   </div>
 </div>
-<%= partial 'template_bottom' %>
+<%= partial "template_bottom" %>

@@ -1,4 +1,20 @@
 <div class="columns section mediumlarge-4 large-3">
+
+  <% if result.children.any? && component_settings.display_progress_enabled? && result.progress.present? %>
+    <div class="progress-level section">
+      <div class="progress-label">
+        <span class="progress-text"><%= t("models.result.fields.progress", scope: "decidim.accountability") %>:</span>
+        <span class="progress-figure">
+          <%= display_percentage result.progress %>
+        </span>
+      </div>
+
+      <div class="progress">
+        <div class="progress-meter" style="width:<%= result.progress %>%"></div>
+      </div>
+    </div>
+  <% end %>
+
   <% if result.versions.any? || result.linked_resources(:proposals, "included_proposals").any? %>
     <div class="card extra line-stats">
       <div class="definition-data">
@@ -6,7 +22,9 @@
           <div class="definition-data__item versions_count">
             <span class="definition-data__title"><%= t("results.show.stats.version_number", scope: "decidim.accountability") %></span>
             <%= result.versions.count %>
-            <%= link_to t("results.show.stats.show_all_versions", scope: "decidim.accountability"), result_versions_path(result), class: "button button--sc hollow secondary small expanded" %>
+            <div class="pr-s pl-s">
+              <%= link_to t("results.show.stats.show_all_versions", scope: "decidim.accountability"), result_versions_path(result), class: "button button--sc hollow secondary small expanded" %>
+            </div>
           </div>
           <% if result.last_editor.present? %>
             <div class="definition-data__item last_revision_by">
@@ -49,7 +67,7 @@
     </div>
   <% end %>
 
-  <%= feature_reference(result) %>
+  <%= resource_reference(result) %>
   <%= render partial: "decidim/shared/share_modal" %>
   <%= embed_modal_for result_result_widget_url(result, format: :js) %>
 </div>

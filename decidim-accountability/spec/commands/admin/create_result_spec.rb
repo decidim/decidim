@@ -9,48 +9,48 @@ module Decidim::Accountability
     let(:organization) { create :organization, available_locales: [:en] }
     let(:user) { create :user, organization: organization }
     let(:participatory_process) { create :participatory_process, organization: organization }
-    let(:current_feature) { create :accountability_feature, participatory_space: participatory_process }
+    let(:current_component) { create :accountability_component, participatory_space: participatory_process }
     let(:scope) { create :scope, organization: organization }
     let(:category) { create :category, participatory_space: participatory_process }
 
     let(:start_date) { Date.yesterday }
     let(:end_date) { Date.tomorrow }
-    let(:status) { create :status, feature: current_feature, key: "ongoing", name: { en: "Ongoing" } }
+    let(:status) { create :status, component: current_component, key: "ongoing", name: { en: "Ongoing" } }
     let(:progress) { 89 }
 
-    let(:meeting_feature) do
-      create(:feature, manifest_name: "meetings", participatory_space: participatory_process)
+    let(:meeting_component) do
+      create(:component, manifest_name: "meetings", participatory_space: participatory_process)
     end
     let(:meeting) do
       create(
         :meeting,
-        feature: meeting_feature
+        component: meeting_component
       )
     end
-    let(:proposal_feature) do
-      create(:feature, manifest_name: "proposals", participatory_space: participatory_process)
+    let(:proposal_component) do
+      create(:component, manifest_name: "proposals", participatory_space: participatory_process)
     end
     let(:proposals) do
       create_list(
         :proposal,
         3,
-        feature: proposal_feature
+        component: proposal_component
       )
     end
-    let(:project_feature) do
-      create(:feature, manifest_name: "budgets", participatory_space: participatory_process)
+    let(:project_component) do
+      create(:component, manifest_name: "budgets", participatory_space: participatory_process)
     end
     let(:projects) do
       create_list(
         :project,
         2,
-        feature: project_feature
+        component: project_component
       )
     end
     let(:form) do
       double(
         invalid?: invalid,
-        current_feature: current_feature,
+        current_component: current_component,
         title: { en: "title" },
         description: { en: "description" },
         proposal_ids: proposals.map(&:id),
@@ -79,7 +79,7 @@ module Decidim::Accountability
       let(:result) { Result.last }
 
       it "creates the result" do
-        expect { subject.call }.to change { Result.count }.by(1)
+        expect { subject.call }.to change(Result, :count).by(1)
       end
 
       it "sets the scope" do
@@ -98,9 +98,9 @@ module Decidim::Accountability
         expect(result.category).to eq category
       end
 
-      it "sets the feature" do
+      it "sets the component" do
         subject.call
-        expect(result.feature).to eq current_feature
+        expect(result.component).to eq current_component
       end
 
       it "links proposals" do
@@ -124,6 +124,49 @@ module Decidim::Accountability
         linked_meetings = result.linked_resources(:meetings, "meetings_through_proposals")
 
         expect(linked_meetings).to eq [meeting]
+      end
+
+      it "notifies the process followers" do
+        follower = create(:user, organization: organization)
+        create(:follow, followable: proposals.first, user: follower)
+
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.accountability.proposal_linked",
+            event_class: Decidim::Accountability::ProposalLinkedEvent,
+            resource: kind_of(Result),
+            recipient_ids: [proposals.first.author.id, follower.id],
+            extra: {
+              proposal_id: proposals.first.id
+            }
+          )
+
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.accountability.proposal_linked",
+            event_class: Decidim::Accountability::ProposalLinkedEvent,
+            resource: kind_of(Result),
+            recipient_ids: [proposals.second.author.id],
+            extra: {
+              proposal_id: proposals.second.id
+            }
+          )
+
+        expect(Decidim::EventsManager)
+          .to receive(:publish)
+          .with(
+            event: "decidim.events.accountability.proposal_linked",
+            event_class: Decidim::Accountability::ProposalLinkedEvent,
+            resource: kind_of(Result),
+            recipient_ids: [proposals.third.author.id],
+            extra: {
+              proposal_id: proposals.third.id
+            }
+          )
+
+        subject.call
       end
     end
   end

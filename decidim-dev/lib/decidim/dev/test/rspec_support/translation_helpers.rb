@@ -2,6 +2,11 @@
 
 # A collection of methods to help dealing with translated attributes.
 module TranslationHelpers
+  # Allows using the `t` shortcut inside specs just like in views
+  def t(key, scope: nil)
+    I18n.t(key, scope: scope, raise: true)
+  end
+
   # Gives the localized version of the attribute for the given locale. The
   # locale defaults to the application's default one.
   #
@@ -50,7 +55,7 @@ module TranslationHelpers
   #
   # field - the name of the field that should be filled, without the
   #   locale-related part (e.g. `:participatory_process_title`)
-  # tab_slector - a String representing the ID of the HTML element that holds
+  # tab_selector - a String representing the ID of the HTML element that holds
   #   the tabs for this input. It ususally is `"#<attribute_name>-tabs" (e.g.
   #   "#title-tabs")
   # localized_values - a Hash where the keys are the locales IDs and the values
@@ -79,7 +84,7 @@ module TranslationHelpers
   def fill_in_i18n_fields(field, tab_selector, localized_values)
     localized_values.each do |locale, value|
       within tab_selector do
-        click_link I18n.with_locale(locale) { I18n.t("name", scope: "locale") }
+        click_link I18n.with_locale(locale) { t("name", scope: "locale") }
       end
       yield "#{field}_#{locale}", value
     end

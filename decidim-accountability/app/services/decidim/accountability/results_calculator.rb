@@ -5,8 +5,8 @@ module Decidim
     # This class handles the calculation of progress for a set of results
     class ResultsCalculator
       # Public: Initializes the service.
-      def initialize(feature, scope_id, category_id)
-        @feature = feature
+      def initialize(component, scope_id, category_id)
+        @component = component
         @scope_id = scope_id
         @category_id = category_id
       end
@@ -14,16 +14,16 @@ module Decidim
       delegate :count, to: :results
 
       def progress
-        results.average(:progress)
+        results.average("COALESCE(progress, 0)")
       end
 
       private
 
-      attr_reader :feature, :scope_id, :category_id
+      attr_reader :component, :scope_id, :category_id
 
       def results
         @results ||= ResultSearch.new(
-          feature: feature,
+          component: component,
           scope_id: scope_id,
           category_id: category_id,
           deep_search: false

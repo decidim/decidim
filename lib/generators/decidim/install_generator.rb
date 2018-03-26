@@ -14,11 +14,16 @@ module Decidim
       desc "Install decidim"
       source_root File.expand_path("templates", __dir__)
 
-      class_option :app_name, type: :string, default: nil,
+      class_option :app_name, type: :string,
+                              default: nil,
                               desc: "The name of the app"
-      class_option :recreate_db, type: :boolean, default: false,
+
+      class_option :recreate_db, type: :boolean,
+                                 default: false,
                                  desc: "Recreate db after installing decidim"
-      class_option :seed_db, type: :boolean, default: false,
+
+      class_option :seed_db, type: :boolean,
+                             default: false,
                              desc: "Seed db after installing decidim"
 
       def install
@@ -64,7 +69,7 @@ module Decidim
       def smtp_environment
         inject_into_file "config/environments/production.rb",
                          after: "config.log_formatter = ::Logger::Formatter.new" do
-          <<~RUBY.gsub(/^ *\|/, "")
+          cut <<~RUBY
             |
             |  config.action_mailer.smtp_settings = {
             |    :address        => Rails.application.secrets.smtp_address,
@@ -76,17 +81,6 @@ module Decidim
             |    :enable_starttls_auto => Rails.application.secrets.smtp_starttls_auto,
             |    :openssl_verify_mode => 'none'
             |  }
-            |
-            |  if Rails.application.secrets.sendgrid
-            |    config.action_mailer.default_options = {
-            |      "X-SMTPAPI" => {
-            |        filters:  {
-            |          clicktrack: { settings: { enable: 0 } },
-            |          opentrack:  { settings: { enable: 0 } }
-            |        }
-            |      }.to_json
-            |    }
-            |  end
           RUBY
         end
       end
@@ -97,16 +91,18 @@ module Decidim
       end
 
       def letter_opener_web
-        route <<~RUBY.gsub(/^ *\|/, "")
+        letter_opener_route = cut <<~RUBY
           |
           |  if Rails.env.development?
           |    mount LetterOpenerWeb::Engine, at: "/letter_opener"
           |  end
         RUBY
 
+        route letter_opener_route
+
         inject_into_file "config/environments/development.rb",
                          after: "config.action_mailer.raise_delivery_errors = false" do
-          <<~RUBY.gsub(/^ *\|/, "")
+          cut <<~RUBY
             |
             |  config.action_mailer.delivery_method = :letter_opener_web
             |  config.action_mailer.default_url_options = { port: 3000 }
@@ -120,6 +116,12 @@ module Decidim
         soft_rails "db:environment:set", "db:drop"
         rails "db:create"
 
+        # In order to ensure that migrations don't eager load models with not
+        # yet fully populated schemas (which could break commands which load
+        # migrations and seeds in the same process, such as `rails db:migrate
+        # db:seed`), we make sure to run them in the same process if seeds are
+        # requested so that we can catch these situations earlier than end
+        # users.
         if options[:seed_db]
           rails "db:migrate", "db:seed"
         else
@@ -142,6 +144,10 @@ module Decidim
       def scss_variables
         variables = File.join(Gem.loaded_specs["decidim-core"].full_gem_path, "app", "assets", "stylesheets", "decidim", "_variables.scss")
         File.read(variables).split("\n").map { |line| "// #{line}".gsub(" !default", "") }.join("\n")
+      end
+
+      def cut(text)
+        text.gsub(/^ *\|/, "").rstrip
       end
     end
   end

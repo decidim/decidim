@@ -16,14 +16,8 @@ module Decidim
           @user = user
           @context = context
 
-          can :vote, Proposal do |_proposal|
-            authorized?(:vote) && voting_enabled? && remaining_votes.positive?
-          end
-
-          can :unvote, Proposal do |_proposal|
-            authorized?(:vote) && voting_enabled?
-          end
-
+          setup_endorsement_related_abilities
+          setup_voting_related_abilities
           can :create, Proposal if authorized?(:create) && creation_enabled?
           can :edit, Proposal do |proposal|
             proposal.editable_by?(user)
@@ -38,15 +32,33 @@ module Decidim
 
         private
 
-        def authorized?(action)
-          return unless feature
+        def setup_endorsement_related_abilities
+          can :endorse, Proposal do |_proposal|
+            authorized?(:endorse) && endorsements_enabled? && !endorsements_blocked?
+          end
+          can :unendorse, Proposal do |_proposal|
+            authorized?(:unendorse) && endorsements_enabled?
+          end
+        end
 
-          ActionAuthorizer.new(user, feature, action).authorize.ok?
+        def setup_voting_related_abilities
+          can :vote, Proposal do |_proposal|
+            authorized?(:vote) && voting_enabled? && remaining_votes.positive?
+          end
+          can :unvote, Proposal do |_proposal|
+            authorized?(:vote) && voting_enabled?
+          end
+        end
+
+        def authorized?(action)
+          return unless component
+
+          ActionAuthorizer.new(user, component, action).authorize.ok?
         end
 
         def vote_limit_enabled?
-          return unless feature_settings
-          feature_settings.vote_limit.present? && feature_settings.vote_limit.positive?
+          return unless component_settings
+          component_settings.vote_limit.present? && component_settings.vote_limit.positive?
         end
 
         def creation_enabled?
@@ -57,9 +69,19 @@ module Decidim
         def remaining_votes
           return 1 unless vote_limit_enabled?
 
-          proposals = Proposal.where(feature: feature)
+          proposals = Proposal.where(component: component)
           votes_count = ProposalVote.where(author: user, proposal: proposals).size
-          feature_settings.vote_limit - votes_count
+          component_settings.vote_limit - votes_count
+        end
+
+        def endorsements_enabled?
+          return unless current_settings
+          current_settings.endorsements_enabled?
+        end
+
+        def endorsements_blocked?
+          return unless current_settings
+          current_settings.endorsements_blocked?
         end
 
         def voting_enabled?
@@ -71,15 +93,15 @@ module Decidim
           context.fetch(:current_settings, nil)
         end
 
-        def feature_settings
-          context.fetch(:feature_settings, nil)
+        def component_settings
+          context.fetch(:component_settings, nil)
         end
 
-        def feature
-          feature = context.fetch(:current_feature, nil)
-          return nil unless feature && feature.manifest.name == :proposals
+        def component
+          component = context.fetch(:current_component, nil)
+          return nil unless component && component.manifest.name == :proposals
 
-          feature
+          component
         end
 
         def can_withdraw?(proposal)

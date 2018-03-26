@@ -3,15 +3,21 @@
 module Decidim
   # Interaction between a user and an organization is done via a
   # ParticipatoryProcess. It's a unit of action from the Organization point of
-  # view that groups several features (proposals, debates...) distributed in
+  # view that groups several components (proposals, debates...) distributed in
   # steps that get enabled or disabled depending on which step is currently
   # active.
   class ParticipatoryProcess < ApplicationRecord
     include Decidim::HasAttachments
+    include Decidim::HasAttachmentCollections
     include Decidim::Participable
     include Decidim::Publicable
     include Decidim::Scopable
     include Decidim::Followable
+    include Decidim::HasReference
+    include Decidim::Traceable
+    include Decidim::HasPrivateUsers
+    include Decidim::Loggable
+    include Decidim::ParticipatorySpaceResourceable
 
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
@@ -39,7 +45,7 @@ module Decidim
              dependent: :destroy,
              as: :participatory_space
 
-    has_many :features, as: :participatory_space, dependent: :destroy
+    has_many :components, as: :participatory_space, dependent: :destroy
 
     attr_readonly :active_step
 
@@ -60,12 +66,20 @@ module Decidim
       where(promoted: true)
     end
 
+    def self.log_presenter_class_for(_log)
+      Decidim::ParticipatoryProcesses::AdminLog::ParticipatoryProcessPresenter
+    end
+
     def hashtag
       attributes["hashtag"].to_s.delete("#")
     end
 
     def to_param
       slug
+    end
+
+    def self.private_processes
+      where(private_space: true)
     end
   end
 end

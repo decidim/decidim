@@ -8,6 +8,7 @@ module Decidim
       include Decidim::Comments::CommentsHelper
       include PaginateHelper
       include ProposalVotesHelper
+      include ProposalEndorsementsHelper
       include Decidim::MapHelper
       include Decidim::Proposals::MapHelper
 
@@ -62,13 +63,13 @@ module Decidim
       end
 
       def proposal_limit
-        return if feature_settings.proposal_limit.zero?
+        return if component_settings.proposal_limit.zero?
 
-        feature_settings.proposal_limit
+        component_settings.proposal_limit
       end
 
       def current_user_proposals
-        Proposal.where(feature: current_feature, author: current_user)
+        Proposal.where(component: current_component, author: current_user)
       end
     end
   end

@@ -8,8 +8,10 @@ module Decidim
         # Public: Initializes the command.
         #
         # process - A ParticipatoryProcess that will be published
-        def initialize(process)
+        # current_user - the user performing this action
+        def initialize(process, current_user)
           @process = process
+          @current_user = current_user
         end
 
         # Executes the command. Broadcasts these events:
@@ -21,13 +23,17 @@ module Decidim
         def call
           return broadcast(:invalid) if process.nil? || process.published?
 
-          process.publish!
+          transaction do
+            Decidim.traceability.perform_action!("publish", process, current_user) do
+              process.publish!
+            end
+          end
           broadcast(:ok)
         end
 
         private
 
-        attr_reader :process
+        attr_reader :process, :current_user
       end
     end
   end

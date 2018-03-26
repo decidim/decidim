@@ -16,12 +16,12 @@ module Decidim
     end
 
     # Creates the SearchLight base query.
-    # Check if the option feature was provided.
+    # Check if the option component was provided.
     def base_query
       # raise order_start_time.inspect
-      raise "Missing feature" unless feature
+      raise "Missing component" unless component
 
-      @scope.where(feature: feature)
+      @scope.where(component: component)
     end
 
     # Handle the category_id filter
@@ -47,15 +47,9 @@ module Decidim
 
       conditions = []
       conditions << "decidim_scope_id IS NULL" if clean_scope_ids.delete("global")
+      conditions.concat(["? = ANY(decidim_scopes.part_of)"] * clean_scope_ids.count) if clean_scope_ids.any?
 
-      clean_scope_ids.map!(&:to_i)
-
-      if clean_scope_ids.any?
-        conditions.concat(["? = ANY(decidim_scopes.part_of)"] * clean_scope_ids.count)
-        conditions << "decidim_scopes.id IN (?)"
-      end
-
-      query.includes(:scope).references(:decidim_scopes).where(conditions.join(" OR "), *clean_scope_ids, clean_scope_ids)
+      query.includes(:scope).references(:decidim_scopes).where(conditions.join(" OR "), *clean_scope_ids.map(&:to_i))
     end
 
     private
@@ -63,17 +57,17 @@ module Decidim
     # Private: Creates an array of category ids.
     # It contains categories' subcategories ids as well.
     def category_ids
-      feature
+      component
         .categories
         .where(id: category_id)
-        .or(feature.categories.where(parent_id: category_id))
+        .or(component.categories.where(parent_id: category_id))
         .pluck(:id)
     end
 
-    # Private: Since feature is not used by a search method we need
+    # Private: Since component is not used by a search method we need
     # to define the method manually.
-    def feature
-      options[:feature]
+    def component
+      options[:component]
     end
   end
 end

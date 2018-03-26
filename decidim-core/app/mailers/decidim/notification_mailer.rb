@@ -7,8 +7,10 @@ module Decidim
     helper Decidim::ResourceHelper
 
     def event_received(event, event_class_name, resource, user, extra)
+      return unless user.email
+
       with_user(user) do
-        @organization = resource.organization
+        @organization = user.organization
         event_class = event_class_name.constantize
         @event_instance = event_class.new(resource: resource, event_name: event, user: user, extra: extra)
         subject = @event_instance.email_subject

@@ -3,16 +3,16 @@
 module Decidim
   module Comments
     module Export
-      # Public: Given a resource class and a feature, returns the comments for that
-      # resource in that feature.
+      # Public: Given a resource class and a component, returns the comments for that
+      # resource in that component.
       #
       # resource_class - The resource's Class
-      # feature        - The feature where the resource is scoped to.
+      # component        - The component where the resource is scoped to.
       #
-      # Returns an Arel::Relation with all the comments for that feature and resource.
-      def comments_for_resource(resource_class, feature)
+      # Returns an Arel::Relation with all the comments for that component and resource.
+      def comments_for_resource(resource_class, component)
         Comment
-          .where(decidim_root_commentable_id: resource_class.where(feature: feature))
+          .where(decidim_root_commentable_id: resource_class.where(component: component))
           .where(decidim_root_commentable_type: resource_class.to_s)
       end
 

@@ -1,0 +1,25 @@
+<%
+@title = "Multiconsulta -- Decidim Barcelona"
+@activesection = "consultations"
+@activepage = "consultations"
+%>
+
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <div class="row section">
+    <h2 class="section-heading">Multiconsulta activa</h2>
+    <a href="/public/consultations" class="consultations-banner">
+      <%= partial "consultations_home_banner" %>
+    </a>
+  </div>
+  <div class="row section">
+    <h2 class="section-heading">Multiconsultas anteriores</h2>
+    <a href="#" class="consultations-banner">
+      <%= partial "consultations_home_banner_alt" %>
+    </a>
+  </div>
+
+</main>
+
+<%= partial "template_bottom" %>

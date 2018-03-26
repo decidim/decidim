@@ -1,5 +1,8 @@
 eu:
   decidim:
+    admin_log:
+      page:
+        update: "%{user_name} %{resource_name} orrialdea %{space_name} eguneratu du"
     features:
       pages:
         name: Orria

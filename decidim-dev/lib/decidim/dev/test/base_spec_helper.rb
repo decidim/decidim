@@ -16,13 +16,11 @@ if ENV["SIMPLECOV"]
   SimpleCov.command_name File.basename(Dir.pwd)
 end
 
-require "rails"
-require "active_support/core_ext/string"
 require "decidim/core"
 require "decidim/core/test"
 require "decidim/admin/test"
 
-require_relative "rspec_support/feature.rb"
+require_relative "rspec_support/component.rb"
 require_relative "rspec_support/authorization.rb"
 
 require "#{Decidim::Dev.dummy_app_path}/config/environment"

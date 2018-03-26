@@ -13,9 +13,11 @@
             <strong><%= profile_user.name %></strong>
             <div class="user-nickname">
               <%= profile_user.nickname %>
-              <span class="user-contact_link">
-                <%= link_to_current_or_new_conversation_with(user) %>
-              </span>
+              <% if !current_user || (current_user && current_user != user) %>
+                <span class="user-contact_link">
+                  <%= link_to_current_or_new_conversation_with(user) %>
+                </span>
+              <% end %>
             </div>
 
             <% if current_user && current_user != user %>

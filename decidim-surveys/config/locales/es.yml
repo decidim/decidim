@@ -7,17 +7,29 @@ es:
         mandatory: Obligatorio
         question_type: Tipo
   decidim:
-    features:
+    components:
       surveys:
         actions:
-          answer: Respuesta
+          answer: Responder
         name: Encuesta
         settings:
           global:
-            announcement: Aviso
+            announcement: Anuncio
           step:
             allow_answers: Permitir respuestas
-            announcement: Aviso
+            announcement: Anuncio
+    events:
+      surveys:
+        survey_closed:
+          email_intro: Se ha cerrado la encuesta %{resource_title} en %{participatory_space_title}.
+          email_outro: Recibiste esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones desde el enlace anterior.
+          email_subject: Ha terminado una encuesta en %{participatory_space_title}
+          notification_title: La encuesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a> ha terminado.
+        survey_opened:
+          email_intro: 'Ya está abierta la encuesta %{resource_title} en %{participatory_space_title}. Puedes participar desde esta página:'
+          email_outro: Has recibido esta notificación porque estás siguiendo %{participatory_space_title}. Puedes dejar de recibir notificaciones siguiendo el enlace anterior.
+          email_subject: Nueva encuesta en %{participatory_space_title}
+          notification_title: Ya está abierta la encuesta <a href="%{resource_path}">%{resource_title}</a> en <a href="%{participatory_space_url}">%{participatory_space_title}</a>.
     surveys:
       admin:
         exports:
@@ -29,7 +41,7 @@ es:
         surveys:
           answer_option:
             answer_option: Opción de respuesta
-            remove_answer_option: Eliminar opción de respuesta
+            remove: retirar
             statement: Enunciado
           edit:
             save: Guardar
@@ -39,9 +51,11 @@ es:
             already_answered_warning: La encuesta ya está contestada por algunos usuarios, así que no puedes modificar sus preguntas.
           question:
             add_answer_option: Agregar opción de respuesta
+            down: Abajo
             question: Pregunta
-            remove_question: Eliminar pregunta
+            remove: retirar
             statement: Enunciado
+            up: Arriba
           update:
             invalid: Se han producido errores al guardar la encuesta.
             success: Encuesta guardada correctamente.

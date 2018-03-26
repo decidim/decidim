@@ -38,8 +38,8 @@
                 %>
               </td>
               <td>
-                <% reports = moderation.reports.map { |report| render 'report', report: report } %>
-                <%= safe_join(reports, ',') %>
+                <% reports = moderation.reports.map { |report| render "report", report: report } %>
+                <%= safe_join(reports, ",") %>
               </td>
               <td>
                 <%= moderation.report_count %>

@@ -1,24 +1,10 @@
-<div class="row columns">
-  <%= link_to :back, class: "muted-link" do %>
-    <%= icon "chevron-left", class: "icon--small" %>
-    <%= t(".back") %>
-  <% end %>
-  <h2 class="section-heading"><%= t(".title") %></h2>
-</div>
-
 <div class="row">
-  <div class="columns large-6 medium-centered">
+  <%= render partial: "wizard_aside" %>
+
+  <div class="columns large-6">
+    <%= render partial: "wizard_header" %>
+
     <div class="card">
-      <% if translated_attribute(feature_settings.new_proposal_help_text).present? %>
-        <%= render partial: "decidim/shared/announcement", locals: { announcement: feature_settings.new_proposal_help_text } %>
-      <% end %>
-
-      <div class="row column">
-        <div class="callout warning">
-          <%= t(".proposal_edit_before_minutes", count: feature_settings.proposal_edit_before_minutes) %>
-        </div>
-      </div>
-
       <div class="card__content">
         <%= decidim_form_for(@form) do |form| %>
           <div class="field">
@@ -29,7 +15,7 @@
             <%= form.text_area :body, rows: 10 %>
           </div>
 
-          <% if feature_settings.geocoding_enabled? %>
+          <% if component_settings.geocoding_enabled? %>
             <div class="field">
               <%= form.check_box :has_address %>
             </div>
@@ -52,13 +38,13 @@
 
           <% if current_user.user_groups.verified.any? %>
             <div class="field">
-              <%= form.select :user_group_id, current_user.user_groups.verified.map{|g| [g.name, g.id]}, prompt: current_user.name %>
+              <%= user_group_select_field form, :user_group_id %>
             </div>
           <% end %>
 
-          <% if feature_settings.attachments_allowed? %>
+          <% if component_settings.attachments_allowed? %>
             <fieldset>
-              <legend><%= t('.attachment_legend') %></legend>
+              <legend><%= t(".attachment_legend") %></legend>
               <%= form.fields_for :attachment, @form.attachment do |form| %>
                 <div class="field">
                   <%= form.text_field :title %>
@@ -72,12 +58,13 @@
           <% end %>
 
           <div class="actions">
-            <%= form.submit t(".send"), class: "button expanded", data: { disable: true } %>
+            <%= form.submit t(".send"), class: "button expanded mt-s mb-none", data: { disable: true } %>
           </div>
         <% end %>
       </div>
     </div>
   </div>
+  <div class="columns large-3"></div>
 </div>
 
 <%= javascript_include_tag "decidim/proposals/add_proposal" %>

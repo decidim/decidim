@@ -15,7 +15,12 @@ require "foundation-rails"
 require "foundation_rails_helper"
 require "autoprefixer-rails"
 require "active_link_to"
+
+# Until https://github.com/andypike/rectify/pull/45 is attended, we're shipping
+# with a patched version of rectify
 require "rectify"
+require "decidim/rectify_ext"
+
 require "carrierwave"
 require "high_voltage"
 require "rails-i18n"
@@ -32,11 +37,10 @@ require "invisible_captcha"
 require "premailer/rails"
 require "geocoder"
 require "paper_trail"
+require "cells/rails"
+require "cells-erb"
 
 require "decidim/api"
-
-require "decidim/query_extensions"
-require "decidim/i18n_exceptions"
 
 module Decidim
   module Core
@@ -59,8 +63,8 @@ module Decidim
         app.config.assets.paths << File.expand_path("../../../app/assets/stylesheets", __dir__)
         app.config.assets.precompile += %w(decidim_core_manifest.js)
 
-        Decidim.feature_manifests.each do |feature|
-          app.config.assets.precompile += [feature.icon]
+        Decidim.component_manifests.each do |component|
+          app.config.assets.precompile += [component.icon]
         end
 
         app.config.assets.debug = true if Rails.env.test?
@@ -96,7 +100,9 @@ module Decidim
       end
 
       initializer "decidim.query_extensions" do
-        QueryExtensions.extend!(Decidim::Api::QueryType)
+        Decidim::Api::QueryType.define do
+          Decidim::QueryExtensions.define(self)
+        end
       end
 
       initializer "decidim.i18n_exceptions" do
@@ -207,6 +213,11 @@ module Decidim
 
       initializer "paper_trail" do
         PaperTrail.config.track_associations = false
+      end
+
+      initializer "add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/views") # for partials
       end
     end
   end

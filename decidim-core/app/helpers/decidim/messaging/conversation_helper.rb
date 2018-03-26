@@ -28,14 +28,15 @@ module Decidim
       # @return [String] The resulting route
       #
       def current_or_new_conversation_path_with(user)
-        return decidim.new_user_session_path unless user_signed_in?
+        decidim_routes = Decidim::Core::Engine.routes.url_helpers
+        return decidim_routes.new_user_session_path unless user_signed_in?
 
         conversation = conversation_between(current_user, user)
 
         if conversation
-          decidim.conversation_path(conversation)
+          decidim_routes.conversation_path(conversation)
         else
-          decidim.new_conversation_path(recipient_id: user.id)
+          decidim_routes.new_conversation_path(recipient_id: user.id)
         end
       end
 
@@ -47,6 +48,8 @@ module Decidim
       #
       # @return [Decidim::Messaging::Conversation]
       def conversation_between(*participants)
+        return if participants.to_set.length <= 1
+
         UserConversations.for(participants.first).find do |conversation|
           conversation.participants.to_set == participants.to_set
         end

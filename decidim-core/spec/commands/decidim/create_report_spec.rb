@@ -6,8 +6,8 @@ module Decidim
   describe CreateReport do
     describe "call" do
       let(:organization) { create(:organization) }
-      let(:feature) { create(:feature, organization: organization) }
-      let(:reportable) { create(:dummy_resource, feature: feature) }
+      let(:component) { create(:component, organization: organization) }
+      let(:reportable) { create(:dummy_resource, component: component) }
       let!(:admin) { create(:user, :admin, :confirmed, organization: organization) }
       let(:user) { create(:user, :confirmed, organization: organization) }
       let(:form) { ReportForm.from_params(form_params) }
@@ -29,7 +29,7 @@ module Decidim
         end
 
         it "doesn't create the report" do
-          expect { command.call }.not_to change { Report.count }
+          expect { command.call }.not_to change(Report, :count)
         end
       end
 
@@ -73,7 +73,7 @@ module Decidim
           end
 
           it "doesn't create an additional moderation" do
-            expect { command.call }.not_to change { Moderation.count }
+            expect { command.call }.not_to change(Moderation, :count)
 
             last_moderation = Moderation.last
             expect(last_moderation.report_count).to eq(3)

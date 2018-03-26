@@ -3,7 +3,9 @@
     <h2 class="card-title">
     <span><%= t(".answer_option") %></span>
     <% if survey.questions_editable? %>
-      <button class="button small alert hollow remove-answer-option button--title"><%= t('.remove_answer_option') %></button>
+      <button class="button small alert hollow remove-answer-option button--title">
+        <%= t(".remove") %>
+      </button>
     <% end %>
     </h2>
   </div>
@@ -11,17 +13,20 @@
   <div class="card-section">
     <div class="row column">
       <%=
-        translated_field_tag(
-          :text_field_tag,
-          "survey[questions][][answer_options][]",
-          "body",
-          answer_option.body,
-          tabs_id: tabs_id_for_question_answer_option(question, idx),
-          label: t('.statement'),
-          disabled: question.nil? || disabled_for_question(survey, question),
-          enable_tabs: question.present?
+        form.translated(
+          :text_field,
+          :body,
+          tabs_id: tabs_id_for_question_answer_option(question, answer_option),
+          label: t(".statement"),
+          disabled: !survey.questions_editable?
         )
       %>
     </div>
   </div>
+
+  <% if answer_option.persisted? %>
+    <%= form.hidden_field :id, disabled: !survey.questions_editable? %>
+  <% end %>
+
+  <%= form.hidden_field :deleted, value: false, disabled: !survey.questions_editable? %>
 </div>

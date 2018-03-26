@@ -11,6 +11,7 @@ gl:
   decidim:
     budgets:
       actions:
+        attachment_collections: Coleccións
         attachments: Anexos
         confirm_destroy: Estás seguro de que queres eliminar este proxecto?
         destroy: Eliminar
@@ -41,6 +42,11 @@ gl:
           update:
             invalid: Produciuse un problema ao actualizar este proxecto
             success: Proxecto actualizado correctamente
+      admin_log:
+        project:
+          create: "%{user_name} creou o proxecto %{resource_name} no espazo %{space_name}"
+          delete: "%{user_name} eliminou o %{resource_name} proxecto no espazo %{space_name}"
+          update: "%{user_name} actualizou o proxecto %{resource_name} no espazo %{space_name}"
       models:
         project:
           fields:
@@ -99,7 +105,7 @@ gl:
         show:
           budget: Orzamento
           view_all_projects: Ver todos os proxectos
-    features:
+    components:
       budgets:
         actions:
           vote: Vota

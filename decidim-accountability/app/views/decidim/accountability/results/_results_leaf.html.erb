@@ -34,11 +34,11 @@
             </div>
           <% end %>
 
-          <% if result.progress.present? %>
+          <% if component_settings.display_progress_enabled? && result.progress.present? %>
             <div class="card--list__data">
               <span class="card--list__data__number"><%= display_percentage result.progress %></span>
             </div>
-          <% end%>
+          <% end %>
         </div>
       <% end %>
     </div>

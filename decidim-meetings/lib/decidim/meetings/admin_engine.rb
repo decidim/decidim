@@ -19,7 +19,9 @@ module Decidim
               get :export
             end
           end
+          resources :attachment_collections
           resources :attachments
+          resources :copies, controller: "meeting_copies", only: [:new, :create]
         end
         root to: "meetings#index"
       end

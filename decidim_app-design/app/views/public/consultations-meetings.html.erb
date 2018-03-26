@@ -1,0 +1,137 @@
+<%
+@title = "Multiconsulta -- Decidim Barcelona"
+@activesection = "consultations"
+@activepage = "meetings"
+%>
+
+<%= partial "template_top" %>
+
+<main class="wrapper">
+  <%= partial "consultations_header" %>
+  <div class="row column">
+    <%= partial "consultations_nav" %>
+  </div>
+
+  <div class="row column">
+    <%= partial "meetings_map" %>
+  </div>
+  <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
+    <div class="column">
+      <article class="card card--meeting">
+        <span class="card__type">
+          <%= icon "meetings" %>
+          Trobada
+        </span>
+        <div class="card__content">
+          <a href="/public/meeting-view" class="card__link">
+            <h5 class="card__title">Cooperatives i economia solidària</h5>
+          </a>
+          <div class="card__datetime">
+            <div class="card__datetime__date">
+              20 <span class="card__datetime__month">Agosto</span>
+            </div>
+            <div class="card__datetime__time">
+              16:00 - 18:00
+            </div>
+          </div>
+          <p>
+            Recollir, en sessió oberta al carrer, propostes per millorar
+            la convivència i l´ús de l´espai públic al barri.
+          </p>
+          <div class="address card__extra">
+            <div class="address__icon">
+              <%= icon "meetings", removeIconClass: true, width: 40, height: 70 %>
+            </div>
+            <div class="address__details">
+              <strong>Seu del Districte Sants-Montjuïc</strong><br>
+              <span>Carrer de la Creu Coberta, 104</span><br>
+              <span>Barcelona</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="column">
+      <article class="card card--meeting">
+        <span class="card__type">
+          <svg class="icon">
+            <%= icon "meetings" %>
+            <use xlink:href="/images/icons.svg#icon-meetings" />
+          </svg>
+          Trobada
+        </span>
+        <div class="card__content">
+          <a href="/public/meeting-view" class="card__link">
+            <h5 class="card__title">Foment valors naturals i preservació espais
+              verds de la ciutat: Collserola</h5>
+          </a>
+          <div class="card__datetime">
+            <div class="card__datetime__date">
+              20 <span class="card__datetime__month">Agosto</span>
+            </div>
+            <div class="card__datetime__time">
+              16:00 - 18:00
+            </div>
+          </div>
+          <p>
+            Mesures i accions a emprendre per preservar pressió ús
+            Collserola. Generar espai de debat i de construcció de
+            propostes per a valorar i preservar la serralada de Collserola.
+            Reflexionar sobre els límits de la pressió humana a la serra.
+          </p>
+          <div class="address card__extra">
+            <div class="address__icon">
+              <%= icon "meetings", removeIconClass: true, width: 40, height: 70 %>
+            </div>
+            <div class="address__details">
+              <strong>Seu del Districte Sants-Montjuïc</strong><br>
+              <span>Carrer de la Creu Coberta, 104</span><br>
+              <span>Barcelona</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="column">
+      <article class="card card--meeting">
+        <span class="card__type">
+          <%= icon "meetings" %>
+          Trobada
+        </span>
+        <div class="card__content">
+          <a href="/public/meeting-view" class="card__link">
+            <h5 class="card__title">Foment valors naturals i preservació espais
+              verds de la ciutat: Collserola</h5>
+          </a>
+          <div class="card__datetime">
+            <div class="card__datetime__date">
+              20 <span class="card__datetime__month">Agosto</span>
+            </div>
+            <div class="card__datetime__time">
+              16:00 - 18:00
+            </div>
+          </div>
+          <p>
+            Mesures i accions a emprendre per preservar pressió ús
+            Collserola. Generar espai de debat i de construcció de
+            propostes per a valorar i preservar la serralada de Collserola.
+            Reflexionar sobre els límits de la pressió humana a la serra.
+          </p>
+          <div class="address card__extra">
+            <div class="address__icon">
+              <%= icon "meetings", removeIconClass: true, width: 40, height: 70 %>
+            </div>
+            <div class="address__details">
+              <strong>Seu del Districte Sants-Montjuïc</strong><br>
+              <span>Carrer de la Creu Coberta, 104</span><br>
+              <span>Barcelona</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+
+</main>
+
+<%= partial "template_bottom" %>

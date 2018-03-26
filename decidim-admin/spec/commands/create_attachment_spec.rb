@@ -19,7 +19,9 @@ module Decidim::Admin
           ca: "Una ciutat",
           es: "Una ciudad"
         },
-        file: file
+        file: file,
+        attachment_collection: nil,
+        weight: 0
       )
     end
     let(:file) do
@@ -35,7 +37,7 @@ module Decidim::Admin
         allow(form).to receive(:invalid?).and_return(false)
       end
 
-      it "broadcasts :ok and creates the feature" do
+      it "broadcasts :ok and creates the component" do
         expect do
           subject
         end.to broadcast(:ok)

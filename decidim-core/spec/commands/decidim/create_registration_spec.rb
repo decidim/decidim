@@ -15,7 +15,7 @@ module Decidim
         let(:password) { "password1234" }
         let(:password_confirmation) { password }
         let(:tos_agreement) { "1" }
-        let(:notifications) { "1" }
+        let(:newsletter) { "1" }
 
         let(:user_group_name) { "My organization" }
         let(:user_group_document_number) { "123456789Z" }
@@ -31,7 +31,7 @@ module Decidim
               "password" => password,
               "password_confirmation" => password_confirmation,
               "tos_agreement" => tos_agreement,
-              "notifications" => notifications,
+              "newsletter" => newsletter,
               "user_group_name" => user_group_name,
               "user_group_document_number" => user_group_document_number,
               "user_group_phone" => user_group_phone
@@ -59,7 +59,7 @@ module Decidim
           it "doesn't create a user" do
             expect do
               command.call
-            end.not_to change { User.count }
+            end.not_to change(User, :count)
           end
         end
 
@@ -76,12 +76,12 @@ module Decidim
               password: form.password,
               password_confirmation: form.password_confirmation,
               tos_agreement: form.tos_agreement,
-              newsletter_notifications: form.notifications,
-              email_on_notification: form.notifications,
+              newsletter_notifications: form.newsletter,
+              email_on_notification: true,
               organization: organization
             ).and_call_original
 
-            expect { command.call }.to change { User.count }.by(1)
+            expect { command.call }.to change(User, :count).by(1)
           end
         end
 
@@ -103,7 +103,7 @@ module Decidim
             end
 
             it "doesn't create a user group" do
-              expect { command.call }.not_to change { UserGroup.count }
+              expect { command.call }.not_to change(UserGroup, :count)
             end
           end
 
@@ -123,7 +123,7 @@ module Decidim
               expect do
                 command.call
                 expect(UserGroup.last.users.first).to eq(User.last)
-              end.to change { UserGroup.count }.by(1)
+              end.to change(UserGroup, :count).by(1)
             end
           end
         end

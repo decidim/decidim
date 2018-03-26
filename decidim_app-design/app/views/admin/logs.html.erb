@@ -1,0 +1,16 @@
+<%
+@title = "Decidim Admin"
+@activesection = "logs"
+%>
+
+<%= partial "template_top" %>
+<div class="layout-nav">
+  <%= partial "home_nav" %>
+</div>
+<div class="layout-content">
+  <div class="container">
+    <%= partial "logs_list" %>
+    <%= partial "pagination" %>
+  </div>
+</div>
+<%= partial "template_bottom" %>

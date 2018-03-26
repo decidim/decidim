@@ -7,6 +7,7 @@ module Decidim
   # following the conventions set on `Decidim::TranslatableAttributes`.
   class FormBuilder < FoundationRailsHelper::FormBuilder
     include ActionView::Context
+    include Decidim::TranslatableAttributes
 
     # Public: generates a check boxes input from a collection and adds help
     # text and errors.
@@ -134,7 +135,7 @@ module Decidim
 
     # Public: Generates a picker field for scope selection.
     #
-    # name          - The name of the field (usually scope_id)
+    # attribute     - The name of the field (usually scope_id)
     # options       - An optional Hash with options:
     # - multiple    - Multiple mode, to allow multiple scopes selection.
     # - label       - Show label?
@@ -143,8 +144,12 @@ module Decidim
     #
     # Returns a String.
     def scopes_picker(attribute, options = {})
-      picker_options = { id: "#{@object_name}_#{attribute}", class: "picker-#{options[:multiple] ? "multiple" : "single"}",
-                         name: "#{@object_name}[#{attribute}]" }
+      picker_options = {
+        id: "#{@object_name}_#{attribute}",
+        class: "picker-#{options[:multiple] ? "multiple" : "single"}",
+        name: "#{@object_name}[#{attribute}]"
+      }
+
       picker_options[:class] += " is-invalid-input" if error?(attribute)
 
       prompt_params = yield(nil)
@@ -152,6 +157,36 @@ module Decidim
       template = ""
       template += label(attribute, label_for(attribute) + required_for_attribute(attribute)) unless options[:label] == false
       template += @template.render("decidim/scopes/scopes_picker_input", picker_options: picker_options, prompt_params: prompt_params, scopes: scopes)
+      template += error_and_help_text(attribute, options)
+      template.html_safe
+    end
+
+    # Public: Generates a picker field for selection (either simple or multiselect).
+    #
+    # attribute     - The name of the object's attribute.
+    # options       - A Hash with options:
+    # - multiple: Multiple mode, to allow selection of multiple items.
+    # - label: Show label?
+    # - name: (optional) The name attribute of the input elements.
+    # prompt_params - Hash with options:
+    # - url: The url where the ajax endpoint that will fill the content of the selector popup (the prompt).
+    # - text: Text in the button to open the Data Picker selector.
+    #
+    # Also it should receive a block that returns a Hash with :url and :text for each selected scope
+    #
+    # Returns an html String.
+    def data_picker(attribute, options = {}, prompt_params = {})
+      picker_options = {
+        id: "#{@object_name}_#{attribute}",
+        class: "picker-#{options[:multiple] ? "multiple" : "single"}",
+        name: options[:name] || "#{@object_name}[#{attribute}]"
+      }
+      picker_options[:class] += " is-invalid-input" if error?(attribute)
+
+      items = object.send(attribute).collect { |item| [item, yield(item)] }
+      template = ""
+      template += label(attribute, label_for(attribute) + required_for_attribute(attribute)) unless options[:label] == false
+      template += @template.render("decidim/widgets/data_picker", picker_options: picker_options, prompt_params: prompt_params, items: items)
       template += error_and_help_text(attribute, options)
       template.html_safe
     end
@@ -436,18 +471,18 @@ module Decidim
 
     def categories_for_select(scope)
       sorted_main_categories = scope.first_class.includes(:subcategories).sort_by do |category|
-        category.name[I18n.locale.to_s]
+        translated_attribute(category.name, category.participatory_space.organization)
       end
 
       sorted_main_categories.flat_map do |category|
-        parent = [[category.name[I18n.locale.to_s], category.id]]
+        parent = [[translated_attribute(category.name, category.participatory_space.organization), category.id]]
 
         sorted_subcategories = category.subcategories.sort_by do |subcategory|
-          subcategory.name[I18n.locale.to_s]
+          translated_attribute(subcategory.name, subcategory.participatory_space.organization)
         end
 
         sorted_subcategories.each do |subcategory|
-          parent << ["- #{subcategory.name[I18n.locale.to_s]}", subcategory.id]
+          parent << ["- #{translated_attribute(subcategory.name, subcategory.participatory_space.organization)}", subcategory.id]
         end
 
         parent

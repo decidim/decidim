@@ -11,8 +11,8 @@ module Decidim::Meetings
     let(:organization) { create :organization }
     let(:participatory_process) { create :participatory_process, organization: organization }
     let(:process_admin) { create :process_admin, participatory_process: participatory_process }
-    let(:feature) { create :feature, manifest_name: :meetings, participatory_space: participatory_process }
-    let(:meeting) { create :meeting, feature: feature, registrations_enabled: registrations_enabled, available_slots: available_slots }
+    let(:component) { create :component, manifest_name: :meetings, participatory_space: participatory_process }
+    let(:meeting) { create :meeting, component: component, registrations_enabled: registrations_enabled, available_slots: available_slots }
     let(:user) { create :user, :confirmed, organization: organization }
 
     context "when everything is ok" do
@@ -21,7 +21,7 @@ module Decidim::Meetings
       end
 
       it "creates a registration for the meeting and the user" do
-        expect { subject.call }.to change { Registration.count }.by(1)
+        expect { subject.call }.to change(Registration, :count).by(1)
         last_registration = Registration.last
         expect(last_registration.user).to eq(user)
         expect(last_registration.meeting).to eq(meeting)

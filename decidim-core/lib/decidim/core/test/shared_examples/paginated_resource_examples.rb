@@ -4,7 +4,7 @@ shared_examples "a paginated resource" do
   let(:collection_size) { 30 }
 
   before do
-    visit_feature
+    visit_component
   end
 
   it "lists 20 resources per page by default" do

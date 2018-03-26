@@ -6,8 +6,6 @@ module Decidim
 
     delegate :profile_path, :profile_url, :nickname, :name, to: :updated_user
 
-    private
-
     def resource_path
       profile_path
     end
@@ -19,6 +17,8 @@ module Decidim
     def resource_url
       profile_url
     end
+
+    private
 
     def updated_user
       @updated_user ||= Decidim::UserPresenter.new(resource)

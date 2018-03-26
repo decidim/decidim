@@ -19,49 +19,55 @@ ca:
         registration_terms: Termes i condicions de l'inscripció
         registrations_enabled: Inscripcions obertes
         start_time: Hora d'inici
-        title: Editar trobada
+        title: Títol
   decidim:
-    events:
-      meetings:
-        meeting_closed:
-          email_intro: 'S''ha tancat la reunió "%{resource_title}". Podeu llegir les conclusions de la seva pàgina:'
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint la reunió "%{resource_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
-          email_subject: S'ha tancat la reunió "%{resource_title}"
-          notification_title: S'ha tancat la reunió <a href="%{resource_path}">%{resource_title}</a>.
-        meeting_registrations_over_percentage:
-          email_intro: La ronda "%{resource_title}" de places ocupades supera el %{percentage}%.
-          email_outro: Heu rebut aquesta notificació perquè sou administrador de l'espai participatiu de la reunió.
-          email_subject: La ronda "%{resource_title}" de places ocupades supera el %{percentage}%
-          notification_title: Els espais reservats de <a href="%{resource_path}">%{resource_title}</a> ocupen la ronda %{percentage}%.
-        meeting_updated:
-          email_intro: 'S''ha actualitzat la reunió "%{resource_title}". Podeu llegir la nova versió des de la seva pàgina:'
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint la reunió "%{resource_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
-          email_subject: S'ha actualitzat la reunió "%{resource_title}"
-          notification_title: S'ha actualitzat la reunió <a href="%{resource_path}">%{resource_title}</a>.
-        registrations_enabled:
-          email_intro: 'La reunió "%{resource_title}" ha permès registres. Podeu registrar-vos a la vostra pàgina:'
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint la reunió "%{resource_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
-          email_subject: La reunió "%{resource_title}" ha permès registres.
-          notification_title: La reunió <a href="%{resource_path}">%{resource_title}</a> ha habilitat els registres.
-        upcoming_meeting:
-          email_intro: La reunió "%{resource_title}" començarà en menys de 48 hores.
-          email_outro: Heu rebut aquesta notificació perquè esteu seguint la reunió "%{resource_title}". Podeu deixar de seguir-lo des de l'enllaç anterior.
-          email_subject: La reunió "%{resource_title}" començarà en menys de 48 hores.
-          notification_title: La reunió <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
-    features:
+    components:
       meetings:
         actions:
           join: Inscriu-t'hi
         name: Trobades
         settings:
           global:
-            announcement: Avís
+            announcement: Anunci
             comments_enabled: Comentaris habilitats
           step:
-            announcement: Avís
+            announcement: Anunci
             comments_blocked: Comentaris bloquejats
+    events:
+      meetings:
+        meeting_closed:
+          email_intro: 'La trobada de "%{resource_title}" ha estat tancada. Pots llegir les conclusions a la seva pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
+          email_subject: S'ha tancat la trobada "%{resource_title}"
+          notification_title: La trobada de <a href="%{resource_path}">%{resource_title}</a> s'ha tancat.
+        meeting_created:
+          email_intro: S'ha afegit la trobada "%{resource_title}" a l'espai "%{participatory_space_title}" que estàs seguint.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
+          email_subject: Nova trobada a %{participatory_space_title}
+          notification_title: S'ha afegit la trobada <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
+        meeting_registrations_over_percentage:
+          email_intro: La disponibilitat d'espais a la trobada "%{resource_title}" està per sobre del %{percentage}%.
+          email_outro: Has rebut aquesta notificació perquè ets un administrador de l'espai participatiu d'aquesta trobada.
+          email_subject: La disponibilitat d'espais a la trobada "%{resource_title}" està per sobre del %{percentage}%
+          notification_title: L'espai ocupat per la trobada <a href="%{resource_path}">%{resource_title}</a> està per sobre del %{percentage}%.
+        meeting_updated:
+          email_intro: 'La trobada de "%{resource_title}" ha estat actualitzada. Pots llegir-ne la nova versió a la seva pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
+          email_subject: La trobada "%{resource_title}" s'ha actualitzat
+          notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha estat actualitzada.
+        registrations_enabled:
+          email_intro: 'La trobada "%{resource_title}" ha activat inscripcions. Pots registrar-te a la seva pàgina:'
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
+          email_subject: La trobada de "%{resource_title}" ha obert les inscripcions.
+          notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> ha obert les inscripcions.
+        upcoming_meeting:
+          email_intro: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
+          email_outro: Has rebut aquesta notificació perquè estàs seguint la trobada "%{resource_title}". Pots deixar-la de seguir des de l'enllaç anterior.
+          email_subject: En menys de 48 hores s'iniciarà la trobada "%{resource_title}".
+          notification_title: La trobada <a href="%{resource_path}">%{resource_title}</a> començarà en menys de 48 hores.
     meetings:
       actions:
+        attachment_collections: Col·leccions
         attachments: Adjunts
         close: Tancar
         confirm_destroy: Segur que vols suprimir aquesta trobada?
@@ -124,6 +130,13 @@ ca:
           update:
             invalid: S'ha produït un problema en desar la configuració de la inscripció.
             success: La configuració de les inscripcions de la trobada s'ha desat correctament.
+      admin_log:
+        meeting:
+          close: "%{user_name} ha tancat la trobada %{resource_name} a l'espai %{space_name}"
+          create: "%{user_name} ha creat la trobada %{resource_name} a l'espai %{space_name}"
+          delete: "%{user_name} ha eliminat la trobada %{resource_name} a l'espai %{space_name}"
+          export_registrations: "%{user_name} va exportar les inscripcions de la trobada %{resource_name} de l'espai %{space_name}"
+          update: "%{user_name} ha actualitzat la trobada %{resource_name} a l'espai %{space_name}"
       mailer:
         invite_join_meeting_mailer:
           invite:
@@ -183,6 +196,16 @@ ca:
         destroy:
           invalid: Hi ha hagut un problema en sortir d'aquesta trobada.
           success: Heu deixat la trobada amb èxit.
+    participatory_processes:
+      participatory_process_groups:
+        highlighted_meetings:
+          past_meetings: Trobades anteriors
+          upcoming_meetings: Properes trobades
+    participatory_spaces:
+      highlighted_meetings:
+        past_meetings: Trobades anteriors
+        see_all_meetings: Veure totes les trobades
+        upcoming_meetings: Properes rrobades
     resource_links:
       meetings_through_proposals:
         meeting_results: 'Resultats relacionats:'

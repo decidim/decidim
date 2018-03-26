@@ -7,18 +7,19 @@ module Decidim
     describe UpdateProposal do
       let(:form_klass) { ProposalForm }
 
-      let(:feature) { create(:proposal_feature) }
-      let(:organization) { feature.organization }
+      let(:component) { create(:proposal_component) }
+      let(:organization) { component.organization }
       let(:form) do
         form_klass.from_params(
           form_params
         ).with_context(
           current_organization: organization,
-          current_feature: feature
+          current_participatory_space: component.participatory_space,
+          current_component: component
         )
       end
 
-      let!(:proposal) { create :proposal, feature: feature, author: author }
+      let!(:proposal) { create :proposal, component: component, author: author }
       let(:author) { create(:user, organization: organization) }
 
       let(:user_group) do
@@ -57,7 +58,7 @@ module Decidim
           it "doesn't update the proposal" do
             expect do
               command.call
-            end.not_to change { proposal.title }
+            end.not_to change(proposal, :title)
           end
         end
 
@@ -73,13 +74,13 @@ module Decidim
           it "doesn't update the proposal" do
             expect do
               command.call
-            end.not_to change { proposal.title }
+            end.not_to change(proposal, :title)
           end
         end
 
         context "when the author changinng the author to one that has reached the proposal limit" do
-          let!(:other_proposal) { create :proposal, feature: feature, author: author, user_group: user_group }
-          let(:feature) { create(:proposal_feature, :with_proposal_limit) }
+          let!(:other_proposal) { create :proposal, component: component, author: author, user_group: user_group }
+          let(:component) { create(:proposal_component, :with_proposal_limit) }
 
           it "broadcasts invalid" do
             expect { command.call }.to broadcast(:invalid)
@@ -94,7 +95,7 @@ module Decidim
           it "updates the proposal" do
             expect do
               command.call
-            end.to change { proposal.title }
+            end.to change(proposal, :title)
           end
 
           context "with an author" do
@@ -120,7 +121,7 @@ module Decidim
           end
 
           context "when geocoding is enabled" do
-            let(:feature) { create(:proposal_feature, :with_geocoding_enabled) }
+            let(:component) { create(:proposal_component, :with_geocoding_enabled) }
 
             context "when the has address checkbox is checked" do
               let(:has_address) { true }

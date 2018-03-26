@@ -8,10 +8,11 @@ module Decidim
       allow(Decidim).to receive(:content_processors).and_return([:dummy_foo, :dummy_bar])
     end
 
+    let(:context) { {} }
     let(:processor) { ContentProcessor }
 
     describe "#parse" do
-      subject { processor.parse("This text contains foo and bar and another foo") }
+      subject { processor.parse("This text contains foo and bar and another foo", context) }
 
       it "executes all registered parsers" do
         expect(subject.rewrite).to eq("This text contains *lorem* and *ipsum* and another *lorem*")

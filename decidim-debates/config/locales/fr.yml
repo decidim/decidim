@@ -2,9 +2,10 @@ fr:
   activemodel:
     attributes:
       debate:
+        category_id: Catégorie
         decidim_category_id: Catégorie
-        description: La description
-        end_time: Fini à
+        description: Description
+        end_time: Prend fin à
         information_updates: Informations mises à jour
         instructions: Instructions pour participer
         start_time: Commence à
@@ -13,11 +14,11 @@ fr:
   decidim:
     debates:
       actions:
-        confirm_destroy: Êtes-vous sûr?
+        confirm_destroy: Êtes-vous certain ?
         destroy: Effacer
-        edit: modifier
+        edit: Modifier
         new: Nouveau %{name}
-        title: actes
+        title: Actions
       admin:
         debates:
           create:
@@ -39,6 +40,10 @@ fr:
         models:
           debate:
             name: Débat
+      admin_log:
+        debate:
+          create: "%{user_name} a créé le débat %{resource_name} sur l'espace %{space_name}"
+          update: "%{user_name} a mis à jour le débat %{resource_name} sur l'espace %{space_name}"
       debates:
         count:
           debates_count:
@@ -50,7 +55,7 @@ fr:
         debate:
           comments:
             one: Commentaire
-            other: commentaires
+            other: Commentaires
           participate: Participer
         filters:
           all: Tout
@@ -61,14 +66,14 @@ fr:
           origin: Origine
           search: Chercher
         filters_small_view:
-          close_modal: Fermer modal
+          close_modal: Fermer
           filter: Filtre
           filter_by: Filtrer par
-          unfold: Se dérouler
+          unfold: Dérouler
         index:
           new_debate: Nouveau débat
         new:
-          back: Arrière
+          back: Retour
           create: Créer
           select_a_category: Veuillez sélectionner une catégorie
           title: Nouveau débat
@@ -77,8 +82,8 @@ fr:
           share: Partager
           share_link: Lien de partage
         show:
-          comments: commentaires
-          report: rapport
+          comments: Commentaires
+          report: Rapport
       models:
         debate:
           fields:
@@ -91,16 +96,26 @@ fr:
         create_debate_event:
           space_followers:
             email_intro: |-
-              Bonjour, Un nouveau débat a été créé sur l'espace participatif %{space_title}, consultez-le et contribuez:
-            email_outro: Vous avez reçu cette notification parce que vous suivez l'espace participatif %{space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+              Bonjour, un nouveau débat a été créé sur l'espace participatif %{space_title}, consultez-le et contribuez :
+            email_outro: Vous avez reçu cette notification parce que vous suivez l'espace participatif %{space_title}. Vous pouvez cesser de recevoir des notifications en suivant ce dernier lien.
             email_subject: Nouveau débat sur %{space_title}
             notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé le <a href="%{space_path}">%{space_title}</a>.
           user_followers:
             email_intro: |-
-              Bonjour, %{author_name} %{author_nickname}, qui vous suivez, a créé un nouveau débat, vérifiez-le et contribuez:
-            email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+              Bonjour, %{author_name} %{author_nickname}, que vous suivez, a créé un nouveau débat, prenez-en connaissance et contribuez :
+            email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez cesser de recevoir des notifications en suivant ce dernier lien.
             email_subject: Nouveau débat par %{author_nickname}
             notification_title: Le débat <a href="%{resource_path}">%{resource_title}</a> a été créé par <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        creation_disabled:
+          email_intro: 'La création de débat n''est plus active dans %{participatory_space_title}. Vous pouvez toujours participer aux débats ouverts depuis cette page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant ce dernier lien.
+          email_subject: La création de débats est désactivée dans %{participatory_space_title}
+          notification_title: La création de débats est maintenant désactivée dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+        creation_enabled:
+          email_intro: 'Vous pouvez maintenant commencer de nouveaux débats dans %{participatory_space_title}! Commencez à participer sur cette page :'
+          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant ce dernier lien.
+          email_subject: Débats maintenant disponibles sur %{participatory_space_title}
+          notification_title: Vous pouvez maintenant démarrer <a href="%{resource_path}">nouveaux débats</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     features:
       debates:
         actions:
@@ -108,7 +123,9 @@ fr:
         name: Débats
         settings:
           global:
+            announcement: Annonce
             comments_enabled: Commentaires activés
           step:
+            announcement: Annonce
             comments_blocked: Commentaires bloqués
-            creation_enabled: Création de débat par les utilisateurs activés
+            creation_enabled: Création de débats par les utilisateurs activés

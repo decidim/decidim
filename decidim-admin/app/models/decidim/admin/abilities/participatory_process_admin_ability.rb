@@ -24,12 +24,16 @@ module Decidim
         def define_participatory_process_abilities
           super
 
-          can :manage, Feature do |feature|
-            can_manage_process?(feature.participatory_space)
+          can :manage, Component do |component|
+            can_manage_process?(component.participatory_space)
           end
 
           can :manage, Category do |category|
             can_manage_process?(category.participatory_space)
+          end
+
+          can :manage, AttachmentCollection do |attachment_collection|
+            can_manage_process?(attachment_collection.collection_for)
           end
 
           can :manage, Attachment do |attachment|

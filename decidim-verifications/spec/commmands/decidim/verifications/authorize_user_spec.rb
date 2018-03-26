@@ -15,7 +15,7 @@ module Decidim::Verifications
       )
     end
 
-    let(:authorizations) { Authorizations.new(user: user, granted: true) }
+    let(:authorizations) { Authorizations.new(organization: user.organization, user: user, granted: true) }
 
     context "when the form is not authorized" do
       before do
@@ -29,7 +29,7 @@ module Decidim::Verifications
 
     context "when everything is ok" do
       it "creates an authorization for the user" do
-        expect { subject.call }.to change { authorizations.count }.by(1)
+        expect { subject.call }.to change(authorizations, :count).by(1)
       end
 
       it "stores the metadata" do
@@ -50,7 +50,7 @@ module Decidim::Verifications
 
       context "when there's no other authorizations" do
         it "is valid if there's no authorization with the same id" do
-          expect { subject.call }.to change { authorizations.count }.by(1)
+          expect { subject.call }.to change(authorizations, :count).by(1)
         end
       end
 
@@ -65,7 +65,7 @@ module Decidim::Verifications
         end
 
         it "is invalid if there's another authorization with the same id" do
-          expect { subject.call }.to change { authorizations.count }.by(0)
+          expect { subject.call }.to change(authorizations, :count).by(0)
         end
       end
     end

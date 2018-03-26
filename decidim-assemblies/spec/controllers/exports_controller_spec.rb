@@ -11,12 +11,12 @@ module Decidim
         let!(:organization) { create(:organization) }
         let!(:assembly) { create :assembly, organization: organization }
         let!(:user) { create(:user, :admin, :confirmed, organization: organization) }
-        let!(:feature) { create(:feature, participatory_space: assembly, manifest_name: "dummy") }
+        let!(:component) { create(:component, participatory_space: assembly, manifest_name: "dummy") }
 
         let(:params) do
           {
             id: "dummies",
-            feature_id: feature.id,
+            component_id: component.id,
             assembly_slug: assembly.slug
           }
         end
@@ -32,7 +32,7 @@ module Decidim
               params[:format] = "csv"
 
               expect(ExportJob).to receive(:perform_later)
-                .with(user, feature, "dummies", "csv")
+                .with(user, component, "dummies", "csv")
 
               post(:create, params: params)
             end
@@ -41,7 +41,7 @@ module Decidim
           context "when a format is not provided" do
             it "enqueues a job with the default format" do
               expect(ExportJob).to receive(:perform_later)
-                .with(user, feature, "dummies", "json")
+                .with(user, component, "dummies", "json")
 
               post(:create, params: params)
             end

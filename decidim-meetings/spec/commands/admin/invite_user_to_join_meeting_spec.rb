@@ -24,8 +24,8 @@ module Decidim::Meetings
       )
     end
     let!(:participatory_process) { create :participatory_process, organization: organization }
-    let!(:feature) { create :meeting_feature, participatory_space: participatory_process }
-    let!(:meeting) { create :meeting, feature: feature }
+    let!(:component) { create :meeting_component, participatory_space: participatory_process }
+    let!(:meeting) { create :meeting, component: component }
 
     context "when everything is ok" do
       before do
@@ -42,7 +42,7 @@ module Decidim::Meetings
         it "does not create another user" do
           expect do
             subject.call
-          end.not_to change { Decidim::User.count }
+          end.not_to change(Decidim::User, :count)
         end
 
         it "sends the invitation instructions" do
@@ -55,7 +55,7 @@ module Decidim::Meetings
         it "creates it" do
           expect do
             subject.call
-          end.to change { Decidim::User.count }.by(1)
+          end.to change(Decidim::User, :count).by(1)
 
           expect(Decidim::User.last.email).to eq(form.email)
         end

@@ -4,7 +4,7 @@ require "spec_helper"
 
 module Decidim::Admin
   describe UsersOfficialization do
-    subject { described_class.new(search, filter) }
+    subject { described_class.new(organization, search, filter) }
 
     let(:organization) { create :organization }
     let(:search) { nil }
@@ -12,9 +12,11 @@ module Decidim::Admin
 
     describe "when the list is not filtered" do
       let!(:users) { create_list(:user, 3, organization: organization) }
+      let!(:other_org_users) { create_list(:user, 3) }
 
       it "returns all users" do
-        expect(subject.query).to eq users
+        expect(subject.query).to match_array users
+        expect(Decidim::User.count).to eq 6
       end
     end
 

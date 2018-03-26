@@ -31,6 +31,10 @@ FactoryBot.define do
     "#{Faker::Lorem.characters(4).upcase}-#{n}"
   end
 
+  sequence(:area_name) do |n|
+    "#{Faker::Lorem.sentence(1, true, 3)} #{n}"
+  end
+
   factory :category, class: "Decidim::Category" do
     name { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(2) } }
@@ -62,6 +66,7 @@ FactoryBot.define do
     official_img_header { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_img_footer { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_url { Faker::Internet.url }
+    highlighted_content_banner_enabled false
     enable_omnipresent_banner false
   end
 
@@ -104,13 +109,18 @@ FactoryBot.define do
 
     trait :officialized do
       officialized_at { Time.zone.now }
+      officialized_as { Decidim::Faker::Localized.sentence(3) }
     end
   end
 
-  factory :participatory_process_user_role, class: "Decidim::ParticipatoryProcessUserRole" do
+  factory :participatory_space_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
     user
-    participatory_process { create :participatory_process, organization: user.organization }
-    role "admin"
+    privatable_to { create :participatory_process, organization: user.organization }
+  end
+
+  factory :assembly_private_user, class: "Decidim::ParticipatorySpacePrivateUser" do
+    user
+    privatable_to { create :assembly, organization: user.organization }
   end
 
   factory :user_group, class: "Decidim::UserGroup" do
@@ -180,10 +190,19 @@ FactoryBot.define do
     end
   end
 
+  factory :attachment_collection, class: "Decidim::AttachmentCollection" do
+    name { Decidim::Faker::Localized.sentence(1) }
+    description { Decidim::Faker::Localized.sentence(2) }
+    weight { Faker::Number.number(1) }
+
+    association :collection_for, factory: :participatory_process
+  end
+
   factory :attachment, class: "Decidim::Attachment" do
     title { Decidim::Faker::Localized.sentence(3) }
     description { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
     file { Decidim::Dev.test_file("city.jpeg", "image/jpeg") }
+    weight { Faker::Number.number(1) }
     attached_to { build(:participatory_process) }
     content_type { "image/jpeg" }
     file_size { 108_908 }
@@ -199,7 +218,7 @@ FactoryBot.define do
     end
   end
 
-  factory :feature, class: "Decidim::Feature" do
+  factory :component, class: "Decidim::Component" do
     transient do
       organization { create(:organization) }
     end
@@ -239,16 +258,27 @@ FactoryBot.define do
     end
   end
 
+  factory :area_type, class: "Decidim::AreaType" do
+    name { Decidim::Faker::Localized.word }
+    plural { Decidim::Faker::Localized.literal(name.values.first.pluralize) }
+    organization
+  end
+
+  factory :area, class: "Decidim::Area" do
+    name { Decidim::Faker::Localized.literal(generate(:area_name)) }
+    organization
+  end
+
   factory :dummy_resource, class: "Decidim::DummyResources::DummyResource" do
     title { generate(:name) }
-    feature { create(:feature, manifest_name: "dummy") }
-    author { create(:user, :confirmed, organization: feature.organization) }
+    component { create(:component, manifest_name: "dummy") }
+    author { create(:user, :confirmed, organization: component.organization) }
   end
 
   factory :resource_link, class: "Decidim::ResourceLink" do
     name { generate(:slug) }
     to { build(:dummy_resource) }
-    from { build(:dummy_resource, feature: to.feature) }
+    from { build(:dummy_resource, component: to.component) }
   end
 
   factory :newsletter, class: "Decidim::Newsletter" do
@@ -257,11 +287,15 @@ FactoryBot.define do
 
     subject { Decidim::Faker::Localized.sentence(3) }
     body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { Decidim::Faker::Localized.sentence(4) } }
+
+    trait :sent do
+      sent_at { Time.current }
+    end
   end
 
   factory :moderation, class: "Decidim::Moderation" do
     reportable { build(:dummy_resource) }
-    participatory_space { reportable.feature.participatory_space }
+    participatory_space { reportable.component.participatory_space }
 
     trait :hidden do
       hidden_at { 1.day.ago }
@@ -304,6 +338,39 @@ FactoryBot.define do
       {
         some_extra_data: "1"
       }
+    end
+  end
+
+  factory :action_log, class: "Decidim::ActionLog" do
+    transient do
+      extra_data { {} }
+    end
+
+    organization { user.organization }
+    user
+    participatory_space { build :participatory_process, organization: organization }
+    component { build :component, participatory_space: participatory_space }
+    resource { build(:dummy_resource, component: component) }
+    action { "create" }
+    extra do
+      {
+        component: {
+          manifest_name: component.try(:manifest_name),
+          title: component.try(:name) || component.try(:title)
+        }.compact,
+        participatory_space: {
+          manifest_name: participatory_space.try(:class).try(:participatory_space_manifest).try(:name),
+          title: participatory_space.try(:name) || participatory_space.try(:title)
+        }.compact,
+        resource: {
+          title: resource.try(:name) || resource.try(:title)
+        }.compact,
+        user: {
+          ip: user.try(:current_sign_in_ip),
+          name: user.try(:name),
+          nickname: user.try(:nickname)
+        }.compact
+      }.deep_merge(extra_data)
     end
   end
 end

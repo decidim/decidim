@@ -57,6 +57,12 @@ module Decidim
         it { is_expected.to be_invalid }
       end
 
+      context "when reference_prefix is missing" do
+        let(:reference_prefix) { nil }
+
+        it { is_expected.to be_invalid }
+      end
+
       context "when default_locale is not an available locale" do
         let(:default_locale) { :de }
 
