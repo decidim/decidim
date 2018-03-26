@@ -6,13 +6,13 @@ module Decidim
   describe Search do
     subject { described_class.new(params) }
 
-    let(:current_feature) { create :feature, manifest_name: "meetings" }
-    let(:organization) { current_feature.organization }
+    let(:current_component) { create :component, manifest_name: "meetings" }
+    let(:organization) { current_component.organization }
     let(:scope1) { create :scope, organization: organization }
     let!(:meeting) do
       create(
         :meeting,
-        feature: current_feature,
+        component: current_component,
         scope: scope1,
         title: Decidim::Faker::Localized.literal("Nulla TestCheck accumsan tincidunt."),
         description: Decidim::Faker::Localized.literal("Nulla TestCheck accumsan tincidunt description."),
@@ -59,7 +59,7 @@ module Decidim
         let!(:meeting2) do
           create(
             :meeting,
-            feature: current_feature,
+            component: current_component,
             scope: scope1,
             title: Decidim::Faker::Localized.name,
             description: Decidim::Faker::Localized.paragraph,
@@ -100,9 +100,9 @@ module Decidim
         "content_d" => [meeting.description[locale], meeting.address].join(" "),
         "locale" => locale,
 
-        "decidim_organization_id" => meeting.feature.organization.id,
-        "decidim_participatory_space_id" => current_feature.participatory_space_id,
-        "decidim_participatory_space_type" => current_feature.participatory_space_type,
+        "decidim_organization_id" => meeting.component.organization.id,
+        "decidim_participatory_space_id" => current_component.participatory_space_id,
+        "decidim_participatory_space_type" => current_component.participatory_space_type,
         "decidim_scope_id" => meeting.decidim_scope_id,
         "resource_id" => meeting.id,
         "resource_type" => "Decidim::Meetings::Meeting"

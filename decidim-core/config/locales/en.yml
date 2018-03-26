@@ -306,9 +306,6 @@ en:
       update:
         error: There's been an error updating your notifications settings.
         success: Your notifications settings were updated successfully.
-    search:
-      term_input_placeholder: Search
-      results_found_for_term: "%{count} Results for the search: \"%{term}\""
     own_user_groups:
       index:
         pending: Pending
@@ -349,6 +346,9 @@ en:
         title: Select %{field}
       prompt: Select a scope
       scopes: Scopes
+    search:
+      results_found_for_term: '%{count} Results for the search: "%{term}"'
+      term_input_placeholder: Search
     shared:
       action_authorization_modal:
         expired:

@@ -50,6 +50,7 @@ module Decidim
   autoload :ViewHooks, "decidim/view_hooks"
   autoload :NewsletterEncryptor, "decidim/newsletter_encryptor"
   autoload :Searchable, "decidim/searchable"
+  autoload :SearchResourceFieldsMapper, "decidim/search_resource_fields_mapper"
   autoload :QueryExtensions, "decidim/query_extensions"
   autoload :ParticipatorySpaceResourceable, "decidim/participatory_space_resourceable"
   autoload :HasPrivateUsers, "decidim/has_private_users"

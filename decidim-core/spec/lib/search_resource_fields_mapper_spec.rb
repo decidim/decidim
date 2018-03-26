@@ -3,16 +3,16 @@
 require "spec_helper"
 
 module Decidim
-  describe SearchRsrcFieldsMapper do
+  describe SearchResourceFieldsMapper do
     subject { resource }
 
-    let(:feature) { create(:feature, manifest_name: "dummy") }
-    let(:scope) { create(:scope, organization: feature.organization) }
+    let(:component) { create(:component, manifest_name: "dummy") }
+    let(:scope) { create(:scope, organization: component.organization) }
     let(:resource) do
-      dbl = Struct.new(:title, :description, :address, :scope, :feature).new
+      dbl = Struct.new(:title, :description, :address, :scope, :component).new
       allow(dbl.class).to receive_messages(has_many: 1, after_create: 1, after_update: 1)
       dbl.scope = scope
-      dbl.feature = feature
+      dbl.component = component
       dbl.title = "The resource title"
       dbl.description = "The resource description."
       dbl.address = "The resource address."
@@ -26,7 +26,7 @@ module Decidim
             subject.class.include Searchable
             subject.class.searchable_fields(
               scope_id: { scope: :id },
-              participatory_space: { feature: :participatory_space },
+              participatory_space: { component: :participatory_space },
               A: [:title],
               D: [:description, :address]
             )
@@ -37,13 +37,13 @@ module Decidim
 
             expected_fields = {
               decidim_scope_id: resource.scope.id,
-              decidim_participatory_space_id: resource.feature.participatory_space_id,
-              decidim_participatory_space_type: resource.feature.participatory_space_type,
-              decidim_organization_id: resource.feature.organization.id,
+              decidim_participatory_space_id: resource.component.participatory_space_id,
+              decidim_participatory_space_type: resource.component.participatory_space_type,
+              decidim_organization_id: resource.component.organization.id,
               i18n: {}
             }
             i18n = expected_fields[:i18n]
-            resource.feature.organization.available_locales.each do |locale|
+            resource.component.organization.available_locales.each do |locale|
               i18n[locale] = { A: resource.title, B: nil, C: nil, D: [resource.description, resource.address].join(" ") }
             end
             expect(mapped_fields).to eq expected_fields
@@ -56,7 +56,7 @@ module Decidim
             subject.class.include Searchable
             subject.class.searchable_fields(
               scope_id: { scope: :id },
-              participatory_space: { feature: :participatory_space },
+              participatory_space: { component: :participatory_space },
               A: [:title],
               D: [:description, :address]
             )
@@ -66,9 +66,9 @@ module Decidim
             mapped_fields = subject.class.search_rsrc_fields_mapper.mapped(subject)
             expected_fields = {
               decidim_scope_id: resource.scope.id,
-              decidim_participatory_space_id: resource.feature.participatory_space_id,
-              decidim_participatory_space_type: resource.feature.participatory_space_type,
-              decidim_organization_id: resource.feature.organization.id,
+              decidim_participatory_space_id: resource.component.participatory_space_id,
+              decidim_participatory_space_type: resource.component.participatory_space_type,
+              decidim_organization_id: resource.component.organization.id,
               i18n: {}
             }
             i18n = expected_fields[:i18n]

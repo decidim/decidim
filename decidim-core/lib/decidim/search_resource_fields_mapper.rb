@@ -2,7 +2,7 @@
 
 module Decidim
   # A class with the responsibility to mapp fields between a Searchalbe and a SearchableRsrc.
-  class SearchRsrcFieldsMapper
+  class SearchResourceFieldsMapper
     def initialize(declared_fields)
       @declared_fields = declared_fields.with_indifferent_access
     end

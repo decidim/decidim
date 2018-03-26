@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "active_support/concern"
-require "decidim/search_rsrc_fields_mapper"
+require "decidim/search_resource_fields_mapper"
 
 module Decidim
   # A concern with the features needed when you want a model to be searchable.
@@ -71,7 +71,7 @@ module Decidim
       #   D: [:description, :address]
       # }
       def searchable_fields(declared_fields)
-        @search_rsrc_indexable_fields = SearchRsrcFieldsMapper.new(declared_fields)
+        @search_rsrc_indexable_fields = SearchResourceFieldsMapper.new(declared_fields)
       end
     end
   end
