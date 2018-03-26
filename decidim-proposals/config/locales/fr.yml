@@ -14,16 +14,16 @@ fr:
       proposal_answer:
         answer: Répondre
       proposals_copy:
-        copy_proposals: Je comprends que cela va importer toutes les propositions du module sélectionné au module actuel et que cette action ne peut pas être inversée.
-        origin_component_id: Module pour copier les propositions de
+        copy_proposals: Je comprends que cela va importer toutes les propositions de la fonctionnalité sélectionnée à la fonctionnalité actuelle et que cette action ne peut pas être inversée.
+        origin_component_id: Fonctionnalité dont on veut copier les propositions
   decidim:
     components:
       proposals:
         actions:
           create: Créer
           endorse: Endosser
-          vote: Vote
-          withdraw: Se désister
+          vote: Voter
+          withdraw: Retirer
         name: Les propositions
         settings:
           global:
