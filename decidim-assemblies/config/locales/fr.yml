@@ -7,7 +7,7 @@ fr:
         copy_categories: Copier les catégories
         copy_components: Copier les fonctionnalités
         decidim_area_id: Périmètre
-        decidim_scope_id: Portée
+        decidim_scope_id: Périmètre d'application
         description: Description
         developer_group: Promoteur
         domain: Domaine
@@ -128,7 +128,7 @@ fr:
         unpublish: "%{user_name} n'a pas publié l'agora %{resource_name}"
         update: "%{user_name} a mis à jour l'agora %{resource_name}"
       assembly_user_role:
-        create: "%{user_name} invité %{resource_name} à l'assembly %{space_name}"
+        create: "%{user_name} a invité %{resource_name} à l'agora %{space_name}"
         delete: "%{user_name} a supprimé l'utilisateur %{resource_name} de l'agora%{space_name}"
         update: "%{user_name} a changé le rôle de %{resource_name} dans l'agora %{space_name}"
     assemblies:
@@ -154,7 +154,7 @@ fr:
         participatory_scope: Objectif
         participatory_structure: Modalités
         private_space: Ceci est une agora privée
-        related_participatory_processes: Processus participatifs connexes
+        related_participatory_processes: Processus participatifs associés
         scope: Zone d'application
         target: Participants
       statistics:
