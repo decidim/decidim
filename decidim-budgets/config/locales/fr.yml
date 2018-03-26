@@ -108,7 +108,7 @@ fr:
     components:
       budgets:
         actions:
-          vote: Vote
+          vote: Voter
         name: Budgets
         settings:
           global:
