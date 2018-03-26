@@ -11,4 +11,12 @@ form.answer-survey{
   label.survey-question{
     font-weight: bold;
   }
+
+  .help-text{
+    margin-top: .5em;
+
+    .ql-video{
+      margin: .5em auto;
+    }
+  }
 }

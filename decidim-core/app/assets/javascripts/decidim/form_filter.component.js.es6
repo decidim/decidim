@@ -9,7 +9,7 @@
   class FormFilterComponent {
     constructor($form) {
       this.$form = $form;
-      this.id = this.$form.attr('id') || this._getUID();
+      this.id = this.$form.attr("id") || this._getUID();
       this.mounted = false;
 
       this._onFormChange = this._onFormChange.bind(this);
@@ -31,7 +31,7 @@
     unmountComponent() {
       if (this.mounted) {
         this.mounted = false;
-        this.$form.off('change', 'input, select', this._onFormChange);
+        this.$form.off("change", "input, select", this._onFormChange);
 
         exports.Decidim.History.unregisterCallback(`filters-${this.id}`)
       }
@@ -45,7 +45,7 @@
     mountComponent() {
       if (this.$form.length > 0 && !this.mounted) {
         this.mounted = true;
-        this.$form.on('change', 'input, select', this._onFormChange);
+        this.$form.on("change", "input, select", this._onFormChange);
 
         exports.Decidim.History.registerCallback(`filters-${this.id}`, (state) => {
           this._onPopState(state);
@@ -116,8 +116,8 @@
     _parseLocationOrderValue() {
       const url = this._getLocation();
       const match = url.match(/order=([^&]*)/);
-      const $orderMenu = this.$form.find('.order-by .menu');
-      let order = $orderMenu.find('.menu a:first').data('order');
+      const $orderMenu = this.$form.find(".order-by .menu");
+      let order = $orderMenu.find(".menu a:first").data("order");
 
       if (match) {
         order = match[1];
@@ -132,15 +132,15 @@
      * @returns {Void} - Returns nothing.
      */
     _clearForm() {
-      this.$form.find('input[type=checkbox]').attr('checked', false);
-      this.$form.find('input[type=radio]').attr('checked', false);
-      this.$form.find('.data-picker').each((_index, picker) => {
+      this.$form.find("input[type=checkbox]").attr("checked", false);
+      this.$form.find("input[type=radio]").attr("checked", false);
+      this.$form.find(".data-picker").each((_index, picker) => {
         exports.theDataPicker.clear(picker);
       });
 
       // This ensure the form is reset in a valid state where a fieldset of
       // radio buttons has the first selected.
-      this.$form.find('fieldset input[type=radio]:first').each(function () {
+      this.$form.find("fieldset input[type=radio]:first").each(function () {
         // I need the this to iterate a jQuery collection
         $(this)[0].checked = true; // eslint-disable-line no-invalid-this
       });
@@ -158,7 +158,7 @@
       const filterParams = this._parseLocationFilterValues();
       const currentOrder = this._parseLocationOrderValue();
 
-      this.$form.find('input.order_filter').val(currentOrder);
+      this.$form.find("input.order_filter").val(currentOrder);
 
       if (filterParams) {
         const fieldIds = Object.keys(filterParams);
@@ -195,7 +195,7 @@
 
       // Only one instance should submit the form on browser history navigation
       if (this.popStateSubmiter) {
-        exports.Rails.fire(this.$form[0], 'submit');
+        exports.Rails.fire(this.$form[0], "submit");
       }
     }
 
@@ -205,15 +205,15 @@
      * @returns {Void} - Returns nothing.
      */
     _onFormChange() {
-      const formAction = this.$form.attr('action');
+      const formAction = this.$form.attr("action");
       const params = this.$form.serialize();
 
-      let newUrl = '';
+      let newUrl = "";
       let newState = {};
 
-      exports.Rails.fire(this.$form[0], 'submit');
+      exports.Rails.fire(this.$form[0], "submit");
 
-      if (formAction.indexOf('?') < 0) {
+      if (formAction.indexOf("?") < 0) {
         newUrl = `${formAction}?${params}`;
       } else {
         newUrl = `${formAction}&${params}`;

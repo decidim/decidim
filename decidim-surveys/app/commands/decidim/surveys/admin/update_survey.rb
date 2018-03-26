@@ -35,10 +35,11 @@ module Decidim
           @form.questions.each do |form_question|
             question_attributes = {
               body: form_question.body,
+              description: form_question.description,
               position: form_question.position,
               mandatory: form_question.mandatory,
               question_type: form_question.question_type,
-              answer_options: form_question.options.map { |answer| { "body" => answer.body } }
+              answer_options: form_question.answer_options_to_persist.map { |answer| { "body" => answer.body } }
             }
 
             if form_question.id.present?

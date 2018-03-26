@@ -7,18 +7,18 @@
 
 L.DivIcon.SVGIcon.DecidimIcon = L.DivIcon.SVGIcon.extend({
   options: {
-    fillColor: '#ef604d',
+    fillColor: "#ef604d",
     opacity: 0
   },
   _createPathDescription: function() {
-    return 'M14 1.17a11.685 11.685 0 0 0-11.685 11.685c0 11.25 10.23 20.61 10.665 21a1.5 1.5 0 0 0 2.025 0c0.435-.435 10.665-9.81 10.665-21A11.685 11.685 0 0 0 14 1.17Zm0 17.415A5.085 5.085 0 1 1 19.085 13.5 5.085 5.085 0 0 1 14 18.585Z';
+    return "M14 1.17a11.685 11.685 0 0 0-11.685 11.685c0 11.25 10.23 20.61 10.665 21a1.5 1.5 0 0 0 2.025 0c0.435-.435 10.665-9.81 10.665-21A11.685 11.685 0 0 0 14 1.17Zm0 17.415A5.085 5.085 0 1 1 19.085 13.5 5.085 5.085 0 0 1 14 18.585Z";
   },
   _createCircle: function() {
     return ""
   }
 });
 
-const popupTemplateId = 'marker-popup';
+const popupTemplateId = "marker-popup";
 $.template(popupTemplateId, $(`#${popupTemplateId}`).html());
 
 const addMarkers = (markersData, markerClusters, map) => {
@@ -28,7 +28,7 @@ const addMarkers = (markersData, markerClusters, map) => {
     let marker = L.marker([markerData.latitude, markerData.longitude], {
       icon: new L.DivIcon.SVGIcon.DecidimIcon()
     });
-    let node = document.createElement('div');
+    let node = document.createElement("div");
 
     $.tmpl(popupTemplateId, markerData).appendTo(node);
 
@@ -36,7 +36,7 @@ const addMarkers = (markersData, markerClusters, map) => {
       maxwidth: 640,
       minWidth: 500,
       keepInView: true,
-      className: 'map-info'
+      className: "map-info"
     }).openPopup();
 
     markerClusters.addLayer(marker);
@@ -80,12 +80,12 @@ window.Decidim.currentMap =  null;
 window.Decidim.mapConfiguration = {};
 
 $(() => {
-  const mapId = 'map';
+  const mapId = "map";
   const $map = $(`#${mapId}`);
 
-  const markersData = $map.data('markers-data');
-  const hereAppId = $map.data('here-app-id');
-  const hereAppCode = $map.data('here-app-code');
+  const markersData = $map.data("markers-data");
+  const hereAppId = $map.data("here-app-id");
+  const hereAppCode = $map.data("here-app-code");
 
   window.Decidim.mapConfiguration = { hereAppId, hereAppCode };
 

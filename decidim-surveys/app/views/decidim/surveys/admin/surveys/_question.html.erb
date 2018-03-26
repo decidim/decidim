@@ -33,8 +33,20 @@
           :body,
           tabs_id: id,
           label: t(".statement"),
-          disabled: !survey.questions_editable?,
-          enable_tabs: question.persisted?
+          disabled: !survey.questions_editable?
+        )
+      %>
+    </div>
+
+    <div class="row column">
+      <%=
+        form.translated(
+          :editor,
+          :description,
+          toolbar: :full,
+          tabs_id: id,
+          label: t(".description"),
+          disabled: !survey.questions_editable?
         )
       %>
     </div>
@@ -64,18 +76,18 @@
     <% end %>
 
     <%= form.hidden_field :position, value: question.position || 0, disabled: !survey.questions_editable? %>
-    <%= form.hidden_field :deleted, value: false, disabled: !survey.questions_editable? %>
+    <%= form.hidden_field :deleted, disabled: !survey.questions_editable? %>
 
     <div class="survey-question-answer-options">
       <template>
-        <%= fields_for "survey[questions][#{question.to_param}][options][]", blank_answer_option do |answer_option_form| %>
+        <%= fields_for "survey[questions][#{question.to_param}][answer_options][]", blank_answer_option do |answer_option_form| %>
           <%= render "answer_option", answer_option: blank_answer_option, form: answer_option_form, question: question %>
         <% end %>
       </template>
 
       <div class="survey-question-answer-options-list">
-        <% question.options.each do |answer_option| %>
-          <%= fields_for "survey[questions][#{question.to_param}][options][]", answer_option do |answer_option_form| %>
+        <% question.answer_options.each do |answer_option| %>
+          <%= fields_for "survey[questions][#{question.to_param}][answer_options][]", answer_option do |answer_option_form| %>
             <%= render "answer_option", answer_option: answer_option, form: answer_option_form, question: question %>
           <% end %>
         <% end %>
