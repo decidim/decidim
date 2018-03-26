@@ -218,35 +218,35 @@ fr:
           success: Autorisations mises à jour avec succès.
       components:
         create:
-          error: Une erreur s'est produite lors de la création de ce composant.
+          error: Une erreur s'est produite lors de la création de cette fonctionnalité.
           success: Fonctionnalité créée avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la destruction de ce composant.
-          success: Le composant a été supprimé avec succès.
+          error: Une erreur s'est produite lors de la suppression de cette fonctionnalité.
+          success: La fonctionnalité a été supprimée avec succès.
         edit:
-          title: Modifier le composant
+          title: Modifier la fonctionnalité
           update: Mettre à jour
         form:
           default_step_settings: Paramètres d'étape par défaut
           global_settings: Paramètres globaux
           step_settings: Paramètres de l'étape
         index:
-          add: Ajouter un composant
+          add: Ajouter une fonctionnalité
           headers:
             actions: Actions
-            name: Nom du composant
-            type: Type de composant
+            name: Nom de la fonctionnalité
+            type: Type de fonctionnalité
         new:
-          add: Ajouter un composant
-          title: 'Ajouter un composant: %{name}'
+          add: Ajouter une fonctionnalité
+          title: 'Ajouter une fonctionnalité : %{name}'
         publish:
           success: Le composant a été publié avec succès.
-        title: Composants
+        title: Fonctionnalités
         unpublish:
-          success: Le composant a été non publié avec succès.
+          success: La fonctionnalité a été dépubliée avec succès.
         update:
-          error: Une erreur est survenue lors de la mise à jour de ce composant.
-          success: Le composant a été mis à jour avec succès.
+          error: Une erreur est survenue lors de la mise à jour de cette fonctionnalité.
+          success: La fonctionnalité a été mise à jour avec succès.
       dashboard:
         show:
           view_more_logs: Afficher plus
@@ -256,7 +256,7 @@ fr:
         notice: Votre exportation est en cours. Vous recevrez un e-mail quand elle sera terminée.
       logs:
         logs_list:
-          no_logs_yet: Il n'y a pas encore de journaux
+          no_logs_yet: Il n'y a pas encore de journal d'activité
       managed_users:
         close_session:
           error: Une erreur s'est produite lors de la fermeture de la session de l'utilisateur que vous représentez.
@@ -295,8 +295,8 @@ fr:
         admin_log: Journal d'activité de l'administrateur
         admins: Administrateurs
         appearance: Apparence
-        area_types: Types de zones
-        areas: Zones
+        area_types: Types d'espace
+        areas: Espaces
         configuration: Configuration
         dashboard: Tableau de bord
         managed_users: Utilisateurs représentés
@@ -311,7 +311,7 @@ fr:
       models:
         area:
           fields:
-            area_type: Type de zone
+            area_type: Type d'espace
             name: Nom
         area_type:
           fields:
@@ -345,7 +345,7 @@ fr:
             subject: Objet
           name: Bulletin d'information (newsletter)
         participatory_space_private_user:
-          name: Espace privé participatif
+          name: Utilisateur de l'espace participatif
         scope:
           fields:
             name: Nom
@@ -470,7 +470,7 @@ fr:
           omnipresent_banner_appearance_title: Modifier la bannière permanente
       participatory_space_private_users:
         create:
-          error: Une erreur s'est produite lors de l'ajout d'un utilisateur privé pour cet espace participatif.
+          error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
           success: L'accès utilisateur privé de l'espace participatif a été créé avec succès.
         destroy:
           success: L'accès utilisateur privé de l'espace participatif a été détruit avec succès.
