@@ -80,6 +80,10 @@ fr:
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez le retirer du lien précédent.
           email_subject: Une proposition que vous suivez est en cours d'évaluation
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> est en cours d'évaluation.
+        proposal_mentioned:
+          email_intro: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans cet espace</a> dans les commentaires.
+          email_subject: Votre proposition "%{mentioned_proposal_title}" a été mentionnée
+          notification_title: Votre proposition "%{mentioned_proposal_title}" a été mentionnée <a href="%{resource_path}">dans cet espace</a> dans les commentaires.
         proposal_published:
           email_intro: "%{author_name} %{author_nickname}, que vous suivez, a publié une nouvelle proposition, vérifiez-la et contribuez:"
           email_outro: Vous avez reçu cette notification, car vous suivez %{author_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
