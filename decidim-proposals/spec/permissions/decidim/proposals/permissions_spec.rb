@@ -30,10 +30,9 @@ describe Decidim::Proposals::Permissions do
   end
   let(:extra_settings) { {} }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
+  let(:space_permissions) { instance_double(Decidim::ParticipatoryProcesses::Permissions, allowed?: space_allows) }
 
   before do
-    space_permissions =
-      instance_double(Decidim::ParticipatoryProcesses::Permissions, allowed?: space_allows)
     allow(Decidim::ParticipatoryProcesses::Permissions)
       .to receive(:new)
       .and_return(space_permissions)
@@ -52,12 +51,17 @@ describe Decidim::Proposals::Permissions do
     let(:action) do
       { scope: :admin, action: :vote, subject: :proposal }
     end
+    let(:space_allows) { true }
 
     it "delegates the check to the admin permissions class" do
-      expect(Decidim::Proposals::Admin::Permissions)
-        .to receive(:allows?)
+      admin_permissions = instance_double(Decidim::Proposals::Admin::Permissions, allowed?: true)
+      allow(Decidim::Proposals::Admin::Permissions)
+        .to receive(:new)
         .with(user, permission_action, context)
-        .and_return true
+        .and_return admin_permissions
+
+      expect(admin_permissions)
+        .to receive(:allowed?)
 
       subject
     end
