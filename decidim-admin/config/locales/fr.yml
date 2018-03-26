@@ -151,7 +151,7 @@ fr:
         new:
           create: Créer une zone
           title: Nouvelle zone
-        no_areas: Aucune fonctionnalité
+        no_areas: Pas de zones
         update:
           error: Une erreur s'est produite lors de la mise à jour de cette fonctionnalité.
           success: Fonctionnalité mise à jour avec succès
@@ -219,7 +219,7 @@ fr:
       components:
         create:
           error: Une erreur s'est produite lors de la création de ce composant.
-          success: Composant créé avec succès.
+          success: Fonctionnalité créée avec succès.
         destroy:
           error: Une erreur s'est produite lors de la destruction de ce composant.
           success: Le composant a été supprimé avec succès.
@@ -467,7 +467,7 @@ fr:
           homepage_appearance_title: Modifier l'apparence de la page d'accueil
           homepage_highlighted_content_banner_title: Bannière de contenu mis en valeur
           layout_appearance_title: Modifier l’aspect de la mise en page
-          omnipresent_banner_appearance_title: Modifier omniprésent
+          omnipresent_banner_appearance_title: Modifier la bannière permanente
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur privé pour cet espace participatif.
