@@ -28,12 +28,6 @@ module Decidim
         root to: "meetings#index"
       end
 
-      initializer "decidim_meetings.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.abilities += ["Decidim::Meetings::Abilities::CurrentUserAbility"]
-        end
-      end
-
       initializer "decidim_meetings.view_hooks" do
         Decidim.view_hooks.register(:participatory_space_highlighted_elements, priority: Decidim::ViewHooks::HIGH_PRIORITY) do |view_context|
           published_components = Decidim::Component.where(participatory_space: view_context.current_participatory_space).published
