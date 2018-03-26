@@ -211,7 +211,7 @@ fr:
           success: Catégorie mise à jour avec succès.
       component_permissions:
         edit:
-          everyone: Toutes les personnes
+          everyone: Tout le monde
           submit: Enregistrer les autorisations
           title: Modifier les autorisations
         update:
@@ -249,7 +249,7 @@ fr:
           success: Le composant a été mis à jour avec succès.
       dashboard:
         show:
-          view_more_logs: Voir plus de journaux
+          view_more_logs: Afficher plus
           welcome: Bienvenue au Panneau Administrateur de Decidim.
       exports:
         export_as: "%{name} comme %{export_format}"
