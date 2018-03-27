@@ -9,7 +9,7 @@ describe Decidim::Surveys::Permissions do
   let(:space_allows) { true }
   let(:context) do
     {
-      current_component: survey_component,
+      current_component: survey_component
     }
   end
   let(:survey_component) { create :surveys_component }

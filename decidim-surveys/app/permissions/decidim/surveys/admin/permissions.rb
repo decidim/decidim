@@ -21,11 +21,11 @@ module Decidim
           return false if permission_action.subject != :survey
 
           return true if case permission_action.action
-                        when :export_answers, :update
-                          true
-                        else
-                          false
-                        end
+                         when :export_answers, :update
+                           true
+                         else
+                           false
+                         end
 
           false
         end
