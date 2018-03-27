@@ -20,7 +20,6 @@ Code quality
 
 [![Build Status](https://img.shields.io/circleci/project/github/decidim/decidim/master.svg)](https://circleci.com/gh/decidim/decidim)
 [![Maintainability](https://api.codeclimate.com/v1/badges/ad8fa445086e491486b6/maintainability)](https://codeclimate.com/github/decidim/decidim/maintainability)
-[![codecov](https://img.shields.io/codecov/c/github/decidim/decidim.svg)](https://codecov.io/gh/decidim/decidim)
 [![Dependency Status](https://img.shields.io/gemnasium/decidim/decidim.svg)](https://gemnasium.com/github.com/decidim/decidim)
 [![Crowdin](https://d322cqt584bo4o.cloudfront.net/decidim/localized.svg)](https://crowdin.com/project/decidim)
 [![Inline docs](http://inch-ci.org/github/decidim/decidim.svg?branch=master)](http://inch-ci.org/github/decidim/decidim)
