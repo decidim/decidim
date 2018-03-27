@@ -71,6 +71,10 @@ pl:
         delete: "%{user_name} usunięto %{resource_name} biuletyn"
         deliver: "%{user_name} dostarczone %{resource_name} biuletyn"
         update: "%{user_name} zaktualizowałem %{resource_name} biuletyn"
+      oauth_application:
+        create: "%{user_name} utworzył aplikację OYuth %{resource_name}"
+        delete: "%{user_name} usunął aplikację OYuth %{resource_name}"
+        update: "%{user_name} zaktualizował aplikację OYuth %{resource_name}"
       organization:
         update: "%{user_name} zaktualizował ustawienia organizacji"
       scope:
@@ -169,6 +173,21 @@ pl:
       shared:
         omniauth_buttons:
           or: Lub
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Autoryzuj aplikację
+          by_organization_link_html: '<small class="heading-small">autor: %{link}</small>'
+          cancel: Anuluj
+          connect_your_account_html: Połącz swoje konto logując się na <strong>%{organization}</strong>
+          publish_content: Opublikuj zawartość dla siebie
+          see_email: Zobacz swój e-mail
+          see_name: Zobacz swoje imię
+          see_username: Zobacz swoją nazwę użytkownika
+          this_application_will_be_able_to: 'Ta aplikacja będzie mogła:'
+          this_application_will_not_be_able_to: 'Ta aplikacja nie będzie w stanie:'
+          update_profile: Zaktualizuj swój profil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> chce używać Twojego konta"
     errors:
       internal_server_error:
         title: Wystąpił problem z naszym serwerem
@@ -426,6 +445,9 @@ pl:
         greeting: Witaj %{recipient}!
         message: Kontaktujemy się z Tobą, aby powiadomić Cię, że Twoje hasło zostało zmienione.
         subject: Hasło zostało zmienione
+  doorkeeper:
+    scopes:
+      public: Twoje informacje publiczne.
   errors:
     messages:
       content_type_whitelist_error: Typ pliku jest nieprawidłowy
