@@ -38,7 +38,7 @@ fr:
             fields:
               category: Catégorie
               created_at: Date de création
-              decidim_proposals_component: Composante de propositions
+              decidim_proposals_component: Fonctionnalité Propositions
               dice: Dé
               reference: Référence
               request_timestamp: Définir le temps
@@ -79,9 +79,9 @@ fr:
             success: Le tirage au sort a bien été mis à jour
       admin_log:
         sortition:
-          create: "%{user_name} a créé la catégorie %{resource_name} dans %{space_name}"
-          delete: "%{user_name} a annulé le tri %{resource_name} dans %{space_name}"
-          update: "%{user_name} a mis à jour le %{resource_name} sortition dans %{space_name}"
+          create: "%{user_name} a créé le tirage au sort %{resource_name} dans %{space_name}"
+          delete: "%{user_name} a annulé le tirage au sort %{resource_name} dans %{space_name}"
+          update: "%{user_name} a mis à jour le tirage au sort %{resource_name} dans %{space_name}"
       sortitions:
         count:
           proposals_count:
@@ -92,14 +92,14 @@ fr:
           all: Tout
           cancelled: Annulé
           category: Catégorie
-          category_prompt: Choisir une catégorie
+          category_prompt: Sélectionner une catégorie
           search: Chercher
           state: Etat
         filters_small_view:
           close_modal: Fermer modal
           filter: Filtre
           filter_by: Filtrer par
-          unfold: Se dérouler
+          unfold: Dérouler
         linked_sortitions:
           selected_proposals: Propositions sélectionnées
         orders:
