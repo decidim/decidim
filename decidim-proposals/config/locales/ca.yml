@@ -34,16 +34,6 @@ ca:
           email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
           email_subject: Una proposta que segueixes ha estat acceptada
           notification_title: S'ha acceptat la proposta <a href="%{resource_path}">%{resource_title}</a>.
-        proposal_created:
-          email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha creat una nova proposta. Revisa-la i contribueix:"
-          email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
-          email_subject: Nova proposta de %{author_nickname}
-          notification_title: La proposta "<a href="%{resource_path}">%{resource_title}</a>" ha estat creada per en/na <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        proposal_created_for_space:
-          email_intro: S'ha afegit la proposta "%{resource_title}" a l'espai "%{participatory_space_title}" que estàs seguint.
-          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
-          email_subject: Nova proposta afegida a %{participatory_space_title}
-          notification_title: S'ha afegit la proposta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, a qui segueixes, acaba d'adherir-se a una proposta que et pot resultar interessant, revisar-la i contribueix:"
           email_outro: Has rebut aquesta notificació perquè estàs seguint a %{endorser_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
@@ -54,6 +44,16 @@ ca:
           email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
           email_subject: S'està avaluant una proposta que segueixes
           notification_title: S'ha avaluat la proposta <a href="%{resource_path}">%{resource_title}</a>.
+        proposal_published:
+          email_intro: "%{author_name} %{author_nickname}, a qui segueixes, ha publicat una nova proposta. Revisa-la i contribueix:"
+          email_outro: Has rebut aquesta notificació perquè estàs seguint %{author_nickname}. Pots deixar de rebre notificacions seguint l'enllaç anterior.
+          email_subject: Nova proposta de %{author_nickname}
+          notification_title: La proposta "<a href="%{resource_path}">%{resource_title}</a>" ha estat publicada per en/na <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_published_for_space:
+          email_intro: S'ha afegit la proposta "%{resource_title}" a l'espai "%{participatory_space_title}" que estàs seguint.
+          email_outro: Has rebut aquesta notificació perquè estàs seguint "%{participatory_space_title}". Pots deixar de seguir-lo des de l'enllaç anterior.
+          email_subject: Nova proposta afegida a %{participatory_space_title}
+          notification_title: S'ha afegit la proposta <a href="%{resource_path}">%{resource_title}</a> a %{participatory_space_title}
         proposal_rejected:
           email_intro: 'La proposta "%{resource_title}" ha estat rebutjada. Pots llegir la resposta des d''aquesta pàgina:'
           email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}". El pots deixar de seguir al link anterior.
@@ -84,7 +84,6 @@ ca:
             can_accumulate_supports_beyond_threshold: Pot acumular suports més enllà del llindar
             comments_enabled: Comentaris habilitats
             geocoding_enabled: Geocodificació habilitada
-            maximum_votes_per_proposal: Suports màxims per proposta
             new_proposal_help_text: Text d'ajuda al crear una nova proposta
             official_proposals_enabled: Propostes oficials habilitades
             proposal_answering_enabled: Resposta oficial a propostes activades
@@ -94,6 +93,7 @@ ca:
             proposal_wizard_step_1_help_text: Text d'ajuda a la creació de propostes
             proposal_wizard_step_2_help_text: Text d'ajuda a la comparació de propostes
             proposal_wizard_step_3_help_text: Text del pas "Publicar" de l'assistent de propostes
+            threshold_per_proposal: Llindar per proposta
             vote_limit: Límit de suports per usuari
           step:
             announcement: Avís
@@ -338,10 +338,10 @@ ca:
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Cada proposta pot acumular més del màxim de vots
-          maximum_votes_per_proposal:
-            description: Cada proposta pot rebre un màxim de %{limit} suports.
           proposal_limit:
             description: Pots crear fins a %{limit} propostes.
+          threshold_per_proposal:
+            description: Cada proposta pot rebre un màxim de %{limit} suports.
           title: 'La selecció de propostes es regeix per les següents normes:'
           vote_limit:
             description: Pots donar suport a %{limit} propostes.
