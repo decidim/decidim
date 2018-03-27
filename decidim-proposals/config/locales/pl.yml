@@ -210,6 +210,9 @@ pl:
       create:
         error: Podczas zapisywania propozycji wystąpiły błędy.
         success: Propozycja została utworzona pomyślnie. Zapisany jako wersja robocza.
+      destroy_draft:
+        error: Wystąpiły błędy podczas usuwania wersji roboczej propozycji.
+        success: Projekt propozycji został pomyślnie zniszczony.
       models:
         proposal:
           fields:
@@ -249,6 +252,8 @@ pl:
           send: Wysłać
           title: Edytuj propozycję
         edit_draft:
+          discard: Odrzuć tę wersję roboczą
+          discard_confirmation: Czy na pewno chcesz odrzucić ten projekt propozycji?
           send: Zapowiedź
           title: Edytuj wersję roboczą oferty
         endorsement_identities_cabin:
