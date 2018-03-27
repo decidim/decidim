@@ -71,6 +71,10 @@ gl:
         delete: "%{user_name} eliminou o boletín informativo %{resource_name}"
         deliver: "%{user_name} entregou o boletín informativo %{resource_name}"
         update: "%{user_name} actualizou o boletín informativo %{resource_name}"
+      oauth_application:
+        create: "%{user_name} creou a aplicación %{resource_name} OAuth"
+        delete: "%{user_name} eliminou a aplicación %{resource_name} OAuth"
+        update: "%{user_name} actualizou a aplicación %{resource_name} OAuth"
       organization:
         update: "%{user_name} actualizou a configuración da organización"
       scope:
@@ -173,6 +177,21 @@ gl:
       shared:
         omniauth_buttons:
           or: Ou
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Autorizar a aplicación
+          by_organization_link_html: <small class="heading-small">por %{link}</small>
+          cancel: Cancelar
+          connect_your_account_html: Conecta a túa conta iniciando sesión en <strong>%{organization}</strong>
+          publish_content: Publica contido por ti
+          see_email: Vexa o teu correo electrónico
+          see_name: Vexa o seu nome
+          see_username: Vexa o seu nome de usuario
+          this_application_will_be_able_to: 'Esta aplicación poderá:'
+          this_application_will_not_be_able_to: 'Esta aplicación non poderá:'
+          update_profile: Actualiza o teu perfil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> quere usar a túa conta"
     errors:
       internal_server_error:
         title: Produciuse un problema co noso servidor
@@ -430,6 +449,9 @@ gl:
         greeting: Ola %{recipient}!
         message: Estamos a contactar con vostede para notificarlle que se cambiou o seu contrasinal.
         subject: Contrasinal modificado
+  doorkeeper:
+    scopes:
+      public: A túa información pública.
   errors:
     messages:
       content_type_whitelist_error: O tipo de ficheiro non é válido
