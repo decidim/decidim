@@ -26,14 +26,14 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-comments**: Add more notification types when a comment is created [\#3004](https://github.com/decidim/decidim/pull/3004)
 - **decidim-debates**: Show debates stats in homepage and space pages [\#3016](https://github.com/decidim/decidim/pull/3016)
 - **decidim-core**: [\#3022](https://github.com/decidim/decidim/pull/3022)
-  + Introduce `ViewModel` and `Cells` to make it possible to add cards to resources.
-  + Add `CardHelper` with `card_for` that returns a card given an instance of a the Component attribute `card` from the ComponentManifest.
-  + Add `AuthorBoxCell` and `ProfileCell`; Remove `shared/author_reference` partials.
+  - Introduce `ViewModel` and `Cells` to make it possible to add cards to resources.
+  - Add `CardHelper` with `card_for` that returns a card given an instance of a the Component attribute `card` from the ComponentManifest.
+  - Add `AuthorBoxCell` and `ProfileCell`; Remove `shared/author_reference` partials.
 - **decidim**: Add documentation for `ViewModel` and `CardCells` `docs/advanced/view_models_aka_cells.md` [\#3022](https://github.com/decidim/decidim/pull/3022)
 - **decidim-dev**: Add `rspec-cells` for testing `Cells` [\#3022](https://github.com/decidim/decidim/pull/3022)
 - **decidim-meetings**: [\#3022](https://github.com/decidim/decidim/pull/3022)
-  + Introduce `ViewModel` and `Cells`. Add `MeetingCell` with two variations: `MeetingMCell` and `MeetingListItemCell`.
-  + Add the `card` attribute to the component's manifest `shared/author_reference` partials.
+  - Introduce `ViewModel` and `Cells`. Add `MeetingCell` with two variations: `MeetingMCell` and `MeetingListItemCell`.
+  - Add the `card` attribute to the component's manifest `shared/author_reference` partials.
 - **decidim-surveys**: Add rich text description to questions [\#3066](https://github.com/decidim/decidim/pull/3066).
 - **decidim-proposals**: Add discard draft button in wizard [\#3064](https://github.com/decidim/decidim/pull/3064)
 
