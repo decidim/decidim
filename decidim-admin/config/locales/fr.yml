@@ -29,6 +29,12 @@ fr:
       newsletter:
         body: Corps de texte
         subject: Objet
+      oauth_application:
+        name: prénom
+        organization_logo: Logo de l'organisation (carré)
+        organization_name: Nom de l'organisation
+        organization_url: URL de l'organisation
+        redirect_uri: Rediriger l'URI
       organization:
         cta_button_path: Chemin du bouton d'action
         cta_button_text: Texte du bouton d'action
@@ -77,6 +83,12 @@ fr:
         organization: Organisation
         slug: Identifiant
         title: Titre
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: L'URI de redirection doit être un URI SSL
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -111,6 +123,14 @@ fr:
         content: Contenu
         slug: Identifiant
         title: Titre
+      doorkeeper/application:
+        authorize_url: Autoriser l'URL
+        client_id: identité du client
+        client_secret: Secret client
+        organization_name: Nom de l'organisation
+        organization_url: URL de l'organisation
+        redirect_uri: Rediriger l'URI
+        site: Site
   date:
     formats:
       datepicker: "%d/%m/%Y"
@@ -301,6 +321,7 @@ fr:
         dashboard: Tableau de bord
         managed_users: Utilisateurs représentés
         newsletters: Bulletins d'information (newsletter)
+        oauth_applications: Applications OAuth
         officializations: Validations
         scope_types: Types de zone d'application
         scopes: Zones d’application
@@ -344,6 +365,11 @@ fr:
             sent_at: Envoyé à
             subject: Objet
           name: Bulletin d'information (newsletter)
+        oauth_application:
+          fields:
+            created_at: Créé à
+            name: prénom
+          name: Application OAuth
         participatory_space_private_user:
           name: Utilisateur de l'espace participatif
         scope:
@@ -415,6 +441,25 @@ fr:
         update:
           error: Erreur lors de la mise à jour du bulletin d'information.
           success: Bulletin d'information mis à jour avec succès. Veuillez le vérifier avant de l'envoyer.
+      oauth_applications:
+        create:
+          error: Une erreur s'est produite lors de la création de cette application.
+          success: Application créée avec succès.
+        destroy:
+          error: Une erreur s'est produite lors de la destruction de cette application.
+          success: Application détruite avec succès.
+        edit:
+          save: sauvegarder
+          title: Modifier l'application
+        index:
+          confirm_delete: Êtes-vous sûr de vouloir supprimer cette application?
+          title: Applications OAuth
+        new:
+          save: sauvegarder
+          title: Nouvelle application
+        update:
+          error: Une erreur est survenue lors de la mise à jour de cette application.
+          success: Application mise à jour avec succès.
       officializations:
         create:
           success: Utilisateur validé avec succès
