@@ -48,9 +48,6 @@ es:
           categories: Categorías
       consultation_voting_data:
         start_voting_date: El periodo de votación empieza el
-      consultation_header:
-        consultation_menu_item: Multiconsula
-        unfold: Desplegar
       question_header:
         back_to_consultation: Ver todas las consultas
       question_components:
@@ -222,9 +219,9 @@ es:
         votes_out_of:
           one: voto de
           other: votos de
-    question_votes:
-      create:
-        error: Ha habido errores al votar la pregunta
+      question_votes:
+        create:
+          error: Ha habido errores al votar la pregunta
     questions:
       statistics:
         supports_count_title: Adhesiones

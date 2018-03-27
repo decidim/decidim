@@ -9,6 +9,7 @@
       padding-bottom: 0;
     }
   }
+
   @include breakpoint(medium){
     background-position: right -400px center;
     padding-left: 1.5rem;
@@ -20,6 +21,7 @@
       justify-content: center;
     }
   }
+  
   @include breakpoint(large){
     padding-left: 4rem;
     padding-right: 4rem;

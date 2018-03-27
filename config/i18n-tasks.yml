@@ -128,6 +128,7 @@ ignore_unused:
   - decidim.sortitions.admin_log.*
   - decidim.sortitions.sortitions.orders.*
   - decidim.consultations.admin_log.*
+  - decidim.consultations.consultations.orders.*
   - decidim.events.*
   - doorkeeper.scopes.*
 

@@ -48,9 +48,6 @@ ca:
     decidim:
       consultation_vote_data:
         start_voting_date: El període de votació comença el
-      consultation_header:
-        consultation_menu_item: Multiconsula
-        unfold: Desplegar
       question_header:
         back_to_consultation: Veure totes les consultes
       question_components:
@@ -223,9 +220,9 @@ ca:
         votes_out_of:
           one: vot de
           other: vots de
-    question_votes:
-      create:
-        error: Hi ha hagut errors en votar la pregunta
+      question_votes:
+        create:
+          error: Hi ha hagut errors en votar la pregunta
     questions:
       statistics:
         supports_count_title: Adhesions
