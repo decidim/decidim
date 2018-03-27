@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateDecidimProposalsCollaborativeDrafts < ActiveRecord::Migration[5.1]
   def change
     create_table :decidim_proposals_collaborative_drafts do |t|

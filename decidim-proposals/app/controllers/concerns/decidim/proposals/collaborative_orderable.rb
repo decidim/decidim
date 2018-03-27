@@ -27,15 +27,6 @@ module Decidim
           end
         end
 
-        # Available orders based on enabled settings
-        def drafts_available_orders
-          @available_orders ||= begin
-            available_orders = %w(random recent)
-            available_orders << "most_contributed"
-            available_orders
-          end
-        end
-
         def default_order
           detect_order("most_contributed")
         end

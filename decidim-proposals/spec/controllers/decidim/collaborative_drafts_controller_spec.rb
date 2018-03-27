@@ -17,7 +17,7 @@ module Decidim
         request.env["decidim.current_component"] = component
       end
 
-#        sign_in user
+      #        sign_in user
 
       describe "GET index" do
         let(:component) { create(:proposal_component) }
@@ -28,7 +28,7 @@ module Decidim
             get :index
 
             expect(response).to have_http_status(:ok)
-            expect(assigns[:collaborative_drafts]).to_not be_empty
+            expect(assigns[:collaborative_drafts]).not_to be_empty
             expect(subject).to render_template("decidim/proposals/collaborative_drafts/index")
           end
         end

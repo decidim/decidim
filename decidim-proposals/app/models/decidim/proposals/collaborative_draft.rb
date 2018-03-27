@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Decidim
   module Proposals
     class CollaborativeDraft < ApplicationRecord
@@ -17,7 +19,6 @@ module Decidim
       scope :open, -> { where(state: "open") }
       scope :closed, -> { where(state: "closed") }
       scope :published, -> { where.not(published_at: nil) }
-
     end
   end
 end

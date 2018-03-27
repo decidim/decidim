@@ -222,7 +222,7 @@ FactoryBot.define do
     body { Faker::Lorem.sentences(3).join("\n") }
     component { create(:proposal_component) }
     address { "#{Faker::Address.street_name}, #{Faker::Address.city}" }
-    state { 'open' }
+    state { "open" }
 
     author do
       create(:user, organization: component.organization) if component

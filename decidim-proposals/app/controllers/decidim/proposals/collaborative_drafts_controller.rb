@@ -16,10 +16,10 @@ module Decidim
 
       def index
         @collaborative_drafts = search
-                     .results
-                     .includes(:author)
-                     .includes(:category)
-                     .includes(:scope)
+                                .results
+                                .includes(:author)
+                                .includes(:category)
+                                .includes(:scope)
 
         @collaborative_drafts = paginate(@collaborative_drafts)
         @collaborative_drafts = reorder(@collaborative_drafts)
