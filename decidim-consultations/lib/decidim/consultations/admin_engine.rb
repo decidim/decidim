@@ -47,19 +47,13 @@ module Decidim
         end
       end
 
-      # initializer "admin_decidim_initiatives.assets" do |app|
-      #   app.config.assets.precompile += %w[
-      #     admin_decidim_initiatives_manifest.js
-      #   ]
-      # end
-
       initializer "decidim_consultations.inject_abilities_to_user" do |_app|
         Decidim.configure do |config|
-          config.admin_abilities += %w[
+          config.admin_abilities += %w(
             Decidim::Consultations::Abilities::Admin::ConsultationAdminAbility
             Decidim::Consultations::Abilities::Admin::QuestionAdminAbility
             Decidim::Consultations::Abilities::Admin::ResponseAdminAbility
-          ]
+          )
         end
       end
 

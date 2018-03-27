@@ -122,12 +122,8 @@ module Decidim
         # db:seed`), we make sure to run them in the same process if seeds are
         # requested so that we can catch these situations earlier than end
         # users.
-        if options[:seed_db]
-          rails "db:migrate", "db:seed"
-        else
-          rails "db:migrate"
-        end
-
+        rails "db:migrate"
+        rails "db:seed" if options[:seed_db]
         rails "db:test:prepare"
       end
 

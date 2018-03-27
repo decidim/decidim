@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 Decidim.register_participatory_space(:consultations) do |participatory_space|
+  participatory_space.icon = "decidim/consultations/icon.svg"
+  participatory_space.model_class_name = "Decidim::Consultations::Question"
+
+  participatory_space.participatory_spaces do |organization|
+    Decidim::Consultations::Question.where(organization: organization)
+  end
+
   participatory_space.context(:public) do |context|
     context.engine = Decidim::Consultations::Engine
     context.layout = "layouts/decidim/question"
@@ -11,13 +18,6 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
     context.engine = Decidim::Consultations::AdminEngine
     context.layout = "layouts/decidim/admin/question"
   end
-
-  participatory_space.participatory_spaces do |organization|
-    Decidim::Consultations::Question.where(organization: organization)
-  end
-
-  participatory_space.icon = "decidim/consultations/icon.svg"
-  participatory_space.model_class_name = "Decidim::Consultations::Question"
 
   participatory_space.seeds do
     seeds_root = File.join(__dir__, "..", "..", "..", "db", "seeds")
