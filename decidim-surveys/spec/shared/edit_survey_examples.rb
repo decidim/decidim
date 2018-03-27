@@ -275,8 +275,15 @@ shared_examples "edit surveys" do
         within(".survey-question-answer-option:last-of-type") { click_button "Remove" }
         expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
 
-        select "Single option", from: "Type"
-        expect(page).to have_no_select("Maximum number of choices")
+        click_button "Add question"
+
+        within(".survey-question:last-of-type") do
+          select "Multiple option", from: "Type"
+          expect(page).to have_select("Maximum number of choices", options: %w(Any 2))
+
+          select "Single option", from: "Type"
+          expect(page).to have_no_select("Maximum number of choices")
+        end
       end
     end
 

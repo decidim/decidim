@@ -21,7 +21,7 @@
 
     _enableInterpolation() {
       $.fn.replaceAttribute = function(attribute, placeholder, value) {
-        $(this).find(`[${attribute}*=${placeholder}]`).each((index, element) => {
+        $(this).find(`[${attribute}*=${placeholder}]`).addBack(`[${attribute}*=${placeholder}]`).each((index, element) => {
           $(element).attr(attribute, $(element).attr(attribute).replace(placeholder, value));
         });
 

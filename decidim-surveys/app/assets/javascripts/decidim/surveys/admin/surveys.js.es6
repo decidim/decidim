@@ -33,6 +33,7 @@
 
   const createAutoMaxChoicesByNumberOfAnswerOptions = (fieldId) => {
     return new AutoSelectOptionsByTotalItemsComponent({
+      wrapperSelector: fieldSelector,
       selectSelector: `${maxChoicesWrapperSelector} select`,
       listSelector: `#${fieldId} ${answerOptionsWrapperSelector} .survey-question-answer-option:not(.hidden)`
     })
@@ -40,6 +41,7 @@
 
   const createAutoButtonsByMinItemsForAnswerOptions = (fieldId) => {
     return new AutoButtonsByMinItemsComponent({
+      wrapperSelector: fieldSelector,
       listSelector: `#${fieldId} ${answerOptionsWrapperSelector} .survey-question-answer-option:not(.hidden)`,
       minItems: 2,
       hideOnMinItemsOrLessSelector: answerOptionRemoveFieldButtonSelector
