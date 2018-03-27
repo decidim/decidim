@@ -71,6 +71,10 @@ eu:
         delete: "%{user_name} ezabatu %{resource_name} buletina"
         deliver: "%{user_name} entregatu %{resource_name} buletina"
         update: "%{user_name} eguneratu %{resource_name} buletina"
+      oauth_application:
+        create: "%{user_name} %{resource_name} OAuth aplikazioa sortu da"
+        delete: "%{user_name} %{resource_name} OAuth aplikazioa ezabatu da"
+        update: "%{user_name} %{resource_name} OAuth aplikazioa eguneratu du"
       organization:
         update: "%{user_name} Eguneratu antolazioaren ezarpenak"
       scope:
@@ -170,6 +174,21 @@ eu:
       shared:
         omniauth_buttons:
           or: Edo
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Baimena eskatu
+          by_organization_link_html: <small class="heading-small"> %{link}</small>
+          cancel: Utzi
+          connect_your_account_html: Konektatu kontua <strong>%{organization}</strong>-n sartzean
+          publish_content: Argitaratu zure edukia
+          see_email: Ikusi zure posta elektronikoa
+          see_name: Ikusi zure izena
+          see_username: Ikusi zure erabiltzaile-izena
+          this_application_will_be_able_to: 'Aplikazio hau gai izango da:'
+          this_application_will_not_be_able_to: 'Aplikazio honek ezin izango du:'
+          update_profile: Eguneratu profila
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> zure kontua erabili nahi du"
     errors:
       internal_server_error:
         title: Arazo bat izan da gure zerbitzariarekin
@@ -427,6 +446,9 @@ eu:
         greeting: Kaixo %{recipient}!
         message: Zuregana jotzen dugu jakinarazteko zure pasahitza zuzen aldatu dela.
         subject: Pasahitza aldatu da
+  doorkeeper:
+    scopes:
+      public: Zure informazio publikoa.
   errors:
     messages:
       content_type_whitelist_error: fitxategi mota ez da zuzena
