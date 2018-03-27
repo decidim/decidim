@@ -210,6 +210,9 @@ eu:
       create:
         error: Erroreak gertatu dira proposamena gordetzean.
         success: Onartutako proposamena. Zirriborro gisa gorde da.
+      destroy_draft:
+        error: Arazoak izan dira proposamenaren zirriborroa ezabatzean.
+        success: Proposamenaren zirriborroa behar bezala suntsitu zen.
       models:
         proposal:
           fields:
@@ -253,6 +256,8 @@ eu:
           send: Bidali
           title: Editatu proposamena
         edit_draft:
+          discard: Ezabatu zirriborro hau
+          discard_confirmation: Ziur zaude proposamenaren zirriborroa baztertu nahi duzula?
           send: Aurreikusi
           title: Editatu proposamenaren zirriborroa
         endorsement_identities_cabin:
