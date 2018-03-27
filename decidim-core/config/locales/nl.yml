@@ -71,6 +71,10 @@ nl:
         delete: "%{user_name} heeft de %{resource_name} verwijderd nieuwsbrief"
         deliver: "%{user_name} de %{resource_name} geleverd nieuwsbrief"
         update: "%{user_name} heeft de %{resource_name} bijgewerkt nieuwsbrief"
+      oauth_application:
+        create: "%{user_name} heeft de %{resource_name} OAuth-toepassing gemaakt"
+        delete: "%{user_name} heeft de %{resource_name} OAuth-toepassing verwijderd"
+        update: "%{user_name} heeft de %{resource_name} OAuth-toepassing bijgewerkt"
       organization:
         update: "%{user_name} de organisatie-instellingen bijgewerkt"
       scope:
@@ -173,6 +177,21 @@ nl:
       shared:
         omniauth_buttons:
           or: Of
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Aanvraag autoriseren
+          by_organization_link_html: <small class="heading-small">door %{link}</small>
+          cancel: Annuleer
+          connect_your_account_html: Verbind je account door in te loggen op <strong>%{organization}</strong>
+          publish_content: Publiceer inhoud voor u
+          see_email: Zie uw e-mail
+          see_name: Zie je naam
+          see_username: Zie je gebruikersnaam
+          this_application_will_be_able_to: 'Deze applicatie zal in staat zijn om:'
+          this_application_will_not_be_able_to: 'Deze applicatie kan niet:'
+          update_profile: update je profiel
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> wil je account gebruiken"
     errors:
       internal_server_error:
         title: Er was een probleem met de server
@@ -430,6 +449,9 @@ nl:
         greeting: Hallo %{recipient}!
         message: Wij informeren u dat uw wachtwoord is gewijzigd.
         subject: Wachtwoord is veranderd
+  doorkeeper:
+    scopes:
+      public: Uw openbare informatie.
   errors:
     messages:
       content_type_whitelist_error: Het bestandstype is niet geldig
