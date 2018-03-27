@@ -8,6 +8,14 @@ module Decidim
   module Searchable
     extend ActiveSupport::Concern
 
+    @@searchable_resources = []
+
+    # Public: an Array of searchable resources
+    def self.searchable_resources
+      @@searchable_resources ||= []
+      @@searchable_resources.uniq
+    end
+
     included do
       has_many :searchable_rsrcs, class_name: "Decidim::SearchableRsrc", inverse_of: :resource, foreign_key: :resource_id, dependent: :destroy
       after_create :add_to_index_as_search_rsrc
@@ -72,6 +80,7 @@ module Decidim
       # }
       def searchable_fields(declared_fields)
         @search_rsrc_indexable_fields = SearchResourceFieldsMapper.new(declared_fields)
+        @@searchable_resources << name
       end
     end
   end

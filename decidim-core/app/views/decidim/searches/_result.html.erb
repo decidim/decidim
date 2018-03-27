@@ -1,11 +1,1 @@
-<div class="column">
-  <article class="card">
-    <div class="card__content">
-      type: <%= result.resource.model_name.human %><br>
-
-      <strong>title: <%= result.resource.title %></strong><br>
-      <small>space: <%= result.resource.participatory_space.title[I18n.locale.to_s] %><br></small>
-    <%# = result.resource.resource_type %><br>
-  </div>
-</article>
-</div>
+<%= card_for result.resource %>
