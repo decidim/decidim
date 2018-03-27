@@ -71,6 +71,10 @@ ca:
         delete: "%{user_name} ha eliminat el butlletí %{resource_name}"
         deliver: "%{user_name} ha enviat el butlletí %{resource_name}"
         update: "%{user_name} ha actualitzat el butlletí %{resource_name}"
+      oauth_application:
+        create: "%{user_name} ha creat la %{resource_name} aplicació OAuth"
+        delete: "%{user_name} ha eliminat la %{resource_name} aplicació OAuth"
+        update: "%{user_name} ha actualitzat la %{resource_name} aplicació OAuth"
       organization:
         update: "%{user_name} ha actualitzat la configuració de l'organització"
       scope:
@@ -173,6 +177,21 @@ ca:
       shared:
         omniauth_buttons:
           or: O
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Autoritza l'aplicació
+          by_organization_link_html: <small class="heading-small">per %{link}</small>
+          cancel: Cancel · lar
+          connect_your_account_html: Connecteu el vostre compte iniciant la sessió a <strong>%{organization}</strong>
+          publish_content: Publiqueu contingut per a vosaltres
+          see_email: Consulteu el vostre correu electrònic
+          see_name: Mira el teu nom
+          see_username: Consulta el teu nom d'usuari
+          this_application_will_be_able_to: 'Aquesta aplicació podrà:'
+          this_application_will_not_be_able_to: 'Aquesta aplicació no podrà:'
+          update_profile: Actualitzeu el vostre perfil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vol utilitzar el vostre compte"
     errors:
       internal_server_error:
         title: Hi ha hagut un problema amb el nostre servidor
@@ -431,6 +450,9 @@ ca:
         greeting: Hola %{recipient}!
         message: Ens posem en contacte amb tu per notificar-te que la teva contrasenya ha estat canviada correctament.
         subject: Contrasenya modificada
+  doorkeeper:
+    scopes:
+      public: La vostra informació pública.
   errors:
     messages:
       content_type_whitelist_error: El tipus de fitxer no és vàlid
