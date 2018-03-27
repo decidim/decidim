@@ -29,6 +29,12 @@ sv:
       newsletter:
         body: Innehåll
         subject: Ämne
+      oauth_application:
+        name: namn
+        organization_logo: Organisationslogotypen (kvadrat)
+        organization_name: Organisations namn
+        organization_url: Organisationsadress
+        redirect_uri: Omdirigera URI
       organization:
         cta_button_path: Call to Action-knappsökväg
         cta_button_text: Ring till handlingsknapptext
@@ -77,6 +83,12 @@ sv:
         organization: Organisation
         slug: URL slug
         title: Titel
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Omdirigerings-URI måste vara en SSL URI
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -111,6 +123,14 @@ sv:
         content: Innehåll
         slug: URL slug
         title: Titel
+      doorkeeper/application:
+        authorize_url: Godkänn webbadress
+        client_id: Klient ID
+        client_secret: Kundhemlighet
+        organization_name: Organisations namn
+        organization_url: Organisationsadress
+        redirect_uri: Omdirigera URI
+        site: Webbplats
   date:
     formats:
       datepicker: "%d/%m/%Y"
@@ -301,6 +321,7 @@ sv:
         dashboard: Kontrollpanel
         managed_users: Hanterade användare
         newsletters: Nyhetsbrev
+        oauth_applications: OAuth applikationer
         officializations: Officializations
         scope_types: Omfattningstyper
         scopes: Omfattningar
@@ -344,6 +365,11 @@ sv:
             sent_at: Skickat på
             subject: Ämne
           name: Nyhetsbrev
+        oauth_application:
+          fields:
+            created_at: Skapad vid
+            name: namn
+          name: OAuth ansökan
         participatory_space_private_user:
           name: Deltagande utrymme privat användare
         scope:
@@ -415,6 +441,25 @@ sv:
         update:
           error: Det har inträffat ett fel vid uppdatering av detta nyhetsbrev.
           success: Nyhetsbrev uppdateras framgångsrikt. Kontrollera det innan du skickar.
+      oauth_applications:
+        create:
+          error: Det har uppstått ett fel vid skapandet av den här applikationen.
+          success: Programmet skapades framgångsrikt.
+        destroy:
+          error: Det har inträffat ett fel som förstörde den här applikationen.
+          success: Programmet förstördes framgångsrikt.
+        edit:
+          save: Spara
+          title: Redigera program
+        index:
+          confirm_delete: Är du säker på att du vill ta bort den här applikationen?
+          title: OAuth applikationer
+        new:
+          save: Spara
+          title: Ny ansökan
+        update:
+          error: Det har uppstått ett fel vid uppdateringen av den här applikationen.
+          success: Applikationen uppdaterades framgångsrikt.
       officializations:
         create:
           success: Användaren officiellt godkändes
