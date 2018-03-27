@@ -71,6 +71,10 @@ sv:
         delete: "%{user_name} raderade %{resource_name} nyhetsbrev"
         deliver: "%{user_name} levererade %{resource_name} nyhetsbrev"
         update: "%{user_name} uppdaterade %{resource_name} nyhetsbrev"
+      oauth_application:
+        create: "%{user_name} skapade OAuth-applikationen %{resource_name}"
+        delete: "%{user_name} raderade OAuth-applikationen %{resource_name}"
+        update: "%{user_name} uppdaterade OAuth-applikationen %{resource_name}"
       organization:
         update: "%{user_name} uppdaterade organisationsinställningarna"
       scope:
@@ -173,6 +177,21 @@ sv:
       shared:
         omniauth_buttons:
           or: Eller
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Godkänn ansökan
+          by_organization_link_html: <small class="heading-small">av %{link}</small>
+          cancel: Annullera
+          connect_your_account_html: Anslut ditt konto genom att logga in på <strong>%{organization}</strong>
+          publish_content: Publicera innehåll för dig
+          see_email: Se din email
+          see_name: Se ditt namn
+          see_username: Se ditt användarnamn
+          this_application_will_be_able_to: 'Denna ansökan kommer att kunna:'
+          this_application_will_not_be_able_to: 'Den här applikationen kommer inte att kunna:'
+          update_profile: uppdatera din profil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vill använda ditt konto"
     errors:
       internal_server_error:
         title: Det uppstod ett problem med vår server
@@ -430,6 +449,9 @@ sv:
         greeting: Hej %{recipient}!
         message: Vi kontaktar dig för att meddela dig att ditt lösenord har ändrats.
         subject: Lösenord ändrat
+  doorkeeper:
+    scopes:
+      public: Din offentliga information.
   errors:
     messages:
       content_type_whitelist_error: Filtypen är inte giltig
