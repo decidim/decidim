@@ -71,6 +71,10 @@ it:
         delete: "%{user_name} cancellato il %{resource_name} notiziario"
         deliver: "%{user_name} consegnato il %{resource_name} notiziario"
         update: "%{user_name} aggiornato il %{resource_name} notiziario"
+      oauth_application:
+        create: "%{user_name} ha creato l'applicazione OAuth %{resource_name}"
+        delete: "%{user_name} ha eliminato l'applicazione OAuth %{resource_name}"
+        update: "%{user_name} ha aggiornato l'applicazione OAuth %{resource_name}"
       organization:
         update: "%{user_name} aggiornato le impostazioni dell'organizzazione"
       scope:
@@ -173,6 +177,21 @@ it:
       shared:
         omniauth_buttons:
           or: O
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Autorizza l'applicazione
+          by_organization_link_html: <small class="heading-small">di %{link}</small>
+          cancel: Annulla
+          connect_your_account_html: Collega il tuo account eseguendo l'accesso a <strong>%{organization}</strong>
+          publish_content: Pubblica contenuti per te
+          see_email: Vedi la tua email
+          see_name: Vedi il tuo nome
+          see_username: Vedi il tuo nome utente
+          this_application_will_be_able_to: 'Questa applicazione sarà in grado di:'
+          this_application_will_not_be_able_to: 'Questa applicazione non sarà in grado di:'
+          update_profile: Aggiorna il tuo profilo
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vuole utilizzare il tuo account"
     errors:
       internal_server_error:
         title: C'era un problema con il nostro server
@@ -430,6 +449,9 @@ it:
         greeting: Ciao %{recipient}!
         message: Ti contattiamo per informarti che la tua password è stata modificata.
         subject: Password modificata
+  doorkeeper:
+    scopes:
+      public: Le tue informazioni pubbliche.
   errors:
     messages:
       content_type_whitelist_error: Il tipo di file non è valido.
