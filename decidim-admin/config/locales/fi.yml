@@ -29,6 +29,12 @@ fi:
       newsletter:
         body: Runko
         subject: Otsikko
+      oauth_application:
+        name: Nimi
+        organization_logo: Organisaation logo (neliö)
+        organization_name: Organisaation nimi
+        organization_url: Organisaation URL-osoite
+        redirect_uri: Uudelleenohjata URI
       organization:
         cta_button_path: Call To Action -painikkeen polku
         cta_button_text: Call To Action -painikkeen teksti
@@ -77,6 +83,12 @@ fi:
         organization: Organisaatio
         slug: URL-tunniste
         title: Otsikko
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: 'Uudelleenohjaus URI: n on oltava SSL-URI'
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -111,6 +123,14 @@ fi:
         content: Sisältö
         slug: URL-tunniste
         title: Otsikko
+      doorkeeper/application:
+        authorize_url: Hyväksy URL-osoite
+        client_id: Asiakastunnus
+        client_secret: Client Secret
+        organization_name: Organisaation nimi
+        organization_url: Organisaation URL-osoite
+        redirect_uri: Uudelleenohjata URI
+        site: paikka
   date:
     formats:
       datepicker: "%d. %m. %Y"
@@ -301,6 +321,7 @@ fi:
         dashboard: Hallintapaneeli
         managed_users: Hallinnoitavat käyttäjät
         newsletters: Uutiskirjeet
+        oauth_applications: OAuth-sovellukset
         officializations: Virallistamiset
         scope_types: Kontekstityypit
         scopes: Kontekstit
@@ -344,6 +365,11 @@ fi:
             sent_at: Lähetyksen ajankohta
             subject: Otsikko
           name: Uutiskirje
+        oauth_application:
+          fields:
+            created_at: Luotu osoitteessa
+            name: Nimi
+          name: OAuth-sovellus
         participatory_space_private_user:
           name: Osallistuva tila yksityinen käyttäjä
         scope:
@@ -415,6 +441,25 @@ fi:
         update:
           error: Tämän uutiskirjeen päivityksessä tapahtui virhe.
           success: Uutiskirje päivitetty onnistuneesti. Tarkasta se läpi ennen lähetystä.
+      oauth_applications:
+        create:
+          error: Sovelluksen luominen tapahtui virheellisesti.
+          success: Sovellus on luotu onnistuneesti.
+        destroy:
+          error: Tämä sovellus on tuhonnut virheen.
+          success: Sovellus tuhoutui onnistuneesti
+        edit:
+          save: Tallentaa
+          title: Muokkaa sovellusta
+        index:
+          confirm_delete: Haluatko varmasti poistaa tämän sovelluksen?
+          title: OAuth-sovellukset
+        new:
+          save: Tallentaa
+          title: Uusi sovellus
+        update:
+          error: Sovelluksen päivittämisessä tapahtui virhe.
+          success: Sovellus on päivitetty onnistuneesti.
       officializations:
         create:
           success: Käyttäjä virallistettu onnistuneesti
