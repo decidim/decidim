@@ -76,7 +76,7 @@
     <% end %>
 
     <%= form.hidden_field :position, value: question.position || 0, disabled: !survey.questions_editable? %>
-    <%= form.hidden_field :deleted, value: false, disabled: !survey.questions_editable? %>
+    <%= form.hidden_field :deleted, disabled: !survey.questions_editable? %>
 
     <div class="survey-question-answer-options">
       <template>

@@ -13,7 +13,7 @@ module Decidim
 
       helper_method :geocoded_proposals
       before_action :authenticate_user!, only: [:new, :create]
-      before_action :ensure_is_draft, only: [:compare, :preview, :publish, :edit_draft, :update_draft]
+      before_action :ensure_is_draft, only: [:compare, :preview, :publish, :edit_draft, :update_draft, :destroy_draft]
 
       def index
         @proposals = search
@@ -92,9 +92,9 @@ module Decidim
       def publish
         @step = :step_3
         PublishProposal.call(@proposal, current_user) do
-          on(:ok) do |proposal|
+          on(:ok) do
             flash[:notice] = I18n.t("proposals.publish.success", scope: "decidim")
-            redirect_to proposal_path(proposal)
+            redirect_to proposal_path(@proposal)
           end
 
           on(:invalid) do
@@ -124,6 +124,22 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("proposals.update_draft.error", scope: "decidim")
+            render :edit_draft
+          end
+        end
+      end
+
+      def destroy_draft
+        authorize! :edit, Proposal
+
+        DestroyProposal.call(@proposal, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("proposals.destroy_draft.success", scope: "decidim")
+            redirect_to new_proposal_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("proposals.destroy_draft.error", scope: "decidim")
             render :edit_draft
           end
         end

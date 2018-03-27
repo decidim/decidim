@@ -1,11 +1,11 @@
 ((exports) => {
   const formDatePicker = () => {
-    $('[data-datepicker]').each((_index, node) => {
-      const language = $('html').attr('lang') || 'en';
-      const initialDate = $(node).data('startdate') || '';
-      const pickTime = $(node).data('timepicker') === '';
+    $("[data-datepicker]").each((_index, node) => {
+      const language = $("html").attr("lang") || "en";
+      const initialDate = $(node).data("startdate") || "";
+      const pickTime = $(node).data("timepicker") === "";
       const languageProps = $(node).fdatepicker.dates[language] && $(node).fdatepicker.dates[language].format;
-      let format = languageProps || 'mm/dd/yyyy';
+      let format = languageProps || "mm/dd/yyyy";
 
       if (pickTime) {
         format = `${format}, hh:ii`;
@@ -17,14 +17,14 @@
         language,
         pickTime,
         disableDblClickSelection: true,
-        leftArrow: '<<',
-        rightArrow: '>>'
-      }).on('changeDate', (ev) => {
+        leftArrow: "<<",
+        rightArrow: ">>"
+      }).on("changeDate", (ev) => {
         let newDate = "";
         if (ev.date !== null) {
-          newDate = exports.moment.utc(ev.date).format('YYYY-MM-DDTHH:mm:ss');
+          newDate = exports.moment.utc(ev.date).format("YYYY-MM-DDTHH:mm:ss");
         }
-        $(ev.target).siblings('input').val(newDate);
+        $(ev.target).siblings("input").val(newDate);
       });
     });
   };
