@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe Decidim::Surveys::Permissions do
+describe Decidim::Surveys::Admin::Permissions do
   subject { described_class.new(user, permission_action, context).allowed? }
 
   let(:user) { create :user, organization: survey_component.organization }
@@ -25,33 +25,13 @@ describe Decidim::Surveys::Permissions do
   context "when space does not allow the user to perform the action" do
     let(:space_allows) { false }
     let(:action) do
-      { scope: :public, action: :foo, subject: :survey }
+      { scope: :admin, action: :foo, subject: :survey }
     end
 
     it { is_expected.to eq false }
   end
 
-  context "when scope is admin" do
-    let(:action) do
-      { scope: :admin, action: :vote, subject: :proposal }
-    end
-    let(:space_allows) { true }
-
-    it "delegates the check to the admin permissions class" do
-      admin_permissions = instance_double(Decidim::Surveys::Admin::Permissions, allowed?: true)
-      allow(Decidim::Surveys::Admin::Permissions)
-        .to receive(:new)
-        .with(user, permission_action, context)
-        .and_return admin_permissions
-
-      expect(admin_permissions)
-        .to receive(:allowed?)
-
-      subject
-    end
-  end
-
-  context "when scope is not public" do
+  context "when scope is not admin" do
     let(:action) do
       { scope: :foo, action: :vote, subject: :survey }
     end
@@ -61,7 +41,7 @@ describe Decidim::Surveys::Permissions do
 
   context "when subject is not a survey" do
     let(:action) do
-      { scope: :public, action: :vote, subject: :foo }
+      { scope: :admin, action: :vote, subject: :foo }
     end
 
     it { is_expected.to eq false }
@@ -69,19 +49,25 @@ describe Decidim::Surveys::Permissions do
 
   context "when action is a random one" do
     let(:action) do
-      { scope: :public, action: :foo, subject: :survey }
+      { scope: :admin, action: :foo, subject: :survey }
     end
 
     it { is_expected.to eq false }
   end
 
-  context "when answering a survey" do
+  context "when exporting answers for a survey" do
     let(:action) do
-      { scope: :public, action: :answer, subject: :survey }
+      { scope: :admin, action: :export_answers, subject: :survey }
     end
 
-    context "when user is authorized" do
-      it { is_expected.to eq true }
+    it { is_expected.to eq true }
+  end
+
+  context "when updating a survey" do
+    let(:action) do
+      { scope: :admin, action: :update, subject: :survey }
     end
+
+    it { is_expected.to eq true }
   end
 end

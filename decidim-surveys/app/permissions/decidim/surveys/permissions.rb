@@ -15,6 +15,7 @@ module Decidim
         return false unless spaces_allows_user?
         return false unless user
 
+        return Decidim::Surveys::Admin::Permissions.new(user, permission_action, context).allowed? if permission_action.scope == :admin
         return false if permission_action.scope != :public
 
         return false if permission_action.subject != :survey
