@@ -6,33 +6,33 @@ fr:
         decidim_category_id: Catégories de l'ensemble des propositions dans lesquelles vous souhaitez appliquer le tirage
         decidim_proposals_component_id: Ensemble de propositions
         dice: Résultat du jet dés (lancer un dé à 6 faces (ou chercher une autre façon aléatoire de générer un nombre entre 1 et 6) et entrer le résultat ici. Cela contribue à la qualité et aux garanties de l'aléatoire du résultat
-        target_items: Nombre de propositions à sélectionner (indique le nombre de propositions que vous voulez sélectionner en tirant beaucoup de groupe de propositions que vous avez choisi précédemment)
+        target_items: Nombre de propositions à sélectionner (indique le nombre de propositions que vous voulez sélectionner en tirant beaucoup de groupe de propositions parmi ceux que vous avez choisi précédemment)
         title: Titre
         witnesses: Les témoins
   decidim:
     components:
       sortitions:
-        name: Sortitions
+        name: Tirages au sort
         settings:
           global:
             comments_enabled: Commentaires activés
     events:
       sortitions:
         sortition_created:
-          email_intro: Le tri "%{resource_title}" a été ajouté à "%{participatory_space_title}" que vous suivez.
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Vous pouvez le retirer du lien précédent.
-          email_subject: Nouveau tri ajouté à %{participatory_space_title}
-          notification_title: La sélection <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
+          email_intro: Le tirage au sort "%{resource_title}" a été ajouté à "%{participatory_space_title}" que vous suivez.
+          email_outro: Vous venez de recevoir cette notification car vous suivez "%{participatory_space_title}". Vous pouvez à tout moment quitter cet espace participatif en cliquant sur le lien précédent.
+          email_subject: Un nouveau tirage au sort vient d'être ajouté à %{participatory_space_title}
+          notification_title: Le tirage au sort <a href="%{resource_path}">%{resource_title}</a> a été ajouté à %{participatory_space_title}
     participatory_processes:
       statistics:
-        sortitions_count: Sortitions
+        sortitions_count: Tirages au sort
     sortitions:
       admin:
         actions:
-          destroy: Annuler la tri
+          destroy: Annuler le tirage au sort
           edit: Éditer
           new: Nouveau
-          show: Détails de tri
+          show: Détails du tirage au sort
         models:
           sortition:
             fields:
@@ -41,7 +41,7 @@ fr:
               decidim_proposals_component: Composante de propositions
               dice: Dé
               reference: Référence
-              request_timestamp: Dessiner le temps
+              request_timestamp: Définir le temps
               seed: La graine
               target_items: Articles à sélectionner
               title: Titre
