@@ -210,6 +210,9 @@ it:
       create:
         error: C'è stato un errore durante il salvataggio di questa proposta.
         success: Proposta creata con successo. Salvato come bozza.
+      destroy_draft:
+        error: Si sono verificati errori durante l'eliminazione della bozza della proposta.
+        success: La bozza della proposta è stata distrutta con successo.
       models:
         proposal:
           fields:
@@ -253,6 +256,8 @@ it:
           send: Inviare
           title: Modifica la proposta
         edit_draft:
+          discard: Scarta questa bozza
+          discard_confirmation: Sei sicuro di voler eliminare questa bozza di proposta?
           send: Anteprima
           title: Modifica bozza di proposta
         endorsement_identities_cabin:
