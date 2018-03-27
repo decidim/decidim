@@ -497,7 +497,9 @@ $meter-fill-bad: $alert-color;
 // 25. Off-canvas
 // --------------
 
-$offcanvas-size: 250px;
+$offcanvas-sizes: (
+ small: 250px
+);
 $offcanvas-background: $light-gray;
 $offcanvas-shadow: 0 0 10px rgba($black, .7);
 $offcanvas-inner-shadow-size: 20px;
