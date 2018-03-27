@@ -16,6 +16,7 @@ module Decidim
         return false unless user
 
         # Delegate the admin permission checks to the admin permissions class
+        return Decidim::Meetings::Admin::Permissions.new(user, permission_action, context).allowed? if permission_action.scope == :admin
         return false if permission_action.scope != :public
 
         return false if permission_action.subject != :meeting

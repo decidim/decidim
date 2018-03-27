@@ -34,6 +34,25 @@ describe Decidim::Meetings::Permissions do
     it { is_expected.to eq false }
   end
 
+  context "when scope is admin" do
+    let(:action) do
+      { scope: :admin, action: :vote, subject: :meeting }
+    end
+
+    it "delegates the check to the admin permissions class" do
+      admin_permissions = instance_double(Decidim::Meetings::Admin::Permissions, allowed?: true)
+      allow(Decidim::Meetings::Admin::Permissions)
+        .to receive(:new)
+        .with(user, permission_action, context)
+        .and_return admin_permissions
+
+      expect(admin_permissions)
+        .to receive(:allowed?)
+
+      subject
+    end
+  end
+
   context "when scope is not public" do
     let(:action) do
       { scope: :foo, action: :vote, subject: :meeting }
