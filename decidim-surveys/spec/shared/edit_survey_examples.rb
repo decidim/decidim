@@ -256,8 +256,6 @@ shared_examples "edit surveys" do
 
           expect(page).to have_no_content "Add answer option"
           expect(page).to have_no_select("Maximum number of choices")
-
-          select "Multiple option", from: "Type"
         end
       end
 
