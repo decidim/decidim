@@ -52,13 +52,13 @@ fr:
             proposal_answering_enabled: Réponse à la proposition activée
             votes_blocked: Votes bloqués
             votes_enabled: Votes activés
-            votes_hidden: Votes cachés (si les votes sont activés, la vérification cachera le nombre de votes)
+            votes_hidden: Votes cachés (si les votes sont activés, cette option cachera le nombre de votes)
     events:
       proposals:
         creation_enabled:
           email_intro: 'Vous pouvez maintenant créer de nouvelles propositions dans %{participatory_space_title} ! Commencez à participer sur cette page:'
-          email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
-          email_subject: Propositions maintenant disponibles dans %{participatory_space_title}
+          email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur le lien précédent.
+          email_subject: Les propositions sont maintenant disponibles dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant démarrer <a href="%{resource_path}">nouvelles propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
           email_intro: 'Vous pouvez approuver des propositions dans %{participatory_space_title}! Commencez à participer à cette page:'
