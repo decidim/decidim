@@ -71,6 +71,10 @@ fr:
         delete: "%{user_name} a supprimé la newsletter %{resource_name}"
         deliver: "%{user_name} a envoyé la newsletter %{resource_name}"
         update: "%{user_name} a mis à jour la newsletter %{resource_name}"
+      oauth_application:
+        create: "%{user_name} a créé l'application %{resource_name} OAuth"
+        delete: "%{user_name} a supprimé l'application %{resource_name} OAuth"
+        update: "%{user_name} a mis à jour l'application %{resource_name} OAuth"
       organization:
         update: "%{user_name} a mis à jour les paramètres de l'organisation"
       scope:
@@ -173,6 +177,21 @@ fr:
       shared:
         omniauth_buttons:
           or: Ou
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Autoriser l'application
+          by_organization_link_html: <small class="heading-small">par %{link}</small>
+          cancel: Annuler
+          connect_your_account_html: Connectez votre compte en vous connectant à <strong>%{organization}</strong>
+          publish_content: Publier du contenu pour vous
+          see_email: Voir votre email
+          see_name: Voir votre nom
+          see_username: Voir votre nom d'utilisateur
+          this_application_will_be_able_to: 'Cette application sera capable de:'
+          this_application_will_not_be_able_to: 'Cette application ne sera pas capable de:'
+          update_profile: Mettre à jour votre profil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> veut utiliser votre compte"
     errors:
       internal_server_error:
         title: Il y a eu un problème avec notre serveur
@@ -430,6 +449,9 @@ fr:
         greeting: Bonjour %{recipient}!
         message: Nous vous contactons pour vous informer que votre mot de passe a été modifié.
         subject: Mot de passe modifié
+  doorkeeper:
+    scopes:
+      public: Votre information publique
   errors:
     messages:
       content_type_whitelist_error: Le type de fichier n'est pas valide
