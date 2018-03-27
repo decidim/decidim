@@ -210,6 +210,9 @@ fi:
       create:
         error: Ehdotuksen tallennuksessa tapahtui virhe.
         success: Ehdotus luotiin onnistuneesti. Tallennetaan luonnoksena.
+      destroy_draft:
+        error: Ehdotusluonnoksen poistaminen virheistä on poistettu.
+        success: Ehdotusluonnos menetti onnistuneesti.
       models:
         proposal:
           fields:
@@ -253,6 +256,8 @@ fi:
           send: Lähetä
           title: Muokkaa ehdotusta
         edit_draft:
+          discard: Hylkää tämä luonnos
+          discard_confirmation: Haluatko varmasti hylätä tämän ehdotusluonnoksen?
           send: esikatselu
           title: Muokkaa ehdotusluonnos
         endorsement_identities_cabin:
