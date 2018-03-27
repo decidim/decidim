@@ -29,6 +29,8 @@ module Decidim
           query.closed
         when "published"
           query.published
+        else
+          query
         end
       end
 

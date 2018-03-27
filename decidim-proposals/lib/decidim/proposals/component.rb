@@ -212,6 +212,13 @@ Decidim.register_component(:proposals) do |component|
       #
       # Collaborative drafts
       #
+      state = if n > 3
+              "published"
+            elsif n > 2
+              "closed"
+            else
+              "open"
+            end
 
       draft = Decidim::Proposals::CollaborativeDraft.create!(
         component: component,

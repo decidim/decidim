@@ -3,7 +3,7 @@
 <div class="row columns">
   <div class="title-action">
     <h2 id="drafts-count" class="title-action__title section-heading">
-      <%= t(".drafts_count", count: @collaborative_drafts.total_count) %>
+      <%= render partial: "count" %>
     </h2>
     <%= render 'new_collaborative_draft_button' %>
   </div>

@@ -1,0 +1,10 @@
+var $collaborative_drafts = $('#collaborative_drafts');
+var $collaborativeDraftsCount = $('#drafts-count');
+var $orderFilterInput = $('.order_filter');
+
+$collaborative_drafts.html('<%= j(render partial: "collaborative_drafts").strip.html_safe %>');
+$collaborativeDraftsCount.html('<%= j(render partial: "count").strip.html_safe %>');
+$orderFilterInput.val('<%= order %>');
+
+var $dropdownMenu = $('.dropdown.menu', $collaborative_drafts);
+$dropdownMenu.foundation();

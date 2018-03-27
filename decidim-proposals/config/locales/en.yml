@@ -224,7 +224,7 @@ en:
           filter: Filter
           filter_by: Filter by
           unfold: Unfold
-        index:
+        count:
           drafts_count:
             one: 1 collaborative draft
             other: "%{count} collaborative drafts"
