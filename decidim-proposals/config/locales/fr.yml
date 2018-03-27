@@ -96,25 +96,25 @@ fr:
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajoutée à %{participatory_space_title}
         proposal_rejected:
           email_intro: 'La proposition "%{resource_title}" a été rejetée. Vous pouvez lire le commentaire ici :'
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez le retirer du lien précédent.
+          email_outro: Vous avez reçu cette notification parce que vous suivez "%{resource_title}". Vous pouvez cesser de le suivre en allant sur le lien précédent.
           email_subject: Une proposition que vous suivez a été rejetée
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été rejetée.
         proposal_update_category:
-          email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}", vérifiez-la:'
+          email_intro: 'Un administrateur a mis à jour la catégorie de votre proposition "%{resource_title}". Vous pouvez y accéder ici :'
           email_outro: Vous avez reçu cette notification parce que vous êtes l'auteur de la proposition.
-          email_subject: La catégorie de proposition %{resource_title} a été mise à jour
-          notification_title: La catégorie de proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
+          email_subject: La catégorie de la proposition %{resource_title} a été mise à jour
+          notification_title: La catégorie de la proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
         voting_enabled:
-          email_intro: 'Vous pouvez voter sur les propositions dans %{participatory_space_title}! Commencez à participer à cette page:'
-          email_outro: Vous avez reçu cette notification, car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
+          email_intro: 'Vous pouvez voter sur les propositions de %{participatory_space_title} ! Participez ici :'
+          email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: Le vote des propositions a commencé pour %{participatory_space_title}
-          notification_title: Vous pouvez maintenant commencer <a href="%{resource_path}">propositions de vote</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          notification_title: Vous pouvez maintenant commencer <a href="%{resource_path}">à voter pour les propositions</a> de <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
           proposals: Les propositions
         proposal:
-          creation_date: 'Création: %{date}'
+          creation_date: 'Création : %{date}'
           view_proposal: Voir la proposition
     participatory_spaces:
       highlighted_proposals:
