@@ -69,14 +69,14 @@ fr:
           index:
             title: Tirages au sort
           new:
-            confirm: En appuyant sur le bouton suivant, Decidim enregistrera la date et l'heure avec précision (de l'ordre de la seconde). Par la suite, avec le jet de dé, cette information sera utilisée pour générer une sélection aléatoire. L'action sera irréversible, une fois le bouton cliqué, le résultat de ce tirage sera publié, ainsi que les données saisies dans ce formulaire. Elles ne pourront pas être modifiées, de fait, veillez à bien vérifier le contenu en amont
+            confirm: 'En appuyant sur le bouton suivant, Decidim enregistrera la date et l''heure à la seconde près. En y ajoutant un jet de dé, on génère une sélection aléatoire. Cette action est irréversible : une fois que vous avez cliqué sur le bouton, le résultat de ce tirage ainsi que les données saisies dans ce formulaire seront publiés. Elles ne pourront pas être modifiées, veillez donc bien à vérifier les informations renseignées en amont'
             create: Créer
             title: Nouveau tirage au sort
           show:
             selected_proposals: Propositions sélectionnées pour le tirage
           update:
             error: Une erreur est survenue lors de la mise à jour du tirage au sort.
-            success: Le tri a bien été mis à jour
+            success: Le tirage au sort a bien été mis à jour
       admin_log:
         sortition:
           create: "%{user_name} a créé la catégorie %{resource_name} dans %{space_name}"
