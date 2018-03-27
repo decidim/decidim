@@ -11,14 +11,19 @@ en:
       meeting:
         address: Address
         available_slots: Available slots for this meeting
+        conciliation_service_description: Conciliation service description
         decidim_category_id: Category
         decidim_scope_id: Scope
         description: Description
         end_time: End Time
+        has_conciliation_service: Has conciliation services
+        has_simultaneous_translations: Has simultaneous translations
+        has_space_adapted_for_functional_diversity: Has space adapted for functional diveristy
         location: Location
         location_hints: Location hints
         registration_terms: Registration terms
         registrations_enabled: Registrations enabled
+        simultaneous_languages: Simultaneous translation languages
         start_time: Start Time
         title: Title
   decidim:
@@ -177,7 +182,10 @@ en:
           cancel: Cancel
           confirm: Confirm
         show:
+          accesibility: Accesibility
+          accesibility_desc: The venue is suited for people with functional diversities
           attendees: Attendees count
+          conciliation: Conciliation
           contributions: Contributions count
           going: Going
           join: Join meeting
@@ -188,6 +196,7 @@ en:
             one: 1 slot remaining
             other: "%{count} slots remaining"
             zero: No slots remaining
+          translation: Translation
       models:
         meeting:
           fields:

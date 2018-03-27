@@ -29,6 +29,11 @@ module Decidim::Meetings
         address: address,
         latitude: latitude,
         longitude: longitude,
+        has_conciliation_service: true,
+        conciliation_service_description: { en: "conciliation service description" },
+        has_space_adapted_for_functional_diversity: true,
+        has_simultaneous_translations: true,
+        simultaneous_languages: { en: "simultaneous languages" },
         current_user: user
       )
     end
@@ -94,6 +99,11 @@ module Decidim::Meetings
             address: address,
             latitude: meeting.latitude,
             longitude: meeting.longitude,
+            has_conciliation_service: true,
+            conciliation_service_description: { en: "conciliation service description" },
+            has_space_adapted_for_functional_diversity: true,
+            has_simultaneous_translations: true,
+            simultaneous_languages: { en: "simultaneous languages" },
             current_user: user
           )
         end

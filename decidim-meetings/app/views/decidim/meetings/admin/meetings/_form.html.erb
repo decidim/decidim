@@ -44,5 +44,27 @@
         <%= form.categories_select :decidim_category_id, current_participatory_space.categories, prompt: "", disable_parents: false %>
       </div>
     </div>
+
+    <div class="row column">
+      <%= form.check_box :has_conciliation_service %>
+    </div>
+
+    <div class="row column" id="conciliation_service_description" >
+      <%= form.translated :text_field, :conciliation_service_description %>
+    </div>
+
+    <div class="row column">
+      <%= form.check_box :has_space_adapted_for_functional_diversity %>
+    </div>
+
+    <div class="row column">
+      <%= form.check_box :has_simultaneous_translations %>
+    </div>
+
+    <div class="row column" id="simultaneous_languages">
+      <%= form.translated :text_field, :simultaneous_languages %>
+    </div>
   </div>
 </div>
+
+<%= javascript_include_tag "decidim/meetings/admin/meetings" %>

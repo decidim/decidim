@@ -29,6 +29,7 @@
           <% if meeting.available_slots.positive? %>
             <span><%= t(".remaining_slots", count: meeting.remaining_slots) %></span>
           <% end %>
+
         <% end %>
         <%= render partial: "decidim/shared/follow_button", locals: { followable: meeting } %>
       </div>
@@ -56,6 +57,30 @@
         </div>
       <% end %>
     </div>
+
+    <% if meeting.has_conciliation_service? || meeting.has_space_adapted_for_functional_diversity? || meeting.has_simultaneous_translations? %>
+      <div class="card extra definition-data">
+        <% if meeting.has_conciliation_service? %>
+          <div class="definition-data__item participatory_scope">
+            <span class="definition-data__title"><%= t(".conciliation") %></span>
+            <%= translated_attribute meeting.conciliation_service_description %>
+          </div>
+        <% end %>
+        <% if meeting.has_space_adapted_for_functional_diversity? %>
+          <div class="definition-data__item participatory_scope">
+            <span class="definition-data__title"><%= t(".accesibility") %></span>
+            <%= t(".accesibility_desc") %>
+          </div>
+        <% end %>
+        <% if meeting.has_simultaneous_translations? %>
+          <div class="definition-data__item participatory_scope">
+            <span class="definition-data__title"><%= t(".translation") %></span>
+            <%= translated_attribute meeting.simultaneous_languages %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
     <%= resource_reference(meeting) %>
     <%= render partial: "decidim/shared/share_modal" %>
     <%= embed_modal_for meeting_meeting_widget_url(meeting, format: :js) %>
