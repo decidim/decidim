@@ -1,7 +1,7 @@
 <div class="column">
   <article class="card card--proposal">
     <div class="card__content">
-      <%= cell("decidim/proposals/proposal_m", model).header %>
+      <%= render :header %>
 
         <div class="card__author">
           <%= cell "decidim/author_box", present(model).author, context: {extra_classes: ["author-data--small"]} %>
@@ -13,7 +13,7 @@
         <%= resource_reference(model, class: "tech-info--text-left") %>
       </div>
 
-      <%= cell("decidim/proposals/proposal_m", model).badge %>
+      <%= render :badge %>
 
       <p>
         <%= body %>
@@ -22,6 +22,6 @@
       <%= cell "decidim/tags", model, context: {extra_classes: ["tags--proposal"]} %>
     </div>
 
-    <%= cell("decidim/proposals/proposal_m", model).footer %>
+    <%= render :footer %>
   </article>
 </div>

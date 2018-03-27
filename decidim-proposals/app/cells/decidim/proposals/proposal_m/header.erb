@@ -1,16 +1,4 @@
 <div class="card__header">
-  <% if from_outside?  or !from_inside? %>
-    <span class="label label--small label--basic">
-      <%= participatory_space_type_name %>:
-      <strong><%= participatory_space_name %></strong>
-    </span>
-
-    <span class="label label--small label--basic">
-      <%= component_type_name %>:
-      <strong><%= component_name %></strong>
-    </span>
-  <% end %>
-
   <%= link_to resource_path do %>
     <h5 class="card__title">
       <%= title %>
