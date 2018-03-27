@@ -25,7 +25,6 @@ Gem::Specification.new do |s|
   s.add_dependency "factory_bot_rails", "~> 4.8"
 
   s.add_dependency "byebug", "~> 10.0"
-  s.add_dependency "codecov", "~> 0.1.9"
   s.add_dependency "db-query-matchers", "~> 0.9.0"
   s.add_dependency "erb_lint", "~> 0.0.22"
   s.add_dependency "i18n-tasks", "~> 0.9.18"

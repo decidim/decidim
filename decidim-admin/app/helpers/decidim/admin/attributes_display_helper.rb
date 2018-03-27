@@ -32,12 +32,19 @@ module Decidim
       # attrs - a list of N attributes of the `record`.
       def display_for(record, *attrs)
         attrs.map do |attr|
-          if record.column_for_attribute(attr).type == :jsonb
+          if attr.is_a?(Hash)
+            attribute_name = attr.keys.first
+            label = attr.values.first
+          else
+            label = attribute_name = attr
+          end
+
+          if record.column_for_attribute(attribute_name).type == :jsonb
             display_available_locales(record).map do |locale|
-              display_label(record, attr, locale) + display_value(record, attr, locale)
+              display_label(record, label, locale) + display_value(record, attribute_name, locale)
             end.reduce(:+)
           else
-            display_label(record, attr) + display_value(record, attr)
+            display_label(record, label) + display_value(record, attribute_name)
           end
         end.reduce(:+)
       end
