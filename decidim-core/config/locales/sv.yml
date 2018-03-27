@@ -8,7 +8,7 @@ sv:
       user:
         email: Din e-post
         name: Ditt namn
-        nickname: Din korta, unika identifierare i decidim
+        nickname: Din korta, unika identifierare
         password: Nytt lösenord
         password_confirmation: Bekräfta ditt nya lösenord
         remove_avatar: Ta bort avatar
@@ -147,7 +147,7 @@ sv:
           email_already_exists: Ett annat konto använder samma e-postadress
         new:
           complete_profile: Komplett profil
-          nickname_help: Din korta, unika identifierare i decidim
+          nickname_help: Din korta, unika identifierare i %{organization}
           sign_up: Vänligen fyll i din profil
           subtitle: Vänligen fyll i följande formulär för att slutföra registreringen
           username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymitet kan det vara något namn.
@@ -155,7 +155,7 @@ sv:
         new:
           already_have_an_account?: Har du redan ett konto?
           newsletter: Få ett tillfälligt nyhetsbrev med relevant information
-          nickname_help: Din korta, unika identifierare i decidim
+          nickname_help: Din korta, unika identifierare i %{organization}
           sign_in: Logga in
           sign_up: Registrera
           sign_up_as:
@@ -404,7 +404,7 @@ sv:
     invitations:
       edit:
         header: Ange ditt lösenord
-        nickname_help: Din unika identifierare i decidim.
+        nickname_help: Din unika identifierare i %{organization}.
         submit_button: Spara
     mailer:
       invitation_instructions:
