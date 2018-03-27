@@ -213,7 +213,11 @@ en:
           all: All
           category: Category
           category_prompt: Category Prompt
+          closed: Closed
+          open: Open
+          published: Published
           search: Search
+          state: State
         filters_small_view:
           close_modal: Close modal
           filter: Filter
