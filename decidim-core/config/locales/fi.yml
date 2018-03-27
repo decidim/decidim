@@ -71,6 +71,10 @@ fi:
         delete: "%{user_name} poistettu %{resource_name} tiedote"
         deliver: "%{user_name} toimitti %{resource_name} tiedote"
         update: "%{user_name} päivitti %{resource_name} tiedote"
+      oauth_application:
+        create: "%{user_name} loi %{resource_name} OAuth-sovelluksen"
+        delete: "%{user_name} poistanut %{resource_name} OAuth-sovelluksen"
+        update: "%{user_name} päivitti %{resource_name} OAuth-sovelluksen"
       organization:
         update: "%{user_name} päivitti organisaation asetukset"
       scope:
@@ -173,6 +177,21 @@ fi:
       shared:
         omniauth_buttons:
           or: Tai
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Hyväksy hakemus
+          by_organization_link_html: <small class="heading-small">mennessä %{link}</small>
+          cancel: Peruuttaa
+          connect_your_account_html: Liitä tili kirjautumalla sisään <strong>%{organization}</strong>
+          publish_content: Julkaise sisältöä sinulle
+          see_email: Katso sähköpostiosoitteesi
+          see_name: Katso nimesi
+          see_username: Näe käyttäjätunnuksesi
+          this_application_will_be_able_to: 'Tämä sovellus pystyy:'
+          this_application_will_not_be_able_to: 'Tämä sovellus ei pysty'
+          update_profile: Päivitä profiili
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> haluaa käyttää tiliäsi"
     errors:
       internal_server_error:
         title: Palvelimellamme tapahtui virhe
@@ -431,6 +450,9 @@ fi:
         greeting: Hei %{recipient}!
         message: Tämä on ilmoitus siitä, että salasanasi on nyt vaihdettu.
         subject: Salasana vaihdettu
+  doorkeeper:
+    scopes:
+      public: Julkiset tiedot.
   errors:
     messages:
       content_type_whitelist_error: Tiedostotyyppi on virheellinen
