@@ -6,9 +6,11 @@
       this.dependentFieldsSelector = options.dependentFieldsSelector;
       this.dependentInputSelector = options.dependentInputSelector;
       this.enablingValues = options.enablingValues;
+      this._bindEvent();
+      this._run();
     }
 
-    run() {
+    _run() {
       const $controllerField = this.controllerField;
       const $dependentFields = $controllerField.parents(this.wrapperSelector).find(this.dependentFieldsSelector);
       const $dependentInputs = $dependentFields.find(this.dependentInputSelector);
@@ -22,8 +24,17 @@
         $dependentFields.hide();
       }
     }
+
+    _bindEvent() {
+      this.controllerField.on("change", () => {
+        this._run();
+      });
+    }
   }
 
   exports.DecidimAdmin = exports.DecidimAdmin || {};
   exports.DecidimAdmin.FieldDependentInputsComponent = FieldDependentInputsComponent;
+  exports.DecidimAdmin.createFieldDependentInputs = (options) => {
+    return new FieldDependentInputsComponent(options);
+  };
 })(window);
