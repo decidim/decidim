@@ -210,6 +210,9 @@ gl:
       create:
         error: Produciuse un erro ao gardar a proposta.
         success: Proposta creada con éxito. Gardado como borrador.
+      destroy_draft:
+        error: Produciuse un erro ao eliminar o borrador da proposta.
+        success: O borrador da proposta foi destruído con éxito.
       models:
         proposal:
           fields:
@@ -253,6 +256,8 @@ gl:
           send: Enviar
           title: Editar proposta
         edit_draft:
+          discard: Descarta este borrador
+          discard_confirmation: '¿Estás seguro de que desexas descartar este borrador de proposta?'
           send: Vista previa
           title: Editar borrador de proposta
         endorsement_identities_cabin:
