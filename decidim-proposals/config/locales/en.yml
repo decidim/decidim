@@ -211,6 +211,9 @@ en:
       create:
         error: There's been errors when saving the proposal.
         success: Proposal created successfully. Saved as a Draft.
+      destroy_draft:
+        error: There's been errors deleting the proposal draft.
+        success: Proposal draft was successfully destroyed.
       models:
         proposal:
           fields:
@@ -254,6 +257,8 @@ en:
           send: Send
           title: Edit proposal
         edit_draft:
+          discard: Discard this draft
+          discard_confirmation: Are you sure you want to discard this proposal draft?
           send: Preview
           title: Edit Proposal Draft
         endorsement_identities_cabin:
