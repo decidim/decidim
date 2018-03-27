@@ -486,7 +486,7 @@ shared_examples "edit surveys" do
 
       context "when moving a question up" do
         before do
-          within "#survey_question_#{survey_question_2.id}-field" do
+          within ".survey-question:last-of-type" do
             click_button "Up"
           end
 
@@ -496,7 +496,7 @@ shared_examples "edit surveys" do
 
       context "when moving a question down" do
         before do
-          within "#survey_question_#{survey_question_1.id}-field" do
+          within ".survey-question:first-of-type" do
             click_button "Down"
           end
         end
@@ -511,7 +511,7 @@ shared_examples "edit surveys" do
         expect(page.find(".survey-question:nth-child(2)")).to look_like_intermediate_question
         expect(page.find(".survey-question:nth-child(3)")).to look_like_last_question
 
-        within "#survey_question_#{survey_question_1.id}-field" do
+        within ".survey-question:first-of-type" do
           click_button "Remove"
         end
 
