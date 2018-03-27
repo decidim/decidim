@@ -210,6 +210,9 @@ sv:
       create:
         error: Det har varit fel när du lagrade förslaget.
         success: Förslaget skapades framgångsrikt. Sparat som ett formulär.
+      destroy_draft:
+        error: Det har funnits fel att radera förslaget.
+        success: Förslagsförslaget blev framgångsrikt förstört.
       models:
         proposal:
           fields:
@@ -253,6 +256,8 @@ sv:
           send: Skicka
           title: Redigera förslag
         edit_draft:
+          discard: Kassera detta utkast
+          discard_confirmation: Är du säker på att du vill kassera förslaget till förslag?
           send: Förhandsvisa
           title: Redigera förslagskoncept
         endorsement_identities_cabin:
