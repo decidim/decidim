@@ -2,11 +2,11 @@ fr:
   activemodel:
     attributes:
       sortition:
-        additional_info: Informations de tri
-        decidim_category_id: Catégories de l'ensemble de propositions dans lequel vous souhaitez appliquer le tirage
+        additional_info: Informations sur le tirage au sort
+        decidim_category_id: Catégories de l'ensemble des propositions dans lesquelles vous souhaitez appliquer le tirage
         decidim_proposals_component_id: Ensemble de propositions
-        dice: Résultat du dé (rouler un dé à 6 faces (ou chercher une autre façon aléatoire de générer un nombre de 1 à 6) et entrer ici, au lieu d'être témoin du nombre résultant, cela contribue à la qualité et aux garanties de l'aléatoire de le résultat
-        target_items: Nombre de propositions à sélectionner (indique le nombre de propositions que vous voulez sélectionner en tirant beaucoup du groupe de propositions que vous avez choisi précédemment)
+        dice: Résultat du jet dés (lancer un dé à 6 faces (ou chercher une autre façon aléatoire de générer un nombre entre 1 et 6) et entrer le résultat ici. Cela contribue à la qualité et aux garanties de l'aléatoire du résultat
+        target_items: Nombre de propositions à sélectionner (indique le nombre de propositions que vous voulez sélectionner en tirant beaucoup de groupe de propositions que vous avez choisi précédemment)
         title: Titre
         witnesses: Les témoins
   decidim:
