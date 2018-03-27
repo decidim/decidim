@@ -46,28 +46,28 @@ fr:
               target_items: Articles à sélectionner
               title: Titre
             name:
-              one: Sortition
-              other: Sortitions
+              one: Tirage au sort
+              other: Tirage au sort
         sortitions:
           confirm_destroy:
-            confirm_destroy: Êtes-vous sûr de vouloir annuler ce tri?
+            confirm_destroy: Êtes-vous sûr de vouloir annuler ce tirage au sort ?
             destroy: Annuler le tirage au sort
-            title: Annulation de la tri
+            title: Annulation du tirage au sort
           create:
             error: Une erreur s'est produite lors de la création d'un nouveau tirage au sort.
             success: Le tirage au sort a été créé avec succès
           destroy:
-            error: Impossible d'annuler le tri.
-            success: Le tri a été annulé avec succès
+            error: Impossible d'annuler le tirage au sort.
+            success: Le tirage au sort a été annulé avec succès
           edit:
-            title: Mettre à jour les informations sur le tri
+            title: Mettre à jour les informations sur le tirage au sort
             update: Mettre à jour
           form:
-            all_categories: Toutes catégories
-            select_proposal_component: Sélectionnez l'ensemble de propositions
-            title: Nouvelle tri pour les propositions
+            all_categories: Toutes les catégories
+            select_proposal_component: Sélectionnez l'ensemble des propositions
+            title: Nouveau tirage au sort pour les propositions
           index:
-            title: Sortitions
+            title: Tirages au sort
           new:
             confirm: En appuyant sur le bouton suivant, Decidim enregistrera la date et l'heure (avec une précision de quelques secondes) et, avec le jet de dé, cette information sera utilisée pour générer une sélection aléatoire. L'action sera irréversible, une fois le bouton cliqué le résultat de ce tirage sera publié, ainsi que les données saisies dans ce formulaire et ne peuvent pas être modifiés, s'il vous plaît vérifier le contenu attentivement
             create: Créer
