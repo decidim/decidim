@@ -121,12 +121,12 @@ fr:
         proposals: Les propositions
         see_all_proposals: Voir toutes les propositions
       proposal:
-        creation_date: 'Création: %{date}'
+        creation_date: 'Création : %{date}'
         view_proposal: Voir la proposition
     proposals:
       actions:
         answer: Répondre
-        import: Importer depuis un autre module
+        import: Importer depuis une autre fonctionnalité
         new: Nouvelle
         private_notes: Notes privées
         title: Actions
@@ -186,12 +186,12 @@ fr:
             success: "%{number} propositions importées avec succès"
           new:
             create: Importer des propositions
-            no_components: Il n'y a pas d'autres modules de proposition dans cet espace participatif pour importer les propositions.
-            select_component: Veuillez sélectionner un module
-            select_states: Vérifiez les états des propositions à importer
+            no_components: Il n'y a pas d'autre fonctionnalité de proposition dans cet espace participatif dans laquelle importer les propositions.
+            select_component: Veuillez sélectionner une fonctionnalité
+            select_states: Vérifiez l'état des propositions à importer
         shared:
           info_proposal:
-            body: Corps
+            body: Corps du texte
             created_at: Date de création
             proposal_votes_count: Nombre de votes
             proposals: Les propositions
