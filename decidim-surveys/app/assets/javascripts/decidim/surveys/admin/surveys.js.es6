@@ -3,10 +3,10 @@
 // = require ./auto_buttons_by_min_items.component
 // = require ./auto_select_options_by_total_items.component
 // = require ./dynamic_fields.component
-// = require ./select_field_dependent_inputs.component
+// = require ./field_dependent_inputs.component
 
 ((exports) => {
-  const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, AutoButtonsByMinItemsComponent, AutoSelectOptionsByTotalItemsComponent, SelectFieldDependentInputsComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
+  const { AutoLabelByPositionComponent, AutoButtonsByPositionComponent, AutoButtonsByMinItemsComponent, AutoSelectOptionsByTotalItemsComponent, FieldDependentInputsComponent, createDynamicFields, createSortList } = exports.DecidimAdmin;
   const { createQuillEditor } = exports.Decidim;
 
   const wrapperSelector = ".survey-questions";
@@ -83,16 +83,16 @@
     const fieldId = $target.attr("id");
     const $fieldQuestionTypeSelect = $target.find(questionTypeSelector);
 
-    const answerOptionsSelectFieldUpdater = new SelectFieldDependentInputsComponent({
-      selectField: $fieldQuestionTypeSelect,
+    const answerOptionsSelectFieldUpdater = new FieldDependentInputsComponent({
+      controllerField: $fieldQuestionTypeSelect,
       wrapperSelector: fieldSelector,
       dependentFieldsSelector: answerOptionsWrapperSelector,
       dependentInputSelector: `${answerOptionFieldSelector} input`,
       enablingValues: ["single_option", "multiple_option"]
     });
 
-    const maxChoicesSelectFieldUpdater = new SelectFieldDependentInputsComponent({
-      selectField: $fieldQuestionTypeSelect,
+    const maxChoicesSelectFieldUpdater = new FieldDependentInputsComponent({
+      controllerField: $fieldQuestionTypeSelect,
       wrapperSelector: fieldSelector,
       dependentFieldsSelector: maxChoicesWrapperSelector,
       dependentInputSelector: "select",

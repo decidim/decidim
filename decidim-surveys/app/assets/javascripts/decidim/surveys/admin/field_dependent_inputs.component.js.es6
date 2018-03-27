@@ -1,7 +1,7 @@
 ((exports) => {
-  class SelectFieldDependentInputsComponent {
+  class FieldDependentInputsComponent {
     constructor(options = {}) {
-      this.selectField = options.selectField;
+      this.controllerField = options.controllerField;
       this.wrapperSelector = options.wrapperSelector;
       this.dependentFieldsSelector = options.dependentFieldsSelector;
       this.dependentInputSelector = options.dependentInputSelector;
@@ -9,10 +9,10 @@
     }
 
     run() {
-      const $selectField = this.selectField;
-      const $dependentFields = $selectField.parents(this.wrapperSelector).find(this.dependentFieldsSelector);
+      const $controllerField = this.controllerField;
+      const $dependentFields = $controllerField.parents(this.wrapperSelector).find(this.dependentFieldsSelector);
       const $dependentInputs = $dependentFields.find(this.dependentInputSelector);
-      const value = $selectField.val();
+      const value = $controllerField.val();
 
       if (this.enablingValues.indexOf(value) > -1) {
         $dependentInputs.prop("disabled", false);
@@ -25,5 +25,5 @@
   }
 
   exports.DecidimAdmin = exports.DecidimAdmin || {};
-  exports.DecidimAdmin.SelectFieldDependentInputsComponent = SelectFieldDependentInputsComponent;
+  exports.DecidimAdmin.FieldDependentInputsComponent = FieldDependentInputsComponent;
 })(window);
