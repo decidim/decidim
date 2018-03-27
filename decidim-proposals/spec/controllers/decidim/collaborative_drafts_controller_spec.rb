@@ -21,7 +21,7 @@ module Decidim
 
       describe "GET index" do
         let(:component) { create(:proposal_component) }
-        let!(:draft) { create(:collaborative_draft) }
+        let!(:draft) { create(:collaborative_draft, component: component) }
 
         context "when invoked without paramters" do
           it "returns a list of open drafts by updated_at" do

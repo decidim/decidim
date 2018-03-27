@@ -17,13 +17,12 @@ module Decidim
       def index
         @collaborative_drafts = search
                      .results
-                     .open
                      .includes(:author)
                      .includes(:category)
                      .includes(:scope)
-                     .order(:updated_at)
-puts ">>>>>#{@collaborative_drafts.count}"
+
         @collaborative_drafts = paginate(@collaborative_drafts)
+        @collaborative_drafts = reorder(@collaborative_drafts)
       end
 
       # def show

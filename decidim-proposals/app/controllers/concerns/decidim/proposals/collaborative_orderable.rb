@@ -54,7 +54,7 @@ module Decidim
           when "random"
             drafts.order_randomly(random_seed)
           when "most_contributed"
-            drafts.order(collaborations_count: :desc)
+            drafts.order(contributions_count: :desc)
           when "recent"
             drafts.order(created_at: :desc)
           end

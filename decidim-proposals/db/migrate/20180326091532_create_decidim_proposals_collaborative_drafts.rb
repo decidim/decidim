@@ -1,4 +1,4 @@
-class CreateDecidimProposalsDecidimProposalsCollaborativeDrafts < ActiveRecord::Migration[5.1]
+class CreateDecidimProposalsCollaborativeDrafts < ActiveRecord::Migration[5.1]
   def change
     create_table :decidim_proposals_collaborative_drafts do |t|
       t.text "title", null: false
