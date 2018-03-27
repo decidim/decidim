@@ -47,6 +47,8 @@ module Decidim
           can :manage, Area
           can :manage, AreaType
           can :manage, Newsletter
+          can :manage, :oauth_applications
+          can :manage, OAuthApplication
 
           can [:create, :index, :new, :read, :invite], User
 

@@ -1,15 +1,15 @@
 /* global spyOn */
 /* eslint-disable id-length */
-window.$ = require('jquery');
+window.$ = require("jquery");
 
-require('./history.js.es6');
-require('./data_picker.js.es6');
-require('./form_filter.component.js.es6');
+require("./history.js.es6");
+require("./data_picker.js.es6");
+require("./form_filter.component.js.es6");
 
 const { Decidim: { FormFilterComponent } } = window;
 
-describe('FormFilterComponent', () => {
-  const selector = 'form#new_filter';
+describe("FormFilterComponent", () => {
+  const selector = "form#new_filter";
   let subject = null;
   let scopesPickerState = {filter_scope_id: [{ url: "picker_url_3", value: 3, text: "Scope 3"}, { url: "picker_url_4", value: 4, text: "Scope 4"}]} // eslint-disable-line camelcase
 
@@ -40,27 +40,27 @@ describe('FormFilterComponent', () => {
         </fieldset>
       </form>
     `;
-    $('body').append(form);
+    $("body").append(form);
 
     window.theDataPicker = new window.Decidim.DataPicker($(".data-picker"));
-    subject = new FormFilterComponent($(document).find('form'));
+    subject = new FormFilterComponent($(document).find("form"));
   });
 
-  it('exists', () => {
+  it("exists", () => {
     expect(FormFilterComponent).toBeDefined();
   });
 
-  it('initializes unmounted', () => {
+  it("initializes unmounted", () => {
     expect(subject.mounted).toBeFalsy();
   });
 
-  it('initializes the formSelector with the given selector', () => {
+  it("initializes the formSelector with the given selector", () => {
     expect(subject.$form).toEqual($(selector));
   });
 
-  describe('when mounted', () => {
+  describe("when mounted", () => {
     beforeEach(() => {
-      spyOn(subject.$form, 'on');
+      spyOn(subject.$form, "on");
       subject.mountComponent();
     });
 
@@ -68,52 +68,52 @@ describe('FormFilterComponent', () => {
       subject.unmountComponent();
     });
 
-    it('mounts the component', () => {
+    it("mounts the component", () => {
       expect(subject.mounted).toBeTruthy();
     });
 
-    it('binds the form change event', () => {
-      expect(subject.$form.on).toHaveBeenCalledWith('change', 'input, select', subject._onFormChange);
+    it("binds the form change event", () => {
+      expect(subject.$form.on).toHaveBeenCalledWith("change", "input, select", subject._onFormChange);
     });
 
-    describe('onpopstate event', () => {
+    describe("onpopstate event", () => {
       beforeEach(() => {
-        spyOn(subject.$form, 'submit');
+        spyOn(subject.$form, "submit");
       });
 
-      it('clears the form data', () => {
-        spyOn(subject, '_clearForm');
+      it("clears the form data", () => {
+        spyOn(subject, "_clearForm");
 
         window.onpopstate({ isTrusted: true, state: scopesPickerState});
 
         expect(subject._clearForm).toHaveBeenCalled();
       });
 
-      it('sets the correct form fields based on the current location', () => {
-        spyOn(subject, '_getLocation').and.returnValue('/filters?filter[scope_id][]=3&filter[scope_id][]=4&filter[category_id]=2');
+      it("sets the correct form fields based on the current location", () => {
+        spyOn(subject, "_getLocation").and.returnValue("/filters?filter[scope_id][]=3&filter[scope_id][]=4&filter[category_id]=2");
         window.onpopstate({ isTrusted: true, state: scopesPickerState});
 
-        expect($(selector).find('select#filter_category_id').val()).toEqual('2');
+        expect($(selector).find("select#filter_category_id").val()).toEqual("2");
         expect($(`${selector} #filter_scope_id .picker-values div input`).map(function(_index, input) {
           return $(input).val();
-        }).get()).toEqual(['3', '4']);
+        }).get()).toEqual(["3", "4"]);
       });
     });
   });
 
-  describe('when unmounted', () => {
+  describe("when unmounted", () => {
     beforeEach(() => {
-      spyOn(subject.$form, 'off');
+      spyOn(subject.$form, "off");
       subject.mountComponent();
       subject.unmountComponent();
     });
 
-    it('mounts the component', () => {
+    it("mounts the component", () => {
       expect(subject.mounted).toBeFalsy();
     });
 
-    it('unbinds the form change event', () => {
-      expect(subject.$form.off).toHaveBeenCalledWith('change', 'input, select', subject._onFormChange);
+    it("unbinds the form change event", () => {
+      expect(subject.$form.off).toHaveBeenCalledWith("change", "input, select", subject._onFormChange);
     });
   });
 

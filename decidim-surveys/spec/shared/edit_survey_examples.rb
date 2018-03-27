@@ -97,8 +97,6 @@ shared_examples "edit surveys" do
       within "form.edit_survey" do
         click_button "Add question"
 
-        expect(page).to have_selector(".survey-question", count: 1)
-
         within ".survey-question" do
           fill_in find_nested_form_field_locator("body_en"), with: question_body
         end
@@ -172,7 +170,7 @@ shared_examples "edit surveys" do
       end
     end
 
-    it "persists question form across submission failures" do
+    it "preserves question form across submission failures" do
       click_button "Add question"
       select "Long answer", from: "Type"
       click_button "Save"
@@ -180,7 +178,7 @@ shared_examples "edit surveys" do
       expect(page).to have_select("Type", selected: "Long answer")
     end
 
-    it "does not persist spurious answer options from previous type selections" do
+    it "does not preserve spurious answer options from previous type selections" do
       click_button "Add question"
       select "Single option", from: "Type"
 
@@ -199,7 +197,7 @@ shared_examples "edit surveys" do
       end
     end
 
-    it "persists answer options form across submission failures" do
+    it "preserves answer options form across submission failures" do
       click_button "Add question"
       select "Single option", from: "Type"
 
@@ -240,8 +238,6 @@ shared_examples "edit surveys" do
 
       it "modifies the question when the information is valid" do
         within "form.edit_survey" do
-          expect(page).to have_selector(".survey-question", count: 1)
-
           within ".survey-question" do
             fill_in "survey_questions_#{survey_question.id}_body_en", with: "Modified question"
             check "Mandatory"
@@ -263,8 +259,6 @@ shared_examples "edit surveys" do
 
       it "re-renders the form when the information is invalid and displays errors" do
         within "form.edit_survey" do
-          expect(page).to have_selector(".survey-question", count: 1)
-
           within ".survey-question" do
             expect(page).to have_content("Statement*")
             fill_in "survey_questions_#{survey_question.id}_body_en", with: ""
@@ -284,10 +278,27 @@ shared_examples "edit surveys" do
         expect(page).to have_selector("select#survey_questions_#{survey_question.id}_question_type option[value='multiple_option'][selected]")
       end
 
+      it "preserves deleted status across submission failures" do
+        within "form.edit_survey" do
+          within ".survey-question" do
+            click_button "Remove"
+          end
+        end
+
+        click_button "Add question"
+
+        click_button "Save"
+
+        expect(page).to have_selector(".survey-question", count: 1)
+
+        within ".survey-question" do
+          expect(page).to have_selector(".card-title", text: "#1")
+          expect(page).to have_no_button("Up")
+        end
+      end
+
       it "removes the question" do
         within "form.edit_survey" do
-          expect(page).to have_selector(".survey-question", count: 1)
-
           within ".survey-question" do
             click_button "Remove"
           end

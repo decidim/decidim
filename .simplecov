@@ -5,8 +5,3 @@ SimpleCov.start do
 end
 
 SimpleCov.merge_timeout 1800
-
-if ENV["CI"]
-  require "codecov"
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
-end

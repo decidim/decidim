@@ -1,0 +1,152 @@
+---
+ca:
+  activemodel:
+    attributes:
+      sortition:
+        title: Títol
+        dice: Resultat de la tirada de dau (tira un dau de 6 cares (o busca una altra manera aleatòria de generar un número de l'1 al 6) i introdueix aquí, davant de testimoni el nombre resultant, això contribueix a la qualitat i garanties de l'aleatorietat del resultat
+        target_items: Nombre de propostes a seleccionar (indica el nombre de propostes que vols que siguin seleccionades mitjançant sorteig del conjunt de propostes que has escollit prèviament)
+        decidim_category_id: Categories del conjunt de propostes en les que vols aplicar el sorteig
+        decidim_proposals_component_id: Conjunt de propostes
+        witnesses: Testimonis
+        additional_info: Informació adicional
+  pages:
+    home:
+      statistics:
+        sortitions_count: Sortejos
+  decidim:
+    events:
+      sortitions:
+        sortition_created:
+          email_intro: "S'ha afegit el sorteig \"%{resource_title}\" a \"%{participatory_space_title}\" que estàs seguint."
+          email_outro: "Has rebut aquesta notificació perquè estàs seguint \"%{participatory_space_title}\". Pots deixar de seguir-ho seguint l'enllaç anterior."
+          email_subject: Nou sorteig afegit a %{participatory_space_title}
+          notification_title: "S'ha afegit el sorteig <a href=\"%{resource_path}\">%{resource_title}</a> a %{participatory_space_title}"
+    participatory_processes:
+      statistics:
+        sortitions_count: Sortejos
+    components:
+      sortitions:
+        name: Sortejos
+        settings:
+          global:
+            comments_enabled: Comentaris habilitats
+    sortitions:
+      admin:
+        actions:
+          new: Nou
+          edit: Edita
+          show: Detalls del sorteig
+          destroy: Cancela el sorteig
+        models:
+          sortition:
+            name:
+              one: Sorteig
+              other: Sortejos
+            fields:
+              title: Títol
+              reference: Referència
+              dice: Dau
+              request_timestamp: Hora del sorteig
+              target_items: Elements a seleccionar
+              seed: Llavor
+              category: Categoria
+              decidim_proposals_component: Funcionalitat de propostes
+              created_at: Data de creació
+        sortitions:
+          index:
+            title: Sortejos
+          new:
+            title: Nou sorteig
+            create: Crea
+            confirm: En prémer el botó Decidim gravarà el la data i hora (amb precisió de segons) i juntament amb la tirada de daus, aquesta informació servirà per generar una selecció aleatòria. L'acció serà irreversible, un cop premut el botó el resultat d'aquest sorteig es publicarà, juntament les dades introduïdes en aquest formulari i no es podran modificar, si us plau revisa a consciència el contingut
+          edit:
+            title: Actualitza la informació sobre el
+            update: Actualitzar
+          form:
+            title: Nou sorteig de propostes
+            all_categories: Totes les categories
+            select_proposal_component: Selecciona el conjunt de propostes
+          create:
+            success: Sorteig creat correctament.
+            error: S'ha produït un error creant el sorteig.
+          update:
+            success: Sorteig actualitzat correctament.
+            error: S'ha produït un error al actualitzar el sorteig.
+          show:
+            selected_proposals: Propostes seleccionades per sorteig
+          confirm_destroy:
+            title: Cancelació del sorteig
+            confirm_destroy: Segur que vols cancelar aquest sorteig?
+            destroy: Cancela el sorteig
+          destroy:
+            success: El sorteig s'ha cancel·lat correctament
+            error: No s'ha pogut cancel·lar el sorteig
+      sortitions:
+        count:
+          proposals_count:
+            one: 1 proposta
+            other: "%{count} propostes"
+        proposal:
+          view_proposal: Veure proposta
+        sortitions_count:
+          count:
+            one: 1 sorteig
+            other: "%{count} sortejos"
+        results_count:
+          count:
+            one: proposta seleccionada
+            other: propostes seleccionades
+        show:
+          witnesses: Testimonis
+          cancelled: Sorteig cancel·lat
+          sortition_reproducibility_details: Detalls de reproducibilitat del sorteig
+          proposals_selected_by_sortition: Propostes sel·leccionades per sorteig
+          introduction: >
+            Aquesta pàgina conté els resultats del sorteig %{reference}. Per mitjà d'aquest sorteig,
+            %{target_items} propostes s'han seleccionat a l'atzar i amb la mateixa distribució de
+            probabilitat del conjunt de propostes que es mostren a continuació. Juntament amb els resultats,
+            La informació que es mostra en aquesta pàgina proporciona tota la informació requerida per maximitzar les
+            garanties i reproduir els resultats. La clau per a la qualitat d'aquesta classificació és la doble
+            aleatorietat proporcionada pel llançament d'un dau (verificat per testimonis) i el temps exacte de
+            la classificació que proporciona l'entrada per a un algorisme que genera una selecció aleatòria.
+            La sembra de temps per a la classificació és tan precisa (segons) que és impossible de controlar pels
+            humans proporcionant així una doble entrada "incontrolable" per garantir un resultat just.
+          dice_result: (1) Resultat del dau
+          time_seed: (2) Llavor temporal
+          mathematical_result: Resultat (1) x (2)
+          algorithm: Codi de l'algoritme del sorteig
+          candidate_proposal_ids: Ordre de propostes del sorteig i identificadors
+          candidate_proposals_info: >
+            El sorteig es va dur a terme entre les següents propostes (%{category_label}), amb els següents
+            identificadors (en negreta les propostes seleccionades)
+          any_category: de totes les categories
+          category: De la categoria %{category}
+        filters:
+          search: Cerca
+          category: Categoria
+          category_prompt: Selecciona una categoria
+          state: Estat
+          all: Tots
+          active: Actius
+          cancelled: Cancelats
+        linked_sortitions:
+          selected_proposals: Propostes sel·leccionades
+        sortition_author:
+          deleted: Usuari eliminat
+        sortition_cancel_author:
+          deleted: Usuari eliminat
+        filters_small_view:
+          close_modal: Tancar finestra
+          filter: Filtra
+          filter_by: Filtrar per
+          unfold: Desplegar
+        orders:
+          label: 'Ordenar sortejos per:'
+          random: Aleatori
+          recent: Recent
+        sortition:
+          selected_proposals:
+            one: 1 proposta seleccionada.
+            other: "%{count} propostes seleccionades"
+          view_sortition: Vore sorteig

@@ -6,33 +6,7 @@ module Decidim
   module Comments
     describe CreateComment do
       describe "call" do
-        let(:organization) { create(:organization) }
-        let(:participatory_process) { create(:participatory_process, organization: organization) }
-        let(:component) { create(:component, participatory_space: participatory_process) }
-        let(:user) { create(:user, organization: organization) }
-        let(:author) { create(:user, organization: organization) }
-        let(:dummy_resource) { create :dummy_resource, component: component }
-        let(:commentable) { dummy_resource }
-        let(:body) { ::Faker::Lorem.paragraph }
-        let(:alignment) { 1 }
-        let(:user_group_id) { nil }
-        let(:form_params) do
-          {
-            "comment" => {
-              "body" => body,
-              "alignment" => alignment,
-              "user_group_id" => user_group_id
-            }
-          }
-        end
-        let(:form) do
-          CommentForm.from_params(
-            form_params
-          ).with_context(
-            current_organization: organization
-          )
-        end
-        let(:command) { described_class.new(form, author, commentable) }
+        include_context "when creating a comment"
 
         describe "when the form is not valid" do
           before do
@@ -68,6 +42,19 @@ module Decidim
             expect do
               command.call
             end.to change(Comment, :count).by(1)
+          end
+
+          it "calls content processors" do
+            user_parser = instance_double("kind of UserParser", users: [])
+            parsed_metadata = { user: user_parser }
+            parser = instance_double("kind of parser", rewrite: "whatever", metadata: parsed_metadata)
+            expect(Decidim::ContentProcessor).to receive(:parse).with(
+              form.body,
+              current_organization: form.current_organization
+            ).and_return(parser)
+            expect(CommentCreation).to receive(:publish).with(a_kind_of(Comment), parsed_metadata)
+
+            command.call
           end
 
           it "sends the notifications" do
