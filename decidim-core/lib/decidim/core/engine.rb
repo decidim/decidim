@@ -39,6 +39,8 @@ require "geocoder"
 require "paper_trail"
 require "cells/rails"
 require "cells-erb"
+require "doorkeeper"
+require "doorkeeper-i18n"
 
 require "decidim/api"
 
@@ -218,6 +220,62 @@ module Decidim
       initializer "add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Core::Engine.root}/app/views") # for partials
+      end
+
+      initializer "doorkeeper" do
+        Doorkeeper.configure do
+          orm :active_record
+
+          # This block will be called to check whether the resource owner is authenticated or not.
+          resource_owner_authenticator do
+            current_user || redirect_to(new_user_session_path)
+          end
+
+          # The controller Doorkeeper::ApplicationController inherits from.
+          # Defaults to ActionController::Base.
+          # https://github.com/doorkeeper-gem/doorkeeper#custom-base-controller
+          base_controller "Decidim::ApplicationController"
+
+          # Provide support for an owner to be assigned to each registered application (disabled by default)
+          # Optional parameter confirmation: true (default false) if you want to enforce ownership of
+          # a registered application
+          # Note: you must also run the rails g doorkeeper:application_owner generator to provide the necessary support
+          enable_application_owner confirmation: false
+
+          # Define access token scopes for your provider
+          # For more information go to
+          # https://github.com/doorkeeper-gem/doorkeeper/wiki/Using-Scopes
+          default_scopes :public
+          optional_scopes []
+
+          # Change the native redirect uri for client apps
+          # When clients register with the following redirect uri, they won't be redirected to any server and the authorization code will be displayed within the provider
+          # The value can be any string. Use nil to disable this feature. When disabled, clients must provide a valid URL
+          # (Similar behaviour: https://developers.google.com/accounts/docs/OAuth2InstalledApp#choosingredirecturi)
+          #
+          native_redirect_uri "urn:ietf:wg:oauth:2.0:oob"
+
+          # Forces the usage of the HTTPS protocol in non-native redirect uris (enabled
+          # by default in non-development environments). OAuth2 delegates security in
+          # communication to the HTTPS protocol so it is wise to keep this enabled.
+          #
+          # Callable objects such as proc, lambda, block or any object that responds to
+          # #call can be used in order to allow conditional checks (to allow non-SSL
+          # redirects to localhost for example).
+          #
+          # force_ssl_in_redirect_uri !Rails.env.development?
+          #
+          force_ssl_in_redirect_uri false
+
+          # WWW-Authenticate Realm (default "Doorkeeper").
+          realm "Decidim"
+        end
+      end
+
+      initializer "OAuth inflections" do
+        ActiveSupport::Inflector.inflections do |inflect|
+          inflect.acronym "OAuth"
+        end
       end
     end
   end

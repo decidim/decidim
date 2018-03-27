@@ -72,6 +72,10 @@ en:
         delete: "%{user_name} deleted the %{resource_name} newsletter"
         deliver: "%{user_name} delivered the %{resource_name} newsletter"
         update: "%{user_name} updated the %{resource_name} newsletter"
+      oauth_application:
+        create: "%{user_name} created the %{resource_name} OAuth application"
+        delete: "%{user_name} deleted the %{resource_name} OAuth application"
+        update: "%{user_name} updated the %{resource_name} OAuth application"
       organization:
         update: "%{user_name} updated the organization settings"
       scope:
@@ -174,6 +178,21 @@ en:
       shared:
         omniauth_buttons:
           or: Or
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Authorize application
+          by_organization_link_html: <small class="heading-small">by %{link}</small>
+          cancel: Cancel
+          connect_your_account_html: Connect your account by signing in to <strong>%{organization}</strong>
+          publish_content: Publish content for you
+          see_email: See your email
+          see_name: See your name
+          see_username: See your username
+          this_application_will_be_able_to: 'This application will be able to:'
+          this_application_will_not_be_able_to: 'This application will not be able to:'
+          update_profile: Update your profile
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> wants to use your account"
     errors:
       internal_server_error:
         title: There was a problem with our server
@@ -432,6 +451,9 @@ en:
         greeting: Hello %{recipient}!
         message: We're contacting you to notify you that your password has been changed.
         subject: Password changed
+  doorkeeper:
+    scopes:
+      public: Your public information.
   errors:
     messages:
       content_type_whitelist_error: The file type is not valid
