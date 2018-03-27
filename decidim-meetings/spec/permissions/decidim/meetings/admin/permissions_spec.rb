@@ -96,6 +96,25 @@ describe Decidim::Meetings::Admin::Permissions do
     it_behaves_like "action requiring a meeting"
   end
 
+  context "when exporting registrations a meeting" do
+    let(:action_name) { :export_registrations }
+
+    it_behaves_like "action requiring a meeting"
+  end
+
+  context "when inviting a user a meeting" do
+    let(:action_name) { :invite_user }
+    let(:meeting) { create :meeting, registrations_enabled: true, component: meeting_component }
+
+    it_behaves_like "action requiring a meeting"
+
+    context "when the meeting registrations are closed" do
+      let(:meeting) { create :meeting, registrations_enabled: false, component: meeting_component }
+
+      it { is_expected.to eq false }
+    end
+  end
+
   context "when updating a meeting" do
     let(:action_name) { :update }
 

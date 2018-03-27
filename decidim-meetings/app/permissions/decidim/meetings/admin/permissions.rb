@@ -21,8 +21,10 @@ module Decidim
           return false if permission_action.subject != :meeting
 
           return true if case permission_action.action
-                         when :close, :copy, :destroy, :update
+                         when :close, :copy, :destroy, :export_registrations, :update
                            meeting.present?
+                         when :invite_user
+                           meeting.present? && meeting.registrations_enabled?
                          when :create
                            true
                          else
