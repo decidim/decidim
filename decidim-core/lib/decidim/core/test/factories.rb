@@ -375,6 +375,25 @@ FactoryBot.define do
     end
   end
 
+  factory :oauth_application, class: "Decidim::OAuthApplication" do
+    organization
+    sequence(:name) { |n| "OAuth application #{n}" }
+    sequence(:organization_name) { |n| "OAuth application owner #{n}" }
+    organization_url { "http://example.org" }
+    organization_logo { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
+    redirect_uri { "https://app.example.org/oauth" }
+    scopes { "public" }
+  end
+
+  factory :oauth_access_token, class: "Doorkeeper::AccessToken" do
+    resource_owner_id { create(:user, organization: application.organization).id }
+    application { build(:oauth_application) }
+    token { SecureRandom.hex(32) }
+    expires_in { 1.month.from_now }
+    created_at { Time.zone.now }
+    scopes { "public" }
+  end
+
   factory :searchable_rsrc, class: "Decidim::SearchableRsrc" do
     resource { build(:dummy_resource) }
     resource_id { resource.id }
