@@ -216,6 +216,7 @@ en:
           closed: Closed
           open: Open
           published: Published
+          related_to: Related to
           search: Search
           state: State
         filters_small_view:
