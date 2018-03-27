@@ -71,6 +71,10 @@ es:
         delete: "%{user_name} eliminó el newsletter %{resource_name}"
         deliver: "%{user_name} envió el newsletter %{resource_name}"
         update: "%{user_name} actualizó el newsletter %{resource_name}"
+      oauth_application:
+        create: "%{user_name} creó la aplicación %{resource_name} OAuth"
+        delete: "%{user_name} borró la aplicación %{resource_name} OAuth"
+        update: "%{user_name} actualizó la aplicación %{resource_name} OAuth"
       organization:
         update: "%{user_name} actualizó la configuración de la organización"
       scope:
@@ -173,6 +177,21 @@ es:
       shared:
         omniauth_buttons:
           or: O
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Autorice la aplicación
+          by_organization_link_html: <small class="heading-small">por %{link}</small>
+          cancel: Cancelar
+          connect_your_account_html: Conecte su cuenta iniciando sesión en <strong>%{organization}</strong>
+          publish_content: Publique contenido para usted
+          see_email: Mira tu correo electrónico
+          see_name: Mira tu nombre
+          see_username: Ver tu nombre de usuario
+          this_application_will_be_able_to: 'Esta aplicación podrá:'
+          this_application_will_not_be_able_to: 'Esta aplicación no podrá:'
+          update_profile: Actualiza tu perfil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> quiere usar su cuenta"
     errors:
       internal_server_error:
         title: Ha habido un problema con nuestro servidor
@@ -431,6 +450,9 @@ es:
         greeting: '¡Hola %{recipient}!'
         message: Nos ponemos en contacto contigo para notificarte que tu contraseña ha sido cambiada correctamente.
         subject: Contraseña modificada
+  doorkeeper:
+    scopes:
+      public: Tu información pública
   errors:
     messages:
       content_type_whitelist_error: El tipo de archivo no es válido
