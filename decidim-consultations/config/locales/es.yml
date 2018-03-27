@@ -1,0 +1,254 @@
+---
+es:
+  activemodel:
+    attributes:
+      consultation:
+        slug: Texto corto de URL
+        title: Título
+        subtitle: Subtítulo
+        description: Descripción
+        banner_image: Imagen de banner
+        introductory_video_url: URL del vídeo introductorio
+        introductory_image: Imagen introductoria
+        start_voting_date: Fecha de inicio
+        end_voting_date: Fecha de finalización
+        decidim_highlighted_scope_id: Ámbito destacado
+      question:
+        slug: Texto corto de URL
+        title: Título
+        subtitle: Subtítulo
+        promoter_group: Grupo promotor
+        decidim_scope_id: Área municipal
+        scope: Área municipal
+        participatory_scope: Ámbito participativo
+        what_is_decided: Qué se decide
+        question_context: Contexto
+        reference: Referencia
+        hero_image: Imagen de portada
+        hashtag: Hashtag
+        banner_image: Imagen de banner
+        origin_scope: Ámbito
+        origin_title: Origen
+        origin_url: URL Origen
+        external_voting: Sistema de votación externo
+        i_frame_url: URL iFrame sistema de votación externo
+    errors:
+      vote:
+        decidim_consultations_response_id:
+          not_found: No se ha encontrado la respuesta
+  pages:
+    home:
+      statistics:
+        consultations_count: Multiconsultas
+  layouts:
+    decidim:
+      admin:
+        question:
+          attachments: Archivos adjuntos
+          categories: Categorías
+      consultation_voting_data:
+        start_voting_date: El periodo de votación empieza el
+      consultation_header:
+        consultation_menu_item: Multiconsula
+        unfold: Desplegar
+      question_header:
+        back_to_consultation: Ver todas las consultas
+      question_components:
+        unfold: Desplega
+        question_menu_item: La pregunta
+  decidim:
+    admin:
+      actions:
+        publish_results: Publica los resultados
+        unpublish_results: Despublicar los resultados
+      menu:
+        consultations: Consultas
+        consultations_submenu:
+          info: Información
+          questions: Preguntas
+        questions_submenu:
+          consultation: Consulta
+          responses: Respuestas
+          info: Información
+          components: Funcionalidades
+      titles:
+        consultations: Consultas
+        questions: Preguntes
+        responses: Respuestas
+      models:
+        consultation:
+          name:
+            one: Consulta
+            other: Consultas
+          fields:
+            title: Título
+            published: Publicada
+            created_at: Fecha de creación
+        question:
+          name:
+            one: Pregunta
+            other: Preguntas
+          fields:
+            title: Título
+            published: Publicada
+            created_at: Fecha de creación
+        response:
+          name:
+            one: Respuesta
+            other: Respuestas
+          fields:
+            title: Título
+            created_at: Fecha de creación
+      consultations:
+        index:
+          not_published: No publicado
+          published: Publicado
+        new:
+          title: Nueva consulta
+          create: Crear
+        edit:
+          update: Actualizar
+        update:
+          error: Se ha producido un error al actualizar esta consulta.
+          success: La consulta se ha actualizado correctamente.
+        form:
+          title: Información general
+          slug_help: 'Los textos cortos de URL se utilizan para generar las URL que apuntan a esta consulta. Sólo acepta letras, números y guiones, y debe comenzar con una letra. Ejemplo: %{url}'
+        create:
+          error: Se produjo un error al crear una nueva consulta.
+          success: Consulta creada correctamente.
+        destroy:
+          success: Consulta destruida correctamente.
+      consultation_publications:
+        create:
+          error: Se produjo un error al publicar esta consulta.
+          success: Consulta publicada con éxito.
+        destroy:
+          error: Se produjo un error al despublicar esta consulta.
+          success: Consulta despublicada con éxito.
+      consultation_results_publications:
+        create:
+          error: Se produjo un error al publicar los resultados de esta consulta.
+          success: Resultados publicados con éxito.
+        destroy:
+          error: Se produjo un error al despublicar los resultados de esta consulta.
+          success: Resultados despublicados con éxito.
+      questions:
+        index:
+          not_published: No publicado
+          published: Publicado
+        new:
+          title: Nueva pregunta
+          create: Crear
+        form:
+          title: Información general
+        create:
+          error: Se produjo un error al crear una nueva pregunta.
+          success: Pregunta creada correctamente.
+        edit:
+          update: Actualizar
+        update:
+          error: Se ha producido un error al actualizar esta pregunta.
+          success: La pregunta se ha actualizado correctamente.
+        destroy:
+          success: Pregunta destruida correctamente.
+      question_publications:
+        create:
+          error: Se produjo un error al publicar esta pregunta.
+          success: Pregunta publicada con éxito.
+        destroy:
+          error: Se produjo un error al despublicar esta pregunta.
+          success: Pregunta despublicada con éxito.
+      responses:
+        new:
+          title: Nueva respuesta
+          create: Crear
+        create:
+          error: Se produjo un error al crear una nueva respuesta.
+          success: Respuesta creada correctamente.
+        edit:
+          update: Actualizar
+        update:
+          error: Se ha producido un error al actualizar esta respuesta.
+          success: La respuesta se ha actualizado correctamente.
+        form:
+          title: Información general
+        destroy:
+          success: Respuesta destruida correctamente.
+          error: Se ha producido un error al eliminar la respuesta.
+    menu:
+      consultations: Multiconsultas
+    consultations:
+      index:
+        title: Multiconsultas
+      show:
+        see_finished_consultations: Ver consultas anteriores
+      count:
+        title:
+          one: "%{count} multiconsulta"
+          other: "%{count} multiconsultas"
+      consultation_card:
+        view_results: Ver los resultados
+      filters_small_view:
+        filter: Filtrar
+        unfold: Desplegar
+        filter_by: Filtrar por
+        close_modal: Cerrar ventana
+      filters:
+        search: Buscar
+        state: Estado
+        all: Todos
+        active: Activas
+        upcoming: Próximas
+        finished: Finalizadas
+      consultation:
+        start_voting_date: Votación a partir de
+        view_results: Ver resultados
+      finished:
+        past_consultations: Multiconsultas anteriores
+        active_consultations: Multiconsultas activas
+      consultations:
+        orders:
+          label: 'Ordenar multiconsultas por:'
+          random: Aleatorio
+          recent: Mas reciente
+      highlighted_questions:
+        title: Consultas de %{scope_name}
+      regular_questions:
+        title: Otras consultas
+      question:
+        take_part: Participa
+        view_results: Ver resultados
+        votes_out_of:
+          one: voto de
+          other: votos de
+    question_votes:
+      create:
+        error: Ha habido errores al votar la pregunta
+    questions:
+      statistics:
+        supports_count_title: Adhesiones
+        comments_count_title: Comentarios
+        meetings_count_title: Encuentros
+        assistants_count_title: Asistentes
+      technical_info:
+        technical_data: Datos técnicos
+      vote_button:
+        already_voted: Ya votado
+        already_voted_hover: Retirar apoyo
+        vote: Votar
+        starting_from: A partir de %{date}
+      vote_modal:
+        title: "Multiconsulta: votación de pregunta"
+        contextual_help:
+          Por favor, selecciona una opción. Ten en cuenta que una vez hayas confirmado
+          tu apoyo, no se podrá cambiar.
+      vote_modal_confirm:
+        title: "Multiconsulta: confirmar apoyo"
+        contextual_help: Por favor, confirma la opción seleccionada.
+        change: Cambiar
+        confirm: Confirmar
+      results:
+        title: Resultados
+      show:
+        read_more: Leer mas

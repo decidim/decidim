@@ -12,6 +12,7 @@ controller or added a new module you need to rename `feature` to `component`.
 
 - **decidim-admin**: Decidim as OAuth provider [\#3057](https://github.com/decidim/decidim/pull/3057)
 - **decidim-core**: Decidim as OAuth provider [\#3057](https://github.com/decidim/decidim/pull/3057)
+- **decidim-consultations**: Decidim Consultations Gem has been  integrated into the  main  repository. [\#xxxx](https://github.com/decidim/decidim/pull/xxxx)
 - **decidim-debates**: Fix debates times. [\#3071](https://github.com/decidim/decidim/pull/3071)
 - **decidim-sortitions**: Decidim Sortitions Gem has been  integrated into the  main  repository. [\#3077](https://github.com/decidim/decidim/pull/3077)
 - **decidim-meetings**: Allows admins to duplicate or copy face-to-face meetings. [\#3051](https://github.com/decidim/decidim/pull/3051)
