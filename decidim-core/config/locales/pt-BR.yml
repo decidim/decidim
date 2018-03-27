@@ -8,7 +8,7 @@ pt-BR:
       user:
         email: Seu e-mail
         name: O seu nome
-        nickname: Seu identificador curto e exclusivo em decidim
+        nickname: Seu identificador curto e exclusivo
         password: Nova senha
         password_confirmation: Confirme a sua nova senha
         remove_avatar: Remover avatar
@@ -147,7 +147,7 @@ pt-BR:
           email_already_exists: Este endereço de e-mail já está registrado em outra contra
         new:
           complete_profile: Perfil completo
-          nickname_help: Seu identificador curto e exclusivo em decidim
+          nickname_help: Seu identificador curto e exclusivo em %{organization}
           sign_up: Por favor, complete seu perfil
           subtitle: Por favor, preencha o formulário seguinte para completar a inscrição
           username_help: Nome público que aparece em suas publicações. Para garantir o anonimato, você pode escolher qualquer nome.
@@ -155,7 +155,7 @@ pt-BR:
         new:
           already_have_an_account?: Você já tem uma conta?
           newsletter: Receba um boletim informativo ocasional com informações relevantes
-          nickname_help: Seu identificador curto e exclusivo em decidim
+          nickname_help: Seu identificador curto e exclusivo em %{organization}
           sign_in: Entrar
           sign_up: Inscrever-se
           sign_up_as:
@@ -404,7 +404,7 @@ pt-BR:
     invitations:
       edit:
         header: Coloque sua senha
-        nickname_help: Seu login no decidim.
+        nickname_help: Seu identificador exclusivo em %{organization}.
         submit_button: Salvar
     mailer:
       invitation_instructions:
