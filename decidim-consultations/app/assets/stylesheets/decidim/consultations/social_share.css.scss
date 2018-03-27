@@ -1,4 +1,3 @@
-/*= require social-share-button */
 $size: 45px;
 
 .share-link:hover{
@@ -9,7 +8,8 @@ $size: 45px;
 .social-share-button{
   display: inline-block;
   vertical-align: top;
-  .ssb-icon {
+
+  .ssb-icon{
     margin-right: 5px;
     background-size: $size $size;
     height: $size;

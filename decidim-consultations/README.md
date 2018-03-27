@@ -23,9 +23,9 @@ gem 'decidim-consultations'
 And then execute:
 
 ```bash
-$ bundle
-$ bundle exec rails decidim_consultations:install:migrations
-$ bundle exec rails db:migrate
+bundle
+bundle exec rails decidim_consultations:install:migrations
+bundle exec rails db:migrate
 ```
 
 ## Embeding a consultation

@@ -5,6 +5,7 @@
   @include breakpoint(medium down){
     background-image: none !important;
     padding-bottom: 1rem;
+
     .card__content{
       padding-bottom: 0;
     }
@@ -14,6 +15,7 @@
     background-position: right -400px center;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+
     .card__content{
       height: 100%;
       display: flex;
@@ -21,10 +23,11 @@
       justify-content: center;
     }
   }
-  
+
   @include breakpoint(large){
     padding-left: 4rem;
     padding-right: 4rem;
+
     .card__content{
       padding-left: 0;
     }

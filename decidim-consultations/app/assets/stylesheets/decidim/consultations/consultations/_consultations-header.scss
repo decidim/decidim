@@ -16,7 +16,7 @@
   z-index: 0;
   display: flex;
   flex-direction: column;
-  
+
   &::after{
     content: "";
     display: block;
@@ -38,7 +38,7 @@
     display: flex;
     align-items: stretch;
 
-    .columns {
+    .columns{
       > *{
         height: 100%;
         display: flex;
