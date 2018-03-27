@@ -417,6 +417,27 @@ jobs:
           path: /app/spec/decidim_dummy_app/tmp/screenshots
       - store_test_results:
           path: ~/rspec
+  sortitions:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: /app
+      - restore_cache:
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
+      - run:
+          name: Wait for db
+          command: dockerize -wait tcp://localhost:5432 -timeout 2m
+      - run:
+          name: Create test DB
+          command: cd spec/decidim_dummy_app && RAILS_ENV=test bundle exec rails db:create db:schema:load
+      - run:
+          name: Run sortitions RSpec
+          command: mkdir ~/rspec && cd decidim-sortitions && rake
+      - store_artifacts:
+          path: /app/spec/decidim_dummy_app/tmp/screenshots
+      - store_test_results:
+          path: ~/rspec
   build_design_app:
     working_directory: /app
     docker:
@@ -471,6 +492,9 @@ workflows:
           requires:
             - build_test_app
       - proposals:
+          requires:
+            - build_test_app
+      - sortitions:
           requires:
             - build_test_app
       - comments:
