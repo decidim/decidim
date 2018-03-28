@@ -8,7 +8,7 @@ fr:
       user:
         email: Votre email
         name: Votre nom
-        nickname: Votre identifiant court et unique
+        nickname: Votre pseudonyme
         password: Votre mot de passe
         password_confirmation: Confirmez votre mot de passe
         remove_avatar: Supprimer l'avatar
