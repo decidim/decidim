@@ -63,15 +63,15 @@ fr:
         endorsing_enabled:
           email_intro: 'Vous pouvez promouvoir les différentes propositions dans %{participatory_space_title}! Commencez à participer en vous rendant sur cette page :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
-          email_subject: L'appui aux différentes propositions a commencé pour %{participatory_space_title}
-          notification_title: Vous pouvez maintenant commencer à <a href="%{resource_path}">appuyer les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_subject: La promotion des différentes propositions a commencé pour %{participatory_space_title}
+          notification_title: Vous pouvez maintenant commencer à <a href="%{resource_path}">promouvoir les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         proposal_accepted:
           email_intro: 'La proposition "%{resource_title}" a été acceptée. Vous pouvez lire la réponse sur cette page :'
           email_outro: Vous venez de recevoir cette notification parce que vous suivez "%{resource_title}". Vous pouvez à tout moment arrêter de la suivre en cliquant sur ce dernier lien.
           email_subject: Une proposition que vous suivez a été acceptée
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été acceptée.
         proposal_endorsed:
-          email_intro: "%{endorser_name} %{endorser_nickname}, que vous suivez, vient d'appuyer une proposition qui pourrait vous intéresser, vérifiez-la et contribuez:"
+          email_intro: "Le promoteur %{endorser_name} %{endorser_nickname}, que vous suivez, vient de promouvoir une proposition qui pourrait vous intéresser, vérifiez-la et contribuez:"
           email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
           email_subject: "%{endorser_nickname} a approuvé une nouvelle proposition"
           notification_title: Le <a href="%{resource_path}">%{resource_title}</a> proposition a été approuvée par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
@@ -230,14 +230,14 @@ fr:
         limit_reached: Vous ne pouvez pas créer de nouvelles propositions car vous avez dépassé le nombre autorisé.
       proposal_endorsements:
         create:
-          error: Des erreurs sont survenues au moment d'appuyer la proposition.
+          error: Des erreurs sont survenues au moment de promouvoir la proposition.
         identities:
           done: Terminé
           select_identity: Sélectionnez l'identité
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Appuyée
-          endorse: Appuyer
+          already_endorsed: Promu
+          endorse: Promouvoir
       proposal_votes:
         create:
           error: Des erreurs se sont produites lors du vote de la proposition.
@@ -261,13 +261,13 @@ fr:
           send: Aperçu
           title: Modifier le projet de proposition
         endorsement_identities_cabin:
-          endorse: Appuyer
+          endorse: Promouvoir
         endorsements_card_row:
-          endorse: Appuyer
+          endorse: Promouvoir
         endorsements_listing:
           see_all: Voir tous
           see_less: Voir moins
-          title: Liste des appuis
+          title: Liste des promotions
         filters:
           accepted: Retenue
           activity: Activité
@@ -325,7 +325,7 @@ fr:
           sign_in: se connecter
           sign_in_or_up: "%{in} ou %{up} pour participer"
           sign_up: s'inscrire
-          withdraw_btn_hint: Si vous changez d'avis et tant que vous n'avez reçu aucun appui vous pouvez toujours retirer votre proposition. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
+          withdraw_btn_hint: Si vous changez d'avis et tant que vous n'avez reçu aucune promotion vous pouvez toujours retirer votre proposition. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
           withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition?
           withdraw_proposal: Retirer la proposition
         tags:
