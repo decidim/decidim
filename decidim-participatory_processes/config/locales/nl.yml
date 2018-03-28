@@ -5,7 +5,7 @@ nl:
         announcement: Aankondiging
         banner_image: Bannerafbeelding
         copy_categories: Categorieën kopiëren
-        copy_features: Functies kopiëren
+        copy_components: Kopieer componenten
         copy_steps: Kopieer stappen
         description: Beschrijving
         developer_group: Ontwikkelaarsgroep
@@ -66,15 +66,17 @@ nl:
           attachment_files: bestanden
           attachments: Bijlagen
           categories: Categorieën
-          features: Functionaliteiten
+          components: Components
           info: Info
           moderations: Moderaties
+          private_users: Particuliere gebruikers
           process_admins: Gebruikers verwerken
           steps: Stappen
       models:
         participatory_process:
           fields:
             created_at: Aangemaakt op
+            private: Privaat
             promoted: Gemarkeerd
             published: Gepubliceerd
             title: Titel
@@ -183,6 +185,8 @@ nl:
           title: Algemene informatie
         index:
           not_published: Niet gepubliceerd
+          private: Privaat
+          public: Openbaar
           published: Gepubliceerd
         new:
           create: creëren
@@ -275,12 +279,14 @@ nl:
         local_area: Organisatiegebied
         participatory_scope: Wat is besloten
         participatory_structure: Hoe is het besloten
+        private_space: Dit is een privéproces
         scope: Scope
         start_date: Begindatum
         target: Wie neemt deel
       statistics:
         answers_count: Antwoorden
         comments_count: Reacties
+        debates_count: debatten
         endorsements_count: Endorsements
         headline: Activiteit
         meetings_count: Vergaderingen

@@ -51,6 +51,7 @@ it:
             already_answered_warning: Dato che alcuni utenti hanno già risposto al questionario, non è più possibile modificare le domande.
           question:
             add_answer_option: Aggiungre opzione di risposta
+            description: Descrizione
             down: Giù
             question: Domanda
             remove: Rimuovere

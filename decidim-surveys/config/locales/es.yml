@@ -51,6 +51,7 @@ es:
             already_answered_warning: La encuesta ya está contestada por algunos usuarios, así que no puedes modificar sus preguntas.
           question:
             add_answer_option: Agregar opción de respuesta
+            description: Descripción
             down: Abajo
             question: Pregunta
             remove: retirar

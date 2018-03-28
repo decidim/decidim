@@ -15,10 +15,10 @@ sv:
       admin:
         models:
           components:
-            body: Kropp
+            body: Innehåll
         pages:
           edit:
-            save: Uppdatering
+            save: Uppdatera
             title: Redigera sida
           update:
             invalid: Det har varit fel när du sparar sidan.

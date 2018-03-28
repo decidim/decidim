@@ -29,6 +29,12 @@ gl:
       newsletter:
         body: Corpo
         subject: Asunto
+      oauth_application:
+        name: Nome
+        organization_logo: Logo da organización (cadrado)
+        organization_name: Nome da Organización
+        organization_url: URL da organización
+        redirect_uri: Redirixir URI
       organization:
         cta_button_path: Camiño do botón de chamada a acción
         cta_button_text: Texto do botón de chamada a acción
@@ -77,6 +83,12 @@ gl:
         organization: Organización
         slug: URL slug
         title: Título
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: O URI de redirección debe ser un URI de SSL
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -111,6 +123,14 @@ gl:
         content: Contido
         slug: URL slug
         title: Título
+      doorkeeper/application:
+        authorize_url: Autorizar URL
+        client_id: ID de cliente
+        client_secret: Cliente secreto
+        organization_name: Nome da Organización
+        organization_url: URL da organización
+        redirect_uri: Redirixir URI
+        site: Sitio
   date:
     formats:
       datepicker: "%m / %d / %Y"
@@ -301,6 +321,7 @@ gl:
         dashboard: Taboleiro de instrumentos
         managed_users: Usuarios xestionados
         newsletters: Boletíns informativos
+        oauth_applications: Aplicacións OAuth
         officializations: Oficinas
         scope_types: Tipos de alcance
         scopes: Ámbitos
@@ -344,6 +365,13 @@ gl:
             sent_at: Enviado en
             subject: Asunto
           name: Boletín informativo
+        oauth_application:
+          fields:
+            created_at: Creado en
+            name: Nome
+          name: Aplicación de OAuth
+        participatory_space_private_user:
+          name: Espazo participativo usuario privado
         scope:
           fields:
             name: Nome
@@ -413,6 +441,25 @@ gl:
         update:
           error: Produciuse un erro ao actualizar este boletín informativo.
           success: Boletín informativo actualizado con éxito. Revisa isto antes de enviar.
+      oauth_applications:
+        create:
+          error: Produciuse un erro ao crear esta aplicación.
+          success: Aplicación creada con éxito.
+        destroy:
+          error: Produciuse un erro ao destruír esta aplicación.
+          success: Aplicación destruída con éxito.
+        edit:
+          save: Gardar
+          title: Editar a aplicación
+        index:
+          confirm_delete: Estás seguro de que queres eliminar esta aplicación?
+          title: Aplicacións OAuth
+        new:
+          save: Gardar
+          title: Nova aplicación
+        update:
+          error: Produciuse un erro ao actualizar esta aplicación.
+          success: A aplicación actualizouse con éxito.
       officializations:
         create:
           success: O usuario oficializouse con éxito
@@ -466,6 +513,17 @@ gl:
           homepage_highlighted_content_banner_title: Banner de contido de alto nivel
           layout_appearance_title: Editar aspecto de deseño
           omnipresent_banner_appearance_title: Editar omnipresente
+      participatory_space_private_users:
+        create:
+          error: Produciuse un erro engadindo un usuario privado a este espazo participativo.
+          success: O acceso ao usuario privado do espazo participativo creouse con éxito.
+        destroy:
+          success: O acceso ao usuario privado do espazo participativo foi destruído con éxito.
+        index:
+          title: Espazo participativo usuario privado
+        new:
+          create: Crear
+          title: Novo usuario privado do espazo participativo.
       scope_types:
         create:
           error: Produciuse un erro ao crear un novo tipo de alcance.

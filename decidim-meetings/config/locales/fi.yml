@@ -21,6 +21,15 @@ fi:
         start_time: Aloitusaika
         title: Otsikko
   decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: Tämän kokouksen päällekkäisyyttä ei löytynyt.
+          success: Kopioitu kokous onnistui.
+        new:
+          copy: Kopio
+          select: Valitse, mitkä tiedot haluat kopioida
+          title: Kopioi kokous
     components:
       meetings:
         actions:
