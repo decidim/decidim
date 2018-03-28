@@ -230,21 +230,21 @@ fr:
         limit_reached: Vous ne pouvez pas créer de nouvelles propositions car vous avez dépassé le nombre autorisé.
       proposal_endorsements:
         create:
-          error: Il y a eu des erreurs lors de l'approbation de la proposition.
+          error: Des erreurs sont survenues au moment d'appuyer la proposition.
         identities:
           done: Terminé
           select_identity: Sélectionnez l'identité
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Approuvé
-          endorse: Endosser
+          already_endorsed: Appuyée
+          endorse: Appuyer
       proposal_votes:
         create:
           error: Des erreurs se sont produites lors du vote de la proposition.
       proposals:
         compare:
           mine_is_different: Ma proposition est différente
-          no_similars_found: Bien joué! Aucune proposition similaire trouvée
+          no_similars_found: Bien joué! Aucune proposition similaire n'a été trouvée
           title: Propositions similaires
         count:
           proposals_count:
@@ -256,18 +256,18 @@ fr:
           send: Envoyer
           title: Modifier la proposition
         edit_draft:
-          discard: Jetez ce brouillon
+          discard: Supprimer ce brouillon
           discard_confirmation: Êtes-vous sûr de vouloir supprimer ce projet de proposition?
           send: Aperçu
           title: Modifier le projet de proposition
         endorsement_identities_cabin:
-          endorse: Endosser
+          endorse: Appuyer
         endorsements_card_row:
-          endorse: Endosser
+          endorse: Appuyer
         endorsements_listing:
-          see_all: Voir tout
+          see_all: Voir tous
           see_less: Voir moins
-          title: Liste des avenants
+          title: Liste des appuis
         filters:
           accepted: Retenue
           activity: Activité
