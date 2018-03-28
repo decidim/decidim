@@ -211,8 +211,8 @@ fr:
         error: Il y a eu des erreurs lors de la sauvegarde de la proposition.
         success: Proposition créée avec succès. Enregistrée comme brouillon.
       destroy_draft:
-        error: Des erreurs ont été commises lors de la suppression du projet de proposition.
-        success: Le projet de proposition a été détruit avec succès.
+        error: Des erreurs sont survenues lors de la suppression du projet de proposition.
+        success: Le projet de proposition a été supprimé avec succès.
       models:
         proposal:
           fields:
@@ -346,7 +346,7 @@ fr:
           need_more_votes: Besoin de plus de votes
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Chaque proposition peut accumuler plus de %{limit} soutiens
+            description: Chaque proposition peut rassembler plus de %{limit} soutiens
           proposal_limit:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
           threshold_per_proposal:
@@ -364,7 +364,7 @@ fr:
           step_1: Créez votre proposition
           step_2: Comparer
           step_3: Publiez votre proposition
-          step_of: Étape %{current_step_num} de %{total_steps}
+          step_of: Étape %{current_step_num} sur %{total_steps}
       publish:
         error: Il y a eu des erreurs lors de la publication de la proposition.
         success: Proposition publiée avec succès.
@@ -372,7 +372,7 @@ fr:
         error: Des erreurs se sont produites lors de l'enregistrement de la proposition.
         success: Proposition mise à jour avec succès.
       update_draft:
-        error: Il y a eu des erreurs lors de l'enregistrement du brouillon de la proposition.
+        error: Des erreurs sont survenues lors de l'enregistrement du brouillon de la proposition.
         success: Le projet de proposition a été mis à jour
     resource_links:
       copied_from_component:
