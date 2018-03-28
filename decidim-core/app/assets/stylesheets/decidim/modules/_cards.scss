@@ -535,7 +535,6 @@ $datetime-bg: $primary;
 }
 
 /* Card full width variant */
-
 .card--full{
   margin-bottom: $card-margin-bottom*2;
 
@@ -639,8 +638,7 @@ $datetime-bg: $primary;
   }
 }
 
-/* Card mini */
-
+// card mini
 .card--mini{
   .card__content{
     padding: $card-padding $card-padding-small;
@@ -758,5 +756,42 @@ $datetime-bg: $primary;
     li{
       padding: .25em;
     }
+  }
+}
+
+// card stack
+.card--stack{
+  position: relative;
+  overflow: visible;
+  z-index: 0;
+
+  &,
+  &::after,
+  &::before{
+    /* Add shadow to distinguish sheets from one another */
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .15);
+  }
+
+  &::after,
+  &::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: $card-border-radius;
+  }
+
+  /* Second sheet of paper */
+  &::before{
+    left: 3px;
+    top: 3px;
+    z-index: -1;
+  }
+
+  /* Third sheet of paper */
+  &::after{
+    left: 5px;
+    top: 5px;
+    z-index: -2;
   }
 }
