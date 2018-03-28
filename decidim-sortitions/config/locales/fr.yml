@@ -123,7 +123,7 @@ fr:
           introduction: 'Cette page contient les résultats de la sélection %{reference}. Au moyen de cette sorte, %{target_items} nombre de résultats ont été sélectionnés aléatoirement et avec une distribution de probabilité égale à partir de l''ensemble des propositions affichées ci-dessous. Avec les résultats, les informations affichées sur cette page fournissent toutes les informations nécessaires pour maximiser les garanties et reproduire les résultats. La clé de la qualité de ce tri est le double hasard fourni par le lancer d''un dé (vérifié par des témoins) et l''heure précise du tri qui fournit l''entrée pour un algorithme qui génère une sélection aléatoire. La graine de temps pour la tri est si précise (secondes) qu''il est impossible de contrôler par les humains fournissant ainsi une double entrée "incontrôlable" pour garantir un résultat juste.  '
           mathematical_result: Résultat (1) x (2)
           proposals_selected_by_sortition: Propositions sélectionnées par tirage au sort
-          sortition_reproducibility_details: Détails de reproductibilité de tri
+          sortition_reproducibility_details: Détails de reproductibilité du tirage au sort
           time_seed: "(2) Graine de temps"
           witnesses: Les témoins
         sortition:
