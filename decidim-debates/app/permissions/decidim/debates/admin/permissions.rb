@@ -15,7 +15,7 @@ module Decidim
 
           return true if case permission_action.action
                          when :create
-                          true
+                           true
                          when :update, :delete
                            debate && debate.official?
                          else

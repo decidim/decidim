@@ -70,7 +70,7 @@ describe Decidim::Debates::Admin::Permissions do
       { scope: :admin, action: :update, subject: :debate }
     end
 
-    context "the debate is official" do
+    context "when the debate is official" do
       it { is_expected.to eq true }
     end
 
@@ -86,7 +86,7 @@ describe Decidim::Debates::Admin::Permissions do
       { scope: :admin, action: :delete, subject: :debate }
     end
 
-    context "the debate is official" do
+    context "when the debate is official" do
       it { is_expected.to eq true }
     end
 
