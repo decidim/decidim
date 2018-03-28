@@ -2,13 +2,7 @@
 
 module Decidim
   module Proposals
-    class Permissions
-      def initialize(user, permission_action, context)
-        @user = user
-        @permission_action = permission_action
-        @context = context
-      end
-
+    class Permissions < Decidim::DefaultPermissions
       def allowed?
         # Stop checks if the user is not authorized to perform the
         # permission_action for this space
@@ -47,37 +41,8 @@ module Decidim
 
       private
 
-      attr_reader :user, :permission_action, :context
-
-      def spaces_allows_user?
-        return unless space.manifest.permissions_class
-        space.manifest.permissions_class.new(user, permission_action, context).allowed?
-      end
-
-      def current_settings
-        @current_settings ||= context.fetch(:current_settings, nil)
-      end
-
-      def component_settings
-        @component_settings ||= context.fetch(:component_settings, nil)
-      end
-
-      def component
-        @component ||= context.fetch(:current_component)
-      end
-
-      def space
-        @space ||= component.participatory_space
-      end
-
       def proposal
         @proposal ||= context.fetch(:proposal, nil)
-      end
-
-      def authorized?(permission_action)
-        return unless component
-
-        ActionAuthorizer.new(user, component, permission_action).authorize.ok?
       end
 
       def voting_enabled?
