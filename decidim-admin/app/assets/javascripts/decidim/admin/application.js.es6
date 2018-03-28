@@ -47,4 +47,8 @@ $(() => {
   if (window.Decidim.formDatePicker) {
     window.Decidim.formDatePicker();
   }
+
+  if (window.Decidim.quillEditor) {
+    window.Decidim.quillEditor();
+  }
 });

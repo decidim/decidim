@@ -52,6 +52,8 @@ module Decidim
   autoload :QueryExtensions, "decidim/query_extensions"
   autoload :ParticipatorySpaceResourceable, "decidim/participatory_space_resourceable"
   autoload :HasPrivateUsers, "decidim/has_private_users"
+  autoload :ViewModel, "decidim/view_model"
+
   include ActiveSupport::Configurable
 
   # Loads seeds from all engines.

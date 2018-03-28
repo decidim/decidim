@@ -118,6 +118,16 @@ describe "Answer a survey", type: :system do
         end
       end
 
+      context "when a question has a rich text description" do
+        let!(:survey_question_2) { create(:survey_question, survey: survey, position: 0, description: "<b>This question is important</b>") }
+
+        it "properly interprets HTML descriptions" do
+          visit_component
+
+          expect(page).to have_selector("b", text: "This question is important")
+        end
+      end
+
       context "when question type is long answer" do
         let!(:survey_question_1) { create(:survey_question, survey: survey, question_type: "long_answer") }
         let!(:survey_question_2) { create(:survey_question, survey: survey, question_type: "long_answer") }

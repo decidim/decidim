@@ -34,18 +34,7 @@ shared_examples "edit surveys" do
     it "adds a few questions to the survey" do
       visit_component_admin
 
-      questions_body = [
-        {
-          en: "This is the first question",
-          ca: "Aquesta es la primera pregunta",
-          es: "Esta es la primera pregunta"
-        },
-        {
-          en: "This is the second question",
-          ca: "Aquesta es la segona pregunta",
-          es: "Esta es la segunda pregunta"
-        }
-      ]
+      questions_body = ["This is the first question", "This is the second question"]
 
       within "form.edit_survey" do
         2.times { click_button "Add question" }
@@ -53,11 +42,8 @@ shared_examples "edit surveys" do
         expect(page).to have_selector(".survey-question", count: 2)
 
         page.all(".survey-question").each_with_index do |survey_question, idx|
-          questions_body[idx].each do |locale, value|
-            within survey_question do
-              click_link I18n.with_locale(locale) { t("name", scope: "locale") }
-              fill_in find_nested_form_field_locator("body_#{locale}"), with: value
-            end
+          within survey_question do
+            fill_in find_nested_form_field_locator("body_en"), with: questions_body[idx]
           end
         end
 
@@ -72,27 +58,41 @@ shared_examples "edit surveys" do
       expect(page).to have_selector("input[value='This is the second question']")
     end
 
+    it "adds a question with a rich text description" do
+      visit_component_admin
+
+      within "form.edit_survey" do
+        click_button "Add question"
+
+        within ".survey-question" do
+          fill_in find_nested_form_field_locator("body_en"), with: "Body"
+
+          fill_in_editor find_nested_form_field_locator("description_en", visible: false), with: "<b>Superkalifragilistic description</b>"
+        end
+
+        click_button "Save"
+      end
+
+      expect(page).to have_admin_callout("successfully")
+
+      component.update!(
+        step_settings: {
+          component.participatory_space.active_step.id => {
+            allow_answers: true
+          }
+        }
+      )
+
+      visit_component
+
+      expect(page).to have_selector("strong", text: "Superkalifragilistic description")
+    end
+
     it "adds a question with answer options" do
       visit_component_admin
 
-      question_body = {
-        en: "This is the first question",
-        ca: "Aquesta es la primera pregunta",
-        es: "Esta es la primera pregunta"
-      }
-
-      answer_options_body = [
-        {
-          en: "This is the first option",
-          ca: "Aquesta es la primera opció",
-          es: "Esta es la primera opción"
-        },
-        {
-          en: "This is the second option",
-          ca: "Aquesta es la segona opció",
-          es: "Esta es la segunda opción"
-        }
-      ]
+      question_body = "This is the first question"
+      answer_options_body = ["This is the first option", "This is the second option"]
 
       within "form.edit_survey" do
         click_button "Add question"
@@ -100,10 +100,7 @@ shared_examples "edit surveys" do
         expect(page).to have_selector(".survey-question", count: 1)
 
         within ".survey-question" do
-          question_body.each do |locale, value|
-            click_link I18n.with_locale(locale) { t("name", scope: "locale") }
-            fill_in find_nested_form_field_locator("body_#{locale}"), with: value
-          end
+          fill_in find_nested_form_field_locator("body_en"), with: question_body
         end
 
         expect(page).to have_no_content "Add answer option"
@@ -115,11 +112,8 @@ shared_examples "edit surveys" do
         2.times { click_button "Add answer option" }
 
         page.all(".survey-question-answer-option").each_with_index do |survey_question_answer_option, idx|
-          answer_options_body[idx].each do |locale, value|
-            within survey_question_answer_option do
-              click_link I18n.with_locale(locale) { t("name", scope: "locale") }
-              fill_in find_nested_form_field_locator("body_#{locale}"), with: value
-            end
+          within survey_question_answer_option do
+            fill_in find_nested_form_field_locator("body_en"), with: answer_options_body[idx]
           end
         end
 
@@ -193,10 +187,10 @@ shared_examples "edit surveys" do
 
       within ".survey-question:first-of-type" do
         fill_in find_nested_form_field_locator("body_en"), with: "Bye"
-        click_link "Català"
+        click_link "Català", match: :first
 
         fill_in find_nested_form_field_locator("body_ca"), with: "Adeu"
-        click_link "English"
+        click_link "English", match: :first
 
         expect(page).to have_nested_field("body_en", with: "Bye")
         expect(page).to have_no_nested_field("body_ca", with: "Adeu")
@@ -394,12 +388,12 @@ shared_examples "edit surveys" do
 
   private
 
-  def find_nested_form_field_locator(attribute)
-    find_nested_form_field(attribute)["id"]
+  def find_nested_form_field_locator(attribute, visible: true)
+    find_nested_form_field(attribute, visible: visible)["id"]
   end
 
-  def find_nested_form_field(attribute)
-    current_scope.find(nested_form_field_selector(attribute))
+  def find_nested_form_field(attribute, visible: true)
+    current_scope.find(nested_form_field_selector(attribute), visible: visible)
   end
 
   def have_nested_field(attribute, with:)

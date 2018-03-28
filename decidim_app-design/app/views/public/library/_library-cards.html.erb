@@ -1,0 +1,275 @@
+<div class="callout alert">
+  Esta sección quedará en gran parte obsoleta. Para ver las nuevas tarjetas de tamaño M, haz click <a href="#patternCardsM" data-tabs-target="patternCardsM">aquí</a>
+</div>
+<h2 class="section-heading">Card básico</h2>
+<div class="row">
+  <div class="columns small-12 medium-6">
+    <article class="card">
+      <div class="card__content">
+        <div class="card__header">
+          <a href="#" class="card__link">
+            <h5 class="card__title">.card</h5>
+          </a>
+        </div>
+        <p>
+         Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam…
+        </p>
+      </div>
+    </article>
+  </div>
+  <div class="columns small-12 medium-6">
+    <article class="card card--secondary">
+      <div class="card__content">
+        <div class="card__header">
+          <a href="#" class="card__link">
+            <h5 class="card__title">.card--secondary</h5>
+          </a>
+        </div>
+        <p>
+         Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam…
+        </p>
+      </div>
+    </article>
+  </div>
+</div>
+
+<h2 class="section-heading">Card de proceso</h2>
+<div class="row">
+  <div class="small-12 medium-6">
+    <article class="card card--process">
+      <div class="card__image-top" style="background-image:url(<%= image_path "demo-info-page.jpg" %>)"></div>
+      <div class="card__content">
+        <%= link_to page_path("action-view"), class: "card__link" do %>
+          <h4 class="card__title">Título</h4>
+        <% end %>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing
+          elit, sed do eiusmod tempor incididunt ut labore et
+          dolore magna aliqua. Ut enim ad minim veniam…
+        </p>
+      </div>
+      <div class="card__footer">
+        <div class="card__support">
+          <span class="card--process__small">Fase activa:
+            <strong>Lorem ipsum</strong>
+          </span>
+          <button class="card__button button small">
+            Acción
+          </button>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+
+<h2 class="section-heading">Card list</h2>
+<div class="row">
+  <div class="card card--list">
+    <div class="card--list__item">
+      <div class="card--list__text">
+        <a href="#">
+          <%= icon "proposals", class: "card--list__icon", removeIconClass: true %>
+        </a>
+        <div>
+          <a href="#" class="card__link">
+            <h5 class="card--list__heading">
+              Título de proceso
+            </h5>
+          </a>
+          <div class="author">
+            <a href="#" class="author__avatar">
+              <%= image_tag "demo-avatar.jpg" %>
+            </a>
+            <a href="#" class="author__name">
+              Autor
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card--list__data">
+        <span class="card--list__data__number">130</span>apoyos
+      </div>
+    </div>
+    <div class="card--list__item">
+      <div class="card--list__text">
+        <a href="#">
+          <%= icon "proposals", class: "card--list__icon", removeIconClass: true %>
+        </a>
+        <div>
+          <a href="#" class="card__link">
+            <h5 class="card--list__heading">
+              Título de proceso
+            </h5>
+          </a>
+          <div class="author">
+            <a href="#" class="author__avatar">
+              <%= image_tag "demo-avatar.jpg" %>
+            </a>
+            <a href="#" class="author__name">
+              Autor
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="card--list__data">
+        <span class="card--list__data__number">130</span>apoyos
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card card--action card--list">
+    <div class="card--list__item">
+      <%= icon "actions", removeIconClass: true, class: "card--list__icon" %>
+      <a href="#" class="card--list__text card__link card__link--block">
+        <h5 class="card--list__heading">
+          Título de proceso
+        </h5>
+      </a>
+      <div class="card--list__data">
+        <span class="card--list__data__number">130</span>apoyos
+      </div>
+    </div>
+    <div class="card--list__item">
+      <%= icon "actions", removeIconClass: true, class: "card--list__icon" %>
+      <a href="#" class="card--list__text card__link card__link--block">
+        <h5 class="card--list__heading">
+          Título de proceso
+        </h5>
+      </a>
+      <div class="card--list__data">
+        <span class="card--list__data__number">130</span>apoyos
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card card--list">
+    <div class="card--list__item">
+      <div class="card--list__text">
+        <div>
+          <%= link_to page_path("static-with-nav"), class: "card__link" do %>
+            <h6 class="card--list__heading heading6">
+              Título de FAQ
+            </h6>
+            <span class="text-small">Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Suspendisse ut semper mi, et ullamcorper
+              elit.</span>
+          <% end %>
+        </div>
+      </div>
+      <div class="card--list__data">
+        <a href="" class="card--list__data__icon">
+          <%= icon "chevron-right" %>
+        </a>
+      </div>
+    </div>
+    <div class="card--list__item">
+      <div class="card--list__text">
+        <div>
+          <a href="#" class="card__link">
+            <h6 class="card--list__heading heading6">
+              Título de FAQ
+            </h6>
+            <span class="text-small">Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Suspendisse ut semper mi, et ullamcorper
+              elit.</span>
+          </a>
+        </div>
+      </div>
+      <div class="card--list__data">
+        <a href="" class="card--list__data__icon">
+          <%= icon "chevron-right" %>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card card--list">
+    <div class="card--list__item">
+      <div class="card--list__text">
+        <div>
+          <a href="#" class="card__link">
+            <h6 class="card--list__heading heading6">
+              Título archivo <small>PDF 57Kb</small>
+            </h6>
+            <span class="text-small">Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Suspendisse ut semper mi, et ullamcorper
+              elit.</span>
+          </a>
+        </div>
+      </div>
+      <div class="card--list__data">
+        <a href="" class="card--list__data__icon">
+          <%= icon "cloud-download" %>
+        </a>
+      </div>
+    </div>
+    <div class="card--list__item">
+      <div class="card--list__text">
+        <div>
+          <a href="#" class="card__link">
+            <h6 class="card--list__heading heading6">
+              Título archivo 18-04-2016 <small>PDF 57Kb</small>
+            </h6>
+            <span class="text-small">Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit. Suspendisse ut semper mi, et ullamcorper
+              elit.</span>
+          </a>
+        </div>
+      </div>
+      <div class="card--list__data">
+        <a href="" class="card--list__data__icon">
+          <%= icon "cloud-download" %>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card card--list">
+    <div class="card--list__item">
+      <div class="card--list__text">
+        <a href="#">
+          <%= icon "proposals", removeIconClass: true, class: "card--list__icon" %>
+        </a>
+        <div>
+          <a href="#" class="card__link">
+            <h5 class="card--list__heading">
+              Título
+            </h5>
+          </a>
+          <span class="text-small">Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Suspendisse ut semper
+            mi, et ullamcorper elit.</span>
+        </div>
+      </div>
+    </div>
+    <div class="card--list__item">
+      <div class="card--list__text">
+        <a href="#">
+          <%= icon "proposals", removeIconClass: true, class: "card--list__icon" %>
+        </a>
+        <div>
+          <a href="#" class="card__link">
+            <h5 class="card--list__heading">
+              Título
+            </h5>
+          </a>
+          <span class="text-small">Lorem ipsum dolor sit amet,
+            consectetur adipiscing elit. Suspendisse ut semper
+            mi, et ullamcorper elit.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
