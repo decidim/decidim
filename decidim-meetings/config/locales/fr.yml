@@ -25,11 +25,11 @@ fr:
       meeting_copies:
         create:
           error: Une erreur s'est produite lors de la duplication de cette assemblée.
-          success: La réunion en double a réussi.
+          success: Cette assemblée a été dupliquée avec succès.
         new:
           copy: Copie
           select: Sélectionnez les données que vous souhaitez dupliquer
-          title: Dupliquer une réunion
+          title: Dupliquer une assemblée
     components:
       meetings:
         actions:
