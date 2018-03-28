@@ -609,7 +609,7 @@ jobs:
       - run:
           name: Upload coverage results to Code Climate
           command: |
-            ./cc-test-reporter sum-coverage codeclimate.*.json -p 16 -o codeclimate.total.json
+            ./cc-test-reporter sum-coverage codeclimate.*.json -p 17 -o codeclimate.total.json
             ./cc-test-reporter upload-coverage -i codeclimate.total.json
 
 workflows:
@@ -698,3 +698,4 @@ workflows:
             - verifications
             - debates
             - sortitions
+            - consultations
