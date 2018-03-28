@@ -6,6 +6,5 @@ module CurrentUserAbilityExtend
 end
 
 Decidim::Proposals::Abilities::CurrentUserAbility.class_eval do
-  private
   prepend(CurrentUserAbilityExtend)
 end
