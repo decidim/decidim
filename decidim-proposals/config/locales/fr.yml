@@ -329,7 +329,7 @@ fr:
           withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition?
           withdraw_proposal: Retirer la proposition
         tags:
-          changed_from: "(changé de <u>%{previous_category}</u> par un administrateur)"
+          changed_from: "(changé depuis <u>%{previous_category}</u> par un administrateur)"
           filed_as: Classée en tant que
         vote_button:
           already_voted: Déjà voté
