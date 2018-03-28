@@ -22,21 +22,21 @@ module Decidim
         it "removes the vote" do
           expect do
             subject.call
-          end.to change { Vote.count }.by(-1)
+          end.to change(Vote, :count).by(-1)
         end
 
         it "decreases the question votes counter by one" do
           expect do
             subject.call
             question.reload
-          end.to change { question.votes_count }.by(-1)
+          end.to change(question, :votes_count).by(-1)
         end
 
         it "decreases the response votes counter by one" do
           expect do
             subject.call
             response.reload
-          end.to change { response.votes_count }.by(-1)
+          end.to change(response, :votes_count).by(-1)
         end
       end
     end

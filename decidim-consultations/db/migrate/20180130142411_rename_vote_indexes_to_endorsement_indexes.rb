@@ -20,7 +20,7 @@ class RenameVoteIndexesToEndorsementIndexes < ActiveRecord::Migration[5.1]
     remove_index :decidim_consultations_endorsements, name: "index_question_votes_author_unique"
 
     add_index :decidim_consultations_endorsements,
-              %w[decidim_consultation_question_id decidim_author_id decidim_user_group_id],
+              %w(decidim_consultation_question_id decidim_author_id decidim_user_group_id),
               name: "index_question_votes_author_unique",
               unique: true
   end
@@ -29,7 +29,7 @@ class RenameVoteIndexesToEndorsementIndexes < ActiveRecord::Migration[5.1]
     remove_index :decidim_consultations_endorsements, name: "index_question_votes_author_unique"
 
     add_index :decidim_consultations_endorsements,
-              %w[decidim_consultation_question_id decidim_author_id],
+              %w(decidim_consultation_question_id decidim_author_id),
               name: "index_question_votes_author_unique",
               unique: true
   end

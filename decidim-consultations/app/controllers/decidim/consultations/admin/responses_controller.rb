@@ -73,7 +73,7 @@ module Decidim
         private
 
         def current_response
-          @response ||= Response.find_by(id: params[:id])
+          @current_response ||= Response.find_by(id: params[:id])
         end
 
         def response_form

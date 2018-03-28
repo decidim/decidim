@@ -38,7 +38,7 @@ module Decidim
       private
 
       def finished_consultations
-        @past_cosultations ||= OrganizationConsultations.for(current_organization).finished.published
+        @finished_consultations ||= OrganizationConsultations.for(current_organization).finished.published
       end
 
       def active_consultations

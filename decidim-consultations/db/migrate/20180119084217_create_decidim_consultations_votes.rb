@@ -10,7 +10,7 @@ class CreateDecidimConsultationsVotes < ActiveRecord::Migration[5.1]
     end
 
     add_index :decidim_consultations_votes,
-              %i[decidim_consultation_question_id decidim_author_id],
+              [:decidim_consultation_question_id, :decidim_author_id],
               unique: true,
               name: "index_question_votes_author_unique"
   end

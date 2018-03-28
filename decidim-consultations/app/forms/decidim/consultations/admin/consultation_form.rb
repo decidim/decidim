@@ -28,11 +28,15 @@ module Decidim
         validates :end_voting_date, presence: true, date: { after_or_equal_to: :start_voting_date }
         validate :slug_uniqueness
 
-        validates :banner_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
-        validates :introductory_image, file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } }, file_content_type: { allow: ["image/jpeg", "image/png"] }
+        validates :banner_image,
+                  file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
+                  file_content_type: { allow: ["image/jpeg", "image/png"] }
+        validates :introductory_image,
+                  file_size: { less_than_or_equal_to: ->(_record) { Decidim.maximum_attachment_size } },
+                  file_content_type: { allow: ["image/jpeg", "image/png"] }
 
         def highlighted_scope
-          @scope ||= current_organization.scopes.where(id: decidim_highlighted_scope_id).first
+          @highlighted_scope ||= current_organization.scopes.where(id: decidim_highlighted_scope_id).first
         end
 
         private

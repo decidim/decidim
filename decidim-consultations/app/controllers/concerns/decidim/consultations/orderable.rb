@@ -25,7 +25,7 @@ module Decidim
 
         # Available orders based on enabled settings
         def available_orders
-          %w[random recent]
+          %w(random recent)
         end
 
         def default_order

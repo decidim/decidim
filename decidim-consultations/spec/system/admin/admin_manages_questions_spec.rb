@@ -16,44 +16,32 @@ describe "Admin manages questions", type: :system do
         fill_in_i18n_editor(
           :question_title,
           "#question-title-tabs",
-          en: "My question",
-          es: "Mi pregunta",
-          ca: "La meua pregunta"
+          en: "My question"
         )
         fill_in_i18n(
           :question_subtitle,
           "#question-subtitle-tabs",
-          en: "Subtitle",
-          es: "Subtítulo",
-          ca: "Subtítol"
+          en: "Subtitle"
         )
         fill_in_i18n(
           :question_promoter_group,
           "#question-promoter_group-tabs",
-          en: "Promoter group",
-          es: "Grupo promotor",
-          ca: "Grup promotor"
+          en: "Promoter group"
         )
         fill_in_i18n(
           :question_participatory_scope,
           "#question-participatory_scope-tabs",
-          en: "Participatory scope",
-          es: "Ámbito participativo",
-          ca: "Àmbit participatiu"
+          en: "Participatory scope"
         )
         fill_in_i18n_editor(
           :question_question_context,
           "#question-question_context-tabs",
-          en: "Context",
-          es: "Contexto",
-          ca: "Contexte"
+          en: "Context"
         )
         fill_in_i18n_editor(
           :question_what_is_decided,
           "#question-what_is_decided-tabs",
-          en: "What is decided",
-          es: "Qué se decide",
-          ca: "Què es decideix"
+          en: "What is decided"
         )
         fill_in :question_slug, with: "slug"
         attach_file :question_hero_image, image2_path
@@ -84,37 +72,27 @@ describe "Admin manages questions", type: :system do
         fill_in_i18n(
           :question_subtitle,
           "#question-subtitle-tabs",
-          en: "Subtitle",
-          es: "Subtítulo",
-          ca: "Subtítol"
+          en: "Subtitle"
         )
         fill_in_i18n(
           :question_promoter_group,
           "#question-promoter_group-tabs",
-          en: "Promoter group",
-          es: "Grupo promotor",
-          ca: "Grup promotor"
+          en: "Promoter group"
         )
         fill_in_i18n(
           :question_participatory_scope,
           "#question-participatory_scope-tabs",
-          en: "Participatory scope",
-          es: "Ámbito participativo",
-          ca: "Àmbit participatiu"
+          en: "Participatory scope"
         )
         fill_in_i18n_editor(
           :question_question_context,
           "#question-question_context-tabs",
-          en: "Context",
-          es: "Contexto",
-          ca: "Contexte"
+          en: "Context"
         )
         fill_in_i18n_editor(
           :question_what_is_decided,
           "#question-what_is_decided-tabs",
-          en: "What is decided",
-          es: "Qué se decide",
-          ca: "Què es decideix"
+          en: "What is decided"
         )
         attach_file :question_banner_image, image1_path
         attach_file :question_hero_image, image2_path
@@ -137,9 +115,7 @@ describe "Admin manages questions", type: :system do
       fill_in_i18n_editor(
         :question_title,
         "#question-title-tabs",
-        en: "My new title",
-        es: "Mi nuevo título",
-        ca: "El meu nou títol"
+        en: "My new title"
       )
       attach_file :question_banner_image, image3_path
 

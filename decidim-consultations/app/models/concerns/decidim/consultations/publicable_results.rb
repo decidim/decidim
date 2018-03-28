@@ -36,7 +36,7 @@ module Decidim
       #
       # Returns true if the record was properly saved, false otherwise.
       def publish_results!
-        update_attributes!(results_published_at: Time.current)
+        update!(results_published_at: Time.current)
       end
 
       #
@@ -44,7 +44,7 @@ module Decidim
       #
       # Returns true if the record was properly saved, false otherwise.
       def unpublish_results!
-        update_attributes!(results_published_at: nil)
+        update!(results_published_at: nil)
       end
     end
   end
