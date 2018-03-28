@@ -178,11 +178,11 @@ fr:
       attachment_collections:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle collection.
-          success: Collection créée avec succès.
+          success: Dossier crée avec succès.
         destroy:
-          success: Collection détruite avec succès.
+          success: Dossier détruit avec succès.
         edit:
-          title: Modifier la collection
+          title: Modifier le dossier
           update: Mettre à jour
         index:
           attachment_collection_used: Cette collection ne peut pas être supprimée car elle est en cours d'utilisation.
