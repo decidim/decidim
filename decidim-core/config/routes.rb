@@ -67,5 +67,13 @@ Decidim::Core::Engine.routes.draw do
     get :unsubscribe, on: :collection
   end
 
+  use_doorkeeper do
+    skip_controllers :applications, :authorized_applications
+  end
+
+  scope :oauth do
+    get "/me" => "doorkeeper/credentials#me"
+  end
+
   root to: "pages#show", id: "home"
 end

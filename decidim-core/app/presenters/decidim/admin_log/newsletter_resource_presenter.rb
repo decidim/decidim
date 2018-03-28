@@ -7,7 +7,7 @@ module Decidim
     class NewsletterResourcePresenter < Decidim::Log::ResourcePresenter
       private
 
-      # Private: Finds the public link for the given static page..
+      # Private: Finds the admin link for the newsletter.
       #
       # Returns an HTML-safe String.
       def resource_path

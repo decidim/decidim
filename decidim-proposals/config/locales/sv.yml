@@ -2,17 +2,17 @@ sv:
   activemodel:
     attributes:
       proposal:
-        answer: Svar
+        answer: Svara
         answered_at: Besvaras vid
-        body: Kropp
+        body: Innehåll
         category_id: Kategori
         has_address: Har adress
         scope_id: Omfattning
-        state: stat
+        state: Status
         title: Titel
         user_group_id: Skapa förslag som
       proposal_answer:
-        answer: Svar
+        answer: Svara
       proposals_copy:
         copy_proposals: Jag förstår att detta kommer att importera alla förslag från den valda komponenten till den nuvarande och att den här åtgärden inte kan reverseras.
         origin_component_id: Komponent för att kopiera förslagen från
@@ -24,15 +24,14 @@ sv:
           endorse: Stödja
           vote: Rösta
           withdraw: Dra tillbaka
-        name: förslag
+        name: Förslag
         settings:
           global:
             announcement: Meddelande
-            attachments_allowed: Tillåt bilagor
+            attachments_allowed: Tillåt bifogade filer
             can_accumulate_supports_beyond_threshold: Kan ackumulera stöd över gränsen
             comments_enabled: Kommentarer aktiverade
             geocoding_enabled: Geocoding aktiverad
-            maximum_votes_per_proposal: Maximalt antal röster per förslag
             new_proposal_help_text: Nytt förslag till hjälptext
             official_proposals_enabled: Officiella förslag möjliga
             proposal_answering_enabled: Förslagsvarning aktiverat
@@ -42,10 +41,11 @@ sv:
             proposal_wizard_step_1_help_text: Förslagsguiden "Skapa" steg hjälptext
             proposal_wizard_step_2_help_text: Förslagsguiden "Jämför" steg hjälptext
             proposal_wizard_step_3_help_text: Förslagsguiden "Publicera" steg hjälptext
+            threshold_per_proposal: Tröskel per förslag
             vote_limit: Rösta per användare
           step:
             announcement: Meddelande
-            comments_blocked: Kommentarer blockerad
+            comments_blocked: Kommentarer blockerade
             creation_enabled: Förslagstillverkning möjliggjorde
             endorsements_blocked: Anmärkningar blockerade
             endorsements_enabled: Anmärkningar aktiverade
@@ -70,16 +70,6 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
           email_subject: Ett förslag som du följer är godkänt
           notification_title: <a href="%{resource_path}">%{resource_title}</a> förslaget har godkänts.
-        proposal_created:
-          email_intro: "%{author_name} %{author_nickname}, vem du följer har skapat ett nytt förslag, kolla in det och bidra med:"
-          email_outro: Du har fått den här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
-          email_subject: Nytt förslag av %{author_nickname}
-          notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> skapades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
-        proposal_created_for_space:
-          email_intro: Förslaget "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
-          email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan följa det från föregående länk.
-          email_subject: Nytt förslag läggs till %{participatory_space_title}
-          notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har lagts till i %{participatory_space_title}
         proposal_endorsed:
           email_intro: "%{endorser_name} %{endorser_nickname}, vem du följer har just godkänt ett förslag som kan vara intressant för dig, kolla in det och bidra med:"
           email_outro: Du har fått den här meddelandet eftersom du följer %{endorser_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
@@ -90,6 +80,20 @@ sv:
           email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
           email_subject: Ett förslag som du följer utvärderas
           notification_title: <a href="%{resource_path}">%{resource_title}</a> förslaget utvärderas.
+        proposal_mentioned:
+          email_intro: Ditt förslag "%{mentioned_proposal_title}" har nämnts <a href="%{resource_path}">i det här utrymmet</a> i kommentarerna.
+          email_subject: Ditt förslag "%{mentioned_proposal_title}" har nämnts
+          notification_title: Ditt förslag "%{mentioned_proposal_title}" har nämnts <a href="%{resource_path}">i det här utrymmet</a> i kommentarerna.
+        proposal_published:
+          email_intro: "%{author_name} %{author_nickname}, vem du följer har publicerat ett nytt förslag, kolla in det och bidra med:"
+          email_outro: Du har fått den här meddelandet eftersom du följer %{author_nickname}. Du kan sluta ta emot meddelanden efter föregående länk.
+          email_subject: Nytt förslag från %{author_nickname}
+          notification_title: <a href="%{resource_path}">%{resource_title}</a> förslaget publicerades av <a href="%{author_path}">%{author_name} %{author_nickname}</a>.
+        proposal_published_for_space:
+          email_intro: Förslaget "%{resource_title}" har lagts till i "%{participatory_space_title}" som du följer.
+          email_outro: Du har fått den här meddelandet eftersom du följer "%{participatory_space_title}". Du kan följa det från föregående länk.
+          email_subject: Nytt förslag läggs till %{participatory_space_title}
+          notification_title: Förslaget <a href="%{resource_path}">%{resource_title}</a> har lagts till %{participatory_space_title}
         proposal_rejected:
           email_intro: 'Förslaget "%{resource_title}" har avslagits. Du kan läsa svaret på den här sidan:'
           email_outro: Du har fått den här meddelandet eftersom du följer "%{resource_title}". Du kan följa det från föregående länk.
@@ -108,37 +112,37 @@ sv:
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
-          proposals: förslag
+          proposals: Förslag
         proposal:
           creation_date: 'Skapelse: %{date}'
           view_proposal: Visa förslag
     participatory_spaces:
       highlighted_proposals:
-        proposals: förslag
+        proposals: Förslag
         see_all_proposals: Se alla förslag
       proposal:
         creation_date: 'Skapelse: %{date}'
         view_proposal: Visa förslag
     proposals:
       actions:
-        answer: Svar
+        answer: Svara
         import: Importera från en annan komponent
         new: Ny
         private_notes: Privata anteckningar
         title: Handlingar
       admin:
         actions:
-          preview: Förhandsvisning
+          preview: Förhandsvisa
         exports:
-          comments: kommentarer
-          proposals: förslag
+          comments: Kommentarer
+          proposals: Förslag
         models:
           proposal:
             name: Förslag
         proposal_answers:
           edit:
             accepted: Accepterad
-            answer_proposal: Svar
+            answer_proposal: Svara
             evaluating: utvärdera
             rejected: avvisade
             title: Svar för förslag %{title}
@@ -147,8 +151,8 @@ sv:
             error: Det har varit ett problem att skapa denna förslagsnotering
             success: Förslagsmeddelande med framgång skapad
           form:
-            note: Notera
-            submit: Lämna
+            note: Annteckning
+            submit: Skicka in
           leave_your_note: Lämna din anteckning
           title: Privata anteckningar
         proposals:
@@ -163,17 +167,17 @@ sv:
             select_a_category: Välj en kategori
           index:
             actions: Handlingar
-            cancel: Annullera
+            cancel: Avbryt
             change_category: Ändra kategori
             selected: vald
-            title: förslag
-            update: Uppdatering
+            title: Förslag
+            update: Uppdatera
           new:
             create: Skapa
             title: Skapa förslag
           update_category:
             invalid: 'Dessa förslag hade redan %{category} kategorin: %{proposals}.'
-            select_a_category: Var god välj en kategori
+            select_a_category: Välj en kategori
             select_a_proposal: Vänligen välj ett förslag
             success: 'Förslag som har uppdaterats till %{category} kategorin: %{proposals}.'
         proposals_imports:
@@ -183,14 +187,14 @@ sv:
           new:
             create: Importera förslag
             no_components: Det finns inga andra förslagskomponenter i detta deltagande utrymme för att importera förslagen från.
-            select_component: Var god välj en komponent
+            select_component: Välj en komponent
             select_states: Kontrollera tillstånden för de förslag som ska importeras
         shared:
           info_proposal:
-            body: Kropp
+            body: Innehåll
             created_at: Skapelsedagen
-            proposal_votes_count: Röster räknas
-            proposals: förslag
+            proposal_votes_count: Antal röster
+            proposals: Förslag
       admin_log:
         proposal:
           answer: "%{user_name} svarade på %{resource_name} -förslaget på %{space_name} -utrymmet"
@@ -206,30 +210,33 @@ sv:
       create:
         error: Det har varit fel när du lagrade förslaget.
         success: Förslaget skapades framgångsrikt. Sparat som ett formulär.
+      destroy_draft:
+        error: Det har funnits fel att radera förslaget.
+        success: Förslagsförslaget blev framgångsrikt förstört.
       models:
         proposal:
           fields:
             category: Kategori
-            comments: kommentarer
+            comments: Kommentarer
             created_at: Skapad vid
             id: ID
-            notes: anteckningar
+            notes: Anteckningar
             official_proposal: Officiellt förslag
             scope: Omfattning
-            state: stat
+            state: Status
             title: Titel
-            votes: röster
+            votes: Röster
       new:
         limit_reached: Du kan inte skapa nya förslag eftersom du har överskridit gränsen.
       proposal_endorsements:
         create:
           error: Det har varit fel när man godkände förslaget.
         identities:
-          done: Gjort
+          done: Klar
           select_identity: Välj identitet
       proposal_endorsements_helper:
         endorsement_button:
-          already_endorsed: Redan godkänd
+          already_endorsed: Stött
           endorse: Stödja
       proposal_votes:
         create:
@@ -245,40 +252,39 @@ sv:
             other: "%{count} förslag"
         edit:
           back: Tillbaka
-          select_a_category: Var god välj en kategori
+          select_a_category: Välj en kategori
           send: Skicka
           title: Redigera förslag
         edit_draft:
-          send: Förhandsvisning
+          discard: Kassera detta utkast
+          discard_confirmation: Är du säker på att du vill kassera förslaget till förslag?
+          send: Förhandsvisa
           title: Redigera förslagskoncept
-        endorsement_button:
-          already_endorsed: Redan godkänd
-          already_endorsed_hover: Unendorse
         endorsement_identities_cabin:
           endorse: Stödja
         endorsements_card_row:
           endorse: Stödja
         endorsements_listing:
-          see_all: Se allt
+          see_all: Se alla
           see_less: Se mindre
           title: Förteckning över godkännanden
         filters:
           accepted: Accepterad
           activity: Aktivitet
-          all: Allt
+          all: Alla
           category: Kategori
           category_prompt: Välj en kategori
-          citizens: medborgare
+          citizens: Medborgare
           evaluating: utvärdera
           official: Officiell
           origin: Ursprung
           rejected: avvisade
-          related_to: Relaterat till
+          related_to: Relaterad till
           search: Sök
-          state: stat
-          voted: Framröstad
+          state: Status
+          voted: Röstade
         filters_small_view:
-          close_modal: Stäng modal
+          close_modal: Stäng fönstret
           filter: Filtrera
           filter_by: Filtrera efter
           unfold: Veckla ut
@@ -288,18 +294,18 @@ sv:
           view_proposal: Visa förslag
         linked_proposals:
           proposal_votes:
-            one: rösta
+            one: röst
             other: röster
         new:
           attachment_legend: "(Valfritt) Lägg till en bilaga"
-          select_a_category: Var god välj en kategori
-          send: Fortsätta
+          select_a_category: Välj en kategori
+          send: Fortsätt
           title: Skapa ditt förslag
         orders:
           label: 'Beställ förslag av:'
-          most_voted: De flesta röstade
+          most_voted: Mest röstade
           random: Slumpmässig
-          recent: Nyligen
+          recent: Senaste
         preview:
           modify: Ändra förslaget
           proposal_edit_before_minutes:
@@ -318,37 +324,38 @@ sv:
           report: Rapportera
           sign_in: Logga in
           sign_in_or_up: "%{in} eller %{up} att delta"
-          sign_up: Bli Medlem
+          sign_up: registrera
           withdraw_btn_hint: Du kan dra tillbaka ditt förslag om du ändrar dig, så länge du inte har fått något stöd. Förslaget är inte borttaget, det kommer att visas i listan över återkallade förslag.
           withdraw_confirmation: Är du säker på att dra tillbaka detta förslag?
           withdraw_proposal: Dra ut förslaget
         tags:
           changed_from: "(ändrad från <u>%{previous_category}</u> av en administratör)"
+          filed_as: Filed as
         vote_button:
-          already_voted: Redan röstade
-          already_voted_hover: Unvote
+          already_voted: Redan röstat
+          already_voted_hover: Ta bort sin röst
           maximum_votes_reached: Rösta gränsen uppnådd
           no_votes_remaining: Inga röster kvar
           vote: Rösta
           votes_blocked: Röstning inaktiverad
         votes_count:
           count:
-            one: RÖSTA
+            one: RÖST
             other: RÖSTER
           most_popular_proposal: Mest populära förslaget
-          need_more_votes: Behöver flera röster
+          need_more_votes: Behöver fler röster
         voting_rules:
           can_accumulate_supports_beyond_threshold:
-            description: Varje förslag kan ackumuleras mer än högsta röster
-          maximum_votes_per_proposal:
-            description: Varje förslag får maximalt %{limit} röster.
+            description: Varje förslag kan samla mer än %{limit} stöd
           proposal_limit:
             description: Du kan skapa upp till %{limit} förslag.
+          threshold_per_proposal:
+            description: För att accepteras måste förslag nå %{limit} stöd
           title: 'Röstning är föremål för följande regler:'
           vote_limit:
             description: Du kan rösta upp till %{limit} förslag.
-            left: Återstående
-            votes: röster
+            left: Kvar
+            votes: Röster
         wizard_aside:
           back: Tillbaka
           info: Du skapar ett <strong>förslag</strong>.

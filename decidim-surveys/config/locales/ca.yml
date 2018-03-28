@@ -51,6 +51,7 @@ ca:
             already_answered_warning: L'enquesta ja està contestada per alguns usuaris i per tant no pots modificar les seves preguntes.
           question:
             add_answer_option: Afegir opció de resposta
+            description: Descripció
             down: Avall
             question: Pregunta
             remove: Elimina

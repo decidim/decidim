@@ -7,7 +7,7 @@
   const { Decidim: { FormFilterComponent } } = exports;
 
   $(() => {
-    $('form.new_filter').each(function () {
+    $("form.new_filter").each(function () {
       const formFilter = new FormFilterComponent($(this));
 
       formFilter.mountComponent();

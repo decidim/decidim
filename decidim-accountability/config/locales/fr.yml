@@ -103,9 +103,9 @@ fr:
             success: Entrée mise à jour avec succès
       admin_log:
         result:
-          create: "%{user_name} résultat créé %{resource_name} dans %{space_name}"
-          delete: "%{user_name} a supprimé le résultat %{resource_name} en %{space_name}"
-          update: "%{user_name} résultat mis à jour %{resource_name} dans %{space_name}"
+          create: "%{user_name} a créé le résultat %{resource_name} dans %{space_name}"
+          delete: "%{user_name} a supprimé le résultat %{resource_name} dans %{space_name}"
+          update: "%{user_name} a mis à jour le résultat %{resource_name} dans %{space_name}"
         value_types:
           parent_presenter:
             not_found: 'Le parent n''a pas été trouvé dans la base de données (ID: %{id})'
@@ -181,14 +181,14 @@ fr:
             display_progress_enabled: Afficher les progrès
             heading_leaf_level_results: Nom pour "Projets"
             heading_parent_level_results: Nom pour "Résultats"
-            intro: Intro
+            intro: Introduction
             subcategories_label: Nom pour "Sous-catégories"
           step:
             comments_blocked: Commentaires bloqués
     events:
       accountability:
         proposal_linked:
-          email_intro: 'La proposition "%{proposal_title}" a été incluse dans un résultat. Vous pouvez le voir sur cette page:'
+          email_intro: 'La proposition "%{proposal_title}" a été incluse dans un résultat. Vous pouvez le voir sur cette page :'
           email_outro: Vous avez reçu cette notification parce que vous suivez "%{proposal_title}". Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: Une mise à jour de %{proposal_title}
           notification_title: La proposition <a href="%{proposal_path}">%{proposal_title}</a> a été incluse dans le résultat <a href="%{resource_path}">%{resource_title}</a>.

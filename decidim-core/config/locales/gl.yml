@@ -8,7 +8,7 @@ gl:
       user:
         email: O teu correo electrónico
         name: O teu nome
-        nickname: O teu identificador breve e único en decidir
+        nickname: O teu identificador breve e único
         password: Novo contrasinal
         password_confirmation: Confirma o teu novo contrasinal
         remove_avatar: Eliminar avatar
@@ -71,6 +71,10 @@ gl:
         delete: "%{user_name} eliminou o boletín informativo %{resource_name}"
         deliver: "%{user_name} entregou o boletín informativo %{resource_name}"
         update: "%{user_name} actualizou o boletín informativo %{resource_name}"
+      oauth_application:
+        create: "%{user_name} creou a aplicación %{resource_name} OAuth"
+        delete: "%{user_name} eliminou a aplicación %{resource_name} OAuth"
+        update: "%{user_name} actualizou a aplicación %{resource_name} OAuth"
       organization:
         update: "%{user_name} actualizou a configuración da organización"
       scope:
@@ -147,7 +151,7 @@ gl:
           email_already_exists: Outra conta usa o mesmo enderezo de correo electrónico
         new:
           complete_profile: Perfil completo
-          nickname_help: O teu identificador breve e único en decidir
+          nickname_help: O teu identificador breve e único en %{organization}
           sign_up: Completa o teu perfil
           subtitle: Encha o seguinte formulario para completar o rexistro
           username_help: Nome público que aparece nas túas publicacións. Co obxectivo de garantir o anonimato, pode ser calquera nome.
@@ -155,7 +159,7 @@ gl:
         new:
           already_have_an_account?: Xa ten unha conta?
           newsletter: Recibir un boletín ocasional con información relevante
-          nickname_help: O teu identificador breve e único en decidir
+          nickname_help: O teu identificador breve e único en %{organization}
           sign_in: Iniciar sesión
           sign_up: Rexistrarse
           sign_up_as:
@@ -173,6 +177,21 @@ gl:
       shared:
         omniauth_buttons:
           or: Ou
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Autorizar a aplicación
+          by_organization_link_html: <small class="heading-small">por %{link}</small>
+          cancel: Cancelar
+          connect_your_account_html: Conecta a túa conta iniciando sesión en <strong>%{organization}</strong>
+          publish_content: Publica contido por ti
+          see_email: Vexa o teu correo electrónico
+          see_name: Vexa o seu nome
+          see_username: Vexa o seu nome de usuario
+          this_application_will_be_able_to: 'Esta aplicación poderá:'
+          this_application_will_not_be_able_to: 'Esta aplicación non poderá:'
+          update_profile: Actualiza o teu perfil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> quere usar a túa conta"
     errors:
       internal_server_error:
         title: Produciuse un problema co noso servidor
@@ -313,6 +332,10 @@ gl:
     pages:
       index:
         title: Máis información
+    participatory_space_private_users:
+      not_allowed: Non tes permiso para ver este contido
+    profile:
+      deleted: Usuario eliminado
     profiles:
       default_officialization_text: Este participante está verificado públicamente, verificouse o seu nome ou o seu papel para corresponder co seu nome e rol real
       show:
@@ -400,7 +423,7 @@ gl:
     invitations:
       edit:
         header: Establece o teu contrasinal
-        nickname_help: O teu identificador único en decidir.
+        nickname_help: O teu identificador único en %{organization}.
         submit_button: Gardar
     mailer:
       invitation_instructions:
@@ -410,18 +433,25 @@ gl:
         ignore: |-
           Se non queres aceptar a invitación, ignore este correo electrónico.23_6_0_321 A túa conta non se creará ata que accedas á ligazón de arriba e configure o teu contrasinal.
         invited_you_as_admin: "%{invited_by} invitoute como administrador de %{application}. Podes aceptalo a través da seguinte ligazón."
+        invited_you_as_private_user: "%{invited_by} convidoute como usuario privado de %{application}. Podes aceptalo a través da seguinte ligazón."
         someone_invited_you: Alguén te invitou a %{application}. Podes aceptalo a través da seguinte ligazón.
         someone_invited_you_as_admin: Alguén te convidou como administrador de %{application}, podes aceptalo a través da seguinte ligazón.
+        someone_invited_you_as_private_user: Alguén te convidou como usuario privado de %{application}, podes aceptalo a través da seguinte ligazón.
       invite_admin:
         subject: Invitaboute a xestionar %{organization}
       invite_collaborator:
         subject: Invitoute a colaborar en %{organization}
+      invite_private_user:
+        subject: Invitouse a un proceso participativo privado en %{organization}
       organization_admin_invitation_instructions:
         subject: Invitaboute a xestionar %{organization}
       password_change:
         greeting: Ola %{recipient}!
         message: Estamos a contactar con vostede para notificarlle que se cambiou o seu contrasinal.
         subject: Contrasinal modificado
+  doorkeeper:
+    scopes:
+      public: A túa información pública.
   errors:
     messages:
       content_type_whitelist_error: O tipo de ficheiro non é válido
@@ -501,6 +531,7 @@ gl:
         answers_count: Enquisas concluídas
         assemblies_count: Asembleas
         comments_count: Comentarios
+        debates_count: Debates
         endorsements_count: Aprobacións
         headline: Estado actual de %{organization}
         meetings_count: Reunións

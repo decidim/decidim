@@ -2,7 +2,7 @@
 
 (function() {
   $(() => {
-    let $appendableElements = $('.js-append');
+    let $appendableElements = $(".js-append");
     $appendableElements.appendAround();
   })
 }(window));

@@ -32,6 +32,14 @@ describe Decidim::ActionLog do
       let(:action_log) { build :action_log, resource: nil }
 
       it { is_expected.not_to be_valid }
+
+      context "when the action is delete" do
+        before do
+          action_log.action = "delete"
+        end
+
+        it { is_expected.to be_valid }
+      end
     end
   end
 

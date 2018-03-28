@@ -1,0 +1,29 @@
+<div class="card card--action card--list">
+  <% resources.each do |sortition| %>
+    <div class="card--list__item">
+      <div class="card--list__text">
+        <%= link_to resource_locator(sortition).path do %>
+          <%= icon "proposals", class: "card--list__icon", remove_icon_class: true %>
+        <% end %>
+        <div>
+          <%= link_to resource_locator(sortition).path, class: "card__link" do %>
+            <h5 class="card--list__heading"><%= translated_attribute sortition.title %></h5>
+          <% end %>
+          <div class="author">
+            <span class="author__avatar">
+              <%= image_tag sortition.author.avatar_url %>
+            </span>
+            <span class="author__name">
+              <%= sortition.author.name %>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="card--list__data">
+        <span class="card--list__data__number">
+          <%= sortition.selected_proposals.size %>
+        </span> <%= t(".selected_proposals", count: proposal.selected_proposals.size) %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -52,20 +52,24 @@ ca:
         title: "%{count} comentaris"
     events:
       comments:
+        comment_by_followed_user:
+          email_intro: "%{author_name} ha deixat un comentari a %{resource_title}. Podeu llegir-lo en aquesta pàgina:"
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint %{author_name}. Podeu deixar de seguir aquest usuari des de la seva pàgina de perfil.
+          email_subject: Hi ha un nou comentari per %{author_name} en %{resource_title}
+          notification_title: Hi ha un nou comentari per <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>.
         comment_created:
-          comment:
-            email_intro: 'S''ha comentat "%{resource_title}". Podeu llegir el comentari d''aquesta pàgina:'
-            email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}" or el seu autor/a. El pots deixar de seguir al link anterior.
-            email_subject: Hi ha un nou comentari de %{author_name} a %{resource_title}
-            notification_title: Hi ha un nou comentari de <a href="%{author_path}">%{author_name} %{author_nickname}</a> a <a href="%{resource_path}">%{resource_title}</a>
-          reply:
-            email_intro: S'ha comentat "%{resource_title}"
-            email_outro: Has rebut aquesta notificació perquè que segueixes "%{resource_title}" o el seu autor/a. El pots deixar de seguir al link anterior.
-            email_subject: "%{author_name} va respondre al vostre comentari en %{resource_title}"
-            notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> respon al vostre comentari en <a href="%{resource_path}">%{resource_title}</a>
+          email_intro: "S'ha comentat %{resource_title} . Podeu llegir el comentari d'aquesta pàgina:"
+          email_outro: Heu rebut aquesta notificació perquè esteu seguint "%{resource_title}" o el seu autor. Podeu deixar de seguir-lo des de l'enllaç anterior.
+          email_subject: Hi ha un nou comentari de %{author_name} a %{resource_title}
+          notification_title: Hi ha un nou comentari de <a href="%{author_path}">%{author_name} %{author_nickname}</a> en <a href="%{resource_path}">%{resource_title}</a>
+        reply_created:
+          email_intro: "%{author_name} ha respost el teu comentari a %{resource_title}. Podeu llegir-lo en aquesta pàgina:"
+          email_outro: Heu rebut aquesta notificació perquè s'ha respost el vostre comentari.
+          email_subject: "%{author_name} ha respost el teu comentari a %{resource_title}"
+          notification_title: <a href="%{author_path}">%{author_name} %{author_nickname}</a> ha respost el vostre comentari a <a href="%{resource_path}">%{resource_title}</a>
         user_mentioned:
           email_intro: Has estat esmentat
-          email_outro: Has rebut aquesta notificació perquè has estat esmentat a "%{resource_title}".
+          email_outro: Heu rebut aquesta notificació perquè heu esmentat a %{resource_title}.
           email_subject: Has estat esmentat a %{resource_title}
           notification_title: Has estat esmentat a <a href="%{resource_path}">%{resource_title}</a> per <a href="%{author_path}">%{author_name} %{author_nickname}</a>
   errors:

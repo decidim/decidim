@@ -22,8 +22,12 @@ module Decidim
 
         def map_model(model)
           self.answer_options = model.answer_options.each_with_index.map do |option, id|
-            SurveyQuestionAnswerOptionForm.new(option.merge(id: id + 1))
+            SurveyQuestionAnswerOptionForm.new(option.merge(id: id + 1, deleted: false))
           end
+        end
+
+        def answer_options_to_persist
+          answer_options.reject(&:deleted)
         end
 
         def to_param

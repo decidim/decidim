@@ -71,6 +71,10 @@ ca:
         delete: "%{user_name} ha eliminat el butlletí %{resource_name}"
         deliver: "%{user_name} ha enviat el butlletí %{resource_name}"
         update: "%{user_name} ha actualitzat el butlletí %{resource_name}"
+      oauth_application:
+        create: "%{user_name} ha creat la %{resource_name} aplicació OAuth"
+        delete: "%{user_name} ha eliminat la %{resource_name} aplicació OAuth"
+        update: "%{user_name} ha actualitzat la %{resource_name} aplicació OAuth"
       organization:
         update: "%{user_name} ha actualitzat la configuració de l'organització"
       scope:
@@ -147,7 +151,7 @@ ca:
           email_already_exists: Un altre compte està utilitzant la mateixa adreça de correu electrònic
         new:
           complete_profile: Completa el perfil
-          nickname_help: El vostre identificador curt i únic
+          nickname_help: El vostre identificador curt i únic a %{organization}
           sign_up: Si us plau completa el teu perfil
           subtitle: Si us plau, omple el següent formulari per tal de completar la teva inscripció
           username_help: Nom públic que apareix en els teus missatges. Amb l'objectiu de garantir l'anonimat, pot ser qualsevol nom.
@@ -155,7 +159,7 @@ ca:
         new:
           already_have_an_account?: Ja tens un compte?
           newsletter: Vull rebre un butlletí ocasional amb informació rellevant
-          nickname_help: El vostre identificador curt i únic
+          nickname_help: El vostre identificador curt i únic a %{organization}
           sign_in: Entra
           sign_up: Registra't
           sign_up_as:
@@ -173,6 +177,21 @@ ca:
       shared:
         omniauth_buttons:
           or: O
+    doorkeeper:
+      authorizations:
+        new:
+          authorize: Autoritza l'aplicació
+          by_organization_link_html: <small class="heading-small">per %{link}</small>
+          cancel: Cancel · lar
+          connect_your_account_html: Connecteu el vostre compte iniciant la sessió a <strong>%{organization}</strong>
+          publish_content: Publiqueu contingut per a vosaltres
+          see_email: Consulteu el vostre correu electrònic
+          see_name: Mira el teu nom
+          see_username: Consulta el teu nom d'usuari
+          this_application_will_be_able_to: 'Aquesta aplicació podrà:'
+          this_application_will_not_be_able_to: 'Aquesta aplicació no podrà:'
+          update_profile: Actualitzeu el vostre perfil
+          wants_to_use_your_account_html: "<strong>%{application_name}</strong> vol utilitzar el vostre compte"
     errors:
       internal_server_error:
         title: Hi ha hagut un problema amb el nostre servidor
@@ -313,6 +332,10 @@ ca:
     pages:
       index:
         title: Més informació
+    participatory_space_private_users:
+      not_allowed: No tens permís per visualitzar aquest contingut
+    profile:
+      deleted: Usuari eliminat
     profiles:
       default_officialization_text: Aquest participant es verifica públicament. El seu nom o la seva funció s'ha verificat perquè es correspongui amb el seu nom i funció reals
       show:
@@ -400,7 +423,7 @@ ca:
     invitations:
       edit:
         header: Establir la contrasenya
-        nickname_help: El teu identificador únic.
+        nickname_help: El vostre identificador únic a %{organization}.
         submit_button: Desa
     mailer:
       invitation_instructions:
@@ -411,18 +434,25 @@ ca:
           Si no vols acceptar la invitació, ignora aquest correu.<br />
           El teu compte no es crearà fins que no accedeixis a l'enllaç de sota i triïs la teva contrasenya.
         invited_you_as_admin: "%{invited_by} t'ha convidat com a administrador de %{application}. Pots acceptar-ho a través de l'enllaç següent."
+        invited_you_as_private_user: "%{invited_by} t'ha convidat com a usuari privat de %{application}. Podeu acceptar-lo a través de l'enllaç següent."
         someone_invited_you: Algú t'ha convidat a %{application}. Pots acceptar-ho a través de l'enllaç següent.
         someone_invited_you_as_admin: Algú t'ha convidat com a administrador de %{application}, pots acceptar-lo a través de l'enllaç següent.
+        someone_invited_you_as_private_user: Algú t'ha convidat com a usuari privat de %{application}, pots acceptar-ho a través del següent enllaç.
       invite_admin:
         subject: Has estat convidat a gestionar %{organization}
       invite_collaborator:
         subject: Has estat convidat a col·laborar a %{organization}
+      invite_private_user:
+        subject: Has estat convidat a un procés participatiu privat en %{organization}
       organization_admin_invitation_instructions:
         subject: Has estat convidat a gestionar %{organization}
       password_change:
         greeting: Hola %{recipient}!
         message: Ens posem en contacte amb tu per notificar-te que la teva contrasenya ha estat canviada correctament.
         subject: Contrasenya modificada
+  doorkeeper:
+    scopes:
+      public: La vostra informació pública.
   errors:
     messages:
       content_type_whitelist_error: El tipus de fitxer no és vàlid
@@ -502,6 +532,7 @@ ca:
         answers_count: Enquestes realitzades
         assemblies_count: Assemblees
         comments_count: Comentaris
+        debates_count: Debats
         endorsements_count: Adhesions
         headline: Estat actual de %{organization}
         meetings_count: Trobades
