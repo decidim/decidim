@@ -570,6 +570,9 @@ jobs:
       - run:
           name: Run consultations RSpec
           command: mkdir ~/rspec && cd decidim-consultations && rake
+      - run:
+          name: Format CodeClimate test coverage
+          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.consultations.json coverage/.resultset.json
       - store_artifacts:
           path: /app/spec/decidim_dummy_app/tmp/screenshots
       - store_test_results:
