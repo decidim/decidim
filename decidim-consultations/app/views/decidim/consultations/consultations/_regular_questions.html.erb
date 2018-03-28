@@ -1,7 +1,7 @@
 <% if consultation.regular_questions.any? %>
   <section id="regular-questions" class="row section">
     <h2 class=section-heading>
-      <%= t "consultations.regular_questions.title", scope: "decidim"  %>
+      <%= t "consultations.regular_questions.title", scope: "decidim" %>
     </h2>
 
     <% consultation.regular_questions.each do |scope_id, questions| %>

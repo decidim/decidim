@@ -10,8 +10,8 @@
         <div class="vote-button-caption"><%= t("questions.vote_button.vote", scope: "decidim") %></div>
         <div>
           <%= t "questions.vote_button.starting_from",
-               scope: "decidim",
-               date: l(question.start_voting_date) %>
+                scope: "decidim",
+                date: l(question.start_voting_date) %>
         </div>
       <% end %>
     <% end %>
@@ -42,8 +42,8 @@
                                         class: "card__button button expanded success",
                                         id: "unvote_button" do %>
           <div class="vote-button-caption"
-               data-original="<%= t('questions.vote_button.already_voted', scope: 'decidim') %>"
-               data-replace="<%= t('questions.vote_button.already_voted_hover', scope: 'decidim') %>">
+               data-original="<%= t("questions.vote_button.already_voted", scope: "decidim") %>"
+               data-replace="<%= t("questions.vote_button.already_voted_hover", scope: "decidim") %>">
             <%= t("questions.vote_button.already_voted", scope: "decidim") %>
           </div>
         <% end %>

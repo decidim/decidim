@@ -1,7 +1,7 @@
 <%= decidim_form_for(@form, html: { class: "form edit_consultation" }) do |f| %>
-  <%= render partial: 'form', object: f %>
+  <%= render partial: "form", object: f %>
   <div class="button--double form-general-submit">
-    <%= f.submit t("consultations.edit.update", scope: "decidim.admin"), class: "button"  %>
+    <%= f.submit t("consultations.edit.update", scope: "decidim.admin"), class: "button" %>
 
     <% if can? :publish, current_consultation %>
       <% if current_consultation.published? %>

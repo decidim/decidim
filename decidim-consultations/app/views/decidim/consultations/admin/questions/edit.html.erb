@@ -1,11 +1,11 @@
 <%= decidim_form_for @form,
                      url: question_path(current_question),
                      html: { class: "form edit_question" } do |f| %>
-  <%= render partial: 'form', object: f %>
+  <%= render partial: "form", object: f %>
   <div class="button--double form-general-submit">
     <%= f.submit t("questions.edit.update", scope: "decidim.admin"),
                  class: "button",
-                 data: { disable_with: true }  %>
+                 data: { disable_with: true } %>
 
     <% if can? :publish, current_question %>
       <% if current_question.published? %>

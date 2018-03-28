@@ -9,7 +9,7 @@
         <h4 class="card__title"><%= translated_attribute consultation.title %></h4>
       <% end %>
       <p class="card__desc">
-        <%= decidim_sanitize html_truncate(translated_attribute(consultation.subtitle), length: 630, separator: '...') %>
+        <%= decidim_sanitize html_truncate(translated_attribute(consultation.subtitle), length: 630, separator: "...") %>
       </p>
     </div>
     <div class="card__footer">
