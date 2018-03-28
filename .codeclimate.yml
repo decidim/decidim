@@ -101,6 +101,9 @@ plugins:
     exclude_patterns:
       - .github/*
 
+    issue_override:
+      severity: minor
+
   stylelint:
     enabled: true
     exclude_patterns:

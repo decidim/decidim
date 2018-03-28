@@ -24,45 +24,49 @@
         <% end %>
       </div>
 
-      <% if translated_attribute(current_participatory_space.purpose_of_action).present? %>
-        <div class="row">
-          <div class="columns large-12">
+      <% if translated_attribute(current_participatory_space.purpose_of_action).present? ||
+          translated_attribute(current_participatory_space.internal_organisation).present? ||
+          translated_attribute(current_participatory_space.composition).present? %>
+        <div class="show-more">
+          <button class="button button--muted small"><%= t("assemblies.show.read_more", scope: "decidim") %></button>
+        </div>
+
+        <div class="hide show-more-panel">
+          <% if translated_attribute(current_participatory_space.purpose_of_action).present? %>
             <div class="section">
               <h4 class="section-heading"><%= t("assemblies.show.purpose_of_action", scope: "decidim") %></h4>
               <%= decidim_sanitize translated_attribute(current_participatory_space.purpose_of_action) %>
             </div>
-          </div>
-        </div>
-      <% end %>
+          <% end %>
 
-      <% if translated_attribute(current_participatory_space.internal_organisation).present? %>
-        <div class="row">
-          <div class="columns large-12">
+          <% if translated_attribute(current_participatory_space.internal_organisation).present? %>
             <div class="section">
               <h4 class="section-heading"><%= t("assemblies.show.internal_organisation", scope: "decidim") %></h4>
               <%= decidim_sanitize translated_attribute(current_participatory_space.internal_organisation) %>
             </div>
-          </div>
-        </div>
-      <% end %>
+          <% end %>
 
-      <% if translated_attribute(current_participatory_space.composition).present? %>
-        <div class="row">
-          <div class="columns large-12">
+          <% if translated_attribute(current_participatory_space.composition).present? %>
             <div class="section">
               <h4 class="section-heading"><%= t("assemblies.show.composition", scope: "decidim") %></h4>
               <%= decidim_sanitize translated_attribute(current_participatory_space.composition) %>
+            </div>
+          <% end %>
+          <div class="section text-center">
+            <div class="hide-more">
+              <button class="button button--muted small"><%= t("assemblies.show.read_less", scope: "decidim") %></button>
             </div>
           </div>
         </div>
       <% end %>
 
+      <%= render_hook(:assembly_meetings) %>
+
       <%= attachments_for current_participatory_space %>
 
       <%= participatory_processes_for_assembly(assembly_participatory_processes) if assembly_participatory_processes.present? %>
-
-      <%= render_hook(:assembly_meetings) %>
     </div>
+
     <div class="section columns medium-5 mediumlarge-4 large-3">
       <div class="card extra">
         <div class="card__content">
@@ -188,3 +192,4 @@
 
 <%= javascript_include_tag "decidim/proposals/social_share" %>
 <%= stylesheet_link_tag "decidim/proposals/social_share" %>
+<%= javascript_include_tag "decidim/assemblies/assemblies" %>

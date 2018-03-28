@@ -12,6 +12,8 @@ require "foundation-rails"
 require "foundation_rails_helper"
 require "autoprefixer-rails"
 require "rectify"
+require "doorkeeper"
+require "doorkeeper-i18n"
 
 module Decidim
   module Admin
@@ -83,6 +85,13 @@ module Decidim
                     position: 10,
                     active: [%w(decidim/admin/logs), []],
                     if: can?(:read, :admin_log)
+
+          menu.item I18n.t("menu.oauth_applications", scope: "decidim.admin"),
+                    decidim_admin.oauth_applications_path,
+                    icon_name: "dashboard",
+                    position: 11,
+                    active: [%w(decidim/admin/oauth_applications), []],
+                    if: can?(:read, :oauth_applications)
         end
       end
     end

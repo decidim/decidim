@@ -12,49 +12,49 @@ $(() => {
     }
 
 
-    const $form = $('.assembly_form_admin');
+    const $form = $(".assembly_form_admin");
 
     if ($form.length > 0) {
 
-      const $privateSpace = $form.find('#private_space');
-      const $isTransparent = $form.find('#is_transparent');
-      const $specialFeatures = $form.find('#special_features');
+      const $privateSpace = $form.find("#private_space");
+      const $isTransparent = $form.find("#is_transparent");
+      const $specialFeatures = $form.find("#special_features");
 
 
       const toggleDisabledHiddenFields = () => {
-        const enabledPrivateSpace = $privateSpace.find('input[type="checkbox"]').prop('checked');
-        $isTransparent.find('input[type="checkbox"]').attr('disabled', 'disabled');
+        const enabledPrivateSpace = $privateSpace.find("input[type='checkbox']").prop("checked");
+        $isTransparent.find("input[type='checkbox']").attr("disabled", "disabled");
         $specialFeatures.hide();
 
         if (enabledPrivateSpace) {
-          $isTransparent.find('input[type="checkbox"]').attr('disabled', !enabledPrivateSpace);
+          $isTransparent.find("input[type='checkbox']").attr("disabled", !enabledPrivateSpace);
           $specialFeatures.show();
         }
       };
 
-      $privateSpace.on('change', toggleDisabledHiddenFields);
+      $privateSpace.on("change", toggleDisabledHiddenFields);
       toggleDisabledHiddenFields();
 
-      const $assemblyType = $form.find('#assembly_assembly_type');
-      const $assemblyTypeOther = $form.find('#assembly_type_other');
+      const $assemblyType = $form.find("#assembly_assembly_type");
+      const $assemblyTypeOther = $form.find("#assembly_type_other");
 
-      const $assemblyCreatedBy = $form.find('#assembly_created_by');
-      const $assemblyCreatedByOther = $form.find('#created_by_other');
+      const $assemblyCreatedBy = $form.find("#assembly_created_by");
+      const $assemblyCreatedByOther = $form.find("#created_by_other");
 
       const toggleDependsOnSelect = ($target, $showDiv) => {
         const value = $target.val();
         $showDiv.hide();
-        if (value === 'others') {
+        if (value === "others") {
           $showDiv.show();
         }
       };
 
-      $assemblyType.on('change', (ev) => {
+      $assemblyType.on("change", (ev) => {
         const $target = $(ev.target);
         toggleDependsOnSelect($target, $assemblyTypeOther);
       });
 
-      $assemblyCreatedBy.on('change', (ev) => {
+      $assemblyCreatedBy.on("change", (ev) => {
         const $target = $(ev.target);
         toggleDependsOnSelect($target, $assemblyCreatedByOther);
       });

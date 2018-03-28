@@ -24,6 +24,8 @@ module Decidim::Admin
     it { is_expected.to be_able_to(:manage, Decidim::Scope) }
     it { is_expected.to be_able_to(:manage, :admin_users) }
     it { is_expected.to be_able_to(:manage, :managed_users) }
+    it { is_expected.to be_able_to(:manage, :oauth_applications) }
+    it { is_expected.to be_able_to(:manage, Decidim::OAuthApplication) }
 
     it { is_expected.to be_able_to(:create, Decidim::StaticPage) }
     it { is_expected.to be_able_to(:update, Decidim::StaticPage) }

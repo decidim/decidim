@@ -18,6 +18,7 @@ module Decidim
     has_many :admins, -> { where(admin: true) }, foreign_key: "decidim_organization_id", class_name: "Decidim::User"
     has_many :users_with_any_role, -> { where.not(roles: []) }, foreign_key: "decidim_organization_id", class_name: "Decidim::User"
     has_many :users, foreign_key: "decidim_organization_id", class_name: "Decidim::User", dependent: :destroy
+    has_many :oauth_applications, foreign_key: "decidim_organization_id", class_name: "Decidim::OAuthApplication", inverse_of: :organization, dependent: :destroy
 
     validates :name, :host, uniqueness: true
     validates :reference_prefix, presence: true
