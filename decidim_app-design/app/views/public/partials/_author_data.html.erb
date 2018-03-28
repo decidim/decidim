@@ -3,12 +3,12 @@
 <% small ||= false %>
 <% big ||= false %>
 <% verified = Faker::Boolean.boolean unless local_assigns.has_key?(:verified) %>
-<div class="author-data<%= ' author-data--small' if small %><%= ' author-data--big' if big %>">
+<div class="author-data<%= " author-data--small" if small %><%= " author-data--big" if big %>">
 
   <div class="author-data__main">
     <% if big %>
       <div class="author author--flex">
-        <a href="user-profile" class="author__avatar<%= ' author-data--small' if small %>">
+        <a href="user-profile" class="author__avatar<%= " author-data--small" if small %>">
           <%= image_tag "demo-avatar.jpg" %>
         </a>
         <div>
@@ -29,7 +29,7 @@
       </div>
     <% else %>
       <div class="author author--inline">
-      <a href="user-profile" class="author__avatar<%= ' author-data--small' if small %>">
+      <a href="user-profile" class="author__avatar<%= " author-data--small" if small %>">
         <%= image_tag "demo-avatar.jpg" %>
       </a>
       <a href="user-profile" class="author__name">
