@@ -3,15 +3,15 @@ sv:
     attributes:
       participatory_process:
         announcement: Meddelande
-        banner_image: Banner image
+        banner_image: Bannerbild
         copy_categories: Kopiera kategorier
-        copy_features: Kopiera funktioner
+        copy_components: Kopiera komponenter
         copy_steps: Kopiera steg
         description: Beskrivning
         developer_group: Utvecklargrupp
         domain: Domän
         end_date: Slutdatum
-        hashtag: hashtag
+        hashtag: Hashtag
         hero_image: Hembild
         local_area: Lokalt område
         meta_scope: Omfattning metadata
@@ -21,24 +21,24 @@ sv:
         promoted: främjas
         published_at: Publicerad på
         scope_id: Omfattning
-        scopes_enabled: Scopes aktiverade
+        scopes_enabled: Omfattningar aktiverade
         short_description: Kort beskrivning
         show_statistics: Visa statistik
         slug: URL slug
-        start_date: Start datum
-        subtitle: Texta
+        start_date: Startdatum
+        subtitle: Underrubrik
         target: Mål
         title: Titel
       participatory_process_group:
         description: Beskrivning
         hero_image: Bild
-        name: namn
+        name: Namn
         participatory_process_ids: Relaterade processer
       participatory_process_step:
         description: Beskrivning
         end_date: Slutdatum
         short_description: Kort beskrivning
-        start_date: Start datum
+        start_date: Startdatum
         title: Titel
       participatory_process_user_role:
         email: E-post
@@ -48,57 +48,59 @@ sv:
     admin:
       actions:
         activate: Aktivera
-        configure: konfigurera
+        configure: Konfigurera
         confirm_destroy: Bekräfta förstör
         destroy: Förstöra
         duplicate: Duplicera
         edit: Redigera
         new: Ny
-        preview: Förhandsvisning
+        preview: Förhandsvisa
         publish: Publicera
         resend_invitation: Skicka inbjudan igen
         unpublish: Avpublicera
       menu:
         participatory_process_groups: Processgrupper
-        participatory_processes: processer
+        participatory_processes: Processer
         participatory_processes_submenu:
-          attachment_collections: samlingar
-          attachment_files: filer
-          attachments: bilagor
-          categories: kategorier
-          features: Funktioner
+          attachment_collections: Samlingar
+          attachment_files: Filer
+          attachments: Bifogade filer
+          categories: Kategorier
+          components: Komponenter
           info: Info
-          moderations: modere
+          moderations: Moderering
+          private_users: Privata användare
           process_admins: Processanvändare
           steps: Steg
       models:
         participatory_process:
           fields:
             created_at: Skapad vid
+            private: Privat
             promoted: Markerad
             published: Publicerad
             title: Titel
           name: Deltagande process
         participatory_process_group:
           fields:
-            name: namn
+            name: Namn
           name: Processgrupp
         participatory_process_step:
           fields:
             end_date: Slutdatum
-            start_date: Start datum
+            start_date: Startdatum
             title: Titel
           name: Deltagande processsteg
         participatory_process_user_role:
           fields:
             email: E-post
-            name: namn
+            name: Namn
             role: Roll
           name: Deltagande processanvändare
           roles:
             admin: Administratör
             collaborator: Medarbetare
-            moderator: moderator
+            moderator: Moderator
         user:
           fields:
             invitation_accepted_at: Inbjudan accepterad vid
@@ -113,7 +115,7 @@ sv:
           success: Deltagande processgrupp förstördes framgångsrikt.
         edit:
           title: Redigera processgrupp
-          update: Uppdatering
+          update: Uppdatera
         new:
           create: Skapa
           title: Ny processgrupp
@@ -143,7 +145,7 @@ sv:
           success: Deltagande processsteg förstördes framgångsrikt.
         edit:
           title: Redigera deltagande processsteg
-          update: Uppdatering
+          update: Uppdatera
         index:
           steps_title: Steg
         new:
@@ -162,7 +164,7 @@ sv:
           success: Användaren förstördes framgångsrikt för denna deltagande process.
         edit:
           title: Uppdatera deltagande processanvändare.
-          update: Uppdatering
+          update: Uppdatera
         index:
           process_admins_title: Deltagande processanvändare
         new:
@@ -178,11 +180,13 @@ sv:
         destroy:
           success: Deltagande processen förstördes framgångsrikt.
         edit:
-          update: Uppdatering
+          update: Uppdatera
         form:
           title: Allmän information
         index:
           not_published: Ej publicerad
+          private: Privat
+          public: Offentlig
           published: Publicerad
         new:
           create: Skapa
@@ -233,10 +237,10 @@ sv:
           email_subject: En uppdatering till %{participatory_space_title}
           notification_title: Dagen för <a href="%{resource_path}">%{resource_title}</a> steg vid <a href="%{participatory_space_url}">%{participatory_space_title}</a> har uppdaterats.
     menu:
-      processes: processer
+      processes: Processer
     participatory_process_groups:
       show:
-        group_participatory_processes: Bearbetar för %{group}
+        group_participatory_processes: Processer för %{group}
         title: Deltagande processgrupper
     participatory_process_steps:
       index:
@@ -255,9 +259,9 @@ sv:
         title: Deltagande processer
       order_by_processes:
         active: Aktiva
-        all: Allt
-        past: Dåtid
-        upcoming: kommande
+        all: Alla
+        past: Tidigare
+        upcoming: Kommande
       pages:
         home:
           highlighted_processes:
@@ -268,31 +272,33 @@ sv:
         none: Ingen
       participatory_processes:
         index:
-          loading: Laddar resultat ...
+          loading: Laddar resultat...
       show:
         developer_group: Utvecklargrupp
         end_date: Slutdatum
         local_area: Organisationsområde
         participatory_scope: Vad bestäms
         participatory_structure: Hur bestäms det
+        private_space: Detta är en privat process
         scope: Omfattning
-        start_date: Start datum
+        start_date: Startdatum
         target: Vem deltar
       statistics:
-        answers_count: svar
-        comments_count: kommentarer
+        answers_count: Svar
+        comments_count: Kommentarer
+        debates_count: Debatter
         endorsements_count: påskrifter
         headline: Aktivitet
-        meetings_count: möten
-        orders_count: röster
-        pages_count: sidor
-        processes_count: processer
-        projects_count: projekt
-        proposals_count: förslag
+        meetings_count: Möten
+        orders_count: Röster
+        pages_count: Sidor
+        processes_count: Processer
+        projects_count: Projekt
+        proposals_count: Förslag
         results_count: Resultat
         surveys_count: Undersökningar
         users_count: Deltagare
-        votes_count: röster
+        votes_count: Röster
   layouts:
     decidim:
       participatory_process_groups:
@@ -301,7 +307,7 @@ sv:
       participatory_process_widgets:
         show:
           active_step: Aktivt steg
-          take_part: Ta del
+          take_part: Delta
       participatory_processes:
         index:
           promoted_processes: Markerade processer
@@ -311,11 +317,11 @@ sv:
             other: "%{count} processer"
         participatory_process:
           active_step: 'Nuvarande steg:'
-          take_part: Ta del
+          take_part: Delta
         promoted_process:
           active_step: 'Nuvarande steg:'
           more_info: Mer information
-          take_part: Ta del
+          take_part: Delta
       process_header:
         process_menu_item: Processen
         unfold: Veckla ut

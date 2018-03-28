@@ -51,6 +51,7 @@ pl:
             already_answered_warning: Ankieta jest już udzielana przez niektórych użytkowników, więc nie można modyfikować jej pytań.
           question:
             add_answer_option: Dodaj odpowiedź
+            description: Opis
             down: Na dół
             question: Pytanie
             remove: Usunąć

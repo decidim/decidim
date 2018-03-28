@@ -5,7 +5,7 @@ fi:
         announcement: Ilmoitus
         banner_image: Bannerikuva
         copy_categories: Kopioi aihepiirit
-        copy_features: Kopioi ominaisuudet
+        copy_components: Kopioi komponentit
         copy_steps: Kopioi vaiheet
         description: Kuvaus
         developer_group: Kehitysryhmä
@@ -66,15 +66,17 @@ fi:
           attachment_files: Tiedostot
           attachments: Liitteet
           categories: Aihepiirit
-          features: Ominaisuudet
+          components: komponentit
           info: Tiedot
           moderations: Moderoinnit
+          private_users: Yksityiset käyttäjät
           process_admins: Prosessin käyttäjät
           steps: Vaiheet
       models:
         participatory_process:
           fields:
             created_at: Luonnin ajankohta
+            private: yksityinen
             promoted: Korostettu
             published: Julkaistu
             title: Otsikko
@@ -183,6 +185,8 @@ fi:
           title: Yleistä tietoa
         index:
           not_published: Ei julkaistu
+          private: yksityinen
+          public: Julkinen
           published: Julkaistu
         new:
           create: Luo
@@ -275,12 +279,14 @@ fi:
         local_area: Organisaatioalue
         participatory_scope: Mitä päätetään
         participatory_structure: Miten päätetään
+        private_space: Tämä on yksityinen prosessi
         scope: Konteksti
         start_date: Aloitusaika
         target: Kuka osallistuu
       statistics:
         answers_count: Vastaukset
         comments_count: Kommentit
+        debates_count: keskustelut
         endorsements_count: merkintöjen
         headline: Tilastot
         meetings_count: Tapaamiset

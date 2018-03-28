@@ -29,6 +29,12 @@ pl:
       newsletter:
         body: Ciało
         subject: Przedmiot
+      oauth_application:
+        name: Nazwa
+        organization_logo: Logo organizacji (kwadrat)
+        organization_name: Nazwa organizacji
+        organization_url: Adres organizacji
+        redirect_uri: Przekierowanie URI
       organization:
         cta_button_path: Ścieżka przycisku wezwania do działania
         cta_button_text: Tekst przycisku wezwania do działania
@@ -77,6 +83,12 @@ pl:
         organization: Organizacja
         slug: Ślimak URL
         title: Tytuł
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: Identyfikator URI przekierowania musi być identyfikatorem URI protokołu SSL
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -111,6 +123,14 @@ pl:
         content: Zadowolony
         slug: Ślimak URL
         title: Tytuł
+      doorkeeper/application:
+        authorize_url: Autoryzuj adres URL
+        client_id: Identyfikator klienta
+        client_secret: Sekret klienta
+        organization_name: Nazwa organizacji
+        organization_url: Adres organizacji
+        redirect_uri: Przekierowanie URI
+        site: Teren
   date:
     formats:
       datepicker: "%m / %d / %Y"
@@ -301,6 +321,7 @@ pl:
         dashboard: Deska rozdzielcza
         managed_users: Zarządzane użytkownicy
         newsletters: Biuletyny
+        oauth_applications: Aplikacje OAuth
         officializations: Oficjalizacje
         scope_types: Typy zakresów
         scopes: Zakresy
@@ -344,6 +365,13 @@ pl:
             sent_at: Wysłano w
             subject: Przedmiot
           name: Biuletyn
+        oauth_application:
+          fields:
+            created_at: Utworzono w
+            name: Nazwa
+          name: Aplikacja OAuth
+        participatory_space_private_user:
+          name: Prywatny użytkownik przestrzeni prywatnej
         scope:
           fields:
             name: Nazwa
@@ -413,6 +441,25 @@ pl:
         update:
           error: Podczas aktualizowania tego biuletynu wystąpił błąd.
           success: Biuletyn został zaktualizowany. Przeczytaj ją przed wysłaniem.
+      oauth_applications:
+        create:
+          error: Wystąpił błąd podczas tworzenia tej aplikacji.
+          success: Aplikacja została utworzona pomyślnie.
+        destroy:
+          error: Wystąpił błąd podczas niszczenia tej aplikacji.
+          success: Aplikacja została zniszczona pomyślnie.
+        edit:
+          save: Zapisać
+          title: Edytuj aplikację
+        index:
+          confirm_delete: Czy na pewno chcesz usunąć tę aplikację?
+          title: Aplikacje OAuth
+        new:
+          save: Zapisać
+          title: Nowa aplikacja
+        update:
+          error: Wystąpił błąd podczas aktualizowania tej aplikacji.
+          success: Aplikacja zaktualizowana pomyślnie.
       officializations:
         create:
           success: Użytkownik oficjalnie z powodzeniem
@@ -466,6 +513,17 @@ pl:
           homepage_highlighted_content_banner_title: Baner treści o wysokim priorytecie
           layout_appearance_title: Edytuj wygląd układu
           omnipresent_banner_appearance_title: Edytuj wszechobecny
+      participatory_space_private_users:
+        create:
+          error: Wystąpił błąd podczas dodawania użytkownika prywatnego do tej partycji uczestniczącej.
+          success: Prywatny dostęp użytkowników prywatnych do przestrzeni utworzonej pomyślnie.
+        destroy:
+          success: Dostęp prywatny użytkownika do przestrzeni dyskowej został pomyślnie zniszczony.
+        index:
+          title: Prywatny użytkownik przestrzeni prywatnej
+        new:
+          create: Stwórz
+          title: Nowy prywatny użytkownik przestrzeni partycypacyjnej.
       scope_types:
         create:
           error: Podczas tworzenia nowego typu zakresu wystąpił błąd.
