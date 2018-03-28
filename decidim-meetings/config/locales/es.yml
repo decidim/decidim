@@ -21,6 +21,15 @@ es:
         start_time: Hora de inicio
         title: Título
   decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: Hubo un error al duplicar esta reunión.
+          success: Reunión duplicada con éxito.
+        new:
+          copy: Dupdo
+          select: Seleccione qué datos quiere duplicar
+          title: Reunión duplicada
     components:
       meetings:
         actions:
