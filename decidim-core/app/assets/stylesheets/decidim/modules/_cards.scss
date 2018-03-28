@@ -326,6 +326,7 @@ $datetime-bg: $primary;
   text-transform: none;
   margin-bottom: 0;
   color: $muted;
+  max-width: 60%;
 
   strong{
     font-size: rem-calc(16);
