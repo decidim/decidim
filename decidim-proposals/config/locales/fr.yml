@@ -47,8 +47,8 @@ fr:
             announcement: Annonce
             comments_blocked: Commentaires bloqués
             creation_enabled: Création de proposition activée
-            endorsements_blocked: Appuis bloqués
-            endorsements_enabled: Appuis activés
+            endorsements_blocked: Promotions bloquées
+            endorsements_enabled: Promotions activées
             proposal_answering_enabled: Réponse à la proposition activée
             votes_blocked: Votes bloqués
             votes_enabled: Votes activés
@@ -61,7 +61,7 @@ fr:
           email_subject: Les propositions sont maintenant disponibles dans %{participatory_space_title}
           notification_title: Vous pouvez maintenant démarrer <a href="%{resource_path}">nouvelles propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
         endorsing_enabled:
-          email_intro: 'Vous pouvez appuyer les différentes propositions dans %{participatory_space_title}! Commencez à participer en vous rendant sur cette page :'
+          email_intro: 'Vous pouvez promouvoir les différentes propositions dans %{participatory_space_title}! Commencez à participer en vous rendant sur cette page :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en cliquant sur ce dernier lien.
           email_subject: L'appui aux différentes propositions a commencé pour %{participatory_space_title}
           notification_title: Vous pouvez maintenant commencer à <a href="%{resource_path}">appuyer les propositions</a> dans <a href="%{participatory_space_url}">%{participatory_space_title}</a>
