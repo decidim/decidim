@@ -2,7 +2,7 @@
 # This module is use to add customs methods to the original "proposal_vote.rb"
 
 module VoteProposalExtend
-  def initialize(proposal, current_user, weight)binding.pry
+  def initialize(proposal, current_user, weight)
     @proposal = proposal
     @current_user = current_user
     @weight = weight

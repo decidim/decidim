@@ -11,14 +11,6 @@ module Decidim
       validate :author_and_proposal_same_organization
       validate :proposal_not_rejected
 
-      def self.create_or_delete(proposal, current_user, weight)
-        if where(author: current_user, proposal: proposal, weight: weight).any?
-          :delete
-        else
-          :post
-        end
-      end
-
       private
 
       # Private: check if the proposal and the author have the same organization
