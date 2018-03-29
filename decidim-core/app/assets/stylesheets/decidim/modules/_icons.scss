@@ -31,3 +31,8 @@ a:hover .icon--action{
   width: 12px;
   height: 12px;
 }
+
+.icon--thumb-neutral{
+  transform: rotate(270deg);
+  transform-origin: 50% 50%;
+}

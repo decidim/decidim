@@ -67,9 +67,10 @@ fr:
             comments_blocked: Commentaires bloqués
             creation_enabled: Module propositions activé
             proposal_answering_enabled: '"Réponses aux propositions" activé'
-            votes_blocked: Votes bloqués
-            votes_enabled: Votes activés
-            votes_hidden: Cacher les votes (si les votes sont activés, le compte des votes sera caché)
+            votes_enabled: Soutiens activés
+            votes_weight_enabled: Votes pour / contre / absention activés
+            votes_blocked: Soutiens / votes bloqués
+            votes_hidden: Cacher le compteur de soutiens / votes (si les soutiens / votes sont activés, le compteur sera caché)
     proposals:
       actions:
         answer: Répondre
@@ -156,6 +157,11 @@ fr:
         create:
           error: Des erreurs se sont produites lors du vote de la proposition.
       proposals:
+        vote_weight_button:
+          neutral: Neutre
+          maximum_votes_reached: Nb max de votes atteint
+          no_votes_remaining: Aucun vote restant
+          votes_blocked: Votes désactivés
         count:
           proposals_count:
             one: 1 proposition

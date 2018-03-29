@@ -36,7 +36,7 @@ module Decidim
         end
 
         def most_voted_order_available?
-          current_settings.votes_enabled? && !current_settings.votes_hidden?
+          ((current_settings.votes_enabled? || current_settings.votes_weight_enabled?) && !current_settings.votes_hidden?)
         end
 
         def order_by_votes?
