@@ -20,48 +20,24 @@
         <form class="form grid-container">
           <div class="grid-x">
             <div class="cell">
-              <div class="label--tabs">
-                <label for="organization_twitter_handler">Title *</label>
-                <ul class="tabs tabs--lang" data-tabs id="example-tabs-0">
-                  <li class="tabs-title is-active"><a href="#desc-1" aria-selected="true">Català</a></li>
-                  <li class="tabs-title"><a href="#desc-2">Castellano</a></li>
-                  <li class="tabs-title"><a href="#desc-2">English</a></li>
-                </ul>
-              </div>
-              <div class="tabs-content" data-tabs-content="example-tabs-0">
-                <div class="tabs-panel is-active" id="desc-1">
-                  <input type="text" name="organization[twitter_handler]" id="organization_twitter_handler">
-                </div>
-                <div class="tabs-panel" id="desc-2">
-                  <input type="text" name="organization[twitter_handler]" id="organization_twitter_handler">
-                </div>
-                <div class="tabs-panel" id="desc-3">
-                  <input type="text" name="organization[twitter_handler]" id="organization_twitter_handler">
-                </div>
-              </div>
+              <% content_for :label, flush: true do %>
+                <label for="">Title *</label>
+              <% end %>
+              <% content_for :content, flush: true do %>
+                <input type="text">
+              <% end %>
+              <%= render layout: "admin/components/lang-tabs" do %><% end %>
             </div>
           </div>
           <div class="grid-x">
             <div class="cell">
-              <div class="label--tabs">
-                <label>Description *</label>
-                <ul class="tabs tabs--lang" data-tabs id="example-tabs">
-                  <li class="tabs-title is-active"><a href="#desc-1" aria-selected="true">Català</a></li>
-                  <li class="tabs-title"><a href="#desc-2">Castellano</a></li>
-                  <li class="tabs-title"><a href="#desc-2">English</a></li>
-                </ul>
-              </div>
-              <div class="tabs-content" data-tabs-content="example-tabs">
-                <div class="tabs-panel is-active" id="desc-1">
-                  <textarea rows=6 grid-xs="6">CA hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</textarea>
-                </div>
-                <div class="tabs-panel" id="desc-2">
-                  <textarea grid-xs="6">ES hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.Suspendisse dictum feugiat nisl ut dapibus.Suspendisse dictum feugiat nisl ut dapibus.Suspendisse dictum feugiat nisl ut dapibus.Suspendisse dictum feugiat nisl ut dapibus.Suspendisse dictum feugiat nisl ut dapibus.</textarea>
-                </div>
-                <div class="tabs-panel" id="desc-3">
-                  <textarea grid-xs="6">EN hendrerit asdr arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus.</textarea>
-                </div>
-              </div>
+              <% content_for :label, flush: true do %>
+                <label for="">Description *</label>
+              <% end %>
+              <% content_for :content, flush: true do %>
+                <textarea rows="6"></textarea>
+              <% end %>
+              <%= render layout: "admin/components/lang-tabs" do %><% end %>
             </div>
           </div>
           <div class="grid-x">
@@ -72,48 +48,24 @@
           </div>
           <div class="grid-x">
             <div class="cell">
-              <div class="label--tabs">
-                <label for="organization_twitter_handler">Localización *</label>
-                <ul class="tabs tabs--lang" data-tabs id="example-tabs-0">
-                  <li class="tabs-title is-active"><a href="#desc-1" aria-selected="true">Català</a></li>
-                  <li class="tabs-title"><a href="#desc-2">Castellano</a></li>
-                  <li class="tabs-title"><a href="#desc-2">English</a></li>
-                </ul>
-              </div>
-              <div class="tabs-content" data-tabs-content="example-tabs-0">
-                <div class="tabs-panel is-active" id="desc-1">
-                  <input type="text" name="organization[twitter_handler]" id="organization_twitter_handler">
-                </div>
-                <div class="tabs-panel" id="desc-2">
-                  <input type="text" name="organization[twitter_handler]" id="organization_twitter_handler">
-                </div>
-                <div class="tabs-panel" id="desc-3">
-                  <input type="text" name="organization[twitter_handler]" id="organization_twitter_handler">
-                </div>
-              </div>
+              <% content_for :label, flush: true do %>
+                <label for="">Localización *</label>
+              <% end %>
+              <% content_for :content, flush: true do %>
+                <input type="text">
+              <% end %>
+              <%= render layout: "admin/components/lang-tabs" do %><% end %>
             </div>
           </div>
           <div class="grid-x">
             <div class="cell">
-              <div class="label--tabs">
-                <label for="organization_twitter_handler">Location hints *</label>
-                <ul class="tabs tabs--lang" data-tabs id="example-tabs-0">
-                  <li class="tabs-title is-active"><a href="#desc-1" aria-selected="true">Català</a></li>
-                  <li class="tabs-title"><a href="#desc-2">Castellano</a></li>
-                  <li class="tabs-title"><a href="#desc-2">English</a></li>
-                </ul>
-              </div>
-              <div class="tabs-content" data-tabs-content="example-tabs-0">
-                <div class="tabs-panel is-active" id="desc-1">
-                  <input type="text" name="organization[twitter_handler]" id="organization_twitter_handler">
-                </div>
-                <div class="tabs-panel" id="desc-2">
-                  <input type="text" name="organization[twitter_handler]" id="organization_twitter_handler">
-                </div>
-                <div class="tabs-panel" id="desc-3">
-                  <input type="text" name="organization[twitter_handler]" id="organization_twitter_handler">
-                </div>
-              </div>
+              <% content_for :label, flush: true do %>
+                <label for="">Location hints</label>
+              <% end %>
+              <% content_for :content, flush: true do %>
+                <input type="text">
+              <% end %>
+              <%= render layout: "admin/components/lang-tabs" do %><% end %>
             </div>
           </div>
           <div class="grid-x grid-padding-x">
@@ -128,8 +80,8 @@
           </div>
           <div class="grid-x grid-padding-x">
             <div class="cell medium-6">
-              <label for="organization_default_locale">Category</label>
-              <select name="organization[default_locale]" id="organization_default_locale">
+              <label>Category</label>
+              <select>
                 <option selected="selected" value="en">English</option>
                 <option value="ca">Català</option>
                 <option value="es">Castellano</option>

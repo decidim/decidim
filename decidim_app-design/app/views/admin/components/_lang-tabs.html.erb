@@ -1,0 +1,20 @@
+<% random = Random.rand(9999) %>
+<div class="label--tabs">
+  <%= yield :label %>
+  <ul class="tabs tabs--lang" data-tabs id="lang-tabs-<%= random %>">
+    <li class="tabs-title is-active"><a href="#lang-<%= random %>-1" aria-selected="true">Català</a></li>
+    <li class="tabs-title"><a href="#lang-<%= random %>-2">Castellano</a></li>
+    <li class="tabs-title"><a href="#lang-<%= random %>-3">English</a></li>
+  </ul>
+</div>
+<div class="tabs-content" data-tabs-content="lang-tabs-<%= random %>">
+  <div class="tabs-panel is-active" id="lang-<%= random %>-1">
+    <%= yield :content %>
+  </div>
+  <div class="tabs-panel" id="lang-<%= random %>-2">
+    <%= yield :content %>
+  </div>
+  <div class="tabs-panel" id="lang-<%= random %>-3">
+    <%= yield :content %>
+  </div>
+</div>
