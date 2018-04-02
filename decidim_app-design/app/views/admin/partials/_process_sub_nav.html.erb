@@ -23,10 +23,10 @@
           <% end %> >
             <%= link_to raw("Encuentros <span class='component-counter'>1</span>"), page_path("component-meetings-initial") %>
           </li>
-          <li <% if @activesubpage == "component-proposals" %>
+          <li <% if @activesubpage == "component-proposals-search" %>
            class="is-active"
           <% end %> >
-            <%= link_to raw("Propuestas <span class='component-counter'>1</span>"), page_path("component-proposals") %>
+            <%= link_to raw("Propuestas <span class='component-counter'>1</span>"), page_path("component-proposals-search") %>
           </li>
           <li <% if @activesubpage == "component-debates" %>
            class="is-active"

@@ -56,5 +56,5 @@ $spaces: $space ($space * 2);
 // align-items: center;
 .flex--sbc{
   @include flex;
-  @include flex-align($x: spaced, $y: middle);
+  @include flex-align($x: justify, $y: middle);
 }
