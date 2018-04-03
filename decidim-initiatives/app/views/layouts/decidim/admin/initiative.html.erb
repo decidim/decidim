@@ -1,0 +1,54 @@
+<% content_for :secondary_nav do %>
+  <div class="secondary-nav secondary-nav--subnav">
+    <ul>
+      <% if can? :edit, current_initiative %>
+        <li <% if is_active_link?(decidim_admin_initiatives.edit_initiative_path(current_initiative)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t(".information"), decidim_admin_initiatives.edit_initiative_path(current_initiative) %>
+        </li>
+      <% end %>
+
+      <% if can? :manage_membership, current_initiative %>
+        <li <% if is_active_link?(decidim_admin_initiatives.initiative_committee_requests_path(current_initiative)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t(".committee_members"), decidim_admin_initiatives.initiative_committee_requests_path(current_initiative) %>
+        </li>
+      <% end %>
+
+      <% if can? :read, Decidim::Component %>
+        <li <% if is_active_link?(decidim_admin_initiatives.components_path(current_initiative)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t(".components"), decidim_admin_initiatives.components_path(current_initiative) %>
+          <ul>
+            <% current_initiative.components.each do |component| %>
+              <% if component.manifest.admin_engine %>
+                <li <% if is_active_link?(manage_component_path(component)) %> class="is-active" <% end %>>
+                  <%= link_to manage_component_path(component) do %>
+                    <%= translated_attribute component.name %>
+                    <% if component.primary_stat.present? %>
+                      <span class="component-counter <%= "component-counter--off" if component.primary_stat.zero? %>">
+                        <%= component.primary_stat %>
+                      </span>
+                    <% end %>
+                  <% end %>
+                </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </li>
+      <% end %>
+
+      <% if can? :read, Decidim::Attachment %>
+        <li <% if is_active_link?(decidim_admin_initiatives.initiative_attachments_path(current_initiative)) %> class="is-active" <% end %>>
+          <%= aria_selected_link_to t(".attachments"), decidim_admin_initiatives.initiative_attachments_path(current_initiative) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <div class="process-title">
+    <div class="process-title-content">
+      <%= current_initiative.title.try(:[], I18n.locale.to_s) || current_initiative.title.values.compact.first %>
+    </div>
+  </div>
+  <%= yield %>
+<% end %>

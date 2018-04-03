@@ -1,0 +1,62 @@
+<%= decidim_form_for @form, html: { class: "form edit_initiative" } do |f| %>
+  <%= render partial: "form", object: f %>
+  <div class="button--double form-general-submit">
+    <%= f.submit t(".update"), class: "button" if can? :update, current_initiative %>
+
+    <% if can? :send_to_technical_validation, current_initiative %>
+      <%= link_to t(".send_to_technical_validation"),
+                  send_to_technical_validation_initiative_path(current_initiative),
+                  class: "button muted",
+                  data: { confirm: t(".confirm") } %>
+    <% else %>
+      <%= link_to t(".send_to_technical_validation"), "#", class: "button muted disabled" if current_initiative.created? %>
+    <% end %>
+
+    <% if can? :publish, current_initiative %>
+      <%= link_to t("actions.publish", scope: "decidim.admin"),
+                  publish_initiative_path(current_initiative),
+                  method: :post,
+                  class: "button hollow",
+                  data: { confirm: t(".confirm") } %>
+    <% end %>
+
+    <% if can? :unpublish, current_initiative %>
+      <%= link_to t("actions.unpublish", scope: "decidim.admin"),
+                  unpublish_initiative_path(current_initiative),
+                  method: :delete,
+                  class: "button alert",
+                  data: { confirm: t(".confirm") } %>
+    <% end %>
+
+    <% if can? :accept, current_initiative %>
+        <%= link_to t(".accept"),
+                    accept_initiative_path(current_initiative),
+                    method: :post,
+                    class: "button hollow",
+                    data: { confirm: t(".confirm") } %>
+    <% end %>
+
+    <% if can? :reject, current_initiative %>
+        <%= link_to t(".reject"),
+                    reject_initiative_path(current_initiative),
+                    method: :delete,
+                    class: "button alert",
+                    data: { confirm: t(".confirm") } %>
+    <% end %>
+
+    <% if can? :discard, current_initiative %>
+      <%= link_to t(".discard"),
+                  discard_initiative_path(current_initiative),
+                  method: :delete,
+                  class: "button alert",
+                  data: { confirm: t(".confirm") } %>
+    <% end %>
+
+    <% if can? :export_votes, current_initiative %>
+      <%= link_to t(".export_votes"),
+                  export_votes_initiative_path(current_initiative, format: :csv),
+                  class: "button alert",
+                  data: { confirm: t(".confirm") } %>
+    <% end %>
+  </div>
+<% end %>

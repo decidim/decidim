@@ -1,0 +1,24 @@
+<div class="card__content">
+  <%= t ".invite_to_committee_help" %>
+
+  <div class="card card--list">
+    <div class="card--list__item">
+      <div class="card--list__text">
+        <div>
+          <h6 class="card--list__heading heading6 lowercase" id="committee_link">
+            <%= decidim_initiatives.new_initiative_committee_request_url(current_initiative) %>
+          </h6>
+        </div>
+      </div>
+      <div class="card--list__data">
+        <%= icon_link_to "clipboard", "#", t(".invite_to_committee_help"), class: "card--list__data__icon invite-users-link" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="column actions">
+  <%= link_to t(".continue"), next_wizard_path, class: "button expanded" %>
+</div>
+
+<%= javascript_include_tag "decidim/initiatives/admin/invite_users.js" %>

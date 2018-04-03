@@ -1,0 +1,10 @@
+var $initiatives = $('#initiatives');
+var $initiativesCount = $('#initiatives-count');
+var $orderFilterInput = $('.order_filter');
+
+$initiatives.html('<%= j(render partial: "initiatives") %>');
+$initiativesCount.html('<%= j(render partial: "count") %>');
+$orderFilterInput.val('<%= order %>');
+
+var $dropdownMenu = $('.dropdown.menu', $initiatives);
+$dropdownMenu.foundation();

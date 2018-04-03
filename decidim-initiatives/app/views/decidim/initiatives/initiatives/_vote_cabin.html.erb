@@ -1,0 +1,26 @@
+<% if current_user && current_user.user_groups.verified.any? %>
+  <button id="select-identity-button"
+          class="card__button button expanded button--sc">
+    <%= t(".vote") %>
+  </button>
+
+  <div class="reveal"
+       id="user-identities"
+       data-reveal data-refresh-url="<%= signature_identities_initiative_url(slug: initiative.slug) %>">
+  </div>
+<% else %>
+    <%= render partial: "decidim/initiatives/initiatives/vote_button",
+               locals: {
+                   initiative: initiative,
+                   vote_label: t(".vote"),
+                   unvote_label: t(".already_voted")
+               } if Decidim::Initiatives.online_voting_allowed %>
+<% end %>
+
+<% if cannot?(:vote, initiative) && cannot?(:unvote, initiative) %>
+  <button class='card__button button expanded button--sc disabled' disabled>
+    <%= t(".votes_blocked") %>
+  </button>
+<% end %>
+
+<%= javascript_include_tag "decidim/initiatives/identity_selector_dialog" %>
