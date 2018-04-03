@@ -7,6 +7,7 @@ Decidim.register_component(:budgets) do |component|
   component.admin_engine = Decidim::Budgets::AdminEngine
   component.icon = "decidim/budgets/icon.svg"
   component.stylesheet = "decidim/budgets/budgets"
+  component.permissions_class_name = "Decidim::Budgets::Permissions"
 
   component.actions = %(vote)
 
