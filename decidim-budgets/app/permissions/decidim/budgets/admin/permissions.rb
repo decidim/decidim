@@ -17,11 +17,19 @@ module Decidim
           return true if case permission_action.action
                         when :create
                           true
+                        when :update, :destroy
+                          project.present?
                         else
                           false
                         end
 
           false
+        end
+
+        private
+
+        def project
+          @project ||= context.fetch(:project, nil)
         end
       end
     end

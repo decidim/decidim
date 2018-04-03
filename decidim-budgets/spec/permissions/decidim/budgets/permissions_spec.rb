@@ -27,7 +27,7 @@ describe Decidim::Budgets::Permissions do
   context "when space does not allow the user to perform the action" do
     let(:space_allows) { false }
     let(:action) do
-      { scope: :public, action: :foo, subject: :budget }
+      { scope: :public, action: :foo, subject: :project }
     end
 
     it { is_expected.to eq false }
@@ -35,7 +35,7 @@ describe Decidim::Budgets::Permissions do
 
   context "when scope is admin" do
     let(:action) do
-      { scope: :admin, action: :vote, subject: :budget }
+      { scope: :admin, action: :vote, subject: :project }
     end
     let(:space_allows) { true }
 
