@@ -9,7 +9,7 @@ describe Decidim::Accountability::Admin::Permissions do
   let(:space_allows) { true }
   let(:context) do
     {
-      current_component: accountability_component,
+      current_component: accountability_component
     }.merge(extra_context)
   end
   let(:extra_context) { {} }
@@ -93,7 +93,7 @@ describe Decidim::Accountability::Admin::Permissions do
     let(:result) { create :result, component: accountability_component }
     let(:resource) { create :timeline_entry, result: result }
     let(:action_subject) { :timeline_entry }
-    let(:extra_context) { { timeline_entry: resource} }
+    let(:extra_context) { { timeline_entry: resource } }
 
     it_behaves_like "crud permissions"
   end

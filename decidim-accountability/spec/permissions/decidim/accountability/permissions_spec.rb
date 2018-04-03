@@ -9,7 +9,7 @@ describe Decidim::Accountability::Permissions do
   let(:space_allows) { true }
   let(:context) do
     {
-      current_component: accountability_component,
+      current_component: accountability_component
     }
   end
   let(:accountability_component) { create :accountability_component }
@@ -51,7 +51,7 @@ describe Decidim::Accountability::Permissions do
     end
   end
 
-  context "in any other condition" do
+  context "when any other condition" do
     let(:action) do
       { scope: :public, action: :foo, subject: :foo }
     end
