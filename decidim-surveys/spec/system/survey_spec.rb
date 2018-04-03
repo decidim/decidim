@@ -92,13 +92,30 @@ describe "Answer a survey", type: :system do
         expect(page).to have_no_i18n_content(survey_question_2.body)
       end
 
-      it "the questions are ordered by position starting with one" do
-        visit_component
+      shared_examples_for "a correctly ordered survey" do
+        it "displays the questions ordered by position starting with one" do
+          form_fields = all(".answer-survey .row")
 
-        form_fields = all(".answer-survey .row")
+          expect(form_fields[0]).to have_i18n_content(survey_question_2.body).and have_content("1. ")
+          expect(form_fields[1]).to have_i18n_content(survey_question_1.body).and have_content("2. ")
+        end
+      end
 
-        expect(form_fields[0]).to have_i18n_content(survey_question_2.body).and have_content("1. ")
-        expect(form_fields[1]).to have_i18n_content(survey_question_1.body).and have_content("2. ")
+      context "and submitting a fresh form" do
+        before do
+          visit_component
+        end
+
+        it_behaves_like "a correctly ordered survey"
+      end
+
+      context "and rendering a form after errors" do
+        before do
+          visit_component
+          accept_confirm { click_button "Submit" }
+        end
+
+        it_behaves_like "a correctly ordered survey"
       end
 
       context "when a question is mandatory" do
