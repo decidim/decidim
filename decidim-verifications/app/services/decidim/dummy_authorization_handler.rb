@@ -8,7 +8,7 @@ module Decidim
     attribute :birthday, Date
 
     validates :document_number, presence: true
-    validate :valid_document_number
+    # validate :valid_document_number
 
     def metadata
       super.merge(document_number: document_number, postal_code: postal_code)
@@ -20,9 +20,9 @@ module Decidim
 
     private
 
-    def valid_document_number
-      errors.add(:document_number, :invalid) unless document_number.to_s.end_with?("X")
-    end
+    # def valid_document_number
+    #   errors.add(:document_number, :invalid) unless document_number.to_s.end_with?("X")
+    # end
 
     # An example implementation of a DefaultActionAuthorizer inherited class to override authorization status
     # checking process. In this case, it allows to set a list of valid postal codes for an authorization.
