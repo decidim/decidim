@@ -35,7 +35,8 @@ module Decidim
             slug: :default,
             subtitle: :i18n,
             target: :i18n,
-            title: :i18n
+            title: :i18n,
+            parent_id: :assembly
           }
         end
 

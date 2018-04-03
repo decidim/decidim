@@ -30,7 +30,7 @@ fr:
         body: Corps de texte
         subject: Objet
       oauth_application:
-        name: prénom
+        name: Nom
         organization_logo: Logo de l'organisation (carré)
         organization_name: Nom de l'organisation
         organization_url: URL de l'organisation
@@ -125,7 +125,7 @@ fr:
         title: Titre
       doorkeeper/application:
         authorize_url: Autoriser l'URL
-        client_id: identité du client
+        client_id: Identifiant client
         client_secret: Secret client
         organization_name: Nom de l'organisation
         organization_url: URL de l'organisation
@@ -178,21 +178,21 @@ fr:
       attachment_collections:
         create:
           error: Une erreur s'est produite lors de la création d'une nouvelle collection.
-          success: Collection créée avec succès.
+          success: Dossier crée avec succès.
         destroy:
-          success: Collection détruite avec succès.
+          success: Dossier détruit avec succès.
         edit:
-          title: Modifier la collection
+          title: Modifier le dossier
           update: Mettre à jour
         index:
-          attachment_collection_used: Cette collection ne peut pas être supprimée car elle est en cours d'utilisation.
-          attachment_collections_title: Collections de pièces jointes
+          attachment_collection_used: Ce dossier ne peut pas être supprimé car celui-ci est en cours d'utilisation.
+          attachment_collections_title: Dossier de pièces jointes
         new:
           create: Créer
           title: Nouvelle collection
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cette collection.
-          success: Collection mise à jour avec succès.
+          error: Une erreur s'est produite lors de la mise à jour de ce dossier.
+          success: Dossier mis à jour avec succès.
       attachments:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau document lié.
@@ -340,13 +340,13 @@ fr:
             plural: Pluriel
         attachment:
           fields:
-            collection: Collection
+            collection: Dossier
             content_type: Type de contenus
             file_size: Taille
             title: Titre
           name: Document lié
         attachment_collection:
-          name: Collection
+          name: Dossier
         category:
           name: Catégorie
         impersonation_log:
@@ -368,7 +368,7 @@ fr:
         oauth_application:
           fields:
             created_at: Créé à
-            name: prénom
+            name: Nom
           name: Application OAuth
         participatory_space_private_user:
           name: Utilisateur de l'espace participatif
@@ -446,8 +446,8 @@ fr:
           error: Une erreur s'est produite lors de la création de cette application.
           success: Application créée avec succès.
         destroy:
-          error: Une erreur s'est produite lors de la destruction de cette application.
-          success: Application détruite avec succès.
+          error: Une erreur s'est produite lors de la suppression de cette application.
+          success: Application supprimée avec succès.
         edit:
           save: sauvegarder
           title: Modifier l'application
@@ -516,11 +516,11 @@ fr:
       participatory_space_private_users:
         create:
           error: Une erreur s'est produite lors de l'ajout d'un utilisateur pour cet espace participatif.
-          success: L'accès de l'utilisateur à l'espace participatif a été créé avec succès.
+          success: L'accès utilisateur à l'espace participatif privé a été créé avec succès.
         destroy:
-          success: L'accès de l'utilisateur à l'espace participatif a été supprimé avec succès.
+          success: L'accès utilisateur à l'espace participatif privé a été supprimé avec succès.
         index:
-          title: Utilisateur de l'espace participatif
+          title: Espace participatif privé de l'utilisateur
         new:
           create: Créer
           title: Nouvel utilisateur de l'espace participatif.

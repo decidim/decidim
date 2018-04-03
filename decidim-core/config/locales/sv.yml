@@ -22,7 +22,7 @@ sv:
         email: E-post
         name: Användarnamn
         password: Lösenord
-        password_confirmation: lösenordsbekräftelse
+        password_confirmation: Lösenordsbekräftelse
         remember_me: Kom ihåg mig
         user_group_document_number: Organisationsdokumentnummer
         user_group_name: Organisationsnamn
@@ -166,9 +166,9 @@ sv:
             legend: Registrera dig som
             user: Privatperson
             user_group: Organisation/Kollektiv
-          subtitle: Anmäl dig för att delta i diskussioner och supportförslag.
+          subtitle: Registrera dig för att delta i diskussioner och stödja förslag.
           terms: användarvillkoren
-          tos_agreement: Genom att registrera dig godkänner du %{link}.
+          tos_agreement: Genom att registrera dig godkänner du till %{link}.
           username_help: Offentligt namn som visas på dina inlägg. I syfte att garantera anonymitet kan det vara något namn.
       sessions:
         new:
@@ -182,7 +182,7 @@ sv:
         new:
           authorize: Godkänn ansökan
           by_organization_link_html: <small class="heading-small">av %{link}</small>
-          cancel: Annullera
+          cancel: Avbryt
           connect_your_account_html: Anslut ditt konto genom att logga in på <strong>%{organization}</strong>
           publish_content: Publicera innehåll för dig
           see_email: Se din email
@@ -190,7 +190,7 @@ sv:
           see_username: Se ditt användarnamn
           this_application_will_be_able_to: 'Denna ansökan kommer att kunna:'
           this_application_will_not_be_able_to: 'Den här applikationen kommer inte att kunna:'
-          update_profile: uppdatera din profil
+          update_profile: Uppdatera din profil
           wants_to_use_your_account_html: "<strong>%{application_name}</strong> vill använda ditt konto"
     errors:
       internal_server_error:
@@ -292,7 +292,7 @@ sv:
         create:
           error: Samtalet startade inte. Försök igen senare
         index:
-          no_conversations: Du har inga samtal ännu
+          no_conversations: Du har inga konversationer än
           title: Konversationer
         reply:
           send: Skicka
@@ -508,7 +508,7 @@ sv:
       widget:
         see_more: Se mer
   locale:
-    name: Engelska
+    name: Svenska
   pages:
     home:
       extended:
