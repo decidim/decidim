@@ -42,12 +42,6 @@ module Decidim
           end
         end
       end
-
-      initializer "decidim_comments.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.abilities += ["Decidim::Comments::Abilities::CurrentUserAbility"]
-        end
-      end
     end
   end
 end
