@@ -11,6 +11,18 @@ module Decidim
       class ApplicationController < Decidim::Admin::Components::BaseController
         helper_method :projects, :project
 
+        include NeedsPermission
+
+        private
+
+        def permission_class
+          Decidim::Budgets::Permissions
+        end
+
+        def permission_scope
+          :admin
+        end
+
         def projects
           @projects ||= Project.where(component: current_component)
         end
