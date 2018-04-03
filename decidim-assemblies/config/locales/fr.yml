@@ -149,7 +149,7 @@ fr:
             see_all_assemblies: Voir toutes les assemblées
       show:
         area: Région
-        children: Assemblées
+        children: Agora
         developer_group: Promoteur
         local_area: Périmètre
         participatory_scope: Objectif
@@ -177,7 +177,7 @@ fr:
     log:
       value_types:
         assembly_presenter:
-          not_found: 'L''assembly n''a pas été trouvé sur la base de données (ID: %{id})'
+          not_found: 'L''agora n''a pas été trouvée sur la base de données (ID: %{id})'
     menu:
       assemblies: Assemblées
   layouts:
