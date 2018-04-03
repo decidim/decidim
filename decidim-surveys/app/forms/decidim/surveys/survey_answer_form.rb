@@ -7,7 +7,7 @@ module Decidim
       include Decidim::TranslationsHelper
 
       attribute :question_id, String
-      attribute :body, String
+      attribute :body, Array[String]
 
       validates :body, presence: true, if: -> { question.mandatory? }
 
