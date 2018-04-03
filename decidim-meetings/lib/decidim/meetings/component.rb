@@ -28,6 +28,8 @@ Decidim.register_component(:meetings) do |component|
 
   component.actions = %w(join)
 
+  component.permissions_class_name = "Decidim::Meetings::Permissions"
+
   component.settings(:global) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
     settings.attribute :default_registration_terms, type: :text, translated: true, editor: true
