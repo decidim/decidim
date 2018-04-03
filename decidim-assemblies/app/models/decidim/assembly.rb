@@ -100,11 +100,10 @@ module Decidim
       where(private_space: true)
     end
 
-<<<<<<< HEAD
     def self.public_spaces
       super.where(private_space: false).or(Decidim::Assembly.where(private_space: true).where(is_transparent: true))
     end
-=======
+
     private
 
     # When an assembly changes their parent, we need to update the parents_path attribute
@@ -155,6 +154,5 @@ module Decidim
       )
     end
     # rubocop:enable Rails/SkipsModelValidations
->>>>>>> master
   end
 end
