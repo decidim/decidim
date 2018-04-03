@@ -81,6 +81,12 @@
 
   const dynamicFieldsForAnswerOptions = {};
 
+  const isMultipleChoiceOption = ($selectField) => {
+    const value = $selectField.val();
+
+    return value === "single_option" || value === "multiple_option"
+  }
+
   const setupInitialQuestionAttributes = ($target) => {
     const fieldId = $target.attr("id");
     const $fieldQuestionTypeSelect = $target.find(questionTypeSelector);
@@ -91,7 +97,7 @@
       dependentFieldsSelector: answerOptionsWrapperSelector,
       dependentInputSelector: `${answerOptionFieldSelector} input`,
       enablingCondition: ($field) => {
-        return ["single_option", "multiple_option"].indexOf($field.val()) > -1
+        return isMultipleChoiceOption($field);
       }
     });
 
@@ -101,7 +107,7 @@
       dependentFieldsSelector: maxChoicesWrapperSelector,
       dependentInputSelector: "select",
       enablingCondition: ($field) => {
-        return ["multiple_option"].indexOf($field.val()) > -1
+        return $field.val() === "multiple_option"
       }
     });
 
@@ -110,9 +116,7 @@
     const dynamicFields = dynamicFieldsForAnswerOptions[fieldId];
 
     const onQuestionTypeChange = () => {
-      const value = $fieldQuestionTypeSelect.val();
-
-      if (value === "single_option" || value === "multiple_option") {
+      if (isMultipleChoiceOption($fieldQuestionTypeSelect)) {
         const nOptions = $fieldQuestionTypeSelect.parents(fieldSelector).find(answerOptionFieldSelector).length;
 
         if (nOptions === 0) {
