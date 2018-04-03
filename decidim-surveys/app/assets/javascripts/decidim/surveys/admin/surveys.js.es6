@@ -112,7 +112,7 @@
     const inputDeleted = $target.find("input[name$=\\[deleted\\]]").val();
 
     if (inputDeleted === "true") {
-      $target.addClass('hidden');
+      $target.addClass("hidden");
       $target.hide();
     }
   }

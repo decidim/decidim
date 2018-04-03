@@ -48,6 +48,8 @@ module Decidim
         organization: organization,
         action: action,
         resource: resource,
+        resource_id: resource.id,
+        resource_type: resource.class.name,
         participatory_space: participatory_space,
         component: component,
         version_id: version_id,

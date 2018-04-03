@@ -29,6 +29,12 @@ nl:
       newsletter:
         body: Body
         subject: Onderwerp
+      oauth_application:
+        name: Naam
+        organization_logo: Organisatie logo (vierkant)
+        organization_name: Organisatie naam
+        organization_url: Organisatie-URL
+        redirect_uri: URI omleiden
       organization:
         cta_button_path: Oproep naar actieknop pad
         cta_button_text: Call To Action-knoptekst
@@ -77,6 +83,12 @@ nl:
         organization: Organisatie
         slug: URL slug
         title: Titel
+    errors:
+      models:
+        oauth_application:
+          attributes:
+            redirect_uri:
+              must_be_ssl: De omleidings-URI moet een SSL-URI zijn
   activerecord:
     attributes:
       decidim/participatory_process:
@@ -111,6 +123,14 @@ nl:
         content: Inhoud
         slug: URL slug
         title: Titel
+      doorkeeper/application:
+        authorize_url: Autoriseer URL
+        client_id: klant identificatie
+        client_secret: Client Secret
+        organization_name: Organisatie naam
+        organization_url: Organisatie-URL
+        redirect_uri: URI omleiden
+        site: plaats
   date:
     formats:
       datepicker: "%m/%d/%Y"
@@ -301,6 +321,7 @@ nl:
         dashboard: Dashboard
         managed_users: Beheerde gebruikers
         newsletters: Nieuwsbrieven
+        oauth_applications: OAuth-toepassingen
         officializations: Officializations
         scope_types: Scope types
         scopes: Scopes
@@ -344,6 +365,13 @@ nl:
             sent_at: Verzonden bij
             subject: Onderwerp
           name: Nieuwsbrief
+        oauth_application:
+          fields:
+            created_at: Gemaakt bij
+            name: Naam
+          name: OAuth-toepassing
+        participatory_space_private_user:
+          name: Participator private gebruiker
         scope:
           fields:
             name: Naam
@@ -413,6 +441,25 @@ nl:
         update:
           error: Er is een fout opgetreden bij het bijwerken van deze nieuwsbrief.
           success: Nieuwsbrief is succesvol bijgewerkt. Controleer het voordat u verzendt.
+      oauth_applications:
+        create:
+          error: Er is een fout opgetreden bij het maken van deze app.
+          success: Applicatie succesvol aangemaakt.
+        destroy:
+          error: Er is een fout opgetreden tijdens het vernietigen van deze app.
+          success: Applicatie succesvol vernietigd.
+        edit:
+          save: Opslaan
+          title: Bewerk applicatie
+        index:
+          confirm_delete: Weet je zeker dat je deze applicatie wilt verwijderen?
+          title: OAuth-toepassingen
+        new:
+          save: Opslaan
+          title: Nieuwe applicatie
+        update:
+          error: Er is een fout opgetreden bij het bijwerken van deze app.
+          success: Applicatie succesvol bijgewerkt.
       officializations:
         create:
           success: Gebruiker officieel gelukt
@@ -466,6 +513,17 @@ nl:
           homepage_highlighted_content_banner_title: Highligted inhoudsbanner
           layout_appearance_title: Weergave van de lay-out bewerken
           omnipresent_banner_appearance_title: Bewerken alomtegenwoordig
+      participatory_space_private_users:
+        create:
+          error: Er is een fout opgetreden bij het toevoegen van een privégebruiker voor deze deelruimte.
+          success: Particuliere gebruikerstoegang voor privéruimte die met succes is gemaakt.
+        destroy:
+          success: Particuliere toegang voor privégebruik met succes vernietigd.
+        index:
+          title: Participator private gebruiker
+        new:
+          create: creëren
+          title: Nieuwe privéparticipatiepartner.
       scope_types:
         create:
           error: Er is een fout opgetreden bij het maken van een nieuwe scope type.

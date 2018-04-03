@@ -286,7 +286,6 @@ ru:
     invitations:
       edit:
         header: Установите свой пароль
-        nickname_help: Ваш уникальный псевдоним в Десидим.
         submit_button: Сохранить
     mailer:
       invitation_instructions:

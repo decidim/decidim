@@ -23,6 +23,7 @@ module Decidim
             patch :update_draft
             get :preview
             post :publish
+            delete :destroy_draft
             put :withdraw
           end
           resource :proposal_vote, only: [:create, :destroy]
@@ -40,6 +41,12 @@ module Decidim
       initializer "decidim_proposals.inject_abilities_to_user" do |_app|
         Decidim.configure do |config|
           config.abilities += ["Decidim::Proposals::Abilities::CurrentUserAbility"]
+        end
+      end
+
+      initializer "decidim.content_processors" do |_app|
+        Decidim.configure do |config|
+          config.content_processors += [:proposal]
         end
       end
 
@@ -85,6 +92,13 @@ module Decidim
             changes[:previous_settings],
             changes[:current_settings]
           )
+        end
+      end
+
+      initializer "decidim_proposals.mentions_listener" do
+        Decidim::Comments::CommentCreation.subscribe do |data|
+          metadata = data[:metadatas][:proposals]
+          Decidim::Proposals::NotifyProposalsMentionedJob.perform_later(data[:comment_id], metadata)
         end
       end
 

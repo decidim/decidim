@@ -5,7 +5,6 @@ uk:
         announcement: Оголошення
         banner_image: Банерне зображення
         copy_categories: Скопіювати розділи
-        copy_features: Скопіювати складові
         copy_steps: Скопіювати кроки
         description: Опис
         developer_group: Група зачинальників
@@ -66,7 +65,6 @@ uk:
           attachment_files: Файли
           attachments: Вкладені файли
           categories: Розділи
-          features: Складова
           info: Інформація
           moderations: Дії з модерації
           process_admins: Учасники руху

@@ -5,7 +5,7 @@ gl:
         announcement: Anuncio
         banner_image: Imaxe do banner
         copy_categories: Copiar categorías
-        copy_features: Copiar funcións
+        copy_components: Copiar compoñentes
         copy_steps: Copiar os pasos
         description: Descrición
         developer_group: Grupo de desenvolvedores
@@ -66,15 +66,17 @@ gl:
           attachment_files: Arquivos
           attachments: Anexos
           categories: Categorías
-          features: características
+          components: Compoñentes
           info: Información
           moderations: Moderacións
+          private_users: Usuarios privados
           process_admins: Usuarios do proceso
           steps: Pasos
       models:
         participatory_process:
           fields:
             created_at: Creado en
+            private: Privado
             promoted: Destacado
             published: Publicado
             title: Título
@@ -183,6 +185,8 @@ gl:
           title: Información xeral
         index:
           not_published: Non publicado
+          private: Privado
+          public: Público
           published: Publicado
         new:
           create: Crear
@@ -275,12 +279,14 @@ gl:
         local_area: Área de organización
         participatory_scope: O que se decide
         participatory_structure: Como se decide
+        private_space: Este é un proceso privado
         scope: Alcance
         start_date: Data de inicio
         target: Quen participa
       statistics:
         answers_count: Respostas
         comments_count: Comentarios
+        debates_count: Debates
         endorsements_count: Aprobacións
         headline: Actividade
         meetings_count: Reunións
