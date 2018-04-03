@@ -42,6 +42,7 @@ module Decidim::Assemblies
         scopes_enabled: true,
         scope: scope,
         area: area,
+        parent: nil,
         private_space: false,
         errors: errors,
         participatory_processes_ids: participatory_processes.map(&:id)
