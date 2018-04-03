@@ -28,6 +28,7 @@ Decidim.register_component(:meetings) do |component|
 
   component.settings(:global) do |settings|
     settings.attribute :announcement, type: :text, translated: true, editor: true
+    settings.attribute :default_registration_terms, type: :text, translated: true, editor: true
     settings.attribute :comments_enabled, type: :boolean, default: true
   end
 

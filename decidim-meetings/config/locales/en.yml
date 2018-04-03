@@ -40,6 +40,7 @@ en:
           global:
             announcement: Announcement
             comments_enabled: Comments enabled
+            default_registration_terms: Default registration terms
           step:
             announcement: Announcement
             comments_blocked: Comments blocked
