@@ -11,6 +11,13 @@
 <% end %>
 
 <div class="row column">
+  <% if current_participatory_space.parent.present? %>
+    <div class="row">
+      <div class="small-12 columns">
+        <%= render partial: "decidim/assemblies/assemblies/nav_breadcumb", locals: { assemblies: current_participatory_space.ancestors.to_a } %>
+      </div>
+    </div>
+  <% end %>
   <div class="row">
     <div class="columns medium-7 mediumlarge-8">
       <div class="section">
@@ -63,6 +70,14 @@
       <%= render_hook(:assembly_meetings) %>
 
       <%= attachments_for current_participatory_space %>
+      <% if current_participatory_space.children_count > 0 %>
+        <section id="assemblies-grid" class="section row collapse">
+          <h4 class="section-heading"><%= t("assemblies.show.children", scope: "decidim") %></h4>
+          <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
+            <%= render partial: "decidim/assemblies/assembly", collection: current_participatory_space.children %>
+          </div>
+        </section>
+      <% end %>
 
       <%= participatory_processes_for_assembly(assembly_participatory_processes) if assembly_participatory_processes.present? %>
     </div>

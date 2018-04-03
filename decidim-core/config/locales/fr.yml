@@ -2,7 +2,7 @@ fr:
   activemodel:
     attributes:
       account:
-        delete_reason: Pour quelle raison de supprimez-vous votre compte ?
+        delete_reason: Pour quelle(s) raison(s) supprimez-vous votre compte ?
       report:
         details: Commentaires additionnels
       user:
@@ -172,7 +172,7 @@ fr:
           username_help: Nom public qui apparaît pour vos messages. Dans le but de garantir l'anonymat, vous pouvez choisir n'importe quel nom.
       sessions:
         new:
-          are_you_new?: Nouveau sur la plate-forme?
+          are_you_new?: Nouveau sur la plateforme?
           register: Créer un compte
       shared:
         omniauth_buttons:
@@ -183,7 +183,7 @@ fr:
           authorize: Autoriser l'application
           by_organization_link_html: <small class="heading-small">par %{link}</small>
           cancel: Annuler
-          connect_your_account_html: Connectez votre compte en vous connectant à <strong>%{organization}</strong>
+          connect_your_account_html: Connectez-vous à votre compte en signant sur <strong>%{organization}</strong>
           publish_content: Publier du contenu pour vous
           see_email: Voir votre email
           see_name: Voir votre nom

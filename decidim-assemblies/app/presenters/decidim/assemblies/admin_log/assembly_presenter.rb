@@ -53,7 +53,8 @@ module Decidim
             facebook_handler: :string,
             instagram_handler: :string,
             youtube_handler: :string,
-            github_handler: :string
+            github_handler: :string,
+            parent_id: :assembly
           }
         end
 

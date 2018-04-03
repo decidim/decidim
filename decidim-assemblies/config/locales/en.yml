@@ -185,6 +185,7 @@ en:
       show:
         area: Area
         assembly_type: Assembly type
+        children: Assemblies
         closing_date: Closing date
         composition: Composition
         created_by: Created by
@@ -224,6 +225,10 @@ en:
         surveys_count: Surveys
         users_count: Participants
         votes_count: Votes
+    log:
+      value_types:
+        assembly_presenter:
+          not_found: 'The assembly was not found on the database (ID: %{id})'
     menu:
       assemblies: Assemblies
   errors:

@@ -43,6 +43,7 @@ module Decidim
         attribute :remove_banner_image
         attribute :show_statistics, Boolean
         attribute :area_id, Integer
+        attribute :parent_id, Integer
         attribute :participatory_processes_ids, Array[Integer]
         attribute :private_space, Boolean
         attribute :assembly_type, String
@@ -62,6 +63,7 @@ module Decidim
         validates :title, :subtitle, :description, :short_description, translatable_presence: true
         validates :scope, presence: true, if: proc { |object| object.scope_id.present? }
         validates :area, presence: true, if: proc { |object| object.area_id.present? }
+        validates :parent, presence: true, if: ->(form) { form.parent_id.present? }
 
         validates :assembly_type_other, translatable_presence: true, if: ->(form) { form.assembly_type == "others" }
         validates :created_by_other, translatable_presence: true, if: ->(form) { form.created_by == "others" }
@@ -99,6 +101,10 @@ module Decidim
               by
             ]
           end
+        end
+
+        def parent
+          @parent ||= OrganizationAssemblies.new(current_organization).query.where(id: parent_id).first
         end
 
         def processes_for_select
