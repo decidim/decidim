@@ -42,6 +42,12 @@ module Decidim
             longitude: @form.longitude,
             location: @form.location,
             location_hints: @form.location_hints,
+            open_type: @form.open_type,
+            open_type_other: @form.open_type_other,
+            public_type: @form.public_type,
+            public_type_other: @form.public_type_other,
+            transparent_type: @form.transparent_type,
+            transparent_type_other: @form.transparent_type_other,
             component: @form.current_component
           )
         end
