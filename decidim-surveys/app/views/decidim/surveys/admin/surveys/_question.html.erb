@@ -68,6 +68,7 @@
         form.select(
           :question_type,
           options_from_collection_for_select(question_types, :first, :last, question.question_type),
+          {},
           disabled: !survey.questions_editable?
         )
       %>

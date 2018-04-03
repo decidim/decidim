@@ -581,6 +581,7 @@ shared_examples "edit surveys" do
       expect(page).to have_no_content("Add question")
       expect(page).to have_no_content("Remove")
       expect(page).to have_selector("input[value='This is the first question'][disabled]")
+      expect(page).to have_selector("select[id$=question_type][disabled]")
     end
   end
 
