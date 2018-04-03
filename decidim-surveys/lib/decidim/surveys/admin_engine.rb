@@ -17,15 +17,6 @@ module Decidim
         app.config.assets.precompile += %w(admin/decidim_surveys_manifest.js)
       end
 
-      initializer "decidim_surveys.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.admin_abilities += [
-            "Decidim::Surveys::Abilities::AdminAbility",
-            "Decidim::Surveys::Abilities::ParticipatoryProcessAdminAbility"
-          ]
-        end
-      end
-
       def load_seed
         nil
       end
