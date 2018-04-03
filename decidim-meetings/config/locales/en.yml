@@ -117,6 +117,10 @@ en:
             success: Meeting successfully deleted
           edit:
             update: Update
+          form:
+            select_open_type: Select an open type
+            select_public_type: Select a public type
+            select_transparent_type: Select a transparent type
           index:
             title: Meetings
           new:
@@ -155,6 +159,18 @@ en:
         registration_mailer:
           confirmation:
             subject: Your meeting's registration has been confirmed
+      meeting_open_types:
+        close: close
+        open: open
+        other: other
+      meeting_public_types:
+        private: private
+        public: public
+        other: other
+      meeting_transparent_types:
+        transparent: transparent
+        opaque: opaque
+        other: other
       meetings:
         filters:
           category: Category

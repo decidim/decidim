@@ -7,14 +7,17 @@ module Decidim
       class MeetingForm < Decidim::Form
         include TranslatableAttributes
 
-        MEETING_OPEN_TYPES = %w(yes no other).freeze
-        MEETING_PUBLIC_TYPES = %w(yes no other).freeze
-        MEETING_TRANSPARENT_TYPES = %w(yes no other).freeze
+        MEETING_PUBLIC_TYPES = %w(public private other).freeze
+        MEETING_OPEN_TYPES = %w(open close other).freeze
+        MEETING_TRANSPARENT_TYPES = %w(transparent opaque other).freeze
 
         translatable_attribute :title, String
         translatable_attribute :description, String
         translatable_attribute :location, String
         translatable_attribute :location_hints, String
+        translatable_attribute :open_type_other, String
+        translatable_attribute :public_type_other, String
+        translatable_attribute :transparent_type_other, String
 
         attribute :address, String
         attribute :latitude, Float
@@ -23,6 +26,9 @@ module Decidim
         attribute :end_time, Decidim::Attributes::TimeWithZone
         attribute :decidim_scope_id, Integer
         attribute :decidim_category_id, Integer
+        attribute :open_type, String
+        attribute :public_type, String
+        attribute :transparent_type, String
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
@@ -71,6 +77,24 @@ module Decidim
           MEETING_OPEN_TYPES.map do |type|
             [
               I18n.t("meeting_open_types.#{type}", scope: "decidim.meetings"),
+              type
+            ]
+          end
+        end
+
+        def meeting_public_types_for_select
+          MEETING_PUBLIC_TYPES.map do |type|
+            [
+              I18n.t("meeting_public_types.#{type}", scope: "decidim.meetings"),
+              type
+            ]
+          end
+        end
+
+        def meeting_transparent_types_for_select
+          MEETING_TRANSPARENT_TYPES.map do |type|
+            [
+              I18n.t("meeting_transparent_types.#{type}", scope: "decidim.meetings"),
               type
             ]
           end
