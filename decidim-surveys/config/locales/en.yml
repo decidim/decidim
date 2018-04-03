@@ -12,8 +12,8 @@ en:
       models:
         survey_answer:
           attributes:
-            body:
-              too_many_choices: has too many options checked
+            choices:
+              too_many: has too many options checked
   decidim:
     components:
       surveys:

@@ -19,29 +19,54 @@ module Decidim
       end
 
       context "when the question is mandatory" do
-        let!(:survey_question) { create(:survey_question, survey: survey, mandatory: true) }
-
-        it "is not valid if body is not present" do
-          subject.body = nil
-          expect(subject).not_to be_valid
+        let!(:survey_question) do
+          create(
+            :survey_question,
+            survey: survey,
+            mandatory: true,
+            question_type: question_type
+          )
         end
 
-        it "is not valid if body entries are all blank" do
-          subject.body = [""]
-          expect(subject).not_to be_valid
+        context "and question type is not multiple choice" do
+          let(:question_type) { "long_answer" }
+
+          it "is not valid if body is not present" do
+            subject.body = nil
+            expect(subject).not_to be_valid
+
+            subject.body = ""
+            expect(subject).not_to be_valid
+          end
+        end
+
+        context "and question type is multiple choice" do
+          let(:question_type) { "multiple_option" }
+
+          it "is not valid if body entries are all blank" do
+            subject.choices = []
+            expect(subject).not_to be_valid
+          end
         end
       end
 
       context "when the question has max_choices set" do
-        let!(:survey_question) { create(:survey_question, survey: survey, max_choices: 2) }
+        let!(:survey_question) do
+          create(
+            :survey_question,
+            survey: survey,
+            max_choices: 2,
+            question_type: "multiple_option"
+          )
+        end
 
         it "is valid if few enough answers checked" do
-          subject.body = %w(foo bar)
+          subject.choices = %w(foo bar)
           expect(subject).to be_valid
         end
 
         it "is not valid if too many answers checked" do
-          subject.body = %w(foo bar baz)
+          subject.choices = %w(foo bar baz)
           expect(subject).not_to be_valid
         end
       end

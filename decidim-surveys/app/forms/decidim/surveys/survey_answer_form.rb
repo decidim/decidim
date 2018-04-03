@@ -7,11 +7,12 @@ module Decidim
       include Decidim::TranslationsHelper
 
       attribute :question_id, String
-      attribute :body, Array[String]
+      attribute :body, String
+      attribute :choices, Array[String]
 
-      validates :body, presence: true, if: -> { question.mandatory? }
+      validates :body, presence: true, if: -> { question.mandatory? && !question.multiple_choice? }
+      validates :choices, presence: true, if: -> { question.mandatory? && question.multiple_choice? }
 
-      validate :body_not_blank, if: -> { question.mandatory? }
       validate :max_answers, if: -> { question.max_choices }
 
       def question
@@ -38,12 +39,8 @@ module Decidim
         @survey ||= Survey.where(component: current_component).first
       end
 
-      def body_not_blank
-        errors.add("body", :blank) if body.all?(&:blank?)
-      end
-
       def max_answers
-        errors.add("body", :too_many_choices) if body.size > question.max_choices
+        errors.add("choices", :too_many) if choices.size > question.max_choices
       end
 
       def mandatory_label

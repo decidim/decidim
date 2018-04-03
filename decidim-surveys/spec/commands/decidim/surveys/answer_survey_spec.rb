@@ -20,7 +20,7 @@ module Decidim
               "question_id" => survey_question_1.id
             },
             {
-              "body" => "This is my second answer",
+              "choices" => %w(This is my second answer),
               "question_id" => survey_question_2.id
             }
           ],
@@ -68,8 +68,8 @@ module Decidim
         it "creates answers with the correct information" do
           command.call
 
-          expect(SurveyAnswer.first.body).to eq(["This is my first answer"])
-          expect(SurveyAnswer.second.body).to eq(["This is my second answer"])
+          expect(SurveyAnswer.first.body).to eq("This is my first answer")
+          expect(SurveyAnswer.last.choices).to eq(%w(This is my second answer))
         end
       end
     end
