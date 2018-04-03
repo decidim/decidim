@@ -149,6 +149,7 @@ eu:
             see_all_assemblies: Ikusi muntaia guztiak
       show:
         area: Area
+        children: Batzar
         developer_group: Talde sustatzailea
         local_area: Udal-alorrak
         participatory_scope: Esparru partizipatiboa
