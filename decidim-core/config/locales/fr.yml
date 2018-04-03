@@ -3,6 +3,11 @@ fr:
     attributes:
       account:
         delete_reason: Pour quelle raison de supprimez-vous votre compte ?
+        dummy_authorization_handler:
+          document_number: Numéro de document d'identité
+          postal_code: Code postal
+          birthday: Date de naissance
+      date_of_birth: Fecha de nacimiento
       report:
         details: Commentaires additionnels
       user:
@@ -100,11 +105,12 @@ fr:
         related_photos: Photos associées
     authorization_handlers:
       dummy_authorization_handler:
-        explanation: Obtenir une vérification en saisissant un numéro de document se terminant par "X"
+        explanation: Obtenir une vérification en saisissant un numéro de document d'identité
         fields:
-          document_number: Numéro de document
+          document_number: Numéro de document d'identité
           postal_code: Code postal
-        name: Exemple d'autorisation
+          birthday: Date de naissance
+        name: Formulaire de vérification d'identité
       dummy_authorization_workflow:
         name: Procédure d'autorisation factice
       errors:
