@@ -52,11 +52,11 @@ fr:
           question:
             add_answer_option: Ajouter une option de réponse
             description: Description
-            down: Vers le bas
+            down: Descendre
             question: Question
             remove: Retirer
             statement: Déclaration
-            up: Up
+            up: Monter
           update:
             invalid: Il y a eu des erreurs lors de la sauvegarde de l'enquête.
             success: Enquête enregistrée avec succès.

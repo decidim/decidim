@@ -24,7 +24,7 @@ fr:
           endorse: Appuyer
           vote: Voter
           withdraw: Retirer
-        name: Les propositions
+        name: Propositions
         settings:
           global:
             announcement: Annonce
@@ -112,7 +112,7 @@ fr:
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
-          proposals: Les propositions
+          proposals: Propositions
         proposal:
           creation_date: 'Création : %{date}'
           view_proposal: Voir la proposition
@@ -194,7 +194,7 @@ fr:
             body: Corps du texte
             created_at: Date de création
             proposal_votes_count: Nombre de votes
-            proposals: Les propositions
+            proposals: Propositions
       admin_log:
         proposal:
           answer: "%{user_name} a répondu à la proposition %{resource_name} sur l'espace %{space_name}"
