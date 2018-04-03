@@ -29,9 +29,9 @@ gem 'decidim-initiatives'
 And then execute:
 
 ```bash
-$ bundle
-$ bundle exec rails decidim_initiatives:install:migrations
-$ bundle exec rails db:migrate
+bundle
+bundle exec rails decidim_initiatives:install:migrations
+bundle exec rails db:migrate
 ```
 
 ## Database

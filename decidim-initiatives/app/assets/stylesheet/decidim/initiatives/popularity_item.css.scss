@@ -3,7 +3,8 @@
   margin-top: 5px;
 }
 
-.popularity::before, .popularity::after{
+.popularity::before,
+.popularity::after{
   display: table;
   content: ' ';
 }

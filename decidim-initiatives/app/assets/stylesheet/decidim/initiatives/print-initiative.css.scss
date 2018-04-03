@@ -84,42 +84,42 @@
     }
   }
 
-  .no-border {
+  .no-border{
     border: none !important;
   }
 
-  .print-section-title {
+  .print-section-title{
     font-size: 12pt;
     font-weight: bold;
     margin-top: 15pt;
     text-transform: uppercase;
   }
 
-  .print-initiative-legal-text {
+  .print-initiative-legal-text{
     font-size: 10pt;
     margin-top: 80pt;
   }
 }
 
-@page {
+@page{
   size: A4;
   margin: 17mm 17mm 11mm 11mm;
 }
 
-@media print {
-  .title-bar {
+@media print{
+  .title-bar{
     display: none;
   }
 
-  .layout-nav {
+  .layout-nav{
     display: none;
   }
 
-  .button.expanded {
+  .button.expanded{
     display: none;
   }
 
-  .page-break {
+  .page-break{
     page-break-before: auto;
   }
 }
