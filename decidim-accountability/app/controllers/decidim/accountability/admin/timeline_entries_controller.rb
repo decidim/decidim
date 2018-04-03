@@ -8,10 +8,14 @@ module Decidim
         helper_method :result, :timeline_entries
 
         def new
+          enforce_permission_to :create, :timeline_entry
+
           @form = form(TimelineEntryForm).instance
         end
 
         def create
+          enforce_permission_to :create, :timeline_entry
+
           @form = form(TimelineEntryForm).from_params(params)
           @form.decidim_accountability_result_id = params[:result_id]
 
@@ -29,10 +33,14 @@ module Decidim
         end
 
         def edit
+          enforce_permission_to :update, :timeline_entry, timeline_entry: timeline_entry
+
           @form = form(TimelineEntryForm).from_model(timeline_entry)
         end
 
         def update
+          enforce_permission_to :update, :timeline_entry, timeline_entry: timeline_entry
+
           @form = form(TimelineEntryForm).from_params(params)
 
           UpdateTimelineEntry.call(@form, timeline_entry) do
@@ -49,6 +57,8 @@ module Decidim
         end
 
         def destroy
+          enforce_permission_to :destroy, :timeline_entry, timeline_entry: timeline_entry
+
           timeline_entry.destroy!
 
           flash[:notice] = I18n.t("timeline_entries.destroy.success", scope: "decidim.accountability.admin")
