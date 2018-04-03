@@ -39,6 +39,9 @@ Decidim.register_participatory_space(:initiatives) do |participatory_space|
     end
 
     7.times do
+      Decidim::Initiative.skip_callback(:save, :after, :notify_state_change, raise: false)
+      Decidim::Initiative.skip_callback(:create, :after, :notify_creation, raise: false)
+
       initiative = Decidim::Initiative.create!(
         title: Decidim::Faker::Localized.sentence(3),
         description: Decidim::Faker::Localized.sentence(25),

@@ -1,10 +1,18 @@
 # frozen_string_literal: true
 
 class CreateStaticPages < ActiveRecord::Migration[5.1]
+  class Organization < ApplicationRecord
+    self.table_name = :decidim_organizations
+  end
+
+  class StaticPage < ApplicationRecord
+    self.table_name = :decidim_static_pages
+  end
+
   def change
-    Decidim::Organization.find_each do |organization|
-      Decidim::StaticPage.find_or_create_by!(slug: "initiatives") do |page|
-        page.organization = organization
+    Organization.find_each do |organization|
+      StaticPage.find_or_create_by!(slug: "initiatives") do |page|
+        page.decidim_organization_id = organization.id
         page.title = localized_attribute(organization, "initiatives", :title)
         page.content = localized_attribute(organization, "initiatives", :content)
       end

@@ -2,12 +2,16 @@
 # frozen_string_literal: true
 
 class AddUniqueOnVotes < ActiveRecord::Migration[5.1]
+  class InitiativesVote < ApplicationRecord
+    self.table_name = :decidim_initiatives_votes
+  end
+
   def get_duplicates(*columns)
-    Decidim::InitiativesVote.select("#{columns.join(",")}, COUNT(*)").group(columns).having("COUNT(*) > 1")
+    InitiativesVote.select("#{columns.join(",")}, COUNT(*)").group(columns).having("COUNT(*) > 1")
   end
 
   def row_count(issue)
-    Decidim::InitiativesVote.where(
+    InitiativesVote.where(
       decidim_initiative_id: issue.decidim_initiative_id,
       decidim_author_id: issue.decidim_author_id,
       decidim_user_group_id: issue.decidim_user_group_id
@@ -15,7 +19,7 @@ class AddUniqueOnVotes < ActiveRecord::Migration[5.1]
   end
 
   def find_next(issue)
-    Decidim::InitiativesVote.find_by(
+    InitiativesVote.find_by(
       decidim_initiative_id: issue.decidim_initiative_id,
       decidim_author_id: issue.decidim_author_id,
       decidim_user_group_id: issue.decidim_user_group_id
