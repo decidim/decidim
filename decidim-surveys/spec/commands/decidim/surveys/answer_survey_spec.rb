@@ -62,8 +62,7 @@ module Decidim
           expect do
             command.call
           end.to change(SurveyAnswer, :count).by(2)
-          last_answer = SurveyAnswer.last
-          expect(last_answer.survey).to eq(survey)
+          expect(SurveyAnswer.all.map(&:survey)).to eq([survey, survey])
         end
       end
     end
