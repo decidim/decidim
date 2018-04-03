@@ -9,9 +9,23 @@ module Decidim
         described_class.from_model(survey_answer).with_context(current_component: survey.component)
       end
 
+      let(:mandatory) { false }
+      let(:question_type) { "short_answer" }
+      let(:max_choices) { nil }
+
       let!(:survey) { create(:survey) }
       let!(:user) { create(:user, organization: survey.component.participatory_space.organization) }
-      let!(:survey_question) { create(:survey_question, survey: survey) }
+
+      let!(:survey_question) do
+        create(
+          :survey_question,
+          survey: survey,
+          mandatory: mandatory,
+          question_type: question_type,
+          max_choices: max_choices
+        )
+      end
+
       let!(:survey_answer) { create(:survey_answer, user: user, survey: survey, question: survey_question) }
 
       context "when everything is OK" do
@@ -19,14 +33,7 @@ module Decidim
       end
 
       context "when the question is mandatory" do
-        let!(:survey_question) do
-          create(
-            :survey_question,
-            survey: survey,
-            mandatory: true,
-            question_type: question_type
-          )
-        end
+        let(:mandatory) { true }
 
         context "and question type is not multiple choice" do
           let(:question_type) { "long_answer" }
@@ -51,14 +58,9 @@ module Decidim
       end
 
       context "when the question has max_choices set" do
-        let!(:survey_question) do
-          create(
-            :survey_question,
-            survey: survey,
-            max_choices: 2,
-            question_type: "multiple_option"
-          )
-        end
+        let(:question_type) { "multiple_option" }
+
+        let(:max_choices) { 2 }
 
         it "is valid if few enough answers checked" do
           subject.choices = %w(foo bar)
