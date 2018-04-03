@@ -7,6 +7,10 @@ module Decidim
       class MeetingForm < Decidim::Form
         include TranslatableAttributes
 
+        MEETING_OPEN_TYPES = %w(yes no other).freeze
+        MEETING_PUBLIC_TYPES = %w(yes no other).freeze
+        MEETING_TRANSPARENT_TYPES = %w(yes no other).freeze
+
         translatable_attribute :title, String
         translatable_attribute :description, String
         translatable_attribute :location, String
@@ -61,6 +65,15 @@ module Decidim
         def category
           return unless current_component
           @category ||= categories.find_by(id: decidim_category_id)
+        end
+
+        def meeting_open_types_for_select
+          MEETING_OPEN_TYPES.map do |type|
+            [
+              I18n.t("meeting_open_types.#{type}", scope: "decidim.meetings"),
+              type
+            ]
+          end
         end
 
         private
