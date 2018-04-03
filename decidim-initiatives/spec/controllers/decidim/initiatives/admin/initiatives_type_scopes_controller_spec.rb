@@ -47,7 +47,7 @@ module Decidim
             it "gets loaded" do
               get :new, params: { initiatives_type_id: initiative_type.id }
               expect(flash[:alert]).to be_nil
-              expect(response).to have_http_status(200)
+              expect(response).to have_http_status(:ok)
             end
           end
 
@@ -59,7 +59,7 @@ module Decidim
             it "access denied" do
               get :new, params: { initiatives_type_id: initiative_type.id }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
         end
@@ -103,7 +103,7 @@ module Decidim
                      initiatives_type_scope: valid_attributes
                    }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
         end
@@ -121,7 +121,7 @@ module Decidim
                     id: initiative_type_scope.to_param
                   }
               expect(flash[:alert]).to be_nil
-              expect(response).to have_http_status(200)
+              expect(response).to have_http_status(:ok)
             end
           end
 
@@ -137,7 +137,7 @@ module Decidim
                     id: initiative_type_scope.to_param
                   }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
         end
@@ -185,7 +185,7 @@ module Decidim
                       initiatives_type_scope: valid_attributes
                     }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
         end
@@ -232,7 +232,7 @@ module Decidim
                        id: initiative_type_scope.to_param
                      }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
         end

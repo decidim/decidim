@@ -27,7 +27,7 @@ module Decidim
             it "initiative list is not allowed" do
               get :index
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -35,7 +35,7 @@ module Decidim
             it "initiative list is not allowed" do
               get :index
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -47,7 +47,7 @@ module Decidim
             it "initiative list is allowed" do
               get :index
               expect(flash[:alert]).to be_nil
-              expect(response).to have_http_status(200)
+              expect(response).to have_http_status(:ok)
             end
           end
 
@@ -59,7 +59,7 @@ module Decidim
             it "initiative list is allowed" do
               get :index
               expect(flash[:alert]).to be_nil
-              expect(response).to have_http_status(200)
+              expect(response).to have_http_status(:ok)
             end
           end
 
@@ -71,7 +71,7 @@ module Decidim
             it "initiative list is allowed" do
               get :index
               expect(flash[:alert]).to be_nil
-              expect(response).to have_http_status(200)
+              expect(response).to have_http_status(:ok)
             end
           end
         end
@@ -85,7 +85,7 @@ module Decidim
             it "are not not allowed" do
               get :show, params: { slug: initiative.to_param }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -93,7 +93,7 @@ module Decidim
             it "are not allowed" do
               get :show, params: { slug: initiative.to_param }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -105,7 +105,7 @@ module Decidim
             it "are allowed" do
               get :show, params: { slug: initiative.to_param }
               expect(flash[:alert]).to be_nil
-              expect(response).to have_http_status(200)
+              expect(response).to have_http_status(:ok)
             end
           end
 
@@ -117,7 +117,7 @@ module Decidim
             it "are allowed" do
               get :show, params: { slug: initiative.to_param }
               expect(flash[:alert]).to be_nil
-              expect(response).to have_http_status(200)
+              expect(response).to have_http_status(:ok)
             end
           end
 
@@ -129,7 +129,7 @@ module Decidim
             it "initiative list is allowed" do
               get :show, params: { slug: initiative.to_param }
               expect(flash[:alert]).to be_nil
-              expect(response).to have_http_status(200)
+              expect(response).to have_http_status(:ok)
             end
           end
         end
@@ -143,7 +143,7 @@ module Decidim
             it "are not allowed" do
               get :edit, params: { slug: initiative.to_param }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -151,7 +151,7 @@ module Decidim
             it "are not allowed" do
               get :edit, params: { slug: initiative.to_param }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -163,7 +163,7 @@ module Decidim
             it "are allowed" do
               get :edit, params: { slug: initiative.to_param }
               expect(flash[:alert]).to be_nil
-              expect(response).to have_http_status(200)
+              expect(response).to have_http_status(:ok)
             end
           end
 
@@ -175,7 +175,7 @@ module Decidim
             it "are allowed" do
               get :edit, params: { slug: initiative.to_param }
               expect(flash[:alert]).to be_nil
-              expect(response).to have_http_status(200)
+              expect(response).to have_http_status(:ok)
             end
           end
 
@@ -187,7 +187,7 @@ module Decidim
             it "are allowed" do
               get :edit, params: { slug: initiative.to_param }
               expect(flash[:alert]).to be_nil
-              expect(response).to have_http_status(200)
+              expect(response).to have_http_status(:ok)
             end
           end
         end
@@ -207,7 +207,7 @@ module Decidim
                     initiative: valid_attributes
                   }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -219,7 +219,7 @@ module Decidim
                     initiative: valid_attributes
                   }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -235,7 +235,7 @@ module Decidim
                     initiative: valid_attributes
                   }
               expect(flash[:alert]).to be_nil
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -252,7 +252,7 @@ module Decidim
                       initiative: valid_attributes
                     }
                 expect(flash[:alert]).not_to be_nil
-                expect(response).to have_http_status(302)
+                expect(response).to have_http_status(:found)
               end
             end
 
@@ -270,7 +270,7 @@ module Decidim
                       initiative: valid_attributes
                     }
                 expect(flash[:alert]).to be_nil
-                expect(response).to have_http_status(302)
+                expect(response).to have_http_status(:found)
               end
             end
           end
@@ -288,7 +288,7 @@ module Decidim
                       initiative: valid_attributes
                     }
                 expect(flash[:alert]).not_to be_nil
-                expect(response).to have_http_status(302)
+                expect(response).to have_http_status(:found)
               end
             end
 
@@ -306,7 +306,7 @@ module Decidim
                       initiative: valid_attributes
                     }
                 expect(flash[:alert]).to be_nil
-                expect(response).to have_http_status(302)
+                expect(response).to have_http_status(:found)
               end
             end
           end
@@ -321,7 +321,7 @@ module Decidim
             it "Raises an error" do
               get :send_to_technical_validation, params: { slug: initiative.to_param }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -335,7 +335,7 @@ module Decidim
             it "Raises an error" do
               get :send_to_technical_validation, params: { slug: created_initiative.to_param }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -365,7 +365,7 @@ module Decidim
             it "Raises an error" do
               post :publish, params: { slug: initiative.to_param }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -378,7 +378,7 @@ module Decidim
 
             it "initiative gets published" do
               post :publish, params: { slug: initiative.to_param }
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
 
               initiative.reload
               expect(initiative).to be_published
@@ -398,7 +398,7 @@ module Decidim
             it "Raises an error" do
               delete :unpublish, params: { slug: initiative.to_param }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -411,7 +411,7 @@ module Decidim
 
             it "initiative gets unpublished" do
               delete :unpublish, params: { slug: initiative.to_param }
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
 
               initiative.reload
               expect(initiative).not_to be_published
@@ -432,7 +432,7 @@ module Decidim
             it "Raises an error" do
               delete :discard, params: { slug: initiative.to_param }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -445,7 +445,7 @@ module Decidim
 
             it "initiative gets discarded" do
               delete :discard, params: { slug: initiative.to_param }
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
 
               initiative.reload
               expect(initiative).to be_discarded
@@ -465,7 +465,7 @@ module Decidim
             it "Raises an error" do
               post :accept, params: { slug: initiative.to_param }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -478,7 +478,7 @@ module Decidim
 
             it "initiative gets published" do
               post :accept, params: { slug: initiative.to_param }
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
 
               initiative.reload
               expect(initiative).to be_accepted
@@ -497,7 +497,7 @@ module Decidim
             it "Raises an error" do
               delete :reject, params: { slug: initiative.to_param }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -510,7 +510,7 @@ module Decidim
 
             it "initiative gets rejected" do
               delete :reject, params: { slug: initiative.to_param }
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
               expect(flash[:alert]).to be_nil
 
               initiative.reload
@@ -530,7 +530,7 @@ module Decidim
             it "is not allowed" do
               get :export_votes, params: { slug: initiative.to_param, format: :csv }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -542,7 +542,7 @@ module Decidim
             it "is not allowed" do
               get :export_votes, params: { slug: initiative.to_param, format: :csv }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -556,7 +556,7 @@ module Decidim
             it "is allowed" do
               get :export_votes, params: { slug: initiative.to_param, format: :csv }
               expect(flash[:alert]).to be_nil
-              expect(response).to have_http_status(200)
+              expect(response).to have_http_status(:ok)
             end
           end
         end

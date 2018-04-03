@@ -30,7 +30,8 @@ module Decidim
 
     has_many :votes,
              foreign_key: "decidim_initiative_id",
-             class_name: "Decidim::InitiativesVote", dependent: :destroy,
+             class_name: "Decidim::InitiativesVote",
+             dependent: :destroy,
              inverse_of: :initiative
 
     has_many :committee_members,
@@ -39,7 +40,7 @@ module Decidim
              dependent: :destroy,
              inverse_of: :initiative
 
-    has_many :components, as: :participatory_space
+    has_many :components, as: :participatory_space, dependent: :destroy
 
     # This relationship exists only by compatibility reasons.
     # Initiatives are not intended to have categories.
@@ -193,7 +194,7 @@ module Decidim
     # Returns true if the record was properly saved, false otherwise.
     def publish!
       return false if published?
-      update_attributes(
+      update(
         published_at: Time.current,
         state: "published",
         signature_start_time: DateTime.now.utc,
@@ -207,7 +208,7 @@ module Decidim
     # Returns true if the record was properly saved, false otherwise.
     def unpublish!
       return false unless published?
-      update_attributes(published_at: nil, state: "discarded")
+      update(published_at: nil, state: "discarded")
     end
 
     # Public: Returns wether the signature interval is already defined or not.

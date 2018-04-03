@@ -31,7 +31,7 @@ module Decidim
             sign_in user, scope: :user
             post :create, params: { initiative_slug: initiative.slug, format: :js }
             expect(flash[:alert]).not_to be_empty
-            expect(response).to have_http_status(302)
+            expect(response).to have_http_status(:found)
           end
 
           it "do not register the vote" do
@@ -45,7 +45,7 @@ module Decidim
         context "and Guest users" do
           it "receives unauthorized response" do
             post :create, params: { initiative_slug: initiative.slug, format: :js }
-            expect(response).to have_http_status(401)
+            expect(response).to have_http_status(:unauthorized)
           end
 
           it "do not register the vote" do

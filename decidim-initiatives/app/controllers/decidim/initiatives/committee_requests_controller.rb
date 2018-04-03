@@ -24,7 +24,7 @@ module Decidim
           on(:ok) do
             redirect_to initiatives_path, flash: {
               notice: I18n.t(
-                ".success",
+                "success",
                 scope: %w(decidim initiatives committee_requests spawn)
               )
             }

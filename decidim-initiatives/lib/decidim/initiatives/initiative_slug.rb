@@ -10,7 +10,7 @@ module Decidim
       def id_from_slug(slug)
         return slug if /\A\d+\Z/.match?(slug)
 
-        slug[2..-1] unless slug.blank?
+        slug[2..-1] if slug.present?
       end
     end
   end

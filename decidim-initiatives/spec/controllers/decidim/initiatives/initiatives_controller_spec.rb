@@ -63,7 +63,7 @@ module Decidim
           it "Throws exception on non published initiatives" do
             get :show, params: { slug: created_initiative.slug }
             expect(flash[:alert]).not_to be_empty
-            expect(response).to have_http_status(302)
+            expect(response).to have_http_status(:found)
           end
         end
 

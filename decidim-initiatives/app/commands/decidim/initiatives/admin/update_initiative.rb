@@ -49,7 +49,7 @@ module Decidim
             answer_url: form.answer_url
           }
 
-          attrs[:answered_at] = DateTime.now unless form.answer.blank?
+          attrs[:answered_at] = DateTime.current if form.answer.present?
 
           if current_user.admin?
             attrs[:signature_start_time] = form.signature_start_time

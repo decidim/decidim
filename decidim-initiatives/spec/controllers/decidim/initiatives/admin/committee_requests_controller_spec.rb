@@ -26,7 +26,7 @@ module Decidim
             it "action is allowed" do
               get :index, params: { initiative_slug: initiative.to_param }
               expect(flash[:alert]).to be_nil
-              expect(response).to have_http_status(200)
+              expect(response).to have_http_status(:ok)
             end
           end
 
@@ -38,7 +38,7 @@ module Decidim
             it "action is not allowed" do
               get :index, params: { initiative_slug: initiative.to_param }
               expect(flash[:alert]).not_to be_nil
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -50,7 +50,7 @@ module Decidim
             it "action is allowed" do
               get :index, params: { initiative_slug: initiative.to_param }
               expect(flash[:alert]).to be_nil
-              expect(response).to have_http_status(200)
+              expect(response).to have_http_status(:ok)
             end
           end
 
@@ -62,7 +62,7 @@ module Decidim
             it "action is allowed" do
               get :index, params: { initiative_slug: initiative.to_param }
               expect(flash[:alert]).to be_nil
-              expect(response).to have_http_status(200)
+              expect(response).to have_http_status(:ok)
             end
           end
         end
@@ -93,7 +93,7 @@ module Decidim
             it "Action is denied" do
               get :approve, params: { initiative_slug: membership_request.initiative.to_param, id: membership_request.to_param }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
@@ -136,7 +136,7 @@ module Decidim
             it "Action is denied" do
               delete :revoke, params: { initiative_slug: membership_request.initiative.to_param, id: membership_request.to_param }
               expect(flash[:alert]).not_to be_empty
-              expect(response).to have_http_status(302)
+              expect(response).to have_http_status(:found)
             end
           end
 
