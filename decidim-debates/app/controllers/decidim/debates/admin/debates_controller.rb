@@ -8,10 +8,14 @@ module Decidim
         helper_method :debates
 
         def new
+          enforce_permission_to :create, :debate
+
           @form = form(Decidim::Debates::Admin::DebateForm).instance
         end
 
         def create
+          enforce_permission_to :create, :debate
+
           @form = form(Decidim::Debates::Admin::DebateForm).from_params(params, current_component: current_component)
 
           CreateDebate.call(@form) do
@@ -28,12 +32,14 @@ module Decidim
         end
 
         def edit
-          authorize! :edit, debate
+          enforce_permission_to :update, :debate, debate: debate
+
           @form = form(DebateForm).from_model(debate)
         end
 
         def update
-          authorize! :edit, debate
+          enforce_permission_to :update, :debate, debate: debate
+
           @form = form(DebateForm).from_params(params, current_component: current_component)
 
           UpdateDebate.call(@form, debate) do
@@ -50,7 +56,8 @@ module Decidim
         end
 
         def destroy
-          authorize! :destroy, debate
+          enforce_permission_to :delete, :debate, debate: debate
+
           debate.destroy!
 
           flash[:notice] = I18n.t("debates.destroy.success", scope: "decidim.debates.admin")
