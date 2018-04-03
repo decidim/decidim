@@ -90,7 +90,9 @@
       wrapperSelector: fieldSelector,
       dependentFieldsSelector: answerOptionsWrapperSelector,
       dependentInputSelector: `${answerOptionFieldSelector} input`,
-      enablingValues: ["single_option", "multiple_option"]
+      enablingCondition: ($field) => {
+        return ["single_option", "multiple_option"].indexOf($field.val()) > -1
+      }
     });
 
     createFieldDependentInputs({
@@ -98,7 +100,9 @@
       wrapperSelector: fieldSelector,
       dependentFieldsSelector: maxChoicesWrapperSelector,
       dependentInputSelector: "select",
-      enablingValues: ["multiple_option"]
+      enablingCondition: ($field) => {
+        return ["multiple_option"].indexOf($field.val()) > -1
+      }
     });
 
     dynamicFieldsForAnswerOptions[fieldId] = createDynamicFieldsForAnswerOptions(fieldId);
