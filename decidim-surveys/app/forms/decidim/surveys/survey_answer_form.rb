@@ -40,7 +40,7 @@ module Decidim
       end
 
       def max_answers
-        errors.add("choices", :too_many) if choices.size > question.max_choices
+        errors.add(:choices, :too_many) if choices.size > question.max_choices
       end
 
       def mandatory_label
