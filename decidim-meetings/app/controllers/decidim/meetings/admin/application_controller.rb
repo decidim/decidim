@@ -11,6 +11,18 @@ module Decidim
       class ApplicationController < Decidim::Admin::Components::BaseController
         helper_method :meetings, :meeting
 
+        include NeedsPermission
+
+        private
+
+        def permission_class
+          Decidim::Meetings::Permissions
+        end
+
+        def permission_scope
+          :admin
+        end
+
         def meetings
           @meetings ||= Meeting.where(component: current_component).page(params[:page]).per(15)
         end

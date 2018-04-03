@@ -9,10 +9,14 @@ module Decidim
       #
       class InvitesController < Admin::ApplicationController
         def new
+          enforce_permission_to :invite_user, :meeting, meeting: meeting
+
           @form = form(MeetingRegistrationInviteForm).instance
         end
 
         def create
+          enforce_permission_to :invite_user, :meeting, meeting: meeting
+
           @form = form(MeetingRegistrationInviteForm).from_params(params)
 
           InviteUserToJoinMeeting.call(@form, meeting, current_user) do
