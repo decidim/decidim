@@ -19,6 +19,7 @@ This plugin provides:
 * Public views for initiatives via a high level section in the main menu.
 
 ## Installation
+
 Add this line to your application's Gemfile:
 
 ```ruby
@@ -26,6 +27,7 @@ gem 'decidim-initiatives'
 ```
 
 And then execute:
+
 ```bash
 $ bundle
 $ bundle exec rails decidim_initiatives:install:migrations
@@ -69,7 +71,7 @@ __Decidim::Initiatives.first_notification_percentage__ and __Decidim::Initiative
 
 Author, members of the promoter committee and followers will receive it.
 
-## Exporting online votes.
+## Exporting online votes
 
 When the supporting method is set to any or face to face it may be necessary to implement
 a mechanism to validate that do not exist duplicated supports. To do so the engine provides
@@ -92,13 +94,15 @@ There are some considerations that you must keep in mind:
 ## Seeding example data
 
 In order to populate the database with example data proceed as usual in rails:
+
 ```bash
-$ bundle exec rails db:seed
+bundle exec rails db:seed
 ```
 
 ## Aditional considerations
 
 ### Cookies
+
 This engine makes use of cookies to store large form data. You should change the
 default session store or you might experience problems.
 
@@ -106,7 +110,9 @@ Check the [Rails configuration guide](http://guides.rubyonrails.org/configuring.
 in order to get instructions about changing the default session store.
 
 ## Contributing
+
 See [Decidim](https://github.com/decidim/decidim).
 
 ## License
+
 See [Decidim](https://github.com/decidim/decidim).
