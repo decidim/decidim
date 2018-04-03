@@ -15,13 +15,13 @@ module Decidim
           return false if permission_action.subject != :project
 
           return true if case permission_action.action
-                        when :create
-                          true
-                        when :update, :destroy
-                          project.present?
-                        else
-                          false
-                        end
+                         when :create
+                           true
+                         when :update, :destroy
+                           project.present?
+                         else
+                           false
+                         end
 
           false
         end
