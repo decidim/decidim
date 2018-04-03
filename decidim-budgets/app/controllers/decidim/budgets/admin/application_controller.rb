@@ -16,7 +16,7 @@ module Decidim
         private
 
         def permission_class
-          Decidim::Proposals::Permissions
+          Decidim::Budgets::Permissions
         end
 
         def permission_scope
