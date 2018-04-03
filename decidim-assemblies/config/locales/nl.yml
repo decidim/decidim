@@ -149,6 +149,7 @@ nl:
             see_all_assemblies: Bekijk alle bijeenkomsten
       show:
         area: Gebied
+        children: Assemblies
         developer_group: Ontwikkelaarsgroep
         local_area: Lokaal gebied
         participatory_scope: Participatieve scope
