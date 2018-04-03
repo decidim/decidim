@@ -69,7 +69,6 @@ module Decidim
 
     after_create :set_parents_path
     after_update :set_parents_path, :update_children_paths, if: :saved_change_to_parent_id?
-    
     # Scope to return only the promoted assemblies.
     #
     # Returns an ActiveRecord::Relation.
