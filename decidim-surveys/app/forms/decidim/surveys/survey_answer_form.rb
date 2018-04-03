@@ -10,10 +10,12 @@ module Decidim
       attribute :body, String
       attribute :choices, Array[String]
 
-      validates :body, presence: true, if: -> { question.mandatory? && !question.multiple_choice? }
-      validates :choices, presence: true, if: -> { question.mandatory? && question.multiple_choice? }
+      validates :body, presence: true, if: :mandatory_body?
+      validates :choices, presence: true, if: :mandatory_choices?
 
       validate :max_answers, if: -> { question.max_choices }
+
+      delegate :mandatory_body?, :mandatory_choices?, to: :question
 
       def question
         @question ||= survey.questions.find(question_id)

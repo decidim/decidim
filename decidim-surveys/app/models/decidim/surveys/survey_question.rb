@@ -13,6 +13,14 @@ module Decidim
       def multiple_choice?
         %w(single_option multiple_option).include?(question_type)
       end
+
+      def mandatory_body?
+        mandatory? && !multiple_choice?
+      end
+
+      def mandatory_choices?
+        mandatory? && multiple_choice?
+      end
     end
   end
 end

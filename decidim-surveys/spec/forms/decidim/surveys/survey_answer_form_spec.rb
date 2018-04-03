@@ -26,7 +26,7 @@ module Decidim
         )
       end
 
-      let!(:survey_answer) { create(:survey_answer, user: user, survey: survey, question: survey_question) }
+      let!(:survey_answer) { build(:survey_answer, user: user, survey: survey, question: survey_question) }
 
       context "when everything is OK" do
         it { is_expected.to be_valid }
@@ -50,7 +50,7 @@ module Decidim
         context "and question type is multiple choice" do
           let(:question_type) { "multiple_option" }
 
-          it "is not valid if body entries are all blank" do
+          it "is not valid if choices are empty" do
             subject.choices = []
             expect(subject).not_to be_valid
           end
