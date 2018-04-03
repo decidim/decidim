@@ -21,6 +21,15 @@ eu:
         start_time: Hasiera-ordua
         title: Titulua
   decidim:
+    admin:
+      meeting_copies:
+        create:
+          error: Akatsa gertatu da bilera hau bikoiztea.
+          success: Bildutako bilera bikoiztua behar bezala egin da.
+        new:
+          copy: Copy
+          select: Aukeratu zein datu bikoiztu nahi dituzun
+          title: Bilera bikoiztua
     components:
       meetings:
         actions:

@@ -51,6 +51,7 @@ gl:
             already_answered_warning: Algunha xente xa respondeu a enquisa para que non poida modificar as súas preguntas.
           question:
             add_answer_option: Engadir unha opción de resposta
+            description: Descrición
             down: Baixo
             question: Pregunta
             remove: Quitar

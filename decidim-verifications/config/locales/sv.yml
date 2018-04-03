@@ -10,12 +10,12 @@ sv:
         user: Användare
         verification_attachment: Skannad kopia av ditt dokument
       postal_letter_address:
-        full_address: Hela adressen
+        full_address: Fullständig adress
       postal_letter_confirmation:
-        verification_code: Verifierings kod
+        verification_code: Verifieringskod
       postal_letter_postage:
-        full_address: Hela adressen
-        verification_code: Verifierings kod
+        full_address: Fullständig adress
+        verification_code: Verifieringskod
   decidim:
     admin:
       menu:
@@ -40,7 +40,7 @@ sv:
         explanation: Ladda upp dina identitetshandlingar så att vi kan kontrollera din identitet
         name: Identitetsdokument
       multistep: Flerstegs
-      name: namn
+      name: Namn
       postal_letter:
         explanation: Vi skickar dig ett brev med en kod som du måste ange så vi kan verifiera din adress
         name: Kod med postbrev
@@ -79,7 +79,7 @@ sv:
           pending_authorizations:
             index:
               title: Väntar på kontroller
-              verification_number: 'Verifiering # %{n}'
+              verification_number: 'Verifiering #%{n}'
           rejections:
             create:
               success: Verifikationen avvisades. Användaren kommer att uppmanas att ändra sina dokument
@@ -99,27 +99,27 @@ sv:
           update:
             error: Ett problem uppstod vid uppladdning av dokumentet
             success: Dokumentet uppladdades framgångsrikt
-        dni: DNI
-        nie: NIE
+        dni: ID-kort
+        nie: Personnummer
         passport: Pass
       postal_letter:
         admin:
           pending_authorizations:
             index:
               address: Adress
-              letter_sent_at: Brevet skickat till
+              letter_sent_at: Brev skickat till
               mark_as_sent: Markera som skickat
               not_yet_sent: inte skickat än
               title: Pågående kontroller
               username: Användarnamn
-              verification_code: Verifierings kod
+              verification_code: Verifieringskod
           postages:
             create:
               error: Felmarkeringsbrev som skickat
               success: Brev framgångsrikt märkt som skickat
         authorizations:
           create:
-            error: Ett problem uppstod med din förfrågan
+            error: Det uppstod ett problem med din förfrågan
             success: Tack! Vi skickar en verifieringskod till din adress
           edit:
             send: Bekräfta
@@ -133,4 +133,4 @@ sv:
             success: Grattis. Du har blivit verifierad
   errors:
     messages:
-      uppercase_only_letters_numbers: måste vara stort och endast innehålla bokstäver och / eller siffror
+      uppercase_only_letters_numbers: måste vara versaler och endast innehålla bokstäver och/eller siffror
