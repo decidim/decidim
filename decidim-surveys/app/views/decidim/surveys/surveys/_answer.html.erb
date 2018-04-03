@@ -9,9 +9,9 @@
 
 <% case answer.question.question_type %>
   <% when "short_answer" %>
-    <%= text_field_tag "survey[answers][#{answer_idx}][body]", answer.body, id: field_id, class: "#{'is-invalid-input' unless answer.errors.empty?}" %>
+    <%= answer_form.text_field :body, label: false, id: field_id %>
   <% when "long_answer" %>
-    <%= text_area_tag "survey[answers][#{answer_idx}][body]", answer.body, id: field_id, class: "#{'is-invalid-input' unless answer.errors.empty?}", rows: 10 %>
+    <%= answer_form.text_area :body, label: false, id: field_id, rows: 10 %>
   <% when "single_option" %>
     <div id="<%= field_id %>_answer_options" class="radio-button-collection">
       <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
@@ -32,7 +32,8 @@
     </div>
 <% end %>
 
-<%= hidden_field_tag "survey[answers][#{answer_idx}][question_id]", answer.question.id %>
+<%= answer_form.hidden_field :id %>
+<%= answer_form.hidden_field :question_id %>
 
 <% answer.errors.full_messages.each do |msg| %>
   <%= content_tag :small, msg, class: "form-error is-visible" %>

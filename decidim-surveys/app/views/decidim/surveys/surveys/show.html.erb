@@ -30,9 +30,11 @@
             <% else %>
               <div class="answer-survey">
                 <%= decidim_form_for(@form, url: answer_survey_path(survey), method: :post, html: { class: "form answer-survey" }) do |form| %>
-                  <% @form.answers.each_with_index do |answer, answer_idx| %>
+                  <% @form.answers.each do |answer| %>
                     <div class="row column">
-                      <%= render "answer", answer: answer, answer_idx: answer_idx %>
+                      <%= fields_for "survey[answers][]", answer do |answer_form| %>
+                        <%= render "answer", answer_form: answer_form, answer: answer, answer_idx: answer.id %>
+                      <% end %>
                     </div>
                   <% end %>
 

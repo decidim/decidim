@@ -118,19 +118,42 @@ describe "Answer a survey", type: :system do
         it_behaves_like "a correctly ordered survey"
       end
 
-      context "when a question is mandatory" do
+      shared_context "when a question is mandatory" do
         let!(:survey_question_2) { create(:survey_question, survey: survey, position: 0, mandatory: true) }
 
-        it "users cannot leave that question blank" do
+        before do
           visit_component
 
           check "survey_tos_agreement"
+        end
+      end
 
-          accept_confirm { click_button "Submit" }
+      describe "leaving a blank question (without js)", driver: :rack_test do
+        include_context "when a question is mandatory"
 
+        before do
+          click_button "Submit"
+        end
+
+        it "submits the form and shows errors" do
           within ".alert.flash" do
             expect(page).to have_content("error")
           end
+
+          expect(page).to have_content("can't be blank")
+        end
+      end
+
+      describe "leaving a blank question (with js)" do
+        include_context "when a question is mandatory"
+
+        before do
+          accept_confirm { click_button "Submit" }
+        end
+
+        it "shows errors without submitting the form" do
+          expect(page).to have_no_selector ".alert.flash"
+
           expect(page).to have_content("can't be blank")
         end
       end
@@ -257,7 +280,7 @@ describe "Answer a survey", type: :system do
             expect(page).to have_content("There's been errors when answering the survey.")
           end
 
-          expect(page).to have_content("has too many options checked")
+          expect(page).to have_content("are too many")
 
           uncheck answer_options[4]["body"][:en]
 

@@ -40,6 +40,7 @@ controller or added a new module you need to rename `feature` to `component`.
 - **decidim-surveys**: Add rich text description to questions [\#3066](https://github.com/decidim/decidim/pull/3066).
 - **decidim-proposals**: Add discard draft button in wizard [\#3064](https://github.com/decidim/decidim/pull/3064)
 - **decidim-surveys**: Allow multiple choice questions to specify a maximum number of options to be checked [\#3091](https://github.com/decidim/decidim/pull/3091)
+- **decidim-surveys**: Client side survey errors are now displayed [\#3133](https://github.com/decidim/decidim/pull/3133)
 
 **Changed**:
 
