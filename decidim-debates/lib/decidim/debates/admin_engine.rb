@@ -18,16 +18,6 @@ module Decidim
       def load_seed
         nil
       end
-
-      initializer "decidim_debates.inject_admin_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.admin_abilities += [
-            "Decidim::Debates::Abilities::Admin::AdminAbility",
-            "Decidim::Debates::Abilities::Admin::ParticipatoryProcessAdminAbility",
-            "Decidim::Debates::Abilities::Admin::ParticipatoryProcessModeratorAbility"
-          ]
-        end
-      end
     end
   end
 end
