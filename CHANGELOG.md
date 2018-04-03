@@ -10,7 +10,7 @@ controller or added a new module you need to rename `feature` to `component`.
 
 **Added**:
 
-- **decidim-initiatives**: Decidim Initiatives Gem has been integrated into the main repository. [\#xxx](https://github.com/decidim/decidim/pull/xxx)
+- **decidim-initiatives**: Decidim Initiatives Gem has been integrated into the main repository. [\#3125](https://github.com/decidim/decidim/pull/3125)
 - **decidim-admin**: Decidim as OAuth provider [\#3057](https://github.com/decidim/decidim/pull/3057)
 - **decidim-core**: Decidim as OAuth provider [\#3057](https://github.com/decidim/decidim/pull/3057)
 - **decidim-consultations**: Decidim Consultations Gem has been  integrated into the  main  repository. [\#3106](https://github.com/decidim/decidim/pull/3106)
