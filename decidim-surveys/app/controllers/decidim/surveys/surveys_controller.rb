@@ -13,7 +13,8 @@ module Decidim
       end
 
       def answer
-        authorize! :answer, Survey
+        enforce_permission_to :answer, :survey
+
         @form = form(SurveyForm).from_params(params)
 
         AnswerSurvey.call(@form, current_user, survey) do

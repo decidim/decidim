@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t(".title") %>
 
-      <%= link_to t("actions.new", scope: "decidim.debates", name: t("models.debate.name", scope: "decidim.debates.admin")), new_debate_path, class: "button tiny button--title" if can? :manage, current_component %>
+      <%= link_to t("actions.new", scope: "decidim.debates", name: t("models.debate.name", scope: "decidim.debates.admin")), new_debate_path, class: "button tiny button--title" if allowed_to? :create, :debate %>
     </h2>
   </div>
 
@@ -35,11 +35,11 @@
                 <% end %>
               </td>
               <td class="table-list__actions">
-                <% if can? :update, debate %>
+                <% if allowed_to? :update, :debate, debate: debate %>
                   <%= icon_link_to "pencil", edit_debate_path(debate), t("actions.edit", scope: "decidim.debates"), class: "action-icon--edit" %>
                 <% end %>
 
-                <% if can? :destroy, debate %>
+                <% if allowed_to? :delete, :debate, debate: debate %>
                   <%= icon_link_to "circle-x", debate_path(debate), t("actions.destroy", scope: "decidim.debates"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.debates") } %>
                 <% end %>
               </td>
