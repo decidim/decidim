@@ -3,11 +3,10 @@ fr:
     attributes:
       account:
         delete_reason: Pour quelle raison de supprimez-vous votre compte ?
-        dummy_authorization_handler:
-          document_number: Numéro de document d'identité
-          postal_code: Code postal
-          birthday: Date de naissance
-      date_of_birth: Fecha de nacimiento
+      dummy_authorization_handler:
+        document_number: Numéro de document d'identité
+        postal_code: Code postal
+        birthday: Date de naissance
       report:
         details: Commentaires additionnels
       user:
