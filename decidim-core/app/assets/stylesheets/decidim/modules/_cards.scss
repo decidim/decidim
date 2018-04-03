@@ -17,6 +17,7 @@ $card-proposal: $proposals;
 $card-action: $actions;
 $card-debate: $debates;
 $card-meeting: $meetings;
+$card-spaces: $card-meeting;
 
 $datetime-bg: $primary;
 
@@ -120,6 +121,10 @@ $datetime-bg: $primary;
     display: block;
     margin-top: $global-margin / 2;
   }
+
+  &:not(:last-child){
+    margin-bottom: $global-margin / 2;
+  }
 }
 
 .card__image{
@@ -167,6 +172,12 @@ $datetime-bg: $primary;
 
   .card__content{
     display: flex;
+  }
+
+  &.card__footer--spaces{
+    background: rgba($card-spaces, .2);
+    border-top-color: rgba($card-spaces, .6);
+    border-top-width: .25rem;
   }
 }
 
@@ -241,6 +252,10 @@ $datetime-bg: $primary;
   margin-right: -1px;
   border-top: $border;
   margin-top: -1px;
+
+  .card-data__item--centerblock{
+    margin: 0 auto;
+  }
 }
 
 .card-data__item__number{
@@ -302,6 +317,23 @@ $datetime-bg: $primary;
   line-height: 1;
   margin-bottom: .2rem;
   color: $muted;
+}
+
+.card__support__data--left{
+  @extend .card__support__data;
+
+  text-align: left;
+  text-transform: none;
+  margin-bottom: 0;
+  color: $muted;
+  max-width: 60%;
+
+  strong{
+    font-size: rem-calc(16);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .card__support__number{
@@ -503,7 +535,6 @@ $datetime-bg: $primary;
 }
 
 /* Card full width variant */
-
 .card--full{
   margin-bottom: $card-margin-bottom*2;
 
@@ -607,8 +638,7 @@ $datetime-bg: $primary;
   }
 }
 
-/* Card mini */
-
+// card mini
 .card--mini{
   .card__content{
     padding: $card-padding $card-padding-small;
@@ -712,5 +742,56 @@ $datetime-bg: $primary;
         }
       }
     }
+  }
+}
+
+.card__block{
+  @extend .card__icondata;
+
+  margin-bottom: $global-margin / 2;
+
+  ul{
+    border: $border;
+
+    li{
+      padding: .25em;
+    }
+  }
+}
+
+// card stack
+.card--stack{
+  position: relative;
+  overflow: visible;
+  z-index: 0;
+
+  &,
+  &::after,
+  &::before{
+    /* Add shadow to distinguish sheets from one another */
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, .15);
+  }
+
+  &::after,
+  &::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: $card-border-radius;
+  }
+
+  /* Second sheet of paper */
+  &::before{
+    left: 3px;
+    top: 3px;
+    z-index: -1;
+  }
+
+  /* Third sheet of paper */
+  &::after{
+    left: 5px;
+    top: 5px;
+    z-index: -2;
   }
 }
