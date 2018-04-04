@@ -30,11 +30,11 @@ fr:
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
-            comments_enabled: Commentaires activés
+            comments_enabled: Autoriser la création de nouveaux commentaires
             geocoding_enabled: Géocodage activé
             new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition
-            official_proposals_enabled: Propositions officielles activées
-            proposal_answering_enabled: Réponse à la proposition activée
+            official_proposals_enabled: Autoriser la création de propositions officielles
+            proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             proposal_edit_before_minutes: Délai (en minutes) après lequel les auteurs ne peuvent plus modifier leurs propositions
             proposal_length: Nombre maximum de caractères du corps de la proposition
             proposal_limit: Limite de proposition par utilisateur
@@ -46,12 +46,12 @@ fr:
           step:
             announcement: Annonce
             comments_blocked: Bloquer la création de nouveaux commentaires
-            creation_enabled: Création de proposition activée
-            endorsements_blocked: Promotions bloquées
-            endorsements_enabled: Promotions activées
-            proposal_answering_enabled: Réponse à la proposition activée
+            creation_enabled: Autoriser la création de nouvelles propositions
+            endorsements_blocked: Empêcher les utilisateurs de promouvoir une proposition
+            endorsements_enabled: Autoriser les utilisateurs à promouvoir une proposition
+            proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             votes_blocked: Votes bloqués
-            votes_enabled: Votes activés
+            votes_enabled: Autoriser les utilisateurs à soutenir une proposition
             votes_hidden: Votes cachés (si les votes sont activés, cette option cachera le nombre de votes)
     events:
       proposals:
