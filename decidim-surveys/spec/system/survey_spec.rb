@@ -200,8 +200,8 @@ describe "Answer a survey", type: :system do
         it "renders answers as a collection of radio buttons" do
           visit_component
 
-          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type='radio']", count: 2)
-          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type='radio']", count: 2)
+          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type=radio]", count: 2)
+          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type=radio]", count: 2)
 
           within "#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options" do
             choose answer_options[1]["body"][:en]
@@ -233,8 +233,8 @@ describe "Answer a survey", type: :system do
         it "renders answers as a collection of radio buttons" do
           visit_component
 
-          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type='checkbox']", count: 2)
-          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type='checkbox']", count: 3)
+          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type=checkbox]", count: 2)
+          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type=checkbox]", count: 3)
           expect(page).to have_no_content("Max choices:")
 
           within "#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options" do
@@ -300,8 +300,8 @@ describe "Answer a survey", type: :system do
         it "the question answers are rendered as a collection of radio buttons" do
           visit_component
 
-          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type='checkbox']", count: 2)
-          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type='checkbox']", count: 2)
+          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type=checkbox]", count: 2)
+          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type=checkbox]", count: 2)
 
           within "#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options" do
             check answer_options[0]["body"][:en]
