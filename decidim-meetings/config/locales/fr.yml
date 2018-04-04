@@ -76,7 +76,7 @@ fr:
           notification_title: La réunion <a href="%{resource_path}">%{resource_title}</a> débutera dans moins de 48h.
     meetings:
       actions:
-        attachment_collections: Collections
+        attachment_collections: Dossier
         attachments: Documents liés
         close: Clore
         confirm_destroy: Êtes-vous certain de vouloir supprimer cette rencontre ?
