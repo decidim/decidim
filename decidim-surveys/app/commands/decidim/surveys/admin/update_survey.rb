@@ -45,16 +45,17 @@ module Decidim
 
             questions = @survey.questions
 
-            if form_question.id.present?
-              question = questions.find_by(id: form_question.id)
+            question = questions.find_by(id: form_question.id) || questions.build(question_attributes)
+
+            if question.persisted?
               if form_question.deleted?
                 question.destroy!
               else
-                question.update!(question_attributes)
+                question.assign_attributes(question_attributes)
               end
-            else
-              questions.create!(question_attributes)
             end
+
+            question.save!
           end
         end
 
