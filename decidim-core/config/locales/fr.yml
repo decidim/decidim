@@ -219,11 +219,11 @@ fr:
         name: Fonctionnalité exemple
         settings:
           global:
-            comments_enabled: Commentaires activés
+            comments_enabled: Activer le module de commentaire
             dummy_global_attribute_1: Exemple d'attribut 1
             dummy_global_attribute_2: Exemple d'attribut 2
           step:
-            comments_blocked: Commentaires bloqués
+            comments_blocked: Bloquer la création de nouveaux commentaires
             dummy_step_attribute_1: Exemple d'attribut pour une étape 1
             dummy_step_attribute_2: Exemple d'attribut pour une étape 2
     filters:
@@ -514,19 +514,19 @@ fr:
         answers_count: Réponses
         assemblies_count: Agora
         comments_count: Commentaires
-        endorsements_count: Les avenants
+        endorsements_count: Promotions
         headline: État actuel de %{organization}
         meetings_count: Rencontres
-        orders_count: Votes
+        orders_count: Soutiens
         pages_count: Pages
-        processes_count: Processus participatifs
+        processes_count: Processus
         projects_count: Projets
         proposals_accepted: Propositions acceptées
         proposals_count: Propositions
         results_count: Résultats
         surveys_count: Enquêtes
         users_count: Participants
-        votes_count: Votes
+        votes_count: Soutiens
       sub_hero:
         register: S'inscrire
   social_share_button:
