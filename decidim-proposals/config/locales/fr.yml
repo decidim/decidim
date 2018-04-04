@@ -109,8 +109,8 @@ fr:
             announcement: Message d'annonce
             comments_blocked: Commentaires bloqués
             creation_enabled: Module propositions activé
-            endorsements_blocked: Endossements bloqués
-            endorsements_enabled: Endorsements activés
+            endorsements_blocked: Promotions bloqués
+            endorsements_enabled: Promotions activés
             proposal_answering_enabled: '"Réponses aux propositions" activé'
             votes_blocked: Votes bloqués
             votes_enabled: Votes activés
