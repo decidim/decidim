@@ -10,11 +10,13 @@ fr:
       report:
         details: Commentaires additionnels
       user:
+        about: À propos de moi
         email: Votre email
         name: Votre nom
         nickname: Votre identifiant court et unique pour Decidim
         password: Nouveau mot de passe
         password_confirmation: Confirmez votre nouveau mot de passe
+        personal_url: Site internet personnel
         remove_avatar: Supprimer l'avatar
         user_group_document_number: Numéro d'identification de l'organisation
         user_group_name: Nom de l'organisation

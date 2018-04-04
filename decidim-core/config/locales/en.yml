@@ -7,11 +7,13 @@ en:
       report:
         details: Additional comments
       user:
+        about: About
         email: Your email
         name: Your name
         nickname: Your short, unique identifier in decidim
         password: New password
         password_confirmation: Confirm your new password
+        personal_url: Personal URL
         remove_avatar: Remove avatar
         user_group_document_number: Organization document number
         user_group_name: Organization name
