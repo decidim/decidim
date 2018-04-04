@@ -118,7 +118,7 @@ fr:
             vote_threshold_percent: Pourcentage du budget à atteindre pour voter
           step:
             announcement: Annonce
-            comments_blocked: Commentaires bloqués
+            comments_blocked: Bloquer la création de nouveaux commentaires
             show_votes: Afficher les votes
             votes_enabled: Votes activés
     orders:
