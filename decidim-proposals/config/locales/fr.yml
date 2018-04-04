@@ -22,7 +22,7 @@ fr:
         actions:
           create: Créer
           endorse: Appuyer
-          vote: Voter
+          vote: Soutenir
           withdraw: Retirer
         name: Propositions
         settings:
@@ -42,7 +42,7 @@ fr:
             proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Comparer" de la création de proposition
             proposal_wizard_step_3_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
             threshold_per_proposal: Seuil par proposition
-            vote_limit: Limite de vote par utilisateur
+            vote_limit: Limite de soutiens par utilisateur
           step:
             announcement: Annonce
             comments_blocked: Bloquer la création de nouveaux commentaires
@@ -50,7 +50,7 @@ fr:
             endorsements_blocked: Empêcher les utilisateurs de promouvoir une proposition
             endorsements_enabled: Autoriser les utilisateurs à promouvoir une proposition
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
-            votes_blocked: Votes bloqués
+            votes_blocked: Soutiens bloqués
             votes_enabled: Autoriser les utilisateurs à soutenir une proposition
             votes_hidden: Cacher les soutiens (si les soutiens sont activés, le compte des soutiens sera caché)
     events:
@@ -193,7 +193,7 @@ fr:
           info_proposal:
             body: Corps du texte
             created_at: Date de création
-            proposal_votes_count: Nombre de votes
+            proposal_votes_count: Nombre de soutiens
             proposals: Propositions
       admin_log:
         proposal:
@@ -225,7 +225,7 @@ fr:
             scope: Zone d'application
             state: Etat
             title: Titre
-            votes: Votes
+            votes: Soutiens
       new:
         limit_reached: Vous ne pouvez pas créer de nouvelles propositions car vous avez dépassé le nombre autorisé.
       proposal_endorsements:
@@ -294,8 +294,8 @@ fr:
           view_proposal: Voir la proposition
         linked_proposals:
           proposal_votes:
-            one: vote
-            other: votes
+            one: soutien
+            other: soutiens
         new:
           attachment_legend: "(Facultatif) Ajouter une pièce jointe"
           select_a_category: Veuillez sélectionner une catégorie
@@ -333,17 +333,17 @@ fr:
           filed_as: Classée en tant que
         vote_button:
           already_voted: Déjà voté
-          already_voted_hover: Retirer le vote
-          maximum_votes_reached: Nombre maximum de votes atteint
-          no_votes_remaining: Aucun vote restant
-          vote: Voter
+          already_voted_hover: Retirer le soutien
+          maximum_votes_reached: Nombre maximum de soutiens atteint
+          no_votes_remaining: Aucun soutien restant
+          vote: Soutenir
           votes_blocked: Votes désactivés
         votes_count:
           count:
-            one: VOTE
-            other: VOTES
+            one: SOUTIEN
+            other: SOUTIENS
           most_popular_proposal: Proposition la plus populaire
-          need_more_votes: Besoin de plus de votes
+          need_more_votes: Besoin de plus de soutiens
         voting_rules:
           can_accumulate_supports_beyond_threshold:
             description: Chaque proposition peut rassembler plus de %{limit} soutiens
@@ -353,7 +353,7 @@ fr:
             description: Pour être acceptées, les propositions doivent atteindre %{limit} soutiens
           title: 'Le vote est soumis aux règles suivantes:'
           vote_limit:
-            description: Vous pouvez voter pour %{limit} propositions au maximum.
+            description: Vous pouvez soutenir %{limit} propositions au maximum.
             left: Restant
             votes: Votes
         wizard_aside:
