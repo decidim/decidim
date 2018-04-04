@@ -30,7 +30,7 @@ fr:
             announcement: Annonce
             attachments_allowed: Autoriser les pièces jointes
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
-            comments_enabled: Autoriser la création de nouveaux commentaires
+            comments_enabled: Activer le module de commentaire
             geocoding_enabled: Géocodage activé
             new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition
             official_proposals_enabled: Autoriser la création de propositions officielles
@@ -52,7 +52,7 @@ fr:
             proposal_answering_enabled: Autoriser la réponse officielle aux propositions
             votes_blocked: Votes bloqués
             votes_enabled: Autoriser les utilisateurs à soutenir une proposition
-            votes_hidden: Votes cachés (si les votes sont activés, cette option cachera le nombre de votes)
+            votes_hidden: Cacher les soutiens (si les soutiens sont activés, le compte des soutiens sera caché)
     events:
       proposals:
         creation_enabled:
