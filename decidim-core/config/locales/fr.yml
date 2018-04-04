@@ -268,9 +268,9 @@ fr:
         area_type_presenter:
           not_found: 'Le type de zone n''a pas été trouvé sur la base de données (ID: %{id})'
         scope_presenter:
-          not_found: 'Le périmètre n''a pas été trouvée sur la base de données (ID: %{id})'
+          not_found: 'Le périmètre n''a pas été trouvé sur la base de données (ID: %{id})'
         scope_type_presenter:
-          not_found: 'Le type de périmètre n''a pas été trouvé sur la base de données (ID: %{id})'
+          not_found: 'Le type de périmètre d''application n''a pas été trouvé sur la base de données (ID: %{id})'
     managed_users:
       expired_session: La session de connexion a expiré.
     menu:
@@ -363,7 +363,7 @@ fr:
         choose: Sélectionner
         title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
-      scopes: Périmètre d'application
+      scopes: Périmètres d'application
     shared:
       action_authorization_modal:
         expired:
