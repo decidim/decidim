@@ -105,10 +105,10 @@ fr:
           email_subject: La catégorie de la proposition %{resource_title} a été mise à jour
           notification_title: La catégorie de la proposition <a href="%{resource_path}">%{resource_title}</a> a été mise à jour par un administrateur.
         voting_enabled:
-          email_intro: 'Vous pouvez voter sur les propositions de %{participatory_space_title} ! Participez ici :'
+          email_intro: 'Vous pouvez soutenir les propositions de %{participatory_space_title} ! Participez ici :'
           email_outro: Vous avez reçu cette notification car vous suivez %{participatory_space_title}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
-          email_subject: Le vote des propositions a commencé pour %{participatory_space_title}
-          notification_title: Vous pouvez maintenant commencer <a href="%{resource_path}">à voter pour les propositions</a> de <a href="%{participatory_space_url}">%{participatory_space_title}</a>
+          email_subject: Le soutien des propositions a commencé pour %{participatory_space_title}
+          notification_title: Vous pouvez maintenant commencer <a href="%{resource_path}">à soutenir les propositions</a> de <a href="%{participatory_space_url}">%{participatory_space_title}</a>
     participatory_processes:
       participatory_process_groups:
         highlighted_proposals:
@@ -240,7 +240,7 @@ fr:
           endorse: Promouvoir
       proposal_votes:
         create:
-          error: Des erreurs se sont produites lors du vote de la proposition.
+          error: Des erreurs se sont produites lors du soutien de la proposition.
       proposals:
         compare:
           mine_is_different: Ma proposition est différente
@@ -282,7 +282,7 @@ fr:
           related_to: Liée à
           search: Rechercher
           state: État
-          voted: Votées
+          voted: Soutenues
         filters_small_view:
           close_modal: Fermer la fenêtre de dialogue
           filter: Filtrer
@@ -303,7 +303,7 @@ fr:
           title: Créez votre proposition
         orders:
           label: 'Classement des propositions par:'
-          most_voted: Les plus votées
+          most_voted: Les plus soutenues
           random: Aléatoire
           recent: Les plus récentes
         preview:
@@ -332,12 +332,12 @@ fr:
           changed_from: "(changé depuis <u>%{previous_category}</u> par un administrateur)"
           filed_as: Classée en tant que
         vote_button:
-          already_voted: Déjà voté
+          already_voted: Déjà soutenue
           already_voted_hover: Retirer le soutien
           maximum_votes_reached: Nombre maximum de soutiens atteint
           no_votes_remaining: Aucun soutien restant
           vote: Soutenir
-          votes_blocked: Votes désactivés
+          votes_blocked: Soutiens désactivés
         votes_count:
           count:
             one: SOUTIEN
@@ -351,11 +351,11 @@ fr:
             description: Vous pouvez créer jusqu'à %{limit} propositions.
           threshold_per_proposal:
             description: Pour être acceptées, les propositions doivent atteindre %{limit} soutiens
-          title: 'Le vote est soumis aux règles suivantes:'
+          title: 'Le soutien est soumis aux règles suivantes:'
           vote_limit:
             description: Vous pouvez soutenir %{limit} propositions au maximum.
             left: Restant
-            votes: Votes
+            votes: Soutiens
         wizard_aside:
           back: Arrière
           info: Vous créez une <strong>proposition</strong>.
