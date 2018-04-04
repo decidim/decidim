@@ -166,14 +166,14 @@ fr:
         endorsements_count: Les avenants
         headline: Activité
         meetings_count: Réunions
-        orders_count: Votes
+        orders_count: Soutiens
         pages_count: Pages
         projects_count: Projets
         proposals_count: Propositions
         results_count: Résultats
         surveys_count: Enquêtes
         users_count: Participants
-        votes_count: Votes
+        votes_count: Soutiens
     log:
       value_types:
         assembly_presenter:
