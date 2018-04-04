@@ -34,7 +34,7 @@ describe Decidim::Meetings::Admin::Permissions do
       it { is_expected.to eq true }
     end
 
-    context "when user is missing" do
+    context "when meeting is missing" do
       let(:meeting) { nil }
 
       it { is_expected.to eq false }
