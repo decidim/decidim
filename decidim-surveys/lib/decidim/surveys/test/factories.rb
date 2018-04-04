@@ -40,7 +40,7 @@ FactoryBot.define do
   end
 
   factory :survey_answer, class: Decidim::Surveys::SurveyAnswer do
-    body { Decidim::Faker::Localized.sentence }
+    body { "hola" }
     survey
     question { create(:survey_question, survey: survey) }
     user { create(:user, organization: survey.organization) }
