@@ -138,7 +138,7 @@ fr:
             dummy_global_attribute_1: Attribut factice 1
             dummy_global_attribute_2: Attribut fictif 2
           step:
-            comments_blocked: Commentaires bloqués
+            comments_blocked: Bloquer la création de nouveaux commentaires
             dummy_step_attribute_1: Attribut d'étape factice 1
             dummy_step_attribute_2: Attribut d'étape factice 2
     contact: Contact
