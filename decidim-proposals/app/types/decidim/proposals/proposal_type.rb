@@ -8,7 +8,10 @@ module Decidim
 
       interfaces [
         Decidim::Comments::CommentableInterface,
-        Decidim::Core::AuthorableInterface
+        Decidim::Core::AuthorableInterface,
+        Decidim::Core::CategorizableInterface,
+        Decidim::Core::ScopableInterface,
+        Decidim::Core::AttachableInterface
       ]
 
       field :id, !types.ID
@@ -16,11 +19,14 @@ module Decidim
       field :body, types.String, "This proposal's body"
       field :state, types.String, "The state in which proposal is in"
       field :address, types.String, "The physical address (location) of this proposal"
+      field :reference, types.String, "This proposa'ls unique reference"
 
       field :publishedAt, Decidim::Core::DateTimeType do
         description "The date and time this proposal was published"
         property :published_at
       end
+
+      field :endorsements, !types[EndorsementType], "The endorsements of this proposal."
 
       field :endorsementsCount, types.Int do
         description "The total amount of endorsements the proposal has received"
