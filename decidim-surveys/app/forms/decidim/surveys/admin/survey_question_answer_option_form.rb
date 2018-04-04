@@ -7,7 +7,7 @@ module Decidim
       class SurveyQuestionAnswerOptionForm < Decidim::Form
         include TranslatableAttributes
 
-        attribute :deleted, Boolean
+        attribute :deleted, Boolean, default: false
 
         translatable_attribute :body, String
 

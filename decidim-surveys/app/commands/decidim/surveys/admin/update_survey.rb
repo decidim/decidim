@@ -44,15 +44,24 @@ module Decidim
             position: form_question.position,
             mandatory: form_question.mandatory,
             question_type: form_question.question_type,
-            answer_options: form_question.answer_options_to_persist.map { |option| { "body" => option.body } },
             max_choices: form_question.max_choices
           }
 
-          update_nested_model(form_question, question_attributes, @survey.questions)
+          update_nested_model(form_question, question_attributes, @survey.questions) do |question|
+            form_question.answer_options.each do |form_answer_option|
+              answer_option_attributes = {
+                body: form_answer_option.body
+              }
+
+              update_nested_model(form_answer_option, answer_option_attributes, question.answer_options)
+            end
+          end
         end
 
         def update_nested_model(form, attributes, parent_association)
           record = parent_association.find_by(id: form.id) || parent_association.build(attributes)
+
+          yield record if block_given?
 
           if record.persisted?
             if form.deleted?
