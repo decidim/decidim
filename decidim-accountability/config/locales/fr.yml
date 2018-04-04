@@ -177,7 +177,7 @@ fr:
         settings:
           global:
             categories_label: Nom pour "Catégories"
-            comments_enabled: Commentaires activés
+            comments_enabled: Autoriser la création de nouveaux commentaires
             display_progress_enabled: Afficher les progrès
             heading_leaf_level_results: Nom pour "Projets"
             heading_parent_level_results: Nom pour "Résultats"
