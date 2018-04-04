@@ -54,7 +54,7 @@ module Decidim
                     icon_name: "comment-square",
                     position: 3.8,
                     active: :inclusive,
-                    if: can?(:index, Decidim::Consultation)
+                    if: allowed_to?(:read, :consultation)
         end
       end
     end

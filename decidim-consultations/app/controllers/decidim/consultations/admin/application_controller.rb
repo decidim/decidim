@@ -8,6 +8,18 @@ module Decidim
         layout "decidim/admin/consultations"
 
         helper Decidim::SanitizeHelper
+
+        include NeedsPermission
+
+        private
+
+        def permission_class
+          Decidim::Consultations::Permissions
+        end
+
+        def permission_scope
+          :admin
+        end
       end
     end
   end

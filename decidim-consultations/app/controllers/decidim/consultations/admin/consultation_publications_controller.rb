@@ -8,7 +8,7 @@ module Decidim
         include ConsultationAdmin
 
         def create
-          authorize! :publish, current_consultation
+          enforce_permission_to :publish, :consultation, consultation: current_consultation
 
           PublishConsultation.call(current_consultation) do
             on(:ok) do
@@ -24,7 +24,7 @@ module Decidim
         end
 
         def destroy
-          authorize! :publish, current_consultation
+          enforce_permission_to :publish, :consultation, consultation: current_consultation
 
           UnpublishConsultation.call(current_consultation) do
             on(:ok) do
