@@ -9,7 +9,7 @@ fr:
         decidim_area_id: Zone
         decidim_scope_id: Périmètre d'application
         description: Description
-        developer_group: Promoteur
+        developer_group: Organisateur
         domain: Domaine
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
@@ -150,7 +150,7 @@ fr:
       show:
         area: Région
         children: Agora
-        developer_group: Promoteur
+        developer_group: Organisateur
         local_area: Périmètre
         participatory_scope: Objectif
         participatory_structure: Modalités
