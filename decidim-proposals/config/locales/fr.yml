@@ -32,20 +32,20 @@ fr:
             can_accumulate_supports_beyond_threshold: Peut accumuler des supports au-delà du seuil
             comments_enabled: Commentaires activés
             geocoding_enabled: Géocodage activé
-            new_proposal_help_text: Nouveau texte d'aide à la proposition
+            new_proposal_help_text: Texte d'aide à la création d'une nouvelle proposition
             official_proposals_enabled: Propositions officielles activées
             proposal_answering_enabled: Réponse à la proposition activée
             proposal_edit_before_minutes: Délai (en minutes) après lequel les auteurs ne peuvent plus modifier leurs propositions
             proposal_length: Nombre maximum de caractères du corps de la proposition
             proposal_limit: Limite de proposition par utilisateur
-            proposal_wizard_step_1_help_text: Texte d'aide à la création de proposition
-            proposal_wizard_step_2_help_text: Texte d'aide à la comparaison de proposition
-            proposal_wizard_step_3_help_text: Texte d'aide à la publication de proposition
+            proposal_wizard_step_1_help_text: Texte d'aide à l'étape "Créer" de la création de proposition
+            proposal_wizard_step_2_help_text: Texte d'aide à l'étape "Comparer" de la création de proposition
+            proposal_wizard_step_3_help_text: Texte d'aide à l'étape "Publier" de la création de proposition
             threshold_per_proposal: Seuil par proposition
             vote_limit: Limite de vote par utilisateur
           step:
             announcement: Annonce
-            comments_blocked: Commentaires bloqués
+            comments_blocked: Bloquer la création de nouveaux commentaires
             creation_enabled: Création de proposition activée
             endorsements_blocked: Promotions bloquées
             endorsements_enabled: Promotions activées
