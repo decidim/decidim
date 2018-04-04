@@ -103,7 +103,7 @@ fr:
           one: Document
           other: Documents
       documents:
-        related_documents: Documents connexes
+        related_documents: Documents à consulter
       photos:
         related_photos: Photos associées
     authorization_handlers:
