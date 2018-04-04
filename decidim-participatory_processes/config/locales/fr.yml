@@ -8,7 +8,7 @@ fr:
         copy_components: Copier les fonctionnalités
         copy_steps: Copier les étapes
         description: Description
-        developer_group: Promoteur
+        developer_group: Organisateur
         domain: Domaine
         end_date: Date de fin
         hashtag: Hashtag
@@ -274,7 +274,7 @@ fr:
         index:
           loading: Chargement des résultats...
       show:
-        developer_group: Promoteur
+        developer_group: Organisateur
         end_date: Date de fin
         local_area: Espace d'organisation
         participatory_scope: Objectifs
