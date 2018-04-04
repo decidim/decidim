@@ -35,7 +35,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
       start_voting_date: Time.zone.today,
       end_voting_date: Time.zone.today + 1.month,
       banner_image: File.new(File.join(seeds_root, "city2.jpeg")),
-      introductory_video_url: "https://www.youtube.com/embed/LakKJZjKkRM",
+      introductory_video_url: "https://www.youtube.com/embed/zhMMW0TENNA",
       decidim_highlighted_scope_id: Decidim::Scope.reorder("RANDOM()").first.id,
       organization: organization
     )
@@ -98,7 +98,7 @@ Decidim.register_participatory_space(:consultations) do |participatory_space|
       start_voting_date: Time.zone.today - 2.months,
       end_voting_date: Time.zone.today - 1.month,
       banner_image: File.new(File.join(seeds_root, "city2.jpeg")),
-      introductory_video_url: "https://www.youtube.com/embed/LakKJZjKkRM",
+      introductory_video_url: "https://www.youtube.com/embed/zhMMW0TENNA",
       decidim_highlighted_scope_id: Decidim::Scope.reorder("RANDOM()").first.id,
       organization: organization
     )
