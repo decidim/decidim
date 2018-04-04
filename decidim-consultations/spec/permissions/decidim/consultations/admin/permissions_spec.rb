@@ -48,7 +48,7 @@ describe Decidim::Consultations::Admin::Permissions do
 
       context "when consultation is not present" do
         let(:consultation) { nil }
-        let(:question ) { nil }
+        let(:question) { nil }
 
         it { is_expected.to eq false }
       end
@@ -63,7 +63,7 @@ describe Decidim::Consultations::Admin::Permissions do
 
       context "when consultation is not present" do
         let(:consultation) { nil }
-        let(:question ) { nil }
+        let(:question) { nil }
 
         it { is_expected.to eq false }
       end
@@ -78,7 +78,7 @@ describe Decidim::Consultations::Admin::Permissions do
 
       context "when consultation is not present" do
         let(:consultation) { nil }
-        let(:question ) { nil }
+        let(:question) { nil }
 
         it { is_expected.to eq false }
       end
@@ -146,7 +146,7 @@ describe Decidim::Consultations::Admin::Permissions do
       end
 
       context "when question is not present" do
-        let(:question ) { nil }
+        let(:question) { nil }
 
         it { is_expected.to eq false }
       end
@@ -160,7 +160,7 @@ describe Decidim::Consultations::Admin::Permissions do
       end
 
       context "when question is not present" do
-        let(:question ) { nil }
+        let(:question) { nil }
 
         it { is_expected.to eq false }
       end
@@ -174,7 +174,7 @@ describe Decidim::Consultations::Admin::Permissions do
       end
 
       context "when question is not present" do
-        let(:question ) { nil }
+        let(:question) { nil }
 
         it { is_expected.to eq false }
       end
@@ -226,7 +226,7 @@ describe Decidim::Consultations::Admin::Permissions do
       end
 
       context "when response is not present" do
-        let(:response ) { nil }
+        let(:response) { nil }
 
         it { is_expected.to eq false }
       end
@@ -240,7 +240,7 @@ describe Decidim::Consultations::Admin::Permissions do
       end
 
       context "when response is not present" do
-        let(:response ) { nil }
+        let(:response) { nil }
 
         it { is_expected.to eq false }
       end
