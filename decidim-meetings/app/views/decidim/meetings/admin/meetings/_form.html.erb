@@ -48,7 +48,7 @@
     <div class="row column">
       <% picker_options = { id: "decidim_meetings_organized_by", class: "picker-multiple", name: "organizer_id", multiple: false }
         prompt_params= { url: "organizers", text: t(".select_organizer") } %>
-        <%= form.data_picker(:organizer_id, picker_options, prompt_params) {|item| { url: "organizers", text: "#{item.name} (@#{item.nickname})" }} %>
+        <%= form.data_picker(:organizer, picker_options, prompt_params) {|item| { url: "organizers", text: "#{item.name} (@#{item.nickname})" }} %>
     </div>
 
     <div class="row column">

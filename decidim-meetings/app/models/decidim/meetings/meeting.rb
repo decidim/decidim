@@ -80,6 +80,10 @@ module Decidim
         return if !organizer || !organization
         errors.add(:organizer, :invalid) unless organizer.organization == organization
       end
+
+      def official?
+        organizer.nil?
+      end
     end
   end
 end
