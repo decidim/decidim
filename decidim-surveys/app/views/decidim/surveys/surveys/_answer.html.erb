@@ -16,8 +16,8 @@
     <div id="<%= field_id %>_answer_options" class="radio-button-collection">
       <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
         <%= label_tag "#{field_id}_option_#{idx}" do %>
-          <%= radio_button_tag "survey[answers][#{answer_idx}][choices][][body]", translated_attribute(answer_option["body"]), answer.choices.map(&:body).include?(translated_attribute(answer_option["body"])), id: "#{field_id}_option_#{idx}" %>
-          <%= translated_attribute(answer_option["body"]) %>
+          <%= radio_button_tag "survey[answers][#{answer_idx}][choices][][body]", translated_attribute(answer_option.body), answer.choices.map(&:body).include?(translated_attribute(answer_option.body)), id: "#{field_id}_option_#{idx}" %>
+          <%= translated_attribute(answer_option.body) %>
         <% end %>
         <%= hidden_field_tag "survey[answers][#{answer_idx}][choices][][decidim_survey_answer_option_id]", answer_option.id %>
       <% end %>
@@ -26,8 +26,8 @@
     <div id="<%= field_id %>_answer_options" class="check-box-collection">
       <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
         <%= label_tag "#{field_id}_option_#{idx}" do %>
-          <%= check_box_tag "survey[answers][#{answer_idx}][choices][#{idx}][body]", translated_attribute(answer_option["body"]), answer.choices.map(&:body).include?(translated_attribute(answer_option["body"])), id: "#{field_id}_option_#{idx}" %>
-          <%= translated_attribute(answer_option["body"]) %>
+          <%= check_box_tag "survey[answers][#{answer_idx}][choices][#{idx}][body]", translated_attribute(answer_option.body), answer.choices.map(&:body).include?(translated_attribute(answer_option.body)), id: "#{field_id}_option_#{idx}" %>
+          <%= translated_attribute(answer_option.body) %>
         <% end %>
         <%= hidden_field_tag "survey[answers][#{answer_idx}][choices][#{idx}][decidim_survey_answer_option_id]", answer_option.id %>
       <% end %>
