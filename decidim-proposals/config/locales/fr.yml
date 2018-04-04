@@ -326,7 +326,7 @@ fr:
           sign_in_or_up: "%{in} ou %{up} pour participer"
           sign_up: s'inscrire
           withdraw_btn_hint: Si vous changez d'avis et tant que vous n'avez reçu aucune promotion vous pouvez toujours retirer votre proposition. Cette dernière ne sera pas supprimée mais elle apparaîtra dans la liste des propositions retirées.
-          withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition?
+          withdraw_confirmation: Êtes-vous sûr de vouloir retirer cette proposition ?
           withdraw_proposal: Retirer la proposition
         tags:
           changed_from: "(changé depuis <u>%{previous_category}</u> par un administrateur)"
