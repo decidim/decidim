@@ -535,7 +535,7 @@ fr:
         endorsements_count: Promotions
         headline: État actuel de %{organization}
         meetings_count: Rencontres
-        orders_count: Votes
+        orders_count: Soutiens
         pages_count: Pages
         processes_count: Processus participatifs
         projects_count: Projets
@@ -544,7 +544,7 @@ fr:
         results_count: Résultats
         surveys_count: Enquêtes
         users_count: Participants
-        votes_count: Votes
+        votes_count: Soutiens
       sub_hero:
         register: S'inscrire
   social_share_button:
