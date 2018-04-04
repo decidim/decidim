@@ -3,10 +3,10 @@ fr:
     attributes:
       area:
         area_type: Type de zone d'application
-        name: Prénom
+        name: Nom
         organization: Organisation
       area_type:
-        name: Prénom
+        name: Nom
         organization: Organisation
         plural: Pluriel
       attachment:
@@ -158,23 +158,23 @@ fr:
           title: Nouveau type de zone d'application
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce type de zone d'application.
-          success: La fonctionnalité a été mise à jour avec succès
+          success: Le type de zone d'application a été mis à jour avec succès
       areas:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle zone.
-          success: Fonctionnalité créée avec succès.
+          error: Une erreur s'est produite lors de la création d'une nouvelle zone d'application.
+          success: Zone d'application créée avec succès.
         destroy:
-          success: Fonctionnalité supprimée avec succès
+          success: Zone d'application supprimée avec succès
         edit:
-          title: Editer la fonctionnalité
+          title: Modifier la zone d'application
           update: Mettre à jour
         new:
-          create: Créer une zone
-          title: Nouvelle zone
-        no_areas: Aucun espace
+          create: Créer une zone d'application
+          title: Nouvelle zone d'application
+        no_areas: Aucune zone d'application
         update:
-          error: Une erreur s'est produite lors de la mise à jour de cet espace.
-          success: Espace mis à jour avec succès
+          error: Une erreur s'est produite lors de la mise à jour de cette zone d'application.
+          success: Zone d'application mise à jour avec succès
       attachment_collections:
         create:
           error: Une erreur s'est produite lors de la création d'un nouveau dossier.
@@ -315,8 +315,8 @@ fr:
         admin_log: Journal d'activité de l'administrateur
         admins: Administrateurs
         appearance: Apparence
-        area_types: Types d'espace
-        areas: Espaces
+        area_types: Types de zone d'application
+        areas: Zones d'application
         configuration: Configuration
         dashboard: Tableau de bord
         managed_users: Utilisateurs représentés
@@ -332,7 +332,7 @@ fr:
       models:
         area:
           fields:
-            area_type: Type d'espace
+            area_type: Type de zone d'application
             name: Nom
         area_type:
           fields:
@@ -574,8 +574,8 @@ fr:
           success: Page mise à jour avec succès
       titles:
         admin_log: Journal d'administration
-        area_types: Types d'espace
-        areas: Espaces
+        area_types: Types de zone d'application
+        areas: Zones d'application
         authorization_workflows: Méthodes de vérification
         dashboard: Tableau de bord
         impersonations: Représentations d'utilisateurs
