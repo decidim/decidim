@@ -48,6 +48,7 @@ module Decidim
             public_type_other: @form.public_type_other,
             transparent_type: @form.transparent_type,
             transparent_type_other: @form.transparent_type_other,
+            organizer: @form.organizer,
             component: @form.current_component
           )
         end

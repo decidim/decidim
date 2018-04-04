@@ -29,6 +29,7 @@ module Decidim
         attribute :open_type, String
         attribute :public_type, String
         attribute :transparent_type, String
+        attribute :organizer_id, Integer
 
         validates :title, translatable_presence: true
         validates :description, translatable_presence: true
@@ -41,6 +42,10 @@ module Decidim
         validates :current_component, presence: true
         validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
         validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
+        validates :organizer, presence: true, if: ->(form) { form.organizer_id.present? }
+        validates :open_type_other, translatable_presence: true, if: ->(form) { form.open_type == "other" }
+        validates :public_type_other, translatable_presence: true, if: ->(form) { form.public_type == "other" }
+        validates :transparent_type_other, translatable_presence: true, if: ->(form) { form.transparent_type == "other" }
 
         validate :scope_belongs_to_participatory_space_scope
 
@@ -52,6 +57,10 @@ module Decidim
           self.decidim_category_id = model.categorization.decidim_category_id
         end
 
+        def organizer
+          @organizer ||= current_organization.users.where(id: organizer_id).first
+        end
+
         alias component current_component
 
         # Finds the Scope from the given decidim_scope_id, uses participatory space scope if missing.
@@ -60,6 +69,13 @@ module Decidim
         def scope
           @scope ||= @decidim_scope_id ? current_participatory_space.scopes.find_by(id: @decidim_scope_id) : current_participatory_space.scope
         end
+
+        # # Organizer identifier
+        # #
+        # # Returns the organizer identifier related to the meeting
+        # def organizer_id
+        #   @organizer_id || organizer&.id
+        # end
 
         # Scope identifier
         #

@@ -119,6 +119,7 @@ en:
             update: Update
           form:
             select_open_type: Select an open type
+            select_organizer: Select the organizer
             select_public_type: Select a public type
             select_transparent_type: Select a transparent type
           index:
@@ -126,6 +127,10 @@ en:
           new:
             create: Create
             title: Create meeting
+          organizers:
+            close: Close
+            current_selection: Current selection
+            select: Select
           update:
             invalid: There's been a problem updating this meeting
             success: Meeting successfully updated

@@ -27,7 +27,14 @@ module Decidim
             location: :i18n,
             location_hints: :i18n,
             start_date: :date,
-            title: :i18n
+            title: :i18n,
+            open_type: :string,
+            open_type_other: :string,
+            public_type: :string,
+            public_type_other: :string,
+            transparent_type: :string,
+            transparent_type_other: :string,
+            organizer_id: :integer
           }
         end
 

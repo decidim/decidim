@@ -22,6 +22,9 @@ module Decidim
           resources :attachment_collections
           resources :attachments
           resources :copies, controller: "meeting_copies", only: [:new, :create]
+          member do
+            get :organizers
+          end
         end
         root to: "meetings#index"
       end

@@ -17,11 +17,13 @@ module Decidim
       include Decidim::Traceable
       include Decidim::Loggable
 
+      belongs_to :organizer, foreign_key: "organizer_id", class_name: "Decidim::User", optional: true
       has_many :registrations, class_name: "Decidim::Meetings::Registration", foreign_key: "decidim_meeting_id", dependent: :destroy
 
       component_manifest_name "meetings"
 
       validates :title, presence: true
+      validate :organizer_belongs_to_organization
 
       geocoded_by :address, http_headers: ->(proposal) { { "Referer" => proposal.component.organization.host } }
 
@@ -72,6 +74,11 @@ module Decidim
       # Public: Override Commentable concern method `users_to_notify_on_comment_created`
       def users_to_notify_on_comment_created
         followers
+      end
+
+      def organizer_belongs_to_organization
+        return if !organizer || !organization
+        errors.add(:organizer, :invalid) unless organizer.organization == organization
       end
     end
   end
