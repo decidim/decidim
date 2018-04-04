@@ -127,5 +127,5 @@ fr:
             comments_enabled: Commentaires activés
           step:
             announcement: Annonce
-            comments_blocked: Commentaires bloqués
+            comments_blocked: Bloquer la création de nouveaux commentaires
             creation_enabled: Création de débats par les utilisateurs activés
