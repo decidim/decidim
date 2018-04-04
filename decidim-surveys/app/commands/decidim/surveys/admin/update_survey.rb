@@ -48,19 +48,21 @@ module Decidim
             max_choices: form_question.max_choices
           }
 
-          questions = @survey.questions
+          update_nested_model(form_question, question_attributes, @survey.questions)
+        end
 
-          question = questions.find_by(id: form_question.id) || questions.build(question_attributes)
+        def update_nested_model(form, attributes, parent_association)
+          record = parent_association.find_by(id: form.id) || parent_association.build(attributes)
 
-          if question.persisted?
-            if form_question.deleted?
-              question.destroy!
+          if record.persisted?
+            if form.deleted?
+              record.destroy!
             else
-              question.assign_attributes(question_attributes)
+              record.assign_attributes(attributes)
             end
           end
 
-          question.save!
+          record.save!
         end
 
         def update_survey
