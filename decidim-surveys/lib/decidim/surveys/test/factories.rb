@@ -45,4 +45,8 @@ FactoryBot.define do
     question { create(:survey_question, survey: survey) }
     user { create(:user, organization: survey.organization) }
   end
+
+  factory :survey_answer_option, class: Decidim::Surveys::SurveyAnswerOption do
+    body { Decidim::Faker::Localized.sentence }
+  end
 end

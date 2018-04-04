@@ -6,7 +6,7 @@ module Decidim
   module Surveys
     describe SurveyAnswerForm do
       subject do
-        described_class.from_model(survey_answer).with_context(current_component: survey.component)
+        described_class.from_model(survey_answer)
       end
 
       let(:mandatory) { false }
@@ -63,12 +63,21 @@ module Decidim
         let(:max_choices) { 2 }
 
         it "is valid if few enough answers checked" do
-          subject.choices = %w(foo bar)
+          subject.choices = [
+            { "decidim_survey_answer_option_id" => "1", "body" => "foo" },
+            { "decidim_survey_answer_option_id" => "2", "body" => "bar" }
+          ]
+
           expect(subject).to be_valid
         end
 
         it "is not valid if too many answers checked" do
-          subject.choices = %w(foo bar baz)
+          subject.choices = [
+            { "decidim_survey_answer_option_id" => "1", "body" => "foo" },
+            { "decidim_survey_answer_option_id" => "2", "body" => "bar" },
+            { "decidim_survey_answer_option_id" => "3", "body" => "baz" }
+          ]
+
           expect(subject).not_to be_valid
         end
       end

@@ -14,7 +14,7 @@ module Decidim
       # Returns nothing.
       def map_model(model)
         self.answers = model.questions.each_with_index.map do |question, id|
-          SurveyAnswerForm.new(id: id + 1, question_id: question.id)
+          SurveyAnswerForm.from_model(SurveyAnswer.new(id: id + 1, question: question))
         end
       end
     end
