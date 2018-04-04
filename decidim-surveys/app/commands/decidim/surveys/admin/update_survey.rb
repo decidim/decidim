@@ -43,15 +43,17 @@ module Decidim
               max_choices: form_question.max_choices
             }
 
+            questions = @survey.questions
+
             if form_question.id.present?
-              question = @survey.questions.find_by(id: form_question.id)
+              question = questions.find_by(id: form_question.id)
               if form_question.deleted?
                 question.destroy!
               else
                 question.update!(question_attributes)
               end
             else
-              @survey.questions.create!(question_attributes)
+              questions.create!(question_attributes)
             end
           end
         end
