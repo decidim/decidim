@@ -113,7 +113,7 @@ fr:
         settings:
           global:
             announcement: Message d'annonce
-            comments_enabled: Autoriser la création de nouveaux commentaires
+            comments_enabled: Activer le module de commentaire
             total_budget: Budget total
             vote_threshold_percent: Pourcentage du budget à atteindre pour voter
           step:
