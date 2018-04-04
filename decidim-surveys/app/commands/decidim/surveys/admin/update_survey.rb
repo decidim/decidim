@@ -33,30 +33,34 @@ module Decidim
 
         def update_survey_questions
           @form.questions.each do |form_question|
-            question_attributes = {
-              body: form_question.body,
-              description: form_question.description,
-              position: form_question.position,
-              mandatory: form_question.mandatory,
-              question_type: form_question.question_type,
-              answer_options: form_question.answer_options_to_persist.map { |option| { "body" => option.body } },
-              max_choices: form_question.max_choices
-            }
-
-            questions = @survey.questions
-
-            question = questions.find_by(id: form_question.id) || questions.build(question_attributes)
-
-            if question.persisted?
-              if form_question.deleted?
-                question.destroy!
-              else
-                question.assign_attributes(question_attributes)
-              end
-            end
-
-            question.save!
+            update_survey_question(form_question)
           end
+        end
+
+        def update_survey_question(form_question)
+          question_attributes = {
+            body: form_question.body,
+            description: form_question.description,
+            position: form_question.position,
+            mandatory: form_question.mandatory,
+            question_type: form_question.question_type,
+            answer_options: form_question.answer_options_to_persist.map { |option| { "body" => option.body } },
+            max_choices: form_question.max_choices
+          }
+
+          questions = @survey.questions
+
+          question = questions.find_by(id: form_question.id) || questions.build(question_attributes)
+
+          if question.persisted?
+            if form_question.deleted?
+              question.destroy!
+            else
+              question.assign_attributes(question_attributes)
+            end
+          end
+
+          question.save!
         end
 
         def update_survey
