@@ -16,6 +16,7 @@ module Decidim
         return true if allowed_public_action?
 
         return false unless permission_action.scope == :admin
+        return Decidim::Consultations::Admin::Permissions.new(user, permission_action, context).allowed? if permission_action.scope == :admin
 
         false
       end

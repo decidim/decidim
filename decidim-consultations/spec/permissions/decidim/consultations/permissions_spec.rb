@@ -12,6 +12,25 @@ describe Decidim::Consultations::Permissions do
   let(:context) { { consultation: consultation, question: question } }
   let(:permission_action) { Decidim::PermissionAction.new(action) }
 
+  context "when the action is for the admin part" do
+    let(:action) do
+      { scope: :admin, action: :foo, subject: :bar }
+    end
+
+    it "delegates the check to the admin permissions class" do
+      admin_permissions = instance_double(Decidim::Consultations::Admin::Permissions, allowed?: true)
+      allow(Decidim::Consultations::Admin::Permissions)
+        .to receive(:new)
+        .with(user, permission_action, context)
+        .and_return admin_permissions
+
+      expect(admin_permissions)
+        .to receive(:allowed?)
+
+      subject
+    end
+  end
+
   context "when the action is for the public part" do
     let(:action_name) { :read }
     let(:action) do
