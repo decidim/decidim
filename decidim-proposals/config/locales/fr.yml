@@ -233,7 +233,7 @@ fr:
           error: Des erreurs sont survenues au moment de promouvoir la proposition.
         identities:
           done: Terminé
-          select_identity: Sélectionnez l'identité
+          select_identity: Sélectionnez l'utilisateur
       proposal_endorsements_helper:
         endorsement_button:
           already_endorsed: Promu
@@ -265,7 +265,7 @@ fr:
         endorsements_card_row:
           endorse: Promouvoir
         endorsements_listing:
-          see_all: Voir tous
+          see_all: Tout voir
           see_less: Voir moins
           title: Liste des promotions
         filters:
