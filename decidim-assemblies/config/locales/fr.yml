@@ -20,8 +20,8 @@ fr:
         participatory_structure: Modalités
         promoted: Mis en avant
         published_at: Publié à
-        scope_id: Zone d'application
-        scopes_enabled: Zone d'application activées
+        scope_id: Périmètre d'application
+        scopes_enabled: Périmètres d'application activés
         short_description: Résumé
         show_statistics: Afficher les statistiques
         slug: Identifiant
@@ -156,7 +156,7 @@ fr:
         participatory_structure: Modalités
         private_space: Ceci est une agora privée
         related_participatory_processes: Processus participatifs associés
-        scope: Zone d'application
+        scope: Périmètre d'application
         target: Participants
       statistics:
         answers_count: Réponses
