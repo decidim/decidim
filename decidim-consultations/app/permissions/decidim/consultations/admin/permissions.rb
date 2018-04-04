@@ -15,6 +15,8 @@ module Decidim
           return false unless permission_action.scope == :admin
 
           return true if allowed_consultation_action?
+          return true if allowed_question_action?
+          return true if allowed_response_action?
 
           false
         end
@@ -31,6 +33,10 @@ module Decidim
           @consultation ||= context.fetch(:consultation, nil)
         end
 
+        def response
+          @response ||= context.fetch(:response, nil)
+        end
+
         def allowed_consultation_action?
           return unless permission_action.subject == :consultation
 
@@ -45,6 +51,32 @@ module Decidim
             consultation.results_published?
           else
             false
+          end
+        end
+
+        def allowed_question_action?
+          return unless permission_action.subject == :question
+
+          case permission_action.action
+          when :create, :read
+            true
+          when :update, :destroy, :preview
+            question.present?
+          when :publish
+            question.external_voting || question.responses_count.positive?
+          else
+            false
+          end
+        end
+
+        def allowed_response_action?
+          return unless permission_action.subject == :response
+
+          case permission_action.action
+          when :create, :read
+            true
+          when :update, :destroy
+            response.present?
           end
         end
       end
