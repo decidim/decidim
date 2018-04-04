@@ -200,6 +200,20 @@ describe "Answer a survey", type: :system do
 
             expect(page).to have_field("survey_answers_1_choices_2_custom_body", disabled: false, count: 1)
           end
+
+          it "saves the free text in a separate field" do
+            choose answer_option_bodies[2]["en"]
+            fill_in "survey_answers_1_choices_2_custom_body", with: "Cacatua"
+
+            check "survey_tos_agreement"
+            accept_confirm { click_button "Submit" }
+
+            within ".success.flash" do
+              expect(page).to have_content("successfully")
+            end
+
+            expect(Decidim::Surveys::SurveyAnswer.first.choices.first.custom_body).to eq("Cacatua")
+          end
         end
 
         context "when question is multiple_option type" do
