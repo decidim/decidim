@@ -134,7 +134,7 @@ fr:
         name: Composant factice
         settings:
           global:
-            comments_enabled: Commentaires activés
+            comments_enabled: Autoriser la création de nouveaux commentaires
             dummy_global_attribute_1: Attribut factice 1
             dummy_global_attribute_2: Attribut fictif 2
           step:
