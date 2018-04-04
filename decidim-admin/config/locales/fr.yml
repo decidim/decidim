@@ -10,7 +10,7 @@ fr:
         organization: Organisation
         plural: Pluriel
       attachment:
-        attachment_collection_id: Collection
+        attachment_collection_id: Dossier
         description: Description
         file: Fichier
         title: Titre
@@ -177,7 +177,7 @@ fr:
           success: Espace mis à jour avec succès
       attachment_collections:
         create:
-          error: Une erreur s'est produite lors de la création d'une nouvelle collection.
+          error: Une erreur s'est produite lors de la création d'un nouveau dossier.
           success: Dossier crée avec succès.
         destroy:
           success: Dossier détruit avec succès.
@@ -189,7 +189,7 @@ fr:
           attachment_collections_title: Dossier de pièces jointes
         new:
           create: Créer
-          title: Nouvelle collection
+          title: Nouveau dossier
         update:
           error: Une erreur s'est produite lors de la mise à jour de ce dossier.
           success: Dossier mis à jour avec succès.
