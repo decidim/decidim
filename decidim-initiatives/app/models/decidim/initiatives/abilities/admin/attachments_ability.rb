@@ -25,6 +25,7 @@ module Decidim
 
           def define_abilities
             return if user.admin?
+            return unless context[:current_participatory_space].is_a? Initiative
 
             can :read, Decidim::Attachment do |attachment|
               attachment.attached_to.is_a?(Decidim::Initiative) &&

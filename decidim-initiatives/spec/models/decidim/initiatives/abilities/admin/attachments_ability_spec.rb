@@ -4,7 +4,13 @@ require "spec_helper"
 require "cancan/matchers"
 
 describe Decidim::Initiatives::Abilities::Admin::AttachmentsAbility do
-  subject { described_class.new(user, {}) }
+  subject { described_class.new(user, context) }
+
+  let(:context) do
+    {
+      current_participatory_space: initiative
+    }
+  end
 
   let(:organization) { create(:organization) }
   let(:initiative) { create(:initiative, organization: organization) }
