@@ -124,7 +124,7 @@ fr:
         settings:
           global:
             announcement: Annonce
-            comments_enabled: Commentaires activés
+            comments_enabled: Autoriser la création de nouveaux commentaires
           step:
             announcement: Annonce
             comments_blocked: Bloquer la création de nouveaux commentaires
