@@ -94,7 +94,7 @@ fr:
       decidim/participatory_process:
         banner_image: Image d'en-tête
         description: Description
-        developer_group: Initiateurs
+        developer_group: Organisateur
         domain: Domaine
         end_date: Date de fin
         hashtag: Hashtag
