@@ -1,4 +1,4 @@
-<% field_id = "survey_#{survey.id}_question_#{answer.question.id}_answer_body" %>
+<% field_id = "survey_answers_#{answer_idx}" %>
 <%= label_tag field_id, answer.label, class: "survey-question" %>
 
 <% if translated_attribute(answer.question.description).present? %>
@@ -9,37 +9,39 @@
 
 <% case answer.question.question_type %>
   <% when "short_answer" %>
-    <%= answer_form.text_field :body, label: false, id: field_id %>
+    <%= answer_form.text_field :body, label: false, id: "#{field_id}_body" %>
   <% when "long_answer" %>
-    <%= answer_form.text_area :body, label: false, id: field_id, rows: 10 %>
+    <%= answer_form.text_area :body, label: false, id: "#{field_id}_body", rows: 10 %>
   <% when "single_option" %>
-    <div id="<%= field_id %>_answer_options" class="radio-button-collection">
+    <div class="radio-button-collection">
       <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
-        <%= label_tag "#{field_id}_option_#{idx}" do %>
+        <% choice_id = "#{field_id}_choices_#{idx}" %>
+
+        <%= label_tag "#{choice_id}_body" do %>
           <%= radio_button_tag "survey[answers][#{answer_idx}][choices][][body]",
                                translated_attribute(answer_option.body),
                                answer.choices.map(&:body).include?(translated_attribute(answer_option.body)),
-                               id: "#{field_id}_option_#{idx}" %>
+                               id: "#{choice_id}_body" %>
 
           <%= translated_attribute(answer_option.body) %>
 
           <% if answer_option.free_text_option %>
             <%= text_field_tag "survey[answers][#{answer_idx}][choices][][custom_body]",
                                answer.choices.find { |choice| choice.decidim_survey_answer_option_id == answer_option.id }.body,
-                               id: "#{field_id}_custom_body_#{idx}",
+                               id: "#{choice_id}_custom_body",
                                disabled: true %>
           <% end %>
         <% end %>
 
         <%= hidden_field_tag "survey[answers][#{answer_idx}][choices][][decidim_survey_answer_option_id]",
                              answer_option.id,
-                             id: "#{field_id}_answer_option_#{answer_option.id}" %>
+                             id: "#{choice_id}_answer_option" %>
       <% end %>
     </div>
   <% when "multiple_option" %>
-    <div id="<%= field_id %>_answer_options" class="check-box-collection">
+    <div class="check-box-collection">
       <% answer.question.answer_options.each_with_index do |answer_option, idx| %>
-        <%= label_tag "#{field_id}_option_#{idx}" do %>
+        <%= label_tag "#{field_id}_choices_#{idx}" do %>
           <%= check_box_tag "survey[answers][#{answer_idx}][choices][#{idx}][body]",
                             translated_attribute(answer_option.body),
                             answer.choices.map(&:body).include?(translated_attribute(answer_option.body)) %>

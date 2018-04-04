@@ -76,8 +76,8 @@ describe "Answer a survey", type: :system do
         expect(page).to have_i18n_content(survey.title, upcase: true)
         expect(page).to have_i18n_content(survey.description)
 
-        fill_in "survey_#{survey.id}_question_#{survey_question_1.id}_answer_body", with: "My first answer"
-        fill_in "survey_#{survey.id}_question_#{survey_question_2.id}_answer_body", with: "My second answer"
+        fill_in "survey_answers_1_body", with: "My first answer"
+        fill_in "survey_answers_2_body", with: "My second answer"
 
         check "survey_tos_agreement"
 
@@ -192,13 +192,13 @@ describe "Answer a survey", type: :system do
           let(:question_type) { "single_option" }
 
           it "renders them as radio buttons with attached text fields disabled by default" do
-            expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type=radio]", count: 3)
+            expect(page).to have_selector(".radio-button-collection input[type=radio]", count: 3)
 
-            expect(page).to have_field("survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_custom_body_2", disabled: true, count: 1)
+            expect(page).to have_field("survey_answers_1_choices_2_custom_body", disabled: true, count: 1)
 
             choose answer_option_bodies[2]["en"]
 
-            expect(page).to have_field("survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_custom_body_2", disabled: false, count: 1)
+            expect(page).to have_field("survey_answers_1_choices_2_custom_body", disabled: false, count: 1)
           end
         end
 
@@ -206,7 +206,7 @@ describe "Answer a survey", type: :system do
           let(:question_type) { "multiple_option" }
 
           it "renders them as check boxes with attached text fields disabled by default" do
-            expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type=checkbox]", count: 3)
+            expect(page).to have_selector(".check-box-collection input[type=checkbox]", count: 3)
 
             expect(page).to have_field("survey_answers_1_choices_2_custom_body", disabled: true, count: 1)
 
@@ -224,8 +224,8 @@ describe "Answer a survey", type: :system do
         it "renders the answer as a textarea" do
           visit_component
 
-          expect(page).to have_selector("textarea#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body")
-          expect(page).to have_selector("textarea#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body")
+          expect(page).to have_selector("textarea#survey_answers_1_body")
+          expect(page).to have_selector("textarea#survey_answers_2_body")
         end
       end
 
@@ -236,8 +236,8 @@ describe "Answer a survey", type: :system do
         it "renders the answer as a text field" do
           visit_component
 
-          expect(page).to have_selector("input[type=text]#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body")
-          expect(page).to have_selector("input[type=text]#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body")
+          expect(page).to have_selector("input[type=text]#survey_answers_1_body")
+          expect(page).to have_selector("input[type=text]#survey_answers_2_body")
         end
       end
 
@@ -249,14 +249,16 @@ describe "Answer a survey", type: :system do
         it "renders answers as a collection of radio buttons" do
           visit_component
 
-          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type=radio]", count: 2)
-          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type=radio]", count: 2)
+          collections = page.all(".radio-button-collection")
 
-          within "#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options" do
+          expect(collections.first).to have_selector("input[type=radio]", count: 2)
+          expect(collections.last).to have_selector("input[type=radio]", count: 2)
+
+          within collections.first do
             choose answer_options[1]["body"][:en]
           end
 
-          within "#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options" do
+          within collections.last do
             choose answer_options[2]["body"][:en]
           end
 
@@ -282,16 +284,22 @@ describe "Answer a survey", type: :system do
         it "renders answers as a collection of radio buttons" do
           visit_component
 
-          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type=checkbox]", count: 2)
-          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type=checkbox]", count: 3)
+          collections = page.all(".check-box-collection")
+
+          first_choice = collections.first
+          last_choice = collections.last
+
+          expect(first_choice).to have_selector("input[type=checkbox]", count: 2)
+          expect(last_choice).to have_selector("input[type=checkbox]", count: 3)
+
           expect(page).to have_no_content("Max choices:")
 
-          within "#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options" do
+          within first_choice do
             check answer_options[0]["body"][:en]
             check answer_options[1]["body"][:en]
           end
 
-          within "#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options" do
+          within last_choice do
             check answer_options[2]["body"][:en]
           end
 
@@ -315,7 +323,7 @@ describe "Answer a survey", type: :system do
 
           expect(page).to have_content("Max choices: 2")
 
-          within "#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options" do
+          within page.all(".check-box-collection").last do
             check answer_options[2]["body"][:en]
             check answer_options[3]["body"][:en]
             check answer_options[4]["body"][:en]
@@ -349,15 +357,20 @@ describe "Answer a survey", type: :system do
         it "the question answers are rendered as a collection of radio buttons" do
           visit_component
 
-          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options input[type=checkbox]", count: 2)
-          expect(page).to have_selector("#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options input[type=checkbox]", count: 2)
+          collections = page.all(".check-box-collection")
 
-          within "#survey_#{survey.id}_question_#{survey_question_1.id}_answer_body_answer_options" do
+          first_choice = collections.first
+          last_choice = collections.last
+
+          expect(first_choice).to have_selector("input[type=checkbox]", count: 2)
+          expect(last_choice).to have_selector("input[type=checkbox]", count: 2)
+
+          within first_choice do
             check answer_options[0]["body"][:en]
             check answer_options[1]["body"][:en]
           end
 
-          within "#survey_#{survey.id}_question_#{survey_question_2.id}_answer_body_answer_options" do
+          within last_choice do
             check answer_options[2]["body"][:en]
           end
 
