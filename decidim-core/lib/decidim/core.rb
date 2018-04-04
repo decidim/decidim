@@ -341,5 +341,6 @@ module Decidim
     autoload :ParticipatorySpaceInterface, "decidim/api/participatory_space_interface"
     autoload :ComponentInterface, "decidim/api/component_interface"
     autoload :AuthorInterface, "decidim/api/author_interface"
+    autoload :AuthorableInterface, "decidim/api/authorable_interface"
   end
 end

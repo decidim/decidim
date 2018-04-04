@@ -6,6 +6,11 @@ module Decidim
       name "Proposal"
       description "A proposal"
 
+      interfaces [
+        Decidim::Comments::CommentableInterface,
+        Decidim::Core::AuthorableInterface
+      ]
+
       field :id, !types.ID
       field :title, !types.String, "This proposal's title"
       field :body, types.String, "This proposal's body"

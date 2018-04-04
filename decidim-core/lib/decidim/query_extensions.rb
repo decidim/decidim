@@ -66,5 +66,6 @@ module Decidim
         resolve ->(_obj, _args, ctx) { ctx[:current_organization] }
       end
     end
+
   end
 end

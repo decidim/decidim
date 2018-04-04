@@ -8,7 +8,8 @@ module Decidim
       description "A comment"
 
       interfaces [
-        Decidim::Comments::CommentableInterface
+        Decidim::Comments::CommentableInterface,
+        Decidim::Core::AuthorableInterface
       ]
 
       field :id, !types.ID, "The Comment's unique ID"
@@ -30,12 +31,6 @@ module Decidim
       end
 
       field :formattedCreatedAt, !types.String, "The creation date of the comment in relative format", property: :friendly_created_at
-
-      field :author, !Decidim::Core::AuthorInterface, "The comment's author" do
-        resolve lambda { |obj, _args, _ctx|
-          obj.user_group || obj.author
-        }
-      end
 
       field :alignment, types.Int, "The comment's alignment. Can be 0 (neutral), 1 (in favor) or -1 (against)'"
 
