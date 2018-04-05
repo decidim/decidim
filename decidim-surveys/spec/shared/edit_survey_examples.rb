@@ -572,7 +572,7 @@ shared_examples "edit surveys" do
   end
 
   context "when the survey is already answered" do
-    let!(:survey_question) { create(:survey_question, survey: survey, body: body) }
+    let!(:survey_question) { create(:survey_question, survey: survey, body: body, question_type: "multiple_option") }
     let!(:survey_answer) { create(:survey_answer, survey: survey, question: survey_question) }
 
     it "cannot modify survey questions" do
@@ -582,6 +582,7 @@ shared_examples "edit surveys" do
       expect(page).to have_no_content("Remove")
       expect(page).to have_selector("input[value='This is the first question'][disabled]")
       expect(page).to have_selector("select[id$=question_type][disabled]")
+      expect(page).to have_selector("select[id$=max_choices][disabled]")
     end
   end
 

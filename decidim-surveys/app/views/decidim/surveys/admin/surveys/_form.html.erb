@@ -46,4 +46,6 @@
   <% end %>
 </div>
 
-<%= javascript_include_tag "decidim/surveys/admin/surveys" %>
+<% if survey.questions_editable? %>
+  <%= javascript_include_tag "decidim/surveys/admin/surveys" %>
+<% end %>

@@ -106,7 +106,7 @@
         form.select(
           :max_choices,
           (2..question.number_of_options),
-          prompt: t(".any"),
+          { prompt: t(".any") },
           disabled: !editable
         )
       %>
