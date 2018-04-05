@@ -10,20 +10,21 @@ class AddChoicesToDecidimSurveyAnswers < ActiveRecord::Migration[5.1]
   end
 
   def up
+    add_column :decidim_surveys_survey_answers, :text_body, :text
     add_column :decidim_surveys_survey_answers, :choices, :jsonb
 
     SurveyAnswer.find_each do |answer|
       question = SurveyQuestion.find_by(id: answer.decidim_survey_question_id)
 
       if %w(single_option multiple_option).include?(question.question_type)
-        answer.update!(choices: answer.body, body: nil)
+        answer.update!(choices: answer.body)
       else
-        answer.update!(body: answer.body.first)
+        answer.update!(text_body: answer.body.first)
       end
     end
 
-    change_column_default :decidim_surveys_survey_answers, :body, nil
-    change_column :decidim_surveys_survey_answers, :body, "text USING CAST(body AS text)"
+    remove_column :decidim_surveys_survey_answers, :body
+    rename_column :decidim_surveys_survey_answers, :text_body, :body
   end
 
   def down
@@ -39,9 +40,9 @@ class AddChoicesToDecidimSurveyAnswers < ActiveRecord::Migration[5.1]
       end
     end
 
-    remove_column :decidim_surveys_survey_answers, :body
     remove_column :decidim_surveys_survey_answers, :choices
 
+    remove_column :decidim_surveys_survey_answers, :body
     rename_column :decidim_surveys_survey_answers, :jsonb_body, :body
   end
 end
