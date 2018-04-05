@@ -66,7 +66,7 @@ module Decidim
                       "ca" => "Primera resposta",
                       "es" => "Primera respuesta"
                     },
-                    "free_text_option" => "0"
+                    "free_text" => "0"
                   },
                   "1" => {
                     "body" => {
@@ -93,7 +93,7 @@ module Decidim
                       "ca" => "Primera resposta",
                       "es" => "Primera respuesta"
                     },
-                    "free_text_option" => "1"
+                    "free_text" => "1"
                   },
                   "1" => {
                     "body" => {
@@ -157,11 +157,11 @@ module Decidim
             expect(survey.questions[2].max_choices).to be_nil
 
             expect(survey.questions[3].question_type).to eq("multiple_option")
-            expect(survey.questions[2].answer_options[0].free_text_option).to eq(false)
+            expect(survey.questions[2].answer_options[0].free_text).to eq(false)
             expect(survey.questions[2].max_choices).to be_nil
 
             expect(survey.questions[3].question_type).to eq("multiple_option")
-            expect(survey.questions[3].answer_options[0].free_text_option).to eq(true)
+            expect(survey.questions[3].answer_options[0].free_text).to eq(true)
             expect(survey.questions[3].max_choices).to eq(2)
           end
         end

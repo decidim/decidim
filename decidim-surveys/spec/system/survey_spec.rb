@@ -219,7 +219,7 @@ describe "Answer a survey", type: :system do
             answer_options: [
               { "body" => answer_option_bodies[0] },
               { "body" => answer_option_bodies[1] },
-              { "body" => answer_option_bodies[2], "free_text_option" => true }
+              { "body" => answer_option_bodies[2], "free_text" => true }
             ]
           )
         end

@@ -8,7 +8,7 @@ module Decidim
         include TranslatableAttributes
 
         attribute :deleted, Boolean, default: false
-        attribute :free_text_option, Boolean
+        attribute :free_text, Boolean
 
         translatable_attribute :body, String
 

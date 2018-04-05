@@ -260,16 +260,16 @@ shared_examples "edit surveys" do
       end
 
       it "updates the free text option selector according to the selected question type" do
-        expect(page).to have_no_selector("input[type=checkbox][id$=_free_text_option]")
+        expect(page).to have_no_selector("input[type=checkbox][id$=_free_text]")
 
         select "Multiple option", from: "Type"
-        expect(page).to have_selector("input[type=checkbox][id$=_free_text_option]")
+        expect(page).to have_selector("input[type=checkbox][id$=_free_text]")
 
         select "Short answer", from: "Type"
-        expect(page).to have_no_selector("input[type=checkbox][id$=_free_text_option]")
+        expect(page).to have_no_selector("input[type=checkbox][id$=_free_text]")
 
         select "Single option", from: "Type"
-        expect(page).to have_selector("input[type=checkbox][id$=_free_text_option]")
+        expect(page).to have_selector("input[type=checkbox][id$=_free_text]")
       end
 
       it "updates the max choices selector according to the configured options" do

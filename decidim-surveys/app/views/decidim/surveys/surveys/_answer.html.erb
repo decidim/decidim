@@ -27,7 +27,7 @@
 
           <%= translated_attribute(answer_option.body) %>
 
-          <% if answer_option.free_text_option %>
+          <% if answer_option.free_text %>
             <%= text_field_tag "survey[answers][#{answer_idx}][choices][][custom_body]",
                                choice.try(:custom_body),
                                id: "#{choice_id}_custom_body",
@@ -53,7 +53,7 @@
 
           <%= translated_attribute(answer_option.body) %>
 
-          <% if answer_option.free_text_option %>
+          <% if answer_option.free_text %>
             <%= text_field_tag "survey[answers][#{answer_idx}][choices][#{idx}][custom_body]",
                                choice.try(:custom_body),
                                disabled: true %>

@@ -51,7 +51,7 @@ module Decidim
             form_question.answer_options.each do |form_answer_option|
               answer_option_attributes = {
                 body: form_answer_option.body,
-                free_text_option: form_answer_option.free_text_option
+                free_text: form_answer_option.free_text
               }
 
               update_nested_model(form_answer_option, answer_option_attributes, question.answer_options)

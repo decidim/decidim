@@ -36,7 +36,7 @@ FactoryBot.define do
       evaluator.answer_options.each do |answer_option|
         question.answer_options.build(
           body: answer_option["body"],
-          free_text_option: answer_option["free_text_option"]
+          free_text: answer_option["free_text"]
         )
       end
     end
