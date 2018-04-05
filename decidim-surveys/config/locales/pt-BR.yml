@@ -5,7 +5,14 @@ pt-BR:
         body: Resposta
       survey_question:
         mandatory: Obrigatório
+        max_choices: Número máximo de escolhas
         question_type: Tipo
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            body:
+              too_many_choices: tem muitas opções marcadas
   decidim:
     components:
       surveys:
@@ -51,6 +58,7 @@ pt-BR:
             already_answered_warning: A pesquisa já foi respondida por alguns usuários para que você não possa modificar suas perguntas.
           question:
             add_answer_option: Adicionar opção de resposta
+            any: Qualquer
             description: Descrição
             down: Baixa
             question: Questão
@@ -69,6 +77,8 @@ pt-BR:
         answer:
           invalid: Houve erros ao responder a pesquisa.
           success: Pesquisa respondida com sucesso.
+        question:
+          max_choices: 'Escolhas máximas: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Inscreva-se com sua conta</a> ou <a href="%{sign_up_link}">sign up</a> para responder a pesquisa.
