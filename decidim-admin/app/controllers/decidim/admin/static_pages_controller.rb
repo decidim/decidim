@@ -8,17 +8,17 @@ module Decidim
       layout "decidim/admin/pages"
 
       def index
-        authorize! :index, StaticPage
+        enforce_permission_to :read, :static_page
         @pages = collection
       end
 
       def new
-        authorize! :new, StaticPage
+        enforce_permission_to :create, :static_page
         @form = form(StaticPageForm).instance
       end
 
       def create
-        authorize! :new, StaticPage
+        enforce_permission_to :create, :static_page
         @form = form(StaticPageForm).from_params(form_params)
 
         CreateStaticPage.call(@form) do
@@ -35,13 +35,13 @@ module Decidim
       end
 
       def edit
-        authorize! :update, page
+        enforce_permission_to :update, :static_page, static_page: page
         @form = form(StaticPageForm).from_model(page)
       end
 
       def update
         @page = collection.find(params[:id])
-        authorize! :update, page
+        enforce_permission_to :update, :static_page, static_page: page
         @form = form(StaticPageForm).from_params(form_params)
 
         UpdateStaticPage.call(page, @form) do
@@ -58,11 +58,11 @@ module Decidim
       end
 
       def show
-        authorize! :read, page
+        enforce_permission_to :read, :static_page
       end
 
       def destroy
-        authorize! :destroy, page
+        enforce_permission_to :destroy, :static_page, static_page: page
 
         DestroyStaticPage.call(page, current_user) do
           on(:ok) do
