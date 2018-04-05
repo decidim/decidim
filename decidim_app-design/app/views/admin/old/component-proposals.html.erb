@@ -1,0 +1,79 @@
+<%
+@title = "Decidim Admin"
+@activesection = "processes"
+@activepage = "process-components"
+@activesubpage = "component-proposals"
+%>
+
+<%= partial "template_top" %>
+<div class="layout-nav">
+  <%= partial "process_sub_nav" %>
+</div>
+<div class="layout-content has-process-title">
+  <div class="container">
+    <%= partial "process_title" %>
+    <div class="card">
+      <div class="card-divider">
+        <h2 class="card-title"><%= icon "proposals", class: "icon--component" %> Propuestas <a href="#" class="button tiny button--title">Añadir</a></h2>
+      </div>
+      <div class="card-section">
+        <div class="table-scroll">
+          <table class="table-list">
+            <thead>
+              <tr>
+                <th>Título</th>
+                <th>Estado</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <a href="#">
+                    Servei d’atenció i seguiment a la gent gran que viu sola o té problemes de mobilitat
+                  </a>
+                </td>
+                <td>
+                  <a href="#" class="button tiny">Responder</a>
+                </td>
+                <td class="table-list__actions">
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Editar" class="action-icon"><%= icon "pencil" %></a>
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Ver" class="action-icon"><%= icon "eye" %></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#">
+                    Servei d’atenció i seguiment a la gent gran que viu sola o té problemes de mobilitat
+                  </a>
+                </td>
+                <td>
+                  <strong class="text-success">Aprobado</strong>
+                </td>
+                <td class="table-list__actions">
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Editar" class="action-icon"><%= icon "pencil" %></a>
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Ver" class="action-icon"><%= icon "eye" %></a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a href="#">
+                    Servei d’atenció i seguiment a la gent gran que viu sola o té problemes de mobilitat
+                  </a>
+                </td>
+                <td>
+                  <strong class="text-alert">Rechazado</strong>
+                </td>
+                <td class="table-list__actions">
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Editar" class="action-icon"><%= icon "pencil" %></a>
+                  <a href="#" data-tooltip aria-haspopup="true" data-disable-hover="false" title="Ver" class="action-icon"><%= icon "eye" %></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<%= partial "template_bottom" %>

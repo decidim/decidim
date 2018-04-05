@@ -6,7 +6,14 @@ en:
         body: Answer
       survey_question:
         mandatory: Mandatory
+        max_choices: Maximum number of choices
         question_type: Type
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            body:
+              too_many_choices: has too many options checked
   decidim:
     components:
       surveys:
@@ -52,6 +59,7 @@ en:
             already_answered_warning: The survey is already answered by some users so you cannot modify its questions.
           question:
             add_answer_option: Add answer option
+            any: Any
             description: Description
             down: Down
             question: Question
@@ -70,6 +78,8 @@ en:
         answer:
           invalid: There's been errors when answering the survey.
           success: Survey answered successfully.
+        question:
+          max_choices: 'Max choices: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Sign in with your account</a> or <a href="%{sign_up_link}">sign up</a> to answer the survey.

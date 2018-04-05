@@ -31,6 +31,20 @@ module Decidim
           expect(subject).not_to be_valid
         end
       end
+
+      context "when the question has max_choices set" do
+        let!(:survey_question) { create(:survey_question, survey: survey, max_choices: 2) }
+
+        it "is valid if few enough answers checked" do
+          subject.body = %w(foo bar)
+          expect(subject).to be_valid
+        end
+
+        it "is not valid if too many answers checked" do
+          subject.body = %w(foo bar baz)
+          expect(subject).not_to be_valid
+        end
+      end
     end
   end
 end
