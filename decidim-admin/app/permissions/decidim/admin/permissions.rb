@@ -40,6 +40,8 @@ module Decidim
         return true if permission_action.subject == :authorization
         return true if permission_action.subject == :authorization_workflow
 
+        return true if space_allows_read_action?
+
         false
       end
 
@@ -112,6 +114,8 @@ module Decidim
       end
 
       def space_allows_action?
+        return unless permission_action.action == :read
+
         Decidim.participatory_space_manifests.any? do |manifest|
           manifest.permissions_class.new(user, permission_action, context).allowed?
         end
