@@ -118,8 +118,16 @@ describe "Answer a survey", type: :system do
         it_behaves_like "a correctly ordered survey"
       end
 
-      shared_context "when a question is mandatory" do
-        let!(:survey_question_2) { create(:survey_question, survey: survey, position: 0, mandatory: true) }
+      shared_context "when a non multiple choice question is mandatory" do
+        let!(:survey_question_2) do
+          create(
+            :survey_question,
+            survey: survey,
+            question_type: "short_answer",
+            position: 0,
+            mandatory: true
+          )
+        end
 
         before do
           visit_component
@@ -129,7 +137,7 @@ describe "Answer a survey", type: :system do
       end
 
       describe "leaving a blank question (without js)", driver: :rack_test do
-        include_context "when a question is mandatory"
+        include_context "when a non multiple choice question is mandatory"
 
         before do
           click_button "Submit"
@@ -145,7 +153,7 @@ describe "Answer a survey", type: :system do
       end
 
       describe "leaving a blank question (with js)" do
-        include_context "when a question is mandatory"
+        include_context "when a non multiple choice question is mandatory"
 
         before do
           accept_confirm { click_button "Submit" }
@@ -153,6 +161,38 @@ describe "Answer a survey", type: :system do
 
         it "shows errors without submitting the form" do
           expect(page).to have_no_selector ".alert.flash"
+
+          expect(page).to have_content("can't be blank")
+        end
+      end
+
+      describe "leaving a blank multiple choice question" do
+        let!(:survey_question_2) do
+          create(
+            :survey_question,
+            survey: survey,
+            question_type: "single_option",
+            position: 0,
+            mandatory: true,
+            answer_options: [
+              { "body" => Decidim::Faker::Localized.sentence },
+              { "body" => Decidim::Faker::Localized.sentence }
+            ]
+          )
+        end
+
+        before do
+          visit_component
+
+          check "survey_tos_agreement"
+
+          accept_confirm { click_button "Submit" }
+        end
+
+        it "submits the form and shows errors" do
+          within ".alert.flash" do
+            expect(page).to have_content("error")
+          end
 
           expect(page).to have_content("can't be blank")
         end

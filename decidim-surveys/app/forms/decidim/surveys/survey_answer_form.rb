@@ -11,7 +11,7 @@ module Decidim
       attribute :choices, Array[SurveyAnswerChoiceForm]
 
       validates :body, presence: true, if: :mandatory_body?
-      validates :choices, presence: true, if: :mandatory_choices?
+      validates :selected_choices, presence: true, if: :mandatory_choices?
 
       validate :max_answers, if: -> { question.max_choices }
 
