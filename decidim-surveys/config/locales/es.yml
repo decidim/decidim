@@ -5,7 +5,14 @@ es:
         body: Respuesta
       survey_question:
         mandatory: Obligatorio
+        max_choices: Número máximo de opciones
         question_type: Tipo
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            body:
+              too_many_choices: tiene demasiadas opciones marcadas
   decidim:
     components:
       surveys:
@@ -51,6 +58,7 @@ es:
             already_answered_warning: La encuesta ya está contestada por algunos usuarios, así que no puedes modificar sus preguntas.
           question:
             add_answer_option: Agregar opción de respuesta
+            any: Alguna
             description: Descripción
             down: Abajo
             question: Pregunta
@@ -69,6 +77,8 @@ es:
         answer:
           invalid: Se han producido errores al responder a la encuesta.
           success: La encuesta ha sido respondida con éxito.
+        question:
+          max_choices: 'Opciones máximas: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Inicia sesión con tu cuenta</a> o <a href="%{sign_up_link}">regístrate</a> para responder a la encuesta.
