@@ -6,11 +6,13 @@ fr:
       report:
         details: Commentaires additionnels
       user:
+        about: Sur
         email: Votre email
         name: Votre nom
         nickname: Votre pseudonyme
         password: Votre mot de passe
         password_confirmation: Confirmez votre mot de passe
+        personal_url: URL personnelle
         remove_avatar: Supprimer l'avatar
         user_group_document_number: Numéro d'identification de l'organisation
         user_group_name: Nom de l'organisation
