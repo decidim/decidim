@@ -5,7 +5,14 @@ nl:
         body: Antwoord
       survey_question:
         mandatory: Verplicht
+        max_choices: Maximum aantal keuzes
         question_type: Type
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            body:
+              too_many_choices: heeft te veel opties aangevinkt
   decidim:
     components:
       surveys:
@@ -51,6 +58,7 @@ nl:
             already_answered_warning: Het onderzoek is al door sommige gebruikers beantwoord, hierdoor kunt u de vragen niet meer bewerken.
           question:
             add_answer_option: Voeg antwoord optie toe
+            any: Ieder
             description: Beschrijving
             down: naar beneden
             question: Vraag
@@ -69,6 +77,8 @@ nl:
         answer:
           invalid: Er zijn fouten opgetreden bij het opslaan van de pagina.
           success: Enquête met succes beantwoord.
+        question:
+          max_choices: 'Max. Keuzes: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Meld u aan met uw account</a> of <a href="%{sign_up_link}">schrijf u in</a> om uw reactie toe te voegen.
