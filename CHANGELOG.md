@@ -10,6 +10,7 @@ controller or added a new module you need to rename `feature` to `component`.
 
 **Added**:
 
+- **decidim-core**: Support optional belongs_to relations in data picker [\#3138](https://github.com/decidim/decidim/pull/3138)
 - **decidim-meetings**: Add new fields to meetings registrations [\#3123](https://github.com/decidim/decidim/pull/3123)
 - **decidim-admin**: Decidim as OAuth provider [\#3057](https://github.com/decidim/decidim/pull/3057)
 - **decidim-core**: Decidim as OAuth provider [\#3057](https://github.com/decidim/decidim/pull/3057)
