@@ -13,7 +13,7 @@
   </div>
 </div>
 <div class="button--double form-general-submit">
-  <% if can?(:update, @newsletter) && !@newsletter.sent? %>
+  <% if allowed_to?(:update, :newsletter, newsletter: @newsletter) && !@newsletter.sent? %>
     <%= link_to t("actions.edit", scope: "decidim.admin"), ["edit", @newsletter], class: "button" %>
   <% end %>
   <% unless @newsletter.sent? %>
