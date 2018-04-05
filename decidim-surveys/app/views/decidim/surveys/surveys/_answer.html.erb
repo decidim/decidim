@@ -58,9 +58,10 @@
                                choice.try(:custom_body),
                                disabled: true %>
           <% end %>
+
+          <%= hidden_field_tag "survey[answers][#{answer_idx}][choices][#{idx}][decidim_survey_answer_option_id]", answer_option.id %>
         <% end %>
 
-        <%= hidden_field_tag "survey[answers][#{answer_idx}][choices][#{idx}][decidim_survey_answer_option_id]", answer_option.id %>
       <% end %>
     </div>
 <% end %>
