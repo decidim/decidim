@@ -44,28 +44,28 @@ module Decidim
                     icon_name: "book",
                     position: 4,
                     active: :inclusive,
-                    if: can?(:read, Decidim::StaticPage)
+                    if: allowed_to?(:read, :static_page)
 
           menu.item I18n.t("menu.users", scope: "decidim.admin"),
-                    can?(:read, :admin_users) ? decidim_admin.users_path : decidim_admin.managed_users_path,
+                    allowed_to?(:read, :admin_user) ? decidim_admin.users_path : decidim_admin.managed_users_path,
                     icon_name: "person",
                     position: 5,
                     active: [%w(decidim/admin/user_groups decidim/admin/users decidim/admin/managed_users decidim/admin/authorization_workflows), []],
-                    if: can?(:read, :admin_users) || can?(:read, :managed_users)
+                    if: allowed_to?(:read, :admin_user) || allowed_to?(:read, :managed_user)
 
           menu.item I18n.t("menu.newsletters", scope: "decidim.admin"),
                     decidim_admin.newsletters_path,
                     icon_name: "envelope-closed",
                     position: 6,
                     active: :inclusive,
-                    if: can?(:index, Decidim::Newsletter)
+                    if: allowed_to?(:index, :newsletter)
 
           menu.item I18n.t("menu.settings", scope: "decidim.admin"),
                     decidim_admin.edit_organization_path,
                     icon_name: "wrench",
                     position: 7,
                     active: [%w(decidim/admin/organization decidim/admin/scopes decidim/admin/scope_types), []],
-                    if: can?(:read, current_organization)
+                    if: allowed_to?(:read, :organization, organization: current_organization)
 
           menu.item I18n.t("menu.admin_log", scope: "decidim.admin"),
                     decidim_admin.logs_path,
@@ -79,7 +79,7 @@ module Decidim
                     icon_name: "dashboard",
                     position: 11,
                     active: [%w(decidim/admin/oauth_applications), []],
-                    if: can?(:read, :oauth_applications)
+                    if: allowed_to?(:read, :oauth_application)
         end
       end
     end
