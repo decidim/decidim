@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Decidim
   module Core
     autoload :ParticipatorySpaceInterface, "decidim/api/participatory_space_interface"
