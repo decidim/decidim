@@ -583,6 +583,7 @@ shared_examples "edit surveys" do
       expect(page).to have_selector("input[value='This is the first question'][disabled]")
       expect(page).to have_selector("select[id$=question_type][disabled]")
       expect(page).to have_selector("select[id$=max_choices][disabled]")
+      expect(page).to have_selector(".ql-editor[contenteditable=false]")
     end
   end
 
