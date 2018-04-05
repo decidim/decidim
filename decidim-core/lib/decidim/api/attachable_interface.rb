@@ -10,4 +10,4 @@ module Decidim
       field :attachments, !types[Decidim::Core::AttachmentType], "This object's attachments"
     end
   end
-  end
+end

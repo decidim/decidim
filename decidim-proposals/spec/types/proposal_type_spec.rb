@@ -2,6 +2,10 @@
 
 require "spec_helper"
 require "decidim/api/test/type_context"
+require "decidim/core/test/shared_examples/categorizable_interface_examples"
+require "decidim/core/test/shared_examples/scopable_interface_examples"
+require "decidim/core/test/shared_examples/attachable_interface_examples"
+require "decidim/core/test/shared_examples/authorable_interface_examples"
 
 module Decidim
   module Proposals
@@ -9,6 +13,11 @@ module Decidim
       include_context "with a graphql type"
       let(:component) { create(:proposal_component) }
       let(:model) { create(:proposal, :with_votes, :with_endorsements, component: component) }
+
+      include_examples "categorizable interface"
+      include_examples "scopable interface"
+      include_examples "attachable interface"
+      include_examples "authorable interface"
 
       describe "id" do
         let(:query) { "{ id }" }
@@ -41,6 +50,15 @@ module Decidim
 
         it "returns the amount of endorsements for this proposal" do
           expect(response["endorsementsCount"]).to eq(model.endorsements.count)
+        end
+      end
+
+      describe "endorsements" do
+        let(:query) { "{ endorsements { name } }" }
+
+        it "returns the endorsements this proposal has received" do
+          endorsement_names = response["endorsements"].map { |endorsement| endorsement["name"] }
+          expect(endorsement_names).to include(*model.endorsements.map(&:author).map(&:name))
         end
       end
 

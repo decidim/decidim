@@ -16,7 +16,13 @@ module Decidim
     # rail's infamous autoloading.
     def self.orphan_types
       Decidim.component_manifests.map(&:query_type).map(&:constantize).uniq +
-        Decidim.participatory_space_manifests.map(&:query_type).map(&:constantize).uniq
+        Decidim.participatory_space_manifests.map(&:query_type).map(&:constantize).uniq +
+        (@orphan_types || [])
+    end
+
+    def self.add_orphan_type(type)
+      @orphan_types ||= []
+      @orphan_types += [type]
     end
   end
 end

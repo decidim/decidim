@@ -26,7 +26,13 @@ module Decidim
         property :published_at
       end
 
-      field :endorsements, !types[EndorsementType], "The endorsements of this proposal."
+      field :endorsements, !types[Decidim::Core::AuthorInterface], "The endorsements of this proposal." do
+        resolve ->(proposal, _, _) {
+          proposal.endorsements.map do |endorsement|
+            endorsement.user_group || endorsement.author
+          end
+        }
+      end
 
       field :endorsementsCount, types.Int do
         description "The total amount of endorsements the proposal has received"

@@ -101,10 +101,13 @@ module Decidim
         app.config.i18n.fallbacks = true
       end
 
-      initializer "decidim.query_extensions" do
+      initializer "decidim.graphql_api" do
         Decidim::Api::QueryType.define do
           Decidim::QueryExtensions.define(self)
         end
+
+        Decidim::Api.add_orphan_type Decidim::Core::UserType
+        Decidim::Api.add_orphan_type Decidim::Core::UserGroupType
       end
 
       initializer "decidim.i18n_exceptions" do
