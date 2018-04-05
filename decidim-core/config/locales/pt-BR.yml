@@ -6,6 +6,7 @@ pt-BR:
       report:
         details: Comentários adicionais
       user:
+        about: Sobre
         email: Seu e-mail
         name: O seu nome
         nickname: Seu identificador curto e exclusivo
