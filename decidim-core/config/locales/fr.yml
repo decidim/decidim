@@ -508,7 +508,7 @@ fr:
         proposals_explanation: Faites des propositions, appuyez les projets existants et favorisez les changements que vous souhaitez voir.
       footer_sub_hero:
         footer_sub_hero_body: Construisons une société plus ouverte, transparente et collaborative.<br /> Rejoignez le mouvement, participez au processus et décidez, ensemble.
-        footer_sub_hero_headline: Bienvenue sur la plate-forme participative de %{organization} .
+        footer_sub_hero_headline: Bienvenue sur la plateforme participative de %{organization} .
         register: S'inscrire
       hero:
         participate: Participez
