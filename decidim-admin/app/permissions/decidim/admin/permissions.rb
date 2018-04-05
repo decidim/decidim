@@ -102,7 +102,7 @@ module Decidim
       end
 
       def organization
-        @organization ||= context.fetch(:organization, nil)
+        @organization ||= context.fetch(:organization, nil) || context.fetch(:current_organization, nil)
       end
     end
   end

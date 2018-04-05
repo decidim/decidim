@@ -14,12 +14,12 @@ module Decidim
                     :select_authorization_handler_step?
 
       def index
-        authorize! :index, :managed_users
+        enforce_permission_to :read, :managed_user
         @managed_users = collection.page(params[:page]).per(15)
       end
 
       def new
-        authorize! :new, :managed_users
+        enforce_permission_to :create, :managed_user
 
         if available_authorization_handlers.blank?
           flash[:alert] = I18n.t("managed_users.new.no_authorization_handlers", scope: "decidim.admin")
@@ -36,7 +36,7 @@ module Decidim
       end
 
       def create
-        authorize! :create, :managed_users
+        enforce_permission_to :create, :managed_user
 
         @form = form(ManagedUserForm).from_params(params)
 

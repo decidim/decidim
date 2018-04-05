@@ -17,7 +17,7 @@ module Decidim
         end
 
         def new
-          authorize! :impersonate, user
+          enforce_permission_to :impersonate, :user, user: user
 
           if handler_name.present?
             @form = form(ImpersonateManagedUserForm).from_params(
@@ -29,7 +29,7 @@ module Decidim
         end
 
         def create
-          authorize! :impersonate, user
+          enforce_permission_to :impersonate, :user, user: user
 
           @form = form(ImpersonateManagedUserForm).from_params(params)
 
