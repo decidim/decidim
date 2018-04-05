@@ -7,7 +7,7 @@
     createOptionAttachedInputs({
       wrapperField: $(el),
       controllerFieldSelector: "input[type=radio], input[type=checkbox]",
-      dependentInputSelector: "input[type=text]"
+      dependentInputSelector: "input[type=text], input[type=hidden]"
     });
   });
 })(window);

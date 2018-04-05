@@ -224,6 +224,20 @@ describe "Answer a survey", type: :system do
           )
         end
 
+        let!(:survey_question_2) do
+          create(
+            :survey_question,
+            survey: survey,
+            question_type: "multiple_option",
+            max_choices: 2,
+            answer_options: [
+              { "body" => Decidim::Faker::Localized.sentence },
+              { "body" => Decidim::Faker::Localized.sentence },
+              { "body" => Decidim::Faker::Localized.sentence }
+            ]
+          )
+        end
+
         before do
           visit_component
         end
@@ -241,7 +255,7 @@ describe "Answer a survey", type: :system do
             expect(page).to have_field("survey_answers_1_choices_2_custom_body", disabled: false, count: 1)
           end
 
-          it "saves the free text in a separate field" do
+          it "saves the free text in a separate field if submission correct" do
             choose answer_option_bodies[2]["en"]
             fill_in "survey_answers_1_choices_2_custom_body", with: "Cacatua"
 
@@ -254,13 +268,31 @@ describe "Answer a survey", type: :system do
 
             expect(Decidim::Surveys::SurveyAnswer.first.choices.first.custom_body).to eq("Cacatua")
           end
+
+          it "preserves the previous custom body if submission not correct" do
+            check "survey_answers_2_choices_0_body"
+            check "survey_answers_2_choices_1_body"
+            check "survey_answers_2_choices_2_body"
+
+            choose answer_option_bodies[2]["en"]
+            fill_in "survey_answers_1_choices_2_custom_body", with: "Cacatua"
+
+            check "survey_tos_agreement"
+            accept_confirm { click_button "Submit" }
+
+            within ".alert.flash" do
+              expect(page).to have_content("There's been errors when answering the survey.")
+            end
+
+            expect(page).to have_field("survey_answers_1_choices_2_custom_body", with: "Cacatua")
+          end
         end
 
         context "when question is multiple_option type" do
           let(:question_type) { "multiple_option" }
 
           it "renders them as check boxes with attached text fields disabled by default" do
-            expect(page).to have_selector(".check-box-collection input[type=checkbox]", count: 3)
+            expect(page.first(".check-box-collection")).to have_selector("input[type=checkbox]", count: 3)
 
             expect(page).to have_field("survey_answers_1_choices_2_custom_body", disabled: true, count: 1)
 
@@ -281,6 +313,24 @@ describe "Answer a survey", type: :system do
             end
 
             expect(Decidim::Surveys::SurveyAnswer.first.choices.first.custom_body).to eq("Cacatua")
+          end
+
+          it "preserves the previous custom body if submission not correct" do
+            check "survey_answers_2_choices_0_body"
+            check "survey_answers_2_choices_1_body"
+            check "survey_answers_2_choices_2_body"
+
+            check answer_option_bodies[2]["en"]
+            fill_in "survey_answers_1_choices_2_custom_body", with: "Cacatua"
+
+            check "survey_tos_agreement"
+            accept_confirm { click_button "Submit" }
+
+            within ".alert.flash" do
+              expect(page).to have_content("There's been errors when answering the survey.")
+            end
+
+            expect(page).to have_field("survey_answers_1_choices_2_custom_body", with: "Cacatua")
           end
         end
       end

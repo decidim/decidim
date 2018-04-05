@@ -35,13 +35,8 @@ module Decidim
         @question = model.question
         self.question_id = @question.id
 
-        self.choices = @question.answer_options.map do |answer_option|
-          existing_choice = model.choices.find_by(decidim_survey_answer_option_id: answer_option.id)
-
-          attributes = { decidim_survey_answer_option_id: answer_option.id }
-          attributes.merge(body: existing_choice.body) if existing_choice
-
-          SurveyAnswerChoiceForm.new(attributes)
+        self.choices = model.choices.map do |choice|
+          SurveyAnswerChoiceForm.from_model(choice)
         end
       end
 
