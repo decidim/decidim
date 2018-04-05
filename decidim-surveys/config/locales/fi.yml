@@ -5,7 +5,14 @@ fi:
         body: Vastaa
       survey_question:
         mandatory: Pakollinen
+        max_choices: Valintojen enimmäismäärä
         question_type: Tyyppi
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            body:
+              too_many_choices: on valittu liian monta vaihtoehtoa
   decidim:
     components:
       surveys:
@@ -51,6 +58,7 @@ fi:
             already_answered_warning: Jotkut käyttäjät ovat jo vastanneet tähän kyselyyn, minkä takia et voi muokata sen kysymyksiä.
           question:
             add_answer_option: Lisää vastausvaihtoehto
+            any: Minkä tahansa
             description: Kuvaus
             down: Alas
             question: Kysymys
@@ -69,6 +77,8 @@ fi:
         answer:
           invalid: Kyselyyn vastaaminen epäonnistui.
           success: Kyselyyn vastattu onnistuneesti.
+        question:
+          max_choices: 'Max valinnat: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Kirjaudu sisään tililläsi</a> tai <a href="%{sign_up_link}">rekisteröidy</a> vastataksesi kyselyyn.
