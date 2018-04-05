@@ -26,7 +26,7 @@
       <div class="card-section">
         <form class="form grid-container">
           <div class="grid-x">
-            <div class="cell">
+            <div class="cell auto">
               <% content_for :label, flush: true do %>
                 <label for="">Title *</label>
               <% end %>
@@ -34,6 +34,15 @@
                 <input type="text">
               <% end %>
               <%= render layout: "admin/components/lang-tabs" do %><% end %>
+            </div>
+            <div class="cell small-2">
+              <div class="grid-container">
+                <label for="">Duration *</label>
+                <div class="grid-x align-middle">
+                  <input class="nomargin cell auto" type="text">
+                  <span class="cell auto text-muted">&nbsp;minutes</span>
+                </div>
+              </div>
             </div>
           </div>
           <div class="grid-x">
