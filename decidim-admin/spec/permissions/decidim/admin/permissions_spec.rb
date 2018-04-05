@@ -189,7 +189,7 @@ describe Decidim::Admin::Permissions do
       before do
         allow(Decidim::ImpersonationLog)
           .to receive(:active)
-          .and_return((logs))
+          .and_return(logs)
       end
 
       context "when subject user is not managed" do
@@ -201,13 +201,13 @@ describe Decidim::Admin::Permissions do
       context "when subject user is managed" do
         let(:subject_user) { build :user, :managed }
 
-        context "there are active impersonation logs" do
+        context "when there are active impersonation logs" do
           let(:logs) { [:foo] }
 
           it { is_expected.to eq false }
         end
 
-        context "there are no active impersonation logs" do
+        context "when there are no active impersonation logs" do
           let(:logs) { [] }
 
           it { is_expected.to eq true }

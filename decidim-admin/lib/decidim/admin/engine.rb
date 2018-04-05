@@ -64,7 +64,16 @@ module Decidim
                     decidim_admin.edit_organization_path,
                     icon_name: "wrench",
                     position: 7,
-                    active: [%w(decidim/admin/organization decidim/admin/organization_appearance decidim/admin/scopes decidim/admin/scope_types decidim/admin/areas decidim/admin/area_types), []],
+                    active: [
+                      %w(
+                        decidim/admin/organization
+                        decidim/admin/organization_appearance
+                        decidim/admin/scopes
+                        decidim/admin/scope_types
+                        decidim/admin/areas decidim/admin/area_types
+                      ),
+                      []
+                    ],
                     if: allowed_to?(:read, :organization, organization: current_organization)
 
           menu.item I18n.t("menu.admin_log", scope: "decidim.admin"),
