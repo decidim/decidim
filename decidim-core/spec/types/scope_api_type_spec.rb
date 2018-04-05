@@ -5,7 +5,7 @@ require "decidim/api/test/type_context"
 
 module Decidim
   module Core
-    describe ScopeType do
+    describe ScopeApiType do
       include_context "with a graphql type"
 
       let!(:subscope) { create(:subscope) }

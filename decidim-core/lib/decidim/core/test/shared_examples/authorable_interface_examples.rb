@@ -5,11 +5,11 @@ require "spec_helper"
 shared_examples_for "authorable interface" do
   describe "author" do
     describe "with a regular user" do
-      let(:author){ create(:user, organization: model.participatory_space.organization) }
+      let(:author) { create(:user, organization: model.participatory_space.organization) }
       let(:query) { "{ author { name } }" }
 
       before do
-        model.update_attributes(author: author, user_group: nil)
+        model.update(author: author, user_group: nil)
       end
 
       it "includes the user's ID" do
@@ -18,11 +18,11 @@ shared_examples_for "authorable interface" do
     end
 
     describe "with a user group" do
-      let(:user_group){ create(:user_group, organization: model.participatory_space.organization) }
+      let(:user_group) { create(:user_group, organization: model.participatory_space.organization) }
       let(:query) { "{ author { name } }" }
 
       before do
-        model.update_attributes(user_group: user_group, author: nil)
+        model.update(user_group: user_group, author: nil)
       end
 
       it "includes the user's ID" do

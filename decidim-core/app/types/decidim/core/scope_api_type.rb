@@ -2,7 +2,7 @@
 
 module Decidim
   module Core
-    ScopeType = GraphQL::ObjectType.define do
+    ScopeApiType = GraphQL::ObjectType.define do
       name "Scope"
       description "A scope"
 
