@@ -18,7 +18,7 @@ module Decidim
       Decidim::PermissionAction.new(scope: :admin, action: :update, subject: :static_page)
     end
     let(:permissions_class) do
-      Decidim::Admin::Permissions.new(build(:user, :admin), action, { static_page: form.object })
+      Decidim::Admin::Permissions.new(build(:user, :admin), action, static_page: form.object)
     end
 
     before do
