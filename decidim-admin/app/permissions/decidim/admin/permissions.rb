@@ -75,8 +75,8 @@ module Decidim
 
       def organization_action?
         return unless permission_action.subject == :organization
+        return unless permission_action.action == :update
 
-        return unless [:read, :update].include?(permission_action.action)
         organization == user.organization
       end
 
@@ -113,7 +113,7 @@ module Decidim
         !@user.admin? && @user.role?("user_manager")
       end
 
-      def space_allows_action?
+      def space_allows_read_action?
         return unless permission_action.action == :read
 
         Decidim.participatory_space_manifests.any? do |manifest|

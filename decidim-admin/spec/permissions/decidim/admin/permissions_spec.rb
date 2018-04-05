@@ -123,20 +123,6 @@ describe Decidim::Admin::Permissions do
     let(:organization) { user.organization }
     let(:context) { { organization: organization } }
 
-    context "when reading" do
-      let(:action_name) { :read }
-
-      context "when user belongs to organization" do
-        it { is_expected.to eq true }
-      end
-
-      context "when user does not belong to organization" do
-        let(:organization) { build :organization }
-
-        it { is_expected.to eq false }
-      end
-    end
-
     context "when updating" do
       let(:action_name) { :update }
 

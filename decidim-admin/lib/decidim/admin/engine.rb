@@ -74,7 +74,7 @@ module Decidim
                       ),
                       []
                     ],
-                    if: allowed_to?(:read, :organization, organization: current_organization)
+                    if: allowed_to?(:update, :organization, organization: current_organization)
 
           menu.item I18n.t("menu.admin_log", scope: "decidim.admin"),
                     decidim_admin.logs_path,
