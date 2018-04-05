@@ -5,11 +5,17 @@ class AddChoicesToDecidimSurveyAnswers < ActiveRecord::Migration[5.1]
     self.table_name = :decidim_surveys_survey_answers
   end
 
+  class SurveyQuestion < ApplicationRecord
+    self.table_name = :decidim_surveys_survey_questions
+  end
+
   def up
     add_column :decidim_surveys_survey_answers, :choices, :jsonb
 
     SurveyAnswer.find_each do |answer|
-      if %w(single_option multiple_option).include?(answer.question_type)
+      question = SurveyQuestion.find_by(id: answer.decidim_survey_question_id)
+
+      if %w(single_option multiple_option).include?(question.question_type)
         answer.update!(choices: answer.body, body: nil)
       else
         answer.update!(body: answer.body.first)
@@ -24,7 +30,9 @@ class AddChoicesToDecidimSurveyAnswers < ActiveRecord::Migration[5.1]
     add_column :decidim_surveys_survey_answers, :jsonb_body, :jsonb, default: []
 
     SurveyAnswer.find_each do |answer|
-      if %w(single_option multiple_option).include?(answer.question_type)
+      question = SurveyQuestion.find_by(id: answer.decidim_survey_question_id)
+
+      if %w(single_option multiple_option).include?(question.question_type)
         answer.update!(jsonb_body: answer.choices)
       else
         answer.update!(jsonb_body: [answer.body])
