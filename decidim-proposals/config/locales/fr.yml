@@ -53,7 +53,7 @@ fr:
           email_subject: Nouvelle proposition ajoutée à %{participatory_space_title}
           notification_title: La proposition <a href="%{resource_path}">%{resource_title}</a> a été ajouté à %{participatory_space_title}
         proposal_endorsed:
-          email_intro: "%{endorser_name} %{endorser_nickname}, que vous suivez, vient d'promouvoir une proposition qui pourrait vous intéresser, vérifiez-la et contribuez:"
+          email_intro: "%{endorser_name} %{endorser_nickname}, que vous suivez, vient de promouvoir une proposition qui pourrait vous intéresser, vérifiez-la et contribuez:"
           email_outro: Vous avez reçu cette notification parce que vous suivez %{endorser_nickname}. Vous pouvez arrêter de recevoir des notifications en suivant le lien précédent.
           email_subject: "%{endorser_nickname} a approuvé une nouvelle proposition"
           notification_title: Le <a href="%{resource_path}">%{resource_title}</a> proposition a été approuvée par <a href="%{endorser_path}">%{endorser_name} %{endorser_nickname}</a>.
