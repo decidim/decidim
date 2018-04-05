@@ -417,7 +417,7 @@ fr:
       edit:
         header: Définir votre mot de passe
         nickname_help: Votre identifiant unique pour Decidim.
-        submit_button: sauvegarder
+        submit_button: Sauvegarder
     mailer:
       invitation_instructions:
         accept: Accepter l'invitation
