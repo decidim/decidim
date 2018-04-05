@@ -39,6 +39,7 @@ fr:
           global:
             announcement: Annonce
             comments_enabled: Activer le module de commentaire
+            default_registration_terms: Conditions d'enregistrement par défaut
           step:
             announcement: Annonce
             comments_blocked: Bloquer la création de nouveaux commentaires
@@ -136,6 +137,8 @@ fr:
             registrations_count:
               one: Il y a eu 1 inscription.
               other: Il y a eu %{count} inscriptions.
+            reserved_slots_help: Laissez-le à 0 si vous n'avez pas de créneaux réservés
+            reserved_slots_less_than: Doit être inférieur ou égal à %{count}
           update:
             invalid: Il y a eu un problème lors de l'enregistrement des paramètres d'inscription.
             success: Les paramètres d'inscriptions ont été enregistrés avec succès.
