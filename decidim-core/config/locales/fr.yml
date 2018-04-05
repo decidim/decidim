@@ -27,6 +27,7 @@ fr:
         current_password: Mot de passe actuel
         email: Email
         name: Nom d'utilisateur
+        nickname: Votre pseudonyme
         password: Mot de passe
         password_confirmation: Confirmation mot de passe
         remember_me: Retenir le mot de passe
