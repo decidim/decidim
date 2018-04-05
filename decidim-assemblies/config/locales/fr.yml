@@ -9,7 +9,7 @@ fr:
         decidim_area_id: Région
         decidim_scope_id: Portée
         description: Description
-        developer_group: Promoteur
+        developer_group: Organisateur
         domain: Domaine
         hashtag: Hashtag
         hero_image: Image de la page d'accueil
@@ -19,8 +19,8 @@ fr:
         participatory_structure: Modalités
         promoted: Mis en avant
         published_at: Publié à
-        scope_id: Zone d'application
-        scopes_enabled: Zone d'application activées
+        scope_id: Périmètre d'application
+        scopes_enabled: Périmètres d'application activés
         short_description: Résumé
         show_statistics: Montrez les statistiques
         slug: Identifiant
@@ -140,11 +140,11 @@ fr:
             see_all_assemblies: Voir toutes les Agora
       show:
         area: Région
-        developer_group: Promoteur
+        developer_group: Organisateur
         local_area: Périmètre
         participatory_scope: Objectif
         participatory_structure: Modalités
-        scope: Zone d'application
+        scope: Échelle
         target: Participants
       statistics:
         answers_count: Réponses

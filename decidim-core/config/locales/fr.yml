@@ -356,7 +356,7 @@ fr:
         choose: Sélectionner
         title: Sélectionnez %{field}
       prompt: Sélectionnez un périmètre d'application
-      scopes: Périmètre d'application
+      scopes: Périmètres d'application
     shared:
       action_authorization_modal:
         expired:
