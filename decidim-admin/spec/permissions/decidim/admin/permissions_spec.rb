@@ -30,6 +30,23 @@ describe Decidim::Admin::Permissions do
     it { is_expected.to eq false }
   end
 
+  context "when user is a user manager" do
+    let(:user) { build :user, :user_manager }
+
+    it "delegates the check to the user manager permissions class" do
+      admin_permissions = instance_double(Decidim::Admin::UserManagerPermissions, allowed?: true)
+      allow(Decidim::Admin::UserManagerPermissions)
+        .to receive(:new)
+        .with(user, permission_action, context)
+        .and_return admin_permissions
+
+      expect(admin_permissions)
+        .to receive(:allowed?)
+
+      subject
+    end
+  end
+
   context "when user is not admin" do
     let(:user) { build :user }
 
@@ -38,6 +55,13 @@ describe Decidim::Admin::Permissions do
 
   context "when action is not registered" do
     it { is_expected.to eq false }
+  end
+
+  context "when reading the admin dashboard" do
+    let(:action_name) { :read }
+    let(:action_subject) { :admin_dashboard }
+
+    it { is_expected.to eq true }
   end
 
   describe "admin logs" do

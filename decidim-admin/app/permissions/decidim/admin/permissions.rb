@@ -12,7 +12,9 @@ module Decidim
       def allowed?
         return false unless permission_action.scope == :admin
 
-        return false unless user && user.admin?
+        return false unless user
+        return Decidim::Admin::UserManagerPermissions.new(user, permission_action, context).allowed? if user_manager?
+        return false unless user.admin?
 
         return true if read_admin_dashboard_action?
 
@@ -103,6 +105,10 @@ module Decidim
 
       def organization
         @organization ||= context.fetch(:organization, nil) || context.fetch(:current_organization, nil)
+      end
+
+      def user_manager?
+        !@user.admin? && @user.role?("user_manager")
       end
     end
   end
