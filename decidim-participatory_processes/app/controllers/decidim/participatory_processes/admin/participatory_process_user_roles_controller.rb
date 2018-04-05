@@ -9,17 +9,17 @@ module Decidim
         include Concerns::ParticipatoryProcessAdmin
 
         def index
-          authorize! :read, Decidim::ParticipatoryProcessUserRole
+          enforce_permission_to :read, :process_user_role
           @participatory_process_user_roles = collection
         end
 
         def new
-          authorize! :create, Decidim::ParticipatoryProcessUserRole
+          enforce_permission_to :create, :process_user_role
           @form = form(ParticipatoryProcessUserRoleForm).instance
         end
 
         def create
-          authorize! :create, Decidim::ParticipatoryProcessUserRole
+          enforce_permission_to :create, :process_user_role
           @form = form(ParticipatoryProcessUserRoleForm).from_params(params)
 
           CreateParticipatoryProcessAdmin.call(@form, current_user, current_participatory_process) do
@@ -36,13 +36,13 @@ module Decidim
 
         def edit
           @user_role = collection.find(params[:id])
-          authorize! :update, @user_role
+          enforce_permission_to :update, :process_user_role, process_user_role: @user_role
           @form = form(ParticipatoryProcessUserRoleForm).from_model(@user_role.user)
         end
 
         def update
           @user_role = collection.find(params[:id])
-          authorize! :update, @user_role
+          enforce_permission_to :update, :process_user_role, process_user_role: @user_role
           @form = form(ParticipatoryProcessUserRoleForm).from_params(params)
 
           UpdateParticipatoryProcessAdmin.call(@form, @user_role) do
@@ -60,7 +60,7 @@ module Decidim
 
         def destroy
           @participatory_process_user_role = collection.find(params[:id])
-          authorize! :destroy, @participatory_process_user_role
+          enforce_permission_to :destroy, :process_user_role, process_user_role: @participatory_process_user_role
 
           DestroyParticipatoryProcessAdmin.call(@participatory_process_user_role, current_user) do
             on(:ok) do
@@ -72,7 +72,7 @@ module Decidim
 
         def resend_invitation
           @user_role = collection.find(params[:id])
-          authorize! :invite, @user_role
+          enforce_permission_to :invite, :process_user_role, process_user_role: @user_role
 
           InviteUserAgain.call(@user_role.user, "invite_admin") do
             on(:ok) do

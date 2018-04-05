@@ -16,17 +16,17 @@ module Decidim
         layout "decidim/admin/participatory_processes"
 
         def index
-          authorize! :index, Decidim::ParticipatoryProcess
+          enforce_permission_to :read, :process
           @participatory_processes = collection
         end
 
         def new
-          authorize! :new, Decidim::ParticipatoryProcess
+          enforce_permission_to :create, :process
           @form = form(ParticipatoryProcessForm).instance
         end
 
         def create
-          authorize! :new, Decidim::ParticipatoryProcess
+          enforce_permission_to :create, :process
           @form = form(ParticipatoryProcessForm).from_params(params)
 
           CreateParticipatoryProcess.call(@form) do
@@ -43,13 +43,13 @@ module Decidim
         end
 
         def edit
-          authorize! :update, current_participatory_process
+          enforce_permission_to :update, :process, process: current_participatory_process
           @form = form(ParticipatoryProcessForm).from_model(current_participatory_process)
           render layout: "decidim/admin/participatory_process"
         end
 
         def update
-          authorize! :update, current_participatory_process
+          enforce_permission_to :update, :process, process: current_participatory_process
           @form = form(ParticipatoryProcessForm).from_params(
             participatory_process_params,
             process_id: current_participatory_process.id
@@ -69,7 +69,7 @@ module Decidim
         end
 
         def destroy
-          authorize! :destroy, current_participatory_process
+          enforce_permission_to :destroy, :process, process: current_participatory_process
           current_participatory_process.destroy!
 
           flash[:notice] = I18n.t("participatory_processes.destroy.success", scope: "decidim.admin")
@@ -78,7 +78,7 @@ module Decidim
         end
 
         def copy
-          authorize! :create, Decidim::ParticipatoryProcess
+          enforce_permission_to :create, Decidim::ParticipatoryProcess
         end
 
         private

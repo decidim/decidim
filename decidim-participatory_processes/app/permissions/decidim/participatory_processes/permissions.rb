@@ -20,6 +20,8 @@ module Decidim
         # to check if any of them allowed the user to visit the admin
         return true if has_manageable_processes? && admin_read_dashboard_permission_action?
 
+        return true if has_manageable_processes? && admin_read_process_permission_action?
+
         # org admins and space admins can do everything in the admin section
         return true if admin_user?
 
@@ -69,13 +71,18 @@ module Decidim
 
       # Checks if the permission_action is to read the admin dashboard or not.
       def admin_read_dashboard_permission_action?
-        permission_action.scope == :admin &&
-          permission_action.action == :read &&
+        permission_action.action == :read &&
           permission_action.subject == :dashboard
       end
 
+      # Checks if the permission_action is to read the admin processes or not.
+      def admin_read_process_permission_action?
+        permission_action.action == :read &&
+          permission_action.subject == :process
+      end
+
       def process
-        @process ||= context.fetch(:current_participatory_space, nil)
+        @process ||= context.fetch(:current_participatory_space, nil) || context.fetch(:process, nil)
       end
     end
   end
