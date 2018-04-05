@@ -31,18 +31,6 @@ module Decidim
         app.config.assets.precompile += %w(decidim_admin_manifest.js)
       end
 
-      initializer "decidim_admin.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.admin_abilities += [
-            "Decidim::Admin::Abilities::AdminAbility",
-            "Decidim::Admin::Abilities::UserManagerAbility",
-            "Decidim::Admin::Abilities::ParticipatoryProcessAdminAbility",
-            "Decidim::Admin::Abilities::ParticipatoryProcessCollaboratorAbility",
-            "Decidim::Admin::Abilities::ParticipatoryProcessModeratorAbility"
-          ]
-        end
-      end
-
       initializer "decidim_admin.menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.dashboard", scope: "decidim.admin"),
