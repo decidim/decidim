@@ -9,17 +9,17 @@ module Decidim
       helper_method :area, :organization_areas
 
       def index
-        authorize! :index, Area
+        enforce_permission_to :read, :area
         @areas = organization_areas
       end
 
       def new
-        authorize! :new, Area
+        enforce_permission_to :create, :area
         @form = form(AreaForm).instance
       end
 
       def create
-        authorize! :new, Area
+        enforce_permission_to :create, :area
         @form = form(AreaForm).from_params(params)
         CreateArea.call(@form) do
           on(:ok) do
@@ -35,12 +35,12 @@ module Decidim
       end
 
       def edit
-        authorize! :update, area
+        enforce_permission_to :update, :area, area: area
         @form = form(AreaForm).from_model(area)
       end
 
       def update
-        authorize! :update, area
+        enforce_permission_to :update, :area, area: area
         @form = form(AreaForm).from_params(params)
 
         UpdateArea.call(area, @form) do
@@ -57,7 +57,7 @@ module Decidim
       end
 
       def destroy
-        authorize! :destroy, area
+        enforce_permission_to :destroy, :area, area: area
 
         DestroyArea.call(area, current_user) do
           on(:ok) do

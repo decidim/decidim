@@ -9,16 +9,16 @@ module Decidim
       helper_method :scope_types
 
       def index
-        authorize! :index, ScopeType
+        enforce_permission_to :read, :scope_type
       end
 
       def new
-        authorize! :new, ScopeType
+        enforce_permission_to :create, :scope_type
         @form = form(ScopeTypeForm).instance
       end
 
       def create
-        authorize! :new, ScopeType
+        enforce_permission_to :create, :scope_type
         @form = form(ScopeTypeForm).from_params(params)
 
         CreateScopeType.call(@form) do
@@ -35,12 +35,12 @@ module Decidim
       end
 
       def edit
-        authorize! :update, scope_type
+        enforce_permission_to :update, :scope_type, scope_type: scope_type
         @form = form(ScopeTypeForm).from_model(scope_type)
       end
 
       def update
-        authorize! :update, scope_type
+        enforce_permission_to :update, :scope_type, scope_type: scope_type
         @form = form(ScopeTypeForm).from_params(params)
 
         UpdateScopeType.call(scope_type, @form) do
@@ -57,7 +57,7 @@ module Decidim
       end
 
       def destroy
-        authorize! :destroy, scope_type
+        enforce_permission_to :destroy, :scope_type, scope_type: scope_type
         scope_type.destroy!
 
         flash[:notice] = I18n.t("scope_types.destroy.success", scope: "decidim.admin")
