@@ -5,7 +5,14 @@ pl:
         body: Odpowiedź
       survey_question:
         mandatory: Obowiązkowy
+        max_choices: Maksymalna liczba opcji
         question_type: Rodzaj
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            body:
+              too_many_choices: ma zbyt wiele opcji sprawdzonych
   decidim:
     components:
       surveys:
@@ -51,6 +58,7 @@ pl:
             already_answered_warning: Ankieta jest już udzielana przez niektórych użytkowników, więc nie można modyfikować jej pytań.
           question:
             add_answer_option: Dodaj odpowiedź
+            any: Każdy
             description: Opis
             down: Na dół
             question: Pytanie
@@ -69,6 +77,8 @@ pl:
         answer:
           invalid: Podczas odpowiadania na ankiet pojawiły się błędy.
           success: Ankieta odpowiedziała skutecznie.
+        question:
+          max_choices: 'Maksymalne opcje: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Zaloguj się na swoje konto</a> lub <a href="%{sign_up_link}">zarejestruj się</a>, aby odpowiedzieć na ankietę.
