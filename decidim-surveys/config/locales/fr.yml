@@ -5,7 +5,14 @@ fr:
         body: Répondre
       survey_question:
         mandatory: Requis
+        max_choices: Nombre maximum de choix
         question_type: Type de question
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            body:
+              too_many_choices: a trop d'options vérifiées
   decidim:
     components:
       surveys:
@@ -51,6 +58,7 @@ fr:
             already_answered_warning: Votre enquête a déjà reçu des réponses, vous ne pouvez donc pas modifier ses questions.
           question:
             add_answer_option: Ajouter une option de réponse
+            any: Tout
             description: Description
             down: Descendre
             question: Question
@@ -69,6 +77,8 @@ fr:
         answer:
           invalid: Votre réponse à l'enquête comporte des erreurs.
           success: Votre réponse à l'enquête a bien été enregistrée.
+        question:
+          max_choices: 'Choix maximum: %{n}'
         show:
           answer_survey:
             anonymous_user_message: Pour répondre à l'enquête<a href="%{sign_in_link}"> identifiez-vous avec votre compte</a> ou <a href="%{sign_up_link}">inscrivez-vous.</a> .
