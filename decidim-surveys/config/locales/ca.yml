@@ -5,7 +5,14 @@ ca:
         body: Resposta
       survey_question:
         mandatory: Obligatori
+        max_choices: Nombre màxim d'opcions
         question_type: Tipus
+    errors:
+      models:
+        survey_answer:
+          attributes:
+            body:
+              too_many_choices: S'han verificat massa opcions
   decidim:
     components:
       surveys:
@@ -51,6 +58,7 @@ ca:
             already_answered_warning: L'enquesta ja està contestada per alguns usuaris i per tant no pots modificar les seves preguntes.
           question:
             add_answer_option: Afegir opció de resposta
+            any: Cap
             description: Descripció
             down: Avall
             question: Pregunta
@@ -69,6 +77,8 @@ ca:
         answer:
           invalid: Hi ha hagut errors en respondre a l'enquesta.
           success: Enquesta resposta correctament.
+        question:
+          max_choices: 'Opcions màximes: %{n}'
         show:
           answer_survey:
             anonymous_user_message: <a href="%{sign_in_link}">Entra amb el teu compte</a> o <a href="%{sign_up_link}">dona't d'alta</a> per contestar l'enquesta.
